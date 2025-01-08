@@ -4,9 +4,9 @@ description: This article covers common use cases for customers who use Azure Vi
 author: mbender-ms
 ms.author: mbender
 ms.topic: overview 
-ms.date: 03/15/2024
+ms.date: 10/31/2024
 ms.custom: template-overview
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 # Customer Intent: As a network admin, I need to know when I should use Azure Virtual Network Manager in my organization for managing virtual networks across my organization in a scalable, flexible, and secure manner with minimal administrative overhead.
 ---
 
@@ -18,7 +18,7 @@ Learn about use cases for Azure Virtual Network Manager, including managing the 
 
 You can use a connectivity configuration to create various network topologies based on your network needs. You create a connectivity configuration by adding new or existing virtual networks into [network groups](concept-network-groups.md) and creating a topology that meets your needs. A connectivity configuration offers three topology options: mesh, hub-and-spoke, or hub-and-spoke with direct connectivity between spoke virtual networks.
 
-### Mesh topology (preview)
+### Mesh topology
 
 When you deploy a [mesh topology](concept-connectivity-configuration.md#mesh-network-topology), all virtual networks have direct connectivity with each other. They don't need to go through other hops on the network to communicate. A mesh topology is useful when all the virtual networks need to communicate directly with each other.
 

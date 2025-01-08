@@ -4,7 +4,6 @@ description: Learn how to manage expiration of Azure Web Apps/Cloud Services, AS
 services: cdn
 author: duongau
 manager: kumudd
-ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
 ms.service: azure-cdn
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -14,6 +13,8 @@ ms.author: duau
 ---
 
 # Manage expiration of web content in Azure Content Delivery Network
+
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 > [!div class="op_single_selector"]
 > - [Azure web content](cdn-manage-expiration-of-cloud-service-content.md)
@@ -127,7 +128,7 @@ Response.Cache.SetLastModified(DateTime.Now);
 
 ## Testing the Cache-Control header
 
-You can easily verify the TTL settings of your web content. With your browser's developer tools, test that your web content includes the `Cache-Control` response header. You can also use a tool such as **wget**, [Postman](https://www.getpostman.com/), or [Fiddler](https://www.telerik.com/fiddler) to examine the response headers.
+You can easily verify the TTL settings of your web content. With your browser's developer tools, test that your web content includes the `Cache-Control` response header. You can also use a tool such as **wget** or [Fiddler](https://www.telerik.com/fiddler) to examine the response headers.
 
 ## Next Steps
 

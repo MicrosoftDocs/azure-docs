@@ -14,6 +14,8 @@ ms.tool: azure-cli
 
 # Create an Azure Content Delivery Network profile and endpoint using the Azure CLI
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../../../includes/cdn-classic-retirement.md)]
+
 As an alternative to the Azure portal, you can use these sample the Azure CLI scripts to manage the following content delivery network operations:
 
 - Create a content delivery network profile.

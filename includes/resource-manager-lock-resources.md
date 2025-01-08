@@ -1,9 +1,9 @@
 ---
-author: tfitzmac
+author: mumian
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 05/03/2021
-ms.author: tomfitz
+ms.date: 10/25/2024
+ms.author: jgao
 ---
 
 1. In the Settings blade for the resource, resource group, or subscription that you wish to lock, select **Locks**.

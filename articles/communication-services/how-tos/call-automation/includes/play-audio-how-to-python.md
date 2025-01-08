@@ -20,7 +20,7 @@ ms.author: kpunjabi
 
 ### For AI features 
 - Create and connect [Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
-- Create a [custom subdomain](../../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource. 
+- Create a [custom subdomain](/azure/ai-services/cognitive-services-custom-subdomains) for your Azure AI services resource. 
 
 ## Create a new Python application
 
@@ -56,7 +56,7 @@ python app.py
 
 Create an audio file, if you don't already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to Azure Communication Services with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. Azure Communication Services supports both file types of **MP3** and **WAV files, mono 16-bit PCM at 16 KHz sample rate**. . 
 
-You can test creating your own audio file using our [Speech synthesis with Audio Content Creation tool](../../../../ai-services/Speech-Service/how-to-audio-content-creation.md).
+You can test creating your own audio file using our [Speech synthesis with Audio Content Creation tool](/azure/ai-services/speech-service/how-to-audio-content-creation).
 
 ## (Optional) Connect your Azure Cognitive Service to your Azure Communication Service
 
@@ -84,11 +84,25 @@ To play audio to participants using audio files, you need to make sure the audio
 
 ``` python
 play_source = FileSource(url=audioUri)
+
+#Play multiple audio files
+#file_source1 = FileSource(MAIN_MENU_PROMPT_URI) 
+#file_source2 = FileSource(MAIN_MENU_PROMPT_URI) 
+#
+# play_sources = [file_source1, file_source2]
+# 
+# call_connection_client.play_media_to_all(
+#     play_source=play_sources,
+#     interrupt_call_media_operation=False,
+#     operation_context="multiplePlayContext",
+#     operation_callback_url=CALLBACK_EVENTS_URI,
+#     loop=False
+# )
 ```
 
 ### Play source - Text-To-Speech 
 
-To play audio using Text-To-Speech through Azure AI services, you need to provide the text you wish to play, as well either the SourceLocale, and VoiceKind or the VoiceName you wish to use. We support all voice names supported by Azure AI services, full list [here](../../../../ai-services/Speech-Service/language-support.md?tabs=tts).
+To play audio using Text-To-Speech through Azure AI services, you need to provide the text you wish to play, as well either the SourceLocale, and VoiceKind or the VoiceName you wish to use. We support all voice names supported by Azure AI services, full list [here](/azure/ai-services/speech-service/language-support?tabs=tts).
 
 ``` python
 text_to_play = "Welcome to Contoso"
@@ -100,7 +114,21 @@ play_source = TextSource(
 play_to = [target_participant]
 call_automation_client.get_call_connection(call_connection_id).play_media(
     play_source=play_source, play_to=play_to
-) 
+)
+
+#Multiple text prompts
+#play_source1 = TextSource(text="Hi, This is multiple play source one call media test.", source_locale="en-US", voice_kind=VoiceKind.FEMALE) 
+#play_source2 = TextSource(text="Hi, This is multiple play source two call media test.", source_locale="en-US", voice_kind=VoiceKind.FEMALE)
+#
+#play_sources = [play_source1, play_source2]
+#
+#call_connection_client.play_media_to_all(
+#    play_source=play_sources,
+#    interrupt_call_media_operation=False,
+#    operation_context="multiplePlayContext",
+#    operation_callback_url=CALLBACK_EVENTS_URI,
+#    loop=False
+#)
 ```
 
 ``` python
@@ -112,11 +140,25 @@ play_to = [target_participant]
 call_automation_client.get_call_connection(call_connection_id).play_media(
     play_source=play_source, play_to=play_to
 )
+
+#Play multiple text prompts
+#play_source1 = TextSource(text="Hi, This is multiple play source one call media test.", voice_name=SPEECH_TO_TEXT_VOICE) 
+#play_source2 = TextSource(text="Hi, This is multiple play source two call media test.", voice_name=SPEECH_TO_TEXT_VOICE)
+#
+#play_sources = [play_source1, play_source2]
+#
+#call_connection_client.play_media_to_all(
+#    play_source=play_sources,
+#    interrupt_call_media_operation=False,
+#    operation_context="multiplePlayContext",
+#    operation_callback_url=CALLBACK_EVENTS_URI,
+#    loop=False
+#)
 ```
 
 ### Play source - Text-To-Speech with SSML 
 
-If you want to customize your Text-To-Speech output even more with Azure AI services you can use [Speech Synthesis Markup Language SSML](../../../../ai-services/Speech-Service/speech-synthesis-markup.md) when invoking your play action through Call Automation. With SSML you can fine-tune the pitch, pause, improve pronunciation, change speaking rate, adjust volume and attribute multiple voices.
+If you want to customize your Text-To-Speech output even more with Azure AI services you can use [Speech Synthesis Markup Language SSML](/azure/ai-services/speech-service/speech-synthesis-markup) when invoking your play action through Call Automation. With SSML you can fine-tune the pitch, pause, improve pronunciation, change speaking rate, adjust volume and attribute multiple voices.
 
 ``` python
 ssmlToPlay = '<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US"><voice name="en-US-JennyNeural">Hello World!</voice></speak>'
@@ -131,7 +173,7 @@ call_automation_client.get_call_connection(call_connection_id).play_media(
 ```
 
 ### Custom voice models
-If you wish to enhance your prompts more and include custom voice models, the play action Text-To-Speech now supports these custom voices. These are a great option if you are trying to give customers a more local, personalized experience or have situations where the default models may not cover the words and accents you're trying to pronounce. To learn more about creating and deploying custom models you can read this [guide](../../../../ai-services/speech-service/how-to-custom-voice.md).
+If you wish to enhance your prompts more and include custom voice models, the play action Text-To-Speech now supports these custom voices. These are a great option if you are trying to give customers a more local, personalized experience or have situations where the default models may not cover the words and accents you're trying to pronounce. To learn more about creating and deploying custom models you can read this [guide](/azure/ai-services/speech-service/how-to-custom-voice).
 
 **Custom voice names regular text exmaple**
 ``` python
@@ -171,6 +213,33 @@ play_source = TextSource(text=text_to_play, voice_name="en-US-ElizabethNeural")
 call_automation_client.get_call_connection(call_connection_id).play_media(
     play_source=play_source
 )
+```
+
+### Support for barge-in
+During scenarios where you're playing audio on loop to all participants e.g. waiting lobby you maybe playing audio to the participants in the lobby and keep them updated on their number in the queue. When you use the barge-in support, this will cancel the on-going audio and play your new message. Then if you wanted to continue playing your original audio you would make another play request.
+
+```python
+# Interrupt media with text source
+# Option 1
+play_source = TextSource(text="This is interrupt call media test.", voice_name=SPEECH_TO_TEXT_VOICE)
+call_connection_client.play_media_to_all(
+    play_source, 
+    interrupt_call_media_operation=True, 
+    operation_context="interruptContext", 
+    operation_callback_url=CALLBACK_EVENTS_URI, 
+    loop=False
+)
+
+# Interrupt media with file source
+# Option 2
+#play_source = FileSource(MAIN_MENU_PROMPT_URI)
+#call_connection_client.play_media_to_all(
+#    play_source, 
+#    interrupt_call_media_operation=True, 
+#    operation_context="interruptContext", 
+#    operation_callback_url=CALLBACK_EVENTS_URI, 
+#    loop=False
+#)
 ```
 
 ## Play audio - Specific participant
@@ -225,6 +294,14 @@ Your application receives action lifecycle event updates on the callback URL tha
 if event.type == "Microsoft.Communication.PlayCompleted":
 
     app.logger.info("Play completed, context=%s", event.data.get("operationContext"))
+```
+
+### Example of how you can deserialize the *PlayStarted* event:
+
+```python 
+if event.type == "Microsoft.Communication.PlayStarted":
+
+    app.logger.info("Play started, context=%s", event.data.get("operationContext"))
 ```
 
 ### Example of how you can deserialize the *PlayFailed* event:

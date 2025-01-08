@@ -3,8 +3,8 @@ title: 'About user groups and IP address pools for point-to-site User VPN'
 titleSuffix: Azure Virtual WAN
 description: Learn about using user groups to assign IP addresses from specific address pools based on identity or authentication credentials.
 author: cherylmc
-ms.service: virtual-wan
-ms.topic: conceptual
+ms.service: azure-virtual-wan
+ms.topic: concept-article
 ms.date: 07/31/2023
 ms.author: cherylmc
 

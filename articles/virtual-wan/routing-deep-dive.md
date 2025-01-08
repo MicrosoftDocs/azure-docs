@@ -4,8 +4,8 @@ titleSuffix: Azure Virtual WAN
 description: Learn about how Virtual WAN routing works in detail.
 services: virtual-wan
 author: erjosito
-ms.service: virtual-wan
-ms.topic: conceptual
+ms.service: azure-virtual-wan
+ms.topic: concept-article
 ms.date: 08/24/2023
 ms.author: jomore
 ---
@@ -68,7 +68,7 @@ The effective routes in hub 2 will be similar:
 
 :::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2-er-hub-2.png" alt-text="Screenshot of effective routes in Virtual hub 2 with Global Reach and routing preference ExpressRoute." lightbox="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2-er-hub-2-expanded.png":::
 
-The routing preference can be changed to VPN or AS-Path as explained in [Virtual hub routing preference][virtual-wan-hrp]. For example, you can set the preference to VPN as shown in this image:
+The routing preference can be changed to VPN or AS-Path as explained in [Virtual hub routing preference][virtual-wan-hrp]. For example, you can set the preference to VPN.
 
 :::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2-set-hrp-vpn.png" alt-text="Screenshot of how to set hub routing preference in Virtual WAN to V P N." lightbox="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2-set-hrp-vpn.png":::
 
@@ -80,7 +80,7 @@ The previous image shows that the route to `10.4.2.0/24` has now a next hop of `
 
 :::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2-vpn-hub-2.png" alt-text="Screenshot of effective routes in Virtual hub 2 with Global Reach and routing preference V P N." lightbox="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2-vpn-hub-2.png":::
 
-However, traffic between hubs is still preferring the routes coming via ExpressRoute. To use the more efficient direct connection between the virtual hubs, the  route preference can be set to "AS Path" on both hubs:
+However, traffic between hubs is still preferring the routes coming via ExpressRoute. To use the more efficient direct connection between the virtual hubs, the  route preference can be set to "AS Path" on both hubs.
 
 :::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2-set-hrp-aspath.png" alt-text="Screenshot that shows how to set hub routing preference in Virtual WAN to A S Path." lightbox="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2-set-hrp-aspath.png":::
 

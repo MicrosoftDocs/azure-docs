@@ -4,7 +4,7 @@ description: Learn how to move sync resources across resource groups, subscripti
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 09/21/2023
+ms.date: 08/08/2024
 ms.author: kendownie
 ---
 
@@ -29,7 +29,7 @@ In Azure File Sync, the only resource capable of moving is the Storage Sync Serv
 * :::image type="icon" source="media/storage-sync-resource-move/storage-sync-resource-move-storage-account.png" border="false"::: Storage account
     * :::image type="icon" source="media/storage-sync-resource-move/storage-sync-resource-move-file-share.png" border="false"::: File share
 
-In Azure Storage, the only resource capable of moving is the storage account. An Azure file share, as a subresource, can't move to a different storage account.
+The only resource capable of moving is the storage account. An Azure file share, as a subresource, can't move to a different storage account.
 
 ## Supported combinations
 
@@ -41,7 +41,7 @@ As a best practice, the Storage Sync Service and the storage accounts that have 
 * Storage Sync Service and storage accounts are located in **different subscriptions** (same Azure tenant)
 
 > [!IMPORTANT]
-> Through different combinations of moves, a Storage Sync Service and storage accounts can end up in different subscriptions, governed by different Microsoft Entra tenants. Sync would even appear to be working, but this is not a supported configuration. Sync can stop in the future with no ability to get back into a working condition.
+> Through different combinations of moves, a Storage Sync Service and storage accounts can end up in different subscriptions, governed by different Microsoft Entra tenants. Sync would even appear to be working, but this isn't a supported configuration. Sync can stop in the future with no ability to get back into a working condition.
 
 When planning your resource move, there are different considerations for [moving within the same Microsoft Entra tenant](#move-within-the-same-azure-active-directory-tenant) and moving across [to a different Microsoft Entra tenant](#move-to-a-new-azure-active-directory-tenant). When moving Microsoft Entra tenants, always move sync and storage resources together.
 

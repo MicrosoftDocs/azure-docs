@@ -5,8 +5,8 @@ metadata:
   description: Learn to use different authorization providers to secure your Azure Static Web Apps.
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 06/24/2024
-  ms.service: static-web-apps
+  ms.date: 06/28/2024
+  ms.service: azure-static-web-apps
   ms.topic: how-to
   ms.custom:
     - engagement-fy23
@@ -118,11 +118,11 @@ procedureSection:
 
       By default, all authentication providers are enabled, but you may want to restrict your app from using a provider. For instance, your app may want to only use [providers that expose email addresses](authentication-custom.md#create-an-invitation).
 
-      To block a provider, create a [route rule](configuration.md#routes) to return a `404` status code for requests to the blocked provider-specific route. For example, to restrict X (formerly Twitter) as provider, add the following route rule.
+      To block a provider, create a [route rule](configuration.md#routes) to return a `404` status code for requests to the blocked provider-specific route. For example, to restrict Entra ID (formerly Azure Active Directory, known as "aad") provider, add the following route rule.
     code: |
       ```json
       {
-        "route": "/.auth/login/twitter",
+        "route": "/.auth/login/aad",
         "statusCode": 404
       }
       ```

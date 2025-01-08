@@ -2,10 +2,10 @@
 title: 'About Azure Bastion design and architecture'
 description: Learn about the different architectures available with Azure Bastion.
 author: cherylmc
-ms.topic: article
+ms.topic: concept-article
 ms.date: 05/09/2024
 ms.author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ---
 
 # Design architecture for Azure Bastion

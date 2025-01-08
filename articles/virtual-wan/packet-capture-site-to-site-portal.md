@@ -5,7 +5,7 @@ description: Learn how to configure site-to-site packet capture for Azure Virtua
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 11/21/2023
 ms.author: cherylmc
@@ -66,7 +66,7 @@ To simplify your packet captures, you can specify filters on your packet capture
 
 | Parameter | Description | Default values | Available values |
 |---|---|---|---|
-|TracingFlags|	Integer that determines what types of packets are captured|	11 (ESP, IKE, OVPN)	|ESP = 1 IKE = 2 OPVN = 8|
+|TracingFlags|	Integer that determines what types of packets are captured|	11 (ESP, IKE, OVPN)	|ESP = 1 IKE = 2 OVPN = 8|
 |TCPFlags|	Integer that determines which types of TCP Packets are captured	|0 (none)|	FIN = 1, SYN = 2, RST = 4, PSH = 8, ACK = 16,URG = 32, ECE = 64, CWR = 128|
 |MaxPacketBufferSize|	Maximum size of a captured packet in bytes. Packets are truncated if larger than the provided value.	|120	|Any|
 |MaxFileSize |	Maximum capture file size in Mb. Captures are stored in a circular buffer so overflow is handled in a FIFO manner (older packets removed first)|	100|	Any|
@@ -79,7 +79,7 @@ To simplify your packet captures, you can specify filters on your packet capture
 
 
 > [!NOTE]
-> For TracingFlags and TCPFlags, you can specify multiple protocols by adding up the numerical values for the protocols you want to capture (same as a logical OR). For example, if you want to capture only ESP and OPVN packets, specify a TracingFlag value of 8+1 = 9.
+> For TracingFlags and TCPFlags, you can specify multiple protocols by adding up the numerical values for the protocols you want to capture (same as a logical OR). For example, if you want to capture only ESP and OVPN packets, specify a TracingFlag value of 8+1 = 9.
 >
 
 ## Stop a packet capture

@@ -6,9 +6,8 @@ author: deniseatmicrosoft
 ms.author: limingchen
 ms.date: 11/29/2021
 ms.topic: how-to
-
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: power-bi-visual
 ---
 
 # Manage Azure Maps Power BI visual within your organization

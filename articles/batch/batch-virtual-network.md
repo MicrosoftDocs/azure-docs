@@ -2,7 +2,7 @@
 title: Provision a pool in a virtual network
 description: Learn how to create a Batch pool in an Azure virtual network so that compute nodes can communicate securely with other VMs in the network, such as a file server.
 ms.topic: how-to
-ms.date: 12/06/2023
+ms.date: 11/19/2024
 ---
 
 # Create an Azure Batch pool in a virtual network
@@ -37,10 +37,6 @@ To allow compute nodes to communicate securely with other virtual machines, or w
 
 * Multiple pools can be created in the same virtual network or in the same subnet (as long as it has sufficient address space). A single pool can't exist across multiple virtual networks or subnets.
 
-Other virtual network requirements differ, depending on whether the Batch pool is in the `VirtualMachineConfiguration`
-or `CloudServiceConfiguration`. `VirtualMachineConfiguration` for Batch pools is recommended, because `CloudServiceConfiguration`
-pools are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/).
-
 > [!IMPORTANT]
 > Batch pools can be configured in one of two node communication modes. Classic node communication mode is
 > where the Batch service initiates communication to the compute nodes.
@@ -74,10 +70,12 @@ Batch creates a network security group (NSG) at the network interface level of e
 In order to provide the necessary communication between compute nodes and the Batch service, these NSGs are configured such that:
 
 * Inbound TCP traffic on ports 29876 and 29877 from Batch service IP addresses that correspond to the BatchNodeManagement.*region* service tag. This rule is only created in `classic` pool communication mode.
-* Inbound TCP traffic on port 22 (Linux nodes) or port 3389 (Windows nodes) to permit remote access for SSH or RDP on default ports, respectively. For certain types of multi-instance tasks on Linux, such as MPI, you may need to allow SSH traffic for IPs in the subnet containing Batch compute nodes. Certain MPI runtimes may require launching over SSH, which is typically routed on private IP address space. This traffic might be blocked per subnet-level NSG rules.
 * Outbound any traffic on port 443 to Batch service IP addresses that correspond to the BatchNodeManagement.*region* service tag.
 * Outbound traffic on any port to the virtual network. This rule might be amended per subnet-level NSG rules.
 * Outbound traffic on any port to the Internet. This rule might be amended per subnet-level NSG rules.
+
+> [!NOTE]
+> For pools created using an API version earlier than `2024-07-01`, inbound TCP traffic on port 22 (Linux nodes) or port 3389 (Windows nodes) is configured to allow remote access via SSH or RDP on the default ports.
 
 > [!IMPORTANT]
 > Use caution if you modify or add inbound or outbound rules in Batch-configured NSGs. If communication to the compute nodes in the specified subnet is denied by an NSG, the Batch service will set the state of the compute nodes to **unusable**. Additionally, no resource locks should be applied to any resource created by Batch, because this can prevent cleanup of resources as a result of user-initiated actions such as deleting a pool.
@@ -109,41 +107,6 @@ You can also disable default remote access on these ports through configuring [p
 | Storage.*region* [service tag](../../articles/virtual-network/network-security-groups-overview.md#service-tags) | 443 | TCP | Classic | Yes |
 
 Outbound to BatchNodeManagement.*region* service tag is required in `classic` pool communication mode if you're using Job Manager tasks or if your tasks must communicate back to the Batch service. For outbound to BatchNodeManagement.*region* in `simplified` pool communication mode, the Batch service currently only uses TCP protocol, but UDP might be required for future compatibility. For [pools without public IP addresses](simplified-node-communication-pool-no-public-ip.md) using `simplified` communication mode and with a node management private endpoint, an NSG isn't needed. For more information about outbound security rules for the BatchNodeManagement.*region* service tag, see [Use simplified compute node communication](simplified-compute-node-communication.md).
-
-## Pools in the Cloud Services Configuration
-
-> [!WARNING]
-> Cloud Services Configuration pools are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Use Virtual Machine Configuration pools instead.
-
-Requirements:
-
-- Supported Virtual Networks: Classic Virtual Networks only.
-- Subnet ID: when specifying the subnet using the Batch APIs, use the *resource identifier* of the subnet. The subnet identifier is of the form:
-
-    `/subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.ClassicNetwork/virtualNetworks/{network}/subnets/{subnet}`
-
-- Permissions: the `Microsoft Azure Batch` service principal must have the `Classic Virtual Machine Contributor` Azure role for the specified Virtual Network.
-
-### Network security groups for Cloud Services Configuration pools
-
-The subnet must allow inbound communication from the Batch service to be able to schedule tasks on the compute nodes, and it must allow outbound communication to communicate with Azure Storage or other resources.
-
-You don't need to specify an NSG, because Batch configures inbound communication only from Batch IP addresses to the pool nodes. However, If the specified subnet has associated NSGs and/or a firewall, configure the inbound and outbound security rules as shown in the following tables. If communication to the compute nodes in the specified subnet is denied by an NSG, the Batch service sets the state of the compute nodes to **unusable**.
-
-Configure inbound traffic on port 3389 for Windows if you need to permit RDP access to the pool nodes. This rule isn't required for the pool nodes to be usable.
-
-**Inbound security rules**
-
-| Source IP addresses | Source ports | Destination | Destination ports | Protocol | Action |
-| --- | --- | --- | --- | --- | --- |
-| Any <br /><br />Although this rule effectively requires *allow all*, the Batch service applies an ACL rule at the level of each node that filters out all non-Batch service IP addresses. | * | Any | 10100, 20100, 30100 | TCP | Allow |
-| Optional, to allow RDP access to compute nodes. | * | Any | 3389 | TCP | Allow |
-
-**Outbound security rules**
-
-| Source | Source ports | Destination | Destination ports | Protocol | Action |
-| --- | --- | --- | --- | --- | --- |
-| Any | * | Any | 443  | Any | Allow |
 
 ## Create a pool with a Virtual Network in the Azure portal
 

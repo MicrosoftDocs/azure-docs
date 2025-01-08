@@ -3,7 +3,8 @@ author: vimeht
 ms.author: vimeht
 ms.date: 9/14/2023
 ms.topic: include
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 > [!NOTE]

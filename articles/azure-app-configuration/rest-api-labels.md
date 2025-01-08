@@ -5,12 +5,13 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: reference
-ms.date: 08/17/2020
+ms.date: 08/02/2024
+zone_pivot_groups: appconfig-data-plane-api-version
+
 ---
+:::zone target="docs" pivot="v1,v23-10,v23-11"
 
 # Labels
-
-api-version: 1.0
 
 The **Label** resource is defined as follows:
 
@@ -93,7 +94,7 @@ GET /labels?name={label-name}&api-version={api-version}
 
 ### Supported filters
 
-|Key Filter|Effect|
+|Label Filter|Effect|
 |--|--|
 |`name` is omitted or `name=*`|Matches **any** label|
 |`name=abc`|Matches a label named  **abc**|
@@ -178,3 +179,5 @@ Link: <{relative uri}>; rel="original"
     ]
 }
 ```
+
+:::zone-end

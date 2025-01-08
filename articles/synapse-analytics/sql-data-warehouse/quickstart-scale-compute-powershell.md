@@ -5,7 +5,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: kedodd
 ms.date: 02/21/2023
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: quickstart
 ms.custom:
@@ -21,7 +21,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 > [!NOTE]  
 > This article applies to dedicated SQL pools (formerly SQL DW) or in Azure Synapse connected workspaces. This content does not apply to dedicated SQL pools created in Azure Synapse workspaces. There are different PowerShell cmdlets to use for each, for example, use `Set-AzSqlDatabase` for a dedicated SQL pool (formerly SQL DW), but `Update-AzSynapseSqlPool` for a dedicated SQL pool in an Azure Synapse Workspace. For similar instructions for dedicated SQL pools in Azure Synapse Analytics workspaces, see [Quickstart: Scale compute for dedicated SQL pools in Azure Synapse workspaces with Azure PowerShell](quickstart-scale-compute-workspace-powershell.md).
-> For more on the differences between dedicated SQL pools (formerly SQL DW) and dedicated SQL pools in Azure Synapse Workspaces, read [What's the difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics Workspace](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/what-s-the-difference-between-azure-synapse-formerly-sql-dw-and/ba-p/3597772).
+> For more on the differences between dedicated SQL pools (formerly SQL DW) and dedicated SQL pools in Azure Synapse Workspaces, read [What's the difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics Workspace](../sql/overview-difference-between-formerly-sql-dw-workspace.md).
 
 ## Before you begin
 
@@ -123,7 +123,7 @@ HighAvailabilityReplicaCount     :
 CurrentBackupStorageRedundancy   : Geo
 RequestedBackupStorageRedundancy : Geo
 SecondaryType                    :
-MaintenanceConfigurationId       : /subscriptions/d8392f63-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_Default
+MaintenanceConfigurationId       : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_Default
 EnableLedger                     : False
 PreferredEnclaveType             :
 PausedDate                       :

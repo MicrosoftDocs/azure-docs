@@ -3,7 +3,7 @@ title: Azure API Management - Metrics retirement (August 2023)
 description: Azure API Management is retiring five legacy metrics as of August 2023. If you monitor your API Management instance using these metrics, you must update your monitoring settings and alert rules to use the Requests metric.
 services: api-management
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: reference
 ms.date: 04/20/2023
 ms.author: danlep
@@ -38,7 +38,7 @@ The five legacy metrics will no longer be available after 31 August 2023.
 Update any tools that use the five legacy metrics to use equivalent functionality that is provided through the Requests metric filtered on one or more dimensions. For example, filter Requests on the **GatewayResponseCode** or **GatewayResponseCodeCategory** dimension.
 
 > [!NOTE]
-> Configure filters on the Requests metric to meet your monitoring and alerting needs. For available dimensions, see [Azure Monitor metrics for API Management](../../azure-monitor/essentials/metrics-supported.md#microsoftapimanagementservice).
+> Configure filters on the Requests metric to meet your monitoring and alerting needs. For available dimensions, see [Azure Monitor metrics for API Management](/azure/azure-monitor/essentials/metrics-supported#microsoftapimanagementservice).
 
 
 |Legacy metric  |Example replacement with Requests metric|

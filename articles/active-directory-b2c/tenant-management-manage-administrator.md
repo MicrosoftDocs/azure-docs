@@ -1,23 +1,19 @@
 ---
 title: Manage administrator accounts in Azure Active Directory B2C
 titleSuffix: Azure Active Directory B2C
-description: Learn how to add an administrator account to your Azure Active Directory B2C tenant. Learn how to invite a guest account as an administrator into your Azure AD B2C tenant. 
-
+description: Learn how to add an administrator account to your Azure Active Directory B2C tenant. Learn how to invite a guest account as an administrator into your Azure AD B2C tenant
 author: kengaderdus
 manager: CelesteDG
-
-ms.service: active-directory
-
+ms.service: azure-active-directory
 ms.topic: tutorial
 ms.custom: b2c-docs-improvements
-ms.date: 06/21/2024
+ms.date: 09/11/2024
 ms.reviewer: yoelh
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As an Azure AD B2C administrator, I want to manage administrator accounts, add new administrators (work and guest accounts), assign roles to user accounts, remove role assignments, delete administrator accounts, and protect administrative accounts with multifactor authentication, so that I can control access and ensure security in my Azure AD B2C tenant.
-
 ---
 
 # Manage administrator accounts in Azure Active Directory B2C
@@ -43,7 +39,7 @@ In this article, you learn how to:
 
 To create a new administrative account, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as at least Privileged Role Administrator permissions.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as at least [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator) permissions.
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. Under **Manage**, select **Users**.
@@ -70,7 +66,7 @@ You can also invite a new guest user to manage your tenant. The guest account is
 
 To invite a user, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as at least Privileged Role Administrator permissions.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as at least [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator) permissions.
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. Under **Manage**, select **Users**.
@@ -109,7 +105,7 @@ If the guest didn't receive the invitation email, or the invitation expired, you
 
 You can assign a role when you [create a user](#add-an-administrator-work-account) or [invite a guest user](#invite-an-administrator-guest-account). You can add a role, change the role, or remove a role for a user:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as at least Privileged Role Administrator permissions.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as at least [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator) permissions.
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. Under **Manage**, select **Users**.
@@ -127,7 +123,7 @@ If you need to remove a role assignment from a user, follow these steps:
 
 As part of an auditing process, you typically review which users are assigned to specific roles in the Azure AD B2C directory. Use the following steps to audit which users are currently assigned privileged roles.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as Privileged Role Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator).
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. Under **Manage**, select **Roles and administrators**.
@@ -135,7 +131,7 @@ As part of an auditing process, you typically review which users are assigned to
 
 ## Delete an administrator account
 
-To delete an existing user, you must have a *Global administrator* role assignment. Global admins can delete any user, including other admins. *User administrators* can delete any non-admin user.
+To delete an existing user, you must have a [Global administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator) role assignment. Global administrators can delete any user, including other admins. *User administrators* can delete any non-admin user.
 
 1. In your Azure AD B2C directory, select **Users**, and then select the user you want to delete.
 1. Select **Delete**, and then **Yes** to confirm the deletion.

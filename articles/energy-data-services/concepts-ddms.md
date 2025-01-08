@@ -3,7 +3,7 @@ title: Domain data management services concepts
 description: Learn how to use Domain Data Management Services
 author: marielgherz
 ms.author: marielherzog
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: conceptual
 ms.date: 08/18/2022
 ms.custom: template-concept
@@ -57,7 +57,7 @@ OSDU&reg; R3 M8 is the base for the scope of the Azure Data Manager for Energy F
 
 ## Learn more: OSDU&reg; DDMS community principles
 
-[OSDU&reg; community DDMS Overview](https://community.opengroup.org/osdu/documentation/-/wikis/OSDU&reg;-(C)/Design-and-Implementation/Domain-&-Data-Management-Services#ddms-requirements) provides an extensive overview of DDMS motivation and community requirements from a user, technical, and business perspective. These principles are extended to Azure Data Manager for Energy.
+[OSDU&reg; community DDMS Overview](https://community.opengroup.org/groups/osdu/platform/-/wikis/home) provides an extensive overview of DDMS motivation and community requirements from a user, technical, and business perspective. These principles are extended to Azure Data Manager for Energy.
 
 ## DDMS requirements
 

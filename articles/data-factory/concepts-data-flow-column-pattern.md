@@ -5,11 +5,10 @@ description: Create generalized data transformation patterns using column patter
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 09/26/2024
 ---
 
 # Using column patterns in mapping data flows

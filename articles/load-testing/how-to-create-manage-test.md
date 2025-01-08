@@ -3,7 +3,7 @@ title: Create and manage tests
 titleSuffix: Azure Load Testing
 description: 'Learn how to create and manage tests in your Azure Load Testing resource.'
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.author: ninallam
 author: ninallam
 ms.date: 05/10/2023
@@ -133,7 +133,7 @@ You can use parameters to make your test plan configurable instead of hard-codin
 
 1. Specify the number of test engine instances.
 
-    Azure Load Testing automatically scales your load test across all instances. The JMeter test script is run in parallel across all instances. The total number of simulated users equals the number of virtual users (threads) you specify in the JMeter script, multipled by the number of test engine instances. For more information, see [Configure a test for high-scale load](./how-to-high-scale-load.md).
+    Azure Load Testing automatically scales your load test across all instances. The JMeter test script is run in parallel across all instances. The total number of simulated users equals the number of virtual users (threads) you specify in the JMeter script, multiplied by the number of test engine instances. For more information, see [Configure a test for high-scale load](./how-to-high-scale-load.md).
 
 1. Configure virtual network connectivity.
 

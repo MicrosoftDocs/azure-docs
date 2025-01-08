@@ -1,17 +1,21 @@
 ---
 title: Outbound traffic on HDInsight on AKS
 description: Learn required outbound traffic on HDInsight on AKS. 
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: conceptual
-ms.date: 03/26/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Required outbound traffic for HDInsight on AKS
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
+
+
 > [!NOTE]
-> HDInsight on AKS uses Azure CNI Overlay network model by default. For more information, see [Azure CNI Overlay networking](../aks/concepts-network-azure-cni-overlay.md).
+> HDInsight on AKS uses Azure CNI Overlay network model by default. For more information, see [Azure CNI Overlay networking](/azure/aks/concepts-network-azure-cni-overlay).
 
 This article outlines the networking information to help manage the network policies at enterprise and make necessary changes to the network security groups (NSGs) for smooth functioning of HDInsight on AKS.
 
@@ -38,7 +42,7 @@ You need to configure the following network and application security rules in yo
 | ** FQDN|API Server FQDN (available once AKS cluster is created)|TCP|443|Network security rule| Required as the running pods/deployments use it to access the API Server. You can get this information from the AKS cluster running behind the cluster pool. For more information, see [how to get API Server FQDN](secure-traffic-by-firewall-azure-portal.md#get-aks-cluster-details-created-behind-the-cluster-pool) using Azure portal.|
 
 > [!NOTE]
-> ** This configiration isn't required if you enable private AKS. 
+> ** This configuration isn't required if you enable private AKS. 
 
 ## Cluster specific traffic
 

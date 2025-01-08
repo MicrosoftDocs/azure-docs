@@ -1,6 +1,6 @@
 ---
 author: spelluru
-ms.service: service-bus-relay
+ms.service: azure-relay
 ms.topic: include
 ms.date: 01/04/2024
 ms.author: spelluru

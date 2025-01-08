@@ -88,8 +88,8 @@ Run the `Set-vSANCompressDedupe` cmdlet to set preferred space efficiency model.
    >[!NOTE]
    >Setting Compression to False and Deduplication to True sets vSAN to Dedupe and Compression.
    >Setting Compression to False and Dedupe to False, disables all space efficiency.
-   >Azure VMware Solution default is Dedupe and Compression
-   >Compression only provides slightly better performance
+   >Azure VMware Solution default is Dedupe and Compression.
+   >Compression only provides slightly better performance.
    >Disabling both compression and deduplication offers the greatest performance gains, however at the cost of space utilization.
 
 1. Check **Notifications** to see the progress.

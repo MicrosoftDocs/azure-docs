@@ -42,7 +42,7 @@ In this tutorial, you learn how to:
    | **Username** | Enter the user name for logging on to the VM. |
    | **Password** | Enter the password for logging on to the VM. |
    | **Confirm password** | Enter the password for logging on to the VM. |
-   | **Public inbound ports** | Select **None**. <ul><li>To control access to the VM only when you want to access it, use [JIT access](../defender-for-cloud/just-in-time-access-usage.yml#work-with-jit-vm-access-using-microsoft-defender-for-cloud).</li><li>To securely access the jump box server from the internet without exposing any network port, use an [Azure Bastion](../bastion/tutorial-create-host-portal.md).</li></ul>  |
+   | **Public inbound ports** | Select **None**. <ul><li>To control access to the VM only when you want to access it, use [JIT access](/azure/defender-for-cloud/just-in-time-access-usage#work-with-jit-vm-access-using-microsoft-defender-for-cloud).</li><li>To securely access the jump box server from the internet without exposing any network port, use an [Azure Bastion](../bastion/tutorial-create-host-portal.md).</li></ul>  |
 
 
 1. Once validation passes, select **Create** to start the virtual machine creation process.
@@ -59,7 +59,7 @@ In this tutorial, you learn how to:
 
 1. Navigate to the VM you created in the preceding step and connect to the virtual machine.
 
-   If you need help with connecting to the VM, see [connect to a virtual machine](../virtual-machines/windows/connect-logon.md#connect-to-the-virtual-machine) for details.
+   If you need help with connecting to the VM, see [connect to a virtual machine](/azure/virtual-machines/windows/connect-logon#connect-to-the-virtual-machine) for details.
 
 1. In the Windows VM, open a browser and navigate to the vCenter Server and NSX Manager URLs in two tabs.
 

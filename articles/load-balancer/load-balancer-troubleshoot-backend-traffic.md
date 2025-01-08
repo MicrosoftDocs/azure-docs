@@ -4,7 +4,7 @@ description: Learn how to troubleshoot known issues with Azure Load Balancer.
 services: load-balancer
 author: mbender-ms
 manager: dcscontentpm
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: troubleshooting
 ms.date: 02/23/2024
 ms.author: mbender
@@ -29,7 +29,7 @@ Using source persistence distribution mode can cause an uneven distribution of t
 
 Clients that run behind proxies might be seen as one unique client application from the load balancer's point of view.
 
-## VMs behind a load balancer aren't responding to traffic on the configured data port
+## Virtual machines behind a load balancer aren't responding to traffic on the configured data port
 
 If a backend pool VM is listed as healthy and responds to the health probes, but is still not participating in the load balancing, or isn't responding to the data traffic, it may be due to any of the following reasons:
 
@@ -108,6 +108,11 @@ When the flow maps back to itself, the outbound flow appears to originate from t
 The symptom for this scenario is intermittent connection timeouts when the flow returns to the same backend that originated the flow. Common workarounds include insertion of a proxy layer behind the internal load balancer and using Direct Server Return (DSR) style rules. For more information, see [Multiple frontends for Azure Load Balancer](load-balancer-multivip-overview.md).
 
 You can combine an internal load balancer with any third-party proxy or use internal [Application Gateway](../application-gateway/overview.md) for proxy scenarios with HTTP/HTTPS. While you could use a public load balancer to mitigate this issue, the resulting scenario is prone to [SNAT exhaustion](load-balancer-outbound-connections.md). Avoid this second approach unless carefully managed.
+
+## Virtual machines removed from a load balancer are receiving traffic
+
+It is by design that existing TCP connections will continue to a virtual machine even after a backend is removed from a load balancer. Once a connection is routed to a backend instance by the load balancer, traffic is established directly between the client and the backend instance. Connections will continue untl the virtual machine is stopped or deallocated.
+
 
 ## Next steps
 

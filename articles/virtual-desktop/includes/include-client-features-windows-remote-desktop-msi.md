@@ -147,7 +147,7 @@ Folder redirection can't be configured using the Remote Desktop client for Windo
 
 ### Redirect devices, audio, and clipboard
 
-The Remote Desktop client can make your local clipboard and local devices available in your remote session where you can copy and paste text, images, and files. The audio from the remote session can also be redirected to your local device. However, redirection can't be configured using the Remote Desktop client for Windows. This behavior is configured by your admin in Azure Virtual Desktop. Here's a list of some of the devices and resources that can be redirected. For the full list, see [Compare the features of the Remote Desktop clients when connecting to Azure Virtual Desktop](../compare-remote-desktop-clients.md?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json#redirections-comparison).
+The Remote Desktop client can make your local clipboard and local devices available in your remote session where you can copy and paste text, images, and files. The audio from the remote session can also be redirected to your local device. However, redirection can't be configured using the Remote Desktop client for Windows. This behavior is configured by your admin in Azure Virtual Desktop. Here's a list of some of the devices and resources that can be redirected. For the full list, see [Compare the features of the Remote Desktop clients when connecting to Azure Virtual Desktop](../compare-remote-desktop-clients.md?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json#redirection).
 
 - Printers
 - USB devices

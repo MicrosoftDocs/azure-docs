@@ -3,7 +3,7 @@ title: Generate load from multiple regions
 titleSuffix: Azure Load Testing
 description: Learn how to create a geo-distributed load test in Azure Load Testing. Generate load from multiple Azure regions simultaneously.
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.author: nicktrog
 ms.custom: references_regions, build-2024
 author: ntrogh

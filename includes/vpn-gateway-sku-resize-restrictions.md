@@ -1,13 +1,13 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 11/28/2023
-ms.service: vpn-gateway
+ms.date: 08/15/2024
+ms.service: azure-vpn-gateway
 ms.topic: include
 ---
 
 * You can't resize to downgrade a SKU.
-* You can't resize a legacy SKU to one of the newer Azure SKUs (VpnGw1, VpnGw2AZ etc.) Legacy SKUs for the Resource Manager deployment model are: Basic, Standard, and High Performance. You must instead, change the SKU.
+* You can't resize a legacy SKU to one of the newer Azure SKUs (VpnGw1, VpnGw2AZ etc.) Legacy SKUs for the Resource Manager deployment model are: Standard, and High Performance. You must instead, change the SKU.
 * You can resize a gateway SKU as long as it is in the same generation, except for the Basic SKU.
 * You can change a Basic SKU to another SKU.
 * When you change from a legacy SKU to a new SKU, you'll have connectivity downtime.

@@ -7,7 +7,7 @@ keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 1/17/2023
+ms.date: 10/29/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -20,7 +20,7 @@ This document is about HANA storage configurations for Azure Ultra Disk storage 
 
 
 ## Azure Ultra disk storage configuration for SAP HANA
-Another Azure storage type is called [Azure Ultra disk](../../virtual-machines/disks-types.md#ultra-disks). The significant difference between Azure storage offered so far and Ultra disk is that the disk capabilities aren't bound to the disk size anymore. As a customer you can define these capabilities for Ultra disk:
+Another Azure storage type is called [Azure Ultra disk](/azure/virtual-machines/disks-types#ultra-disks). The significant difference between Azure storage offered so far and Ultra disk is that the disk capabilities aren't bound to the disk size anymore. As a customer you can define these capabilities for Ultra disk:
 
 - Size of a disk ranging from 4 GiB to 65,536 GiB
 - IOPS range from 100 IOPS to 160,000 IOPS (maximum depends on VM types as well)
@@ -31,7 +31,7 @@ Ultra disk gives you the possibility to define a single disk that fulfills your 
 Other advantages of Ultra disk can be the better read latency in comparison to premium storage. The faster read latency can have advantages when you want to reduce the HANA startup times and the subsequent load of the data into memory. Advantages of Ultra disk storage also can be felt when HANA is writing savepoints. 
 
 > [!NOTE]
-> Ultra disk might not be present in all the Azure regions. For detailed information where Ultra disk is available and which VM families are supported, check the article [What disk types are available in Azure?](../../virtual-machines/disks-types.md#ultra-disks).
+> Ultra disk might not be present in all the Azure regions. For detailed information where Ultra disk is available and which VM families are supported, check the article [What disk types are available in Azure?](/azure/virtual-machines/disks-types#ultra-disks).
 
 > [!IMPORTANT]
 > You have the possibility to define the sector size of Ultra disk as 512 Bytes or 4096 Bytes. Default sector size is 4096 Bytes. Tests conducted with HCMT did not reveal any significant differences in performance and throughput between the different sector sizes. This sector size is different than stripe sizes that you need to define when using a logical volume manager. 
@@ -69,10 +69,16 @@ The recommendations are often exceeding the SAP minimum requirements as stated e
 | M208s_v2 | 2,850 GiB | 1,000 MBps | 3,500 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
 | M208ms_v2 | 5,700 GiB | 1,000 MBps | 7,200 GB | 750 MBps | 14,400 | 512 GB | 250 MBps  | 2,500 | 
 | M416s_v2 | 5,700 GiB | 2,000 MBps | 7,200 GB | 1,000 MBps | 14,400 | 512 GB | 400 MBps  | 4,000 |
+| M416(d)s_6_v3 | 5,696 GiB | 4,000 MBps | 7,200 GB | 1,000 MBps | 14,400 | 512 GB | 400 MBps  | 4,000 |
 | M416s_8_v2 | 7,600 | 2,000 MBps | 9,500 GB | 1,250 MBps | 20,000 | 512 GB | 400 MBps  | 4,000 |
+| M416(d)s_8_v3 | 7,600 GiB | 4,000 MBps | 1,250 MBps | 20,000 | 512 GB | 400 MBps  | 4,000 |
 | M416ms_v2 | 11,400 GiB | 2,000 MBps | 14,400 GB | 1,500 MBps | 28,800 | 512 GB | 400 MBps  | 4,000 |   
+| M624(d)s_12_v3, M832(d)s_12_v3 | 11,400 GiB | 4,000 MBps | 1,500 MBps | 28,800 | 512 GB | 400 MBps  | 4,000 |
 | M832isx<sup>1</sup> | 14902 GiB | larger than 2,000 Mbps | 19,200 GB | 2,000 MBps<sup>2</sup> | 40,000 | 512 GB | 600 MBps | 9,000 |
+| M832i(d)s_16_v3 | 15,200 GiB | 8,000 Mbps | 4,000 MBps<sup>2</sup> | 60,000 | 512 GB | 600 MBps | 10,000 |
 | M832isx_v2<sup>1</sup> | 23088 GiB | larger than 2,000 Mbps | 28,400 GB | 2,000 MBps<sup>2</sup> | 60,000 | 512 GB | 600 MBps | 9,000 |
+| M896ixds_32_v3<sup>1</sup> | 30,400 GiB | 8,000 Mbps | 2,000 MBps<sup>2</sup> | 60,000 | 512 GB | 600 MBps | 10,000 |
+| M1792ixds_32_v3<sup>1</sup> | 30,400 GiB | 8,000 Mbps | 2,000 MBps<sup>2</sup> | 60,000 | 512 GB | 600 MBps | 10,000 |
 
 <sup>1</sup> VM type not available by default. Please contact your Microsoft account team
 

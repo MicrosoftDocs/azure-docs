@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 05/10/2024
+ms.date: 11/01/2024
 ms.author: kendownie
 ---
 
@@ -518,7 +518,7 @@ After you've enabled AD (or Microsoft Entra ID) Kerberos authentication and doma
 
 For detailed mounting instructions, see [Mount the Azure file share on-demand with mount](storage-how-to-use-files-linux.md?tabs=smb311#mount-the-azure-file-share-on-demand-with-mount).
 
-Use the following additional mount option with all access control models to enable Kerberos security: `sec=krb5`
+Use the following additional mount option with all access control models to enable Kerberos security: `sec=krb5`. Username and password must be omitted when sec=krb5 is in use. 
 
 > [!NOTE]
 > This feature only supports a server-enforced access control model using NT ACLs with no mode bits. Linux tools that update NT ACLs are minimal, so update ACLs through Windows. Client-enforced access control (`modefromsid,idsfromsid`) and client-translated access control (`cifsacl`) models aren't currently supported.

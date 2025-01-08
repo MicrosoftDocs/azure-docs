@@ -5,11 +5,15 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.date: 01/15/2024
+
+
+#Customer intent: As a security analyst, I want to handle false positives in my SIEM system so that I can reduce noise and focus on genuine threats.
+
 ---
 
 # Handle false positives in Microsoft Sentinel
 
-[Microsoft Sentinel analytics rules](detect-threats-built-in.md) notify you when something suspicious occurs in your network. No analytics rule is perfect, and you're bound to get some false positives that need handling. This article describes how to handle false positives, either by using automation or by modifying scheduled analytics rules.
+[Microsoft Sentinel analytics rules](threat-detection.md) notify you when something suspicious occurs in your network. No analytics rule is perfect, and you're bound to get some false positives that need handling. This article describes how to handle false positives, either by using automation or by modifying scheduled analytics rules.
 
 ## False positive causes and prevention
 
@@ -144,7 +148,7 @@ let subnets = _GetWatchlist('subnetallowlist');
 
 The [Microsoft Sentinel solution for SAP® applications](sap/solution-overview.md) provides functions you can use to exclude users or systems from triggering alerts.
 
-- **Exclude users**.  Use the [**SAPUsersGetVIP**](sap/sap-solution-log-reference.md#sapusersgetvip) function to:
+- **Exclude users**.  Use the [**SAPUsersGetVIP**](sap/sap-solution-function-reference.md#sapusersgetvip) function to:
 
    - Call tags for users you want to exclude from triggering alerts. Tag users in the *SAP_User_Config* watchlist, using asterisks (*) as wildcards to tag all users with a specified naming syntax.
    - List specific SAP roles and/or profiles you want to exclude from triggering alerts.
@@ -153,9 +157,10 @@ The [Microsoft Sentinel solution for SAP® applications](sap/solution-overview.m
 
 For more information, see [Microsoft Sentinel solution for SAP® applications data reference](sap/sap-solution-log-reference.md).
 
-## Next steps
+## Related content
 
 For more information, see:
+
 - [Use UEBA data to analyze false positives](investigate-with-ueba.md#use-ueba-data-to-analyze-false-positives)
 - [Automate incident handling in Microsoft Sentinel with automation rules](automate-incident-handling-with-automation-rules.md)
 - [Create custom analytics rules to detect threats](detect-threats-custom.md)

@@ -5,7 +5,7 @@ description: This quickstart shows how to create a load balancer by using Terraf
 services: load-balancer
 author: hisriram96
 manager: vikasbagde
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: quickstart
 ms.date: 01/02/2024
 ms.author: sriramiyer
@@ -270,7 +270,7 @@ This quickstart shows you how to deploy a standard load balancer to load balance
     variable "password" {
       type        = string
       default     = "Microsoft@123"
-      description = "The passoword for the local account that will be created on the new VM."
+      description = "The password for the local account that will be created on the new VM."
     }
     
     variable "virtual_network_name" {

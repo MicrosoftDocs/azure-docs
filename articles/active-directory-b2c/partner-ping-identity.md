@@ -5,11 +5,11 @@ description: Learn how to integrate Azure AD B2C authentication with Ping Identi
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: I'm a developer, and I want to learn how to configure Ping Identity with Azure Active Directory B2C for secure hybrid access (SHA). I need to extend the capabilities of Azure AD B2C and enable secure hybrid access using PingAccess and PingFederate.
 ---
@@ -107,8 +107,6 @@ Use the instructions in the following sections to configure PingAccess and PingF
 
 To configure PingFederate as the token provider for PingAccess, ensure connectivity from PingFederate to PingAccess. Confirm connectivity from PingAccess to PingFederate.  
 
-For more information, see [Configure PingFederate as the token provider for PingAccess](https://docs.pingidentity.com/access/sources/dita/topic?category=pingaccess&Releasestatus_ce=Current&resourceid=pa_configure_pf_as_the_token_provider_for_pa) in the Ping Identity documentation.
-
 ### Configure a PingAccess application for header-based authentication
 
 Use the following instructions to create a PingAccess application for the target web application, for header-based authentication. 
@@ -116,7 +114,7 @@ Use the following instructions to create a PingAccess application for the target
 #### Create a virtual host
 
 >[!IMPORTANT]
->Create a virtual host for every application. For more information, see [What can I configure with PingAccess?](https://docs.pingidentity.com/access/sources/dita/topic?category=pingaccess&Releasestatus_ce=Current&resourceid=pa_what_can_I_configure_with_pa) in the Ping Identity documentation.
+>Create a virtual host for every application.
 
 To create a virtual host:
 

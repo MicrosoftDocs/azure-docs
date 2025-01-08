@@ -52,7 +52,7 @@ Besides managed identities, another identity option is to create a security prin
 Once you have an application security principal and followed above steps, [assign the permission to publish events to that identity](#assign-permission-to-a-security-principal-to-publish-events).
 
 > [!NOTE]
-> When you register an application in the portal, an [application object](/entra/identity-platform/app-objects-and-service-principals?tabs=browser#application-object) and a [service principal](/entra/identity-platform/app-objects-and-service-principals?tabs=browser#service-principal-object) are created automatically in your home tenant. Alternatively, you can use Microsot Graph to register your application. However, if you register or create an application using the Microsoft Graph APIs, creating the service principal object is a separate step. 
+> When you register an application in the portal, an [application object](/entra/identity-platform/app-objects-and-service-principals?tabs=browser#application-object) and a [service principal](/entra/identity-platform/app-objects-and-service-principals?tabs=browser#service-principal-object) are created automatically in your home tenant. Alternatively, you can use Microsoft Graph to register your application. However, if you register or create an application using the Microsoft Graph APIs, creating the service principal object is a separate step. 
 
 ## Assign permission to a security principal to publish events
 
@@ -61,7 +61,7 @@ The identity used to publish events to Event Grid must have the permission ``Mic
 With RBAC privileges taken care of, you can now [build your client application to send events](#publish-events-using-event-grids-client-sdks) to Event Grid.
 
 > [!NOTE]
-> Event Grid supports more RBAC roles for purposes beyond sending events. For more information, see[Event Grid built-in roles](security-authorization.md#built-in-roles).
+> Event Grid supports more RBAC roles for purposes beyond sending events. For more information, see [Event Grid built-in roles](security-authorization.md#built-in-roles).
 
 
 ## Publish events using Event Grid's client SDKs

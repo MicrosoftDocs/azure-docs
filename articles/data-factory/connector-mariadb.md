@@ -3,11 +3,10 @@ title: Copy data from MariaDB
 description: Learn how to copy data from MariaDB to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/22/2024
+ms.date: 10/24/2024
 ms.author: jianleishen
 ---
 
@@ -17,7 +16,7 @@ ms.author: jianleishen
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from MariaDB. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 >[!IMPORTANT]
->MariaDB connector using the recommended driver version provides improved native MariaDB support. If you are using it with the legacy driver version, please [upgrade your driver version](#upgrade-the-mariadb-driver-version) before **October 31, 2024**. Refer to this [section](#differences-between-the-recommended-and-the-legacy-driver-version) for details on the difference between the legacy and recommended version.  
+>MariaDB connector using the recommended driver version provides improved native MariaDB support. If you are using the connector with the legacy driver version, please [upgrade it](#upgrade-the-mariadb-driver-version) before **October 31, 2024**. Refer to this [section](#differences-between-the-recommended-and-the-legacy-driver-version) for details on the difference between the legacy and recommended version.  
 
 ## Supported capabilities
 
@@ -83,6 +82,8 @@ If you use the recommended driver version, the following properties are supporte
 | database | Your MariaDB database name. | Yes |
 | username | Your user name. | Yes |
 | password | The password for the user name. Mark this field as SecureString to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| sslMode | This option specifies whether the driver uses TLS encryption and verification when connecting to MariaDB. E.g., `SSLMode=<0/1/2/3/4>`.<br/>Options: DISABLED (0) / PREFERRED (1) / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) **(Default)** | Yes |
+| useSystemTrustStore | This option specifies whether to use a CA certificate from the system trust store, or from a specified PEM file. E.g. `UseSystemTrustStore=<0/1>`;<br/>Options: Enabled (1) / Disabled (0) **(Default)** | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
@@ -101,7 +102,9 @@ If you use the recommended driver version, the following properties are supporte
                 "type": "SecureString",
                 "value": "<password>"
             },
-            "driverVersion": "v2"
+            "driverVersion": "v2",
+            "sslMode": <sslmode>,
+            "useSystemTrustStore": <UseSystemTrustStore>
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -131,7 +134,9 @@ If you use the recommended driver version, the following properties are supporte
                 },
                 "secretName": "<secretName>"
             },
-            "driverVersion": "v2"
+            "driverVersion": "v2",
+            "sslMode": <sslmode>,
+            "useSystemTrustStore": <UseSystemTrustStore>
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -287,9 +292,9 @@ When copying data from MariaDB, the following mappings are used from MariaDB dat
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the MariaDB driver version
+## <a name="upgrade-the-mariadb-driver-version"></a> Upgrade the MariaDB connector
 
-Here are steps that help you upgrade your MariaDB driver version: 
+Here are steps that help you upgrade your MariaDB connector: 
 
 1. In **Edit linked service** page, select **Recommended** under **Driver version** and configure the linked service by referring to [Linked service properties](connector-mariadb.md#linked-service-properties).
 

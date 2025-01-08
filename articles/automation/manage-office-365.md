@@ -2,8 +2,8 @@
 title: Manage Office 365 services using Azure Automation
 description: This article tells how to use Azure Automation to manage Office 365 subscription services.
 services: automation
-ms.date: 11/05/2020
-ms.topic: conceptual
+ms.date: 09/15/2024
+ms.topic: how-to
 ms.custom: has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 ---
 
@@ -41,7 +41,7 @@ It's optional to create a credential asset for the Office 365 administrative use
 
 ## Create an Office 365 service account
 
-To run Office 365 subscription services, you need an Office 365 service account with permissions to do what you want. You can use one global administrator account, one account per service, or have one function or script to execute. In any case, the service account requires a complex and secure password. See [Set up Office 365 for business](/microsoft-365/admin/setup/setup).
+To run Office 365 subscription services, you need an Office 365 service account with permissions to do what you want. You can use one permission management administrator account, one account per service, or have one function or script to execute. In any case, the service account requires a complex and secure password. See [Set up Office 365 for business](/microsoft-365/admin/setup/setup).
 
 <a name='connect-to-the-azure-ad-online-service'></a>
 

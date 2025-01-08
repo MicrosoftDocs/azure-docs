@@ -1,14 +1,17 @@
 ---
 title: Mount clients on the Microsoft Azure FXT Edge Filer cluster 
 description: How NFS client machines can mount the Azure FXT Edge Filer hybrid storage cache
-author: femila
-ms.service: fxt-edge-filer
+author: pauljewellmsft
+ms.author: pauljewell
+ms.service: azure-fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: femila
 ---
 
 # Tutorial: Mount the cluster
+
+> [!NOTE]
+> **Action Required:** Azure FXT Edge Filer will be retired on December 31, 2026. Please remove all Azure FXT Edge Filer resources by December 31, 2026. Visit https://aka.ms/fxtretirementfaq for more information.
 
 This tutorial teaches you how to mount NFS clients to the Azure FXT Edge Filer cluster. Clients mount the virtual namespace paths that you assigned when you added back-end storage.
 

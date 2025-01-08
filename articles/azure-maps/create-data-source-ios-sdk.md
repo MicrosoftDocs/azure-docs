@@ -6,7 +6,7 @@ ms.author: sipa
 ms.date: 10/22/2021
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: ios-sdk
 ---
 
 # Create a data source in the iOS SDK (Preview)

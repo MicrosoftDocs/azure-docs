@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 11/19/2021
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: ios-sdk
 ---
 
 # Add controls to a map in the iOS SDK (Preview)

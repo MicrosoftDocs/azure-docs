@@ -2,7 +2,7 @@
 title: Set up Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: how-to
-ms.date: 02/08/2024
+ms.date: 09/26/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ---
 
@@ -256,7 +256,7 @@ If you'd like to try the latest pre-release bits of Bicep before they're release
 
 ## Install the NuGet package
 
-The Bicep team has made the [Azure.Bicep.Core NuGet package](https://www.nuget.org/packages/Azure.Bicep.Core) publicly available on nuget.org. While it is public, it is not a supported package. Any dependency you take on this package will be done at your own risk and we reserve the right to push breaking changes to this package at any time.
+The Bicep team has made the [Azure.Bicep.Core NuGet package](https://www.nuget.org/packages/Azure.Bicep.Core) publicly available on nuget.org. While it's public, it isn't a supported package. Any dependency you take on this package will be done at your own risk and we reserve the right to push breaking changes to this package at any time.
 
 For more information about installing and consuming NuGet packages, see [Consume packages](/nuget/consume-packages/overview-and-workflow).
 

@@ -1,7 +1,7 @@
 ---
 title: View and manage alerts on your OT sensor - Microsoft Defender for IoT
 description: Learn about viewing and managing alerts on an OT network sensor.
-ms.date: 12/12/2022
+ms.date: 10/10/2024
 ms.topic: how-to
 ---
 
@@ -9,7 +9,7 @@ ms.topic: how-to
 
 Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. OT alerts are triggered when OT network sensors detect changes or suspicious activity in network traffic that needs your attention.
 
-This article describes how to view Defender for IoT alerts directly on an OT network sensor. You can also view OT alerts on the [Azure portal](how-to-manage-cloud-alerts.md) or an [on-premises management console](legacy-central-management/how-to-work-with-alerts-on-premises-management-console.md).
+This article describes how to view Defender for IoT alerts directly on an OT network sensor. You can also view OT alerts on the [Azure portal](how-to-manage-cloud-alerts.md).
 
 For more information, see [Microsoft Defender for IoT alerts](alerts.md).
 
@@ -78,9 +78,7 @@ For example, while the total number of alerts appears above the grid, you may wa
 
     Use the following tabs to gain more contextual insight:
 
-    - **Map View**. View the source and destination devices in a map view with other devices connected to your sensor. For example:
-
-        :::image type="content" source="media/how-to-view-alerts/map-view.png" alt-text="Screenshot of the Map View tab on an alert details page.":::
+    - **Map View**. View the source and destination devices in a map view with other devices connected to your sensor. 
 
     - **Event Timeline**. View the event together with other recent activity on the related devices. Filter options to customize the data displayed. For example:
 

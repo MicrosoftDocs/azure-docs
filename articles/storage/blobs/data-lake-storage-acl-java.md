@@ -1,19 +1,19 @@
 ---
-title: Use Java to manage ACLs in Azure Data Lake Storage Gen2
+title: Use Java to manage ACLs in Azure Data Lake Storage
 titleSuffix: Azure Storage
 description: Use Azure Storage libraries for Java to manage access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: pauljewellmsft
 
 ms.author: pauljewell
 ms.service: azure-data-lake-storage
-ms.date: 02/07/2023
+ms.date: 09/06/2024
 ms.devlang: java
 ms.topic: how-to
 ms.reviewer: prishet
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# Use Java to manage ACLs in Azure Data Lake Storage Gen2
+# Use Java to manage ACLs in Azure Data Lake Storage
 
 This article shows you how to use Java to get, set, and update the access control lists of directories and files.
 
@@ -23,27 +23,87 @@ ACL inheritance is already available for new child items that are created under 
 
 ## Prerequisites
 
-- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-
-- A storage account that has hierarchical namespace (HNS) enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
-
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/).
+- Azure storage account that has hierarchical namespace (HNS) enabled. Follow [these instructions](create-data-lake-storage-account.md) to create one.
+- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above.
+- [Apache Maven](https://maven.apache.org/download.cgi) is used for project management in this example.
 - Azure CLI version `2.6.0` or higher.
-
 - One of the following security permissions:
-
-  - A provisioned Microsoft Entra ID [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role, scoped to the target container, storage account, parent resource group, or subscription..
-
+  - A provisioned Microsoft Entra ID [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role, scoped to the target container, storage account, parent resource group, or subscription.
   - Owning user of the target container or directory to which you plan to apply ACL settings. To set ACLs recursively, this includes all child items in the target container or directory.
-
   - Storage account key.
 
 ## Set up your project
 
-To get started, open [this page](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) and find the latest version of the Java library. Then, open the *pom.xml* file in your text editor. Add a dependency element that references that version.
+> [!NOTE]
+> This article uses the Maven build tool to build and run the sample code. Other build tools, such as Gradle, also work with the Azure SDK for Java.
 
-If you plan to authenticate your client application by using Microsoft Entra ID, then add a dependency to the Azure Secret Client Library. See  [Adding the Secret Client Library package to your project](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#adding-the-package-to-your-project).
+Use Maven to create a new console app, or open an existing project. Follow these steps to install packages and add the necessary `import` directives.
 
-Next, add these imports statements to your code file.
+### Install packages
+
+Open the `pom.xml` file in your text editor. Install the packages by [including the BOM file](#include-the-bom-file), or [including a direct dependency](#include-a-direct-dependency).
+
+#### Include the BOM file
+ 
+Add **azure-sdk-bom** to take a dependency on the latest version of the library. In the following snippet, replace the `{bom_version_to_target}` placeholder with the version number. Using **azure-sdk-bom** keeps you from having to specify the version of each individual dependency. To learn more about the BOM, see the [Azure SDK BOM README](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/boms/azure-sdk-bom/README.md).
+
+```xml
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-sdk-bom</artifactId>
+            <version>{bom_version_to_target}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+```
+
+Add the following dependency elements to the group of dependencies. The **azure-identity** dependency is needed for passwordless connections to Azure services.
+
+```xml
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-storage-file-datalake</artifactId>
+</dependency>
+<dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-storage-common</artifactId>
+</dependency>
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-identity</artifactId>
+</dependency>
+```
+
+#### Include a direct dependency
+
+To take dependency on a particular version of the library, add the direct dependency to your project:
+
+```xml
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-storage-file-datalake</artifactId>
+    <version>{package_version_to_target}</version>
+</dependency>
+<dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-storage-common</artifactId>
+      <version>{package_version_to_target}</version>
+</dependency>
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-identity</artifactId>
+    <version>{package_version_to_target}</version>
+</dependency>
+```
+
+### Include import directives
+
+Add the necessary `import` directives. In this example, we add the following directives in the *App.java* file:
 
 ```java
 import com.azure.storage.common.StorageSharedKeyCredential;
@@ -67,34 +127,34 @@ import com.azure.storage.file.datalake.options.PathSetAccessControlRecursiveOpti
 
 ## Connect to the account
 
-To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account.
+To run the code examples in this article, you need to create a [DataLakeServiceClient](/java/api/com.azure.storage.file.datalake.datalakeserviceclient) instance that represents the storage account. You can authorize the client object with Microsoft Entra ID credentials or with an account key.
 
-<a name='connect-by-using-azure-active-directory-azure-ad'></a>
-
-### Connect by using Microsoft Entra ID
+### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
 You can use the [Azure identity client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) to authenticate your application with Microsoft Entra ID.
 
 First, you'll have to assign one of the following [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) roles to your security principal:
 
-|Role|ACL setting capability|
-|--|--|
-|[Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|All directories and files in the account.|
-|[Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Only directories and files owned by the security principal.|
+| Role | ACL setting capability |
+| --- | --- |
+| [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | All directories and files in the account. |
+| [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) | Only directories and files owned by the security principal. |
 
 Next, create a [DataLakeServiceClient](/java/api/com.azure.storage.file.datalake.datalakeserviceclient) instance and pass in a new instance of the [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential) class.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/Authorize_DataLake.java" id="Snippet_AuthorizeWithAzureAD":::
 
-To learn more about using **DefaultAzureCredential** to authorize access to data, see [Azure Identity client library for Java](/java/api/overview/azure/identity-readme).
+To learn more about using `DefaultAzureCredential` to authorize access to data, see [Azure Identity client library for Java](/java/api/overview/azure/identity-readme).
 
-### Connect by using an account key
+### [Account key](#tab/account-key)
 
 You can authorize access to data using your account access keys (Shared Key). This example creates a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance that is authorized with the account key.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/Authorize_DataLake.java" id="Snippet_AuthorizeWithKey":::
 
 [!INCLUDE [storage-shared-key-caution](../../../includes/storage-shared-key-caution.md)]
+
+---
 
 ## Set ACLs
 
@@ -214,5 +274,5 @@ This example sets ACL entries recursively. If this code encounters a permission 
 - [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
 - [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 - [Give Feedback](https://github.com/Azure/azure-sdk-for-java/issues)
-- [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
-- [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
+- [Access control model in Azure Data Lake Storage](data-lake-storage-access-control.md)
+- [Access control lists (ACLs) in Azure Data Lake Storage](data-lake-storage-access-control.md)

@@ -4,7 +4,6 @@ description: This article provides step-by-step instructions for how to sync a G
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.topic: how-to
 ms.date: 09/19/2023
 ---
@@ -158,7 +157,7 @@ Sample request:
 
 ```rest
 HTTP
-PUT https://management.azure.com/subscriptions/222f1459-6ebd-4896-82ab-652d5f6883cf/resourcegroups/abnarain-rg/providers/Microsoft.DataFactory/factories/ambika-df/integrationruntimes/sample-2?api-version=2018-06-01
+PUT https://management.azure.com/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/abnarain-rg/providers/Microsoft.DataFactory/factories/ambika-df/integrationruntimes/sample-2?api-version=2018-06-01
 ```
 
 Sample body:

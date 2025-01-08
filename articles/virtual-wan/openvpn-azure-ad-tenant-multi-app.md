@@ -4,7 +4,7 @@ description: Set up a Microsoft Entra tenant for P2S OpenVPN authentication, and
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 04/24/2023
 ms.author: cherylmc

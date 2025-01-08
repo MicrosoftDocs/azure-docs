@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: test-infra
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-v1
+  namespace: test-infra
+spec:
+  selector:
+    app: backend-v1
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 3000
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-v1
+  namespace: test-infra
+  labels:
+    app: backend-v1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend-v1
+  template:
+    metadata:
+      labels:
+        app: backend-v1
+    spec:
+      containers:
+      - name: backend-v1
+        image: gcr.io/k8s-staging-ingressconformance/echoserver:v20221109-7ee2f3e
+        lifecycle:
+          preStop:
+            exec:
+              command: ["sleep", "10"]
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        resources:
+          requests:
+            cpu: 10m

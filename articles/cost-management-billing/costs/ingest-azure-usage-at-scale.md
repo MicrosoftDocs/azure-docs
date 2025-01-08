@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article helps you regularly export large amounts of data with exports from Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/14/2024
+ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -49,7 +49,7 @@ Request URL: `PUT https://management.azure.com/{scope}/providers/Microsoft.CostM
     "format": "Csv",
     "deliveryInfo": {
       "destination": {
-        "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Storage/storageAccounts/{yourStorageAccount} ",
+        "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MYDEVTESTRG/providers/Microsoft.Storage/storageAccounts/{yourStorageAccount} ",
         "container": "{yourContainer}",
         "rootFolderPath": "{yourDirectory}"
       }
@@ -114,7 +114,7 @@ Here are some of the characteristics of the service-side sync transfer used with
 - The transfer creates checkpoints during its progress and exposes a _TransferCheckpoint_ object. The object represents the latest checkpoint via the _TransferContext_ object. If the _TransferCheckpoint_ is saved before a transfer is cancelled/aborted, the transfer can be resumed from the checkpoint for up to seven days. The transfer can be resumed from any checkpoint, not just the latest.
 - If the transfer client process is killed and restarted without implementing the checkpoint feature:
   - Before any blob transfers complete, the transfer restarts.
-  - After some of the blobs complete, the transfer restarts for only the incompleted blobs.
+  - After some of the blobs complete, the transfer restarts for only the incomplete blobs.
 - Pausing the client execution pauses the transfers.
 - The blob transfer feature abstracts the client from transient failures. For instance, storage account throttling doesn't normally cause a transfer to fail but slows the transfer.
 - Service-side transfers have low client resource usage for CPU and memory, some network bandwidth, and connections.

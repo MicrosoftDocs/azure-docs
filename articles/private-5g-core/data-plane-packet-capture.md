@@ -2,9 +2,9 @@
 title: Perform packet capture on a packet core instance
 titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to perform packet capture on the control plane or data plane on a packet core instance. 
-author: robswain
-ms.author: robswain
-ms.service: private-5g-core
+author: anzaman
+ms.author: alzam
+ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 04/24/2024
 ms.custom: template-how-to, devx-track-azurecli

@@ -15,11 +15,13 @@ zone_pivot_groups: acs-plat-web-ios-android
 
 # Theme the UI Library in an application
 
+:::image type="content" source="./media/custom-colors.png" alt-text="Screenshot that shows the experience using custom colors in the UI Library.":::
+
 The Azure Communication Services UI Library is a set of components, icons, and composites that make it easier for you to build high-quality user interfaces for your projects. The UI Library uses components and icons from [Fluent UI](https://developer.microsoft.com/fluentui), the cross-platform design system that Microsoft uses. As a result, the components are built with usability, accessibility, and localization in mind.
 
 In this article, you learn how to change the theme for UI Library components as you configure an application.
 
-The UI Library is fully documented for developers on a separate site. The documentation is interactive and helps you understand how the APIs work by giving you the ability to try them directly from a webpage. For more information, see the [UI Library documentation](https://azure.github.io/communication-ui-library/?path=/docs/overview--page).
+The UI Library is fully documented for developers on a separate site. The documentation is interactive and helps you understand how the APIs work by giving you the ability to try them directly from a webpage. For more information, see the [UI Library documentation](../../concepts/ui-library/ui-library-overview.md).
 
 ## Prerequisites
 

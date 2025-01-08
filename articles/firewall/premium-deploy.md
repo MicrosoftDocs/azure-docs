@@ -2,7 +2,7 @@
 title: Deploy and configure Azure Firewall Premium
 description: Learn how to deploy and configure Azure Firewall Premium.
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 services: firewall
 ms.topic: how-to
 ms.date: 02/28/2022
@@ -85,7 +85,7 @@ You can use `curl` to control various HTTP headers and simulate malicious traffi
 
    ```
    { “msg” : “TCP request from 10.0.100.5:16036 to 10.0.20.10:80. Action: Alert. Rule: 2032081. IDS: 
-   USER_AGENTS Suspicious User Agent (HaxerMen). Priority: 1. Classification: A Network Tojan was 
+   USER_AGENTS Suspicious User Agent (HaxerMen). Priority: 1. Classification: A Network Trojan was 
    detected”}
    ```
 

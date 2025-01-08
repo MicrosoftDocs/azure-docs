@@ -4,8 +4,8 @@ description: How-to guide for disabling geo-backups for a dedicated SQL pool (fo
 author: joannapea
 ms.author: joanpo
 ms.reviewer: wiassaf
-ms.date: 01/09/2024
-ms.service: synapse-analytics
+ms.date: 07/23/2024
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ---
@@ -19,7 +19,12 @@ In this article, you learn to disable geo-backups for your [dedicated SQL pool (
 Follow these steps to disable geo-backups for your dedicated SQL pool (formerly SQL DW):
 
 > [!NOTE]
-> If you disable geo-backups, you will no longer be able to recover your dedicated SQL pool (formerly SQL DW) to another Azure region. 
+> If you disable geo-backups, you will no longer be able to recover your dedicated SQL pool (formerly SQL DW) to another Azure region.
+> 
+> - Disabling geo-backup results in the deletion of all existing geo-backups associated with the instance.
+> - Once geo-backup is disabled, you cannot use existing geo-backups.
+> - If the instance is active at the time of disabling geo-backup, all geo-backups will be deleted.
+> - If the instance is paused, geo-backups will be deleted upon resuming the instance.
 
 1. Sign in to your [Azure portal](https://portal.azure.com/) account.
 1. Select the dedicated SQL pool (formerly SQL DW) resource where you would like to disable geo-backups. 

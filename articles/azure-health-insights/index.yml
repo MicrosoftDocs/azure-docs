@@ -65,19 +65,3 @@ landingContent:
         links:
           - text: Get started
             url: trial-matcher/get-started.md
-  - title: OncoPhenotype
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: About OncoPhenotype
-            url: oncophenotype/overview.md
-      - linkListType: concept
-        links:
-          - text: Model configuration
-            url: oncophenotype/model-configuration.md
-          - text: Inference information
-            url: oncophenotype/inferences.md    
-      - linkListType: quickstart
-        links:
-          - text: Get started
-            url: oncophenotype/get-started.md

@@ -3,10 +3,9 @@ title: Common questions about Azure virtual machine disaster recovery with Azure
 description: This article answers common questions about Azure virtual machine disaster recovery when you use Azure Site Recovery.
 ms.author: ankitadutta
 author: ankitaduttaMSFT
-manager: rochakm
-ms.date: 04/18/2024
-ms.topic: conceptual
-ms.service: site-recovery
+ms.date: 12/23/2024
+ms.topic: faq
+ms.service: azure-site-recovery
 
 ---
 # Common questions: Azure-to-Azure disaster recovery
@@ -50,7 +49,7 @@ Yes. Site Recovery supports disaster recovery of virtual machines that have Azur
 - Site Recovery supports:
     - ADE version 0.1, which has a schema that requires Microsoft Entra ID.
     - ADE version 1.1, which doesn't require Microsoft Entra ID. For version 1.1, Microsoft Azure virtual machines must have managed disks.
-    - [Learn more](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema) about the extension schemas.
+    - [Learn more](/azure/virtual-machines/extensions/azure-disk-enc-windows#extension-schema) about the extension schemas.
 
 [Learn more](azure-to-azure-how-to-enable-replication-ade-vms.md) about enabling replication for encrypted virtual machines.
 
@@ -86,6 +85,10 @@ This isn't supported.
 ### Can I replicate zoned virtual machines to a different zone in the same region?
 
 Support for this is limited to a few regions. [Learn more](azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
+
+### Can we replicate from one Zone to non-zone with Azure Site Recovery?
+
+Yes, this is supported.
 
 ### Can I exclude disks from replication?
 
@@ -234,7 +237,14 @@ Multi-VM consistency is CPU intensive, and enabling it can affect workload perfo
 
 ### Can I add a replicating virtual machine to a replication group?
 
-When you enable replication for a virtual machine, you can add it to a new replication group, or to an existing group. You can't add a virtual machine that's already replicating to a group.
+You cannot add a protected VM to an existing replication group.
+
+### What conditions must be met to create a recovery plan for multi-VM consistency?
+
+Creating a recovery plan for multi-VM consistency virtual machine works only if the following conditions are met:
+
+- Virtual machine must be in the same subscription and region.
+- Virtual machine must communicate over the network using host names.
 
 ## Failover
 
@@ -261,7 +271,7 @@ Yes. By default, when you enable disaster recovery for Azure virtual machines, S
 
 Site Recovery tries to provide the IP address at the time of failover. If another virtual machine uses that address, Site Recovery sets the next available IP address as the target.
 
-[Learn more about](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms) setting up network mapping and IP addressing for virtual networks.
+[Learn more about](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-virtual-machines) setting up network mapping and IP addressing for virtual networks.
 
 ### What's the *Latest* recovery point?
 
@@ -283,7 +293,13 @@ You can start failover. Site Recovery doesn't need connectivity from the primary
 
 ### What is the RTO of a virtual machine failover?
 
-Site Recovery has an RTO SLA of [two hours](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Most of the time, Site Recovery fails over virtual machines within minutes. To calculate the RTO, review the failover job, which shows the time it took to bring up a virtual machine.
+Site Recovery has an RTO SLA of [one hours](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Most of the time, Site Recovery fails over virtual machines within minutes. To calculate the RTO, review the failover job, which shows the time it took to bring up a virtual machine.
+
+### Are the extensions replicated to failover VM in target region? 
+
+Extensions aren't replicated to the failover VM in the target region, so we need to install them manually after failover.
+
+**For SQL VM zonal replication:** In the case of a SQL VM, it'll not be shown if we don't have the corresponding IaaS SQL Extension installed. After installing the `SqlIaasExtension`, the `SQL virtual machine` is created automatically. [Learn more](https://learn.microsoft.com/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm?view=azuresql&tabs=azure-powershell#register-with-extension).
 
 ## Recovery plans
 
@@ -332,15 +348,21 @@ The Site Recovery team and Azure capacity management team plan for sufficient in
 
 ### Does Site Recovery work with Capacity Reservation?
 
-Yes, you can create a Capacity Reservation for your virtual machine SKU in the disaster recovery region and/or zone, and configure it in the Compute properties of the Target virtual machine. Once done, site recovery will use the earmarked capacity for the failover. [Learn more](../virtual-machines/capacity-reservation-overview.md).
+Yes, you can create a Capacity Reservation for your virtual machine SKU in the disaster recovery region and/or zone, and configure it in the Compute properties of the Target virtual machine. Once done, site recovery will use the earmarked capacity for the failover. [Learn more](/azure/virtual-machines/capacity-reservation-overview).
 
 ### Why should I reserve capacity using Capacity Reservation at the destination location?
 
-While Site Recovery makes a best effort to ensure that capacity is available in the recovery region, it does not guarantee the same. Site Recovery's best effort is backed by a 2-hour RTO SLA. But if you require further assurance and _guaranteed compute capacity,_ then we recommend you to purchase [Capacity Reservations](https://aka.ms/on-demand-capacity-reservations-docs)  
+While Site Recovery makes a best effort to ensure that capacity is available in the recovery region, it does not guarantee the same. Site Recovery's best effort is backed by a 1-hour RTO SLA. But if you require further assurance and _guaranteed compute capacity,_ then we recommend you to purchase [Capacity Reservations](https://aka.ms/on-demand-capacity-reservations-docs)  
 
 ### Does Site Recovery work with reserved instances?
 
 Yes, you can purchase [reserved Azure virtual machines](https://azure.microsoft.com/pricing/reserved-vm-instances/) in the disaster recovery region, and Site Recovery failover operations use them. No additional configuration is needed.
+
+### Where do we see the VM mapping to the reservation group when we enable capacity reservation for our VMs in ASR on the target region?
+
+When we enable capacity reservation for our VMs in Azure Site Recovery on the target region, the VM maps to the reservation group during replication. Since the target VM is not created until a test failover or actual failover is performed, we see the mapping under *Recovery Services Vault* > **Compute** > **Capacity Reservation** settings.
+
+The VM associated option under the capacity reservation group populates only when the target VMs are created during a test failover or actual failover. [Learn more](https://learn.microsoft.com/azure/virtual-machines/capacity-reservation-overview#capacity-reservation-lifecycle).
 
 ## Security
 
@@ -385,7 +407,7 @@ Azure Site Recovery creates [replica](./azure-to-azure-architecture.md#target-re
     1. Go to the **Networking** tab under the **Settings** options of the disk. By default, the disk is created with *Enable public access from all networks* setting enabled. 
     1. Change the network access to either **Disable public access and enable private access** or **Disable public and private access** per your requirement, after cancel export is successful.
     
-        If you want to change disk network access to **Disable public access and enable private access**, the disk access resource to be used should already be present in the target region within the target subscription. Find the steps to [create a disk access resource here](../virtual-machines/disks-enable-private-links-for-import-export-portal.yml).
+        If you want to change disk network access to **Disable public access and enable private access**, the disk access resource to be used should already be present in the target region within the target subscription. Find the steps to [create a disk access resource here](/azure/virtual-machines/disks-enable-private-links-for-import-export-portal).
         
         :::image type="content" source="media/azure-to-azure-common-questions/disk-networking.png" alt-text="Screenshot of Disk networking."lightbox="media/azure-to-azure-common-questions/disk-networking.png":::
 

@@ -4,7 +4,7 @@ titleSuffix: Azure IoT Hub
 description: This article discusses the basic concepts of how Azure IoT Hub helps users connect IoT applications and their attached devices.
 author: kgremban
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: overview
 ms.date: 02/22/2024
@@ -27,7 +27,7 @@ You can integrate IoT Hub with other Azure services to build complete, end-to-en
 
 - [Azure Logic Apps](../logic-apps/index.yml) to automate business processes.
 
-- [Azure Machine Learning](../machine-learning/index.yml) to add machine learning and AI models to your solution.
+- [Azure Machine Learning](/azure/machine-learning/) to add machine learning and AI models to your solution.
 
 - [Azure Stream Analytics](../stream-analytics/index.yml) to run real-time analytic computations on the data streaming from your devices.
 
@@ -48,7 +48,7 @@ Every IoT hub has an identity registry that stores information about the devices
 
 We support two methods of authentication between the device and the IoT hub. You can use SAS token-based authentication or X.509 certificate authentication.
 
-The SAS token method provides authentication for each call made by the device to IoT Hub by associating the symmetric key to each call. X.509 authentication allows authentication of an IoT device at the physical layer as part of the Transport Layer Security (TLS) standard connection establishment. The choice between the two methods depends on how secure the device authentication needs to be, and ability to store the private key securely on the device.
+The SAS token method provides authentication for each call made by the device to IoT Hub by associating the symmetric key to each call. X.509 authentication allows authentication of an IoT device as part of the Transport Layer Security (TLS) standard connection establishment. The choice between the two methods depends on how secure the device authentication needs to be, and ability to store the private key securely on the device.
 
 You can set up and provision many devices at a time using the [IoT Hub Device Provisioning Service](../iot-dps/index.yml).
 
@@ -85,7 +85,7 @@ An example of a command is rebooting a device. IoT Hub implements commands by al
 IoT Hub gives you the ability to unlock the value of your device data with other Azure services so you can shift to predictive problem-solving rather than reactive management. Connect your IoT hub with other Azure services to do machine learning, analytics, and AI to act on real-time data, optimize processing, and gain deeper insights.
 
 >[!NOTE]
->Azure IoT Hub doesn't store or process customer data outside of the geography where you deploy the service instance. For more information, see [Cross-region replication in Azure](../availability-zones/cross-region-replication-azure.md).
+>Azure IoT Hub doesn't store or process customer data outside of the geography where you deploy the service instance. For more information, see [Cross-region replication in Azure](../reliability/cross-region-replication-azure.md).
 
 ### Built-in endpoint collects device data by default
 

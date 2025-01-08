@@ -3,7 +3,7 @@ title: Azure Load Balancer Floating IP configuration
 description: Overview of Azure Load Balancer Floating IP.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 06/11/2024
 ms.author: mbender
@@ -30,7 +30,7 @@ In the diagrams, you see how IP address mapping works before and after enabling 
 
 You configure Floating IP on a Load Balancer rule via the Azure portal, REST API, CLI, PowerShell, or other client. In addition to the rule configuration, you must also configure your virtual machine's Guest OS in order to use Floating IP.
 
-:::image type="content" source="media/load-balancer-multivip-overview/load-balancer-multivip-dsr.png" alt-text="Diagram of load balancer traffic for multiple frontend IPs with floating IP.":::
+:::image type="content" source="media/load-balancer-floating-ip/load-balancer-multivip-dsr.png" alt-text="Diagram of load balancer traffic for multiple frontend IPs with floating IP.":::
 
 For this scenario, every VM in the backend pool has three network interfaces:
 
@@ -70,7 +70,7 @@ The Floating IP rule type is the foundation of several load balancer configurati
 In order to function, you configure the Guest OS for the virtual machine to receive all traffic bound for the frontend IP and port of the load balancer. Configuring the VM requires:
 * adding a loopback network interface
 * configuring the loopback with the frontend IP address of the load balancer
-* ensuring the system can send/receive packets on interfaces that don't have the IP address assigned to that interface.Windows systems require setting interfaces to use the "weak host" model. For Linux systems, this model is normally used by default.
+* ensuring the system can send/receive packets on interfaces that don't have the IP address assigned to that interface. Windows systems require setting interfaces to use the "weak host" model. For Linux systems, this model is normally used by default.
 * configuring the host firewall to allow traffic on the frontend IP port.
 
 > [!NOTE]
@@ -145,10 +145,11 @@ sudo ufw allow 80/tcp
 ```
 </details>
 
-## <a name = "limitations"></a>Limitations
+## <a name = "limitations"></a>Limitations 
 
 -  With Floating IP enabled on a load balancing rule, your application must use the primary IP configuration of the network interface for outbound.
 -  If your application binds to the frontend IP address configured on the loopback interface in the guest OS, Azure's outbound won't rewrite the outbound flow, and the flow fails. Review [outbound scenarios](load-balancer-outbound-connections.md).
+- You can't use Floating IP on secondary IP configurations for Load Balancing scenarios. This limitation doesn't apply to Public load balancers where the secondary IP configuration is IPv6 an part of a dual-stack configuration or to architectures that utilize a NAT Gateway for outbound connectivity.
 
 ## Next steps
 

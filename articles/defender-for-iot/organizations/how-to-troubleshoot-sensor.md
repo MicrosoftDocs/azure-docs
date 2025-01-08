@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot the sensor | Microsoft Defender for IoT
 description: Learn how to troubleshoot your Microsoft Defender for IoT OT sensor.
-ms.date: 12/19/2023
+ms.date: 10/14/2024
 ms.topic: troubleshooting
 #CustomerIntent: As a Defender for IoT sensor admin, I want to know how to troubleshoot sensor issues so that I can get it back online quickly.
 ---
@@ -120,8 +120,6 @@ Verify that all the input interfaces configured during the installation process 
 1. Enter `network list` (the equivalent of the Linux command `ifconfig`).
 
 1. Validate that the required input interfaces appear. For example, if two quad Copper NICs are installed, there should be 10 interfaces in the list.
-
-    :::image type="content" source="media/tutorial-install-components/interface-list-screen.png" alt-text="Screenshot that shows the list of interfaces.":::
 
 Verify that you can access the console web GUI:
 

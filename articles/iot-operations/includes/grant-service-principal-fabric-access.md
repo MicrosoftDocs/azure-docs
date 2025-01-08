@@ -3,11 +3,11 @@ title: include file
 description: include file
 author: dominicbetts
 ms.topic: include
-ms.date: 12/18/2023
+ms.date: 10/22/2024
 ms.author: dobett
 ---
 
-Navigate to the [Microsoft Fabric Power BI experience](https://msit.powerbi.com/groups/me/list?experience=power-bi).
+Browse to the [Microsoft Fabric Power BI experience](https://msit.powerbi.com/groups/me/list?experience=power-bi).
 
 To ensure you can see the **Manage access** option in your Microsoft Fabric workspace, create a new workspace:
 

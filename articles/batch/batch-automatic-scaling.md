@@ -2,7 +2,7 @@
 title: Autoscale compute nodes in an Azure Batch pool
 description: Enable automatic scaling on an Azure Batch cloud pool to dynamically adjust the number of compute nodes in the pool.
 ms.topic: how-to
-ms.date: 06/11/2024
+ms.date: 06/27/2024
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
 ---
 
@@ -123,11 +123,6 @@ You can get the value of these service-defined variables to make adjustments tha
 | $CurrentLowPriorityNodes |The current number of Spot compute nodes, including any nodes that have been preempted. |
 | $UsableNodeCount | The number of usable compute nodes. |
 | $PreemptedNodeCount | The number of nodes in the pool that are in a preempted state. |
-
-> [!WARNING]
-> Select service-defined variables will be retired after **31 March 2024** as noted in the table above. After the retirement
-> date, these service-defined variables will no longer be populated with sample data. Please discontinue use of these variables
-> before this date.
 
 > [!NOTE]
 > Use `$RunningTasks` when scaling based on the number of tasks running at a point in time, and `$ActiveTasks` when scaling based on the number of tasks that are queued up to run.
@@ -597,7 +592,7 @@ In Batch .NET, the [CloudPool.AutoScaleRun](/dotnet/api/microsoft.azure.batch.cl
 - [AutoScaleRun.Results](/dotnet/api/microsoft.azure.batch.autoscalerun.results)
 - [AutoScaleRun.Error](/dotnet/api/microsoft.azure.batch.autoscalerun.error)
 
-In the REST API, the [Get information about a pool request](/rest/api/batchservice/get-information-about-a-pool) returns information about the pool, which includes the latest automatic scaling run information in the [autoScaleRun](/rest/api/batchservice/get-information-about-a-pool) property.
+In the REST API, [information about a pool](/rest/api/batchservice/get-information-about-a-pool) includes the latest automatic scaling run information in the [autoScaleRun](/rest/api/batchservice/get-information-about-a-pool) property.
 
 The following C# example uses the Batch .NET library to print information about the last autoscaling run on pool *myPool*.
 

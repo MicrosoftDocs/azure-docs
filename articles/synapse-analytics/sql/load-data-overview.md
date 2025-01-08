@@ -5,7 +5,7 @@ author: joannapea
 ms.author: joanpo
 ms.reviewer: wiassaf
 ms.date: 09/20/2022
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: conceptual
 ---
@@ -111,6 +111,8 @@ It is best practice to load data into a staging table. Staging tables allow you 
 
 To load data with PolyBase, you can use any of these loading options:
 
+- [Load external data using Microsoft Entra ID](../sql/tutorial-load-data-using-entra-id.md)
+- [Load external data using a managed identity](../sql/tutorial-external-tables-using-managed-identity.md)
 - [PolyBase with T-SQL](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) works well when your data is in Azure Blob storage or Azure Data Lake Store. It gives you the most control over the loading process, but also requires you to define external data objects. The other methods define these objects behind the scenes as you map source tables to destination tables.  To orchestrate T-SQL loads, you can use Azure Data Factory, SSIS, or Azure functions.
 - [PolyBase with SSIS](/sql/integration-services/load-data-to-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) works well when your source data is in SQL Server. SSIS defines the source to destination table mappings, and also orchestrates the load. If you already have SSIS packages, you can modify the packages to work with the new data warehouse destination.
 - [PolyBase with Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md) is another orchestration tool.  It defines a pipeline and schedules jobs.

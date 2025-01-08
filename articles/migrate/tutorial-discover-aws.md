@@ -5,9 +5,9 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 04/05/2024
+ms.date: 08/08/2024
 ms.service: azure-migrate
-ms.custom: mvc, subject-rbac-steps, engagement-fy24
+ms.custom: mvc, subject-rbac-steps, engagement-fy25
 #Customer intent: As a server admin I want to discover my AWS instances.
 ---
 
@@ -68,13 +68,13 @@ If you just created a free Azure account, you're the owner of your subscription.
     | Assign access to | User |
     | Members | azmigrateuser |
 
-    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot of Add role assignment page in Azure portal.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Screenshot of Add role assignment page in Azure portal.":::
 
 1. To register the appliance, your Azure account needs **permissions to register Microsoft Entra apps.**
 
 1. In the portal, go to **Microsoft Entra ID** > **Users**.
 
-1. Request the tenant or global admin to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Microsoft Entra app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
+1. Request the tenant or Privileged Role Administrator to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Microsoft Entra app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
 
 ## Prepare AWS instances
 
@@ -132,7 +132,7 @@ To set up the appliance you:
 
 ### 1. Generate the project key
 
-1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2. In **Discover servers** > **Are your servers virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
 3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you will set up for discovery of physical or virtual servers. The name should be alphanumeric with 14 characters or fewer.
 1. Select **Generate key** to start the creation of the required Azure resources. Do not close the Discover servers page during the creation of resources.
@@ -157,13 +157,13 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario** | **Download*** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | a551f3552fee62ca5c7ea11648960a09a89d226659febd26314e222a37c7d857
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
 
     - For Azure Government:
 
         **Scenario** | **Download*** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | a551f3552fee62ca5c7ea11648960a09a89d226659febd26314e222a37c7d857 
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
  
 
 ### 3. Run the Azure Migrate installer script
@@ -307,5 +307,5 @@ After discovery finishes, you can verify that the servers appear in the portal.
 
 ## Next steps
 
-- [Assess physical servers](tutorial-migrate-aws-virtual-machines.md) for migration to Azure VMs.
+- [Assess AWS VMs](tutorial-migrate-aws-virtual-machines.md) for migration to Azure.
 - [Review the data](discovered-metadata.md#collected-data-for-physical-servers) that the appliance collects during discovery.

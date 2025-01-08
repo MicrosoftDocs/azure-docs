@@ -3,7 +3,7 @@ title: Create and manage tests runs
 titleSuffix: Azure Load Testing
 description: Learn how to create and manage tests runs in Azure Load Testing with the Azure portal.
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.author: ninallam
 author: ninallam
 ms.date: 05/10/2023

@@ -3,9 +3,9 @@ title: Manage users and roles with the Azure IoT Central REST API
 description: How to use the IoT Central REST API to manage users and roles in an application and control access to resources
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/13/2023
+ms.date: 10/22/2024
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 
 ---
@@ -20,8 +20,6 @@ Every IoT Central REST API call requires an authorization header. To learn more,
 > Operations on users and roles are recorded in the IoT Central [audit log](howto-use-audit-logs.md).
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
-
-[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
 To learn how to manage users and roles by using the IoT Central UI, see [Manage users and roles in your IoT Central application.](../core/howto-manage-users-roles.md)
 

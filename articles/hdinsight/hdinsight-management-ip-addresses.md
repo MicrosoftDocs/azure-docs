@@ -1,7 +1,7 @@
 ---
 title: Azure HDInsight management IP addresses
 description: Learn which IP addresses you must allow inbound traffic from, in order to properly configure network security groups and user-defined routes for virtual networking with Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 06/28/2024
@@ -45,7 +45,7 @@ Allow traffic from the following IP addresses for Azure HDInsight health and man
 Allow traffic from the IP addresses listed for the Azure HDInsight health and management services in the specific Azure region where your resources are located, refer the following note:
 
 > [!IMPORTANT]  
-> We recommend to use [service tag](hdinsight-service-tags.md) feature for network security groups. If you require region specific service tags, please refer the [Azure IP Ranges and Service Tags – Public Cloud](https://download.microsoft.com/download/7/1/D/71D86715-5596-4529-9B13-DA13A5DE5B63/ServiceTags_Public_20240624.json)
+> We recommend to use [service tag](hdinsight-service-tags.md) feature for network security groups. If you require region specific service tags, please refer the [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519&msockid=2a4184eaec6960de1d4297c1ed7b6126)
 
 For information on the IP addresses to use for Azure Government, see the [Azure Government Intelligence + Analytics](../azure-government/compare-azure-government-global-azure.md) document.
 

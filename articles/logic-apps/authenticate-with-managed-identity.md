@@ -55,7 +55,7 @@ Based on your logic app resource type, you can enable either the system-assigned
 
 | Logic app | Environment | Managed identity support |
 |-----------|-------------|--------------------------|
-| Consumption | - Multitenant Azure Logic Apps <br><br>- Integration service environment (ISE) | - You can enable *either* the system-assigned identity or the user-assigned identity, but not both on your logic app. <br><br>- You can use the managed identity at the logic app resource level and at the connection level. <br><br>- If you create and enable the user-assigned identity, your logic app can have *only one* user-assigned identity at a time. |
+| Consumption | - Multitenant Azure Logic Apps | - You can enable *either* the system-assigned identity or the user-assigned identity, but not both on your logic app. <br><br>- You can use the managed identity at the logic app resource level and at the connection level. <br><br>- If you create and enable the user-assigned identity, your logic app can have *only one* user-assigned identity at a time. |
 | Standard | - Single-tenant Azure Logic Apps <br><br>- App Service Environment v3 (ASEv3) <br><br>- Azure Arc enabled Logic Apps | - You can enable *both* the system-assigned identity, which is enabled by default, and the user-assigned identity at the same time. You can also add multiple user-assigned identities to your logic app. However, your logic app can use only one managed identity at a time. <br><br>- You can use the managed identity at the logic app resource level and at the connection level. |
 
 For information about managed identity limits in Azure Logic Apps, see [Limits on managed identities for logic apps](logic-apps-limits-and-config.md#managed-identity). For more information about the Consumption and Standard logic app resource types and environments, see the following documentation:
@@ -360,7 +360,7 @@ If your template also includes the managed identity's resource definition, you c
       }
    },
    "variables": {
-      "logicAppName": "[parameters(`Template_LogicAppName')]",
+      "logicAppName": "[parameters('Template_LogicAppName')]",
       "userAssignedIdentityName": "[parameters('Template_UserAssignedIdentityName')]"
    },
    "resources": [
@@ -448,7 +448,7 @@ If your template also includes the managed identity's resource definition, you c
          "identity": {
             "type": "UserAssigned",
             "userAssignedIdentities": {
-               "[resourceId(Microsoft.ManagedIdentity/userAssignedIdentities', variables('userAssignedIdentityName'))]": {}
+               "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('userAssignedIdentityName'))]": {}
             }
          },
          "properties": {
@@ -535,8 +535,8 @@ For an Azure key vault, you also have the option to create an access policy for 
 | Tool | Documentation |
 |------|---------------|
 | Azure Resource Manager template (ARM template) | [Key Vault access policy resource definition](/azure/templates/microsoft.keyvault/vaults) |
-| Azure PowerShell | [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-powershell) |
-| Azure CLI | [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-cli) |
+| Azure PowerShell | [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy?tabs=azure-powershell) |
+| Azure CLI | [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy?tabs=azure-cli) |
 
 <a name="azure-portal-assign-role"></a>
 
@@ -609,7 +609,7 @@ After you [enable the managed identity for your logic app resource](#azure-porta
 > [!IMPORTANT]
 >
 > If you have an Azure function where you want to use the system-assigned identity, 
-> first [enable authentication for Azure Functions](logic-apps-azure-functions.md#enable-authentication-functions).
+> first [enable authentication for Azure Functions](call-azure-functions-from-workflows.md#enable-authentication-functions).
 
 The following steps show how to use the managed identity with a trigger or action using the Azure portal. To specify the managed identity in a trigger or action's underlying JSON definition, see [Managed identity authentication](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 
@@ -742,7 +742,7 @@ The following steps show how to use the managed identity with a trigger or actio
         > user-assigned managed identity defined and enabled. However, your logic app should 
         > use only one managed identity at a time. 
         >
-        > For example, a workflow that acceses different Azure Service Bus messaging entities 
+        > For example, a workflow that accesses different Azure Service Bus messaging entities 
         > should use only one managed identity. See [Connect to Azure Service Bus from workflows](../connectors/connectors-create-api-servicebus.md#prerequisites).
 
      For more information, see [Example: Authenticate built-in trigger or action with a managed identity](#authenticate-built-in-managed-identity).
@@ -849,7 +849,7 @@ To run the [Snapshot Blob operation](/rest/api/storageservices/snapshot-blob), t
 
 1. On some triggers and actions, the **Audience** property appears so that you can set the resource ID for the target Azure resource or service.
 
-   For example, to authenticate access to a [Key Vault resource in the global Azure cloud](../key-vault/general/authentication.md), you must set the **Audience** property to *exactly* the following resource ID: **`https://vault.azure.net`**
+   For example, to authenticate access to a [Key Vault resource in the global Azure cloud](/azure/key-vault/general/authentication), you must set the **Audience** property to *exactly* the following resource ID: **`https://vault.azure.net`**
 
    If you don't set the **Audience** property, by default, the **Audience** property uses the **`https://management.azure.com/`** resource ID, which is the resource ID for Azure Resource Manager.
 
@@ -913,7 +913,7 @@ To run the [Snapshot Blob operation](/rest/api/storageservices/snapshot-blob), t
 
 1. On some triggers and actions, the **Audience** property appears so that you can set the resource ID for the target Azure resource or service.
 
-   For example, to [authenticate access to a Key Vault resource in the global Azure cloud](../key-vault/general/authentication.md), you must set the **Audience** property to *exactly* the following resource ID: **`https://vault.azure.net`**
+   For example, to [authenticate access to a Key Vault resource in the global Azure cloud](/azure/key-vault/general/authentication), you must set the **Audience** property to *exactly* the following resource ID: **`https://vault.azure.net`**
 
    If you don't set the **Audience** property, by default, the **Audience** property uses the **`https://management.azure.com/`** resource ID, which is the resource ID for Azure Resource Manager.
 
@@ -1303,7 +1303,7 @@ For more information, see [Microsoft.Web/connections/accesspolicies (ARM templat
 
 ---
 
-<a name="setup-identity-apihub-authentiation"></a>
+<a name="setup-identity-apihub-authentication"></a>
 
 ## Set up advanced control over API connection authentication
 
@@ -1492,7 +1492,7 @@ The following steps remove access to the target resource from the managed identi
 
 1. On the logic app resource menu, under **Settings**, select **Identity**, and then follow the steps for your identity:
 
-   - Select **System assigned** > **On** > **Save**. When Azure prompts you to confirm, select **Yes**.
+   - Select **System assigned** > **Off** > **Save**. When Azure prompts you to confirm, select **Yes**.
 
    - Select **User assigned** and the managed identity, and then select **Remove**. When Azure prompts you to confirm, select **Yes**.
 

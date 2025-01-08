@@ -9,7 +9,13 @@ items:
   - name: App Service
     tocHref: /azure/reliability/
     topicHref: /azure/app-service/index
+  - name: App Service
+    tocHref: /azure/developer/
+    topicHref: /azure/app-service/index
     items:
     - name: Web Apps
       tocHref: /entra/fundamentals/
+      topicHref: /azure/app-service/index
+    - name: Web Apps
+      tocHref: /azure/developer/
       topicHref: /azure/app-service/index

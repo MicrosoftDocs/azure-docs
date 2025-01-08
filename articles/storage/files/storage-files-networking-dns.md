@@ -4,7 +4,7 @@ description: Learn how to configure DNS forwarding for Azure Files to properly r
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/10/2024
+ms.date: 09/09/2024
 ms.author: kendownie
 ---
 

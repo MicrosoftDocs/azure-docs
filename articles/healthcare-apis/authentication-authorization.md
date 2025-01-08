@@ -3,7 +3,7 @@ title: Authentication and authorization in Azure Health Data Services
 description: Learn how to manage access to Azure Health Data Services by using Microsoft Entra ID, assign application roles, and secure your data with OAuth 2.0 protocols and managed identities.
 services: healthcare-apis
 author: EXPEkesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.topic: overview
 ms.date: 04/30/2024
 ms.author: kesheth

@@ -6,7 +6,7 @@ ms.author: patricka
 ms.reviewer: arduppal
 ms.date: 06/06/2024
 ms.topic: concept-article
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ---
@@ -297,10 +297,10 @@ This Azure Blob Storage on IoT Edge module now provides integration with Event G
 
 ## Release Notes
 
-Here are the [release notes in docker hub](https://hub.docker.com/_/microsoft-azure-blob-storage) for this module. You might be able to find more information related to bug fixes and remediation in the release notes of a specific version.
+Here are the [release notes in docker hub](https://hub.docker.com/r/microsoft/azure-blob-storage) for this module. You might be able to find more information related to bug fixes and remediation in the release notes of a specific version.
 
 ## Next steps
 
 Learn how to [Deploy Azure Blob Storage on IoT Edge](how-to-deploy-blob.md)
 
-Stay up-to-date with recent updates and announcement on the [Azure Blob Storage on IoT Edge release notes](https://hub.docker.com/_/microsoft-azure-blob-storage) page.
+Stay up-to-date with recent updates and announcement on the [Azure Blob Storage on IoT Edge release notes](https://hub.docker.com/r/microsoft/azure-blob-storage) page.

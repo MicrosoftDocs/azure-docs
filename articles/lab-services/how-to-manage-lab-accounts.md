@@ -7,6 +7,8 @@ ms.date: 06/25/2024
 
 # Manage lab accounts
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-labaccount-focused-article.md)]
 
 In Azure Lab Services, a lab account is a container for labs. An administrator creates a lab account with Azure Lab Services and provides access to lab owners who can create labs in the account. This article describes how to create a lab account, view all lab accounts, and delete a lab account.
@@ -79,7 +81,7 @@ The **Shut down virtual machines when users disconnect** setting supports both W
 - The Secure Shell (SSH) connection is disconnected for a Linux VM.
 
 > [!IMPORTANT]
-> Only [specific distributions and versions of Linux](../virtual-machines/extensions/diagnostics-linux.md#supported-linux-distributions) are supported. Shutdown settings are not supported by the [Data Science Virtual Machine - Ubuntu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) image.
+> Only [specific distributions and versions of Linux](/azure/virtual-machines/extensions/diagnostics-linux#supported-linux-distributions) are supported. Shutdown settings are not supported by the [Data Science Virtual Machine - Ubuntu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) image.
 
 You can specify how long the virtual machines should wait for the user to reconnect before automatically shutting down.
 

@@ -4,7 +4,7 @@ description: Overview of Azure Modeling and Simulation Workbench data pipeline c
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: conceptual
 ms.date: 01/01/2023
 #Customer intent: As a Modeling and Simulation Workbench user, I want to understand the data pipeline component.
@@ -18,22 +18,22 @@ The data pipeline enables users to bring data into the [chamber](./concept-chamb
 
 ## Importing data overview
 
-Users with access to the chamber can bring data into the chamber via AzCopy and an expiring SAS URI token they get from the chamber component.  They then use AzCopy to move data into the data pipeline endpoint. The chamber recognizes the data pipeline request and moves the file into the chamber.  For traceability purposes, when a file is moved into the chamber, the data pipeline automatically creates a file object in the chamber that represents the file data.
+Users with access to the chamber can bring data into the chamber via AzCopy and an expiring SAS URI token they get from the chamber component. They then use AzCopy to move data into the data pipeline endpoint. The chamber recognizes the data pipeline request and moves the file into the chamber. For traceability purposes, when a file is moved into the chamber, the data pipeline automatically creates a file object in the chamber that represents the file data.
 
 ## Exporting data overview
 
 Users with access to the chamber can export data from the chamber via the data pipeline.
 
-1. **Identify file to export.** The export process is triggered when a user places a file to export into a designated area within the chamber.  A Chamber Admin or Chamber User copies the file to the data out folder within the pipeline. The data pipeline detects the copied file and creates a file object. The file creation activity is traceable in the logs and enables the next step of the data pipeline.
+1. **Identify file to export.** The export process is triggered when a user places a file to export into a designated area within the chamber. A chamber Admin or chamber User copies the file to the data out folder within the pipeline. The data pipeline detects the copied file and creates a file object. The file creation activity is traceable in the logs and enables the next step of the data pipeline.
 
-1. **Request file to export.** A Chamber Admin reviews files in the data pipeline and requests to export files in the data out folder in the chamber. The pipeline creates a file request object. The export request activity is traceable in the logs and enables the next step of the data pipeline.
+1. **Request file to export.** A Chamber Admin reviews the files staged in the data pipeline and requests to export. The pipeline manager creates a file request object. The export request activity is traceable in the logs and enables the next step of the data pipeline.
 
-1. **Approve/reject export request.** The Workbench Owner approves or rejects the file request object for export. The export approval step must be completed by the Workbench Owner and can't be the same person who requested to export the data.
+1. **Approve/reject export request.** The Workbench Owner either approves or rejects the export file request. Only a Workbench Owner can approve or reject requests. The individual who approves or denies can't be the same person who initially requested the export.
 
-1. **Download file to export.** If a file is approved for export, the user gets a download URI from the file request object and copies it out of the chamber using AzCopy. The URI has an expiration timestamp and must be downloaded before it expires. If the URI expires, you need to request a new download URI.
+1. **Download file.** If a file is approved for export, the user gets a download URI from the file request object and copies it out of the chamber using AzCopy. The URI has an expiration timestamp and must be downloaded before it expires. If the URI expires, you need to request a new download URI.
 
-  > [!NOTE]
-  > Larger files take longer to be available to download after being approved and to download using AzCopy.  Check the expiration on the download URI and request a new one if the window has expired.
+ > [!NOTE]
+ > Larger files take longer to be available to download after being approved and to download using AzCopy. Check the expiration on the download URI and request a new one if the window has expired.
 
 ## Next steps
 

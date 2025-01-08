@@ -36,7 +36,7 @@ This article describes the **HPE ProLiant DL20 Gen 11** appliance for OT sensors
 |Power|HPE 800 W Flex Slot Titanium Hot Plug Low Halogen Power Supply Kit |
 |Rack support|HPE Easy Install Rail 12 Kit |
 
-## DL20 Gen11 (NHP 2LFF) - Bill of Materials
+## DL20 Gen11 (NHP 2LFF) - Bill of materials
 
 |Quantity|PN|Description|
 |----|---|----|
@@ -76,4 +76,3 @@ Continue learning about the system requirements for physical or virtual applianc
 Then, use any of the following procedures to continue:
 
 - [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
-- [Download software files for an on-premises management console](../legacy-central-management/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

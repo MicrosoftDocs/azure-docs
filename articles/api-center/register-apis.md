@@ -2,7 +2,7 @@
 title: Tutorial - Start your API inventory 
 description: In this tutorial, start the API inventory in your API center by registering APIs using the Azure portal.
 author: dlepow
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: tutorial
 ms.date: 04/19/2024
 ms.author: danlep 
@@ -27,7 +27,7 @@ In this tutorial, you learn how to use the portal to:
 * One or more APIs that you want to register in your API center. Here are two examples, with links to their OpenAPI definitions:
 
     * [Swagger Petstore API](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)
-    * [Azure Demo Conference API](https://conferenceapi.azurewebsites.net?format=json)
+    * [Conference API](https://bigconference.azurewebsites.net)
 
 * Complete the previous tutorial, [Define custom metadata](add-metadata-properties.md), to define custom metadata for your APIs.
 
@@ -41,7 +41,7 @@ When you register (add) an API in your API center, the API registration includes
 
 After registering an API, you can add versions and definitions to the API.
 
-The following steps register two sample APIs: Swagger Petstore API and Demo Conference API (see [Prerequisites](#prerequisites)). If you prefer, register APIs of your own.
+The following steps register two sample APIs: Swagger Petstore API and Conference API (see [Prerequisites](#prerequisites)). If you prefer, register APIs of your own.
  
 1. In the [portal](https://portal.azure.com), navigate to your API center.
 
@@ -70,7 +70,7 @@ The following steps register two sample APIs: Swagger Petstore API and Demo Conf
 
 1. Select **Create**. The API is registered.
 
-1. Repeat the preceding three steps to register another API, such as the Demo Conference API.
+1. Repeat the preceding three steps to register another API, such as the Conference API.
 
 > [!TIP]
 > When you register an API in the portal, you can select any of the predefined API types or enter another type of your choice. 
@@ -89,9 +89,9 @@ Here you add a version to one of your APIs:
 
 1. In the portal, navigate to your API center.
 
-1. In the left menu, select **APIs**, and then select an API, for example, *Demo Conference API*.
+1. In the left menu, select **APIs**, and then select an API, for example, *Swagger Petstore*.
 
-1. On the Demo Conference API page, under **Details**, select **Versions** > **+ Add version**.
+1. On the API page, under **Details**, select **Versions** > **+ Add version**.
 
     :::image type="content" source="media/register-apis/add-version.png" alt-text="Screenshot of adding an API version in the portal." lightbox="media/register-apis/add-version.png":::
 
@@ -126,9 +126,9 @@ To add an API definition to your version:
         |**Title**| Enter a title of your choice, such as *v2 Definition*.|Name you choose for the API definition.|
         |**Identification**|After you enter the preceding title, Azure API Center generates this identifier, which you can override.| Azure resource name for the definition.|
         | **Description** | Optionally enter a description. | Description of the API definition. |
-        | **Specification name** | For the Demo Conference API, select **OpenAPI**. | Specification format for the API.|
-        | **Specification version** | Enter a version identifier of your choice, such as *2.0*. | Specification version. |
-        |**Document**        | Browse to a local definition file for the Demo Conference API, or enter a URL. Example URL: `https://conferenceapi.azurewebsites.net?format=json`   |  API definition file.     |
+        | **Specification name** | For the Petstore API, select **OpenAPI**. | Specification format for the API.|
+        | **Specification version** | Enter a version identifier of your choice, such as *3.0*. | Specification version. |
+        |**Document**        | Browse to a local definition file for the Petstore API, or enter a URL. Example URL: `https://raw.githubusercontent.com/swagger-api/swagger-petstore/refs/heads/master/src/main/resources/openapi.yaml`   |  API definition file.     |
 
         :::image type="content" source="media/register-apis/add-definition.png" alt-text="Screenshot of adding an API definition in the portal." lightbox="media/register-apis/add-definition.png" :::
 
@@ -139,7 +139,7 @@ In this tutorial, you learned how to use the portal to:
 > * Register one or more APIs
 > * Add an API version with an API definition
 
-As you build out your API inventory, take advantage of automated tools to register APIs, such as the [Azure API Center extension for Visual Studio Code](use-vscode-extension.md) and the [Azure CLI](manage-apis-azure-cli.md).
+As you build out your API inventory, take advantage of automated tools to register APIs, such as the [Azure API Center extension for Visual Studio Code](build-register-apis-vscode-extension.md) and the [Azure CLI](manage-apis-azure-cli.md).
 
 ## Next steps
 

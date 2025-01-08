@@ -6,7 +6,7 @@ manager: bburns
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 11/09/2023
+ms.date: 09/16/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -21,9 +21,9 @@ This document provides guidance for configuring Azure infrastructure and operati
 ## Prerequisites
 To use this guide, you need basic knowledge of the following Azure components:
 
-- [Azure virtual machines](../../virtual-machines/linux/tutorial-manage-vm.md)
-- [Azure networking and virtual networks](../../virtual-machines/linux/tutorial-virtual-network.md)
-- [Azure Storage](../../virtual-machines/linux/tutorial-manage-disks.md)
+- [Azure virtual machines](/azure/virtual-machines/linux/tutorial-manage-vm)
+- [Azure networking and virtual networks](/azure/virtual-machines/linux/tutorial-virtual-network)
+- [Azure Storage](/azure/virtual-machines/linux/tutorial-manage-disks)
 
 To learn more about SAP NetWeaver and other SAP components on Azure, see the [SAP on Azure](./get-started.md) section of the [Azure documentation](../../index.yml).
 
@@ -53,10 +53,8 @@ Deploy the VMs in Azure by using:
 - Azure PowerShell cmdlets.
 - The Azure CLI.
 
-You also can deploy a complete installed SAP HANA platform on the Azure VM services through the [SAP Cloud platform](https://cal.sap.com/). The installation process is described in [Deploy SAP S/4HANA or BW/4HANA on Azure](./cal-s4h.md).
-
 >[!IMPORTANT]
-> In order to use M208xx_v2 VMs, you need to be careful selecting your Linux image. For more information, see [Memory optimized virtual machine sizes](../../virtual-machines/mv2-series.md).
+> In order to use M208xx_v2 VMs, you need to be careful selecting your Linux image. For more information, see [Memory optimized virtual machine sizes](/azure/virtual-machines/mv2-series).
 > 
 
 
@@ -105,6 +103,12 @@ To deploy SAP HANA in Azure without a site-to-site connection, you still want to
 Another description on how to use Azure NVAs to control and monitor access from Internet without the hub and spoke VNet architecture can be found in the article [Deploy highly available network virtual appliances](/azure/architecture/reference-architectures/dmz/nva-ha).
 
 
+### Clock source options in Azure VMs
+SAP HANA requires reliable and accurate timing information to perform optimally. Traditionally Azure VMs running on Azure hypervisor used only Hyper-V TSC page as a default clock source. Technology advancements in hardware, host OS and Linux guest OS kernels made it possible to provide "Invariant TSC" as a clock source option on some Azure VM SKUs.  
+
+Hyper-V TSC page (`hyperv_clocksource_tsc_page`)  is supported on all Azure VMs as a clock source. 
+If the underlying hardware, hypervisor and guest OS linux kernel support Invariant TSC, `tsc` will be offered as available and supported clock source in the guest OS on Azure VMs.    
+
 ## Configuring Azure infrastructure for SAP HANA scale-out
 
 In order to find out the Azure VM types that are certified for either OLAP scale-out or S/4HANA scale-out, check the [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;iaas;ve:24). A checkmark in the column 'Clustering' indicates scale-out support. Application type indicates whether OLAP scale-out or S/4HANA scale-out is supported. For details on nodes certified in scale-out, review the entry for a specific VM SKU listed in the SAP HANA hardware directory.
@@ -127,7 +131,7 @@ The basic configuration of a VM node for SAP HANA scale-out looks like:
 - All other disk volumes aren't shared among the different nodes and aren't based on NFS. Installation configurations and steps for scale-out HANA installations with non-shared **/hana/data** and **/hana/log** is provided further later in this document. For HANA certified storage that can be used, check the article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md).
 
 
-Sizing the volumes or disks, you need to check the document [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html), for the size required dependent on the number of worker nodes. The document releases a formula you need to apply to get the required capacity of the volume
+Sizing the volumes or disks, you need to check the document [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2024/03/146274d3-ae7e-0010-bca6-c68f7e60039b.html), for the size required dependent on the number of worker nodes. The document releases a formula you need to apply to get the required capacity of the volume
 
 The other design criteria that is displayed in the graphics of the single node configuration for a scale-out SAP HANA VM is the VNet, or better the subnet configuration. SAP highly recommends a separation of the client/application facing traffic from the communications between the HANA nodes. As shown in the graphics, this goal is achieved by having two different vNICs attached to the VM. Both vNICs are in different subnets, have two different IP addresses. You then control the flow of traffic with routing rules using NSGs or user-defined routes.
 
@@ -197,7 +201,7 @@ instance is running. Initially two VM types can be used to run SAP HANA DT 2.0:
 - M64-32ms 
 - E32sv3 
 
-For more information on the VM type description, see [Azure VM sizes - Memory](../../virtual-machines/sizes-memory.md)
+For more information on the VM type description, see [Azure VM sizes - Memory](/azure/virtual-machines/sizes-memory)
 
 Given the basic idea of DT 2.0, which is about offloading "warm" data in order to save costs it makes sense to use corresponding
 VM sizes. There's no strict rule though regarding the possible combinations. It depends on the specific customer workload.
@@ -234,7 +238,7 @@ According to the specifications for the two Azure VM types, which are supported 
 It's required to attach multiple Azure disks to the DT 2.0 VM and create a software raid (striping) on OS level to achieve the max limit of disk throughput 
 per VM. A single Azure disk can't provide the throughput to reach the max VM limit in this regard. Azure Premium storage is mandatory to run DT 2.0. 
 
-- Details about available Azure disk types can be found on the [Select a disk type for Azure IaaS VMs - managed disks](../../virtual-machines/disks-types.md) page
+- Details about available Azure disk types can be found on the [Select a disk type for Azure IaaS VMs - managed disks](/azure/virtual-machines/disks-types) page
 - Details about creating software raid via mdadm can be found on the [Configure software RAID on a Linux VM](/previous-versions/azure/virtual-machines/linux/configure-raid) page
 - Details about configuring LVM to create a striped volume for max throughput can be found on the [Configure LVM on a virtual machine running Linux](/previous-versions/azure/virtual-machines/linux/configure-lvm) page
 
@@ -258,9 +262,9 @@ data volumes of database software. Whereas for the transaction log Azure host di
 Regarding the size of the log volume a recommended starting point is a heuristic of 15% of the data size. The creation of the log volume  can be accomplished by using different
 Azure disk types depending on cost and throughput requirements. For the log volume, high I/O throughput is required.  
 
-When using the VM type M64-32ms, it's mandatory to enable [Write Accelerator](../../virtual-machines/how-to-enable-write-accelerator.md). Azure Write Accelerator provides optimal disk write latency for the transaction
+When using the VM type M64-32ms, it's mandatory to enable [Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator). Azure Write Accelerator provides optimal disk write latency for the transaction
 log (only available for M-series). There are some items to consider though like the maximum number of disks per VM type. Details about Write Accelerator can be
-found on the [Azure Write Accelerator](../../virtual-machines/how-to-enable-write-accelerator.md) page
+found on the [Azure Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) page
 
 
 Here are a few examples about sizing the log volume:

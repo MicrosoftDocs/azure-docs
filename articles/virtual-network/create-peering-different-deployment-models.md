@@ -5,7 +5,7 @@ services: virtual-network
 author: asudbring
 manager: mtillman
 ms.custom: devx-track-azurecli
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 11/15/2018
 ms.author: allensu

@@ -5,13 +5,13 @@ description: In this Quickstart, run a sample WPF desktop application that uses 
 
 author: garrodonnell
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: quickstart
 ms.custom: mvc, mode-other
 ms.date: 01/24/2023
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 
 #Customer Intent: As a developer building a desktop app, I want to set up sign-in functionality using Azure Active Directory B2C, so that I can authenticate users with social and enterprise accounts and protect my application and customer data.
 

@@ -5,7 +5,7 @@ description: In this quickstart, you create an Azure virtual network and subnets
 ms.topic: quickstart
 ms.date: 1/19/2024
 ms.custom: devx-track-terraform, devx-track-azurecli
-ms.service: virtual-network
+ms.service: azure-virtual-network
 author: asudbring
 ms.author: allensu
 content_well_notification: 

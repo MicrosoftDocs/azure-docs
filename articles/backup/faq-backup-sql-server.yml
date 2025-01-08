@@ -1,11 +1,11 @@
 ### YamlMime:FAQ
 metadata:
-  title: FAQ - Backing up SQL Server databases on Azure VMs
-  description: Find answers to common questions about backing up SQL Server databases on Azure VMs with Azure Backup.
+  title: FAQ - Backing up SQL Server databases on Azure Virtual Machines (VMs)
+  description: Find answers to common questions about backing up SQL Server databases on an Azure Virtual Machine (VM) with Azure Backup.
   ms.reviewer: vijayts
   ms.topic: faq
-  ms.service: backup
-  ms.date: 03/05/2024
+  ms.service: azure-backup
+  ms.date: 10/14/2024
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
 
@@ -19,14 +19,14 @@ sections:
   - name: Backup
     questions:
       - question: |
-          Can I use Azure Backup for IaaS VM as well as SQL Server on the same machine?
+          Can I use Azure Backup for IaaS VM and SQL Server on the same machine?
         answer: |
           Yes, you can have both VM backup and SQL backup on the same VM. In this case, we internally trigger copy-only full backup on the VM to not truncate the logs.
 
       - question: |
           Does the solution retry or auto-heal the backups?
         answer: |
-          Under some circumstances, the Azure Backup service triggers remedial backups. Auto-heal can happen for any of the six conditions mentioned below:
+          Under some circumstances, the Azure Backup service triggers remedial backups. Auto-heal can happen for any of the following six conditions:
           
           - If log or differential backup fails due to LSN Validation Error, next log or differential backup is instead converted to a full backup.
           - If no full backup has happened before a log or differential backup, that log or differential backup is instead converted to a full backup.
@@ -140,6 +140,10 @@ sections:
         answer: |
           Yes, you need a file path in a registered VM to download files. That path can be a network share too. Configure a network share from the unregistered VM to the registered VM and then choose the registered VM as target and the network share as the target file path. Once files are downloaded, you could simply unmount the network share from the registered VM and the files are now available in the unregistered VM.
 
+      - question: |
+          Connecting the Azure environment to on-premises network using ExpressRoute and  configured forced tunneling directs all the traffic to the on-premises network. How can I configure the settings so that Azure SQL Server workload backup traffic won't pass through the on-premises network and directly connects to Recovery Services vault?
+        answer: |
+          During the backup operation, the *backup job* connects to three Service Endpoints - `AzureBackup`, `AzureStorage`, and `Microsoft Entra ID`. In this scenario, we recommend you to configure the Service Endpoint to `AzureStorage`, which helps to send the traffic from the Virtual Network to the Storage directly. For Azure Backup and Microsoft Entra ID, you can configure UDR over service tags so that the traffic travels to backbone network instead of on-premises.
 
 additionalContent: |
 

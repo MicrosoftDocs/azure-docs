@@ -4,20 +4,16 @@ description: Describes how to use an Azure Marketplace image to create a VM imag
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 06/26/2024
+ms.date: 06/28/2024
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
 
 ---
 
 # Use Azure Marketplace image to create VM image for your Azure Stack Edge Pro GPU
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
@@ -153,7 +149,6 @@ Below is a list of URNs for some of the most commonly used images. If you just w
 | Windows Desktop | Windows 10 20H2 Pro                     | 19042.928.2104091209  | MicrosoftWindowsDesktop:Windows-10:20h2-pro:19042.928.2104091209                          |
 | Ubuntu Server   | Canonical Ubuntu Server 18.04 LTS       | 18.04.202002180       | Canonical:UbuntuServer:18.04-LTS:18.04.202002180                                          |
 | Ubuntu Server   | Canonical Ubuntu Server 16.04 LTS       | 16.04.202104160       | Canonical:UbuntuServer:16.04-LTS:16.04.202104160                                          |
-| CentOS          | CentOS 8.1                              | 8.1.2020062400        | OpenLogic:CentOS:8_1:8.1.2020062400                                                       |
 
 ## Create a new managed disk from the Marketplace image
 
@@ -189,7 +184,7 @@ PS /home/user> az disk create -g $diskRG -n $diskName --image-reference $urn
     "createOption": "FromImage",
     "galleryImageReference": null,
     "imageReference": {
-      "id": "/Subscriptions/db4e2fdb-6d80-4e6e-b7cd-736098270664/Providers/Microsoft.Compute/Locations/eastus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2019-Datacenter/Versions/17763.1935.2105080716",
+      "id": "/Subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/Providers/Microsoft.Compute/Locations/eastus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2019-Datacenter/Versions/17763.1935.2105080716",
       "lun": null
     },
     "logicalSectorSize": null,
@@ -214,7 +209,7 @@ PS /home/user> az disk create -g $diskRG -n $diskName --image-reference $urn
   "encryptionSettingsCollection": null,
   "extendedLocation": null,
   "hyperVGeneration": "V1",
-  "id": "/subscriptions/db4e2fdb-6d80-4e6e-b7cd-736098270664/resourceGroups/newrgmd1/providers/Microsoft.Compute/disks/NewManagedDisk1",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/newrgmd1/providers/Microsoft.Compute/disks/NewManagedDisk1",
   "location": "eastus",
   "managedBy": null,
   "managedByExtended": null,

@@ -18,7 +18,7 @@ ms.author: normesta
 Azure Storage Actions is a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. 
 
 > [!IMPORTANT]
-> Azure Storage Actions is currently in PREVIEW and is available these [regions](#supported-regions).
+> Azure Storage Actions is currently in PREVIEW and is available in these [regions](#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 The preview release of Azure Storage Actions enables you to create _storage tasks_ that can perform operations on blobs in Azure Storage accounts based on a set of conditions that you define. Storage tasks can process millions of objects in a storage account without provisioning additional compute capacity and without requiring you to write code.
@@ -45,7 +45,8 @@ See these articles to learn how to define a storage task:
 
 - [Create a storage task](storage-tasks/storage-task-create.md)
 - [Define storage task conditions and operations](storage-tasks/storage-task-conditions-operations-edit.md)
-- [Properties, operators, and operations in storage task conditions](storage-tasks/storage-task-properties-operators-operations.md)
+- [Storage task conditions](storage-tasks/storage-task-conditions.md)
+- [Storage task operations](storage-tasks/storage-task-operations.md)
 
 ### Assign a storage task
 
@@ -115,6 +116,9 @@ Azure Storage tasks are supported in the following public regions:
 ## Pricing and billing
 
 You can try the feature for free during the preview, paying only for transactions invoked on your storage account. Pricing information for the feature will be published before general availability.
+
+> [!Note]
+> General-purpose v1 accounts don't support the latest features and hence Azure Storage Actions is not supported either. If you have a general-purpose v1 account, we recommend you to upgrade to [general-purpose v2 accounts](/azure/well-architected/service-guides/storage-accounts/operational-excellence#design-considerations) to use all the latest features.
 
 ## Next steps
 

@@ -7,6 +7,7 @@ ms.author: sipa
 ms.date: 06/19/2023
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: web-sdk
 #Customer intent: As an Azure Maps web sdk user, I want to add simple data layer so that I can render styled features on the map.
 ---
 
@@ -14,7 +15,7 @@ ms.service: azure-maps
 
 The spatial IO module provides a `SimpleDataLayer` class. This class makes it easy to render styled features on the map. It can even render data sets that have style properties and data sets that contain mixed geometry types. The simple data layer achieves this functionality by wrapping multiple rendering layers and using style expressions. The style expressions search for common style properties of the features inside these wrapped layers. The `atlas.io.read` function and the `atlas.io.write` function use these properties to read and write styles into a supported file format. After adding the properties to a supported file format, the file can be used for various purposes. For example, the file can be used to display the styled features on the map.
 
-In addition to styling features, the `SimpleDataLayer` provides a built-in popup feature with a popup template. The popup displays when a feature is clicked. The default popup feature can be disabled, if desired. This layer also supports clustered data. When a cluster is clicked, the map zooms into the cluster and expands it into individual points and subclusters.
+In addition to styling features, the `SimpleDataLayer` provides a built-in popup feature with a popup template. The popup displays when a feature is selected. The default popup feature can be disabled, if desired. This layer also supports clustered data. When a cluster is clicked, the map zooms into the cluster and expands it into individual points and subclusters.
 
 The `SimpleDataLayer` class is intended to be used on large data sets with many geometry types and many styles applied on the features. When used, this class adds an overhead of six layers containing style expressions. So, there are cases when it's more efficient to use the core rendering layers. For example, use a core layer to render a couple of geometry types and a few styles on a feature
 
@@ -62,7 +63,18 @@ function InitMap()
     map.layers.add(layer);
 
     //Load an initial data set.
-    loadDataSet('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1717245/use-simple-data-layer.json');
+    const dataSet = {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [0, 0]
+        },
+        "properties": {
+            "color": "red"
+        }
+    };
+    
+    loadDataSet(dataSet);
 
     function loadDataSet(url) {
       //Read the spatial data and add it to the map.
@@ -82,21 +94,6 @@ function InitMap()
       });
     }
   });
-}
-```
-
-The url passed to the `loadDataSet` function points to the following json:
-
-```json
-{
-    "type": "Feature",
-    "geometry": {
-        "type": "Point",
-        "coordinates": [0, 0]
-    },
-    "properties": {
-        "color": "red"
-    }
 }
 ```
 
@@ -138,7 +135,7 @@ For example when parsing XML data feeds, you may not know the exact styles and g
 > [!NOTE]
 > This simple data layer uses the [popup template] class to display KML balloons or feature properties as a table. By default, all content rendered in the popup will be sandboxed inside of an iframe as a security feature. However, there are limitations:
 >
-> - All scripts, forms, pointer lock and top navigation functionality is disabled. Links are allowed to open up in a new tab when clicked.
+> - All scripts, forms, pointer lock and top navigation functionality is disabled. Links are allowed to open up in a new tab when selected.
 > - Older browsers that don't support the `srcdoc` parameter on iframes will be limited to rendering a small amount of content.
 >
 > If you trust the data being loaded into the popups and potentially want these scripts loaded into popups be able to access your application, you can disable this by setting the popup templates `sandboxContent` option to false.

@@ -3,7 +3,7 @@ title: 'Quickstart: Deploy your first container app with containerapp up'
 description: Deploy your first application to Azure Container Apps using the Azure CLI containerapp up command.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: quickstart
 ms.date: 01/10/2024
 ms.author: cshoe

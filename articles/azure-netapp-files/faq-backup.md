@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 09/10/2022
+ms.date: 04/24/2024
 ---
 # Azure NetApp Files backup FAQs
 
@@ -39,7 +39,7 @@ The system makes 10 retries when processing a scheduled backup job. If the job f
 
 ## Next steps  
 
-- [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)
+- [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request)
 - [Networking FAQs](faq-networking.md)
 - [Security FAQs](faq-security.md)
 - [Performance FAQs](faq-performance.md)

@@ -85,12 +85,6 @@
       href: ./security-controls-policy.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/stream-analytics-security-baseline?toc=/azure/stream-analytics/TOC.json
-  - name: Metrics for job monitoring
-    items:
-    - name: Stream Analytics metrics
-      href: stream-analytics-job-metrics.md
-    - name: Stream Analytics metrics dimensions
-      href: stream-analytics-job-metrics-dimensions.md
   - name: Integrate with Schema Registry
     href: stream-analytics-schema-registry-integration.md
   - name: Input types for a job
@@ -296,7 +290,7 @@
       displayName: managed identity, identities, authenticate
   - name: Build solutions
     items:
-    - name: Twitter sentiment analysis
+    - name: X sentiment analysis
       href: stream-analytics-twitter-sentiment-analysis-trends.md
     - name: Run jobs on Azure Stack
       href: on-azure-stack.md
@@ -323,7 +317,7 @@
       href: geospatial-scenarios.md
   - name: Monitor
     items:
-    - name: Monitor Azure Stream Analytics
+    - name: Monitor Stream Analytics
       href: monitor-azure-stream-analytics.md
     - name: Monitoring data reference
       href: monitor-azure-stream-analytics-reference.md

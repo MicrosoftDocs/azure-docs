@@ -4,7 +4,6 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn the concepts of Flowlets in mapping data flow.
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
@@ -63,7 +62,7 @@ For a single transformation activity, you can right-click the mapping data flow 
 
 ![Screenshot showing creating a flowlet from an existing activity using the right-click menu option.](./media/data-flow-flowlet/flowlet-context-create.png)
 
-If you have mulit-select turned on, you can also select multiple mapping data flow activities. This can be done by either lassoing multiple activities by drawing a rectangle to select them or using shift+select to select multiple activities. Then you'll right-click and select Create a new flowlet.
+If you have multi-select turned on, you can also select multiple mapping data flow activities. This can be done by either lassoing multiple activities by drawing a rectangle to select them or using shift+select to select multiple activities. Then you'll right-click and select Create a new flowlet.
 
 ![Screenshot showing multiple selection from existing activities.](./media/data-flow-flowlet/flowlet-context-multi.png)
 

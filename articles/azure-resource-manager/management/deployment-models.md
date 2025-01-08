@@ -3,7 +3,7 @@ title: Resource Manager and classic deployment
 description: Describes the differences between the Resource Manager deployment model and the classic (or Service Management) deployment model.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 03/19/2024
+ms.date: 09/26/2024
 ---
 
 # Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources
@@ -120,10 +120,10 @@ To learn about connecting virtual networks from different deployment models, see
 
 If you're ready to migrate your resources from classic deployment to Resource Manager deployment, see:
 
-1. [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-deep-dive.md)
-2. [Platform supported migration of IaaS resources from Classic to Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md)
-3. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell](../../virtual-machines/migration-classic-resource-manager-ps.md)
-4. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI](../../virtual-machines/migration-classic-resource-manager-cli.md)
+1. [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-deep-dive)
+2. [Platform supported migration of IaaS resources from Classic to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-overview)
+3. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell](/azure/virtual-machines/migration-classic-resource-manager-ps)
+4. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI](/azure/virtual-machines/migration-classic-resource-manager-cli)
 
 ## Frequently asked questions
 

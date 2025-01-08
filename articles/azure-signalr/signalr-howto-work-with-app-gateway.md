@@ -4,7 +4,7 @@ description: This article provides information about using Azure SignalR Service
 author: vicancy
 ms.author: lianwei
 ms.date: 05/10/2024
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ---
 
@@ -23,6 +23,8 @@ This article contains two parts,
 - [The second part](#secure-signalr-service) shows how to secure SignalR Service by adding access control to SignalR Service and only allow traffic from Application Gateway.
 
 :::image type="content" source="./media/signalr-howto-work-with-app-gateway/architecture.png" alt-text="Diagram that shows the architecture of using SignalR Service with Application Gateway.":::
+
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
 ## Set up and configure Application Gateway
 
@@ -50,8 +52,6 @@ Create from the portal an Application Gateway instance **_AG1_**:
       | _myBackendSubnet_ | (another address range) | Subnet for the Azure SignalR instance.                                                                                                    |
 
   - Accept the default values for the other settings and then select **Next: Frontends**
-
-  :::image type="content" source="./media/signalr-howto-work-with-app-gateway/basics.png" alt-text="Screenshot of creating Application Gateway instance with Basics tab.":::
 
 - On the **Frontends** tab:
 
@@ -141,6 +141,8 @@ When **_AG1_** is created, go to **Health probes** tab under **Settings** sectio
 
 Now, the traffic can reach SignalR Service through the Application Gateway. The customer could use the Application Gateway public IP address or custom domain name to access the resource. Let’s use [this chat application](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/ChatRoom) as an example. Let's start with running it locally.
 
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
+
 - First let's get the connection string of **_ASRS1_**
 
   - On the **Connection strings** tab of **_ASRS1_**
@@ -155,7 +157,7 @@ Now, the traffic can reach SignalR Service through the Application Gateway. The 
   ```bash
   cd samples/Chatroom
   dotnet restore
-  dotnet user-secrets set Azure:SignalR:ConnectionString "<copied-onnection-string-with-client-endpoint>"
+  dotnet user-secrets set Azure:SignalR:ConnectionString "<copied-connection-string-with-client-endpoint>"
   dotnet run
   ```
 
@@ -196,9 +198,7 @@ Let's configure SignalR Service to only allow private access. You can find more 
       - Select **Next: DNS**
     - On **DNS** tab
       - **Integration with private DNS zone**: **Yes**
-    - Review and create the private endpoint
-
-  :::image type="content" source="./media/signalr-howto-work-with-app-gateway/application-gateway-setup-private-endpoint.png" alt-text="Screenshot of setting up the private endpoint resource for the SignalR Service.":::  
+    - Review and create the private endpoint  
 
 
 ### Refresh Application Gateway backend pool

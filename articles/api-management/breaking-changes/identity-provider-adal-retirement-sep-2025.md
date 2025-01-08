@@ -3,7 +3,7 @@ title: Azure API Management identity providers configuration change (September 2
 description: Azure API Management is updating the library used for user authentication in the developer portal. If you use Microsoft Entra ID or Azure AD B2C identity providers, you need to update application settings and identity provider configuration to use the Microsoft Authentication Library (MSAL).
 services: api-management
 author: mikebudzynski
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: reference
 ms.date: 09/06/2022
 ms.author: mibudz
@@ -11,7 +11,7 @@ ms.author: mibudz
 
 # ADAL-based Microsoft Entra ID or Azure AD B2C identity provider retirement (September 2025)
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 On 30 September, 2025 as part of our continuing work to increase the resiliency of API Management services, we're removing the support for the previous library for user authentication and authorization in the developer portal (AD Authentication Library, or ADAL). You need to migrate your Microsoft Entra ID or Azure AD B2C applications, change identity provider configuration to use the Microsoft Authentication Library (MSAL), and republish your developer portal.
 

@@ -174,7 +174,7 @@ You can also exclude files by using the `--exclude-path` option. To learn more, 
 
 ### Use wildcard characters
 
-Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pattern` option. Specify partial names that include the wildcard characters. Separate names by using a semicolin (`;`).
+Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pattern` option. Specify partial names that include the wildcard characters. Separate names by using a semicolon (`;`).
 
 **Syntax**
 

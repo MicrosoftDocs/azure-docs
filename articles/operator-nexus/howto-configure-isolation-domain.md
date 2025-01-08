@@ -45,7 +45,7 @@ Isolation domains are used to enable Layer 2 or Layer 3 connectivity between wor
 |---|---|---|---|
 |`resource-group`	|Use an appropriate resource group name specifically for ISD of your choice|ResourceGroupName|True
 |`resource-name`	|Resource Name of the l2isolationDomain|example-l2domain| True
-|`location`|AODS Azure Region used during NFC Creation|eastus| True
+|`location`|The Operator Nexus' Azure Region used during NFC Creation|eastus| True
 |`nf-Id`	|network fabric ID|"/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFresourcegroupname/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFname"| True
 |`Vlan-id` | VLAN identifier value. VLANs 1-500 are reserved and can't be used. The VLAN identifier value can't be changed once specified. The isolation-domain must be deleted and recreated if the VLAN identifier value needs to be modified. The range is between 501-4095|501| True
 |`mtu` | maximum transmission unit is 1500 by default, if not specified|1500||
@@ -247,7 +247,7 @@ The following parameters are available for configuring L3 isolation domains.
 |---|---|---|---|
 |`resource-group`	|Use an appropriate resource group name specifically for ISD of your choice|ResourceGroupName|True|
 |`resource-name`	|Resource Name of the l3isolationDomain|example-l3domain|True|
-|`location`|AODS Azure Region used during NFC Creation|eastus|True|
+|`location`|The Operator Nexus' Azure Region used during NFC Creation|eastus|True|
 |`nf-Id`|Azure subscriptionId used during NFC Creation|/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFName"| True|
 
 The following parameters for isolation domains are optional.
@@ -387,7 +387,7 @@ Expected Output
 
 Use the following command to change the administrative state of an L3 isolation domain to enabled or disabled:
 
-##Note: At least one internal network should be available to change the adminstrative state of an L3 Isolation Domain. 
+##Note: At least one internal network should be available to change the administrative state of an L3 Isolation Domain. 
 
 ```azurecli
 az networkfabric l3domain update-admin-state --resource-group "ResourceGroupName" --resource-name "example-l3domain" --state Enable/Disable
@@ -453,7 +453,7 @@ The following parameters are available for creating internal networks.
 |`vlan-Id` |Vlan identifier with range from 501 to 4095|1001|True|
 |`resource-group`|Use the corresponding NFC resource group name| NFCresourcegroupname | True
 |`l3-isolation-domain-name`|Resource Name of the l3isolationDomain|example-l3domain | True
-|`location`|AODS Azure Region used during NFC Creation|eastus | True
+|`location`|The Operator Nexus' Azure Region used during NFC Creation|eastus | True
 
 
 The following parameters are optional for creating internal networks.
@@ -475,7 +475,7 @@ The following parameters are optional for creating internal networks.
 |`ipv4ListenRangePrefixes`| BGP IPv4 listen range, maximum range allowed in /28| 10.1.0.0/26 | |
 |`ipv4NeighborAddress`| IPv4 neighbor address|10.0.0.11| |
 |`ipv6NeighborAddress`| IPv6 neighbor address|10:101:1::11| |
-|`isMonitoringEnabled`| TO enable or disbable monitoring on internal network|False| |
+|`isMonitoringEnabled`| TO enable or disable monitoring on internal network|False| |
 
 
 You need to create an internal network before you enable an L3 isolation domain. This command creates an internal network with BGP configuration and a specified peering address:
@@ -658,7 +658,7 @@ The commands for creating an external network by using Azure CLI include the fol
 
 |Parameter|Description|Example|Required|
 |---|---|---|---|
-|peeringOption |Peering using either optionA or optionb. Possible values OptionA and OptionB |OptionB| True|
+|peeringOption |Peering using either optionA or optionB. Possible values OptionA and OptionB |OptionB| True|
 |optionBProperties | OptionB properties configuration. To specify use exportIPv4/IPv6RouteTargets or importIpv4/Ipv6RouteTargets|"exportIpv4/Ipv6RouteTargets": ["1234:1234"]}}||
 |optionAProperties | Configuration of OptionA properties. Please refer to OptionA example in section below |||
 |external|This is an optional Parameter to input MPLS Option 10 (B) connectivity to external networks via Provider Edge devices. Using this Option, a user can Input Import and Export Route Targets as shown in the example| || 

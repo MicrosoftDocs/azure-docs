@@ -25,10 +25,10 @@ Before you get started, make sure you have the following requirements in place:
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ::: zone pivot="nodejs-model-v3" 
-+ [Node.js 18.x](https://nodejs.org/en/download/releases/) or [Node.js 16.x](https://nodejs.org/en/download/releases/). Use the `node --version` command to check your version.  
++ [Node.js 18.x](https://nodejs.org/en/about/previous-releases) or [Node.js 16.x](https://nodejs.org/en/about/previous-releases). Use the `node --version` command to check your version.  
 ::: zone-end
 ::: zone pivot="nodejs-model-v4" 
-+ [Node.js 18.x](https://nodejs.org/en/download/releases/) or above. Use the `node --version` command to check your version.  
++ [Node.js 18.x](https://nodejs.org/en/about/previous-releases) or above. Use the `node --version` command to check your version.  
 
 + [TypeScript 4.x](https://www.typescriptlang.org/). Use the `tsc -v` command to check your version.
 ::: zone-end
@@ -61,7 +61,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |**Select a TypeScript programming model**|Choose `Model V3`|
     |**Select a template for your project's first function**|Choose `HTTP trigger`.|
     |**Provide a function name**|Type `HttpExample`.|
-    |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
+    |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth).|
     |**Select how you would like to open your project**|Choose `Open in current window`.|
 
     Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=typescript#generated-project-files).

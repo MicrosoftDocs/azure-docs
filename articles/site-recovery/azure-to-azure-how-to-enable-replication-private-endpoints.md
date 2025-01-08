@@ -3,17 +3,14 @@ title: Enable replication for private endpoints in Azure Site Recovery
 description: This article describes how to configure replication for VMs with private endpoints from one Azure region to another by using Site Recovery.
 author: ankitaduttaMSFT
 ms.author: ankitadutta
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 04/23/2022
+ms.date: 12/23/2024
 ms.custom: references_regions, subject-rbac-steps, engagement-fy23
 ---
 # Replicate machines with private endpoints
 
-Azure Site Recovery allows you to use
-[Azure Private Link](../private-link/private-endpoint-overview.md) private endpoints for replicating
-your machines from inside an isolated virtual network. Private endpoint access to
-a recovery vault is supported in all Azure Commercial & Government regions.
+Azure Site Recovery allows you to use [Azure Private Link](../private-link/private-endpoint-overview.md) private endpoints for replicating your machines from inside an isolated virtual network. Private endpoint access to a recovery vault is supported in all Azure Commercial & Government regions.
 
 This article provides instructions for you to perform the following steps:
 
@@ -27,7 +24,7 @@ This article provides instructions for you to perform the following steps:
   access for storage as needed. Creation of a private endpoint for accessing storage isn't mandatory
   for Azure Site Recovery.
   
-Below is a reference architecture on how the replication workflow changes with private endpoints.
+Following is a reference architecture on how the replication workflow changes with private endpoints.
 
 :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/architecture.png" alt-text="Reference architecture for Site Recovery with private endpoints.":::
 
@@ -44,7 +41,7 @@ Below is a reference architecture on how the replication workflow changes with p
   outbound access from the secured network. You can also use network security group tag "Azure
   Active Directory" and Azure Firewall tags for allowing access to Microsoft Entra ID, as
   applicable.
-- **At least seven IP addresses are required** in the subnets of both your source machines and your
+- **At least nine IP addresses are required** in the subnets of both your source machines and your
   recovery machines. When you create a private endpoint for the vault, Site Recovery creates five
   private links for access to its microservices. Further, when you enable the replication, it adds
   two additional private links for the source and target region pairing.
@@ -228,7 +225,7 @@ The following steps describe how to add a role assignment to your storage accoun
 
 1. Select **Add > Add role assignment**.
 
-   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
 1. On the **Role** tab, select one of the roles listed in the beginning of this section.
 
@@ -323,9 +320,8 @@ domain names to private IPs.
       :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Shows the page to add a DNS A type record for the fully qualified domain name to the private endpoint in the Azure portal.":::
 
    > [!NOTE]
-   > After you enable replication, two more fully qualified domain names are created on the private
-   > endpoints in both regions. Ensure that you add the DNS records for these newly created
-   > fully qualified domain names as well.
+   > After you enable replication, two more fully qualified domain names are created on the private endpoints in both regions. Ensure that you add the DNS records for these newly created fully qualified domain names as well.
+   > Static IP for Azure Site Recovery private endpoint is not supported. 
 
 ## Next steps
 

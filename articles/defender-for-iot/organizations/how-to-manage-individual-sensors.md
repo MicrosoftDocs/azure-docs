@@ -121,10 +121,6 @@ If you're working with a production environment, you'd deployed a CA-signed SSL/
 
 The following procedures describe how to deploy updated SSL/TLS certificates, such as if the certificate has expired.
 
-> [!TIP]
-> You can also [import the certificate to your OT sensor using CLI commands](references-work-with-defender-for-iot-cli-commands.md#tlsssl-certificate-commands).
->
-
 # [Deploy a CA-signed certificate](#tab/ca-signed)
 
 **To deploy a CA-signed SSL/TLS certificate:**
@@ -226,7 +222,7 @@ A Microsoft Defender for IoT OT network sensor starts monitoring your network au
 
 Initially, this activity happens in *learning* mode, which instructs your OT sensor to learn your network's usual activity, including the devices and protocols in your network, and the regular file transfers that occur between specific devices. Any regularly detected activity becomes your network's [baseline traffic](ot-deploy/create-learned-baseline.md).
 
-This procedure describes how to turn off learning mode manually if you feel that the current alerts accurately reflect your network activity.
+This procedure describes how to turn off learning mode manually when the current alerts accurately reflect your network activity.
 
 **To turn off learning mode**:
 

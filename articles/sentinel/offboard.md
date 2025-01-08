@@ -5,6 +5,10 @@ author: cwatson-cat
 ms.topic: how-to
 ms.date: 03/06/2024
 ms.author: cwatson
+
+
+#Customer intent: As an IT admin, I want to remove Microsoft Sentinel from my Log Analytics workspace so that I can discontinue its use and manage associated costs and configurations.
+
 ---
 
 # Remove Microsoft Sentinel from your workspace

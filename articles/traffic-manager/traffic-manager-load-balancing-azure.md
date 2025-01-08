@@ -4,7 +4,7 @@ description: 'This tutorial shows you how to create a scenario by using the Azur
 services: traffic-manager
 author: greg-lindsay
 manager: kumudD
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.topic: how-to
 ms.date: 04/30/2024
 ms.author: greglin

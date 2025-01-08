@@ -1,7 +1,7 @@
 ---
 title: Performance tune with materialized views
 description: Learn about recommendations and considerations you should know as you use materialized views to improve your query performance. 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 08/17/2021
@@ -124,7 +124,7 @@ SELECT C, SUM(D)
 FROM T
 GROUP BY C
 
--- You could create a single mateiralized view of this form
+-- You could create a single materialized view of this form
 
 SELECT A, C, SUM(B), SUM(D)
 FROM T

@@ -3,10 +3,9 @@ title: 'Configuration deployments in Azure Virtual Network Manager'
 description: Learn about how configuration deployments work in Azure Virtual Network Manager.
 author: mbender-ms    
 ms.author: mbender
-ms.service: virtual-network-manager
-ms.topic: conceptual
+ms.service: azure-virtual-network-manager
+ms.topic: concept-article
 ms.date: 03/22/2024
-ms.custom: template-concept
 ---
 
 # Configuration deployments in Azure Virtual Network Manager

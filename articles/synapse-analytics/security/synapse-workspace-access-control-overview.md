@@ -2,7 +2,7 @@
 title: Azure Synapse workspace access control overview
 description: This article describes the mechanisms used to control access to an Azure Synapse workspace and the resources and code artifacts it contains.
 author: meenalsri
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: security
 ms.date: 3/07/2022

@@ -8,7 +8,7 @@ ms.reviewer: thsomasu
 ms.date: 09/21/2022
 ms.lastreviewed: 05/15/2020
 ms.topic: quickstart
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 

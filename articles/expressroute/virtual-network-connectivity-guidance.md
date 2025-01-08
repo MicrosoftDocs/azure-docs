@@ -3,8 +3,8 @@ title: 'Connectivity between virtual networks over ExpressRoute'
 description: This article explains why virtual network peering is the recommended solution for VNet to VNet connectivity when using ExpressRoute.
 services: expressroute
 author: duongau
-ms.service: expressroute
-ms.topic: conceptual
+ms.service: azure-expressroute
+ms.topic: concept-article
 ms.date: 06/30/2023
 ms.author: duau
 ---

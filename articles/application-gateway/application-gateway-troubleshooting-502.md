@@ -3,7 +3,7 @@ title: Troubleshoot Bad Gateway errors - Azure Application Gateway
 description: 'Learn how to troubleshoot Application Gateway Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server.'
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: troubleshooting
 ms.date: 05/19/2023
 ms.author: greglin
@@ -123,7 +123,7 @@ Validate that the Custom Health Probe is configured correctly, as shown in the p
 * Ensure that the probe is correctly specified as per the [guide](application-gateway-create-probe-ps.md).
 * If  the application gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe.
 * Ensure that a call to http://\<host\>:\<port\>\<path\> returns an HTTP result code of 200.
-* Ensure that Interval, Timeout, and UnhealtyThreshold are within the acceptable ranges.
+* Ensure that Interval, Timeout, and UnhealthyThreshold are within the acceptable ranges.
 * If using an HTTPS probe, make sure that the backend server doesn't require SNI by configuring a fallback certificate on the backend server itself.
 
 ## Request time-out

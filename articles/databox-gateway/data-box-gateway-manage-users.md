@@ -4,8 +4,7 @@ description: Describes how to use the Azure portal to manage users on your Azure
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: gateway
+ms.service: azure-data-box-gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: shaas

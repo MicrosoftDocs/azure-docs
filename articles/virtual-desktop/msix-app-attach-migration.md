@@ -125,7 +125,7 @@ Here's an example to migrate a specific MSIX package added to a host pool from M
    Get-AzWvdMsixPackage @parameters | Select-Object DisplayName, Name
    ```
 
-   The output is similar to the following output:
+   The output is similar to the following example:
 
    ```output
    DisplayName Name

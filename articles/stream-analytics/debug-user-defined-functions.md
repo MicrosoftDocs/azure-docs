@@ -4,7 +4,7 @@ description: This article describes how to debug user-defined functions in Azure
 author: jenssuessmeyer
 ms.author: jenss
 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: devx-track-js
@@ -81,7 +81,7 @@ exports.data = methods;
   
 ## Install debug support
 
-To debug, you must [download](https://nodejs.org/en/download/) and install **node.js**. Install the correct version according to the platform you're using. After you install the Node.js runtime, restart Visual Studio Code to implement the changes. 
+To debug, you must [download](https://nodejs.org/en/download/package-manager/) and install **node.js**. Install the correct version according to the platform you're using. After you install the Node.js runtime, restart Visual Studio Code to implement the changes. 
 
 Select **Run and Debug** or press **CTRL + SHIFT + D** to start debugging. A combo box appears where you can select **node.js** as the runtime. If you only have Node.js installed, it is used by default. You should be able to step through the code and into the satellite file if needed with F11. 
 

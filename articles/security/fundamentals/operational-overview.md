@@ -3,13 +3,13 @@
 title: Azure operational security overview| Microsoft Docs
 description: Learn about Azure operational security in this overview. Operational security refers to asset protection services, controls, and features.
 services: security
-author: terrylanfear
+author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 08/29/2023
-ms.author: terrylan
+ms.date: 09/29/2024
+ms.author: mbaldwin
 
 ---
 
@@ -21,11 +21,11 @@ ms.author: terrylan
 
 An IT operations team is responsible for managing datacenter infrastructure, applications, and data, including the stability and security of these systems. However, gaining security insights across increasing complex IT environments often requires organizations to cobble together data from multiple security and management systems.
 
-[Microsoft Azure Monitor logs](../../azure-monitor/overview.md) is a cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. Its core functionality is provided by the following services that run in Azure. Azure includes multiple services that help you manage and protect your on-premises and cloud infrastructure. Each service provides a specific management function. You can combine services to achieve different management scenarios. 
+[Microsoft Azure Monitor logs](/azure/azure-monitor/overview) is a cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. Its core functionality is provided by the following services that run in Azure. Azure includes multiple services that help you manage and protect your on-premises and cloud infrastructure. Each service provides a specific management function. You can combine services to achieve different management scenarios. 
 
 ### Azure Monitor
 
-[Azure Monitor](../../azure-monitor/overview.md) collects data from managed sources into central data stores. This data can include events, performance data, or custom data provided through the API. After the data is collected, it's available for alerting, analysis, and export.
+[Azure Monitor](/azure/azure-monitor/overview) collects data from managed sources into central data stores. This data can include events, performance data, or custom data provided through the API. After the data is collected, it's available for alerting, analysis, and export.
 
 You can consolidate data from a variety of sources and combine data from your Azure services with your existing on-premises environment. Azure Monitor logs also clearly separates the collection of the data from the action taken on that data, so that all actions are available to all kinds of data.
 
@@ -87,13 +87,13 @@ Defender for Cloud assesses the configuration of your resources to identify secu
 >[!Note]
 >To learn more about roles and allowed actions in Defender for Cloud, see [Permissions in Microsoft Defender for Cloud](../../security-center/security-center-permissions.md).
 
-Defender for Cloud uses the Microsoft Monitoring Agent. This is the same agent that the Azure Monitor service uses. Data collected from this agent is stored in either an existing Log Analytics [workspace](../../azure-monitor/logs/manage-access.md) associated with your Azure subscription or a new workspace, taking into account the geolocation of the VM.
+Defender for Cloud uses the Microsoft Monitoring Agent. This is the same agent that the Azure Monitor service uses. Data collected from this agent is stored in either an existing Log Analytics [workspace](/azure/azure-monitor/logs/manage-access) associated with your Azure subscription or a new workspace, taking into account the geolocation of the VM.
 
 ## Azure Monitor
 
 Performance issues in your cloud app can affect your business. With multiple interconnected components and frequent releases, degradations can happen at any time. And if you’re developing an app, your users usually discover issues that you didn’t find in testing. You should know about these issues immediately, and you should have tools for diagnosing and fixing the problems.
 
-[Azure Monitor](../../azure-monitor/overview.md) is basic tool for monitoring services running on Azure. It gives you infrastructure-level data about the throughput of a service and the surrounding environment. If you're managing your apps all in Azure and deciding whether to scale up or down resources, Azure Monitor is the place to start.
+[Azure Monitor](/azure/azure-monitor/overview) is basic tool for monitoring services running on Azure. It gives you infrastructure-level data about the throughput of a service and the surrounding environment. If you're managing your apps all in Azure and deciding whether to scale up or down resources, Azure Monitor is the place to start.
 
 You can also use monitoring data to gain deep insights about your application. That knowledge can help you to improve application performance or maintainability, or automate actions that would otherwise require manual intervention.
 
@@ -101,23 +101,23 @@ Azure Monitor includes the following components.
 
 ### Azure Activity Log
 
-The [Azure Activity Log](../../azure-monitor/essentials/platform-logs-overview.md) provides insight into the operations that were performed on resources in your subscription. It was previously known as “Audit Log” or “Operational Log,” because it reports control-plane events for your subscriptions.
+The [Azure Activity Log](/azure/azure-monitor/essentials/platform-logs-overview) provides insight into the operations that were performed on resources in your subscription. It was previously known as “Audit Log” or “Operational Log,” because it reports control-plane events for your subscriptions.
 
 ### Azure diagnostic logs
 
-[Azure diagnostic logs](../../azure-monitor/essentials/platform-logs-overview.md) are emitted by a resource and provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type.
+[Azure diagnostic logs](/azure/azure-monitor/essentials/platform-logs-overview) are emitted by a resource and provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type.
 
 Windows event system logs are one category of diagnostic logs for VMs. Blob, table, and queue logs are categories of diagnostic logs for storage accounts.
 
-Diagnostic logs differ from the [Activity Log](../../azure-monitor/essentials/platform-logs-overview.md). The Activity log provides insight into the operations that were performed on resources in your subscription. Diagnostic logs provide insight into operations that your resource performed itself.
+Diagnostic logs differ from the [Activity Log](/azure/azure-monitor/essentials/platform-logs-overview). The Activity log provides insight into the operations that were performed on resources in your subscription. Diagnostic logs provide insight into operations that your resource performed itself.
 
 ### Metrics
 
-Azure Monitor provides telemetry that gives you visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the [metrics](../../azure-monitor/data-platform.md) (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting.
+Azure Monitor provides telemetry that gives you visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the [metrics](/azure/azure-monitor/data-platform) (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting.
 
 ### Azure Diagnostics
 
-Azure Diagnostics enables the collection of diagnostic data on a deployed application. You can use the Diagnostics extension from various sources. Currently supported are [Azure cloud service roles](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure virtual machines](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service) running Microsoft Windows, and [Azure Service Fabric](../../azure-monitor/agents/diagnostics-extension-overview.md).
+Azure Diagnostics enables the collection of diagnostic data on a deployed application. You can use the Diagnostics extension from various sources. Currently supported are [Azure cloud service roles](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure virtual machines](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service) running Microsoft Windows, and [Azure Service Fabric](/azure/azure-monitor/agents/diagnostics-extension-overview).
 
 ## Azure Network Watcher
 
@@ -186,4 +186,4 @@ To learn about the Security and Audit solution, see the following articles:
 
 - [Security and compliance](https://azure.microsoft.com/overview/trusted-cloud/)
 - [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)
-- [Azure Monitor](../../azure-monitor/overview.md)
+- [Azure Monitor](/azure/azure-monitor/overview)

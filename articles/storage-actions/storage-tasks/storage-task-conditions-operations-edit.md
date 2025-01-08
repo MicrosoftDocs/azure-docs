@@ -20,8 +20,6 @@ You can use a visual editor to define the conditions and operations of a storage
 
 An _operation_ is an action taken on each object that meets the conditions defined in the task. A _condition_ contains one or more conditional _clauses_. Each clause defines the relationship between a property and a value. To execute an operation defined in the storage task, the terms of that relationship must be met by each object.
 
-To learn more, see [Properties, operators, and operations in storage task conditions](storage-task-properties-operators-operations.md).
-
 ## Open the conditions editor
 
 Navigate to the storage task in the Azure portal and then under **Storage task management**, select **Conditions**.
@@ -48,7 +46,7 @@ To define a clause, choose a property, specify a value for that property, and th
 
 #### Choose a property
 
-In the **Blob property** drop-down list, choose a property. See [Supported blob properties](storage-task-properties-operators-operations.md#supported-properties-in-a-clause).
+In the **Blob property** drop-down list, choose a property. See [Supported blob properties](storage-task-conditions.md#supported-properties).
 
 The following example selects the **Blob name** property.
 
@@ -57,7 +55,7 @@ The following example selects the **Blob name** property.
 
 #### Choose a value and operator
 
-In the **Property value** box, enter a value and in the **Operator** drop-down list, choose an operator. See [Supported Operators](storage-task-properties-operators-operations.md#supported-operators-in-a-clause).
+In the **Property value** box, enter a value and in the **Operator** drop-down list, choose an operator. See [Supported Operators](storage-task-conditions.md#supported-operators).
 
 The following example specifies a value of `.log` along with the **Ends with** operator. This condition allows the operation defined in this storage task to execute only on blobs that have a `.log` file extension.
 
@@ -150,7 +148,7 @@ To add an operation, select **Add new operation**, and to remove an operation, s
 
 #### Choose an operation
 
-In the **Operation** drop-down list, choose an operation. See [Supported operations](storage-task-properties-operators-operations.md#supported-operations).
+In the **Operation** drop-down list, choose an operation. See [Supported operations](storage-task-operations.md#supported-operations).
 
 The following example selects the **Set blob tags** property.
 

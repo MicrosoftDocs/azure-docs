@@ -5,7 +5,7 @@ description: Get help recognizing and mitigating known issues with Azure Digital
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.date: 04/19/2024
 ---
 

@@ -1,14 +1,17 @@
 ---
 title: Apache Flink® Configuration Management in HDInsight on AKS
 description: Learn about Apache Flink Configuration Management in HDInsight on AKS.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: tutorial
-ms.date: 04/25/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Apache Flink® Configuration management in HDInsight on AKS
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 HDInsight on AKS provides a set of default configurations of Apache Flink for most properties and a few based on common application profiles. However, in case you're required to tweak Flink configuration properties to improve performance for certain applications with state usage, parallelism, or memory settings, you can change Flink job configuration using Flink Jobs Section in HDInsight on AKS cluster.
 
@@ -97,7 +100,7 @@ In HDInsight on AKS, Flink uses Kubernetes as backend. Even if the Job Manager f
 
 ### FAQ
 
-**Why does the Job failure in between.
+**Why does the Job failure in between?
 Even if the jobs fail abruptly, if the checkpoints are happening continuously, then the job is restarted by default from the latest checkpoint.** 
 
 Change the job strategy in between?

@@ -3,8 +3,8 @@ title: Azure Firewall Manager filtering in network rules
 description: How to use FQDN filtering in network rules
 services: firewall-manager
 author: vhorne
-ms.service: firewall-manager
-ms.topic: article
+ms.service: azure-firewall-manager
+ms.topic: concept-article
 ms.date: 06/21/2024
 ms.author: victorh
 ---

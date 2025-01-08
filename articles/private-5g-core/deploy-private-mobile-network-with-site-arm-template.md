@@ -3,9 +3,9 @@ title: Deploy a private mobile network and site - ARM template
 titleSuffix: Azure Private 5G Core
 description: Learn how to deploy a private mobile network and site using an Azure Resource Manager template (ARM template).
 services: azure-resource-manager
-author: robswain
-ms.author: robswain
-ms.service: private-5g-core
+author: anzaman
+ms.author: alzam
+ms.service: azure-private-5g-core
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-arm-template
 zone_pivot_groups: ase-pro-version

@@ -5,7 +5,7 @@ description: Frequently asked questions about the developer portal in API Manage
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: troubleshooting
 ms.date: 04/01/2024
 ms.author: danlep 
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell, devx-track-arm-template
 
 # API Management developer portal - frequently asked questions
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 ## What if I need functionality that isn't supported in the portal?
 

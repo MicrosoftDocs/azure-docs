@@ -3,8 +3,8 @@ title: Azure DNS Private Resolver endpoints and rulesets
 description: In this article, understand the Azure DNS Private Resolver endpoints and rulesets
 services: dns
 author: greg-lindsay
-ms.service: dns
-ms.topic: conceptual
+ms.service: azure-dns
+ms.topic: concept-article
 ms.date: 04/16/2024
 ms.author: greglin
 #Customer intent: As an administrator, I want to understand components of the Azure DNS Private Resolver.

@@ -2,8 +2,8 @@
 title: Virtual network business continuity
 description: Learn what to do if there's an Azure service disruption impacting Azure Virtual Networks.
 author: asudbring
-ms.service: virtual-network
-ms.topic: conceptual
+ms.service: azure-virtual-network
+ms.topic: concept-article
 ms.date: 03/23/2023
 ms.author: allensu
 ---

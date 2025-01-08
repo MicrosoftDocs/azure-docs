@@ -2,28 +2,28 @@
 title: SQL Authentication  in Azure Synapse Analytics
 description: Learn about SQL authentication in Azure Synapse Analytics. Azure Synapse Analytics has two SQL form-factors to control your resource consumption. 
 author: vvasic-msft
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: overview
-ms.date: 03/07/2022
+ms.date: 11/07/2024
 ms.author: vvasic
-ms.reviewer: sngun, wiassaf
+ms.reviewer: whhender, wiassaf
 ---
 
 # SQL Authentication in Azure Synapse Analytics
 
 Azure Synapse Analytics has two SQL form-factors that enable you to control your resource consumption. This article explains how the two form-factors control the user authentication.
 
-To authorize to Synapse SQL, you can use two authorization types:
+To authenticate to Synapse SQL, you can use two options:
 
-- Microsoft Entra authorization
-- SQL authorization
+- Microsoft Entra authentication
+- SQL authentication
 
-SQL authorization enables legacy applications to connect to Azure Synapse SQL in a familiar way. However, Microsoft Entra authentication allows you to centrally manage access to Azure Synapse resources, such as SQL pools. Azure Synapse Analytics supports disabling local authentication, such as SQL authentication, both during and after workspace creation. Once disabled, local authentication can be enabled at any time by authorized users. For more information on Microsoft Entra-only authentication, see [Disabling local authentication in Azure Synapse Analytics](active-directory-authentication.md).
+SQL authentication enables legacy applications to connect to Azure Synapse SQL in a familiar way, with a user name and password. However, Microsoft Entra authentication allows you to centrally manage access to Azure Synapse resources, such as SQL pools. Azure Synapse Analytics supports disabling local authentication, such as SQL authentication, both during and after workspace creation. Once disabled, local authentication can be enabled at any time by authorized users. For more information on Microsoft Entra-only authentication, see [Disabling local authentication in Azure Synapse Analytics](active-directory-authentication.md).
 
 ## Administrative accounts
 
-There are two administrative accounts (**SQL admin username** and **SQL Active Directory admin**) that act as administrators. To identify these administrator accounts for your SQL pools open the Azure portal, and navigate to the Properties tab of your Synapse workspace.
+There are two administrative accounts (**SQL admin username** and **Microsoft Entra admin**) that act as administrators. To identify these administrator accounts for your SQL pools open the Azure portal, and navigate to the Properties tab of your Synapse workspace.
 
 ![SQL Server Admins](./media/sql-authentication/sql-admins.png)
 
@@ -31,13 +31,13 @@ There are two administrative accounts (**SQL admin username** and **SQL Active D
 
   When you create an Azure Synapse Analytics, you must name a **Server admin login**. SQL server creates that account as a login in the `master` database. This account connects using SQL Server authentication (user name and password). Only one of these accounts can exist.
 
-- **SQL Active Directory admin**
+- **Microsoft Entra admin**
 
   One Microsoft Entra account, either an individual or security group account, can also be configured as an administrator. It's optional to configure a Microsoft Entra administrator, but a Microsoft Entra administrator **must** be configured if you want to use Microsoft Entra accounts to connect to Synapse SQL. 
 
    - The Microsoft Entra admin account controls access to dedicated SQL pools, while Synapse RBAC roles can be used to control access to serverless pools, for example, with the **Synapse Administrator** and **Synapse SQL Administrator** role. 
 
-The **SQL admin username** and **SQL Active Directory admin** accounts have the following characteristics:
+The **SQL admin username** and **Microsoft Entra admin** accounts have the following characteristics:
 
 - Are the only accounts that can automatically connect to any SQL Database on the server. (To connect to a user database, other accounts must either be the owner of the database, or have a user account in the user database.)
 - These accounts enter user databases as the `dbo` user and they have all the permissions in the user databases. (The owner of a user database also enters the database as the `dbo` user.)
@@ -48,7 +48,7 @@ The **SQL admin username** and **SQL Active Directory admin** accounts have the 
 - Can view the `sys.sql_logins` system table.
 
 >[!Note]
->If a user is configured as an Active Directory admin and Synapse Administrator, and then removed from the Active Directory admin role, then the user will lose access to the dedicated SQL pools in Synapse. They must be removed and then added to the Synapse Administrator role to regain access to dedicated SQL pools.
+>If a user is configured as an Microsoft Entra admin and Synapse Administrator, and then removed from the Microsoft Entra admin role, then the user will lose access to the dedicated SQL pools in Synapse. They must be removed and then added to the Synapse Administrator role to regain access to dedicated SQL pools.
 
 ## [Serverless SQL pool](#tab/serverless)
 
@@ -78,7 +78,7 @@ Once login and user are created, you can use the regular SQL Server syntax to gr
 
 ### Administrator access path
 
-When the workspace-level firewall is properly configured, the **SQL admin username** and the **SQL Active Directory admin** can connect using client tools such as SQL Server Management Studio or SQL Server Data Tools. Only the latest tools provide all the features and capabilities. 
+When the workspace-level firewall is properly configured, the **SQL admin username** and the **SQL Microsoft Entra admin** can connect using client tools such as SQL Server Management Studio or SQL Server Data Tools. Only the latest tools provide all the features and capabilities. 
 
 The following diagram shows a typical configuration for the two administrator accounts:
  
@@ -220,6 +220,6 @@ When managing logins and users in SQL Database, consider the following points:
 - To `CREATE/ALTER/DROP` a user requires the `ALTER ANY USER` permission on the database.
 - When the owner of a database role tries to add or remove another database user to or from that database role, the following error may occur: **User or role 'Name' does not exist in this database.** This error occurs because the user isn't visible to the owner. To resolve this issue, grant the role owner the `VIEW DEFINITION` permission on the user. 
 
-## Next steps
+## Related content
 
 For more information, see [Contained Database Users - Making Your Database Portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable).

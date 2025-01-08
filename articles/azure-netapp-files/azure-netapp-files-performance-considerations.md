@@ -1,14 +1,14 @@
 ---
-title: Performance considerations for Azure NetApp Files | Microsoft Docs
+title: General performance considerations for Azure NetApp Files | Microsoft Docs
 description: Learn about performance for Azure NetApp Files, including the relationship of quota and throughput limit and how to dynamically increase/decrease volume quota.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 08/31/2023
+ms.date: 10/17/2024
 ms.author: anfdocs
 ---
-# Performance considerations for Azure NetApp Files
+# General performance considerations for Azure NetApp Files
 
 > [!IMPORTANT]   
 > This article addresses performance considerations for *regular volumes* only.   
@@ -22,7 +22,7 @@ Throughput limits are a combination of read and write speed. The throughput limi
 
 Typical storage performance considerations contribute to the total performance delivered. The considerations include read and write mix, the transfer size, random or sequential patterns, and many other factors.
 
-Metrics are reported as aggregates of multiple data points collected during a five-minute interval. For more information about metrics aggregation, see [Azure Monitor Metrics aggregation and display explained](../azure-monitor/essentials/metrics-aggregation-explained.md). 
+Metrics are reported as aggregates of multiple data points collected during a five-minute interval. For more information about metrics aggregation, see [Azure Monitor Metrics aggregation and display explained](/azure/azure-monitor/essentials/metrics-aggregation-explained). 
 
 The maximum empirical throughput that has been observed in testing is 4,500 MiB/s. At the Premium storage tier, an automatic QoS volume quota of 70.31 TiB provisions a throughput limit high enough to achieve this performance level.  
 

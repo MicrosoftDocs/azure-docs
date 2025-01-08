@@ -78,7 +78,7 @@ ms.service: azure-health-insights
                       "code": {
                         "coding": [
                           {
-                            "system": "Https://loinc.org",
+                            "system": "https://loinc.org",
                             "code": "37006-4",
                             "display": "MG BREAST - BILATERAL MLO"
                           }

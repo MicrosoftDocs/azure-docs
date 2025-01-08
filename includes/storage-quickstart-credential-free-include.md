@@ -32,7 +32,7 @@ For example, your app can authenticate using your Visual Studio sign-in credenti
 
 You can authorize access to data in your storage account using the following steps:
 
-1. [!INCLUDE [default-azure-credential-sign-in](./passwordless/default-azure-credential-sign-in.md)]
+1. [!INCLUDE [default-azure-credential-sign-in](~/reusable-content/ce-skilling/azure/includes/passwordless/default-azure-credential-sign-in.md)]
 
 2. [!INCLUDE [visual-studio-add-identity](passwordless/visual-studio-add-identity.md)]
 

@@ -3,8 +3,8 @@ title: Manage the Azure integration with Logz.io
 description: Learn how to manage the Azure integration with Logz.io.
 ms.topic: conceptual
 ms.date: 10/25/2021
-author: flang-msft
-ms.author: franlanglois
+
+
 ---
 
 # Manage the Logz.io integration in Azure
@@ -61,8 +61,8 @@ The following are descriptions of columns shown on the **Monitored resources** s
 - **Resource group**: Show resource group name for the Azure resource.
 - **Region**: Shows region or location of the Azure resource.
 - **Logs to Logz**: Indicates whether the resource is sending Logs to Logz.io. If the resource isn't sending logs, this field indicates the appropriate reason why logs aren't being sent to Logz.io. The reasons could be:
-  - Resource doesn't support sending logs: Only Azure resource logs for all resources types and [log categories defined here](../../azure-monitor/essentials/resource-logs-categories.md) can be configured to send logs to Logz.io.
-  - Limit of five diagnostic settings reached: Each Azure resource can have a maximum of five diagnostic settings. For more information, see [Create diagnostic settings to send platform logs and metrics to different destinations](../../azure-monitor/essentials/diagnostic-settings.md).
+  - Resource doesn't support sending logs: Only Azure resource logs for all resources types and [log categories defined here](/azure/azure-monitor/essentials/resource-logs-categories) can be configured to send logs to Logz.io.
+  - Limit of five diagnostic settings reached: Each Azure resource can have a maximum of five diagnostic settings. For more information, see [Create diagnostic settings to send platform logs and metrics to different destinations](/azure/azure-monitor/essentials/diagnostic-settings).
   - Error: An error is blocking the logs from being sent to Logz.io.
   - Logs not configured: Only resources that have the appropriate resource tags can send logs to Logz.io. See [configure logs](./create.md#configure-logs).
   - Region not supported: The Azure resource is in a region that doesn't currently send logs to Logz.io.

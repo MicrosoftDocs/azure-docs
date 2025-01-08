@@ -5,7 +5,7 @@ author: timlt
 ms.author: timlt
 ms.date: 1/23/2024
 ms.topic: conceptual
-ms.service: iot
+ms.service: azure-iot
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-twenty-seven
 

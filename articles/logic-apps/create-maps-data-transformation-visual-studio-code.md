@@ -2,7 +2,7 @@
 title: Create maps for data transformation
 description: Create maps to transform data between schemas in Azure Logic Apps using Visual Studio Code.
 services: logic-apps
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, kewear, alexzuniga, azla
 ms.topic: how-to
@@ -485,7 +485,7 @@ To create your own function that you can use with the Data Mapper tool, follow t
    </xs:schema>
    ```
 
-   Each XML element named **"function"** implements an XSLT3.0 style function with few more attributes. The Data Mapper functions list includes the function name, description, parameter names, and parameter types.
+   Each XML element named **"function"** implements an XSLT3.0 style function with a few more attributes. The Data Mapper functions list includes the function name, description, parameter names, and parameter types.
 
    The following example shows the implementation for a **SampleFunctions.xml** file:
 

@@ -2,7 +2,7 @@
 title: Provide user access to Azure Deployment Environments projects
 titleSuffix: Azure Deployment Environments
 description: Learn how to configure access to projects for developers by using the Deployment Environments User built-in role.
-ms.service: deployment-environments
+ms.service: azure-deployment-environments
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 12/05/2023

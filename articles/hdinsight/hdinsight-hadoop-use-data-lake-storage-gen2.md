@@ -1,7 +1,7 @@
 ---
 title: Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
 description: Learn how to use Azure Data Lake Storage Gen2 with Azure HDInsight clusters.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/10/2024
@@ -9,7 +9,7 @@ ms.date: 05/10/2024
 
 # Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
 
-[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) is a cloud storage service dedicated to big data analytics, built on [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). Data Lake Storage Gen2 combines the capabilities of Azure Blob storage and Azure Data Lake Storage Gen1. The resulting service offers features from Azure Data Lake Storage Gen1 including: file system semantics, directory-level and file-level security, and adaptability. Along with the low-cost, tiered storage, high availability, and disaster-recovery capabilities from Azure Blob storage.
+[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) is a cloud storage service dedicated to big data analytics, built on [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). The resulting service offers features from Azure Data Lake Storage including: file system semantics, directory-level and file-level security, and adaptability. Along with the low-cost, tiered storage, high availability, and disaster-recovery capabilities from Azure Blob storage.
 
 For a full comparison of cluster creation options using Data Lake Storage Gen2, see [Compare storage options for use with Azure HDInsight clusters](hdinsight-hadoop-compare-storage-options.md).
 
@@ -32,9 +32,9 @@ Use the following links for detailed instructions on how to create HDInsight clu
 
 ## Access control for Data Lake Storage Gen2 in HDInsight
 
-### What kinds of permissions does Data Lake Storage Gen2 support?
+### What kinds of permissions do Data Lake Storage Gen2 support?
 
-Data Lake Storage Gen2 uses an access control model that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs). Data Lake Storage Gen1 supports access control lists only for controlling access to data.
+Data Lake Storage Gen2 uses an access control model that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs).
 
 Azure RBAC uses role assignments to effectively apply sets of permissions to users, groups, and service principals for Azure resources. Typically, those Azure resources are constrained to top-level resources (for example, Azure Blob storage accounts). For Azure Blob storage, and also Data Lake Storage Gen2, this mechanism has been extended to the file system resource.
 

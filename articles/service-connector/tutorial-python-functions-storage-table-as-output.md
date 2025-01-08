@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Python function with Azure Table Storage as output'
-description: Learn how you can connect a Python function to a storage table as output using Service Connector
+title: Configure Python function with Azure Table Storage output
+description: Learn how you can configure a Python function to use a storage table as output with Service Connector.
 author: houk-ms
 ms.author: honc
 ms.service: service-connector
 ms.custom: devx-track-python
 ms.topic: tutorial
-ms.date: 11/14/2023
+ms.date: 12/18/2024
 ---
-# Tutorial: Python function with Azure Table Storage as output
+# Tutorial: Configure a Python function with Azure Table Storage output
 
-In this tutorial, you learn how to configure a Python function with Storage Table as output by completing the following tasks.
+In this tutorial, you learn how to configure a Python function to use Azure Table Storage as an output binding by completing the following tasks.
 
 > [!div class="checklist"]
 > * Use Visual Studio Code to create a Python function project.
@@ -28,6 +28,9 @@ An overview of the function project components in this tutorial:
 | Function Binding         | HTTP trigger, Storage Table as Output |
 | Local Project Auth Type  | Connection String                      |
 | Cloud Function Auth Type | Connection String                      |
+
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
 ## Prerequisites
 
@@ -107,7 +110,7 @@ In last step, you verified the function project locally. Now you'll learn how to
 az functionapp connection create storage-table --source-id "<your-function-resource-id>" --target-id "<your-storage-table-resource-id>" --secret
 ```
 
-* `--source-id` format: `/subscriptions/{subscription}/resourceG roups/{source_resource_group}/providers/Microsoft.Web/sites/{site}`
+* `--source-id` format: `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.Web/sites/{site}`
 * `--target-id` format: `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/Microsoft.Storage/storageAccounts/{account}/tableServices/default`
 
 You've created a Service Connector resource that configures an `AZURE_STORAGETABLE_CONNECTIONSTRING` variable in the function's App Settings. This app setting will then be consumed by the function binding to connect to the storage, so that the function can write to the storage table. You can learn more about [how Service Connector helps Azure Functions connect to services](./how-to-use-service-connector-in-function.md).
@@ -121,7 +124,7 @@ Now you can deploy your function to Azure and verify the storage table output bi
 
 ## Troubleshoot
 
-If there are any errors related with storage host, such as `No such host is known (<acount-name>.table.core.windows.net:443)`, you need check whether the connection string you use to connect to Azure Storage contains the table endpoint or not. If it doesn't, go to Azure Storage portal, copy the connection string from the `Access keys` blade, and replace the values.
+If there are any errors related with storage host, such as `No such host is known (<account-name>.table.core.windows.net:443)`, you need check whether the connection string you use to connect to Azure Storage contains the table endpoint or not. If it doesn't, go to Azure Storage portal, copy the connection string from the `Access keys` blade, and replace the values.
 
 If this error happens when you start the project locally, check the `local.settings.json` file.
 

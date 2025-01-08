@@ -1,14 +1,17 @@
 ---
 title: Azure Data Factory Workflow Orchestration Manager (powered by Apache Airflow) with Apache Flink® on HDInsight on AKS
 description: Learn how to perform Apache Flink® job orchestration using Azure Data Factory Workflow Orchestration Manager
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 10/28/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Apache Flink® job orchestration using Azure Data Factory Workflow Orchestration Manager (powered by Apache Airflow)
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 This article covers managing a Flink job using [Azure REST API](flink-job-management.md#arm-rest-api) and orchestration data pipeline with Azure Data Factory Workflow Orchestration Manager. [Azure Data Factory Workflow Orchestration Manager](/azure/data-factory/concepts-workflow-orchestration-manager) service is a simple and efficient way to create and manage [Apache Airflow](https://airflow.apache.org/) environments, enabling you to run data pipelines at scale easily.
 
@@ -136,7 +139,7 @@ The DAG expects to have setup for the Service Principal, as described during the
 
       "jarDirectory":"abfs://filesystem@<storageaccount>.dfs.core.windows.net", 
 
-      "subscritpion":"<cluster subscription id>", 
+      "subscription":"<cluster subscription id>", 
 
       "rg":"<cluster resource group>", 
 
@@ -170,7 +173,7 @@ The DAG expects to have setup for the Service Principal, as described during the
  {
   'jarName':'WordCount.jar',
   'jarDirectory':'abfs://filesystem@<storageaccount>.dfs.core.windows.net', 
-  'subscritpion':'<cluster subscription id>',
+  'subscription':'<cluster subscription id>',
   'rg':'<cluster resource group>', 
   'poolNm':'<cluster pool name>',
   'clusterNm':'<cluster name>'

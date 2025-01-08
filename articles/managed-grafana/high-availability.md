@@ -3,7 +3,7 @@ title: Azure Managed Grafana service reliability
 description: Learn about service reliability and availability options provided by Azure Managed Grafana
 author: maud-lv 
 ms.author: malev 
-ms.service: managed-grafana 
+ms.service: azure-managed-grafana
 ms.topic: conceptual
 ms.date: 5/14/2024
 ms.custom: references_regions, engagement-fy23
@@ -27,7 +27,7 @@ The network load balancer, VMs and database that underpin a Managed Grafana inst
 
 ### With zone redundancy enabled
 
-When the zone redundancy option is enabled, VMs are spread across [availability zones](../availability-zones/az-overview.md#availability-zones). Other resources such as network load balancer and database are also configured for availability zones.
+When the zone redundancy option is enabled, VMs are spread across [availability zones](../reliability/availability-zones-overview.md). Other resources such as network load balancer and database are also configured for availability zones.
 
 In a zone-wide outage, no user action is required. An impacted Managed Grafana instance will rebalance itself to take advantage of the healthy zone automatically. The Managed Grafana service will attempt to heal the affected instances during zone recovery.
 

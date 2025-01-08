@@ -4,7 +4,7 @@ description: Reading UTF-8 text from CSV or PARQUET files using serverless SQL p
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.topic: troubleshooting
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: troubleshooting
 ms.date: 12/03/2020
 ---

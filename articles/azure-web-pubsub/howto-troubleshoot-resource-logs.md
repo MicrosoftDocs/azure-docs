@@ -98,10 +98,10 @@ The real-time resource logs captured by live trace tool contain detailed informa
 | User ID        | User identity                                                                                   |
 | IP             | Client IP address                                                                               |
 | Route Template | The route template of the API                                                                   |
-| Http Method    | The Http method (POST/GET/PUT/DELETE)                                                           |
+| HTTP Method    | The HTTP method (POST/GET/PUT/DELETE)                                                           |
 | URL            | The uniform resource locator                                                                    |
 | Trace ID       | The unique identifier to the invocation                                                         |
-| Status Code    | The Http response code                                                                          |
+| Status Code    | The HTTP response code                                                                          |
 | Duration       | The duration between receiving the request and processing the request                           |
 | Headers        | The additional information passed by the client and the server with an HTTP request or response |
 
@@ -109,7 +109,7 @@ The real-time resource logs captured by live trace tool contain detailed informa
 
 ### How to enable resource logs
 
-Currently Azure Web PubSub supports integration with [Azure Storage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage).
+Currently Azure Web PubSub supports integration with [Azure Storage](/azure/azure-monitor/essentials/resource-logs#send-to-azure-storage).
 
 1. Go to Azure portal.
 1. On **Diagnostic settings** page of your Azure Web PubSub service instance, select **+ Add diagnostic setting**.
@@ -155,10 +155,10 @@ Archive log JSON strings include elements listed in the following tables:
 | message       | Detailed message of log event                                                                   |
 | hub           | User-defined Hub Name                                                                           |
 | routeTemplate | The route template of the API                                                                   |
-| httpMethod    | The Http method (POST/GET/PUT/DELETE)                                                           |
+| httpMethod    | The HTTP method (POST/GET/PUT/DELETE)                                                           |
 | url           | The uniform resource locator                                                                    |
 | traceId       | The unique identifier to the invocation                                                         |
-| statusCode    | The Http response code                                                                          |
+| statusCode    | The HTTP response code                                                                          |
 | duration      | The duration between the request is received and processed                                      |
 | headers       | The additional information passed by the client and the server with an HTTP request or response |
 
@@ -196,7 +196,7 @@ To view the resource logs, follow these steps:
 
    :::image type="content" alt-text="Log Analytics menu item" source="./media/howto-troubleshoot-diagnostic-logs/log-analytics-menu-item.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/log-analytics-menu-item.png":::
 
-1. Enter `WebPubSubConnectivity`, `WebPubSubMessaging` or `WebPubSubHttpRequest`, and then select the time range to query the log. For advanced queries, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).
+1. Enter `WebPubSubConnectivity`, `WebPubSubMessaging` or `WebPubSubHttpRequest`, and then select the time range to query the log. For advanced queries, see [Get started with Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-tutorial).
 
    :::image type="content" alt-text="Query log in Log Analytics" source="./media/howto-troubleshoot-diagnostic-logs/query-log-in-log-analytics.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/query-log-in-log-analytics.png":::
 

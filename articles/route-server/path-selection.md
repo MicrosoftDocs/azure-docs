@@ -3,7 +3,7 @@ title: Path selection with Azure Route Server
 description: Learn about how Azure Route Server enables path selection for your network virtual appliance (NVA).
 author: halkazwini
 ms.author: halkazwini
-ms.service: route-server
+ms.service: azure-route-server
 ms.topic: concept-article
 ms.date: 12/13/2023
 

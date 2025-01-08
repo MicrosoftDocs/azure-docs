@@ -43,7 +43,7 @@ Object replication isn't supported for blobs in the source account that are encr
 
 Customer-managed failover isn't supported for either the source or the destination account in an object replication policy.
 
-Object replication is not supported for blobs that are uploaded by using [Data Lake Storage Gen2](/rest/api/storageservices/data-lake-storage-gen2) APIs.
+Object replication is not supported for blobs that are uploaded by using [Data Lake Storage](/rest/api/storageservices/data-lake-storage-gen2) APIs.
 
 ## How object replication works
 
@@ -75,7 +75,7 @@ Object replication does not copy the source blob's index tags to the destination
 
 ### Blob tiering
 
-Object replication is supported when the source and destination accounts are in the hot or cool tier. The source and destination accounts may be in different tiers. However, object replication will fail if a blob in either the source or destination account has been moved to the archive tier. For more information on blob tiers, see [Access tiers for blob data](access-tiers-overview.md).
+Object replication is supported when the source and destination accounts are in any online tier (hot, cool or cold). The source and destination accounts may be in different tiers. However, object replication will fail if a blob in either the source or destination account has been moved to the archive tier. For more information on blob tiers, see [Access tiers for blob data](access-tiers-overview.md).
 
 ### Immutable blobs
 

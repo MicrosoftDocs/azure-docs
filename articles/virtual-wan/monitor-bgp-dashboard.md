@@ -3,8 +3,8 @@ title: 'Monitor S2S VPN BGP routes - BGP dashboard'
 titleSuffix: Azure Virtual WAN
 description: Learn how to monitor BGP peers for site-to-site VPNs using the BGP dashboard.
 author: cherylmc
-ms.service: virtual-wan
-ms.topic: conceptual
+ms.service: azure-virtual-wan
+ms.topic: concept-article
 ms.date: 06/06/2022
 ms.author: cherylmc
 ---
@@ -19,7 +19,7 @@ The following steps walk you through one way to navigate to your site and open t
 1. Go to the **Azure portal -> your Virtual WAN**.
 1. On your Virtual WAN, in the left pane, under Connectivity, click **VPN sites**. On the VPN sites page, you can see the sites that are connected to your Virtual WAN.
 1. Click the site that you want to view.
-1. On the page for the site, click **BGP Dashboard**.
+1. On the page for the site, under **Connectivity**, click **BGP Dashboard**.
 
    :::image type="content" source="./media/monitor-bgp-dashboard/bgp-dashboard.png" alt-text="Screenshot shows the overview page for the site with the B G P dashboard highlighted." lightbox="./media/monitor-bgp-dashboard/bgp-dashboard.png":::
 

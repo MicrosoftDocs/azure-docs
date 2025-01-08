@@ -4,7 +4,7 @@ description: This article describes how to order and record device connection ev
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/11/2019
@@ -31,13 +31,13 @@ The sequence number is a string representation of a hexadecimal number. You can 
 
 ## Prerequisites
 
-* An active Azure Cosmos DB for NoSQL account. If you haven't created one yet, see [Create a database account](../cosmos-db/create-sql-api-java.md#create-a-database-account) for a walkthrough.
+* An active Azure Cosmos DB for NoSQL account. If you haven't created one yet, see [Create a database account](/azure/cosmos-db/create-sql-api-java#create-a-database-account) for a walkthrough.
 
-* A collection in your database. See [Add a collection](../cosmos-db/create-sql-api-java.md#add-a-container) for a walkthrough. When you create your collection, use `/id` for the partition key.
+* A collection in your database. See [Add a collection](/azure/cosmos-db/create-sql-api-java#add-a-container) for a walkthrough. When you create your collection, use `/id` for the partition key.
 
 * An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* An IoT hub under your Azure subscription. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 
 ## Create a logic app
 
@@ -91,7 +91,7 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
    [{
     "id": "fbfd8ee1-cf78-74c6-dbcf-e1c58638ccbd",
     "topic":
-      "/SUBSCRIPTIONS/DEMO5CDD-8DAB-4CF4-9B2F-C22E8A755472/RESOURCEGROUPS/EGTESTRG/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/MYIOTHUB",
+      "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/EGTESTRG/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/MYIOTHUB",
     "subject": "devices/Demo-Device-1",
     "eventType": "Microsoft.Devices.DeviceConnected",
     "eventTime": "2018-07-03T23:20:11.6921933+00:00",
@@ -286,7 +286,7 @@ If you don't want to lose the work on your logic app, disable it instead of dele
 
 ### Cosmos DB
 
-To remove an Azure Cosmos DB account from the Azure portal, go to your resource and select **Delete account** from the top menu bar. See detailed instructions for [deleting an Azure Cosmos DB account](../cosmos-db/how-to-manage-database-account.yml).
+To remove an Azure Cosmos DB account from the Azure portal, go to your resource and select **Delete account** from the top menu bar. See detailed instructions for [deleting an Azure Cosmos DB account](/azure/cosmos-db/how-to-manage-database-account).
 
 ## Next steps
 

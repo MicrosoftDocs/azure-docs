@@ -5,6 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: overview
+ms.collection: ce-skilling-ai-copilot
 ms.date: 06/14/2024
 ---
 
@@ -97,13 +98,17 @@ To learn how other companies improved their agility and increased focus on their
 
 All these services help you connect and bring together disparate systems. Each service has their advantages and benefits, so combining their capabilities is the best way to quickly build a scalable, full-featured integration system. For more information, see [Choose between Azure Logic Apps, Azure Functions, Azure WebJobs, and Microsoft Power Automate](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 
+## How does Azure Logic Apps differ from Azure Automation Runbooks?
+
+[Azure Automation Runbooks](/azure/automation/automation-runbook-types) provide a lightweight and cost-effective solution for straightforward remediations, such as restarting virtual machines. In contrast, Azure Logic Apps are ideal for workflows and orchestrations between multiple services, systems, apps, and data. including workloads that run custom code or require complex logic that uses control structures such as loops, branching, conditions, and more.
+
 ## How quickly can I ramp up my solutions with Azure Logic Apps?
 
 You can start small with your current systems and services, and then grow incrementally at your own pace. When you're ready, Azure Logic Apps helps you implement and scale up to more mature integration scenarios by providing the following capabilities and benefits.
 
 ### Visually create and edit workflows with easy-to-use tools
 
-Save time and simplify complex processes by using the visual design tools in Azure Logic Apps. Create your workflows from start to finish by using the Azure Logic Apps workflow designer in the Azure portal, Visual Studio Code, or Visual Studio. Just start your workflow with a trigger, and add any number of actions from the [connectors gallery](/connectors/connector-reference/connector-reference-logicapps-connectors).
+Save time and simplify complex processes by using the visual design tools in Azure Logic Apps. Create your workflows from start to finish by using the Azure Logic Apps workflow designer in the Azure portal or Visual Studio Code. Just start your workflow with a trigger, and add any number of actions from the [connectors gallery](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 ### Connect different systems across various environments
 
@@ -113,9 +118,9 @@ Some patterns and processes are easy to describe but hard to implement in code. 
 
 ### Create and deploy to different environments
 
-Based on your scenario, solution requirements, and desired capabilities, choose whether to create a Consumption or Standard logic app workflow. Based on this choice, the workflow runs in either multitenant Azure Logic Apps, single-tenant Azure Logic Apps, or an App Service Environment (v3). With single-tenant Azure Logic Apps, your workflows can more easily access resources protected by Azure virtual networks. If you create single tenant-based workflows using Azure Arc enabled Logic Apps, you can also run workflows in containers. For more information, see [Single-tenant versus multitenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md) and [What is Arc enabled Logic Apps](azure-arc-enabled-logic-apps-overview.md)?
+Based on your scenario, solution requirements, and desired capabilities, choose whether to create a Consumption or Standard logic app workflow. Based on this choice, the workflow runs in either multitenant Azure Logic Apps, single-tenant Azure Logic Apps, or an App Service Environment (v3). With single-tenant Azure Logic Apps, your workflows can more easily access resources protected by Azure virtual networks. If you create single tenant-based workflows using Azure Arc enabled Logic Apps, you can also run workflows in containers. For more information, see [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md) and [What is Arc enabled Logic Apps](azure-arc-enabled-logic-apps-overview.md)?
 
-The following table briefly summarizes differences between a Consumption and Standard logic app workflow. You'll also learn the differences between the multitenant environment, integration service environment (ISE), single-tenant environment, and App Service Environment v3 (ASEv3) for deploying, hosting, and running your logic app workflows.
+The following table briefly summarizes differences between a Consumption and Standard logic app workflow. You'll also learn the differences between the multitenant environment, single-tenant environment, and App Service Environment v3 (ASEv3) for deploying, hosting, and running your logic app workflows.
 
 [!INCLUDE [Logic app resource type and environment differences](../../includes/logic-apps-resource-environment-differences-table.md)]
 
@@ -145,17 +150,15 @@ If no suitable connector is available to run the code you want, you can create a
 
 ### Direct access to resources in Azure virtual networks
 
-Logic app workflows can access secured resources such as virtual machines, other services, and systems that are inside an [Azure virtual network](../virtual-network/virtual-networks-overview.md) when you use either [Azure Logic Apps (Standard)](single-tenant-overview-compare.md) or an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md). Both Azure Logic Apps (Standard) and an ISE are instances of Azure Logic Apps that use dedicated resources and run separately from global multitenant Azure Logic Apps.
+Logic app workflows can access secured resources such as virtual machines, other services, and systems that are inside an [Azure virtual network](../virtual-network/virtual-networks-overview.md) when you use [Azure Logic Apps (Standard)](single-tenant-overview-compare.md). Azure Logic Apps (Standard) is a single-tenant instance Azure Logic Apps that uses dedicated resources and runs separately from global, multitenant Azure Logic Apps.
 
 Hosting and running logic app workflows in your own dedicated instance helps reduce the impact that other Azure tenants might have on app performance, also known as the ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
 
-Azure Logic Apps (Standard) and an ISE also provide the following benefits:
+Azure Logic Apps (Standard) provides the following benefits:
 
-* Your own static IP addresses, which are separate from the static IP addresses that logic apps share in multitenant Azure Logic Apps. You can also set up a single public, static, and predictable outbound IP address to communicate with destination systems. That way, you don't have to set up extra firewall openings at those destination systems for each ISE.
+* Your own static IP addresses, which are separate from the static IP addresses that logic apps share in multitenant Azure Logic Apps. You can also set up a single public, static, and predictable outbound IP address to communicate with destination systems. That way, you don't have to set up extra firewall openings at those destination systems.
 
 * Increased limits on run duration, storage retention, throughput, HTTP request and response timeouts, message sizes, and custom connector requests. For more information, review [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md).
-
-When you create an ISE, Azure *injects* or deploys that ISE into your Azure virtual network. You can then use this ISE as the location for the logic apps and integration accounts that need access. For more information about creating an ISE, review [Connect to Azure virtual networks from Azure Logic Apps](connect-virtual-network-vnet-isolated-environment.md).
 
 <a name="how-do-logic-apps-work"></a>
 
@@ -181,11 +184,11 @@ The following section describes the logic for the example enterprise workflow, w
 
 :::image type="content" source="./media/logic-apps-overview/example-enterprise-workflow.png" alt-text="Screenshot shows the workflow designer and a sample enterprise workflow that uses switches and conditions." lightbox="./media/logic-apps-overview/example-enterprise-workflow.png":::
 
-You can visually create workflows using the Azure Logic Apps workflow designer in the Azure portal, Visual Studio Code, or Visual Studio. Each workflow also has an underlying definition that uses JavaScript Object Notation (JSON) format. If you prefer, you can edit workflows by changing this JSON definition. For some creation and management tasks, Azure Logic Apps provides Azure PowerShell and Azure CLI command support. For automated deployment, Azure Logic Apps supports Azure Resource Manager templates.
+You can visually create workflows using the Azure Logic Apps workflow designer in the Azure portal or Visual Studio Code. Each workflow also has an underlying definition that uses JavaScript Object Notation (JSON) format. If you prefer, you can edit workflows by changing this JSON definition. For some creation and management tasks, Azure Logic Apps provides Azure PowerShell and Azure CLI command support. For automated deployment, Azure Logic Apps supports Azure Resource Manager templates.
 
 ## Pricing options
 
-Each logic app resource type (multitenant, single-tenant, App Service Environment (ASE v3), integration service environment), has a different [pricing model](logic-apps-pricing.md). For example, multitenant Consumption logic app workflows follow the Consumption pricing model, while single-tenant Standard logic app workflows follow the Standard pricing model. Learn more about [pricing and metering](logic-apps-pricing.md) for Azure Logic Apps.
+Each logic app resource type (multitenant, single-tenant, App Service Environment (ASE v3)) has a different [pricing model](logic-apps-pricing.md). For example, multitenant Consumption logic app workflows follow the Consumption pricing model, while single-tenant Standard logic app workflows follow the Standard pricing model. Learn more about [pricing and metering](logic-apps-pricing.md) for Azure Logic Apps.
 
 ## Get started
 
@@ -194,8 +197,6 @@ Before you can start with Azure Logic Apps, you need an Azure subscription. If y
 When you're ready, try one or more of the following quickstart guides for Azure Logic Apps:
 
 * [Create a multitenant Consumption logic app workflow in the Azure portal](quickstart-create-example-consumption-workflow.md)
-
-* [Create a multitenant Consumption logic app workflow in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
 
 * [Create a multitenant Consumption logic app workflow in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 

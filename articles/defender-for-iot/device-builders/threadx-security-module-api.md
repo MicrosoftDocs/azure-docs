@@ -12,6 +12,8 @@ Defender for IoT APIs are governed by [Microsoft API License and Terms of use](/
 
 This API is intended for use with the Defender-IoT-micro-agent for Eclipse ThreadX only. For additional resources, see the [Defender-IoT-micro-agent for Eclipse ThreadX GitHub resource](https://github.com/eclipse-threadx).
 
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
+
 ## Enable Defender-IoT-micro-agent for Eclipse ThreadX
 
 **nx_azure_iot_security_module_enable**

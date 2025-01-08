@@ -5,11 +5,11 @@ description: Tutorial to configure Azure AD B2C with Microsoft Dynamics 365 Frau
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: I'm a developer, and I want to integrate Microsoft Dynamics 365 Fraud Protection with Azure Active Directory B2C. I need to assess risk during attempts to create fraudulent accounts and sign-ins, and then block or challenge suspicious attempts.
 ---
@@ -109,15 +109,15 @@ In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integr
 |{Settings:Tenant}|Your tenant short name |`your-tenant` - from your-tenant.onmicrosoft.com|
 |{Settings:DeploymentMode}|Application Insights deployment mode to use|`Production` or `Development`|
 |{Settings:DeveloperMode}|Whether to deploy the policies in Application Insights developer mode|`true` or `false`|
-|{Settings:AppInsightsInstrumentationKey}|Instrumentation key of your Application Insights instance*|`01234567-89ab-cdef-0123-456789abcdef`|
-|{Settings:IdentityExperienceFrameworkAppId}App ID of the IdentityExperienceFramework app configured in your Azure AD B2C tenant|`01234567-89ab-cdef-0123-456789abcdef`|
-|{Settings:ProxyIdentityExperienceFrameworkAppId}|App ID of the ProxyIdentityExperienceFramework app configured in your Azure AD B2C tenant|`01234567-89ab-cdef-0123-456789abcdef`|
+|{Settings:AppInsightsInstrumentationKey}|Instrumentation key of your Application Insights instance*|`00001111-aaaa-2222-bbbb-3333cccc4444`|
+|{Settings:IdentityExperienceFrameworkAppId}App ID of the IdentityExperienceFramework app configured in your Azure AD B2C tenant|`00001111-aaaa-2222-bbbb-3333cccc4444`|
+|{Settings:ProxyIdentityExperienceFrameworkAppId}|App ID of the ProxyIdentityExperienceFramework app configured in your Azure AD B2C tenant|`00001111-aaaa-2222-bbbb-3333cccc4444`|
 |{Settings:FacebookClientId}|App ID of the Facebook app you configured for federation with B2C| `000000000000000`|
 |{Settings:FacebookClientSecretKeyContainer}| Name of the policy key, in which you saved Facebook's app secret |`B2C_1A_FacebookAppSecret`|
 |{Settings:ContentDefinitionBaseUri}|Endpoint in where you deployed the UI files|`https://<my-storage-account>.blob.core.windows.net/<my-storage-container>`|
-|{Settings:DfpApiBaseUrl}|The base path for your DFP API instance, found in the DFP portal| `https://tenantname-01234567-89ab-cdef-0123-456789abcdef.api.dfp.dynamics.com/v1.0/`|
+|{Settings:DfpApiBaseUrl}|The base path for your DFP API instance, found in the DFP portal| `https://tenantname-00001111-aaaa-2222-bbbb-3333cccc4444.api.dfp.dynamics.com/v1.0/`|
 |{Settings:DfpApiAuthScope}|The client_credentials scope for the DFP API service|`https://api.dfp.dynamics-int.com/.default or https://api.dfp.dynamics.com/.default`|
-|{Settings:DfpTenantId}|The ID of the Microsoft Entra tenant (not B2C) where DFP is licensed and installed|`01234567-89ab-cdef-0123-456789abcdef` or `consoto.onmicrosoft.com` |
+|{Settings:DfpTenantId}|The ID of the Microsoft Entra tenant (not B2C) where DFP is licensed and installed|`00001111-aaaa-2222-bbbb-3333cccc4444` or `consoto.onmicrosoft.com` |
 |{Settings:DfpAppClientIdKeyContainer}|Name of the policy key-in which you save the DFP client ID|`B2C_1A_DFPClientId`|
 |{Settings:DfpAppClientSecretKeyContainer}|Name of the policy key-in which you save the DFP client secret |`B2C_1A_DFPClientSecret`|
 |{Settings:DfpEnvironment}| The ID of the DFP environment.|Environment ID is a global unique identifier of the DFP environment that you send the data to. Your custom policy should call the API endpoint, including the query string parameter `x-ms-dfpenvid=your-env-id>`|

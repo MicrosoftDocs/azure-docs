@@ -1,15 +1,16 @@
 ---
-title: Balance partition load across multiple instances - Azure Event Hubs | Microsoft Docs
+title: Balance partition load across multiple instances
 description: Describes how to balance partition load across multiple instances of your application using an event processor and the Azure Event Hubs SDK.  
-ms.topic: conceptual
-ms.date: 11/14/2022
+ms.topic: concept-article
+ms.date: 07/31/2024
+#customer intent: As a developer, I want to know how to run multiple instances of my processing client to read data from an event hub. 
 ---
 
 # Balance partition load across multiple instances of your application
 
 To scale your event processing application, you can run multiple instances of the application and have the load balanced among themselves. In the older and deprecated versions, `EventProcessorHost` allowed you to balance the load between multiple instances of your program and checkpoint events when receiving the events. In the newer versions (5.0 onwards), **EventProcessorClient** (.NET and Java), or **EventHubConsumerClient** (Python and JavaScript) allows you to do the same. The development model is made simpler by using events. You can subscribe to the events that you're interested in by registering an event handler. If you're using the old version of the client library, see the following migration guides: [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md), [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/migration-guide.md), [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/migration_guide.md), and [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/migrationguide.md).
 
-This article describes a sample scenario for using multiple instances of client `applications to read events from an event hub. It also gives you details about features of event processor client, which allows you to receive events from multiple partitions at once and load balance with other consumers that use the same event hub and consumer group.
+This article describes a sample scenario for using multiple instances of client applications to read events from an event hub. It also gives you details about features of event processor client, which allows you to receive events from multiple partitions at once and load balance with other consumers that use the same event hub and consumer group.
 
 > [!NOTE]
 > The key to scale for Event Hubs is the idea of partitioned consumers. In contrast to the [competing consumers](/previous-versions/msp-n-p/dn568101(v=pandp.10)) pattern, the partitioned consumer pattern enables high scale by removing the contention bottleneck and facilitating end to end parallelism.
@@ -78,7 +79,7 @@ When the checkpoint is performed to mark an event as processed, an entry in chec
 
 By default, the function that processes events is called sequentially for a given partition. Subsequent events and calls to this function from the same partition queue up behind the scenes as the event pump continues to run in the background on other threads. Events from different partitions can be processed concurrently and any shared state that is accessed across partitions have to be synchronized.
 
-## Next steps
+## Related content
 See the following quick starts:
 
 - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)

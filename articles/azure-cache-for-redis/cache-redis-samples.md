@@ -1,9 +1,9 @@
 ---
 title: Azure Cache for Redis samples
 description: 'Learn how to use Azure Cache for Redis with these code samples: connecting to a cache, reading and writing data in a cache, ASP.NET Azure Cache for Redis providers.'
-author: flang-msft
-ms.author: franlanglois
-ms.service: cache
+
+
+
 ms.custom:
 ms.topic: sample
 ms.date: 05/11/2021
@@ -40,8 +40,6 @@ For more information, see the [StackExchange.Redis](https://github.com/StackExch
 
 [How to use Azure Cache for Redis with Python](cache-python-get-started.md) shows how to get started with Azure Cache for Redis using Python and the [redis-py](https://github.com/andymccurdy/redis-py) client.
 
-[Work with .NET objects in the cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache) shows you one way to serialize .NET objects to write them to and read them from an Azure Cache for Redis instance.
-
 ## Use Azure Cache for Redis as a Scale out Backplane for ASP.NET SignalR
 
 The [Use Azure Cache for Redis as a Scale out Backplane for ASP.NET SignalR](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane) sample demonstrates how to use Azure Cache for Redis as a SignalR backplane. For more information about backplane, see [SignalR Scaleout with Redis](https://www.asp.net/signalr/overview/performance/scaleout-with-redis).
@@ -68,9 +66,9 @@ The [Manage Azure Cache for Redis using Azure Management Libraries](https://gith
 
 The [Access Azure Cache for Redis Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) sample demonstrates how to access monitoring data for your Azure Cache for Redis outside of the Azure portal.
 
-## A Twitter-style clone written using PHP and Redis
+## An X-style clone written using PHP and Redis
 
-The [Retwis](https://github.com/SyntaxC4-MSFT/retwis) sample is the Redis Hello World. It's a minimal Twitter-style social network clone written using Redis and PHP using the [Predis](https://github.com/nrk/predis) client. The source code is designed to be simple and at the same time to show different Redis data structures.
+The [Retwis](https://github.com/SyntaxC4-MSFT/retwis) sample is the Redis Hello World. It's a minimal X-style social network clone written using Redis and PHP using the [Predis](https://github.com/nrk/predis) client. The source code is designed to be simple and at the same time to show different Redis data structures.
 
 ## Bandwidth monitor
 

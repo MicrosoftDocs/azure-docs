@@ -39,7 +39,7 @@ This guide shows how you can check the health and performance for both Consumpti
 
    :::image type="content" source="./media/view-workflow-metrics/view-metrics-consumption.png" alt-text="Screenshot showing Azure portal, Consumption logic app resource menu with Metrics selected, and the Metric list opened.":::
 
-   For more information about Consumption workflow metrics, see [Supported metrics with Azure Monitor - Microsoft.Logic/workflows](../azure-monitor/essentials/metrics-supported.md#microsoftlogicworkflows).
+   For more information about Consumption workflow metrics, see [Supported metrics with Azure Monitor - Microsoft.Logic/workflows](/azure/azure-monitor/essentials/metrics-supported#microsoftlogicworkflows).
 
 1. From the **Metric** list, select the metric that you want to review. From the **Aggregation** list, select the option for how you want to group the metric's values: **Count**, **Avg**, **Min**, **Max**, or **Sum**.
 

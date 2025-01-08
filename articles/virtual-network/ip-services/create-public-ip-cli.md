@@ -5,7 +5,7 @@ description: Learn how to create a public IP address using the Azure CLI
 services: virtual-network
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: quickstart
 ms.date: 08/24/2023
 ms.custom: mode-api, devx-track-azurecli 
@@ -28,12 +28,12 @@ In this quickstart, you learn how to create an Azure public IP address. Public I
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with [az group create](/cli/azure/group#az-group-create) named **QuickStartCreateIP-rg** in the **eastus2** location.
+Create a resource group with [az group create](/cli/azure/group#az-group-create) named **QuickStartCreateIP-rg** in the **westus2** location.
 
 ```azurecli-interactive
   az group create \
     --name QuickStartCreateIP-rg \
-    --location eastus2
+    --location westus2
 ```
 ## Create public IP
 
@@ -95,7 +95,7 @@ To create an IPv6 address, modify the **`--version`** parameter to **IPv6**.
 
 ```azurecli-interactive
   az network public-ip create \
-    --resource-group QuickStartCreateIP-rgLB \
+    --resource-group QuickStartCreateIP-rg \
     --name myStandardPublicIP-zonal \
     --version IPv4 \
     --sku Standard \
@@ -103,7 +103,7 @@ To create an IPv6 address, modify the **`--version`** parameter to **IPv6**.
 ```
 
 >[!NOTE]
->The above options for zones are only valid selections in regions with [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+>The above options for zones are only valid selections in regions with [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 # [**Non-zonal**](#tab/create-public-ip-non-zonal)
 
@@ -125,7 +125,7 @@ To create an IPv6 address, modify the **`--version`** parameter to **IPv6**.
 ```
 The removal of the **`--zone`** parameter in the command is valid in all regions.  
 
-The removal of the **`--zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+The removal of the **`--zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ---
 
@@ -167,7 +167,7 @@ The following command creates a global IPv4 address. This address can be associa
     --name myStandardPublicIP-Global \
     --version IPv4 \
     --tier global \
-    --sku Standard \
+    --sku Standard
 ```
 >[!NOTE]
 >Global tier addresses don't support Availability Zones.

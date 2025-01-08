@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 06/10/2024
+ms.date: 12/10/2024
 ms.author: anfdocs
 ---
 # Create an NFS volume for Azure NetApp Files
@@ -72,7 +72,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
         If the volume is created in an auto QoS capacity pool, the value displayed in this field is (quota x service level throughput).   
 
     * **Enable Cool Access**, **Coolness Period**, and **Cool Access Retrieval Policy**      
-        These fields configure [standard storage with cool access in Azure NetApp Files](cool-access-introduction.md). For descriptions, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md). 
+        These fields configure [Azure NetApp Files storage with cool access](cool-access-introduction.md). For descriptions, see [Manage Azure NetApp Files storage with cool access](manage-cool-access.md). 
 
     * **Virtual network**  
         Specify the Microsoft Azure Virtual Network from which you want to access the volume.  
@@ -110,7 +110,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
     * Specify a unique **file path** for the volume. This path is used when you create mount targets. The requirements for the path are as follows:   
         - For volumes not in an availability zone or volumes in the same availability zone, it must be unique within each subnet in the region. 
-        - For volumes in availability zones, it must be unique within each availability zone. This feature is currently in **preview** and requires you to register the feature. For more information, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md#file-path-uniqueness). 
+        - For volumes in availability zones, it must be unique within each availability zone. For more information, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md#file-path-uniqueness). 
         - It must start with an alphabetical character.
         - It can contain only letters, numbers, or dashes (`-`). 
         - The length must not exceed 80 characters.

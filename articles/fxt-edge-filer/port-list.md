@@ -1,18 +1,21 @@
 ---
 title: 'Port list for Azure FXT Edge Filer'
 description: List of the TCP/UDP ports used by FXT cluster environments
-author: femila
-ms.author: femila
-ms.service: fxt-edge-filer
+author: pauljewellmsft
+ms.author: pauljewell
+ms.service: azure-fxt-edge-filer
 ms.topic: conceptual
 ms.date: 05/26/2021
 ---
 
 # Required network ports
 
+> [!NOTE]
+> **Action Required:** Azure FXT Edge Filer will be retired on December 31, 2026. Please remove all Azure FXT Edge Filer resources by December 31, 2026. Visit https://aka.ms/fxtretirementfaq for more information.
+
 This list shows TCP/UDP ports required by FXT cluster environments. Configure any firewalls you use to make sure these ports are accessible.
 
-Your system's specific requirements will vary depending on what kind of back-end storage you use.
+Your system's specific requirements vary depending on what kind of back-end storage you use.
 
 For more information, contact Microsoft Service and Support.
 
@@ -43,7 +46,7 @@ Outbound NFS ports:
 | TCP/UDP | 111         | RPCBIND  |
 | TCP/UDP | 2049        | NFS      |
 
-Outbound NFS port traffic varies depending on the kind of storage used as a core filer. (Some systems do not use port 2049, though it is common enough to be listed here. All clusters need access on port 111.) Check the documentation for your storage systems or use the query technique described below in [Additional port requirements](#additional-port-requirements).
+Outbound NFS port traffic varies depending on the kind of storage used as a core filer. (Some systems don't use port 2049, though it's common enough to be listed here. All clusters need access on port 111.) Check the documentation for your storage systems or use the query technique described below in [Additional port requirements](#additional-port-requirements).
 
 Some outbound NFS traffic from FXT nodes uses ephemeral ports. Outbound FXT traffic above well-known ports should not be restricted at the transport level.
 
@@ -75,7 +78,7 @@ Some outbound NFS traffic from FXT nodes uses ephemeral ports. Outbound FXT traf
 
 Your core filers might require access on additional ports. This requirement varies depending on the type of storage used.
 
-You can use the `rpcinfo` command to learn which ports are used by a particular server. Issue this command from a client system that is not firewalled:
+You can use the `rpcinfo` command to learn which ports are used by a particular server. Issue this command from a client system that isn't firewalled:
 
 `rpcinfo -p <server_IP_address>`
 

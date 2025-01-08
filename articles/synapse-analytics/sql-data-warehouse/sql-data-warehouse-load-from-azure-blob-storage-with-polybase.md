@@ -4,7 +4,7 @@ description: Use PolyBase and T-SQL commands to load two tables from the Contoso
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 11/20/2020
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ---
@@ -346,4 +346,9 @@ GROUP BY p.[BrandName]
 ## Next steps
 
 To load the full data set, run the example [load the full Contoso retail data warehouse](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) from the Microsoft SQL Server samples repository.
-For more development tips, see [Design decisions and coding techniques for data warehouses](sql-data-warehouse-overview-develop.md).
+
+## Related content
+
+- [Design decisions and coding techniques for data warehouses](sql-data-warehouse-overview-develop.md)
+- [Tutorial: Load external data using Microsoft Entra ID](../sql/tutorial-load-data-using-entra-id.md)
+- [Tutorial: Load external data using a managed identity](../sql/tutorial-external-tables-using-managed-identity.md)

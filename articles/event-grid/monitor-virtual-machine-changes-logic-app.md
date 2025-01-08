@@ -1,8 +1,7 @@
 ---
 title: Monitor virtual machines changes with Azure Event Grid
 description: Check for changes in virtual machines (VMs) by using Azure Event Grid and Azure Logic Apps.
-services: logic-apps, event-grid
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
@@ -52,7 +51,7 @@ In this tutorial, you learn how to:
   > [create a Google client app to use for authentication with your Gmail connector](/connectors/gmail/#authentication-and-bring-your-own-application). 
   > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-* A [virtual machine](https://azure.microsoft.com/services/virtual-machines) that's alone in its own Azure resource group. If you haven't already done so, create a virtual machine through the [Create a VM tutorial](../virtual-machines/windows/quick-create-portal.md). To make the virtual machine publish events, you [don't need to do anything else](../event-grid/overview.md).
+* A [virtual machine](https://azure.microsoft.com/services/virtual-machines) that's alone in its own Azure resource group. If you haven't already done so, create a virtual machine through the [Create a VM tutorial](/azure/virtual-machines/windows/quick-create-portal). To make the virtual machine publish events, you [don't need to do anything else](../event-grid/overview.md).
 
 * If you have a firewall that limits traffic to specific IP addresses, you have to set up your firewall to allow access for Azure Logic Apps to communicate through the firewall. You need to allow access for both the [inbound](../logic-apps/logic-apps-limits-and-config.md#inbound) and [outbound](../logic-apps/logic-apps-limits-and-config.md#outbound) IP addresses used by Azure Logic Apps in the Azure region where you create your logic app.
 
@@ -86,7 +85,7 @@ In this tutorial, you learn how to:
    > make sure that you create a *stateful* workflow, not a stateless workflow. This tutorial applies only 
    > to Consumption logic apps, which follow a different user experience. To add Azure Event Grid operations 
    > to your workflow in the designer, on the operations picker pane, make sure that you select the **Azure** tab. 
-   > For more information about multitenant versus single-tenant Azure Logic Apps, review [Single-tenant versus multitenant and integration service environment](../logic-apps/single-tenant-overview-compare.md).
+   > For more information about multitenant versus single-tenant Azure Logic Apps, review [Single-tenant versus multitenant](../logic-apps/single-tenant-overview-compare.md).
 
 1. When you're done, select **Review + create**. On the next pane, confirm the provided information, and select **Create**.
 
@@ -257,7 +256,7 @@ Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) s
 
 1. To check that your workflow is getting the specified events, update your virtual machine.
 
-   For example, you can [resize your virtual machine](../virtual-machines/resize-vm.md).
+   For example, you can [resize your virtual machine](/azure/virtual-machines/resize-vm).
 
    After a few moments, you should get an email. For example:
 

@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 ms.author: ankitadutta
 manager: rochakm
 ms.topic: how-to
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.date: 05/02/2024
 ---
 

@@ -3,9 +3,9 @@ title: Configure Azure Front Door logs
 description: This article explains how to configure Azure Front Door logs.
 services: front-door
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 03/27/2024
+ms.date: 01/06/2025
 ms.author: duau
 ---
 
@@ -28,6 +28,9 @@ Access logs, health probe logs, and Web Application Firewall (WAF) logs aren't e
 1. Under **Diagnostic settings**, enter a name for **Diagnostic settings name**.
 
 1. Select the **log** options for **FrontDoorAccessLog**, **FrontDoorHealthProbeLog**, and **FrontDoorWebApplicationFirewallLog**.
+
+   > [!NOTE]
+   > **FrontDoorWebApplicationFirewallLog** is only available for Premium tier.
 
 1. Select the **Destination details**. The destination options are: 
 

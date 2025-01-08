@@ -20,11 +20,11 @@ To perform custom integration tasks inline with your workflow in Azure Logic App
 |--------|----------|------------------|--------------|-----------|-------------|
 | **Execute JavaScript Code** | JavaScript | **Standard**: <br>Node.js 16.x.x <br><br>**Consumption**: <br>Node.js 8.11.1 <br><br>For more information, review [Standard built-in objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). | Finishes in 5 seconds or fewer. | Handles data up to 50 MB. | - Doesn't require working with the [**Variables** actions](logic-apps-create-variables-store-values.md), which are unsupported by the action. <br><br>- Doesn't support the `require()` function for running JavaScript. |
 
-To run code that doesn't fit these attributes, you can [create and call a function using Azure Functions](logic-apps-azure-functions.md).
+To run code that doesn't fit these attributes, you can [create and call a function using Azure Functions](call-azure-functions-from-workflows.md).
 
-This guide shows how the action works in an example workflow that starts with an Office 365 Outlook trigger. The workflow runs when a new email arrives in the associated Outlook email account. The sample code snippet extracts any email addresses that exist the email body and returns those addresses as output that you can use in a subsequent action.
+This guide shows how the action works in an example workflow that starts with an Office 365 Outlook trigger. The workflow runs when a new email arrives in the associated Outlook email account. The sample code snippet extracts any email addresses that exist in the email body and returns those addresses as output that you can use in a subsequent action.
 
-The following diagram shows the highlights from example workflow:
+The following diagram shows the highlights from an example workflow:
 
 ### [Consumption](#tab/consumption)
 
@@ -54,7 +54,7 @@ The following diagram shows the highlights from example workflow:
 
   * Consumption workflow
 
-    * [Node.js version 8.11.10](https://nodejs.org/en/download/releases/)
+    * [Node.js version 8.11.10](https://nodejs.org/en/about/previous-releases)
 
     * [Link to an integration account](logic-apps-enterprise-integration-create-integration-account.md), empty or otherwise, from your logic app resource.
 
@@ -73,7 +73,7 @@ The following diagram shows the highlights from example workflow:
 
   * Standard workflow
 
-    * [Node.js versions 16.x.x](https://nodejs.org/en/download/releases/)
+    * [Node.js versions 16.x.x](https://nodejs.org/en/about/previous-releases)
 
     * No integration account required.
 

@@ -1,5 +1,5 @@
 ---
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: include
 author: tomkerkhove
 ms.author: tomkerkhove

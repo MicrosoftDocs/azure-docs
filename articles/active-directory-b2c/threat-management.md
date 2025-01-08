@@ -6,12 +6,12 @@ description: Learn about detection and mitigation techniques for credential atta
 author: garrodonnell
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 09/20/2021
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 
 #Customer Intent: As an Azure AD B2C administrator, I want to mitigate credential attacks by using smart lockout, so that I can protect user accounts from unauthorized access.
 

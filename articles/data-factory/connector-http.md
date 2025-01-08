@@ -3,11 +3,10 @@ title: Copy data from an HTTP source
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from a cloud or on-premises HTTP source to supported sink data stores by using a copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 09/26/2024
 ms.author: jianleishen
 ---
 # Copy data from an HTTP endpoint by using Azure Data Factory or Azure Synapse Analytics
@@ -42,7 +41,7 @@ You can use this HTTP connector to:
 - Copy the HTTP response as-is or parse it by using [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 > [!TIP]
-> To test an HTTP request for data retrieval before you configure the HTTP connector, learn about the API specification for header and body requirements. You can use tools like Postman or a web browser to validate.
+> To test an HTTP request for data retrieval before you configure the HTTP connector, learn about the API specification for header and body requirements. You can use tools like Visual Studio, PowerShell's Invoke-RestMethod, or a web browser to validate.
 
 ## Prerequisites
 

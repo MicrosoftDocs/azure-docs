@@ -11,7 +11,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Azure Tables input bindings for Azure Functions
 
-Use the Azure Tables input binding to read a table in [Azure Cosmos DB for Table](../cosmos-db/table/introduction.md) or [Azure Table Storage](../storage/tables/table-storage-overview.md).
+Use the Azure Tables input binding to read a table in [Azure Cosmos DB for Table](/azure/cosmos-db/table/introduction) or [Azure Table Storage](../storage/tables/table-storage-overview.md).
 
 For information on setup and configuration details, see the [overview](./functions-bindings-storage-table.md).
 
@@ -183,7 +183,7 @@ namespace FunctionAppCloudTable2
 }
 ```
 
-For more information about how to use CloudTable, see [Get started with Azure Table storage](../cosmos-db/tutorial-develop-table-dotnet.md).
+For more information about how to use CloudTable, see [Get started with Azure Table storage](/azure/cosmos-db/tutorial-develop-table-dotnet).
 
 If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).
 

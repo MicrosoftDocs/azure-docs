@@ -36,7 +36,7 @@ In *main.bicep*, type **vnet**. Select **res-vnet** from the list, and then pres
 Your Bicep file now contains the following code:
 
 ```bicep
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2023-11-01' = {
   name: 'name'
   location: location
   properties: {
@@ -147,7 +147,7 @@ After the single quote for the resource type, add `=` and a space. You're presen
 This option adds all of the properties for the resource type that are required for deployment. After selecting this option, your storage account has the following properties:
 
 ```bicep
-resource exampleStorage 'Microsoft.Storage/storageAccounts@2021-09-01' = {
+resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
 	name: 1
 	location: 2
 	sku: {
@@ -168,7 +168,7 @@ When you've finished, you have:
 param storageName string
 param location string = resourceGroup().location
 
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2023-11-01' = {
   name: storageName
   location: location
   properties: {
@@ -194,7 +194,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
   }
 }
 
-resource exampleStorage 'Microsoft.Storage/storageAccounts@2021-09-01' = {
+resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: storageName
   location: location
   sku: {

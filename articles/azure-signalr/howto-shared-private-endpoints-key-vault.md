@@ -4,7 +4,7 @@ titleSuffix: Azure SignalR Service
 description: Learn how Azure SignalR Service can use shared private endpoints to avoid exposing your key vault on a public network.
 services: signalr
 author: ArchangelSDY
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 09/23/2022

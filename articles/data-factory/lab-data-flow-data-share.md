@@ -3,10 +3,9 @@ title: Data integration using Azure Data Factory and Azure Data Share
 description: Copy, transform, and share data using Azure Data Factory and Azure Data Share
 author: dcstwh
 ms.author: weetok
-ms.date: 11/14/2023
-ms.service: data-factory
-ms.subservice: tutorials
+ms.date: 09/26/2024
 ms.topic: tutorial
+ms.subservice: data-flows
 ---
 
 # Data integration using Azure Data Factory and Azure Data Share
@@ -17,7 +16,7 @@ As customers embark on their modern data warehouse and analytics projects, they 
 
 From enabling code-free ETL/ELT to creating a comprehensive view over your data, improvements in Azure Data Factory empower your data engineers to confidently bring in more data, and thus more value, to your enterprise. Azure Data Share allows you to do business to business sharing in a governed manner.
 
-In this workshop, you'll use Azure Data Factory (ADF) to ingest data from Azure SQL Database into Azure Data Lake Storage Gen2 (ADLS Gen2). Once you land the data in the lake, you'll transform it via mapping data flows, data factory's native transformation service, and sink it into Azure Synapse Analytics. Then, you'll share the table with transformed data along with some additional data using Azure Data Share. 
+In this workshop, you use Azure Data Factory (ADF) to ingest data from Azure SQL Database into Azure Data Lake Storage Gen2 (ADLS Gen2). Once you land the data in the lake, you transform it via mapping data flows, data factory's native transformation service, and sink it into Azure Synapse Analytics. Then, you share the table with transformed data along with some extra data using Azure Data Share. 
 
 The data used in this lab is New York City taxi data. To import it into your database in SQL Database, download the [taxi-data bacpac file](https://github.com/djpmsft/ADF_Labs/blob/master/sample-data/taxi-data.bacpac). Select the **Download raw file** option in GitHub.
 
@@ -31,13 +30,13 @@ The data used in this lab is New York City taxi data. To import it into your dat
 
 - **Azure Synapse Analytics**: If you don't have an Azure Synapse Analytics workspace, learn how to [get started with Azure Synapse Analytics](../synapse-analytics/get-started-create-workspace.md).
 
-- **Azure Data Factory**: If you haven't created a data factory, see how to [create a data factory](./quickstart-create-data-factory-portal.md).
+- **Azure Data Factory**: If you don't have a data factory, see how to [create a data factory](./quickstart-create-data-factory-portal.md).
 
-- **Azure Data Share**: If you haven't created a data share, see how to [create a data share](../data-share/share-your-data.md#create-a-data-share-account).
+- **Azure Data Share**: If you don't have a data share, see how to [create a data share](../data-share/share-your-data.md#create-a-data-share-account).
 
 ## Set up your Azure Data Factory environment
 
-In this section, you learn how to access the Azure Data Factory user experience (ADF UX) from the Azure portal. Once in the ADF UX, you'll configure three linked service for each of the data stores we are using: Azure SQL Database, ADLS Gen2, and Azure Synapse Analytics.
+In this section, you learn how to access the Azure Data Factory user experience (ADF UX) from the Azure portal. Once in the ADF UX, you configure three linked service for each of the data stores we're using: Azure SQL Database, ADLS Gen2, and Azure Synapse Analytics.
 
 In Azure Data Factory linked services, define the connection information to external resources. Azure Data Factory currently supports over 85 connectors.
 
@@ -52,7 +51,7 @@ In Azure Data Factory linked services, define the connection information to exte
 
     :::image type="content" source="~/reusable-content/ce-skilling/azure/media/data-factory/data-factory-home-page.png" alt-text="Screenshot of the Azure Data Factory home page in the Azure portal." lightbox="~/reusable-content/ce-skilling/azure/media/data-factory/data-factory-home-page.png":::
 
-1. You are redirected to the homepage of ADF in the Azure portal. This page contains quick-starts, instructional videos, and links to tutorials to learn data factory concepts. To start authoring, select the pencil icon in left side-bar.
+1. You're redirected to the homepage of ADF in the Azure portal. This page contains quick-starts, instructional videos, and links to tutorials to learn data factory concepts. To start authoring, select the pencil icon in left side-bar.
 
     :::image type="content" source="./media/doc-common-process/get-started-page-author-button.png" alt-text="Screenshot from the Azure portal of Portal configure." lightbox="./media/doc-common-process/get-started-page-author-button.png":::
 
@@ -88,9 +87,9 @@ In Azure Data Factory linked services, define the connection information to exte
 
 ### Turn on data flow debug mode
 
-In section *Transform data using mapping data flow*, you are building mapping data flows. A best practice before building mapping data flows is to turn on debug mode, which allows you to test transformation logic in seconds on an active spark cluster.
+In section *Transform data using mapping data flow*, you're building mapping data flows. A best practice before building mapping data flows is to turn on debug mode, which allows you to test transformation logic in seconds on an active spark cluster.
 
-To turn on debug, select the **Data flow debug** slider in the top bar of data flow canvas or pipeline canvas when you have **Data flow** activities. Select **OK** when the confirmation dialog is shown. The cluster starts up in about 5 to 7 minutes. Continue on to *Ingest data from Azure SQL Database into ADLS Gen2 using the copy activity* while it is initializing.
+To turn on debug, select the **Data flow debug** slider in the top bar of data flow canvas or pipeline canvas when you have **Data flow** activities. Select **OK** when the confirmation dialog is shown. The cluster starts up in about 5 to 7 minutes. Continue on to *Ingest data from Azure SQL Database into ADLS Gen2 using the copy activity* while it's initializing.
 
 :::image type="content" source="media/lab-data-flow-data-share/factory-resources-data-flow-debug.png" alt-text="Screenshot from the Azure portal of the Factory Resources pages, with the data flow debug button enabled.":::
 
@@ -160,7 +159,7 @@ You have successfully created your source dataset. Make sure in the source setti
 
 ## Transform data using mapping data flow
 
-Now that you have successfully copied data into Azure Data Lake Storage, it is time to join and aggregate that data into a data warehouse. We use the mapping data flow, Azure Data Factory's visually designed transformation service. Mapping data flows allow users to develop transformation logic code-free and execute them on spark clusters managed by the ADF service.
+Now that you have successfully copied data into Azure Data Lake Storage, it's time to join and aggregate that data into a data warehouse. We use the mapping data flow, Azure Data Factory's visually designed transformation service. Mapping data flows allow users to develop transformation logic code-free and execute them on spark clusters managed by the ADF service.
 
 The data flow created in this step inner joins the 'TripDataCSV' dataset created in the previous section with a table `dbo.TripFares` stored in 'SQLDB' based on four key columns. Then the data gets aggregated based upon column `payment_type` to calculate the average of certain fields and written in an Azure Synapse Analytics table.
 
@@ -172,7 +171,7 @@ The data flow created in this step inner joins the 'TripDataCSV' dataset created
 1. In the side pane that opens, select **Create new data flow** and choose **Mapping data flow**. Select **OK**.
 
     :::image type="content" source="media/lab-data-flow-data-share/adding-data-flow-mapping-data-flow.png" alt-text="Screenshot from the Azure portal of adding a new mapping data flow." lightbox="media/lab-data-flow-data-share/adding-data-flow-mapping-data-flow.png":::
-1. You are directed to the data flow canvas where you'll be building your transformation logic. In the general tab, name your data flow 'JoinAndAggregateData'.
+1. You are directed to the data flow canvas where you are building your transformation logic. In the general tab, name your data flow 'JoinAndAggregateData'.
 
     :::image type="content" source="media/lab-data-flow-data-share/join-and-aggregdate-data-flow.png" alt-text="Screenshot from the Azure portal of the Join And Aggregate Data flow." lightbox="media/lab-data-flow-data-share/join-and-aggregdate-data-flow.png":::
 
@@ -196,13 +195,13 @@ The data flow created in this step inner joins the 'TripDataCSV' dataset created
 
 ### Configure your trip fares SQL Database source
 
-1. The second source you're adding points at the SQL Database table `dbo.TripFares`. Under your 'TripDataCSV' source, there is another **Add Source** box. Select it to add a new source transformation.
+1. The second source you're adding points at the SQL Database table `dbo.TripFares`. Under your 'TripDataCSV' source, there's another **Add Source** box. Select it to add a new source transformation.
 
     :::image type="content" source="media/lab-data-flow-data-share/data-flow-add-another-source.png" alt-text="Screenshot from the Azure portal of adding another data source to a data flow.":::
 1. Name this source 'TripFaresSQL'. Select **New** next to the source dataset field to create a new SQL Database dataset.
 
     :::image type="content" source="media/lab-data-flow-data-share/data-flow-another-copy-data-source-dataset-new.png" alt-text="Screenshot from the Azure portal of the new source dataset on another copy data step in the data flow.":::
-1. Select the **Azure SQL Database** tile and select continue. You might notice many of the connectors in data factory are not supported in mapping data flow. To transform data from one of these sources, ingest it into a supported source using the copy activity.
+1. Select the **Azure SQL Database** tile and select continue. You might notice many of the connectors in data factory aren't supported in mapping data flow. To transform data from one of these sources, ingest it into a supported source using the copy activity.
 
     :::image type="content" source="media/lab-data-flow-data-share/data-flow-new-dataset-azure-sql-database.png" alt-text="Screenshot from the Azure portal of adding a new Azure SQL Database dataset to the data flow.":::
 1. Call your dataset 'TripFares'. Select 'SQLDB' as your linked service. Select table name `dbo.TripFares` from the table name dropdown list. Import the schema **From connection/store**. Select OK when finished.
@@ -238,7 +237,7 @@ The data flow created in this step inner joins the 'TripDataCSV' dataset created
     * The average fare grouped by payment type
     * The total trip distance grouped by payment type
 
-    First, you'll create the average fare expression. In the text box labeled **Add or select a column**, enter 'average_fare'.
+    First, you create the average fare expression. In the text box labeled **Add or select a column**, enter 'average_fare'.
 
     :::image type="content" source="media/lab-data-flow-data-share/data-flow-aggregate-settings-grouped-by.png" alt-text="Screenshot from the Azure portal of the Grouped by option in aggregate settings." lightbox="media/lab-data-flow-data-share/data-flow-aggregate-settings-grouped-by.png":::
 1. To enter an aggregation expression, select the blue box labeled **Enter expression**, which opens up the data flow expression builder, a tool used to visually create data flow expressions using input schema, built-in functions and operations, and user-defined parameters. For more information on the capabilities of the expression builder, see the [expression builder documentation](./concepts-data-flow-expression-builder.md).
@@ -246,7 +245,7 @@ The data flow created in this step inner joins the 'TripDataCSV' dataset created
     To get the average fare, use the `avg()` aggregation function to aggregate the `total_amount` column cast to an integer with `toInteger()`. In the data flow expression language, this is defined as `avg(toInteger(total_amount))`. Select **Save and finish** when you're done.
 
     :::image type="content" source="media/lab-data-flow-data-share/visual-expression-builder-aggregate.png" alt-text="Screenshot from the Azure portal of the Visual Expression Builder showing an aggregate function avg(toInteger(total_amount))." lightbox="media/lab-data-flow-data-share/visual-expression-builder-aggregate.png":::
-1. To add an additional aggregation expression, select on the plus icon next to `average_fare`. Select **Add column**.
+1. To add an extra aggregation expression, select on the plus icon next to `average_fare`. Select **Add column**.
 
     :::image type="content" source="media/lab-data-flow-data-share/aggregate-settings-grouped-by-add-column.png" alt-text="Screenshot from the Azure portal of the add column button in the aggregate settings grouped by option." lightbox="media/lab-data-flow-data-share/aggregate-settings-grouped-by-add-column.png":::
 1. In the text box labeled **Add or select a column**, enter 'total_trip_distance'. As in the last step, open the expression builder to enter in the expression.
@@ -254,13 +253,13 @@ The data flow created in this step inner joins the 'TripDataCSV' dataset created
     To get the total trip distance, use the `sum()` aggregation function to aggregate the `trip_distance` column cast to an integer with `toInteger()`. In the data flow expression language, this is defined as `sum(toInteger(trip_distance))`. Select **Save and finish** when you're done.
 
     :::image type="content" source="media/lab-data-flow-data-share/aggregate-settings-grouped-by-two-columns.png" alt-text="Screenshot from the Azure portal of two columns in the aggregate settings grouped by option." lightbox="media/lab-data-flow-data-share/aggregate-settings-grouped-by-two-columns.png":::
-1. Test your transformation logic in the **Data Preview** tab. As you can see, there are significantly fewer rows and columns than previously. Only the three groups by and aggregation columns defined in this transformation continue downstream. As there are only five payment type groups in the sample, only five rows are outputted.
+1. Test your transformation logic in the **Data Preview** tab. As you can see, there are fewer rows and columns than previously. Only the three groups by and aggregation columns defined in this transformation continue downstream. As there are only five payment type groups in the sample, only five rows are outputted.
 
     :::image type="content" source="media/lab-data-flow-data-share/aggregate-data-preview.png" alt-text="Screenshot from the Azure portal of aggregate data preview." lightbox="media/lab-data-flow-data-share/aggregate-data-preview.png":::
 
 ### Configure you Azure Synapse Analytics sink
 
-1. Now that we have finished our transformation logic, we are ready to sink our data in an Azure Synapse Analytics table. Add a sink transformation under the **Destination** section.
+1. Now that we have finished our transformation logic, we're ready to sink our data in an Azure Synapse Analytics table. Add a sink transformation under the **Destination** section.
 
     :::image type="content" source="media/lab-data-flow-data-share/data-flow-add-sink.png" alt-text="Screenshot from the Azure portal of the add sink button in the data flow." lightbox="media/lab-data-flow-data-share/data-flow-add-sink.png":::
 1. Name your sink 'SQLDWSink'. Select **New** next to the sink dataset field to create a new Azure Synapse Analytics dataset.
@@ -273,9 +272,9 @@ The data flow created in this step inner joins the 'TripDataCSV' dataset created
 1. Call your dataset 'AggregatedTaxiData'. Select 'SQLDW' as your linked service. Select **Create new table** and name the new table `dbo.AggregateTaxiData`. Select **OK** when finished.
 
     :::image type="content" source="media/lab-data-flow-data-share/data-sink-set-properties-create-new-table.png" alt-text="Screenshot from the Azure portal of creating a new table for the data sink.":::
-1. Go to the **Settings** tab of the sink. Since we are creating a new table, we need to select **Recreate table** under table action. Unselect **Enable staging**, which toggles whether we are inserting row-by-row or in batch.
+1. Go to the **Settings** tab of the sink. Since we're creating a new table, we need to select **Recreate table** under table action. Unselect **Enable staging**, which toggles whether we're inserting row-by-row or in batch.
 
-    :::image type="content" source="media/lab-data-flow-data-share/data-sink-settings-recreate-table.png" alt-text="Screenshot from the Azure portal of data sink settings, the recreate table option." lightbox="media/lab-data-flow-data-share/data-sink-settings-recreate-table.png":::
+    :::image type="content" source="media/lab-data-flow-data-share/data-sink-settings-recreate-table.png" alt-text="Screenshot from the Azure portal of data sink settings, the Recreate table option." lightbox="media/lab-data-flow-data-share/data-sink-settings-recreate-table.png":::
 
 You have successfully created your data flow. Now it's time to run it in a pipeline activity.
 

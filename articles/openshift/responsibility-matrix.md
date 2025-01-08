@@ -2,8 +2,8 @@
 title: Azure Red Hat OpenShift Responsibility Assignment Matrix
 description: Learn about the ownership of responsibilities for the operation of an Azure Red Hat OpenShift cluster
 ms.service: azure-redhat-openshift
-ms.topic: article
-ms.date: 4/17/2024
+ms.topic: conceptual
+ms.date: 7/26/2024
 author: johnmarco
 ms.author: johnmarc
 keywords: aro, openshift, az aro, red hat, cli, RACI, support
@@ -314,9 +314,9 @@ Microsoft and Red Hat are responsible for enabling changes to the cluster infras
 
 <li>Set up public cloud load balancers
 
-<li>Set up native OpenShift router service. Provide the ability to set the router as private and add up to one additional router shard.
+<li>Set up the OpenShift Ingress cluster operator and the default IngressController. Provide the ability to add additional customer-managed IngressControllers and set the default IngressController as private.
 
-<li>Install, configure, and maintain OpenShift SDN components for default internal pod traffic.
+<li>Install, configure, and maintain the OVN-Kubernetes network plugin and related components for default internal pod traffic.
 </li>
 </ul>
    </td>
@@ -406,7 +406,7 @@ Microsoft and Red Hat are responsible for enabling changes to the cluster infras
 
 <li>Monitor utilization of control plane (master nodes) resources including Network, Storage and Compute capacity
 
-<li>Scale and/or resize control plane nodes to maintain quality of service
+<li>Proactively scale and/or resize control plane nodes to maintain quality of service
 
 </li>
 </ul>
@@ -418,6 +418,10 @@ Microsoft and Red Hat are responsible for enabling changes to the cluster infras
 
 <li>Respond to Microsoft and Red Hat notifications regarding cluster resource requirements.
 </li>
+
+<li>Ensure ample quota is available for larger control plane VMs in case of scaling operation
+</li>
+
 </ul>
    </td>
   </tr>

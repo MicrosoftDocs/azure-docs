@@ -5,12 +5,14 @@ services: cdn
 author: duongau
 manager: kumudd
 ms.service: azure-cdn
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/20/2024
 ms.author: duau
 ---
 
 # Retrieve the current POP IP list for Azure Content Delivery Network
+
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 <a name='retrieve-the-current-verizon-pop-ip-list-for-azure-cdn'></a>
 
@@ -26,11 +28,11 @@ For the syntax of the REST API operation for retrieving the POP list, see [Edge 
 
 ## Retrieve the current Microsoft POP IP list for Azure Content Delivery Network
 
-To lock down your application to accept traffic only from Azure Content Delivery Network from Microsoft, you need to set up IP access control lists (ACLs) for your backend. You might also restrict the set of accepted values for the header 'X-Forwarded-Host' sent by Azure Content Delivery Network from Microsoft. These steps are detailed as followed:
+To lock down your application to accept traffic only from point of presence (POP) servers utilized by Microsoft's content delivery network (CDN) offerings (**Azure Front Door**, **Azure Front Door Classic**, or **Azure CDN from Microsoft**), you need to set up IP access control lists (ACLs) for your backend. You might also restrict the set of accepted values for the header 'X-Forwarded-Host' sent by Azure Content Delivery Network from Microsoft. These steps are detailed as followed:
 
 Configure IP ACLing for your backends to accept traffic from Azure Content Delivery Network from Microsoft's backend IP address space and Azure's infrastructure services only.
 
-Use the AzureFrontDoor.Backend [service tag](../virtual-network/service-tags-overview.md) with Azure Content Delivery Network from Microsoft to configure Microsoft's backend IP ranges. For a complete list, see [IP Ranges and Service tags](https://www.microsoft.com/en-us/download/details.aspx?id=56519) for Microsoft services.
+To configure Microsoft's backend IP ranges with Azure Content Delivery Network from Microsoft, use the AzureFrontDoor.Backend [service tag](../virtual-network/service-tags-overview.md). For a complete list, see [IP Ranges and Service tags](https://www.microsoft.com/en-us/download/details.aspx?id=56519) for Microsoft services.
 
 ## Typical use case
 

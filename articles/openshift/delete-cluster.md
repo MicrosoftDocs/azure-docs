@@ -35,16 +35,19 @@ In previous articles for [creating](create-cluster.md) and [connecting](connect-
 
 ```bash
 RESOURCEGROUP=yourresourcegroup
+CLUSTER=clustername
 ```
 
-Using this value, delete your cluster:
+Using these values, delete your cluster:
 
 ```azurecli
-az group delete --name $RESOURCEGROUP
+az aro delete --resource-group $RESOURCEGROUP --name $CLUSTER
 ```
+You'll then be prompted to confirm if you are sure you want to perform this operation. After you confirm with `y`, it will take several minutes to delete the cluster. When the command finishes, the cluster will be deleted and all the managed objects.
 
-You'll then be prompted to confirm if you are sure you want to perform this operation. After you confirm with `y`, it will take several minutes to delete the cluster. When the command finishes, the entire resource group and all resources inside it, including the cluster and the virtual network, will be deleted.
+> [!NOTE] 
+> User-created objects such as virtual network and subnets must be manually deleted accordingly.
 
 ## Next steps
 
-Learn more about using OpenShift with the official [Red Hat OpenShift documentation](https://docs.openshift.com/container-platform/4.6/welcome/index.html).
+Learn more about using OpenShift with the official [Red Hat OpenShift documentation](https://docs.openshift.com/container-platform/4.14/welcome/index.html).

@@ -2,12 +2,12 @@
 title: Business continuity management program in Azure
 description: Learn about one of the most mature business continuity management programs in the industry.
 author: anaharris-ms
-ms.service: reliability
-ms.subservice: availability-zones
+ms.service: azure
+ms.subservice: azure-availability-zones
 ms.topic: conceptual
 ms.date: 10/21/2021
 ms.author: anaharris
-ms.custom: fasttrack-edit, mvc
+ms.custom: fasttrack-edit, mvc, subject-reliability
 ---
 
 # Business continuity management in Azure
@@ -39,7 +39,7 @@ A good example of the shared responsibility model is the deployment of virtual m
 
 Customer-enabled disaster recovery services all have public-facing documentation to guide you. For an example of public-facing documentation for customer-enabled disaster recovery, see [Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-disaster-recovery.md).
 
-For more information on the shared responsibility model, see [Microsoft Trust Center](../security/fundamentals/shared-responsibility.md).
+For more information, see [Shared responsibility for resiliency](./concept-shared-responsibility.md).
 
 ## Business continuity compliance: Service-level responsibility
 

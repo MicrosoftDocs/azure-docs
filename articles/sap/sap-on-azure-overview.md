@@ -5,7 +5,7 @@ author: ju-shim
 ms.author: jushiman
 ms.service: sap-on-azure
 ms.topic: overview
-ms.date: 02/13/2023
+ms.date: 08/22/2024
 ms.custom: template-overview
 ---
 
@@ -21,7 +21,7 @@ For more information, see the [SAP on Azure VM workloads](workloads/get-started.
 
 ### SAP Integration with Microsoft Services
 
-In addition to the capabilities to run SAP IaaS and SaaS workloads on Azure, Microsoft offers a variety of capabilities, scenarios, best-practice guides, and tutorials to integrate SAP workloads running anywhere with other Microsoft products and services. Among them are popular services such as Microsoft Entra ID, Exchange Online, Power Platform and Power BI, Azure Integration Services, Excel, SAP Business Technology Platform, SAP Analytics Cloud, SAP Data Warehouse Cloud, and SAP Success Factors to name a few.
+In addition to the capabilities to run SAP IaaS and SaaS workloads on Azure, Microsoft offers various capabilities, scenarios, best-practice guides, and tutorials to integrate SAP workloads running anywhere with other Microsoft products and services. Among them are popular services such as Microsoft Entra ID, Exchange Online, Power Platform and Power BI, Azure Integration Services, Excel, SAP Business Technology Platform, SAP Analytics Cloud, SAP Data Warehouse Cloud, and SAP Success Factors to name a few.
 
 For more information, see the [SAP Integration with Microsoft Services](workloads/integration-get-started.md) documentation.
 
@@ -42,13 +42,13 @@ For more information, see the [Azure Center for SAP solutions](center-sap-soluti
 
 ## SAP on Azure deployment automation framework
 
-The SAP on Azure deployment automation framework is an open-source orchestration tool for deploying, installing and maintaining SAP environments.
+The SAP on Azure deployment automation framework is an open-source orchestration tool for deploying, installing, and maintaining SAP environments.
 
 For more information, see the [SAP on Azure deployment automation framework](automation/deployment-framework.md) documentation.
 
 ## Azure Monitor for SAP solutions
 
-Azure Monitor for SAP solutions is an Azure-native monitoring product for SAP landscapes that run on Azure, which uses specific parts of the [Azure Monitor](../azure-monitor/overview.md) infrastructure.
+Azure Monitor for SAP solutions is an Azure-native monitoring product for SAP landscapes that run on Azure, which uses specific parts of the [Azure Monitor](/azure/azure-monitor/overview) infrastructure.
 
 For more information, see the [Azure Monitor for SAP solutions](monitor/about-azure-monitor-sap-solutions.md) documentation.
 

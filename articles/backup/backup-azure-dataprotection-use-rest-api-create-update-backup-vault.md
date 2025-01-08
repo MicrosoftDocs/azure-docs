@@ -1,8 +1,8 @@
 ---
 title: Create Azure Backup policy for blobs using REST API.
 description: In this article, learn how to create a policy to back up blobs in a storage account using REST API.
-ms.topic: conceptual
-ms.date: 07/09/2021
+ms.topic: how-to
+ms.date: 07/18/2024
 ms.assetid: 93861379-5bec-4ed5-95d2-46f534a115fd
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

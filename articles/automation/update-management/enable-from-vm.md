@@ -3,23 +3,27 @@ title: Enable Azure Automation Update Management for an Azure VM
 description: This article tells how to enable Update Management for an Azure VM.
 services: automation
 ms.subservice: update-management
-ms.date: 09/30/2023
-ms.topic: conceptual
+ms.date: 11/18/2024
+ms.topic: how-to
 ms.custom: mvc
+ms.service: azure-automation
 ---
 
 # Enable Update Management for an Azure VM
 
+[!INCLUDE [./automation-update-management-retirement-announcement.md](../includes/automation-update-management-retirement-announcement.md)]
+
 This article describes how you can enable the [Update Management](overview.md) feature on one or more Azure virtual machines (VM). To enable Azure VMs at scale, you must enable an existing Azure VM using Update Management.
 
 > [!NOTE]
-> When enabling Update Management, only certain regions are supported for linking a Log Analytics workspace and an Automation account. For a list of the supported mapping pairs, see [Region mapping for Automation account and Log Analytics workspace](../how-to/region-mappings.md).
+> - Azure Update Management onboarding via the portal is no longer available, as the service was retired on **August 31, 2024**. Existing virtual machines (VMs) utilizing Azure Update Management with the legacy agent will remain operational until **February 1, 2025**. We recommend that you configure [periodic assessment](../../update-manager/tutorial-assessment-deployment-using-policy.md) or [patch schedules](../../update-manager/scheduled-patching.md) using [Azure Update Manager](../../update-manager/overview.md).
+> - When enabling Update Management, only certain regions are supported for linking a Log Analytics workspace and an Automation account. For a list of the supported mapping pairs, see [Region mapping for Automation account and Log Analytics workspace](../how-to/region-mappings.md).
 
 ## Prerequisites
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Automation account](../automation-security-overview.md) to manage machines.
-* A [virtual machine](../../virtual-machines/windows/quick-create-portal.md).
+* A [virtual machine](/azure/virtual-machines/windows/quick-create-portal).
 
 ## Sign in to Azure
 

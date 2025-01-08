@@ -21,6 +21,8 @@ Some of the benefits of the device inventory include:
 
 - Export the entire device inventory to a CSV file for your reports.
 
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
+
 ## Device inventory overview
 
 The Device inventory gives you an overview of all devices within your environment. Here you can see the individual details of each device and filter, and order your search by various options.

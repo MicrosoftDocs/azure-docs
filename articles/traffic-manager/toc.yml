@@ -60,7 +60,7 @@
     href: traffic-manager-traffic-view-overview.md
   - name: Metrics and alerts
     href: traffic-manager-metrics-alerts.md
-  - name: Disaster recovery using Azure DNS and Traffic Manager
+  - name: Reliability and disaster recovery
     href: ../networking/disaster-recovery-dns-traffic-manager.md
   - name: How Traffic Manager works
     href: traffic-manager-how-it-works.md
@@ -68,6 +68,10 @@
     href: traffic-manager-FAQs.md
 - name: How-to guides
   items:
+  - name: Use Azure App Gateway with Azure Traffic Manager
+    href: traffic-manager-use-with-application-gateway.md
+  - name: Use Azure App Service with Azure Traffic Manager
+    href: traffic-manager-use-azure-app-service.md
   - name: Configure performance routing in Traffic Manager
     href: traffic-manager-configure-performance-routing-method.md
   - name: Configure multivalue routing in Traffic Manager

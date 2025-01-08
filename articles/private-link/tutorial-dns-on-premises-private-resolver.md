@@ -4,7 +4,7 @@ titleSuffix: Azure Private Link
 description: Learn how to deploy a private endpoint with an Azure Private resolver for an on-premises workload.
 author: abell
 ms.author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: tutorial
 ms.date: 08/29/2023
 ms.custom: template-tutorial

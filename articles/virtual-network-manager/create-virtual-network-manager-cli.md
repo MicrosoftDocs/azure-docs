@@ -3,7 +3,7 @@ title: 'Quickstart: Create a mesh network topology with Azure Virtual Network Ma
 description: Use this quickstart to learn how to create a mesh network topology with Virtual Network Manager by using the Azure CLI.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: quickstart
 ms.date: 03/15/2024
 ms.custom: mode-api, devx-track-azurecli 
@@ -244,7 +244,7 @@ For the configuration to take effect, commit the configuration to the target reg
 az network manager post-commit \
     --network-manager-name "myAVNM" \
     --commit-type "Connectivity" \
-    --configuration-ids "/subscriptions/<subscription_id>/resourceGroups/myANVMResourceGroup/providers/Microsoft.Network/networkManagers/myAVNM/connectivityConfigurations/connectivityconfig" \
+    --configuration-ids "/subscriptions/<subscription_id>/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/networkManagers/myAVNM/connectivityConfigurations/connectivityconfig" \
     --target-locations "westus" \
     --resource-group "myAVNMResourceGroup"
 ```

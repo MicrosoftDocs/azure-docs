@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn how to create an Azure Network Watcher connection monitor using Azure PowerShell.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 01/07/2021
 ms.custom: devx-track-azurepowershell
@@ -83,7 +83,7 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
 
 * **Test groups**
 	* **Name**: Name your test group.
-	* **Sources**: Choose from the endpoints you created earlier. Azure-based source endpoints need to have Azure Network Watcher extension installed; non-Azure-based source endpoints need to have an Azure Log Analytics agent installed. To install an agent for your source, see [Install monitoring agents](./connection-monitor-overview.md#install-monitoring-agents).
+	* **Sources**: Choose from the endpoints you created earlier. Azure-based source endpoints need to have Azure Network Watcher extension installed; non-Azure-based source endpoints need to have an Azure Log Analytics agent installed. To install an agent for your source, see [Monitoring agents](./connection-monitor-overview.md#monitoring-agents).
 	* **Destinations**:  Choose from the endpoints you created earlier. You can monitor connectivity to Azure VMs or any endpoint (a public IP, URL, or FQDN) by specifying them as destinations. In a single test group, you can add Azure VMs, Office 365 URLs, Dynamics 365 URLs, and custom endpoints.
 	* **Disable**: Disable monitoring for all sources and destinations that the test group specifies.
 

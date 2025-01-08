@@ -2,9 +2,9 @@
 title: Commission an AKS cluster 
 titleSuffix: Azure Private 5G Core
 description: This how-to guide shows how to commission the Azure Kubernetes Cluster on Azure Stack Edge to get it ready to deploy Azure Private 5G Core.
-author: robswain
-ms.author: robswain
-ms.service: private-5g-core
+author: anzaman
+ms.author: alzam
+ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 03/30/2023
 ms.custom: template-how-to 

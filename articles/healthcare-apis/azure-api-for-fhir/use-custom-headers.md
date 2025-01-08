@@ -2,7 +2,7 @@
 title: Add data to audit logs by using custom headers - Azure API for FHIR
 description: This article describes how to add data to audit logs by using custom HTTP headers in Azure API for FHIR.
 services: healthcare-apis
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth
@@ -12,13 +12,13 @@ ms.date: 09/27/2023
  
  # Add custom HTTP headers to audit logs in FHIR service 
 
-[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
+[!INCLUDE[retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
-[!INCLUDE [Specific IP ranges for storage account](../includes/custom-header-auditlog.md)]
+[!INCLUDE[Specific IP ranges for storage account](../includes/custom-header-auditlog.md)]
     
 ## Next steps
 
-In this article, you learned how to add data to audit logs by using custom headers in the Azure API for FHIR. For information about Azure API for FHIR configuration settings, see
+In this article, you learned how to add data to audit logs by using custom headers in the Azure API for FHIR&reg;. For information about Azure API for FHIR configuration settings, see
 
 >[!div class="nextstepaction"]
 >[Configure Azure RBAC](configure-azure-rbac.md)
@@ -38,5 +38,4 @@ In this article, you learned how to add data to audit logs by using custom heade
 >[!div class="nextstepaction"]
 >[Configure Private Link](configure-private-link.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
-
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

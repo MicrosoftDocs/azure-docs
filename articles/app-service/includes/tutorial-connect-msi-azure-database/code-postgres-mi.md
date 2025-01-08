@@ -75,7 +75,7 @@ using (var connection = new NpgsqlConnection(connectionString))
 For more information, see the following resources:
 
 * [Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity](../../tutorial-java-tomcat-connect-managed-identity-postgresql-database.md)
-* [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](../../../postgresql/flexible-server/connect-java.md?tabs=passwordless#connect-to-the-database)
+* [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](/azure/postgresql/flexible-server/connect-java?tabs=passwordless#connect-to-the-database)
 
 
 # [Python](#tab/python-postgres-mi)
@@ -108,6 +108,11 @@ For more information, see the following resources:
     conn_string = os.getenv('AZURE_POSTGRESQL_CONNECTIONSTRING')
     conn = psycopg2.connect(conn_string + ' password=' + accessToken.token) 
     ```
+
+For more information, see the following resources:
+
+* [Create and deploy a Flask Python web app to Azure with system-assigned managed identity](/azure/developer/python/tutorial-python-managed-identity-cli)
+* [Create and deploy a Django web app to Azure with a user-assigned managed identity](/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli)
 
 # [NodeJS](#tab/nodejs-postgres-mi)
 

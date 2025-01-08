@@ -1,14 +1,17 @@
 ---
 title: Apache Flink® Application Mode cluster on HDInsight on AKS
 description: Learn about  Flink® Application Mode cluster on HDInsight on AKS.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Apache Flink Application Mode cluster on HDInsight on AKS
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 
 HDInsight on AKS now offers a Flink Application mode cluster. This cluster lets you manage cluster Flink application mode lifecycle using the Azure portal with easy-to-use interface and Azure Resource Management Rest APIs. Application mode clusters are designed to support large and long-running jobs with dedicated resources, and handle resource-intensive or extensive data processing tasks. 

@@ -4,7 +4,7 @@ description: Overview of running Linux IoT Edge modules with Azure IoT Edge for 
 author: PatAltimore
 
 ms.reviewer: fcabrera
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ms.topic: conceptual
@@ -14,7 +14,7 @@ ms.author: patricka
 
 # What is Azure IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge for Linux on Windows (EFLOW) allows you to run containerized Linux workloads alongside Windows applications in Windows deployments. Businesses that rely on Windows to power their edge devices and solutions can now take advantage of the cloud-native analytics solutions being built in Linux.
 
