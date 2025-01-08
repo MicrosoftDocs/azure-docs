@@ -28,7 +28,7 @@ When you enable client certificate for your app, you should select your choice o
 |-|-|
 |Required|All requests require a client certificate.|
 |Optional|Requests may or may not use a client certificate and clients are prompted for a certificate by default. For example, browser clients will show a prompt to select a certificate for authentication.|
-|Optional Interactive User|Requests may or may not use a client certificate and clients are not be prompted for a certificate by default. For example, browser clients won't show a prompt to select a certificate for authentication.|
+|Optional Interactive User|Requests may or may not use a client certificate and clients are not prompted for a certificate by default. For example, browser clients won't show a prompt to select a certificate for authentication.|
 
 ### [Azure portal](#tab/azureportal)
 To set up your app to require client certificates in Azure portal:
@@ -109,12 +109,12 @@ In the following screenshot, any path for your app that starts with `/public` do
 ![Certificate Exclusion Paths][exclusion-paths]
 
 ## Client certificate and TLS renegotiation
-App Service requires TLS renegotiation to read a request before knowing whether to prompt for a client certificate. Any of the following settings  triggers TLS renegotiation:
-1. Use "Optional Interactive User" client certificate mode.
-1. Use [client certificate exclusion path](#exclude-paths-from-requiring-authentication).
+App Service requires TLS renegotiation to read a request before knowing whether to prompt for a client certificate. Any of the following settings triggers TLS renegotiation:
+1. Using "Optional Interactive User" client certificate mode.
+1. Using [client certificate exclusion path](#exclude-paths-from-requiring-authentication).
 
 > [!NOTE]
-> TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. If you configure your app with these protocols, they won't work with client certificate settings that use TLS renegotiation.
+> TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation.
 
 To disable TLS renegotiation and to have the app negotiate client certificates during TLS handshake, you must configure your app with *all* these settings:
 1. Set client certificate mode to "Required" or "Optional"
@@ -123,11 +123,11 @@ To disable TLS renegotiation and to have the app negotiate client certificates d
 ### Uploading large files with TLS renegotiation
 Client certificate configurations that use TLS renegotiation cannot support incoming requests with large files greater than 100 kb due to buffer size limitations. In this scenario, any POST or PUT requests over 100 kb will fail with a 403 error. This limit isn't configurable and can't be increased.
 
-These are the only available alternative solutions to address the 100kb limit:
+To address the 100 kb limit, consider to these alternative solutions:
 
 1. Update your app's client certificate configuration with _all_ these requirements:
-  1. Set client certificate mode to either "Required" or "Optional"
-  1. Remove all client certificate exclusion paths
+  - Set client certificate mode to either "Required" or "Optional"
+  - Remove all client certificate exclusion paths
 1. Send a HEAD request before the PUT/POST request. The HEAD request will handle the client certificate.
 1. Add the header `Expect: 100-Continue` to your request. This will cause the client to wait until the server responds with a `100 Continue` before sending the request body, which bypasses the buffers.
 
