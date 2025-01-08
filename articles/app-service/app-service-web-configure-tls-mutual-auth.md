@@ -22,13 +22,13 @@ You can restrict access to your Azure App Service app by enabling different type
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
 ## Enable client certificates
-When you enable client certificate for your app, you should select your choice of client certificate mode. Each mode defines how your app will handle incoming client certificates:
+When you enable client certificate for your app, you should select your choice of client certificate mode. Each mode defines how your app handles incoming client certificates:
 
 |Client certificate modes|Description|
 |-|-|
 |Required|All requests require a client certificate.|
-|Optional|Requests may or may not use a client certificate. Clients will be prompted for a certificate by default. For example, browser clients will show a prompt to select a certificate for authentication.|
-|Optional Interactive User|Requests may or may not use a client certificate. Clients will not be prompted for a certificate by default. For example, browser clients will not show a prompt to select a certificate for authentication.|
+|Optional|Requests may or may not use a client certificate and clients are prompted for a certificate by default. For example, browser clients will show a prompt to select a certificate for authentication.|
+|Optional Interactive User|Requests may or may not use a client certificate and clients are not be prompted for a certificate by default. For example, browser clients won't show a prompt to select a certificate for authentication.|
 
 ### [Azure portal](#tab/azureportal)
 To set up your app to require client certificates in Azure portal:
@@ -94,7 +94,7 @@ For ARM templates, modify the properties `clientCertEnabled`, `clientCertMode`, 
 When you enable mutual auth for your application, all paths under the root of your app require a client certificate for access. To remove this requirement for certain paths, define exclusion paths as part of your application configuration.
 
 > [!NOTE]
-> Using any client certificate exclusion path will trigger TLS renegotiation for the app.
+> Using any client certificate exclusion path triggers TLS renegotiation for the app.
 
 1. From the left navigation of your app's management page, select **Configuration** > **General Settings**.
 
@@ -109,23 +109,23 @@ In the following screenshot, any path for your app that starts with `/public` do
 ![Certificate Exclusion Paths][exclusion-paths]
 
 ## Client certificate and TLS renegotiation
-App Service requires TLS renegotiation to read a request before knowing whether to prompt for a client certificate. Any of the following settings below will trigger TLS renegotiation:
+App Service requires TLS renegotiation to read a request before knowing whether to prompt for a client certificate. Any of the following settings  triggers TLS renegotiation:
 1. Use "Optional Interactive User" client certificate mode.
 1. Use [client certificate exclusion path](#exclude-paths-from-requiring-authentication).
 
 > [!NOTE]
 > TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. If you configure your app with these protocols, they won't work with client certificate settings that use TLS renegotiation.
 
-To disable TLS renegotiation and to have the app negotiate client certificates during TLS handshake, you must configure your app with *all* the settings below:
+To disable TLS renegotiation and to have the app negotiate client certificates during TLS handshake, you must configure your app with *all* these settings:
 1. Set client certificate mode to "Required" or "Optional"
 2. Remove all client certificate exclusion paths
 
 ### Uploading large files with TLS renegotiation
-Client certificate configurations that uses TLS renegotiation cannot support incoming requests with large files greater than 100kb due to buffer size limitations. In this scenario, any POST or PUT requests over 100kb will fail with a 403 error. This limit is not configurable and cannot be increased.
+Client certificate configurations that use TLS renegotiation cannot support incoming requests with large files greater than 100 kb due to buffer size limitations. In this scenario, any POST or PUT requests over 100 kb will fail with a 403 error. This limit isn't configurable and can't be increased.
 
-Below are the only available alternative solutions to address the 100kb limit:
+These are the only available alternative solutions to address the 100kb limit:
 
-1. Update your app's client certificate configuration to meet _all_ requirements below:
+1. Update your app's client certificate configuration with _all_ these requirements:
   1. Set client certificate mode to either "Required" or "Optional"
   1. Remove all client certificate exclusion paths
 1. Send a HEAD request before the PUT/POST request. The HEAD request will handle the client certificate.
