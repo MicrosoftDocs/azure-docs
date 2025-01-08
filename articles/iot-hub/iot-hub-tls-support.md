@@ -146,7 +146,7 @@ AzureDiagnostics
 | project DeviceId = props_json.deviceId, TLSVersion = props_json.tlsVersion
 ```
 5. An example of the query results look like:
-:::image type="content" source="./media/iot-hub-tls-ending-support-for-1-0-and-1-1/queryresult.png" alt-text="Diagram showing the query for device TLS version.":::
+:::image type="content" source="./media/iot-hub-tls-ending-support-for-1-0-and-1-1/query-result.png" alt-text="Diagram showing the query for device TLS version.":::
 6. Note: TLS version query is not available for devices using HTTPS connections. 
 
 
