@@ -748,6 +748,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/api-management/howto-use-analytics.md",
+      "redirect_url": "/azure/api-management/monitor-api-management",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/api-management/visualize-using-managed-grafana-dashboard.md",
+      "redirect_url": "/azure/api-management/monitor-api-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/api-management/developer-portal-enable-usage-logs.md",
+      "redirect_url": "/azure/api-management/monitor-api-management",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/governance/machine-configuration/whats-new/migrating-from-dsc-extension.md ",
       "redirect_url": " https://azure.microsoft.com/updates/migrate-from-linux-dsc-extension-to-the-guest-configuration-feature-of-azure-policy-by-may-1-2025/",
       "redirect_document_id": false
@@ -770,6 +785,16 @@
     {
       "source_path_from_root": "/articles/azure-app-configuration/run-experiments-aspnet-core.md",
       "redirect_url": "/azure/azure-app-configuration/concept-experimentation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-app-configuration/use-variant-feature-flags.md",
+      "redirect_url": "/azure/azure-app-configuration/howto-variant-feature-flags",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-app-configuration/use-variant-feature-flags-aspnet-core.md",
+      "redirect_url": "/azure/azure-app-configuration/howto-variant-feature-flags-aspnet-core",
       "redirect_document_id": false
     },
     {
@@ -4483,6 +4508,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/logic-apps/business-continuity-disaster-recovery-guidance.md",
+      "redirect_url": "/azure/logic-apps/multi-region-disaster-recovery",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/virtual-network/tutorial-connect-virtual-networks-portal.md",
       "redirect_url": "/azure/virtual-network/tutorial-connect-virtual-networks",
       "redirect_document_id": false
@@ -4595,6 +4625,16 @@
     {
       "source_path_from_root": "/articles/sentinel/data-connectors/threat-intelligence-upload-indicators-api.md",
       "redirect_url": "/azure/sentinel/data-connectors/threat-intelligence-upload-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/create-vm-accelerated-networking-cli.md",
+      "redirect_url": "/azure/virtual-network/create-virtual-machine-accelerated-networking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/create-vm-accelerated-networking-powershell.md",
+      "redirect_url": "/azure/virtual-network/create-virtual-machine-accelerated-networking",
       "redirect_document_id": false
     }
   ]
