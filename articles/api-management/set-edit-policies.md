@@ -221,7 +221,7 @@ To modify the policy evaluation order using the policy editor:
   
     > [!NOTE]
     > * You can place the `base` element before or after any policy element in a section.
-    > * If you want to prevent inheriting policies from the parent scope, remove the `base` element. In most cases, this isn't recommended.
+    > * If you want to prevent inheriting policies from the parent scope, remove the `base` element. In most cases, this isn't recommended. However, it may be useful in certain situations, such as when you want to apply different policies to a specifc operation than are configured for the API scope.
 
 1. Continue to configure the `base` element in policy definitions at successively broader scopes.
 
