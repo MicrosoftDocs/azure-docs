@@ -134,7 +134,7 @@ Class `MeetingMediaAccess` has the following properties:
 | Properties | Description |
 |--|--|
 | isAudioPermitted | Boolean value of Teams meeting option `Allow mic for attendees`. |
-| isVideoPermitted | Boolean value indicating whether ability to send video is allowed in the Teams meeting for attendees. |
+| isVideoPermitted | Boolean value of Teams meeting option `Allow camera for attendees`. |
 
 ### Troubleshooting
 
