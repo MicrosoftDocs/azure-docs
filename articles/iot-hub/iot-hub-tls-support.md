@@ -93,7 +93,7 @@ To enable TLS 1.2 and strong cipher suites enforcement in Azure portal:
 2. Choose a **Region** from one in the list above.
 3. Under **Management -> Advanced -> Transport Layer Security (TLS) -> Minimum TLS version**, select **1.2**. This setting only appears for IoT hub created in supported region.
 
-    :::image type="content" source="media/iot-hub-tls-12-enforcement.png" alt-text="Screenshot showing how to turn on TLS 1.2 enforcement during IoT hub creation":::
+    :::image type="content" source="media/iot-hub-tls-12-enforcement.png" alt-text="Screenshot showing how to turn on TLS 1.2 enforcement during IoT hub creation.":::
 4. Click **Create**
 5. Connect your IoT devices to this IoT Hub
 
@@ -145,7 +145,7 @@ AzureDiagnostics
 | extend props_json = parse_json(properties_s)
 | project DeviceId = props_json.deviceId, TLSVersion = props_json.tlsVersion
 ```
-5. An example of the query results look like:
+5. An example of the query results looks like:
 :::image type="content" source="./media/iot-hub-tls-support/query-result.png" alt-text="Diagram showing the query for device TLS version.":::
 6. Note: TLS version query is not available for devices using HTTPS connections. 
 
