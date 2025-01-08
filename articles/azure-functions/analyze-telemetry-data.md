@@ -4,6 +4,7 @@ description: Learn how to view and query for Azure Functions telemetry data coll
 ms.topic: how-to
 ms.custom:
   - build-2024
+  - ignite-2024
 ms.date: 10/14/2020
 # Customer intent: As a developer, I want to view and query the data being collected from my function app so I can know if it's running correctly and to make improvements.
 ---

@@ -5,6 +5,8 @@ description: In this tutorial, you learn how to use Azure Cache for Redis to sto
 
 
 ms.topic: tutorial
+ms.custom:
+  - ignite-2024
 ms.date: 09/15/2023
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
@@ -202,7 +204,7 @@ Next, you'll read the csv file into a pandas DataFrame.
    ```
 
    > [!Important]
-   > Refer to [Azure OpenAI Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) to caculate the cost of generating embeddings based on the number of tokens required.
+   > Refer to [Azure OpenAI Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) to calculate the cost of generating embeddings based on the number of tokens required.
 
 ## Load DataFrame into LangChain
 

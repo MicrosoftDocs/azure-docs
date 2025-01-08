@@ -7,7 +7,8 @@ metadata:
   title: Azure Migrate application and code assessment
   description: Learn about Azure Migrate application and code assessment.
   ms.service: appcat
-  ms.author: v-sreedevank
+  author: SnehaSudhirG
+  ms.author: sudhirsneha 
   ms.topic: landing-page
   ms.date: 11/15/2023
 

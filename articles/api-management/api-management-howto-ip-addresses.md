@@ -39,7 +39,7 @@ Public IP addresses will be part of the response:
   "properties": {
     ...
     "publicIPAddresses": [
-      "13.77.143.53"
+      "172.31.0.1"
     ],
     ...
   }
@@ -70,7 +70,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/
   "properties": {
     ...
     "publicIPAddresses": [
-      "13.85.20.170"
+      "172.31.0.1"
     ],
     "privateIPAddresses": [
       "192.168.1.5"

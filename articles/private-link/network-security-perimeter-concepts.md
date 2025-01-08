@@ -1,25 +1,25 @@
 ---
-title: What is Network Security Perimeter?
-description: Learn about the components of Network Security Perimeter, a feature that allows Azure PaaS resources to communicate within an explicit trusted boundary, or perimeter.
+title: What is a network security perimeter?
+description: Learn about the components of network security perimeter, a feature that allows Azure PaaS resources to communicate within an explicit trusted boundary, or perimeter.
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: overview
-ms.date: 11/04/2024
-ms.custom: references_regions
+ms.date: 01/06/2025
+ms.custom: references_regions, ignite-2024
 #CustomerIntent: As a network security administrator, I want to understand how to use Network Security Perimeter to control network access to Azure PaaS resources.
 ---
 
-# What is Network Security Perimeter?
+# What is a network security perimeter?
 
-Network Security Perimeter allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Storage acoount and SQL Database server) that are deployed outside your organization’s virtual networks. It restricts public network access to PaaS resources outside of the perimeter; access can be exempted by using explicit access rules for public inbound and outbound.
+Network security perimeter allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Storage account and SQL Database server) that are deployed outside your organization’s virtual networks. It restricts public network access to PaaS resources within the perimeter; access can be exempted by using explicit access rules for public inbound and outbound.
 
 For access patterns involving traffic from virtual networks to PaaS resources, see [What is Azure Private Link?](private-link-overview.md).
 
-Features of Network Security Perimeter include:
+Features of a network security perimeter include:
 
-- Resource to resource access communication within perimeter members, preventing data exfiltration to non-authorized destinations.
-- Manage external public access with explicit rules for PaaS resources associated with the perimeter.
+- Resource to resource access communication within perimeter members, preventing data exfiltration to nonauthorized destinations.
+- External public access management with explicit rules for PaaS resources associated with the perimeter.
 - Access logs for audit and compliance.
 - Unified experience across PaaS resources.
 
@@ -29,7 +29,7 @@ Features of Network Security Perimeter include:
 
 [!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]
 
-## Components of Network Security Perimeter
+## Components of a network security perimeter
 
 A network security perimeter includes the following components:
 
@@ -42,7 +42,7 @@ A network security perimeter includes the following components:
 | **Diagnostics settings** | Extension resource hosted by Microsoft Insights to collect logs & metrics for all resources in the perimeter. |
 
 > [!NOTE]
-> For organizational and informational safety, it is advised not to include any personally identifiable or sensitive data in the network security perimeter rules or other network security perimeter configuration.
+> For organizational and informational safety, don't include any personally identifiable or sensitive data in the network security perimeter rules or other network security perimeter configurations.
 
 ## Network security perimeter properties
 
@@ -66,7 +66,7 @@ Administrators add PaaS resources to a perimeter by creating resource associatio
 
 Learn more on transitioning from learning mode to enforced mode in [Transitioning to a network security perimeter](network-security-perimeter-transition.md) article.
 
-## Why use Network Security Perimeter?
+## Why use a network security perimeter?
 
 Network security perimeter provides a secure perimeter for communication of PaaS services deployed outside the virtual network. It allows you to control network access to Azure PaaS resources. Some of the common use cases include:
 
@@ -78,13 +78,13 @@ Network security perimeter provides a secure perimeter for communication of PaaS
 - Allow private endpoint traffic without other access rules.
 
 
-## How does Network Security Perimeter work?
+## How does a network security perimeter work?
 
 When a network security perimeter is created and the PaaS resources are associated with the perimeter in enforced mode, all public traffic is denied by default thus preventing data exfiltration outside the perimeter.  
 
 Access rules can be used to approve public inbound and outbound traffic outside the perimeter. Public inbound access can be approved using Network and Identity attributes of the client such as source IP addresses, subscriptions. Public outbound access can be approved using FQDNs (Fully Qualified Domain Names) of the external destinations. 
 
-For example, upon creating a network security perimeter and associating a set of PaaS resources like Azure Key Vault and SQL DB in enforced mode, with the perimeter, all incoming and outgoing public traffic is denied to these PaaS resources by default. To allow any access outside the perimeter, necessary access rules can be created. Within the same perimeter, profiles may also be created to group PaaS resources with similar set of inbound and outbound access requirements.
+For example, upon creating a network security perimeter and associating a set of PaaS resources with the perimeter like Azure Key Vault and SQL DB in enforced mode, all incoming and outgoing public traffic is denied to these PaaS resources by default. To allow any access outside the perimeter, necessary access rules can be created. Within the same perimeter, profiles can be created to group PaaS resources with similar set of inbound and outbound access requirements.
 
 ## Onboarded private link resources
 A network security perimeter-aware private link resource is a PaaS resource that can be associated with a network security perimeter. Currently the list of onboarded private link resources are as follows:
@@ -97,11 +97,11 @@ A network security perimeter-aware private link resource is a PaaS resource that
 | Event Hubs                | Microsoft.EventHub/namespaces | - |
 | [Key Vault](/azure/key-vault/general/network-security#network-security-perimeter-preview)                 | Microsoft.KeyVault/vaults | - |
 | [SQL DB](/azure/azure-sql/database/network-security-perimeter)                    | Microsoft.Sql/servers | - |
-| [Storage](/azure/storage/common/storage-network-security)               | Microsoft.Storage/storageAccounts | - |
+| [Storage](/azure/storage/common/storage-network-security#network-secuirty-perimeter-preview)               | Microsoft.Storage/storageAccounts | - |
 
 > [!NOTE]
 > 
-## Limitations of network security perimeter
+## Limitations of a network security perimeter
 
 ### Regional limitations
 
@@ -115,4 +115,4 @@ Network security perimeter is currently available in all Azure public cloud regi
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a network security perimeter in the Azure portal](./network-security-perimeter-diagnostic-logs.md)
+> [Create a network security perimeter in the Azure portal](./create-network-security-perimeter-portal.md)

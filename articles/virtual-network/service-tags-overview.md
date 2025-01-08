@@ -6,7 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 07/10/2024
+ms.date: 12/11/2024
 ms.author: allensu
 ---
 
@@ -46,7 +46,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AppConfiguration** | App Configuration. | Outbound | No | Yes |
 | **[AppService](/azure/app-service/overview-inbound-outbound-ips)**    | Azure App Service. This tag is recommended for outbound security rules to web apps and function apps.<br/><br/>**Note**: This tag doesn't include IP addresses assigned when using IP-based SSL (App-assigned address). | Outbound | Yes | Yes |
 | **[AppServiceManagement](/azure/app-service/environment/management-addresses)** | Management traffic for deployments dedicated to App Service Environment. | Both | No | Yes |
-| **AzureActiveDirectory** | Microsoft Entra ID. | Outbound | No | Yes |
+| **AzureActiveDirectory** | Microsoft Entra ID Services. This tag includes login, MS Graph and other Entra services not specifically listed in this table | Outbound | No | Yes |
 | **[AzureActiveDirectoryDomainServices](/entra/identity/domain-services/network-considerations#inbound-connectivity)** | Management traffic for deployments dedicated to Microsoft Entra Domain Services. | Both | No | Yes |
 | **[AzureAdvancedThreatProtection](/defender-for-identity/deploy/configure-proxy#enable-access-with-a-service-tag)** | Microsoft Defender for Identity. | Outbound | No | Yes |
 | **AzureArcInfrastructure** | Azure Arc-enabled servers, Azure Arc-enabled Kubernetes, and Guest Configuration traffic.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory**,**AzureTrafficManager**, and **AzureResourceManager** tags. | Outbound | No | Yes |

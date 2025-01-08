@@ -3,7 +3,7 @@ title: Back up Azure Database for PostgreSQL - flexible server using Azure CLI
 description: Learn how to back up Azure Database for PostgreSQL - flexible server using Azure CLI.
 ms.topic: how-to
 ms.date: 10/01/2024
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, ignite-2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -39,7 +39,7 @@ az dataprotection backup-vault create -g testBkpVaultRG --vault-name TestBkpVaul
   "id": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/testBkpVaultRG/providers/Microsoft.DataProtection/BackupVaults/TestBkpVault",
   "identity": {
     "principalId": "00001111-aaaa-2222-bbbb-3333cccc4444",
-    "tenantId": "00001111-aaaa-2222-bbbb-3333cccc4444",
+    "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
     "type": "SystemAssigned"
   },
   "location": "westus",

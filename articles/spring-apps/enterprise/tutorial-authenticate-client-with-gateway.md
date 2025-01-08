@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-extended-java, mode-other, engagement-fy2
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview) 
+**This article applies to:** ✅ Standard consumption and dedicated (Preview) 
 
 This quickstart shows you how to secure communication between a client application and a microservice application that is hosted on Azure Spring Apps and shielded with a Spring Cloud Gateway app. The client application is verified as a security principal to initiate contact with the microservice deployed on Azure Spring Apps, using the app built with [Spring Cloud Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/). This method employs Spring Cloud Gateway's Token Relay and Spring Security's Resource Server features for the processes of authentication and authorization, realized through the execution of the [OAuth 2.0 client credentials flow](/entra/identity-platform/v2-oauth2-client-creds-grant-flow).
 

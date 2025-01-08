@@ -8,8 +8,7 @@ ms.author: mbender
 ms.date: 08/24/2023
 ms.service: azure-virtual-network
 ms.subservice: ip-services
-ms.custom:
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Public IP address prefix

@@ -85,4 +85,4 @@ The service-level agreement (SLA) for Azure Device Registry describes the expect
 
 - [What is Azure IoT Operations? - Azure IoT Operations](/azure/iot-operations/overview-iot-operations) 
 
-- [Reliability in Azure](/azure/availability-zones/overview)
+- [Reliability in Azure](/azure/reliability/overview)

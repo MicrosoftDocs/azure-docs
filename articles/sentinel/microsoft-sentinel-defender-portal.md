@@ -4,7 +4,7 @@ description: Learn about the Microsoft Sentinel experience when you onboard Micr
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual
-ms.date: 11/07/2024
+ms.date: 11/21/2024
 appliesto: 
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
@@ -32,7 +32,7 @@ The following table describes the new or improved capabilities available in the 
 | Capabilities      | Description              |
 | ----------------- | ------------------------ |
 | Advanced hunting  | Query from a single portal across different data sets to make hunting more efficient and remove the need for context-switching. Use Security Copilot to help generate your KQL. View and query all data including data from Microsoft security services and Microsoft Sentinel. Use all your existing Microsoft Sentinel workspace content, including queries and functions.<br><br>  For more information, see the following articles:<br>- [Advanced hunting in the Microsoft Defender portal](https://go.microsoft.com/fwlink/p/?linkid=2264410)<br>- [Security Copilot in advanced hunting](/defender-xdr/advanced-hunting-security-copilot) |
-|SOC optimizations   | Get high-fidelity and actionable recommendations to help you identify areas to:<br>- Reduce costs <br>- Add security controls<br>- Add missing data<br>SOC optimizations are available in the Defender and Azure portals, are tailored to your environment, and are based on your current coverage and threat landscape.  <br><br>For more information, see the following articles:<br>- [Optimize your security operations](soc-optimization/soc-optimization-access.md) <br>- [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md)  |
+|SOC optimizations   | Get high-fidelity and actionable recommendations to help you identify areas to:<br>- Reduce costs <br>- Add security controls<br>- Add missing data<br>SOC optimizations are available in the Defender and Azure portals, are tailored to your environment, and are based on your current coverage and threat landscape.  <br><br>For more information, see the following articles:<br>- [Optimize your security operations](soc-optimization/soc-optimization-access.md) <br>- [Use SOC optimizations programmatically](soc-optimization/soc-optimization-api.md)<br>- [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md)  |
 |Microsoft Copilot in Microsoft Defender| When investigating incidents in the Defender portal, <br>- [Summarize incidents](/defender-xdr/security-copilot-m365d-incident-summary) <br>- [Analyze scripts](/defender-xdr/security-copilot-m365d-script-analysis)<br>- [Analyze files](/defender-xdr/copilot-in-defender-file-analysis)<br>- [Create incident reports](/defender-xdr/security-copilot-m365d-create-incident-report) <br><br>When hunting for threats in advanced hunting, create ready-to-run KQL queries by using the query assistant. For more information, see [Microsoft Security Copilot in advanced hunting](/defender-xdr/advanced-hunting-security-copilot).|
 
 The following table describes the additional capabilities available in the Defender portal with the integration of Microsoft Sentinel and Microsoft Defender XDR as part of Microsoft's unified security operations platform. 
@@ -77,7 +77,7 @@ When you onboard Microsoft Sentinel to the Defender portal without Defender XDR 
 
 The following limitations also apply to Microsoft Sentinel in Defender portal without Defender XDR or other services enabled:
 
-- New Microsoft Sentinel customers aren't eligible to onboard a Log Analytics workspace that's created in the Israel region. To onboard to the Defender portal, create another workspace for Microsoft Sentinel in a different region.
+- New Microsoft Sentinel customers aren't eligible to onboard a Log Analytics workspace that's created in the Israel region. To onboard to the Defender portal, create another workspace for Microsoft Sentinel in a different region. This additional workspace doesn't need to contain any data.
 - Customers that use Microsoft Sentinel user and entity behavior analytics (UEBA) are provided with a limited version of the [IdentityInfo table](ueba-reference.md#identityinfo-table). 
 
 ## Quick reference

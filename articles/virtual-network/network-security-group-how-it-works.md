@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Learn how network security groups help you filter network traffic between Azure resources.
 author: asudbring
 ms.service: azure-virtual-network
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/03/2023
 ms.author: allensu
 ---

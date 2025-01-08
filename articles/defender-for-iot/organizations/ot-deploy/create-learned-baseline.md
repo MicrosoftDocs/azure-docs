@@ -33,7 +33,7 @@ Creating your baseline of OT alerts can take anywhere from a few days to several
 
 ## Prerequisites
 
-You can perform the procedures in this article from the Azure portal, an OT sensor, or an on-premises management console.
+You can perform the procedures in this article from the Azure portal or an OT sensor.
 
 Before you start, make sure that you have:
 

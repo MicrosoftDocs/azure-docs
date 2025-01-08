@@ -63,7 +63,7 @@ You can use the Azure portal to create an Apache Spark cluster in cluster pool. 
     |Number of worker nodes| 	Select the number of nodes for Spark cluster. Out of those, three nodes are reserved for coordinator and system services, remaining nodes are dedicated to Spark workers, one worker per node. For example, in a five-node cluster there are two workers|
     |Autoscale|	Click on the toggle button to enable Autoscale|
     |Autoscale Type	|Select from either load based or schedule based autoscale|
-    |Graceful decomission timeout	|Specify Graceful decommission timeout|
+    |Graceful decommission timeout	|Specify Graceful decommission timeout|
     |No of default worker node	|Select the number of nodes for autoscale|
     |Time Zone	|Select the time zone|
     |Autoscale Rules	|Select the day, start time, end time, no. of worker nodes|

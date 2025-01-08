@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article provides instructions for troubleshooting Azure Spring Apps development issues. For more information, see [Azure Spring Apps FAQ](./faq.md).
 

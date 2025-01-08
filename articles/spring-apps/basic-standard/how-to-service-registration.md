@@ -14,7 +14,7 @@ zone_pivot_groups: programming-languages-spring-apps
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌ Enterprise
+**This article applies to:** ✅ Standard consumption and dedicated (Preview) ✅ Basic/Standard ❎ Enterprise
 
 This article shows you how to register your application using Spring Cloud Service Registry.
 

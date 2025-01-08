@@ -167,7 +167,7 @@ def make_temp_dir():
     return destdir
 
 def import_package_with_dependencies (packagename):
-    # download package with all depeendencies
+    # download package with all dependencies
     download_dir = make_temp_dir()
     pip.main(['download', '-d', download_dir, packagename])
     for file in os.listdir(download_dir):

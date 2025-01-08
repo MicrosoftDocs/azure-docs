@@ -5,9 +5,9 @@ description: Learn about the TLS protocol configuration and how to use TLS to se
 
 
 ms.topic: overview
+ms.custom:
+  - ignite-2024
 ms.date: 01/23/2024
-
-
 # Customer intent: As a developer creating a service that uses a cache, I want to know the details about TLS connections so that I know my service is secure.
 ---
 

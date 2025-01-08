@@ -61,7 +61,7 @@ properties: {
               }
             ]
             operator: 'GeoMatch'
-            negationConditon: true
+            negationCondition: true
             matchValues: [
               'US'
             ]
@@ -156,7 +156,7 @@ properties: {
               }
             ]
             operator: 'GeoMatch'
-            negationConditon: true
+            negationCondition: true
             matchValues: [
               'US'
               'CA'
@@ -170,7 +170,7 @@ properties: {
               }
             ]
             operator: 'Contains'
-            negationConditon: false
+            negationCondition: false
             matchValues: [
               '/foo'
               '/bar'
@@ -276,7 +276,7 @@ properties: {
               }
             ]
             operator: 'GeoMatch'
-            negationConditon: false
+            negationCondition: false
             matchValues: [
               'US'
             ]

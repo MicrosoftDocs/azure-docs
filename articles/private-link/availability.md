@@ -4,9 +4,9 @@ description: In this article, learn about which Azure services support Private L
 author: abell
 ms.author: abell
 ms.service: azure-private-link
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/10/2024
-ms.custom: template-concept, references_regions
+ms.custom: template-concept, references_regions, ignite-2024
 ---
 
 # Azure Private Link availability

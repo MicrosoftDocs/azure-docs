@@ -6,8 +6,9 @@ metadata:
   
   
   ms.topic: faq
+  ms.custom:
+    - ignite-2024
   ms.date: 10/17/2023
-
 title: Azure Managed Redis (preview) and Azure Cache for Redis FAQ
 summary: |
   Learn the answers to common questions, patterns, and best practices for Azure Managed Redis and Azure Cache for Redis.

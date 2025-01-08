@@ -1,7 +1,7 @@
 ---
 title: Use MSBuild to convert Bicep to JSON
 description: Use MSBuild to convert a Bicep file to Azure Resource Manager template (ARM template) JSON.
-ms.date: 07/11/2024
+ms.date: 12/06/2024
 ms.topic: quickstart
 ms.custom: devx-track-bicep, devx-track-arm-template
 
@@ -10,7 +10,7 @@ ms.custom: devx-track-bicep, devx-track-arm-template
 
 # Quickstart: Use MSBuild to convert Bicep to JSON
 
-Learn the process of utilizing [MSBuild](/visualstudio/msbuild/msbuild) for the conversion of Bicep files to Azure Resource Manager JSON templates (ARM templates). Additionally, MSBuild can be utilized for the conversion of [Bicep parameter files](./parameter-files.md?tabs=Bicep) to [Azure Resource Manager parameter files](../templates/parameter-files.md) with the NuGet packages version 0.23.x or later. The provided examples demonstrate the use of MSBuild from the command line with C# project files for the conversion. These project files serve as examples that can be utilized in an MSBuild continuous integration (CI) pipeline.
+Learn the process of utilizing [MSBuild](/visualstudio/msbuild/msbuild) for the conversion of Bicep files to Azure Resource Manager JSON templates (ARM templates). Additionally, MSBuild can be utilized for the conversion of [Bicep parameters files](./parameter-files.md?tabs=Bicep) to [Azure Resource Manager parameters files](../templates/parameter-files.md) with the NuGet packages version 0.23.x or later. The provided examples demonstrate the use of MSBuild from the command line with C# project files for the conversion. These project files serve as examples that can be utilized in an MSBuild continuous integration (CI) pipeline.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ In certain environments, using a single package feed helps prevent problems aris
 
 ## MSBuild tasks and Bicep packages
 
-From your continuous integration (CI) pipeline, you can use MSBuild tasks and CLI packages to convert Bicep files and Bicep parameter files into JSON. The functionality relies on the following NuGet packages:
+From your continuous integration (CI) pipeline, you can use MSBuild tasks and CLI packages to convert Bicep files and Bicep parameters files into JSON. The functionality relies on the following NuGet packages:
 
 | Package Name | Description |
 | ----  |---- |
@@ -118,7 +118,7 @@ The latest NuGet package versions match the latest [Bicep CLI](./bicep-cli.md) v
 
 ### Project file examples
 
-The following examples show how to configure C# console application project files for converting Bicep files and Bicep parameter files to JSON. Replace `__LATEST_VERSION__` with the latest version of the [Bicep NuGet packages](https://www.nuget.org/packages/Azure.Bicep.Core/) in the following examples. See [MSBuild tasks and Bicep packages](#msbuild-tasks-and-bicep-packages) for finding the latest version.
+The following examples show how to configure C# console application project files for converting Bicep files and Bicep parameters files to JSON. Replace `__LATEST_VERSION__` with the latest version of the [Bicep NuGet packages](https://www.nuget.org/packages/Azure.Bicep.Core/) in the following examples. See [MSBuild tasks and Bicep packages](#msbuild-tasks-and-bicep-packages) for finding the latest version.
 
 #### SDK-based example
 
@@ -277,7 +277,7 @@ Use the classic example only if the previous examples don't work for you. In thi
 
 ## Convert Bicep to JSON
 
-These examples demonstrate the conversion of a Bicep file and a Bicep parameter file to JSON using MSBuild. Start by creating a project file for .NET, .NET Core 3.1, or the Classic framework. Then, generate the Bicep file and the Bicep parameter file before running MSBuild.
+These examples demonstrate the conversion of a Bicep file and a Bicep parameters file to JSON using MSBuild. Start by creating a project file for .NET, .NET Core 3.1, or the Classic framework. Then, generate the Bicep file and the Bicep parameters file before running MSBuild.
 
 ### Create project
 
@@ -402,7 +402,7 @@ You need a Bicep file and a BicepParam file to be converted to JSON.
 
 ### Run MSBuild
 
-Run MSBuild to convert the Bicep file and the Bicep parameter file to JSON.
+Run MSBuild to convert the Bicep file and the Bicep parameters file to JSON.
 
 1. Open a Visual Studio Code terminal session.
 1. In the PowerShell session, go to the folder that contains the project file. For example, the _C:\msBuildDemo_ directory.

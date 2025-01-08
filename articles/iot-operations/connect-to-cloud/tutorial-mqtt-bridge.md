@@ -1,12 +1,12 @@
 ---
-title: Bi-directional MQTT bridge to Azure Event Grid
+title: "Tutorial: Bi-directional MQTT bridge to Azure Event Grid"
 description: Learn how to create a bi-directional MQTT bridge to Azure Event Grid using Azure IoT Operations dataflows.
 author: PatAltimore
 ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: tutorial
-ms.date: 11/11/2024
+ms.date: 11/25/2024
 
 #CustomerIntent: As an operator, I want to understand how to create a bi-directional MQTT bridge to Azure Event Grid so that I can send and receive messages between devices and services.
 ---
@@ -366,13 +366,32 @@ resource dataflow_1 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflow
         operationType: 'Source'
         sourceSettings: {
           endpointRef: 'default'
+          serializationFormat: 'Json'
           dataSources: array('tutorial/local')
+        }
+      }
+      {
+        operationType: 'BuiltInTransformation'
+
+        builtInTransformationSettings: {
+        serializationFormat: 'Json'
+        datasets: []
+        filter: []
+        map: [
+          {
+            type: 'PassThrough'
+            inputs: [
+              '*'
+            ]
+            output: '*'
+          }
+        ]
         }
       }
       {
         operationType: 'Destination'
         destinationSettings: {
-          endpointRef: remoteMqttBrokerDataflowEndpoint.name
+          endpointRef: 'eventgrid'
           dataDestination: 'telemetry/aio'
         }
       }
@@ -392,8 +411,27 @@ resource dataflow_2 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflow
       {
         operationType: 'Source'
         sourceSettings: {
-          endpointRef: remoteMqttBrokerDataflowEndpoint.name
+          endpointRef: 'eventgrid'
+          serializationFormat: 'Json'
           dataSources: array('telemetry/#')
+        }
+      }
+      {
+        operationType: 'BuiltInTransformation'
+
+        builtInTransformationSettings: {
+        serializationFormat: 'Json'
+        datasets: []
+        filter: []
+        map: [
+          {
+            type: 'PassThrough'
+            inputs: [
+              '*'
+            ]
+            output: '*'
+          }
+        ]
         }
       }
       {
@@ -405,7 +443,7 @@ resource dataflow_2 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflow
       }
     ]
   }
-} 
+}
 ```
 
 Like the dataflow endpoint, execute the following command in your terminal:

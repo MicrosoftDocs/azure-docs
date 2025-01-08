@@ -6,8 +6,8 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 01/24/2024
-ms.custom: MVC, fasttrack-edit, engagement-fy24
+ms.date: 11/15/2024
+ms.custom: MVC, fasttrack-edit, engagement-fy25
 ---
 
 # Migrate Hyper-V VMs to Azure
@@ -235,7 +235,7 @@ When delta replication begins, you can run a test migration for the VMs before y
 
 To do a test migration:
 
-1. In **Migration goals**, select **Servers, databases, and web apps** > **Migration and modernization**, select **Replicated servers** under **Replications**.
+1. In **Servers, databases, and web apps** > **Migration and modernization**, select **Replicated servers** under **Replications**.
 
 1. In the **Replicating machines** tab, right-click the VM to test and select **Test migrate**.
 

@@ -2,7 +2,9 @@
 title: What is Azure Managed Redis (preview)?
 description: Learn about Azure Managed Redis to enable cache-aside, content caching, user session caching, job and message queuing, and distributed transactions.
 
-ms.service: azure
+ms.service: azure-managed-redis
+ms.custom:
+  - ignite-2024
 ms.topic: how-to
 ms.date: 11/15/2024
 ---
@@ -54,7 +56,7 @@ Three tiers are for in-memory data:
 - **Compute Optimized** Designed for performance-intensive workloads requiring maximum throughput, with a low memory-to-vCPU (2:1) ratio. It's ideal for applications that demand the highest performance.
 
 One tier stores data both in-memory and on-disk:
-<!--Kyle [umanag] should On-disk section callout the difference from Persistance which uses attached managed disk too -->
+<!--Kyle [umanag] should On-disk section callout the difference from Persistence which uses attached managed disk too -->
 
 - **Flash Optimized** Enables Redis clusters to automatically move less frequently accessed data from memory (RAM) to NVMe storage. This reduces performance, but allows for cost-effective scaling of caches with large datasets.
 

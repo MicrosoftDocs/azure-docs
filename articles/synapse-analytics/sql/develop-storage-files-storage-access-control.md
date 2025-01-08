@@ -345,7 +345,7 @@ Optionally, you can use just the base URL of the storage account, without contai
 
 ### [Service principal](#tab/service-principal)
 
-The following script creates a server-level credential that can be used to access files in a storage using Service principal for authentication and authorization. **AppID** can be found by visiting App registrations in Azure portal and selecting the App requesting storage access. **Secret** is obtained during the App registration. **AuthorityUrl** is URL of Microsoft Entra ID Oauth2.0 authority.
+The following script creates a server-level credential that can be used to access files in a storage using Service principal for authentication and authorization. **AppID** can be found by visiting App registrations in Azure portal and selecting the App requesting storage access. **Secret** is obtained during the App registration. **AuthorityUrl** is URL of Microsoft Entra ID OAuth2.0 authority.
 
 ```sql
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
@@ -410,7 +410,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 ```
 
 ### [Service principal](#tab/service-principal)
-The following script creates a database-scoped credential that can be used to access files in a storage using service principal for authentication and authorization. **AppID** can be found by visiting App registrations in Azure portal and selecting the App requesting storage access. **Secret** is obtained during the App registration. **AuthorityUrl** is URL of Microsoft Entra ID Oauth2.0 authority.
+The following script creates a database-scoped credential that can be used to access files in a storage using service principal for authentication and authorization. **AppID** can be found by visiting App registrations in Azure portal and selecting the App requesting storage access. **Secret** is obtained during the App registration. **AuthorityUrl** is URL of Microsoft Entra ID OAuth2.0 authority.
 
 ```sql
 -- Optional: Create MASTER KEY if not exists in database:

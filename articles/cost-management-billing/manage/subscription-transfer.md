@@ -1,6 +1,6 @@
 ---
 title: Azure product transfer hub
-description: This article helps you understand requirements and support for Azure subscription, reservation, and savings plan transfer and provides links to other articles for more detailed information.
+description: This article helps you understand the Azure subscription, reservation, and savings plan transfer requirements and support. This article also provides links to other articles for more detailed information.
 author: bandersmsft
 ms.reviewer: sgautam
 ms.service: cost-management-billing
@@ -40,7 +40,7 @@ As you begin to plan your product transfer, consider the information needed to a
 - Why is the product transfer required?
 - What's the wanted timeline for the product transfer?
 - What's the product's current offer type and what do you want to transfer it to?
-  - Microsoft Online Service Program (MOSP), also known as pay-as-you-go
+  - Microsoft Online Services Program (MOSP), also known as pay-as-you-go
   - Previous Azure offer in CSP
   - Enterprise Agreement (EA)
   - Microsoft Customer Agreement in the Enterprise motion (MCA-E) where you buy Azure services through a Microsoft representative. Also called an MCA enterprise agreement.
@@ -50,7 +50,7 @@ As you begin to plan your product transfer, consider the information needed to a
 - Do you have the required permissions on the product to accomplish a transfer? Specific permission needed for each transfer type is listed in the following product transfer support table.
   - Only the billing administrator of an account can transfer subscription ownership.
   - Only a billing administrator owner can transfer reservation or savings plan ownership.
-- Are there existing subscriptions that benefit from reservations or savings plans and do they need to be transferred with the subscription?
+- Are there existing subscriptions that benefit from reservations or savings plans, and do they need to be transferred with the subscription?
 
 You should have an answer for each question before you continue with any transfer.
 

@@ -213,8 +213,8 @@ CONFIG_PATH="<Replace with path to Config.json file>"
 # SQL Edge EULA : https://go.microsoft.com/fwlink/?linkid=2139274
 ACCEPT_EULA="N"
 
-# 3. MSSQL_SA_PASSWORD to be filled by user as per policy : https://learn.microsoft.com/en-us/sql/relational-databases/security/strong-passwords?view=sql-server-linux-ver16 
-MSSQL_SA_PASSWORD: ""
+# 3. MSSQL_SA_PASSWORD to be filled by user as per policy : https://learn.microsoft.com/sql/relational-databases/security/strong-passwords?view=sql-server-linux-ver16 
+MSSQL_SA_PASSWORD=""
 ```
 
 > [!IMPORTANT]

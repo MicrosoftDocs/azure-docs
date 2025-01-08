@@ -244,3 +244,8 @@ ce-eventName: <event_name>
 For `dataType`=`binary`, the `Content-Type` for the CloudEvents HTTP request is `application/octet-stream`.  The WebSocket frame can be in `text` format for text message frames or UTF-8-encoded binaries for `binary` message frames.
 
 The service declines the client if the message doesn't match the prescribed format.
+
+### Ping
+
+The client can send a `PingMessage` to the service to enable the Web PubSub service to detect the client's liveness.
+

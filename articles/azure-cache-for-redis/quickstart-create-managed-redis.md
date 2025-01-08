@@ -4,10 +4,9 @@ description: In this quickstart, learn how to create an instance of Azure Manage
 
 
 ms.service: azure
-ms.custom: mvc, mode-other
+ms.custom: mvc, mode-other, ignite-2024
 ms.topic: quickstart
 ms.date: 04/12/2023
-
 ---
 # Quickstart: Create an Azure Managed Redis (preview) Instance
 

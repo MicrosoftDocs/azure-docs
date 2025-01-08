@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Standard consumption and dedicated (Preview) ✅ Basic/Standard ✅ Enterprise
 
 This article describes the cost-saving options and capabilities that Azure Spring Apps provides.
 
@@ -64,7 +64,3 @@ If you collect more logs, metrics, and traces than you can use or afford, you mu
 ## Deactivate debug mode
 
 If you forget to switch off debug mode for apps, a large amount of data is collected and sent to monitoring platforms. Forgetting to deactivate debug mode could be unnecessary and costly.
-
-## Next steps
-
-[Quickstart: Provision an Azure Spring Apps Standard consumption and dedicated plan service instance](../consumption-dedicated/quickstart-provision-standard-consumption-service-instance.md)

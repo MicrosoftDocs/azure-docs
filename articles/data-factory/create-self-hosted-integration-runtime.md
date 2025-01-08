@@ -535,7 +535,7 @@ if (-not $azAccount) {
 
 # Retrieve the URLs of the connections from the Synapse self-hosted integration runtime
 $urls = az synapse integration-runtime get-status `
-    --resource-group $synapseRresourceGroupName `
+    --resource-group $synapseResourceGroupName `
     --workspace-name $synapseWorkspaceName `
     --name $integrationRuntimeName `
     --query "properties.serviceUrls" -o tsv

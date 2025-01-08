@@ -4,7 +4,7 @@ description: Compare the various options you need to consider when choosing a ho
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: limits-and-quotas
 ms.date: 11/04/2024
-ms.custom: H1Hack27Feb2017, devdivchpfy22, build-2023, build-2024
+ms.custom: H1Hack27Feb2017, devdivchpfy22, build-2023, build-2024, ignite-2024
 ---
 # Azure Functions hosting options
 

@@ -32,11 +32,10 @@ After a successful TLS handshake, IoT Hub can authenticate a device using a symm
 
 ### IoT Hub's server TLS certificate
 
-During a TLS handshake, IoT Hub presents RSA-keyed server certificates to connecting clients.In the past, the certificates were all rooted from the Baltimore Cybertrust Root CA. Because the Baltimore root is at end-of-life, we are in the process of migrating to a new root called DigiCert Global G2. This migration impacts all devices currently connecting to IoT Hub. For more information, see [IoT TLS certificate update](https://aka.ms/iot-ca-updates).
+During a TLS handshake, IoT Hub presents RSA-keyed server certificates to connecting clients. All IoT hubs in the global Azure cloud use the TLS certificate issued by the DigiCert Global Root G2. 
 
 We strongly recommend that all devices trust the following three root CAs: 
 
-* Baltimore CyberTrust root CA
 * DigiCert Global G2 root CA
 * Microsoft RSA root CA 2017
 
@@ -123,7 +122,7 @@ To use ARM template for creation, provision a new IoT Hub in any of the supporte
 }
 ```
 
-The created IoT Hub resource using this configuration will refuse device and service clients that attempt to connect using TLS versions 1.0 and 1.1. Similarly, the TLS handshake will be refused if the `ClientHello` message does not list any of the [recommended ciphers](#cipher-suites).
+The created IoT Hub resource using this configuration refuses device and service clients that attempt to connect using TLS versions 1.0 and 1.1. Similarly, the TLS handshake is refused if the `ClientHello` message doesn't list any of the [recommended ciphers](#cipher-suites).
 
 > [!NOTE]
 > The `minTlsVersion` property is read-only and cannot be changed once your IoT Hub resource is created. It is therefore essential that you properly test and validate that *all* your IoT devices and services are compatible with TLS 1.2 and the [recommended ciphers](#cipher-suites) in advance.
@@ -153,7 +152,7 @@ AzureDiagnostics
 
 ## TLS configuration for SDK and IoT Edge
 
-Use the links below to configure TLS 1.2 and allowed ciphers in IoT Hub client SDKs.
+Use the following links to configure TLS 1.2 and allowed ciphers in IoT Hub client SDKs.
 
 | Language | Versions supporting TLS 1.2 | Documentation |
 |----------|------------------------------------|---------------|

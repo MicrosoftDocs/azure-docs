@@ -695,7 +695,7 @@ $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppC
 
 ### Track Azure Backup jobs
 
-It's important to note that Azure Backup only tracks user triggered jobs in SQL backup. Scheduled backups (including log backups) aren't visible in the portal or PowerShell. However, if any scheduled jobs fail, a [backup alert](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) is generated and shown in portal. [Use Azure Monitor](backup-azure-monitoring-use-azuremonitor.md) to track all the scheduled jobs and other relevant information.
+It's important to note that Azure Backup only tracks user triggered jobs in SQL backup. Scheduled backups (including log backups) aren't visible in the portal or PowerShell. However, if any scheduled jobs fail, a [backup alert](move-to-azure-monitor-alerts.md#backup-alerts-in-recovery-services-vault) is generated and shown in portal. [Use Azure Monitor](backup-azure-monitoring-use-azuremonitor.md) to track all the scheduled jobs and other relevant information.
 
 Users can track on-demand/user triggered operations with the JobID that's returned in the [output](#on-demand-backup) of asynchronous jobs such as backup. Use [Get-AzRecoveryServicesBackupJobDetail](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjobdetail) PowerShell cmdlet to track job and its details.
 

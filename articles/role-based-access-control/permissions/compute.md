@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 10/28/2024
+ms.date: 12/12/2024
 ms.custom: generated
 ---
 
@@ -146,6 +146,9 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/managedenvironments/dotnetcomponents/read | Read Managed Environment .NET Component |
 > | microsoft.app/managedenvironments/dotnetcomponents/write | Create or update Managed Environment .NET Component |
 > | microsoft.app/managedenvironments/dotnetcomponents/delete | Delete Managed Environment .NET Component |
+> | microsoft.app/managedenvironments/httprouteconfigs/read | Get All HTTP Route Configuraions for a Managed Environment. |
+> | microsoft.app/managedenvironments/httprouteconfigs/write | Create or Update HTTP Route Configuration for a Managed Environment. |
+> | microsoft.app/managedenvironments/httprouteconfigs/delete | Delete an HTTP Route Configuration for a Managed Environment. |
 > | microsoft.app/managedenvironments/javacomponents/read | Read Managed Environment Java Component |
 > | microsoft.app/managedenvironments/javacomponents/write | Create or update Managed Environment Java Component |
 > | microsoft.app/managedenvironments/javacomponents/delete | Delete Managed Environment Java Component |
@@ -180,6 +183,12 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/containerApps/debug/action | Connect to debug console of a container app |
 > | microsoft.app/jobs/logstream/action | View log stream of a container app job |
 > | microsoft.app/jobs/exec/action | Connect to console of a container app job |
+> | Microsoft.App/sessionPools/executions/action | Execute code in a session pool code interpreter session |
+> | Microsoft.App/sessionPools/files/action | Upload file to a session pool code interpreter session |
+> | Microsoft.App/sessionPools/executions/read | Get the execution result of a previous asynchronous code execution |
+> | Microsoft.App/sessionPools/files/read | Get the metadata of a file in a session pool code interpreter session |
+> | Microsoft.App/sessionPools/files/delete | Delete the file |
+> | Microsoft.App/sessionPools/files/content/read | Get the content of a file in a session pool code interpreter session |
 > | microsoft.app/sessionpools/interpreters/execute/action | Execute Code |
 > | microsoft.app/sessionPools/sessions/write | Operate a session |
 

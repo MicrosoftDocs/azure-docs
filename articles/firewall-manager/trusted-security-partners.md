@@ -4,7 +4,7 @@ description: Learn about Azure Firewall Manager security partner providers
 author: vhorne
 ms.service: azure-firewall-manager
 services: firewall-manager
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/03/2021
 ms.author: victorh
 ---
@@ -17,13 +17,13 @@ With a quick configuration, you can secure a hub with a supported security partn
 
 You can deploy secured hubs configured with the security partner of your choice in multiple Azure regions to get connectivity and security for your users anywhere across the globe in those regions. With the ability to use the security partner’s offering for Internet/SaaS application traffic, and Azure Firewall for private traffic in the secured hubs, you can now start building your security edge on Azure that is close to your globally distributed users and applications.
 
-The supported security partners are **Zscaler**, **[Check Point](check-point-overview.md)**, and **iboss**.
+The current supported security partner is **Zscaler**.
 
 ![Security partner providers](media/trusted-security-partners/trusted-security-partners.png)
 
 See the following video by Jack Tracey for a Zscaler overview:
 
- > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWI4n8]
+ > [!VIDEO https://learn-video.azurefd.net/vod/player?id=7bdbd3b7-f5a3-4bb9-a8a7-be23f0ecfec4]
 
 ## Key scenarios
 

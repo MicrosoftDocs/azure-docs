@@ -1,7 +1,9 @@
 ---
 title: "Quickstart: Configure Backup for an Azure PostgreSQL - Flexible server using Azure portal"
 description: Learn how to back up your Azure PostgreSQL - Flexible server with Azure portal.
-ms.devlang: terraform 
+ms.devlang: terraform
+ms.custom:
+  - ignite-2024
 ms.topic: quickstart
 ms.date: 10/07/2024
 ms.service: azure-backup
@@ -9,7 +11,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-#  Back up an Azure PostgreSQL - Fleixble servers with Azure portal (preview)
+#  Back up an Azure PostgreSQL - Flexible servers with Azure portal (preview)
 
 Azure Database for PostgreSQL - Flexible servers is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. This quickstart shows you how to back up Azure Database for PostgreSQL - Flexible server to an Azure Backup Vault using Azure portal.
 

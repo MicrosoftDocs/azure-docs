@@ -44,7 +44,7 @@ This section will help you create a network group containing the virtual network
         NetworkGroupName = $networkgroup.name
         ResourceGroupName = 'myAVNMResourceGroup'
         NetworkManagerName = 'myAVNM'
-        Name = 'statiMember'
+        Name = 'staticMember'
         ResourceId = $vnet.id
         }
         $staticmember = New-AzNetworkManagerStaticMember @sm

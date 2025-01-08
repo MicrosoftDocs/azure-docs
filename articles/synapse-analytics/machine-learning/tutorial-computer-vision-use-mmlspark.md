@@ -35,7 +35,7 @@ df = spark.createDataFrame([
         ("<replace with your file path>/dog.jpg", )
     ], ["image", ])
 
-# Run the Azure AI Vision service. Analyze Image extracts infortmation from/about the images.
+# Run the Azure AI Vision service. Analyze Image extracts information from/about the images.
 analysis = (AnalyzeImage()
     .setLinkedService(ai_service_name)
     .setVisualFeatures(["Categories","Color","Description","Faces","Objects","Tags"])

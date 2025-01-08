@@ -1,15 +1,16 @@
 ---
-title: Create a Cloud NGFW by Palo Alto Networks - an Azure Native ISV Service resource
-description: This article describes how to use the Azure portal to create a Cloud NGFW (Next-Generation Firewall) by Palo Alto Networks - an Azure Native ISV Service resource.
+title: Create a Cloud Next Generation Firewall (NGFW) by Palo Alto Networks
+description: This article describes how to use the Azure portal to create a Cloud NGFW (Next-Generation Firewall) by Palo Alto Networks.
 
 ms.custom: references_regions
 ms.topic: quickstart
+ms.date: 12/09/2024
 
 ---
 
-# QuickStart: Get started with Cloud NGFW by Palo Alto Networks - an Azure Native ISV Service resource
+# QuickStart: Get started with Cloud NGFW by Palo Alto Networks
 
-In this quickstart, you use the Azure Marketplace to find and create an instance of  **Cloud NGFW by Palo Alto Networks - an Azure Native ISV Service resource**.
+In this quickstart, you use Azure Marketplace to find and create an instance of  **Cloud NGFW by Palo Alto Networks - an Azure Native ISV Service resource**.
 
 ## Create a new Cloud NGFW by Palo Alto Networks resource
 
@@ -37,15 +38,13 @@ In this section, you see how create a Palo Alto Networks resource.
 
 1. Use the dropdowns to set the **Virtual Network**, **Private Subnet**, and Public **Public Subnet** associated with the Palo Alto Networks deployment.
 
-   :::image type="content" source="media/palo-alto-create/palo-alto-networking.png" alt-text="Screenshot of the networking pane in the Palo Alto Networks create experience.":::
-
 1. For **Public IP Address Configuration**,  select either **Create New** or **Use Existing** and type in a name for **Public IP Address Name(s)**.
 
 1. Select the checkbox **Enable Source NAT** to indicate your preferred NAT settings.
 
 ### Security Policy
 
-1. After setting the DNS values, select the **Next: Security Policy** to see the **Security Policies** tab. You can set the policies for the firewall using this tab.
+1. After setting the Domain Name System (DNS) values, select the **Next: Security Policy** to see the **Security Policies** tab. You can set the policies for the firewall using this tab.
 
    :::image type="content" source="media/palo-alto-create/palo-alto-rulestack.png" alt-text="Screenshot of the Rulestack in the Palo Alto Networks create experience.":::
 
@@ -94,27 +93,19 @@ Next, you must accept the Terms of Use for the new Palo Alto Networks resource.
 
 1. Select the **Next: Review + Create** to navigate to the final step for resource creation. When you get to the **Review + Create** page, all validations are run. At this point, review all the selections made in the Basics, Networking, and optionally Tags panes. You can also review the Palo Alto and Azure Marketplace terms and conditions.  
 
-   :::image type="content" source="media/palo-alto-create/palo-alto-review-create.png" alt-text="Screenshot of Review and Create resource tab.":::
-
 1. After reviewing all the information, select **Create**. Azure now deploys the Cloud NGFW by Palo Alto Networks.
-
-   :::image type="content" source="media/palo-alto-create/palo-alto-deploying.png" alt-text="Screenshot showing Palo Alto Networks deployment in process.":::
 
 ## Deployment completed
 
 1. Once the create process is completed, select **Go to Resource** to navigate to the specific Cloud NGFW by Palo Alto Networks resource.
 
-   :::image type="content" source="media/palo-alto-create/palo-alto-deploy-complete.png" alt-text="Screenshot of a completed Palo Alto Networks deployment.":::
-
 1. Select **Overview** in the Resource menu to see information on the deployed resources.
-
-   :::image type="content" source="media/palo-alto-create/palo-alto-overview-essentials.png" alt-text="Screenshot of information on the Palo Alto Networks resource overview.":::
 
 ## Next steps
 
 - [Manage the Palo Alto Networks resource](palo-alto-manage.md)
 
-- Get Started with Cloud Next-Generation Firewall by Palo Alto Networks - an Azure Native ISV Service on
+- Get Started with Cloud Next-Generation Firewall by Palo Alto Networks on
 
   > [!div class="nextstepaction"]
   > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/PaloAltoNetworks.Cloudngfw%2Ffirewalls)
