@@ -13,7 +13,7 @@ In this quickstart, you use the Azure portal to create advanced serverless runti
 
 ## Prerequisites
 
-- An Informatica Organization. If you don't have an Informatica Organization. Refer to [Get started with Informatica – An Azure Native ISV Service](informatica-create.md)
+- An Informatica Organization. If you don't have an Informatica Organization. Refer to [Get started with Informatica – An Azure Native ISV Service](create.md)
 
 - After an Organization is created, make sure to sign in to the Informatica Portal from Overview tab of the Organization. Creating a serverless runtime environment fails if you don't first sign in to Informatica portal at least once.
 
@@ -92,14 +92,5 @@ You can specify custom tags for the new Informatica organization by adding custo
 
 ## Next steps
 
-- [Manage the Informatica resource](informatica-manage.md)
-<!-- 
-- Get started with Informatica – An Azure Native ISV Service on
+- [Manage the Informatica resource](manage.md)
 
-fix  links when marketplace links work.
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/informatica.informaticaPLUS%2FinformaticaDeployments)
-
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-informatica-for-azure?tab=Overview) 
--->

@@ -77,14 +77,5 @@ You can specify custom tags for the new Informatica resource in Azure by adding 
 
 ## Next steps
 
-- [Manage the Informatica resource](informatica-manage.md)
-<!-- 
-- Get started with Informatica – An Azure Native ISV Service on
+- [Manage the Informatica resource](manage.md)
 
-fix  links when marketplace links work.
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/informatica.informaticaPLUS%2FinformaticaDeployments)
-
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-informatica-for-azure?tab=Overview) 
--->

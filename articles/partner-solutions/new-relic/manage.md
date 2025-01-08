@@ -191,8 +191,8 @@ If you map more than one New Relic resource to the New Relic account by using th
 
 ## Next steps
 
-- [Troubleshoot Azure Native New Relic Service](new-relic-troubleshoot.md)
-- [Quickstart: Get started with New Relic](new-relic-create.md)
+- [Troubleshoot Azure Native New Relic Service](troubleshoot.md)
+- [Quickstart: Get started with New Relic](create.md)
 - Get started with Azure Native New Relic Service on
 
     > [!div class="nextstepaction"]

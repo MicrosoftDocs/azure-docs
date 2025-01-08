@@ -83,7 +83,7 @@ For each virtual machine, the following info is displayed:
 | **Monitoring mode** | Whether the Dynatrace OneAgent is monitoring hosts in [full-stack monitoring mode or infrastructure monitoring mode](https://www.dynatrace.com/support/help/how-to-use-dynatrace/hosts/basic-concepts/get-started-with-infrastructure-monitoring). |
 
 > [!NOTE]
-> If a virtual machine shows that an OneAgent is installed, but the option Uninstall extension is disabled, then the agent was configured through a different Dynatrace resource in the same Azure subscription. To make any changes, please go to the other Dynatrace resource in the Azure subscription.
+> If a virtual machine shows that a OneAgent is installed, but the option Uninstall extension is disabled, then the agent was configured through a different Dynatrace resource in the same Azure subscription. To make any changes, please go to the other Dynatrace resource in the Azure subscription.
 
 ## Monitor App Services using Dynatrace OneAgent
 
@@ -113,7 +113,7 @@ If you would like to reconfigure single sign-on, select **Single sign-on** in th
 
 If single sign-on was already configured, you can disable it.
 
-To establish single sign-on or change the application, select **Enable single sign-on through Microsoft Entra ID**. The portal retrieves  Dynatrace application from Microsoft Entra ID. The app comes from the enterprise app name selected during the [preconfiguration steps](dynatrace-how-to-configure-prereqs.md).
+To establish single sign-on or change the application, select **Enable single sign-on through Microsoft Entra ID**. The portal retrieves  Dynatrace application from Microsoft Entra ID. The app comes from the enterprise app name selected during the [preconfiguration steps](configure-prerequisites.md).
 
 ## Delete Dynatrace resource
 

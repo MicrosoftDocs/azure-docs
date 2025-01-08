@@ -35,8 +35,8 @@ The NGINXaaS integration can only be set up by users who have Owner access on th
 
 ## Next steps
 
-- Learn about [managing your instance](nginx-manage.md) of NGINXaaS.
-- Get started with NGINXaaS – An Azure Native ISV Service on
+- Learn about [managing your instance](manage.md) of NGINXaaS.
+- Get started with NGINXaaS on
 
     > [!div class="nextstepaction"]
     > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NGINX.NGINXPLUS%2FnginxDeployments)

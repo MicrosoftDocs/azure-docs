@@ -88,7 +88,7 @@ After the account is deleted, logs are no longer sent to Cloud NGFW by Palo Alto
 
 ## Next steps
 
-- For help with troubleshooting, see [Troubleshooting Palo Alto integration with Azure](palo-alto-troubleshoot.md).
+- For help with troubleshooting, see [Troubleshooting Palo Alto integration with Azure](troubleshoot.md).
 
 - Get Started with Cloud Next-Generation Firewall by Palo Alto Networks on
 

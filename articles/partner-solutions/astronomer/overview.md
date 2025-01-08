@@ -40,8 +40,8 @@ Here are the key capabilities provided by the Astro integration:
 
 ## Next steps
 
-- To create an instance of Apache Airflow on Astro – An Azure Native ISV Service, see [QuickStart: Get started with Astronomer](astronomer-create.md).
-- Get started with Apache Airflow on Astro – An Azure Native ISV Service on
+- To create an instance of Apache Airflow on Astro – An Azure Native ISV Service, see [QuickStart: Get started with Astronomer](create.md).
+- Get started with Apache Airflow on Astro on
 
     > [!div class="nextstepaction"]
     > [Azure portal](https://ms.portal.azure.com/?Azure_Marketplace_Astronomer_assettypeoptions=%7B%22Astronomer%22%3A%7B%22options%22%3A%22%22%7D%7D#browse/Astronomer.Astro%2Forganizations)

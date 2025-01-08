@@ -50,4 +50,4 @@ Only users who have *Owner* access on the Azure subscription can set up Cloud NG
 
 ## Next steps
 
-To create an instance of Palo Alto, see [QuickStart: Get started with Palo Alto](palo-alto-create.md).
+To create an instance of Palo Alto, see [QuickStart: Get started with Palo Alto](create.md).

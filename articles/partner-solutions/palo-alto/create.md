@@ -103,7 +103,7 @@ Next, you must accept the Terms of Use for the new Palo Alto Networks resource.
 
 ## Next steps
 
-- [Manage the Palo Alto Networks resource](palo-alto-manage.md)
+- [Manage the Palo Alto Networks resource](manage.md)
 
 - Get Started with Cloud Next-Generation Firewall by Palo Alto Networks on
 
