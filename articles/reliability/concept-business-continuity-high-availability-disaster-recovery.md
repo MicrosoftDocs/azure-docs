@@ -4,23 +4,30 @@ description: Understand business continuity, high availability, and disaster rec
 author: anaharris-ms
 ms.service: azure
 ms.topic: conceptual
-ms.date: 12/10/2024
+ms.date: 01/08/2025
 ms.author: anaharris
 ms.custom: subject-reliability
 ms.subservice: azure-reliability
 ---
 
 # What are business continuity, high availability, and disaster recovery?
+This article defines and describes business continuity and business continuity planning in terms of risk management through high availability and disaster recovery design. 
 
-*Business continuity* is the state in which your business is able to continue to remain operational, even during failures, outages, or disasters that affect your solution. You achieve business continuity through proactive planning, preparation, and the implementation of resilient systems and processes.
+*Business continuity* is the state in which your business can continue operations during failures, outages, or disasters. You can achieve business continuity with proactive planning, preparation, and the implementation of resilient systems and processes.
 
-Planning for business continuity is about identifying, understanding, classifying, and managing risks. Based on the risks and their likelihoods, you can design your solution for *high availability* (HA) and *disaster recovery* (DR). High availability is about designing your solution to be resilient to day-to-day issues and to meet your business needs for availability. Disaster recovery is about planning how you deal with catastrophic outages and uncommon risks.
+To plan for business continuity, you must identify, understand, classify, and manage risks. Based on the risks and their likelihoods, you can design your solution for *high availability* (HA) and *disaster recovery* (DR). 
 
-This article describes business continuity, high availability, and disaster recovery and provides links to resources that can help you to design your own strategies for each. Use the [Reliability guides by service](./overview-reliability-guidance.md) to understand how the Azure services you use support designing your own business continuity approach. For detailed guidance on how to design workloads for business continuity, go to the [Azure Well-Architected Framework](/azure/well-architected/).
+*High availability* is about designing your solution to be resilient to day-to-day issues and to meet your business needs for availability. 
+
+*Disaster recovery* is about planning how you deal with catastrophic outages and uncommon risks.
+
+
 
 ## Business continuity
 
-Business continuity means different things in different situations. The costs of a workload not being available might include some or all of the following effects:
+Business continuity is defined by what makes sense to your organization. Before determining the specific business continuity risks, it's important to understand the consequences of failures that result from an unavailable workload.
+
+For example, the consequences of a workload not being available might include some or all of the following effects:
 
 - Loss of business income, in whole or in part.
 - The inability to provide an important service to users.
@@ -28,13 +35,13 @@ Business continuity means different things in different situations. The costs of
 
 It's important to understand and communicate the business expectations, and the consequences of failures, to important stakeholders including those who design, implement, and operate the workload. Those stakeholders share back the costs involved in meeting that vision, and there's a process of negotiation and revisions of that vision based on budget and other constraints.
 
-For more information on the process of defining and measuring against targets, see [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics).
+For more information on the process of defining business continuity expectations as targets, see [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics).
 
 ### Business continuity planning
 
 For a successful *business continuity plan*, it's essential to:
  
-- **Identify risks** to your workload's availability or functionality, such as network issues, hardware failures, human error, or a region outage.
+- **Identify risks** to a workload's availability or functionality, such as network issues, hardware failures, human error, or a region outage.
  
 - **Classify risks** as either a day-to-day risk, which should be factored into plans for high availability, or a catastrophic or unusual risk, which should be part of disaster recovery planning.
  
@@ -73,9 +80,9 @@ Each risk should be analyzed to understand its likelihood and its severity. Seve
  
 Business continuity plans must address both common and uncommon risks.
 
-- Some risks are commonplace, planned, and expected. For example, in a cloud environment it's common for there to be *transient failures* including brief network outages, equipment restarts due to patches, timeouts when a service is busy, and so forth. Because these events happen regularly, workloads need to be resilient to them. A high availability strategy must consider and control for each risk of this type.
+- *Common risks* are planned and expected. For example, in a cloud environment it's common for there to be *transient failures* including brief network outages, equipment restarts due to patches, timeouts when a service is busy, and so forth. Because these events happen regularly, workloads need to be resilient to them. A high availability strategy must consider and control for each risk of this type.
 
-- Unusual risks are generally the result of a catastrophic and unforeseeable event, such as natural disasters or major network attacks. Disaster recovery processes deal with these rare risks.
+- *Uncommon risks* are generally the result of a catastrophic and unforeseeable event, such as natural disasters or major network attacks. Disaster recovery processes deal with these rare risks.
 
 High availability and disaster recovery are interrelated, and so it's important to plan strategies for both of them together.
 
@@ -183,7 +190,7 @@ To learn more about disaster recovery planning, see [Recommendations for designi
 
 It's critical that you routinely validate and test your DR plans, and your wider reliability strategy. To learn more, see [Recommendations for designing a reliability testing strategy](/azure/well-architected/reliability/testing-strategy).
 
-## Next steps
+## Related content
 
 - Use the [Azure service reliability guides](./overview-reliability-guidance.md) to understand how each Azure service supports reliability in its design, and to learn about the capabilities you can build into your HA and DR plans.
 - Use the [Azure Well-Architected Framework: Reliability pillar](/azure/well-architected/reliability) to learn more about how to design a reliable workload on Azure.
