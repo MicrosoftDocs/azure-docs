@@ -94,7 +94,7 @@ For ARM templates, modify the properties `clientCertEnabled`, `clientCertMode`, 
 When you enable mutual auth for your application, all paths under the root of your app require a client certificate for access. To remove this requirement for certain paths, define exclusion paths as part of your application configuration.
 
 > [!NOTE]
-> Using any client certificate exclusion path triggers TLS renegotiation for the app.
+> Using any client certificate exclusion path triggers TLS renegotiation for incoming requests to the app.
 
 1. From the left navigation of your app's management page, select **Configuration** > **General Settings**.
 
@@ -123,11 +123,11 @@ To disable TLS renegotiation and to have the app negotiate client certificates d
 ### Uploading large files with TLS renegotiation
 Client certificate configurations that use TLS renegotiation cannot support incoming requests with large files greater than 100 kb due to buffer size limitations. In this scenario, any POST or PUT requests over 100 kb will fail with a 403 error. This limit isn't configurable and can't be increased.
 
-To address the 100 kb limit, consider to these alternative solutions:
+To address the 100 kb limit, consider these alternative solutions:
 
-1. Update your app's client certificate configuration with _all_ these requirements:
-  - Set client certificate mode to either "Required" or "Optional"
-  - Remove all client certificate exclusion paths
+1. Update your app's client certificate configuration with _all_ these settings:
+    - Set client certificate mode to either "Required" or "Optional"
+    - Remove all client certificate exclusion paths
 1. Send a HEAD request before the PUT/POST request. The HEAD request will handle the client certificate.
 1. Add the header `Expect: 100-Continue` to your request. This will cause the client to wait until the server responds with a `100 Continue` before sending the request body, which bypasses the buffers.
 
