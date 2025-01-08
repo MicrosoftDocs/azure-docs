@@ -4,7 +4,7 @@ description: This article provides details about the known issues of Azure VMwar
 ms.topic: reference
 ms.custom: "engagement-fy23"
 ms.service: azure-vmware
-ms.date: 11/20/2024
+ms.date: 12/23/2024
 ---
 
 # Known issues: Azure VMware Solution
@@ -15,6 +15,8 @@ Refer to the table to find details about resolution dates or possible workaround
 
 |Issue | Date discovered | Workaround | Date resolved |
 | :------------------------------------- | :------------ | :------------- | :------------- |
+|Issue 3464419: After upgrading HCX 4.10.2 users are unable to log in or perform various management operations. | 2024 | None | December 2024- Resolved in [HCX 4.10.3](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/hcx-4-10-release-notes/vmware-hcx-4103-release-notes.html#GUID-ca55e2de-cd98-494d-b026-201132967232-en_id-6fc83b19-af5d-4a89-a258-3ce63559ffb8) |
+|After deploying an AV64 Cluster to my private cloud, the **Cluster-N:  vSAN Hardware compatibility issue** alert is active in the vSphere client.  | 2024  | The alert should be considered an informational message, since Microsoft manages the service. Select the **Reset to Green** link to clear it. | 2024 |
 | [VMSA-2024-0021](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/25019) VMware HCX addresses an authenticated SQL injection vulnerability (CVE-2024-38814) | 2024 | None | October 2024- Resolved in [HCX 4.10.1](https://docs.vmware.com/en/VMware-HCX/4.10.1/rn/vmware-hcx-4101-release-notes/index.html#What's%20New), [HCX 4.9.2](https://docs.vmware.com/en/VMware-HCX/4.9.2/rn/vmware-hcx-492-release-notes/index.html#What's%20New) and [HCX 4.8.3](https://docs.vmware.com/en/VMware-HCX/4.8.3/rn/vmware-hcx-483-release-notes/index.html#What's%20New)
 | [VMSA-2021-002 ESXiArgs](https://www.vmware.com/security/advisories/VMSA-2021-0002.html) OpenSLP vulnerability publicized in February 2023  | 2021  | [Disable OpenSLP service](https://kb.vmware.com/s/article/76372)  | February 2021 - Resolved in [ESXi 7.0 U3c](architecture-private-clouds.md#vmware-software-versions) |
 | After my private cloud NSX-T Data Center upgrade to version [3.2.2](https://docs.vmware.com/en/VMware-NSX/3.2.2/rn/vmware-nsxt-data-center-322-release-notes/index.html), the NSX-T Manager **DNS - Forwarder Upstream Server Timeout** alarm is raised | February 2023  | [Enable private cloud internet Access](architecture-design-public-internet-access.md), alarm is raised because NSX-T Manager can't access the configured CloudFlare DNS server. Otherwise, [change the default DNS zone to point to a valid and reachable DNS server.](configure-dns-azure-vmware-solution.md) | February 2023 |

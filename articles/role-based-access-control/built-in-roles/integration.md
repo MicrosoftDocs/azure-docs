@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 12/12/2024
 ms.custom: generated
 ---
 
@@ -645,7 +645,7 @@ Allows full access to App Configuration data.
 > | [Microsoft.AppConfiguration](../permissions/integration.md#microsoftappconfiguration)/configurationStores/*/delete |  |
 > | [Microsoft.AppConfiguration](../permissions/integration.md#microsoftappconfiguration)/configurationStores/*/action |  |
 > | **NotDataActions** |  |
-> | *none* |  |
+> | [Microsoft.AppConfiguration](../permissions/integration.md#microsoftappconfiguration)/configurationStores/useSasAuth/action | Use SAS authentication for the configuration store. |
 
 ```json
 {
@@ -665,7 +665,9 @@ Allows full access to App Configuration data.
         "Microsoft.AppConfiguration/configurationStores/*/delete",
         "Microsoft.AppConfiguration/configurationStores/*/action"
       ],
-      "notDataActions": []
+      "notDataActions": [
+        "Microsoft.AppConfiguration/configurationStores/useSasAuth/action"
+      ]
     }
   ],
   "roleName": "App Configuration Data Owner",
@@ -1093,6 +1095,7 @@ Lets you create system topics and event subscriptions on all system topics expos
 > | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToMaintenanceResources/action | Permission to perform creation and event subscription creation on a MaintenanceResources system topic |
 > | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToComputeResources/action | Permission to perform creation and event subscription creation on a ComputeResources system topic |
 > | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToComputeScheduleResources/action | Permission to perform creation and event subscription creation on a ComputeScheduleResources system topic |
+> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToContainerServiceEventResources/action | Permission to perform creation and event subscription creation on a ContainerServiceEventResources system topic |
 > | [Microsoft.EventGrid](../permissions/integration.md#microsofteventgrid)/eventSubscriptions/write | Create or update an eventSubscription |
 > | [Microsoft.EventGrid](../permissions/integration.md#microsofteventgrid)/systemTopics/eventSubscriptions/write | Create or update a SystemTopic eventSubscription |
 > | **NotActions** |  |
@@ -1118,6 +1121,7 @@ Lets you create system topics and event subscriptions on all system topics expos
         "Microsoft.ResourceNotifications/systemTopics/subscribeToMaintenanceResources/action",
         "Microsoft.ResourceNotifications/systemTopics/subscribeToComputeResources/action",
         "Microsoft.ResourceNotifications/systemTopics/subscribeToComputeScheduleResources/action",
+        "Microsoft.ResourceNotifications/systemTopics/subscribeToContainerServiceEventResources/action",
         "Microsoft.EventGrid/eventSubscriptions/write",
         "Microsoft.EventGrid/systemTopics/eventSubscriptions/write"
       ],

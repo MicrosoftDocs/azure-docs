@@ -57,10 +57,10 @@ userId | Identity of the user
 message | Detailed message of log event
 hub | User-defined Hub Name |
 routeTemplate | The route template of the API |
-httpMethod | The Http method (POST/GET/PUT/DELETE) |
+httpMethod | The HTTP method (POST/GET/PUT/DELETE) |
 url | The uniform resource locator |
 traceId | The unique identifier to the invocation |
-statusCode | The Http response code |
+statusCode | The HTTP response code |
 duration | The duration between the request is received and processed |
 headers | The additional information passed by the client and the server with an HTTP request or response |
 

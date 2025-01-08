@@ -429,7 +429,7 @@ If you created your logic app project when assemblies support wasn't available f
 
 > [!IMPORTANT]
 >
-> For a project that runs on Linux or MacOS, make sure to update the directory separator. For example, 
+> For a project that runs on Linux or macOS, make sure to update the directory separator. For example, 
 > review the following image that shows the previous code added to the **<*project-name*>.csproj** file.
 >
 > :::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/migrate-projects-assemblies-visual-studio-code.png" alt-text="Screenshot shows migrated assemblies and added code in the CSPROJ file." lightbox="media/create-single-tenant-workflows-visual-studio-code/migrate-projects-assemblies-visual-studio-code.png":::
@@ -849,11 +849,11 @@ When you have a workflow that starts with the **Request** trigger, you can retur
 
 ## Retest your logic app
 
-After you make updates to your logic app, you can run another test by rerunning the debugger in Visual Studio and sending another request to trigger your updated logic app, similar to the steps in [Run, test, and debug locally](#run-test-debug-locally).
+After you make updates to your logic app, you can run another test by rerunning the debugger in Visual Studio Code and sending another request to trigger your updated logic app, similar to the steps in [Run, test, and debug locally](#run-test-debug-locally).
 
 1. On the Visual Studio Code Activity Bar, open the **Run** menu, and select **Start Debugging** (F5).
 
-1. In Postman or your tool for creating and sending requests, send another request to trigger your workflow.
+1. In your tool for creating and sending requests, send another request to trigger your workflow.
 
 1. If you created a stateful workflow, on the workflow's overview page, check the status for the most recent run. To view the status, inputs, and outputs for each step in that run, select the ellipses (**...**) button for that run, and select **Show run**.
 
@@ -1384,7 +1384,7 @@ To fix the outdated bundle, follow these steps to delete the outdated bundle, wh
 > the Azure Logic Apps (Standard) extension, not the logic apps that you created using the Azure portal. 
 > See [Supported triggers and actions are missing from the designer in the Azure portal](create-single-tenant-workflows-azure-portal.md#missing-triggers-actions).
 
-1. Save any work that you don't want to lose, and close Visual Studio.
+1. Save any work that you don't want to lose, and close Visual Studio Code.
 
 1. On your computer, browse to the following folder, which contains versioned folders for the existing bundle:
 

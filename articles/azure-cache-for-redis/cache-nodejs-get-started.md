@@ -267,6 +267,8 @@ Microsoft Entra ID access tokens have a limited lifespan, [averaging 75 minutes]
 
 ## [Access Key Authentication](#tab/accesskey)
 
+[!INCLUDE [redis-access-key-alert](includes/redis-access-key-alert.md)]
+
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
 Add environment variables for your **HOST NAME** and **Primary** access key. Use these variables from your code instead of including the sensitive information directly in your code.

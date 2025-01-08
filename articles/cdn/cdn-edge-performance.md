@@ -4,7 +4,6 @@ description: Analyze edge node performance in Microsoft Azure CDN. Edge Performa
 services: cdn
 author: duongau
 manager: kumudd
-ms.assetid: 8cc596a7-3e01-4f76-af7b-a05a1421517e
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024

@@ -4,7 +4,7 @@ description: Learn about Azure Application Gateway features
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/24/2023
 ms.author: greglin
 ---
@@ -94,7 +94,7 @@ The cookie-based session affinity feature is useful when you want to keep a user
 
 For more information, see [How an application gateway works](how-application-gateway-works.md#modifications-to-the-request).
 
-## Websocket and HTTP/2 traffic
+## WebSocket and HTTP/2 traffic
 
 Application Gateway provides native support for the WebSocket and HTTP/2 protocols. There's no user-configurable setting to selectively enable or disable WebSocket support.
 

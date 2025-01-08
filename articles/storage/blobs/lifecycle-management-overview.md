@@ -187,7 +187,7 @@ The run conditions are based on age. Current versions use the last modified time
 
 When you add or edit the rules of a lifecycle policy, it can take up to 24 hours for changes to go into effect and for the first execution to start. 
 
-An active policy processes objects continuously, and is interrupted if changes are made to the policy. If you edit, delete, or disable a rule, then the execution of that policy terminates within 15 minutes, and is restarted again within 24 hours with updated rules. If you disable or delete all of the rules in a policy, then the policy becomes inactive, and no new runs will be scheduled. 
+An active policy processes objects continuously, and is interrupted if changes are made to the policy. If you disable a policy, then no new policy runs will be scheduled, but if a run is already in progress, that run will continue until it completes and you're billed for any actions that are required to complete the run. If you disable or delete all of the rules in a policy, then the policy becomes inactive, and no new runs will be scheduled. 
 
 The time required for a run to complete depends on the number of blobs evaluated and operated on. The latency with which a blob is evaluated and operated on may be longer if the request rate for the storage account approaches the storage account limit. All requests made to storage account, including requests made by policy runs, accrue to the same limit on requests per second, and as that limit approaches, priority is given to requests made by workloads. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
 
@@ -298,7 +298,7 @@ To minimize the effect on read access latency, only the first read of the last 2
 In the following example, blobs are moved to cool storage if they haven't been accessed for 30 days. The `enableAutoTierToHotFromCool` property is a Boolean value that indicates whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool.
 
 > [!TIP]
-> If a blob is moved to the cool tier, and then is automatically moved back before 30 days has elapsed, an early deletion fee is charged. Before you set the `enablAutoTierToHotFromCool` property, make sure to analyze the access patterns of your data so you can reduce unexpected charges.
+> If a blob is moved to the cool tier, and then is automatically moved back before 30 days has elapsed, an early deletion fee is charged. Before you set the `enableAutoTierToHotFromCool` property, make sure to analyze the access patterns of your data so you can reduce unexpected charges.
 
 ```json
 {
