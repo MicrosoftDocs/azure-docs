@@ -73,4 +73,4 @@ Device Update adds devices to subgroups based on their compatibility properties 
 ## Related content
 
 - To learn how to create, view, and delete device group tags and assign and remove devices from groups, see [Manage device groups](create-update-group.md).
-- For more information about about setting compatibility properties on the Device Update agent, see [Device Update configuration file](device-update-configuration-file.md).
+- For more information about setting compatibility properties on the Device Update agent, see [Device Update configuration file](device-update-configuration-file.md).
