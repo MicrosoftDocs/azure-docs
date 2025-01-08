@@ -40,21 +40,25 @@ Follow these steps to create a public IPv4 address with a Standard SKU named myS
 1. On the **Public IP addresses** page, select **Create**.
 
 1. On the **Basics** tab of the **Create public IP address** screen, enter or select the following values:
-| **Setting**                        | **Value**                          |
-|--------------------------------|--------------------------------|
-| Subscription                   | Keep the default or select a different subscription. |
-| Resource group                 | Select **Create new**, and then name the group *TestRG*. |
-| Region                         | Select **(US) East US 2**.         |
-| Name                           | Enter *myStandardPublicIP*.        |
-| IP Version                     | Select **IPv4**.                   |
-| SKU                            | Select **Standard**.               |
-| Availability zone              | Select **No Zone**.                |
-| Tier                           | Select **Regional**.               |
-| IP address assignment          | Only option is **Static**.         |
-| Routing preference             | Select **Microsoft network**.      |
-| Idle timeout (minutes)         | Keep the default of **4**.         |
-| DNS name label                 | Leave the value blank.             |
-| Domain name label scope (preview) | Leave the value blank.             |
+
+    | **Setting**                        | **Value**                          |
+    |--------------------------------|--------------------------------|
+    | **Project details**               |                                    |
+    | Subscription                   | Keep the default or select a different subscription. |
+    | Resource group                 | Select **Create new**, and then name the group *QuickStartCreateIP-rg*. |
+    | **Instance details**              |                                    |
+    | Region                         | Select **(US) West US 2**.         |
+    | **Configuration details**         |                                    |
+    | Name                           | Enter *myStandardPublicIP*.        |
+    | IP Version                     | Select **IPv4**.                   |
+    | SKU                            | Select **Standard**.               |
+    | Availability zone              | Select **No Zone**.                |
+    | Tier                           | Select **Regional**.               |
+    | IP address assignment          | Only option is **Static**.         |
+    | Routing preference             | Select **Microsoft network**.      |
+    | Idle timeout (minutes)         | Keep the default of **4**.         |
+    | DNS name label                 | Leave the value blank.             |
+    | Domain name label scope (preview) | Leave the default **None**.             |
 
    :::image type="content" source="./media/create-public-ip-portal/create-standard-ip.png" alt-text="Screenshot that shows the Create public IP address Basics tab settings for a Standard SKU.":::
 
@@ -82,15 +86,18 @@ Follow these steps to create a public IPv4 address with a Basic SKU named myBasi
 
     | **Setting** | **Value** |
     |-------------|-----------|
+    | **Project details** | |
     | Subscription | Keep the default or select a different subscription. |
-    | Resource group | Select **Create new**, and then name the group *TestRG*. |
-    | Region | Select **(US) East US 2**.         |
+    | Resource group | Select **Create new**, and then name the group *QuickStartCreateIP-rg*. |
+    | **Instance details** | |    
+    | Region | Select **(US) West US 2**.         |
+    | **Configuration details** | |
     | Name | Enter *myBasicPublicIP*.        |
     | IP Version | Select **IPv4**.                   |
     | SKU | Select **Basic**.               |
     | IP address assignment | Select **Static**.         |
     | Idle timeout (minutes) | Keep the default of **4**.         |
-    | Domain name label scope (preview) | Leave the value blank.             |
+    | Domain name label scope (preview) | Leave the default **None**.             |
 
    :::image type="content" source="./media/create-public-ip-portal/create-basic-ip.png" alt-text="Screenshot that shows the Create public IP address Basics tab settings for a Basic SKU.":::
 
@@ -124,9 +131,12 @@ Follow these steps to create a public IPv4 address with a Standard SKU and routi
 
     | **Setting**                   | **Value**                          |
     |-------------------------------|------------------------------------|
+    | **Project details**           |                                    |
     | Subscription                  | Keep the default or select a different subscription. |
-    | Resource group                | Select **Create new**, and then name the group *TestRG*. |
-    | Region                        | Select **(US) East US 2**.         |
+    | Resource group                | Select **Create new**, and then name the group *QuickStartCreateIP-rg*. |
+    | **Instance details**          |                                    |
+    | Region                        | Select **(US) West US 2**.         |
+    | **Configuration details**     |                                    |
     | Name                          | Enter *myStandardPublicIP-RP*.     |
     | IP Version                    | Select **IPv4**.                   |
     | SKU                           | Select **Standard**.               |
@@ -136,7 +146,7 @@ Follow these steps to create a public IPv4 address with a Standard SKU and routi
     | Routing preference            | Select **Internet**.               |
     | Idle timeout (minutes)        | Keep the default of **4**.         |
     | DNS name label                | Leave the value blank.             |
-    | Domain name label scope (preview) | Leave the value blank.             |
+    | Domain name label scope (preview) | Leave the default **None**            |
 
 1. Select **Review + create**. After validation succeeds, select **Create**.
 
@@ -161,9 +171,12 @@ Follow these steps to create a public IPv4 address with a Standard SKU and a glo
 
    | **Setting**                   | **Value**                          |
    |-------------------------------|------------------------------------|
+   | **Project details**           |                                    |
    | Subscription                  | Keep the default or select a different subscription. |
-   | Resource group                | Select **Create new**, and then name the group *TestRG*. |
-   | Region                        | Select **(US) East US 2**.         |
+   | Resource group                | Select **Create new**, and then name the group *QuickStartCreateIP-rg*. |
+   | **Instance details**          |                                    |
+   | Region                        | Select **(US) West US 2**.         |
+   | **Configuration details**     |                                    |
    | Name                          | Enter *myStandardPublicIP-Global*. |
    | IP Version                    | Select **IPv4**.                   |
    | SKU                           | Select **Standard**.               |
@@ -173,7 +186,7 @@ Follow these steps to create a public IPv4 address with a Standard SKU and a glo
    | Routing preference            | Select **Microsoft network**.      |
    | Idle timeout (minutes)        | Keep the default of **4**.         |
    | DNS name label                | Leave the value blank.             |
-   | Domain name label scope (preview) | Leave the value blank.             |
+   | Domain name label scope (preview) | Leave the default **None**             |
 
 1. Select **Review + create**. After validation succeeds, select **Create**.
 
@@ -185,11 +198,11 @@ Follow these steps to create a public IPv4 address with a Standard SKU and a glo
 
 When you're finished, delete the resource group and all of the resources it contains:
 
-1. In the portal, search for and select **TestRG**.
+1. In the portal, search for and select **QuickStartCreateIP-rg**.
 
-1. From the **TestRG** screen, select **Delete resource group**.
+1. From the **QuickStartCreateIP-rg** screen, select **Delete resource group**.
 
-1. Enter *TestRG* for **Enter resource group name to confirm deletion**, and then select **Delete**.
+1. Enter *QuickStartCreateIP-rg* for **Enter resource group name to confirm deletion**, and then select **Delete**.
 
 ## Next steps
 
