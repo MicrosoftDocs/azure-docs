@@ -21,7 +21,7 @@ The following table lists the current versions available for the public and Insi
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) 
 
 - Fixed an issue for [CVE-2024-49105](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49105).
-- Added support to optimized Screen and App sharing. Adds extra logging.
+- Added support to optimized Screen and App sharing.
 - Resolved an issue with keyboard shortcut <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Arrow</kbd> in the RemoteApp scenario. 
 
 > [!NOTE]
