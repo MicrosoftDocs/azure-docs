@@ -1,21 +1,22 @@
 ---
-title: Current Release Notes - Azure CycleCloud 8.6.x
-description: Read the product release notes for the current Azure CycleCloud release. This article covers releases 8.6.x, 8.5.x, 8.4.x, 8.2.x and 8.1.x.
+title: Current Release Notes - Azure CycleCloud 8.7.x
+description: Read the product release notes for the current Azure CycleCloud release. This article covers releases 8.7.x, 8.6.x, 8.5.x, 8.4.x, 8.2.x and 8.1.x.
 author: adriankjohnson
-ms.date: 05/31/2024
+ms.date: 01/07/2025
 ms.author: adjohnso
 ---
 
 # Azure CycleCloud 8.x
 
-The current release is 8.6.4.
+The current release is 8.7.0.
 
 ## Azure CycleCloud 8.x Release Highlights
 
-CycleCloud 8.6 is the sixth GA release of the CycleCloud 8.x platform and continues to add expanded scheduler support and improvements.
+CycleCloud 8.7 is the seventh GA release of the CycleCloud 8.x platform and continues to add expanded scheduler support and security improvements.
 
 |  |  |
 | --- | --- |
+|[**CycleCloud can use Managed Identity for more secure access to Azure Storage**](./how-to/managed-identities.md)<br/> CycleCloud now supports replacing Shared Access Key access to Azure Storage with Identity-based access for both the CycleCloud orchestrator and CycleCloud Locker access for cluster nodes. |  |
 | [**OpenPBS is supported by azpbs agent**](~/openpbs.md)<br/> Introducing `azpbs` a configuration-based agent for managing heterogeneous OpenPBS cluster including on-prem/cloud hybrid. `azpbs` is a more general and precise matching framework for job and VM resources. | ![Open PBS Logo](./images/release-notes/openpbs-logo.png) |
 | [**Altair Grid Engine is a Supported Scheduler Type**](~/gridengine.md)<br/> A free, demo version of Altair Grid Engine is available in CycleCloud 8.2, with a simple path to full end-to-end enterprise support for Altair clusters running on Azure. [Learn more about Altair + Azure here](https://techcommunity.microsoft.com/t5/azure-compute/univa-grid-engine-cluster-arrives-in-azure-cyclecloud-8-1/ba-p/1863043) | ![Altair Logo](./images/release-notes/altair-logo-small.png) |
 | [**HPC Pack is a Supported Scheduler Type**](~/hpcpack.md)<br/> The Microsoft HPC Pack scheduler is now integrated with Azure CycleCloud 8.2. The combination of Azure CycleCloud and HPC Pack scheduler allows the user to fully scale their environment with VM Scale Set nodes from zero to thousands of nodes and back each job with no permanent nodes to manage and maintain. | ![HPC Pack Logo](./images/release-notes/hpcpack-logo.png) |
@@ -30,6 +31,7 @@ CycleCloud 8.6 is the sixth GA release of the CycleCloud 8.x platform and contin
 
 Comprehensive release notes for the individual 8.x releases are listed below:
 
+* [**8.7.0 Release Notes**](release-notes/8-7-0.md) - released on 12/18/24
 * [**8.6.5 Release Notes**](release-notes/8-6-5.md) - released on 10/24/24
 * [**8.6.4 Release Notes**](release-notes/8-6-4.md) - released on 08/30/24
 * [**8.6.3 Release Notes**](release-notes/8-6-3.md) - released on 07/18/24

@@ -2,7 +2,7 @@
 title: Cluster Template Reference - Volumes
 description: Read reference material for including volumes in cluster templates to be used with Azure CycleCloud. A volume represents an Azure Disk.
 author: adriankjohnson
-ms.date: 07/15/2024
+ms.date: 01/07/2025
 ms.author: adjohnso
 ms.topic: conceptual
 ms.service: azure-cyclecloud
@@ -44,7 +44,7 @@ Attribute | Type | Definition
 ------ | ----- | ----------
 Size | String | (Required) Size of disk in GB
 VolumeId | String | Resource id for existing Azure Disk.
-StorageAccountType | String | UltraSSD_LRS, Premium_LRS, StandardSSD_LRS, Standard_LRS ([Azure Disk Types](/azure/virtual-machines/linux/disks-types)) If not set, defaults to Standard_LRS or Premium_LRS depending on VM size capabilities.
+StorageAccountType | String | UltraSSD_LRS, Premium_LRS, StandardSSD_LRS, Standard_LRS, PremiumV2_LRS ([Azure Disk Types](/azure/virtual-machines/linux/disks-types)) If not set, defaults to Standard_LRS or Premium_LRS depending on VM size capabilities.
 DiskIOPSReadWrite | Integer | Provisioned IOPS see [Ultra Disks](/azure/virtual-machines/linux/disks-types#ultra-disk)
 DiskMBPSReadWrite | Integer | Disk throughput MB/s see [Ultra Disks](/azure/virtual-machines/linux/disks-types#ultra-disk) 
 Azure.Lun | Integer | Override the auto-assigned LUN ID.
