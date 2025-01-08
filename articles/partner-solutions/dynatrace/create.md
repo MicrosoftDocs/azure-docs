@@ -21,7 +21,7 @@ When you use the integrated Dynatrace experience in Azure portal, the following 
 
 ## Prerequisites
 
-Before you link the subscription to a Dynatrace environment,[complete the pre-deployment configuration.](configure-prerequisites.md).
+Before you link the subscription to a Dynatrace environment, [complete the pre-deployment configuration](configure-prerequisites.md).
 
 ### Find Offer
 
