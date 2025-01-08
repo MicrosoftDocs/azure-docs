@@ -3,7 +3,7 @@ title: Update IoT Edge version on devices
 description: How to update IoT Edge devices to run the latest versions of the security subsystem and the IoT Edge runtime
 author: PatAltimore
 ms.author: patricka
-ms.date: 12/04/2024
+ms.date: 01/08/2025
 ms.topic: how-to
 ms.service: azure-iot-edge
 services: iot-edge
@@ -14,7 +14,7 @@ services: iot-edge
 **Applies to:** ![IoT Edge 1.5 checkmark](./includes/media/iot-edge-version/yes-icon.png) IoT Edge 1.5 ![IoT Edge 1.4 checkmark](./includes/media/iot-edge-version/yes-icon.png) IoT Edge 1.4
 
 > [!IMPORTANT]
-> IoT Edge 1.5 LTS is the [supported release](../support.md#releases). IoT Edge 1.4 LTS is end of life as of November 12, 2024.
+> IoT Edge 1.5 LTS is the [supported release](support.md#releases). IoT Edge 1.4 LTS is end of life as of November 12, 2024.
 
 As the IoT Edge service releases new versions, update your IoT Edge devices for the latest features and security improvements. This article provides information about how to update your IoT Edge devices when a new version is available.
 
