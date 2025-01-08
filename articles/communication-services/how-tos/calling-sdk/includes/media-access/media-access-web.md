@@ -85,7 +85,7 @@ Class `MediaAccess` has the following properties:
 | isVideoPermitted | Boolean value indicating whether ability to send video is allowed for this participant. |
 
 ### Control access to send audio or video of all attendees
-Microsoft Teams meetings support API that allows participants with role organizer, coorganizers, or presenters to allow or deny all attendees to send audio or video. You can use method `permitOthersAudio()` to allow all attendees to unmute or method `permitOthersVideo()` to allow all attendees to turn on video. These actions don't automatically unmute or turn on video. They only allow attendees to perform these actions. 
+Microsoft Teams meetings support API that allows participants with role organizer, co-organizers, or presenters to change meeting options `Allow mic for attendees` or `Allow camera for attendees`. You can use those APIs to change the value of those meeting options, which will result in allowing or denying all attendees to send audio or video. You can use method `permitOthersAudio()` to set meeting option `Allow mic for attendees` to `true` and allow all attendees to unmute. You can also use method `permitOthersVideo()` to set meeting option `Allow camera for attendees` to `true` and allow all attendees to turn on video. These actions don't automatically unmute or turn on video. They only allow attendees to perform these actions. 
 
 Use method `forbidOthersAudio()` to disallow all attendees to unmute or method `forbidOthersVideo()` to disallow all attendees to turn on video and these actions disable mic or camera for selected attendees.
 
