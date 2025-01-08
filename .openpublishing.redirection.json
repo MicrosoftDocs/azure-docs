@@ -4642,6 +4642,7 @@
       "redirect_url": "/azure/container-apps/",
       "redirect_document_id": false
     },
+    {
       "source_path_from_root": "/articles/virtual-network/create-vm-accelerated-networking-cli.md",
       "redirect_url": "/azure/virtual-network/create-virtual-machine-accelerated-networking",
       "redirect_document_id": false
