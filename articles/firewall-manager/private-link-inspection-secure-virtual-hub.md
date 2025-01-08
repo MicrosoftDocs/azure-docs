@@ -69,8 +69,6 @@ If needed, you can edit the CIDR prefixes that is inspected via Azure Firewall i
 
 3. Select **Private traffic prefixes** to edit the CIDR prefixes that are inspected via Azure Firewall in secured virtual hub and add one /32 prefix for each private endpoint.
 
-   :::image type="content" source="./media/private-link-inspection-secure-virtual-hub/firewall-manager-security-configuration.png" alt-text="Firewall Manager Security Configuration" border="true":::
-
 To inspect traffic from clients in the same virtual network as private endpoints, it isn't required to specifically override the /32 routes from private endpoints. As long as **Network Policies** are enabled in the private endpoints subnet(s), a UDR with a wider address range takes precedence. For instance, configure this UDR with **Next hop type** set to **Virtual Appliance**, **Next hop address** set to the private IP of the Azure Firewall, and **Address prefix** destination set to the subnet dedicated to all private endpoint deployed in the virtual network. **Propagate gateway routes** must be set to **Yes**.
 
 The following diagram illustrates the DNS and data traffic flows for the different clients to connect to a private endpoint deployed in Azure virtual WAN:
