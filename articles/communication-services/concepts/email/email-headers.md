@@ -24,7 +24,7 @@ Custom headers can be sent along with an email request. These headers are define
 
 ## Send an email message with custom headers
 
-We can define custom headers by adding header details to CustomHeaders object. These headers 
+We can define custom headers by adding header details to emailMessage. 
 
 ```csharp
 // Create the email content
