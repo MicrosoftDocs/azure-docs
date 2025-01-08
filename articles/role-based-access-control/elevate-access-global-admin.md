@@ -474,6 +474,8 @@ To get started, add Microsoft Sentinel to an existing Log Analytics workspace or
 
 In this step, you install the **Microsoft Entra ID** solution and use the  **Microsoft Entra ID connector** to collect data from Microsoft Entra ID.
 
+Your organization might have already configured a diagnostic setting to integrate the Microsoft Entra audit logs. To check, view your diagnostic settings as described in [How to access diagnostic settings](/entra/identity/monitoring-health/howto-configure-diagnostic-settings#how-to-access-diagnostic-settings).
+
 1. Install the **Microsoft Entra ID** solution by following the steps at [Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel/sentinel-solutions-deploy.md#discover-content).
 
     :::image type="content" source="./media/elevate-access-global-admin/sentinel-entra-id-solution.png" alt-text="Screenshot of Content hub page with Microsoft Entra ID content selected." lightbox="./media/elevate-access-global-admin/sentinel-entra-id-solution.png":::
