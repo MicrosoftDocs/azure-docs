@@ -1544,6 +1544,61 @@ Provides permission to backup vault to manage disk snapshots.
 }
 ```
 
+## Quantum Workspace Data Contributor
+
+Create, read, and modify jobs and other Workspace data. This role is in preview and subject to change.
+
+[Learn more](/azure/quantum/manage-workspace-access)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Quantum](../permissions/compute.md#microsoftquantum)/Workspaces/read | Read Workspace |
+> | [Microsoft.Quantum](../permissions/compute.md#microsoftquantum)/locations/offerings/read | Read providers supported |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Quantum](../permissions/compute.md#microsoftquantum)/Workspaces/jobs/read | Read jobs and other data |
+> | [Microsoft.Quantum](../permissions/compute.md#microsoftquantum)/Workspaces/jobs/write | Write jobs and other data |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Create, read, and modify jobs and other Workspace data. This role is in preview and subject to change.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/c1410b24-3e69-4857-8f86-4d0a2e603250",
+  "name": "c1410b24-3e69-4857-8f86-4d0a2e603250",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Quantum/Workspaces/read",
+        "Microsoft.Quantum/locations/offerings/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Quantum/Workspaces/jobs/read",
+        "Microsoft.Quantum/Workspaces/jobs/write"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Quantum Workspace Data Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Virtual Machine Administrator Login
 
 View Virtual Machines in the portal and login as administrator
