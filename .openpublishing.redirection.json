@@ -4493,6 +4493,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/logic-apps/business-continuity-disaster-recovery-guidance.md",
+      "redirect_url": "/azure/logic-apps/multi-region-disaster-recovery",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/virtual-network/tutorial-connect-virtual-networks-portal.md",
       "redirect_url": "/azure/virtual-network/tutorial-connect-virtual-networks",
       "redirect_document_id": false
@@ -4635,6 +4640,15 @@
     {
       "source_path_from_root": "/articles/app-spaces/quickstart-deploy-your-app.md",
       "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+      "source_path_from_root": "/articles/virtual-network/create-vm-accelerated-networking-cli.md",
+      "redirect_url": "/azure/virtual-network/create-virtual-machine-accelerated-networking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/create-vm-accelerated-networking-powershell.md",
+      "redirect_url": "/azure/virtual-network/create-virtual-machine-accelerated-networking",
       "redirect_document_id": false
     }
   ]

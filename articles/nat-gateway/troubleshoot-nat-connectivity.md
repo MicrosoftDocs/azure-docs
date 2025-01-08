@@ -28,6 +28,8 @@ You observe a drop in the datapath availability of NAT gateway, which coincides 
 * Simultaneous SNAT connection limits.
 
 * Connection timeouts.
+  
+* Removal of public IP addresses or subnets from NAT Gateway.
 
 **Troubleshoot steps**
 
@@ -40,6 +42,8 @@ You observe a drop in the datapath availability of NAT gateway, which coincides 
 * Check the [dropped packets metric](/azure/nat-gateway/nat-metrics#dropped-packets) for any packet drops that align with connection failures or high connection volume.
 
 * Adjust the [Transmission Control Protocol (TCP) idle timeout timer](./nat-gateway-resource.md#tcp-idle-timeout) settings as needed. An idle timeout timer set higher than the default (4 minutes) holds on to flows longer, and can create [extra pressure on SNAT port inventory](./nat-gateway-resource.md#timers).
+  
+* Check NAT Gateway public IP and subnet configurations and if any public IPs or subnets have been removed from the NAT Gateway recently.
 
 ### Possible solutions for SNAT port exhaustion or hitting simultaneous connection limits
 
@@ -72,6 +76,9 @@ TCP keepalives only need to be enabled from one side of a connection in order to
 UDP idle timeout timers are set to 4 minutes and aren't configurable. Enable UDP keepalives for both directions in a connection flow to maintain long connections. When a UDP keepalive is enabled, it's only active for one direction in a connection. The connection can still go idle and time out on the other side of a connection. To prevent a UDP connection from idle time-out, UDP keepalives should be enabled for both directions in a connection flow.
 
 Application layer keepalives can also be used to refresh idle flows and reset the idle timeout. Check the server side for what options exist for application specific keepalives.
+
+### Impact of removing public IPs or subnets from the NAT Gateway
+Any active connections associated with a public IP address terminate when the public IP address is removed from the NAT gateway. If the NAT gateway resource has multiple public IPs, new traffic is distributed among the assigned IPs. Traffic will also be disrupted if NAT gateway is removed from any subnets with active connections. Consider updating configurations on your NAT gateway during maintenance windows so as to minimize impact to outbound connectivity.
 
 ## Datapath availability drop on NAT gateway but no connection failures
 

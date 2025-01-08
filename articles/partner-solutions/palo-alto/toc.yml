@@ -4,17 +4,17 @@ items:
 - name: Overview
   items:
   - name: What is Cloud NGFW by Palo Alto Networks?
-    href: palo-alto-overview.md
+    href: overview.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Create a Cloud NGFW by Palo Alto Networks resource
-    href: palo-alto-create.md
+    href: create.md
 - name: How to
   items:
   - name: Manage your Cloud NGFW by Palo Alto Networks resource
-    href: palo-alto-manage.md
+    href: manage.md
   - name: Troubleshoot Cloud NGFW by Palo Alto Networks 
-    href: palo-alto-troubleshoot.md
+    href: troubleshoot.md
   - name: Deploy Cloud NGFW by Palo Alto Networks with the Application Gateway
-    href: palo-alto-application-gateway.md
+    href: application-gateway.md
