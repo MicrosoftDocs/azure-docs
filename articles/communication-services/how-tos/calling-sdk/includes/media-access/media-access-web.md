@@ -122,8 +122,8 @@ const meetingMediaAccessChangedHandler = (event) => {
 mediaAccessFeature.on('meetingMediaAccessChanged', meetingMediaAccessChangedHandler )
 ```
 
-### Stop receiving meeting media access event
-Use the following code to stop receiving media access events.
+### Stop receiving meeting media access events
+Use the following code to stop receiving meeting media access events.
 ```js
 mediaAccessFeature.off('meetingMediaAccessChanged', meetingMediaAccessChangedHandler)
 ```
