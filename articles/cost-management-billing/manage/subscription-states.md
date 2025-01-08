@@ -47,7 +47,7 @@ Operations to create or update resources (PUT, PATCH) are disabled. Operations t
 
 ## Past Due
 
-Your Azure subscription has an outstanding payment pending. Your subscription is still active but failure to pay the dues might result in subscription being disabled. For more information, see [Resolve past due balance for your Azure subscription.](resolve-past-due-balance.md).
+Your Azure subscription has an outstanding payment pending. Your subscription is still active but failure to pay the dues might result in subscription being disabled. For more information, see [Resolve past due balance for your Azure subscription](resolve-past-due-balance.md).
 
 All operations are available.
 
