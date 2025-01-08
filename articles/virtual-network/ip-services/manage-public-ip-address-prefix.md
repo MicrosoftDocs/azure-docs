@@ -12,7 +12,7 @@ ms.topic: concept-article
 
 # Manage a public IP address prefix
 
-A public IP address prefix is a contiguous range of standard SKU public IP addresses.  When you create a public IP address resource, you can assign a static public IP from the prefix and associate the address to Azure resources. For more information, see [Public IP address prefix overview](public-ip-address-prefix.md).  This article explains how to create, modify, or delete public IP address prefixes, and create public IPs from an existing prefix.
+A public IP address prefix is a contiguous range of standard SKU public IP addresses. When you create a public IP address resource, you can assign a static public IP from the prefix and associate the address to Azure resources. For more information, see [Public IP address prefix overview](public-ip-address-prefix.md). This article explains how to create, modify, or delete public IP address prefixes, and create public IPs from an existing prefix.
 
 ## Create a public IP address prefix
 
@@ -28,7 +28,7 @@ The following section details the parameters when creating a public IP prefix.
 | Prefix ownership | Yes | Specify if the IP ranges will be owned by Microsoft or you, see [Custom IP Prefix](custom-ip-address-prefix.md) for more information on the latter case. |
 | Prefix size | Yes | The size of the prefix you need. A range with 16 IP addresses (/28 for v4 or /124 for v6) is the default limit for Microsoft owned ranges. |
 
-Alternatively, you may use the following CLI and PowerShell commands to create a public IP address prefix.
+Alternatively, you can use the following CLI and PowerShell commands to create a public IP address prefix.
 
 | **Tool** | **Command** |
 | --- | --- |
@@ -36,10 +36,10 @@ Alternatively, you may use the following CLI and PowerShell commands to create a
 | PowerShell |[New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix) |
 
 >[!NOTE]
->In regions with availability zones, you can use PowerShell or CLI commands to create a public IP address prefix as either: non-zonal, associated with a specific zone, or to use zone-redundancy.  For API version 2020-08-01 or later, if a zone parameter is not provided, a non-zonal public IP address prefix is created. For versions of the API older than 2020-08-01, a zone-redundant public IP address prefix is created. 
+>In regions with availability zones, you can use PowerShell or CLI commands to create a public IP address prefix as either: non-zonal, associated with a specific zone, or to use zone-redundancy. For API version 2020-08-01 or later, if a zone parameter isn't provided, a non-zonal public IP address prefix is created. For versions of the API older than 2020-08-01, a zone-redundant public IP address prefix is created. 
 
 >[!NOTE]
->For more information about deriving a Public IP Prefix from an onboarded Custom IP Prefix (BYOIP range), please refer to [Manage Custom IP Address Prefix](manage-custom-ip-address-prefix.md#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+>For more information about deriving a Public IP Prefix from an onboarded Custom IP Prefix (BYOIP range), see [Manage Custom IP Address Prefix](manage-custom-ip-address-prefix.md#create-a-public-ip-prefix-from-a-custom-ip-prefix).
 
 ## Create a static public IP address from a prefix
 
@@ -49,9 +49,9 @@ The following section details the parameters required when creating a static pub
 | --- | --- | --- |
 | Name | Yes | The name of the public IP address must be unique within the resource group you select. |
 | Idle timeout (minutes)| No| How many minutes to keep a TCP or HTTP connection open without relying on clients to send keep-alive messages. |
-| DNS name label | No | Must be unique within the Azure region you create the name in (across all subscriptions and all customers). </br> Azure automatically registers the name and IP address in its DNS so you can connect to a resource with the name. </br> Azure appends a default subnet *location.cloudapp.azure.com* to the name you provide to create the fully qualified DNS name. </br> For more information, see [Use Azure DNS with an Azure public IP address](../../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address). |
+| DNS name label | No | Must be unique within the Azure region you create the name in (across all subscriptions and all customers).</br> Azure automatically registers the name and IP address in its DNS so you can connect to a resource with the name.</br> Azure appends a default subnet *location.cloudapp.azure.com* to the name you provide to create the fully qualified DNS name.</br> For more information, see [Use Azure DNS with an Azure public IP address](../../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address). |
 
-Alternatively, you may use the following CLI and PowerShell commands with the **`--public-ip-prefix`** **(CLI)** and **`-PublicIpPrefix`** **(PowerShell)** parameters, to create a public IP address resource from a prefix. 
+Alternatively, you can use the following CLI and PowerShell commands with the **`--public-ip-prefix`** **(CLI)** and **`-PublicIpPrefix`** **(PowerShell)** parameters, to create a public IP address resource from a prefix. 
 
 | **Tool** | **Command** |
 | --- | --- |
@@ -59,7 +59,7 @@ Alternatively, you may use the following CLI and PowerShell commands with the **
 | PowerShell | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) |
 
 >[!NOTE]
->When requesting a Public IP address from a Public IP Prefix, the allocation is not deterministic or sequential. If a specific Public IP address from a Public IP Prefix is required, the PowerShell or CLI commands allow for this.  For PowerShell, the `IpAddress` parameter (followed by the desired IP) should be used; for CLI, the `ip-address` parameter (followed by the desired IP) should be used.
+>When requesting a Public IP address from a Public IP Prefix, the allocation isn't deterministic or sequential. If a specific Public IP address from a Public IP Prefix is required, the PowerShell or CLI commands allow for this. For PowerShell, the `IpAddress` parameter (followed by the desired IP) should be used; for CLI, the `ip-address` parameter (followed by the desired IP) should be used.
 
 >[!NOTE]
 >Only static public IP addresses created with the Standard SKU can be assigned from the prefix's range. To learn more about public IP address SKUs, see [public IP address](public-ip-addresses.md#public-ip-addresses).
