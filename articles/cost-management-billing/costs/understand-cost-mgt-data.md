@@ -80,13 +80,9 @@ Your billing account type, and subscriptions created under it, is based on your 
 
 ## Costs included in Cost Management
 
-The following table shows included and not included data in Cost Management. All costs are estimated until an invoice is generated.
+The following table shows included and not included data in Cost Management. Costs shown don't include free and prepaid credits.
 
-Estimated costs shown in Cost Management during the open month, before invoice generation, don't consider tiered pricing plans. The cost estimates are calculated in this situation are based on the highest tier for a product. After an invoice is issued, charges in Cost Management are updated and they should match the invoice.
-
-Costs shown don't include free and prepaid credits.
-
-Estimated costs shown in Cost Management during the open month, before invoice generation, don't consider tiered pricing plans. The cost estimates are calculated in this situation are based on the highest tier for a product. After an invoice is issued, charges in Cost Management are updated and they should match the invoice. Estimated costs might get shown for any of the following included cost types.
+All included costs are estimated until an invoice is generated. Estimated costs shown in Cost Management during the open month, before invoice generation, don't consider tiered pricing plans. The cost estimates calculated in this situation are based on the highest tier for a product. After an invoice is issued, charges in Cost Management are updated and they should match the invoice.
 
 | **Included** | **Not included** |
 | --- | --- |
