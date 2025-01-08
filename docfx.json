@@ -1288,4 +1288,13 @@
       }
     }
   }
-}
+},
+"template": [],
+    "markdownEngineName": "markdig",
+    "groups": {
+      "migrate": {
+        "dest": "migrate",
+        "moniker_range": ">= migrate <= migrate-classic"
+      }
+    }
+ 
