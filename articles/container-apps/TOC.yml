@@ -294,12 +294,8 @@
   items:
     - name: Architecture overview
       href: networking.md
-    - name: Environments
-      items:
-        - name: Deploy with an external environment
-          href: vnet-custom.md
-        - name: Deploy with an internal environment
-          href: vnet-custom-internal.md
+    - name: Use a custom virtual network
+      href: vnet-custom.md
     - name: Ingress
       items:
         - name: Overview
@@ -333,8 +329,6 @@
           href: how-to-use-private-endpoint.md
         - name: Integrate with Azure Front Door
           href: how-to-integrate-with-azure-front-door.md
-    - name: Use a custom VNET
-      href: vnet-custom.md
 - name: Languages and runtimes
   items:
     - name: .NET

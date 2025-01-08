@@ -81,11 +81,7 @@
         - name: Use Azure Pipelines
           href: deploy-azure-pipelines.md
         - name: Use GitHub Actions
-          items:
-            - name: Deploy with GitHub Actions (tutorial)
-              href: app-service-sql-asp-github-actions.md
-            - name: About GitHub Actions deployment
-              href: deploy-github-actions.md
+          href: deploy-github-actions.md
         - name: Run from package
           href: deploy-run-package.md
     - name: Authentication for deployment
@@ -393,8 +389,6 @@
           href: tutorial-custom-container-sidecar.md
         - name: Deploy app with Azure Container Registry
           href: tutorial-custom-container.md
-        - name: Deploy with GitHub Actions
-          href: app-service-sql-github-actions.md
         - name: Deploy with Azure Pipelines
           href: deploy-container-azure-pipelines.md
 - name: Integrate AI with App Service
@@ -403,11 +397,11 @@
       href: deploy-intelligent-apps.md
 - name: WordPress
   items:
+    - name: WordPress overview
+      href: overview-wordpress.md
     - name: WordPress architecture
       displayName: WordPress on App Service architecture
       href: /azure/architecture/example-scenario/infrastructure/wordpress-app-service
-    - name: WordPress overview
-      href: overview-wordpress.md
     - name: Deploy WordPress
       displayName: Create a WordPress site
       href: quickstart-wordpress.md

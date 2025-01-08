@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 08/20/2024
+ms.date: 12/10/2024
 ms.author: anfdocs
 ---
 # Create an NFS volume for Azure NetApp Files
@@ -22,8 +22,6 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
     See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
 * A subnet must be delegated to Azure NetApp Files.  
     See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
-
-* [!INCLUDE [50 GiB volume preview](./includes/50-gib-volume.md)]
 
 ## Considerations 
 

@@ -5,7 +5,7 @@ services: expressroute
 author: rambk
 manager: tracsman
 ms.service: azure-expressroute
-ms.topic: article
+ms.topic: concept-article
 ms.date: 6/11/2024
 ms.author: rambala
 ---

@@ -25,8 +25,6 @@ Use the Azure portal to find the Elastic application.
 
 1. If you've visited the **Marketplace** in a recent session, select the icon from the available options. Otherwise, search for _Marketplace_.
 
-    :::image type="content" source="media/create/marketplace.png" alt-text="Image of marketplace icon.":::
-
 1. Search for _Elastic_ and select **Elastic Cloud (Elasticsearch) - An Azure Native ISV Service** from the available offerings.
 
 1. Select **Set up + subscribe**.

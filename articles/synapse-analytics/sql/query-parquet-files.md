@@ -73,11 +73,11 @@ from openrowset(
 ```
 
 > [!IMPORTANT]
-> Make sure that you are explicilty specifying some UTF-8 collation (for example `Latin1_General_100_BIN2_UTF8`) for all string columns in `WITH` clause or set some UTF-8 collation at database level.
+> Make sure that you are explicitly specifying some UTF-8 collation (for example `Latin1_General_100_BIN2_UTF8`) for all string columns in `WITH` clause or set some UTF-8 collation at database level.
 > Mismatch between text encoding in the file and string column collation might cause unexpected conversion errors.
 > You can easily change default collation of the current database using the following T-SQL statement:
 > `ALTER DATABASE CURRENT COLLATE Latin1_General_100_BIN2_UTF8;`
-> You can easily set collation on the colum types, for example:
+> You can easily set collation on the column types, for example:
 >    `geo_id varchar(6) collate Latin1_General_100_BIN2_UTF8`
 > For more information on collations, see [Collation types supported for Synapse SQL](../sql/reference-collation-types.md).
 

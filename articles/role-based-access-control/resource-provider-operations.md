@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 12/12/2024
 ms.custom: generated
 ---
 
@@ -47,6 +47,7 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.ComputeSchedule](./permissions/compute.md#microsoftcomputeschedule) |  | [Azure Virtual Desktop](/azure/virtual-desktop/overview) |
 > | [microsoft.connectedvmwarevsphere](./permissions/compute.md#microsoftconnectedvmwarevsphere) |  | [Azure Arc-enabled VMware vSphere](/azure/azure-arc/vmware-vsphere/) |
 > | [Microsoft.DesktopVirtualization](./permissions/compute.md#microsoftdesktopvirtualization) | The best virtual desktop experience, delivered on Azure. | [Azure Virtual Desktop](/azure/virtual-desktop/) |
+> | [Microsoft.Quantum](./permissions/compute.md#microsoftquantum) |  | [Azure Quantum](/azure/quantum/overview-azure-quantum) |
 > | [Microsoft.ServiceFabric](./permissions/compute.md#microsoftservicefabric) | Develop microservices and orchestrate containers on Windows or Linux. | [Service Fabric](/azure/service-fabric/) |
 
 <a name='microsoftnetwork'></a>
@@ -167,13 +168,6 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.IoTFirmwareDefense](./permissions/internet-of-things.md#microsoftiotfirmwaredefense) |  | [Microsoft Defender for IoT](/azure/defender-for-iot/device-builders/overview) |
 > | [Microsoft.IoTSecurity](./permissions/internet-of-things.md#microsoftiotsecurity) |  | [IoT security](/azure/iot/iot-security-architecture) |
 > | [Microsoft.StreamAnalytics](./permissions/internet-of-things.md#microsoftstreamanalytics) | Real-time data stream processing from millions of IoT devices. | [Stream Analytics](/azure/stream-analytics/) |
-
-## Mixed reality
-
-> [!div class="mx-tableFixed"]
-> | Resource provider | Description | Azure service |
-> | --- | --- | --- |
-> | [Microsoft.MixedReality](./permissions/mixed-reality.md#microsoftmixedreality) | Blend your physical and digital worlds to create immersive, collaborative experiences. | [Azure Spatial Anchors](/azure/spatial-anchors/) |
 
 <a name='microsoftapimanagement'></a>
 
