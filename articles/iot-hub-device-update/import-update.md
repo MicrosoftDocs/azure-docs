@@ -3,7 +3,7 @@ title: Import an update to Azure Device Update for IoT Hub
 description: Learn how to import update files into Azure Device Update for IoT Hub by using the Azure portal, Azure CLI, or programmatically.
 author: andrewbrownmsft
 ms.author: andbrown
-ms.date: 01/03/2025
+ms.date: 01/08/2025
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -23,6 +23,29 @@ To deploy an update to devices using Azure Device Update for IoT Hub, you first 
   > [!IMPORTANT]
   > Make sure the storage account you use or create doesn't have private endpoints enabled. To see if private endpoints are enabled, you can check for your Azure Storage account name under **Private endpoints** in the [Private Link Center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/overview).
 
+# [Azure portal](#tab/portal)
+
+- Supported browsers Microsoft Edge or Google Chrome.
+
+# [Azure CLI](#tab/cli)
+
+- A Bash environment.
+
+  You can use the Bash environment in [Azure Cloud Shell](/azure/cloud-shell/quickstart) to run the commands in this article. Select **Launch Cloud Shell** to open Cloud Shell, or select the Cloud Shell icon in the top toolbar of the Azure portal.
+
+  :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
+
+  Or, if you prefer, you can run the Azure CLI commands locally:
+
+  1. [Install Azure CLI](/cli/azure/install-azure-cli). Run [az version](/cli/azure/reference-index#az-version) to see the installed Azure CLI version and dependent libraries, and run [az upgrade](/cli/azure/reference-index#az-upgrade) to install the latest version.
+  1. Sign in to Azure by running [az login](/cli/azure/reference-index#az-login).
+  1. Install the `azure-iot` extension when prompted on first use. To make sure you're using the latest version of the extension, run `az extension update --name azure-iot`.
+
+>[!TIP]
+>The Azure CLI commands in this article use the backslash \\ character for line continuation so that the command arguments are easier to read. This syntax works in Bash environments. If you run these commands in PowerShell, replace each backslash with a backtick \`, or remove them entirely.
+
+---
+
 ## Import an update
 
 This section shows how to import an update using either the Azure portal or the Azure CLI. You can also [import an update by using the Device Update APIs](#import-using-the-device-update-apis) instead.
@@ -31,7 +54,7 @@ To import an update, you first upload the update and import manifest files into 
 
 # [Azure portal](#tab/portal)
 
-1. On the [Azure portal](https://portal.azure.com) IoT hub page for your Device Update instance, select **Device management** > **Updates** from the left navigation.
+1. In the [Azure portal](https://portal.azure.com), on the IoT hub page for your Device Update instance, select **Device management** > **Updates** from the left navigation.
 
    :::image type="content" source="media/import-update/import-updates-3-ppr.png" alt-text="Screenshot that shows Import updates." lightbox="media/import-update/import-updates-3-ppr.png":::
 
@@ -75,19 +98,6 @@ The import process begins, and the screen switches to the **Updates** screen. Af
 :::image type="content" source="media/import-update/update-ready-ppr.png" alt-text="Screenshot that shows job status." lightbox="media/import-update/update-ready-ppr.png":::
 
 # [Azure CLI](#tab/cli)
-
-You can use the Bash environment in [Azure Cloud Shell](/azure/cloud-shell/quickstart) to run the following commands. Select **Launch Cloud Shell** to open Cloud Shell, or select the Cloud Shell icon in the top toolbar of the Azure portal.
-
-:::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
-
-Or, if you prefer, you can run the Azure CLI commands locally:
-
-1. [Install Azure CLI](/cli/azure/install-azure-cli). Run [az version](/cli/azure/reference-index#az-version) to see the installed Azure CLI version and dependent libraries, and run [az upgrade](/cli/azure/reference-index#az-upgrade) to install the latest version.
-1. Sign in to Azure by running [az login](/cli/azure/reference-index#az-login).
-1. Install the `azure-iot` extension when prompted on first use. To make sure you're using the latest version of the extension, run `az extension update --name azure-iot`.
-
->[!TIP]
->The following Azure CLI commands use the backslash \\ character for line continuation so that the command arguments are easier to read. This syntax works in Bash environments. If you run these commands in PowerShell, replace each backslash with a backtick \`, or remove them entirely.
 
 The [az iot du update stage](/cli/azure/iot/du/update#az-iot-du-update-stage) command handles the prerequisite steps of importing an update, including uploading the update files into a target storage container. An optional flag also lets this command automatically import the files after preparing them. Otherwise, the [az iot du update import](/cli/azure/iot/du/update#az-iot-du-update-import) command completes the process.
 

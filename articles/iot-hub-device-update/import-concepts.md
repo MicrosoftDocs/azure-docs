@@ -1,22 +1,21 @@
 ---
-title: Azure Device Update for IoT Hub import manifest concepts
-description: Understand the important concepts and sections in the Azure Device Update for IoT Hub import manifest.
+title: Azure Device Update for IoT Hub import concepts
+description: Understand key concepts for importing a new update into Azure Device Update for IoT Hub.
 author: andrewbrownmsft
 ms.author: andbrown
-ms.date: 01/03/2025
+ms.date: 01/08/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub
 ms.subservice: device-update
 ---
 
-# Azure Device Update for IoT Hub import manifest concepts
+# Azure Device Update for IoT Hub import concepts
 
-To deploy an update to devices using Azure Device Update for IoT Hub, you first import the update into the Device Update service, which stores the imported update and deploys it to devices. Along with the update payload, you submit a JSON import manifest file that defines important information about the update. This article describes the important concepts and sections in the import manifest JSON file.
+To deploy an update to devices using Azure Device Update for IoT Hub, you first import the update into the Device Update service, which stores the imported update and deploys it to devices. This article provides an overview of some important concepts to understand when it comes to importing updates.
 
-<a name="import-manifest"></a>
-## Import manifest file
+## Import manifest
 
-You submit an import manifest JSON file along with the associated update files, such as a firmware update package, as part of the import process. The metadata defined in the import manifest is used both to ingest the update and at deployment time for functions like validating whether the update installed correctly.
+An import manifest is a JSON file that defines important information about the update you're importing. You submit both your import manifest and associated update file or files, such as a firmware update package, as part of the import process. The metadata defined in the import manifest is used to ingest the update. Some of the metadata is also used at deployment time, for example to validate if an update installed correctly.
 
 The following JSON code shows an example import manifest file:
 
@@ -65,11 +64,11 @@ The sections of the import manifest file represent important Device Update conce
 
 ### Update identity
 
-The *update identity* or `updateId` provides the unique identifier for an update in Device Update, and contains the following properties:
+The *update identity* or `updateId` is the unique identifier for an update in Device Update, and contains the following properties:
 
-- `provider` is the entity that creates or is responsible for the update, often a company name.
-- `name` identifies an update class, often a device class or model name.
-- `version` is a number that distinguishes this update from others with the same provider and name.
+- **Provider** is the entity that creates or is responsible for the update, often a company name.
+- **Name** is the identifier for an update class. **Name** is often a device class or model name.
+- **Version** is a number that distinguishes this update from others with the same provider and name.
 
 For example:
 
@@ -88,7 +87,7 @@ For example:
 
 ### Compatibility
 
-The `compatibility` section uses one or more arbitrary key-value pairs to define the devices that can install an update. Only devices that report properties matching the `compatibility` values are eligible to deploy the update. You can make an update compatible with multiple device classes by including more than one set of device compatibility properties.
+The **Compatibility** section uses one or more arbitrary key-value pairs to define the devices that can install an update. Only devices that report properties matching the compatibility values are eligible to deploy the update. You can make an update compatible with multiple device classes by including more than one set of device compatibility properties.
 
 The following example shows an update that can only be deployed to devices that report *Contoso* and *Toaster* as their device manufacturer and model.
 
@@ -105,7 +104,7 @@ The following example shows an update that can only be deployed to devices that 
 
 ### Instructions
 
-The `instructions` section contains the necessary information or `steps` for the device agent to install the update. The simplest update contains a single inline step that executes the update payload file using a `handler` registered with the device agent. The following example shows a single-step `instructions` section.
+The **Instructions** section contains the necessary information or steps for the device agent to install the update. The simplest update contains a single inline step that executes the update payload file using a handler registered with the device agent. The following example shows a single-step instructions section.
 
 ```json
 {
@@ -125,7 +124,7 @@ The `instructions` section contains the necessary information or `steps` for the
 > [!NOTE]
 > The `handler` property is equivalent to the `updateType` property in import manifest version 3.0 or older.
 
-An update and an import manifest `steps` section can contain more than one step, as in the following example:
+An update can contain more than one step, as in the following example:
 
 ```json
 {
@@ -153,7 +152,9 @@ An update and an import manifest `steps` section can contain more than one step,
 }
 ```
 
-A `steps` section can also contain `reference` steps that instruct the device agent to install a different update and corresponding import manifest, establishing a parent and child update relationship. The following example update for a toaster contains two child update steps. An update can contain any combination of inline and reference steps.
+An update may contain *reference* steps that instruct the device agent to install another update with its own import manifest, establishing a parent and child update relationship. An update can contain any combination of inline and reference steps.
+
+For example, an update for a toaster may contain two child updates:
 
 ```json
 {
@@ -183,24 +184,24 @@ A `steps` section can also contain `reference` steps that instruct the device ag
 
 ### Files
 
-The `files` section of the import manifest contains update payload file metadata like `name`, `size`, and `hash`. Device Update uses this metadata for integrity validation during the import process, and forwards the same information to the device agent for integrity validation before installation.
+The **Files** section of the import manifest contains update payload file metadata like `name`, `size`, and `hash`. Device Update uses this metadata for integrity validation during the import process, and forwards the same information to the device agent for integrity validation before installation.
 
 > [!NOTE]
 > A parent update that contains only reference steps doesn't define any update payload files.
 
 ## Create an import manifest
 
-Once you understand the structure of an import manifest, create an import manifest file to describe your update. You can author a JSON import manifest file manually using a text editor, but the Azure CLI [az iot du init v5](/cli/azure/iot/du/update/init#az-iot-du-update-init-v5) command simplifies the process. For more information and instructions, see [Prepare an update to import into Device Update](create-update.md).
+While it's possible to author an import manifest JSON manually using a text editor, the Azure CLI simplifies the process greatly. When you're ready to try out the creation of an import manifest, you can use the [How-to guide](create-update.md#create-a-basic-device-update-import-manifest).
 
 > [!IMPORTANT]
-> To import into the Azure portal, an import manifest JSON filename must end with *.importmanifest.json*.
+> To import into the Device Update service via the Azure portal, an import manifest JSON filename must end with *.importmanifest.json*.
 
 > [!TIP]
 > You can use [Visual Studio Code](https://code.visualstudio.com) to enable autocomplete and JSON schema validation when you create an import manifest.
 
 ## Update import limits
 
-Certain limits are enforced for Device Update instances, including import limits. For more information, see [Device Update limits](./device-update-limits.md).
+Certain limits are enforced for each Device Update for IoT Hub instance. If you haven't already reviewed them, see [Device Update limits](./device-update-limits.md).
 
 ## Related content
 
