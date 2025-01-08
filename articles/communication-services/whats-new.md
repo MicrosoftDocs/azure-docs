@@ -11,9 +11,232 @@ ms.custom: template-concept, references_regions
 
 # What's new in Azure Communication Services
 
-Use this article to learn about new features and other updates related to Azure Communication Services.
+This article describes new features and updates related to Azure Communication Services.
 
 <!-- [!INCLUDE [Survey Request](./includes/survey-request.md)] -->
+
+## December 2024
+
+### Teams user interop calling
+
+Our applications can now directly call individual Microsoft Teams users. Those Teams users can be using Microsoft Teams or an authenticated Azure Communication Services Calling SDK endpoint. This feature makes Teams interoperability more complete. You can build custom apps connecting people to:
+- Individual Teams users
+- Teams call queues and Auto Attendant
+- Teams meetings
+
+You can use these features in business-2-consumer contact center and meeting applications to keep external customers in highly tailored websites and app experiences. You can also use this feature to keep all employee and agent communication activity in a single hub: Teams.
+
+For more information, see [Capabilities for Microsoft Teams users in Azure Communication Services calls](./concepts/interop/guest/calling-capabilities.md).
+
+### SMS support for 10 digit long code
+
+Ten digit long code (10DLC) for SMS is now in public preview. Support for 10DLC enables enterprises with a trusted and scalable messaging solution to connect with their customers efficiently and compliantly.
+
+The 10DLC SMS dedicated messaging channel enables businesses to send messages using local phone numbers. 10DLC offers a unique, registered phone number for your business, enhancing trust and ensuring compliance with carrier regulations. Perfect for transactional alerts, promotional messages, and customer service, 10DLC ensures higher message deliverability while adhering to industry standards.
+
+#### Benefits of Using 10DLC SMS
+
+- **Improved Deliverability**
+
+   A 10-digit number ensures higher message deliverability compared to traditional long codes, making it an effective way to ensure your messages reach your customers.
+
+- **Local Presence**
+
+   Using a local 10-digit number provides a more personal and trusted connection with your customers, increasing engagement and response rates.
+
+- **Cost-effective**
+
+   Using a 10-digit number offers a more affordable option compared to short codes, providing businesses with an efficient and cost-effective way to send high-volume messages.
+
+- **Versatility**
+
+   Perfect for various use cases, including transactional messages, customer support, promotions, and marketing campaigns.
+
+For more information, see:
+ - [SMS Concepts](./concepts/sms/concepts.md)
+ - [Apply for 10DLC numbers](./quickstarts/sms/apply-for-ten-digit-long-code.md)
+ - [SMS FAQ](./concepts/sms/sms-faq.md)
+
+## November 2024
+
+### Call Automation troubleshooting improvements
+
+We improved notifications to help developers troubleshoot Call Automation. Now, you receive notifications if the CreateCall or Answer APIs fail asynchronously through the new `CreateCallFailed` and `AnswerFailed` events. Along with these events, we provide error codes for various leave and call end scenarios, helping you make informed decisions about what to do next.
+
+We also revamped the error code documentation to offer better guidance for handling issues independently. In addition, you can now view Call Automation callback events in Azure metrics.
+
+call-automation-view-callback-events.png
+
+For more information, see:
+
+- [Troubleshooting guide for Call Automation SDK error codes](./resources/troubleshooting/voice-video-calling/troubleshooting-codes.md#call-automation-sdk-error-codes).
+Our docs on how to view Azure Communication Services Callback events via Azure Metrics.
+
+## October 2024
+
+### Enable advanced noise suppression on web desktop browsers
+
+The WebJS Calling SDK now includes background audio noise suppression. This feature improves call quality by reducing background noise and ensuring that the speaker's voice remains clear and understandable.
+
+This technology is useful in environments with high levels of ambient noise, such as open offices or public spaces, where extra sounds can interfere with communication. By filtering out ambient noise, noise suppression helps participants concentrate on the conversation without interruptions.
+
+Our advanced noise suppression models can manage distracting noises, such as a dog barking and background conversations.
+
+For more information, see [Add audio quality enhancements to your audio calling experience](./tutorials/audio-quality-enhancements/add-noise-supression.md).
+
+### Extended caller information
+
+Incoming call notifications now include the caller line ID (CLID) and calling party name (CNAM). This information can be used to identify the phone number of an incoming call.
+
+```javascript
+const incomingCallHandler = async (args: { incomingCall: IncomingCall }) => { const incomingCall = args.incomingCall; // Get information about caller console.log(callerInfo.displayName); console.log(callerInfo.identifier); };
+```
+
+For more information, see [CallerInfo interface](/azure/communication-calling/callerinfo), [Manage calls > Receive an incoming call](./how-tos/calling-sdk/manage-calls.md#receive-an-incoming-call), and [Manage calls > Check call properties](./how-tos/calling-sdk/manage-calls.md#check-call-properties).
+
+### Remote Mute VoIP meeting participants
+
+Conducting disruption free group meetings, virtual appointments, and B2C engagements often require controls to manage noise from inattentive participants. A participant might be driving and speaking to their friends without realizing that their noise and conversation is being relayed to participants in the meeting. The ability to remotely mute a VoIP participant comes handy in such situations. It enables another participant to remotely mute one or more VoIP participants in the call. Participants who are muted can unmute themselves when they need to speak.
+
+The ability to remotely mute a participant is now generally available for calls with the following specific functions:
+
+- A VoIP user remotely mutes all other VoIP participants in an Azure Communications Services Rooms and group calls using the following API operation:
+
+   ```javascript
+   await call.muteAllRemoteParticipants();
+   ```
+
+- A VoIP user remotely mutes one or several VoIP participants in an Azure communications services Rooms and group calls using the following API operation:
+
+   ```javascript
+   await call.remoteParticipants[0].mute();
+   ```
+
+In Azure Communication Services Rooms calls, only VoIP users with Presenter role can mute other participants to avoid undesired remote mutes.
+
+When a local call participant mutes another participant, it raises the `mutedByOthers` event. This event causes the client to notify the VoIP participant that they're muted.
+
+For more information, see [Remote calls > Mute and unmute a call](./how-tos/calling-sdk/manage-calls.md#mute-other-participants).
+
+### Improved Call Automation bot-to-user voice interactions
+
+In addition to server programmability of Rooms and troubleshooting improvements, we also made an array of other improvements to Call Automation that enable more powerful bots and interactive voice response (IVR).
+
+- **Hold/Unhold:** Provide developers with the ability to play music while putting participants on hold through supported file formats of WAV and MP3.
+
+- **Play multiple audio files:** We enhanced our existing Play and Recognize APIs to support the ability for developers to provide multiple audio files, text, and Speech Synthesis Markup Language (SSML) inputs when requesting a Play or Recognize action.
+
+- **Play barge-in:** Developers can provide barge-in capability to the Play action, enabling you to interrupt a current prompt, such as hold music, with a new message such as wait time announcement.
+
+- **Play started event:** We enabled a `playStarted` event to let developers know that a play prompt started.
+
+- **VoIP to PSTN transfer:** Developers can now transfer VoIP users to PSTN/SIP endpoints. For inbound PSTN calls, the call connection object now contains the PSTN number the user dialed.
+
+For more information, see [Call Automation overview](./concepts/call-automation/call-automation.md).
+
+### Enhance email communication with inline attachments
+
+Email service now offers a public preview of inline image attachments.
+
+Email communication is more than just text. It's about creating engaging and visually appealing messages that capture the recipient's attention. One way to engage email recipients is by using inline attachments, which enable you to embed images directly within the email body.
+
+Inline attachments are images or other media files that you embed directly within the email content, rather than sending as separate attachments. Inline attachments let the recipient view the images as part of the email body, enhancing the overall visual appeal and engagement.
+
+#### Using inline attachments
+
+Some reasons to use inline attachments:
+
+- **Improved Engagement:** Inline images can make your emails more visually appealing and engaging.
+
+- **Better Branding:** Embedding your logo or other brand elements directly in the email can reinforce your brand identity.
+
+- **Enhanced User Experience:** Inline images can help illustrate your message more effectively, making it easier for recipients to understand and act on your content.
+
+#### Benefits of using CID for inline attachments
+
+We use the HTML attribute content-ID (CID) to embed images directly into the email body. Using CID for inline attachments is considered the best approach for the following reasons:
+
+- **Reliability:** CID embedding references the image data using a unique identifier, rather than embedding the data directly in the email body. CID embedding ensures that the images are reliably displayed across different email clients and platforms.
+
+- **Efficiency:** CID enables you to attach the image to the email and reference it within the HTML content using the unique content-ID. This method is more efficient than base64 encoding, which can significantly increase the size of the email and affect deliverability.
+
+- **Compatibility:** Most email clients support CID, ensuring that your inline images are displayed correctly for most recipients.
+
+- **Security:** Using CID avoids the need to host images on external servers, which can pose security risks. Instead, the images are included as part of the email, reducing the risk of external content being blocked or flagged as suspicious.
+
+For more information, see:
+- [Using inline attachments](./concepts/email/email-attachment-inline.md)
+- [Send email with attachments using Azure Communication Services](./quickstarts/email/send-email-advanced/send-email-with-attachments.md)
+- [Send email with inline attachments using Azure Communication Services](./quickstarts/email/send-email-advanced/send-email-with-inline-attachments.md)
+
+### Connect multiple custom domains per email resource
+
+Developers can now connect multiple custom domains with the same Azure Communication Services resource. This feature enables Developers to manage their Azure Communication Services resources more effectively to support various business applications or customers using different custom domains. This feature is currently in public preview.
+
+Some scenarios in which connecting multiple custom domains is useful:
+
+- Messaging organizations that need to support multiple custom domains across several applications can use one Azure Communication Services resource to manage and support these applications, reducing resource management efforts.
+
+- SaaS service providers can manage many customers with fewer Azure Communication Services resources.
+
+email-resource-demo.png
+
+> [!NOTE]
+> We enable customers to link up to 100 custom domains to a single communication service resource. All Mail-From addresses configured under these custom domains are accessible for the communication service resource. You can only link verified custom domains.
+
+For more information, see [Connect a verified email domain](./quickstarts/email/connect-email-communication-resource.md)
+
+## September 2024
+
+### Native UI Library customization and accessibility
+
+We have a suite of new features for the open source Calling Native UI Library that provide enhanced customization options and improved accessibility for developers building communication experiences on Android and iOS. Developers can use these APIs to make video calling better fit their brand identity, provide improved user experiences, and ensure their services are accessible to a wider audience.
+
+#### Empower brands
+
+You can now use the Native UI Library to:
+- Change interface colors to match brand themes.
+- Customize call title and subtitle for personalized interactions.
+- Configure the button bar by adding, removing, or modifying action buttons to suit specific business workflows.
+
+#### Use cases
+
+- **Healthcare Providers**
+
+   A telemedicine platform can now align in-call interfaces with its brand colors, giving patients a familiar and trustworthy experience. Customizing the call title to display **Telemedicine Session** and adding subtitles like **Dr. Jane Doe** help ensure that patients know exactly whom they’re speaking with. Developers can further tailor the call interface by adding or removing buttons, such as a custom **End Consultation** button.
+
+- **Custom Workflows for Customer Support**
+
+   Enterprises providing customer support through calling can now use customized buttons to streamline the user experience. For example, instead of a generic button layout, they can configure buttons like **Hold**, **Transfer to Supervisor**, or **Open Ticket** to match their specific operational workflows. Custom workflows improve agent efficiency and enhance customer satisfaction.
+
+native-ui-custom-workflows.png
+
+#### Captions components
+
+Accessibility is a key consideration for businesses aiming to reach diverse audiences. Closed captions for Azure Communication Services and Teams interop calls can improve the communication experience for users with hearing impairments. You can also use closed captions in situations where audio clarity may be compromised such as noisy environments.
+
+native-ui-closed-captions.png
+
+For more information, see Native UI Library tutorials:
+- [Theme the UI Library in an application (adjust colors)](./how-tos/ui-library-sdk/theming.md)
+- [Customize buttons](./how-tos/ui-library-sdk/button-injection.md)
+- [Customize the title and subtitle](./how-tos/ui-library-sdk/setup-title-subtitle.md)
+- [Enable closed captions](./how-tos/ui-library-sdk/closed-captions.md)
+
+### Call Recording reliability enhancements
+
+We introduced new functions in bring your own storage (BYOS) for call recording. The enhancements provide customers with the option to download their recordings and receive notifications if recording uploads to their storage fail due to misconfiguration.
+
+When the first attempt to upload to a customer’s blob storage fails, status and error codes are provided. These codes address common issues such as:
+
+- Managed Identity not enabled
+- Permissions not set up correctly
+- Container does not exist
+- Invalid container name or storage path
+
+These error messages help reduce the loss of recordings by providing timely notifications for manual action (such as direct download) and guiding customers to resolve configuration issues for BYOS.
+
+For more information, see [Bring your own Azure storage overview](./concepts/call-automation/call-recording/bring-your-own-storage.md).
 
 ## August 2024
 
