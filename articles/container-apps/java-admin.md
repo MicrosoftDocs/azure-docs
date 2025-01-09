@@ -280,6 +280,9 @@ az containerapp update \
 > [!IMPORTANT]
 > To view the dashboard, you need to have at least the `Microsoft.App/managedEnvironments/write` role assigned to your account on the managed environment resource. You can explicitly assign the `Owner` or `Contributor` role on the resource. You can also follow the steps to create a custom role definition and assign it to your account.
 
+> [!NOTE]
+> The dashboard isn't available in Azure China 21Vianet.
+
 1. Create the custom role definition.
 
    ```azurecli
@@ -417,7 +420,7 @@ The following list details the admin component properties you can configure for 
 
 ## Limitations
 
-- The Spring boot admin dashboard isn't available in Azure China 21Vianet.
+- The Spring Boot Admin Dashboard isn't available in Azure China 21Vianet.
 
 ## Related content
 
