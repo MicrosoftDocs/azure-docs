@@ -168,3 +168,4 @@ Event Grid maps all claims to client attributes if they have one of the followin
 
 ## Related content
 - [MQTT client authentication](mqtt-client-authentication.md)
+- [Authenticate client using custom JWT](mqtt-client-custom-jwt.md)
