@@ -374,7 +374,11 @@ Accelerated networking is enabled in the portal during virtual machine creation.
 Use [New-AzNetworkInterface](/powershell/module/az.Network/New-azNetworkInterface) to create a network interface (NIC) with Accelerated Networking enabled, and assign the public IP address to the NIC.
 
 ```azurepowershell
-$vnet = Get-AzVirtualNetwork -ResourceGroupName "test-rg" -Name "vnet-1"
+$vnetParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "vnet-1"
+    }
+$vnet = Get-AzVirtualNetwork @vnetParams
 
 $nicParams = @{
     ResourceGroupName = "test-rg"
@@ -471,6 +475,9 @@ Use [Get-Credential](/powershell/module/microsoft.powershell.security/get-creden
 $cred = Get-Credential
 ```
 
+> [!NOTE]
+> A username is required for the VM. The password is optional and won't be used if set.  SSH key configuration is recommended for Linux VMs.
+
 Use [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) to define a VM with a VM size that supports accelerated networking, as listed in [Windows Accelerated Networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). For a list of all Windows VM sizes and characteristics, see [Windows VM sizes](/azure/virtual-machines/sizes).
 
 ```azurepowershell
@@ -489,7 +496,7 @@ $osParams = @{
     ComputerName = "vm-1"
     Credential = $cred
     }
-$vmConfig = Set-AzVMOperatingSystem @osParams -Linux
+$vmConfig = Set-AzVMOperatingSystem @osParams -Linux -DisablePasswordAuthentication
 
 $imageParams = @{
     VM = $vmConfig
@@ -518,15 +525,16 @@ $vmConfigParams = @{
 $vmConfig = Add-AzVMNetworkInterface @vmConfigParams
 ```
 
-Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the VM with Accelerated Networking enabled.
+Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the VM with Accelerated Networking enabled. The command will generate SSH keys for the virtual machine for login. Make note of the location of the private key. The private key is needed in later steps for connecting to the virtual machine with Azure Bastion.
 
 ```azurepowershell
 $vmParams = @{
     VM = $vmConfig
     ResourceGroupName = "test-rg"
     Location = "eastus2"
+    SshKeyName = "ssh-key"
     }
-New-AzVM @vmParams
+New-AzVM @vmParams -GenerateSshKey
 ```
 
 ### [CLI](#tab/cli)
@@ -534,7 +542,7 @@ New-AzVM @vmParams
 Use [az vm create](/cli/azure/vm#az-vm-create) to create the VM, and use the `--nics` option to attach the NIC you created. Ensure you select a VM size and distribution listed in [Windows and Linux Accelerated Networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). For a list of all VM sizes and characteristics, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes).
 
 
-The following example creates a VM with a size that supports Accelerated Networking, Standard_DS4_v2.
+The following example creates a VM with a size that supports Accelerated Networking, Standard_DS4_v2. The command will generate SSH keys for the virtual machine for login. Make note of the location of the private key. The private key is needed in later steps for connecting to the virtual machine with Azure Bastion.
 
 ```bash
 export RESOURCE_GROUP_NAME="test-rg$RANDOM_SUFFIX"
@@ -550,7 +558,7 @@ az vm create \
    --image $IMAGE \
    --size $SIZE \
    --admin-username $ADMIN_USER \
-   --authentication-type password \
+   --generate-ssh-keys \
    --nics $NIC_NAME
 ```
 
@@ -587,7 +595,13 @@ Results:
 
 1. On the VM's **Overview** page, select **Connect** then **Connect via Bastion**.
 
-1. Enter the username and password you used when you created the VM, and then select **Connect**.
+1. In the Bastion connection screen, change **Authentication Type** to **SSH Private Key from Local File**.
+
+1. Enter the **Username** that you used when creating the virtual machine. In this example, the user is named **azureuser**, replace with the username you created.
+
+1. In **Local File**, select the folder icon and browse to the private key file that was generated when you created the VM. The private key file is typically named `id_rsa` or `id_rsa.pem`.
+
+1. Select **Connect**.
 
 1. A new browser window opens with the Bastion connection to your VM.
 

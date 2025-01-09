@@ -125,7 +125,7 @@ Client certificate configurations that use TLS renegotiation cannot support inco
 
 To address the 100 kb limit, consider these alternative solutions:
 
-1. Update your app's client certificate configurations with _all_ these settings:
+1. Disable TLS renegotiation. Update your app's client certificate configurations with _all_ these settings:
     - Set client certificate mode to either "Required" or "Optional"
     - Remove all client certificate exclusion paths
 1. Send a HEAD request before the PUT/POST request. The HEAD request handles the client certificate.
