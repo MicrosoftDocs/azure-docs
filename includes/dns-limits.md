@@ -104,6 +104,7 @@ ms.author: greglin
 | Outbound endpoints per DNS private resolver |5|
 | Forwarding rules per DNS forwarding ruleset |1000|
 | Virtual network links per DNS forwarding ruleset |500|
+| DNS forwarding ruleset linked to a virtual network |1|
 | Outbound endpoints per DNS forwarding ruleset |2|
 | DNS forwarding rulesets per outbound endpoint |2|
 | Target DNS servers per forwarding rule |6|
