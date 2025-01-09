@@ -80,7 +80,7 @@ Manually upload and securely store the two IAM user access keys in Azure Key Vau
 
 ---
 
-Take note of the **Secret identifier** of each secret, a URI similar to `https://<key-vault-name>.vault.azure.net/secrets/<secret-nam>.`. You'll use these identifiers in the next steps.
+Take note of the **Secret identifier** of each secret, a URI similar to `https://<key-vault-name>.vault.azure.net/secrets/<secret-name>`. You'll use these identifiers in the next steps.
 
 
 [!INCLUDE [enable-managed-identity](includes/enable-managed-identity.md)]
