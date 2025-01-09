@@ -8,8 +8,10 @@ items:
   expanded: true
 - name: Quickstarts
   items:
-  - name: Create, assign, and run a storage task
+  - name: Azure portal
     href: storage-tasks/storage-task-quickstart-portal.md
+  - name: ARM
+    href: storage-tasks/storage-task-quickstart-arm.md
   expanded: true
 - name: Concepts
   items: 
