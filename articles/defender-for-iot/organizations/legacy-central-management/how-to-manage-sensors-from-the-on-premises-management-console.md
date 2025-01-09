@@ -141,7 +141,7 @@ For example, you might see one of the following disconnection messages:
 > [!TIP]
 > You may want to send alerts about your OT sensor connection status on the on-premises management console to partner services.
 >
-> To do this, [create a forwarding alert rule](../how-to-forward-alert-information-to-partners.md#create-forwarding-rules-on-an-on-premises-management-console) on your on-premises management console. In the **Create Forwarding Rule** dialog box, make sure to select **Report System Notifications**.
+> To do this, [create a forwarding alert rule](../how-to-forward-alert-information-to-partners.md#create-forwarding-rules-on-an-ot-sensor) on your on-premises management console. In the **Create Forwarding Rule** dialog box, make sure to select **Report System Notifications**.
 
 ## Retrieve forensics data stored on the sensor
 
