@@ -14,25 +14,25 @@ ms.subservice: azure-reliability
 
 This article defines and describes business continuity and business continuity planning in terms of risk management through high availability and disaster recovery design. 
 
-*Business continuity* is the state in which your business can continue operations during failures, outages, or disasters. You can achieve business continuity with proactive planning, preparation, and the implementation of resilient systems and processes.
+*Business continuity* is the state in which a business can continue operations during failures, outages, or disasters. Business continuity requires proactive planning, preparation, and the implementation of resilient systems and processes.
 
-To plan for business continuity, you must identify, understand, classify, and manage risks. Based on the risks and their likelihoods, you can design your solution for *high availability* (HA) and *disaster recovery* (DR). 
+Planning for business continuity requires identifying, understanding, classifying, and managing risks. Based on the risks and their likelihoods, design for both *high availability* (HA) and *disaster recovery* (DR). 
 
-*High availability* is about designing your solution to be resilient to day-to-day issues and to meet your business needs for availability. 
+*High availability* is about designing a solution to be resilient to day-to-day issues and to meet the business needs for availability. 
 
-*Disaster recovery* is about planning how you deal with catastrophic outages and uncommon risks.
+*Disaster recovery* is about planning how to deal with catastrophic outages and uncommon risks.
 
 ## Business continuity
 
-Business continuity is defined by what makes sense to your organization. Before determining the specific business continuity risks, it's important to understand the consequences of failures that result from an unavailable workload.
-
-For example, the consequences of a workload not being available might include some or all of the following effects:
+Software solutions are often tied directly to the success of a business. If a system is unavailable or experiences a serious problem there might be severe consequences, such as:
 
 - Loss of business income, in whole or in part.
 - The inability to provide an important service to users.
-- Breach of a commitment you've made to a customer or another party.
+- Breach of a commitment that's been made to a customer or another party.
 
-It's important to understand and communicate the business expectations, and the consequences of failures, to important stakeholders including those who design, implement, and operate the workload. Those stakeholders share back the costs involved in meeting that vision, and there's a process of negotiation and revisions of that vision based on budget and other constraints.
+Maintaining business continuity requires assessing risks that might cause problems, and controlling them through a variety of approaches. The specific risks and approaches to mitigate them will be different for each organization and workload.
+
+It's critical to have clear business requirements in order to plan for business continuity. It's important to understand and communicate the business expectations, and the consequences of failures, to important stakeholders including those who design, implement, and operate the workload. Those stakeholders then respond by sharing the costs involved in meeting that vision. There's typically a process of negotiation and revisions of that vision based on budget and other constraints.
 
 For more information on the process of defining business continuity expectations as targets, see [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics).
 
@@ -44,13 +44,13 @@ For a successful *business continuity plan*, it's essential to:
  
 - **Classify risks** as either a day-to-day risk, which should be factored into plans for high availability, or a catastrophic or unusual risk, which should be part of disaster recovery planning.
  
-- **Design for HA or DR to minimize or mitigate risks** such as by using redundancy, replication, failover, and backups. You should also consider nontechnical and process-based mitigations and controls.
+- **Design for HA or DR to minimize or mitigate risks** such as by using redundancy, replication, failover, and backups. Consider nontechnical and process-based mitigations and controls, too.
  
 A business continuity plan doesn't only take into consideration the resiliency features of the cloud platform itself, or even the features of the application. Business continuity is achieved by incorporating all aspects of support in the business including people, business-related manual or automated processes, and other technologies.
 
 ### Risks for cloud-based solutions
 
-When you run a solution in the cloud, there are a range of events that can happen. These events can affect the resources that the workload uses. The following table is a nonexhaustive list of example events, ordered by expected likelihood:
+When running a solution in the cloud, there are a range of events that can happen. These events can affect the resources that the workload uses. The following table is a nonexhaustive list of example events, ordered by expected likelihood:
 
 | Example risk | Description | Regularity (likelihood) |
 |---|---|---|
