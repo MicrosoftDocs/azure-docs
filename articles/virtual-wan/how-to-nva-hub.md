@@ -55,7 +55,7 @@ To ensure that your NVA deployment is performed with the sufficient level of per
 >[!NOTE]
 > Only user-assigned system identities can be assigned to Azure Managed Applications to deploy Network Virtual Appliances in the Virtual WAN Hub. System-assigned identities are not supported.
 
-1. Create a new user-assigned identity. For steps on creating new user-assigned identities, see [managed identity documentation](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). You can also use an existing user-assigned identity.
+1. Create a new user-assigned identity. For steps on creating new user-assigned identities, see [managed identity documentation](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities). You can also use an existing user-assigned identity.
 2. Assign permissions to your user-assigned identity to have at minimum the permissions described in the [Required Permissions](#requiredpermissions) section alongside any permissions your NVA provider requires. You can also give the user-assigned identity a built-in Azure role like [Network Contributor](../role-based-access-control/built-in-roles/networking.md#network-contributor) that contains a superset of the needed permissions.
 
 Alternatively, you can also create a [custom role](../role-based-access-control/custom-roles.md) with the following sample definition and assign the custom role to your user-assigned managed identity.
