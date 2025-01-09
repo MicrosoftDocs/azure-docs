@@ -67,7 +67,7 @@ When the tool assesses for Cloud Readiness and related Azure services, it can al
 ## Download and Install
 
 To use the `appcat` CLI, you must download the package specific to your environment, and have the required dependencies in your environment.
-The `appcat` CLI runs on any environment such as Windows, Linux, or Mac, both for Intel, Arm, and Apple Silicon hardware.
+The `appcat` CLI runs on any environment such as Windows, Linux, or Mac, using Intel, Arm, or Apple Silicon hardware.
 For the JDK requirement, we recommend you use the [Microsoft Build of OpenJDK](/java/openjdk).
 
 | OS      | Architecture    | Download Link  | Other files              |
@@ -159,7 +159,7 @@ mv /path/to/extracted/azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<rel
 move /path/to/extracted/azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview/ %USERPROFILE%/.appcat
 ```
 
-__Note:__ In this context, when `appcat` binary is called from a different folder than where it is actually installed, it willlook for its dependencies on the `.appcat` folder in the user's home directory.
+__Note:__ In this context, when `appcat` binary is called from a different folder than where it is actually installed, it will look for its dependencies on the `.appcat` folder in the user's home directory.
 
 ## Usage
 
@@ -384,7 +384,7 @@ GA (Generally Available) release of Azure Migrate application and code assessmen
 ### 7.6.0.0
 
 1. The flag `--analyze-known-libraries` is not working on Windows.
-2. Cleanup of additional directories post-analysis on Windows. Extra directories are generated during the analysis process but are not automatically removed after completion. The folders are: 
+2. On Windows, extra folders are generated during the analysis process but are not automatically removed after completion. You will likely want to clean up these extra folders once the analysis has finished. The folders are:
      - .metadata
      - org.eclipse.osgi
      - org.eclipse.equinox.app
@@ -395,12 +395,12 @@ GA (Generally Available) release of Azure Migrate application and code assessmen
 7. Rules issues:
     - **azure-system-config-01000**, **http-session-01000**, **java-removals-00150** rules are not being triggered.
     - **FileSystem - Java IO** rule is not being triggered
-    - "unable to parse all the rules for ruleset" when running analysis - This error occurs during analysis when the tool fails to parse all rules in the ruleset.
+    - _"unable to parse all the rules for ruleset"_ when running analysis. This error occurs during analysis when the tool fails to parse all rules in the ruleset.
 8. Analyzing WAR files on Windows produces the following error: _"Failed to Move Decompiled File"_. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant incidents created on Windows OS.
 9. Missing descriptions for some rules on the Insights tab. Some tag rules are lacking descriptions, leading to blank titles appearing on the `Insights` tab of the report.
 10. Error in Watcher Error channel: Windows system assumed buffer larger than it is, events have likely been missed" on Windows. This error message appears on the command line during long-running jobs on Windows.
 11. This release requires an active internet connection for dependency analysis.
-12. `Ctrl+C` fails to stop ongoing analysis. To workaround, manually terminate the process by explicitly killing the process.
+12. `Ctrl+C` fails to stop ongoing analysis. To work around, manually terminate the process by explicitly killing the process.
 13. When the flag `--context-lines` is set to a number 0, it does not work as expected. This flag allows the user to limit how much of the source code should appear on the report. Setting to a value 0 may not work as expected.
 
 ## License
