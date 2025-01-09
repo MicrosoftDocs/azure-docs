@@ -94,8 +94,12 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
         # file is present at the domain
         solvers:
           - http01:
-               ingress:
-                  ingressclassName: azure/application-gateway
+            ingress:
+             #   class: azure/application-gateway
+               ingressTemplate:
+                 metadata:
+                   annotations:
+                     kubernetes.io/ingress.class: azure/application-gateway
     EOF
     ```
 
