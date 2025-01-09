@@ -71,9 +71,9 @@ JobClient jobClient = new JobClient(iotHubConnectionString);
 
 ### Create a device method update job
 
-Use [scheduleDeviceMethod](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient?#com-microsoft-azure-sdk-iot-service-jobs-jobclient-scheduledevicemethod(java-lang-string-java-lang-string-java-lang-string-java-lang-long-java-lang-long-java-lang-object-java-util-date-long)) to to run a device method on one or multiple devices.
+Use [scheduleDeviceMethod](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient?#com-microsoft-azure-sdk-iot-service-jobs-jobclient-scheduledevicemethod(java-lang-string-java-lang-string-java-lang-string-java-lang-long-java-lang-long-java-lang-object-java-util-date-long)) to run a device method on one or multiple devices.
 
-This example schedules a device method call job for a specific job Id.
+This example schedules a device method call job for a specific job ID.
 
 ```java
 private static JobResult scheduleJobCallDirectMethod(JobClient jobClient, String jobId) {

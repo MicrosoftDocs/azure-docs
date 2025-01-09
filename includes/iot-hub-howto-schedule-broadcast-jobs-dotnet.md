@@ -64,7 +64,7 @@ jobClient = JobClient.CreateFromConnectionString(connString);
 
 Use [ScheduleDeviceMethodAsync](/dotnet/api/microsoft.azure.devices.jobclient.scheduledevicemethodasync) to create a new device method to run a device method on one or multiple devices.
 
-This example schedules a device method call job for a specific job Id.
+This example schedules a device method call job for a specific job ID.
 
 ```csharp
 string methodJobId = Guid.NewGuid().ToString();
@@ -87,7 +87,7 @@ Console.WriteLine("Started Method Job");
 
 Use [ScheduleTwinUpdateAsync](/dotnet/api/microsoft.azure.devices.jobclient.scheduledevicemethodasync) to create a new device twin update job to run a device twin update on one or multiple devices.
 
-This example schedules a device twin update job for a specific job Id.
+This example schedules a device twin update job for a specific job ID.
 
 ```csharp
 string twinJobId = Guid.NewGuid().ToString();
@@ -115,7 +115,7 @@ Console.WriteLine("Started Twin Update Job");
 
 Use [GetJobAsync](/dotnet/api/microsoft.azure.devices.jobclient.getjobasync?#microsoft-azure-devices-jobclient-getjobasync(system-string)) to monitor a job status.
 
-This example checks the job status for a specific job Id periodically until the job has completed or failed.
+This example checks the job status for a specific job ID periodically until the job is complete or failed.
 
 ```csharp
 JobResponse result;
@@ -129,7 +129,7 @@ do
 
 ### SDK schedule job examples
 
-The Azure IoT SDK for .NET provides working samples of service apps that handles job scheduling tasks. For more information, see:
+The Azure IoT SDK for .NET provides working samples of service apps that handle job scheduling tasks. For more information, see:
 
 * [Schedule twin update sample](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/service/samples/getting%20started/JobsSample/JobsSample.cs)
 * [E2E schedule twin update sample](https://github.com/Azure/azure-iot-sdk-csharp/blob/86065001a92fedb42877722c6a57ae37e45eed30/e2e/test/iothub/service/IoTHubCertificateValidationE2ETest.cs#L69)
