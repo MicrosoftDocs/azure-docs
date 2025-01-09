@@ -366,6 +366,9 @@
       - name: Metrics
         href: java-metrics.md
         displayName: java
+      - name: Scale with Java metrics
+        href: java-metrics-scale-with-keda.md
+        displayName: java
       - name: Connect to Eureka Server for Spring
         href: java-eureka-server.md
         displayName: java
