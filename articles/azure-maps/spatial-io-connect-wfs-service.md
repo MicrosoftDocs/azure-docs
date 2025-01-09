@@ -83,7 +83,7 @@ The [WFS filter example] sample demonstrates the use of different filters with t
 
 The [WFS service explorer] sample is a simple tool for exploring WFS services on Azure Maps. For the source code for this sample, see [WFS service explorer source code].
 
-:::image type="content" source="./media/spatial-io-connect-wfs-service/wfs-service-explorer.png"alt-text="A screenshot that shows a simple tool for exploring WFS services on Azure Maps.":::
+:::image type="content" source="./media/spatial-io-connect-wfs-service/wfs-service-explorer.png" lightbox="./media/spatial-io-connect-wfs-service/wfs-service-explorer.png" alt-text="A screenshot that shows a simple tool for exploring WFS services on Azure Maps.":::
 
 <!--------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true]
