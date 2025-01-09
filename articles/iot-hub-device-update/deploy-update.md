@@ -1,18 +1,18 @@
 ---
 title: Deploy an update by using Azure Device Update for IoT Hub | Microsoft Docs
-description: Learn how to deploy an update to an IoT device by using Azure Device Update for IoT Hub in the Azure portal or with Azure CLI.
+description: Learn how to deploy an update to IoT devices by using Azure Device Update for IoT Hub in the Azure portal or with Azure CLI.
 author: vimeht
 ms.author: vimeht
-ms.date: 01/08/2025
+ms.date: 01/09/2025
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.custom: devx-track-azurecli
 ms.subservice: device-update
 ---
 
-# Deploy a device update by using Device Update for Azure IoT Hub
+# Deploy an update by using Azure Device Update for IoT Hub
 
-In this article, you learn how to deploy an update to an IoT device by using Azure Device Update for IoT Hub in the Azure portal or with Azure CLI.
+In this article, you learn how to deploy an update to IoT devices by using Azure Device Update for IoT Hub in the Azure portal or with Azure CLI.
 
 ## Prerequisites
 
@@ -32,27 +32,24 @@ This section describes how to deploy the update by using the Azure portal or Azu
 
    :::image type="content" source="media/deploy-update/device-update-iot-hub.png" alt-text="Screenshot that shows the Get started with the Device Update for IoT Hub page." lightbox="media/deploy-update/device-update-iot-hub.png":::
 
-1. Select the **Groups and Deployments** tab at the top of the page, and view the [update compliance chart](device-update-compliance.md) and [device group list](device-update-groups.md). You should see a new update available for your device group. You might need to refresh the view.
+1. On the **Updates** page, select the **Groups and Deployments** tab and view the [update compliance chart](device-update-compliance.md) and [device group list](device-update-groups.md).
 
    :::image type="content" source="media/deploy-update/updated-view.png" alt-text="Screenshot that shows the Groups and Deployments tab." lightbox="media/deploy-update/updated-view.png":::
 
-1. Under **Status** in the group list, select **Deploy** next to **One or more new updates are available for this group**.
+1.  You might need to refresh the view to see the new imported update available for your device group. Under **Status** in the group list, select **Deploy** next to **One or more new updates are available for this group**.
 
-1. On the **Group details** page, confirm that the correct group and imported update appear. To start the deployment, on the **Current deployment** tab, select the **Deploy** link next to the desired update from the **Available updates** section. The best available update for a given group is denoted with a **Best** highlight.
+1. On the **Group details** page, confirm that the correct group and imported update appear. To start the deployment, on the **Current deployment** tab, select the **Deploy** link next to the desired update in the **Available updates** section. The best available update for a given group is denoted with a **Best** highlight.
 
    :::image type="content" source="media/deploy-update/select-update.png" alt-text="Screenshot that shows Best highlighted." lightbox="media/deploy-update/select-update.png":::
 
 1. On the **Create deployment** page, schedule your deployment to start immediately or at a future time. Create an automatic rollback policy if necessary, and then select **Create**.
 
-<!--   > [!TIP]
-   > By default, the **Start** date and time is set to **Immediately**. Be sure to select a different date and time if you want the deployment to begin later.
--->
    > [!TIP]
    > By default, the **Start** date and time is 24 hours from your current time. Be sure to select a different date and time if you want the deployment to begin sooner.
 
    :::image type="content" source="media/deploy-update/create-deployment.png" alt-text="Screenshot that shows the Create deployment screen" lightbox="media/deploy-update/create-deployment.png":::
 
-1. In the deployment details, **Status** turns to **Active**. The deployed update is marked with **(deploying)**.
+   In the deployment details, **Status** turns to **Active**. The deployed update is marked with **(deploying)**.
 
    :::image type="content" source="media/deploy-update/deployment-active.png" alt-text="Screenshot that shows deployment as Active." lightbox="media/deploy-update/deployment-active.png":::
 
@@ -79,7 +76,7 @@ Or, if you prefer, you can run the Azure CLI commands locally:
 >[!TIP]
 >The Azure CLI commands in this article use the backslash \\ character for line continuation so that the command arguments are easier to read. This syntax works in Bash environments. If you run these commands in PowerShell, replace each backslash with a backtick \`, or remove them entirely.
 
-### Verify the update
+### Verify update availability
 
 1. Use the [`az iot du device group list`](/cli/azure/iot/du/device/group#az-iot-du-device-group-list) command to find your device group information.
 
@@ -87,7 +84,7 @@ Or, if you prefer, you can run the Azure CLI commands locally:
    az iot du device group list \
        --account <Device Update account name> \
        --instance <Device Update instance name>\
-```
+   ```
 
 1. Then use [`az iot du device group show`](/cli/azure/iot/du/device/group#az-iot-du-device-group-show) to verify the best available update for your group. The command takes the following arguments:
 
@@ -133,7 +130,7 @@ az iot du device deployment create \
 
 ### Use optional arguments
 
-Optional arguments allow you to configure the deployment. For the full list of optional arguments, see [Optional parameters](/cli/azure/iot/du/device/deployment#az-iot-du-device-deployment-create-optional-parameters).
+Optional arguments allow you to further configure the deployment. For the full list of optional arguments, see [Optional parameters](/cli/azure/iot/du/device/deployment#az-iot-du-device-deployment-create-optional-parameters).
 
 To create an automatic rollback policy, add the following parameters:
 
@@ -187,11 +184,11 @@ az iot du device deployment create \
 
 1. Select **Details** next to a deployment to view the deployment details, update details, and target device class details. You can optionally add a friendly name for the device class.
 
-   :::image type="content" source="media/deploy-update/deployment-details.png" alt-text="Screenshot that shows deployment details." lightbox="media/deploy-update/deployment-details.png":::
-
 1. Select **Refresh** to view the latest status details.
 
-1. Go to the **Group basics** tab of the **Group details** page to search the status for a particular device, or filter to view devices that failed the deployment.
+   :::image type="content" source="media/deploy-update/deployment-details.png" alt-text="Screenshot that shows deployment details." lightbox="media/deploy-update/deployment-details.png":::
+
+Go to the **Group basics** tab of the **Group details** page to search the status for a particular device, or filter to view devices that failed the deployment.
 
 # [Azure CLI](#tab/cli)
 
@@ -234,8 +231,6 @@ If your deployment fails, you can retry the deployment for failed devices.
 # [Azure portal](#tab/portal)
 
 1. Go to the **Current deployment** tab on the **Group details** screen.
-
-    :::image type="content" source="media/deploy-update/deployment-active.png" alt-text="Screenshot that shows the deployment as Active." lightbox="media/deploy-update/deployment-active.png":::
 
 1. Select **Retry failed devices** and acknowledge the confirmation notification.
 
