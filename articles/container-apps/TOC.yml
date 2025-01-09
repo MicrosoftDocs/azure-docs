@@ -397,6 +397,9 @@
           - name: Create a highly available Eureka server component cluster
             href: java-eureka-server-highly-available.md
             displayName: java
+          - name: Build a Java metrics dashboard with Azure Managed Grafana
+            href: java-metrics-with-grafana.md
+            displayName: java
 - name: Billing & quotas
   items:
     - name: Billing
