@@ -1,6 +1,6 @@
 ---
-title: Migrate EA to Microsoft Customer Agreement APIs - Azure
-description: This article helps you understand the consequences of migrating a Microsoft Enterprise Agreement (EA) to a Microsoft Customer Agreement.
+title: Transition from Consumption APIs to Cost Management APIs
+description: Learn about transitioning from Consumption APIs to Cost Management APIs for enhanced capabilities and up-to-date functionality in managing Azure costs.
 author: bandersmsft
 ms.author: banders
 ms.date: 01/09/2025
@@ -15,7 +15,7 @@ ms.reviewer: micflan
 
 This article informs developers that use the [Consumption APIs](/rest/api/consumption) about important changes. There are newer [Microsoft Cost Management APIs](/rest/api/cost-management/) available that offer enhanced capabilities and have the most up-to-date functionality. We recommend that you transition from the Consumption APIs to the Cost Management APIs. The Consumption APIs are in maintenance mode and are on a path to deprecation.
 
-> [!NOTE]]
+> [!NOTE]
 > These APIs differ from the [Enterprise Agreement (EA) reporting APIs](migrate-ea-reporting-arm-apis-overview.md) that are already retired.
 
 ## Replacement APIs
@@ -26,7 +26,7 @@ Here's a comparison of the APIs. The Cost Management APIs are the recommended re
 | --- | --- | --- | --- |
 | Authentication | API key provisioned in the Azure portal | Microsoft Entra authentication using user tokens or service principals. Service principals take the place of API keys. | Microsoft Entra authentication using user tokens or service principals. Service principals take the place of API keys. |
 | Contract | EA  | EA and Microsoft Customer Agreement (MCA) | EA and MCA |
-| Endpoint URI | https://consumption.azure.com | https://management.azure.com | https://management.azure.com |
+| Endpoint URI | `https://consumption.azure.com` | `https://management.azure.com` | `https://management.azure.com` |
 | API Status | Deprecated | Usage Details API and Marketplaces API are planned for deprecation | Active |
 
 The Cost Management APIs also support all of the latest functionality, such as Savings Plan.
@@ -44,4 +44,4 @@ The following Consumption APIs are planned for deprecation. We recommend that yo
 
 - [Cost Management automation overview](automation-overview.md)
 - [Migrate from Consumption Usage Details API](migrate-consumption-usage-details-api.md)
-- [Migrate from Consumption Marketplaces API](migrate-consumption-marketplaces-api)
+- [Migrate from Consumption Marketplaces API](migrate-consumption-marketplaces-api.md)
