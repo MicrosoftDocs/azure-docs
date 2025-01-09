@@ -64,7 +64,7 @@ az k8s-extension update `
 ```
 
 > [!NOTE]
-> This update process id for preview components only. The media connector is currently a preview component.
+> This update process is for preview components only. The media connector is currently a preview component.
 
 ## Deploy the media server
 
@@ -84,45 +84,9 @@ Make a note of this value, you use it later to access the media server.
 
 ## Configure the media connector (preview)
 
-Before you begin, configure an endpoint that doesn't use TLS that you can use to connect to the MQTT broker. Create a YAML file with the following content:
+To configure the media connector, you need to create an asset endpoint that defines the connection to the media source. The asset endpoint includes the URL of the media source, the type of media source, and any credentials needed to access the media source.
 
-```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1
-kind: BrokerListener
-metadata:
-  name: aio-broker-notls
-  namespace: azure-iot-operations
-spec:
-  brokerRef: default
-  serviceType: LoadBalancer
-  ports:
-  - port: 1883
-    protocol: Mqtt
-
----
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: aio-broker-notls
-  namespace: azure-iot-operations
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 1883
-    targetPort: 1883
-```
-
-To apply the settings, run the following command. Typically, you apply the settings to the `azure-iot-operations` namespace:
-
-```console
-kubectl apply -f <filename>.yaml -n <AIO NAMESPACE>
-```
-
-> [!CAUTION]
-> These settings are not secure and should only be used for testing purposes.
-
-To configure the asset endpoint, create a YAML file with the following content. Replace the placeholders with your camera's username, password, and RTSP address. An RTSP address looks like `rtsp://<CAMERA IP ADDRESS>:555/onvif-media/media.amp?streamprofile=Profile1&audio=1`
+To create the asset endpoint, create a YAML file with the following content. Replace the placeholders with your camera's username, password, and RTSP address. An RTSP address looks like `rtsp://<CAMERA IP ADDRESS>:555/onvif-media/media.amp?streamprofile=Profile1&audio=1`
 
 ```yaml
 apiVersion: v1
@@ -216,13 +180,35 @@ To add the asset, run the following command. Typically, you apply the settings t
 kubectl apply -f <filename>.yaml -n <AIO NAMESPACE>
 ```
 
-> [!TIP]
-> Use your favorite MQTT client to subscribe to the topic `aio/asset/contoso-rtsp-snapshot-to-mqtt-autostart/snapshot` to view the snapshots.
+To verify that snapshots are publishing to the MQTT broker, use the **mosquitto_sub** tool. In this example, you run the **mosquitto_sub** tool inside a pod in your Kubernetes cluster:
+
+1. Run the following command to deploy a pod that includes the **mosquitto_pub** and **mosquitto_sub** tools that are useful for interacting with the MQTT broker in the cluster:
+
+    ```console
+    kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/mqtt-client.yaml
+    ```
+
+    > [!CAUTION]
+    > This configuration isn't secure. Don't use this configuration in a production environment.
+
+1. When the **mqtt-client** pod is running, run the following command to create a shell environment in the pod you created:
+
+    ```console
+    kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
+    ```
+
+1. At the Bash shell in the **mqtt-client** pod, run the following command to connect to the MQTT broker using the **mosquitto_sub** tool subscribed to the `azure-iot-operations/data` topic:
+
+    ```bash
+    mosquitto_sub --host aio-broker --port 18883 --topic "azure-iot-operations/data/#" -V 5 -F '%t %l' --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
+    ```
+
+    This command continues to run and displays messages as they arrive on the `azure-iot-operations/data` topic until you press **Ctrl+C** to stop it. The output shows the topic the message was published to and its size. To exit the shell environment, type `exit`.
 
 When you finish testing the asset, you can delete it by running the following command:
 
 ```console
-kubectl delete -f <filename>.yaml
+kubectl delete -f <filename>.yaml -n <AIO NAMESPACE>
 ```
 
 ## Snapshot to file system
@@ -265,12 +251,12 @@ To view the files, create a shell in the pod. Use the full name of the pod in th
 kubectl exec --stdin --tty aio-opc-media-1-* -n <AIO NAMESPACE> -- sh
 ```
 
-Then navigate to the following folder to view the files: `\tmp\azure-iot-operations\data\contoso-rtsp-snapshot-to-fs-autostart\snapshot`. The folder name includes the name of your asset.
+Then navigate to the following folder to view the files: `/tmp/azure-iot-operations/data/contoso-rtsp-snapshot-to-fs-autostart/snapshot`. The folder name includes the name of your asset.
 
 When you finish testing the asset, you can delete it by running the following command:
 
 ```console
-kubectl delete -f <filename>.yaml
+kubectl delete -f <filename>.yaml -n <AIO NAMESPACE>
 ```
 
 ## Clip to file system
@@ -313,12 +299,12 @@ To view the files, create a shell in the pod. Use the full name of the pod in th
 kubectl exec --stdin --tty aio-opc-media-1-* -n <AIO NAMESPACE> -- sh
 ```
 
-Then navigate to the following folder to view the files: `\tmp\azure-iot-operations\data\contoso-rtsp-clip-to-fs-autostart\clip`. The folder name includes the name of your asset.
+Then navigate to the following folder to view the files: `/tmp/azure-iot-operations/data/contoso-rtsp-clip-to-fs-autostart/clip`. The folder name includes the name of your asset.
 
 When you finish testing the asset, you can delete it by running the following command:
 
 ```console
-kubectl delete -f <filename>.yaml
+kubectl delete -f <filename>.yaml -n <AIO NAMESPACE>
 ```
 
 ## Stream to RTSP
@@ -348,7 +334,7 @@ spec:
             }
 ```
 
-To view the media stream, use a URL that looks like: `https://<YOUR MEDIA SERVER IP ADDRESS>:8888/azure-iot-operations/data/contoso-rtsp-stream-to-rtsp-autostart/`.
+To view the media stream, use a URL that looks like: `https://<YOUR KUBERNETES CLUSTER IP ADDRESS>:8888/azure-iot-operations/data/contoso-rtsp-stream-to-rtsp-autostart/`.
 
 > [!TIP]
 > If you're running Azure IoT Operations in Codespaces, run the following command to port forward the media server to your local machine: `kubectl port-forward service/media-server-public 8888:8888 -n media-server`.
@@ -356,7 +342,7 @@ To view the media stream, use a URL that looks like: `https://<YOUR MEDIA SERVER
 When you finish testing the asset, you can delete it by running the following command:
 
 ```console
-kubectl delete -f <filename>.yaml
+kubectl delete -f <filename>.yaml -n <AIO NAMESPACE>
 ```
 
 ## Samples

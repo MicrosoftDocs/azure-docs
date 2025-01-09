@@ -4,7 +4,7 @@ description: Learn how to configure Azure Firewall to maximize performance
 services: firewall
 author: vhorne
 ms.service: azure-firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/17/2023
 ms.author: victorh
 ---

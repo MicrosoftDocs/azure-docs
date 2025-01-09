@@ -40,8 +40,6 @@ For more information, see the [StackExchange.Redis](https://github.com/StackExch
 
 [How to use Azure Cache for Redis with Python](cache-python-get-started.md) shows how to get started with Azure Cache for Redis using Python and the [redis-py](https://github.com/andymccurdy/redis-py) client.
 
-[Work with .NET objects in the cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache) shows you one way to serialize .NET objects to write them to and read them from an Azure Cache for Redis instance.
-
 ## Use Azure Cache for Redis as a Scale out Backplane for ASP.NET SignalR
 
 The [Use Azure Cache for Redis as a Scale out Backplane for ASP.NET SignalR](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane) sample demonstrates how to use Azure Cache for Redis as a SignalR backplane. For more information about backplane, see [SignalR Scaleout with Redis](https://www.asp.net/signalr/overview/performance/scaleout-with-redis).

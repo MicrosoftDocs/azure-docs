@@ -5,8 +5,7 @@ description: Learn how Azure Load Balancer is used for outbound internet connect
 services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
-ms.topic: conceptual
-ms.custom: engagement-fy23
+ms.topic: concept-article
 ms.date: 06/26/2024
 ms.author: mbender
 ---
