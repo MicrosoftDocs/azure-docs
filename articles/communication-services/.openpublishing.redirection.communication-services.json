@@ -475,11 +475,6 @@
         "source_path_from_root": "/articles/communication-services/concepts/interop/teams-interop-group-calls.md",
         "redirect_url": "/azure/communication-services/concepts/interop/guest/calling-capabilities",
         "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/communication-services/concepts/advanced-messaging/whatsapp/template-messages.md",
-            "redirect_url": "/articles/communication-services/quickstarts/advanced-messaging/whatsapp/send-template-messages.md",
-            "redirect_document_id": false
         }
     ]
 }

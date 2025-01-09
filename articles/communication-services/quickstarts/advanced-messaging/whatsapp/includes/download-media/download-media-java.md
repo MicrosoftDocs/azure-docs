@@ -48,7 +48,6 @@ Follow these steps to add the necessary code snippets to the messages-quickstart
 ## Code examples
 Follow these steps to add the necessary code snippets to the main function of your *App.java* file.
 - [Download the media payload to a stream](#download-the-media-payload-to-a-stream)
-- [Download the media payload to a file](#download-the-media-payload-to-a-file)
 
 ### Download the media payload to a stream
 
