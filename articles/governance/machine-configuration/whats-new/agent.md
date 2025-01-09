@@ -73,7 +73,8 @@ For information on release notes for the connected machine agent, see
 
 #### New Features
 
-- Added support for Linux distributions such as Red Hat Enterprise Linux (RHEL) 9, Mariner 1 and 2, Alma 9, and Rocky 9.
+- Added support for Linux distributions such as Red Hat Enterprise Linux (RHEL) 9, Mariner 1 and 2,
+  Alma 9, and Rocky 9.
 
 #### Fixed
 
