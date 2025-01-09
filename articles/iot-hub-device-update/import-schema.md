@@ -171,7 +171,7 @@ Each `files` object is an update payload file, such as a binary, firmware, or sc
 |---|---|---|---|
 |**filename**|`string`|Update payload file name. Maximum length: 255 characters|Yes|
 |**sizeInBytes**|`number`|File size in number of bytes. Maximum size: 2147483648 bytes|Yes|
-|**hashes**|`fileHashes`|Base64-encoded file hashes with algorithm name as key. At least SHA-256 algorithm must be specified, and additional algorithms may be specified if supported by agent. See [Hashes object](#hashes-object} for details on how to calculate the hash.|Yes|
+|**hashes**|`fileHashes`|Base64-encoded file hashes with algorithm name as key. At least SHA-256 algorithm must be specified, and additional algorithms may be specified if supported by agent. See [Hashes object](#hashes-object) for details on how to calculate the hash.|Yes|
 |**relatedFiles**|`relatedFile[0-4]`|Collection of files related to one or more primary payload files. For more information, see [relatedFiles object](#relatedfiles-object).|No|
 |**downloadHandler**|`downloadHandler`|Specifies how to process any related files. |Yes, if using `relatedFiles`. For more information, see [downloadHandler object](#downloadhandler-object).|
 
