@@ -36,7 +36,7 @@ Use the following steps to define environment variables and ensure your Azure Ma
 1. Create variables to support your Grafana configuration. 
    ```bash
    export LOCATION=eastus
-   export SUBSCRIPTION_ID={subscriprion-id}
+   export SUBSCRIPTION_ID={subscription-id}
    export RESOURCE_GROUP=grafana-resource-group
    export GRAFANA_INSTANCE_NAME=grafana-name
    ```
@@ -139,7 +139,7 @@ First, create an Azure Managed Grafana instance, and grant necessary role assign
    
    :::image type="content" source="media/java-metrics-with-grafana/grafana-overview.png" alt-text="Screenshot of Overview tab in Grafana." lightbox="media/java-metrics-with-grafana/grafana-overview.png":::
 
-   :::image type="content" source="media/java-metrics-with-grafana/Grafana-jvm-memory.png" alt-text="Screenshot of JVM memory tab in grafana." lightbox="media/java-metrics-with-grafana/grafana-jvm-memory.png":::
+   :::image type="content" source="media/java-metrics-with-grafana/Grafana-jvm-memory.png" alt-text="Screenshot of JVM memory tab in Grafana." lightbox="media/java-metrics-with-grafana/grafana-jvm-memory.png":::
 
    :::image type="content" source="media/java-metrics-with-grafana/grafana-jvm-buffer.png" alt-text="Screenshot of JVM buffer memory tab in Grafana." lightbox="media/java-metrics-with-grafana/grafana-jvm-buffer.png":::
 
