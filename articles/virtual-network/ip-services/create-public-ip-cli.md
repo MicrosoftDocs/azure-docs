@@ -7,7 +7,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network
 ms.topic: quickstart
-ms.date: 08/24/2023
+ms.date: 01/09/2025
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -40,11 +40,11 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
 # [**Standard SKU**](#tab/create-public-ip-standard)
 
 >[!NOTE]
->Standard SKU public IP is recommended for production workloads.  For more information about SKUs, see **[Public IP addresses](public-ip-addresses.md)**.
+>Standard SKU public IP is recommended for production workloads. For more information about SKUs, see **[Public IP addresses](public-ip-addresses.md)**.
 >
->The following command works for API version **2020-08-01** or **later**.  For more information about the API version currently being used, please refer to [Resource Providers and Types](../../azure-resource-manager/management/resource-providers-and-types.md).
+>The following command works for API version **2020-08-01** or **later**. For more information about the API version currently being used, see [Resource Providers and Types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a standard zone-redundant public IPv4 address named **myStandardPublicIP** in **QuickStartCreateIP-rg**.  
+Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a standard zone-redundant public IPv4 address named **myStandardPublicIP** in **QuickStartCreateIP-rg**. 
 
 To create an IPv6 address, modify the **`--version`** parameter to **IPv6**.
 
@@ -79,7 +79,7 @@ To create an IPv6 address, modify the **`--version`** parameter to **IPv6**.
 If it's acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected by changing the **`--allocation-method`** to **Dynamic**. 
 
 >[!NOTE]
-> A basic IPv6 address must always be 'Dynamic'.
+> A basic IPv6 address must always be Dynamic`.
 
 ---
 
@@ -107,10 +107,10 @@ To create an IPv6 address, modify the **`--version`** parameter to **IPv6**.
 
 # [**Non-zonal**](#tab/create-public-ip-non-zonal)
 
-In this section, you create a non-zonal IP address.  
+In this section, you create a non-zonal IP address. 
 
 >[!NOTE]
->The following command works for API version 2020-08-01 or later.  For more information about the API version currently being used, please refer to [Resource Providers and Types](../../azure-resource-manager/management/resource-providers-and-types.md).
+>The following command works for API version 2020-08-01 or later. For more information about the API version currently being used, see [Resource Providers and Types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a standard public IPv4 address as a non-zonal resource named **myStandardPublicIP-nozone** in **QuickStartCreateIP-rg**. 
 
@@ -123,7 +123,7 @@ To create an IPv6 address, modify the **`--version`** parameter to **IPv6**.
     --version IPv4 \
     --sku Standard
 ```
-The removal of the **`--zone`** parameter in the command is valid in all regions.  
+The removal of the **`--zone`** parameter in the command is valid in all regions. 
 
 The removal of the **`--zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -135,9 +135,9 @@ Standard SKU static public IPv4 addresses support Routing Preference or the Glob
 
 # [**Routing Preference**](#tab/routing-preference)
 
-By default, the routing preference for public IP addresses is set to **Microsoft network**, which delivers traffic over Microsoft's global wide area network to the user.  
+By default, the routing preference for public IP addresses is set to **Microsoft network**, which delivers traffic over Microsoft's global wide area network to the user. 
 
-The selection of **Internet** minimizes travel on Microsoft's network, instead using the transit ISP network to deliver traffic at a cost-optimized rate.  
+The selection of **Internet** minimizes travel on Microsoft's network, instead using the transit ISP network to deliver traffic at a cost-optimized rate. 
 
 For more information on routing preference, see [What is routing preference (preview)?](routing-preference-overview.md).
 
@@ -155,7 +155,7 @@ The command creates a new standard zone-redundant public IPv4 address with a rou
 
 # [**Tier**](#tab/tier)
 
-Public IP addresses are associated with a single region. The **Global** tier spans an IP address across multiple regions. **Global** tier is required for the frontends of cross-region load balancers.  
+Public IP addresses are associated with a single region. The **Global** tier spans an IP address across multiple regions. **Global** tier is required for the frontends of cross-region load balancers. 
 
 For more information, see [Cross-region load balancer](../../load-balancer/cross-region-overview.md).
 
