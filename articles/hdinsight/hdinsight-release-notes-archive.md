@@ -1398,7 +1398,7 @@ This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release
 
 ### New features
 #### Auto key rotation for customer managed key encryption at rest
-Starting from this release, customers can use Azure KeyValut version-less encryption key URLs for customer managed key encryption at rest. HDInsight will automatically rotate the keys as they expire or replaced with new versions. Learn more details [here](./disk-encryption.md).
+Starting from this release, customers can use Azure KeyVault version-less encryption key URLs for customer managed key encryption at rest. HDInsight will automatically rotate the keys as they expire or replaced with new versions. Learn more details [here](./disk-encryption.md).
 
 #### Ability to select different Zookeeper virtual machine sizes for Spark, Hadoop, and ML Services
 HDInsight previously didn't support customizing Zookeeper node size for Spark, Hadoop, and ML Services cluster types. It defaults to A2_v2/A2 virtual machine sizes, which are provided free of charge. From this release, you can select a Zookeeper virtual machine size that is most appropriate for your scenario. Zookeeper nodes with virtual machine size other than A2_v2/A2 will be charged. A2_v2 and A2 virtual machines are still provided free of charge.

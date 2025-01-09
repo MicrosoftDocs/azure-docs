@@ -267,6 +267,7 @@ The resource providers for monitoring services are:
 | Microsoft.ChangeAnalysis | [Azure Monitor](/azure/azure-monitor/) |
 | Microsoft.Insights | [Azure Monitor](/azure/azure-monitor/) |
 | Microsoft.Intune | [Azure Monitor](/azure/azure-monitor/) |
+| Microsoft.Monitor | [Azure Monitor](/azure/azure-monitor/) |
 | Microsoft.OperationalInsights | [Azure Monitor](/azure/azure-monitor/) |
 | Microsoft.OperationsManagement | [Azure Monitor](/azure/azure-monitor/) |
 | Microsoft.WorkloadMonitor | [Azure Monitor](/azure/azure-monitor/) |
@@ -337,7 +338,6 @@ The resource providers for 5G & space services are:
 | --------------------------- | ------------- |
 | Microsoft.HybridNetwork  | [Network Function Manager](../../network-function-manager/index.yml) |
 | Microsoft.MobileNetwork | [Azure Private 5G Core](../../private-5g-core/index.yml) |
-| Microsoft.Orbital | [Azure Orbital Ground Station](../../orbital/overview.md) |
 
 ## Registration
 

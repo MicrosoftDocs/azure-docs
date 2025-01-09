@@ -245,6 +245,32 @@ This procedure describes a sample process for using summary rules with [auxiliar
           | make-series TotalBytesSent=sum(SentBytes) on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DeviceVendor 
         ```
 
+See more information on the following items used in the preceding examples, in the Kusto documentation:
+- [***let*** statement](/kusto/query/let-statement?view=microsoft-sentinel&preserve-view=true)
+- [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+- [***extend*** operator](/kusto/query/extend-operator?view=microsoft-sentinel&preserve-view=true)
+- [***project*** operator](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true)
+- [***summarize*** operator](/kusto/query/summarize-operator?view=microsoft-sentinel&preserve-view=true)
+- [***lookup*** operator](/kusto/query/lookup-operator?view=microsoft-sentinel&preserve-view=true)
+- [***union*** operator](/kusto/query/union-operator?view=microsoft-sentinel&preserve-view=true)
+- [***make-series*** operator](/kusto/query/make-series-operator?view=microsoft-sentinel&preserve-view=true)
+- [***isnotempty()*** function](/kusto/query/isnotempty-function?view=microsoft-sentinel&preserve-view=true)
+- [***format_datetime()*** function](/kusto/query/format-datetime-function?view=microsoft-sentinel&preserve-view=true)
+- [***column_ifexists()*** function](/kusto/query/column-ifexists-function?view=microsoft-sentinel&preserve-view=true)
+- [***iff()*** function](/kusto/query/iff-function?view=microsoft-sentinel&preserve-view=true)
+- [***ipv4_is_private()*** function](/kusto/query/ipv4-is-private-function?view=microsoft-sentinel&preserve-view=true)
+- [***min()*** function](/kusto/query/min-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+- [***tostring()*** function](/kusto/query/tostring-function?view=microsoft-sentinel&preserve-view=true)
+- [***ago()*** function](/kusto/query/ago-function?view=microsoft-sentinel&preserve-view=true)
+- [***startofday()*** function](/kusto/query/startofday-function?view=microsoft-sentinel&preserve-view=true)
+- [***parse_json()*** function](/kusto/query/parse-json-function?view=microsoft-sentinel&preserve-view=true)
+- [***count()*** aggregation function](/kusto/query/count-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+- [***make_set()*** aggregation function](/kusto/query/make-set-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+- [***dcount()*** aggregation function](/kusto/query/dcount-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+- [***sum()*** aggregation function](/kusto/query/sum-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+
+[!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
+
 ## Related content
 
 - [Aggregate data in Log Analytics workspace with Summary rules](/azure/azure-monitor/logs/summary-rules)

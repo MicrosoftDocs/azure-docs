@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual WAN
 description: Learn how to monitor BGP peers for site-to-site VPNs using the BGP dashboard.
 author: cherylmc
 ms.service: azure-virtual-wan
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/06/2022
 ms.author: cherylmc
 ---
