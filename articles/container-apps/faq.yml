@@ -109,7 +109,22 @@ sections:
         answer:
 
           You can submit a feature request via the [Azure Container Apps GitHub repository](https://github.com/microsoft/azure-container-apps/issues/new/choose). Make sure to include "Dapr" in the feature request title.
-  
+
+      - question: |
+          Why do I see `-msft.<number>`` version in my Container App Environment?
+        answer: |
+          As `1.13.6-msft.1` is rolled out across production regions, you may still see earlier versions (like `1.12.5`` or `1.12.5-msft.6``). The `-msft.<number>`` suffix indicates the specific customizations made for Azure Container Apps to enhance your experience.
+
+      - question: |
+          How often are Dapr versions released for Azure Container Apps?
+        answer: |
+          Dapr versions are updated on a best-effort basis, prioritizing stability, rigorous testing, and customer impact to ensure seamless integration without breaking changes. Updates are applied automatically, ensuring you always have the latest secure version.
+
+      - question: |
+          Can I use a specific Dapr version for my environment?
+        answer:
+          Custom version selection is **not supported**. Instead, your environment is automatically upgraded, maintaining the integrity of Dapr's fully managed and serverless offering in Azure Container Apps.
+
   - name: Dockerless deployments
     questions:
      - question: |
