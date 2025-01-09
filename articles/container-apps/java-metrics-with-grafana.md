@@ -20,8 +20,8 @@ Grafana is a popular tool for centralized metrics visualization and monitoring i
 In this tutorial, you:
 > [!div class="checklist"]
 > * Create an Azure Managed Grafana instance.
-> * Create a Java metrics dashboard in grafana.
-> * Visiualize Java metrics for Azure Container Apps with grafana.
+> * Create a Java metrics dashboard in Grafana.
+> * Visualize Java metrics for Azure Container Apps with Grafana.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ In this tutorial, you:
 
 Use the following steps to define environment variables and ensure your Azure Managed Grafana extension is up to date.
 
-1. Create variables to support your grafana configuration. 
+1. Create variables to support your Grafana configuration. 
    ```bash
    export LOCATION=eastus
    export SUBSCRIPTION_ID={subscriprion-id}
@@ -92,7 +92,7 @@ First, create an Azure Managed Grafana instance, and grant necessary role assign
 ## Create a Java metrics dashboard
 
 > [!IMPORTANT]
-> To add a new dashboard in grafana, you need to have `Grafana Admin` or `Grafana Editor`role, see [Azure Managed Grafana roles](../managed-grafana/concept-role-based-access-control.md).
+> To add a new dashboard in Grafana, you need to have `Grafana Admin` or `Grafana Editor`role, see [Azure Managed Grafana roles](../managed-grafana/concept-role-based-access-control.md).
 
 
 1. Assign the `Grafana Admin` role to your account on the Azure Managed Grafana resource.
@@ -125,10 +125,10 @@ First, create an Azure Managed Grafana instance, and grant necessary role assign
 
 1. Go to `Dashboard` > `New` -> `Import`. Upload the above sample dashboard JSON file, and choose the default built-in `Azure Monitor` data source, then click `Import` button.
 
-   :::image type="content" source="media/java-metrics-with-grafana/import-java-dashboard.png" alt-text="Screenshot of importing java metric dashboard for Azure Container Apps." lightbox="media/java-metrics-with-grafana/import-java-dashboard.png":::
+   :::image type="content" source="media/java-metrics-with-grafana/import-java-dashboard.png" alt-text="Screenshot of importing Java metric dashboard for Azure Container Apps." lightbox="media/java-metrics-with-grafana/import-java-dashboard.png":::
 
 
-## Visiualize Java metrics for Azure Container Apps with Grafana
+## Visualize Java metrics for Azure Container Apps with Grafana
 
 1. Input your resource information in the filters for your Azure Container Apps. Now you can view all the [supported Java metrics in Azure Container Apps](java-metrics.md) within the dashboard. The sample dashboard provides live metric data, including
    - Container App Overview
@@ -137,15 +137,15 @@ First, create an Azure Managed Grafana instance, and grant necessary role assign
    - JVM GC JVM GC
    - A detailed JVM Memory Usage Analysis
    
-   :::image type="content" source="media/java-metrics-with-grafana/grafana-overview.png" alt-text="Screenshot of Overview tab in grafana." lightbox="media/java-metrics-with-grafana/grafana-overview.png":::
+   :::image type="content" source="media/java-metrics-with-grafana/grafana-overview.png" alt-text="Screenshot of Overview tab in Grafana." lightbox="media/java-metrics-with-grafana/grafana-overview.png":::
 
-   :::image type="content" source="media/java-metrics-with-grafana/grafana-jvm-mem.png" alt-text="Screenshot of JVM memory tab in grafana." lightbox="media/java-metrics-with-grafana/grafana-jvm-mem.png":::
+   :::image type="content" source="media/java-metrics-with-grafana/Grafana-jvm-memory.png" alt-text="Screenshot of JVM memory tab in grafana." lightbox="media/java-metrics-with-grafana/grafana-jvm-memory.png":::
 
-   :::image type="content" source="media/java-metrics-with-grafana/grafana-jvm-buffer.png" alt-text="Screenshot of JVM buffer memory tab in grafana." lightbox="media/java-metrics-with-grafana/grafana-jvm-buffer.png":::
+   :::image type="content" source="media/java-metrics-with-grafana/grafana-jvm-buffer.png" alt-text="Screenshot of JVM buffer memory tab in Grafana." lightbox="media/java-metrics-with-grafana/grafana-jvm-buffer.png":::
 
-   :::image type="content" source="media/java-metrics-with-grafana/grafana-jvm-gc.png" alt-text="Screenshot of JVM GC tab in grafana." lightbox="media/java-metrics-with-grafana/grafana-jvm-gc.png":::
+   :::image type="content" source="media/java-metrics-with-grafana/grafana-jvm-gc.png" alt-text="Screenshot of JVM GC tab in Grafana." lightbox="media/java-metrics-with-grafana/grafana-jvm-gc.png":::
 
-   :::image type="content" source="media/java-metrics-with-grafana/grafana-jvm-mem-analysis.png" alt-text="Screenshot of JVM memory analysis tab in grafana." lightbox="media/java-metrics-with-grafana/grafana-jvm-mem-analysis.png":::
+   :::image type="content" source="media/java-metrics-with-grafana/grafana-jvm-memory-analysis.png" alt-text="Screenshot of JVM memory analysis tab in Grafana." lightbox="media/java-metrics-with-grafana/grafana-jvm-memory-analysis.png":::
 
 
 You can use this dashboard as a starting point to create your own customized metric visualizations and monitoring solution.
