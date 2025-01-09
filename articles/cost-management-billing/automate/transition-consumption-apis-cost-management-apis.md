@@ -13,7 +13,7 @@ ms.reviewer: micflan
 
 # Transition from Consumption APIs to Cost Management APIs
 
-This article informs developers that use the [Consumption APIs](/rest/api/consumption/?view=rest-consumption-2024-08-01) about important changes. There are newer [Microsoft Cost Management APIs](/rest/api/cost-management/) available that offer enhanced capabilities and have the most up-to-date functionality. We recommend that you transition from the Consumption APIs to the Cost Management APIs. The Consumption APIs are in maintenance mode and are on a path to deprecation.
+This article informs developers that use the [Consumption APIs](/rest/api/consumption) about important changes. There are newer [Microsoft Cost Management APIs](/rest/api/cost-management/) available that offer enhanced capabilities and have the most up-to-date functionality. We recommend that you transition from the Consumption APIs to the Cost Management APIs. The Consumption APIs are in maintenance mode and are on a path to deprecation.
 
 > [!NOTE]]
 > These APIs differ from the [Enterprise Agreement (EA) reporting APIs](migrate-ea-reporting-arm-apis-overview.md) that are already retired.
@@ -37,8 +37,8 @@ The following Consumption APIs are planned for deprecation. We recommend that yo
 
 | **API** | **Recommended** | **Deprecation Status** |
 | --- | --- | --- |
-| [Usage Details API](/rest/api/consumption/usage-details/list?view=rest-consumption-2024-08-01&tabs=HTTP) | [Cost Details API](/rest/api/cost-management/generate-cost-details-report?view=rest-cost-management-2023-11-01) or [Exports](../costs/tutorial-export-acm-data.md) | Maintenance mode. Will be deprecated in the future. |
-| [Marketplaces API](migrate-consumption-marketplaces-api.md) | [Cost Details API](/rest/api/cost-management/generate-cost-details-report?view=rest-cost-management-2023-11-01) or [Exports](../costs/tutorial-export-acm-data.md) | Maintenance mode. Will be deprecated in the future. | 
+| [Usage Details API](/rest/api/consumption/usage-details/list) | [Cost Details API](/rest/api/cost-management/generate-cost-details-report) or [Exports](../costs/tutorial-export-acm-data.md) | Maintenance mode. Will be deprecated in the future. |
+| [Marketplaces API](migrate-consumption-marketplaces-api.md) | [Cost Details API](/rest/api/cost-management/generate-cost-details-report) or [Exports](../costs/tutorial-export-acm-data.md) | Maintenance mode. Will be deprecated in the future. | 
 
 ## Related content
 
