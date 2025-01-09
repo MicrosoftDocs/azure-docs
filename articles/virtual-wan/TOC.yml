@@ -128,6 +128,8 @@
       href: virtual-wan-expressroute-about.md
   - name: Virtual hub settings
     href: hub-settings.md
+  - name: Roles and permissions
+    href: roles-permissions.md
   - name: Gateway settings
     href: gateway-settings.md
   - name: Apply Zero Trust principles

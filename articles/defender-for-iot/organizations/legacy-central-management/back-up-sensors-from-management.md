@@ -90,7 +90,7 @@ Backup failures might occur for any of the following scenarios:
 > [!TIP]
 > You may want to send alerts about backup notifications to partner services. 
 >
-> To do this, [create a forwarding alert rule](../how-to-forward-alert-information-to-partners.md#create-forwarding-rules-on-an-on-premises-management-console) on your on-premises management console. In the **Create Forwarding Rule** dialog box, make sure to select **Report System Notifications**. 
+> To do this, [create a forwarding alert rule](../how-to-forward-alert-information-to-partners.md#create-forwarding-rules-on-an-ot-sensor) on your on-premises management console. In the **Create Forwarding Rule** dialog box, make sure to select **Report System Notifications**. 
 
 ## Save your backup file to an external server (SMB)
 

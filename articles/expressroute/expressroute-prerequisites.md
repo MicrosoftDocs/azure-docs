@@ -4,7 +4,7 @@ description: This page provides a list of requirements to be met before you can 
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/15/2023
 ms.author: duau
 ---

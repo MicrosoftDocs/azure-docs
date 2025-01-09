@@ -61,7 +61,7 @@ If you don't see an expected alert on the on-premises **Alerts** page, do the fo
 
 - Verify whether the alert is already listed as a reaction to a different security instance. If it is, and that alert hasn't yet been handled, a new alert isn't shown elsewhere.
 
-- Verify that the alert isn't being excluded by **Alert Exclusion** rules. For more information, see [Create alert exclusion rules on an on-premises management console](../how-to-accelerate-alert-incident-response.md#create-alert-exclusion-rules-on-an-on-premises-management-console).
+- Verify that the alert isn't being excluded by **Alert Exclusion** rules. For more information, see [Create alert exclusion rules on an on-premises management console](../how-to-accelerate-alert-incident-response.md#create-alert-exclusion-rules-on-an-ot-sensor).
 
 ## Tweak the Quality of Service (QoS)
 

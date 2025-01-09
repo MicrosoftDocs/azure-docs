@@ -14,6 +14,8 @@ ms.custom: vmware-scenario-422, engagement-fy24
 
 This article summarizes prerequisites and support requirements for using the [Azure Migrate: Discovery and assessment](../migrate-services-overview.md) tool to discover and assess servers in a VMware environment for migration to Azure.
 
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
+
 To assess servers, first, create an Azure Migrate project. The Azure Migrate: Discovery and assessment tool is automatically added to the project. Then, deploy the Azure Migrate appliance. The appliance continuously discovers on-premises servers and sends configuration and performance metadata to Azure. When discovery is finished, gather the discovered servers into groups and run assessments per group.
 
 As you plan your migration of VMware servers to Azure, see the [migration support matrix](../migrate-support-matrix-vmware-migration.md).
@@ -336,7 +338,7 @@ Azure Government | Agent-based dependency analysis isn't supported.
 Requirement | Details
 --- | ---
 Project limits | You can create multiple Azure Migrate projects in an Azure subscription.<br /><br /> You can discover and assess up to 50,000 servers in a VMware environment in a single [project](../migrate-support-matrix.md#project). A project can include physical servers and servers from a Hyper-V environment, up to the assessment limits.
-Discovery | The Azure Migrate appliance can discover up to 10,000 servers running across multiple vCenter Servers.<br /><br /> The appliance supports adding multiple vCenter Servers. You can add up to 10 vCenter Servers per appliance.<br /><br /> This amount is valid for Azure VMware Solution as well.
+Discovery | The Azure Migrate appliance can discover up to 10,000 servers running across multiple vCenter Servers.<br /><br /> The appliance supports adding multiple vCenter Servers. You can add up to 10 vCenter Servers per appliance.<br /><br />The scale is also valid to access discovered servers for Azure Migrate VMWare Solution (AVS).<br /><br />The same vCenter can be discovered by multiple appliances within the same project, but it is not recommended to have same VM discovered by multiple appliances. More details on how to set [discovery scope](./set-discovery-scope.md).
 Assessment | You can add up to 35,000 servers in a single group.<br /><br /> You can assess up to 35,000 servers in a single assessment.
 
 Learn more about [assessments](../concepts-assessment-calculation.md).

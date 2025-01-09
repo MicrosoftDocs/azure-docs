@@ -87,7 +87,7 @@ You can opt out of getting your invoice by email by following the preceding step
 
 ### Get your Microsoft Customer Agreement invoices in email
 
-If you have a Microsoft Customer Agreement, you can opt in to get your invoice in an email. All billing profile Owners, Contributors, Readers, and Invoice managers will get the invoice by email. Readers can't update the email invoice preference.
+If you have a Microsoft Customer Agreement, you can opt in to get your invoice in an email. All billing profile Owners, Contributors, Readers, and Invoice managers will get the invoice by email. Readers can't update the email invoice preference. Please note that if you have inherited a role from the Billing Account, you will not receive invoices. Access must be granted explicitly under the Billing profile.
 
 1. Search for **Cost Management + Billing**.
 1. Select a billing profile.

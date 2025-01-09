@@ -18,8 +18,8 @@ Get started with Azure Communication Services SMS Opt-out API by using the follo
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Browser or Node.js Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 are recommended).
-- An active Communication Services resource and connection string. See [Create a Communication Services resource](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource).
-- An SMS-enabled telephone number. See [Get a phone number](https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/get-phone-number).
+- An active Communication Services resource and connection string. See [Create a Communication Services resource](../../create-communication-resource.md).
+- An SMS-enabled telephone number. See [Get a phone number](../../telephony/get-phone-number.md).
 - [CryptoJS](https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/crypto-js/CryptoJS%20v3.1.2.zip) is JavaScript implementations of standard and secure cryptographic algorithms.
 
 ## Sample code to use Opt-Out API

@@ -1044,7 +1044,7 @@ For Consumption workflows where you want to disable SAS authentication, follow t
 
 1. In the [Azure portal](https://portal.azure.com), go to your Consumption workflow in the designer, and confirm that the **Request** trigger's URL no longer includes the SAS.
 
-1. To enable Oauth 2.0 with Microsoft Entra ID, at the logic app resource level, [add an authorization policy for OAuth with Microsoft Entra ID](#enable-azure-ad-inbound).
+1. To enable OAuth 2.0 with Microsoft Entra ID, at the logic app resource level, [add an authorization policy for OAuth with Microsoft Entra ID](#enable-azure-ad-inbound).
 
    For more information, see [Enable OAuth 2.0 with Microsoft Entra ID](#enable-oauth).
 

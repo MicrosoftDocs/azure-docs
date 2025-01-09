@@ -2,20 +2,20 @@
 title: Networking in Azure Container Apps environment
 description: Learn how to configure virtual networks in Azure Container Apps.
 services: container-apps
-author: cachai
+author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom:
   - ignite-2024
 ms.topic:  conceptual
 ms.date: 08/29/2023
-ms.author: cachai
+ms.author: cshoe
 ---
 
 # Networking in Azure Container Apps environment
 
 Azure Container Apps run in the context of an [environment](environment.md), with its own virtual network (VNet).
 
-By default, your Container App environment is created with a VNet that is automatically generated for you. For fine-grained control over your network, you can provide an existing VNet when you create an environment. Once you create an environment with either a generated or existing VNet, the network type can't be changed.
+By default, your Container App environment is created with a VNet that is automatically generated for you. For fine-grained control over your network, you can provide an [existing VNet](vnet-custom.md) when you create an environment. Once you create an environment with either a generated or existing VNet, the network type can't be changed.
 
 Generated VNets take on the following characteristics.
 
@@ -50,14 +50,14 @@ Depending on your virtual IP configuration, you can control whether your contain
 
 | Accessibility level | Description |
 |---|---|
-| [External](vnet-custom.md) | Allows your container app to accept public requests. External environments are deployed with a virtual IP on an external, internet-accessible IP address. |
-| [Internal](vnet-custom-internal.md) | Internal environments have no public endpoints and are deployed with a virtual IP (VIP) mapped to an internal IP address. The internal endpoint is an Azure internal load balancer (ILB) and IP addresses are issued from the custom VNet's list of private IP addresses. |
+| External | Allows your container app to accept public requests. External environments are deployed with a virtual IP on an external, internet-accessible IP address. |
+| Internal | Internal environments have no public endpoints and are deployed with a virtual IP (VIP) mapped to an internal IP address. The internal endpoint is an Azure internal load balancer (ILB) and IP addresses are issued from the custom VNet's list of private IP addresses. |
 
 ## Custom VNet configuration
 
 As you create a custom VNet, keep in mind the following situations:
 
-- If you want your container app to restrict all outside access, create an [internal Container Apps environment](vnet-custom-internal.md).
+- If you want your container app to restrict all outside access, create an internal Container Apps environment.
 
 - If you use your own VNet, you need to provide a subnet that is dedicated exclusively to the Container App environment you deploy. This subnet isn't available to other services.
 
@@ -65,7 +65,7 @@ As you create a custom VNet, keep in mind the following situations:
 
   - You can define the subnet range used by the Container Apps environment.
 
-  - You can restrict inbound requests to the environment exclusively to the VNet by deploying the environment as [internal](vnet-custom-internal.md).
+  - You can restrict inbound requests to the environment exclusively to the VNet by deploying the environment as internal.
 
 > [!NOTE]
 > When you provide your own virtual network, additional [managed resources](networking.md#managed-resources) are created. These resources incur costs at their associated rates.
@@ -153,7 +153,7 @@ Different environment types have different subnet requirements:
     | /26 | 52 | 26 | 260 |
     | /27 | 20 | 10 | 100 |
     
-    <sup>1</sup> The available IP addresses is the size of the subnet minus the 12 IP addresses required for Azure Container Apps infrastructure.  
+    <sup>1</sup> The available IP addresses are the size of the subnet minus the 12 IP addresses required for Azure Container Apps infrastructure.  
     <sup>2</sup> This is accounting for apps in single revision mode.  
 
 # [Consumption only environment](#tab/consumption-only-env)
@@ -208,7 +208,7 @@ As a Container Apps environment is created, you provide resource IDs for a singl
 
 If you're using the CLI, the parameter to define the subnet resource ID is `infrastructure-subnet-resource-id`. The subnet hosts infrastructure components and user app containers.
 
-If you're using the Azure CLI with a Consumption only environment and the [platformReservedCidr](vnet-custom-internal.md?pivots=azure-cli&tabs=bash#networking-parameters) range is defined, the subnet must not overlap with the IP range defined in `platformReservedCidr`.
+If you're using the Azure CLI with a Consumption only environment and the [platformReservedCidr](vnet-custom.md#networking-parameters) range is defined, the subnet must not overlap with the IP range defined in `platformReservedCidr`.
 
 ## Routes
 
@@ -219,7 +219,7 @@ If you're using the Azure CLI with a Consumption only environment and the [platf
 User Defined Routes (UDR) and controlled egress through NAT Gateway are supported in the workload profiles environment. In the Consumption only environment, these features aren't supported.
 
 > [!NOTE]
-> When using UDR with Azure Firewall in Azure Container Apps, you need to add certain FQDN's and service tags to the allowlist for the firewall. To learn more, see [configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall).
+> When using UDR with Azure Firewall in Azure Container Apps, you need to add certain FQDNs and service tags to the allowlist for the firewall. To learn more, see [configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall).
 
 - You can use UDR with workload profiles environments to restrict outbound traffic from your container app through Azure Firewall or other network appliances.
 
@@ -231,10 +231,10 @@ Azure creates a default route table for your virtual networks upon create. By im
 
 #### Configuring UDR with Azure Firewall
 
-User defined routes is only supported in a workload profiles environment. The following application and network rules must be added to the allowlist for your firewall depending on which resources you're using.
+User defined routes are only supported in a workload profiles environment. The following application and network rules must be added to the allowlist for your firewall depending on which resources you're using.
 
 > [!NOTE]
-> For a guide on how to setup UDR with Container Apps to restrict outbound traffic with Azure Firewall, visit the [how to for Container Apps and Azure Firewall](./user-defined-routes.md).
+> For a guide on how to set up UDR with Container Apps to restrict outbound traffic with Azure Firewall, visit the [how to for Container Apps and Azure Firewall](./user-defined-routes.md).
 
 ##### Application rules
 
@@ -272,7 +272,7 @@ When you configure a NAT Gateway on your subnet, the NAT Gateway provides a stat
 
 ### <a name="public-network-access"></a>Public network access (preview)
 
-The public network access setting determines whether your container apps environment is accesible from the public Internet. Whether you can change this setting after creating your environment depends on the environment's virtual IP configuration. The following table shows valid values for public network access, depending on your environment's virtual IP configuration.
+The public network access setting determines whether your container apps environment is accessible from the public Internet. Whether you can change this setting after creating your environment depends on the environment's virtual IP configuration. The following table shows valid values for public network access, depending on your environment's virtual IP configuration.
 
 | Virtual IP | Supported public network access | Description |
 |--|--|--|
@@ -298,7 +298,7 @@ This feature is supported for both Consumption and Dedicated plans in workload p
 
 #### Considerations
 - Private endpoints on Azure Container Apps only support inbound HTTP traffic. TCP traffic is not supported.
-- To use a private endpoint with a custom domain and an *Apex domain* as the *Hostname record type*, you must configure a private DNS zone with the same name as your public DNS. In the record set, configure your private endpoint's private IP address instead of the container app environment's IP address. When configuring your custom domain with CNAME, the setup is unchanged. For more information, see [Set up custom domain with existing certificate](custom-domains-certificates.md).
+- To use a private endpoint with a custom domain and an *Apex domain* as the *Hostname record type*, you must configure a private DNS zone with the same name as your public DNS. In the record set, configure your private endpoint's private IP address instead of the container app environment's IP address. When you configure your custom domain with CNAME, the setup is unchanged. For more information, see [Set up custom domain with existing certificate](custom-domains-certificates.md).
 - Your private endpoint's VNet can be separate from the VNet integrated with your container app.
 - You can add a private endpoint to both new and existing workload profile environments.
 
@@ -306,7 +306,7 @@ In order to connect to your container apps through a private endpoint, you must 
 
 | Service | subresource | Private DNS zone name |
 |--|--|--|
-| Azure Container Apps (Microsoft.App/ManagedEnvironments) | managedEnvironment | privatelink.{regionName}.azurecontainerapps.io |
+| Azure Container Apps (Microsoft.App/ManagedEnvironments) | managedEnvironment | private link.{regionName}.azurecontainerapps.io |
 
 ### Environment security
 
@@ -393,7 +393,7 @@ You can enable mTLS in the ARM template for Container Apps environments using th
 
 - **VNet-scope ingress**: If you plan to use VNet-scope [ingress](ingress-overview.md) in an internal environment, configure your domains in one of the following ways:
 
-    1. **Non-custom domains**: If you don't plan to use a custom domain, create a private DNS zone that resolves the Container Apps environment's default domain to the static IP address of the Container Apps environment. You can use [Azure Private DNS](../dns/private-dns-overview.md) or your own DNS server.  If you use Azure Private DNS, create a private DNS Zone named as the Container App environment’s default domain (`<UNIQUE_IDENTIFIER>.<REGION_NAME>.azurecontainerapps.io`), with an `A` record. The `A` record contains the name `*<DNS Suffix>` and the static IP address of the Container Apps environment.
+    1. **Non-custom domains**: If you don't plan to use a custom domain, create a private DNS zone that resolves the Container Apps environment's default domain to the static IP address of the Container Apps environment. You can use [Azure Private DNS](../dns/private-dns-overview.md) or your own DNS server. If you use Azure Private DNS, create a private DNS Zone named as the Container App environment’s default domain (`<UNIQUE_IDENTIFIER>.<REGION_NAME>.azurecontainerapps.io`), with an `A` record. The `A` record contains the name `*<DNS Suffix>` and the static IP address of the Container Apps environment. For more information see [Create and configure an Azure Private DNS zone](waf-app-gateway.md#create-and-configure-an-azure-private-dns-zone).
 
     1. **Custom domains**: If you plan to use custom domains and are using an external Container Apps environment, use a publicly resolvable domain to [add a custom domain and certificate](./custom-domains-certificates.md#add-a-custom-domain-and-certificate) to the container app. If you are using an internal Container Apps environment, there is no validation for the DNS binding, as the cluster can only be accessed from within the virtual network. Additionally, create a private DNS zone that resolves the apex domain to the static IP address of the Container Apps environment. You can use [Azure Private DNS](../dns/private-dns-overview.md) or your own DNS server. If you use Azure Private DNS, create a Private DNS Zone named as the apex domain, with an `A` record that points to the static IP address of the Container Apps environment.
 
@@ -429,5 +429,4 @@ In addition to the standard [Azure Container Apps billing](./billing.md), you're
 
 ## Next steps
 
-- [Deploy with an external environment](vnet-custom.md)
-- [Deploy with an internal environment](vnet-custom-internal.md)
+- [Use a custom virtual network](vnet-custom.md)

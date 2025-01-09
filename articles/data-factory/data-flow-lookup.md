@@ -21,7 +21,7 @@ Use the lookup transformation to reference data from another source in a data fl
 
 A lookup transformation is similar to a left outer join. All rows from the primary stream will exist in the output stream with additional columns from the lookup stream.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xsVT]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=e4b08344-f63d-4cb8-88ab-df1dc1b6208f]
 
 ## Configuration
 

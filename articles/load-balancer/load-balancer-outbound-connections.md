@@ -5,8 +5,7 @@ description: Learn how Azure Load Balancer is used for outbound internet connect
 services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
-ms.topic: conceptual
-ms.custom: engagement-fy23
+ms.topic: concept-article
 ms.date: 06/26/2024
 ms.author: mbender
 ---
@@ -67,6 +66,7 @@ Using a NAT gateway is the best method for outbound connectivity. A NAT gateway 
 NAT gateway takes precedence over other outbound connectivity methods, including a load balancer, instance-level public IP addresses, and Azure Firewall.
 
 For more information about Azure NAT Gateway, see [What is Azure NAT Gateway](../virtual-network/nat-gateway/nat-overview.md).
+For details on how SNAT behavior works with NAT Gateway, see [SNAT with NAT Gateway](/azure/nat-gateway/nat-gateway-snat).
 
 ##  3. Assign a public IP to the virtual machine
 

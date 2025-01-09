@@ -1144,13 +1144,6 @@ productDirectory:
         - storage
       url: databox/index.yml
     # Card
-    - title: Object Anchors (Preview)
-      summary: Automatically align and anchor 3D content to objects in the physical world
-      imageSrc: ./media/index/object-anchors.svg
-      azureCategories:
-        - mixed-reality
-      url: object-anchors/index.yml
-    # Card
     - title: Azure Remote Rendering
       summary: Render high-quality, interactive 3D content, and stream it to your devices in real time
       imageSrc: ./media/index/remote-rendering.svg
@@ -1426,13 +1419,6 @@ productDirectory:
       azureCategories:
         - web
       url: azure-signalr/index.yml
-    # Card
-    - title: Azure Orbital Ground Station
-      summary: Satellite ground station and scheduling services for fast down linking of data
-      imageSrc: /media/logos/logo-azureorbital.svg
-      azureCategories:
-        - networking
-      url: orbital/index.yml
     # Card
     - title: Azure Web PubSub
       summary: Easily build real-time messaging web applications using WebSockets and the publish-subscribe pattern

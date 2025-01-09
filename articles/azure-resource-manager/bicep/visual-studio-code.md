@@ -3,7 +3,7 @@ title: Create Bicep files by using Visual Studio Code
 description: Learn how to use Visual Studio Code to create Bicep files.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 12/06/2024
+ms.date: 01/08/2025
 ---
 
 # Create Bicep files by using Visual Studio Code
@@ -198,6 +198,44 @@ When your Bicep file uses modules that are published to a registry, the restore 
 The Bicep Deployment Pane is an experimental feature. For more information, see [Using the Deployment Pane](https://github.com/Azure/bicep/blob/main/docs/experimental/deploy-ui.md).
 
 You can also open the deployment pane side-by-side with the Bicep file.
+
+## Use quick fix suggestions
+
+The light bulb in VS Code represents a quick fix suggestion. It appears when the editor detects an issue or an improvement opportunity in your code. Clicking on the light bulb displays a menu of actions that can address the issue or enhance the code.
+
+:::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-context-quick-fix-suggestions.png" alt-text="Screenshot of Visual Studio Code quick fix suggestions.":::
+
+For the extract commands, see [Extract parameters, variables, and types](#extract-parameters-variables-and-types). In **More Actions**, it suggests adding [decorators](./variables.md#use-decorators).
+
+## Extract parameters, variables, and types
+
+Extracting [variables](./variables.md), [parameters](./parameters.md), and [user-defined data types](./user-defined-data-types.md) involves isolating and defining these components from existing code to improve code structure, maintainability, and clarity.
+
+The following screenshot shows a definition of an AKS cluster resource. You can extract a parameter or a variable, or a user-defined data type based of a property, such as `identity`.
+
+Select the `identity` line from the code, and then select the yellow light bulb icon. The context windows shows the available extract options.
+
+:::image type="content" source="./media/visual-studio-code/visual-studio-code-azure-variable-parameter-type-extraction.png" alt-text="Screenshot of variable, parameter, type extraction.":::
+
+- **Extract variable**: creates a new variable, and give you an option to update the variable name:
+
+  :::image type="content" source="./media/visual-studio-code/visual-studio-code-azure-variable-parameter-type-extract-variable.png" alt-text="Screenshot of extracting variable.":::
+
+- **Extract parameter of a simple data type**: create a new parameter with a simple data type, such as string, int, etc., and give you an option to update the parameter name:
+
+  :::image type="content" source="./media/visual-studio-code/visual-studio-code-azure-variable-parameter-type-extract-parameter.png" alt-text="Screenshot of extracting parameter.":::
+
+- **Extract parameter of a user-defined data type**: create a new parameter with a user-defined data type, and give you an option to update the parameter name:
+
+  :::image type="content" source="./media/visual-studio-code/visual-studio-code-azure-variable-parameter-type-extract-parameter-with-allowed-values.png" alt-text="Screenshot of extracting parameter with allowed values.":::
+
+  After the extract, it requires some customization.
+
+- **Create user-defined type**: create a new user-defined type, and give you an option to update the type name.
+
+  :::image type="content" source="./media/visual-studio-code/visual-studio-code-azure-variable-parameter-type-extract-type.png" alt-text="Screenshot of extracting user-defined data types.":::
+
+  Unlike the other options, it doesn't replace the selected code with a reference to the new type. In the preceding example, the value of `identity` remains as it is. To use the new type, you must incorporate it into your code.
 
 ## View documentation
 

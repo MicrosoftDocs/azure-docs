@@ -5,7 +5,7 @@ description: Learn how to deploy dedicated Azure services into a virtual network
 services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/03/2024
 ms.author: allensu
 ---
