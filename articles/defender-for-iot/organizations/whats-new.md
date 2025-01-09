@@ -22,6 +22,16 @@ Features released earlier than nine months ago are described in the [What's new 
 
 The legacy on-premises management console won't be available for download after **January 1st, 2025**. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
 
+## December 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [Support Multiple Source Devices in DDoS Attack Alerts](#support-multiple-source-devices-in-ddos-attack-alerts) |
+
+### Support Multiple Source Devices in DDoS Attack Alerts
+
+Alert details now display up to 10 source devices involved in DDoS attack.
+
 ## October 2024
 
 |Service area  |Updates  |

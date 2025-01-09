@@ -3,7 +3,7 @@ title: Support for disaster recovery of Hyper-V VMs to Azure with Azure Site Rec
 description: Summarizes the supported components and requirements for Hyper-V VM disaster recovery to Azure with Azure Site Recovery
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.date: 12/20/2024
+ms.date: 12/19/2024
 author: ankitaduttaMSFT
 ms.author: ankitadutta
 ---
@@ -20,7 +20,7 @@ This article summarizes the supported components and settings for disaster recov
 
 **Scenario** | **Details**
 --- | ---
-Hyper-V with Virtual Machine Manager <br> <br>| You can perform disaster recovery to Azure for VMs running on Hyper-V hosts that are managed in the System Center Virtual Machine Manager fabric.<br/><br/> You can deploy this scenario in the Azure portal or by using PowerShell.<br/><br/> When Hyper-V hosts are managed by Virtual Machine Manager, you also can perform disaster recovery to a secondary on-premises site. To learn more about this scenario, read [this tutorial](hyper-v-vmm-disaster-recovery.md).
+Hyper-V with Virtual Machine Manager <br> <br>| You can perform disaster recovery to Azure for VMs running on Hyper-V hosts that are managed in the System Center Virtual Machine Manager fabric.<br/><br/> You can deploy this scenario in the Azure portal or by using PowerShell.<br/><br/> When Hyper-V hosts are managed by Virtual Machine Manager, you also can perform disaster recovery to a secondary on-premises site. To learn more about this scenario, read [this tutorial](hyper-v-vmm-azure-tutorial.md).
 Hyper-V without Virtual Machine Manager | You can perform disaster recovery to Azure for VMs running on Hyper-V hosts that aren't managed by Virtual Machine Manager.<br/><br/> You can deploy this scenario in the Azure portal or by using PowerShell.
 
 > [!NOTE]
@@ -44,7 +44,7 @@ The following table summarizes VM support. Site Recovery supports any workloads 
  **Component** | **Details**
 --- | ---
 VM configuration | VMs that replicate to Azure must meet [Azure requirements](#azure-vm-requirements).
-Guest operating system | Any guest OS [supported for Azure](../cloud-services/cloud-services-guestos-update-matrix.md#family-5-releases)..<br/><br/> Windows Server 2016 Nano Server isn't supported.
+Guest operating system | Any guest OS [supported for Azure](https://learn.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868%28v=ws.10%29#supported-guest-operating-systems). <br/><br/> Windows Server 2016 Nano Server isn't supported.
 
 
 ## VM/Disk management
@@ -200,4 +200,5 @@ Azure Site Recovery provider | Coordinates communications between on-premises se
 Microsoft Azure Recovery Services agent | Coordinates replication between Hyper-V VMs and Azure<br/><br/> Installed on on-premises Hyper-V servers (with or without Virtual Machine Manager) | Latest agent available from the portal
 
 ## Next steps
-Learn how to [prepare Azure](tutorial-prepare-azure.md) for disaster recovery of on-premises Hyper-V VMs.
+
+Learn how to [prepare Azure](tutorial-prepare-azure-for-hyperv.md) for disaster recovery of on-premises Hyper-V VMs.

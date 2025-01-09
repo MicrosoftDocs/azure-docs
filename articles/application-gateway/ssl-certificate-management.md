@@ -4,7 +4,7 @@ description: Understand listener certificate management through portal.
 services: application-gateway
 author: jaesoni
 ms.service: azure-application-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/19/2024
 ms.author: jaysoni
 ---

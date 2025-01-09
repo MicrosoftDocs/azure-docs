@@ -2,9 +2,6 @@
 title: Configure data persistence - Premium Azure Cache for Redis
 description: Learn how to configure and manage data persistence your Premium tier Azure Cache for Redis instances
 
-
-
-
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 04/10/2023
@@ -64,7 +61,7 @@ On the **Enterprise** and **Enterprise Flash** tiers, data is persisted to a man
 
 ### [Using the portal (Premium tier)](#tab/premium)
 
-1. To create a Premium cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. You can create caches in the Azure portal. You can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information about creating an Azure Cache for Redis, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+1. To create a Premium cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. You can create caches in the Azure portal. You can also create them using Resource Manager templates, PowerShell, or Azure CLI.
 
     :::image type="content" source="media/cache-how-to-premium-persistence/create-resource.png" alt-text="Screenshot that shows a form to create an Azure Cache for Redis resource.":::
   

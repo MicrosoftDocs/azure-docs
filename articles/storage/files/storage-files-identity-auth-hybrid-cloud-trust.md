@@ -230,7 +230,7 @@ Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
     > If you wish to use your current Windows login account for your on-premises Active Directory access, you can skip the step where credentials are assigned to the `$domainCred` parameter. If you take this approach, don't include the `-DomainCredential` parameter in the PowerShell commands following this step.
 
     ```powershell
-    $domain = "your on-premesis domain name, for example contoso.com"
+    $domain = "your on-premises domain name, for example contoso.com"
     
     $domainCred = Get-Credential
     

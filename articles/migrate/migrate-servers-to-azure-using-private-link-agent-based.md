@@ -41,7 +41,7 @@ Now, select machines for replication and migration.
 >[!Note]
 > You can replicate up to 10 machines together. If you need to replicate more, then replicate them simultaneously in batches of 10. 
 
-1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization** > **Migration tools**, select **Replicate**. 
+1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization** > **Migration tools**, select **Replicate**.
 1. In **Replicate** > **Basics** > **Are your machines virtualized?**, select **Not virtualized/Other**. 
 1. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up. 
 1. In **Process Server**, select the name of the replication appliance. 
