@@ -170,7 +170,7 @@ Once your new revision is ready, [send requests](./tutorial-scaling.md#send-requ
 
 Here's a sample metric snapshot for the example scale rule.
 
-:::image type="content" source="media/java-metrics-keda/keda-auto-scale-java-gc-portal.png" alt-text="Screenshot of KEDA scale with JVM metrics" lightbox="media/java-metrics-keda/keda-auto-scale-java-gc-portal.png":::
+:::image type="content" source="media/java-metrics-keda/keda-auto-scale-java-gc-portal.png" alt-text="Screenshot of KEDA scale with JVM metrics." lightbox="media/java-metrics-keda/keda-auto-scale-java-gc-portal.png":::
 
 1. Initially, there's one replica (the `minReplicas`) for the app.
 1. A spike in requests causes the Java app to experience frequent JVM garbage collection (GC).
@@ -191,7 +191,7 @@ ContainerAppSystemLogs
 | project TimeGenerated, Type, Reason, ContainerAppName, Log
 ```
 
-:::image type="content" source="media/java-metrics-keda/keda-auto-scale-java-log.png" alt-text="Screenshot of KEDA scale log query" lightbox="media/java-metrics-keda/keda-auto-scale-java-log.png":::
+:::image type="content" source="media/java-metrics-keda/keda-auto-scale-java-log.png" alt-text="Screenshot of KEDA scale log query." lightbox="media/java-metrics-keda/keda-auto-scale-java-log.png":::
 
 ## Clean up resources
 
