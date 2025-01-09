@@ -11,7 +11,7 @@ ms.custom: template-how-to, devx-track-azurecli
 
 # Enabling Micro-BFD
 
-Micro-BFD (Bidirectional Forwarding Detection) are a lightweight protocol designed to rapidly detect failures between adjacent network devices, such as routers or switches, with minimal overhead. This guide provides step-by-step instructions to enable Micro-BFD on Customer Edge (CE) and Provider Edge (PE) devices.
+Micro-BFD (Bidirectional Forwarding Detection) is a lightweight protocol designed to rapidly detect failures between adjacent network devices, such as routers or switches, with minimal overhead. This guide provides step-by-step instructions to enable Micro-BFD on Customer Edge (CE) and Provider Edge (PE) devices.
 
 ## Prerequisites
 
@@ -153,13 +153,13 @@ After the BFD sessions are up, run the following Azure CLI command to remove BFD
 az networkfabric device run-rw --ids /subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ManagedNetworkFabric/NetworkDevices/<device-name>-AggrRack-CE1\PE1\CE2\PE2 --rw-command " "
 ```
 
-### Step 11: Ensure devices are not disturbed
+### Step 11: Ensure devices aren't disturbed
 
-Ensure that devices are'nt disturbed for Micro-BFD configuration.
+Ensure that devices aren't disturbed for Micro-BFD configuration.
 
 ## Recovery steps if Micro-BFD is misconfigured
 
-In cases like reconfiguration, where Micro-BFD is disabled by default but the Provider Edge (PE) device still has settings from a previous deployment, it is important to remove the Micro-BFD configuration from the PE device.
+In cases like reconfiguration, where Micro-BFD is disabled by default but the Provider Edge (PE) device still has settings from a previous deployment, it's important to remove the Micro-BFD configuration from the PE device.
 
 Follow these steps to ensure that Micro-BFD is disabled on your PE devices:
 
@@ -173,4 +173,4 @@ Access the configuration settings of each identified PE device and remove any ex
 
 ### Verify configuration
 
-Ensure that the Micro-BFD settings has been successfully removed and that the PE device is operating without Micro-BFD enabled.
+Ensure that the Micro-BFD settings have been successfully removed and that the PE device is operating without Micro-BFD enabled.
