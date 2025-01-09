@@ -366,6 +366,9 @@
       - name: Metrics
         href: java-metrics.md
         displayName: java
+      - name: Scale with Java metrics
+        href: java-metrics-scale-with-keda.md
+        displayName: java
       - name: Connect to Eureka Server for Spring
         href: java-eureka-server.md
         displayName: java
@@ -393,6 +396,9 @@
             href: java-application-performance-management-config.md
           - name: Create a highly available Eureka server component cluster
             href: java-eureka-server-highly-available.md
+            displayName: java
+          - name: Build a Java metrics dashboard with Azure Managed Grafana
+            href: java-metrics-with-grafana.md
             displayName: java
 - name: Billing & quotas
   items:

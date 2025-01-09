@@ -144,6 +144,8 @@ Returns second parameter when first parameter is **True**; otherwise, returns th
 
 When the condition is **True**, only the true value is evaluated. When the condition is **False**, only the false value is evaluated. With the `if` function, you can include expressions that are only conditionally valid. For example, you can reference a resource that exists under one condition but not under the other condition. An example of conditionally evaluating expressions is shown in the following section.
 
+Note that the above **only** applies when the condition can be evaluated at template start, for example you cannot use a `reference()`  in the condition.
+
 ### Examples
 
 The following example shows how to use the `if` function.
