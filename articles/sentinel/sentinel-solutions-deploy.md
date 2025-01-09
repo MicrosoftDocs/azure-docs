@@ -54,7 +54,7 @@ The content hub offers the best way to find new content or manage the solutions 
 
 1. Select enter to search based on your search string. The number of search results is limited to 50 items, including solutions and content items found within solutions. If you didn't find what you are looking for, refine your search expression or use additional filters.
 
-1. Select a solution from the list to view information about the solution and the types of content items it includes.
+1. Select the solution or content item from the list to view information about it.
 
     #### [Azure portal](#tab/azure-portal)
     :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of the Microsoft Sentinel content hub in the Azure portal.":::
