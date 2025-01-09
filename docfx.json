@@ -97,7 +97,7 @@
     "groups": {
       "grp-iot-edge": {
         "dest": "destiotedge",
-        "moniker_range": ">=iotedge-1.4"
+        "moniker_range": ">=iotedge-1.5"
       }
     },
     "overwrite": [],
@@ -1001,7 +1001,7 @@
         "articles/governance/management-groups/**/*.md": "azure-governance"
       },
       "monikerRange": {
-        "articles/iot-edge/**/*.md": ">=iotedge-1.4"
+        "articles/iot-edge/**/*.md": ">=iotedge-1.5"
       },
       "recommendations": {
       },
