@@ -62,10 +62,6 @@ For more information, see:
 - [OT network sensor VM (Microsoft Hyper-V)](../appliance-catalog/virtual-sensor-hyper-v.md)
 - [Networking requirements](../networking-requirements.md)
 
-> [!NOTE]
-> If you're working with an air-gapped sensor and are [deploying an on-premises management console](air-gapped-deploy.md), configure **Network adapter 1** to connect to the on-premises management console UI instead of the Azure portal.
->
-
 ## Download software files from the Azure portal
 
 Download the OT sensor software from Defender for IoT in the Azure portal.
