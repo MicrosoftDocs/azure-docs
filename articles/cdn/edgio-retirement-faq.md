@@ -55,6 +55,14 @@ Important notes regarding these "best effort" automatic migrations to Azure Fron
 -	Microsoft can't always maintain feature level parity in the new Front Door configuration.
 -	Automatic migration isn't possible for endpoints with `*.vo.msecnd.net` domains.
 
+### What are the most common issues seen with automatic migration and how to mitigate them?
+
+| Issue              | Mitigation                                                                                                                     |
+|-------------------|---------------------------------------------------------------------------------------------------------------------------|
+| Custom domain couldn't be migrated as domain validation could not be performed due to missing CNAME | [Manually perform domain validation](../frontdoor/standard-premium/how-to-add-custom-domain.md) |
+| Customer was using APEX domain | [Use Alias record on Azure DNS to use APEX domain](../frontdoor/front-door-how-to-onboard-apex-domain.md)|
+| Customer was using SAS token through rule engine to access their Azure Storage backend which has public access disabled | [Upgrade](../frontdoor/tier-upgrade.md) to Front Door Premium and use [private link](../frontdoor/standard-premium/how-to-enable-private-link-storage-account.md) |
+| Customer was using geo-filtering rules which were not migrated | [Configure geo-filtering using WAF](../web-application-firewall/afds/waf-front-door-tutorial-geo-filtering.md)|
 
 ### What is the recap of the key dates?
 
@@ -119,7 +127,7 @@ No.
 
 ### Can I be informed regarding the exact date and time when my Edgio profile is automatically migrated?
 
-No. We're doing this migration on a "best effort" basis between January 7th and 14th, 2025 for customers who did not take action prior. Therefore we can't inform each customer regarding migration timings, but as noted previously after the migration we'll inform you as to whether it was successful.
+No. We're doing this migration on a "best effort" basis between January 7th and 14th, 2025 for customers who did not take action prior. Therefore we can't inform each customer regarding exact migration timings, but as noted previously after the migration we'll inform you as to whether it was successful.
 
 ### I am not able to stop my Azure CDN from Edgio anymore. What is happening?
 

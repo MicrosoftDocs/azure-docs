@@ -22,7 +22,7 @@ ms.custom:
 
 This article describes high availability in Azure Database for PostgreSQL - Flexible Server, which includes [availability zones](#availability-zone-support) and [cross-region recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
-Azure Database for PostgreSQL - Flexible Server offers high availability support by provisioning physically separated primary and standby replicas, either within the same availability zone (zonal) or across availability zones (zone-redundant). This high availability model is designed to ensure that committed data is never lost in the case of failures. The model is also designed so that the database doesn't become a single point of failure in your software architecture. For more information on high availability and availability zone support, see [Availability zone support](#availability-zone-support).
+Azure Database for PostgreSQL - Flexible Server offers high availability support by provisioning physically separated primary and standby replicas, either within the same availability zone (zonal) or across availability zones (zone-redundant). This high availability model is designed to ensure that committed data is never lost in the case of failures. In a high availability (HA) setup, data is synchronously committed to both the primary and standby servers. The model is designed so that the database doesn't become a single point of failure in your software architecture. For more information on high availability and availability zone support, see [Availability zone support](#availability-zone-support).
 
 ## Availability zone support
 
@@ -103,8 +103,6 @@ For a detailed guide on configuring and interpreting HA health statuses, refer t
 - Depending on the workload and activity on the primary server, the failover process might take longer than 120 seconds due to the recovery involved at the standby replica before it can be promoted.
 
 - The standby server typically recovers WAL files at 40 MB/s. If your workload exceeds this limit, you can encounter extended time for the recovery to complete either during the failover or after establishing a new standby.
-
-- Configuring for availability zones induces some latency to writes and commits, while it doesn't produce any impact on reading queries. The performance impact varies depending on your workload. As a general guideline, writes and commit impact can be around 20-30% impact.
 
 - Restarting the primary database server also restarts the standby replica.
 

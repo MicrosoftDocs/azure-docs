@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 12/12/2024
+ms.date: 01/07/2025
 ms.custom: generated
 ---
 
@@ -67,6 +67,7 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='disk-pool-operator'></a>[Disk Pool Operator](./built-in-roles/compute.md#disk-pool-operator) | Provide permission to StoragePool Resource Provider to manage disks added to a disk pool. | 60fc6e62-5479-42d4-8bf4-67625fcc2840 |
 > | <a name='disk-restore-operator'></a>[Disk Restore Operator](./built-in-roles/compute.md#disk-restore-operator) | Provides permission to backup vault to perform disk restore. | b50d9833-a0cb-478e-945f-707fcc997c13 |
 > | <a name='disk-snapshot-contributor'></a>[Disk Snapshot Contributor](./built-in-roles/compute.md#disk-snapshot-contributor) | Provides permission to backup vault to manage disk snapshots. | 7efff54f-a5b4-42b5-a1c5-5411624893ce |
+> | <a name='quantum-workspace-data-contributor'></a>[Quantum Workspace Data Contributor](./built-in-roles/compute.md#quantum-workspace-data-contributor) | Create, read, and modify jobs and other Workspace data. This role is in preview and subject to change. | c1410b24-3e69-4857-8f86-4d0a2e603250 |
 > | <a name='virtual-machine-administrator-login'></a>[Virtual Machine Administrator Login](./built-in-roles/compute.md#virtual-machine-administrator-login) | View Virtual Machines in the portal and login as administrator | 1c0163c0-47e6-4577-8991-ea5c82e286e4 |
 > | <a name='virtual-machine-contributor'></a>[Virtual Machine Contributor](./built-in-roles/compute.md#virtual-machine-contributor) | Create and manage virtual machines, manage disks, install and run software, reset password of the root user of the virtual machine using VM extensions, and manage local user accounts using VM extensions. This role does not grant you management access to the virtual network or storage account the virtual machines are connected to. This role does not allow you to assign roles in Azure RBAC. | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
 > | <a name='virtual-machine-data-access-administrator-preview'></a>[Virtual Machine Data Access Administrator (preview)](./built-in-roles/compute.md#virtual-machine-data-access-administrator-preview) | Manage access to Virtual Machines by adding or removing role assignments for the Virtual Machine Administrator Login and Virtual Machine User Login roles. Includes an ABAC condition to constrain role assignments. | 66f75aeb-eabe-4b70-9f1e-c350c4c9ad04 |
@@ -536,6 +537,7 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='azure-stack-hci-vm-reader'></a>[Azure Stack HCI VM Reader](./built-in-roles/hybrid-multicloud.md#azure-stack-hci-vm-reader) | Grants permissions to view VMs | 4b3fe76c-f777-4d24-a2d7-b027b0f7b273 |
 > | <a name='azure-stack-registration-owner'></a>[Azure Stack Registration Owner](./built-in-roles/hybrid-multicloud.md#azure-stack-registration-owner) | Lets you manage Azure Stack registrations. | 6f12a6df-dd06-4f3e-bcb1-ce8be600526a |
 > | <a name='hybrid-server-resource-administrator'></a>[Hybrid Server Resource Administrator](./built-in-roles/hybrid-multicloud.md#hybrid-server-resource-administrator) | Can read, write, delete, and re-onboard Hybrid servers to the Hybrid Resource Provider. | 48b40c6e-82e0-4eb3-90d5-19e40f49b624 |
+
 
 ## Next steps
 

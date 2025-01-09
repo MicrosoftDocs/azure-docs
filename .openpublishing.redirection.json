@@ -1,6 +1,76 @@
 {
   "redirections": [
     {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/back-up-sensors-from-management.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/back-up-sensors-from-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/back-up-restore-management.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/back-up-restore-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-set-up-high-availability.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-set-up-high-availability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-manage-the-on-premises-management-console.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-manage-the-on-premises-management-console",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-troubleshoot-on-premises-management-console.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-troubleshoot-on-premises-management-console",
+       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/legacy-air-gapped-deploy.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/legacy-air-gapped-deploy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/prepare-management-appliance.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/prepare-management-appliance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/install-software-on-premises-management-console.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/install-software-on-premises-management-console",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/activate-deploy-management.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/activate-deploy-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/connect-sensors-to-management.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/connect-sensors-to-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/sites-and-zones-on-premises.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/sites-and-zones-on-premises",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-work-with-alerts-on-premises-management-console.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-work-with-alerts-on-premises-management-console",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cdn/akamai-retirement-faq.md",
       "redirect_url": "/previous-versions/azure/cdn/akamai-retirement-faq",
       "redirect_document_id": false
@@ -88,6 +158,7 @@
     {
       "source_path": "articles/operator-5g-core/tutorial-configure-network-function.md",
       "redirect_url": "/previous-versions/azure/operator-5g-core/tutorial-configure-network-function",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-call-protection/deployment-overview.md",
@@ -112,6 +183,7 @@
     {
       "source_path": "articles/operator-call-protection/set-up-operator-call-protection.md",
       "redirect_url": "/previous-versions/azure/operator-call-protection/set-up-operator-call-protection",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/private-multi-access-edge-compute-mec/overview.md",
@@ -121,6 +193,7 @@
     {
       "source_path": "articles/private-multi-access-edge-compute-mec/partner-programs.md",
       "redirect_url": "/previous-versions/azure/private-multi-access-edge-compute-mec/partner-programs",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/time-series-insights/breaking-changes-long-data-type.md",
@@ -745,6 +818,21 @@
     {
       "source_path_from_root": "/articles/api-management/self-hosted-gateway-migration-guide.md",
       "redirect_url": "/previous-versions/azure/api-management/self-hosted-gateway-migration-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/api-management/howto-use-analytics.md",
+      "redirect_url": "/azure/api-management/monitor-api-management",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/api-management/visualize-using-managed-grafana-dashboard.md",
+      "redirect_url": "/azure/api-management/monitor-api-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/api-management/developer-portal-enable-usage-logs.md",
+      "redirect_url": "/azure/api-management/monitor-api-management",
       "redirect_document_id": false
     },
     {
