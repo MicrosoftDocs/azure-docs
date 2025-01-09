@@ -1810,3 +1810,22 @@ groups:
     title: Standard (Workflow Service Plan)
   - id: standard-app-service-environment
     title: Standard (App Service Environment v3)
+#owner: dariagrigoriu
+- id: acs-azcli-js-csharp-java-python-portal-nocode
+  title: Platforms
+  prompt: Choose a platform
+  pivots:
+  - id: platform-azcli
+    title: Azure CLI
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+  - id: platform-azportal
+    title: Azure portal
+  - id: platform-nocode
+    title: Power Platform
