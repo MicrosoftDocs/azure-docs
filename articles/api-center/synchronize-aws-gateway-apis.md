@@ -4,7 +4,7 @@ description: Integrate an Amazon API Gateway to Azure API Center for automatic s
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 01/02/2025
+ms.date: 01/08/2025
 ms.author: danlep 
 ms.custom: devx-track-azurecli
 # Customer intent: As an API program manager, I want to integrate my Azure API Management instance with my API center and synchronize API Management APIs to my inventory.
@@ -29,8 +29,8 @@ Synchronization is one-way from Amazon API Gateway to your Azure API center, mea
 > [!NOTE]
 > * Integration of Amazon API Gateway is currently in preview.
 > * There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#api-center-limits) for the number of integrated API sources.
-> * API updates in Amazon API Gateway synchronize to your API center once per hour.
-> * API definitions are also synchronized to the API center only if you select the option to include them during integration. Only definitions from deployed APIs are synchronized.
+> * APIs in Amazon API Gateway synchronize to your API center once per hour. Only REST APIs are synchronized.
+> * API definitions also synchronize to the API center if you select the option to include them during integration. Only definitions from deployed APIs are synchronized.
 
 ### Entities synchronized from Amazon API Gateway
 
@@ -40,7 +40,7 @@ Synchronization is one-way from Amazon API Gateway to your Azure API center, mea
 
 * An API center in your Azure subscription. If you haven't created one, see [Quickstart: Create your API center](set-up-api-center.md).
 
-* An Azure key vault. If you need to create one, see [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal).
+* An Azure key vault. If you need to create one, see [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal). To add or manage secrets in the key vault, at least the **Key Vault Secrets Officer** role or equivalent permissions are required. 
 
 * An [Amazon API Gateway](https://docs.aws.amazon.com/apigateway/). 
 
@@ -69,12 +69,18 @@ Save your access keys in a safe location. You'll store them in Azure Key Vault i
 
 Manually upload and securely store the two IAM user access keys in Azure Key Vault using the configuration recommended in the following table. For more information, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](/azure/key-vault/secrets/quick-create-portal). 
 
+#### [Portal](#tab/portal)
+
 | AWS secret | Upload options | Name | Secret value | 
 |------------|----------------|------|--------------|
 | Access key | Manual | *aws-access-key* | Access key ID retrieved from AWS |
 | Secret access key | Manual | *aws-secret-access-key* | Secret access key retrieved from AWS |
 
-Take note of the **Secret identifier** URI of each secret. You'll use these identifiers in the next steps.
+:::image type="content" source="media/synchronize-aws-gateway-apis/key-vault-secrets.png" alt-text="Screenshot of secrets list in Azure Key Vault in the portal.":::
+
+---
+
+Take note of the **Secret identifier** of each secret, a URI similar to `https://<key-vault-name>.vault.azure.net/secrets/<secret-nam>.`. You'll use these identifiers in the next steps.
 
 
 [!INCLUDE [enable-managed-identity](includes/enable-managed-identity.md)]
@@ -86,8 +92,9 @@ Take note of the **Secret identifier** URI of each secret. You'll use these iden
 
 ## Integrate an Amazon API Gateway 
 
-You can integrate an Amazon API Gateway to your API center using the portal or the Azure CLI.
+You can integrate an Amazon API Gateway to your API center using the Azure CLI.
 
+<!--
 #### [Portal](#tab/portal)
 
 1. In the [portal](https://portal.azure.com), navigate to your API center.
@@ -102,20 +109,24 @@ You can integrate an Amazon API Gateway to your API center using the portal or t
         1. Optionally, select whether to include API definitions.
 1. Select **Create**.
 
-<!----
-Add image of integrating AWS g/w?
+Add image of integrating AWS g/w in portal
 --->
 
 #### [Azure CLI](#tab/cli)
 
-Run the `az apic integration create aws` command to integrate an Amazon API Gateway to your API center. Provide the Key Vault secret identifiers for the AWS access key and secret access key, and the AWS region where the Amazon API Gateway is deployed.
+Run the `az apic integration create aws` command to integrate an Amazon API Gateway to your API center. 
+
+* Provide the names of the resource group, API center, and integration. 
+
+* Provide the Key Vault secret identifiers for the AWS access key and secret access key, and the AWS region where the Amazon API Gateway is deployed.
 
 ```azurecli
-
-az apic integration create aws --name <api-center-name> \
+az apic integration create aws \
+    --resource-group <resource-group-name> \
+    --service-name-name <api-center-name> \
     --integration-name <aws-integration-name> \
     --aws-access-key-reference <access-key-uri> \
-    --aws-secret-access-key-reference <secret-access-key-uri> \
+    --aws-secret-access-key-reference <secret-access-key-uri> 
     --aws-region-name <aws-region>
 ``` 
 ---

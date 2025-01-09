@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-center
 ms.topic: include
-ms.date: 12/23/2024
+ms.date: 01/08/2025
 ms.author: danlep
 ms.custom: Include file
 ---
@@ -18,8 +18,22 @@ While an API source is integrated, you can't delete synchronized APIs from your 
 * The synchronized APIs in your API center inventory are deleted
 * The environment and deployments associated with the API source are deleted
 
-To delete an integration:
+You can delete an integration using the portal or the Azure CLI. 
+
+#### [Portal](#tab/portal)
 
 1. In the [portal](https://portal.azure.com), navigate to your API center.
 1. Under **Assets**, select **Environments** > **Integration (preview)**.
 1. Select the integration, and then select **Delete** (trash can icon). 
+
+#### [Azure CLI](#tab/cli)
+
+Run the `az apic integration delete` command to delete an integration. Provide the names of the resource group, API center, and integration.
+
+```azurecli
+az apic integration delete \
+    --resource-group <resource-group-name> \
+    --service-name <api-center-name> \
+    --integration-name <integration-name> \
+```
+---

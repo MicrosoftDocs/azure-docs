@@ -27,8 +27,10 @@ When you integrate an API Management instance as an API source, the following ha
 API Management APIs automatically synchronize to the API center whenever existing APIs' settings change (for example, new versions are added), new APIs are created, or APIs are deleted. This synchronization is one-way from API Management to your Azure API center, meaning API updates in the API center aren't synchronized back to the API Management instance.
 
 > [!NOTE]
+> * Integration of Azure API Management is currently in preview.
 > * There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#api-center-limits) for the number of integrated API Management instances (API sources).
 > * API updates in API Management typically synchronize to your API center within minutes but synchronization can take up to 24 hours.
+> * API definitions also synchronize to the API center if you select the option to include them during integration.
 
 ### Entities synchronized from API Management
 
@@ -76,10 +78,16 @@ You can integrate an API Management instance using the portal or the Azure CLI.
 
 #### [Azure CLI](#tab/cli)
 
-Run the `az apic integration create apim` command to integrate an API Management instance to your API center. Provide the... If the API Management instance and the API center are in the same resource group, you can provide the API Management instance name as the value of `azure-apim`; otherwise, provide the Azure resource ID. 
+Run the `az apic integration create apim` command to integrate an API Management instance to your API center. 
+
+* Provide the names of the resource group, API center, and integration.  
+
+* If the API Management instance and the API center are in the same resource group, you can provide the API Management instance name as the value of `azure-apim`; otherwise, provide the Azure resource ID. 
 
 ```azurecli
-az apic integration create apim --name <api-center-name> \
+az apic integration create apim \
+    --resource-group <resource-group-name> \
+    --service-name <api-center-name> \
     --integration-name <apim-integration-name> \
     --azure-apim <apim-instance-name>
 ``` 
