@@ -94,12 +94,6 @@
         ]
       }
     ],
-    "groups": {
-      "grp-iot-edge": {
-        "dest": "destiotedge",
-        "moniker_range": ">=iotedge-1.5"
-      }
-    },
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
@@ -999,9 +993,6 @@
         "articles/partner-solutions/split-experimentation/**/*.md": "split-experimentation",
         "articles/partner-solutions/split-experimentation/**/*.yml": "split-experimentation",
         "articles/governance/management-groups/**/*.md": "azure-governance"
-      },
-      "monikerRange": {
-        "articles/iot-edge/**/*.md": ">=iotedge-1.5"
       },
       "recommendations": {
       },
