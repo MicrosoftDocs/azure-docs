@@ -91,7 +91,7 @@
       href: how-to-move-from-classic-to-modernized-vmware-disaster-recovery.md
     - name: Deploy Azure Site Recovery replication appliance (modernized)
       href: deploy-vmware-azure-replication-appliance-modernized.md
-  - name: Set up disaster recovery for Azure Public Multi-Access Edge Compute (MEC) VMs  
+  - name: Set up disaster recovery for Azure Extended Zones VMs  
     items:
     - name: Disaster recovery using the Recovery Services vault
       href: disaster-recovery-for-edge-zone-vm-tutorial.md
@@ -535,8 +535,6 @@
     href: azure-to-azure-powershell.md
   - name: Set up disaster recovery on Azure Extended Zones VMs using PowerShell
     href: tutorial-replicate-vms-edge-zone-to-azure-region.md
-  - name: Set up disaster recovery to another Extended Zones using PowerShell using PowerShell
-    href: tutorial-replicate-vms-extended-zones-to-another-zone.md
   - name: Set up disaster recovery of VMware VMs to Azure using PowerShell
     href: vmware-azure-disaster-recovery-powershell.md
   - name: Set up disaster recovery of Hyper-V VMs to Azure using PowerShell
