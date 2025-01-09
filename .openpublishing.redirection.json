@@ -28,6 +28,46 @@
     {
       "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-troubleshoot-on-premises-management-console.md",
       "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-troubleshoot-on-premises-management-console",
+       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/legacy-air-gapped-deploy.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/legacy-air-gapped-deploy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/prepare-management-appliance.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/prepare-management-appliance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/install-software-on-premises-management-console.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/install-software-on-premises-management-console",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/activate-deploy-management.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/activate-deploy-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/connect-sensors-to-management.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/connect-sensors-to-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/sites-and-zones-on-premises.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/sites-and-zones-on-premises",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-work-with-alerts-on-premises-management-console.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-work-with-alerts-on-premises-management-console",
       "redirect_document_id": false
     },
     {
