@@ -43,13 +43,14 @@ For more information about other roles and permissions supported for Microsoft S
 
 ## Discover content
 
-The content hub offers the best way to find new content or manage the solutions you already installed. 
+The content hub offers the best way to find new content or manage the solutions you already installed. Search to find solutions, standalone content items, or content included in solutions. To refine your search, use the filters. For more information, see [Categories for Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions.md#categories-for-microsoft-sentinel-out-of-the-box-content-and-solutions).
+
 
 1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**.
 
     The **Content hub** page displays a searchable grid or a list of solutions and standalone content.
 
-1. Search for the solutions of standalone content items that you need. Either use the **AI search field** or filter by selecting specific values from the filters. Using AI search allows you to perform a fuzzy search and use approximate vocabulary.
+1. Search for the solutions, standalone content items, or content included in solutions. Use the AI search field or filter by selecting specific values from the filters. Using AI search allows you to perform a fuzzy search and use approximate vocabulary.
 
 1. Select enter to search based on your search string. The number of search results is limited to 50 items, including solutions and content items found within solutions. If you didn't find what you are looking for, refine your search expression or use additional filters.
 
@@ -63,7 +64,7 @@ The content hub offers the best way to find new content or manage the solutions 
 
 1. Expand a solution in the result set using the arrow on the left side to view the list of content items it includes. The information pane on the left presents detailed information about the content item.
 
-1. To use a content item which is part of a solution, install the solution. Select <b>install solution</b> on the information panel of the content item. This action installs the solution that the content item is part of. 
+1. To use a content item which is part of a solution, install the solution. Select **install solution** on the information panel of the content item. This action installs the solution that the content item is part of. 
 
 ## Install or update content
 
