@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli
 # Customer intent: As an API program manager, I want to integrate my Azure API Management instance with my API center and synchronize API Management APIs to my inventory.
 ---
 
-# Synchronize APIs from an API Management instance
+# Synchronize APIs from an API Management instance (preview)
 
 This article shows how to integrate an API Management instance so that the instances's APIs are continuously kept up to date in your [API center](overview.md) inventory. 
 
