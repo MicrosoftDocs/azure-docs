@@ -102,7 +102,7 @@ For a detailed guide on configuring and interpreting HA health statuses, refer t
 
 - Depending on the workload and activity on the primary server, the failover process might take longer than 120 seconds due to the recovery involved at the standby replica before it can be promoted.
 
-- The standby server typically recovers WAL files at 40 MB/s. However, depending on the SKU type selected, this rate can increase to up to 200 MB/s for larger SKUs. If your workload exceeds this limit, you can encounter extended time for the recovery to complete either during the failover or after establishing a new standby.
+- The standby server typically recovers WAL files at 40 MB/s. For larger SKUs, this rate can increase to as much as 200 MB/s. If your workload exceeds this limit, you can encounter extended time for the recovery to complete either during the failover or after establishing a new standby.
 
 - Restarting the primary database server also restarts the standby replica.
 
