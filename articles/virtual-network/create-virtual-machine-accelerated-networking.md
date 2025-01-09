@@ -525,7 +525,7 @@ $vmConfigParams = @{
 $vmConfig = Add-AzVMNetworkInterface @vmConfigParams
 ```
 
-Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the VM with Accelerated Networking enabled.
+Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the VM with Accelerated Networking enabled. The command will generate SSH keys for the virtual machine for login. Make note of the location of the private key. The private key is needed in later steps for connecting to the virtual machine with Azure Bastion.
 
 ```azurepowershell
 $vmParams = @{
