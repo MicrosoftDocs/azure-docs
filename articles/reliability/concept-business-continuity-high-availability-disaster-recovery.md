@@ -93,7 +93,7 @@ The same risk might be classified as HA for one workload and DR for another work
 
 ### Risk mitigations
 
-There are often several possible controls that can mitigate each risk. Part of business continuity planning is deciding which controls to apply for each specific situation based on the business needs. Many common mitigations are technical in nature and rely on how technology is configured or used. For example, you can build resiliency into a solution's design by using redundancy, data replication, failover, and backups. However, some controls might instead be based around business processes, such as by triggering a response playbook, or failing back to manual operations.
+There are often several possible controls that can mitigate each risk. Part of business continuity planning is deciding which controls to apply for each specific situation based on the business needs. Many common mitigations are technical in nature and rely on how technology is configured or used. For example, you can build resiliency into a solution's design by using redundancy, data replication, failover, and backups. However, some controls might instead be based around business processes, such as by triggering a response playbook, or falling back to manual operations.
 
 When you're considering which controls to apply, understand whether they require or assume downtime or data loss. For example, some controls require a human to be notified and then to respond, which takes time. If a solution requires high uptime, manual processes are likely to be too slow, and you should control many of the risks by using automated approaches. For more information, see [High availability](#high-availability).
 
@@ -129,12 +129,12 @@ To achieve high availability, a workload may include many design elements.
 
 Many Azure services are designed to be highly available, and can be used to build highly available workloads. Here are some examples:
 
-- Azure Virtual Machine Scale Sets provide high availability for virtual machines (VMs) by automatically creating and managing VM instances, and distributing those VM instances to reduce the likelihood of failures. <!-- TODO confirm that -->
+- Azure Virtual Machine Scale Sets provide high availability for virtual machines (VMs) by automatically creating and managing VM instances, and distributing those VM instances to reduce the likelihood of failures.
 - Azure App Service provides high availability through a variety of approaches, including automatically moving workers from an unhealthy node to a healthy node, and by providing capabilities for self-healing from many common fault types.
 
 To understand the capabilities of each Azure service, see its [reliability guide](./overview-reliability-guidance.md). You can then decide which tiers to use, and which capabilities to include in your high availability strategy.
     
-Review the service level agreements (SLAs) for each service to understand the expected levels of availability and the conditions you need to meet. You might need to select or avoid specific tiers of services to achieve certain levels of availability. Some services from Microsoft are offered with the understanding that no SLA is provided, such as development or basic tiers, or that the resource could be reclaimed from your running system, such as spot-based offerings. Also, some tiers have added reliability characteristics, such as availability zone support. 
+Review the service level agreements (SLAs) for each service to understand the expected levels of availability and the conditions you need to meet. You might need to select or avoid specific tiers of services to achieve certain levels of availability. Some services from Microsoft are offered with the understanding that no SLA is provided, such as development or basic tiers, or that the resource could be reclaimed from your running system, such as spot-based offerings. Also, some tiers have added reliability characteristics, such as support for [availability zones](availability-zones-overview.md). 
 
 #### Redundancy
 
@@ -182,6 +182,12 @@ While zero-downtime deployments are often associated with application deployment
 
 If you decide not to implement zero-downtime deployments, define *maintenance windows* so you can make system changes at a time your users expect.
 
+#### Automated testing
+
+It's important to test your solution's ability to withstand the outages and failures that you consider to be in scope for HA. Many of these failures can be simulated in test environments. *Chaos engineering* involves testing your solution's ability to automatically tolerate or recover from a variety of fault types. Chaos engineering is critical for mature organizations with stringent standards for HA.
+
+To learn more, see [Recommendations for designing a reliability testing strategy](/azure/well-architected/reliability/testing-strategy).
+
 #### Monitoring and alerting
 
 Monitoring lets you know the health of your system, even when automated mitigations take place. Monitoring is critical to understand how your solution is behaving, and to watch for early signals of failures like increased error rates or high resource consumption. Alerts enable you to be proactively notified of important changes in your environment.
@@ -224,9 +230,36 @@ Regardless of the cause of the disaster, it's important that you create a well-d
 
 DR isn't an automatic feature of Azure. However, many services do provide features and capabilities that you can use to support your DR strategies. You should review the [reliability guides for each Azure service](./overview-reliability-guidance.md) to understand how the service works and its capabilities, and then map those capabilities to your DR plan.
 
-To learn more about disaster recovery planning, see [Recommendations for designing a disaster recovery strategy](/azure/well-architected/reliability/disaster-recovery).
+The following sections list some common elements of a disaster recovery plan, and describe how Azure can help you to achieve them.
 
-It's critical that you routinely validate and test your DR plans, and your wider reliability strategy. To learn more, see [Recommendations for designing a reliability testing strategy](/azure/well-architected/reliability/testing-strategy).
+#### Failover
+
+Some disaster recovery plans involve provisioning a secondary deployment in another location. If a disaster affects the primary deployment of the solution, traffic can be *failed over* to the other site. Failover needs careful planning and implementation. Azure provides a variety of services to assist with failover, such as the following:
+
+- Azure Site Recovery provides automated failover for on-premises environments, and for virtual machine-hosted solutions in Azure in the event of a region failure.
+- Azure Front Door and Azure Traffic Manager each enable automated failover between different deployments of your solution, such as in different regions.
+
+#### Backups
+
+Backups involve taking a copy of your data and storing it safely for a defined period of time. Backups help you to recover from disasters when you can't automatically fail over to another replica, or where data corruption has occurred.
+
+Many Azure data and storage services support backups, such as the following:
+
+- Azure Backup provides automated backups for virtual machine disks, storage accounts, AKS, and a variety of other sources.
+- Many Azure database services, including Azure SQL Database and Azure Cosmos DB, have an automated backup capability for your databases.
+- Azure Key Vault provides features to back up your secrets, certificates, and keys.
+
+Because backups are typically taken infrequently, restoring a backup can result in some data loss. Ensure that the RPO of the workload is aligned with the backup interval.
+
+#### Automated deployments
+
+Infrastructure as code (IaC) assets, such as Bicep files, ARM templates, or Terraform configuration files, can be part of a disaster recovery strategy. If you need to deploy new resources to respond to a disaster, then using IaC can help you to rapidly deploy and configure those resources based on your requirements, and reduce your RTO compared to manually deploying and configuring resources.
+
+#### Testing and drills
+
+It's critical that you routinely validate and test your DR plans, and your wider reliability strategy. By testing your DR plans, you also help to validate that your RTO is feasible, and you can identify opportunities to optimize your processes. To learn more, see [Recommendations for designing a reliability testing strategy](/azure/well-architected/reliability/testing-strategy).
+
+To learn more about disaster recovery planning, see [Recommendations for designing a disaster recovery strategy](/azure/well-architected/reliability/disaster-recovery).
 
 ## Related content
 
