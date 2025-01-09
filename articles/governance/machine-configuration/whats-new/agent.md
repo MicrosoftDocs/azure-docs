@@ -64,8 +64,10 @@ For information on release notes for the connected machine agent, see
 
 #### New Features
 
-- Announcing the general availability of User Asigned Identities for Azure Machine Configuration, enhancing security and simplifying at-scale server management by allowing private access to configuration packages in Azure Storage.
- [User-Assigned Identity-based Access for Machine Configuration Packages][10].
+- Announcing the general availability of User Asigned Identities for Azure Machine Configuration,
+  enhancing security and simplifying at-scale server management by allowing private access to
+  configuration packages in Azure Storage. For more information, see
+  [User-Assigned Identity-based Access for Machine Configuration Packages][10].
 
 ### Version 1.26.48 - January 2023
 
