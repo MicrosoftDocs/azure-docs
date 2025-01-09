@@ -2,7 +2,7 @@
 title: Using statement
 description: Learn how to use the `using` statement in Bicep.
 ms.topic: conceptual
-ms.date: 01/06/2025
+ms.date: 01/10/2025
 ms.custom: devx-track-bicep
 ---
 
