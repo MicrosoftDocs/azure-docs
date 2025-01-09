@@ -3,7 +3,7 @@ title: Update IoT Edge version on devices
 description: How to update IoT Edge devices to run the latest versions of the security subsystem and the IoT Edge runtime
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/08/2025
+ms.date: 01/09/2025
 ms.topic: how-to
 ms.service: azure-iot-edge
 services: iot-edge
@@ -190,7 +190,7 @@ If you use partner modules, update your module deployments with image URIs provi
 
 ## Verify versions match
 
-1. On your device, use `iotedge version` to check the security subsystem version. The output includes the major, minor, and revision version numbers. For example,  *iotedge 1.5.15*.
+1. On your device, use `iotedge version` to check the security subsystem version. The output includes the major, minor, and revision version numbers. For example,  *iotedge 1.5.13*.
 
 1. In your device deployment runtime settings, verify the *edgeHub* and *edgeAgent* image URI versions match the major and minor version of the security subsystem. If the security subsystem version is 1.5.15, the image versions would be 1.5. For example, *mcr.microsoft.com/azureiotedge-hub:1.5* and *mcr.microsoft.com/azureiotedge-agent:1.5*.
 
