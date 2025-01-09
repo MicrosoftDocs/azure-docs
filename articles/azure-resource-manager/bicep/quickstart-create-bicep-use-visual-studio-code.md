@@ -243,19 +243,11 @@ This visualizer shows the resources defined in the Bicep file and the connectors
 
 1. From the **Select Resource Group** listbox on the top, select **Create new Resource Group**.
 
-    :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-deploy-resource-group.png" alt-text="Screenshot of the Create new Resource Group option.":::
-
 1. Enter **exampleRG** as the resource group name, and then press <kbd>ENTER</kbd>.
-
-    :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-deploy-resource-group-name.png" alt-text="Screenshot of an example resource group, exampleRG.":::
 
 1. Select a location for the resource group, select **Central US** or a location of your choice, and then press <kbd>ENTER</kbd>.
 
-    :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-deploy-resource-group-locations.png" alt-text="Screenshot of resource group location options.":::
-
 1. From **Select a parameters file**, select **None**.
-
-    :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-deploy-select-parameter-file.png" alt-text="Screenshot of Select parameters file.":::
 
 It takes a few moments to create the resources. For more information, see [Deploy Bicep files with Visual Studio Code](./deploy-vscode.md).
 
