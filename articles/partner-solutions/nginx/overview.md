@@ -1,13 +1,8 @@
 ---
 title: What is NGINXaaS
 description: Learn about using the NGINXaaS Cloud-Native Observability Platform in the Azure Marketplace.
-
-
-ms.topic: conceptual
-
+ms.topic: overview
 ms.date: 01/18/2023
-
-
 ---
 
 # What is NGINXaaS – An Azure Native ISV Service?

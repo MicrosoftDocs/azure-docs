@@ -1,13 +1,8 @@
 ---
 title: Manage an NGINXaaS resource through the Azure portal
 description: This article describes management functions for NGINXaaS on the Azure portal. 
-
-
-
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 01/18/2023
-
-
 ---
 
 # Manage your NGINXaaS integration through the portal
