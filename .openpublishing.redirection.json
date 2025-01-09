@@ -158,6 +158,7 @@
     {
       "source_path": "articles/operator-5g-core/tutorial-configure-network-function.md",
       "redirect_url": "/previous-versions/azure/operator-5g-core/tutorial-configure-network-function",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-call-protection/deployment-overview.md",
@@ -182,6 +183,7 @@
     {
       "source_path": "articles/operator-call-protection/set-up-operator-call-protection.md",
       "redirect_url": "/previous-versions/azure/operator-call-protection/set-up-operator-call-protection",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/private-multi-access-edge-compute-mec/overview.md",
@@ -191,6 +193,7 @@
     {
       "source_path": "articles/private-multi-access-edge-compute-mec/partner-programs.md",
       "redirect_url": "/previous-versions/azure/private-multi-access-edge-compute-mec/partner-programs",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/time-series-insights/breaking-changes-long-data-type.md",
