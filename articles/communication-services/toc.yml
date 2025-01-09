@@ -1131,6 +1131,8 @@ items:
         href: concepts/sms/messaging-policy.md
       - name: Pricing
         href: concepts/advanced-messaging/whatsapp/pricing.md
+      - name: Templates
+        href: concepts/advanced-messaging/whatsapp/template-messages.md
       - name: Analytics
         items:
         - name: Metrics
