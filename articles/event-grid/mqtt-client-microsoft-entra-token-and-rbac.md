@@ -16,7 +16,6 @@ You can authenticate MQTT clients with Microsoft Entra JWT to connect to Event G
 
 > [!IMPORTANT]
 > - This feature is supported only when using MQTT v5 protocol version
-> - JWT authentication is supported for Managed Identities and Service principals only
 
 ## Prerequisites
 - You need an Event Grid namespace with MQTT enabled.  Learn about [creating Event Grid namespace](/azure/event-grid/create-view-manage-namespaces#create-a-namespace)
