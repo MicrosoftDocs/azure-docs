@@ -174,7 +174,11 @@ Azure itself uses zero-downtime deployment approaches for our own services. When
 
 - Azure Container Apps provides multiple revisions of your application, which can be used to achieve zero-downtime deployments.
 - Azure Kubernetes Service (AKS) supports a variety of zero-downtime deployment techniques.
+
+While zero-downtime deployments are often associated with application deployments, they should also be used for configuration changes too. Here are some ways you can apply configuration changes safely:
+
 - Azure Storage enables you to change your access keys in stages, which prevents downtime during key rotation operations.
+= Azure App Configuration provides feature flags, snapshots, and other capabilities to help you to control how configuration changes are applied.
 
 If you decide not to implement zero-downtime deployments, define *maintenance windows* so you can make system changes at a time your users expect.
 
