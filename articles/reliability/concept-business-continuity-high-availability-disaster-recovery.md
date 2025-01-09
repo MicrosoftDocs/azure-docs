@@ -50,7 +50,7 @@ A business continuity plan doesn't only take into consideration the resiliency f
 
 ### Risks for cloud-based solutions
 
-When running a solution in the cloud, there are a range of events that can happen. These events can affect the resources that the workload uses. The following table is a nonexhaustive list of example events, ordered by expected likelihood:
+When a solution runs in the cloud, there are a range of events that can happen. These events can affect the resources that the workload uses. The following table is a nonexhaustive list of example events, ordered by expected likelihood:
 
 | Example risk | Description | Regularity (likelihood) |
 |---|---|---|
@@ -150,7 +150,7 @@ To learn more about redundancy, see [Recommendations for designing for redundanc
 
 Fault tolerance is the ability of a system to continue operating, in some defined capacity, in the event of a failure. For example, a web application might be designed to continue operating even if a single web server fails. Fault tolerance can be achieved through redundancy, failover, partitioning, graceful degradation, and other techniques.
 
-Fault tolerance also requires that your applications handle transient faults. When you build your own code, you might need to enable transient fault handling yourself. Some Azure services provide built-in transient fault handling for some situations. For example, by defau;t Azure Logic Apps automatically retries failed requests to other services. To learn more, see [Recommendations for handling transient faults](/azure/well-architected/reliability/handle-transient-faults).
+Fault tolerance also requires that your applications handle transient faults. When you build your own code, you might need to enable transient fault handling yourself. Some Azure services provide built-in transient fault handling for some situations. For example, by default Azure Logic Apps automatically retries failed requests to other services. To learn more, see [Recommendations for handling transient faults](/azure/well-architected/reliability/handle-transient-faults).
  
 #### Scalability and elasticity
 
