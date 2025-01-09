@@ -3,7 +3,7 @@ title: Import manifest schema for Azure Device Update for IoT Hub
 description: Understand the schema used to create the required import manifest for importing updates into Azure Device Update for IoT Hub.
 author: andrewbrownmsft
 ms.author: andbrown
-ms.date: 01/08/2025
+ms.date: 01/09/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -233,7 +233,7 @@ The `relatedFiles` object contains a collection of files that are related to one
 |---|---|---|---|
 |**filename**|`string`|List of related files associated with a primary payload file.|Yes|
 |**sizeInBytes**|`number`|File size in number of bytes. Maximum size: 2147483648 bytes.|Yes|
-|**hashes**|`fileHashes`|Base64-encoded file hashes with algorithm name as key. For more information, see [Hashes object](#filehashes-object). |Yes|
+|**hashes**|`fileHashes`|Base64-encoded file hashes with algorithm name as key. For more information, see [Hashes object](#hashes-object). |Yes|
 |**properties**|`relatedFilesProperties` `[0-5]`|Up to five key-value pairs, where the key is limited to 64 ASCII characters and the value is a JObject with up to 256 ASCII characters. |No|
 
 Other properties are allowed.

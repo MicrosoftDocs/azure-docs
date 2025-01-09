@@ -3,7 +3,7 @@ title: Azure Device Update for IoT Hub import concepts
 description: Understand key concepts for importing a new update into Azure Device Update for IoT Hub.
 author: andrewbrownmsft
 ms.author: andbrown
-ms.date: 01/08/2025
+ms.date: 01/09/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -66,7 +66,7 @@ The sections of the import manifest file represent important Device Update conce
 
 The *update identity* or `updateId` is the unique identifier for an update in Device Update, and contains the following properties:
 
-- **Provider** is the entity that creates or is responsible for the update, often a company name.
+- **Provider** is the entity that creates or is responsible for the update. **Provider** is often a company name.
 - **Name** is the identifier for an update class. **Name** is often a device class or model name.
 - **Version** is a number that distinguishes this update from others with the same provider and name.
 
