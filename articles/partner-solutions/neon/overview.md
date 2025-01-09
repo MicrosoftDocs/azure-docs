@@ -3,8 +3,6 @@ title: What is Neon Serverless Postgres (Preview)?
 description: Learn about Neon Serverless Postgres (Preview), a cloud-native Postgres solution designed for modern applications, in Azure Marketplace.
 author: ProfessorKendrick
 ms.topic: overview
-ms.custom:
-
 ms.date: 12/02/2024
 ---
 
