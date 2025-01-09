@@ -139,7 +139,7 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
 
 4. After you successfully set up your staging certificate, you can switch to a production ACME server:
 
-    1. Replace the staging annotation on your ingress resource with `certmanager.k8s.io/cluster-issuer: letsencrypt-prod`.
+    1. Replace the staging annotation on your ingress resource with `cert-manager.io/cluster-issuer: letsencrypt-prod`.
     1. Delete the existing staging `ClusterIssuer` resource that you created earlier. Create a new staging resource by replacing the ACME server from the previous `ClusterIssuer` YAML with `https://acme-v02.api.letsencrypt.org/directory`.
 
 Before the Let's Encrypt certificate expires, `cert-manager` automatically updates the certificate in the Kubernetes secret store. At that point, the Application Gateway Ingress Controller applies the updated secret referenced in the ingress resources that it's using to configure Application Gateway.
