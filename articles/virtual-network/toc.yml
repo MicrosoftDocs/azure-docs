@@ -218,7 +218,7 @@
       items:
       - name: Accelerated Networking overview
         href: accelerated-networking-overview.md
-      - name: Create a virutal machine with accelerated networking
+      - name: Create a virtual machine with accelerated networking
         href: create-virtual-machine-accelerated-networking.md
       - name: Manage accelerated networking
         href: manage-accelerated-networking.md

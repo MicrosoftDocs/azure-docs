@@ -86,7 +86,7 @@ AI can help app developers across every step of the development lifecycle: desig
 
 ## Frequently asked questions
 
-### Set up Call Diagnostics
+### How do I set up Call Diagnostics?
 
 Follow instructions to add diagnostic settings for your resource in [Enable logs via Diagnostic Settings in Azure Monitor](../analytics/enable-logging.md). We recommend that you initially collect all logs. After you understand the capabilities in Azure Monitor, determine which logs you want to retain and for how long. When you add diagnostic setting, you're prompted to [select logs](../analytics/enable-logging.md#adding-a-diagnostic-setting). To collect all logs, select **allLogs**.
 
@@ -96,7 +96,7 @@ If you have multiple Azure Communications Services resource IDs, you must enable
 
 Participants who join from other Azure Communication Services resources have limited information in Call Diagnostics. The participants who belong to the resource when you open Call Diagnostics have all available insights shown.
 
-### What are the common call problems  and how to fix them
+### What are the common call problems  and how to fix them?
 
 Resources for common call problems:
 
@@ -112,26 +112,26 @@ Resources for common call problems:
 
 - If call participants have video problems (for example, their video looks fuzzy or cuts in and out), see [Overview of video issues](../../resources/troubleshooting/voice-video-calling/video-issues/overview.md).
 
-### Use Copilot in Azure (preview) in Call Diagnostics
+### How do I enable Copilot in Azure (preview) in Call Diagnostics
 
 Your organization manages access to [Microsoft Copilot in Azure (preview)](/azure/copilot/overview). After your organization has access to Copilot in Azure, the Call Diagnostics interface includes the **Diagnose with Copilot** option in the search area, on the **Overview** tab, and on the **Issues** tab.
 
 Use Copilot in Azure for Call Diagnostics to improve call quality by detailing problems faced during Azure Communication Services calls. Giving Copilot in Azure detailed information from Call Diagnostics helps Copilot enhance analysis, identify problems, and identify fixes. Copilot in Azure currently lacks programmatic access to your call details.
 
-### Use `DiagnosticOptions` to view tagged calls in Call Diagnostics
+### How can I use `DiagnosticOptions` to view tagged calls in Call Diagnostics
 
 You can use your tags from `DiagnosticOptions` in three places on the Call Diagnostics interface:
 
-* Calls search:
+* Main **calls search** page: You can search, apply a filter, and view by specific `DiagnosticOptions` attributes.
    :::image type="content" source="./media/ui-hint-call-search.png" alt-text="Screenshot of the Call Diagnostics Search view that shows the DiagnosticOptions column."  lightbox="./media/ui-hint-call-search.png":::
 
-* Participants table in **Call Overview** section:
+* Participants table in **Call Overview** section: You can view and sort by `DiagnosticOptions`
    :::image type="content" source="./media/ui-hint-participants-table.png" alt-text="Screenshot of the Call Diagnostics Call Overview section that shows the DiagnosticOptions column."  lightbox="./media/ui-hint-participants-table.png":::
 
-* Timeline section in the **Participants information** side panel:
+* **Timeline section**:  You can search by a specific `DiagnosticOptions` attribute and view the `DiagnosticOptions` in the participants information side panel
    :::image type="content" source="./media/ui-hint-timeline.png" alt-text="Screenshot of the Call Diagnostics timeline section that shows the DiagnosticOptions values when exploring a participants side pane details."  lightbox="./media/ui-hint-timeline.png":::
 
-### View `DiagnosticOptions` information column in the tables
+#### View `DiagnosticOptions` information column in the tables
 
 If you can't see the `DiagnosticOptions` information column in the tables, here's how to view the information:
 
@@ -145,7 +145,7 @@ After clicking the **Edit Columns** button, choose the **DiagnosticOptions** opt
 
 You can now see the `DiagnosticOptions` column.
 
-### More information about adding tags for your Calls in Call Diagnostics
+#### More information about adding tags for your Calls in Call Diagnostics
 
 For more information about adding `DiagnosticOptions` tags, see [Add custom tags to your client telemetry](../../tutorials/voice-video-calling/diagnostic-options-tag.md).
 
