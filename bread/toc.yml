@@ -262,39 +262,42 @@ items:
     tocHref: /azure/partner-solutions/
     topicHref: /azure/partner-solutions/
     items:
-    - name: Apache Kafka & Apache Flink on Confluent Cloud
+    - name: Astro
+      tocHref: /azure/partner-solutions/astronomer/
+      topicHref: /azure/partner-solutions/astronomer/index
+    - name: Confluent
       tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
       topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/overview
     - name: Datadog
       tocHref: /azure/partner-solutions/datadog/
       topicHref: /azure/partner-solutions/datadog/overview
-    - name: Elastic
-      tocHref: /azure/partner-solutions/elastic/
-      topicHref: /azure/partner-solutions/elastic/overview
-    - name: Logz.io
-      tocHref: /azure/partner-solutions/logzio/
-      topicHref: /azure/partner-solutions/logzio/overview
     - name: Dynatrace
       tocHref: /azure/partner-solutions/dynatrace/
       topicHref: /azure/partner-solutions/dynatrace/dynatrace-overview
-    - name: NGINX
-      tocHref: /azure/partner-solutions/nginx/
-      topicHref: /azure/partner-solutions/nginx/nginx-overview
-    - name: Qumulo
-      tocHref: /azure/partner-solutions/qumulo/
-      topicHref: /azure/partner-solutions/qumulo/qumulo-overview
+    - name: Elastic
+      tocHref: /azure/partner-solutions/elastic/
+      topicHref: /azure/partner-solutions/elastic/overview
+    - name: Informatica
+      tocHref: /azure/partner-solutions/informatica/
+      topicHref: /azure/partner-solutions/informatica/index
+    - name: Logz.io
+      tocHref: /azure/partner-solutions/logzio/
+      topicHref: /azure/partner-solutions/logzio/overview
+    - name: Neon 
+      tocHref: /azure/partner-solutions/neon/
+      topicHref: /azure/partner-solutions/neon/overview
     - name: New Relic
       tocHref: /azure/partner-solutions/new-relic/
       topicHref: /azure/partner-solutions/new-relic/new-relic-overview
+    - name: NGINX
+      tocHref: /azure/partner-solutions/nginx/
+      topicHref: /azure/partner-solutions/nginx/nginx-overview
     - name: Palo Alto Networks
       tocHref: /azure/partner-solutions/palo-alto/
       topicHref: /azure/partner-solutions/palo-alto/palo-alto-overview
-    - name: Apache Airflow on Astro
-      tocHref: /azure/partner-solutions/astronomer/
-      topicHref: /azure/partner-solutions/astronomer/index
-    - name: Informatica Intelligent Data Management Cloud
-      tocHref: /azure/partner-solutions/informatica/
-      topicHref: /azure/partner-solutions/informatica/index
+    - name: Qumulo
+      tocHref: /azure/partner-solutions/qumulo/
+      topicHref: /azure/partner-solutions/qumulo/qumulo-overview
   - name: SignalR Service
     tocHref: /azure/azure-signalr/
     topicHref: /azure/azure-signalr/

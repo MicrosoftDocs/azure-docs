@@ -137,7 +137,7 @@ Following is the list of supported images and no other marketplace images releas
 || cis-ubuntu| cis-ubuntu1804-l1 </br> cis-ubuntulinux2004-l1-gen1 </br> cis-ubuntulinux2204-l1-gen*||
 || cis-ubuntu-linux-1804-l1| cis-ubuntu1804-l1||
 || cis-ubuntu-linux-2004-l1| cis-ubuntu2004-l1||
-|| cis-ubuntu-linux-2204-l1| cis-ubuntu-linux-2204-l1 </br> -ubuntu-linux-2204-l1-gen2||
+|| cis-ubuntu-linux-2204-l1| cis-ubuntu-linux-2204-l1 </br> cis-ubuntu-linux-2204-l1-gen2||
 || cis-rhel-8-l*| cis-rhel8-l*||
 || cis-rhel9-l1| cis-rhel9-l1*||
 | canonical| *| *||
