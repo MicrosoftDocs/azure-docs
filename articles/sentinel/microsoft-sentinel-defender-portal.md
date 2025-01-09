@@ -72,9 +72,9 @@ When you onboard Microsoft Sentinel to the Defender portal without Defender XDR 
 
 | Capability | Service required |
 | ---------- | ---------------- |
-| Exposure management      |   [Microsoft Security Exposure Management](/security-exposure-management/)      |
-| Custom detection rules   |  [Microsoft Defender XDR](/defender-xdr/microsoft-365-defender)       |
-| Action center  |   [Microsoft Defender XDR](/defender-xdr/microsoft-365-defender)           |
+| Exposure management    | [Microsoft Security Exposure Management](/security-exposure-management/) |
+| Custom detection rules | [Microsoft Defender XDR](/defender-xdr/microsoft-365-defender)           |
+| Action center          | [Microsoft Defender XDR](/defender-xdr/microsoft-365-defender)           |
 
 The following limitations also apply to Microsoft Sentinel in Defender portal without Defender XDR or other services enabled:
 
