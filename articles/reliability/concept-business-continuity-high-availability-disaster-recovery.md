@@ -4,7 +4,7 @@ description: Understand business continuity, high availability, and disaster rec
 author: anaharris-ms
 ms.service: azure
 ms.topic: conceptual
-ms.date: 01/08/2025
+ms.date: 01/09/2025
 ms.author: anaharris
 ms.custom: subject-reliability
 ms.subservice: azure-reliability
@@ -24,9 +24,9 @@ Planning for business continuity requires identifying, understanding, classifyin
 
 ## Business continuity
 
-Software solutions are often tied directly to the success of a business. If a system is unavailable or experiences a serious problem there might be severe consequences, such as:
+Software solutions are often tied directly to business operations. If a system is unavailable or experiences a serious problem there might be severe consequences, such as:
 
-- Loss of business income, in whole or in part.
+- Loss of business income.
 - The inability to provide an important service to users.
 - Breach of a commitment that's been made to a customer or another party.
 
