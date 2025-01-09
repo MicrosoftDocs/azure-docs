@@ -110,8 +110,8 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
     apiVersion: networking.k8s.io/v1
     kind: Ingress
     metadata:
-    name: guestbook-letsencrypt-staging
-    annotations:
+      name: guestbook-letsencrypt-staging
+      annotations:
         kubernetes.io/ingress.class: azure/application-gateway
         cert-manager.io/cluster-issuer: letsencrypt-staging
     spec:
