@@ -18,9 +18,7 @@ appliesto:
 
 The Microsoft Sentinel Content hub is your centralized location to discover and manage out-of-the-box (built-in) content. There you find packaged solutions for end-to-end products by domain or industry. You have access to the vast number of standalone contributions hosted in our GitHub repository and feature blades.
 
-- Discover solutions and standalone content using AI based search and filtering based on status, content type, support, provider, and category.
-
-- Expand solutions to learn more about the content items that they comprise of, to better understand the value they provide.
+- Discover solutions and standalone content with a consistent set of filtering capabilities based on status, content type, support, provider, and category.
 
 - Install content in your workspace all at once or individually. 
 
@@ -43,28 +41,27 @@ For more information about other roles and permissions supported for Microsoft S
 
 ## Discover content
 
-The content hub offers the best way to find new content or manage the solutions you already installed. Search to find solutions, standalone content items, or content included in solutions. To refine your search, use the filters. For more information, see [Categories for Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions.md#categories-for-microsoft-sentinel-out-of-the-box-content-and-solutions).
-
+The content hub offers the best way to find new content or manage the solutions you already installed. 
 
 1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**.
 
     The **Content hub** page displays a searchable grid or a list of solutions and standalone content.
 
-1. Search for the solutions, standalone content items, or content included in solutions. Use the AI search field or filter by selecting specific values from the filters. Using AI search allows you to perform a fuzzy search and use approximate vocabulary.
+1. Filter the list displayed, either by selecting specific values from the filters, or entering any part of a content name or description in the **Search** field.
 
-1. Select enter to search based on your search string. The number of search results is limited to 50 items, including solutions and content items found within solutions. If you didn't find what you are looking for, refine your search expression or use additional filters.
+    For more information, see [Categories for Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions.md#categories-for-microsoft-sentinel-out-of-the-box-content-and-solutions).
 
-1. Select the solution or content item from the list to view information about it.
+1. Select the **Card view** to view more information about a solution.
 
-    #### [Azure portal](#tab/azure-portal)
+   Each content item shows categories that apply to it, and solutions show the types of content included. For example, in the following image, the **Cisco Umbrella** solution lists one of its categories as **Security - Cloud Security**, and indicates it includes a data connector, analytics rules, hunting queries, playbooks, and more.
+
+
+   #### [Azure portal](#tab/azure-portal)
     :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of the Microsoft Sentinel content hub in the Azure portal.":::
 
    #### [Defender portal](#tab/defender-portal)
    :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list-defender.png" alt-text="Screenshot of the Microsoft Sentinel content hub in the Defender portal.":::
 
-1. Expand a solution in the result set using the arrow on the left side to view the list of content items it includes. The information pane on the left presents detailed information about the content item.
-
-1. To use a content item which is part of a solution, install the solution. Select **install solution** on the information panel of the content item. This action installs the solution that the content item is part of. 
 
 ## Install or update content
 
@@ -226,3 +223,4 @@ In this document, you learned how to find and deploy built-in solutions and stan
 Many solutions include data connectors that you need to configure so that you can start ingesting your data into Microsoft Sentinel. Each data connector has its own set of requirements that are detailed on the data connector page in Microsoft Sentinel. 
 
 For more information, see [Connect your data source](data-connectors-reference.md).
+
