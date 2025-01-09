@@ -3,7 +3,7 @@
 <!-- 由 Microsoft Visio, SVG Export 生成 iot-cloud-architecture.svg Single region AZ Setup -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
 		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="16.6667in" height="9.72222in"
-		viewBox="0 0 1200 700" xml:space="preserve" color-interpolation-filters="sRGB" class="st39">
+		viewBox="0 0 1200 700" xml:space="preserve" color-interpolation-filters="sRGB" class="st40">
 	<v:documentProperties v:langID="2052" v:metric="true" v:viewMarkup="false">
 		<v:userDefs>
 			<v:ud v:nameU="msvSubprocessMaster" v:prompt="" v:val="VT4(Rectangle)"/>
@@ -53,7 +53,8 @@
 		.st36 {stroke:#3c3c41;stroke-dasharray:10.5,7.5;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
 		.st37 {marker-end:url(#mrkr4-195);stroke:#0078d4;stroke-dasharray:10.5,7.5;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
 		.st38 {stroke:#0078d4;stroke-dasharray:10.5,7.5;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
-		.st39 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+		.st39 {fill:#000000;font-family:Segoe UI;font-size:2.50001em;font-weight:bold}
+		.st40 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
 	]]>
 	</style>
 
@@ -122,12 +123,12 @@
 		<v:layer v:name="Flowchart" v:index="0"/>
 		<v:layer v:name="Connector" v:index="1"/>
 		<v:layer v:name="连接线" v:index="2"/>
-		<g id="shape1286-1" v:mID="1286" v:groupContext="shape" transform="translate(0,2.56409)">
+		<g id="shape1286-1" v:mID="1286" v:groupContext="shape">
 			<title>工作表.1286</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(210000):26"/>
 			</v:userDefs>
-			<rect x="0" y="-2.5641" width="1200" height="702.564" class="st1"/>
+			<rect x="0" y="-1.30896E-05" width="1200" height="700" class="st1"/>
 		</g>
 		<g id="shape1165-3" v:mID="1165" v:groupContext="shape" transform="translate(375,-138.171)">
 			<title>圆角矩形.1165</title>
@@ -150,10 +151,10 @@
 				<v:ud v:nameU="BotRightOffset" v:prompt="" v:val="VT0(0.34722221609006):1"/>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(164000):26"/>
 			</v:userDefs>
-			<path d="M25 700 L550 700 A24.9996 24.9996 -180 0 0 575 675 L575 190 A24.9996 24.9996 -180 0 0 550 165 L25 165 A24.9996
-						 24.9996 -180 0 0 -0 190 L0 675 A24.9996 24.9996 -180 0 0 25 700 Z" class="st2"/>
+			<path d="M25 700 L550 700 A24.9996 24.9996 -180 0 0 575 675 L575 233.17 A24.9996 24.9996 -180 0 0 550 208.17 L25 208.17
+						 A24.9996 24.9996 -180 0 0 -0 233.17 L0 675 A24.9996 24.9996 -180 0 0 25 700 Z" class="st2"/>
 		</g>
-		<g id="shape1221-5" v:mID="1221" v:groupContext="shape" transform="translate(565,-454.421)">
+		<g id="shape1221-5" v:mID="1221" v:groupContext="shape" transform="translate(565,-432.5)">
 			<title>圆角矩形.1221</title>
 			<v:userDefs>
 				<v:ud v:nameU="CTypeTopLeftSnip" v:prompt="" v:val="VT0(0):5"/>
@@ -335,7 +336,7 @@
 						 660 L2.31 660 A2.31206 2.31206 -180 0 0 0 662.31 L0 697.69 A2.31206 2.31206 -180 0 0 2.31 700 Z"
 					class="st9"/>
 			<text x="42.82" y="685.4" class="st10" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Bridge</text>		</g>
-		<g id="shape1167-22" v:mID="1167" v:groupContext="shape" transform="translate(573.831,-529.421)">
+		<g id="shape1167-22" v:mID="1167" v:groupContext="shape" transform="translate(573.831,-507.5)">
 			<title>圆角矩形.1167</title>
 			<desc>Device registry</desc>
 			<v:userDefs>
@@ -363,7 +364,7 @@
 						 660 L2.82 660 A2.81763 2.81763 -180 0 0 0 662.82 L0 697.18 A2.81763 2.81763 -180 0 0 2.82 700 Z"
 					class="st11"/>
 			<text x="25.09" y="685.4" class="st10" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Device registry</text>		</g>
-		<g id="shape1168-25" v:mID="1168" v:groupContext="shape" transform="translate(747.803,-529.421)">
+		<g id="shape1168-25" v:mID="1168" v:groupContext="shape" transform="translate(747.803,-507.5)">
 			<title>圆角矩形.1168</title>
 			<desc>Service APls</desc>
 			<v:userDefs>
@@ -391,7 +392,7 @@
 						 660 L2.82 660 A2.81763 2.81763 -180 0 0 0 662.82 L0 697.18 A2.81763 2.81763 -180 0 0 2.82 700 Z"
 					class="st11"/>
 			<text x="36.32" y="685.4" class="st10" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Service APls</text>		</g>
-		<g id="shape1169-28" v:mID="1169" v:groupContext="shape" transform="translate(545.218,-613.17)">
+		<g id="shape1169-28" v:mID="1169" v:groupContext="shape" transform="translate(587.817,-580)">
 			<title>工作表.1169</title>
 			<desc>loT cloud services</desc>
 			<v:userDefs>
@@ -401,7 +402,7 @@
 			<v:textRect cx="113.419" cy="680" width="226.84" height="40"/>
 			<rect x="0" y="660" width="226.838" height="40" class="st8"/>
 			<text x="13.83" y="687.2" class="st12" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>loT cloud services</text>		</g>
-		<g id="shape1176-31" v:mID="1176" v:groupContext="shape" transform="translate(747.803,-479.42)">
+		<g id="shape1176-31" v:mID="1176" v:groupContext="shape" transform="translate(747.803,-457.5)">
 			<title>圆角矩形.1176</title>
 			<desc>Device updates</desc>
 			<v:userDefs>
@@ -429,7 +430,7 @@
 						 660 L2.82 660 A2.81763 2.81763 -180 0 0 0 662.82 L0 697.18 A2.81763 2.81763 -180 0 0 2.82 700 Z"
 					class="st11"/>
 			<text x="22.92" y="685.4" class="st10" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Device updates</text>		</g>
-		<g id="shape1178-34" v:mID="1178" v:groupContext="shape" transform="translate(573.831,-479.42)">
+		<g id="shape1178-34" v:mID="1178" v:groupContext="shape" transform="translate(573.831,-457.5)">
 			<title>圆角矩形.1178</title>
 			<desc>Device provisioning</desc>
 			<v:userDefs>
@@ -1065,7 +1066,7 @@
 							 L29.09 692.83 a0.6336 0.685797 -180 0 0 -0.7104 -0.685797 Z" class="st16"/>
 			</g>
 		</g>
-		<g id="group1267-137" transform="translate(492.4,-613.17)" v:mID="1267" v:groupContext="group">
+		<g id="group1267-137" transform="translate(550.345,-590)" v:mID="1267" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(198000):26"/>
@@ -1076,10 +1077,10 @@
 				<v:userDefs>
 					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
 				</v:userDefs>
-				<path d="M57.6 687.21 A12.9351 12.9351 -180 0 0 46.37 674.78 A16.3112 16.3112 -180 0 0 29.57 659.18 A16.7316 16.7316
-							 -180 0 0 13.58 670.08 A15.4413 15.4413 -180 0 0 -0 684.96 A15.6709 15.6709 -180 0 0 16.22 700 C16.71
-							 700 17.19 699.98 17.65 699.94 L43.91 699.94 A2.73254 2.73254 -180 0 0 44.61 699.84 A13.0936 13.0936
-							 -180 0 0 57.6 687.21 Z" class="st25"/>
+				<path d="M44.66 690.09 A10.0281 10.0281 -180 0 0 35.95 680.45 A12.6454 12.6454 -180 0 0 22.92 668.35 A12.9713 12.9713
+							 -180 0 0 10.53 676.81 A11.971 11.971 -180 0 0 -0 688.34 A12.149 12.149 -180 0 0 12.58 700 C12.95 700
+							 13.33 699.98 13.68 699.95 L34.05 699.95 A2.11843 2.11843 -180 0 0 34.58 699.87 A10.1509 10.1509 -180
+							 0 0 44.66 690.09 Z" class="st25"/>
 			</g>
 		</g>
 		<g id="shape1270-142" v:mID="1270" v:groupContext="shape" transform="translate(198.462,-348.17)">
@@ -1090,11 +1091,11 @@
 				<v:ud v:nameU="visVersion" v:val="VT0(17):26"/>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(199000):26"/>
 			</v:userDefs>
-			<path d="M196.68 696.8 L196.68 703.2 L203.08 700 L196.68 696.8 Z" class="st26"/>
-			<path d="M196.68 696.8 L196.68 703.2 L203.08 700 L196.68 696.8" class="st27"/>
-			<path d="M0 700 L196.68 700" class="st27"/>
+			<path d="M204.24 696.8 L204.24 703.2 L210.63 700 L204.24 696.8 Z" class="st26"/>
+			<path d="M204.24 696.8 L204.24 703.2 L210.63 700 L204.24 696.8" class="st27"/>
+			<path d="M0 700 L204.24 700" class="st27"/>
 		</g>
-		<g id="shape1271-146" v:mID="1271" v:groupContext="shape" transform="translate(1170,171.83) rotate(90)">
+		<g id="shape1271-146" v:mID="1271" v:groupContext="shape" transform="translate(1171.4,170.579) rotate(90)">
 			<title>直线箭头.1271</title>
 			<v:userDefs>
 				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
@@ -1102,9 +1103,9 @@
 				<v:ud v:nameU="visVersion" v:val="VT0(17):26"/>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(200000):26"/>
 			</v:userDefs>
-			<path d="M110.53 696.8 L110.53 703.2 L116.92 700 L110.53 696.8 Z" class="st26"/>
-			<path d="M110.53 696.8 L110.53 703.2 L116.92 700 L110.53 696.8" class="st27"/>
-			<path d="M0 700 L110.53 700" class="st27"/>
+			<path d="M106.03 696.8 L106.03 703.2 L112.42 700 L106.03 696.8 Z" class="st26"/>
+			<path d="M106.03 696.8 L106.03 703.2 L112.42 700 L106.03 696.8" class="st27"/>
+			<path d="M0 700 L106.03 700" class="st27"/>
 		</g>
 		<g id="shape1272-150" v:mID="1272" v:groupContext="shape" transform="translate(198.462,-184.17)">
 			<title>直线箭头.1272</title>
@@ -1114,9 +1115,9 @@
 				<v:ud v:nameU="visVersion" v:val="VT0(17):26"/>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(201000):26"/>
 			</v:userDefs>
-			<path d="M196.68 696.8 L196.68 703.2 L203.08 700 L196.68 696.8 Z" class="st28"/>
-			<path d="M196.68 696.8 L196.68 703.2 L203.08 700 L196.68 696.8" class="st29"/>
-			<path d="M7.68 700 L8.04 700 L196.68 700" class="st30"/>
+			<path d="M206.15 696.8 L206.15 703.2 L212.54 700 L206.15 696.8 Z" class="st28"/>
+			<path d="M206.15 696.8 L206.15 703.2 L212.54 700 L206.15 696.8" class="st29"/>
+			<path d="M7.68 700 L8.04 700 L206.15 700" class="st30"/>
 		</g>
 		<g id="group1273-157" transform="translate(496.046,-338.17)" v:mID="1273" v:groupContext="group">
 			<v:userDefs>
@@ -1173,7 +1174,7 @@
 				</g>
 			</g>
 		</g>
-		<g id="shape1274-171" v:mID="1274" v:groupContext="shape" transform="translate(931.111,-188.17)">
+		<g id="shape1274-171" v:mID="1274" v:groupContext="shape" transform="translate(930,-188.17) rotate(5.70701E-06)">
 			<title>直线箭头.1274</title>
 			<v:userDefs>
 				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
@@ -1181,11 +1182,11 @@
 				<v:ud v:nameU="visVersion" v:val="VT0(17):26"/>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(203000):26"/>
 			</v:userDefs>
-			<path d="M34.16 696.8 L34.16 703.2 L40.56 700 L34.16 696.8 Z" class="st28"/>
-			<path d="M34.16 696.8 L34.16 703.2 L40.56 700 L34.16 696.8" class="st29"/>
-			<path d="M7.68 700 L8.04 700 L34.16 700" class="st30"/>
+			<path d="M35.27 696.8 L35.27 703.2 L41.67 700 L35.27 696.8 Z" class="st28"/>
+			<path d="M35.27 696.8 L35.27 703.2 L41.67 700 L35.27 696.8" class="st29"/>
+			<path d="M7.68 700 L8.04 700 L35.27 700" class="st30"/>
 		</g>
-		<g id="shape1275-177" v:mID="1275" v:groupContext="shape" transform="translate(935.294,-318.17)">
+		<g id="shape1275-177" v:mID="1275" v:groupContext="shape" transform="translate(937.727,-318.17)">
 			<title>直线箭头.1275</title>
 			<v:userDefs>
 				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
@@ -1193,9 +1194,9 @@
 				<v:ud v:nameU="visVersion" v:val="VT0(17):26"/>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(204000):26"/>
 			</v:userDefs>
-			<path d="M36.39 696.8 L36.39 703.2 L42.78 700 L36.39 696.8 Z" class="st26"/>
-			<path d="M36.39 696.8 L36.39 703.2 L42.78 700 L36.39 696.8" class="st27"/>
-			<path d="M0 700 L36.39 700" class="st27"/>
+			<path d="M33.96 696.8 L33.96 703.2 L40.35 700 L33.96 696.8 Z" class="st26"/>
+			<path d="M33.96 696.8 L33.96 703.2 L40.35 700 L33.96 696.8" class="st27"/>
+			<path d="M0 700 L33.96 700" class="st27"/>
 		</g>
 		<g id="shape1279-181" v:mID="1279" v:groupContext="shape" v:layerMember="1" transform="translate(293.987,-321.921)">
 			<title>Dynamic connector.1279</title>
@@ -1233,20 +1234,20 @@
 				<v:ud v:nameU="Joint8_9Pcnt" v:prompt="" v:val="VT0(1):26"/>
 				<v:ud v:nameU="Joint8_9Angle" v:prompt="" v:val="VT0(1.8782010663765):32"/>
 				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
-				<v:ud v:nameU="LastAngle" v:prompt="" v:val="VT0(2.2271806927383):32"/>
+				<v:ud v:nameU="LastAngle" v:prompt="" v:val="VT0(2.2271806927382):32"/>
 				<v:ud v:nameU="CtrlAngle" v:prompt="" v:val="VT0(-1.6301994244252):32"/>
 				<v:ud v:nameU="ArrowFeatherAngle" v:prompt="" v:val="VT0(12.367746117081):32"/>
 				<v:ud v:nameU="ArrowFeatherDist" v:prompt="" v:val="VT0(0.19719822084297):24"/>
-				<v:ud v:nameU="Joint1_2Pcnt" v:prompt="" v:val="VT0(0.4576484338168):26"/>
+				<v:ud v:nameU="Joint1_2Pcnt" v:prompt="" v:val="VT0(0.45764843381681):26"/>
 				<v:ud v:nameU="Joint1_2Angle" v:prompt="" v:val="VT0(1.4501268289442):32"/>
-				<v:ud v:nameU="Joint2_3Pcnt" v:prompt="" v:val="VT0(0.85244957314907):26"/>
+				<v:ud v:nameU="Joint2_3Pcnt" v:prompt="" v:val="VT0(0.85244957314908):26"/>
 				<v:ud v:nameU="Joint2_3Angle" v:prompt="" v:val="VT0(3.0129379516898):32"/>
-				<v:ud v:nameU="Joint3_4Angle" v:prompt="" v:val="VT0(3.7979770195332):32"/>
-				<v:ud v:nameU="Joint4_5Angle" v:prompt="" v:val="VT0(3.7979770195332):32"/>
-				<v:ud v:nameU="Joint5_6Angle" v:prompt="" v:val="VT0(3.7979770195332):32"/>
-				<v:ud v:nameU="Joint6_7Angle" v:prompt="" v:val="VT0(3.7979770195332):32"/>
-				<v:ud v:nameU="Joint7_8Angle" v:prompt="" v:val="VT0(3.7979770195332):32"/>
-				<v:ud v:nameU="Joint8_9Angle" v:prompt="" v:val="VT0(3.7979770195332):32"/>
+				<v:ud v:nameU="Joint3_4Angle" v:prompt="" v:val="VT0(3.7979770195331):32"/>
+				<v:ud v:nameU="Joint4_5Angle" v:prompt="" v:val="VT0(3.7979770195331):32"/>
+				<v:ud v:nameU="Joint5_6Angle" v:prompt="" v:val="VT0(3.7979770195331):32"/>
+				<v:ud v:nameU="Joint6_7Angle" v:prompt="" v:val="VT0(3.7979770195331):32"/>
+				<v:ud v:nameU="Joint7_8Angle" v:prompt="" v:val="VT0(3.7979770195331):32"/>
+				<v:ud v:nameU="Joint8_9Angle" v:prompt="" v:val="VT0(3.7979770195331):32"/>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(206000):26"/>
 			</v:userDefs>
 			<path d="M0 700 L23.67 729.73 L49.62 709.71 L42.15 700" class="st36"/>
@@ -1291,16 +1292,16 @@
 				<v:ud v:nameU="CtrlAngle" v:prompt="" v:val="VT0(-1.6164396288709):32"/>
 				<v:ud v:nameU="ArrowFeatherAngle" v:prompt="" v:val="VT0(3.7416663926219):32"/>
 				<v:ud v:nameU="ArrowFeatherDist" v:prompt="" v:val="VT0(0.19705562214253):24"/>
-				<v:ud v:nameU="Joint1_2Pcnt" v:prompt="" v:val="VT0(0.43142033224427):26"/>
-				<v:ud v:nameU="Joint1_2Angle" v:prompt="" v:val="VT0(1.8495468064908):32"/>
+				<v:ud v:nameU="Joint1_2Pcnt" v:prompt="" v:val="VT0(0.43142033224428):26"/>
+				<v:ud v:nameU="Joint1_2Angle" v:prompt="" v:val="VT0(1.8495468064907):32"/>
 				<v:ud v:nameU="Joint2_3Pcnt" v:prompt="" v:val="VT0(0.73860169437969):26"/>
-				<v:ud v:nameU="Joint2_3Angle" v:prompt="" v:val="VT0(0.27969192334873):32"/>
-				<v:ud v:nameU="Joint3_4Angle" v:prompt="" v:val="VT0(-0.50818294491944):32"/>
-				<v:ud v:nameU="Joint4_5Angle" v:prompt="" v:val="VT0(-0.50818294491944):32"/>
-				<v:ud v:nameU="Joint5_6Angle" v:prompt="" v:val="VT0(-0.50818294491944):32"/>
-				<v:ud v:nameU="Joint6_7Angle" v:prompt="" v:val="VT0(-0.50818294491944):32"/>
-				<v:ud v:nameU="Joint7_8Angle" v:prompt="" v:val="VT0(-0.50818294491944):32"/>
-				<v:ud v:nameU="Joint8_9Angle" v:prompt="" v:val="VT0(-0.50818294491944):32"/>
+				<v:ud v:nameU="Joint2_3Angle" v:prompt="" v:val="VT0(0.27969192334874):32"/>
+				<v:ud v:nameU="Joint3_4Angle" v:prompt="" v:val="VT0(-0.50818294491941):32"/>
+				<v:ud v:nameU="Joint4_5Angle" v:prompt="" v:val="VT0(-0.50818294491941):32"/>
+				<v:ud v:nameU="Joint5_6Angle" v:prompt="" v:val="VT0(-0.50818294491941):32"/>
+				<v:ud v:nameU="Joint6_7Angle" v:prompt="" v:val="VT0(-0.50818294491941):32"/>
+				<v:ud v:nameU="Joint7_8Angle" v:prompt="" v:val="VT0(-0.50818294491941):32"/>
+				<v:ud v:nameU="Joint8_9Angle" v:prompt="" v:val="VT0(-0.50818294491941):32"/>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(208000):26"/>
 			</v:userDefs>
 			<path d="M0 700 L19.34 665.43 L44.05 679.03 L32.37 700" class="st38"/>
@@ -1312,5 +1313,15 @@
 			</v:userDefs>
 			<path d="M-1.9 687.5 L-15.06 687.5" class="st37"/>
 		</g>
+		<g id="shape1287-204" v:mID="1287" v:groupContext="shape" transform="translate(443.291,-640)">
+			<title>工作表.1287</title>
+			<desc>Cloud-based solution</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(211000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="156.709" cy="680" width="313.42" height="40"/>
+			<rect x="0" y="660" width="313.419" height="40" class="st8"/>
+			<text x="6.53" y="689" class="st39" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Cloud-based solution</text>		</g>
 	</g>
 </svg>
