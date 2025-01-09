@@ -105,7 +105,7 @@ The following section describes the steps needed to deploy a Network Virtual App
 * If you see an error message with error code **LinkeAuthorizationFailed**,  the user-assigned identity supplied as part of the Managed Application deployment didn't have the proper permissions assigned. The exact permissions that are missing are described in the error message. In the following example, double-check that the user-assigned managed identity has READ permissions over the Virtual WAN hub you're trying to deploy the NVA into.
 
 ```
-The client <> with object id <> has permission to perform action 'Microsoft.Network/networkVirtualAppliances/write' on scope '/subscriptions/<>/resourceGroups/mrg-<>; however, it doesn't have permission to perform action(s) 'Microsoft.Network/virtualHubs/read on the linked scope(s) '/subscriptions/<>/resourceGroups/<>/providers/Microsoft.Network/virtualHubs/<> (respectively) or the linked scope(s) are invalid."
+The client with object id '<>>' does not have authorization to perform action 'Microsoft.Network/virtualHubs/read' over scope '/subscriptions/<>/resourceGroups/<>/providers/Microsoft.Network/virtualHubs/<>' or the scope is invalid. If access was recently granted, please refresh your credentials
 ```
                              
 ## Next steps
