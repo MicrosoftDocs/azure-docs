@@ -1348,6 +1348,8 @@ items:
       href: https://azure.github.io/azure-sdk-for-android/azure-communication-calling/index.html
     - name: Calling (iOS)
       href: /objectivec/communication-services/calling/
+    - name: Calling (.NET)
+      href: /dotnet/api/azure-communication-services/calling/
   - name: Call Automation
     items:
     - name: Call Automation (JavaScript)
