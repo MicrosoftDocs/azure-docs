@@ -1,0 +1,129 @@
+---
+title: Schedule and broadcast jobs (Python)
+titleSuffix: Azure IoT Hub
+description: How to use the Azure IoT SDK for Python to create backend service application code for job scheduling.
+author: kgremban
+ms.author: kgremban
+ms.service: azure-iot-hub
+ms.devlang: python
+ms.topic: include
+ms.date: 1/7/2025
+ms.custom: mqtt, devx-track-python, py-fresh-zinc
+---
+
+## Overview
+
+This article describes how to use the [Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python) to create backend service application code for job scheduling.
+
+## Install package
+
+The **azure-iot-hub** library must be installed to create backend service applications.
+
+```cmd/sh
+pip install azure-iot-hub
+```
+
+### Import statements
+
+The [IoTHubJobManager](/python/api/azure-iot-hub/azure.iot.hub.iothubjobmanager) class exposes all methods required to create a backend application to schedule jobs from the service.
+
+Add the following `import` statements.
+
+```python
+from azure.iot.hub import IoTHubJobManager
+from azure.iot.hub.models import JobProperties, JobRequest, Twin, TwinProperties, CloudToDeviceMethod
+```
+
+### Connect to IoT hub
+
+You can connect a backend service to IoT Hub using the following methods:
+
+* Shared access policy
+* Microsoft Entra
+
+[!INCLUDE [iot-authentication-service-connection-string.md](iot-authentication-service-connection-string.md)]
+
+#### Connect using a shared access policy
+
+Connect to IoT hub using [from_connection_string](/python/api/azure-iot-hub/azure.iot.hub.iothubjobmanager?#azure-iot-hub-iothubjobmanager-from-connection-string).
+
+In this article, you create a back-end service that schedules a job to invoke a direct method on a device, schedules a job to update the device twin, and monitors the progress of each job. To perform these operations, your service needs the **registry read** and **registry write permissions**. By default, every IoT hub is created with a shared access policy named **registryReadWrite** that grants these permissions.
+
+For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
+
+For example:
+
+```python
+IoTHubConnectionString = "{Shared access policy connection string}"
+iothub_job_manager = IoTHubJobManager.from_connection_string(IoTHubConnectionString)
+```
+
+#### Connect using Microsoft Entra
+
+[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-python](iot-hub-howto-connect-service-iothub-entra-dotnet.md)]
+
+### Create a device method update job
+
+Use [create_scheduled_job](/python/api/azure-iot-hub/azure.iot.hub.iothubjobmanager?#azure-iot-hub-iothubjobmanager-create-scheduled-job) to create a new device method to run a device method on one or multiple devices.
+
+This example schedules a device method call job for a specific job Id.
+
+```python
+def device_method_job(job_id, device_id, execution_time):
+    print ( "" )
+    print ( "Scheduling job: " + str(job_id) )
+
+    job_request = JobRequest()
+    job_request.job_id = job_id
+    job_request.type = "scheduleDeviceMethod"
+    job_request.start_time = datetime.datetime.utcnow().isoformat()
+    job_request.cloud_to_device_method = CloudToDeviceMethod(method_name=METHOD_NAME, payload=METHOD_PAYLOAD)
+    job_request.max_execution_time_in_seconds = execution_time
+    job_request.query_condition = "DeviceId in ['{}']".format(device_id)
+
+    new_job_response = iothub_job_manager.create_scheduled_job(job_id, job_request)
+```
+
+### Schedule a device twin update job
+
+Use [create_scheduled_job](/python/api/azure-iot-hub/azure.iot.hub.iothubjobmanager?#azure-iot-hub-iothubjobmanager-create-scheduled-job) to create a new job to run a device twin update on one or multiple devices.
+
+This example schedules a device twin update job for a specific job Id.
+
+```python
+def device_twin_job(job_id, device_id, execution_time):
+    print ( "" )
+    print ( "Scheduling job " + str(job_id) )
+
+    job_request = JobRequest()
+    job_request.job_id = job_id
+    job_request.type = "scheduleUpdateTwin"
+    job_request.start_time = datetime.datetime.utcnow().isoformat()
+    job_request.update_twin = Twin(etag="*", properties=TwinProperties(desired=UPDATE_PATCH))
+    job_request.max_execution_time_in_seconds = execution_time
+    job_request.query_condition = "DeviceId in ['{}']".format(device_id)
+
+    new_job_response = iothub_job_manager.create_scheduled_job(job_id, job_request)
+```
+
+### Monitor a job
+
+Use [get_scheduled_job](/python/api/azure-iot-hub/azure.iot.hub.iothubjobmanager?#azure-iot-hub-iothubjobmanager-get-scheduled-job) to retrieves the details of a scheduled job on an IoT Hub.
+
+For example:
+
+```python
+while True:
+    get_job_response = iothub_job_manager.get_scheduled_job(job_request.job_id)
+    print_job_response("Get job response: ", get_job_response)
+    if get_job_response.status == "completed":
+        break
+    time.sleep(5)
+```
+
+### SDK schedule job examples
+
+The Azure IoT SDK for Python provides working samples of service apps that handles job scheduling tasks. For more information, see:
+
+* [Invoke a device method](https://github.com/Azure/azure-iot-hub-python/blob/8c8f315e8b26c65c5517541a7838a20ef8ae668b/samples/iothub_job_manager_method_sample.py)
+* [Update a device twin](https://github.com/Azure/azure-iot-hub-python/blob/8c8f315e8b26c65c5517541a7838a20ef8ae668b/samples/iothub_job_manager_twin_update_sample.py)
