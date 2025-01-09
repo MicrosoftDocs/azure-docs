@@ -127,7 +127,10 @@ To achieve high availability, a workload may include many design elements.
 
 #### Azure services and tiers that support high availability
 
-Many Azure services are designed to be highly available, such as Azure Virtual Machine Scale Sets, Azure App Service, and Azure SQL Database. These services natively provide the capability of high availability and can be used to build highly available workloads.
+Many Azure services are designed to be highly available, and can be used to build highly available workloads. Here are some examples:
+
+- Azure Virtual Machine Scale Sets provide high availability for virtual machines (VMs) by automatically creating and managing VM instances, and distributing those VM instances to reduce the likelihood of failures. <!-- TODO confirm that -->
+- Azure App Service provides high availability through a variety of approaches, including automatically moving workers from an unhealthy node to a healthy node, and by providing capabilities for self-healing from many common fault types.
 
 To understand the capabilities of each Azure service, see its [reliability guide](./overview-reliability-guidance.md). You can then decide which tiers to use, and which capabilities to include in your high availability strategy.
     
@@ -135,9 +138,11 @@ Review the service level agreements (SLAs) for each service to understand the ex
 
 #### Redundancy
 
-Redundancy is the practice of duplicating instances or data to increase the reliability of the workload. For example, a web application might use multiple instances of a web server to ensure that the application remains available even if one instance fails. A database may have multiple replicas to ensure that the data remains available even if one replica fails.
- 
-Often you can choose to distribute those replicas or redundant instances around a datacenter (*local redundancy*), between availability zones within a region (*zone redundancy*), or even across regions (*geo-redundancy*).
+Redundancy is the practice of duplicating instances or data to increase the reliability of the workload. Often you can choose to distribute those replicas or redundant instances around a datacenter (*local redundancy*), between availability zones within a region (*zone redundancy*), or even across regions (*geo-redundancy*). Here are some examples:
+
+- Azure App Service enables you to run multiple instances of your application, to ensure that the application remains available even if one instance fails. If you enable zone redundancy, those instances are spread across multiple availability zones in the Azure region you use.
+- Azure Storage provides high availability by automatically replicating data at least three times. You can distribute those replicas across availability zones by enabling zone-redundant storage (ZRS), and in many regions you can also replicate your storage data across regions by using geo-redundant storage (GRS).
+- Azure SQL Database has multiple replicas to ensure that the data remains available even if one replica fails.
 
 To learn more about redundancy, see [Recommendations for designing for redundancy](/azure/well-architected/reliability/redundancy) and [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones).
  
@@ -145,25 +150,41 @@ To learn more about redundancy, see [Recommendations for designing for redundanc
 
 Fault tolerance is the ability of a system to continue operating, in some defined capacity, in the event of a failure. For example, a web application might be designed to continue operating even if a single web server fails. Fault tolerance can be achieved through redundancy, failover, partitioning, graceful degradation, and other techniques.
 
-Fault tolerance also requires that your applications handle transient faults. To learn more, see [Recommendations for handling transient faults](/azure/well-architected/reliability/handle-transient-faults).
+Fault tolerance also requires that your applications handle transient faults. When you build your own code, you might need to enable transient fault handling yourself. Some Azure services provide built-in transient fault handling for some situations. For example, by defau;t Azure Logic Apps automatically retries failed requests to other services. To learn more, see [Recommendations for handling transient faults](/azure/well-architected/reliability/handle-transient-faults).
  
 #### Scalability and elasticity
 
-Scalability and elasticity are the abilities of a system to handle increased load by adding resources as they're required. For example, a web application might be designed to automatically add more web servers as traffic increases. Scalability and elasticity can help a system maintain availability during peak loads.
- 
-Scalability is a key factor to consider during partial or complete malfunction. If a replica or compute instance is unavailable, the remaining components might need to bear more load to handle the load that was previously being handled by the faulted node.
+Scalability and elasticity are the abilities of a system to handle increased load by adding and removing resources (scalability), and to do so quickly as your requirements change (elasticity). Scalability and elasticity can help a system maintain availability during peak loads.
 
-Consider *overprovisioning* if your system cannot scale quick enough to handle your expected changes in load. For more information on how to design a scalable and elastic system, see [Recommendations for designing a reliable scaling strategy](/azure/well-architected/reliability/scaling).
+Many Azure services support scalability. Here are some examples:
+
+- Azure virtual machine scale sets, Azure API Management, and several other services support Azure Monitor autoscale, which enables you to specify policies like "when my CPU consistently goes above 80%, add another instance".
+- Azure Functions can dynamically provision instances to serve your requests.
+- Azure Cosmos DB supports autoscale throughput, where the service can automatically manage the resources assigned to your databases based on policies you specify.
+
+Scalability is a key factor to consider during partial or complete malfunction. If a replica or compute instance is unavailable, the remaining components might need to bear more load to handle the load that was previously being handled by the faulted node. Consider *overprovisioning* if your system cannot scale quick enough to handle your expected changes in load.
+
+For more information on how to design a scalable and elastic system, see [Recommendations for designing a reliable scaling strategy](/azure/well-architected/reliability/scaling).
 
 #### Zero-downtime deployment techniques
 
 Zero-downtime deployments enable you to deploy updates and make configuration changes without requiring downtime. Deployments and other changes introduce significant risk of downtime. Achieving high availability requires that you deploy in a controlled way, such as by updating a subset of your resources at a time, controlling the amount of traffic that reaches the new deployment, monitoring for any impact to your users, and rapidly remediating the issue or rolling back to a previous known-good deployment. To learn more about zero-downtime deployment techniques, see [Safe deployment practices](/devops/operate/safe-deployment-practices).
 
+Azure itself uses zero-downtime deployment approaches for our own services. When you build your own applications, you can adopt zero-downtime deployments through a variety of approaches, such as:
+
+- Azure Container Apps provides multiple revisions of your application, which can be used to achieve zero-downtime deployments.
+- Azure Kubernetes Service (AKS) supports a variety of zero-downtime deployment techniques.
+- Azure Storage enables you to change your access keys in stages, which prevents downtime during key rotation operations.
+
 If you decide not to implement zero-downtime deployments, define *maintenance windows* so you can make system changes at a time your users expect.
 
 #### Monitoring and alerting
 
-Monitoring lets you know the health of your system, even when automated mitigations take place. Use Azure Service Health, Azure Resource Health, and Azure Monitor, as well as Scheduled Events for virtual machines. For more information, see [Recommendations for designing a reliable monitoring and alerting strategy](/azure/well-architected/reliability/monitoring-alerting-strategy).
+Monitoring lets you know the health of your system, even when automated mitigations take place. Monitoring is critical to understand how your solution is behaving, and to watch for early signals of failures like increased error rates or high resource consumption. Alerts enable you to be proactively notified of important changes in your environment.
+
+Use Azure Service Health, Azure Resource Health, and Azure Monitor, as well as Scheduled Events for virtual machines.
+
+For more information, see [Recommendations for designing a reliable monitoring and alerting strategy](/azure/well-architected/reliability/monitoring-alerting-strategy).
 
 ## Disaster recovery
 
