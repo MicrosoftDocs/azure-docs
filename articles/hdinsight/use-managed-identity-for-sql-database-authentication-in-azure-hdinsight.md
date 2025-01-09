@@ -3,13 +3,13 @@ title: Use Managed Identity for SQL Database authentication in Azure HDInsight
 description: Learn how to use managed identity for SQL Database authentication in Azure HDInsight. 
 ms.service: azure-hdinsight 
 ms.topic: how-to 
-ms.date: 12/26/2024 
+ms.date: 01/09/2025 
 ---
 
 # Use Managed Identity for SQL Database authentication in Azure HDInsight 
 
 
-HDInsight has added the Managed Identity option for authenticating SQL databases within its cluster offerings and providing a more secure authentication mechanism. 
+HDInsight added the Managed Identity option for authenticating SQL databases within its cluster offerings and providing a more secure authentication mechanism. 
 
 This article outlines the process of using the Managed Identity (MSI) option for SQL Database authentication when creating a HDInsight cluster. 
 
@@ -24,7 +24,7 @@ The Managed Identity (MI) option is available for the following Databases:
 
 > [!NOTE]
 > 1. Managed Identity (MI) is currently available only in public regions. It will be rolled out to other regions in future releases.
-> 2. MI option is not enabled by default. To get it enabled, submit a [support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) with your subscription and region details.
+> 2. MI option in't enabled by default. To get it enabled, submit a [support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) with your subscription and region details.
 
 
 ## Steps to Use Managed Identity during cluster creation in Azure portal
@@ -60,7 +60,7 @@ Object ID of managed identity can be obtained from portal on the managed identit
     ALTER ROLE db_datawriter ADD MEMBER {user_name};   
     ``` 
     > [!NOTE]  
-    > If the roles `db_executor`, `db_view_def`, and `db_view_state` are already defined in your database, there is no need to proceed with the subsequent step.
+    > If the roles `db_executor`, `db_view_def`, and `db_view_state` are already defined in your database, there's no need to proceed with the subsequent step.
 
     ``` 
     CREATE ROLE db_executor;   

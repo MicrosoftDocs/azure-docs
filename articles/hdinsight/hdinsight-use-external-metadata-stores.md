@@ -29,7 +29,7 @@ By default, HDInsight creates a metastore with every cluster type. You can inste
 
 * Limited resources. See notice at the top of the page.
 
-* No additional cost. HDInsight creates a metastore with every cluster type without any additional cost to you.
+* No more cost. HDInsight creates a metastore with every cluster type without any more cost to you.
 
 * The default metastore is part of the cluster lifecycle. When you delete a cluster, the corresponding metastore and metadata are also deleted.
 
@@ -82,7 +82,7 @@ You can point your cluster to a previously created Azure SQL Database at any tim
 
 * Back up your custom metastore periodically. Azure SQL Database generates backups automatically, but the backup retention timeframe varies. For more information, see [Learn about automatic SQL Database backups](/azure/azure-sql/database/automated-backups-overview).
 
-* Locate your metastore and HDInsight cluster in the same region. This configuration will provide the highest performance and lowest network egress charges.
+* Locate your metastore and HDInsight cluster in the same region. This configuration provides the highest performance and lowest network egress charges.
 
 * Monitor your metastore for performance and availability using Azure SQL Database Monitoring tools, or Azure Monitor logs.
 
@@ -92,13 +92,13 @@ You can point your cluster to a previously created Azure SQL Database at any tim
 
 * In HDInsight 4.0, Spark and Hive use independent catalogs for accessing SparkSQL or Hive tables. A table created by Spark lives in the Spark catalog. A table created by Hive lives in the Hive catalog. This behavior is different than HDInsight 3.6 where Hive and Spark shared common catalog. Hive and Spark Integration in HDInsight 4.0 relies on Hive Warehouse Connector (HWC). HWC works as a bridge between Spark and Hive. [Learn about Hive Warehouse Connector](../hdinsight/interactive-query/apache-hive-warehouse-connector.md).
 
-* In HDInsight 4.0 if you would like to Share the metastore between Hive and Spark, you can do so by changing the property metastore.catalog.default to hive in your Spark cluster. You can find this property in Ambari Advanced spark2-hive-site-override. It’s important to understand that sharing of metastore only works for external hive tables, this will not work if you have internal/managed hive tables or ACID tables.  
+* In HDInsight 4.0 if you would like to Share the metastore between Hive and Spark, you can do so by changing the property metastore.catalog.default to hive in your Spark cluster. You can find this property in Ambari Advanced spark2-hive-site-override. It’s important to understand that sharing of metastore only works for external hive tables, this doesn't  work if you have internal/managed hive tables or ACID tables.  
 
 > [!NOTE]
 > You can use Managed Identity to authenticate with SQL database for Hive. For more information, see [Use Managed Identity for SQL Database authentication in Azure HDInsight](./use-managed-identity-for-sql-database-authentication-in-azure-hdinsight.md)
 
 ## Updating the custom Hive metastore password
-When using a custom Hive metastore database, you have the ability to change the SQL DB password. If you change the password for the custom metastore, the Hive services will not work until you update the password in the HDInsight cluster. 
+When using a custom Hive metastore database, you have the ability to change the SQL DB password. If you change the password for the custom metastore, the Hive services don't work until you update the password in the HDInsight cluster. 
 
 To update the Hive metastore password:
 1. Open the Ambari UI.
@@ -115,7 +115,7 @@ Apache Oozie is a workflow coordination system that manages Hadoop jobs. Oozie s
 For instructions on creating an Oozie metastore with Azure SQL Database, see [Use Apache Oozie for workflows](hdinsight-use-oozie-linux-mac.md).
 
 ## Updating the custom Oozie metastore password
-When using a custom Oozie metastore database, you have the ability to change the SQL DB password. If you change the password for the custom metastore, the Oozie services will not work until you update the password in the HDInsight cluster. 
+When using a custom Oozie metastore database, you have the ability to change the SQL DB password. If you change the password for the custom metastore, the Oozie services don't work until you update the password in the HDInsight cluster. 
 
 To update the Oozie metastore password:
 1. Open the Ambari UI.
