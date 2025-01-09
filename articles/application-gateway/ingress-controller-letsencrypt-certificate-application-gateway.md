@@ -32,7 +32,7 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
     #!/bin/bash
 
     # Install the CustomResourceDefinition resources separately
-    kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.10.1/cert-manager.crds.yaml
+    kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.16.1/cert-manager.crds.yaml
 
     # Create the namespace for cert-manager
     kubectl create namespace cert-manager
@@ -51,7 +51,7 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
     helm install \
       cert-manager jetstack/cert-manager \
       --namespace cert-manager \
-      --version v1.10.1 \
+      --version v1.16.1 \
       # --set installCRDs=true
 
     # To automatically install and manage the CRDs as part of your Helm release,
