@@ -44,9 +44,6 @@ If you're providing Zoom service, you'll need to raise a separate support reques
 
 ## Enter a description of the problem or the change
 
-> [!TIP]
-> If you know the problem or change affects Azure Operator Call Protection Preview, then you should set **Service type** to **Azure Operator Call Protection** instead. If unsure, keep it as **Azure Communications Gateway**.
-
 1. Concisely describe your problem or the change you need in the **Summary** box.
 1. Select an **Issue type** from the drop-down menu.
 1. Select your **Subscription** from the drop-down menu. Choose the subscription where you're noticing the problem or need a change. The support engineer assigned to your case can only access resources in the subscription you specify. If the issue applies to multiple subscriptions, you can mention other subscriptions in your description, or by sending a message later. However, the support engineer can only work on subscriptions to which you have access.

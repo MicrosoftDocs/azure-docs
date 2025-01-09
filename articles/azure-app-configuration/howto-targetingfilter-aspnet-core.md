@@ -7,12 +7,12 @@ ms.devlang: csharp
 author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.topic: how-to
-ms.date: 03/26/2024
+ms.date: 12/02/2024
 ---
 
 # Roll out features to targeted audiences in an ASP.NET Core application
 
-In this guide, you'll use the targeting filter to roll out a feature to targeted audience for your ASP.NET Core application. For more information about the targeting filter, see [Roll out features to targeted audiences](./howto-targetingfilter.md).
+In this guide, you'll use the targeting filter to roll out a feature to targeted audiences for your ASP.NET Core application. For more information about the targeting filter, see [Roll out features to targeted audiences](./howto-targetingfilter.md).
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ In this guide, you'll use the targeting filter to roll out a feature to targeted
 
 ## Create a web application with a feature flag
 
-In this section, you will create a web application that allows users to sign in and use the *Beta* feature flag you created before.
+In this section, you create a web application that allows users to sign in and use the *Beta* feature flag you created before.
 
 1. Create a web application that authenticates against a local database using the following command.
 
@@ -31,22 +31,84 @@ In this section, you will create a web application that allows users to sign in 
    dotnet new webapp --auth Individual -o TestFeatureFlags
    ```
 
-1. Add references to the following NuGet packages.
+1. Navigate to the newly created *TestFeatureFlags* directory and add references to the following NuGet packages.
+
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+
+    ```dotnetcli
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
+    dotnet add package Microsoft.FeatureManagement.AspNetCore
+    dotnet add package Azure.Identity
+    ```
+
+    ### [Connection string](#tab/connection-string)
 
     ```dotnetcli
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
     dotnet add package Microsoft.FeatureManagement.AspNetCore
     ```
+    ---
 
-1. Store the connection string for your App Configuration store.
+1. Create a user secret for the application by running the following commands.
+
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+
+    The command uses [Secret Manager](/aspnet/core/security/app-secrets) to store a secret named `Endpoints:AppConfiguration`, which stores the endpoint for your App Configuration store. Replace the `<your-App-Configuration-endpoint>` placeholder with your App Configuration store's endpoint. You can find the endpoint in your App Configuration store's **Overview** blade in the Azure portal.
 
     ```dotnetcli
     dotnet user-secrets init
-    dotnet user-secrets set ConnectionStrings:AppConfig "<your_connection_string>"
+    dotnet user-secrets set Endpoints:AppConfiguration "<your-App-Configuration-endpoint>"
     ```
+
+    ### [Connection string](#tab/connection-string)
+
+    The command uses [Secret Manager](/aspnet/core/security/app-secrets) to store a secret named `ConnectionStrings:AppConfiguration`, which stores the connection string for your App Configuration store. Replace the `<your-App-Configuration-connection-string>` placeholder with your App Configuration store's read-only connection string. You can find the connection string in your App Configuration store's **Access settings** in the Azure portal.
+
+    ```dotnetcli
+    dotnet user-secrets init
+    dotnet user-secrets set ConnectionStrings:AppConfiguration "<your-App-Configuration-connection-string>"
+    ```
+    ---
 
 1. Add Azure App Configuration and feature management to your application.
 
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    
+    1. You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
+
+    1. Update the *Program.cs* file with the following code.
+    
+        ``` C#
+        // Existing code in Program.cs
+        // ... ...
+    
+        using Azure.Identity;
+    
+        var builder = WebApplication.CreateBuilder(args);
+    
+        // Retrieve the endpoint
+        string endpoint = builder.Configuration.GetValue<string>("Endpoints:AppConfiguration") 
+            ?? throw new InvalidOperationException("The setting `Endpoints:AppConfiguration` was not found.");
+        
+        // Connect to Azure App Configuration and load all feature flags with no label
+        builder.Configuration.AddAzureAppConfiguration(options =>
+        {
+            options.Connect(new Uri(endpoint), new DefaultAzureCredential())
+                   .UseFeatureFlags();
+        });
+    
+        // Add Azure App Configuration middleware to the container of services
+        builder.Services.AddAzureAppConfiguration();
+    
+        // Add feature management to the container of services
+        builder.Services.AddFeatureManagement();
+    
+        // The rest of existing code in Program.cs
+        // ... ...
+        ```
+
+    ### [Connection string](#tab/connection-string)
+    
     Update the *Program.cs* file with the following code. 
 
     ``` C#
@@ -55,14 +117,15 @@ In this section, you will create a web application that allows users to sign in 
 
     var builder = WebApplication.CreateBuilder(args);
 
-    // Retrieve the App Config connection string
-    string AppConfigConnectionString = builder.Configuration.GetConnectionString("AppConfig") ?? throw new InvalidOperationException("Connection string 'AppConfig' not found."); ;
+    // Retrieve the connection string
+    string connectionString = builder.Configuration.GetConnectionString("AppConfiguration")
+        ?? throw new InvalidOperationException("The connection string 'AppConfiguration' was not found.");
 
-    // Load feature flag configuration from Azure App Configuration
+    // Connect to Azure App Configuration and load all feature flags with no label
     builder.Configuration.AddAzureAppConfiguration(options =>
     {
-        options.Connect(AppConfigConnectionString);
-        options.UseFeatureFlags();
+        options.Connect(connectionString)
+               .UseFeatureFlags();
     });
 
     // Add Azure App Configuration middleware to the container of services
@@ -74,6 +137,8 @@ In this section, you will create a web application that allows users to sign in 
     // The rest of existing code in Program.cs
     // ... ...
     ```
+
+    ---
 
 1. Enable configuration and feature flag refresh from Azure App Configuration with the App Configuration middleware.
 
@@ -104,7 +169,7 @@ In this section, you will create a web application that allows users to sign in 
     <h1>This is the beta website.</h1>
     ```
 
-1. Open *Beta.cshtml.cs*, and add `FeatureGate` attribute to the `BetaModel` class.
+1. Open *Beta.cshtml.cs*, and add the `FeatureGate` attribute to the `BetaModel` class.
 
     ``` C#
     using Microsoft.AspNetCore.Mvc.RazorPages;

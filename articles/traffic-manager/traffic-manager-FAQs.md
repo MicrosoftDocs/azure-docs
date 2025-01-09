@@ -4,7 +4,7 @@ description: This article provides answers to frequently asked questions about T
 services: traffic-manager
 author: greg-lindsay
 ms.service: azure-traffic-manager
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/03/2024
 ms.author: greglin
 ---

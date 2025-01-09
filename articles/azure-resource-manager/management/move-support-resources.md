@@ -700,7 +700,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ---------- |
-> | backupvaults | [**Yes**](../../backup/create-manage-backup-vault.md#use-azure-portal-to-move-backup-vault-to-a-different-resource-group) | [**Yes**](../../backup/create-manage-backup-vault.md#use-azure-portal-to-move-backup-vault-to-a-different-subscription) | No |
+> | backupvaults | [**Yes**](../../backup/manage-backup-vault.md#use-azure-portal-to-move-backup-vault-to-a-different-resource-group) | [**Yes**](../../backup/manage-backup-vault.md#use-azure-portal-to-move-backup-vault-to-a-different-subscription) | No |
 
 ## Microsoft.DataShare
 
@@ -1296,9 +1296,7 @@ Moves between Resource groups and subscriptions are supported for APIs that use 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ---------- |
-> | objectunderstandingaccounts | No | No | No |
 > | remoterenderingaccounts | **Yes** | **Yes** | No |
-> | spatialanchorsaccounts | **Yes** | **Yes** | No |
 
 ## Microsoft.MobileNetwork
 

@@ -4,7 +4,6 @@ description: Learn how to manage expiration of Azure Web Apps/Cloud Services, AS
 services: cdn
 author: duongau
 manager: kumudd
-ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
 ms.service: azure-cdn
 ms.devlang: csharp
 ms.custom: devx-track-csharp

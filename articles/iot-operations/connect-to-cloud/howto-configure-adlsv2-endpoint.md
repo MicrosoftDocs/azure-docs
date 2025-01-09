@@ -312,7 +312,7 @@ dataLakeStorageSettings: {
   authentication: {
     method: 'UserAssignedManagedIdentity'
     userAssignedManagedIdentitySettings: {
-      cliendId: '<ID>'
+      clientId: '<ID>'
       tenantId: '<ID>'
       // Optional, defaults to 'https://storage.azure.com/.default'
       // scope: 'https://<SCOPE_URL>'

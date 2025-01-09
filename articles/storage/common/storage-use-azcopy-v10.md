@@ -16,8 +16,8 @@ ai-usage: ai-assisted
 AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you download AzCopy, connect to your storage account, and then transfer data.
 
 > [!NOTE]
-> AzCopy **V10** is the currently supported version of AzCopy.
->
+> AzCopy **V10** is the currently supported version of AzCopy. The tool is not supported on versions of Windows, Linux, or macOS that are no longer officially maintained.
+> 
 > If you need to use a previous version of AzCopy, see the [Use the previous version of AzCopy](#previous-version) section of this article.
 
 <a id="download-and-install-azcopy"></a>This video shows you how to download and run the AzCopy utility.
@@ -172,6 +172,7 @@ As an alternative to installing a package, you can download the AzCopy V10 execu
 
 - [Windows 64-bit](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Windows 32-bit](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
+- [Windows ARM64 Preview](https://aka.ms/downloadazcopy-v10-windows-arm64) (zip)
 - [Linux x86-64](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [Linux ARM64](https://aka.ms/downloadazcopy-v10-linux-arm64) (tar)
 - [macOS](https://aka.ms/downloadazcopy-v10-mac) (zip)

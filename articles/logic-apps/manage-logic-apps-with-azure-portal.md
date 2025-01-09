@@ -13,7 +13,7 @@ ms.date: 08/06/2024
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-This guide shows how to manage Standard or Consumption logic app workflows through the Azure portal and perform tasks such as edit, disable, enable, and delete workflows. You can also [manage Consumption logic apps in Visual Studio](manage-logic-apps-with-visual-studio.md).
+This guide shows how to manage Standard or Consumption logic app workflows through the Azure portal and perform tasks such as edit, disable, enable, and delete workflows.
 
 ## Prerequisites
 

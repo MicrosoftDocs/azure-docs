@@ -390,8 +390,11 @@ items:
       - name: Diagnose media quality issues
         href: concepts/voice-video-calling/media-quality-sdk.md
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-      - name: Ensure precall readiness
+      - name: Ensure pre-call readiness
         href: concepts/voice-video-calling/pre-call-diagnostics.md
+        displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+      - name: Add pre-call diagnostics
+        href: quickstarts/voice-video-calling/get-started-pre-call-diagnostics.md
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Check if user is running supported browser
         href: how-tos/calling-sdk/browser-support.md
@@ -769,8 +772,10 @@ items:
         items:
           - name: Overview
             href: concepts/interop/guest/overview.md
+          - name: Calling capabilities
+            href: concepts/interop/guest/calling-capabilities.md
           - name: Meeting capabilities
-            href: concepts/interop/guest/capabilities.md
+            href: concepts/interop/guest/meeting-capabilities.md
           - name: Teams client experience
             href: concepts/interop/guest/teams-client-experience.md
           - name: Teams controls
@@ -809,8 +814,6 @@ items:
             href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
           - name: Government clouds
             href: concepts/interop/teams-user/government-cloud.md
-          - name: Teams users in Azure Communication Services calls
-            href: concepts/interop/teams-interop-group-calls.md
       - name: Virtual visits
         items:
           - name: Overview
@@ -899,6 +902,10 @@ items:
         href: ../event-grid/event-schema-communication-services.md
       - name: Voice and Video events
         href: ../event-grid/communication-services-voice-video-events.md
+    - name: Real Time Text
+      items:
+      - name: Real Time Text overview
+        href: concepts/voice-video-calling/real-time-text.md
     - name: Closed captions
       items:
       - name: Closed captions overview
@@ -1341,6 +1348,8 @@ items:
       href: https://azure.github.io/azure-sdk-for-android/azure-communication-calling/index.html
     - name: Calling (iOS)
       href: /objectivec/communication-services/calling/
+    - name: Calling (.NET)
+      href: /dotnet/api/azure-communication-services/calling/
   - name: Call Automation
     items:
     - name: Call Automation (JavaScript)

@@ -4,7 +4,7 @@ description: Learn how to create and configure Enterprise Security Package clust
 services: hdinsight
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 12/10/2024
+ms.date: 12/11/2024
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -189,7 +189,8 @@ Create a Microsoft Entra ID tenant administrator.
 
 1. Select **Use express settings**.
 
-1. On the **Connect to Microsoft Entra ID** page, enter the username and password of the Domain Name Administrator[/entra/identity/role-based-access-control/permissions-reference#domain-name-administrator] for Microsoft Entra ID. Use the username `fabrikamazureadmin@hdifabrikam.com` that you created when you configured your tenant. Then select **Next**.
+1. On the **Connect to Microsoft Entra ID** page, enter the username and password of the [Domain Name Administrator](/entra/identity/role-based-access-control/permissions-reference#domain-name-administrator) for Microsoft Entra ID. Use the username `fabrikamazureadmin@hdifabrikam.com` that you created when you configured your tenant. Then select **Next**.
+   
    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png" alt-text="Connect to Microsoft Entra ID." border="true":::
 
 1. On the **Connect to Microsoft Entra ID Domain Services** page, enter the username and password for an enterprise admin account. Use the username `HDIFabrikam\HDIFabrikamAdmin` and its password that you created earlier. Then select **Next**.

@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: pipeline
-ms.date: 02/15/2022
+ms.date: 12/11/2024
 ms.reviewer: whhender
 ---
 

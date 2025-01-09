@@ -1,0 +1,39 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/partner-solutions/new-relic/new-relic-how-to-configure-prereqs.md",
+            "redirect_url": "/azure/partner-solutions/new-relic/configure-prerequisites",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/new-relic/new-relic-create.md",
+            "redirect_url": "/azure/partner-solutions/new-relic/create",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/new-relic/new-relic-how-to-manage.md",
+            "redirect_url": "/azure/partner-solutions/new-relic/manage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/new-relic/new-relic-link-to-existing.md",
+            "redirect_url": "/azure/partner-solutions/new-relic/link-to-existing-resources",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/new-relic/new-relic-overview.md",
+            "redirect_url": "/azure/partner-solutions/new-relic/overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/new-relic/new-relic-get-support.md",
+            "redirect_url": "/azure/partner-solutions/new-relic/support",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/new-relic/new-relic-troubleshoot.md",
+            "redirect_url": "/azure/partner-solutions/new-relic/troubleshoot",
+            "redirect_document_id": true
+        }
+    ]
+}

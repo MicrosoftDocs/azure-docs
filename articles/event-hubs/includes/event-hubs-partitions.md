@@ -4,7 +4,7 @@ description: Describes partitions in Azure Event Hubs.
 author: spelluru
 ms.service: azure-event-hubs
 ms.topic: include
-ms.date: 02/15/2024
+ms.date: 12/12/2024
 ms.author: spelluru
 ms.custom: "include file"
 
@@ -37,7 +37,7 @@ We recommend that you choose at least as many partitions as you expect that are 
 Setting the number of partitions to the maximum permitted value is tempting, but always keep in mind that your event streams need to be structured such that you can indeed take advantage of multiple partitions. If you need absolute order preservation across all events or only a handful of substreams, you might not be able to take advantage of many partitions. Also, many partitions make the processing side more complex. 
 
 It doesn't matter how many partitions are in an event hub when it comes to pricing. It depends on the number of pricing units ([throughput units
-(TUs)](../event-hubs-scalability.md#throughput-units) for the standard tier, [processing units (PUs)](../event-hubs-scalability.md#processing-units) for the premium tier, and [capacity units (CUs)](../event-hubs-dedicated-overview.md) for the dedicated tier) for the namespace or the dedicated cluster. For example, an event hub of the standard tier with 32 partitions or with one partition incur the exact same cost when the namespace is set to one TU capacity. Also, you can scale TUs or PUs on your namespace or CUs of your dedicated cluster independent of the partition count. 
+(TUs)](../event-hubs-scalability.md#throughput-units) for the standard tier, [processing units (PUs)](../event-hubs-scalability.md#processing-units) for the premium tier, and [capacity units (CUs)](../event-hubs-dedicated-overview.md#capacity-units) for the dedicated tier) for the namespace or the dedicated cluster. For example, an event hub of the standard tier with 32 partitions or with one partition incur the exact same cost when the namespace is set to one TU capacity. Also, you can scale TUs or PUs on your namespace or CUs of your dedicated cluster independent of the partition count. 
 
 [!INCLUDE [event-hubs-partition-count](event-hubs-partition-count.md)]
 
