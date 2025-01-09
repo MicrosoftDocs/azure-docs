@@ -283,6 +283,9 @@ az containerapp update \
 > [!IMPORTANT]
 > To view the dashboard, you need to have at least the `Microsoft.App/managedEnvironments/write` role assigned to your account on the managed environment resource. You can explicitly assign the `Owner` or `Contributor` role on the resource. You can also follow the steps to create a custom role definition and assign it to your account.
 
+> [!NOTE]
+> The dashboard isn't available in Azure China 21Vianet.
+
 1. Create a custom role definition.
 
    ```azurecli
@@ -473,7 +476,7 @@ Now you have a caller and callee application that communicate with each other us
 ## Limitations
 
 - The Eureka Server Java component comes with a default configuration, `eureka.server.enable-self-preservation`, set to `false`. This default configuration helps avoid times when instances aren't deleted after self-preservation is enabled. If instances are deleted too early, some requests might be directed to nonexistent instances. If you want to change this setting to `true`, you can overwrite it by setting your own configurations in the Java component.
-- The Eureka dashboard isn't available in Azure in China(Mooncake).
+- The Eureka dashboard isn't available in Azure China 21Vianet.
 
 ## Next steps
 

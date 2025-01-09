@@ -415,6 +415,10 @@ The following list details the admin component properties you can configure for 
   - [**logging.group.***](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-groups)
   - Any other configurations under `logging.*` namespace should be forbidden. For example, writing log files by using `logging.file` should be forbidden.
 
+## Limitations
+
+- The Spring boot admin dashboard isn't available in Azure China 21Vianet.
+
 ## Related content
 
 [Integrate the managed Admin for Spring with Eureka Server for Spring](java-admin-eureka-integration.md)
