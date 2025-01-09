@@ -18,7 +18,7 @@ This article shows you how to deploy an **Integrated Network Virtual Appliance (
 
 * **Connectivity appliances**: Used to terminate VPN and SD-WAN connections from on-premises. Connectivity appliances use Border Gateway Protocol (BGP) to exchange routes with the Virtual WAN hub.
 * **Next-Generation Firewall (NGFW) appliances**: Used with [Routing Intent](how-to-routing-policies.md) to provide bump-in-the-wire inspection for traffic traversing the Virtual WAN hub.
-* **Dual-role connectivity and Firewall appliances**: Single device that both connect on-premises devices to Azure and inspect traffic traversing the Virtual WAN hub.
+* **Dual-role connectivity and Firewall appliances**: Single device that both connects on-premises devices to Azure and inspects traffic traversing the Virtual WAN hub with [Routing Intent](how-to-routing-policies.md).
 
 For the list of NVAs that can be deployed in the Virtual WAN hub and their respective capabilities, see [Virtual WAN NVA partners](about-nva-hub.md#partners).
 
