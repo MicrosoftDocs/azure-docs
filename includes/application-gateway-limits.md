@@ -8,7 +8,7 @@ ms.author: greglin
 | Resource | Limit | Note |
 | --- | --- | --- |
 | Azure Application Gateway |1,000 per region per subscription | |
-| Frontend IP configurations |2 |1 public and 1 private |
+| Frontend IP configurations |4 |IPv4 - 1 public and 1 private.<br>IPv6 - 1 public and 1 private. |
 | Frontend ports |100<sup>1</sup> | |
 | Backend address pools |100 | |
 | Backend targets per pool |1,200 | |

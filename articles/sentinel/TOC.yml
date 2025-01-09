@@ -115,6 +115,8 @@
     href: sentinel-solutions-deploy.md
   - name: Delete out-of-the-box content
     href: sentinel-solutions-delete.md
+  - name: Manage solution deprecation lifecycle
+    href: sentinel-solution-deprecation.md
   - name: Partner integrations best practices
     href: partner-integrations.md
   - name: Solution catalog

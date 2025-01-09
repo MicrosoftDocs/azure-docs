@@ -80,6 +80,9 @@ device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
 await device_client.connect()
 ```
 
+> [!NOTE]
+> Python does not support connection of a device app to an IoT Hub module identity twin using a certificate.
+
 ### Retrieve a module identity twin and examine properties
 
 Call [get_twin](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?#azure-iot-device-iothubmoduleclient-get-twin) to retrieve the module identity twin from the Azure IoT Hub service. The twin information is placed into a variable that can be examined.
