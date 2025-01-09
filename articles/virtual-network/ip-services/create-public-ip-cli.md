@@ -46,7 +46,7 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
 
 Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a standard zone-redundant public IPv4 address named **myStandardPublicIP** in **QuickStartCreateIP-rg**. 
 
-To create an IPv6 address, modify the **`--version`** parameter to **IPv6**.
+To create an IPv6 address, modify the `--version` parameter to **IPv6**.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -57,7 +57,7 @@ To create an IPv6 address, modify the **`--version`** parameter to **IPv6**.
     --zone 1 2 3
 ```
 > [!IMPORTANT]
-> For versions of the API older than 2020-08-01, execute the command without specifying a **`--zone`** parameter to create a zone-redundant IP address. 
+> For versions of the API older than 2020-08-01, execute the command without specifying a `--zone` parameter to create a zone-redundant IP address. 
 >
 
 # [**Basic SKU**](#tab/create-public-ip-basic)
@@ -66,7 +66,7 @@ In this section, you create a basic IP. Basic public IPs don't support availabil
 
 Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a basic static public IPv4 address named **myBasicPublicIP** in **QuickStartCreateIP-rg**.
 
-To create an IPv6 address, modify the **`--version`** parameter to **IPv6**. 
+To create an IPv6 address, modify the `--version` parameter to **IPv6**. 
 
 ```azurecli-interactive
   az network public-ip create \
@@ -79,7 +79,7 @@ To create an IPv6 address, modify the **`--version`** parameter to **IPv6**.
 If it's acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected by changing the **`--allocation-method`** to **Dynamic**. 
 
 >[!NOTE]
-> A basic IPv6 address must always be Dynamic`.
+> A basic IPv6 address must always be `Dynamic`.
 
 ---
 
@@ -91,7 +91,7 @@ In this section, you learn how to create a zonal or no-zone public IP address.
 
 To create a standard zonal public IPv4 address in Zone 2 named **myStandardPublicIP** in **QuickStartCreateIP-rg**, use the following command.
 
-To create an IPv6 address, modify the **`--version`** parameter to **IPv6**.
+To create an IPv6 address, modify the `--version` parameter to **IPv6**.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -114,7 +114,7 @@ In this section, you create a non-zonal IP address.
 
 Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a standard public IPv4 address as a non-zonal resource named **myStandardPublicIP-nozone** in **QuickStartCreateIP-rg**. 
 
-To create an IPv6 address, modify the **`--version`** parameter to **IPv6**.
+To create an IPv6 address, modify the `--version` parameter to **IPv6**.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -123,9 +123,9 @@ To create an IPv6 address, modify the **`--version`** parameter to **IPv6**.
     --version IPv4 \
     --sku Standard
 ```
-The removal of the **`--zone`** parameter in the command is valid in all regions. 
+The removal of the `--zone` parameter in the command is valid in all regions. 
 
-The removal of the **`--zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+The removal of the `--zone` parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ---
 
