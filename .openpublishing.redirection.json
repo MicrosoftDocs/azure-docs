@@ -1,6 +1,36 @@
 {
   "redirections": [
     {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/back-up-sensors-from-management.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/back-up-sensors-from-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/back-up-restore-management.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/back-up-restore-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-set-up-high-availability.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-set-up-high-availability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-manage-the-on-premises-management-console.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-manage-the-on-premises-management-console",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-troubleshoot-on-premises-management-console.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-troubleshoot-on-premises-management-console",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cdn/akamai-retirement-faq.md",
       "redirect_url": "/previous-versions/azure/cdn/akamai-retirement-faq",
       "redirect_document_id": false
