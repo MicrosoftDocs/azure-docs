@@ -103,7 +103,10 @@ For example, if I specify a single key column of `column1` in a cache sink calle
 > [!NOTE]
 > A cache sink must be in a completely independent data stream from any transformation referencing it via a cache lookup. A cache sink also must be the first sink written. 
 
-**Write to activity output** The cache sink can optionally write your output data to the output of the Data Flow activity which can then be used as an input to another activity in the pipeline. This will allow you to quickly and easily pass data out of your data flow activity without needing to persist the data in a data store. Note that the output from the data flow that is injected directly into your pipeline is limited to 2MB. Thus, Data Flow will attempt to add to ouput as many rows as it can while staying within the 2MB limit, therefore sometimes you may not see all of the rows in the activity output. Setting "first row only" at the Data Flow activity level also helps you to limit the data output from Data Flow when injecting the Data Flow activity output directly to your pipeline
+**Write to activity output**  
+The Cache sink can optionally write its data to the output of the Data Flow activity which can then be used as an input to another activity in the pipeline. This will allow you to quickly and easily pass data out of your data flow activity without needing to persist the data in a data store. 
+
+Note that the output from Data Flow that is injected directly into your pipeline is limited to 2MB. Thus, Data Flow will attempt to add to output as many rows as it can while staying within the 2MB limit, therefore sometimes you may not see all of the rows in the activity output. Setting "First row only" at the Data Flow activity level also helps you to limit the data output from Data Flow if needed.
 
 ## Update method
 
