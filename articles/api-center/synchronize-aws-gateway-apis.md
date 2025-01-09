@@ -69,7 +69,6 @@ Save your access keys in a safe location. You'll store them in Azure Key Vault i
 
 Manually upload and securely store the two IAM user access keys in Azure Key Vault using the configuration recommended in the following table. For more information, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](/azure/key-vault/secrets/quick-create-portal). 
 
-#### [Portal](#tab/portal)
 
 | AWS secret | Upload options | Name | Secret value | 
 |------------|----------------|------|--------------|
@@ -77,8 +76,6 @@ Manually upload and securely store the two IAM user access keys in Azure Key Vau
 | Secret access key | Manual | *aws-secret-access-key* | Secret access key retrieved from AWS |
 
 :::image type="content" source="media/synchronize-aws-gateway-apis/key-vault-secrets.png" alt-text="Screenshot of secrets list in Azure Key Vault in the portal.":::
-
----
 
 Take note of the **Secret identifier** of each secret, a URI similar to `https://<key-vault-name>.vault.azure.net/secrets/<secret-name>`. You'll use these identifiers in the next steps.
 
@@ -110,9 +107,11 @@ You can integrate an Amazon API Gateway to your API center using the Azure CLI.
 1. Select **Create**.
 
 Add image of integrating AWS g/w in portal
---->
+
 
 #### [Azure CLI](#tab/cli)
+
+--->
 
 Run the `az apic integration create aws` command to integrate an Amazon API Gateway to your API center. 
 
@@ -129,7 +128,6 @@ az apic integration create aws \
     --aws-secret-access-key-reference <secret-access-key-uri> 
     --aws-region-name <aws-region>
 ``` 
----
 
 
 The environment is added in your API center. The Amazon API Gateway APIs are imported to the API center inventory.
