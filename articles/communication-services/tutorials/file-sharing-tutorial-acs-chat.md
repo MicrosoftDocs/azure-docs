@@ -22,7 +22,7 @@ In an Azure Communication Services Chat, we can enable file sharing between comm
 In this tutorial, we're configuring the Azure Communication Services UI Library Chat Composite to enable file sharing. The UI Library Chat Composite provides a set of rich components and UI controls that can be used to enable file sharing. We're using Azure Blob Storage to enable the storage of the files that are shared through the chat thread.
 
 > [!IMPORTANT]
-> Azure Communication Services doesn't provide a file storage service. You need to use your own file storage service for sharing files. For the pupose of this tutorial, we're using Azure Blob Storage.\*\*
+> Azure Communication Services doesn't provide a file storage service. You need to use your own file storage service for sharing files. For the purpose of this tutorial, we're using Azure Blob Storage.\*\*
 
 ## Download code
 
@@ -257,7 +257,7 @@ const uploadFileToAzureBlob = async (uploadTask: AttachmentUploadTask) => {
     url: uri,
     data: formData,
     onUploadProgress: (p) => {
-      // Optionally, you can update the file upload progess.
+      // Optionally, you can update the file upload progress.
       uploadTask.notifyUploadProgressChanged(p.loaded / p.total);
     },
   });

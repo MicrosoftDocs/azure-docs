@@ -130,7 +130,7 @@ For more information, see [Azure Maps supported languages].
 
 To find more matches for partial queries, set the `typeahead` parameter to `true`. This query is interpreted as a partial input, and the search enters predictive mode. If you don't set the `typeahead` parameter to `true`, then the service assumes that all relevant information has been passed in.
 
-In the following sample query, the Search Address service is queried for *Microso*. Here, the `typeahead` parameter set to `true`. The response shows that the search service interpreted the query as partial query. The response contains results for an automatically suggested query.
+In the following sample query, the Search Address service is queried for *Microsoft*. Here, the `typeahead` parameter set to `true`. The response shows that the search service interpreted the query as partial query. The response contains results for an automatically suggested query.
 
 #### Sample query
 

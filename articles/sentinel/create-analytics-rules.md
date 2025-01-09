@@ -4,7 +4,7 @@ description: This article explains how to view and create scheduled analytics ru
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 07/02/2024
+ms.date: 10/16/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -20,7 +20,7 @@ You’ve set up [connectors and other means of collecting activity data](connect
 
 Microsoft Sentinel and its many [solutions provided in the Content hub](sentinel-solutions.md) offer templates for the most commonly used types of analytics rules, and you’re strongly encouraged to make use of those templates, customizing them to fit your specific scenarios. But it’s possible you might need something completely different, so in that case you can create a rule from scratch, using the analytics rule wizard.
 
-This article describes the process of creating an analytics rule from scratch, including using the **Analytics rule wizard**. It's accompanied by screenshots and directions to access the wizard in both the Azure portal, for Microsoft Sentinel users who aren't also Microsoft Defender subscribers, and the Defender portal, for users of the Microsoft Defender unified security operations platform.
+This article describes the process of creating an analytics rule from scratch, including using the **Analytics rule wizard**. It's accompanied by screenshots and directions to access the wizard in both the Azure portal and the Defender portal.
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
@@ -46,7 +46,7 @@ Before you do anything else, you should design and build a query in Kusto Query 
 
 For some helpful tips for building Kusto queries, see [Best practices for analytics rule queries](scheduled-rules-overview.md#best-practices-for-analytics-rule-queries).
 
-For more help building Kusto queries, see [Kusto Query Language in Microsoft Sentinel](kusto-overview.md) and [Best practices for Kusto Query Language queries](/azure/data-explorer/kusto/query/best-practices?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json).
+For more help building Kusto queries, see [Kusto Query Language in Microsoft Sentinel](kusto-overview.md) and [Best practices for Kusto Query Language queries](/kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true&toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json).
 
 ## Create your analytics rule
 
@@ -173,9 +173,13 @@ In the **Incident settings** tab, choose whether Microsoft Sentinel turns alerts
    - If you don’t want this rule to result in the creation of any incidents (for example, if this rule is just to collect information for subsequent analysis), set this to **Disabled**.
 
      > [!IMPORTANT]
-     > If you onboarded Microsoft Sentinel to the unified security operations platform in the Microsoft Defender portal, leave this setting **Enabled**.
+     > If you onboarded Microsoft Sentinel to the Microsoft Defender portal, leave this setting **Enabled**.
+     >
+     > - In this scenario, incidents are created by Microsoft Defender XDR, not by Microsoft Sentinel.
+     > - These incidents appear in the incidents queue in both the Azure and Defender portals.
+     > - In the Azure portal, new incidents are displayed with "Microsoft Defender XDR" as the **incident provider name**.
 
-   - If you want a single incident to be created from a group of alerts, instead of one for every single alert, see the next section.
+   - If you want a single incident to be created from a group of alerts, instead of one for every single alert, see the next step.
 
 1. <a name="alert-grouping"></a>**Set alert grouping settings.**
 
@@ -193,12 +197,22 @@ In the **Incident settings** tab, choose whether Microsoft Sentinel turns alerts
 
    1. **Re-open closed matching incidents**: If an incident has been resolved and closed, and later on another alert is generated that should belong to that incident, set this setting to **Enabled** if you want the closed incident re-opened, and leave as **Disabled** if you want the alert to create a new incident.
 
+      This option is not available when Microsoft Sentinel is onboarded to the Microsoft Defender portal.
+
+   > [!IMPORTANT]
+   > If you onboarded Microsoft Sentinel to the Microsoft Defender portal, the **alert grouping** settings take effect only at the moment that the incident is created.
+   > 
+   > Because the Defender portal's correlation engine is responsible for alert correlation in this scenario, it accepts these settings as initial instructions, but it also might make decisions about alert correlation that don't take these settings into account.
+   >
+   > Therefore, the way alerts are grouped into incidents might often be different than you would expect based on these settings.
+
    > [!NOTE]
    >
    > **Up to 150 alerts** can be grouped into a single incident.
    > - The incident will only be created after all the alerts have been generated. All of the alerts will be added to the incident immediately upon its creation.
    >
    > - If more than 150 alerts are generated by a rule that groups them into a single incident, a new incident will be generated with the same incident details as the original, and the excess alerts will be grouped into the new incident.
+
 1. Select **Next: Automated response**.
 
     # [Azure portal](#tab/azure-portal)

@@ -3,7 +3,7 @@ title: Create & deploy template specs in Bicep
 description: Describes how to create template specs in Bicep and share them with other users in your organization.
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-bicep
-ms.date: 09/26/2024
+ms.date: 12/06/2024
 ---
 
 # Azure Resource Manager template specs in Bicep
@@ -268,7 +268,7 @@ https://portal.azure.com/#create/Microsoft.Template/templateSpecVersionId/%2fsub
 
 ## Parameters
 
-Passing in parameters to template spec is similar to passing parameters to a Bicep file. Add the parameter values either inline or in a parameter file.
+Passing in parameters to template spec is similar to passing parameters to a Bicep file. Add the parameter values either inline or in a parameters file.
 
 ### Inline parameters
 
@@ -294,11 +294,11 @@ az deployment group create \
 
 ---
 
-### Parameter files
+### Parameters files
 
 - Use Bicep parameters file
 
-    To create a Bicep parameter file, you must specify the `using` statement. Here's an example:
+    To create a Bicep parameters file, you must specify the `using` statement. Here's an example:
 
     ```bicep
     using 'using 'ts:<subscription-id>/<resource-group-name>/<template-spec-name>:<tag>'
@@ -308,7 +308,7 @@ az deployment group create \
 
     For more information, see [Bicep parameters file](./parameter-files.md).
 
-    To pass parameter file with:
+    To pass parameters file with:
 
     # [PowerShell](#tab/azure-powershell)
 
@@ -342,7 +342,7 @@ az deployment group create \
     }
     ```
 
-    And, pass that parameter file with:
+    And, pass that parameters file with:
 
     # [PowerShell](#tab/azure-powershell)
 

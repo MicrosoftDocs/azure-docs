@@ -52,11 +52,11 @@ The following sections describe this architecture in more detail.
 
 The first segment (segment 1 in the diagram) represents communications from consumers to the ingress controller in Azure Spring Apps. These consumers include browsers, mobile phones, desktops, kiosks, or network access points like Azure Front Door, Azure App Gateway, F5 BIG-IP Local Traffic Manager, Azure API Management, and Apigee API Management.
 
-By default, this segment is secured using a Microsoft-supplied TLS/SSL certificate for the `*.azuremicroservices.io` domain. You can apply your own TLS/SSL certificate in Azure Key Vault by binding a custom domain to your app in Azure Spring Apps. No code is necessary. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Apps](how-to-custom-domain.md).
+By default, this segment is secured using a Microsoft-supplied TLS/SSL certificate for the `*.azuremicroservices.io` domain. You can apply your own TLS/SSL certificate in Azure Key Vault by binding a custom domain to your app in Azure Spring Apps. No code is necessary. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Apps](../basic-standard/how-to-custom-domain.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 ### Segment 2: Secure communications from ingress controller to apps
 
-The next segment (segment 2 in the diagram) represents communications from the Azure Spring Apps ingress controller to any app on Azure Spring Apps. You can enable TLS/SSL to secure traffic from the ingress controller to an app that supports HTTPS. For more information, see [Enable ingress-to-app TLS for an application](how-to-enable-ingress-to-app-tls.md).
+The next segment (segment 2 in the diagram) represents communications from the Azure Spring Apps ingress controller to any app on Azure Spring Apps. You can enable TLS/SSL to secure traffic from the ingress controller to an app that supports HTTPS. For more information, see [Enable ingress-to-app TLS for an application](../basic-standard/how-to-enable-ingress-to-app-tls.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 A Spring Boot app can use Spring's approach to enable HTTPS, or the app can secure communications by using the Azure Key Vault Certificates Spring Boot Starter. For more information, see [Tutorial: Secure Spring Boot apps using Azure Key Vault certificates](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates).
 
@@ -84,7 +84,7 @@ You need the following three configuration steps to secure communications using 
        key-store-type: AzureKeyVault
    ```
 
-1. Enable the app's managed identity, and then grant the managed identity with "Get" and "List" access to the Azure Key Vault. For more information, see [Enable system-assigned managed identity for an application in Azure Spring Apps](how-to-enable-system-assigned-managed-identity.md) and [Certificate Access Control](/azure/key-vault/certificates/certificate-access-control).
+1. Enable the app's managed identity, and then grant the managed identity with "Get" and "List" access to the Azure Key Vault. For more information, see [Enable system-assigned managed identity for an application in Azure Spring Apps](../basic-standard/how-to-enable-system-assigned-managed-identity.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json) and [Certificate Access Control](/azure/key-vault/certificates/certificate-access-control).
 
 ### Segment 3: Secure communications from app to managed middleware
 
@@ -100,11 +100,11 @@ The next segment (segment 5 in the diagram) represents communications between an
 
 ### Implicitly load TLS/SSL certificates from Key Vault into an app
 
-If your Spring code, Java code, or open-source libraries, such as OpenSSL, rely on the JVM default JCA chain to implicitly load certificates into the JVM's trust store, then you can import your TLS/SSL certificates from Key Vault into Azure Spring Apps and use those certificates within the app. For more information, see [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
+If your Spring code, Java code, or open-source libraries, such as OpenSSL, rely on the JVM default JCA chain to implicitly load certificates into the JVM's trust store, then you can import your TLS/SSL certificates from Key Vault into Azure Spring Apps and use those certificates within the app. For more information, see [Use TLS/SSL certificates in your application in Azure Spring Apps](../basic-standard/how-to-use-tls-certificate.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 ### Upload well known public TLS/SSL certificates for backend systems
 
-For an app to communicate to backend services in the cloud or in on-premises systems, it may require the use of public TLS/SSL certificates to secure communication. You can upload those TLS/SSL certificates for securing outbound communications. For more information, see [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
+For an app to communicate to backend services in the cloud or in on-premises systems, it may require the use of public TLS/SSL certificates to secure communication. You can upload those TLS/SSL certificates for securing outbound communications. For more information, see [Use TLS/SSL certificates in your application in Azure Spring Apps](../basic-standard/how-to-use-tls-certificate.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 ### Automate provisioning and configuration for securing communications
 

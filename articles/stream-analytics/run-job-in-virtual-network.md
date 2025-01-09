@@ -5,10 +5,11 @@ author: ahartoon
 ms.author: anboisve
 ms.service: azure-stream-analytics
 ms.topic: how-to
-ms.date: 10/08/2024
+ms.date: 12/30/2024
+ms.custom: references_regions, ignite-2024
 ---
 
-# Run your Azure Stream Analytics job in an Azure Virtual Network (Public preview) 
+# Run your Azure Stream Analytics job in an Azure Virtual Network
 This article describes how to run your Azure Stream Analytics (ASA) job in an Azure virtual network. 
 
 ## Overview 
@@ -19,7 +20,7 @@ Virtual network support enables you to lock down access to Azure Stream Analytic
 - [Service tags](../virtual-network/service-tags-overview.md), which allow or deny traffic to Azure Stream Analytics. 
 
 ## Availability 
-Currently, this capability is only available in select regions: **West US**, **Central Canada**, **East US**, **East US 2**, **Central US**, **West Europe**, and **North Europe**.
+Currently, this capability is only available in select **regions**: East US, East US 2, West US, Central US, North-Central US, Central Canada, West Europe, North Europe, Southeast Asia, Brazil South, Japan East, UK South, Central India, Australia East, and France Central.
 If you're interested in enabling virtual network integration in your region, **fill out this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzFwASREnlZFvs9gztPNuTdUMU5INk5VT05ETkRBTTdSMk9BQ0w3OEZDQi4u)**.    
 
 ## Requirements for virtual network integration support 
@@ -31,10 +32,17 @@ If you're interested in enabling virtual network integration in your region, **f
     - If you wish to protect storage accounts from public IP based access, consider configuring it using Managed Identity and Trusted Services as well. 
     
         For more information on storage accounts, see [Storage account overview](../storage/common/storage-account-overview.md) and [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal.md).  
-- An existing **Azure Virtual Network** or [create one](../virtual-network/quick-create-portal.md). 
-
+- An **Azure Virtual Network**, you can use existing or [create one](../virtual-network/quick-create-portal.md). 
+- An operational [**Azure Nat Gateway**](../nat-gateway/quickstart-create-nat-gateway-portal.md), see IMPORTANT note below.
+   
     > [!IMPORTANT]
-    > ASA virtual network injected jobs use an internal container injection technology provided by Azure networking.  As per networking requirements, Azure NAT Gateway must be configured for virtual network injected ASA jobs for security and reliability purposes.   
+    > ASA virtual network injected jobs use an internal container injection technology provided by Azure networking.
+    >
+    > To enhance the security and reliability of your Azure Stream Analytics jobs, you will need to either:
+    >
+    > - Configure a NAT Gateway: This will ensure that all outbound traffic from your VNET is routed through a secure and consistent public IP address.
+    > 
+    > - Disable Default Outbound Access: This will prevent any unintended outbound traffic from your VNET, enhancing the security of your network.
     > 
     > Azure NAT Gateway is a fully managed and highly resilient Network Address Translation (NAT) service.  When configured on a subnet, all outbound connectivity uses the NAT gateway's static public IP addresses.
     :::image type="content" source="./media/run-job-in-virtual-network/vnet-nat.png" alt-text="Diagram showing the architecture of the virtual network.":::

@@ -1,22 +1,20 @@
 ---
-title: Configure Layered Network Management on level 4 cluster
-description: Deploy and configure Azure IoT Layered Network Management on a level 4 cluster.
+title: Configure Layered Network Management (preview) on level 4 cluster
+description: Deploy and configure Azure IoT Layered Network Management (preview) on a level 4 cluster.
 author: PatAltimore
 ms.subservice: layered-network-management
 ms.author: patricka
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 11/15/2023
+ms.date: 12/12/2024
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ms.service: azure-iot-operations
 ---
 
-# Configure Azure IoT Layered Network Management Preview on level 4 cluster
+# Configure Azure IoT Layered Network Management (preview) on level 4 cluster
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
-Azure IoT Layered Network Management Preview is a component to support Azure IoT Operations Preview. However, it needs to be deployed individually to the top network layer for supporting the Azure IoT Operations in the lower layer. In the top level of your network layers (usually level 4 of the ISA-95 network architecture), the cluster and Layered Network Management service have direct internet access. Once the setup is completed, the Layered Network Management service is ready for receiving network traffic from the child layer and forwards it to Azure Arc.
+Azure IoT Layered Network Management (preview) is a component to support Azure IoT Operations. However, it needs to be deployed individually to the top network layer for supporting the Azure IoT Operations in the lower layer. In the top level of your network layers (usually level 4 of the ISA-95 network architecture), the cluster and Layered Network Management service have direct internet access. Once the setup is completed, the Layered Network Management (preview) service is ready for receiving network traffic from the child layer and forwards it to Azure Arc.
 
 ## Prerequisites
 Meet the following minimum requirements for deploying the Layered Network Management individually on the system.
@@ -62,7 +60,7 @@ The following steps for setting up [AKS Edge Essentials](/azure/aks/hybrid/aks-e
     Refer to the [K3s quick-start guide](https://docs.k3s.io/quick-start) for more detail.
 
     > [!IMPORTANT]
-    > Be sure to use the `--disable=traefik` parameter to disable treafik. Otherwise, you might have an issue when you try to allocate public IP for the Layered Network Management service in later steps.
+    > Be sure to use the `--disable=traefik` parameter to disable traefik. Otherwise, you might have an issue when you try to allocate public IP for the Layered Network Management service in later steps.
 
 1. Copy the K3s configuration yaml file to `.kube/config`.
 
@@ -154,11 +152,11 @@ Follow the steps in [Single machine deployment](/azure/aks/hybrid/aks-edge-howto
   - You need to complete step 1-3 in this document.
 ---
 
-## Deploy Layered Network Management Preview Service to the cluster
+## Deploy Layered Network Management Service to the cluster
 
 Once your Kubernetes cluster is Arc-enabled, you can deploy the Layered Network Management service to the cluster.
 
-### Install the Layered Network Management Preview operator
+### Install the Layered Network Management operator
 
 1. Run the following command. Replace the placeholders `<RESOURCE GROUP>` and `<CLUSTER NAME>` with your Arc onboarding information from an earlier step.
 
@@ -179,11 +177,13 @@ Once your Kubernetes cluster is Arc-enabled, you can deploy the Layered Network 
     azedge-lnm-operator-598cc495c-5428j   1/1     Running   0          28h
     ```
 
-## Configure Layered Network Management Preview Service
+## Configure Layered Network Management Service
 
 Create the Layered Network Management custom resource.
 
 1. Create a `lnm-cr.yaml` file as specified:
+    - For debugging or experimentation, you can change the value of **loglevel** parameter to **debug**.
+    - For more detail about the endpoints, see [Azure IoT Operations endpoints](/azure/iot-operations/deploy-iot-ops/overview-deploy#azure-iot-operations-endpoints).
 
     ```yaml
     apiVersion: layerednetworkmgmt.iotoperations.azure.com/v1beta1
@@ -203,104 +203,59 @@ Create the Layered Network Management custom resource.
       allowList:
         enableArcDomains: true
         domains:
-        - destinationUrl: "*.arc.azure.net"
-          destinationType: external
-        - destinationUrl: "*.data.mcr.microsoft.com"
+        - destinationUrl: "management.azure.com"
           destinationType: external
         - destinationUrl: "*.dp.kubernetesconfiguration.azure.com"
           destinationType: external
-        - destinationUrl: "*.guestnotificationservice.azure.com"
-          destinationType: external
-        - destinationUrl: "*.his.arc.azure.com"
+        - destinationUrl: "login.microsoftonline.com"
           destinationType: external
         - destinationUrl: "*.login.microsoft.com"
           destinationType: external
-        - destinationUrl: "*.login.microsoftonline.com"
+        - destinationUrl: "login.windows.net"
           destinationType: external
-        - destinationUrl: "*.obo.arc.azure.com"
+        - destinationUrl: "mcr.microsoft.com"
+          destinationType: external
+        - destinationUrl: "*.data.mcr.microsoft.com"
+          destinationType: external
+        - destinationUrl: "gbl.his.arc.azure.com"
+          destinationType: external
+        - destinationUrl: "*.his.arc.azure.com"
+          destinationType: external
+        - destinationUrl: "k8connecthelm.azureedge.net"
+          destinationType: external
+        - destinationUrl: "guestnotificationservice.azure.com"
+          destinationType: external
+        - destinationUrl: "*.guestnotificationservice.azure.com"
+          destinationType: external
+        - destinationUrl: "sts.windows.net"
+          destinationType: external
+        - destinationUrl: "k8sconnectcsp.azureedge.net"
           destinationType: external
         - destinationUrl: "*.servicebus.windows.net"
           destinationType: external
         - destinationUrl: "graph.microsoft.com"
           destinationType: external
-        - destinationUrl: "login.windows.net"
+        - destinationUrl: "*.arc.azure.net"
           destinationType: external
-        - destinationUrl: "management.azure.com"
+        - destinationUrl: "*.obo.arc.azure.com"
           destinationType: external
-        - destinationUrl: "mcr.microsoft.com"
-          destinationType: external
-        - destinationUrl: "sts.windows.net"
-          destinationType: external
-        - destinationUrl: "*.ods.opinsights.azure.com"
+        - destinationUrl: "linuxgeneva-microsoft.azurecr.io"
           destinationType: external
         - destinationUrl: "graph.windows.net"
           destinationType: external
-        - destinationUrl: "msit-onelake.pbidedicated.windows.net"
-          destinationType: external
         - destinationUrl: "*.azurecr.io"
-          destinationType: external
-        - destinationUrl: "*.azureedge.net"
           destinationType: external
         - destinationUrl: "*.blob.core.windows.net"
           destinationType: external
-        - destinationUrl: "*.prod.hot.ingestion.msftcloudes.com"
-          destinationType: external
-        - destinationUrl: "*.prod.microsoftmetrics.com"
-          destinationType: external
-        - destinationUrl: "adhs.events.data.microsoft.com"
-          destinationType: external
-        - destinationUrl: "dc.services.visualstudio.com"
-          destinationType: external
-        - destinationUrl: "go.microsoft.com"
-          destinationType: external
-        - destinationUrl: "packages.microsoft.com"
-          destinationType: external
-        - destinationUrl: "www.powershellgallery.com"
-          destinationType: external
-        - destinationUrl: "*.gw.arc.azure.com"
-          destinationType: external
-        - destinationUrl: "*.gcs.prod.monitoring.core.windows.net"
-          destinationType: external
-        - destinationUrl: "*.prod.warm.ingest.monitor.core.windows.net"
-          destinationType: external
-        - destinationUrl: "*.prod.hot.ingest.monitor.core.windows.net"
-          destinationType: external
-        - destinationUrl: "azure.archive.ubuntu.com"
-          destinationType: external
-        - destinationUrl: "crl.microsoft.com"
-          destinationType: external
-        - destinationUrl: "*.table.core.windows.net"
+        - destinationUrl: "*.vault.azure.net"
           destinationType: external
         - destinationUrl: "*.blob.storage.azure.net"
-          destinationType: external
-        - destinationUrl: "*.docker.com"
-          destinationType: external
-        - destinationUrl: "*.docker.io"
-          destinationType: external
-        - destinationUrl: "*.googleapis.com"
-          destinationType: external
-        - destinationUrl: "github.com"
-          destinationType: external
-        - destinationUrl: "collect.traefik.io"
-          destinationType: external
-        - destinationUrl: "contracts.canonical.com"
-          destinationType: external
-        - destinationUrl: "database.clamav.net"
-          destinationType: external
-        - destinationUrl: "esm.ubuntu.com"
-          destinationType: external
-        - destinationUrl: "livepatch.canonical.com"
-          destinationType: external
-        - destinationUrl: "motd.ubuntu.com"
-          destinationType: external
-        - destinationUrl: "update.traefik.io"
           destinationType: external
         sourceIpRange:
         - addressPrefix: "0.0.0.0"
           prefixLen: 0
     ```
 
-    For debugging or experimentation, you can change the value of **loglevel** parameter to **debug**.
 
 1. Create the Custom Resource to create a Layered Network Management instance.
 
@@ -311,7 +266,7 @@ Create the Layered Network Management custom resource.
 1. View the Layered Network Management Kubernetes service:
 
     ```bash
-    kubectl get services -n azure-iot-operations
+    kubectl get services
     ```
 
     ```output

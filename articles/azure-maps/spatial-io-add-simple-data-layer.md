@@ -63,7 +63,18 @@ function InitMap()
     map.layers.add(layer);
 
     //Load an initial data set.
-    loadDataSet('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1717245/use-simple-data-layer.json');
+    const dataSet = {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [0, 0]
+        },
+        "properties": {
+            "color": "red"
+        }
+    };
+    
+    loadDataSet(dataSet);
 
     function loadDataSet(url) {
       //Read the spatial data and add it to the map.
@@ -83,21 +94,6 @@ function InitMap()
       });
     }
   });
-}
-```
-
-The url passed to the `loadDataSet` function points to the following json:
-
-```json
-{
-    "type": "Feature",
-    "geometry": {
-        "type": "Point",
-        "coordinates": [0, 0]
-    },
-    "properties": {
-        "color": "red"
-    }
 }
 ```
 

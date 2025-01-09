@@ -4,7 +4,7 @@ description: Learn to configure custom domain names and managed certificates in 
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom: build-2023, devx-track-azurecli
+ms.custom: build-2023, devx-track-azurecli, ignite-2024
 ms.topic: how-to
 ms.date: 09/19/2024
 ms.author: cshoe
@@ -62,22 +62,22 @@ The requirements are:
     | Apex domain | A record | An apex domain is a domain at the root level of your domain. For example, if your DNS zone is `contoso.com`, then `contoso.com` is the apex domain. |
     | Subdomain | CNAME | A subdomain is a domain that is part of another domain. For example, if your DNS zone is `contoso.com`, then `www.contoso.com` is an example of a subdomain that can be configured in the zone. |
 
-1. Using the DNS provider that is hosting your domain, create DNS records based on the *Hostname record type* you selected using the values shown in the *Domain validation* section. The records point the domain to your container app and verify that you're the owner.
+1. Using the DNS provider that is hosting your domain, create DNS records based on the *Hostname record type* you selected using the values shown in the *Domain validation* section. The records point the domain to your container app and verify that you're the owner. 
 
     - If you selected *A record*, create the following DNS records:
 
         | Record type | Host | Value |
         |--|--|--|
-        | A | `@` | The IP address of your Container Apps environment |
-        | TXT | `asuid` | The domain verification code |
+        | A | `@` | The IP address of your Container Apps environment. |
+        | TXT | `asuid` | The domain verification code. |
 
     - If you selected *CNAME*, create the following DNS records:
 
         | Record type | Host | Value |
         |--|--|--|
-        | CNAME | The subdomain (for example, `www`) | The automatically generated `<appname>.<region>.azurecontainerapps.io` domain of your container app |
-        | TXT | `asuid.` followed by the subdomain (for example, `asuid.www`) | The domain verification code |
-
+        | CNAME | The subdomain (for example, `www`) | The generated domain of your container app. |
+        | TXT | `asuid.` followed by the subdomain (for example, `asuid.www`) | The domain verification code. |
+    
 1. Select **Validate**.
 
 1. Once validation succeeds, select **Add**.
@@ -149,21 +149,43 @@ Container Apps supports apex domains and subdomains. Each domain type requires a
 
     Replace `<CONTAINER_APP_NAME>` with the name of your container app, and `<RESOURCE_GROUP_NAME>` with the name of the resource group that contains your container app.
 
-1. Using the DNS provider that is hosting your domain, create DNS records based on the record type you selected using the values shown in the *Domain validation* section. The records point the domain to your container app and verify that you own it.
+1. Using the DNS provider that is hosting your domain, create DNS records based on the record type you selected using the values shown in the *Domain validation* section. The records point the domain to your container app and verify that you own it. The setup depends on whether you are using custom domains with the private endpoint (preview) feature:
 
-    - If you're configuring an apex domain, create the following DNS records:
-
-        | Record type | Host | Value |
-        |--|--|--|
-        | A | `@` | The IP address of your Container Apps environment |
-        | TXT | `asuid` | The domain verification code |
-
-    - If you're configuring a subdomain, create the following DNS records:
+    # [General](#tab/general)
+    
+    - If you selected *A record*, create the following DNS records:
 
         | Record type | Host | Value |
         |--|--|--|
-        | CNAME | The subdomain (for example, `www`) | The automatically generated domain of your container app |
-        | TXT | `asuid.` followed by the subdomain (for example, `asuid.www`) | The domain verification code |
+        | A | `@` | The IP address of your Container Apps environment. |
+        | TXT | `asuid` | The domain verification code. |
+
+    - If you selected *CNAME*, create the following DNS records:
+
+        | Record type | Host | Value |
+        |--|--|--|
+        | CNAME | The subdomain (for example, `www`) | The generated domain of your container app. |
+        | TXT | `asuid.` followed by the subdomain (for example, `asuid.www`) | The domain verification code. |
+    
+    # [Private endpoint](#tab/private-endpoint)
+
+    When using a private endpoint for your incoming traffic, you need to [create a private DNS zone](how-to-use-private-endpoint.md#configure-the-private-dns-zone).    
+
+    - If you selected *A record*, create the following DNS records:
+
+        | Record type | Host | Value |
+        |--|--|--|
+        | A | `@` | The Private IP of your private endpoint on your container apps environment. |
+        | TXT | `asuid` | The domain verification code. |
+
+    - If you selected *CNAME*, create the following DNS records:
+
+        | Record type | Host | Value |
+        |--|--|--|
+        | CNAME | The subdomain (for example, `www`) | The generated domain of your container app. |
+        | TXT | `asuid.` followed by the subdomain (for example, `asuid.www`) | The domain verification code. |
+
+    ---
 
 1. Add the domain to your container app.
 

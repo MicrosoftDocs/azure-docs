@@ -1,23 +1,23 @@
 ---
 title: Use Azure Developer CLI with Azure Deployment Environments
-description: Understand ADE and `azd` work together to provision application infrastructure and deploy application code to the new infrastructure.
+description: Understand how ADE and `azd` work together to provision application infrastructure and deploy application code to the new infrastructure.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: azure-deployment-environments
 ms.topic: concept-article
-ms.date: 10/11/2024
+ms.date: 11/11/2024
 
-# Customer intent: As a platform engineer, I want to understand ADE and `azd` work together to provision application infrastructure and deploy application code to the new infrastructure.
+# Customer intent: As a platform engineer, I want to understand how ADE and `azd` work together to provision application infrastructure and deploy application code to the new infrastructure.
 
 ---
 
-# Use Azure Developer CLI with Azure Deployment Environments
+# Azure Developer CLI and Azure Deployment Environments
 
-In this article, you learn about Azure Developer CLI (`azd`) and how it works with Azure Deployment Environments (ADE) to provision application infrastructure and deploy application code to the new infrastructure.
+In this article, you learn about Azure Developer CLI (`azd`) and how it works with Azure Deployment Environments (ADE) to simplify the process of provisioning application infrastructure and deploying application code to the new infrastructure.
 
 `azd` is an open-source command-line tool that provides developer-friendly commands that map to key stages in your workflow. You can install `azd` locally on your machine or use it in other environments.
 
-With ADE, you can create environments from an environment definition in a catalog attached to your dev center. By adding `azd`, you can deploy your application code to the new infrastructure.
+With ADE, you can create environments from an environment definition in a catalog attached to your dev center, or by using the [ADE extensibility model to execute deployments](how-to-configure-extensibility-model-custom-image.md). By adding `azd`, you can streamline the process of provisioning infrastructure and deploying code to the cloud.
 
 ## How does `azd` work with ADE?
 
@@ -66,8 +66,7 @@ Most `azd` templates also optionally include one or more of the following folder
 
 Azure Deployment Environments catalogs consist of environment definitions: IaC templates that define the infrastructure resources that are provisioned for a deployment environment. Azure Developer CLI uses environment definitions in the catalog attached to the dev center to provision new environments. 
 
-> [!NOTE]
-> Currently, Azure Developer CLI works with ARM templates stored in the Azure Deployment Environments dev center catalog.
+Azure Developer CLI works with ARM templates stored in the Azure Deployment Environments dev center catalog. It also supports other IaC templates, such as Bicep and Terraform through the ADE extensibility model. To learn how to configure the ADE extensibility model, see [Azure Deployment Environments extensibility model](how-to-configure-extensibility-model-custom-image.md).
 
 To properly support certain Azure Compute services, Azure Developer CLI requires more configuration settings in the IaC template. For example, you must tag app service hosts with specific information so that `azd` knows how to find the hosts and deploy the app to them.
 
@@ -84,8 +83,6 @@ Changes include:
 - Tag resources in *azure.yaml* with specific information so that `azd` knows how to find the hosts and deploy the app to them.
     - Learn about [Tagging resources for Azure Deployment Environments](/azure/developer/azure-developer-cli/ade-integration?branch=main#tagging-resources-for-azure-deployment-environments).
     - Learn about [Azure Developer CLI's azure.yaml schema](/azure/developer/azure-developer-cli/azd-schema).
-- Configure dev center settings like environment variables, `azd` environment configuration, `azd` project configuration, and user configuration.
-    - Learn about [Configuring dev center settings](/azure/developer/azure-developer-cli/ade-integration?branch=main#configure-dev-center-settings).
 
 To learn more about how to make your ADE environment definition compatible with `azd`, see [Make your project compatible with Azure Developer CLI](/azure/developer/azure-developer-cli/ade-integration).
 
@@ -106,5 +103,5 @@ When the dev center feature is enabled, the default behavior of some common `azd
 ## Related content
 
 - [Add and configure an environment definition](./configure-environment-definition.md)
-- [Create an environment by using the Azure Developer CLI](./how-to-create-environment-with-azure-developer.md)
+- [Create an environment from an Azure Developer CLI template](./how-to-configure-azure-developer-cli-deployment-environments.md )
 - [Make your project compatible with Azure Developer CLI](/azure/developer/azure-developer-cli/make-azd-compatible?pivots=azd-create)

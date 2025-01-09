@@ -1,12 +1,13 @@
 ---
 title: Best practices for the Enterprise tiers
-titleSuffix: Azure Cache for Redis
 description: Learn the best practices when using the high performance Azure Cache for Redis Enterprise and Enterprise Flash tiers.
 
 
 ms.topic: conceptual
+ms.custom:
+  - ignite-2024
 ms.date: 06/10/2024
-
+# File in place for the current build requirements.
 ---
 
 # What are the best practices for the Enterprise and Enterprise Flash tiers

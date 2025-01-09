@@ -7,10 +7,8 @@ ms.date: 10/14/2021
 ms.author: daknappe
 ms.custom: docs_inherited
 ---
-# Troubleshooting overview, feedback, and support for Azure Virtual Desktop
 
->[!IMPORTANT]
->This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
+# Troubleshooting overview, feedback, and support for Azure Virtual Desktop
 
 This article provides an overview of the issues you may encounter when setting up an Azure Virtual Desktop environment and provides ways to resolve the issues.
 

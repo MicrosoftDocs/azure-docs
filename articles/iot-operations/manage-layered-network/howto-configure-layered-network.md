@@ -1,24 +1,22 @@
 ---
-title: Create sample network environment for Layered Network Management
-description: Set up a test or sample network environment for Azure IoT Layered Network Management.
+title: Create sample network environment for Layered Network Management (preview)
+description: Set up a test or sample network environment for Azure IoT Layered Network Management (preview).
 author: PatAltimore
 ms.subservice: layered-network-management
 ms.author: patricka
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 10/18/2024
+ms.date: 12/12/2024
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ms.service: azure-iot-operations
 ---
 
-# Create sample network environment for Azure IoT Layered Network Management Preview
+# Create sample network environment for Azure IoT Layered Network Management (preview)
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
-To use Azure IoT Layered Network Management Preview service, you need to configure an isolated network environment. For example, the [ISA-95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95)/[Purdue Network architecture](http://www.pera.net/). This page provides few examples for setting up a test environment depends on how you want to achieve the isolation.
-- *Physical segmentation* - The networks are physically separated. In this case, the Layered Network Management needs to be deployed to a dual NIC (Network Interface Card) host to connect to both the internet-facing network and the isolated network.
+To use Azure IoT Layered Network Management (preview) service, you need to configure an isolated network environment. For example, the [ISA-95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95)/[Purdue Network architecture](http://www.pera.net/). This page provides few examples for setting up a test environment depends on how you want to achieve the isolation.
+- *Physical segmentation* - The networks are physically separated. In this case, the Layered Network Management (preview) needs to be deployed to a dual NIC (Network Interface Card) host to connect to both the internet-facing network and the isolated network.
 - *Logical segmentation* - The network is logically segmented with configurations such as VLAN, subnet, or firewall. The Layered Network Management has a single endpoint and configured to be visible to its own network layer and the isolated layer.
 
 Both approaches require you to configure a custom DNS in the isolated network layer to direct the network traffic to the Layered Network Management instance in upper layer.
@@ -61,7 +59,7 @@ An extra custom DNS needs to be set up in the local network to provide domain na
 ### Example of logical segmentation in Azure
 In this example, a test environment is created with a [virtual network](/azure/virtual-network/virtual-networks-overview) and a [Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal) in Azure.
 > [!IMPORTANT]
-> Virtual environment is for exploration and evaluation only. For more information, see [validated environments](../overview-iot-operations.md#validated-environments) for Azure IoT Operations Preview.
+> Virtual environment is for exploration and evaluation only. For more information, see [supported environments](../deploy-iot-ops/overview-deploy.md#supported-environments) for Azure IoT Operations.
 
 1. Create a virtual network in your Azure subscription. Create subnets for at least two layers (level 4 and level 3).
 :::image type="content" source="./media/howto-configure-layered-network/vnet-subnet.png" alt-text="Screenshot for virtual network in Azure." lightbox="./media/howto-configure-layered-network/vnet-subnet.png":::
@@ -74,7 +72,7 @@ In this example, a test environment is created with a [virtual network](/azure/v
     - [Optional] If you create a *jumpbox* subnet, create inbound and outbound rules for allowing traffic to and from this subnet.
 :::image type="content" source="./media/howto-configure-layered-network/vnet-security-rule.png" alt-text="Screenshot for level 3 security group." lightbox="./media/howto-configure-layered-network/vnet-security-rule.png":::
 1. Create Linux VMs in level 3 and level 4. 
-    - Refer to [validated environments](../overview-iot-operations.md#validated-environments) for specification of the VM.
+    - Refer to [supported environments](../deploy-iot-ops/overview-deploy.md#supported-environments) for specification of the VM.
     - When creating the VM, connect the machine to the subnet that is created in earlier steps.
     - Skip the security group creation for VM.
 
@@ -90,7 +88,7 @@ While the DNS setup can be achieved many different ways, this example uses an ex
 > [!IMPORTANT]
 > The CoreDNS approach is only applicable to K3S cluster on Ubuntu host at level 3.
 
-### Create configmap from level 4 Layered Network Management Preview
+### Create configmap from level 4 Layered Network Management
 After the level 4 cluster and Layered Network Management are ready, perform the following steps.
 1. Confirm the IP address of Layered Network Management service with the following command:
     ```bash
@@ -153,7 +151,7 @@ After setting up the K3S cluster and moving it to the level 3 isolated layer, co
     Address 1: 20.81.111.118
     pod "busybox" deleted
     
-    # Note: confirm that the resolved ip addresss matches the ip address of the level 4 Layered Network Management instance.
+    # Note: confirm that the resolved ip address matches the ip address of the level 4 Layered Network Management instance.
     ```
 
 1. The previous step sets the DNS configuration to resolve the allowlisted URLs inside the cluster to level 4. To ensure that DNS outside the cluster is doing the same, you need to configure systemd-resolved to forward traffic to CoreDNS inside the K3S cluster. Run the following commands on the K3S host:
@@ -189,63 +187,57 @@ A custom DNS is only needed for levels 3 and below. This example uses a [dnsmasq
     apt install dnsmasq
     systemctl status dnsmasq
     ```
+
+    > [!NOTE]
+    > You might need to disable the *systemd-resolved* service if it causes conflict on port 53.
+    > ```bash
+    > systemctl disable --now systemd-resolved
+    > ```
+
 1. Modify the `/etc/dnsmasq.conf` file as shown to route these domains to the upper level.
     - Change the IPv4 address from 10.104.0.10 to respective destination address for that level. In this case, the IP address of the Layered Network Management service in the parent level.
-    - Verify the `interface` where you're running the *dnsmasq* and change the value as needed.
 
     The following configuration only contains the necessary endpoints for enabling Azure IoT Operations.
 
     ```conf
-    # Add domains which you want to force to an IP address here.
-    address=/management.azure.com/10.104.0.10
-    address=/dp.kubernetesconfiguration.azure.com/10.104.0.10
-    address=/.dp.kubernetesconfiguration.azure.com/10.104.0.10
-    address=/login.microsoftonline.com/10.104.0.10
-    address=/.login.microsoft.com/10.104.0.10
-    address=/.login.microsoftonline.com/10.104.0.10
-    address=/login.microsoft.com/10.104.0.10
-    address=/mcr.microsoft.com/10.104.0.10
-    address=/.data.mcr.microsoft.com/10.104.0.10
-    address=/gbl.his.arc.azure.com/10.104.0.10
-    address=/.his.arc.azure.com/10.104.0.10
-    address=/k8connecthelm.azureedge.net/10.104.0.10
-    address=/guestnotificationservice.azure.com/10.104.0.10
-    address=/.guestnotificationservice.azure.com/10.104.0.10
-    address=/sts.windows.nets/10.104.0.10
-    address=/k8sconnectcsp.azureedge.net/10.104.0.10
-    address=/.servicebus.windows.net/10.104.0.10
-    address=/servicebus.windows.net/10.104.0.10
-    address=/obo.arc.azure.com/10.104.0.10
-    address=/.obo.arc.azure.com/10.104.0.10
-    address=/adhs.events.data.microsoft.com/10.104.0.10
-    address=/dc.services.visualstudio.com/10.104.0.10
-    address=/go.microsoft.com/10.104.0.10
-    address=/onegetcdn.azureedge.net/10.104.0.10
-    address=/www.powershellgallery.com/10.104.0.10
-    address=/self.events.data.microsoft.com/10.104.0.10
-    address=/psg-prod-eastus.azureedge.net/10.104.0.10
-    address=/.azureedge.net/10.104.0.10
-    address=/api.segment.io/10.104.0.10
-    address=/nw-umwatson.events.data.microsoft.com/10.104.0.10
-    address=/sts.windows.net/10.104.0.10
-    address=/.azurecr.io/10.104.0.10
-    address=/.blob.core.windows.net/10.104.0.10
-    address=/global.metrics.azure.microsoft.scloud/10.104.0.10
-    address=/.prod.hot.ingestion.msftcloudes.com/10.104.0.10
-    address=/.prod.microsoftmetrics.com/10.104.0.10
-    address=/global.metrics.azure.eaglex.ic.gov/10.104.0.10
+    strict-order
+
+    # Arc endpoints
+    address=/management.azure.com/10.0.0.6
+    address=/.dp.kubernetesconfiguration.azure.com/10.0.0.6
+    address=/login.microsoftonline.com/10.0.0.6
+    address=/.login.microsoft.com/10.0.0.6
+    address=/login.windows.net/10.0.0.6
+    address=/mcr.microsoft.com/10.0.0.6
+    address=/.data.mcr.microsoft.com/10.0.0.6
+    address=/gbl.his.arc.azure.com/10.0.0.6
+    address=/.his.arc.azure.com/10.0.0.6
+    address=/k8connecthelm.azureedge.net/10.0.0.6
+    address=/guestnotificationservice.azure.com/10.0.0.6
+    address=/.guestnotificationservice.azure.com/10.0.0.6
+    address=/sts.windows.net/10.0.0.6
+    address=/k8sconnectcsp.azureedge.net/10.0.0.6
+    address=/.servicebus.windows.net/10.0.0.6
+    address=/graph.microsoft.com/10.0.0.6
+    address=/.arc.azure.net/10.0.0.6
+    address=/.obo.arc.azure.com/10.0.0.6
+    address=/linuxgeneva-microsoft.azurecr.io/10.0.0.6
+    # Azure CLI installation endpoints
+    address=/pypi.org/10.0.0.6
+    address=/files.pythonhosted.org/10.0.0.6
+    # Azure CLI endpoints
+    address=/graph.windows.net/10.0.0.6
+    address=/.azurecr.io/10.0.0.6
+    address=/.blob.core.windows.net/10.0.0.6
+    address=/.vault.azure.net/10.0.0.6
+    # AIO endpoints
+    address=/.blob.storage.azure.net/10.0.0.6
 
     # --address (and --server) work with IPv6 addresses too.
     address=/guestnotificationservice.azure.com/fe80::20d:60ff:fe36:f83
     address=/.guestnotificationservice.azure.com/fe80::20d:60ff:fe36:f833
     address=/.servicebus.windows.net/fe80::20d:60ff:fe36:f833
     address=/servicebus.windows.net/fe80::20d:60ff:fe36:f833
-
-    # If you want dnsmasq to listen for DHCP and DNS requests only on
-    # specified interfaces (and the loopback) give the name of the
-    # interface (eg eth0) here.
-    # Repeat the line for more than one interface.
-    interface=enp1s0
 
     listen-address=::1,127.0.0.1,10.102.0.72
 
@@ -255,17 +247,13 @@ A custom DNS is only needed for levels 3 and below. This example uses a [dnsmasq
 1. As an alternative, you can put `address=/#/<IP of upper level Layered Network Management service>` in the IPv4 address section. For example:
 
     ```conf
+    strict-order
+
     # Add domains which you want to force to an IP address here.
     address=/#/<IP of upper level Layered Network Management service>
 
     # --address (and --server) work with IPv6 addresses too.
     address=/#/fe80::20d:60ff:fe36:f833
-
-    # If you want dnsmasq to listen for DHCP and DNS requests only on
-    # specified interfaces (and the loopback) give the name of the
-    # interface (eg eth0) here.
-    # Repeat the line for more than one interface.
-    interface=enp1s0
 
     listen-address=::1,127.0.0.1,10.102.0.72
 
@@ -283,4 +271,4 @@ A custom DNS is only needed for levels 3 and below. This example uses a [dnsmasq
 
 ## Related content
 
-[What is Azure IoT Layered Network Management Preview?](./overview-layered-network.md)
+[What is Azure IoT Layered Network Management?](./overview-layered-network.md)

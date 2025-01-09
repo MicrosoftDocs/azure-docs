@@ -32,7 +32,7 @@ You can have multiple workflows in a Standard logic app. Workflows in the same l
 >
 > - *What's Azure Logic Apps?*
 > - *What's a Standard logic app workflow?*
-> - *What's the Request triger?*
+> - *What's the Request trigger?*
 > - *What's the Office 365 Outlook connector?*
 >
 > To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.

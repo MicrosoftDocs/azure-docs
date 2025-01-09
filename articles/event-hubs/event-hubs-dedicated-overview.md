@@ -84,7 +84,7 @@ Approximately one CU in a legacy cluster provides *ingress capacity ranging from
 
 With a legacy cluster, you can purchase up to 20 CUs.
 
-Legacy Event Hubs dedicated clusters require at least eight CUs to enable availability zones. Availability zone support is only available in [Azure regions with availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones).
+Legacy Event Hubs dedicated clusters require at least eight CUs to enable availability zones. Availability zone support is only available in [Azure regions with availability zones](../reliability/availability-zones-region-support.md).
 
 > [!IMPORTANT]
 > Migrating an existing legacy cluster to a self-serve cluster isn't currently supported. For more information, see [Migrating a legacy cluster to a self-serve scalable cluster](#can-i-migrate-my-standard-or-premium-namespaces-to-a-dedicated-tier-cluster).

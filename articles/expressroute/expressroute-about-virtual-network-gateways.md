@@ -4,7 +4,7 @@ description: Learn about virtual network gateways for ExpressRoute, their SKUs, 
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/19/2024
 ms.author: duau
 ms.custom: references_regions

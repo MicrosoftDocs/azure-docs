@@ -29,9 +29,11 @@ To update an existing Azure Operator Service Manager site network service (SNS),
 
 For each NfApp, the reput update request supports increasing a helm chart version, adding/removing helm values and/or adding/removing any NfApps. Timeouts can be set per NfApp, based on known allowable runtimes, but NfApps can only be processed in serial order, one after the other. The reput update implements the following processing logic:
 
-* For an NFApp with applicationEnablement set to false, skip.
-* For an NFApp, which is common between old and new network function definition version (NFDV), trigger upgrade component.
-* For an NFApp, which is added in new NFDV, trigger create component.
+* NfApps are processed following either updateDependsOn ordering, or in the sequential order they appear.
+* NfApps with parameter "applicationEnabled" set to disable are skipped.
+* NFApps deployed, but not referenced by the new NFDV, are deleted.
+* NFApps which are common between old and new NFDV are upgraded.
+* NFApps which are only in the new NFDV are installed.
 
 To ensure outcomes, NfApp testing is supported using helm, either helm upgrade pre/post tests, or standalone helm tests. For pre/post tests failures, the atomic parameter is honored. With atomic/true, the failed chart is rolled back. With atomic/false, no rollback is executed. For standalone helm tests, the rollbackOnTestFailure parameter us honored. With rollbackOnTestFailure/true, the failed chart is rolled back. With rollbackOnTestFailure/false, no rollback is executed.
 

@@ -286,7 +286,22 @@ This feature isn't yet supported in the Azure App Configuration Java Spring Prov
 
 ### [Kubernetes](#tab/kubernetes)
 
-This feature isn't yet supported in the Azure App Configuration Kubernetes Provider.
+Update the `AzureAppConfigurationProvider` resource of your Azure App Configuration Kubernetes Provider. Add a `loadBalancingEnabled` property and set it to `true`.
+
+``` yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  loadBalancingEnabled: true
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+```
+
+> [!NOTE]
+> Load balancing support is available if you use version **2.1.0** or later of [Azure App Configuration Kubernetes Provider](./quickstart-azure-kubernetes-service.md).
 
 ### [Python](#tab/python)
 

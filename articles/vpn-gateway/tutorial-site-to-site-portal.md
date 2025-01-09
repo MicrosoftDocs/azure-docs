@@ -6,7 +6,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: tutorial
-ms.date: 08/13/2024
+ms.date: 11/20/2024
 
 #customer intent: As a network engineer, I want to create a site-to-site VPN connection between my on-premises location and my Azure virtual network.
 ---
@@ -37,7 +37,7 @@ In this tutorial, you:
   * Verify that you have an externally facing public IPv4 address for your VPN device.
   * Verify that your VPN device supports active-active mode gateways. This article creates an active-active mode VPN gateway, which is recommended for highly available connectivity. Active-active mode specifies that both gateway VM instances are active and uses two public IP addresses, one for each gateway VM instance. You configure your VPN device to connect to the IP address for each gateway VM instance. If your VPN device doesn't support this mode, don't enable this mode for your gateway. For more information, see [Design highly available connectivity for cross-premises and VNet-to-VNet connections](vpn-gateway-highlyavailable.md) and [About active-active mode VPN gateways](about-active-active-gateways.md).
 
-## <a name="CreatVNet"></a>Create a virtual network
+## <a name="CreateVNet"></a>Create a virtual network
 
 In this section, you create a virtual network by using the following values:
 
@@ -144,10 +144,6 @@ You can configure more settings for your connection, if necessary. Otherwise, sk
 ## <a name="VerifyConnection"></a>Verify the VPN connection
 
 [!INCLUDE [Verify the connection](../../includes/vpn-gateway-verify-connection-portal-include.md)]
-
-## <a name="connectVM"></a>Connect to a virtual machine
-
-[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm.md)]
 
 ## Optional steps
 

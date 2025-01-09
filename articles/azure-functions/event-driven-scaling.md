@@ -6,12 +6,11 @@ ms.topic: conceptual
 ms.service: azure-functions
 ms.custom:
   - build-2024
+  - ignite-2024
 ---
 # Event-driven scaling in Azure Functions
 
 In the Consumption, Flex Consumption, and Premium plans, Azure Functions scales resources by adding more instances based on the number of events that trigger a function. 
-
-[!INCLUDE [functions-flex-preview-note](../../includes/functions-flex-preview-note.md)]
 
 The way in which your function app scales depends on the hosting plan: 
 
@@ -104,7 +103,7 @@ The following considerations apply for scale-in behaviors:
 
 ## Per-function scaling
 
-_Applies only to the Flex Consumption plan (preview)_.
+_Applies only to the Flex Consumption plan_.
 
 The [Flex Consumption plan] is unique in that it implements a _per-function scaling_ behavior. In per-function scaling, except for HTTP triggers, Blob (Event Grid) triggers, and Durable Functions, all other function trigger types in your app scale on independent instances. HTTP triggers in your app all scale together as a group on the same instances, as do all Blob (Event Grid), and all Durable Functions triggers, which have their own shared instances.
 

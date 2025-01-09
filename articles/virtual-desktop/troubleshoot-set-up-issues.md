@@ -7,10 +7,8 @@ ms.custom: references_regions, devx-track-arm-template, docs_inherited
 ms.date: 02/17/2021
 ms.author: daknappe
 ---
-# Host pool creation
 
->[!IMPORTANT]
->This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md).
+# Troubleshoot host pool creation
 
 This article covers issues during the initial setup of the Azure Virtual Desktop tenant and the related session host pool infrastructure.
 

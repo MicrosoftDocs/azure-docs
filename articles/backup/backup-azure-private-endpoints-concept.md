@@ -3,7 +3,7 @@ title: Private endpoints for Azure Backup - Overview
 description: This article explains about the concept of private endpoints for Azure Backup that helps to perform backups while maintaining the security of your resources.
 ms.topic: overview
 ms.service: azure-backup
-ms.date: 10/01/2024
+ms.date: 11/20/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -104,7 +104,7 @@ If you've configured a DNS proxy server, using third-party proxy servers or fire
 
 The following example shows Azure firewall used as DNS proxy to redirect the domain name queries for Recovery Services vault, blob, queues and Microsoft Entra ID to 168.63.129.16.
 
-:::image type="content" source="./media/backup-azure-private-endpoints-concept/private-endpoint-setup-with-microsoft-azure-recovery-service-diagram-inline.png" alt-text="Diagram shows the private endpoint setup with MARS." lightbox="./media/backup-azure-private-endpoints-concept/private-endpoint-setup-with-microsoft-azure-recovery-service-diagram-expanded.png":::
+:::image type="content" source="./media/backup-azure-private-endpoints-concept/private-endpoint-setup-with-microsoft-azure-recovery-service-diagram.png" alt-text="Diagram shows the private endpoint setup with MARS." lightbox="./media/backup-azure-private-endpoints-concept/private-endpoint-setup-with-microsoft-azure-recovery-service-diagram.png":::
 
 For more information, see [Creating and using private endpoints](private-endpoints.md).
 
@@ -141,7 +141,7 @@ The private IP addresses for the FQDNs can be found in **DNS configuration** pan
 
 The following diagram shows how the resolution works when using a private DNS zone to resolve these private service FQDNs.
 
-:::image type="content" source="./media/private-endpoints-overview/use-private-dns-zone-to-resolve-modified-service-fqdns-inline.png" alt-text="Diagram showing how the resolution works using a private DNS zone to resolve modified service FQDNs." lightbox="./media/private-endpoints-overview/use-private-dns-zone-to-resolve-modified-service-fqdns-expanded.png":::
+:::image type="content" source="./media/private-endpoints-overview/use-private-dns-zone-to-resolve-modified-service-fqdns.png" alt-text="Diagram showing how the resolution works using a private DNS zone to resolve modified service FQDNs." lightbox="./media/private-endpoints-overview/use-private-dns-zone-to-resolve-modified-service-fqdns.png":::
 
 The workload extension running on Azure VM requires connection to at least two storage accounts endpoints - the first one is used as communication channel (via queue messages) and second one for storing backup data. The MARS agent requires access to at least one storage account endpoint that is used for storing backup data.
 
@@ -150,7 +150,7 @@ In addition to the Azure Backup cloud services, the workload extension and agent
 
 The following diagram shows how the name resolution works for storage accounts using a private DNS zone.
 
-:::image type="content" source="./media/private-endpoints-overview/name-resolution-works-for-storage-accounts-using-private-dns-zone-inline.png" alt-text="Diagram showing how the name resolution works for storage accounts using a private DNS zone." lightbox="./media/private-endpoints-overview/name-resolution-works-for-storage-accounts-using-private-dns-zone-expanded.png":::
+:::image type="content" source="./media/private-endpoints-overview/name-resolution-works-for-storage-accounts-using-private-dns-zone.png" alt-text="Diagram showing how the name resolution works for storage accounts using a private DNS zone." lightbox="./media/private-endpoints-overview/name-resolution-works-for-storage-accounts-using-private-dns-zone.png":::
 
 The following diagram shows how you can do Cross Region Restore over Private Endpoint by replicating the Private Endpoint in a secondary region. Learn [how to do Cross Region Restore to a private endpoint enabled vault](backup-azure-private-endpoints-configure-manage.md#cross-region-restore-to-a-private-endpoint-enabled-vault).
 

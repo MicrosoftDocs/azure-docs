@@ -18,7 +18,9 @@ As a developer, you can create environments associated with a [project](concept-
 
 ## Prerequisites
 
-- [Create and configure a dev center](quickstart-create-and-configure-devcenter.md).
+- Your organization must configure Azure Deployment Environments with a dev center and at least one project before you can create a deployment environment.
+    - Platform engineers can follow these steps to configure [Quickstart: Configure Azure Deployment Environments](quickstart-create-and-configure-devcenter.md).
+- You must have permissions as a Deployment Environments User for a project. If you don't have permissions to a project, contact your administrator.
 
 ## Create an environment
 

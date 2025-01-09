@@ -4,7 +4,7 @@ description: This article provides information about how Application Gateway for
 services: application-gateway
 author: greglin
 ms.service: azure-appgw-for-containers
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/15/2024
 ms.author: greglin
 ---

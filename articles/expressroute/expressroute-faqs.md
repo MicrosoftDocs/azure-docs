@@ -454,9 +454,9 @@ See the recommendation for [High availability and failover with Azure ExpressRou
 
 Yes. Office 365 GCC service endpoints are reachable through the Azure US Government ExpressRoute. However, you first need to open a support ticket on the Azure portal to provide the prefixes you intend to advertise to Microsoft. Your connectivity to Office 365 GCC services will be established after the support ticket is resolved. 
 
-### Can I have ExpressRoute Private Peering in an Azure Goverment environment with Virtual Network Gateways in Azure commercial cloud? 
+### Can I have ExpressRoute Private Peering in an Azure Government environment with Virtual Network Gateways in Azure commercial cloud? 
 
-No, it's not possible to establish ExpressRoute Private peering in an Azure Goverment environment with a virtual network gateway in Azure commercial cloud environments. Furthermore, the scope of the ExpressRoute Government Microsoft Peering is limited to only public IPs within Azure government regions and doesn't extend to the broader ranges of commercial public IPs. 
+No, it's not possible to establish ExpressRoute Private peering in an Azure Government environment with a virtual network gateway in Azure commercial cloud environments. Furthermore, the scope of the ExpressRoute Government Microsoft Peering is limited to only public IPs within Azure government regions and doesn't extend to the broader ranges of commercial public IPs. 
 
 ## Route filters for Microsoft peering
 
@@ -518,7 +518,7 @@ You should experience minimal to no disruption during maintenance on your Expres
 
 ### Does ExpressRoute Traffic Collector support availability zones?
 
-ExpressRoute Traffic Collector deployment by default has availability zones enabled in the regions where it's available. For information about region availability, see [Availability zones supported regions](../availability-zones/az-overview.md#azure-regions-with-availability-zones). 
+ExpressRoute Traffic Collector deployment by default has availability zones enabled in the regions where it's available. For information about region availability, see [Availability zones supported regions](../reliability/availability-zones-region-support.md). 
 
 
 ### How should I incorporate ExpressRoute Traffic Collector in my disaster recovery plan?

@@ -18,7 +18,11 @@ This article provides command line options for deploying an SAP data connector a
 
 However, if you're using a configuration file to store your credentials instead of Azure Key Vault, or if you're an advanced user who wants to deploy the data connector manually, such as in a Kubernetes cluster, use the procedures in this article instead.
 
-While you can run multiple data connector agents on a single machine, we recommend that you start with one only, monitor the performance, and then increase the number of connectors slowly. We also recommend that your **security** team perform this procedure with help from the **SAP BASIS** team.
+While you can run multiple data connector agents on a single machine, we recommend that you start with one only, monitor the performance, and then increase the number of connectors slowly. We also recommend that your **security** team perform this procedure with help from the **SAP BASIS** team. 
+
+> [!NOTE]
+> This article is relevant only for the data connector agent, and isn't relevant for the [SAP agentless solution](deployment-overview.md#data-connector) (limited preview).
+>
 
 ## Prerequisites
 
@@ -147,7 +151,7 @@ This procedure describes how to create a new agent and connect it to your SAP sy
     docker update --restart unless-stopped <container-name>
     ```
 
-The deployment procedure generates a **systemconfig.json** file that contains the configuration details for the SAP data connector agent. For more information, see [SAP data connector agent configuration file](deployment-overview.md#sap-data-connector-agent-configuration-file).
+The deployment procedure generates a [**systemconfig.json**](reference-systemconfig-json.md) file that contains the configuration details for the SAP data connector agent. The file is located in the `/sapcon-app/sapcon/config/system` directory on your VM.
 
 ## Deploy the data connector using a configuration file
 
@@ -230,7 +234,7 @@ Azure Key Vault is the recommended method to store your authentication credentia
     docker update --restart unless-stopped <container-name>
     ```
 
-The deployment procedure generates a **systemconfig.json** file that contains the configuration details for the SAP data connector agent. For more information, see [SAP data connector agent configuration file](deployment-overview.md#sap-data-connector-agent-configuration-file).
+The deployment procedure generates a [**systemconfig.json**](reference-systemconfig-json.md) file that contains the configuration details for the SAP data connector agent. The file is located in the `/sapcon-app/sapcon/config/system` directory on your VM.
 
 ## Prepare the kickstart script for secure communication with SNC
 

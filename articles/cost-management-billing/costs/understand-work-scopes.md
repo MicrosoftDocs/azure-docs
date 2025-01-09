@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article helps you understand billing and resource management scopes available in Azure and how to use the scopes in Cost Management and APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/12/2024
+ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -275,7 +275,7 @@ The following scopes are supported for CSPs with customers on a Microsoft Custom
 
 - **Customer** - Represents a group of subscriptions that are associated to a specific customer that is onboarded to a Microsoft Customer Agreement by a partner.
 
-Only the users with *Global admin* and *Admin agent* roles can manage and view costs for billing accounts, billing profiles, and customers directly in the partner's Azure tenant. For more information about partner center roles, see [Assign users roles and permissions](/partner-center/permissions-overview).
+Only the users with *Admin agent* and [billing admin](/partner-center/account-settings/permissions-overview#billing-admin-role) roles can manage and view costs for billing accounts, billing profiles, and customers directly in the partner's Azure tenant. For more information about partner center roles, see [Assign users roles and permissions](/partner-center/permissions-overview).
 
 Cost Management only supports CSP partner customers if the customers have a Microsoft Customer Agreement. For CSP supported customers who aren't yet on a Microsoft Customer Agreement, see [Partner Center](/azure/cloud-solution-provider/overview/partner-center-overview).
 

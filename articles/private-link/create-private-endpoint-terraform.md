@@ -2,7 +2,7 @@
 title: 'Quickstart: Create a private endpoint - Terraform'
 description: In this quickstart, you learn how to create a private endpoint using Terraform.
 ms.topic: quickstart
-ms.date: 02/22/2024
+ms.date: 12/04/2024
 ms.custom: devx-track-terraform
 ms.service: azure-virtual-network
 author: asudbring

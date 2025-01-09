@@ -4,7 +4,6 @@ description: Learn how to write .NET applications to manage Azure CDN using Visu
 services: cdn
 author: duongau
 manager: kumudd
-ms.assetid: 63cf4101-92e7-49dd-a155-a90e54a792ca
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
@@ -346,8 +345,6 @@ We can then confirm the prompts to run the rest of the program.
 ![Program completing](./media/cdn-app-dev-net/cdn-program-running-2.png)
 
 ## Next Steps
-
-To see the completed project from this walkthrough, [download the sample](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
 
 To find more documentation on the Azure CDN Management Library for .NET, view the [reference on MSDN](/dotnet/api/overview/azure/cdn).
 

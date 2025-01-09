@@ -3,7 +3,7 @@ title: Create Bicep files by using Visual Studio Code
 description: Learn how to use Visual Studio Code to create Bicep files.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 10/14/2024
+ms.date: 01/08/2025
 ---
 
 # Create Bicep files by using Visual Studio Code
@@ -25,6 +25,7 @@ Open or create a Bicep file in VS Code, select the **View** menu and then **Comm
 These commands include:
 
 - [Build ARM Template](#build-arm-template)
+- [Build Parameters File](#build-parameters-file)
 - [Create Bicep Configuration File](#create-bicep-configuration-file)
 - [Decompile into Bicep](#decompile-into-bicep)
 - [Deploy Bicep File](#deploy-bicep-file)
@@ -33,7 +34,10 @@ These commands include:
 - [Insert Resource](#insert-resource)
 - [Open Bicep Visualizer](#open-bicep-visualizer)
 - [Open Bicep Visualizer to the side](#open-bicep-visualizer)
+- [Paste JSON as Bicep](#paste-as-bicep)
 - [Restore Bicep Modules (Force)](#restore-bicep-modules)
+- [Show Deployment Pane](#show-deployment-pane)
+- [Show Deployment Pane to the Side](#show-deployment-pane)
 
 These commands are also shown in the context menu when you right-click a Bicep file:
 
@@ -45,7 +49,11 @@ When you right-click a JSON file:
 
 ### Build ARM template
 
-The `build` command converts a Bicep file to an Azure Resource Manager template (ARM template). The new JSON template is stored in the same folder with the same file name.  If a file with the same file name exists, it overwrites the old file.  For more information, see [Bicep CLI commands](./bicep-cli.md#bicep-cli-commands).
+The `build` command converts a Bicep file to an Azure Resource Manager template (ARM template). The new JSON template is stored in the same folder with the same file name. If a file with the same file name exists, it overwrites the old file. For more information, see [Bicep CLI commands](./bicep-cli.md#build).
+
+### Build parameters file
+
+The `build` command converts a [Bicep parameters file](./parameter-files.md#parameters-file) to a [JSON parameters file](../templates/parameter-files.md#parameter-file). The new JSON parameters file is stored in the same folder with the same file name. If a file with the same file name exists, it overwrites the old file. For more information, see [Bicep CLI commands](./bicep-cli.md#build-params).
 
 ### Create Bicep configuration file
 
@@ -70,7 +78,7 @@ You can deploy Bicep files directly from Visual Studio Code. Select **Deploy Bic
 
 ### Generate parameters file
 
-This command creates a parameter file in the same folder as the Bicep file. You can choose to create a Bicep parameter file or a JSON parameter file. The new Bicep parameter file name is `<bicep-file-name>.bicepparam`, while the new JSON parameter file name is `<bicep-file-name>.parameters.json`.
+This command creates a parameters file in the same folder as the Bicep file. You can choose to create a Bicep parameters file or a JSON parameters file. The new Bicep parameters file name is `<bicep-file-name>.bicepparam`, while the new JSON parameters file name is `<bicep-file-name>.parameters.json`.
 
 ### Import Kubernetes manifest (Preview)
 
@@ -115,21 +123,7 @@ The visualizer shows the resources defined in the Bicep file with the resource d
 
 You can also open the visualizer side-by-side with the Bicep file.
 
-### Restore Bicep modules
-
-When your Bicep file uses modules that are published to a registry, the restore command gets copies of all the required modules from the registry. It stores those copies in a local cache. For more information, see [restore](./bicep-cli.md#restore).
-
-## View documentation
-
-From Visual Studio Code, you can open the template reference for the resource type you're working on. To do so, hover your cursor over the resource symbolic name, and then select **View Documentation**.
-
-:::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-view-type-document.png" alt-text="Screenshot of Visual Studio Code Bicep view type document.":::
-
-## Go to definition
-
-When defining a [module](./modules.md) and regardless of the type of file that's being referenced - whether it's a local file, module registry file, or a template spec - you can open the file by selecting or highlighting the module path and then press **[F12]**. If the referenced file is an [Azure Verified Modules(AVM)](https://aka.ms/avm), you can toggle between compiled JSON or Bicep file. To open the Bicep file of a private registry module, ensure that the module is published to the registry with the `WithSource` switch enabled. For more information, see [Publish files to registry](./private-module-registry.md#publish-files-to-registry). The Visual Studio Code Bicep extension version 0.27.1 or newer is required for opening Bicep files from a private module registry.
-
-## Paste as Bicep
+### Paste as Bicep
 
 You can paste a JSON snippet from an ARM template to a Bicep file. Visual Studio Code automatically decompiles the JSON to Bicep. This feature is only available with the Bicep extension version 0.14.0 or newer, and it's enabled by default. To disable the feature, see [VS Code and Bicep extension](./install.md#visual-studio-code-and-bicep-extension).
 
@@ -195,6 +189,64 @@ Visual Studio Code automatically converts the JSON to Bicep. Notice that you als
 
 You can undo the decompilation by using <kbd>Ctrl+Z</kbd>. The original JSON appears in the file.
 
+### Restore Bicep modules
+
+When your Bicep file uses modules that are published to a registry, the restore command gets copies of all the required modules from the registry. It stores those copies in a local cache. For more information, see [restore](./bicep-cli.md#restore).
+
+### Show deployment pane
+
+The Bicep Deployment Pane is an experimental feature. For more information, see [Using the Deployment Pane](https://github.com/Azure/bicep/blob/main/docs/experimental/deploy-ui.md).
+
+You can also open the deployment pane side-by-side with the Bicep file.
+
+## Use quick fix suggestions
+
+The light bulb in VS Code represents a quick fix suggestion. It appears when the editor detects an issue or an improvement opportunity in your code. Clicking on the light bulb displays a menu of actions that can address the issue or enhance the code.
+
+:::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-context-quick-fix-suggestions.png" alt-text="Screenshot of Visual Studio Code quick fix suggestions.":::
+
+For the extract commands, see [Extract parameters, variables, and types](#extract-parameters-variables-and-types). In **More Actions**, it suggests adding [decorators](./variables.md#use-decorators).
+
+## Extract parameters, variables, and types
+
+Extracting [variables](./variables.md), [parameters](./parameters.md), and [user-defined data types](./user-defined-data-types.md) involves isolating and defining these components from existing code to improve code structure, maintainability, and clarity.
+
+The following screenshot shows a definition of an AKS cluster resource. You can extract a parameter or a variable, or a user-defined data type based of a property, such as `identity`.
+
+Select the `identity` line from the code, and then select the yellow light bulb icon. The context windows shows the available extract options.
+
+:::image type="content" source="./media/visual-studio-code/visual-studio-code-azure-variable-parameter-type-extraction.png" alt-text="Screenshot of variable, parameter, type extraction.":::
+
+- **Extract variable**: creates a new variable, and give you an option to update the variable name:
+
+  :::image type="content" source="./media/visual-studio-code/visual-studio-code-azure-variable-parameter-type-extract-variable.png" alt-text="Screenshot of extracting variable.":::
+
+- **Extract parameter of a simple data type**: create a new parameter with a simple data type, such as string, int, etc., and give you an option to update the parameter name:
+
+  :::image type="content" source="./media/visual-studio-code/visual-studio-code-azure-variable-parameter-type-extract-parameter.png" alt-text="Screenshot of extracting parameter.":::
+
+- **Extract parameter of a user-defined data type**: create a new parameter with a user-defined data type, and give you an option to update the parameter name:
+
+  :::image type="content" source="./media/visual-studio-code/visual-studio-code-azure-variable-parameter-type-extract-parameter-with-allowed-values.png" alt-text="Screenshot of extracting parameter with allowed values.":::
+
+  After the extract, it requires some customization.
+
+- **Create user-defined type**: create a new user-defined type, and give you an option to update the type name.
+
+  :::image type="content" source="./media/visual-studio-code/visual-studio-code-azure-variable-parameter-type-extract-type.png" alt-text="Screenshot of extracting user-defined data types.":::
+
+  Unlike the other options, it doesn't replace the selected code with a reference to the new type. In the preceding example, the value of `identity` remains as it is. To use the new type, you must incorporate it into your code.
+
+## View documentation
+
+From Visual Studio Code, you can open the template reference for the resource type you're working on. To do so, hover your cursor over the resource symbolic name, and then select **View Documentation**.
+
+:::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-view-type-document.png" alt-text="Screenshot of Visual Studio Code Bicep view type document.":::
+
+## Go to definition
+
+When defining a [module](./modules.md) and regardless of the type of file that's being referenced - whether it's a local file, module registry file, or a template spec - you can open the file by selecting or highlighting the module path and then press **[F12]**. If the referenced file is an [Azure Verified Modules(AVM)](https://aka.ms/avm), you can toggle between compiled JSON or Bicep file. To open the Bicep file of a private registry module, ensure that the module is published to the registry with the `WithSource` switch enabled. For more information, see [Publish files to registry](./private-module-registry.md#publish-files-to-registry). The Visual Studio Code Bicep extension version 0.27.1 or newer is required for opening Bicep files from a private module registry.
+
 ## Troubleshoot
 
 The `Problems` pane summarizes the errors and warning in your Bicep file:
@@ -202,7 +254,7 @@ The `Problems` pane summarizes the errors and warning in your Bicep file:
 :::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-problems-pane.png" alt-text="Screenshot of Visual Studio Code Bicep problems pane.":::
 
 For the list of error/warning codes, see [Bicep error/warning codes](./bicep-error-codes.md).
- 
+
 ## Next steps
 
 To walk through a quickstart tutorial, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).

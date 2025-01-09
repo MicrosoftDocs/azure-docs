@@ -200,7 +200,6 @@ To test the working of the alerts for a test VM using Azure Site Recovery, you c
 
 You can view the alerts settings under **Recovery Services Vault** > **Settings** > **Properties** > **Monitoring Settings**. The built-in alerts for Site Recovery are enabled by default, but you can disable either or both categories of Site Recovery alerts. Select the checkbox to opt out of classic alerts for Site Recovery and only use built-in alerts. If not done, duplicate alerts are generated for classic and built-in.  
 
-:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/properties.png" alt-text="Screenshot displays properties for alerting feature." lightbox="./media/site-recovery-monitor-and-troubleshoot/properties.png":::
 
 ### Manage Azure Site Recovery alerts in Business Continuity Center
 

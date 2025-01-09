@@ -1,20 +1,20 @@
 ---
-title: Azure Managed Grafana service limitations
+title: Azure Managed Grafana service limits
 titlesuffix: Azure Managed Grafana
-description: Learn about current technical or feature limitations you may encounter in the Azure Managed Grafana service.
+description: Learn about current service limits, quotas, and constraints you may encounter using Azure Managed Grafana.
 ms.service: azure-managed-grafana
 ms.topic: troubleshooting
-ms.date: 10/08/2024
+ms.date: 12/17/2024
 ms.author: malev
 ms.custom: engagement-fy23
 author: maud-lv
 ---
 
-# Limitations of Azure Managed Grafana
+# Service limits, quotas, and constraints
 
 Azure Managed Grafana delivers the native Grafana functionality in the highest possible fidelity. There are some differences between what it provides and what you can get by self-hosting Grafana. As a general rule, Azure Managed Grafana disables features and settings that might affect the security or reliability of the service and individual Grafana instances it manages.
 
-## Current limitations
+## Service limits
 
 Azure Managed Grafana has the following known limitations:
 
@@ -62,7 +62,7 @@ Each data source also has its own limits that can be reflected in Azure Managed 
 
 ## Managed identities
 
-Each Azure Managed Grafana instance can only have one user-assigned managed identity, or one user-assigned managed identity assigned.
+Each Azure Managed Grafana instance can only be assigned one managed identity, user-assigned or system-assigned, but not both.
 
 ## Related links
 

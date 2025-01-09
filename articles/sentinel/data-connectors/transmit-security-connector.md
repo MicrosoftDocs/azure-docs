@@ -79,7 +79,7 @@ Before deploying the Transmit Security data connector, have the Workspace ID and
 
 Option 1 - Azure Resource Manager (ARM) Template
 
-Use this method for automated deployment of the Transmit Security Audit data connector using an ARM Tempate.
+Use this method for automated deployment of the Transmit Security Audit data connector using an ARM Template.
 
 1. Click the **Deploy to Azure** button below. 
 

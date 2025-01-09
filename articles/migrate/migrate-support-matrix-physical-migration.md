@@ -6,8 +6,8 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 06/18/2024
-ms.custom: engagement-fy24
+ms.date: 09/26/2024
+ms.custom: engagement-fy25
 ---
 
 # Support matrix for migration of physical servers, AWS VMs, and GCP VMs

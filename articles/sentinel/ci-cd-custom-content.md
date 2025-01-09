@@ -66,7 +66,7 @@ A sample repository is available with ARM templates for each of the content type
 ## Improve performance with smart deployments
 
 > [!TIP]
-> To ensure smart deployments works in GitHub, Workflows must have read and write permissions on your repositoriy. See [Managing GitHub Actions settings for a repository](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository) for more details.
+> To ensure smart deployments works in GitHub, Workflows must have read and write permissions on your repository. See [Managing GitHub Actions settings for a repository](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository) for more details.
 >
 
 The **smart deployments** feature is a back-end capability that improves performance by actively tracking modifications made to the content files of a connected repository. It uses a CSV file within the '.sentinel' folder in your repository to audit each commit. The workflow avoids redeploying content that hasn't been modified since the last deployment. This process improves your deployment performance and prevents tampering with unchanged content in your workspace, such as resetting dynamic schedules of your analytics rules.

@@ -144,7 +144,7 @@ For Application Gateway for Containers SLA information, see [Service Level Agree
 
 ## What's new
 
-To learn what's new with Application Gateway for Containers, see [Azure updates](https://azure.microsoft.com/updates/?category=networking&query=Application%20Gateway%20for%20Containers).
+To learn what's new with Application Gateway for Containers, see [Azure updates](https://azure.microsoft.com/updates?filters=%5B%22Application+Gateway%22%5D&searchterms=Application+Gateway+for+Containers).
 
 ## Next steps
 

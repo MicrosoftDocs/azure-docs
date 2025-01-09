@@ -5,7 +5,7 @@ description: Learn how to use an Azure Resource Manager template (ARM template) 
 
 
 ms.topic: conceptual
-ms.custom: subject-armqs, devx-track-arm-template
+ms.custom: subject-armqs, devx-track-arm-template, ignite-2024
 ms.date: 04/10/2024
 ---
 
@@ -24,7 +24,9 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 * **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * **A storage account**: To create one, see [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal). The storage account is used for diagnostic data.
 
-## Review the template
+## Azure Cache for Redis
+
+### Review the template
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/redis-cache/).
 
@@ -43,11 +45,12 @@ Resource Manager templates for the new [Premium tier](cache-overview.md#service-
 
 To check for the latest templates, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/) and search for _Azure Cache for Redis_.
 
-## Deploy the template
+### Deploy the template
 
 1. Select the following image to sign in to Azure and open the template.
 
     :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.cache%2Fredis-cache%2Fazuredeploy.json":::
+
 1. Select or enter the following values:
 
     * **Subscription**: select an Azure subscription used to create the data share and the other resources.
@@ -57,7 +60,87 @@ To check for the latest templates, see [Azure Quickstart Templates](https://azur
     * **Existing Diagnostics Storage Account**: enter the resource ID of a storage account. The syntax is `/subscriptions/&lt;SUBSCRIPTION ID>/resourceGroups/&lt;RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/&lt;STORAGE ACCOUNT NAME>`.
 
     Use the default value for the rest of the settings.
-1. select **I agree to the terms and conditions stated above**, and the select **Purchase**.
+
+1. Select **I agree to the terms and conditions stated above**, and the select **Purchase**.
+
+## Azure Managed Redis (preview)
+
+### Review the template
+Modify the `cachename` and `region` parameters. Copy it to a file `azuredeploy.json`.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "cachename": {
+            "defaultValue": "myAMRcache",
+            "type": "String"
+        },
+        "region": {
+            "defaultValue": "centraluseuap",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Cache/redisEnterprise",
+            "apiVersion": "2024-05-01-preview",
+            "name": "[parameters('cachename')]",
+            "location": "[parameters('region')]",
+            "sku": {
+                "name": "Balanced_B5"
+            },
+            "identity": {
+                "type": "None"
+            },
+            "properties": {
+                "minimumTlsVersion": "1.2"
+            }
+        },
+        {
+            "type": "Microsoft.Cache/redisEnterprise/databases",
+            "apiVersion": "2024-05-01-preview",
+            "name": "[concat(parameters('cachename'), '/default')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Cache/redisEnterprise', parameters('cachename'))]"
+            ],
+            "properties": {
+                "clientProtocol": "Encrypted",
+                "port": 10000,
+                "clusteringPolicy": "OSSCluster",
+                "evictionPolicy": "NoEviction",
+                "persistence": {
+                    "aofEnabled": false,
+                    "rdbEnabled": false
+                }
+            }
+        }
+    ]
+}
+```
+
+### Deploy the template
+
+1. Save the Azure Resource Manager template as **azuredeploy.json** to your local computer.
+
+1. Deploy the template using either Azure CLI or Azure PowerShell.
+
+
+    # [CLI](#tab/CLI)
+
+    ```azurecli
+    az deployment group create --resource-group exampleRG --template-file main.bicep
+    ```
+
+    # [PowerShell](#tab/PowerShell)
+
+    ```azurepowershell
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep
+    ```
+
+    When the deployment finishes, you see a message indicating the deployment succeeded.
 
 ## Review deployed resources
 

@@ -29,7 +29,7 @@ ms.author: radeltch
 [2235581]:https://launchpad.support.sap.com/#/notes/2235581
 [2684254]:https://launchpad.support.sap.com/#/notes/2684254
 
-[sles-for-sap-bp]:https://documentation.suse.com/en-us/?tab=sbp
+[sles-for-sap-bp]:https://documentation.suse.com/?tab=sbp
 [sles-for-sap-bp12]:https://documentation.suse.com/sbp/sap-12/
 [sles-for-sap-bp15]:https://documentation.suse.com/sbp/sap-15/
 
@@ -144,7 +144,7 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
    1. Run this command to list all the available disks:
 
       ```bash
-      /dev/disk/azure/scsi1/lun*
+      ls /dev/disk/azure/scsi1/lun*
       ```
 
       Example output:

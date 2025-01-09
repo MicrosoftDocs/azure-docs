@@ -93,7 +93,7 @@ To configure screen capture protection using Group Policy:
 
 1. Follow the steps to make the [Administrative template for Azure Virtual Desktop](administrative-template.md) available in Group Policy.
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 

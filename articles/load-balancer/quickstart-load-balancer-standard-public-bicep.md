@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 10/25/2023
+ms.date: 12/06/2024
 ms.author: mbender
 ms.custom: mvc, subject-bicepqs, mode-arm, template-quickstart, devx-track-bicep
 #Customer intent: I want to create a load balancer by using a Bicep file so that I can load balance internet traffic to VMs.
@@ -72,7 +72,7 @@ To find more Bicep files or ARM templates that are related to Azure Load Balance
     ---
 
     > [!NOTE]
-    > The Bicep file deployment creates three availability zones. Availability zones are supported only in [certain regions](../availability-zones/az-overview.md). Use one of the supported regions. If you aren't sure, enter **EastUS**.
+    > The Bicep file deployment creates three availability zones. Availability zones are supported only in [certain regions](../reliability/availability-zones-overview.md). Use one of the supported regions. If you aren't sure, enter **EastUS**.
 
     You're prompted to enter the following values:
 

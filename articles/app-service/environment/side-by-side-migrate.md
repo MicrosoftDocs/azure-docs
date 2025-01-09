@@ -56,7 +56,7 @@ The following App Service Environment configurations can be migrated using the s
 |[External (ELB/internet facing with public IP)](create-external-ase.md) App Service Environment v2 |ELB App Service Environment v3                             |
 |ILB App Service Environment v2 with a custom domain suffix                                         |ILB App Service Environment v3 with a custom domain suffix |
 
-App Service Environment v3 can be deployed as [zone redundant](../../availability-zones/migrate-app-service-environment.md). Zone redundancy can be enabled as long as your App Service Environment v3 is [in a region that supports zone redundancy](./overview.md#regions).
+App Service Environment v3 can be deployed as [zone redundant](../../reliability/migrate-app-service-environment.md). Zone redundancy can be enabled as long as your App Service Environment v3 is [in a region that supports zone redundancy](./overview.md#regions).
 
 If you want your new App Service Environment v3 to use a custom domain suffix and you aren't using one currently, custom domain suffix can be configured at any time once migration is complete. For more information, see [Configure custom domain suffix for App Service Environment](./how-to-custom-domain-suffix.md). If your existing environment has a custom domain suffix and you no longer want to use it, you must configure a custom domain suffix for the migration. You can remove the custom domain suffix after migration is complete.
 
@@ -117,7 +117,7 @@ If your App Service Environment doesn't pass the validation checks or you try to
 |Subscription has too many App Service Environments. Please remove some before trying to create more.|The App Service Environment [quota for your subscription](../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) is met. |Remove unneeded environments or contact support to review your options.  |
 |Migrate cannot be called on this ASE until the active upgrade has finished.    |App Service Environments can't be migrated during platform upgrades. You can set your [upgrade preference](how-to-upgrade-preference.md) from the Azure portal. Upgrades take 8-12 hours or longer depending on the size (number of instances/cores) of the App Service Environment.  |Wait until the upgrade finishes and then migrate.   |
 |App Service Environment management operation in progress.    |Your App Service Environment is undergoing a management operation. These operations can include activities such as deployments or upgrades. Migration is blocked until these operations are complete.   |You can migrate once these operations are complete.  |
-|Your InteralLoadBalancingMode is not currently supported.|App Service Environments that have InternalLoadBalancingMode set to certain values can't be migrated using the migration feature at this time. The Microsoft team must manually change the InternalLoadBalancingMode. |Open a support case to engage support to resolve your issue. Request an update to the InternalLoadBalancingMode. |
+|Your InternalLoadBalancingMode is not currently supported.|App Service Environments that have InternalLoadBalancingMode set to certain values can't be migrated using the migration feature at this time. The Microsoft team must manually change the InternalLoadBalancingMode. |Open a support case to engage support to resolve your issue. Request an update to the InternalLoadBalancingMode. |
 |Full migration cannot be called before IP addresses are generated. |This error appears if you attempt to migrate before finishing the premigration steps. |Ensure you complete all premigration steps before you attempt to migrate. See the [step-by-step guide for migrating](#use-the-side-by-side-migration-feature).  |
 |Full migration cannot be called on Ase with custom dns suffix set but without an AseV3 Custom Dns Suffix Configuration configured. |Your existing App Service Environment uses a custom domain suffix. You have to configure custom domain suffix for your App Service Environment v3 during the migration process. |Configure a [custom domain suffix](./how-to-custom-domain-suffix.md). If you no longer want to use a custom domain suffix, you can remove it once the migration is complete. |
 
@@ -372,7 +372,7 @@ If you're using a user assigned managed identity for your custom domain suffix c
         "customDnsSuffixConfiguration": {
             "dnsSuffix": "internal.contoso.com",
             "certificateUrl": "https://contoso.vault.azure.net/secrets/myCertificate",
-            "keyVaultReferenceIdentity": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/asev3-migration/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ase-managed-identity"
+            "keyVaultReferenceIdentity": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/asev3-migration/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ase-managed-identity"
         }
     }
 }

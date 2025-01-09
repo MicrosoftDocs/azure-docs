@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: azure-file-storage
 ms.topic: release-notes
-ms.date: 10/31/2024
+ms.date: 1/07/2025
 ms.author: wgries
 ---
 
@@ -13,7 +13,7 @@ ms.author: wgries
 
 Azure File Sync enables centralizing your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of a Windows file server. While some users may opt to keep a full copy of their data locally, Azure File Sync additionally has the ability to transform Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
 
-This article provides the release notes for Azure File Sync. It's important to note that major releases of Azure File Sync include service and agent improvements (for example, 17.0.0.0). Minor releases of Azure File Sync are typically for agent improvements (for example, 17.2.0.0).
+This article provides the release notes for Azure File Sync. It's important to note that major releases of Azure File Sync include service and agent improvements (for example, 18.0.0.0). Minor releases of Azure File Sync are typically for agent improvements (for example, 18.2.0.0).
 
 ## Supported versions
 
@@ -24,11 +24,11 @@ The following Azure File Sync agent versions are supported:
 | V19 Release - [KB5040924](https://support.microsoft.com/topic/e44fc142-8a24-4dea-9bf9-6e884b4b342e)| 19.1.0.0 | September 3, 2024 | Supported |
 | V18.2 Release - [KB5023059](https://support.microsoft.com/topic/613d00dc-998b-4885-86b9-73750195baf5)| 18.2.0.0 | July 9, 2024 | Supported |
 | V18.1 Release - [KB5023057](https://support.microsoft.com/topic/961af341-40f2-4e95-94c4-f2854add60a5)| 18.1.0.0 | June 11, 2024 | Supported - Security Update |
-| V17.3 Release - [KB5039814](https://support.microsoft.com/topic/97bd6ab9-fa4c-42c0-a510-cdb1d23825bf)| 17.3.0.0 | June 11, 2024 | Supported - Security Update, Agent version will expire on March 4, 2025 |
+| V17.3 Release - [KB5039814](https://support.microsoft.com/topic/97bd6ab9-fa4c-42c0-a510-cdb1d23825bf)| 17.3.0.0 | June 11, 2024 | Supported - Security Update, Agent version will expire on May 6, 2025 |
 | V18 Release - [KB5023057](https://support.microsoft.com/topic/feb374ad-6256-4eeb-9371-eb85071f756f)| 18.0.0.0 | May 8, 2024 | Supported |
-| V17.2 Release - [KB5023055](https://support.microsoft.com/topic/dfa4c285-a4cb-4561-b0ed-bbd4ae09d91d)| 17.2.0.0 | February 28, 2024 | Supported, Agent version will expire on March 4, 2025 |
-| V17.1 Release - [KB5023054](https://support.microsoft.com/topic/azure-file-sync-agent-v17-1-release-february-2024-security-only-update-bd1ce41c-27f4-4e3d-a80f-92f74817c55b)| 17.1.0.0 | February 13, 2024 | Supported - Security Update, Agent version will expire on March 4, 2025 |
-| V17.0 Release - [KB5023053](https://support.microsoft.com/topic/azure-file-sync-agent-v17-release-december-2023-flighting-2d8cba16-c035-4c54-b35d-1bd8fd795ba9)| 17.0.0.0 | December 6, 2023 | Supported, Agent version will expire on March 4, 2025 |
+| V17.2 Release - [KB5023055](https://support.microsoft.com/topic/dfa4c285-a4cb-4561-b0ed-bbd4ae09d91d)| 17.2.0.0 | February 28, 2024 | Supported - Agent version will expire on May 6, 2025 |
+| V17.1 Release - [KB5023054](https://support.microsoft.com/topic/azure-file-sync-agent-v17-1-release-february-2024-security-only-update-bd1ce41c-27f4-4e3d-a80f-92f74817c55b)| 17.1.0.0 | February 13, 2024 | Supported - Security Update, Agent version will expire on May 6, 2025 |
+| V17.0 Release - [KB5023053](https://support.microsoft.com/topic/azure-file-sync-agent-v17-release-december-2023-flighting-2d8cba16-c035-4c54-b35d-1bd8fd795ba9)| 17.0.0.0 | December 6, 2023 | Supported - Agent version will expire on May 6, 2025 |
 
 ## Unsupported versions
 
@@ -56,13 +56,13 @@ The following Azure File Sync agent versions have expired and are no longer supp
 
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
-## Windows Server 2012 R2 agent support will end on March 4, 2025
+## Windows Server 2012 R2 agent support
 
-Windows Server 2012 R2 reached [end of support](/lifecycle/announcements/windows-server-2012-r2-end-of-support) on October 10, 2023. Azure File Sync will continue to support Windows Server 2012 R2 until the v17.x agent is expired on March 4, 2025. Once the v17 agent is expired, Windows Server 2012 R2 servers will stop syncing to your Azure file shares.
+Windows Server 2012 R2 reached [end of support](/lifecycle/announcements/windows-server-2012-r2-end-of-support) on October 10, 2023. Azure File Sync will continue to support Windows Server 2012 R2 until the v17.x agent is expired on May 6, 2025. Once the v17 agent is expired, Windows Server 2012 R2 servers will stop syncing to your Azure file shares.
 
 ### Action Required
 
-Perform one of the following options for your Windows Server 2012 R2 servers prior to v17 agent expiration on March 4, 2025:
+Perform one of the following options for your Windows Server 2012 R2 servers prior to v17 agent expiration on May 6, 2025:
 
 - Option #1: Perform an [in-place upgrade](/windows-server/get-started/perform-in-place-upgrade) to a [supported operation system version](file-sync-planning.md#operating-system-requirements). Once the in-place upgrade completes, uninstall the Azure File Sync agent for Windows Server 2012 R2, restart the server, and then install the agent for the new server operating system (Windows Server 2016, Windows Server 2019, Windows Server 2022 or Windows Server 2025).
 
@@ -85,7 +85,7 @@ The improvement applies to the following scenarios, when the server endpoint loc
 
 This improvement will be gradually enabled in all regions within the next month. Once the improvement is enabled in your region, you will see a Provisioning steps tab in the portal after server endpoint creation which allows you to easily determine when the server endpoint is ready for use. For more information, see [Create an Azure File Sync server endpoint](file-sync-server-endpoint-create.md#provisioning-steps) documentation.
 
-**Preview: Managed Identity support for Azure File Sync service and servers**  
+**Preview: Managed Identities support for Azure File Sync service and servers**  
 Azure File Sync support for managed identities eliminates the need for shared keys as a method of authentication by utilizing a system-assigned managed identity provided by Microsoft Entra ID.
 
 When you enable this configuration, the system-assigned managed identities will be used for the following scenarios:

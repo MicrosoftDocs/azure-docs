@@ -6,10 +6,11 @@ ms.author: karenguo
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 01/10/2024
+ms.service: azure
 ---
 
 # Frequently asked questions about Firmware analysis
-This article addresses frequent questions about Firmware analysis.
+This article addresses frequent questions about Firmware analysis. 
 
 [Firmware analysis](./overview-firmware-analysis.md) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images.
 
@@ -39,6 +40,7 @@ Firmware analysis supports unencrypted images that contain file systems with emb
 * POSIX tarball archive
 * UBI erase count header
 * UBI file system superblock node
+* UEFI file system
 * xz compressed data
 * YAFFS filesystem, big endian
 * YAFFS filesystem, little endian

@@ -67,7 +67,7 @@ After these resources are configured, use the following steps so that the Azure 
     az appconfig identity assign --name contoso-app-config --resource-group contoso-resource-group --identities [system]
     ```
 
-    The output of this command includes the principal ID (`"principalId"`) and tenant ID (`"tenandId"`) of the system-assigned identity.  These IDs will be used to grant the identity access to the managed key.
+    The output of this command includes the principal ID (`"principalId"`) and tenant ID (`"tenantId"`) of the system-assigned identity.  These IDs will be used to grant the identity access to the managed key.
 
     ```json
     {

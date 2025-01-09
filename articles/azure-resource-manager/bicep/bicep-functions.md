@@ -3,7 +3,7 @@ title: Bicep functions
 description: Describes the functions to use in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 05/21/2024
+ms.date: 12/10/2024
 ---
 
 # Bicep functions
@@ -74,6 +74,7 @@ The following functions are available for working with dates. All of these funct
 
 The following functions are available for getting values related to the deployment. All of these functions are in the `az` namespace.
 
+* [deployer](./bicep-functions-deployment.md#deployer)
 * [deployment](./bicep-functions-deployment.md#deployment)
 * [environment](./bicep-functions-deployment.md#environment)
 
@@ -98,7 +99,7 @@ The following functions are available for working with lambda expressions. All o
 * [sort](bicep-functions-lambda.md#sort)
 * [toObject](bicep-functions-lambda.md#toobject)
 
-## Logical functions
+## Logical function
 
 The following function is available for working with logical conditions. This function is in the `sys` namespace.
 
@@ -128,7 +129,7 @@ The following functions are available for working with objects. All of these fun
 
 ## Parameters file functions
 
-The following functions are available to be used in Bicep parameter files. All of these functions are in the `sys` namespace.
+The following functions are available to be used in Bicep parameters files. All of these functions are in the `sys` namespace.
 
 * [getSecret](./bicep-functions-parameters-file.md)
 * [readEnvironmentVariable](./bicep-functions-parameters-file.md)

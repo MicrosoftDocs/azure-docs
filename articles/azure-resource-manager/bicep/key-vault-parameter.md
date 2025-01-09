@@ -3,7 +3,7 @@ title: Key Vault secret with Bicep
 description: Shows how to pass a secret from a key vault as a parameter during Bicep deployment.
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
-ms.date: 05/06/2024
+ms.date: 12/06/2024
 ---
 
 # Use Azure Key Vault to pass secure parameter value during Bicep deployment
@@ -155,7 +155,7 @@ When using a key vault with the Bicep file for a [Managed Application](../manage
 
 You can use the [getSecret function](./bicep-functions-resource.md#getsecret) in Bicep files to obtain a key vault secret. Note that the `getSecret` function is exclusively applicable to a `Microsoft.KeyVault/vaults` resource. Additionally, it's restricted to usage within the `params` section of a module and can only be used with parameters with the `@secure()` decorator.
 
-Another function called `az.getSecret()` function can be used in Bicep parameter files to retrieve key vault secrets. For more information, see [Retrieve secrets in parameters file](#retrieve-secrets-in-parameters-file).
+Another function called `az.getSecret()` function can be used in Bicep parameters files to retrieve key vault secrets. For more information, see [Retrieve secrets in parameters file](#retrieve-secrets-in-parameters-file).
 
 Because the `getSecret` function can only be used in the `params` section of a module. Let's create a *sql.bicep* in the same directory as the *main.bicep* file with the following content:
 
@@ -207,7 +207,7 @@ module sql './sql.bicep' = {
 
 ## Retrieve secrets in parameters file
 
-If you don't want to use a module, you can retrieve key vault secrets in parameters file. However, the approach varies depending on whether you're using a JSON parameter file or a Bicep parameter file.
+If you don't want to use a module, you can retrieve key vault secrets in parameters file. However, the approach varies depending on whether you're using a JSON parameters file or a Bicep parameters file.
 
 The following Bicep file deploys a SQL server that includes an administrator password. The password parameter is set to a secure string. But the Bicep doesn't specify where that value comes from.
 
@@ -232,7 +232,7 @@ resource sqlServer 'Microsoft.Sql/servers@2023-08-01-preview' = {
 
 Now, create a parameters file for the preceding Bicep file. 
 
-### Bicep parameter file
+### Bicep parameters file
 
 [`az.getSecret`](./bicep-functions-parameters-file.md#getsecret) function can be used in a `.bicepparam` file to retrieve the value of a secret from a key vault.
 
@@ -244,7 +244,7 @@ param adminLogin = '<your-admin-login>'
 param adminPassword = az.getSecret('<subscription-id>', '<rg-name>', '<key-vault-name>', '<secret-name>', '<secret-version>')
 ```
 
-### JSON parameter file
+### JSON parameters file
 
 In the JSON parameters file, specify a parameter that matches the name of the parameter in the Bicep file. For the parameter value, reference the secret from the key vault. You reference the secret by passing the resource identifier of the key vault and the name of the secret:
 

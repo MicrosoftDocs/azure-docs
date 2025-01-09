@@ -14,7 +14,7 @@ ms.custom: devx-track-java, devx-track-terraform
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This quickstart shows you how to automate deployments to the Azure Spring Apps Enterprise plan by using GitHub Actions and Terraform.
 

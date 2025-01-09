@@ -63,7 +63,7 @@ private const string connectionString_ = "";
 
 ```csharp
         /// <summary>
-        /// Background task that keeps polling for chat messages while the call connection is stablished
+        /// Background task that keeps polling for chat messages while the call connection is established
         /// </summary>
         private async Task StartPollingForChatMessages()
         {

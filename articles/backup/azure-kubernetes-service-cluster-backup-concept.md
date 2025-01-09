@@ -16,9 +16,6 @@ This article describes the prerequisites for Azure Kubernetes Service (AKS) back
 
 Azure Backup now allows you to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) using a backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations. Based on the least privileged security model, a Backup vault must have *Trusted Access* enabled to communicate with the AKS cluster.
 
->[!Note]
->Vaulted backup and Cross Region Restore for AKS using Azure Backup are currently in preview.
-
 ## Backup Extension
 
 - The extension enables backup and restore capabilities for the containerized workloads and persistent volumes used by the workloads running in AKS clusters. 
@@ -39,6 +36,8 @@ Azure Backup now allows you to back up AKS clusters (cluster resources and persi
   >Both of these core components are deployed with aggressive hard limits on CPU and memory, with CPU *less than 0.5% of a core* and memory limit ranging from *50-200 MB*. So, the *COGS impact* of these components is very low. Because they are core platform components, there is no workaround available to remove them once installed in the cluster.
 
 - If Storage Account, to be provided as input for Extension installation, is under Virtual Network/Firewall, then BackupVault needs to be added as trusted access in Storage Account Network Settings. [Learn how to grant access to trusted Azure service](../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services), which helps to store backups in the Vault datastore
+
+- The blob container provided in input during extension installation should not contain any files unrelated to backup.   
 
 Learn [how to manage the operation to install Backup Extension using Azure CLI](azure-kubernetes-service-cluster-manage-backups.md#backup-extension-related-operations).
 
@@ -73,10 +72,14 @@ To enable backup for an AKS cluster, see the following prerequisites: .
 
 - The Backup Extension during installation fetches Container Images stored in Microsoft Container Registry (MCR). If you enable a firewall on the AKS cluster, the extension installation process might fail due to access issues on the Registry. Learn [how to allow MCR access from the firewall](/azure/container-registry/container-registry-firewall-access-rules#configure-client-firewall-rules-for-mcr).
 
-- In case you have the cluster in a Private Virtual Network and Firewall, apply the following FQDN/application rules: `*.microsoft.com`, `*.azure.com`, `*.core.windows.net`, `*.azmk8s.io`, `*.digicert.com`, `*.digicert.cn`, `*.geotrust.com`, `*.msocsp.com`. Learn [how to apply FQDN rules](../firewall/dns-settings.md).
+- In case you have the cluster in a Private Virtual Network and Firewall, apply the following FQDN/application rules: `*.microsoft.com`, `mcr.microsoft.com`, `data.mcr.microsoft.com`, `crl.microsoft.com`, `mscrl.microsoft.com`, `oneocsp.microsoft.com` , `*.azure.com`, `management.azure.com`, `gcs.prod.monitoring.core.windows.net`, `*.prod.warm.ingest.monitor.core.windows.net`, `*.blob.core.windows.net`, `*.azmk8s.io`, `ocsp.digicert.com`, `cacerts.digicert.com`, `crl3.digicert.com`, `crl4.digicert.com`, `ocsp.digicert.cn`, `cacerts.digicert.cn`, `cacerts.geotrust.com`, `cdp.geotrust.com`, `status.geotrust.com`, `ocsp.msocsp.com`,  `*.azurecr.io`, `docker.io`, `*.dp.kubernetesconfiguration.azure.com`. Learn [how to apply FQDN rules](../firewall/dns-settings.md).
 
 - If you have any previous installation of *Velero* in the AKS cluster, you need to delete it before installing Backup Extension.
 
+- If you are using [Azure policies in your AKS cluster](/azure/aks/policy-reference), ensure that the extension namespace *dataprotection-microsoft* is excluded from these policies to allow backup and restore operations to run successfully.
+
+- If you are using Azure network security group to filter network traffic between Azure resources in an Azure virtual network then set an inbound rule to allow service tags *azurebackup* and *azurecloud*. 
+     
 
 ## Required roles and permissions
 
