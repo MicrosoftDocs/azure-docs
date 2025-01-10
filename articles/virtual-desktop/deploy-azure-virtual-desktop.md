@@ -248,7 +248,7 @@ Here's how to create a host pool with a session host configuration using the Azu
    | Custom configuration script URL | If you want to run a PowerShell script during deployment you can enter the URL here. |
 
    > [!TIP]
-   > Once you complete this tab, you can continue to optionally register the default desktop application group with a new or pre-existing workspace from this host pool, and enable diagnostics settings by selecting **Next: Workspace**. Alternatively, if you want to create and configure these separately, select **Next: Review + create** and go to step 9.
+   > Once you complete this tab, you can continue to optionally register the default desktop application group with a new or preexisting workspace from this host pool, and enable diagnostics settings by selecting **Next: Workspace**. Alternatively, if you want to create and configure these separately, select **Next: Review + create** and go to step 9.
 
 1. *Optional*: On the **Workspace** tab, if you want to create a workspace and register the default desktop application group from this host pool, complete the following information:
 
