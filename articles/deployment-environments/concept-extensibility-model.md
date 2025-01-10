@@ -30,35 +30,35 @@ You can choose from multiple options for creating and building custom images, de
 **1. Use a standard image**
 For first party frameworks - ARM and Bicep - ADE provides standard images that customers can take advantage of and can just use identifiers ARM or Bicep to configure the respective IaC template as an environment definition. For ARM or Bicep deployments, you can use the standard image by referencing it in the environment.yaml file and defining resources in the template file (*azuredeploy.json*, *main.bicep*).
 
-For instructions, see: [Use a standard container image](aka.ms/arm-bicep-standard).
+For instructions, see: [Use a standard container image](https://aka.ms/arm-bicep-standard).
 
 **1. Create a custom image using a script**
 To make the process of building a custom image and pushing it to a container registry easier, Microsoft provides a script that builds and pushes the image to a registry that you specify. 
 
-For instructions, see: [Create a custom container image by using a script](aka.ms/arm-bicep-custom-script).
+For instructions, see: [Create a custom container image by using a script](https://aka.ms/arm-bicep-custom-script).
 
 **1. Create a custom image manually**
 For more complex scenarios, start with the standard image and customize it by installing software packages and adjusting settings. Build the image and upload it to a container registry where ADE can access it. Specify the image's location in the environment.yaml file.
 
-For instructions, see: [Create a custom container image manually](aka.ms/arm-bicep-custom-manual).
+For instructions, see: [Create a custom container image manually](https://aka.ms/arm-bicep-custom-manual).
 
 ### Terraform
 
 **1. Create a Terraform specific container image manually**
 You can use a GitHub workflow to create a custom Terraform image that includes the software, settings, and other customizations you need for your Terraform specific image. You can then upload the new image to a container registry and use it by referencing it in the environment.yaml file.
 
-For instructions, see: [Create a container image using a GitHub workflow](aka.ms/terraform-workflow-custom-manual).
+For instructions, see: [Create a container image using a GitHub workflow](https://aka.ms/terraform-workflow-custom-manual).
 
 ### Pulumi
 **1. Use a standard image**
 The Pulumi team provides a prebuilt image to get you started, which you can use directly from your ADE environment definitions. For Pulumi images, you can use the standard image by referencing it in the environment.yaml file and defining the resources to deploy in the project file (*pulumi.yaml*).
 
-For instructions, see: [Use a standard container image provided by Pulumi](aka.ms/pulumi-standard).
+For instructions, see: [Use a standard container image provided by Pulumi](https://aka.ms/pulumi-standard).
 
 **1. Create a custom image manually**
 For more complex scenarios, start with the standard image and customize it by installing software packages and adjusting settings. Build the image and upload it to a container registry where ADE can access it. Specify the image's location in the environment.yaml file.
 
-For instructions, see: [Create a custom image](aka.ms/pulumi-custom-manual).
+For instructions, see: [Create a custom image](https://aka.ms/pulumi-custom-manual).
 
 ## Related content 
 
