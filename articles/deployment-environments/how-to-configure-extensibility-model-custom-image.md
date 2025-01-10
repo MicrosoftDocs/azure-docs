@@ -326,14 +326,6 @@ docker push {YOUR_REGISTRY}.azurecr.io/{YOUR_IMAGE_LOCATION}:{YOUR_TAG}
 ```
 ---
 
-::: zone pivot="arm-bicep,terraform"
-### Build a container image with a script
-
-Rather than building your custom image and pushing it to a container registry yourself, you can use a script to build and push it to a specified container registry. 
-
-[!INCLUDE [custom-image-script](includes/custom-image-script.md)]
-::: zone-end
-
 ## Connect the image to your environment definition
 
 When authoring environment definitions to use your custom image in their deployment, edit the `runner` property on the manifest file (environment.yaml or manifest.yaml).
