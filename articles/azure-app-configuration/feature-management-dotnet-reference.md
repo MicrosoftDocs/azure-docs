@@ -328,7 +328,7 @@ This code adds an MVC filter named `SomeMvcFilter`. This filter is only triggere
 
 ### Razor Pages
 
-MVC Razor pages can require that a given feature, or one of any list of features, be enabled in order to execute. This requirement can be done by using a `FeatureGateAttribute`, which can be found in the `Microsoft.FeatureManagement.Mvc` namespace. 
+MVC Razor pages can require that a given feature, or one of any list of features, be enabled in order to execute. This requirement can be added by using a `FeatureGateAttribute`, which can be found in the `Microsoft.FeatureManagement.Mvc` namespace. 
 
 ``` C#
 [FeatureGate("FeatureX")]
