@@ -99,7 +99,7 @@ If the list doesn’t get updated automatically, select **Refresh**  to view the
 
 The set of tag rules for metrics and logs defined for the New Relic resource apply to all subscriptions that are added for monitoring. Setting separate tag rules for different subscriptions isn't supported. Diagnostics settings are automatically added to resources in the added subscriptions that match the tag rules defined for the New Relic resource.
 
-If you have existing New Relic resources that are linked to the account for monitoring, you can end up with duplication of logs that can result in added charges. Ensure you delete redundant New Relic resources that are already linked to the account. You can view the list of connected resources and delete the redundant ones. We recommended to consolidate subscriptions into the same New Relic resource where possible.
+If you have existing New Relic resources that are linked to the account for monitoring, you can end up with duplication of logs that can result in added charges. Ensure you delete redundant New Relic resources that are already linked to the account. You can view the list of connected resources and delete the redundant ones. We recommended consolidating subscriptions into the same New Relic resource where possible.
 
 The tag rules and logs that you defined for the New Relic resource are applied to all the subscriptions that you select to be monitored. If you would like to reconfigure the tag rules, you can follow the steps described here.  
 
@@ -147,7 +147,7 @@ Use  native integration to install an agent on both the uniform and flexible sca
 If a manual upgrade policy is set for a resource, upgrade the instances manually by installing the agent extension for the already scaled up instances. For more information on autoscaling and instance orchestration, see [autoscaling-and-instance-orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#autoscaling-and-instance-orchestration).
 
 > [!NOTE]
-> In manual upgrade policy, pre-existing VM instances don't receive the extension automatically. The agent status shows as **Partially Installed**. Upgrade the VM instances by manually installing the extension on them from the VM extensions Resource menu, or go to specific Virtual Machine Scale Sets and select **Instances** from the Resource menu.
+> In manual upgrade policy, preexisting VM instances don't receive the extension automatically. The agent status shows as **Partially Installed**. Upgrade the VM instances by manually installing the extension on them from the VM extensions Resource menu, or go to specific Virtual Machine Scale Sets and select **Instances** from the Resource menu.
 
 > [!NOTE]
 > The agent installation dashboard supports the automatic and rolling upgrade policy for Flex orchestration mode in the next release when similar support is available from Virtual Machine Scale Sets Flex resources.
@@ -174,6 +174,10 @@ To install the New Relic agent, select the app service and then select **Install
 
 > [!NOTE]
 > This page currently shows only the web app type of app services. Managing agents for function apps is not supported at this time.
+
+## Change plan
+
+[!INCLUDE [change-plan](../includes/change-plan.md)]
 
 ## Delete a New Relic resource
 
