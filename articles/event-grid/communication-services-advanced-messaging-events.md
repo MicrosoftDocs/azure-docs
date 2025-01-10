@@ -171,7 +171,7 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
 
 ```json
 {
-  "id": "08f9bc33-8b29-446d-be7a-f78604fa5895",
+  "id": "00000000-0000-0000-0000-000000000000",
   "topic": "/subscriptions/d206c0a8-dfad-4165-a870-a21054b5660c/resourcegroups/acs-cpm-ppe-resources/providers/microsoft.communication/communicationservices/acscpm-whatsup-pperesource",
   "subject": "advancedMessage/sender/14254360097/recipient/75476a19-a68d-4e10-806c-3680f099e069",
   "data": {
@@ -199,7 +199,7 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
 [{
   "id": "00000000-0000-0000-0000-000000000000",
   "topic": "/subscriptions/{subscription-id}/resourcegroups/{resourcegroup-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
-  "subject": "advancedMessage/sender/{sender@id}/recipient/11111111-1111-1111-1111-111111111111",
+  "subject": "advancedMessage/sender/{sender@id}/recipient/00000000-0000-0000-0000-000000000000",
   "data": {
     "channelType": "whatsapp",
     "messageType": "interactive",
@@ -232,7 +232,7 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
 [{
   "id": "00000000-0000-0000-0000-000000000000",
   "topic": "/subscriptions/{subscription-id}/resourcegroups/{resourcegroup-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
-  "subject": "advancedMessage/sender/{sender@id}/recipient/11111111-1111-1111-1111-111111111111",
+  "subject": "advancedMessage/sender/{sender@id}/recipient/00000000-0000-0000-0000-000000000000",
   "data": {
     "channelType": "whatsapp",
     "messageType": "interactive",
@@ -264,13 +264,13 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
 [{
   "id": "00000000-0000-0000-0000-000000000000",
   "topic": "/subscriptions/{subscription-id}/resourcegroups/{resourcegroup-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
-  "subject": "advancedMessage/sender/{sender@id}/recipient/11111111-1111-1111-1111-111111111111",
+  "subject": "advancedMessage/sender/{sender@id}/recipient/00000000-0000-0000-0000-000000000000",
   "data": {
     "channelType": "whatsapp",
     "messageType": "sticker",
     "media": {
       "mimeType": "image/webp",
-      "id": "22222222-2222-2222-2222-222222222222",
+      "id": "00000000-0000-0000-0000-000000000000",
       "animated": false
     },
     "from": "{sender@id}",
@@ -290,7 +290,7 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
 [{
   "id": "00000000-0000-0000-0000-000000000000",
   "topic": "/subscriptions/{subscription-id}/resourcegroups/{resourcegroup-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
-  "subject": "advancedMessage/sender/{sender@id}/recipient/11111111-1111-1111-1111-111111111111",
+  "subject": "advancedMessage/sender/{sender@id}/recipient/00000000-0000-0000-0000-000000000000",
   "data": {
     "channelType": "whatsapp",
     "messageType": "reaction",
@@ -315,7 +315,7 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
 [{
   "id": "00000000-0000-0000-0000-000000000000",
   "topic": "/subscriptions/{subscription-id}/resourcegroups/{resourcegroup-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
-  "subject": "advancedMessage/sender/{sender@id}/recipient/11111111-1111-1111-1111-111111111111",
+  "subject": "advancedMessage/sender/{sender@id}/recipient/00000000-0000-0000-0000-000000000000",
   "data": {
     "channelType": "whatsapp",
     "messageType": "button",

@@ -27,7 +27,7 @@ Azure Communication Services enables you to send and receive WhatsApp messages. 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Send WhatsApp Messages JavaScript SDK](./includes/interactive/messages-quickstart-interactive-messages-js.md)]
+[!INCLUDE [Send WhatsApp Messages JavaScript SDK](./includes/interactive/messages-quickstart-interactive-messages-javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"

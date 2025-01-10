@@ -73,7 +73,7 @@ For further WhatsApp requirements on templates, refer to the WhatsApp Business P
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Send WhatsApp Messages JavaScript SDK](./includes/templates/messages-quickstart-template-messages-js.md)]
+[!INCLUDE [Send WhatsApp Messages JavaScript SDK](./includes/templates/messages-quickstart-template-messages-javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"

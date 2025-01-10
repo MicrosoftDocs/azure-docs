@@ -81,9 +81,6 @@ To run download_media(), update the [main method](#basic-program-structure)
     messages.download_media()
 ```
 
-### Download the media payload to a file
-Coming soon
-
 ### Run the code
 
 To run the code, make sure you are on the directory where your `download-media-quickstart.py` file is.
