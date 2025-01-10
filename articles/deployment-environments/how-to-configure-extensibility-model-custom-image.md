@@ -47,7 +47,7 @@ You can take one of the following approaches to use container images with ADE:
 
 ## Use a standard container image
 
-ADE supports ARM and Bicep without requiring any extra configuration. You can create an environment definition that deploys Azure resources for a deployment environment by adding the template files (like *azuredeploy.json* and *environment.yaml*) to your catalog. ADE then uses the standard ARM-Bicep container image to create the deployment environment.
+ADE supports Azure Resource Manager (ARM) and Bicep without requiring any extra configuration. You can create an environment definition that deploys Azure resources for a deployment environment by adding the template files (like *azuredeploy.json* and *environment.yaml*) to your catalog. ADE then uses the standard ARM-Bicep container image to create the deployment environment.
 
 In the *environment.yaml* file, the `runner` property specifies the location of the container image you want to use. To use the standard image published on the Microsoft Artifact Registry, use the respective identifiers `runner`.
 
@@ -109,7 +109,7 @@ You can take one of the following approaches to use container images with ADE:
 - **Create a custom container image:** You can create a workflow that creates a Terraform specific image customized with all the software, settings, and configuration that you need.
  
 
-## Create a container image leveraging a GitHub workflow
+## Create a container image using a GitHub workflow
 Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the ADE standard images.
 
 After you complete the image customization, you must build the image and push it to your container registry.
