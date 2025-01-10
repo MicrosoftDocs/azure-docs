@@ -1136,7 +1136,7 @@ These types of questions can be answered through the emission and analysis of fe
 
 By default, feature flags don't have telemetry emitted. To publish telemetry for a given feature flag, the flag *MUST* declare that it is enabled for telemetry emission.
 
-For feature flags defined in `appsettings.json`, telemetry can be enabled within the `telemetry` property.
+For feature flags defined in `appsettings.json`, telemetry can be enabled using the `telemetry` property.
 
 ``` javascript
 {
