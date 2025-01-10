@@ -3,7 +3,7 @@ ms.service: azure-deployment-environments
 ms.topic: include
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 09/25/2024
+ms.date: 01/10/2025
 ---
 
 You build custom images by using the ADE standard images as a base with ADE CLI, which is preinstalled on the standard images. To learn more about the ADE CLI, see the [CLI Custom Runner Image reference](https://aka.ms/deployment-environments/ade-cli-reference).
