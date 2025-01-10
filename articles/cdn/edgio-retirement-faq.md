@@ -61,7 +61,7 @@ Important notes regarding these "best effort" automatic migrations to Azure Fron
 |-------------------|---------------------------------------------------------------------------------------------------------------------------|
 | Custom domain couldn't be migrated as domain validation could not be performed due to missing CNAME | [Manually perform domain validation](../frontdoor/standard-premium/how-to-add-custom-domain.md) |
 | Customer was using APEX domain | [Use Alias record on Azure DNS to use APEX domain](../frontdoor/front-door-how-to-onboard-apex-domain.md)|
-| Customer was using SAS token through rule engine to access their Azure Storage backend which has public access disabled | [Upgrade](../frontdoor/tier-upgrade.md) to Front Door Premium and use [private link](../frontdoor/standard-premium/how-to-enable-private-link-storage-account.md) |
+| Customer was using SAS token through rule engine to access their Azure Storage backend which has public access disabled | [Upgrade](../frontdoor/tier-upgrade.md) to Front Door Premium and use [private link](../frontdoor/standard-premium/how-to-enable-private-link-storage-account.md). If you are facing any errors in setting up private link, raise a support ticket. |
 | Customer was using geo-filtering rules which were not migrated | [Configure geo-filtering using WAF](../web-application-firewall/afds/waf-front-door-tutorial-geo-filtering.md)|
 
 ### What is the recap of the key dates?
