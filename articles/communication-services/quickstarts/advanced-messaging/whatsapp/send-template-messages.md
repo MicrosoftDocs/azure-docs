@@ -6,7 +6,7 @@ author: Shamkh
 manager: camilo.ramirez
 services: azure-communication-services
 ms.author: shamkh
-ms.date: 02/29/2024
+ms.date: 01/15/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging

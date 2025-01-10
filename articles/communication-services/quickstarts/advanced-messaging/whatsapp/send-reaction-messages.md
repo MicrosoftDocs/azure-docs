@@ -6,7 +6,7 @@ author: shamkh
 manager: camilo.ramirez
 services: azure-communication-services
 ms.author: shamkh
-ms.date: 07/15/2024
+ms.date: 01/15/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
