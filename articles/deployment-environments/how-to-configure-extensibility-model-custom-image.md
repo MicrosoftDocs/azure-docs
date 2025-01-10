@@ -238,9 +238,8 @@ echo "{\"outputs\": $tfOutputs}" > $ADE_OUTPUTS
 <!-- ======== PULUMI ==================================================================================================================== -->
 
 ::: zone pivot="pulumi"
-### [Use a standard container image](#tab/standard/)
 
-### Use a standard container image provided by Pulumi
+## Use a standard container image provided by Pulumi
 
 The Pulumi team provides a prebuilt image to get you started, which you can see in the [Runner-Image](https://github.com/pulumi/azure-deployment-environments/tree/main/Runner-Image) folder. This image is publicly available at Pulumi's Docker Hub as [`pulumi/azure-deployment-environments`](https://hub.docker.com/repository/docker/pulumi/azure-deployment-environments), so you can use it directly from your ADE environment definitions.
 
@@ -257,9 +256,7 @@ templatePath: Pulumi.yaml
 
 You can find a few sample environment definitions in the [Environments folder](https://github.com/pulumi/azure-deployment-environments/tree/main/Environments).
 
-### [Create a custom image](#tab/custom/)
-
-### Create a custom image
+## Create a custom image
 
 Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the Pulumi standard images, and customize them to meet your requirements. After you complete the image customization, you must build the image and push it to your container registry.
 
@@ -375,8 +372,6 @@ echo "{\"outputs\": ${stackout:-{\}}}" > $ADE_OUTPUTS
 ### Build the custom image
 
 [!INCLUDE [custom-image-manual-build](includes/custom-image-manual-build.md)]
-
----
 
 ::: zone-end
 
