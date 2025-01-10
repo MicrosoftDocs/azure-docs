@@ -60,7 +60,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
 }
 ```
 
-Within this snippet, you find all the necessary values for defining a virtual network. You might notice two curly underlines. A yellow one denotes a warning related to an outdated API version, while a red curly underline signals an error caused by a missing parameter definition.
+Within this snippet, you find all the necessary values for defining a virtual network. You might notice two curly underlines. A yellow one denotes a warning related to an outdated API version, while a red curly underline signals an error caused by a missing parameter definition. The [Bicep linter](./linter.md) checks Bicep files for syntax errors and best practice violations. Hover your cursor over `@2019-11-01`, a popup pane shows **Use more recent API version for 'Microsoft.Network/virtualNetworks'**. Select **Quick fix** from the popup pane, and then select **Replace with 2024-05-01** to update the API version.
 
 Alternatively, remove `@2019-11-01`, and replace it with `@`. Select the latest API version.
 
@@ -68,7 +68,7 @@ Alternatively, remove `@2019-11-01`, and replace it with `@`. Select the latest 
 
 You'll fix the missing parameter definition error in the next section.
 
-You can also modify this code to meet your requirements. For example, since `name` isn't a clear name for the virtual network, you can change the `name` property to `examplevnet`:
+You can also modify this code to meet your requirements. For example, since `name` isn't a clear name for the virtual network, you can change the `name` property to `exampleVnet`:
 
 ```bicep
 name: 'exampleVNet'
