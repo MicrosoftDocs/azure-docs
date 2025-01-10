@@ -4,7 +4,7 @@
  author: timlt
  ms.service: azure-iot
  ms.topic: include
- ms.date: 09/17/2021
+ ms.date: 1/10/2025
  ms.author: timlt
  ms.custom: include file, devx-track-azurecli
  ms.devlang: azurecli

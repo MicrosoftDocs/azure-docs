@@ -5,7 +5,7 @@ description: Manage the device connection and reconnection process to ensure res
 services: azure-iot
 author: timlt
 ms.author: timlt
-ms.date: 10/17/2024
+ms.date: 1/10/2025
 ms.topic: conceptual
 ms.service: azure-iot
 ms.custom: [amqp, mqtt, devx-track-csharp]
