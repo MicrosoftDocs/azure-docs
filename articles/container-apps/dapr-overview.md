@@ -34,7 +34,7 @@ Dapr versions in Azure Container Apps include:
 The complete version format for Dapr in Azure Container Apps can look something like `1.13.6-msft.1`.
 
 > [!NOTE]
-> The <number> in the suffix may not always increment sequentially. For example, version `1.13.6-msft.3` may skip `1.13.6-msft.2`. 
+> The `<number>` in the suffix may not always increment sequentially. For example, version `1.13.6-msft.3` may skip `1.13.6-msft.2`. 
 
 ## Supported Dapr APIs, components, and tooling
 
