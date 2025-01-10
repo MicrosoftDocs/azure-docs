@@ -24,7 +24,7 @@ You can use Service Connector to connect the following compute services to Azure
 
 ## Supported authentication and client types
 
-Find out which combinations of authentication methods and clients are supported for connecting your compute service to Azure Cache for Redis using Service Connector in the following table. "Yes" means that the combination is supported, while "No" means that it's not supported.
+The following table shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure Cache for Redis using Service Connector. "Yes" means that the combination is supported, while "No" means that it isn't supported.
 
 | Client type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string | Service principal |
 |--------------------|----------------------------------|--------------------------------|----------------------------|-------------------|
@@ -68,7 +68,7 @@ The following steps and code show you how to use a user-assigned managed identit
 ### Connection string
 
 > [!WARNING]
-> We recommend that you use the most secure authentication flow available. The authentication flow described here requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when more secure flows, such as managed identities, aren't viable.
+> We recommend that you use the most secure authentication flow available. The authentication flow described here requires a very high degree of trust in the application, and carries risks that aren't present in other flows. You should only use this flow when more secure flows, such as managed identities, aren't viable.
 
 #### [.NET](#tab/dotnet)
 
