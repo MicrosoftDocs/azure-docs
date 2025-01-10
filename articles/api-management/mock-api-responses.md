@@ -22,6 +22,8 @@ Backend APIs are imported into an API Management (APIM) API or created and manag
 
 This method lets developers continue with the implementation and testing of the API Management instance even if the backend isn't available to send real responses.
 
+[!INCLUDE [api-management-workspace-try-it](../../includes/api-management-workspace-try-it.md)]
+
 The ability to mock up responses is useful in many scenarios:
 
 + When the API façade is designed first and the backend implementation comes later. Or, the backend is being developed in parallel.
