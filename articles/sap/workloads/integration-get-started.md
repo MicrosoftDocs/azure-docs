@@ -46,9 +46,9 @@ Select an area for resources about how to integrate SAP and Azure in that space.
 | [Azure Data Services](#azure-data-services) | Learn how to integrate your SAP data with Data Services like Azure Synapse Analytics, Azure Data Lake Storage, Azure Data Factory, Power BI, Data Warehouse Cloud, Analytics Cloud, which connector to choose, tune performance, efficiently troubleshoot, and more. |
 | [SAP Business Technology Platform (BTP)](#sap-btp) | Discover integration scenarios like SAP Private Link to securely and efficiently connect your BTP apps to your Azure workloads. |
 
-### Azure OpenAI service
+### Azure OpenAI Service
 
-For more information about integration with [Azure OpenAI service](/azure/ai-services/openai/overview), see the following Azure documentation:
+For more information about integration with [Azure OpenAI Service](/azure/ai-services/openai/overview), see the following Azure documentation:
 
 - [Streamlining SAP Processes with Azure OpenAI, Copilot Studio, and Power Platform | blog](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/streamlining-sap-processes-with-azure-openai-copilot-studio-and/ba-p/4164338)
 - [Microsoft AI SDK for SAP](https://microsoft.github.io/aisdkforsapabap/docs/intro)
