@@ -92,17 +92,8 @@ After you complete the image customization, you can build the image and push it 
 
 ### Build the custom image
 
-You can build your image using the Docker CLI. Ensure the [Docker Engine is installed](https://docs.docker.com/desktop/) on your computer. Then, navigate to the directory of your Dockerfile, and run the following command:
+[!INCLUDE [custom-image-manual-build](includes/custom-image-manual-build.md)]
 
-```docker
-docker build . -t {YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}
-```
-
-For example, if you want to save your image under a repository within your registry named `customImage`, and upload with the tag version of `1.0.0`, you would run:
-
-```docker
-docker build . -t {YOUR_REGISTRY}.azurecr.io/customImage:1.0.0
-```
 ---
 
 ::: zone-end
@@ -234,6 +225,11 @@ tfOutputs=$(jq 'walk(if type == "object" then
 
 echo "{\"outputs\": $tfOutputs}" > $ADE_OUTPUTS
 ```
+
+### Build the custom image
+
+[!INCLUDE [custom-image-manual-build](includes/custom-image-manual-build.md)]
+
 ::: zone-end
 
 
