@@ -5,8 +5,8 @@ description: Learn how to set up user accounts with username and password authen
 
 author: dlepow
 ms.service: azure-api-management
-ms.topic: article
-ms.date: 08/30/2022
+ms.topic: how-to
+ms.date: 01/10/2025
 ms.author: danlep
 ---
 
@@ -18,6 +18,8 @@ In the developer portal for Azure API Management, the default authentication met
 
 For an overview of options to secure the developer portal, see [Secure access to the API Management developer portal](secure-developer-portal-access.md). 
 
+> [!CAUTION]
+> While you can use basic authentication to secure users' access to the developer portal, we recommend configuring a more secure authentication method such as [Microsoft Entra ID](api-management-howto-aad.md) or [Azure AD B2C](api-management-howto-aad-b2c.md), if available. 
 
 ## Prerequisites
 
