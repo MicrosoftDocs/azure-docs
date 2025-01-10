@@ -49,7 +49,7 @@ There are required fields in each section that you need to fill out.
     |---------|---------|
     |Organization     |Choose to create a new organization, or associate your resource with an existing organization.   |
 
-    :::image type="content" source="media/create/organization.png" alt-text="A screenshot of the Create a New Relic resource options in Azure portal . The New Relic account details **Organization** options are emphazied. ":::
+    :::image type="content" source="media/create/organization.png" alt-text="A screenshot of the Create a New Relic resource options in Azure portal . The New Relic account details **Organization** options are emphasized. ":::
 
     > [!NOTE]
     > 
