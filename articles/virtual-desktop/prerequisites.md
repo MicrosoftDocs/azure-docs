@@ -145,7 +145,7 @@ You need to enter the following identity parameters when deploying session hosts
 - Organizational Unit (OU), which is an optional parameter that lets you place session hosts in the desired OU at deployment time.
 
 > [!IMPORTANT]
-> The account you use for joining a domain can't have multi-factor authentication (MFA) enabled.
+> The account you use for joining a domain can't have multifactor authentication (MFA) enabled.
 
 ## Operating systems and licenses
 
