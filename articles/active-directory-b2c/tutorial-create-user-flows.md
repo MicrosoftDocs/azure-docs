@@ -221,7 +221,7 @@ Now, grant permissions to the API scope you exposed earlier in the *IdentityExpe
 1. Select the **APIs my organization uses** tab, then select the **IdentityExperienceFramework** application.
 1. Under **Permission**, select the **user_impersonation** scope that you defined earlier.
 1. Select **Add permissions**. As directed, wait a few minutes before proceeding to the next step.
-1. Select **Grant admin consent for *<your tenant name)>***.
+1. Select **Grant admin consent for *&lt;your tenant name>***.
 1. Select **Yes**.
 1. Select **Refresh**, and then verify that "Granted for ..." appears under **Status** for the scope.
 
