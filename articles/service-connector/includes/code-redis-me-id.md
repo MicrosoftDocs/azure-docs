@@ -41,7 +41,7 @@ ms.author: xiaofanzhou
     
 #### [Java](#tab/java)
 
-1. Add the following dependency in your *pom.xml* file:
+1. Add the following dependency in your `pom.xml` file:
     ```xml
     <dependency>
         <groupId>com.azure</groupId>
@@ -70,7 +70,7 @@ ms.author: xiaofanzhou
     // String clientId = System.getenv("AZURE_REDIS_CLIENTID");
     // DefaultAzureCredential defaultAzureCredential = new DefaultAzureCredentialBuilder().managedIdentityClientId(clientId).build();
 
-    // For AKS workload identity identity.
+    // For AKS workload identity.
     // String clientId = System.getenv("AZURE_REDIS_CLIENTID");
     // DefaultAzureCredential defaultAzureCredential = new DefaultAzureCredentialBuilder().workloadIdentityClientId(clientId).build();
 
@@ -203,13 +203,13 @@ ms.author: xiaofanzhou
         re_authentication()
     ```
 
-#### [NodeJS](#tab/nodejs)
+#### [Node.js](#tab/nodejs)
 
 1. Install dependencies.
     ```bash
     npm install redis @azure/identity
     ```
-1. Add the authentication logic with environment variables set by Service Connector. For more information, see (Azure Cache for Redis: Microsoft Entra ID with node-redis client library)[https://aka.ms/redis/aad/sample-code/js-noderedis].
+1. Add the authentication logic with environment variables set by Service Connector. For more information, see [Azure Cache for Redis: Microsoft Entra ID with node-redis client library](https://aka.ms/redis/aad/sample-code/js-noderedis).
     
     ```javascript
     import { createClient } from "redis";
@@ -275,4 +275,4 @@ ms.author: xiaofanzhou
 
 ### [Other](#tab/none)
 
-For other languages, you can use the Azure Identity client library and connection information that Service Connector sets to the environment variables to connect to Azure Cache for Redis.
+For other languages, you can use the Azure Identity client library (and connection information that Service Connector sets to the environment variables) to connect to Azure Cache for Redis.

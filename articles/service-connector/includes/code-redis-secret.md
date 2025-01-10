@@ -23,7 +23,7 @@ ms.author: wchi
     
 #### [Java](#tab/java)
 
-1. Add the following dependency in your *pom.xml* file:
+1. Add the following dependency in your `pom.xml` file:
     ```xml
     <dependency>
       <groupId>redis.clients</groupId>
@@ -49,7 +49,7 @@ ms.author: wchi
 
 #### [SpringBoot](#tab/springBoot)
 
-Refer to [Use Azure Redis Cache in Spring](/azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache) to set up your Spring application. The configuration properties are added to Spring Apps by Service Connector.
+Refer to [Use Azure Redis Cache in Spring](/azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache) to set up your Spring application. Service Connector adds the configuration properties  to Spring Apps.
 
 #### [Python](#tab/python)
 
@@ -91,7 +91,7 @@ Refer to [Use Azure Redis Cache in Spring](/azure/developer/java/spring-framewor
     client := redis.NewClient(opt)
     ```
 
-#### [NodeJS](#tab/nodejs)
+#### [Node.js](#tab/nodejs)
 
 1. Install dependencies.
     ```bash
