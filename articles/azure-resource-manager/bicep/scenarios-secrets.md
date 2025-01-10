@@ -101,7 +101,7 @@ resource applicationInsights 'Microsoft.Insights/components@2020-02-02' = {
 }
 ```
 
-Taking this approach can help you to avoid passing secrets into or out of your Bicep file and to also to store secrets in a key vault.
+Taking this approach can help you to avoid passing secrets into or out of your Bicep file and also to store secrets in a key vault.
 
 ## Use Key Vault
 
