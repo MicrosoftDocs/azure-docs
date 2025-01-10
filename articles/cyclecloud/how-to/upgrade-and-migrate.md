@@ -19,6 +19,9 @@ CycleCloud 8 has a different package name `cyclecloud8` so as to prevent acciden
 The supported upgrade path is to remove the `cyclecloud` package and install `cyclecloud8`. Your data and configuration directories within `/opt/cycle_server` will be preserved upon removal of the `cyclecloud` package. Upon installing `cyclecloud8`, the installation scripts will detect existing data and configuration then run through any upgrade migrations automatically.
 ::: moniker-end
 
+If you want to switch to using Insiders builds, follow the steps in 
+[Insiders Builds](./install-manual.md#insiders-builds) to add the Insiders repository. After that, the upgrade commands below will upgrade to the latest Insiders build. 
+
 ## Upgrading on Debian or Ubuntu
 
 Follow the instructions in [Installing on Debian or Ubuntu](./install-manual.md#installing-on-debian-or-ubuntu) to configure the Microsoft apt repository (if it was not already done during installation).
@@ -33,20 +36,23 @@ sudo apt -y upgrade cyclecloud
 ::: moniker-end
 
 ::: moniker range="=cyclecloud-8"
-To perform a supported indirect upgrade from CycleCloud 7 to CycleCloud 8:
+
+To upgrade from one version of CycleCloud 8 to a newer version, run the following:
+```bash
+sudo apt update
+sudo apt -y upgrade cyclecloud8
+```
+
+Note: to upgrade from CycleCloud 7 to CycleCloud 8, run the following:
 
 ```bash
 sudo apt update
 sudo apt -y remove cyclecloud
 sudo apt -y install cyclecloud8
 ```
-
-To perform a direct upgrade of one version of CycleCloud 8 to a newer version:
-```bash
-sudo apt update
-sudo apt -y upgrade cyclecloud8
-```
 ::: moniker-end
+
+Removing `cyclecloud` does not remove the data, and installing `cyclecloud8` does not overwrite the data.
 
 ## Upgrading on Enterprise Linux (RHEL) clones
 
@@ -61,17 +67,20 @@ sudo yum -y upgrade cyclecloud
 ::: moniker-end
 
 ::: moniker range="=cyclecloud-8"
-To perform a supported indirect upgrade from CycleCloud 7 to CycleCloud 8:
+
+To upgrade from one version of CycleCloud 8 to a newer version, run the following:
+```bash
+sudo yum -y upgrade cyclecloud8
+```
+
+Note: to upgrade from CycleCloud 7 to CycleCloud 8, run the following:
 
 ```bash
 sudo yum -y remove cyclecloud
 sudo yum -y install cyclecloud8
 ```
 
-To perform a direct upgrade of one version of CycleCloud 8 to a newer version:
-```bash
-sudo yum -y upgrade cyclecloud8
-```
+Removing `cyclecloud` does not remove the data, and installing `cyclecloud8` does not overwrite the data.
 ::: moniker-end
 
 ::: moniker range="<=cyclecloud-7"

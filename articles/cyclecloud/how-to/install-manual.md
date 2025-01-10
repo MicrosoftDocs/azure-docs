@@ -32,65 +32,62 @@ The default SSH key used in CycleCloud is */opt/cycle_server/.ssh/cyclecloud.pem
 
 ## Installation
 
+To determine what Linux distro you are using, run the following command:
+
+```bash
+cat /etc/lsb-release
+```
+
+If this file exists, the contents will indicate if it is a Debian-based distro like Ubuntu. If it does not exist, run this command:
+
+```bash
+cat /etc/redhat-release
+```
+
+If this file exists, the contents will indicate if it is an Enterprise-Linux based distro like RedHat Enterprise Linux or Alma Linux.
+
 ### Installing on Debian or Ubuntu
 
-First, install `wget` and `gnupg2` if its not already installed. This will be used to fetch, and install, the Microsoft signing key.
+First, download the Microsoft signing key and add to Apt's trusted keyring:
 
-```CMD
-sudo apt update && sudo apt -y install wget gnupg2
-```
+:::code language="bash" source="../includes/installation/ubuntu-setup.sh":::
 
-Next, download the Microsoft signing key and add to Apt's trusted keyring
+Then, configure Apt to pull from the CycleCloud repository:
 
-```CMD
-wget -qO - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-```
+:::code language="bash" source="../includes/installation/ubuntu-repo.sh":::
 
-Finally, configure a _cyclecloud.list_ file, update the Apt cache, and install CycleCloud.
+Finally, install CycleCloud with `apt`:
 
 ::: moniker range="<=cyclecloud-7"
-```CMD
-sudo echo 'deb https://packages.microsoft.com/repos/cyclecloud stable main' > /etc/apt/sources.list.d/cyclecloud.list
-sudo apt update
+```bash
 sudo apt -y install cyclecloud
 ```
 ::: moniker-end
 ::: moniker range="=cyclecloud-8"
-```CMD
-sudo echo 'deb https://packages.microsoft.com/repos/cyclecloud stable main' > /etc/apt/sources.list.d/cyclecloud.list
-sudo apt update
-sudo apt -y install cyclecloud8
-```
+
+:::code language="bash" source="../includes/installation/ubuntu-install.sh":::
+
 ::: moniker-end
 
 > [!NOTE]
-> The CycleCloud Apt repository distribution release for Ubuntu family platform, is a floating "stable" moniker. CycleCloud is officially supported on all Ubuntu LTS releases under support by Canonical. The CycleCloud package files are not specific to a version of GLIBC (GNU C Library) or Ubuntu release.
+> The CycleCloud Apt repository distribution release for Ubuntu family platform uses a floating "stable" moniker. CycleCloud is officially supported on all Ubuntu LTS releases under support by Canonical. The CycleCloud package files are not specific to a version of GLIBC (GNU C Library) or Ubuntu release.
 
 ### Installing on Enterprise Linux (RHEL) clones
 
-First, configure a _cyclecloud.repo_ file.
+First, configure a _cyclecloud.repo_ file:
 
-```CMD
-sudo cat > /etc/yum.repos.d/cyclecloud.repo <<EOF
-[cyclecloud]
-name=cyclecloud
-baseurl=https://packages.microsoft.com/yumrepos/cyclecloud
-gpgcheck=1
-gpgkey=https://packages.microsoft.com/keys/microsoft.asc
-EOF
-```
+:::code language="bash" source="../includes/installation/el-repo.sh":::
 
-Finally, install cyclecloud with `yum` or `dnf`.
+Finally, install cyclecloud with `yum` (or `dnf`):
 
 ::: moniker range="<=cyclecloud-7"
-```CMD
+```bash
 sudo yum -y install cyclecloud
 ```
 ::: moniker-end
 ::: moniker range="=cyclecloud-8"
-```CMD
-sudo yum -y install cyclecloud8
-```
+
+:::code language="bash" source="../includes/installation/el-install.sh":::
 ::: moniker-end
 
 ::: moniker range="<=cyclecloud-7"
@@ -100,13 +97,13 @@ Download the [Azure CycleCloud install file](https://www.microsoft.com/download/
 
 For the .rpm install file:
 
-```CMD
+```bash
 yum install <filename.rpm>
 ```
 
 For the .deb install file:
 
-```CMD
+```bash
 dpkg -i <filename.deb>
 ```
 
@@ -116,13 +113,29 @@ dpkg -i <filename.deb>
 Once the installer has finished running, you will be provided a link to complete the installation from your browser. Copy the link provided into your web browser and follow the configuration steps.
 ::: moniker-end
 
-### Insider Builds
+### Insiders Builds
 
-CycleCloud insider builds are available for pre-release feature testing. Insider builds may contain unresolved issues.
+CycleCloud Insiders builds are available for pre-release feature testing. Insiders builds may contain unresolved issues. Note: the Insiders builds are not labeled differently than production builds; they are just early release candidates.
 
-Enterprise Linux (RHEL) insider builds are located at: [https://packages.microsoft.com/yumrepos/cyclecloud-insiders/](https://packages.microsoft.com/yumrepos/cyclecloud-insiders/)
+The steps below will add the Insiders repository to provide access to Insiders builds. Once you run this on a machine, installing or upgrading the package will pull the latest from the Insiders repository. There is no need to have both the standard and Insiders repositories added, because the latest Insiders build is either the same as, or newer than, the latest standard build.
 
-Debian/Ubuntu insider builds are located at: [https://packages.microsoft.com/repos/cyclecloud-insiders/pool/main/c/cyclecloud8/](https://packages.microsoft.com/repos/cyclecloud-insiders/pool/main/c/cyclecloud8/)
+Note that these instructions switch to only using Insiders builds. You can switch back by following the [above Installation instructions](#installation).
+
+### Debian/Ubuntu
+
+To install the Insiders build on Debian or Ubuntu, run the following:
+
+:::code language="bash" source="../includes/installation/ubuntu-repo-insiders.sh":::
+
+This is the same as the [standard installation steps above](#installing-on-debian-or-ubuntu) but with [https://packages.microsoft.com/repos/cyclecloud-insiders/pool/main/c/cyclecloud8/](https://packages.microsoft.com/repos/cyclecloud-insiders/pool/main/c/cyclecloud8/) instead.
+
+### Enterprise Linux
+
+To install the Insiders build on Enterprise Linux, run the following:
+
+:::code language="bash" source="../includes/installation/el-repo-insiders.sh":::
+
+This is the same as the [standard installation steps above](#installing-on-enterprise-linux-rhel-clones) but with [https://packages.microsoft.com/yumrepos/cyclecloud-insiders/](https://packages.microsoft.com/yumrepos/cyclecloud-insiders/) instead.
 
 ### Notes on Security
 
