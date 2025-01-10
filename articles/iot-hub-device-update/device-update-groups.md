@@ -3,7 +3,7 @@ title: Azure Device Update for IoT Hub device groups
 description: Understand Azure Device Update for IoT Hub user-assigned and default device groups and subgroups based on device classes.
 author: aysancag
 ms.author: aysancag
-ms.date: 01/09/2025
+ms.date: 01/10/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -13,11 +13,11 @@ ms.subservice: device-update
 
 An Azure Device Update for IoT Hub device group is a collection of IoT devices that Device Update uses to target update deployments. All devices that have the Device Update agent installed and provisioned belong to a device group, either a default group or a user-defined group. A device can belong to only one Device Update device group at a time.
 
-To deploy updates to your devices, you can use the default device group that Device Update provides, or you can define and assign multiple device groups to organize your devices. For example, the Contoso organization might assign the devices in its test laboratory to a "Flighting" device group and assign the devices its operations center field team uses to an "Evaluation" device group. Contoso might also choose to group their production devices based on geographic regions, so they can update devices on a schedule that aligns with their regional timezones.
+To deploy updates to your devices, you can use the default device group that Device Update provides, or you can define and assign multiple device groups to organize your devices. For example, the Contoso organization might assign the devices in its test laboratory to a "Flighting" device group and assign the devices its field team uses to an "Evaluation" device group. Contoso might also choose to group their production devices based on geographic regions, so they can update devices on a schedule that aligns with their regional timezones.
 
 ## User-defined device groups
 
-You use *tags* to group devices. Device Update creates user-defined groups for devices that have an `ADUGroup` tag with a user-defined value in the `"tags"` section of their device twins or module twins.
+You define device groups by using *tags*. Device Update creates user-defined groups for devices that have an `ADUGroup` tag with a user-defined value in the `"tags"` section of their device twins or module twins.
 
 ```json
 "tags": {
@@ -31,11 +31,11 @@ Devices that have the Device Update agent installed and provisioned but don't ha
 
 Users can't delete or recreate default groups, change their definitions, or add or remove devices from default groups manually. Default group names have the format `Default-<deviceClassID>`, and are reserved within an IoT solution.
 
-Default groups help reduce the overhead of tagging and grouping devices and make it easier to deploy updates to untagged devices. All deployment features that are available for user-defined groups are also available for default, system-assigned groups.
+Default groups help reduce the overhead of tagging and grouping devices by making it easier to deploy updates to untagged devices. All deployment features that are available for user-defined groups are also available for default, system-assigned groups.
 
 ## Example device group assignments
 
-For the Contoso example, consider four devices with the following device IDs and `ADUGroup` tag assignments:
+For the Contoso example, consider four devices with the following device IDs and tag assignments:
 
 ```json
 "deviceId": "Device1",

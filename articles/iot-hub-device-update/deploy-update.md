@@ -3,7 +3,7 @@ title: Deploy an update by using Azure Device Update for IoT Hub | Microsoft Doc
 description: Learn how to deploy an update to IoT devices by using Azure Device Update for IoT Hub in the Azure portal or with Azure CLI.
 author: vimeht
 ms.author: vimeht
-ms.date: 01/09/2025
+ms.date: 01/10/2025
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.custom: devx-track-azurecli
@@ -12,12 +12,12 @@ ms.subservice: device-update
 
 # Deploy an update by using Azure Device Update for IoT Hub
 
-In this article, you learn how to use the Azure portal or Azure CLI to deploy an update to IoT devices by using Azure Device Update for IoT Hub.
+In this article, you learn how to deploy an update to IoT devices by using Azure Device Update for IoT Hub in the Azure portal or with Azure CLI.
 
 ## Prerequisites
 
 - A Standard (S1) or higher instance of [Azure IoT Hub](/azure/iot-hub/create-hub?tabs=portal) with [Device Update for IoT Hub enabled](create-device-update-account.md).
-- An IoT device or simulator [provisioned for Device Update](device-update-agent-provisioning.md) within the IoT hub. The provisioned device can be a member of a [user-created update group](create-update-group.md) or the default group.
+- An IoT device or simulator [provisioned for Device Update](device-update-agent-provisioning.md) within the IoT hub. The provisioned device can be a member of a [user-created device group](create-update-group.md) or the default group.
 - An [imported update for the provisioned device](import-update.md).
 
 ## Deploy the update
