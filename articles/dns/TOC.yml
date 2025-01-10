@@ -71,7 +71,7 @@
       href: tutorial-dns-private-resolver-failover.md
 - name: Concepts
   items:
-  - name: Security
+  - name: DNS security policy
     items:
     - name: Monitor and manage DNS traffic
       href: dns-security-policy.md
@@ -121,9 +121,9 @@
       href: private-resolver-reliability.md
 - name: How-to guides
   items:
-  - name: DNS security policy
+  - name: Security policy
     items:
-    - name: Use DNS security and policy to filter traffic
+    - name: Use DNS security policy
       href: dns-traffic-log-how-to.md
   - name: Public DNS
     items:
