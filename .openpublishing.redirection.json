@@ -1,6 +1,31 @@
 {
   "redirections": [
     {
+      "source_path": "articles/defender-for-iot/organizations/api/management-alert-apis.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/api/management-alert-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/api/management-inventory-apis.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/api/management-inventory-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/api/management-appliances-apis.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/api/management-appliances-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/api/management-auth-apis.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/api/management-auth-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/api/management-integration-apis.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/api/management-integration-apis",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/defender-for-iot/organizations/legacy-central-management/back-up-sensors-from-management.md",
       "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/back-up-sensors-from-management",
       "redirect_document_id": false
