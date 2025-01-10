@@ -50,7 +50,7 @@ Azure Native New Relic Service provides the following capabilities:
 
 When you use the integrated New Relic experience in the Azure portal by using Azure Native New Relic Service, the service creates and maps the following entities for monitoring and billing purposes.
 
-:::image type="content" source="media/new-relic-create/new-relic-subscription.png" alt-text="Conceptual diagram that shows the relationship between Azure and New Relic.":::
+:::image type="content" source="media/overview/new-relic-subscription.png" alt-text="Conceptual diagram that shows the relationship between Azure and New Relic.":::
 
 - **New Relic resource in Azure**: By using the New Relic resource, you can manage the New Relic account on Azure. The resource is created in the Azure subscription and resource group that you select during the creation process or linking process.
 - **New Relic organization**: The New Relic organization on New Relic software as a service (SaaS) is used for user management and billing.
@@ -70,7 +70,7 @@ For more help, see the New Relic documentation.
 ## Next steps
 
 - [Quickstart: Get started with New Relic](new-relic-create.md)
-- [Quickstart: Link to an existing New Relic account](link-existing.md)
+- [Quickstart: Link to an existing New Relic account](link-to-existing.md)
 - Get started with Azure Native New Relic Service on
 
     > [!div class="nextstepaction"]
