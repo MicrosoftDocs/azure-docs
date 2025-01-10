@@ -202,7 +202,7 @@ After you've created the template spec, users with the Template Spec Reader role
 
 Template specs can be deployed through the Azure portal, PowerShell, Azure CLI, or as a [Bicep module](#link-to-template-specs) in a larger template deployment. Users in an organization can deploy a template spec to any scope in Azure (e.g., a resource group, subscription, management group, or tenant).
 
-You deploy a template spec by providing its resource ID instead of passing it in a path or URI for a Bicep file. The resource ID has the following format; notice that the it includes a version name for the template spec:
+You deploy a template spec by providing its resource ID instead of passing it in a path or URI for a Bicep file. The resource ID has the following format; notice that it includes a version name for the template spec:
 
 **/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Resources/templateSpecs/{template-spec-name}/versions/{template-spec-version}**
 

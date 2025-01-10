@@ -129,7 +129,7 @@ When working with [modules](modules.md), you can add aliases for module paths. T
 
 ## Configure Linter rules
 
-The [Bicep linter](linter.md) checks Bicep files for syntax errors and best practice violations. You can  modify a _bicepconfig.json_ file to override the default settings for how a Bicep file is validated. For more information, see [Add linter settings to Bicep config](bicep-config-linter.md).
+The [Bicep linter](linter.md) checks Bicep files for syntax errors and best practice violations. You can modify a _bicepconfig.json_ file to override the default settings for how a Bicep file is validated. For more information, see [Add linter settings to Bicep config](bicep-config-linter.md).
 
 ## Enable experimental features
 
