@@ -36,7 +36,7 @@ landingContent:
           - text: Create a new resource
             url: create.md
           - text: Link to an existing New Relic account
-            url: link-existing-resources.md
+            url: link-to-existing.md
       - linkListType: how-to-guide
         links:
           - text: Troubleshoot a resource
