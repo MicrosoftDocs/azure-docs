@@ -88,7 +88,7 @@ Creating a custom container image allows you to customize your deployments to fi
 
 After you complete the image customization, you can build the image and push it to your container registry manually.
 
-[!INCLUDE [custom-image-create](includes/custom-image-create.md)]
+[!INCLUDE [custom-image-create](includes/custom-image-create-arm.md)]
 
 ### Build the custom image
 
