@@ -402,9 +402,7 @@ Follow these steps to create your App Service resources and publish your project
    ```azurepowershell-interactive
    Connect-AzAccount
    ```
-
-<!-- ### [Deploy to Windows](#tab/windows) -->
-
+   <!-- ### [Deploy to Windows](#tab/windows) -->
 1. Create a new app by using the [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) command:
 
    ```azurepowershell-interactive
@@ -467,7 +465,7 @@ Follow these steps to create your App Service resources and publish your project
 
 1. Type **app services** in the search. Under **Services**, select **App Services**.
 
-   :::image type="content" source="./media/quickstart-dotnetcore/portal-search.png" alt-text="Screenshot of portal search in the Azure portal.":::
+   :::image type="content" source="./media/quickstart-dotnetcore/portal-search.png" alt-text="Screenshot of portal search in the Azure portal." lightox="./media/quickstart-dotnetcore/portal-search.png":::
 
 1. In the **App Services** page, select **Create** > **Web App**.
 
@@ -497,7 +495,6 @@ Follow these steps to create your App Service resources and publish your project
    - Under **Pricing plan**, select **Free F1**.
 
    :::image type="content" source="./media/quickstart-dotnetcore/app-service-details-net-48.png" lightbox="./media/quickstart-dotnetcore/app-service-details-net-48.png" alt-text="Screenshot of new App Service app configuration for .NET Framework V4.8 in the Azure portal.":::
-
    -----
 
 1. Select the **Deployment** tab at the top of the page
@@ -521,7 +518,6 @@ Follow these steps to create your App Service resources and publish your project
    - For **Branch**, select *main*.
 
    :::image type="content" source="media/quickstart-dotnet/app-service-deploy-48.png" lightbox="media/quickstart-dotnet/app-service-deploy-48.png" border="true" alt-text="Screenshot of the deployment options for an app using the .NET Framework 4.8 runtime.":::
-
    -----
 
    > [!NOTE]
@@ -544,7 +540,6 @@ Follow these steps to create your App Service resources and publish your project
    ### [.NET Framework 4.8](#tab/netframework48)
 
    :::image type="content" source="media/quickstart-dotnet/browse-dotnet-48.png" lightbox="media/quickstart-dotnet/browse-dotnet-48.png" border="true" alt-text="Screenshot of the deployed .NET Framework 4.8 sample app.":::
-
    -----
 
 :::zone-end
@@ -617,7 +612,6 @@ Make a change to *Index.cshtml* and redeploy to see the changes. In the .NET 8.0
    You see the updated ASP.NET Framework 4.8 web app displayed in the page.
 
    :::image type="content" source="media/quickstart-dotnetcore/vs-updated-azure-web-app-net-48.png" lightbox="media/quickstart-dotnetcore/vs-updated-azure-web-app-net-48.png" border="true" alt-text="Screenshot of Visual Studio - Updated ASP.NET Framework 4.8 web app in Azure.":::
-
    -----
 
 :::zone-end
@@ -854,7 +848,7 @@ After deployment completes, the browser opens to the updated ASP.NET Core 8.0 we
 
 To manage your web app, go to the [Azure portal](https://portal.azure.com), and search for and select **App Services**.
 
-:::image type="content" source="media/quickstart-dotnetcore/app-services.png" alt-text="Screenshot of the Azure portal - Select App Services option.":::
+:::image type="content" source="media/quickstart-dotnetcore/app-services.png" alt-text="Screenshot of the Azure portal - Select App Services option." lightbox="media/quickstart-dotnetcore/app-services.png":::
 
 On the **App Services** page, select the name of your web app.
 
@@ -862,7 +856,7 @@ On the **App Services** page, select the name of your web app.
 
 The **Overview** page for your web app, contains options for basic management like browse, stop, start, restart, and delete. The left menu provides further pages for configuring your app.
 
-:::image type="content" source="media/quickstart-dotnetcore/web-app-overview-page.png" alt-text="Screenshot of the Azure portal - App Service overview page.":::
+:::image type="content" source="media/quickstart-dotnetcore/web-app-overview-page.png" alt-text="Screenshot of the Azure portal - App Service overview page." lightbox="media/quickstart-dotnetcore/web-app-overview-page.png":::
 
 <!--
 ## Clean up resources - H2 added from the next three includes
