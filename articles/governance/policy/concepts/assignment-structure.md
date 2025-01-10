@@ -343,7 +343,7 @@ In this example, the parameters previously defined in the policy definition are 
 
 ## Identity
 
-For policy assignments with effect set to `deployIfNotExists` or `modify`, the requirement is to have an identity property to do remediation on non-compliant resources. When an assignment uses an identity, the user must also specify a location for the assignment.
+Policy assignments with effect set to `deployIfNotExists` or `modify` must have an identity property to do remediation on non-compliant resources. Assignments using an identity must also have a top-level location property specified. This location property determines where both the assignment and its corresponding system-assigned managed identity will be deployed. It cannot be set to `global`, and it cannot be changed.
 
 > [!NOTE]
 > A single policy assignment can be associated with only one system- or user-assigned managed identity. However, that identity can be assigned more than one role if necessary.
