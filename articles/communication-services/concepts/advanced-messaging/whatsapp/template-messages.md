@@ -58,7 +58,21 @@ To list out your templates programmatically, you can fetch all templates for you
 
 ## Quick reference
 
-- [Template usage quick reference](../../../quickstarts/advanced-messaging/whatsapp/send-template-messages.md)
+Here is the sample template named `sample_template` takes no parameters.
+
+:::image type="content" source="../../../quickstarts/advanced-messaging/whatsapp/media/template-messages/sample-template-details-azure-portal.png" lightbox="../../../quickstarts/advanced-messaging/whatsapp/media/media/template-messages/sample-template-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_template.":::
+
+Assemble the `MessageTemplate` by referencing the target template's name and language.
+
+```csharp
+string templateName = "sample_template"; 
+string templateLanguage = "en_us"; 
+
+var sampleTemplate = new MessageTemplate(templateName, templateLanguage); 
+``````
+
+For more detailed examples and template supported scenarios by Advanced Messages SDK, please refer quickstart.
+- [WhatsApp Template Quickstart](../../../quickstarts/advanced-messaging/whatsapp/send-template-messages.md)
 
 ## Next steps
 
