@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 12/12/2024
+ms.date: 01/09/2025
 ms.custom: generated
 ---
 
@@ -298,7 +298,7 @@ Click the resource provider name in the following list to see the list of permis
 > | Resource provider | Description | Azure service |
 > | --- | --- | --- |
 > | [Microsoft.AzureStack](./permissions/hybrid-multicloud.md#microsoftazurestack) | Build and run innovative hybrid applications across cloud boundaries. | [Azure Stack](/azure-stack/) |
-> | [Microsoft.AzureStackHCI](./permissions/hybrid-multicloud.md#microsoftazurestackhci) |  | [Azure Stack HCI](/azure-stack/hci/) |
+> | [Microsoft.AzureStackHCI](./permissions/hybrid-multicloud.md#microsoftazurestackhci) |  | [Azure Local](/azure-stack/hci/) |
 > | [Microsoft.ExtendedLocation](./permissions/hybrid-multicloud.md#microsoftextendedlocation) |  | [Custom locations](/azure/azure-arc/platform/conceptual-custom-locations) |
 > | [Microsoft.HybridCompute](./permissions/hybrid-multicloud.md#microsofthybridcompute) |  | [Azure Arc](/azure/azure-arc/) |
 > | [Microsoft.HybridConnectivity](./permissions/hybrid-multicloud.md#microsofthybridconnectivity) |  |  |
