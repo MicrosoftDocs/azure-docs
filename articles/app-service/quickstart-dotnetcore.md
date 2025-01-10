@@ -741,7 +741,6 @@ You see the updated ASP.NET Core 8.0 web app displayed in the page.
    ### [.NET Framework 4.8](#tab/netframework48)
 
    :::image type="content" source="media/quickstart-dotnetcore/github-forked-app-service-web-dotnet-get-started-repo-create-codespace.png" alt-text="Screenshot showing how to create a codespace in the forked app-service-web-dotnet-get-started GitHub repo.":::
-
    -----
 
    > [!TIP]
@@ -760,7 +759,6 @@ You see the updated ASP.NET Core 8.0 web app displayed in the page.
    Index.cshtml is located in the *aspnet-get-started/Views/Home* folder
 
    :::image type="content" source="media/quickstart-dotnetcore/index-cshtml-in-explorer-dotnet-framework.png" alt-text="Screenshot of the Explorer window from Visual Studio Code in the browser, highlighting the Index.cshtml in the app-service-web-dotnet-get-started repo.":::
-
    -----
 
 1. Replace the first `<div>` element with the following code:
@@ -789,7 +787,6 @@ You see the updated ASP.NET Core 8.0 web app displayed in the page.
    ### [.NET Framework 4.8](#tab/netframework48)
 
    :::image type="content" source="media/quickstart-dotnetcore/visual-studio-code-in-browser-commit-push-dotnet-framework.png" alt-text="Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'We love Azure' and the Commit and Push button highlighted.":::
-
    -----
 
    > [!TIP]
@@ -812,7 +809,6 @@ You see the updated ASP.NET Core 8.0 web app displayed in the page.
    You see the updated ASP.NET Framework 4.8 web app displayed in the page.
 
    :::image type="content" source="media/quickstart-dotnet/updated-azure-webapp-net-48.png" lightbox="media/quickstart-dotnet/updated-azure-webapp-net-48.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Framework 4.8 web app in Azure.":::
-
    -----
 
 :::zone-end
