@@ -10,7 +10,7 @@ ms.date: 02/02/2024
 
 # Integrate Azure Cache for Redis with Service Connector
 
-Learn about the supported authentication methods and clients you can use with Service Connector to connect Azure Cache for Redis to other cloud services, and get sample code. Plus, find out about the default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. (Note that you might still be able to connect to Azure Cache for Redis in other programming languages without using Service Connector.)
+You can connect Azure Cache for Redis to other cloud services using Service Connector. This article outlines supported authentication methods and clients, and provides sample code. It also reveals default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. (Note that you might still be able to connect to Azure Cache for Redis in other programming languages without using Service Connector.)
 
 ## Supported compute services
 
