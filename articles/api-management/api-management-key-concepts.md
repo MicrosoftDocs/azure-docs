@@ -89,9 +89,9 @@ The open-source [developer portal][Developer portal] is an automatically generat
 
 API providers can customize the look and feel of the developer portal by adding custom content, customizing styles, and adding their branding. Extend the developer portal further by [self-hosting](developer-portal-self-host.md).
 
-Users such as app developers access the open-source developer portal to discover the APIs, onboard to use them, and learn how to consume them in applications. (APIs can also be exported to the [Power Platform](export-api-power-platform.md) for discovery and use by citizen developers.)
+API consumers such as app developers access the open-source developer portal to discover the APIs, onboard to use them, and learn how to consume them in applications. (APIs can also be exported to the [Power Platform](export-api-power-platform.md) for discovery and use by citizen developers.)
 
-Using the developer portal, users can:
+Using the developer portal, API consumers can:
 
   * Read API documentation
   * Call an API via the interactive console
@@ -167,7 +167,7 @@ When a product is ready for use by consumers, it can be published. Once publishe
 
 ### Users and groups
 
-Users can be created or invited to join by service administrators, or they can sign up from the [developer portal][Developer portal]. Each user is a member of one or more groups, and can subscribe to the products that grant visibility to those groups.
+Users (API consumers) can be created or invited to join by service administrators, or they can sign up from the [developer portal][Developer portal]. Each user is a member of one or more groups, and can subscribe to the products that grant visibility to those groups.
 
 API Management has the following built-in groups: 
 
