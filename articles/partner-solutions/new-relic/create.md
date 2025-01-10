@@ -8,7 +8,7 @@ ms.date: 04/04/2023
 
 # Quickstart: Get started with Azure Native New Relic Service
 
-In this quickstart, you create an instance of Azure Native New Relic Service. You can either [create a New Relic account](create.md) or [link to an existing New Relic account](link-to-existing-resources.md).
+In this quickstart, you create an instance of Azure Native New Relic Service. You can either [create a New Relic account](create.md) or [link to an existing New Relic account](link-to-existing.md).
 
 ## Prerequisites
 

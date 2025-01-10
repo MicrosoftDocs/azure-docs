@@ -38,7 +38,7 @@ landingContent:
           - text: Create a new Dynatrace resource
             url: create.md
           - text: Link to an existing Dynatrace environment
-            url: link-to-existing-resources.md
+            url: link-to-existing-.md
       - linkListType: how-to-guide
         links:
           - text: Troubleshooting Azure Native Dynatrace Service

@@ -13,7 +13,7 @@ items:
   - name: Create Dynatrace resource
     href: create.md
   - name: Link to existing Dynatrace resource
-    href: link-to-existing-resources.md
+    href: link-to-existing.md
 - name: How to
   items:
   - name: Configure prerequisites
