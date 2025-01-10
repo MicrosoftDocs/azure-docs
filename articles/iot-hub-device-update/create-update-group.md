@@ -11,27 +11,17 @@ ms.subservice: device-update
 
 # Manage device groups for Azure Device Update for IoT Hub
 
-Azure Device Update for IoT Hub deploys updates to devices based on their assignment to a device group. You can deploy updates to your IoT devices by using the default group that Device Update creates, or optionally by defining groups of devices to deploy to.
+Azure Device Update for IoT Hub deploys updates to devices based on their device group. You can use the default device group that Device Update provides, or you can define and assign your own device groups to deploy updates to.
 
-You can create and assign user-defined tag values to devices, and Device Update automatically creates groups based on the assigned tags and device compatibility properties. A device group can have multiple subgroups that have different device classes.
+If you create and assign user-defined tag values to devices, Device Update automatically creates groups based on the assigned tags and device compatibility properties. A device group can have multiple subgroups that have different device classes.
 
-This article describes how to use the Azure portal or Azure CLI to manage user-defined Device Update groups and tags. To deploy updates to user-defined groups, or to deploy to the default group without specifying user-defined groups and tags, see [Deploy a device update](deploy-update.md).
+This article describes how to use the Azure portal or Azure CLI to create and manage user-defined Device Update groups and tags. To deploy updates to user-defined or default device groups, see [Deploy a device update](deploy-update.md).
 
 ## Prerequisites
 
 - A Standard (S1) or higher instance of [Azure IoT Hub](/azure/iot-hub/create-hub?tabs=portal) with [Device Update for IoT Hub enabled](create-device-update-account.md).
 - An IoT device or simulator [provisioned for Device Update](device-update-agent-provisioning.md) within the IoT hub. Install and start the Device Update agent on your device either as a module- or device-level identity.
 - An [imported update for the provisioned device](import-update.md).
-
-## Tag properties and limitations
-
-The `ADUGroup` tag that determines Device Update group assignment has the following properties and limitations:
-
-- You can add any value to the tag except the reserved values `Uncategorized` and `$default`.
-- A device can only have one `ADUGroup` tag and belong to only one Device Update group at a time. Adding another tag named `ADUGroup` overrides the existing `ADUGroup` value.
-- The tag value can't exceed 200 characters.
-- The tag value can contain alphanumeric characters and the following special characters: `. - _ ~`.
-- The `ADUGroup` tag name and group name values are case-sensitive.
 
 ## Add tags to your devices
 
@@ -51,6 +41,14 @@ The Device Update `ADUGroup` tag uses a key-value format, as shown in the follow
 }
 ```
 
+The `ADUGroup` tag has the following properties and limitations:
+
+- You can add any value to the tag except the reserved values `Uncategorized` and `$default`.
+- A device can only have one `ADUGroup` tag and belong to only one Device Update group at a time. Adding another tag named `ADUGroup` overrides the existing `ADUGroup` value.
+- The tag value can't exceed 200 characters.
+- The tag value can contain alphanumeric characters and the following special characters: `. - _ ~`.
+- The `ADUGroup` tag name and group name values are case-sensitive.
+
 The following sections describe several ways to add and update the tag.
 
 ### Add tags with SDKs
@@ -62,10 +60,10 @@ You can update the device or module twin with the appropriate tag using Registry
 
 ### Add tags using jobs
 
-You can schedule a job to add or update Device Update tags on multiple devices. For examples of job operations, see [Schedule jobs on multiple devices](../iot-hub/iot-hub-devguide-jobs.md). You can update either device twins or module twins using jobs, depending on whether the Device Update agent is provisioned with a device or module identity. For more information, see [Schedule and broadcast jobs](../iot-hub/iot-hub-csharp-csharp-schedule-jobs.md).
+You can schedule jobs to add or update Device Update tags on multiple devices. For examples of job operations, see [Schedule jobs on multiple devices](../iot-hub/iot-hub-devguide-jobs.md). You can update either device twins or module twins using jobs, depending on whether the Device Update agent is provisioned with a device or module identity. For more information, see [Schedule and broadcast jobs](../iot-hub/iot-hub-csharp-csharp-schedule-jobs.md).
 
 > [!NOTE]
-> This job operation counts against your IoT Hub messages quota. If you change 50,000 or more device or module twin tags at a time, you might exceed your daily IoT Hub message quota and need to buy more IoT Hub units. For more information, see [Quotas and throttling](../iot-hub/iot-hub-devguide-quotas-throttling.md).
+> This operation counts against your IoT Hub messages quota. If you change 50,000 or more device or module twin tags at a time, you might exceed your daily IoT Hub message quota and need to buy more IoT Hub units. For more information, see [Quotas and throttling](../iot-hub/iot-hub-devguide-quotas-throttling.md).
 
 ### Add tags by updating twins
 
@@ -174,6 +172,8 @@ az iot du device group show \
     --account <Device Update account name> \
     --instance <Device Update instance name> \
     --group-id <value of the ADUGroup tag for this group>
+    --best-updates
+    --update-compliance
 ```
 
 ---

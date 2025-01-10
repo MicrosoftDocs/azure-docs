@@ -12,7 +12,7 @@ ms.subservice: device-update
 
 # Deploy an update by using Azure Device Update for IoT Hub
 
-In this article, you learn how to deploy an update to IoT devices by using Azure Device Update for IoT Hub in the Azure portal or with Azure CLI.
+In this article, you learn how to use the Azure portal or Azure CLI to deploy an update to IoT devices by using Azure Device Update for IoT Hub.
 
 ## Prerequisites
 
@@ -32,11 +32,11 @@ This section describes how to deploy the update by using the Azure portal or Azu
 
    :::image type="content" source="media/deploy-update/device-update-iot-hub.png" alt-text="Screenshot that shows the Get started with the Device Update for IoT Hub page." lightbox="media/deploy-update/device-update-iot-hub.png":::
 
-1. On the **Updates** page, select the **Groups and Deployments** tab and view the [update compliance chart](device-update-compliance.md) and [device group list](device-update-groups.md).
+1. On the **Updates** page, select the **Groups and Deployments** tab and view the [update compliance chart](device-update-compliance.md) and [device group list](device-update-groups.md). You might need to refresh the view to see the new imported update available for your device group.
+
+   Under **Status** in the group list, select **Deploy** next to **One or more new updates are available for this group**.
 
    :::image type="content" source="media/deploy-update/updated-view.png" alt-text="Screenshot that shows the Groups and Deployments tab." lightbox="media/deploy-update/updated-view.png":::
-
-1.  You might need to refresh the view to see the new imported update available for your device group. Under **Status** in the group list, select **Deploy** next to **One or more new updates are available for this group**.
 
 1. On the **Group details** page, confirm that the correct group and imported update appear. To start the deployment, on the **Current deployment** tab, select the **Deploy** link next to the desired update in the **Available updates** section. The best available update for a given group is denoted with a **Best** highlight.
 
@@ -78,7 +78,7 @@ Or, if you prefer, you can run the Azure CLI commands locally:
 
 ### Verify update availability
 
-1. Use the [`az iot du device group list`](/cli/azure/iot/du/device/group#az-iot-du-device-group-list) command to find your device group information.
+1. Use the [`az iot du device group list`](/cli/azure/iot/du/device/group#az-iot-du-device-group-list) command to identify your device group.
 
    ```azurecli
    az iot du device group list \
@@ -86,22 +86,22 @@ Or, if you prefer, you can run the Azure CLI commands locally:
        --instance <Device Update instance name>\
    ```
 
-1. Then use [`az iot du device group show`](/cli/azure/iot/du/device/group#az-iot-du-device-group-show) to verify the best available update for your group. The command takes the following arguments:
+1. Then use [`az iot du device group show`](/cli/azure/iot/du/device/group#az-iot-du-device-group-show) to show the best available update for your group. The command takes the following arguments:
 
    - `--account`: The Device Update account name.
    - `--instance`: The Device Update instance name.
-   - `--resource-group`: Device Update account resource group name.
-   - `--group-id`: The device group ID that you're targeting with this deployment, either the value of the `ADUGroup` tag, or `$default` for devices with no tag.
-   - `--best-updates`: Fetches the best available updates for the device group, including a count of how many devices need each update.
-   - `--update-compliance`: Fetches device group update compliance information, such as how many devices are on their latest update, how many need new updates, and how many are currently receiving a new update.
+   - `--group-id`: The device group ID that you're targeting with this deployment, which is either the value of the `ADUGroup` tag, or `$default` for devices with no tag.
+   - `--resource-group`: The Device Update account resource group name.
+   - `--best-updates`: Returns the best available updates for the device group, including a count of how many devices need each update.
+   - `--update-compliance`: Returns device group update compliance information, such as how many devices are on their latest update, how many need new updates, and how many are currently receiving a new update.
 
-   Run the command as follows:
+   To verify the best available update for your group, run the command as follows:
    
    ```azurecli
    az iot du device group show \
        --account <Device Update account name> \
        --instance <Device Update instance name>\
-       --gid <device group id>\
+       --group-id <device group ID>\
        --best-updates
    ```
 
@@ -111,7 +111,7 @@ Use [`az iot du device deployment create`](/cli/azure/iot/du/device/deployment#a
 
 - `--account`: The Device Update account name.
 - `--instance`: The Device Update instance name.
-- `--group-id`: The device group ID that you're targeting with this deployment, either the value of the `ADUGroup` tag, or `$default` for devices with no tag.
+- `--group-id`: The device group ID that you're targeting with this deployment, which is either the value of the `ADUGroup` tag, or `$default` for devices with no tag.
 - `--deployment-id`: An ID to identify this deployment.
 - `--update-name`, `--update-provider`, and `--update-version`: The parameters that define the `updateId` object, a unique identifier for the update in this deployment.
 
@@ -121,8 +121,8 @@ Run the command as follows:
 az iot du device deployment create \
     --account <Device Update account name> \
     --instance <Device Update instance name> \
-    --group-id <device group id> \
-    --deployment-id <deployment id> \
+    --group-id <device group ID> \
+    --deployment-id <deployment ID> \
     --update-name <update name> \
     --update-provider <update provider> \
     --update-version <update version>
@@ -144,8 +144,8 @@ Run the command as follows:
 az iot du device deployment create \
     --account <Device Update account name> \
     --instance <Device Update instance name> \
-    --group-id <device group id> \
-    --deployment-id <deployment id> \
+    --group-id <device group ID> \
+    --deployment-id <deployment ID> \
     --update-name <update name> \
     --update-provider <update provider> \
     --update-version <update version> \
