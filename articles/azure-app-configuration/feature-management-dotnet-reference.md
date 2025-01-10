@@ -43,7 +43,7 @@ Here are some of the benefits of using .NET feature management library:
   The .NET feature management library is open source. For more information, visit the [GitHub repo](https://github.com/microsoft/FeatureManagement-Dotnet).
 
 ## Feature Flags
-A standard feature flag is composed of two parts, a name and a list of feature-filters that are used to turn on the feature.
+Feature flags have a name and can be either enabled or disabled. The state of a flag can be made conditional through the use of feature filters.
 
 ### Feature Filters
 Feature filters define a scenario for when a feature should be enabled. When a feature is evaluated as on or off, its list of feature filters are traversed until one of the filters determines the feature is enabled. At this point, traversal through the feature filters stops. If no feature filter indicates that the feature should be enabled, it is considered disabled.
