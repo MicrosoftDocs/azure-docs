@@ -92,7 +92,7 @@ Incoming call notifications now include the caller line ID (CLID) and calling pa
 const incomingCallHandler = async (args: { incomingCall: IncomingCall }) => { const incomingCall = args.incomingCall; // Get information about caller console.log(callerInfo.displayName); console.log(callerInfo.identifier); };
 ```
 
-For more information, see [CallerInfo interface](/azure/communication-calling/callerinfo), [Manage calls > Receive an incoming call](./how-tos/calling-sdk/manage-calls.md#receive-an-incoming-call), and [Manage calls > Check call properties](./how-tos/calling-sdk/manage-calls.md#check-call-properties).
+For more information, see [CallerInfo interface](/javascript/api/azure-communication-services/@azure/communication-calling/callerinfo), [Manage calls > Receive an incoming call](./how-tos/calling-sdk/manage-calls.md#receive-an-incoming-call), and [Manage calls > Check call properties](./how-tos/calling-sdk/manage-calls.md#check-call-properties).
 
 ### Remote Mute VoIP meeting participants
 
