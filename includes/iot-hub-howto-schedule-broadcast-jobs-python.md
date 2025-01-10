@@ -11,6 +11,8 @@ ms.date: 1/7/2025
 ms.custom: mqtt, devx-track-python, py-fresh-zinc
 ---
 
+  * Python SDK - [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.
+
 ## Overview
 
 This article describes how to use the [Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python) to create backend service application code for job scheduling.
@@ -88,7 +90,7 @@ def device_method_job(job_id, device_id, execution_time):
 
 Use [create_scheduled_job](/python/api/azure-iot-hub/azure.iot.hub.iothubjobmanager?#azure-iot-hub-iothubjobmanager-create-scheduled-job) to create a new job to run a device twin update on one or multiple devices.
 
-This example schedules a device twin update job for a specific job Id.
+This example schedules a device twin update job for a specific job ID.
 
 ```python
 def device_twin_job(job_id, device_id, execution_time):
@@ -108,16 +110,16 @@ def device_twin_job(job_id, device_id, execution_time):
 
 ### Monitor a job
 
-Use [get_scheduled_job](/python/api/azure-iot-hub/azure.iot.hub.iothubjobmanager?#azure-iot-hub-iothubjobmanager-get-scheduled-job) to retrieve the details of a scheduled job on an IoT Hub.
+Use [get_scheduled_job](/python/api/azure-iot-hub/azure.iot.hub.iothubjobmanager?#azure-iot-hub-iothubjobmanager-get-scheduled-job) to retrieve the details of a specific job on an IoT Hub.
 
-For example:
+This example checks the job status every five seconds until the job is complete.
 
 ```python
 while True:
     get_job_response = iothub_job_manager.get_scheduled_job(job_request.job_id)
     print_job_response("Get job response: ", get_job_response)
     if get_job_response.status == "completed":
-        break
+      print ( "Job is completed." )
     time.sleep(5)
 ```
 
@@ -125,5 +127,5 @@ while True:
 
 The Azure IoT SDK for Python provides working samples of service apps that handle job scheduling tasks. For more information, see:
 
-* [Invoke a device method](https://github.com/Azure/azure-iot-hub-python/blob/8c8f315e8b26c65c5517541a7838a20ef8ae668b/samples/iothub_job_manager_method_sample.py)
-* [Update a device twin](https://github.com/Azure/azure-iot-hub-python/blob/8c8f315e8b26c65c5517541a7838a20ef8ae668b/samples/iothub_job_manager_twin_update_sample.py)
+* [Schedule a device method job](https://github.com/Azure/azure-iot-hub-python/blob/8c8f315e8b26c65c5517541a7838a20ef8ae668b/samples/iothub_job_manager_method_sample.py)
+* [Schedule a device twin update](https://github.com/Azure/azure-iot-hub-python/blob/8c8f315e8b26c65c5517541a7838a20ef8ae668b/samples/iothub_job_manager_twin_update_sample.py)

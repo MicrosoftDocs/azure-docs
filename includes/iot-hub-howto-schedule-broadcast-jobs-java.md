@@ -133,7 +133,9 @@ private static JobResult scheduleJobSetDesiredProperties(JobClient jobClient, St
 
 ### Monitor a job
 
-Use [getJob](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient?#com-microsoft-azure-sdk-iot-service-jobs-jobclient-getjob(java-lang-string)) to access job status.
+Use [getJob](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient?#com-microsoft-azure-sdk-iot-service-jobs-jobclient-getjob(java-lang-string)) to access a job status.
+
+For example:
 
 ```java
 private static void monitorJob(JobClient jobClient, String jobId) {
@@ -162,7 +164,9 @@ private static void monitorJob(JobClient jobClient, String jobId) {
 
 ### Query a job status
 
-Use [queryDeviceJob](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient?#com-microsoft-azure-sdk-iot-service-jobs-jobclient-querydevicejob(java-lang-string)) to query job status.
+Use [queryDeviceJob](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient?#com-microsoft-azure-sdk-iot-service-jobs-jobclient-querydevicejob(java-lang-string)) to query a job status.
+
+For example:
 
 ```java
 private static void queryDeviceJobs(JobClient jobClient, String start) throws Exception {
