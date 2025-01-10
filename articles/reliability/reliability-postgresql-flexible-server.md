@@ -3,9 +3,9 @@ title: Reliability and high availability in PostgreSQL - Flexible Server
 titleSuffix: Azure Database for PostgreSQL - Flexible Server
 description: Find out about reliability and high availability in Azure Database for PostgreSQL - Flexible Server
 author: sunilagarwal
-ms.author: anaharris
-ms.reviewer: maghan, anaharris
-ms.date: 11/5/2024
+ms.author: gkasar
+ms.reviewer: maghan, gbowerman
+ms.date: 01/09/2025
 ms.service: azure-database-postgresql
 ms.topic: conceptual
 ms.custom:
@@ -30,7 +30,7 @@ Azure Database for PostgreSQL - Flexible Server offers high availability support
 
 Azure Database for PostgreSQL - Flexible Server supports both [zone-redundant and zonal models](availability-zones-service-support.md) for high availability configurations. Both high availability configurations enable automatic failover capability with zero data loss during both planned and unplanned events.
 
-- **Zone-redundant**. Zone redundant high availability deploys a standby replica in a different zone with automatic failover capability. Zone redundancy provides the highest level of availability, but requires you to configure application redundancy across zones. For that reason, choose zone redundancy when you want protection from availability zone level failures and when latency across the availability zones is acceptable. While there is some latency impact on writes and commits due to synchronous replication, it doesn't affect read queries. This impact is very specific to your workloads, the SKU type you select, and the region.
+- **Zone-redundant**. Zone redundant high availability deploys a standby replica in a different zone with automatic failover capability. Zone redundancy provides the highest level of availability, but requires you to configure application redundancy across zones. For that reason, choose zone redundancy when you want protection from availability zone level failures and when latency across the availability zones is acceptable. While there can be some latency impact on writes and commits due to synchronous replication, it doesn't affect read queries. This impact is very specific to your workloads, the SKU type you select, and the region.
 
     You can choose the region and the availability zones for both primary and standby servers. The standby replica server is provisioned in the chosen availability zone in the same region with a similar compute, storage, and network configuration as the primary server. Data files and transaction log files (write-ahead logs, a.k.a WAL) are stored on locally redundant storage (LRS) within each availability zone, automatically storing **three** data copies. A zone-redundant configuration provides physical isolation of the entire stack between primary and standby servers.
 
