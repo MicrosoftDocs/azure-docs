@@ -8,7 +8,7 @@ ms.author: kgremban
 ms.service: azure-iot-hub
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 01/09/2025
+ms.date: 01/10/2025
 ms.custom: mqtt, devx-track-azurecli
 ---
 
@@ -20,25 +20,21 @@ Use the Azure CLI to schedule and track jobs that update millions of devices. Us
 * Update tags
 * Invoke direct methods
 
-Conceptually, a job wraps one of these actions and tracks the progress of execution against a set of devices. The set of devices with which a job interacts is defined by a device twin query.  For example, a back-end app can use a job to invoke a reboot method on 10,000 devices, specified by a device twin query and scheduled at a future time. That application can then track progress as each of those devices receives and executes the reboot method.
+Conceptually, a job wraps one of these actions and tracks the progress of execution against a set of devices. A device twin query defines the set of devices with which a job interacts. For example, a back-end app can use a job to invoke a reboot method on 10,000 devices, specified by a device twin query and scheduled at a future time. That application can then track progress as each of those devices receives and executes the reboot method.
 
-Learn more about each of these capabilities in these articles:
-
-* Device twin and properties: [Get started with device twins](device-twins-node.md) and [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md)
-
-* Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md)
+To learn more about how jobs help to manage bulk device management operations, see [Schedule jobs on multiple devices](./iot-hub-devguide-jobs.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 ## Prerequisites
 
-* Azure CLI. You can also run the commands in this article using the [Azure Cloud Shell](../cloud-shell/overview.md), an interactive CLI shell that runs in your browser or in an app such as Windows Terminal. If you use the Cloud Shell, you don't need to install anything. If you prefer to use the CLI locally, this article requires Azure CLI version 2.36 or later. Run `az --version` to find the version. To locally install or upgrade Azure CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
+* Azure CLI. You can also run the commands in this article using the [Azure Cloud Shell](../cloud-shell/overview.md), an interactive CLI shell that runs in your browser or in an app such as Windows Terminal. If you use the Cloud Shell, you don't need to install anything. If you prefer to use the CLI locally, this article requires Azure CLI version 2.36 or later. To find the installed version, run `az --version`. To locally install or upgrade Azure CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 * An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 
 ## Schedule a job to invoke a direct method
 
-You can use jobs to invoke a direct method on one or more devices.
+You can use jobs to invoke a [direct method](./iot-hub-devguide-direct-methods.md) on one or more devices.
 
 Use the [az iot hub job create](/cli/azure/iot/hub/job#az-iot-hub-job-create) command, replacing the following placeholders with their corresponding values. The command schedules a job that calls a method name on the target devices.
 
@@ -60,9 +56,9 @@ az iot hub job create --hub-name {HubName} --job-id {JobName} \
 > [!TIP]
 > When scheduling a job [az iot hub job create](/cli/azure/iot/hub/job#az-iot-hub-job-create) command that invokes a direct method, you must specify values for both the `--method-name` and `--method-payload` optional parameters. For direct methods that don't accept a payload, specify `null` for the `--method-payload` parameter.
 
-## Schedule a job to update a device twin's properties
+## Schedule a job to update a device twin properties
 
-You can use jobs to update a desired device twin property.
+You can use jobs to update a [device twin](./iot-hub-devguide-device-twins.md) desired property.
 
 Use the [az iot hub job create](/cli/azure/iot/hub/job#az-iot-hub-job-create) command, replacing the following placeholders with their corresponding values. In this example, we're scheduling a job to set the value of the desired twin property `BuildingNo` to 45 for our simulated device.
 
@@ -74,6 +70,7 @@ az iot hub job create --hub-name {HubName} --job-id {JobName} \
 ```
 
 | Placeholder | Value |
+| ----------- | ----- |
 | `{HubName}` | The name of your IoT hub. |
 | `{JobName}` | The name of your scheduled job. Job names are unique, so choose a different job name each time you run this command. |
 | `{JSONTwinPatch}` | The JSON snippet that you want to use to update the device twin's desired properties. For example, `{"properties":{"desired": {"BuildingNo": 45}}}`. |
