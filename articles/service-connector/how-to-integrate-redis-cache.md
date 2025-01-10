@@ -36,7 +36,7 @@ The following table shows which combinations of authentication methods and clien
 | Python             | Yes                               | Yes                             | Yes                        | Yes                |
 | None               | Yes                               | Yes                             | Yes                        | Yes                |
 
-This table shows that the only supported authentication method for the listed client types is secret / connection string. No other authentication methods are supported for the listed client types to connect to Azure Cache for Redis using Service Connector.
+This table shows that the only supported authentication method for all the listed client types is secret / connection string. No additional authentication methods are supported for any of the client types.
 
 ## Default environment variable names or application properties and sample code
 
