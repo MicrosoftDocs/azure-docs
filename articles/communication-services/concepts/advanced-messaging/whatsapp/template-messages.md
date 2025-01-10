@@ -60,7 +60,7 @@ To list out your templates programmatically, you can fetch all templates for you
 
 Here is the sample template named `sample_template` takes no parameters.
 
-:::image type="content" source="../../../quickstarts/advanced-messaging/whatsapp/media/template-messages/sample-template-details-azure-portal.png" lightbox="../../../quickstarts/advanced-messaging/whatsapp/media/media/template-messages/sample-template-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_template.":::
+:::image type="content" source="../../../quickstarts/advanced-messaging/whatsapp/media/template-messages/sample-template-details-azure-portal.png" lightbox="../../../quickstarts/advanced-messaging/whatsapp/media/template-messages/sample-template-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_template.":::
 
 Assemble the `MessageTemplate` by referencing the target template's name and language.
 
