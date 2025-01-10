@@ -30,10 +30,6 @@ The *Basics* tab has 3 sections:
 There are required fields in each section that you need to fill out.
 
 1. Enter the values for each required setting under *Project details*.
-1. 
-1. There are required fields in each section that you need to fill out.
-
-1. Enter the values for each required setting under *Project details*.
 
     |Field  |Action  |
     |---------|---------|
@@ -47,11 +43,20 @@ There are required fields in each section that you need to fill out.
     |Resource name     |Specify a unique name for the resource.    |
     |Region     |Select a region to deploy your resource.         |
 
-1. Enter the values for each required setting under *New Organization details*.
+1. Enter the values for each required setting under *New Relic account details*.
 
     |Field  |Action  |
     |---------|---------|
-    |Organization     |Specify a name for the organization.   |
+    |Organization     |Choose to create a new organization, or associate your resource with an existing organization.   |
+
+    :::image type="content" source="media/create/organization.png" alt-text="A screenshot of the Create a New Relic resource options in Azure portal . The New Relic account details **Organization** options are emphazied. ":::
+
+    > [!NOTE]
+    > 
+    > If you choose to create a new organization, select **Change plan**.
+    > - Available plans are displayed in the working pane. 
+    > - Choose the plan you prefer, then select **Change plan**.
+    > If you choose to associate your resource with an existing organization, the resource is billed to that organization's plan. 
 
     The remaining fields update to reflect the details of the plan you selected for this new organization.
 
@@ -73,7 +78,7 @@ Your next step is to configure metrics and logs on the **Metrics and Logs** tab.
 
    These logs provide insight into operations that were taken on an Azure resource at the [data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane). For example, getting a secret from a key vault is a data plane operation. Making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
 
-   :::image type="content" source="media/new-relic-create/new-relic-metrics.png" alt-text="Screenshot of the tab for logs in a New Relic resource, with resource logs selected.":::
+   :::image type="content" source="media/create/new-relic-metrics.png" alt-text="Screenshot of the tab for logs in a New Relic resource, with resource logs selected.":::
 
 1. When the checkbox for Azure resource logs is selected, logs are forwarded for all resources by default. To filter the set of Azure resources that send logs to New Relic, use inclusion and exclusion rules and set Azure resource tags:
 
@@ -90,9 +95,7 @@ Your next step is to configure metrics and logs on the **Metrics and Logs** tab.
 
 ### Tags tab (optional)
 
-If you wish, you can optionally create a tag for your resource, then select the **Review + create** button at the bottom of the page.
-
-:::image type="content" source="media/new-relic-create/new-relic-tags.png" alt-text="Screenshot of Tags tab of the New Relic resource.":::
+[!INCLUDE [tags](../includes/tags.md)]
 
 ### Review + create tab
 
