@@ -173,7 +173,7 @@ To install the New Relic agent, select the app service and then select **Install
 > App Service extensions are currently supported only for app services that are running on Windows operating systems. The list doesn't show app services that use Linux operating systems.
 
 > [!NOTE]
-> This page currently shows only the web app type of app services. Managing agents for function apps is not supported at this time.
+> This page currently shows only the web app type of app services. Managing agents for function apps isn't supported at this time.
 
 ## Change plan
 
@@ -184,7 +184,7 @@ To install the New Relic agent, select the app service and then select **Install
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
 > [!NOTE]
-> If you have other New Relic resources linked to the New Relic account, billing for those other resources will continue through the Azure marketplace.
+> If you have other New Relic resources linked to the New Relic account, billing for those other resources continues through the Azure marketplace.
 
 ## Next steps
 
