@@ -301,23 +301,17 @@ The landing page of the report lists all the technologies that are used in the a
 
 :::image type="content" source="media/java/report-summary.png" alt-text="Screenshot of the appcat summary report." lightbox="media/java/report-summary.png":::
 
-When you zoom in on the **Incidents by Category** pie chart, you can see the number of incidents by category: **Mandatory**, **Optional**, **Potential**, and **Information**.
+When you zoom in on the **Incidents by Category** pie chart, you can see the number of incidents by category: **Mandatory**, **Optional**, and **Potential**.
 
 The dashboard also shows the *story points*. The story points are an abstract metric commonly used in Agile software development to estimate the level of effort needed to implement a feature or change. `appcat` uses story points to express the level of effort needed to migrate a particular application. Story points don't necessarily translate to work hours, but the value should be consistent across tasks.
 
 :::image type="content" source="media/java/report-summary-incident.png" alt-text="Screenshot of the AppCAT summary incident report." lightbox="media/java/report-summary-incident.png":::
 
-### Discovery report
-
-The discovery report is a report generated during the *Discovery Phase*. It shows the list of technologies used by the application in the *Information* category. This report is just informing you about technology usage that `appcat` discovered.
-
-:::image type="content" source="media/java/report-discovery.png" alt-text="Screenshot of the appcat discovery report." lightbox="media/java/report-discovery.png":::
-
 ### Assessment report
 
 The assessment report gives an overview of the transformation issues that would need to be solved to migrate the application to Azure.
 
-These *Issues*, also called *Incidents*, have a severity (*Mandatory*, *Optional*, *Potential*, or *Information*), a level of effort, and a number indicating the story points. The story points are determined by calculating the number of incidents times the effort required to address the issue.
+These *Issues*, also called *Incidents*, have a severity (*Mandatory*, *Optional*, or *Potential*), a level of effort, and a number indicating the story points. The story points are determined by calculating the number of incidents times the effort required to address the issue.
 
 :::image type="content" source="media/java/report-assessment.png" alt-text="Screenshot of the AppCAT assessment report." lightbox="media/java/report-assessment.png":::
 
@@ -333,7 +327,7 @@ Then, for each file or class affected by the incident, you can jump into the sou
 
 ## Release notes
 
-### 7.x
+### 7.6.0.0
 
 This release is based on a different set of components of the Konveyor project.
 
