@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 01/09/2025
+ms.date: 01/10/2025
 ms.custom: generated
 ---
 
@@ -2241,7 +2241,7 @@ Let's you manage the OS of your resource via Windows Admin Center as an administ
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/galleries/images/read | Gets the properties of Gallery Image |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/images/read | Get the properties of the Image |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Clusters/Read | Gets clusters |
-> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Clusters/ArcSettings/Read | Gets arc resource of Azure Local cluster |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Clusters/ArcSettings/Read | Gets Arc resource of Azure Local cluster |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Clusters/ArcSettings/Extensions/Read | Gets extension resource of HCI cluster |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Clusters/ArcSettings/Extensions/Write | Create or update extension resource of HCI cluster |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Clusters/ArcSettings/Extensions/Delete | Delete extension resources of Azure Local cluster |
