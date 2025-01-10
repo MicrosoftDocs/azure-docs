@@ -6,7 +6,7 @@ author: garrodonnell
 manager: CelesteDG
 
 ms.author: godonnell
-ms.date: 01/24/2024
+ms.date: 01/24/2025
 ms.custom: mvc
 ms.topic: sample
 ms.service: azure-active-directory
