@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 12/10/2024
 # ms.devlang: wordpress
 ms.author: msangapu
-ms.service: wordpress
+ms.subservice: wordpress
 ms.custom: mvc, linux-related-content
 #customer intent: As a new Azure customer, I want to learn more about WordPress on App Service so that I can build an effective WP site.
 ---

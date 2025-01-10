@@ -4,7 +4,7 @@ description: Use this article to find frequently asked questions and answers abo
 keywords: app service, azure app service, wordpress, preview, app service on linux, plugins, mysql flexible server, wordpress on linux, php
 ai-usage: ai-assisted
 author: reddyabhishek
-ms.service:wordpress
+ms.subservice:wordpress
 ms.topic: faq
 ms.date: 12/13/2024
 # ms.devlang: wordpress

@@ -3,7 +3,7 @@ title: 'Quickstart: Create a WordPress site'
 description: Create your first WordPress site on Azure App Service in minutes.
 keywords: app service, azure app service, wordpress, preview, app service on linux, plugins, mysql flexible server, wordpress on linux, php
 author: msangapu-msft
-ms.service: wordpress
+ms.subservice: wordpress
 ms.topic: quickstart
 ms.date: 03/28/2024
 # ms.devlang: wordpress
