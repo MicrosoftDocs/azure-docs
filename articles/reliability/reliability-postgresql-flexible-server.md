@@ -2,10 +2,10 @@
 title: Reliability and high availability in PostgreSQL - Flexible Server
 titleSuffix: Azure Database for PostgreSQL - Flexible Server
 description: Find out about reliability and high availability in Azure Database for PostgreSQL - Flexible Server
-author: sunilagarwal
+author: gkasar
 ms.author: gkasar
 ms.reviewer: maghan, gbowerman
-ms.date: 01/09/2025
+ms.date: 01/10/2025
 ms.service: azure-database-postgresql
 ms.topic: conceptual
 ms.custom:
