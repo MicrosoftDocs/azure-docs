@@ -49,7 +49,7 @@ ms.author: wchi
 
 #### [SpringBoot](#tab/springBoot)
 
-Refer to [Use Azure Redis Cache in Spring](/azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache) to set up your Spring application. Service Connector adds the configuration properties  to Spring Apps.
+To set up your Spring application, refer to [Use Azure Redis Cache in Spring](/azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache). Service Connector adds the configuration properties to Spring Apps.
 
 #### [Python](#tab/python)
 
