@@ -181,17 +181,10 @@ To install the New Relic agent, select the app service and then select **Install
 
 ## Delete a New Relic resource
 
-1. Select **Overview** on the left pane. Then, select **Delete**.
+[!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
-   :::image type="content" source="media/new-relic-how-to-manage/new-relic-delete.png" alt-text="Screenshot of the delete button on a resource overview.":::
-
-1. Confirm that you want to delete the New Relic resource. Select **Delete**.
-
-If only one New Relic resource is mapped to a New Relic account, logs and metrics are no longer sent to New Relic.
-
-For a New Relic organization where billing is managed through Azure Marketplace, deleting the last associated New Relic resource also removes the corresponding Azure Marketplace billing relationship.
-
-If you map more than one New Relic resource to the New Relic account by using the link option, deleting the New Relic resource only stops sending logs for Azure resources associated with that New Relic resource. Because other Azure Native New Relic Service resources are linked with this New Relic account, billing continues through Azure Marketplace.
+> [!NOTE]
+> If you have other New Relic resources linked to the New Relic account, billing for those other resources will continue through the Azure marketplace.
 
 ## Next steps
 
