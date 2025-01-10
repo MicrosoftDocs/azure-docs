@@ -139,8 +139,7 @@ The following steps and code show you how to use a connection string to connect 
 #### Sample code
 
 The following steps and code show you how to use a service principal to connect to Redis.
-[!INCLUDE [code sample for Redis](./includes/code-
-redis-me-id.md)]
+[!INCLUDE [code sample for Redis](./includes/code-redis-me-id.md)]
 
 ## Next step
 
