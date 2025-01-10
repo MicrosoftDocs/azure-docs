@@ -79,7 +79,7 @@ After you complete the image customization, you can build the image and push it 
 
 Rather than building your custom image and pushing it to a container registry yourself, you can use a script to build and push it to a specified container registry. 
 
-[!INCLUDE [custom-image-script](includes/custom-image-script.md)]
+[!INCLUDE [custom-image-script](includes/custom-image-script-build.md)]
 
 ### [Create a custom image manually](#tab/custom-manual/)
 ### Create a custom container image manually
@@ -97,6 +97,9 @@ After you complete the image customization, you can build the image and push it 
 ---
 
 ::: zone-end
+
+<!-- =========== TERRAFORM ======================================================================================================== -->
+
 
 ::: zone pivot="terraform"
 ## Use container images with ADE
@@ -232,6 +235,150 @@ echo "{\"outputs\": $tfOutputs}" > $ADE_OUTPUTS
 
 ::: zone-end
 
+<!-- ======== PULUMI ==================================================================================================================== -->
+
+::: zone pivot="pulumi"
+### [Use a standard container image](#tab/standard/)
+
+### Use a standard container image provided by Pulumi
+
+The Pulumi team provides a prebuilt image to get you started, which you can see in the [Runner-Image](https://github.com/pulumi/azure-deployment-environments/tree/main/Runner-Image) folder. This image is publicly available at Pulumi's Docker Hub as [`pulumi/azure-deployment-environments`](https://hub.docker.com/repository/docker/pulumi/azure-deployment-environments), so you can use it directly from your ADE environment definitions.
+
+Here's a sample *environment.yaml* file that utilizes the prebuilt image:
+
+```yaml
+name: SampleDefinition
+version: 1.0.0
+summary: First Pulumi-Enabled Environment
+description: Deploys a Storage Account with Pulumi
+runner: pulumi/azure-deployment-environments:0.1.0
+templatePath: Pulumi.yaml
+```
+
+You can find a few sample environment definitions in the [Environments folder](https://github.com/pulumi/azure-deployment-environments/tree/main/Environments).
+
+### [Create a custom image](#tab/custom/)
+
+### Create a custom image
+
+Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the Pulumi standard images, and customize them to meet your requirements. After you complete the image customization, you must build the image and push it to your container registry.
+
+To create an image configured for ADE, follow these steps:
+1. Create a custom image based on a standard image.
+1. Install desired packages.
+1. Configure operation shell scripts.
+1. Create operation shell scripts that use the Pulumi CLI.
+
+**1. Create a custom image based on a standard image**
+
+Create a DockerFile that includes a FROM statement pointing to a standard image hosted on Microsoft Artifact Registry. 
+
+Here's an example FROM statement, referencing the standard core image:
+
+```docker
+FROM mcr.microsoft.com/deployment-environments/runners/core:latest
+```
+
+This statement pulls the most recently published core image, and makes it a basis for your custom image.
+
+**2. Install required packages**
+
+You can install the Pulumi CLI to an executable location so that it can be used in your deployment and deletion scripts. 
+
+Here's an example of that process, installing the latest version of the Pulumi CLI:
+
+```docker
+RUN apk add curl
+RUN curl -fsSL https://get.pulumi.com | sh
+ENV PATH="${PATH}:/root/.pulumi/bin"
+```
+
+Depending on which programming language you intend to use for Pulumi programs, you might need to install one or more corresponding runtimes. The Python runtime is already available in the base image.
+
+Here's an example of installing Node.js and TypeScript:
+
+```docker
+# install node.js, npm, and typescript
+RUN apk add nodejs npm
+RUN npm install typescript -g
+```
+
+The ADE standard images are based on the Azure CLI image, and have the ADE CLI and JQ packages preinstalled. You can learn more about the [Azure CLI](/cli/azure/), and the [JQ package](https://devdocs.io/jq/).
+
+To install any more packages you need within your image, use the RUN statement.
+
+There are four steps to deploy infrastructure via Pulumi: 
+
+1. `pulumi login` - connect to the state storage, either in local file system or in [Pulumi Cloud](https://www.pulumi.com/product/pulumi-cloud/)
+1. `pulumi stack select` - create or select the stack to use for the particular environment
+1. `pulumi config set` - pass deployment parameters as Pulumi configuration values
+1. `pulumi up` - run the deployment to create new or update existing infrastructure in Azure
+
+During the core image's entrypoint, any existing local state files are pulled into the container and the directory saved under the environment variable ```$ADE_STORAGE```. In order to access the existing state file, run the following commands:
+
+```bash
+mkdir -p $ADE_STORAGE
+export PULUMI_CONFIG_PASSPHRASE=
+pulumi login file://$ADE_STORAGE
+```
+
+To sign in to Pulumi Cloud instead, set your Pulumi access token as an environment variable, and run the following commands:
+
+```bash
+export PULUMI_ACCESS_TOKEN=YOUR_PULUMI_ACCESS_TOKEN
+pulumi login
+```
+
+Any parameters set for the current environment are stored under the variable ```$ADE_OPERATION_PARAMETERS```. Additionally, the selected Azure region and resource group name are passed in ```ADE_ENVIRONMENT_LOCATION``` and ```ADE_RESOURCE_GROUP_NAME``` respectively. In order to set your Pulumi stack config, run the following commands:
+
+```bash
+# Create or select the stack for the current environment
+pulumi stack select $ADE_ENVIRONMENT_NAME --create
+
+# Store configuration values in durable storage
+export PULUMI_CONFIG_FILE=$ADE_STORAGE/Pulumi.$ADE_ENVIRONMENT_NAME.yaml
+
+# Set the Pulumi stack config
+pulumi config set azure-native:location $ADE_ENVIRONMENT_LOCATION --config-file $PULUMI_CONFIG_FILE
+pulumi config set resource-group-name $ADE_RESOURCE_GROUP_NAME --config-file $PULUMI_CONFIG_FILE
+echo "$ADE_OPERATION_PARAMETERS" | jq -r 'to_entries|.[]|[.key, .value] | @tsv' |
+  while IFS=$'\t' read -r key value; do
+    pulumi config set $key $value --config-file $PULUMI_CONFIG_FILE
+  done
+```
+
+Additionally, to utilize ADE privileges to deploy infrastructure inside your subscription, your script needs to use ADE Managed Service Identity (MSI) when provisioning infrastructure by using the Pulumi Azure Native or Azure Classic provider. If your deployment needs special permissions to complete your deployment, such as particular roles, assign those permissions to the project environment type's identity that is being used for your environment deployment. ADE sets the relevant environment variables, such as the client, tenant, and subscription IDs within the core image's entrypoint, so run the following commands to ensure the provider uses ADE MSI:
+
+```bash
+export ARM_USE_MSI=true
+export ARM_CLIENT_ID=$ADE_CLIENT_ID
+export ARM_TENANT_ID=$ADE_TENANT_ID
+export ARM_SUBSCRIPTION_ID=$ADE_SUBSCRIPTION_ID
+```
+
+Now, you can run the `pulumi up` command to execute the deployment:
+```bash
+pulumi up --refresh --yes --config-file $PULUMI_CONFIG_FILE
+```
+
+During your deletion script, you can instead run the `destroy` command, as shown in the following example:
+```bash
+pulumi destroy --refresh --yes --config-file $PULUMI_CONFIG_FILE
+```
+
+Finally, to make the outputs of your deployment uploaded and accessible when accessing your environment via the Azure CLI, transform the output object from Pulumi to the ADE-specified format through the JQ package. Set the value to the $ADE_OUTPUTS environment variable, as shown in the following example:
+```bash
+stackout=$(pulumi stack output --json | jq -r 'to_entries|.[]|{(.key): {type: "string", value: (.value)}}')
+echo "{\"outputs\": ${stackout:-{\}}}" > $ADE_OUTPUTS
+```
+
+### Build the custom image
+
+[!INCLUDE [custom-image-manual-build](includes/custom-image-manual-build.md)]
+
+---
+
+::: zone-end
 
 ## Make the custom image available to ADE
 
