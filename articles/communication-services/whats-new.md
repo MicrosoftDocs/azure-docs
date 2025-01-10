@@ -65,7 +65,7 @@ We improved notifications to help developers troubleshoot Call Automation. Now, 
 
 We also revamped the error code documentation to offer better guidance for handling issues independently. In addition, you can now view Call Automation callback events in Azure metrics.
 
-call-automation-view-callback-events.png
+:::image type="content" source="media/whats-new-images/call-automation-view-callback-events.png" alt-text="Screen capture of Call Automation callback events in Azure metrics." lightbox="media/whats-new-images/call-automation-view-callback-events.png":::
 
 For more information, see:
 
@@ -179,7 +179,7 @@ Some scenarios in which connecting multiple custom domains is useful:
 
 - SaaS service providers can manage many customers with fewer Azure Communication Services resources.
 
-email-resource-demo.png
+:::image type="content" source="media/whats-new-images/email-resource-demo.png" alt-text="Screen capture of Communication Service Email Demo domains." lightbox="media/whats-new-images/email-resource-demo.png":::
 
 > [!NOTE]
 > We enable customers to link up to 100 custom domains to a single communication service resource. All Mail-From addresses configured under these custom domains are accessible for the communication service resource. You can only link verified custom domains.
@@ -209,13 +209,13 @@ You can now use the Native UI Library to:
 
    Enterprises providing customer support through calling can now use customized buttons to streamline the user experience. For example, instead of a generic button layout, they can configure buttons like **Hold**, **Transfer to Supervisor**, or **Open Ticket** to match their specific operational workflows. Custom workflows improve agent efficiency and enhance customer satisfaction.
 
-native-ui-custom-workflows.png
+:::image type="content" source="media/whats-new-images/native-ui-custom-workflows.png" alt-text="Side-by-side screen capture of mobile phone screens comparing unbranded to branded experiences." lightbox="media/whats-new-images/native-ui-custom-workflows.png":::
 
 #### Captions components
 
 Accessibility is a key consideration for businesses aiming to reach diverse audiences. Closed captions for Azure Communication Services and Teams interop calls can improve the communication experience for users with hearing impairments. You can also use closed captions in situations where audio clarity may be compromised such as noisy environments.
 
-native-ui-closed-captions.png
+:::image type="content" source="media/whats-new-images/native-ui-closed-captions.png" alt-text="Screen captures of four different mobile phone screens showing closed caption experiences." lightbox="media/whats-new-images/native-ui-closed-captions.png":::
 
 For more information, see Native UI Library tutorials:
 - [Theme the UI Library in an application (adjust colors)](./how-tos/ui-library-sdk/theming.md)
@@ -267,7 +267,7 @@ For more information, see [Together Mode](./how-tos/calling-sdk/together-mode.md
 
 #### Breakout rooms: Enhance virtual collaboration
 
-Continuing our efforts to make virtual meetings a more dynamic and interactive experience, Microsoft Teams has introduced breakout rooms integrated with Azure Communication Services for an optimized experience. Currently in public preview, this function enables you to divide your meetings into smaller, more focused groups, enhancing the dynamism and engagement of discussions.
+Continuing our efforts to make virtual meetings a more dynamic and interactive experience, Microsoft Teams introduces breakout rooms integrated with Azure Communication Services for an optimized experience. Currently in public preview, this function enables you to divide your meetings into smaller, more focused groups, enhancing the dynamism and engagement of discussions.
 
 :::image type="content" source="media/whats-new-images/breakout-rooms-integrated.png" alt-text="Screenshot of Microsoft Teams breakout rooms integrated with Azure Communication Services." lightbox="media/whats-new-images/breakout-rooms-integrated.png":::
 
