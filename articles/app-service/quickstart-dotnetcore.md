@@ -465,7 +465,7 @@ Follow these steps to create your App Service resources and publish your project
 
 1. Type **app services** in the search. Under **Services**, select **App Services**.
 
-   :::image type="content" source="./media/quickstart-dotnetcore/portal-search.png" alt-text="Screenshot of portal search in the Azure portal." lightox="./media/quickstart-dotnetcore/portal-search.png":::
+   :::image type="content" source="./media/quickstart-dotnetcore/portal-search.png" alt-text="Screenshot of portal search in the Azure portal." lighbox="./media/quickstart-dotnetcore/portal-search.png":::
 
 1. In the **App Services** page, select **Create** > **Web App**.
 
