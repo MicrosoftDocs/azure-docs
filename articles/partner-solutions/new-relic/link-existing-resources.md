@@ -1,5 +1,5 @@
 ---
-title: Link Azure Native New Relic Service to an existing account
+title: Link to an existing New Relic resource
 description: Learn how to link to an existing New Relic account.
 
 ms.topic: quickstart
@@ -7,7 +7,7 @@ ms.date: 02/16/2023
 ---
 
 
-# Quickstart: Link to an existing New Relic account
+# Quickstart: Link to an existing New Relic resource
 
 In this quickstart, you link an Azure subscription to an existing New Relic account. You can then monitor the linked Azure subscription and the resources in that subscription by using the New Relic account.
 
@@ -24,7 +24,7 @@ When you use Azure Native New Relic Service in the Azure portal for linking, and
 - **Azure Marketplace SaaS resource**: The SaaS resource is used for billing. The SaaS resource typically resides in a different Azure subscription from where the New Relic account was created.
 
 > [!NOTE]
-> The Azure Marketplace SaaS resource is set up only if you created the New Relic organization by using Azure Native New Relic Service. If you created your New Relic organization directly from the New Relic portal, the Azure Marketplace SaaS resource doesn't exist, and New Relic will manage your billing.
+> The Azure Marketplace SaaS resource is set up only if you created the New Relic organization by using Azure Native New Relic Service. If you created your New Relic organization directly from the New Relic portal, the Azure Marketplace SaaS resource doesn't exist, and New Relic manages your billing.
 
 ## Find an offer
 
@@ -66,7 +66,7 @@ When you use Azure Native New Relic Service in the Azure portal for linking, and
 
    :::image type="content" source="media/new-relic-link-to-existing/new-relic-form.png" alt-text="Screenshot that shows the Basics tab and New Relic account details in a red box.":::
 
-1. If the New Relic account you selected has a parent New Relic organization that was created from New Relic portal, your billing is managed by New Relic and continues to be managed by New Relic.
+1. If the New Relic account you selected has a parent New Relic organization that was created from New Relic portal, New Relic manages your billing.
 
    > [!NOTE]
    > Linking requires:
@@ -74,7 +74,7 @@ When you use Azure Native New Relic Service in the Azure portal for linking, and
    > - The account and the New Relic resource reside in the same Azure region
    > - The user who is linking the account and resource must have administrator permissions on the New Relic account being linked
    >
-   > If the account that you want to link to does not appear in the dropdown list, verify that these conditions are satisfied.
+   > If the account doesn't appear in the dropdown list, verify that these conditions are satisfied.
 
 1. Select **Next**.
 
