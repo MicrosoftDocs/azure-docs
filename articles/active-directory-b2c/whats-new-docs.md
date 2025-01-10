@@ -15,7 +15,7 @@ manager: CelesteDG
 
 # Azure Active Directory B2C: What's new
 
-Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Microsoft Entra ID](../active-directory/fundamentals/whats-new.md), [Azure AD B2C developer release notes](custom-policy-developer-notes.md) and [What's new in Microsoft Entra External ID](/entra/external-id/whats-new-docs).
+Welcome to what's new in Azure Active Directory B2C documentation. This article lists new and significantly updated docs from the past three months. To learn what's new with the B2C service, see [What's new in Microsoft Entra ID](../active-directory/fundamentals/whats-new.md), [Azure AD B2C developer release notes](custom-policy-developer-notes.md) and [What's new in Microsoft Entra External ID](/entra/external-id/whats-new-docs).
 
 ## December 2024
 
@@ -33,7 +33,7 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 
 ### Updated articles
 
-- [Secure APIs used for API connectors in Azure AD B2C](secure-rest-api.md) - ROPC flow updates
+- [Secure APIs used for API connectors in Azure AD B2C](secure-rest-api.md) - Flow updates
 - [Application types that can be used in Active Directory B2C](application-types.md) - Implicit grant flow updates
 - [Configure authentication in a sample single-page application by using Azure AD B2C](configure-authentication-sample-spa-app.md) - Implicit grant flow updates
 - [Single-page application sign-in using the OAuth 2.0 implicit flow in Azure Active Directory B2C](implicit-flow-single-page-application.md) - Implicit grant flow updates
