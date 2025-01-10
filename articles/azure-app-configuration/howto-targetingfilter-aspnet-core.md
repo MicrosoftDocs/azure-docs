@@ -201,7 +201,7 @@ In this section, you create a web application that allows users to sign in and u
 
 The targeting filter evaluates a user's feature state based on the user's targeting context, which comprises the user ID and the groups the user belongs to. In this example, you can use the signed-in user's email address as the user ID and the domain name of the email address as the group.
 
-To get targeting context for users automatically (instead of manually constructing a targeting context each time), an implementation of [ITargetingContextAccessor](./feature-management-dotnet-reference.md#itargetingcontextaccessor) is required.
+To evaluate features that use targeting without the need to manually pass a targeting context, an [ITargetingContextAccessor](./feature-management-dotnet-reference.md#itargetingcontextaccessor) can be used.
 
 ### Default Targeting Accessor
 
