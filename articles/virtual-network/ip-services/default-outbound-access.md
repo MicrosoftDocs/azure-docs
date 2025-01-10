@@ -90,7 +90,7 @@ There are multiple ways to turn off default outbound access. The following secti
 
 #### Private subnet limitations
  
-* To activate or update virtual machine operating systems, such as Windows, an explicit outbound connectivity method is required for private subnets.
+* To activate or update virtual machine operating systems, such as Windows, an explicit outbound connectivity method is required.
 
 * In configurations using a User Defined Route (UDR) with a default route (0/0) that sends traffic to an upstream firewall/network virtual appliance, any traffic that bypasses this route (for example, to Service Tagged destinations) breaks in a Private subnet.
  
