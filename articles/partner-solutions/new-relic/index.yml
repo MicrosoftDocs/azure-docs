@@ -23,8 +23,6 @@ landingContent:
             url: overview.md
       - linkListType: how-to-guide
         links:
-          - text: Complete the prerequisites
-            url: configure-prerequisites.md
           - text: Manage a resource by using the portal
             url: manage.md
 

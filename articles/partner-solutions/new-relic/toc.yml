@@ -12,8 +12,6 @@ items:
     href: create.md
 - name: How to
   items:
-  - name: Configure prerequisites
-    href: configure-prerequisites.md
   - name: Manage Azure Native New Relic service
     href: manage.md
   - name: Troubleshoot
