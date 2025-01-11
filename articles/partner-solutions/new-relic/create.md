@@ -1,5 +1,5 @@
 ---
-title: Create an instance of Azure Native New Relic Service
+title: "Quickstart: Get started with Azure Native New Relic Service"
 description: Learn how to create a resource by using Azure Native New Relic Service.
 ms.topic: quickstart
 ms.date: 01/10/2025
@@ -7,7 +7,7 @@ ms.date: 01/10/2025
 
 # Quickstart: Get started with Azure Native New Relic Service
 
-In this quickstart, you create an instance of Azure Native New Relic Service. You can either [create a New Relic account](create.md) or [link to an existing New Relic account](link-to-existing-resource.md).
+In this quickstart, you create an instance of Azure Native New Relic Service.
 
 ## Prerequisites
 
@@ -19,11 +19,11 @@ In this quickstart, you create an instance of Azure Native New Relic Service. Yo
 [!INCLUDE [create-resource](../includes/create-resource.md)]
 
 > [!NOTE]
-> If you have created New Relic resources previously, you can link to those resources for monitoring purposes by selecting the **Create** button under *Link an existing New Relic resource*. 
+> If you already created New Relic resources, you can link to those resources for monitoring purposes by selecting the **Create** button under *Link an existing New Relic resource*. 
 
 ### Basics tab
 
-The *Basics* tab has 3 sections:
+The *Basics* tab has three sections:
 
 - Project details
 - Azure resource details
@@ -31,7 +31,7 @@ The *Basics* tab has 3 sections:
 
 :::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create a New Relic resource in Azure options inside of the Azure portal's working pane with the Basics tab displayed":::
 
-There are required fields in each section that you need to fill out. Each required field is identified by a red asterisk.
+There are required fields (identified with a red asterisk) in each section that you need to fill out.
 
 1. Enter the values for each required setting under *Project details*.
 
