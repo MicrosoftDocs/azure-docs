@@ -188,5 +188,4 @@ To install the New Relic agent, select the app service and then select **Install
 ## Next steps
 
 - [Troubleshoot Azure Native New Relic Service](troubleshoot.md)
-- [Quickstart: Get started with Azure Native New Relic Service](create.md)
 
