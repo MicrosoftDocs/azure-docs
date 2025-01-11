@@ -39,5 +39,4 @@ Once the Neon resource is deleted, all billing stops for that resource through A
 
 ## Next steps
 
-> [!div class="nextstepaction"]
 > [Neon Serverless Postgres developer resources and tools](tools.md)

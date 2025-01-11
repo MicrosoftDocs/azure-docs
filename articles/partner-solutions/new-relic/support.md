@@ -24,4 +24,4 @@ You're directed to the [New Relic support website](https://support.newrelic.com/
 
 ## Related content
 
-- [Manage Azure Native New Relic Service](manage.md)
+- [Troubleshoot Azure Native New Relic Service](troubleshoot.md)

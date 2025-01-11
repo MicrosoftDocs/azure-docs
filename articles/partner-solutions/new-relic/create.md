@@ -98,5 +98,5 @@ To filter the set of Azure resources that send logs to New Relic, use inclusion 
 
 ## Next steps
 
-- [Manage the New Relic resource in the Azure portal](manage.md)
 - [Set up your New Relic account configuration](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/azure-native/#view-your-data-in-new-relic)
+- [Manage the New Relic resource in the Azure portal](manage.md)

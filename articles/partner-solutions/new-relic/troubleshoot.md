@@ -50,11 +50,4 @@ If logs are being emitted and diagnostic settings remain active on monitored res
 
 ## Next steps
 
-- [Manage Azure Native New Relic Service](new-relic-how-to-manage.md)
-- Get started with Azure Native New Relic Service on
-
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NewRelic.Observability%2Fmonitors)
-
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/newrelicinc1635200720692.newrelic_liftr_payg?tab=Overview)
+- [Get support for Azure Native New Relic Service](support.md)
