@@ -2,9 +2,7 @@
 title: Get support for Azure Native New Relic Service
 description: This article shows you how to get support when using Azure Native New Relic Service with the Azure Cloud.
 ms.topic: how-to
-
-ms.date: 07/03/2024
-#customer intent: As an implementer of New Relic on the Azure Cloud, I want to file a support request so that I can get unblocked.
+ms.date: 01/10/2025
 ---
 
 # Get support for Azure Native New Relic Service

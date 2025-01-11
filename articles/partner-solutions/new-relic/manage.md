@@ -2,8 +2,7 @@
 title: Manage Azure Native New Relic Service
 description: Learn how to manage your Azure Native New Relic Service settings.
 ms.topic: how-to
-
-ms.date: 06/11/2024
+ms.date: 01/10/2025
 
 ---
 
@@ -184,7 +183,7 @@ To install the New Relic agent, select the app service and then select **Install
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
 > [!NOTE]
-> If you have other New Relic resources linked to the New Relic account, billing for those other resources continues through the Azure marketplace.
+> If you have other New Relic resources linked to the New Relic account, billing for those other resources continues through the Azure Marketplace.
 
 ## Next steps
 

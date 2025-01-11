@@ -1,9 +1,8 @@
 ---
 title: Create an instance of Azure Native New Relic Service
 description: Learn how to create a resource by using Azure Native New Relic Service.
-
 ms.topic: quickstart
-ms.date: 04/04/2023
+ms.date: 01/10/2025
 ---
 
 # Quickstart: Get started with Azure Native New Relic Service
