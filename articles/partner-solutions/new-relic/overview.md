@@ -9,13 +9,9 @@ ms.date: 01/10/2025
 
 [!INCLUDE [what-is](../includes/what-is.md)]
 
-<!--new-relic-what-is-->
-
 Microsoft and New Relic developed this service and manage it together.
 
 You can find Neon Serverless Postgres (Preview) in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NewRelic.Observability%2Fmonitors) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/newrelicinc1635200720692.newrelic_liftr_payg?tab=Overview).
-
-<!--new-relic-what-is-->
 
 New Relic is a full-stack observability platform that enables a single source of truth for application performance, infrastructure monitoring, log management, error tracking, real-user monitoring, and more. Combined with the Azure platform, use Azure Native New Relic Service to help monitor, troubleshoot, and optimize Azure services and applications.
 
@@ -30,8 +26,6 @@ You can create and manage the New Relic resources by using the Azure portal thro
 
 ## Capabilities
 
-<!--new-relic-capabilities-->
-
 Azure Native New Relic Service provides the following capabilities:
 
 - Easily onboard and use New Relic as a natively integrated service on Azure.
@@ -41,8 +35,6 @@ Azure Native New Relic Service provides the following capabilities:
 - Use a single experience to install and uninstall the New Relic agent on virtual machines and app services.
 
 ### Billing
-
-<!--new-relic-billing-->
 
 When you use the integrated New Relic experience in the Azure portal by using Azure Native New Relic Service, the service creates and maps the following entities for monitoring and billing purposes.
 
@@ -57,8 +49,6 @@ When you use the integrated New Relic experience in the Azure portal by using Az
 > The Azure Marketplace SaaS resource is set up only if you created the New Relic organization by using Azure Native New Relic Service. If you created your New Relic organization directly from the New Relic portal, the Azure Marketplace SaaS resource doesn't exist, and New Relic manages your billing.
 
 ### Logs
-
-<!--new-relic-logs-->
 
 Azure Native New Relic Service allows you to automatically monitor subscription and resource logs. 
 
@@ -77,8 +67,6 @@ Azure charges for logs sent to New Relic. For more information, see the [pricing
 [!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
 
 ## New Relic links
-
-<!--new-relic-links-->
 
 For more help, see the New Relic documentation.
 

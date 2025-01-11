@@ -65,6 +65,8 @@ There are required fields in each section that you need to fill out.
     The remaining fields update to reflect the details of the plan you selected for this new organization.
 
 1. Select the **Next** button at the bottom of the page.
+1. 
+1. <!--end--new-relic-basics-tab-->
 
 ### Configure metrics and logs tab
 
@@ -90,6 +92,8 @@ To filter the set of Azure resources that send logs to New Relic, use inclusion 
 > You can collect metrics for virtual machines and app services by installing the New Relic agent after you create the New Relic resource.
 
 1. After you finish configuring metrics and logs, select **Next**.
+1. 
+1. <!--end-new-relic-configure-metrics-and-logs-tab-->
 
 ### Tags tab (optional)
 
