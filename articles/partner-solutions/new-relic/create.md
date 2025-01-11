@@ -67,32 +67,24 @@ There are required fields in each section that you need to fill out.
 
 <!--new-relic-metrics-and-logs-tab-->
 
-Your next step is to configure metrics and logs on the **Metrics and Logs** tab. When you're creating the New Relic resource, you can set up metrics monitoring and automatic log forwarding:
+To set up monitoring of platform metrics for Azure resources by New Relic, select **Enable metrics collection**.
 
-1. To set up monitoring of platform metrics for Azure resources by New Relic, select **Enable metrics collection**. If you leave this option cleared, New Relic doesn't pull metrics.
+To send subscription-level logs to New Relic, select **Subscription activity logs**.
 
-1. To send subscription-level logs to New Relic, select **Subscription activity logs**. If you leave this option cleared, no subscription-level logs are sent to New Relic.
+To send Azure resource logs to New Relic, select **Azure resource logs** for all supported resource types.
 
-   These logs provide insight into the operations on your resources at the [control plane](/azure/azure-resource-manager/management/control-plane-and-data-plane). These logs also include updates on service-health events.
+:::image type="content" source="media/create/metrics.png" alt-text="Screenshot of the tab for logs in a New Relic resource, with resource logs selected.":::
 
-   Use the activity log to determine what, who, and when for any write operations (`PUT`, `POST`, `DELETE`). There's a single activity log for each Azure subscription.
+When the checkbox for Azure resource logs is selected, logs are forwarded for all resources by default.
 
-1. To send Azure resource logs to New Relic, select **Azure resource logs** for all supported resource types. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](/azure/azure-monitor/essentials/resource-logs-categories).
+To filter the set of Azure resources that send logs to New Relic, use inclusion and exclusion rules and set Azure resource tags:
 
-   These logs provide insight into operations that were taken on an Azure resource at the [data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane). For example, getting a secret from a key vault is a data plane operation. Making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
+- All Azure resources with tags defined in include rules send logs to New Relic.
+- All Azure resources with tags defined in exclude rules don't send logs to New Relic.
+- If there's a conflict between inclusion and exclusion rules, the exclusion rule applies.
 
-   :::image type="content" source="media/create/metrics.png" alt-text="Screenshot of the tab for logs in a New Relic resource, with resource logs selected.":::
-
-1. When the checkbox for Azure resource logs is selected, logs are forwarded for all resources by default. To filter the set of Azure resources that send logs to New Relic, use inclusion and exclusion rules and set Azure resource tags:
-
-   - All Azure resources with tags defined in include rules send logs to New Relic.
-   - All Azure resources with tags defined in exclude rules don't send logs to New Relic.
-   - If there's a conflict between inclusion and exclusion rules, the exclusion rule applies.
-
-   Azure charges for logs sent to New Relic. For more information, see the [pricing of platform logs](https://azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
-
-   > [!NOTE]
-   > You can collect metrics for virtual machines and app services by installing the New Relic agent after you create the New Relic resource.
+> [!TIP]
+> You can collect metrics for virtual machines and app services by installing the New Relic agent after you create the New Relic resource.
 
 1. After you finish configuring metrics and logs, select **Next**.
 
