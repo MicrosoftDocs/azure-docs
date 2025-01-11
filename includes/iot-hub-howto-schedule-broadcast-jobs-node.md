@@ -15,7 +15,7 @@ ms.custom: [amqp, mqtt, devx-track-js]
 
 ## Overview
 
-This article describes how to use the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) to create backend service application code for job scheduling.
+This article describes how to use the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) to create backend service application code to schedule job to invoke a direct method or perform a device twin desired property update on one or more devices.
 
 ### Install service SDK package
 
@@ -40,9 +40,11 @@ You can connect a backend service to IoT Hub using the following methods:
 
 Use [fromConnectionString](/javascript/api/azure-iothub/jobclient?#azure-iothub-jobclient-fromconnectionstring) to connect to IoT hub.
 
-In this article, you create a back-end service that schedules a job to invoke a direct method on a device, schedules a job to update the device twin, and monitors the progress of each job. To perform these operations, your service needs the **registry read** and **registry write permissions**. By default, every IoT hub is created with a shared access policy named **registryReadWrite** that grants these permissions.
+This article describes back-end code that can schedule a job to invoke a direct method, schedule a job to update a device twin, and monitors the progress of a job for one or more devices. To perform these operations, your service needs the **registry read** and **registry write permissions**. By default, every IoT hub is created with a shared access policy named **registryReadWrite** that grants these permissions.
 
 For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
+
+For example:
 
 ```javascript
 'use strict';
@@ -55,11 +57,11 @@ var jobClient = JobClient.fromConnectionString(connectionString);
 
 [!INCLUDE [iot-hub-howto-connect-service-iothub-entra-node](iot-hub-howto-connect-service-iothub-entra-node.md)]
 
-### Create a device method update job
+### Create a direct method update job
 
-Use [scheduleDeviceMethod](/javascript/api/azure-iothub/jobclient?#azure-iothub-jobclient-scheduledevicemethod) to create a new device method job to run a device method on one or multiple devices.
+Use [scheduleDeviceMethod](/javascript/api/azure-iothub/jobclient?#azure-iothub-jobclient-scheduledevicemethod) to create a new direct method job to run a direct method on one or multiple devices.
 
-This example schedules a device method call job for a specific job ID.
+First, create a direct method update variable.
 
 ```javascript
 var methodParams = {
@@ -67,9 +69,20 @@ var methodParams = {
     payload: null,
     responseTimeoutInSeconds: 15 // Timeout after 15 seconds if device is unable to process method
 };
+```
 
+Call `scheduleDeviceMethod` to schedule the direct method call job:
+
+* Each job must have a unique job ID. You can use this job ID to monitor a job as described in the **Monitor a job** section of this article.
+* Specify a `queryCondition` parameter to evaluate which devices to run the job on.
+* Check the `jobResult` callback for the job schedule result. If the job was successfully scheduled, you can monitor the job status as shown in the **Monitor a job** section of this article.
+
+```javascript
 var methodJobId = uuid.v4();
-console.log('scheduling Device Method job with id: ' + methodJobId);
+var queryCondition = "deviceId IN ['myDeviceId']";
+var startTime = new Date();
+var maxExecutionTimeInSeconds =  300;
+
 jobClient.scheduleDeviceMethod(methodJobId,
                             queryCondition,
                             methodParams,
@@ -77,11 +90,11 @@ jobClient.scheduleDeviceMethod(methodJobId,
                             maxExecutionTimeInSeconds,
                             function(err) {
     if (err) {
-        console.error('Could not schedule device method job: ' + err.message);
+        console.error('Could not schedule direct method job: ' + err.message);
     } else {
         monitorJob(methodJobId, function(err, result) {
             if (err) {
-                console.error('Could not monitor device method job: ' + err.message);
+                console.error('Could not monitor direct method job: ' + err.message);
             } else {
                 console.log(JSON.stringify(result, null, 2));
             }
@@ -94,6 +107,8 @@ jobClient.scheduleDeviceMethod(methodJobId,
 
 Use [scheduleTwinUpdate](/javascript/api/azure-iothub/jobclient?#azure-iothub-jobclient-scheduletwinupdate) to create a new job to run a device twin update on one or multiple devices.
 
+First, create a device twin desired property update variable.
+
 ```javascript
 var twinPatch = {
    etag: '*',
@@ -104,7 +119,15 @@ var twinPatch = {
        }
    }
 };
+```
 
+Call `scheduleTwinUpdate` to schedule the device twin desired property update job:
+
+* Each job must have a unique job ID. You can use this job ID to monitor a job as described in the **Monitor a job** section of this article.
+* Specify a `queryCondition` parameter to evaluate which devices to run the job on.
+* Check the `jobResult` callback for the job schedule result. If the job was successfully scheduled, you can monitor the job status as shown in the **Monitor a job** section of this article.
+
+```javascript
 var twinJobId = uuid.v4();
 
 console.log('scheduling Twin Update job with id: ' + twinJobId);
@@ -130,9 +153,9 @@ jobClient.scheduleTwinUpdate(twinJobId,
 
 ### Monitor a job
 
-Use [getJob](/javascript/api/azure-iothub/jobclient?#azure-iothub-jobclient-getjob) to monitor a job status.
+Use [getJob](/javascript/api/azure-iothub/jobclient?#azure-iothub-jobclient-getjob) to monitor a job status for a specific job ID.
 
-This example checks the job status for a specific job ID periodically until the job is complete or failed.
+This example function checks the job status for a specific job ID periodically until the job is complete or failed.
 
 ```javascript
 function monitorJob (jobId, callback) {
@@ -154,4 +177,4 @@ function monitorJob (jobId, callback) {
 
 ### SDK schedule job example
 
-The Azure IoT SDK for Node.js provides a working sample of a service app that handles job scheduling tasks. For more information, see [Job client E2E test](https://github.com/Azure/azure-iot-sdk-node/blob/a85e280350a12954f46672761b0b516d08d374b5/e2etests/test/job_client.js)
+The Azure IoT SDK for Node.js provides a working sample of a service app that handles job scheduling tasks. For more information, see [Job client E2E test](https://github.com/Azure/azure-iot-sdk-node/blob/a85e280350a12954f46672761b0b516d08d374b5/e2etests/test/job_client.js).

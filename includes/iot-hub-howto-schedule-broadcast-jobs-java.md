@@ -15,7 +15,7 @@ ms.custom: mqtt, devx-track-java, devx-track-extended-java
 
 ## Overview
 
-This article describes how to use the [Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java) to create backend service application code for job scheduling.
+This article describes how to use the [Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java) to create backend service application code to schedule job to invoke a direct method or perform a device twin desired property update on one or more devices.
 
 The [JobClient](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient) class contains methods that services can use to schedule jobs.
 
@@ -52,7 +52,7 @@ You can connect a backend service to IoT Hub using the following methods:
 
 Use a [JobClient](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient) constructor to create the connection to IoT hub. The `JobClient` object handles the communication with your IoT hub.
 
-In this article, you create a back-end service that schedules a job to invoke a direct method on a device, schedules a job to update the device twin, and monitors the progress of each job. To perform these operations, your service needs the **registry read** and **registry write permissions**. By default, every IoT hub is created with a shared access policy named **registryReadWrite** that grants these permissions.
+This article describes back-end code that can schedule a job to invoke a direct method, schedule a job to update a device twin, and monitors the progress of a job for one or more devices. To perform these operations, your service needs the **registry read** and **registry write permissions**. By default, every IoT hub is created with a shared access policy named **registryReadWrite** that grants these permissions.
 
 For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
 
@@ -60,8 +60,6 @@ For example:
 
 ```java
 public static final String iotHubConnectionString = "{Shared access policy connection string}";
-public static final String deviceId = "myDeviceId";
-
 JobClient jobClient = new JobClient(iotHubConnectionString);
 ```
 
@@ -69,65 +67,79 @@ JobClient jobClient = new JobClient(iotHubConnectionString);
 
 [!INCLUDE [iot-hub-howto-connect-service-iothub-entra-java](iot-hub-howto-connect-service-iothub-entra-java.md)]
 
-### Create a device method update job
+### Create a direct method update job
 
-Use [scheduleDeviceMethod](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient?#com-microsoft-azure-sdk-iot-service-jobs-jobclient-scheduledevicemethod(java-lang-string-java-lang-string-java-lang-string-java-lang-long-java-lang-long-java-lang-object-java-util-date-long)) to run a device method on one or multiple devices.
+Use [scheduleDeviceMethod](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient?#com-microsoft-azure-sdk-iot-service-jobs-jobclient-scheduledevicemethod(java-lang-string-java-lang-string-java-lang-string-java-lang-long-java-lang-long-java-lang-object-java-util-date-long)) to run a direct method on one or multiple devices.
 
-This example schedules a device method call job for a specific job ID.
+This example method schedules a direct method call job for a specific job ID.
 
 ```java
-private static JobResult scheduleJobCallDirectMethod(JobClient jobClient, String jobId) {
-  // Schedule a job now to call the lockDoor direct method
-  // against a single device. Response and connection
-  // timeouts are set to 5 seconds.
-  System.out.println("Schedule job " + jobId + " for device " + deviceId);
-  try {
-    JobResult jobResult = jobClient.scheduleDeviceMethod(jobId,
-      "deviceId='" + deviceId + "'",
-      "lockDoor",
-      5L, 5L, null,
-      new Date(),
-      maxExecutionTimeInSeconds);
-    return jobResult;
-  } catch (Exception e) {
-    System.out.println("Exception scheduling direct method job: " + jobId);
-    System.out.println(e.getMessage());
-    return null;
-  }
-};
+// Schedule a job now to call the lockDoor direct method
+// against a single device. Response and connection
+// timeouts are set to 5 seconds.
+String deviceId = "Device-1";
+String jobId = "DMCMD" + UUID.randomUUID();
+
+// How long the job is permitted to run without
+// completing its work on the set of devices
+private static final long maxExecutionTimeInSeconds = 30;
+
+System.out.println("Schedule job " + jobId + " for device " + deviceId);
+try {
+  JobResult jobResult = jobClient.scheduleDeviceMethod(jobId,
+    "deviceId='" + deviceId + "'",
+    "lockDoor",
+    5L, 5L, null,
+    new Date(),
+    maxExecutionTimeInSeconds);
+} catch (Exception e) {
+  System.out.println("Exception scheduling direct method job: " + jobId);
+  System.out.println(e.getMessage());
+}
 ```
 
 ### Schedule a device twin update job
 
 Use [scheduleUpdateTwin](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient?#com-microsoft-azure-sdk-iot-service-jobs-jobclient-scheduleupdatetwin(java-lang-string-java-lang-string-com-microsoft-azure-sdk-iot-service-devicetwin-devicetwindevice-java-util-date-long)) to create a new job to run a device twin update on one or multiple devices.
 
-This example schedules a device twin update job for a specific job Id.
+This example method schedules a device twin update job for a specific job Id.
+
+First, prepare a `DeviceTwinDevice` record.
+
+For example:
 
 ```java
-private static JobResult scheduleJobSetDesiredProperties(JobClient jobClient, String jobId) {
-  DeviceTwinDevice twin = new DeviceTwinDevice(deviceId);
-  Set<Pair> desiredProperties = new HashSet<Pair>();
-  desiredProperties.add(new Pair("Building", 43));
-  desiredProperties.add(new Pair("Floor", 3));
-  twin.setDesiredProperties(desiredProperties);
-  // Optimistic concurrency control
-  twin.setETag("*");
+String deviceId = "Device-1";
+String jobId = "DPCMD" + UUID.randomUUID();
 
-  // Schedule the update twin job to run now
-  // against a single device
-  System.out.println("Schedule job " + jobId + " for device " + deviceId);
-  try {
-    JobResult jobResult = jobClient.scheduleUpdateTwin(jobId, 
-      "deviceId='" + deviceId + "'",
-      twin,
-      new Date(),
-      maxExecutionTimeInSeconds);
-    return jobResult;
-  } catch (Exception e) {
-    System.out.println("Exception scheduling desired properties job: " + jobId);
-    System.out.println(e.getMessage());
-    return null;
-  }
+// How long the job is permitted to run without
+// completing its work on the set of devices
+private static final long maxExecutionTimeInSeconds = 30;
+
+//Create a device twin desired properties update object
+DeviceTwinDevice twin = new DeviceTwinDevice(deviceId);
+Set<Pair> desiredProperties = new HashSet<Pair>();
+desiredProperties.add(new Pair("Building", 43));
+desiredProperties.add(new Pair("Floor", 3));
+twin.setDesiredProperties(desiredProperties);
+// Optimistic concurrency control
+twin.setETag("*");
+```
+
+Next, call `scheduleUpdateTwin` to schedule the update job.
+
+```java
+// Schedule the update twin job to run now for a single device
+System.out.println("Schedule job " + jobId + " for device " + deviceId);
+try {
+  JobResult jobResult = jobClient.scheduleUpdateTwin(jobId, 
+    "deviceId='" + deviceId + "'",
+    twin,
+    new Date(),
+    maxExecutionTimeInSeconds);
+} catch (Exception e) {
+  System.out.println("Exception scheduling desired properties job: " + jobId);
+  System.out.println(e.getMessage());
 }
 ```
 
@@ -185,4 +197,4 @@ private static void queryDeviceJobs(JobClient jobClient, String start) throws Ex
 
 ### SDK schedule job example
 
-The Azure IoT SDK for Java provides a working sample of a service app that handles job scheduling tasks. For more information, see [Job Client Sample](https://github.com/Azure/azure-iot-service-sdk-java/blob/main/service/iot-service-samples/job-client-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/JobClientSample.java)
+The Azure IoT SDK for Java provides a working sample of a service app that handles job scheduling tasks. For more information, see [Job Client Sample](https://github.com/Azure/azure-iot-service-sdk-java/blob/main/service/iot-service-samples/job-client-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/JobClientSample.java).

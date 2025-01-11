@@ -15,7 +15,7 @@ ms.custom: [amqp, mqtt, "Role: Cloud Development", "Role: IoT Device", devx-trac
 
 ## Overview
 
-This article describes how to use the [Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/readme.md) to create backend service application code for job scheduling.
+This article describes how to use the [Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/readme.md) to create backend service application code to schedule job to invoke a direct method or perform a device twin desired property update on one or more devices.
 
 ### Add service NuGet Package
 
@@ -46,7 +46,7 @@ You can connect a backend service to IoT Hub using the following methods:
 
 Connect a backend application to a device using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.jobclient.createfromconnectionstring).
 
-In this article, you create a back-end service that schedules a job to invoke a direct method on a device, schedules a job to update the device twin, and monitors the progress of each job. To perform these operations, your service needs the **registry read** and **registry write permissions**. By default, every IoT hub is created with a shared access policy named **registryReadWrite** that grants these permissions.
+This article describes back-end code that can schedule a job to invoke a direct method, schedule a job to update a device twin, and monitors the progress of a job for one or more devices. To perform these operations, your service needs the **registry read** and **registry write permissions**. By default, every IoT hub is created with a shared access policy named **registryReadWrite** that grants these permissions.
 
 For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
 
@@ -60,11 +60,11 @@ jobClient = JobClient.CreateFromConnectionString(connString);
 
 [!INCLUDE [iot-hub-howto-connect-service-iothub-entra-dotnet](iot-hub-howto-connect-service-iothub-entra-dotnet.md)]
 
-### Create a device method update job
+### Create a direct method update job
 
-Use [ScheduleDeviceMethodAsync](/dotnet/api/microsoft.azure.devices.jobclient.scheduledevicemethodasync) to create a new device method to run a device method on one or multiple devices.
+Use [ScheduleDeviceMethodAsync](/dotnet/api/microsoft.azure.devices.jobclient.scheduledevicemethodasync) to create a new direct method to run a direct method on one or multiple devices.
 
-This example schedules a device method call job for a specific job ID.
+This example schedules a job for a direct method method named "LockDoor".
 
 ```csharp
 string methodJobId = Guid.NewGuid().ToString();
@@ -83,14 +83,15 @@ JobResponse result = await jobClient.ScheduleDeviceMethodAsync(methodJobId,
 Console.WriteLine("Started Method Job");
 ```
 
-### Schedule a device twin update job
+### Schedule a device desired twin update job
 
-Use [ScheduleTwinUpdateAsync](/dotnet/api/microsoft.azure.devices.jobclient.scheduledevicemethodasync) to create a new device twin update job to run a device twin update on one or multiple devices.
+Use [ScheduleTwinUpdateAsync](/dotnet/api/microsoft.azure.devices.jobclient.scheduledevicemethodasync) to create a new desired twin update job to run on one or multiple devices.
 
-This example schedules a device twin update job for a specific job ID.
+First, create and populate a device `Twin` object for the update.
+
+For example:
 
 ```csharp
-string twinJobId = Guid.NewGuid().ToString();
 static string deviceId = "Device-1";
 
 Twin twin = new Twin(deviceId);
@@ -98,8 +99,13 @@ twin.Tags = new TwinCollection();
 twin.Tags["Building"] = "43";
 twin.Tags["Floor"] = "3";
 twin.ETag = "*";
-
 twin.Properties.Desired["LocationUpdate"] = DateTime.UtcNow;
+```
+
+Next, call `ScheduleTwinUpdateAsync`. Specify the devices to be updated in the second parameter.
+
+```csharp
+string twinJobId = Guid.NewGuid().ToString();
 
 JobResponse createJobResponse = jobClient.ScheduleTwinUpdateAsync(
    twinJobId,
@@ -107,15 +113,13 @@ JobResponse createJobResponse = jobClient.ScheduleTwinUpdateAsync(
    twin, 
    DateTime.UtcNow, 
    (long)TimeSpan.FromMinutes(2).TotalSeconds).Result;
-
-Console.WriteLine("Started Twin Update Job");
 ```
 
 ### Monitor a job
 
 Use [GetJobAsync](/dotnet/api/microsoft.azure.devices.jobclient.getjobasync?#microsoft-azure-devices-jobclient-getjobasync(system-string)) to monitor a job status.
 
-This example checks the job status for a specific job ID periodically until the job is complete or failed.
+This example checks the job status for a job ID periodically until the job is complete or failed.
 
 ```csharp
 JobResponse result;
@@ -132,4 +136,4 @@ do
 The Azure IoT SDK for .NET provides working samples of service apps that handle job scheduling tasks. For more information, see:
 
 * [Schedule twin update sample](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/service/samples/getting%20started/JobsSample/JobsSample.cs)
-* [E2E schedule twin update sample](https://github.com/Azure/azure-iot-sdk-csharp/blob/86065001a92fedb42877722c6a57ae37e45eed30/e2e/test/iothub/service/IoTHubCertificateValidationE2ETest.cs#L69)
+* [E2E schedule twin update sample](https://github.com/Azure/azure-iot-sdk-csharp/blob/86065001a92fedb42877722c6a57ae37e45eed30/e2e/test/iothub/service/IoTHubCertificateValidationE2ETest.cs).
