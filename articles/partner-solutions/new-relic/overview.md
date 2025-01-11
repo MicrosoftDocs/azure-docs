@@ -75,7 +75,7 @@ For more help, see the New Relic documentation.
 ## Next steps
 
 - [Quickstart: Get started with New Relic](new-relic-create.md)
-- [Quickstart: Link to an existing New Relic account](link-to-existing.md)
+- [Quickstart: Link to an existing New Relic account](link-to-existing-resource.md)
 - Get started with Azure Native New Relic Service on
 
     > [!div class="nextstepaction"]
