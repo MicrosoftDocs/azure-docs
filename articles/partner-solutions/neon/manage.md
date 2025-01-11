@@ -1,6 +1,6 @@
 ---
 title: Manage a Neon resource through the Azure portal (Preview)
-description: This articles describes management functions for Neon on the Azure portal.
+description: This article describes management functions for Neon on the Azure portal.
 author: ProfessorKendrick
 ms.topic: how-to
 ms.date: 12/04/2024
