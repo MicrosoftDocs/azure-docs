@@ -69,8 +69,8 @@ We also revamped the error code documentation to offer better guidance for handl
 
 For more information, see:
 
-- [Troubleshooting guide for Call Automation SDK error codes](./resources/troubleshooting/voice-video-calling/troubleshooting-codes.md&pivots=automation#call-automation-sdk-error-codes).
-Our docs on how to view Azure Communication Services Callback events via Azure Metrics.
+- [Troubleshooting guide for Call Automation SDK error codes](./resources/troubleshooting/voice-video-calling/troubleshooting-codes?pivots=automation).
+- [How to view Azure Communication Services Callback events via Azure Metrics](./concepts/analytics/logs/call-automation-metrics.md).
 
 ## October 2024
 
