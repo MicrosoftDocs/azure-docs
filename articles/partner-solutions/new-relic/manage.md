@@ -102,7 +102,7 @@ If you have existing New Relic resources that are linked to the account for moni
 
 The tag rules and logs that you defined for the New Relic resource are applied to all the subscriptions that you select to be monitored. If you would like to reconfigure the tag rules, you can follow the steps described here.  
 
-For more information about the following capabilities, see  [Monitor Virtual Machines  using the New Relic agent](#monitor-virtual-machines-by-using-the-new-relic-agent) and [Monitor App Services using the New Relic agent](#monitor-app-services-by-using-the-new-relic-agent).
+For more information about the following capabilities, see  [Monitor Virtual Machines using the New Relic agent](#monitor-virtual-machines-using-the-new-relic-agent) and [Monitor App Services using the New Relic agent](#monitor-app-services-using-the-new-relic-agent).
 
 ## Connected New Relic resources
 
