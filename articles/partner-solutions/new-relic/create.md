@@ -53,14 +53,10 @@ There are required fields in each section that you need to fill out.
     |---------|---------|
     |Organization     |Choose to create a new organization, or associate your resource with an existing organization.   |
 
-    :::image type="content" source="media/create/organization.png" alt-text="A screenshot of the Create a New Relic resource options in Azure portal. The New Relic account details **Organization** options are emphasized. ":::
+    > [!NOTE]
+    > If you choose to associate your resource with an existing organization, the resource is billed to that organization's plan. 
 
-    If you choose to create a new organization, select **Change plan**.
-
-    - Available plans are displayed in the working pane. 
-    - Choose the plan you prefer, then select **Change plan**.
-    
-    If you choose to associate your resource with an existing organization, the resource is billed to that organization's plan. 
+    Select the **Change plan** link to [change your billing plan](manage.md#change-billing-plan). 
 
     The remaining fields update to reflect the details of the plan you selected for this new organization.
 
@@ -68,7 +64,7 @@ There are required fields in each section that you need to fill out.
 1. 
 1. <!--end--new-relic-basics-tab-->
 
-### Configure metrics and logs tab (optional)
+### Metrics and logs tab (optional)
 
 <!--new-relic-configure-metrics-and-logs-tab-->
 
@@ -97,6 +93,8 @@ To filter the set of Azure resources that send logs to New Relic, use inclusion 
 ### Tags tab (optional)
 
 [!INCLUDE [tags](../includes/tags.md)]
+
+:::image type="content" source="media/create/new-relic-tags.png" alt-text="A screenshot of the Create a New Relic resource in Azure options inside of the Azure portal's working pane with the Tags tab displayed."":::
 
 ### Review + create tab
 

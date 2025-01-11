@@ -174,7 +174,7 @@ To install the New Relic agent, select the app service and then select **Install
 > [!NOTE]
 > This page currently shows only the web app type of app services. Managing agents for function apps isn't supported at this time.
 
-## Change plan
+## Change billing plan
 
 [!INCLUDE [change-plan](../includes/change-plan.md)]
 
