@@ -13,17 +13,17 @@ items:
   - name: Create Dynatrace resource
     href: create.md
   - name: Link to existing Dynatrace resource
-    href: link-to-existing.md
+    href: link-to-existing-resources.md
 - name: How to
   items:
   - name: Configure prerequisites
-    href: how-to-configure-prereqs.md
+    href: configure-prerequisites.md
   - name: Manage Dynatrace
-    href: how-to-manage.md
+    href: manage.md
   - name: Troubleshoot
     items:
     - name: Get support
-      href: get-support.md
+      href: support.md
     - name: Fix common errors
       href: troubleshoot.md
 - name: Reference
