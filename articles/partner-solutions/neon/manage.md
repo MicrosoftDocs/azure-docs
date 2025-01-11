@@ -1,13 +1,9 @@
 ---
 title: Manage a Neon resource through the Azure portal (Preview)
-description: Manage and delete Neon resources on Azure portal with ease, including SSO access.
+description: This articles describes management functions for Neon on the Azure portal.
 author: ProfessorKendrick
 ms.topic: how-to
 ms.date: 12/04/2024
-ms.custom:
-  - ai-gen-docs-bap
-  - ai-gen-desc
-  - ai-seo-date:01/10/2025
 ---
 
 # Manage your Neon integration through the portal (Preview)
