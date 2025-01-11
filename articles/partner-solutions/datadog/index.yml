@@ -33,8 +33,8 @@ landingContent:
         links:
           - text: Get started with Datadog by creating a new instance
             url: create.md
-          - text: Link to an existing Datadog organization
-            url: link-to-existing-organization.md
+          - text: Link to an existing Datadog resource
+            url: link-to-existing.md
       - linkListType: how-to-guide
         links:
           - text: Configure your environment before Datadog deployment
