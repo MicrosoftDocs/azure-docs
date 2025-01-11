@@ -112,7 +112,7 @@ To access all New Relic resources and deployments you created using the Azure or
 
 You can easily manage the corresponding New Relic deployments or Azure resources using the links, provided you have owner or contributor rights to those deployments and resources.
 
-## Monitor virtual machines by using the New Relic agent
+## Monitor virtual machines using the New Relic agent
 
 You can install the New Relic agent on virtual machines as an extension. Select **Virtual Machines** on the left pane. The **Virtual machine agent** pane shows a list of all virtual machines in the subscription.
 
@@ -130,7 +130,7 @@ For each virtual machine, the following info appears:
 > [!NOTE]
 > If a virtual machine shows that an agent is installed, but the option **Uninstall extension** is disabled, the agent was configured through a different New Relic resource in the same Azure subscription. To make any changes, go to the other New Relic resource in the Azure subscription.
 
-## Monitor Azure Virtual Machine Scale Sets by using the New Relic agent
+## Monitor Azure Virtual Machine Scale Sets using the New Relic agent
 
 You can install New Relic agent on Azure Virtual Machine Scale Sets as an extension.
 
@@ -151,7 +151,7 @@ If a manual upgrade policy is set for a resource, upgrade the instances manually
 > [!NOTE]
 > The agent installation dashboard supports the automatic and rolling upgrade policy for Flex orchestration mode in the next release when similar support is available from Virtual Machine Scale Sets Flex resources.
 
-## Monitor app services by using the New Relic agent
+## Monitor app services using the New Relic agent
 
 You can install the New Relic agent on app services as an extension. Select **App Services** on the left pane. The working pane shows a list of all app services in the subscription.
 

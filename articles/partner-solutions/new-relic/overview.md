@@ -7,7 +7,9 @@ ms.date: 01/10/2025
 
 # What is Azure Native New Relic Service?
 
-Easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure with Azure Native integrations.
+[!INCLUDE [what-is](../includes/what-is.md)]
+
+<!--new-relic-what-is-->
 
 Microsoft and New Relic developed this service and manage it together.
 

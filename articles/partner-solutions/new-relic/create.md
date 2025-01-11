@@ -20,6 +20,8 @@ In this quickstart, you create an instance of Azure Native New Relic Service. Yo
 
 ### Basics tab
 
+<!--new-relic-basics-tab-->
+
 The *Basics* tab has 3 sections:
 
 - Project details
@@ -62,6 +64,8 @@ There are required fields in each section that you need to fill out.
 1. Select the **Next** button at the bottom of the page.
 
 ### Configure metrics and logs tab
+
+<!--new-relic-metrics-and-logs-tab-->
 
 Your next step is to configure metrics and logs on the **Metrics and Logs** tab. When you're creating the New Relic resource, you can set up metrics monitoring and automatic log forwarding:
 
