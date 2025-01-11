@@ -18,7 +18,7 @@ Configure custom network rules in the API Management subnet to filter traffic to
 
 ### [stv2](#tab/stv2)
 
-| Direction | Source | Source port ranges | Destination | Destination port ranges | Protocol |  Action | Purpose | VNet type |
+| Direction | Source service tag | Source port ranges | Destination service tag | Destination port ranges | Protocol |  Action | Purpose | VNet type |
 |-------|--------------|----------|---------|------------|-----------|-----|--------|-----|
 | Inbound | Internet | * | VirtualNetwork | [80], 443   | TCP            | Allow | Client communication to API Management                   | External only          |
 | Inbound | ApiManagement | * | VirtualNetwork | 3443    | TCP | Allow     | Management endpoint for Azure portal and PowerShell        | External & Internal  |
@@ -32,7 +32,7 @@ Configure custom network rules in the API Management subnet to filter traffic to
 
 ### [stv1](#tab/stv1)
 
-| Direction | Source | Source port ranges | Destination | Destination port ranges | Protocol |  Action | Purpose | VNet type |
+| Direction | Source service tag | Source port ranges | Destination service tag | Destination port ranges | Protocol |  Action | Purpose | VNet type |
 |-------|--------------|----------|---------|------------|-----------|-----|--------|-----|
 | Inbound | Internet | * | VirtualNetwork | [80], 443   | TCP            | Allow | Client communication to API Management                   | External only          |
 | Inbound | ApiManagement | * | VirtualNetwork | 3443    | TCP | Allow     | Management endpoint for Azure portal and PowerShell        | External & Internal  |
