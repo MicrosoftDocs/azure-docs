@@ -31,7 +31,9 @@ The *Basics* tab has 3 sections:
 - Azure resource details
 - New Relic account details
 
-There are required fields in each section that you need to fill out.
+:::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create a New Relic resource in Azure options inside of the Azure portal's working pane with the Basics tab displayed":::
+
+There are required fields in each section that you need to fill out. Each required field is identified by a red asterisk.
 
 1. Enter the values for each required setting under *Project details*.
 
@@ -94,7 +96,7 @@ To filter the set of Azure resources that send logs to New Relic, use inclusion 
 
 [!INCLUDE [tags](../includes/tags.md)]
 
-:::image type="content" source="media/create/new-relic-tags.png" alt-text="A screenshot of the Create a New Relic resource in Azure options inside of the Azure portal's working pane with the Tags tab displayed."":::
+:::image type="content" source="media/create/tags-tab.png" alt-text="A screenshot of the Create a New Relic resource in Azure options inside of the Azure portal's working pane with the Tags tab displayed."":::
 
 ### Review + create tab
 
