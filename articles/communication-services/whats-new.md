@@ -24,7 +24,7 @@ Our applications can now directly call individual Microsoft Teams users. Those T
 - Teams call queues and Auto Attendant
 - Teams meetings
 
-You can use these features in business-2-consumer contact center and meeting applications to keep external customers in highly tailored websites and app experiences. You can also use this feature to keep all employee and agent communication activity in a single hub: Teams.
+You can use these features in business-to-coustomer (B2C) contact center and meeting applications to keep external customers in highly tailored websites and app experiences. You can also use this feature to keep all employee and agent communication activity in a single hub: Teams.
 
 For more information, see [Capabilities for Microsoft Teams users in Azure Communication Services calls](./concepts/interop/guest/calling-capabilities.md).
 
@@ -69,7 +69,7 @@ We also revamped the error code documentation to offer better guidance for handl
 
 For more information, see:
 
-- [Troubleshooting guide for Call Automation SDK error codes](./resources/troubleshooting/voice-video-calling/troubleshooting-codes.md#call-automation-sdk-error-codes).
+- [Troubleshooting guide for Call Automation SDK error codes](./resources/troubleshooting/voice-video-calling/troubleshooting-codes.md&pivots=automation#call-automation-sdk-error-codes).
 Our docs on how to view Azure Communication Services Callback events via Azure Metrics.
 
 ## October 2024
@@ -94,9 +94,9 @@ const incomingCallHandler = async (args: { incomingCall: IncomingCall }) => { co
 
 For more information, see [CallerInfo interface](/javascript/api/azure-communication-services/@azure/communication-calling/callerinfo), [Manage calls > Receive an incoming call](./how-tos/calling-sdk/manage-calls.md#receive-an-incoming-call), and [Manage calls > Check call properties](./how-tos/calling-sdk/manage-calls.md#check-call-properties).
 
-### Remote Mute VoIP meeting participants
+### Remote mute VoIP meeting participants
 
-Conducting disruption free group meetings, virtual appointments, and B2C engagements often require controls to manage noise from inattentive participants. A participant might be driving and speaking to their friends without realizing that their noise and conversation is being relayed to participants in the meeting. The ability to remotely mute a VoIP participant comes handy in such situations. It enables another participant to remotely mute one or more VoIP participants in the call. Participants who are muted can unmute themselves when they need to speak.
+Conducting disruption free group meetings, virtual appointments, and business-to-consumer (B2C)  engagements often require controls to manage noise from inattentive participants. A participant might be driving and speaking to their friends without realizing that their noise and conversation is being relayed to participants in the meeting. The ability to remotely mute a VoIP participant comes handy in such situations. It enables another participant to remotely mute one or more VoIP participants in the call. Participants who are muted can unmute themselves when they need to speak.
 
 The ability to remotely mute a participant is now generally available for calls with the following specific functions:
 
@@ -124,7 +124,7 @@ In addition to server programmability of Rooms and troubleshooting improvements,
 
 - **Hold/Unhold:** Provide developers with the ability to play music while putting participants on hold through supported file formats of WAV and MP3.
 
-- **Play multiple audio files:** We enhanced our existing Play and Recognize APIs to support the ability for developers to provide multiple audio files, text, and Speech Synthesis Markup Language (SSML) inputs when requesting a Play or Recognize action.
+- **Play multiple audio files:** We enhanced our existing Play and Recognize APIs. Developers now have the ability to provide multiple audio files, text files, and Speech Synthesis Markup Language (SSML) inputs when requesting a Play or Recognize action.
 
 - **Play barge-in:** Developers can provide barge-in capability to the Play action, enabling you to interrupt a current prompt, such as hold music, with a new message such as wait time announcement.
 
@@ -242,15 +242,15 @@ For more information, see [Bring your own Azure storage overview](./concepts/cal
 
 ### Enhance custom app experiences with Microsoft Teams
 
-We’re announcing a set of enhancements for developers building custom app and website experiences that connect to users on Microsoft Teams. Azure Communication Services and these new capabilities are especially tailored for business-to-customer (B2C) interactions where an external user (the customer) talks to an employee that is using Teams (the business).
+We’re announcing a set of enhancements for developers building custom app and website experiences that connect to users on Microsoft Teams. Azure Communication Services and these new capabilities are especially tailored for business-to-consumer (B2C) interactions where an external user (the consumer) talks to an employee that is using Teams (the business).
 
-In-Teams Enhancements
+In-Teams enhancements:
 
 - Breakout Rooms
 - Together Mode
 - Enhanced Audio
 
-Joining Teams Made Easier
+Joining Teams made easier:
 
 - Short URL
 - Join by Meeting ID
@@ -327,7 +327,7 @@ For more information, see:
 
 #### Real-time audio streaming: Capture and analyze conversations  
 
-Building on the power of real-time capabilities, developers now have access to real-time audio streams. This enables developers to create server applications that capture and analyze audio for each participant on a call as it happens. 
+Building on the power of real-time capabilities, developers now have access to real-time audio streams. Access to real-time audio streams enables developers to create server applications that capture and analyze audio for each participant on a call as it happens. 
 
 :::image type="content" source="media/whats-new-images/real-time-audio-streaming.png" alt-text="Diagram showing how to integrate real-time audio streaming in your app." lightbox="media/whats-new-images/real-time-audio-streaming.png":::
 
@@ -639,13 +639,13 @@ For more information, see [Enable audio-only mode in the UI Library](./how-tos/u
 
 ## March 2024
 
-### Calling to Microsoft Teams call queues and auto attendants
+### Calling to Microsoft Teams Call queues and Auto attendants
 
-Calling to Teams call queues and auto attendants is now generally available in Azure Communication Services, along with click-to-call for Teams Phone. 
+Calling to Teams Call queues and Auto attendants is now generally available in Azure Communication Services, along with click-to-call for Teams Phone. 
 
-Organizations can enable customers to quickly reach their sales and support members on Microsoft Teams. When you add a [click-to-call widget](./tutorials/calling-widget/calling-widget-tutorial.md) onto a website, such as a **Sales** button that points to a sales department or a **Purchase** button that points to procurement, customers are just one click away from a direct connection to a Teams call queue or auto attendant.
+Organizations can enable customers to quickly reach their sales and support members on Microsoft Teams. When you add a [click-to-call widget](./tutorials/calling-widget/calling-widget-tutorial.md) onto a website, such as a **Sales** button that points to a sales department or a **Purchase** button that points to procurement, customers are just one click away from a direct connection to a Teams Call queue or Auto attendant.
 
-Learn more about joining your calling app to a Teams [call queue](./quickstarts/voice-video-calling/get-started-teams-call-queue.md) or [auto attendant](./quickstarts/voice-video-calling/get-started-teams-auto-attendant.md), and about [building contact center applications](./tutorials/contact-center.md).
+Learn more about joining your calling app to a Teams [Call queue](./quickstarts/voice-video-calling/get-started-teams-call-queue.md) or [Auto attendant](./quickstarts/voice-video-calling/get-started-teams-auto-attendant.md), and about [building contact center applications](./tutorials/contact-center.md).
 
 ### Email updates
 
