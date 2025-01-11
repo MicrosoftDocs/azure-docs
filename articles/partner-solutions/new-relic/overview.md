@@ -62,7 +62,7 @@ Azure charges for logs sent to New Relic. For more information, see the [pricing
 
 ## Subscribe to New Relic
 
-[!INCLUDE [subscribe](../includes/subscribe.md)] *New Relic*.
+[!INCLUDE [subscribe](../includes/subscribe.md)] *Azure Native New Relic Service: New Relic Azure*.
 
 [!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
 
@@ -76,8 +76,8 @@ For more help, see the New Relic documentation.
 
 ## Next steps
 
-- [Quickstart: Get started with New Relic](new-relic-create.md)
-- [Quickstart: Link to an existing New Relic account](link-to-existing-resource.md)
+- [Quickstart: Get started with Azure Native New Relic Service](create.md)
+
 - Get started with Azure Native New Relic Service on
 
     > [!div class="nextstepaction"]
