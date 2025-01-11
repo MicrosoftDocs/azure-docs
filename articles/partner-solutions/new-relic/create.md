@@ -23,8 +23,6 @@ In this quickstart, you create an instance of Azure Native New Relic Service. Yo
 
 ### Basics tab
 
-<!--new-relic-basics-tab-->
-
 The *Basics* tab has 3 sections:
 
 - Project details
@@ -63,12 +61,8 @@ There are required fields in each section that you need to fill out. Each requir
     The remaining fields update to reflect the details of the plan you selected for this new organization.
 
 1. Select the **Next** button at the bottom of the page.
-1. 
-1. <!--end--new-relic-basics-tab-->
 
 ### Metrics and logs tab (optional)
-
-<!--new-relic-configure-metrics-and-logs-tab-->
 
 If you wish, you can configure resources to send metrics/logs to New Relic. 
 
@@ -92,13 +86,9 @@ To filter the set of Azure resources that send logs to New Relic, use inclusion 
 
 1. After you finish configuring metrics and logs, select **Next**.
 
-<!--end-new-relic-configure-metrics-and-logs-tab-->
-
 ### Tags tab (optional)
 
 [!INCLUDE [tags](../includes/tags.md)]
-
-:::image type="content" source="media/create/tags-tab.png" alt-text="A screenshot of the Create a New Relic resource in Azure options inside of the Azure portal's working pane with the Tags tab displayed."":::
 
 ### Review + create tab
 
