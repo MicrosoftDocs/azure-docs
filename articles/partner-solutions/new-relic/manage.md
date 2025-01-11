@@ -188,11 +188,5 @@ To install the New Relic agent, select the app service and then select **Install
 ## Next steps
 
 - [Troubleshoot Azure Native New Relic Service](troubleshoot.md)
-- [Quickstart: Get started with New Relic](create.md)
-- Get started with Azure Native New Relic Service on
+- [Quickstart: Get started with Azure Native New Relic Service](create.md)
 
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NewRelic.Observability%2Fmonitors)
-
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/newrelicinc1635200720692.newrelic_liftr_payg?tab=Overview)

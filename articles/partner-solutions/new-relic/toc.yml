@@ -8,11 +8,11 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a New Relic resource
+  - name: Get started
     href: create.md
 - name: How to
   items:
-  - name: Manage Azure Native New Relic service
+  - name: Manage
     href: manage.md
   - name: Troubleshoot
     items:
