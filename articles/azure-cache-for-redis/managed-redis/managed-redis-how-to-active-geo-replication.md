@@ -6,7 +6,7 @@ description: Learn how to replicate your Azure Managed Redis instances across Az
 ms.service: azure-managed-redis
 ms.custom: devx-track-azurecli, ignite-2024
 ms.topic: conceptual
-ms.date: 11/15/2024
+ms.date: 01/10/2025
 ---
 
 # Configure active geo-replication for Azure Managed Redis (preview) instances
@@ -192,12 +192,37 @@ Once each instance has been scaled to the same tier and size, all scaling locks 
 |-----------|:--------------------:|:--------------------:|:--------------------:|
 | Type | Compute Optimized X20 | Compute Optimized X20 | Compute Optimized X20 |
 
-
 ## Flush operation
 
 Due to the potential for inadvertent data loss, you can't use the `FLUSHALL` and `FLUSHDB` Redis commands with any cache instance residing in a geo-replication group. Instead, use the **Flush Cache(s)** button located at the top of the **Active geo-replication** working pane.
 
 :::image type="content" source="media/managed-redis-how-to-active-geo-replication/managed-redis-active-flush.png" alt-text="Screenshot showing Active geo-replication selected in the Resource menu and the Flush cache feature has a red box around it.":::
+
+## Geo-replication Metric
+
+The _Geo Replication Healthy_ metric in Azure Cache for Redis Enterprise/Azure Managed Redis helps monitor the health of geo-replicated clusters. You can use this metric to monitor the sync status among geo-replicas.  
+
+To monitor the _Geo Replication Healthy_ metric in the Azure portal:
+
+1. Navigate to Your Redis Resource: Open the Azure portal and select your Azure Cache for Redis instance.
+1. Go to Metrics: In the left-hand menu, click Metrics under the Monitoring section.
+1. Add Metric: Click on + Add Metric and select the "Geo Replication Healthy" metric.
+1. Set Filters: If needed, apply filters for specific geo-replicas.
+1. Create Alerts (optional): Configure an alert to notify you if the "Geo Replication Healthy" metric emits an unhealthy value (0) continuously for over 60 minutes.
+    1. Click New Alert Rule.
+    1. Define the condition to trigger if the metric value is 0 for at least 60 minutes. (recommended time)
+    1. Add action groups for notifications (email, SMS, etc.).
+    1. Save the alert.
+    1. For more information on how to setup alerts for you Redis Enterprise/AMR cache follow this documentation - Monitor Azure Cache for Redis - Azure Cache for Redis | Microsoft Learn
+
+> [!IMPORTANT]
+> This metric may temporarily show as unhealthy due to routine operations like maintenance events or scaling, initiated either by Azure or the customer. To avoid false alarms, we strongly recommend setting up an observation window of 60 minutes where the metric continues to stay unhealthy as the appropriate time for generating an alert as it may indicate a problem that requires intervention.
+
+## Common Client-side issues that can cause sync issues among geo-replicas
+
+- Use of custom Hash tags – Using custom hashtags in Redis can lead to uneven distribution of data across shards, which may cause performance issues and synchronization problems in geo-replicas therefore avoid using custom hashtags unless the database needs to perform multiple key operations.
+
+- Large Key Size - Large keys can create synchronization issues among geo-replicas. To maintain smooth performance and reliable replication, we recommend keeping key sizes under 500MB when using geo-replication. If individual key size gets close to 2GB the cache will face geo=replication health issues.  
 
 ### Flush caches using Azure CLI or PowerShell
 
