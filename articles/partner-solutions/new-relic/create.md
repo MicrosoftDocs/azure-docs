@@ -23,11 +23,73 @@ In this quickstart, you create an instance of Azure Native New Relic Service. Yo
 
 ### Basics tab
 
-[!INCLUDE [new-relic-basics-tab](includes/new-relic-basics-tab.md)]
+<!--new-relic-basics-tab-->
+
+The *Basics* tab has 3 sections:
+
+- Project details
+- Azure resource details
+- New Relic account details
+
+There are required fields in each section that you need to fill out.
+
+1. Enter the values for each required setting under *Project details*.
+
+    |Field  |Action  |
+    |---------|---------|
+    |Subscription    |Select a subscription from your existing subscriptions.         |
+    |Resource group     |Use an existing resource group or create a new one.          |
+
+1. Enter the values for each required setting under *Azure Resource details*.
+
+    |Field |Action  |
+    |---------|---------|
+    |Resource name     |Specify a unique name for the resource.    |
+    |Region     |Select a region to deploy your resource.         |
+
+1. Enter the values for each required setting under *New Relic account details*.
+
+    |Field  |Action  |
+    |---------|---------|
+    |Organization     |Choose to create a new organization, or associate your resource with an existing organization.   |
+
+    :::image type="content" source="media/create/organization.png" alt-text="A screenshot of the Create a New Relic resource options in Azure portal . The New Relic account details **Organization** options are emphasized. ":::
+
+    > [!NOTE]
+    > 
+    > If you choose to create a new organization, select **Change plan**.
+    > - Available plans are displayed in the working pane. 
+    > - Choose the plan you prefer, then select **Change plan**.
+    > If you choose to associate your resource with an existing organization, the resource is billed to that organization's plan. 
+
+    The remaining fields update to reflect the details of the plan you selected for this new organization.
+
+1. Select the **Next** button at the bottom of the page.
 
 ### Configure metrics and logs tab
 
-[!INCLUDE [new-relic-metrics-and-logs-tab](includes/new-relic-metrics-and-logs-tab.md)]
+<!--new-relic-configure-metrics-and-logs-tab-->
+
+To set up monitoring of platform metrics for Azure resources by New Relic, select **Enable metrics collection**.
+
+To send subscription-level logs to New Relic, select **Subscription activity logs**.
+
+To send Azure resource logs to New Relic, select **Azure resource logs** for all supported resource types.
+
+:::image type="content" source="media/create/metrics.png" alt-text="Screenshot of the tab for logs in a New Relic resource, with resource logs selected.":::
+
+When the checkbox for Azure resource logs is selected, logs are forwarded for all resources by default.
+
+To filter the set of Azure resources that send logs to New Relic, use inclusion and exclusion rules and set Azure resource tags:
+
+- All Azure resources with tags defined in include rules send logs to New Relic.
+- All Azure resources with tags defined in exclude rules don't send logs to New Relic.
+- If there's a conflict between inclusion and exclusion rules, the exclusion rule applies.
+
+> [!TIP]
+> You can collect metrics for virtual machines and app services by installing the New Relic agent after you create the New Relic resource.
+
+1. After you finish configuring metrics and logs, select **Next**.
 
 ### Tags tab (optional)
 
