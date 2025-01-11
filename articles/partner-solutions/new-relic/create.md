@@ -70,11 +70,13 @@ There are required fields in each section that you need to fill out. Each requir
 
 <!--new-relic-configure-metrics-and-logs-tab-->
 
+If you wish, you can configure resources to send metrics/logs to New Relic. 
+
 - Select **Enable metrics collection** to set up monitoring of platform metrics.
 - Select **Subscription activity logs** to send subscription-level logs to New Relic.
 - Select **Azure resource logs** to send Azure resource lots to New Relic. 
 
-> [!NOTE]
+> [!IMPORTANT]
 > When the checkbox for Azure resource logs is selected, logs are forwarded for all resources by default.
 
 #### Inclusion and exclusion rules for metrics and logs
@@ -104,12 +106,5 @@ To filter the set of Azure resources that send logs to New Relic, use inclusion 
 
 ## Next steps
 
-- [Manage the New Relic resource](manage.md)
-- [Setting up your New Relic account config](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/azure-native/#view-your-data-in-new-relic)
-- Get started with Azure Native New Relic Service on
-
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NewRelic.Observability%2Fmonitors)
-
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/newrelicinc1635200720692.newrelic_liftr_payg?tab=Overview)
+- [Manage the New Relic resource in the Azure portal](manage.md)
+- [Set up your New Relic account configuration](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/azure-native/#view-your-data-in-new-relic)
