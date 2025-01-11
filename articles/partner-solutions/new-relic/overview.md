@@ -59,6 +59,9 @@ When you use the integrated New Relic experience in the Azure portal by using Az
 - **New Relic account**: The New Relic account on New Relic SaaS is used to store and process telemetry data.
 - **Azure Marketplace SaaS resource**: When you set up a new account and organization on New Relic by using Azure Native New Relic Service, the SaaS resource is created automatically, based on the plan that you select from the Azure New Relic offer in Azure Marketplace. This resource is used for billing.
 
+> [!NOTE]
+> The Azure Marketplace SaaS resource is set up only if you created the New Relic organization by using Azure Native New Relic Service. If you created your New Relic organization directly from the New Relic portal, the Azure Marketplace SaaS resource doesn't exist, and New Relic manages your billing.
+
 ## New Relic links
 
 <!--new-relic-links-->
