@@ -17,13 +17,13 @@ ms.date: 12/09/2024
 
 [!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
-MQTT broker supports multiple authentication methods for clients, and you can configure each listener port to have its own authentication settings with a *BrokerAuthentication* resource. For a list of the available settings, see the [Broker Authentication](/rest/api/iotoperations/broker-authentication) API reference.
+MQTT broker supports multiple authentication methods for clients. You can configure each listener port to have its own authentication settings with a *BrokerAuthentication* resource. For a list of the available settings, see the [Broker Authentication](/rest/api/iotoperations/broker-authentication) API reference.
 
 ## Link BrokerListener and BrokerAuthentication
 
 The following rules apply to the relationship between BrokerListener and *BrokerAuthentication* resources:
 
-* Each BrokerListener can have multiple ports. Each port can be linked to a *BrokerAuthentication* resource. 
+* Each BrokerListener can have multiple ports. Each port can be linked to a *BrokerAuthentication* resource.
 * Each *BrokerAuthentication* can support multiple authentication methods at once.
 * Ports that don't link a *BrokerAuthentication* resource have authentication disabled.
 
@@ -31,25 +31,25 @@ To link a BrokerListener port to a *BrokerAuthentication* resource, specify the 
 
 ## Default BrokerAuthentication resource
 
-Azure IoT Operations deploys a default *BrokerAuthentication* resource named `default` linked with the *default* listener in the `azure-iot-operations` namespace. It only uses [Kubernetes Service Account Tokens (SATs)](#kubernetes-service-account-tokens) for authentication.
+Azure IoT Operations deploys a default *BrokerAuthentication* resource named `default` linked with the *default* listener in the `azure-iot-operations` namespace. It uses only [Kubernetes Service Account Tokens (SATs)](#kubernetes-service-account-tokens) for authentication.
 
 > [!IMPORTANT]
-> The service account token (SAT) authentication method in the default *BrokerAuthentication* resource is required for components in the Azure IoT Operations to function correctly. Avoid updating or deleting the default *BrokerAuthentication* resource.
+> The service account token (SAT) authentication method in the default *BrokerAuthentication* resource is required for components in the IoT Operations to function correctly. Avoid updating or deleting the default *BrokerAuthentication* resource.
 
 # [Portal](#tab/portal)
 
-1. In the Azure portal, navigate to your IoT Operations instance.
+1. In the Azure portal, go to your IoT Operations instance.
 1. Under **Components**, select **MQTT Broker**.
 1. Select the **Authentication** tab.
-1. From authentication policy list, select the **default** policy name.
+1. From the authentication policy list, select the **default** policy name.
 
-    :::image type="content" source="media/howto-configure-authentication/authentication-policy-default.png" alt-text="Screenshot using Azure portal to view the default MQTT broker authentication policy.":::
+    :::image type="content" source="media/howto-configure-authentication/authentication-policy-default.png" alt-text="Screenshot that shows using the Azure portal to view the default MQTT broker authentication policy.":::
 
 To add new authentication methods, select **Add method**.
 
 # [Bicep](#tab/bicep)
 
-To edit the default endpoint, create a Bicep `.bicep` file with the following content. Update the settings as needed, and replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
+To edit the default endpoint, create a Bicep `.bicep` file with the following content. Update the settings as needed. Replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
 
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
@@ -91,7 +91,7 @@ resource defaultBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/
 
 ```
 
-Deploy the Bicep file using Azure CLI.
+Deploy the Bicep file by using the Azure CLI.
 
 ```azurecli
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
@@ -121,13 +121,13 @@ spec:
           - aio-internal
 ```
 
-If you need to make changes, modify the `authenticationMethods` field in this resource while retaining the SAT authentication method with the `aio-internal` audience. Then, deploy it using `kubectl apply`.
+If you need to make changes, modify the `authenticationMethods` field in this resource while you retain the SAT authentication method with the `aio-internal` audience. Then, deploy it by using `kubectl apply`.
 
 ---
 
 ## Authentication flow
 
-The order of the specified authentication methods determines how MQTT broker authenticates clients. MQTT broker tries to authenticate the client's credentials using the first specified method and iterates through the specified methods until it finds a match or reaches the end.
+The order of the specified authentication methods determines how MQTT broker authenticates clients. MQTT broker tries to authenticate the client's credentials by using the first specified method and iterates through the specified methods until it finds a match or reaches the end.
 
 For each method, MQTT broker first checks if the client's credentials are *relevant* for that method. For example, SAT authentication requires a username starting with `K8S-SAT`, and X.509 authentication requires a client certificate. If the client's credentials are relevant, MQTT broker then verifies if they're valid. For more information, see the [Configure authentication method](#configure-authentication-method) section.
 
@@ -159,13 +159,13 @@ spec:
         # ...
 ```
 
-The earlier example specifies custom and SAT. When a client connects, MQTT broker attempts to authenticate the client using the specified methods in the order *custom*, then *SAT*.
+The earlier example specifies `custom` and `SAT`. When a client connects, MQTT broker attempts to authenticate the client by using the specified methods in the order `custom` and then `SAT`.
 
-1. MQTT broker checks if the client's credentials are valid for custom authentication. Since custom authentication relies on an external server to determine validity of credentials, the broker considers all credentials relevant to custom auth and forwards them to the custom authentication server.
-1. If the custom authentication server responds with `Pass` or `Fail` result, the authentication flow ends. However, if the custom authentication server isn't available, then MQTT broker falls back to the remaining specified methods, with SAT being next.
+1. MQTT broker checks if the client's credentials are valid for custom authentication. Because custom authentication relies on an external server to determine validity of credentials, the broker considers all credentials relevant to custom auth and forwards them to the custom authentication server.
+1. If the custom authentication server responds with a `Pass` or `Fail` result, the authentication flow ends. If the custom authentication server isn't available, MQTT broker falls back to the remaining specified methods, with SAT being next.
 1. MQTT broker tries to authenticate the credentials as SAT credentials.
 
-If the custom authentication server is unavailable and all subsequent methods determine that the provided credentials aren't relevant, then the broker denies the client connection.
+If the custom authentication server is unavailable and all subsequent methods determine that the provided credentials aren't relevant, the broker denies the client connection.
 
 ## Configure authentication method
 
@@ -175,14 +175,14 @@ To add an authentication method to a policy:
 
 # [Portal](#tab/portal)
 
-1. In the Azure portal, navigate to your IoT Operations instance.
+1. In the Azure portal, go to your IoT Operations instance.
 1. Under **Components**, select **MQTT Broker**.
 1. Select the **Authentication** tab.
 1. Choose an existing authentication policy or create a new one.
 1. Add a new method by selecting **Add method**.
-1. Choose the method type from the dropdown list then select **Add details** to configure the method.
+1. Choose the method type from the dropdown list, and then select **Add details** to configure the method.
 
-    :::image type="content" source="media/howto-configure-authentication/create-authentication-policy.png" alt-text="Screenshot using the Azure portal to add an MQTT broker authentication policy method.":::
+    :::image type="content" source="media/howto-configure-authentication/create-authentication-policy.png" alt-text="Screenshot that shows using the Azure portal to add an MQTT broker authentication policy method.":::
 
 # [Bicep](#tab/bicep)
 
@@ -270,7 +270,7 @@ resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authe
 
 ```
 
-Deploy the Bicep file using Azure CLI.
+Deploy the Bicep file by using the Azure CLI.
 
 ```azurecli
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
@@ -321,31 +321,31 @@ spec:
             subject: CN = smart-fan
 ```
 
-To change the configuration, modify the `authenticationMethods` setting in this *BrokerAuthentication* resource then deploy it using `kubectl apply`.
+To change the configuration, modify the `authenticationMethods` setting in this *BrokerAuthentication* resource. Then deploy it by using `kubectl apply`.
 
 ---
 
-To learn more about each of the authentication options, see the next sections for each method. 
+To learn more about each of the authentication options, see the next sections for each method.
 
-For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+For more information about enabling secure settings by configuring an Azure Key Vault instance and enabling workload identities, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
 ## X.509
 
 > [!TIP]
 > For an end-to-end example of how to configure X.509 authentication, see [Tutorial: TLS, X.509 client authentication, and attribute-based access control (ABAC) authorization](./tutorial-tls-x509.md).
 
-With X.509 authentication, the MQTT broker uses a **trusted CA certificate** to validate client certificates. This trusted CA can be a root or intermediate CA. The broker checks the client certificate chain against the trusted CA certificate. If the chain is valid, the client is authenticated.
+With X.509 authentication, the MQTT broker uses a *trusted Certificate Authority (CA) certificate* to validate client certificates. This trusted CA can be a root or intermediate CA. The broker checks the client certificate chain against the trusted CA certificate. If the chain is valid, the client is authenticated.
 
 To use X.509 authentication with a trusted CA certificate, the following requirements must be met:
 
-- **TLS**: Since X.509 relies on TLS client certificates, [TLS must be enabled for ports using X.509 authentication](./howto-configure-brokerlistener.md).
+- **TLS**: Because X.509 relies on TLS client certificates, [TLS must be enabled for ports by using X.509 authentication](./howto-configure-brokerlistener.md).
 - **Key algorithms**: Both EC and RSA keys are supported, but all certificates in the chain must use the same key algorithm.
-- **Format**: The CA certificate must be in PEM format.
+- **Format**: The CA certificate must be in Privacy-Enhanced Mail (PEM) format.
 
 > [!TIP]
 > PEM format is a common format for certificates and keys. PEM files are base64-encoded ASCII files with headers like `-----BEGIN CERTIFICATE-----` and `-----BEGIN EC PRIVATE KEY-----`.
 > 
-> If you have a certificate in another format, you can convert it to PEM using OpenSSL. For more information, see [How to convert a certificate into the appropriate format](https://knowledge.digicert.com/solution/how-to-convert-a-certificate-into-the-appropriate-format).
+> If you have a certificate in another format, you can convert it to PEM by using OpenSSL. For more information, see [Convert a certificate into the appropriate format](https://knowledge.digicert.com/solution/how-to-convert-a-certificate-into-the-appropriate-format).
 
 ### Get a trusted CA certificate
 
@@ -357,14 +357,14 @@ For testing, create a self-signed CA certificate with OpenSSL. For example, run 
 openssl req -x509 -newkey rsa:4096 -keyout ca-key.pem -out ca.pem -days 365 -nodes -subj "/CN=Contoso Root CA Cert"
 ```
 
-The same command with [Step CLI](https://smallstep.com/docs/step-cli/installation/), which is a convenient tool for managing certificates, is:
+The same command with the [Step CLI](https://smallstep.com/docs/step-cli/installation/), which is a convenient tool for managing certificates, is:
 
 ```bash
 step certificate create "Contoso Root CA Cert" ca.pem ca-key.pem --profile root-ca --kty RSA --size 4096 --no-password --insecure
  --not-after 8760h
 ```
 
-These commands create a CA certificate `ca.pem` and a private key `ca-key.pem` in PEM format. The CA certificate `ca.pem` can be imported into the MQTT broker for X.509 authentication.
+These commands create a CA certificate, `ca.pem`, and a private key, `ca-key.pem`, in PEM format. You can import the CA certificate `ca.pem` into the MQTT broker for X.509 authentication.
 
 ### Import a trusted CA certificate
 
@@ -374,9 +374,9 @@ To get started with X.509 authentication, import the trusted CA certificate into
 kubectl create configmap client-ca --from-file=ca.pem -n azure-iot-operations
 ```
 
-In this example, the CA certificate is imported under the key `ca.pem`. MQTT broker trusts all CA certificates in the ConfigMap, so the name of the key can be anything.
+In this example, the CA certificate is imported under the key `ca.pem`. MQTT broker trusts all CA certificates in the ConfigMap, so you can use anything for the name of the key.
 
-To check the root CA certificate is properly imported, run `kubectl describe configmap`. The result shows the same base64 encoding of the PEM certificate file.
+To check that the root CA certificate is properly imported, run `kubectl describe configmap`. The result shows the same base64 encoding of the PEM certificate file.
 
 ```bash
 kubectl describe configmap client-ca -n azure-iot-operations
@@ -402,17 +402,17 @@ BinaryData
 
 ### Configure X.509 authentication method
 
-Once the trusted CA certificate is imported, enable X.509 client authentication by adding it as an authentication method in a *BrokerAuthentication* resource. Ensure this resource is linked to a TLS-enabled listener port.
+After the trusted CA certificate is imported, enable X.509 client authentication by adding it as an authentication method in a *BrokerAuthentication* resource. Ensure that this resource is linked to a TLS-enabled listener port.
 
 # [Portal](#tab/portal)
 
-1. In the Azure portal, navigate to your IoT Operations instance.
+1. In the Azure portal, go to your IoT Operations instance.
 1. Under **Components**, select **MQTT Broker**.
 1. Select the **Authentication** tab.
 1. Choose an existing authentication policy or create a new one.
 1. Add a new method by selecting **Add method**.
-1. Choose the method type **X.509** from the dropdown list then select **Add details** to configure the method.
-1. In the **X.509 authentication details** pane, specify the trusted CA certificate ConfigMap name using JSON format.
+1. Choose the method type **X.509** from the dropdown list. Then select **Add details** to configure the method.
+1. On the **X.509 authentication details** pane, specify the trusted CA certificate ConfigMap name by using JSON format.
 
    ```json
    {
@@ -420,11 +420,11 @@ Once the trusted CA certificate is imported, enable X.509 client authentication 
    }
    ```
    
-   Replace `<TRUSTED_CA_CONFIGMAP>` with the name of the ConfigMap that contains the trusted CA certificate. For example, `"trustedClientCaCert": "client-ca"`.
+   Replace `<TRUSTED_CA_CONFIGMAP>` with the name of the ConfigMap that contains the trusted CA certificate. For example, use `"trustedClientCaCert": "client-ca"`.
 
-   :::image type="content" source="media/howto-configure-authentication/x509-method.png" alt-text="Screenshot using Azure portal to set MQTT broker X.509 authentication method." lightbox="media/howto-configure-authentication/x509-method.png":::
+   :::image type="content" source="media/howto-configure-authentication/x509-method.png" alt-text="Screenshot that shows using the Azure portal to set the MQTT broker X.509 authentication method." lightbox="media/howto-configure-authentication/x509-method.png":::
 
-1. Optionally, add authorization attributes for clients using X.509 certificates. To learn more, see [Certificate attributes for authorization](#optional-certificate-attributes-for-authorization).
+1. Optionally, add authorization attributes for clients by using X.509 certificates. To learn more, see [Certificate attributes for authorization](#optional-certificate-attributes-for-authorization).
 1. Select **Apply** to save the changes.
 
 # [Bicep](#tab/bicep)
@@ -473,9 +473,9 @@ resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authe
 
 ```
 
-Replace `<TRUSTED_CA_CONFIGMAP>` with the name of the ConfigMap that contains the trusted CA certificate. For example, `client-ca`.
+Replace `<TRUSTED_CA_CONFIGMAP>` with the name of the ConfigMap that contains the trusted CA certificate. For example, use `client-ca`.
 
-Deploy the Bicep file using Azure CLI.
+Deploy the Bicep file by using the Azure CLI.
 
 ```azurecli
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
@@ -494,19 +494,19 @@ spec:
           ## See the next section for more information
 ```
 
-Replace `<TRUSTED_CA_CONFIGMAP>` with the name of the ConfigMap that contains the trusted CA certificate. For example, `client-ca`.
+Replace `<TRUSTED_CA_CONFIGMAP>` with the name of the ConfigMap that contains the trusted CA certificate. For example, use `client-ca`.
 
 ---
 
 #### Optional: Certificate attributes for authorization
 
-X.509 attributes can be specified in the *BrokerAuthentication* resource for authorizing clients based on their certificate properties. The attributes are defined in the `authorizationAttributes` field.
+You can specify X.509 attributes in the *BrokerAuthentication* resource for authorizing clients based on their certificate properties. The attributes are defined in the `authorizationAttributes` field.
 
 For example:
 
 # [Portal](#tab/portal)
 
-In the Azure portal, when configuring the X.509 authentication method, add the authorization attributes in the **X.509 authentication details** pane in JSON format.
+In the Azure portal, when you configure the X.509 authentication method, add the authorization attributes in the **X.509 authentication details** pane in JSON format.
 
 ```json
 {
@@ -590,23 +590,23 @@ x509Settings:
 
 In this example, every client that has a certificate issued by the root CA with distinguished name `CN = Contoso Root CA Cert, OU = Engineering, C = US` or the intermediate CA with distinguished name `CN = Contoso Intermediate CA` receives the attributes listed. In addition, the smart fan client certificate receives attributes specific to it.
 
-The matching for attributes always starts from the leaf client certificate and then goes along the chain. The attribute assignment stops after the first match. In previous example, even if `smart-fan` has the intermediate certificate `CN = Contoso Intermediate CA`, it doesn't get the associated attributes.
+The matching for attributes always starts from the leaf client certificate and then goes along the chain. The attribute assignment stops after the first match. In the previous example, even if `smart-fan` has the intermediate certificate `CN = Contoso Intermediate CA`, it doesn't get the associated attributes.
 
-Authorization rules can be applied to clients using X.509 certificates with these attributes. To learn more, see [Authorize clients that use X.509 authentication](./howto-configure-authorization.md#authorize-clients-that-use-x509-authentication).
+You can apply authorization rules to clients by using X.509 certificates with these attributes. To learn more, see [Authorize clients that use X.509 authentication](./howto-configure-authorization.md#authorize-clients-that-use-x509-authentication).
 
 ### Enable X.509 authentication for a listener port
 
-After importing the trusted CA certificate and configuring the *BrokerAuthentication* resource, link it to a TLS-enabled listener port. This step is important because X.509 authentication relies on TLS for client certificate validation.
+After you import the trusted CA certificate and configure the *BrokerAuthentication* resource, link it to a TLS-enabled listener port. This step is important because X.509 authentication relies on TLS for client certificate validation.
 
 To get a TLS-enabled listener port, see [Enable TLS manual certificate management for a port](./howto-configure-brokerlistener.md#enable-tls-manual-certificate-management-for-a-port) and [Enable TLS automatic certificate management for a port](./howto-configure-brokerlistener.md#enable-tls-automatic-certificate-management-for-a-port).
 
 > [!NOTE]
-> Enabling TLS on a broker listener port means the broker uses a server certificate for TLS encryption. When clients connect to this port, they must trust the server certificate by having the CA certificate that signed it in their trust store. This process is known as *trust distribution* or *trust bundling*. It's important to understand the difference between server validation and client validation:
+> Enabling TLS on a broker listener port means that the broker uses a server certificate for TLS encryption. When clients connect to this port, they must trust the server certificate by having the CA certificate that signed it in their trust store. This process is known as *trust distribution* or *trust bundling*. It's important to understand the difference between server validation and client validation:
 > 
 > - **Client validation**: The MQTT broker (server) checks the client certificate against the trusted CA certificate specified in the `trustedClientCaCert` field for X.509 client authentication.
 > - **Server validation**: Clients (like mosquitto or MQTTX) check the MQTT broker's server certificate against the trusted CA certificate in their trust store. For mosquitto clients, use the `--cafile` parameter to specify the CA certificate file. For MQTTX, add the CA certificate to the trust store in the settings.
 >
-> After enabling X.509 authentication, ensure that clients trust the broker's server certificate by having the *server-side* CA certificate in their trust store. Don't confuse trusting the *server-side* CA certificate with the *client-side* CA certificate used for client authentication that is specified in the `trustedClientCaCert` field.
+> After you enable X.509 authentication, ensure that clients trust the broker's server certificate by having the *server-side* CA certificate in their trust store. Don't confuse trusting the *server-side* CA certificate with the *client-side* CA certificate used for client authentication that's specified in the `trustedClientCaCert` field.
 >
 > For a full example, see [Tutorial: TLS, X.509 client authentication, and attribute-based access control (ABAC) authorization](./tutorial-tls-x509.md).
 
@@ -656,9 +656,9 @@ Launched in Kubernetes 1.13, and becoming the default format in 1.21, bound toke
 
 * The tokens themselves are harder to steal and misuse; they're time-bound, audience-bound, and object-bound.
 * They adopt a standardized format: OpenID Connect (OIDC), with full OIDC Discovery, making it easier for service providers to accept them.
-* They're distributed to pods more securely, using a new Kubelet projected volume type.
+* They're distributed to pods more securely, by using a new Kubelet projected volume type.
 
-The broker verifies tokens using the [Kubernetes Token Review API](https://kubernetes.io/docs/reference/kubernetes-api/authentication-resources/token-review-v1/). Enable the Kubernetes `TokenRequestProjection` feature to specify `audiences` (default since 1.21). If this feature isn't enabled, SATs can't be used.
+The broker verifies tokens by using the [Kubernetes Token Review API](https://kubernetes.io/docs/reference/kubernetes-api/authentication-resources/token-review-v1/). Enable the Kubernetes `TokenRequestProjection` feature to specify `audiences` (default since 1.21). If this feature isn't enabled, SATs can't be used.
 
 ### Create a service account
 
@@ -672,7 +672,7 @@ kubectl create serviceaccount mqtt-client -n azure-iot-operations
 
 Clients authenticating via SAT can optionally have their service accounts annotated with attributes to be used with authorization policies. To distinguish these annotations from others, they begin with `aio-broker-auth/` prefix. 
 
-You can annotate a service account using `kubectl annotate`:
+You can annotate a service account by using `kubectl annotate`:
 
 ```bash
 kubectl annotate serviceaccount <SERVICE_ACCOUNT_NAME> aio-broker-auth/<ATTRIBUTE>=<VALUE> -n azure-iot-operations
@@ -699,14 +699,14 @@ Modify the `authenticationMethods` setting in a *BrokerAuthentication* resource 
 
 # [Portal](#tab/portal)
 
-1. In the Azure portal, navigate to your IoT Operations instance.
+1. In the Azure portal, go to your IoT Operations instance.
 1. Under **Components**, select **MQTT Broker**.
 1. Select the **Authentication** tab.
 1. Choose an existing authentication policy or create a new one.
 1. Add a new method by selecting **Add method**.
 1. Choose the method type **Kubernetes SAT** from the dropdown list then select **Add details** to configure the method.
 
-:::image type="content" source="media/howto-configure-authentication/sat-method.png" alt-text="Screenshot using the Azure portal to set MQTT broker SAT authentication method.":::
+:::image type="content" source="media/howto-configure-authentication/sat-method.png" alt-text="Screenshot that shows using the Azure portal to set MQTT broker SAT authentication method.":::
 
 # [Bicep](#tab/bicep)
 
@@ -751,7 +751,7 @@ resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authe
 }
 ```
 
-Deploy the Bicep file using Azure CLI.
+Deploy the Bicep file by using the Azure CLI.
 
 ```azurecli
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
@@ -777,7 +777,7 @@ Apply your changes with `kubectl apply`. It might take a few minutes for the cha
 
 SAT authentication uses the MQTT v5 enhanced authentication fields. A client must set the enhanced authentication method to `K8S-SAT` and the enhanced authentication data to the token.
 
-For example using mosquitto (some fields omitted for brevity):
+For example, use mosquitto (some fields omitted for brevity):
 
 ```bash
 mosquitto_pub ... -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data <TOKEN>
@@ -829,14 +829,14 @@ Modify the `authenticationMethods` setting in a *BrokerAuthentication* resource 
 
 # [Portal](#tab/portal)
 
-1. In the Azure portal, navigate to your IoT Operations instance.
+1. In the Azure portal, go to your IoT Operations instance.
 1. Under **Components**, select **MQTT Broker**.
 1. Select the **Authentication** tab.
 1. Choose an existing authentication policy or create a new one.
 1. Add a new method by selecting **Add method**.
 1. Choose the method type **Custom** from the dropdown list then select **Add details** to configure the method.
 
-    :::image type="content" source="media/howto-configure-authentication/custom-method.png" alt-text="Screenshot using the Azure portal to set MQTT broker custom authentication method.":::
+    :::image type="content" source="media/howto-configure-authentication/custom-method.png" alt-text="Screenshot that shows using the Azure portal to set MQTT broker custom authentication method.":::
 
 # [Bicep](#tab/bicep)
 
@@ -881,7 +881,7 @@ resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authe
 }
 ```
 
-Deploy the Bicep file using Azure CLI.
+Deploy the Bicep file by using the Azure CLI.
 
 ```azurecli
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
@@ -920,7 +920,7 @@ For testing, you can disable authentication for a broker listener port. Disablin
 
 # [Portal](#tab/portal)
 
-1. In the Azure portal, navigate to your IoT Operations instance.
+1. In the Azure portal, go to your IoT Operations instance.
 1. Under **Components**, select **MQTT Broker**.
 1. Select the broker listener you want to edit from the list.
 1. On the port you want to disable authentication, select **None** in the authentication dropdown.
