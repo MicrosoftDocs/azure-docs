@@ -11,7 +11,9 @@ Begin by signing in to the [Azure portal](https://portal.azure.com/).
 
 1. From the **Resource** menu, choose the resource you would like to delete.
 
-1. From the working pane's command bar, select **Overview** > **Delete**.
+    The resource displays in the working pane.
+
+1. From the working pane's command bar, select **Delete**.
 
     The **Delete Resource** pane appears in the sidebar.
 

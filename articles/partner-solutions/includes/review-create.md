@@ -23,4 +23,4 @@ A page with the message *Deployment is in progress** displays in the working pan
 
 When the deployment is complete, the message *Your deployment is complete* appears.
 
-Once the resource is created, select **Go to Resource** to view your resource. 
+Once the resource is created, select the **Go to Resource** button to view your resource. 
