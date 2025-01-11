@@ -10,7 +10,7 @@ ms.date: 01/10/2025
 In this article, you learn how to contact support when working with an Azure Native New Relic Service resource. 
 
 > [!TIP]
-> Before contacting support, see [Fix common errors](new-relic-troubleshoot.md).
+> Before contacting support, review our [troubleshooting](new-relic-troubleshoot.md) topic for guidance on common issues.
 
 ## Contact New Relic support
 
