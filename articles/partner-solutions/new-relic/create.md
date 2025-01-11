@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Get started with Azure Native New Relic Service"
-description: Learn how to create a resource by using Azure Native New Relic Service.
+description: Learn how to create an Azure Native New Relic Service in the Azure portal.
 ms.topic: quickstart
 ms.date: 01/10/2025
 ---
@@ -66,6 +66,9 @@ There are required fields (identified with a red asterisk) in each section that 
 
 If you wish, you can configure resources to send metrics/logs to New Relic. 
 
+> [!TIP]
+> You can collect metrics for virtual machines and app services by installing the New Relic agent after you create the New Relic resource.
+
 - Select **Enable metrics collection** to set up monitoring of platform metrics.
 - Select **Subscription activity logs** to send subscription-level logs to New Relic.
 - Select **Azure resource logs** to send Azure resource lots to New Relic. 
@@ -79,10 +82,9 @@ To filter the set of Azure resources that send logs to New Relic, use inclusion 
 
 - All Azure resources with tags defined in include rules send logs to New Relic.
 - All Azure resources with tags defined in exclude rules don't send logs to New Relic.
-- If there's a conflict between inclusion and exclusion rules, the exclusion rule applies.
 
-> [!TIP]
-> You can collect metrics for virtual machines and app services by installing the New Relic agent after you create the New Relic resource.
+> [!NOTE]
+> If there's a conflict between inclusion and exclusion rules, the exclusion rule applies.
 
 1. After you finish configuring metrics and logs, select **Next**.
 
