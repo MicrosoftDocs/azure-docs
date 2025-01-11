@@ -21,10 +21,6 @@ landingContent:
         links:
           - text: What is Azure Native New Relic Service?
             url: overview.md
-      - linkListType: how-to-guide
-        links:
-          - text: Manage a resource
-            url: manage.md
 
   # Card
   - title: Create an Azure Native New Relic Service resource
@@ -35,6 +31,8 @@ landingContent:
             url: create.md
       - linkListType: how-to-guide
         links:
+          - text: Manage a resource
+            url: manage.md
           - text: Troubleshoot a resource
             url: troubleshoot.md
 
