@@ -199,13 +199,11 @@ In this section, you create a web application that allows users to sign in and u
 
 ## Enable targeting for the web application
 
-The targeting filter evaluates a user's feature state based on the user's targeting context, which comprises the user ID and the groups the user belongs to. In this example, you can use the signed-in user's email address as the user ID and the domain name of the email address as the group.
+A targeting context is required for feature evaluation with targeting. You can provide it as a parameter to the `featureManager.IsEnabledAsync` API explicitly. In ASP.NET Core, the targeting context can also be provided through the service collection as an ambient context by implementing the [ITargetingContextAccessor](./feature-management-dotnet-reference.md#itargetingcontextaccessor) interface.
 
-To evaluate features that use targeting without the need to manually pass a targeting context, an [ITargetingContextAccessor](./feature-management-dotnet-reference.md#itargetingcontextaccessor) can be used.
+### Targeting Context Accessor
 
-### Default Targeting Accessor
-
-To add the default implementation of `ITargetingContextAccessor` use the `WithTargeting()` extension on the feature management builder as seen below. The default uses `HttpContext.User.Identity.Name` as `UserId` and uses `HttpContext.User.Claims` of type `Role` for `Groups`. You can see how the accessor works by looking at the [DefaultHttpTargetingContextAccessor](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs).
+To provide the targeting context, pass your implementation type of the `ITargetingContextAccessor` to the `WithTargeting<T>` method. If no type is provided, a default implementation is used, as shown in the following code snippet. The default targeting context accessor utilizes `HttpContext.User.Identity.Name` as `UserId` and uses `HttpContext.User.Claims` of type [`Role`](https://learn.microsoft.com/dotnet/api/system.security.claims.claimtypes.role?view=net-9.0#system-security-claims-claimtypes-role) for `Groups`. You can reference the [DefaultHttpTargetingContextAccessor](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs) to implement your own if customization is needed. To learn more about implementing the [ITargetingContextAccessor](./feature-management-dotnet-reference.md#itargetingcontextaccessor), see the feature reference for targeting.
 
 ``` C#
 // Existing code in Program.cs
@@ -218,9 +216,6 @@ builder.Services.AddFeatureManagement()
 // The rest of existing code in Program.cs
 // ... ...
 ```
-
-> [!NOTE]
-> For more control over how username and groups are extracted for targeting, see the [feature reference for targeting](./feature-management-dotnet-reference.md#itargetingcontextaccessor).
 
 ## Targeting filter in action
 
