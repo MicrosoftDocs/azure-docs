@@ -18,7 +18,7 @@ In this article, you learn how to contact support when working with an Azure Nat
 
 <!--new-relic-contact-support-->
 
-You are directed to the [New Relic support website](https://support.newrelic.com/) where you can log your support request.
+You're directed to the [New Relic support website](https://support.newrelic.com/) where you can log your support request.
 
 :::image type="content" source="media/new-relic-troubleshoot/new-relic-support.png" alt-text="Screenshot that shows the pane for a New Relic support request.":::
 
