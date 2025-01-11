@@ -15,7 +15,9 @@ This article describes how to fix common problems when you're working with Azure
 
 [!INCLUDE [marketplace-purchase-errors](../includes/marketplace-purchase-errors.md)]
 
-## You can't create a New Relic resource
+<!--new-relic-troubleshoot-->
+
+## I can't create a New Relic resource
 
 To set up Azure Native New Relic Service, you must have owner access on the Azure subscription. Ensure that you have the appropriate access before you start the setup.
 
@@ -26,7 +28,7 @@ To register the resource provider from a command line, enter `az provider regist
 
 Only resource types in [supported categories](/azure/azure-monitor/essentials/resource-logs-categories) send logs to New Relic through the integration. To check whether the resource is set up to send logs to New Relic, go to the [Azure diagnostic settings](/azure/azure-monitor/platform/diagnostic-settings) for that resource. Then, verify that there's a New Relic diagnostic setting.
 
-## You can't install or uninstall an extension on a virtual machine
+## I can't install or uninstall an extension on a virtual machine
 
 Only virtual machines without the New Relic agent installed should be selected together to install the extension. Deselect any virtual machines that already have the New Relic agent installed, so that **Install Extension** is active. The **Agent Status** column shows the status **Running** or **Shutdown** for any virtual machines that already have the New Relic agent installed.
 
