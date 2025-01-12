@@ -16,7 +16,7 @@ This article describes how to manage the settings for Azure Native New Relic Ser
 
 :::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of a New Relic resource in the Azure portal with the overview displayed in the working pane.":::
 
-The details include:
+The *Essentials* details include:
 
 - Resource group
 - Region
@@ -28,23 +28,25 @@ The details include:
 - Pricing plan
 - Billing term
 
-At the bottom:
+Below the essentials, you can navigate to other details about your resource by selecting a tab.
 
 - The **Get started** tab provides deep links to New Relic dashboards, logs, and alerts.
 - The **Monitoring** tab provides a summary of the resources that send logs and metrics to New Relic.
 
-If you select **Monitored resources**, the pane that opens includes a table with information about the Azure resources that are sending logs and metrics to New Relic.
+### Monitoring tab
+
+If you select **Monitoring**, the pane that opens includes a table with information about the Azure resources that are sending logs and metrics to New Relic.
 
 :::image type="content" source="media/manage/resource-overview-monitoring.png" alt-text="A screenshot of a New Relic resource's Monitoring information displayed in the working pane of Azure portal.":::
 
 The columns in the table denote valuable information for your resource:
 
-|Property  | Description  |
-|---------|---------|
-| **Resource type**      |   Azure resource type      |
-| **Total resources**      | Count of all resources for the resource type      |
-| **Logs to New Relic**        |    Count of logs for the resource type       |
-| **Metrics to New Relic**         |   Count of resources that are sending metrics to New Relic through the integration      |
+|Property                  | Description                                                                      |
+|--------------------------|----------------------------------------------------------------------------------|
+| **Resource type**        | Azure resource type                                                              |
+| **Total resources**      | Count of all resources for the resource type                                     |
+| **Logs to New Relic**    | Count of logs for the resource type                                              |
+| **Metrics to New Relic** | Count of resources sending metrics to New Relic through the integration          |
 
 ## Reconfigure rules for logs or metrics
 
