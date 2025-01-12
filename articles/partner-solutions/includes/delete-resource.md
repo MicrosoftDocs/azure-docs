@@ -7,8 +7,6 @@ ms.author: kkendrick
 
 If you're done using your resource and would like to delete it, follow these steps:
 
-[!INCLUDE [manage](manage.md)]
-
 1. From the working pane's command bar, select **Delete**.
 
     The **Delete Resource** pane appears in the sidebar.
