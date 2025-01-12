@@ -10,7 +10,7 @@ ms.date: 01/10/2025
 
 This article describes how to manage the settings for Azure Native New Relic Service.
 
-## Resource overview
+## Resource overview 
 
 To see the details of your New Relic resource, select **Overview** on the left pane.
 

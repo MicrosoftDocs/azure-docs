@@ -7,9 +7,7 @@ ms.author: kkendrick
 
 If you're done using your resource and would like to delete it, follow these steps:
 
-Begin by signing in to the [Azure portal](https://portal.azure.com/).
-
-1. From the **Resource** menu, choose the resource you would like to delete.
+[!INCLUDE [manage](manage.md)] delete.
 
     The resource displays in the working pane.
 
