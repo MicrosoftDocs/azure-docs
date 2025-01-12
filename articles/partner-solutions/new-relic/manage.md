@@ -91,44 +91,44 @@ The tag rules and logs that you defined for the New Relic resource apply to all 
 
 ## Connected New Relic resources
 
-To access all New Relic resources and deployments you created using the Azure or New Relic portal experience, go to the **Connected New Relic resources** tab in any of your Azure New Relic resources.
+To view and manage all New Relic Resources you've created, select **New Relic account config** > **Connected New Relic Resources** from the *Service menu*. 
 
-:::image type="content" source="media/new-relic-how-to-manage/connected-new-relic-resources.png" alt-text="Screenshot showing Connected New Relic resources selected in the Resource menu.":::
+> [!NOTE]
+> - Your Azure role must be set to *Owner* or a *Contributor* for the subscription to manage these resources.
 
-You can easily manage the corresponding New Relic deployments or Azure resources using the links, provided you have owner or contributor rights to those deployments and resources.
+## New Relic agents
 
-## Monitor virtual machines using the New Relic agent
+For information on New Relic agents, review the [New Relic documentation](https://docs.newrelic.com/docs/infrastructure/choose-infra-install-method/). 
 
-You can install the New Relic agent on virtual machines as an extension. Select **Virtual Machines** on the left pane. The **Virtual machine agent** pane shows a list of all virtual machines in the subscription.
+### Monitor virtual machines with the New Relic agent
 
-:::image type="content" source="media/new-relic-how-to-manage/new-relic-virtual-machines.png" alt-text="Screenshot that shows virtual machines for a New Relic resource.":::
+To monitor virtual machines using the New Relic agent:
+
+1. Select **New Relic account config** > **Virtual Machines** from the *Service menu*. 
+
+    A list of all virtual machines in the subscription displays in the working pane.
 
 For each virtual machine, the following info appears:
 
-  |  Property | Description |
-  |--|--|
-  | **Virtual machine name** | Name of the virtual machine. |
-  | **Resource status**  | Indicates whether the virtual machine is stopped or running. The New Relic agent can be installed only on virtual machines that are running. If the virtual machine is stopped, installing the New Relic agent is disabled. |
-  | **Agent status**  | Indicates whether the New Relic agent is running on the virtual machine. |
-  | **Agent version**    | Version number of the New Relic agent. |
+  |  Property                | Description                                                              |
+  |--------------------------|--------------------------------------------------------------------------|
+  | **Virtual machine name** | Name of the virtual machine.                                             |
+  | **Resource status**      | Indicates whether the virtual machine is stopped or running.             |
+  | **Agent status**         | Indicates whether the New Relic agent is running on the virtual machine. |
+  | **Agent version**        | Version number of the New Relic agent.                                   |
 
-> [!NOTE]
-> If a virtual machine shows that an agent is installed, but the option **Uninstall extension** is disabled, the agent was configured through a different New Relic resource in the same Azure subscription. To make any changes, go to the other New Relic resource in the Azure subscription.
+> [!IMPORTANT]
+> 
+> - The New Relic agent can be installed only on virtual machines that are running. If the virtual machine is stopped, installing the New Relic agent is disabled.
+> - If a virtual machine shows that an agent is installed, but the option **Uninstall extension** is disabled, the agent was configured through a different New Relic resource in the same Azure subscription. To make any changes, go to the other New Relic resource in the Azure subscription.
 
-## Monitor Azure Virtual Machine Scale Sets using the New Relic agent
+### Monitor Virtual Machine Scale Sets with the New Relic agent
 
-You can install New Relic agent on Azure Virtual Machine Scale Sets as an extension.
+To monitor Virtual Machine Scale Sets using the New Relic Agent:
 
-1. Select **Virtual Machine Scale Sets** under **New Relic account config** in the Resource menu.
-1. In the working pane, you see a list of all virtual machine scale sets in the subscription.
+1. Select **New Relic account config** > **Virtual Machine Scale Sets** from the *Service menu*. 
 
-Virtual Machine Scale Sets is an Azure Compute resource that can be used to deploy and manage a set of identical VMs. For more information, see [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
-
-For more information on the orchestration modes available [orchestration modes](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes).
-
-Use  native integration to install an agent on both the uniform and flexible scale-sets. The new instances (VMs) of a scale set, in any mode, receive the agent extension during scale-up. Virtual Machine Scale Sets resources in a uniform orchestration mode support _Automatic_, _Rolling_, and _Manual_ upgrade policy. Resources in Flexible orchestration mode only support manual upgrade.
-
-If a manual upgrade policy is set for a resource, upgrade the instances manually by installing the agent extension for the already scaled up instances. For more information on autoscaling and instance orchestration, see [autoscaling-and-instance-orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#autoscaling-and-instance-orchestration).
+    A list of all Virtual Machine Scale Sets in the subscription displays in the working pane.
 
 > [!NOTE]
 > In manual upgrade policy, preexisting VM instances don't receive the extension automatically. The agent status shows as **Partially Installed**. Upgrade the VM instances by manually installing the extension on them from the VM extensions Resource menu, or go to specific Virtual Machine Scale Sets and select **Instances** from the Resource menu.
@@ -136,28 +136,30 @@ If a manual upgrade policy is set for a resource, upgrade the instances manually
 > [!NOTE]
 > The agent installation dashboard supports the automatic and rolling upgrade policy for Flex orchestration mode in the next release when similar support is available from Virtual Machine Scale Sets Flex resources.
 
-## Monitor app services using the New Relic agent
+### Monitor app services using the New Relic agent
 
-You can install the New Relic agent on app services as an extension. Select **App Services** on the left pane. The working pane shows a list of all app services in the subscription.
-
-:::image type="content" source="media/new-relic-how-to-manage/new-relic-app-services.png" alt-text="Screenshot that shows app services for a New Relic resource.":::
+1. Select **New Relic account config** > **App Services** from the *Service menu*. 
 
 For each app service, the following information appears:
 
- |Property |         Description |
- |--|----|
- | **Resource name**         | App service name.|
- | **Resource status**       | Indicates whether the App service is running or stopped. The New Relic agent can be installed only on app services that are running.|
- | **App Service plan**      | The plan configured for the app service.|
- | **Agent status**          | Status of the agent. |
+ |Property                   | Description                                             |
+ |---------------------------|---------------------------------------------------------|
+ | **Resource name**         | App service name.                                       |
+ | **Resource status**       | Indicates whether the App service is running or stopped.|
+ | **App Service plan**      | The plan configured for the app service.                |
+ | **Agent status**          | Status of the agent.                                    |
   
-To install the New Relic agent, select the app service and then select **Install Extension**. The application settings for the selected app service are updated, and the app service is restarted to complete the configuration of the New Relic agent.
+> [!IMPORTANT]
+>
+> - App Service extensions only supported for app services that are running on Windows operating systems.
+> - App Services that use Linux operating systems are not displayed.
+> - You can only manage Web App App Services. Function Apps are not supported at this time. 
 
-> [!NOTE]
-> App Service extensions are currently supported only for app services that are running on Windows operating systems. The list doesn't show app services that use Linux operating systems.
+### Install a New Relic agent
 
-> [!NOTE]
-> This page currently shows only the web app type of app services. Managing agents for function apps isn't supported at this time.
+You can install New Relic agents on Virtual Machine, Virtual Machine Scale Set, or App Service as an extension by selecting **Install Extension** command bar in the working pane. 
+
+The application settings for the selected Virtual Machine, Virtual Machine Scale Set, or App Service updates and restarts.
 
 ## Change billing plan
 
