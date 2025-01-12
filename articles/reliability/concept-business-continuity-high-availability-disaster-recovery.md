@@ -148,7 +148,7 @@ Commonly, uptime is measured based on the number of "nines" in the uptime percen
 
 ### High availability design elements
 
-To achieve HA requirements, a workload can include a number of design elements.  Some of the common elements are listed and described below in this section.
+To achieve HA requirements, a workload can include a number of design elements. Some of the common elements are listed and described below in this section.
 
 > [!NOTE]
 > Some workloads are *mission-critical*, which means any downtime can have severe consequences. If you're designing a mission-critical workload, there are specific things you need to think about when you design your solution and manage your business continuity. For more information, see the [Azure Well-Architected Framework: Mission-critical workloads](/azure/well-architected/mission-critical/mission-critical-overview).
@@ -295,7 +295,7 @@ Infrastructure as code (IaC) assets, such as Bicep files, ARM templates, or Terr
 
 #### Testing and drills
 
-It's critical that you routinely validate and test your DR plans, and your wider reliability strategy. By testing your DR plans, you also help to validate that your RTO is feasible, and you can identify opportunities to optimize your processes. To learn more, see [Recommendations for designing a reliability testing strategy](/azure/well-architected/reliability/testing-strategy).
+It's critical that you routinely validate and test your DR plans, and your wider reliability strategy. By testing your DR plans, you also help to validate that your RTO is feasible based on the processes you need to follow. To learn more, see [Recommendations for designing a reliability testing strategy](/azure/well-architected/reliability/testing-strategy).
 
 ## Related content
 
