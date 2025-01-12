@@ -94,7 +94,7 @@ The tag rules and logs that you defined for the New Relic resource apply to all 
 To view and manage all your New Relic Resources, select **New Relic account config** > **Connected New Relic Resources** from the *Service menu*. 
 
 > [!NOTE]
-> - Your Azure role must be set to *Owner* or a *Contributor* for the subscription to manage these resources.
+> Your Azure role must be set to *Owner* or a *Contributor* for the subscription to manage these resources.
 
 ## New Relic agents
 
