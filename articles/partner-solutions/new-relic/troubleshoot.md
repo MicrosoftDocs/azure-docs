@@ -15,8 +15,6 @@ This article describes how to fix common problems when you're working with Azure
 
 [!INCLUDE [marketplace-purchase-errors](../includes/marketplace-purchase-errors.md)]
 
-<!--new-relic-troubleshoot-->
-
 ## Can't create a New Relic resource
 
 To set up Azure Native New Relic Service, you must have owner access on the Azure subscription. Ensure that you have the appropriate access before you start the setup.
