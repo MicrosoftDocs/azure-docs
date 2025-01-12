@@ -110,12 +110,12 @@ To monitor virtual machines using the New Relic agent:
 
 For each virtual machine, the following info appears:
 
-  |  Property                | Description                                                              |
-  |--------------------------|--------------------------------------------------------------------------|
-  | **Virtual machine name** | Name of the virtual machine.                                             |
-  | **Resource status**      | Indicates whether the virtual machine is stopped or running.             |
-  | **Agent status**         | Indicates whether the New Relic agent is running on the virtual machine. |
-  | **Agent version**        | Version number of the New Relic agent.                                   |
+|  Property                | Description                                                              |
+|--------------------------|--------------------------------------------------------------------------|
+| **Virtual machine name** | Name of the virtual machine.                                             |
+| **Resource status**      | Indicates whether the virtual machine is stopped or running.             |
+| **Agent status**         | Indicates whether the New Relic agent is running on the virtual machine. |
+| **Agent version**        | Version number of the New Relic agent.                                   |
 
 > [!IMPORTANT]
 > 
@@ -142,12 +142,12 @@ To monitor Virtual Machine Scale Sets using the New Relic Agent:
 
 For each app service, the following information appears:
 
- |Property                   | Description                                             |
- |---------------------------|---------------------------------------------------------|
- | **Resource name**         | App service name.                                       |
- | **Resource status**       | Indicates whether the App service is running or stopped.|
- | **App Service plan**      | The plan configured for the app service.                |
- | **Agent status**          | Status of the agent.                                    |
+|Property                   | Description                                             |
+|---------------------------|---------------------------------------------------------|
+| **Resource name**         | App service name.                                       |
+| **Resource status**       | Indicates whether the App service is running or stopped.|
+| **App Service plan**      | The plan configured for the app service.                |
+| **Agent status**          | Status of the agent.                                    |
   
 > [!IMPORTANT]
 >
