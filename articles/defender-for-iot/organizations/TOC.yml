@@ -364,10 +364,6 @@
           href: appliance-catalog/virtual-sensor-vmware.md
         - name: OT sensor (Hyper-V) Gen 2
           href: appliance-catalog/virtual-sensor-hyper-v.md
-        - name: On-premises management console (VMware ESXi)
-          href: appliance-catalog/virtual-management-vmware.md
-        - name: On-premises management console (Microsoft Hyper-V)
-          href: appliance-catalog/virtual-management-hyper-v.md
       - name: Legacy appliances
         items:
         - name: HPE ProLiant DL20 Gen10 (E1800)

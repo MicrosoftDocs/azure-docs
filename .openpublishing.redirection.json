@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "articles/defender-for-iot/organizations/appliance-catalog/virtual-management-hyper-v.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/appliance-catalog/virtual-management-hyper-v",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/appliance-catalog/virtual-management-vmware.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/appliance-catalog/virtual-management-vmware",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/defender-for-iot/organizations/api/management-alert-apis.md",
       "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/api/management-alert-apis",
       "redirect_document_id": false
