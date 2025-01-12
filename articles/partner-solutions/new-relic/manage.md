@@ -28,7 +28,7 @@ The *Essentials* details include:
 - Pricing plan
 - Billing term
 
-Select the links next to corresponding details to manage your resource.
+To manage your resource, select the links next to corresponding details.
 
 Below the essentials, you can navigate to other details about your resource by selecting a tab.
 
@@ -66,7 +66,7 @@ The column **Logs to New Relic** indicates whether the resource is sending logs 
 
 ## Monitor multiple subscriptions
 
-You can now monitor all your subscriptions through a single New Relic resource using **Monitored Subscriptions**. You don't have to set up a New Relic resource in every subscription that you intend to monitor. Instead, monitor multiple subscriptions by linking them to a single New Relic resource tied to a New Relic organization. This provides a single pane view for all resources across multiple subscriptions.
+You can now monitor all your subscriptions through a single New Relic resource using **Monitored Subscriptions**. You don't have to set up a New Relic resource in every subscription that you intend to monitor. Instead, monitor multiple subscriptions by linking them to a single New Relic resource tied to a New Relic organization to view all resources across multiple subscriptions from a single pane.
 
 To monitor multiple subscriptions:
 
@@ -74,14 +74,14 @@ To monitor multiple subscriptions:
 
 1. Select **Add subscriptions**. 
 
-    Subscriptions you have _Owner_ role assigned to and New Relic resource(s) created in those subscriptions which are linked to the same New Relic organization as the current resource display in the Add subscriptions panel.
+    A list of subscriptions displays in the working pane.
 
     > [!TIP]
-    > If the subscription you want to monitor has a resource already linked to the same New Relic org, we recommended that you delete the New Relic resources to avoid shipping duplicate data, and incurring double the charges.
+    > If the subscription you want to monitor has a resource already linked to the same New Relic organization, we recommend deleting one to avoid shipping duplicate data, which results in duplicate charges.
 
 1. Select the subscriptions you want to monitor through the New Relic resource and select the **Add** button.
 
-    If the list doesn’t update automatically, select **Refresh**.  When the subscription is successfully added, you see the status is updated to **Active**. If a subscription fails to get added, **Monitoring Status** shows as **Failed**.
+    If the list doesn’t update automatically, select **Refresh**. When the subscription is successfully added, you see the status is updated to **Active**. If a subscription fails to get added, **Monitoring Status** shows as **Failed**.
 
 The set of tag rules for metrics and logs defined for the New Relic resource apply to all subscriptions that are added for monitoring. Setting separate tag rules for different subscriptions isn't supported. Diagnostics settings are automatically added to resources in the added subscriptions that match the tag rules defined for the New Relic resource.
 
@@ -91,7 +91,7 @@ The tag rules and logs that you defined for the New Relic resource apply to all 
 
 ## Connected New Relic resources
 
-To view and manage all New Relic Resources you've created, select **New Relic account config** > **Connected New Relic Resources** from the *Service menu*. 
+To view and manage all your New Relic Resources, select **New Relic account config** > **Connected New Relic Resources** from the *Service menu*. 
 
 > [!NOTE]
 > - Your Azure role must be set to *Owner* or a *Contributor* for the subscription to manage these resources.
@@ -131,7 +131,7 @@ To monitor Virtual Machine Scale Sets using the New Relic Agent:
     A list of all Virtual Machine Scale Sets in the subscription displays in the working pane.
 
 > [!NOTE]
-> In manual upgrade policy, preexisting VM instances don't receive the extension automatically. The agent status shows as **Partially Installed**. Upgrade the VM instances by manually installing the extension on them from the VM extensions Resource menu, or go to specific Virtual Machine Scale Sets and select **Instances** from the Resource menu.
+> In manual upgrade policy, preexisting instances don't receive the extension automatically. The agent status shows as **Partially Installed**. Upgrade instances by manually [installing a New Relic agent](#install-a-new-relic-agent) for each preexisting virtual machine.
 
 > [!NOTE]
 > The agent installation dashboard supports the automatic and rolling upgrade policy for Flex orchestration mode in the next release when similar support is available from Virtual Machine Scale Sets Flex resources.
@@ -152,8 +152,8 @@ For each app service, the following information appears:
 > [!IMPORTANT]
 >
 > - App Service extensions only supported for app services that are running on Windows operating systems.
-> - App Services that use Linux operating systems are not displayed.
-> - You can only manage Web App App Services. Function Apps are not supported at this time. 
+> - App Services that use Linux operating systems aren't displayed.
+> - You can only manage Web App Services. Function Apps aren't supported at this time. 
 
 ### Install a New Relic agent
 
@@ -170,7 +170,7 @@ The application settings for the selected Virtual Machine, Virtual Machine Scale
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
 > [!NOTE]
-> If you have other New Relic resources linked to the New Relic account, billing for those other resources continues through the Azure Marketplace.
+> If you have other New Relic resources linked to the New Relic account, billing for those other resources continues through Azure Marketplace.
 
 ## Next steps
 

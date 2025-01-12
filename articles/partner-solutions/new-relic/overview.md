@@ -13,16 +13,16 @@ Microsoft and New Relic developed this service and manage it together.
 
 You can find Neon Serverless Postgres (Preview) in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NewRelic.Observability%2Fmonitors) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/newrelicinc1635200720692.newrelic_liftr_payg?tab=Overview).
 
-New Relic is a full-stack observability platform that enables a single source of truth for application performance, infrastructure monitoring, log management, error tracking, real-user monitoring, and more. Combined with the Azure platform, use Azure Native New Relic Service to help monitor, troubleshoot, and optimize Azure services and applications.
+New Relic is a full-stack observability platform that enables a single source of truth for application performance, infrastructure monitoring, log management, error tracking, and real-user monitoring. Combined with the Azure platform, use Azure Native New Relic Service to help monitor, troubleshoot, and optimize Azure services and applications.
 
 Azure Native New Relic Service in Marketplace enables you to create and manage New Relic accounts by using the Azure portal with a fully integrated experience. Integration with Azure enables you to use New Relic as a monitoring solution for your Azure workloads through a streamlined workflow, starting from procurement and moving all the way to configuration and management.
 
 You can create and manage the New Relic resources by using the Azure portal through a resource provider named `NewRelic.Observability`. New Relic owns and runs the software as a service (SaaS) application, including the New Relic organizations and accounts that are created through this experience.
 
 > [!IMPORTANT]
-> For New Relic accounts you create by using Azure Native New Relic Service, customer data is stored and processed in the region where the service was deployed. Currently, Azure Native New Relic Service does not support Sovereign Cloud.
+> For New Relic accounts you create by using Azure Native New Relic Service, customer data is stored and processed in the region where the service was deployed. Currently, Azure Native New Relic Service doesn't support Sovereign Cloud.
 >
-> For accounts that you create directly by using the New Relic portal and use for linking, New Relic determines where the customer data is stored and processed. Depending on the configuration at the time of setup, this might be on or outside Azure.
+> For accounts that you create directly by using the New Relic portal and use for linking, New Relic determines where the customer data is stored and processed. Depending on the configuration at the time of setup, this data might be on or outside Azure.
 
 ## Capabilities
 
@@ -46,7 +46,7 @@ When you use the integrated New Relic experience in the Azure portal by using Az
 - **Azure Marketplace SaaS resource**: When you set up a new account and organization on New Relic by using Azure Native New Relic Service, the SaaS resource is created automatically, based on the plan that you select from the Azure New Relic offer in Azure Marketplace. This resource is used for billing.
 
 > [!NOTE]
-> The Azure Marketplace SaaS resource is set up only if you created the New Relic organization by using Azure Native New Relic Service. If you created your New Relic organization directly from the New Relic portal, the Azure Marketplace SaaS resource doesn't exist, and New Relic manages your billing.
+> Azure Marketplace SaaS resource is set up only if you created the New Relic organization by using Azure Native New Relic Service. If you created your New Relic organization directly from the New Relic portal, Azure Marketplace SaaS resource doesn't exist, and New Relic manages your billing.
 
 ### Logs
 
