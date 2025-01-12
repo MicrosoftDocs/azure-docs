@@ -7,7 +7,7 @@ ms.author: kkendrick
 
 1. From the working pane's command bar, select **Change Plan**.
 
-The portal retrieves all the available New Relic plans for your tenant.
+     The portal retrieves all the available plans.
 
-Choose the appropriate plan and select **Change Plan**.  
+1. Choose the appropriate plan and select **Change Plan**.  
 
