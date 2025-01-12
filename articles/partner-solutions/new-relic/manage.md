@@ -175,6 +175,10 @@ To install the New Relic agent, select the app service and then select **Install
 > [!NOTE]
 > This page currently shows only the web app type of app services. Managing agents for function apps is not supported at this time.
 
+## Change billing plan
+
+[!INCLUDE [change-plan](../includes/change-plan.md)]
+
 ## Delete a New Relic resource
 
 1. Select **Overview** on the left pane. Then, select **Delete**.
