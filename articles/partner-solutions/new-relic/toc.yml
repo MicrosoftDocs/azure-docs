@@ -14,12 +14,10 @@ items:
   items:
   - name: Manage
     href: manage.md
-  - name: Troubleshoot
-    items:
-    - name: Get support
-      href: support.md
-    - name: Fix common errors
-      href: troubleshoot.md
+  - name: Fix common errors
+    href: troubleshoot.md
+  - name: Get support
+    href: support.md
 - name: Reference
   items:
   - name: REST API
