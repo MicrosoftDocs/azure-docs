@@ -4,7 +4,7 @@ description: Understand business continuity, high availability, and disaster rec
 author: anaharris-ms
 ms.service: azure
 ms.topic: conceptual
-ms.date: 01/09/2025
+ms.date: 01/10/2025
 ms.author: anaharris
 ms.custom: subject-reliability
 ms.subservice: azure-reliability
@@ -24,33 +24,40 @@ Planning for business continuity requires identifying, understanding, classifyin
 
 ## Business continuity
 
-Software solutions are often tied directly to business operations. If a system is unavailable or experiences a serious problem there might be severe consequences, such as:
+In general, cloud solutions are tied directly to business operations. Whenever a cloud solution is unavailable or experiences a serious problem, the impact on business operations can be severe. A severe impact can break business continuity
+
+Severe impacts on business continuity can include:
+
 
 - Loss of business income.
 - The inability to provide an important service to users.
 - Breach of a commitment that's been made to a customer or another party.
 
-Maintaining business continuity requires assessing risks that might cause problems, and controlling them through a variety of approaches. The specific risks and approaches to mitigate them will be different for each organization and workload.
+To control or completely avoid a negative impact on business continuity, it's important to proactively create a *business continuity plan*. A business continuity plan is based on risk assessment and developing methods of controlling them through a variety of approaches. The specific risks and approaches to mitigate vary for each organization and workload.
 
-It's critical to have clear business requirements in order to plan for business continuity. It's important to understand and communicate the business expectations, and the consequences of failures, to important stakeholders including those who design, implement, and operate the workload. Those stakeholders then respond by sharing the costs involved in meeting that vision. There's typically a process of negotiation and revisions of that vision based on budget and other constraints.
 
-For more information on the process of defining business continuity expectations as targets, see [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics).
 
 ### Business continuity planning
 
-For a successful *business continuity plan*, it's essential to:
- 
-- **Identify risks** to a workload's availability or functionality, such as network issues, hardware failures, human error, or a region outage.
- 
-- **Classify risks** as either a day-to-day risk, which should be factored into plans for high availability, or a catastrophic or unusual risk, which should be part of disaster recovery planning.
- 
-- **Design for HA or DR to minimize or mitigate risks** such as by using redundancy, replication, failover, and backups. Consider nontechnical and process-based mitigations and controls, too.
- 
-A business continuity plan doesn't only take into consideration the resiliency features of the cloud platform itself, or even the features of the application. Business continuity is achieved by incorporating all aspects of support in the business including people, business-related manual or automated processes, and other technologies.
+Business continuity planning is a process, not a one-time event. Any business continuity plan that is created should be reviewed and updated regularly to ensure that it remains relevant and effective, and that it supports current business needs. It's important to understand and communicate the business expectations, and the consequences of failures, to important stakeholders including those who design, implement, and operate the workload. Those stakeholders then respond by sharing the costs involved in meeting that vision. There's typically a process of negotiation and revisions of that vision based on budget and other constraints. 
 
-### Risks for cloud-based solutions
+A business continuity plan doesn't only take into consideration the resiliency features of the cloud platform itself, or even the features of the application. A robust business continuity plan incorporates all aspects of support in the business including people, business-related manual or automated processes, and other technologies.
 
-When a solution runs in the cloud, there are a range of events that can happen. These events can affect the resources that the workload uses. The following table is a nonexhaustive list of example events, ordered by expected likelihood:
+Business continuity planning should consist of the following steps, in order:
+
+
+1. **Risk identification**, Identify risks to a workload's availability or functionality. Possible risks could be network issues, hardware failures, human error, region outage, etc.
+ 
+2. **Risk classification**. Classify each risk as either a common risk, which should be factored into plans for HA, or an uncommon risk, which should be part of DR planning.
+ 
+3. **Risk mitigation**. Design mitigation strategies for HA or DR to minimize or mitigate risks such as by using redundancy, replication, failover, and backups. Also, consider nontechnical and process-based mitigations and controls.
+
+#### Risk identification
+
+
+The initial phase in business continuity planning is to identify risks to a workload's availability or functionality. Each risk should be analyzed to understand its likelihood and its severity. Severity needs to include any potential downtime or data loss, as well as whether any aspects of the rest of the solution design might compensate for negative effects.
+ 
+The following table is a non-exhaustive list of risks, ordered by decreasing likelihood:
 
 | Example risk | Description | Regularity (likelihood) |
 |---|---|---|
@@ -60,7 +67,9 @@ When a solution runs in the cloud, there are a range of events that can happen. 
 | Datacenter outage | An outage that affects most or all of a datacenter, such as a power failure, network connectivity problem, or issues with heating and cooling. | Unusual |
 | Region outage | An outage that affects an entire metropolitan area or wider area, such as a major natural disaster. | Very unusual |
 
-Business continuity planning isn't just about the cloud platform and infrastructure. You need to consider the risk of human errors, and some risks that might traditionally be considered security or operational risks should also be considered reliability risks because they affect the solution's availability. Here are some examples:
+Business continuity planning isn't just about the cloud platform and infrastructure. It's important to consider the risk of human errors. Furthermore, some risks that might traditionally be considered security or operational risks should also be considered reliability risks because they affect the solution's availability. 
+
+Here are some examples:
 
 | Example risk | Description |
 |---|---|
@@ -73,9 +82,8 @@ Business continuity planning isn't just about the cloud platform and infrastruct
 
 *Failure mode analysis* (FMA) is the process of identifying potential ways in which a workload or its components could fail, and how the solution behaves under those situations. To learn more, see [Recommendations for performing failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis).
 
-Each risk should be analyzed to understand its likelihood and its severity. Severity needs to include any potential downtime or data loss, as well as whether any aspects of the rest of the solution design might compensate for negative effects.
 
-### Risk classification
+#### Risk classification
  
 Business continuity plans must address both common and uncommon risks.
 
@@ -89,17 +97,45 @@ Business continuity plans must address both common and uncommon risks.
 
 High availability and disaster recovery are interrelated, and so it's important to plan strategies for both of them together.
 
-The same risk might be classified as HA for one workload and DR for another workload, depending on the business needs and the way the solution is designed. For example, for most solutions an outage of a full Azure region would be considered a disaster. But suppose you have designed a solution that uses multiple Azure regions in an active-active configuration with full replication and redundancy. In this situation, you might be more resilient to a regional outage and can automatically fail over to use other regions if a region is lost. This architecture means a region outage is covered as a high availability concern and not a disaster. However, such a design can be costly and complex to build.
+It's important to understand that risk classification depends on workload architecture and that any risk can be classified as HA for one workload and DR for another workload. For example, a full Azure region outage would generally be considered a DR risk to workloads in that region.  But for workloads who use multiple Azure regions in an active-active configuration with full replication, redundancy, and automatic region failover, a region outage is classified as an HA risk.
 
-### Risk mitigations
+#### Risk mitigation
 
-There are often several possible controls that can mitigate each risk. Part of business continuity planning is deciding which controls to apply for each specific situation based on the business needs. Many common mitigations are technical in nature and rely on how technology is configured or used. For example, you can build resiliency into a solution's design by using redundancy, data replication, failover, and backups. However, some controls might instead be based around business processes, such as by triggering a response playbook, or falling back to manual operations.
 
-When you're considering which controls to apply, understand whether they require or assume downtime or data loss. For example, some controls require a human to be notified and then to respond, which takes time. If a solution requires high uptime, manual processes are likely to be too slow, and you should control many of the risks by using automated approaches. For more information, see [High availability](#high-availability).
 
-For some risks, you can choose to operate the solution in a *degraded state*. When a solution operates in a degraded state, some components might be disabled or nonfunctional, but core business operations can continue to be performed. To learn more, see [Recommendations for self-healing and self-preservation](/azure/well-architected/reliability/self-preservation).
+Risk mitigation consists of developing strategies for HA or DR to minimize or mitigate risks to business continuity. Risk mitigation can be technology-based or human-based.
 
-Risk migration can also come in the form of training and cultural changes. Individuals designing, implementing, operating, and evolving the workload should be competent, encouraged to speak up if they have concerns, and feel a sense of responsibility for the system.
+
+#### Technology-based risk mitigation
+
+Technology-based risk mitigation uses risk controls that are based on how the workload is implemented and configured, such as:
+
+- Redundancy
+- Data replication
+- Failover
+- Backups
+
+Technology-based risk controls must be considered inside the context of the business continuity plan.
+
+For example:
+
+- *Low-downtime requirements.* Some business continuity plans are not able to tolerate any form of downtime risk due to [high availability](#high-availability) requirements. There are certain technology-based controls that may require time for a human to be notified and then to respond. Technology-based risk controls that include slow manual processes are likely to be unfit for inclusion in their risk mitigation strategy. 
+
+- *Medium-downtime requirements.* Some business continuity plans are able to tolerate a workflow that runs in a *degraded state*. When a solution operates in a degraded state, some components might be disabled or nonfunctional, but core business operations can continue to be performed. To learn more, see [Recommendations for self-healing and self-preservation](/azure/well-architected/reliability/self-preservation).
+
+#### Human-based risk mitigation
+
+Human-based risk mitigation uses risk controls that are based on business processes, such as:
+
+- Triggering a response playbook.
+- Falling back to manual operations.
+- Training and cultural changes. 
+
+
+>[!IMPORTANT]
+>Individuals designing, implementing, operating, and evolving the workload should be competent, encouraged to speak up if they have concerns, and feel a sense of responsibility for the system.
+	
+Because human-based risk controls are often slower than technology-based controls, and more prone to human error, a good business continuity plan should include a formal change control process for anything that would alter the state of the running system. 
 	
 Have a formal change control process for anything that would alter the state of the running system. For example, consider implementing the following processes:
 	
@@ -120,7 +156,7 @@ Commonly, uptime is measured based on the number of "nines" in the uptime percen
 
 ### High availability design elements
 
-To achieve high availability, a workload may include many design elements.
+To achieve HA requirements, a workload can include a number of design elements.  Some of the common elements are listed and described below in this section.
 
 > [!NOTE]
 > Some workloads are *mission-critical*, which means any downtime can have severe consequences. If you're designing a mission-critical workload, there are specific things you need to think about when you design your solution and manage your business continuity. For more information, see the [Azure Well-Architected Framework: Mission-critical workloads](/azure/well-architected/mission-critical/mission-critical-overview).
@@ -132,13 +168,25 @@ Many Azure services are designed to be highly available, and can be used to buil
 - Azure Virtual Machine Scale Sets provide high availability for virtual machines (VMs) by automatically creating and managing VM instances, and distributing those VM instances to reduce the likelihood of failures.
 - Azure App Service provides high availability through a variety of approaches, including automatically moving workers from an unhealthy node to a healthy node, and by providing capabilities for self-healing from many common fault types.
 
-To understand the capabilities of each Azure service, see its [reliability guide](./overview-reliability-guidance.md). You can then decide which tiers to use, and which capabilities to include in your high availability strategy.
+To understand the capabilities of each Azure service, decide which tiers to use, and which capabilities to include in your high availability strategy, see its [reliability guide](./overview-reliability-guidance.md).
     
 Review the service level agreements (SLAs) for each service to understand the expected levels of availability and the conditions you need to meet. You might need to select or avoid specific tiers of services to achieve certain levels of availability. Some services from Microsoft are offered with the understanding that no SLA is provided, such as development or basic tiers, or that the resource could be reclaimed from your running system, such as spot-based offerings. Also, some tiers have added reliability characteristics, such as support for [availability zones](availability-zones-overview.md). 
+#### Fault tolerance
 
+Fault tolerance is the ability of a system to continue operating, in some defined capacity, in the event of a failure. For example, a web application might be designed to continue operating even if a single web server fails. Fault tolerance can be achieved through redundancy, failover, partitioning, graceful degradation, and other techniques.
+
+Fault tolerance also requires that your applications handle transient faults. When you build your own code, you might need to enable transient fault handling yourself. Some Azure services provide built-in transient fault handling for some situations. For example, by default Azure Logic Apps automatically retries failed requests to other services. To learn more, see [Recommendations for handling transient faults](/azure/well-architected/reliability/handle-transient-faults).
 #### Redundancy
 
-Redundancy is the practice of duplicating instances or data to increase the reliability of the workload. Often you can choose to distribute those replicas or redundant instances around a datacenter (*local redundancy*), between availability zones within a region (*zone redundancy*), or even across regions (*geo-redundancy*). Here are some examples:
+Redundancy is the practice of duplicating instances or data to increase the reliability of the workload. 
+
+Redundancy can be achieved by distributing replicas or redundant instances in one more all of the following ways:
+
+- Inside a datacenter (*local redundancy*)
+- Between availability zones within a region (*zone redundancy*)
+- Across regions (*geo-redundancy*). 
+
+Here are some of examples of how some Azure services provide redundancy options:
 
 - Azure App Service enables you to run multiple instances of your application, to ensure that the application remains available even if one instance fails. If you enable zone redundancy, those instances are spread across multiple availability zones in the Azure region you use.
 - Azure Storage provides high availability by automatically replicating data at least three times. You can distribute those replicas across availability zones by enabling zone-redundant storage (ZRS), and in many regions you can also replicate your storage data across regions by using geo-redundant storage (GRS).
@@ -146,11 +194,6 @@ Redundancy is the practice of duplicating instances or data to increase the reli
 
 To learn more about redundancy, see [Recommendations for designing for redundancy](/azure/well-architected/reliability/redundancy) and [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones).
  
-#### Fault tolerance
-
-Fault tolerance is the ability of a system to continue operating, in some defined capacity, in the event of a failure. For example, a web application might be designed to continue operating even if a single web server fails. Fault tolerance can be achieved through redundancy, failover, partitioning, graceful degradation, and other techniques.
-
-Fault tolerance also requires that your applications handle transient faults. When you build your own code, you might need to enable transient fault handling yourself. Some Azure services provide built-in transient fault handling for some situations. For example, by default Azure Logic Apps automatically retries failed requests to other services. To learn more, see [Recommendations for handling transient faults](/azure/well-architected/reliability/handle-transient-faults).
  
 #### Scalability and elasticity
 
@@ -158,7 +201,7 @@ Scalability and elasticity are the abilities of a system to handle increased loa
 
 Many Azure services support scalability. Here are some examples:
 
-- Azure virtual machine scale sets, Azure API Management, and several other services support Azure Monitor autoscale, which enables you to specify policies like "when my CPU consistently goes above 80%, add another instance".
+- Azure Virtual Machine Scale Sets, Azure API Management, and several other services support Azure Monitor autoscale, which enables you to specify policies like "when my CPU consistently goes above 80%, add another instance".
 - Azure Functions can dynamically provision instances to serve your requests.
 - Azure Cosmos DB supports autoscale throughput, where the service can automatically manage the resources assigned to your databases based on policies you specify.
 
@@ -178,7 +221,7 @@ Azure itself uses zero-downtime deployment approaches for our own services. When
 While zero-downtime deployments are often associated with application deployments, they should also be used for configuration changes too. Here are some ways you can apply configuration changes safely:
 
 - Azure Storage enables you to change your access keys in stages, which prevents downtime during key rotation operations.
-= Azure App Configuration provides feature flags, snapshots, and other capabilities to help you to control how configuration changes are applied.
+- Azure App Configuration provides feature flags, snapshots, and other capabilities to help you to control how configuration changes are applied.
 
 If you decide not to implement zero-downtime deployments, define *maintenance windows* so you can make system changes at a time your users expect.
 
