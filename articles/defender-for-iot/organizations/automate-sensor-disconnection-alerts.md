@@ -1,6 +1,6 @@
 ---
 title: Set up automatic sensor disconnection notifications
-description: This tutorial describes how to use the Microsoft Sentinel data connector and solution for Microsoft Defender for IoT to secure your entire  environment. Detect and respond to threats, including multistage attacks that may cross IT and OT boundaries.
+description: This tutorial describes how to create a playbook in Microsoft Sentinel that automatically sends an email notification when a sensor disconnects.
 ms.topic: tutorial
 ms.date: 01/06/2025
 ms.subservice: sentinel-integration
