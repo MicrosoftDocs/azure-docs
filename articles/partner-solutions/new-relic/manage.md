@@ -28,6 +28,8 @@ The *Essentials* details include:
 - Pricing plan
 - Billing term
 
+Select the links next to corresponding details to manage your resource.
+
 Below the essentials, you can navigate to other details about your resource by selecting a tab.
 
 - The **Get started** tab provides deep links to New Relic dashboards, logs, and alerts.
@@ -48,59 +50,44 @@ The columns in the table denote valuable information for your resource:
 | **Logs to New Relic**    | Count of logs for the resource type                                              |
 | **Metrics to New Relic** | Count of resources sending metrics to New Relic through the integration          |
 
-## Reconfigure rules for logs or metrics
+## Reconfigure rules for metrics and logs
 
-To change the configuration rules for logs or metrics, select **Metrics and Logs** in the Resource menu.
+To change the configuration rules for metrics and [logs](overview.md#logs), select **New Relic account config** > **Metrics and logs** from the *Service menu*. 
 
-:::image type="content" source="media/new-relic-how-to-manage/new-relic-metrics.png" alt-text="Screenshot that shows metrics and logs for a New Relic resource.":::
-
-For more information, see [Configure metrics and logs](new-relic-how-to-configure-prereqs.md).
+:::image type="content" source="media/manage/resource-overview-monitoring.png" alt-text="A screenshot of a New Relic resource's Metrics and logs displayed in the working pane of the Azure portal.":::
 
 ## View monitored resources
 
-To see the list of resources that are sending metrics and logs to New Relic, select **Monitored resources** on the left pane.
-
-:::image type="content" source="media/new-relic-how-to-manage/new-relic-monitoring.png" alt-text="Screenshot that shows monitored resources for a New Relic resource.":::
+To see the list of resources sending metrics and logs to New Relic, select **New Relic account config** > **Monitored resources** from the *Service menu*. 
 
 You can filter the list of resources by resource type, resource group name, region, and whether the resource is sending metrics and logs.
 
-The column **Logs to New Relic** indicates whether the resource is sending logs to New Relic. If the resource isn't sending logs, the reasons could be:
-
-- **Resource does not support sending logs**: Only resource types with monitoring log categories can be configured to send logs. See [Supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
-- **Limit of five diagnostic settings reached**: Each Azure resource can have a maximum of five diagnostic settings. For more information, see [Diagnostic settings](/cli/azure/monitor/diagnostic-settings).
-- **Error**: The resource is configured to send logs to New Relic but an error blocked it.
-- **Logs not configured**: Only Azure resources that have the appropriate resource tags are configured to send logs to New Relic.
-- **Agent not configured**: Virtual machines or app services without the New Relic agent installed don't send logs to New Relic.
-
-The column **Metrics to New Relic** indicates whether New Relic is receiving metrics that correspond to this resource.
+The column **Logs to New Relic** indicates whether the resource is sending logs to New Relic. 
 
 ## Monitor multiple subscriptions
 
-You can now monitor all your subscriptions through a single New Relic resource using **Monitored Subscriptions**. Your experience is simplified because you don't have to set up a New Relic resource in every subscription that you intend to monitor. You can monitor multiple subscriptions by linking them to a single New Relic resource that is tied to a New Relic organization. This provides a single pane view for all resources across multiple subscriptions.
+You can now monitor all your subscriptions through a single New Relic resource using **Monitored Subscriptions**. You don't have to set up a New Relic resource in every subscription that you intend to monitor. Instead, monitor multiple subscriptions by linking them to a single New Relic resource tied to a New Relic organization. This provides a single pane view for all resources across multiple subscriptions.
 
-To manage multiple subscriptions that you want to monitor, select **Monitored Subscriptions** in the **New Relic New Relic organization configurations** section of the Resource menu.
+To monitor multiple subscriptions:
 
-:::image type="content" source="media/new-relic-how-to-manage/new-relic-monitored-subscriptions.png" alt-text="Screenshot showing Monitored Subscriptions selected in the Resource menu.":::
+1. Select **New Relic account config** > **Monitored Subscriptions** from the *Service menu*. 
 
-From **Monitored Subscriptions** in the Resource menu, select the **Add Subscriptions**. The **Add Subscriptions** experience that opens and shows the subscriptions you have _Owner_ role assigned to and any New Relic resource created in those subscriptions that is already linked to the same New Relic organization as the current resource.
+1. Select **Add subscriptions**. 
 
-If the subscription you want to monitor has a resource already linked to the same New Relic org, we recommended that you delete the New Relic resources to avoid shipping duplicate data, and incurring double the charges.
+    Subscriptions you have _Owner_ role assigned to and New Relic resource(s) created in those subscriptions which are linked to the same New Relic organization as the current resource display in the Add subscriptions panel.
 
-Select the subscriptions you want to monitor through the New Relic resource and select **Add**.
+    > [!TIP]
+    > If the subscription you want to monitor has a resource already linked to the same New Relic org, we recommended that you delete the New Relic resources to avoid shipping duplicate data, and incurring double the charges.
 
-:::image type="content" source="media/new-relic-how-to-manage/new-relic-add-subscription.png" alt-text="Screenshot showing subscriptions to add.":::
+1. Select the subscriptions you want to monitor through the New Relic resource and select the **Add** button.
 
-If the list doesn’t get updated automatically, select **Refresh**  to view the subscriptions and their monitoring status. You might see an intermediate status of _In Progress_ while a subscription gets added. When the subscription is successfully added, you see the status is updated to **Active**. If a subscription fails to get added, **Monitoring Status** shows as **Failed**.
-
-:::image type="content" source="media/new-relic-how-to-manage/new-relic-monitored-subscriptions-list.png" alt-text="Screenshot showing statuses of monitored subscriptions.":::
+    If the list doesn’t update automatically, select **Refresh**.  When the subscription is successfully added, you see the status is updated to **Active**. If a subscription fails to get added, **Monitoring Status** shows as **Failed**.
 
 The set of tag rules for metrics and logs defined for the New Relic resource apply to all subscriptions that are added for monitoring. Setting separate tag rules for different subscriptions isn't supported. Diagnostics settings are automatically added to resources in the added subscriptions that match the tag rules defined for the New Relic resource.
 
-If you have existing New Relic resources that are linked to the account for monitoring, you can end up with duplication of logs that can result in added charges. Ensure you delete redundant New Relic resources that are already linked to the account. You can view the list of connected resources and delete the redundant ones. We recommended consolidating subscriptions into the same New Relic resource where possible.
+If you have existing New Relic resources that are linked to the account for monitoring, duplication of logs can result in added charges. To prevent duplicate charges, delete redundant New Relic resources that are already linked to the account. We recommended consolidating subscriptions into the same New Relic resource where possible.
 
-The tag rules and logs that you defined for the New Relic resource are applied to all the subscriptions that you select to be monitored. If you would like to reconfigure the tag rules, you can follow the steps described here.  
-
-For more information about the following capabilities, see  [Monitor Virtual Machines using the New Relic agent](#monitor-virtual-machines-using-the-new-relic-agent) and [Monitor App Services using the New Relic agent](#monitor-app-services-using-the-new-relic-agent).
+The tag rules and logs that you defined for the New Relic resource apply to all the subscriptions that you select to be monitored.
 
 ## Connected New Relic resources
 
