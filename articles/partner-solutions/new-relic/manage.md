@@ -147,7 +147,7 @@ Use  native integration to install an agent on both the uniform and flexible sca
 If a manual upgrade policy is set for a resource, upgrade the instances manually by installing the agent extension for the already scaled up instances. For more information on autoscaling and instance orchestration, see [autoscaling-and-instance-orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#autoscaling-and-instance-orchestration).
 
 > [!NOTE]
-> In manual upgrade policy, pre-existing VM instances don't receive the extension automatically. The agent status shows as **Partially Installed**. Upgrade the VM instances by manually installing the extension on them from the VM extensions Resource menu, or go to specific Virtual Machine Scale Sets and select **Instances** from the Resource menu.
+> In manual upgrade policy, preexisting VM instances don't receive the extension automatically. The agent status shows as **Partially Installed**. Upgrade the VM instances by manually installing the extension on them from the VM extensions Resource menu, or go to specific Virtual Machine Scale Sets and select **Instances** from the Resource menu.
 
 > [!NOTE]
 > The agent installation dashboard supports the automatic and rolling upgrade policy for Flex orchestration mode in the next release when similar support is available from Virtual Machine Scale Sets Flex resources.
