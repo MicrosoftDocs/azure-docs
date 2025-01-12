@@ -35,23 +35,23 @@ There are required fields (identified with a red asterisk) in each section that 
 
 1. Enter the values for each required setting under *Project details*.
 
-    |Field  |Action  |
-    |---------|---------|
-    |Subscription    |Select a subscription from your existing subscriptions.         |
-    |Resource group     |Use an existing resource group or create a new one.          |
+    | Field               | Action                                                    |
+    |---------------------|-----------------------------------------------------------|
+    | Subscription        | Select a subscription from your existing subscriptions.   |
+    | Resource group      | Use an existing resource group or create a new one.       |
 
 1. Enter the values for each required setting under *Azure Resource details*.
 
-    |Field |Action  |
-    |---------|---------|
-    |Resource name     |Specify a unique name for the resource.    |
-    |Region     |Select a region to deploy your resource.         |
+    | Field              | Action                                    |
+    |--------------------|-------------------------------------------|
+    | Resource name      | Specify a unique name for the resource.   |
+    | Region             | Select a region to deploy your resource.  |
 
 1. Enter the values for each required setting under *New Relic account details*.
 
-    |Field  |Action  |
-    |---------|---------|
-    |Organization     |Choose to create a new organization, or associate your resource with an existing organization.   |
+    | Field             | Action                                                                                           |
+    |-------------------|--------------------------------------------------------------------------------------------------|
+    | Organization      | Choose to create a new organization, or associate your resource with an existing organization.   |
 
     > [!NOTE]
     > If you choose to associate your resource with an existing organization, the resource is billed to that organization's plan. 
