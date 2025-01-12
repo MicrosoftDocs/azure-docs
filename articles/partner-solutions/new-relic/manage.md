@@ -12,9 +12,9 @@ This article describes how to manage the settings for Azure Native New Relic Ser
 
 ## Resource overview 
 
-To see the details of your New Relic resource, select **Overview** on the left pane.
+[!INCLUDE [change-plan](../includes/manage.md)]
 
-:::image type="content" source="media/new-relic-how-to-manage/new-relic-overview.png" alt-text="Screenshot that shows an overview for a New Relic resource.":::
+:::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of a New Relic resource in the Azure portal with the overview displayed in the working pane.":::
 
 The details include:
 
@@ -35,7 +35,7 @@ At the bottom:
 
 If you select **Monitored resources**, the pane that opens includes a table with information about the Azure resources that are sending logs and metrics to New Relic.
 
-:::image type="content" source="media/new-relic-how-to-manage/new-relic-monitored-resources.png" alt-text="Screenshot showing a table of monitored resources below properties.":::
+:::image type="content" source="media/manage/resource-overview-monitoring.png" alt-text="A screenshot of a New Relic resource's Monitoring information displayed in the working pane of Azure portal.":::
 
 The columns in the table denote valuable information for your resource:
 
@@ -45,10 +45,6 @@ The columns in the table denote valuable information for your resource:
 | **Total resources**      | Count of all resources for the resource type      |
 | **Logs to New Relic**        |    Count of logs for the resource type       |
 | **Metrics to New Relic**         |   Count of resources that are sending metrics to New Relic through the integration      |
-
-If New Relic currently manages billing and you want to change to Azure Marketplace billing to consume your Azure commitment, you should work with New Relic to align on timeline as per the current contract tenure. Then, switch your billing using the **Bill via Marketplace**  from the working pane of the Overview page or your New Relic resource.
-
-:::image type="content" source="media/new-relic-how-to-manage/new-relic-bill-marketplace.png" alt-text="Screenshot with 'Bill via Azure Marketplace' selection highlighted.":::
 
 ## Reconfigure rules for logs or metrics
 

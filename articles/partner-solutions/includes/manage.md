@@ -11,4 +11,4 @@ Begin by signing in to the [Azure portal](https://portal.azure.com/).
 
 1. From the **Resource** menu, choose the resource.
 
-    The resource displays in the working pane.
+    The resource displays in the working pane with the *Overview* open by default.
