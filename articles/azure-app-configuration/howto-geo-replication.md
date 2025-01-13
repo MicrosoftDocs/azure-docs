@@ -275,7 +275,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 ```
 
 > [!NOTE]
-> Load balancing support is available if you use version **8.0.0-preview.3** or later of any of the following packages.
+> Load balancing support is available if you use version **8.0.0** or later of any of the following packages.
 > - `Microsoft.Extensions.Configuration.AzureAppConfiguration`
 > - `Microsoft.Azure.AppConfiguration.AspNetCore`
 > - `Microsoft.Azure.AppConfiguration.Functions.Worker`
