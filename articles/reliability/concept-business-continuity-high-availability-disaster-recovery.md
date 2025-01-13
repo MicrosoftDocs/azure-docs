@@ -127,13 +127,11 @@ Human-based risk mitigation uses risk controls that are based on business proces
 > [!IMPORTANT]
 > Individuals designing, implementing, operating, and evolving the workload should be competent, encouraged to speak up if they have concerns, and feel a sense of responsibility for the system.
 	
-Because human-based risk controls are often slower than technology-based controls, and more prone to human error, a good business continuity plan should include a formal change control process for anything that would alter the state of the running system. 
+Because human-based risk controls are often slower than technology-based controls, and more prone to human error, a good business continuity plan should include a formal change control process for anything that would alter the state of the running system. For example, consider implementing the following processes:
 	
-Have a formal change control process for anything that would alter the state of the running system. For example, consider implementing the following processes:
-	
-- Workloads should be subject to rigorous testing commensurate with the criticality of the workload. Test code and component integrations to mitigate the risk associated with change. Every change to a system should undergo testing to help prevent a reliability-impacting change from reaching production.
+- Rigorously test your workloads in accordance with workload criticality. To prevent change-related issues, make sure to test any changes that are made to the workload.
 - Introduce strategic quality gates as part of your workload's safe deployment practices.
-- Formalize procedures for ad-hoc production access and data manipulation, because these activities present a high risk of causing reliability incidents. Procedures might include pairing with another engineer, using checklists, and getting peer reviews before executing scripts or applying changes.
+- Formalize procedures for ad-hoc production access and data manipulation. These activities, no matter how minor, can present a high risk of causing reliability incidents. Procedures might include pairing with another engineer, using checklists, and getting peer reviews before executing scripts or applying changes.
 
 ## High availability
 
