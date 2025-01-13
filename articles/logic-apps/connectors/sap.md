@@ -46,6 +46,9 @@ To use the SAP connector operations, you have to first authenticate your connect
 
 You can use SNC for SAP NetWeaver single sign-on (SSO) or for security capabilities from external products. If you choose to use SNC, review the [SNC prerequisites](#snc-prerequisites).
 
+> [!TIP]
+> Find more details about SNC on our [blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
+
 ## Connector technical reference
 
 The SAP connector has different versions, based on [logic app type and host environment](../logic-apps-overview.md#resource-environment-differences).
@@ -339,6 +342,9 @@ For Consumption workflows in multitenant Azure Logic Apps that use the on-premis
 * To use SNC with single sign-on (SSO), make sure the data gateway service is running as a user who is mapped to an SAP user. To change the default account for the gateway service account, select **Change account**, and enter the user credentials.
 
   ![Screenshot that shows the on-premises data gateway installer and Service Settings page with button to change gateway service account selected.](./media/sap/gateway-account.png)
+
+> [!TIP]
+> Find more details about SNC on our [blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
 
 For more information about enabling SNC, review [Enable Secure Network Communications (SNC)](#enable-secure-network-communications).
 

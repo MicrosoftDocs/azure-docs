@@ -32,6 +32,9 @@ While you can run multiple data connector agents on a single machine, we recomme
 
     For more information, see the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/e73bba71770e4c0ca5fb2a3c17e8e229/e656f466e99a11d1a5b00000e835363f.html).
 
+> [!TIP]
+> Find more details about SNC on our [blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
+
 ## Deploy the data connector agent using a managed identity or registered application
 
 This procedure describes how to create a new agent and connect it to your SAP system via the command line, authenticating with a managed identity or a Microsoft Entra ID registered application.
