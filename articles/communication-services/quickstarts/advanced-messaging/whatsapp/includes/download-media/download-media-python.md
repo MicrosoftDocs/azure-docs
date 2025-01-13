@@ -29,7 +29,7 @@ The following classes and interfaces handle some of the major features of the Az
 | Name            | Description                         |
 |-----------------------------------|-------------------|
 | [NotificationMessagesClient](/python/api/azure-communication-messages/azure.communication.messages.notificationmessagesclient)  | This class connects to your Azure Communication Services resource. It sends the messages.                   |
-| [DownloadMediaAsync](/python/api/azure.communication.messages.notificationmessagesclient.downloadmediaasync)     | Download the media payload from a User to Business message asynchronously, writing the content to a stream. |
+| [DownloadMediaAsync](/python/api/azure-communication-messages/azure.communication.messages.aio.notificationmessagesclient)     | Download the media payload from a User to Business message asynchronously, writing the content to a stream. |
 | [Microsoft.Communication.AdvancedMessageReceived](/azure/event-grid/communication-services-advanced-messaging-events#microsoftcommunicationadvancedmessagereceived-event) | Event Grid event that is published when Advanced Messaging receives a message. |
 
 > [!NOTE]

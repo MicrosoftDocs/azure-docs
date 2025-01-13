@@ -15,4 +15,4 @@ ms.author: shamkh
 
 ## Setting up
 
-[!INCLUDE [Setting up for JScript Application](../jscript-application-setup.md)]
+[!INCLUDE [Setting up for JavaScript Application](../javascript-application-setup.md)]

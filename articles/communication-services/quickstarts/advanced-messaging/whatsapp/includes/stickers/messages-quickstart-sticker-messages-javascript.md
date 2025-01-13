@@ -12,3 +12,7 @@ ms.author: shamkh
 ---
 
 ## Prerequisites
+
+## Setting up
+
+[!INCLUDE [Setting up for JavaScript Application](../javascript-application-setup.md)]

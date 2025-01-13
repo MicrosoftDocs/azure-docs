@@ -23,7 +23,7 @@ ms.author: shamkh
 
 To set up an environment for sending messages, take the steps in the following sections.
 
-[!INCLUDE [Setting up for JScript Application](../jscript-application-setup.md)]
+[!INCLUDE [Setting up for JavaScript Application](../javascript-application-setup.md)]
 
 ## Object model
 The following classes and interfaces handle some of the major features of the Azure Communication Services Advance Messaging SDK for JavaScript.

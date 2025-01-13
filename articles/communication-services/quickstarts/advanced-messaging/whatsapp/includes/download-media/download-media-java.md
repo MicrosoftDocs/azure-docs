@@ -29,8 +29,8 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                                                                                             | Description                                                                                                 |
 |------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
-| [NotificationMessagesClient](/java/api/azure.communication.messages.notificationmessagesclient)                | This class connects to your Azure Communication Services resource. It sends the messages.                   |
-| [DownloadMediaAsync](/java/api/azure.communication.messages.notificationmessagesclient.downloadmediaasync)     | Download the media payload from a User to Business message asynchronously, writing the content to a stream. |
+| [NotificationMessagesClient](/java/api/com.azure.communication.messages.notificationmessagesclient)          | This class connects to your Azure Communication Services resource. It sends the messages.                   |
+| [DownloadMediaAsync](/java/api/com.azure.communication.messages)  | Download the media payload from a User to Business message asynchronously, writing the content to a stream. |
 | [Microsoft.Communication.AdvancedMessageReceived](/azure/event-grid/communication-services-advanced-messaging-events#microsoftcommunicationadvancedmessagereceived-event) | Event Grid event that is published when Advanced Messaging receives a message. |
 
 > [!NOTE]
