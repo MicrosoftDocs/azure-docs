@@ -109,7 +109,7 @@ In the following screenshot, any path for your app that starts with `/public` do
 ![Certificate Exclusion Paths][exclusion-paths]
 
 ## Client certificate and TLS renegotiation
-App Service requires TLS renegotiation to read a request before knowing whether to prompt for a client certificate. Any of the following settings triggers TLS renegotiation:
+For some client certificate settings, App Service requires TLS renegotiation to read a request before knowing whether to prompt for a client certificate. Any of the following settings triggers TLS renegotiation:
 1. Using "Optional Interactive User" client certificate mode.
 1. Using [client certificate exclusion path](#exclude-paths-from-requiring-authentication).
 
