@@ -26,7 +26,6 @@ Site Recovery can manage replication for:
 
 - Azure VMs replicating between Azure regions
 - Replication from Azure Extended Zones to the region 
-- Replication between two Azure Extended Zones 
 - On-premises VMs, Azure Stack VMs, and physical servers
 
 > [!NOTE]
