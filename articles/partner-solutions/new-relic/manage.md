@@ -131,6 +131,7 @@ To monitor Virtual Machine Scale Sets using the New Relic Agent:
     A list of all Virtual Machine Scale Sets in the subscription displays in the working pane.
 
 > [!NOTE]
+> 
 > In manual upgrade policy, preexisting instances don't receive the extension automatically. The agent status shows as **Partially Installed**. Upgrade instances by manually [installing a New Relic agent](#install-a-new-relic-agent) for each preexisting virtual machine.
 
 > [!NOTE]
@@ -158,8 +159,6 @@ For each app service, the following information appears:
 ### Install a New Relic agent
 
 You can install New Relic agents on Virtual Machine, Virtual Machine Scale Set, or App Service as an extension by selecting **Install Extension** command bar in the working pane. 
-
-The application settings for the selected Virtual Machine, Virtual Machine Scale Set, or App Service updates and restarts.
 
 ## Change billing plan
 

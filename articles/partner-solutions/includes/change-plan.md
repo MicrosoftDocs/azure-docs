@@ -11,4 +11,3 @@ If you'd like to change your billing plan, follow these steps:
      The portal retrieves all the available plans.
 
 1. Choose the appropriate plan and select **Change Plan**.  
-
