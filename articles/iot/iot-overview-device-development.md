@@ -13,7 +13,7 @@ ms.custom: template-overview
 
 # IoT asset and device development
 
-This overview introduces the key concepts around developing assets and devices that connect to typical Azure IoT solutions. Each section includes links to content that provides further detail and guidance. Typically, devices connect directly to cloud services such as IoT Hub and assets connect to services in your edge environment such as Azure IoT Operations. This article includes information about both assets and devices.
+This overview introduces the key concepts around developing assets and devices that connect to typical Azure IoT solutions. Each section includes links to content that provides further detail and guidance. Typically, devices connect directly to cloud-based services such as IoT Hub, while assets connect to edge-based services in your environment such as Azure IoT Operations. This article includes information about both assets and devices.
 
 # [Edge-based solution](#tab/edge)
 
@@ -48,7 +48,7 @@ In Azure IoT, a device developer writes the code to run on the devices in the so
 
 ## Asset and device types
 
-An IoT solution can contain many types of [assets](iot-glossary.md#asset) and [devices](iot-glossary.md#device). You typically find devices in cloud-based solutions and assets in edge-based solutions, but this rule isn't absolute.
+An IoT solution can contain many types of [assets](iot-glossary.md#asset) and [devices](iot-glossary.md#device). You typically find devices in cloud-based solutions and assets in edge-based solutions. It's also possible to have a hybrid solutions that contain both devices and assets.
 
 # [Edge-based solution](#tab/edge)
 
@@ -85,6 +85,8 @@ Examples of specialized hardware and operating systems include:
 [Windows for IoT](/windows/iot/product-family/windows-iot) is an embedded version of Windows for MPUs with cloud connectivity that lets you create secure devices with easy provisioning and management.
 
 [Eclipse ThreadX](https://github.com/eclipse-threadx/rtos-docs) is a real time operating system for IoT and edge devices powered by MCUs. Eclipse ThreadX is designed to support highly constrained devices that are battery powered and have less than 64 KB of flash memory.
+
+[FreeRTOS](https://www.freertos.org) is a real time operating system for embedded devices. You can use FreeRTOS with the Azure IoT Middleware for FreeRTOS to connect devices to Azure IoT. For an overview of RTOS options for device development, see [C SDK and Embedded C SDK usage scenarios](concepts-using-c-sdk-and-embedded-c-sdk.md).
 
 [Azure Sphere (Integrated)](/azure-sphere/product-overview/what-is-azure-sphere?view=azure-sphere-integrated&preserve-view=true) is a secure, high-level application platform with built-in communication and security features for internet-connected devices. It comprises a secured, connected, crossover MCU, a custom high-level Linux-based operating system, and a cloud-based security service that provides continuous, renewable security.
 
