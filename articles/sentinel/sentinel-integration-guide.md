@@ -20,11 +20,11 @@ This section covers everything independent software developers (ISVs) need to bu
 
 ## Learn about Microsoft Sentinel Integrations
 
-### What is Microsoft Sentinel?
+### Learn about Microsoft Sentinel
 Microsoft Sentinel is a scalable, cloud-native security information and event management (SIEM) that delivers an intelligent and comprehensive solution for SIEM and security orchestration, automation, and response (SOAR). Microsoft Sentinel provides cyberthreat detection, investigation, response, and proactive hunting, with a bird's-eye view across your enterprise.
 - [What is Microsoft Sentinel?](/azure/sentinel/overview)
 
-### What should I build?
+### Identify what to build
 The most important step to a great integration is deciding which types of content to include in your integration, to match your product’s capabilities. Explore the following resources to understand the types of content you can contribute to Microsoft Sentinel -
 
 - [Technology Integration Scenarios with Microsoft Sentinel](/azure/sentinel/partner-integrations)
@@ -68,7 +68,7 @@ Microsoft Sentinel is built on data. Most solutions start with bringing the data
 ### Build your content
 In addition to data, your solution can offer a rich array of other components to help customers get the most out of your data. For example, you can offer detections, workbooks, playbooks, and hunting queries to make your offering readily usable by customers. For more information on building content, see [What can you contribute and how can you create contributions?](https://github.com/Azure/Azure-Sentinel/wiki).
 
-### Open a pull request
+### Open GitHub pull request
 Once your solution is ready for review, raise a pull request (PR) in the Microsoft Sentinel solutions repository. Microsoft Sentinel engineering staff reviews your PR for best practices.
 - [Create a Microsoft Sentinel Pull Request](https://github.com/Azure/Azure-Sentinel?tab=readme-ov-file#pull-request)
 
