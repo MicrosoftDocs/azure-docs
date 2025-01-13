@@ -59,6 +59,7 @@ Because Azure usage files are in CSV format, you need to prepare the data for us
 9. In the first cell under TotalUsedSavings, create a formula that calculates (_UnitPrice – EffectivePrice) \* Quantity_.  
     > [!NOTE]
     >  If the unit price is $0.00, make sure that you don’t have any [Cost Allocation rules](../costs/allocate-costs.md#current-limitations) enabled. If Cost allocation rules are enabled, the unit price isn't displayed.  
+    
     :::image type="content" source="./media/calculate-ea-reservations-savings/total-used-savings-formula.png" alt-text="Screenshot showing the TotalUsedSavings formula." lightbox="./media/calculate-ea-reservations-savings/total-used-savings-formula.png" :::
 11. Copy the formula to all the other empty TotalUsedSavings cells.
 12. At the bottom of the TotalUsedSavings column, sum the column's values.  
