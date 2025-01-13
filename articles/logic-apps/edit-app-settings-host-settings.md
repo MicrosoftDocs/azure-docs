@@ -56,7 +56,7 @@ For your workflow to run properly, some app settings are required.
 
 | Setting | Required | Value | Description |
 |---------|----------|-------|-------------|
-| `APP_KIND` | Yes | `workflowApp` | Required to set the app type for the Standard logic app resource. The value must be set to **`workflowApp`**. <br><br>**Note**: In some scenarios, this app setting might be missing, for example, due to automation using Azure Resource Manager templates or other scenarios where the setting isn't included. If certain actions don't work, such as the **Execute JavaScript Code** action, or if the workflow stops working, check that the **APP_KIND** app setting exists and is set to to **`workflowApp`**. |
+| `APP_KIND` | Yes | `workflowApp` | Required to set the app type for the Standard logic app resource. The value must be set to **`workflowApp`**. <br><br>**Note**: In some scenarios, this app setting might be missing, for example, due to automation using Azure Resource Manager templates or other scenarios where the setting isn't included. If certain actions don't work, such as the **Execute JavaScript Code** action, or if the workflow stops working, check that the **APP_KIND** app setting exists and is set to **`workflowApp`**. |
 | `AZURE_AUTHORITY_HOST` | No | None | Sets the Standard logic app's default authority to use for OAuth authentication. |
 | `AzureWebJobsStorage` | Yes | None | Required to set the connection string for an Azure storage account. For more information, see [AzureWebJobsStorage](../azure-functions/functions-app-settings.md#azurewebjobsstorage). |
 | `FUNCTIONS_EXTENSION_VERSION` | Yes | `~4` | Required to set the Azure Functions version. For more information, see [FUNCTIONS_EXTENSION_VERSION](/azure/azure-functions/functions-app-settings#functions_extension_version). |
@@ -180,12 +180,12 @@ Both of the following settings are used to manually stop and immediately delete 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `Jobs.CleanupJobPartitionPrefixes` | None | Immediately deletes all the run jobs for the specified workflows. |
-| `Jobs.SuspendedJobPartitionPartitionPrefixes` | None | Stops the run jobs for the specified workflows. |
+| `Jobs.SuspendedJobPartitionPrefixes` | None | Stops the run jobs for the specified workflows. |
 
 The following example shows the syntax for these settings where each workflow ID is followed by a colon (**:**) and separated by a semicolon (**;**):
 
 ```json
-"Jobs.CleanupJobPartitionPrefixes": "<workflow-ID-1>:; <workflow-ID-2:",
+"Jobs.CleanupJobPartitionPrefixes": "<workflow-ID-1>:; <workflow-ID-2>:",
 "Jobs.SuspendedJobPartitionPrefixes": "<workflow-ID-1>:; <workflow-ID-2>:"
 ```
 

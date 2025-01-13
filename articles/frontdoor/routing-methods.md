@@ -5,7 +5,7 @@ description: This article explains the four different traffic routing methods us
 services: front-door
 author: duongau
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/12/2024
 ms.author: duau
 ---

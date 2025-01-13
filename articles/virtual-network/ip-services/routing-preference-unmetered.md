@@ -8,7 +8,7 @@ author: mbender-ms
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 # Customer intent: As an Azure customer, I want to learn more about enabling routing preference for my CDN origin resources.
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # What is routing preference unmetered?

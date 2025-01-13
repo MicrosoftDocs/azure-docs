@@ -4,7 +4,7 @@ description: Learn about Azure Firewall known issues and limitations.
 services: firewall
 author: vhorne
 ms.service: azure-firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/02/2023
 ms.author: victorh
 ---

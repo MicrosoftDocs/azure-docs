@@ -364,6 +364,8 @@
       href: data-connectors/cortex-xdr-incidents.md
     - name: Cribl
       href: data-connectors/cribl.md
+    - name: CTERA Syslog
+      href: data-connectors/ctera-syslog.md
     - name: CrowdStrike Falcon Adversary Intelligence (using Azure Functions)
       href: data-connectors/crowdstrike-falcon-adversary-intelligence.md
     - name: Crowdstrike Falcon Data Replicator (using Azure Functions)
@@ -446,6 +448,8 @@
       href: data-connectors/hyas-protect.md
     - name: Holm Security Asset Data (using Azure Functions)
       href: data-connectors/holm-security-asset-data.md
+    - name: IIS Logs of Microsoft Exchange Servers
+      href: data-connectors/iis-logs-of-microsoft-exchange-servers.md
     - name: Illumio SaaS (using Azure Functions)
       href: data-connectors/illumio-saas.md
     - name: Imperva Cloud WAF (using Azure Functions)
@@ -520,8 +524,14 @@
       href: data-connectors/microsoft-purview.md
     - name: Microsoft Purview Information Protection
       href: data-connectors/microsoft-purview-information-protection.md
+    - name: Mimecast Audit (using Azure Functions)
+      href: data-connectors/mimecast-audit.md
     - name: Mimecast Audit & Authentication (using Azure Functions)
       href: data-connectors/mimecast-audit-authentication.md
+    - name: Mimecast Awareness Training (using Azure Functions)
+      href: data-connectors/mimecast-awareness-training.md
+    - name: Mimecast Cloud Integrated (using Azure Functions)
+      href: data-connectors/mimecast-cloud-integrated.md
     - name: Mimecast Intelligence for Microsoft - Microsoft Sentinel (using Azure Functions)
       href: data-connectors/mimecast-intelligence-for-microsoft-microsoft-sentinel.md
     - name: Mimecast Secure Email Gateway (using Azure Functions)
@@ -602,6 +612,8 @@
       href: data-connectors/seraphic-web-security.md
     - name: Silverfort Admin Console
       href: data-connectors/silverfort-admin-console.md
+    - name: SINEC Security Guard
+      href: data-connectors/sinec-security-guard.md
     - name: Slack Audit (using Azure Functions)
       href: data-connectors/slack-audit.md
     - name: Snowflake (using Azure Functions)
@@ -635,7 +647,7 @@
     - name: Threat Intelligence Platforms
       href: data-connectors/threat-intelligence-platforms.md
     - name: Threat Intelligence Upload Indicators API (Preview)
-      href: data-connectors/threat-intelligence-upload-indicators-api.md
+      href: data-connectors/threat-intelligence-upload-api.md
     - name: Transmit Security Connector (using Azure Functions)
       href: data-connectors/transmit-security-connector.md
     - name: Trend Vision One (using Azure Functions)

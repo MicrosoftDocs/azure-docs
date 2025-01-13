@@ -2,8 +2,8 @@
 title: Monitor Azure Firewall
 description: You can monitor Azure Firewall using firewall logs. You can also use activity logs to audit operations on Azure Firewall resources.
 ms.date: 08/08/2024
-ms.custom: horz-monitor, FY23 content-maintenance
-ms.topic: conceptual
+ms.custom: horz-monitor
+ms.topic: concept-article
 author: vhorne
 ms.author: victorh
 ms.service: azure-firewall

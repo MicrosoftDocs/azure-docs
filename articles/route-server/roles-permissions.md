@@ -5,7 +5,7 @@ description: Learn about roles and permissions for Azure Route Server
 author: siddomala
 ms.author: halkazwini
 ms.service: azure-route-server
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/13/2024
 ---
 
@@ -67,7 +67,7 @@ To view roles and permissions for other services, see the following links:
 
 - [Azure VPN Gateway](../vpn-gateway/roles-permissions.md)
 
-## Next steps
+## Related content
 
 - [What is Azure Role Based Access](../role-based-access-control/overview.md)
 
