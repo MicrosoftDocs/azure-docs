@@ -29,7 +29,7 @@ ms.author: xiaofanzhou
     // var managedIdentityClientId = Environment.GetEnvironmentVariable("AZURE_REDIS_CLIENTID");
     // await configurationOptions.ConfigureForAzureWithUserAssignedManagedIdentityAsync(managedIdentityClientId);
 
-    // Service principal secret
+    // Service principal secret.
     // var clientId = Environment.GetEnvironmentVariable("AZURE_REDIS_CLIENTID");
     // var tenantId = Environment.GetEnvironmentVariable("AZURE_REDIS_TENANTID");
     // var secret = Environment.GetEnvironmentVariable("AZURE_REDIS_CLIENTSECRET");
@@ -90,8 +90,8 @@ ms.author: xiaofanzhou
     String username = extractUsernameFromToken(token);
     String cacheHostname = System.getenv("AZURE_REDIS_HOST");
 
-    // Create Jedis client and connect to the Azure Cache for Redis over the TLS/SSL port using the access token as password.
-    // Note, Redis Cache Host Name and Port are required below
+    // Create Jedis client and connect to Azure Cache for Redis over the TLS/SSL port using the access token as password.
+    // Note, Redis Cache host name and port are required below.
     Jedis jedis = new Jedis(cacheHostname, 6380, DefaultJedisClientConfig.builder()
         .password(token) // Microsoft Entra access token as password is required.
         .user(username) // Username is Required
@@ -246,7 +246,7 @@ ms.author: xiaofanzhou
         console.log("access Token", accessToken);
         const host = process.env.AZURE_REDIS_HOST;
 
-        // Create redis client and connect to the Azure Cache for Redis over the TLS port using the access token as password.
+        // Create redis client and connect to Azure Cache for Redis over the TLS port using the access token as password.
         const client = createClient({
             username: extractUsernameFromToken(accessToken),
             password: accessToken.token,
@@ -260,9 +260,9 @@ ms.author: xiaofanzhou
 
         client.on("error", (err) => console.log("Redis Client Error", err));
         await client.connect();
-        // Set a value against your key in the Azure Redis Cache.
+        // Set a value against your key in Azure Redis Cache.
         await client.set("Az:key", "value1312");
-        // Get value of your key in the Azure Redis Cache.
+        // Get value of your key in Azure Redis Cache.
         console.log("value-", await client.get("Az:key"));
     }
 
