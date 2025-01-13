@@ -1295,15 +1295,6 @@ groups:
     title: .NET
   - id: framework-spring
     title: Spring Framework
-# Owner: zhiyuanliang
-- id: feature-management
-  title: Library version pivots
-  prompt: Choose a release
-  pivots:
-  - id: stable-version
-    title: Stable release
-  - id: preview-version
-    title: Preview release
 # Owner: avanigupta
 - id: appconfig-data-plane-api-version
   title: API version pivots
