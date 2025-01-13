@@ -36,7 +36,7 @@ The following table shows which combinations of authentication methods and clien
 | Python             | Yes                               | Yes                             | Yes                        | Yes                |
 | None               | Yes                               | Yes                             | Yes                        | Yes                |
 
-This table shows that the only supported authentication method for all the listed client types is secret / connection string. No additional authentication methods are supported for any of the client types.
+All client types, with the exception of Go and Java - Spring Boot, can use any of the authentication methods referenced in the table to connect to Azure Cache for Redis using Service Connector. The only supported authentication methods for Go and Java - Spring Boot are secret / connection string or service principal.
 
 ## Default environment variable names or application properties and sample code
 
