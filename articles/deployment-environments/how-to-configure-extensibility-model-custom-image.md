@@ -87,7 +87,7 @@ The following example shows a `runner` that references the sample ARM-Bicep cont
     runner: Bicep
     templatePath: azuredeploy.json
 ```
-You can see the sample Bicep container image in the ADE sample repository under the [Runner-Images folder for the ARM-Bicep](https://github.com/Azure/deployment-environments/tree/main/Runner-Images/ARM-Bicep) image, or view the sample Terraform image .
+You can see the sample Bicep container image in the ADE sample repository under the [Runner-Images folder for the ARM-Bicep](https://github.com/Azure/deployment-environments/tree/main/Runner-Images/ARM-Bicep) image.
 
 For more information about how to create environment definitions that use the ADE container images to deploy your Azure resources, see [Add and configure an environment definition](configure-environment-definition.md).
 ::: zone-end
