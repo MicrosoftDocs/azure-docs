@@ -304,9 +304,10 @@ To deploy your image to a custom container in App Service, use the `azure/webapp
 | **configuration-file** | (Optional) Applies to Web App Containers only: Path of the Docker-Compose file. Should be a fully qualified path or relative to the default working directory. Required for multi-container apps. |
 | **startup-command** | (Optional) Enter the start-up command. For ex. dotnet run or dotnet filename.dll |
 
+::: zone pivot="github-actions-containers-linux"
+
 # [Publish profile](#tab/publish-profile)
 
-::: zone pivot="github-actions-containers-linux"
 
 ```yaml
 name: Linux Container Node Workflow
@@ -423,6 +424,8 @@ jobs:
 ::: zone-end  
 
 ::: zone pivot="github-actions-containers-windows"
+
+# [Publish profile](#tab/publish-profile)
 
 ```yaml
 name: Windows_Container_Workflow
