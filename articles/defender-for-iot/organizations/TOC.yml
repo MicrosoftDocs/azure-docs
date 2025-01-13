@@ -364,10 +364,6 @@
           href: appliance-catalog/virtual-sensor-vmware.md
         - name: OT sensor (Hyper-V) Gen 2
           href: appliance-catalog/virtual-sensor-hyper-v.md
-        - name: On-premises management console (VMware ESXi)
-          href: appliance-catalog/virtual-management-vmware.md
-        - name: On-premises management console (Microsoft Hyper-V)
-          href: appliance-catalog/virtual-management-hyper-v.md
       - name: Legacy appliances
         items:
         - name: HPE ProLiant DL20 Gen10 (E1800)
@@ -416,18 +412,6 @@
       - name: Vulnerability management
         href: api/sensor-vulnerability-apis.md
     - name: General management API reference
-      items:
-      - name: Authentication and password management
-        href: api/management-auth-apis.md
-      - name: Appliance management
-        href: api/management-appliances-apis.md
-      - name: Alert management
-        displayName: alerts
-        href: api/management-alert-apis.md
-      - name: Inventory management
-        href: api/management-inventory-apis.md
-      - name: Partner integration
-        href: api/management-integration-apis.md
 - name: Resources
   items:
   - name: Frequently asked questions
