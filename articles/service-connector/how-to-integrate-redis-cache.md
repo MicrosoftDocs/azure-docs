@@ -10,7 +10,7 @@ ms.date: 02/02/2024
 
 # Integrate Azure Cache for Redis with Service Connector
 
-You can connect Azure Cache for Redis to other cloud services by using Service Connector. This article outlines supported authentication methods and clients, and provides sample code. It also reveals default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. (Note that you might still be able to connect to Azure Cache for Redis in other programming languages without using Service Connector.)
+You can connect Azure Cache for Redis to other cloud services by using Service Connector. This article outlines supported authentication methods and clients, and provides sample code. It also reveals default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. (You might still be able to connect to Azure Cache for Redis in other programming languages without using Service Connector.)
 
 ## Supported compute services
 
@@ -24,7 +24,7 @@ You can use Service Connector to connect the following compute services to Azure
 
 ## Supported authentication and client types
 
-The following table shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure Cache for Redis by using Service Connector. "Yes" means that the combination is supported, while "No" means that it isn't supported.
+The following table shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure Cache for Redis by using Service Connector. "Yes" means that the combination is supported. "No" means that it isn't supported.
 
 | Client type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string | Service principal |
 |--------------------|----------------------------------|--------------------------------|----------------------------|-------------------|
@@ -36,11 +36,11 @@ The following table shows which combinations of authentication methods and clien
 | Python             | Yes                               | Yes                             | Yes                        | Yes                |
 | None               | Yes                               | Yes                             | Yes                        | Yes                |
 
-All client types, except for Go and Java - Spring Boot, can use any of the authentication methods referenced in the table to connect to Azure Cache for Redis using Service Connector. The only supported authentication methods for Go and Java - Spring Boot are secret / connection string or service principal.
+All client types, except for Go and Java - Spring Boot, can use any of the authentication methods referenced in the table to connect to Azure Cache for Redis by using Service Connector. The only supported authentication methods for Go and Java - Spring Boot are secret / connection string or service principal.
 
 ## Default environment variable names or application properties and sample code
 
-Use the following environment variable names and application properties to connect compute services to your Redis server. For each example, replace the placeholders `<redis-server-name>`, and `<redis-key>` with your own Redis server name and key. Check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article to learn more about naming conventions.
+Use the following environment variable names and application properties to connect compute services to your Redis server. For each example, replace the placeholders `<redis-server-name>` and `<redis-key>` with your own Redis server name and key. To learn more about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
 ### System-assigned managed identity
 
@@ -68,13 +68,13 @@ The following steps and code show you how to use a user-assigned managed identit
 ### Connection string
 
 > [!WARNING]
-> We recommend that you use the most secure authentication flow available. The authentication flow described here requires a very high degree of trust in the application, and carries risks that aren't present in other flows. You should only use this flow when more secure flows, such as managed identities, aren't viable.
+> We recommend that you use the most secure authentication flow available. The authentication flow described here requires a very high degree of trust in the application, and carries risks that aren't present in other flows. You should use this flow only when more secure flows, such as managed identities, aren't viable.
 
 #### [.NET](#tab/dotnet)
 
 | Default environment variable name | Description                            | Example value                                                                                        |
 | --------------------------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| AZURE_REDIS_CONNECTIONSTRING      | `StackExchange.Redis` connection string | `<redis-server-name>.redis.cache.windows.net:6380,password=<redis-key>,ssl=True,defaultDatabase=0` |
+| `AZURE_REDIS_CONNECTIONSTRING`      | `StackExchange.Redis` connection string | `<redis-server-name>.redis.cache.windows.net:6380,password=<redis-key>,ssl=True,defaultDatabase=0` |
 
 #### [Java](#tab/java)
 
@@ -141,9 +141,6 @@ The following steps and code show you how to use a connection string to connect 
 The following steps and code show you how to use a service principal to connect to Redis.
 [!INCLUDE [code sample for Redis](./includes/code-redis-me-id.md)]
 
-## Next step
+## Related content
 
-Read the following tutorial to learn more about Service Connector.
-
-> [!div class="nextstepaction"]
-> [Learn about Service Connector concepts](./concept-service-connector-internals.md)
+* [Learn about Service Connector concepts](./concept-service-connector-internals.md)
