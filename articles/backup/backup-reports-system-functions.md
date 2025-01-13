@@ -1,5 +1,5 @@
 ---
-title: System functions on Azure Monitor Logs
+title: System Functions for Azure Backup
 description: Write custom queries on Azure Monitor Logs using system functions
 ms.service: azure-backup
 ms.topic: reference
@@ -8,7 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# System functions on Azure Monitor Logs
+# System Functions for Azure Backup
 
 This article describes how to write custom queries on Azure Monitor Logs using system functions.
 

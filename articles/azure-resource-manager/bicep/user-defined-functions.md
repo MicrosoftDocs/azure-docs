@@ -3,12 +3,12 @@ title: User-defined functions in Bicep
 description: Describes how to define and use user-defined functions in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 03/15/2024
+ms.date: 10/23/2024
 ---
 
 # User-defined functions in Bicep
 
-Within your Bicep file, you can create your own functions. These functions are available for use in your Bicep files. User-defined functions are separate from the [standard Bicep functions](./bicep-functions.md) that are automatically available within your Bicep files. Create your own functions when you have complicated expressions that are used repeatedly in your Bicep files.
+Within your Bicep file, you can create your own functions. These functions are available for use in your Bicep files. User-defined functions are separate from the [standard Bicep functions](./bicep-functions.md) that are automatically available within your Bicep files. Create your own functions when you have complicated expressions that are used repeatedly in your Bicep files. Using user-defined functions automatically enables [language version 2.0](../templates/syntax.md#languageversion-20) code generation.
 
 [Bicep CLI version 0.26.X or higher](./install.md) is required to use this feature.
 

@@ -1,7 +1,7 @@
 ---
 title: Control the OT traffic monitored by Microsoft Defender for IoT
 description: Learn how to control the OT network traffic monitored by Microsoft Defender for IoT.
-ms.date: 07/04/2023
+ms.date: 10/11/2024
 ms.topic: how-to
 ---
 
@@ -21,7 +21,7 @@ Before performing the procedures in this article, you must have:
 
 - An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [configured, and activated](ot-deploy/activate-deploy-sensor.md).
 
-- Access to your OT network sensor and on-premises management console as an **Admin** user.  For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+- Access to your OT network sensor as an **Admin** user.  For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
 This step is performed by your deployment teams.
 
@@ -33,9 +33,7 @@ After [onboarding](onboard-sensors.md) a new OT network sensor to Microsoft Defe
 
 1. Sign into your OT sensor as an Admin user and select **System settings** > **Basic** > **Deployment**.
 
-1. Select **Analyze**. The analysis starts, and a tab is shown for each interface that's monitored by the sensor. Each tab shows the subnets detected by the indicated interface. For example:
-
-    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/deployment-settings.png" alt-text="Screenshot of the Deployment settings page." lightbox="media/how-to-control-what-traffic-is-monitored/deployment-settings.png":::
+1. Select **Analyze**. The analysis starts, and a tab is shown for each interface that's monitored by the sensor. Each tab shows the subnets detected by the indicated interface.
 
 1. Each interface tab shows the following details:
 
@@ -143,9 +141,6 @@ Port names are shown in Defender for IoT when viewing device groups from the OT 
 VLANs are either discovered automatically by the OT network sensor or added manually. Automatically discovered VLANs can't be edited or deleted, but manually added VLANs require a unique name. If a VLAN isn't explicitly named, the VLAN's number is shown instead.
 
 VLAN's support is based on 802.1q (up to VLAN ID 4094).
-
-> [!NOTE]
-> VLAN names aren't synchronized between the OT network sensor and the on-premises management console. If you want to view customized VLAN names on the on-premises management console, [define the VLAN names](legacy-central-management/how-to-manage-the-on-premises-management-console.md#define-vlan-names) there as well.
 
 **To configure VLAN names on an OT network sensor:**
 

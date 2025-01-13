@@ -73,7 +73,7 @@ sections:
           On confidential VMs with a temp disk, the pagefile.sys file can be moved to the encrypted OS [Tips for moving pagefile.sys to the c:\ drive](/azure/virtual-machines/windows/change-drive-letter).
 
       - question: | 
-          Can I generate a memory dump from within my confidential VM?
+          Can I generate a host memory dump from within my confidential VM?
         answer: | 
           No, this capability doesn't exist for confidential VMs.
                   
@@ -84,6 +84,7 @@ sections:
              - [Deploy from the Azure portal](quick-create-confidential-vm-portal.md)
              - [Deploy from the Azure Command-Line Interface (Azure CLI)](quick-create-confidential-vm-arm.md)
              - [Deploy using an ARM Template](quick-create-confidential-vm-arm.md)
+             - [Deploy using VMSS and Confidential Disk Encryption](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vmss-cvm-fde#readme)
 
       - question: |
           Can I perform attestation for my AMD-based confidential VMs?
@@ -131,6 +132,16 @@ sections:
         answer: |
           No. After you've created a confidential VM, you can't deactivate or reactivate full-disk encryption. Create a new confidential VM instead.
 
+      - question: |
+          Is it possible to switch between Platform-managed keys and Customer-managed keys after a VM has been created?
+        answer: |
+          No, the choice of key management (Platform-managed or Customer-managed) is only available during VM creation and cannot be changed afterward.          
+
+      - question: |
+          Can I use a Customer-managed key if I don't enable full-disk encryption for the OS disk?
+        answer: |
+          No, if a Confidential VM is created without full-disk encryption of the OS disk, a Customer-managed key cannot be used. In this case, the VMGS disk, which is always encrypted, will be encrypted using a Platform-managed key (PMK). 
+      
       - question: |
           Can I control more aspects of the Trusted Computing Base to enforce operator independent key management, attestation, and disk encryption?
         answer: |

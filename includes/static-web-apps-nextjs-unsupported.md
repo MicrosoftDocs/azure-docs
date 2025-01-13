@@ -2,7 +2,7 @@
 author: craigshoemaker
 ms.service: azure-static-web-apps
 ms.topic: include
-ms.date: 06/12/2024
+ms.date: 10/15/2024
 ms.author: cshoe
 ---
 
@@ -17,7 +17,7 @@ The following features of Static Web Apps are unsupported for Next.js with hybri
   - Route rewrites to routes within the Next.js application must be configured within `next.config.js`.
   - The configuration within the `staticwebapp.config.json` file takes precedence over the configuration within `next.config.js`.
   - Configuration for the Next.js site should be handled using `next.config.js` for full feature compatibility.
-- **Build skipping**: The `skip_app_build` and `skip_api_build` features aren't supported in the `Azure/static-web-apps-deploy@v1` deployment image.
+- **Build skipping**: For Next.js applications if `skip_api_build=true`, Static Web Apps does not remove dev dependencies or add the sharp package by default. If you want these optimizations, add them to your custom build steps before passing `skip_app_build=true`.
 - **Incremental static regeneration (ISR)**: Image caching isn't supported.
 
 > [!NOTE]

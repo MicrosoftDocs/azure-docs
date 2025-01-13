@@ -10,9 +10,6 @@ ms.custom: docs_inherited
 
 # Send diagnostic data to Log Analytics for Azure Virtual Desktop
 
->[!IMPORTANT]
->This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md).
-
 Azure Virtual Desktop uses [Azure Monitor](/azure/azure-monitor/overview) for monitoring and alerts like many other Azure services. This lets admins identify issues through a single interface. The service creates activity logs for both user and administrative actions. Each activity log falls under the following categories:
 
 | Category | Description |

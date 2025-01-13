@@ -109,7 +109,7 @@ To see activity runs associated with the pipeline run, select the **View Activit
 
 :::image type="content" source="./media/load-office-365-data/activity-status.png" alt-text="Monitor activity"::: 
 
-If this is the first time you are requesting data for this context (a combination of which data table is being access, which destination account is the data being loaded into, and which user identity is making the data access request), you will see the copy activity status as **In Progress**, and only when you select into "Details" link under Actions will you see the status as **RequesetingConsent**.  A member of the data access approver group needs to approve the request in the Privileged Access Management before the data extraction can proceed.
+If this is the first time you are requesting data for this context (a combination of which data table is being access, which destination account is the data being loaded into, and which user identity is making the data access request), you will see the copy activity status as **In Progress**, and only when you select into "Details" link under Actions will you see the status as **RequestingConsent**.  A member of the data access approver group needs to approve the request in the Privileged Access Management before the data extraction can proceed.
 
 _Status as requesting consent:_
 :::image type="content" source="./media/load-office-365-data/activity-details-request-consent.png" alt-text="Activity execution details - request consent"::: 

@@ -2,7 +2,7 @@
 title: Supported VM SKUs for Azure Policy
 description: 'An article describing the supported VM SKUs (by Publisher, Image Offer and Image SKU) which are supported for the built-in Azure Policies provided by Backup'
 ms.topic: reference
-ms.date: 09/11/2024
+ms.date: 10/16/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -105,3 +105,4 @@ OpenLogic | CentOS | 6.X, 7.X
 OpenLogic | CentOS–LVM | 6.X, 7.X
 OpenLogic | CentOS–SRIOV | 6.X, 7.X
 cloudera | cloudera-centos-os | 7.X
+

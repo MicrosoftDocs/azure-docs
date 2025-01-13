@@ -1,9 +1,9 @@
 ---
 ms.topic: include
-ms.date: 06/14/2024
+ms.date: 12/04/2024
 author: PatAltimore
 ms.author: patricka
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ---
@@ -16,6 +16,9 @@ Run the following commands to add the package repository and then add the Micros
 
 > [!IMPORTANT]
 > On June 30, 2022 Raspberry Pi OS Stretch was retired from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye.
+>
+> For [tier 2 supported platform operating systems](../support.md#tier-2), installation packages are made available at [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). See the installation steps in [Offline or specific version installation](../how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
+
 
 # [Ubuntu](#tab/ubuntu)
 
@@ -191,7 +194,6 @@ Currently, the local logging driver setting is not supported for the Docker snap
 
 ---
 
-
 ### Install the IoT Edge runtime
 
 The IoT Edge service provides and maintains security standards on the IoT Edge device. The service starts on every boot and bootstraps the device by starting the rest of the IoT Edge runtime.
@@ -217,10 +219,8 @@ Install the latest version of IoT Edge and the IoT identity service package (if 
 * **20.04**:
    ```bash
    sudo apt-get update; \
-     sudo apt-get install aziot-edge defender-iot-micro-agent-edge
+     sudo apt-get install aziot-edge
    ```
-
-The optional `defender-iot-micro-agent-edge` package includes the Microsoft Defender for IoT security micro-agent that provides endpoint visibility into security posture management, vulnerabilities, threat detection, fleet management and more to help you secure your IoT Edge devices. It's recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](/azure/defender-for-iot/device-builders/overview).
 
 # [Debian](#tab/debian)
 
@@ -228,10 +228,8 @@ Install the latest version of IoT Edge and the IoT identity service package (if 
 
    ```bash
    sudo apt-get update; \
-     sudo apt-get install aziot-edge defender-iot-micro-agent-edge
+     sudo apt-get install aziot-edge
    ```
-
-The optional defender-iot-micro-agent-edge package includes the Microsoft Defender for IoT security micro-agent that provides endpoint visibility into security posture management, vulnerabilities, threat detection, fleet management and more to help you secure your IoT Edge devices. It's recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](/azure/defender-for-iot/device-builders/overview).
 
 # [Red Hat Enterprise Linux](#tab/rhel)
 

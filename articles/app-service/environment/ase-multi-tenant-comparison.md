@@ -74,7 +74,7 @@ App Service Environment v3 tends to be more expensive than the public multitenan
 |Pricing     |[Pay per instance](overview.md#pricing)|[Pay per instance](../../app-service/overview-hosting-plans.md)|
 |Reserved instances|[Available](overview.md#pricing)|[Available](../../app-service/overview-hosting-plans.md)|
 |Savings plans|[Available](overview.md#pricing)|[Available](../../app-service/overview-hosting-plans.md)|
-|Availability zone pricing|[There's a minimum charge of 18 cores.](overview.md#pricing) There's no added charge for availability zone support if you have 18 or more cores across your App Service plan instances. If you have fewer than 18 cores across your App Service plans in the zone redundant App Service Environment, the difference between 18 cores and the sum of the cores from the running instance count is charged as Windows I1v2 instances.|[Three instance minimum enforced per App Service plan](../../reliability/reliability-app-service.md#pricing).|
+|Availability zone pricing|[There's a minimum charge of 18 cores.](overview.md#pricing) There's no added charge for availability zone support if you have 18 or more cores across your App Service plan instances. If you have fewer than 18 cores across your App Service plans in the zone redundant App Service Environment, the difference between 18 cores and the sum of the cores from the running instance count is charged as Windows I1v2 instances.|[Three instance minimum enforced per App Service plan](../../reliability/reliability-app-service.md#cost).|
 
 ### Frequently asked questions
 

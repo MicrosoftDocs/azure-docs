@@ -6,14 +6,14 @@ description: Learn how to validate custom policy files by using TrustFrameworkPo
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
 ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer working with Azure AD B2C custom policies, I want to validate my custom policy files using the TrustFrameworkPolicy schema, so that I can ensure that my files are properly formatted and free of errors before uploading them.

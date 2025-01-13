@@ -74,7 +74,7 @@ The following errors might be displayed in the portal if you're ineligible for a
 
 ## What to do if your App Service Environment is suspended
 
-If your App Service Environment is suspended, you have two options.
+If your App Service Environment is suspended, you have three options.
 
 ### Unsuspend and self-migrate
 
@@ -87,6 +87,14 @@ If you want to migrate yourself, open a support ticket using the option in the M
 If you want to expedite migration, you can resume/unsuspend your environment as an **App Service Environment v3**. To resume your App Service Environment as a v3, go to the [Azure portal](https://portal.azure.com) and visit the Migration page for your App Service Environment. To resume your environment as an App Service Environment v3, select the "Migrate now" button. This button initiates the same process that is used for auto-migrations. The limitations, downtime, and other considerations are the same as for auto-migrations. If you have more than one App Service Environment, you need to resume each of your environments that are suspended.
 
 :::image type="content" source="./media/migration/resume-as-asev3.png" alt-text="Screenshot that shows the button on the Migration page where you can resume as an App Service Environment v3.":::
+
+### Delete your App Service Environment
+
+If you no longer need your App Service Environment, you can delete your environment using the following CLI command. Replace the placeholders for the subscription id, environment name, and resource group with your values for the App Service Environment that you want to delete. The Azure CLI is the only available method for deleting your environment. If you haven't previously used the Azure CLI, [install the Azure CLI](/cli/azure/install-azure-cli) or use [Azure Cloud Shell](https://shell.azure.com/) and use a Bash shell. Deleting your environment will also delete the associated apps and App Service plans. This action is irreversible.
+
+```azurecli
+az rest --method delete --url "https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Web/hostingEnvironments/<ASE-NAME>?api-version=2020-12-01" --url-parameters forceDelete=true --verbose
+```
 
 ## Features to limit the effects of auto-migrations
 

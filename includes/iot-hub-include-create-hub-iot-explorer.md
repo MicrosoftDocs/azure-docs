@@ -3,9 +3,9 @@ title: include file
 description: include file
 author: timlt
 ms.author: timlt
-ms.service: iot-develop
+ms.service: azure-iot
 ms.topic: include
-ms.date: 09/17/2021
+ms.date: 1/10/2025
 ---
 
 ## Create an IoT hub

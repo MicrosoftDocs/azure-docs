@@ -5,20 +5,23 @@ ms.topic: include
 ms.date: 10/20/2023
 ms.author: jacadd
 ---
+
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
-## Send or receive a reaction from other participants
+## Implement reactions for meeting participants
 
-Within Azure Communication Services you can send and receive reactions when on a group call:
+In Azure Communication Services participants can send and receive reactions during a group call:
+
 - Like :::image type="icon" source="media/reaction-like.png":::
 - Love :::image type="icon" source="media/reaction-love.png":::
 - Applause :::image type="icon" source="media/reaction-applause.png":::
 - Laugh :::image type="icon" source="media/reaction-laugh.png":::
 - Surprise :::image type="icon" source="media/reaction-surprise.png":::
 
-To send a reaction, use the `sendReaction(reactionMessage)` API. To receive a reaction, the message will be built with Type `ReactionMessage` that uses `Reaction` enums as an attribute. 
+To send a reaction, use the `sendReaction(reactionMessage)` API. To receive a reaction, the message builds with type `ReactionMessage` using `Reaction` enums as an attribute.
 
-You need to subscribe for events that provide the subscriber event data:
+You need to subscribe to events that provide the subscriber event data:
+
 ```javascript
 export interface ReactionEventPayload {
     /**
@@ -32,9 +35,10 @@ export interface ReactionEventPayload {
 }
 ```
 
-You can determine which reaction is coming from which participant with `identifier` attribute and gets the reaction type from `ReactionMessage`. 
+You can determine which reaction is coming from which participant using the `identifier` attribute and getting the reaction type from `ReactionMessage`. 
 
-### Sample on how to send a reaction in a meeting
+### Sample showing how to send a reaction in a meeting
+
 ```javascript
 const reaction = call.feature(SDK.Features.Reaction);
 const reactionMessage: SDK.ReactionMessage = {
@@ -43,7 +47,8 @@ const reactionMessage: SDK.ReactionMessage = {
 await reaction.sendReaction(reactionMessage);
 ```
 
-### Sample on how to receive a reaction in a meeting
+### Sample showing how to receive a reaction in a meeting
+
 ```javascript
 const reaction = call.feature(SDK.Features.Reaction);
 reaction.on('reaction', event => {
@@ -56,7 +61,8 @@ reaction.on('reaction', event => {
 }
 ```
 
-### Key things to note about using Reactions:
-- For Microsoft Teams interoperability scenarios, the functionality of the feature depends on the meeting policy for the reaction capability.
+### Key points when using reactions
+
+- Reactions are supported for Microsoft Teams interoperability scenarios. Support is based on [Teams policy](/microsoftteams/manage-reactions-meetings).
 - Reactions are supported in the Web Calling SDK.
-- Reactions are not currently supported in the Native SDKs.
+- Reactions aren't currently supported in the Native SDKs.

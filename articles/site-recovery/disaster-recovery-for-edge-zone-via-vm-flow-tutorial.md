@@ -1,20 +1,20 @@
 ---
 title: Set up disaster recovery when creating a VM 
-description: Learn how to set up disaster recovery for Virtual machines on Azure Public MEC using VM Flow.
+description: Learn how to set up disaster recovery for Virtual machines on Azure Extended Zones using VM Flow.
 author: ankitaduttaMSFT
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 04/19/2023
+ms.date: 01/09/2025
 ms.author: ankitadutta
 ---
 
-# Tutorial: Set up disaster recovery for Azure Public MEC using VM Flow
+# Tutorial: Set up disaster recovery for Azure Extended Zones using VM Flow
 
 > [!IMPORTANT]
-> The Azure Site Recovery (ASR) functionality for Public MEC is in preview state.
+> The Azure Site Recovery (ASR) functionality for Extended Zones is in preview state.
 
 
-This tutorial shows you how to set up disaster recovery for Azure Site Recovery Public MEC (preview) using VM Flow. You will do this using the Azure Site Recovery portal.
+This tutorial shows you how to set up disaster recovery for Azure Site Recovery Extended Zones (preview) using VM Flow. You will do this using the Azure Site Recovery portal.
 
 
 In this article, you learn how to:
@@ -32,19 +32,15 @@ To enable replication to a secondary location, follow the below steps:
 
 1. On the Azure portal, select **Virtual machines** and select a VM to replicate.
 1. On the left pane, under **Operations**, select **Disaster recovery**.
-    :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/disaster-recovery.png" alt-text=" Screenshot of Select Disaster Recovery option."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/disaster-recovery-expanded.png":::
+    :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/disaster-recovery.png" alt-text=" Screenshot of Select Disaster Recovery option."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/disaster-recovery.png":::
      
-1. In **Basics**, select the **Target region** or an Azure Public MEC.
-    - Option 1: **Public MEC to Region**
+1. In **Basics**, select the **Target region** or an Azure Extended Zones.
     
-        :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/edge-zone-to-region.png" alt-text="Screenshot of Option 1 Edge Zone to Region."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/edge-zone-to-region.png":::
+    :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/edge-zone-to-region.png" alt-text="Screenshot of Option 1 Edge Zone to Region."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/edge-zone-to-region.png":::
 
-    - Option 2: **Public MEC to Public MEC**
-    
-        :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/edgezone-to-edgezone.png" alt-text="Screenshot of Option 2 Edge Zone to Edge Zone."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/edgezone-to-edgezone.png":::
     
     >[!Note]
-    >This flow proceeds with Option 1: Public MEC to Region replication.
+    >This flow proceeds with Option 1: Extended Zones to Region replication.
 
 1. Select **Next : Advanced settings**.
 
@@ -64,4 +60,4 @@ To enable replication to a secondary location, follow the below steps:
 
 ## Next steps
 
-See [Set up disaster recovery for VMs on Azure Public MEC using Vault flow](disaster-recovery-for-edge-zone-vm-tutorial.md).
+See [Set up disaster recovery for VMs on Azure Extended Zones using Vault flow](disaster-recovery-for-edge-zone-vm-tutorial.md).

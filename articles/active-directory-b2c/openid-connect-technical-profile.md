@@ -6,12 +6,12 @@ description: Define an OpenID Connect technical profile in a custom policy in Az
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer using Azure Active Directory B2C, I want to define an OpenID Connect technical profile in a custom policy, so that I can federate with an OpenID Connect based identity provider and allow users to sign in with their existing social or enterprise identities.

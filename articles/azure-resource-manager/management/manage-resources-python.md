@@ -2,7 +2,7 @@
 title: Manage resources - Python
 description: Use Python and Azure Resource Manager to manage your resources. Shows how to deploy and delete resources. 
 ms.topic: conceptual
-ms.date: 06/20/2024
+ms.date: 09/26/2024
 ms.custom: devx-track-arm-template, devx-track-python
 content_well_notification: 
   - AI-contribution
@@ -155,7 +155,7 @@ For more information, see [Move resources to new resource group or subscription]
 
 ## Lock resources
 
-Locking prevents other users in your organization from accidentally deleting or modifying critical resources, such as Azure subscription, resource group, or resource. 
+Locking prevents other users in your organization from accidentally deleting or modifying critical resources, such as Azure subscription, resource group, or resource.
 
 The following example locks a web site so it can't be deleted.
 

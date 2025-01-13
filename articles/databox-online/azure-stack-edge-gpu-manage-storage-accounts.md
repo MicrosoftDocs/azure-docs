@@ -4,8 +4,7 @@ description: Describes how to use the Azure portal to manage storage account on 
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 04/18/2022

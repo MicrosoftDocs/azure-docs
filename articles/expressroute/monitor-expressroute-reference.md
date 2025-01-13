@@ -397,6 +397,9 @@ Dimension for Express Direct:
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
+> [!NOTE]
+> Logs in Azure Log Analytics may take up to 24 hours to appear.
+
 ### ExpressRoute Microsoft.Network/expressRouteCircuits
 
 - [AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity#columns)

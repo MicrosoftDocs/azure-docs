@@ -5,11 +5,11 @@ description: Learn tips for securing phone-based multifactor authentication in y
 
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 10/23/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 

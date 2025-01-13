@@ -5,7 +5,7 @@ titleSuffix: Azure Virtual WAN
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 09/24/2024
+ms.date: 10/08/2024
 ms.author: cherylmc
 
 #Note that Audience values are not sensitive data. 
@@ -32,11 +32,11 @@ Verify that you have a Microsoft Entra tenant. If you don't have a Microsoft Ent
 
 1. Create two accounts in the newly created Microsoft Entra tenant. For steps, see [Add or delete a new user](../active-directory/fundamentals/add-users-azure-active-directory.md).
 
-   * Global administrator account
+   * [Cloud Application Administrator role](/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)
    * User account
 
-   The global administrator account will be used to grant consent to the Azure VPN app registration. The user account can be used to test OpenVPN authentication.
-1. Assign one of the accounts the **Global administrator** role. For steps, see  [Assign administrator and non-administrator roles to users with Microsoft Entra ID](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+   The Cloud Application Administrator role is used to grant consent to the Azure VPN app registration. The user account can be used to test OpenVPN authentication.
+1. Assign one of the accounts the **Cloud Application Administrator** role. For steps, see  [Assign administrator and non-administrator roles to users with Microsoft Entra ID](/azure/active-directory-b2c/tenant-management-read-tenant-name).
 
 ## <a name="enable-authentication"></a>3. Grant consent to the Azure VPN app registration
 

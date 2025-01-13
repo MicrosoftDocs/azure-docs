@@ -2,11 +2,10 @@
 title: Configure Application Gateway for Containers for Prometheus and Grafana
 description: Configure Application Gateway for Containers metrics to be sent to Prometheus and displayed on Grafana.
 services: application-gateway
-author: greglin
-ms.service: azure-application-gateway
-ms.subservice: appgw-for-containers
+author: greg-lindsay
+ms.service: azure-appgw-for-containers
 ms.topic: article
-ms.date: 07/09/2024
+ms.date: 10/21/2024
 ms.author: greglin
 ---
 
@@ -52,11 +51,11 @@ You can monitor Azure Application Gateway for Containers resources in the follow
 
 Complete the steps to configure prometheus and grafana. 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
-2. In **Search resources, service, and docs**, type **Application Gateways for Containers** and select your Kubernetes Cluster name.
+2. In **Search resources, service, and docs**, type **Kubernetes services** and select your Kubernetes Cluster name.
    
    [ ![A screenshot of kubernetes insights.](./media/prometheus-grafana/configure.png) ](./media/prometheus-grafana/configure.png#lightbox)
    
-3. Under insights and select **Configure Monitoring**.
+3. Expand **Monitoring**, select **Insights**, and select **Configure Monitoring**.
    
     [ ![A screenshot of monitoring metrics.](./media/prometheus-grafana/grafana-container.png) ](./media/prometheus-grafana/grafana-container.png#lightbox)
 
@@ -133,7 +132,7 @@ In this section, we enter Grafana default dashboards.
 
 4. After entering your user credentials, refer to the Grafana introduction.
 5. Select on the left side bar to access default dashboards under dashboards.
-   ![A screenshot of Dafault Grafana Dashboard.](./media/prometheus-grafana/grafana-default.png)
+   ![A screenshot of Default Grafana Dashboard.](./media/prometheus-grafana/grafana-default.png)
 
 ## Graph Prometheus metrics on Grafana 
 

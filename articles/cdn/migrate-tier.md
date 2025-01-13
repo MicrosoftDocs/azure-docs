@@ -4,12 +4,14 @@ description: This article provides step-by-step instructions on how to migrate f
 services: cdn
 author: duongau
 ms.service: azure-cdn
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/25/2024
 ms.author: duau
 ---
 
 # Migrate Azure CDN from Microsoft (classic) to Standard/Premium tier
+
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 Azure Front Door Standard and Premium tier bring the latest cloud delivery network features to Azure. With enhanced security features and an all-in-one service, your application content is secured and closer to your end users using the Microsoft global network. This article guides you through the migration process to move your Azure CDN from Microsoft (classic) profile to either a Standard or Premium tier profile.
 

@@ -4,10 +4,9 @@ description: Learn about working with virtual machine scale sets and Azure Stand
 services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/26/2024
 ms.author: mbender
-ms.custom: template-concept, engagement-fy23
 ---
 
 # Guidance for Virtual Machine Scale Sets with Azure Load Balancer
@@ -32,7 +31,7 @@ When Virtual Machine Scale Sets with [public IPs per instance](/azure/virtual-ma
 
 To create an outbound rule for a backend pool that's already referenced by a load-balancing rule, select **No** under **Create implicit outbound rules** in the Azure portal when the inbound load-balancing rule is created.
 
-  :::image type="content" source="./media/vm-scale-sets/load-balancer-and-vm-scale-sets.png" alt-text="Screenshot that shows load-balancing rule creation." border="true":::
+  :::image type="content" source="./media/load-balancer-standard-virtual-machine-scale-sets/load-balancer-and-vm-scale-sets.png" alt-text="Screenshot that shows load-balancing rule creation." border="true":::
 
 Use the following methods to deploy a Virtual Machine Scale Sets with an existing instance of Load Balancer:
 

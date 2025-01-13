@@ -186,6 +186,7 @@ There are many methods for securing ACR using the built-in firewall depending on
 * [Configure rules to access an Azure container registry behind a firewall](/azure/container-registry/container-registry-firewall-access-rules)
 * [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519)
 
+
 > [!NOTE]
 > The FHIR service has been registered as a trusted Microsoft service with Azure Container Registry.
 

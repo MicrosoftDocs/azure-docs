@@ -96,7 +96,7 @@ The following JSON is an example. For more information, see the latest [template
   "identity": {
     "type": "userAssigned",
     "userAssignedIdentities": {
-      "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID": {}
+      "/subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID": {}
     }
   },
   "properties": {
@@ -390,20 +390,20 @@ The `Get-AzDeploymentScript` output is similar to:
 
 ```output
 Name                : runPowerShellInlineWithOutput
-Id                  : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput
+Id                  : /subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/myds0618rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput
 ResourceGroupName   : myds0618rg
 Location            : centralus
-SubscriptionId      : 01234567-89AB-CDEF-0123-456789ABCDEF
+SubscriptionId      : aaaabbbb-0000-cccc-1111-dddd2222eeee
 ProvisioningState   : Succeeded
-Identity            : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/mydentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami
+Identity            : /subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/mydentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami
 ScriptKind          : AzurePowerShell
 AzPowerShellVersion : 9.7
 StartTime           : 5/11/2023 7:46:45 PM
 EndTime             : 5/11/2023 7:49:45 PM
 ExpirationDate      : 5/12/2023 7:49:45 PM
 CleanupPreference   : OnSuccess
-StorageAccountId    : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.Storage/storageAccounts/ftnlvo6rlrvo2azscripts
-ContainerInstanceId : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.ContainerInstance/containerGroups/ftnlvo6rlrvo2azscripts
+StorageAccountId    : /subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/myds0618rg/providers/Microsoft.Storage/storageAccounts/ftnlvo6rlrvo2azscripts
+ContainerInstanceId : /subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/myds0618rg/providers/Microsoft.ContainerInstance/containerGroups/ftnlvo6rlrvo2azscripts
 Outputs             :
                       Key                 Value
                       ==================  ==================
@@ -435,14 +435,14 @@ The list command output is similar to:
     },
     "environmentVariables": null,
     "forceUpdateTag": "20231101T163748Z",
-    "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Resources/deploymentScripts/runBashWithOutputs",
+    "id": "/subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/myds0624rg/providers/Microsoft.Resources/deploymentScripts/runBashWithOutputs",
     "identity": {
-      "tenantId": "01234567-89AB-CDEF-0123-456789ABCDEF",
+      "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
       "type": "userAssigned",
       "userAssignedIdentities": {
-        "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups/myidentity/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami": {
-          "clientId": "01234567-89AB-CDEF-0123-456789ABCDEF",
-          "principalId": "01234567-89AB-CDEF-0123-456789ABCDEF"
+        "/subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourcegroups/myidentity/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami": {
+          "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444",
+          "principalId": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
         }
       }
     },
@@ -452,7 +452,7 @@ The list command output is similar to:
     "outputs": {
       "Result": [
         {
-          "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/mytest/providers/Microsoft.KeyVault/vaults/mykv1027",
+          "id": "/subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/mytest/providers/Microsoft.KeyVault/vaults/mykv1027",
           "resourceGroup": "mytest"
         }
       ]
@@ -463,7 +463,7 @@ The list command output is similar to:
     "retentionInterval": "1 day, 0:00:00",
     "scriptContent": "result=$(az keyvault list); echo \"arg1 is: $1\"; echo $result | jq -c '{Result: map({id: .id})}' > $AZ_SCRIPTS_OUTPUT_PATH",
     "status": {
-      "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/mytest/providers/Microsoft.ContainerInstance/containerGroups/eg6n7wvuyxn7iazscripts",
+      "containerInstanceId": "/subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/mytest/providers/Microsoft.ContainerInstance/containerGroups/eg6n7wvuyxn7iazscripts",
       "endTime": "2023-11-01T16:39:12.080950+00:00",
       "error": null,
       "expirationTime": "2023-11-02T16:39:12.080950+00:00",
@@ -506,7 +506,7 @@ The following example uses [ARMClient](https://github.com/projectkudu/ARMClient)
 
 ```azurepowershell
 armclient login
-armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups/myrg/providers/microsoft.resources/deploymentScripts/myDeployementScript?api-version=2020-10-01
+armclient get /subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourcegroups/myrg/providers/microsoft.resources/deploymentScripts/myDeployementScript?api-version=2020-10-01
 ```
 
 The output is similar to:
@@ -516,11 +516,11 @@ The output is similar to:
   "kind": "AzurePowerShell",
   "identity": {
     "type": "userAssigned",
-    "tenantId": "01234567-89AB-CDEF-0123-456789ABCDEF",
+    "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
     "userAssignedIdentities": {
-      "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myidentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami": {
-        "principalId": "01234567-89AB-CDEF-0123-456789ABCDEF",
-        "clientId": "01234567-89AB-CDEF-0123-456789ABCDEF"
+      "/subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/myidentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami": {
+        "principalId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
+        "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444"
       }
     }
   },
@@ -543,8 +543,8 @@ The output is similar to:
     "timeout": "PT1H",
     "containerSettings": {},
     "status": {
-      "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.ContainerInstance/containerGroups/64lxews2qfa5uazscripts",
-      "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Storage/storageAccounts/64lxews2qfa5uazscripts",
+      "containerInstanceId": "/subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/myds0624rg/providers/Microsoft.ContainerInstance/containerGroups/64lxews2qfa5uazscripts",
+      "storageAccountId": "/subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/myds0624rg/providers/Microsoft.Storage/storageAccounts/64lxews2qfa5uazscripts",
       "startTime": "2023-05-11T02:59:07.5951401Z",
       "endTime": "2023-05-11T03:00:16.7969234Z",
       "expirationTime": "2023-05-12T03:00:16.7969234Z"
@@ -554,7 +554,7 @@ The output is similar to:
     },
     "cleanupPreference": "OnSuccess"
   },
-  "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput",
+  "id": "/subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/myds0624rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput",
   "type": "Microsoft.Resources/deploymentScripts",
   "name": "runPowerShellInlineWithOutput"
 }

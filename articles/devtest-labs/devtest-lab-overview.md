@@ -1,6 +1,6 @@
 ---
 title: What is Azure DevTest Labs?
-description: Learn how DevTest Labs makes it easy to create, manage, and monitor Azure virtual machines and environments.
+description: Learn how DevTest Labs makes it easy to create, manage, and monitor Azure virtual machines.
 ms.topic: overview
 ms.author: rosemalcolm
 author: RoseHJM
@@ -10,28 +10,27 @@ ms.custom: UpdateFrequency2
 
 # What is Azure DevTest Labs?
 
-[Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab) is a service for easily creating, using, and managing infrastructure-as-a-service (IaaS) virtual machines (VMs) and platform-as-a-service (PaaS) environments in labs. Labs offer preconfigured bases and artifacts for creating VMs, and Azure Resource Manager (ARM) templates for creating environments like Azure Web Apps or SharePoint farms.
+[Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab) is a service for easily creating, using, and managing infrastructure-as-a-service (IaaS) virtual machines (VMs) in labs. Labs offer preconfigured bases and artifacts for creating VMs.
 
-Lab owners can create preconfigured VMs that have tools and software lab users need. Lab users can claim preconfigured VMs, or create and configure their own VMs and environments. Lab policies and other methods track and control lab usage and costs.
+Lab owners can create preconfigured VMs that have tools and software lab users need. Lab users can claim preconfigured VMs, or create and configure their own VMs. Lab policies and other methods track and control lab usage and costs.
 
 ### Common DevTest Labs scenarios
 
-Common [DevTest Labs scenarios](devtest-lab-guidance-get-started.md) include development VMs, test environments, and classroom or training labs. DevTest Labs promotes efficiency, consistency, and cost control by keeping all resource usage within the lab context.
+Common [DevTest Labs scenarios](devtest-lab-guidance-get-started.md) include VMs for development, testing, and classroom or training labs. DevTest Labs promotes efficiency, consistency, and cost control by keeping all resource usage within the lab context.
 
 ## Custom VM bases, artifacts, and templates
 
-DevTest Labs can use custom images, formulas, artifacts, and templates to create and manage labs, VMs, and environments. The [DevTest Labs public GitHub repository](https://github.com/Azure/azure-devtestlab) has many ready-to-use VM artifacts and ARM templates for creating labs, environments, or sandbox resource groups. Lab owners can also create [custom images](devtest-lab-create-custom-image-from-vm-using-portal.md), [formulas](devtest-lab-manage-formulas.md), and ARM templates to use for creating and managing labs, [VMs](devtest-lab-use-resource-manager-template.md#view-edit-and-save-arm-templates-for-vms), and [environments](devtest-lab-create-environment-from-arm.md).
+DevTest Labs can use custom images, formulas, artifacts, and templates to create and manage labs, and VMs. The [DevTest Labs public GitHub repository](https://github.com/Azure/azure-devtestlab) has many ready-to-use VM artifacts and ARM templates for creating labs, or sandbox resource groups. Lab owners can also create [custom images](devtest-lab-create-custom-image-from-vm-using-portal.md), [formulas](devtest-lab-manage-formulas.md), and ARM templates to use for creating and managing labs, [VMs](devtest-lab-use-resource-manager-template.md#view-edit-and-save-arm-templates-for-vms).
 
 Lab owners can store artifacts and ARM templates in private Git repositories, and connect the [artifact repositories](add-artifact-repository.md) and [template repositories](devtest-lab-use-resource-manager-template.md#add-template-repositories-to-labs) to their labs so lab users can access them directly from the Azure portal. Add the same repositories to multiple labs in your organization to promote consistency, reuse, and sharing.
 
 ## Development, test, and training scenarios
 
-DevTest Labs users can quickly and easily create [IaaS VMs](devtest-lab-add-vm.md) and [PaaS environments](devtest-lab-create-environment-from-arm.md) from preconfigured bases, artifacts, and templates. Developers, testers, and trainers can:
+DevTest Labs users can quickly and easily create [IaaS VMs](devtest-lab-add-vm.md) from preconfigured bases, artifacts, and templates. Developers, testers, and trainers can:
 
 - Create Windows and Linux training and demo environments, or sandbox resource groups for exploring Azure, by using reusable ARM templates and artifacts.
-- Test app versions and scale up load testing by creating multiple test agents and environments.
-- Create development or testing environments from [continuous integration and deployment (CI/CD)](devtest-lab-integrate-ci-cd.md) tools, integrated development environments (IDEs), or automated release pipelines. Integrate deployment pipelines with DevTest Labs to create environments on demand.
-- Use the [Azure CLI](devtest-lab-vmcli.md) command-line tool to manage VMs and environments.
+- Test app versions and scale up load testing by creating multiple test agents.
+- Use the [Azure CLI](devtest-lab-vmcli.md) command-line tool to manage VMs.
 
 ## Lab policies and procedures to control costs
 

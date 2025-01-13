@@ -19,9 +19,9 @@ To complete this walkthrough, make sure you have the following prerequisites:
 
 - Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
 - [Git](https://www.git-scm.com/downloads)
-- Linux/MacOS
+- Linux/macOS
 - Latest Kafka release available from [kafka.apache.org](https://kafka.apache.org/downloads)
-- Read through the [Event Hubs for Apache Kafka](./azure-event-hubs-kafka-overview.md) introduction article
+- Read through the [Event Hubs for Apache Kafka](./azure-event-hubs-apache-kafka-overview.md) introduction article
 
 ## Create an Event Hubs namespace
 An Event Hubs namespace is required to send and receive from any Event Hubs service. See [Creating an event hub](event-hubs-create.md) for instructions to create a namespace and an event hub. Get the Event Hubs connection string and fully qualified domain name (FQDN) for later use. For instructions, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md). 
@@ -76,7 +76,8 @@ consumer.security.protocol=SASL_SSL
 consumer.sasl.mechanism=PLAIN
 consumer.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 
-plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka release
+# path to the libs directory within the Kafka release
+plugin.path={KAFKA.DIRECTORY}/libs 
 ```
 
 > [!IMPORTANT]

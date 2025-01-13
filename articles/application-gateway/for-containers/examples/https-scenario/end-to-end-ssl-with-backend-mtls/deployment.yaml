@@ -1,0 +1,131 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: test-infra
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: mtls-app
+  name: mtls-app
+  namespace: test-infra
+spec:
+  ports:
+  - port: 443
+    protocol: TCP
+    targetPort: 8443
+  selector:
+    app: mtls-app
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mtls-app
+  namespace: test-infra
+spec:
+  selector:
+    matchLabels:
+      app: mtls-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: mtls-app
+    spec:
+      containers:
+        - name: mtls-app
+          imagePullPolicy: Always
+          image: nginx:1.23.2
+          ports:
+            - containerPort: 8443
+          volumeMounts:
+          - mountPath: /etc/nginx/ssl
+            name: secret-volume
+          - mountPath: /etc/nginx/client_certs
+            name: ca-volume
+          - mountPath: /etc/nginx/conf.d
+            name: configmap-volume
+          resources:
+            limits:
+              cpu: 700m
+              memory: 300Mi
+            requests:
+              cpu: 100m
+              memory: 20Mi
+      volumes:
+      - name: secret-volume
+        secret:
+          secretName: backend.com
+      - name: ca-volume
+        secret:
+          secretName: ca.bundle
+      - name: configmap-volume
+        configMap:
+          name: mtls-app-nginx-cm
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mtls-app-nginx-cm
+  namespace: test-infra
+data:
+  default.conf: |-
+    server {
+        listen 8443 ssl;
+        server_name backend.com;
+        root /usr/share/nginx/html;
+        index index.html;
+        ssl_certificate /etc/nginx/ssl/tls.crt;
+        ssl_certificate_key /etc/nginx/ssl/tls.key;
+        ssl_client_certificate /etc/nginx/client_certs/ca.crt;
+        location / {
+          return 200 "Hello World!";
+        }
+    }
+---
+
+apiVersion: v1
+data:
+  tls.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUIrekNDQWFHZ0F3SUJBZ0lVTkxLSUNDQTJBcWdRWjVNbDFLQ1kvOGVUL0Njd0NnWUlLb1pJemowRUF3UXcKRGpFTU1Bb0dBMVVFQXd3RFptOXZNQjRYRFRJek1ERXdOREl5TVRFd01sb1hEVEkxTVRBeU5ESXlNVEV3TWxvdwpGakVVTUJJR0ExVUVBd3dMWW1GamEyVnVaQzVqYjIwd1dUQVRCZ2NxaGtqT1BRSUJCZ2dxaGtqT1BRTUJCd05DCkFBU0ZnWkU2d2NSek1adzNRZFgxdTBkekJpdmpsRUNpSFBEZFY5OWhHeUJ4dEVQekVhYXFBK3RCb2kxQ2FrbmMKS1FHSHZTbGF1SXdlNDJiUm81ZFE3cng0bzRIVU1JSFJNQWtHQTFVZEV3UUNNQUF3RVFZSllJWklBWWI0UWdFQgpCQVFEQWdaQU1DTUdDV0NHU0FHRytFSUJEUVFXRmhSTmVTQkdhWEp6ZENCRFpYSjBhV1pwWTJGMFpUQWRCZ05WCkhRNEVGZ1FVOEw2bGQ4VHh3Qmt4NXU2WkhGN3lFMDBpcUc0d013WURWUjBqQkN3d0txRVNwQkF3RGpFTU1Bb0cKQTFVRUF3d0RabTl2Z2hRbVpVaElVSGk2MVpoSkxuTEYwT0R3VWhSMXdqQUxCZ05WSFE4RUJBTUNCZUF3RXdZRApWUjBsQkF3d0NnWUlLd1lCQlFVSEF3RXdGZ1lEVlIwUkJBOHdEWUlMWW1GamEyVnVaQzVqYjIwd0NnWUlLb1pJCnpqMEVBd1FEU0FBd1JRSWhBTUZkWkdudkYyN09ScFdqN2d0UW10SXAwb0hsa2Q3Si83MFFXRUdWblR6dkFpQlcKdTRmNURENzMyTVRlMzh3aHFPZndwRXU4WnlNeTgxWTJ5OTBrVktZMUFnPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+  tls.key: LS0tLS1CRUdJTiBFQyBQQVJBTUVURVJTLS0tLS0KQmdncWhrak9QUU1CQnc9PQotLS0tLUVORCBFQyBQQVJBTUVURVJTLS0tLS0KLS0tLS1CRUdJTiBFQyBQUklWQVRFIEtFWS0tLS0tCk1IY0NBUUVFSUs3cGxVS3dJVEFuTzh3ZXFWYk9uNkhhYmpjVWltQU5CcHdPNnRUMTdzL29vQW9HQ0NxR1NNNDkKQXdFSG9VUURRZ0FFaFlHUk9zSEVjekdjTjBIVjlidEhjd1lyNDVSQW9oenczVmZmWVJzZ2NiUkQ4eEdtcWdQcgpRYUl0UW1wSjNDa0JoNzBwV3JpTUh1Tm0wYU9YVU82OGVBPT0KLS0tLS1FTkQgRUMgUFJJVkFURSBLRVktLS0tLQo=
+kind: Secret
+metadata:
+  name: backend.com
+  namespace: test-infra
+type: kubernetes.io/tls
+---
+
+apiVersion: v1
+data:
+  tls.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUIvVENDQWFPZ0F3SUJBZ0lVTkxLSUNDQTJBcWdRWjVNbDFLQ1kvOGVUL0Nnd0NnWUlLb1pJemowRUF3UXcKRGpFTU1Bb0dBMVVFQXd3RFptOXZNQjRYRFRJek1ERXdOREl5TVRFeE5Wb1hEVEkxTVRBeU5ESXlNVEV4TlZvdwpGekVWTUJNR0ExVUVBd3dNWm5KdmJuUmxibVF1WTI5dE1Ga3dFd1lIS29aSXpqMENBUVlJS29aSXpqMERBUWNEClFnQUUvb1NUSGVKTy92S095WXNQS3pmR09Ec1J1c3NlLzhOOWxZcVE2TmdzZUdlaXlJNzV0UHJxUWpZNzhIa2IKL3gxWTIrcXY4YnAzbzhlR1ExVXEyV2VvamFPQjFUQ0IwakFKQmdOVkhSTUVBakFBTUJFR0NXQ0dTQUdHK0VJQgpBUVFFQXdJR1FEQWpCZ2xnaGtnQmh2aENBUTBFRmhZVVRYa2dSbWx5YzNRZ1EyVnlkR2xtYVdOaGRHVXdIUVlEClZSME9CQllFRkRmWFFXQzMxbDFGbEJUMEp1QWhhU3VUa2Jic01ETUdBMVVkSXdRc01DcWhFcVFRTUE0eEREQUsKQmdOVkJBTU1BMlp2YjRJVUptVklTRkI0dXRXWVNTNXl4ZERnOEZJVWRjSXdDd1lEVlIwUEJBUURBZ1hnTUJNRwpBMVVkSlFRTU1Bb0dDQ3NHQVFVRkJ3TUJNQmNHQTFVZEVRUVFNQTZDREdaeWIyNTBaVzVrTG1OdmJUQUtCZ2dxCmhrak9QUVFEQkFOSUFEQkZBaUVBbTYvaS9oUlQ2OEh4VTdLRmF3WElDSHhTSi9ic3gxalFUS1hEakgxbjFja0MKSUhlN3lBcm0rWFdCTFF1WEFhbzJQNmNzNHA3bW9CNXFGRGQ3M2RDZEFWSzQKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+  tls.key: LS0tLS1CRUdJTiBFQyBQQVJBTUVURVJTLS0tLS0KQmdncWhrak9QUU1CQnc9PQotLS0tLUVORCBFQyBQQVJBTUVURVJTLS0tLS0KLS0tLS1CRUdJTiBFQyBQUklWQVRFIEtFWS0tLS0tCk1IY0NBUUVFSUhOOGl1R2hIb25ReHhJUWV1a0VVTllXYnRhWGFtSDFseTBCcmtNTXI1eVFvQW9HQ0NxR1NNNDkKQXdFSG9VUURRZ0FFL29TVEhlSk8vdktPeVlzUEt6ZkdPRHNSdXNzZS84TjlsWXFRNk5nc2VHZWl5STc1dFBycQpRalk3OEhrYi94MVkyK3F2OGJwM284ZUdRMVVxMldlb2pRPT0KLS0tLS1FTkQgRUMgUFJJVkFURSBLRVktLS0tLQo=
+kind: Secret
+metadata:
+  name: frontend.com
+  namespace: test-infra
+type: kubernetes.io/tls
+---
+
+apiVersion: v1
+data:
+  tls.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNERENDQWJHZ0F3SUJBZ0lVTkxLSUNDQTJBcWdRWjVNbDFLQ1kvOGVUL0Nrd0NnWUlLb1pJemowRUF3UXcKRGpFTU1Bb0dBMVVFQXd3RFptOXZNQjRYRFRJek1ERXdOREl5TVRJeE5Gb1hEVEkxTVRBeU5ESXlNVEl4TkZvdwpIakVjTUJvR0ExVUVBd3dUWjJGMFpYZGhlUzFqYkdsbGJuUXRZMlZ5ZERCWk1CTUdCeXFHU000OUFnRUdDQ3FHClNNNDlBd0VIQTBJQUJMYVVieXBOR0FITWVyNy91NlhhMGJyRXdUS09HNTFHelZSTlpTL2pGelVnMXd4WSsxb1oKcWdzb1lXeWQyZDQwejM1dXd4OGpBaFFCRmdtL3FJd1N2ZFdqZ2R3d2dka3dDUVlEVlIwVEJBSXdBREFSQmdsZwpoa2dCaHZoQ0FRRUVCQU1DQmtBd0l3WUpZSVpJQVliNFFnRU5CQllXRkUxNUlFWnBjbk4wSUVObGNuUnBabWxqCllYUmxNQjBHQTFVZERnUVdCQlNmbmRvSFdreDcySHo1MTkxY0pUUG91TnlpNGpBekJnTlZIU01FTERBcW9SS2sKRURBT01Rd3dDZ1lEVlFRRERBTm1iMitDRkNabFNFaFFlTHJWbUVrdWNzWFE0UEJTRkhYQ01Bc0dBMVVkRHdRRQpBd0lGNERBVEJnTlZIU1VFRERBS0JnZ3JCZ0VGQlFjREFUQWVCZ05WSFJFRUZ6QVZnaE5uWVhSbGQyRjVMV05zCmFXVnVkQzFqWlhKME1Bb0dDQ3FHU000OUJBTUVBMGtBTUVZQ0lRRHpFeFBNMk5GTStjZmJaZXZhT1dFcGJ3d0UKeVBtdytCc2pycFIvTElrM0hBSWhBS0cyYXQ0cDd5bGdrdVUra2NPYmZYM0Rta1hsMnNiMVJYb2g4NWxkbVJUSAotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+  tls.key: LS0tLS1CRUdJTiBFQyBQQVJBTUVURVJTLS0tLS0KQmdncWhrak9QUU1CQnc9PQotLS0tLUVORCBFQyBQQVJBTUVURVJTLS0tLS0KLS0tLS1CRUdJTiBFQyBQUklWQVRFIEtFWS0tLS0tCk1IY0NBUUVFSUUxZEF6SUJDVkhDY0p3WlBrU0ZVTWtIaXVMRENqRk1nMEwyRm5Dck9kOXhvQW9HQ0NxR1NNNDkKQXdFSG9VUURRZ0FFdHBSdktrMFlBY3g2dnYrN3BkclJ1c1RCTW80Ym5VYk5WRTFsTCtNWE5TRFhERmo3V2htcQpDeWhoYkozWjNqVFBmbTdESHlNQ0ZBRVdDYitvakJLOTFRPT0KLS0tLS1FTkQgRUMgUFJJVkFURSBLRVktLS0tLQo=
+kind: Secret
+metadata:
+  name: gateway-client-cert
+  namespace: test-infra
+type: kubernetes.io/tls
+---
+
+apiVersion: v1
+data:
+  ca.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJGakNCdlFJVUptVklTRkI0dXRXWVNTNXl4ZERnOEZJVWRjSXdDZ1lJS29aSXpqMEVBd1F3RGpFTU1Bb0cKQTFVRUF3d0RabTl2TUI0WERUSXpNREV3TkRJeE5UWXpNbG9YRFRRek1ERXdOakl4TlRZek1sb3dEakVNTUFvRwpBMVVFQXd3RFptOXZNRmt3RXdZSEtvWkl6ajBDQVFZSUtvWkl6ajBEQVFjRFFnQUVsK1NyVVpBcXRSVHVYb05ECnA0UTMxcE82bFlxUFFOSE8vVTNpdVNqWjRSZ09NMVM2SnZCMkd5ekttVHhSQ3ZxY2x3Yks0NXl3WTd3a1BLa1kKaGh0WkVUQUtCZ2dxaGtqT1BRUURCQU5JQURCRkFpQU9sd1N3QmMwT1VxRko3U2l5T3lLOXVCRWQ1a29PcjdZVQo1YXZmY3lpaVV3SWhBTDRjRlFvMXVjYkpnT2VOenM5MXZja1BEcGR1by9KbjFtMlh6ejRWVUZYQQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+kind: Secret
+metadata:
+  name: ca.bundle
+  namespace: test-infra
+

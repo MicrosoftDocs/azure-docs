@@ -5,7 +5,7 @@ author: filippopovic
 ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 02/17/2023
+ms.date: 10/14/2024
 ms.author: fipopovi
 ms.reviewer: whhender, wiassaf
 ---
@@ -147,11 +147,11 @@ CETAS can be used to store result sets with following SQL data types:
 - bit
 - money
 - smallmoney
-- uniqueidentifier
 
 > [!NOTE]
 > LOBs larger than 1MB can't be used with CETAS.
 
-## Next steps
+## Next step
 
-Try querying [Apache Spark for Azure Synapse external tables](develop-storage-files-spark-tables.md).
+> [!div class="nextstepaction"]
+> [Apache Spark for Azure Synapse external tables](develop-storage-files-spark-tables.md)

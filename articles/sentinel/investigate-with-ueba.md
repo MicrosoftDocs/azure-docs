@@ -5,6 +5,9 @@ author: yelevin
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
+appliesto: 
+  - Microsoft Sentinel in the Azure portal
+#Customer intent: As a security analyst, I want to use User and Entity Behavior Analytics (UEBA) data to investigate incidents so that I can identify and respond to potential security threats more effectively.
 ---
 
 # Tutorial: Investigate incidents with UEBA data
@@ -101,7 +104,7 @@ For example:
 
     ```kusto
     SigninLogs
-    | where AppDisplayName == "GithHub.Com"
+    | where AppDisplayName == "GitHub.Com"
     | join kind=inner  (
         IdentityInfo
         | summarize arg_max(TimeGenerated, *) by AccountObjectId) on $left.UserId == $right.AccountObjectId

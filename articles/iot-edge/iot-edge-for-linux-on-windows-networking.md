@@ -4,7 +4,7 @@ description: Overview of Azure IoT Edge for Linux on Windows networking between 
 author: PatAltimore
 
 ms.reviewer: fcabrera
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ms.topic: conceptual
@@ -14,7 +14,7 @@ ms.author: patricka
 
 # IoT Edge for Linux on Windows networking
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
  This article provides information about how to configure the networking between the Windows host OS and the IoT Edge for Linux on Windows (EFLOW) virtual machine. EFLOW uses a [CBL-Mariner](https://github.com/microsoft/CBL-Mariner) Linux virtual machine in order to run IoT Edge modules. For more information about EFLOW architecture, see [What is Azure IoT Edge for Linux on Windows](./iot-edge-for-linux-on-windows.md).
 
@@ -66,7 +66,7 @@ Depending on the type of virtual switch used, EFLOW VM supports different IP all
     ```
 
     >[!WARNING]
-    > When using static IP, the **three parameters** (`ip4Address`, `ip4GatewayAddres`, `ip4PrefixLength`) must be used. Also, if the IP address is invalid, being used by another device on thee netowrk, or the gateway address is incorrect, EFLOW installation could fail as the EFLOW VM can't get an IP address.
+    > When using static IP, the **three parameters** (`ip4Address`, `ip4GatewayAddress`, `ip4PrefixLength`) must be used. Also, if the IP address is invalid, being used by another device on thee network, or the gateway address is incorrect, EFLOW installation could fail as the EFLOW VM can't get an IP address.
 
 - **DHCP** -  Contrary to static IP, when using DHCP, the EFLOW virtual machine is assigned with a dynamic IP address; which is an address that may change. The network must have a DHCP server configured and operating to assign dynamic IP addresses. The DHCP server assigns a vacant IP address to the EFLOW VM and others connected to the network. Therefore, when deploying EFLOW using DHCP, no IP address, gateway address, or prefix length is needed, as the DHCP server provides all the information. 
     

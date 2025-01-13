@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 12/12/2024
 ms.custom: generated
 ---
 
@@ -1958,59 +1958,6 @@ Lets you purchase reservations
     }
   ],
   "roleName": "Reservation Purchaser",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-## Reservations Administrator
-
-Lets one read and manage all the reservations in a tenant
-
-[Learn more](/azure/cost-management-billing/reservations/view-reservations)
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | [Microsoft.Capacity](../permissions/general.md#microsoftcapacity)/*/read |  |
-> | [Microsoft.Capacity](../permissions/general.md#microsoftcapacity)/*/action |  |
-> | [Microsoft.Capacity](../permissions/general.md#microsoftcapacity)/*/write |  |
-> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/read | Get information about a role assignment. |
-> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleDefinitions/read | Get information about a role definition. |
-> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/write | Create a role assignment at the specified scope. |
-> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/delete | Delete a role assignment at the specified scope. |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | *none* |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/providers/Microsoft.Capacity"
-  ],
-  "description": "Lets one read and manage all the reservations in a tenant",
-  "id": "/providers/Microsoft.Authorization/roleDefinitions/a8889054-8d42-49c9-bc1c-52486c10e7cd",
-  "name": "a8889054-8d42-49c9-bc1c-52486c10e7cd",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.Capacity/*/read",
-        "Microsoft.Capacity/*/action",
-        "Microsoft.Capacity/*/write",
-        "Microsoft.Authorization/roleAssignments/read",
-        "Microsoft.Authorization/roleDefinitions/read",
-        "Microsoft.Authorization/roleAssignments/write",
-        "Microsoft.Authorization/roleAssignments/delete"
-      ],
-      "notActions": [],
-      "dataActions": [],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Reservations Administrator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

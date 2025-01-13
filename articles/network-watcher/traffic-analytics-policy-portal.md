@@ -143,7 +143,7 @@ To assign any of the *deployIfNotExists* two policies, follow these steps:
 
 ## Troubleshooting
 
-Remediation task fails with `PolicyAuthorizationFailed` error code: sample error example *The policy assignment `/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/DummyRG/providers/Microsoft.Authorization/policyAssignments/b67334e8770a4afc92e7a929/` resource identity doesn't have the necessary permissions to create deployment.*
+Remediation task fails with `PolicyAuthorizationFailed` error code: sample error example *The policy assignment `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/DummyRG/providers/Microsoft.Authorization/policyAssignments/b67334e8770a4afc92e7a929/` resource identity doesn't have the necessary permissions to create deployment.*
 
 In such scenario, the managed identity must be manually granted access. Go to the appropriate subscription/resource group (containing the resources provided in the policy parameters) and grant contributor access to the managed identity created by the policy.
 

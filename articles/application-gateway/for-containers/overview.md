@@ -2,10 +2,9 @@
 title: What is Application Gateway for Containers?
 description: Overview of Azure Application Load Balancer Application Gateway for Containers features, resources, architecture, and implementation. Learn how Application Gateway for Containers works and how to use Application Gateway for Containers resources in Azure.
 services: application-gateway
-author: greglin
+author: greg-lindsay
 ms.custom: references_regions
-ms.service: azure-application-gateway
-ms.subservice: appgw-for-containers
+ms.service: azure-appgw-for-containers
 ms.topic: overview
 ms.date: 9/16/2024
 ms.author: greglin
@@ -145,7 +144,7 @@ For Application Gateway for Containers SLA information, see [Service Level Agree
 
 ## What's new
 
-To learn what's new with Application Gateway for Containers, see [Azure updates](https://azure.microsoft.com/updates/?category=networking&query=Application%20Gateway%20for%20Containers).
+To learn what's new with Application Gateway for Containers, see [Azure updates](https://azure.microsoft.com/updates?filters=%5B%22Application+Gateway%22%5D&searchterms=Application+Gateway+for+Containers).
 
 ## Next steps
 

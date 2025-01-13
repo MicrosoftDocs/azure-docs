@@ -6,8 +6,9 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/31/2024
+ms.date: 10/07/2024
 ms.author: banders
+ms.custom: references_regions
 ---
 
 # Add, update, or delete a payment method
@@ -57,6 +58,7 @@ To change your subscription's default credit card to a new one:
 1. Enter details for the credit card.  
 
     :::image type="content" source="./media/change-credit-card/sub-add-new-default.png" alt-text="Screenshot that shows the pane for adding credit card details." lightbox="./media/change-credit-card/sub-add-new-default.png" :::
+    - For customers in India, when you add a new payment method, Azure generates a one-time password for you. When prompted, enter the password to save the new payment method.
 1. To make this card your default payment method, select **Make this my default payment method**. This card becomes the active payment instrument for all subscriptions that use the same card as the selected subscription.
 1. Select **Next**.
 
@@ -135,6 +137,7 @@ If you have a Microsoft Customer Agreement, your credit card is associated with 
 1. Enter details for the credit card.  
 
     :::image type="content" source="./media/change-credit-card/sub-add-new-card-billing-profile.png" alt-text="Screenshot that shows the pane for adding a new credit card as a payment method." lightbox="./media/change-credit-card/sub-add-new-card-billing-profile.png" :::
+    - For customers in India, when you add a new payment method, Azure generates a one-time password for you. When prompted, enter the password to save the new payment method.
 1. To make this card your default payment method, select **Make this my default payment method**. This card becomes the active payment instrument for all subscriptions that use the same card as the selected subscription.
 1. Select **Next**.
 

@@ -118,14 +118,10 @@ Pricing depends on your confidential VM size. For more information, see the [Pri
 
 Confidential VMs *don't support*:
 
-- Azure Batch
 - Azure Backup
 - Azure Site Recovery
-- Azure Dedicated Host 
-- Microsoft Azure Virtual Machine Scale Sets with Confidential OS disk encryption enabled
 - Limited Azure Compute Gallery support
 - Shared disks
-- Ultra disks
 - Accelerated Networking
 - Live migration
 - Screenshots under boot diagnostics

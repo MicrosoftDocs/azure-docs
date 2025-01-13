@@ -4,7 +4,8 @@ description: This tutorial provides step-by-step instructions for transforming d
 author: nabhishek
 ms.author: abnarain
 ms.topic: tutorial
-ms.date: 10/20/2023
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 
 # Transform data in Azure Virtual Network using Hive activity in Azure Data Factory using the Azure portal

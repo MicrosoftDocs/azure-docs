@@ -4,10 +4,10 @@ description: This article contains information that can help you troubleshoot pr
 author: azaricstefan
 ms.author: stefanazaric
 ms.reviewer: whhender, wiassaf
-ms.date: 08/27/2024
+ms.topic: overview
 ms.service: azure-synapse-analytics
 ms.subservice: sql
-ms.topic: overview
+ms.date: 09/26/2024
 ---
 
 # Troubleshoot serverless SQL pool in Azure Synapse Analytics
@@ -29,7 +29,7 @@ Usually, this problem occurs for one of two reasons:
 - Your network prevents communication to the Azure Synapse Analytics back-end. The most frequent case is that TCP port 1443 is blocked. To get serverless SQL pool to work, unblock this port. Other problems could prevent serverless SQL pool from working too. For more information, see the [Troubleshooting guide](../troubleshoot/troubleshoot-synapse-studio.md).
 - You don't have permission to sign in to serverless SQL pool. To gain access, an Azure Synapse workspace administrator must add you to the workspace administrator role or the SQL administrator role. For more information, see [Azure Synapse access control](../security/synapse-workspace-access-control-overview.md).
 
-### Websocket connection closed unexpectedly
+### WebSocket connection closed unexpectedly
 
 Your query might fail with the error message `Websocket connection was closed unexpectedly.` This message means that your browser connection to Synapse Studio was interrupted, for example, because of a network issue.
 
@@ -723,7 +723,7 @@ There are several mitigation steps that you can do to avoid this:
 
 ### Missing column when using automatic schema inference
 
-You can easily query files without knowing or specifying schema, by omitting WITH clause. In that case column names and data types will be inferred from the files. Have in mind that if you're reading number of files at once, the schema will be inferred from the first file service gets from the storage. This can mean that some of the columns expected are omitted, all because the file used by the service to define the schema did not contain these columns. To explicitly specify the schema, use OPENROWSET WITH clause. If you specify schema (by using external table or OPENROWSET WITH clause) default lax path mode will be used. That means that the columns that don’t exist in some files will be returned as NULLs (for rows from those files). To understand how path mode is used, check the following [documentation](../sql/develop-openrowset.md) and [sample](../sql/develop-openrowset.md#specify-columns-using-json-paths). 
+You can easily query files without knowing or specifying schema, by omitting WITH clause. In that case column names and data types will be inferred from the files. Have in mind that if you're reading number of files at once, the schema will be inferred from the first file service gets from the storage. This can mean that some of the columns expected are omitted, all because the file used by the service to define the schema did not contain these columns. To explicitly specify the schema, use OPENROWSET WITH clause. If you specify schema (by using external table or OPENROWSET WITH clause) default lax path mode will be used. That means that the columns that don't exist in some files will be returned as NULLs (for rows from those files). To understand how path mode is used, check the following [documentation](../sql/develop-openrowset.md) and [sample](../sql/develop-openrowset.md#specify-columns-using-json-paths). 
 
 ## Configuration
 
@@ -884,7 +884,7 @@ There are some limitations that you might see in Delta Lake support in serverles
 
 ### Serverless support Delta 1.0 version
 
-Serverless SQL pools are reading only Delta Lake 1.0 version. Serverless SQL pools is a [Delta reader with level 1](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#reader-version-requirements), and doesn’t support the following features:
+Serverless SQL pools are reading only Delta Lake 1.0 version. Serverless SQL pools is a [Delta reader with level 1](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#reader-version-requirements), and doesn't support the following features:
 - Column mappings are ignored - serverless SQL pools will return original column names.
 - Delete vectors are ignored and the old version of deleted/updated rows will be returned (possibly wrong results).
 - The following Delta Lake features are not supported: [V2 checkpoints](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#v2-checkpoint-table-feature), [timestamp without timezone](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#timestamp-without-timezone-timestampntz), [VACUUM protocol check](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#vacuum-protocol-check)
@@ -1109,6 +1109,10 @@ Connect-AzAccount -ServicePrincipal -Credential $cred -Tenant $tenantId
 
 New-AzSynapseRoleAssignment -WorkspaceName "<workspaceName>" -RoleDefinitionName "Synapse Administrator" -ObjectId "<app_id_to_add_as_admin>" [-Debug]
 ```
+> [!NOTE]
+> In this case, the synapse data studio UI will not display the role assignment added by the above method, so it is recommended to add the role assignment to both object ID and application ID at the same time so that it can be displayed on the UI as well.
+> 
+> New-AzSynapseRoleAssignment -WorkspaceName "\<workspaceName\>" -RoleDefinitionName "Synapse Administrator" -ObjectId "\<object_id_to_add_as_admin\>" [-Debug]
 
 **Validation**
 
@@ -1146,10 +1150,8 @@ If you get the error `CREATE DATABASE failed. User database limit has been alrea
 
 You don't need to use separate databases to isolate data for different tenants. All data is stored externally on a data lake and Azure Cosmos DB. The metadata like table, views, and function definitions can be successfully isolated by using schemas. Schema-based isolation is also used in Spark where databases and schemas are the same concepts.
 
-## Next steps
+## Related content
 
 - [Best practices for serverless SQL pool in Azure Synapse Analytics](best-practices-serverless-sql-pool.md)
 - [Azure Synapse Analytics frequently asked questions](../overview-faq.yml)
 - [Store query results to storage using serverless SQL pool in Azure Synapse Analytics](create-external-table-as-select.md)
-- [Synapse Studio troubleshooting](../troubleshoot/troubleshoot-synapse-studio.md)
-- [Troubleshoot a slow query on a dedicated SQL Pool](/troubleshoot/azure/synapse-analytics/dedicated-sql/troubleshoot-dsql-perf-slow-query)

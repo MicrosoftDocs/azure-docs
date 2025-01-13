@@ -11,12 +11,6 @@ ms.subservice: web-sdk
 
 # Connect to a WFS service
 
-> [!NOTE]
->
-> **Azure Maps Spatial service retirement**
->
-> The Azure Maps Spatial service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Spatial](https://aka.ms/AzureMapsSpatialDeprecation).
-
 A Web Feature Service (WFS) is a web service for querying spatial data that has a standardized API defined by the Open Geospatial Consortium (OGC). The `WfsClient` class in the spatial IO module lets developers connect to a WFS service and query data from the service.
 
 The `WfsClient` class supports the following features:
@@ -36,12 +30,10 @@ The `WfsClient` class supports the following features:
 
 The `atlas.io.ogc.WfsClient` class in the spatial IO module makes it easy to query a WFS service and convert the responses into GeoJSON objects. This GeoJSON object can then be used for other mapping purposes.
 
+<!--------------------------------------------------
 The [Simple WFS example] sample shows how to easily query a Web Feature Service (WFS) and renders the returned features on the map. For the source code for this sample, see [Simple WFS example source code].
 
 :::image type="content" source="./media/spatial-io-connect-wfs-service/simple-wfs-example.png"alt-text="A screenshot that shows the results of a WFS overlay on a map.":::
-
-<!--------------------------------------------------
-> [!VIDEO //codepen.io/azuremaps/embed/MWwvVYY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ---------------------------------------------------->
 
 ## Supported filters

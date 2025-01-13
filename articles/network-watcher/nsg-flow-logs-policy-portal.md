@@ -6,12 +6,14 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 05/30/2024
+ms.date: 09/26/2024
 
 #CustomerIntent: As an Azure administrator, I want to use Azure Policy to audit and deploy network security group flow logs.
 ---
 
 # Manage NSG flow logs using Azure Policy
+
+[!INCLUDE [NSG flow logs retirement](../../includes/network-watcher-nsg-flow-logs-retirement.md)]
 
 Azure Policy helps you enforce organizational standards and assess compliance at scale. Common use cases for Azure Policy include implementing governance for resource consistency, regulatory compliance, security, cost, and management. To learn more about Azure policy, see [What is Azure Policy?](../governance/policy/overview.md) and [Quickstart: Create a policy assignment to identify non-compliant resources](../governance/policy/assign-policy-portal.md).
 
@@ -90,7 +92,7 @@ To assign the *deployIfNotExists* policy:
     | Setting | Value |
     | --- | --- |
     | **NSG Region** | Select the region of your network security group that you're targeting with the policy. |
-    | **Storage id** | Enter the full resource ID of the storage account. The storage account must be in the same region as the network security group. The format of storage resource ID is `/subscriptions/<SubscriptionID>/resourceGroups/<ResouceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>`. |
+    | **Storage id** | Enter the full resource ID of the storage account. The storage account must be in the same region as the network security group. The format of storage resource ID is `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>`. |
     | **Network Watchers RG** | Select the resource group of your Azure Network Watcher instance. |
     | **Network Watcher name** | Enter the name of your Network Watcher instance. |
 

@@ -6,7 +6,7 @@ zone_pivot_groups: azure-virtual-desktop-windows-client-troubleshoot
 author: dknappettmsft
 ms.author: daknappe
 ms.custom: "se-defect-target"
-ms.date: 10/12/2023
+ms.date: 09/25/2024
 ---
 
 # Basic troubleshooting for the Remote Desktop client for Windows
@@ -81,6 +81,20 @@ There are a few basic troubleshooting steps you can try if you're having issues 
 1. Restart your dev box from the Dev Box developer portal.
 
 1. If none of the previous steps resolved your issue, you can use the *Troubleshoot & repair* tool in the developer portal to diagnose and repair some common dev box connectivity issues. To learn how to use the Troubleshoot & repair tool, see [Troubleshoot and resolve dev box remote desktop connectivity issues](../dev-box/how-to-troubleshoot-repair-dev-box.md).
+::: zone-end
+
+## Reset password
+
+::: zone pivot="azure-virtual-desktop"
+Password resets can't be done in the product. You should follow your organization's process to reset your password. 
+::: zone-end
+
+::: zone pivot="windows-365"
+Password resets can't be done in the product. You should follow your organization's process to reset your password.
+::: zone-end
+
+::: zone pivot="dev-box"
+Password resets can't be done in the product. You should follow your organization's process to reset your password.
 ::: zone-end
 
 ## Client stops responding or can't be opened

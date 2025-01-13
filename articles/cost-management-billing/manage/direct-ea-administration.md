@@ -128,7 +128,7 @@ If you're not an EA admin, contact your EA admin to request that they add you to
 
 ### If your enterprise administrator can't help you
 
-If your enterprise administrator can't assist you, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Provide the following information:
+If your enterprise administrator can't assist you, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Provide the following information:
 
 - Enrollment number
 - Account details and authentication type (work, school, or Microsoft account)
@@ -597,7 +597,7 @@ For either option, you must submit a [support request](https://support.microsoft
 An organizational unit used to administer subscriptions and for reporting.
 
 **Account owner**<br>
-The person who manages subscriptions and developoment projects.
+The person who manages subscriptions and development projects.
 
 **Amendment subscription**<br>
 A one-year, or coterminous subscription under the enrollment amendment.

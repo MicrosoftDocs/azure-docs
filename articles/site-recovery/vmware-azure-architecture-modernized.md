@@ -2,7 +2,7 @@
 title: VMware VM disaster recovery architecture in Azure Site Recovery - Modernized
 description: This article provides an overview of components and architecture used when setting up disaster recovery of on-premises VMware VMs to Azure with Azure Site Recovery - Modernized
 ms.service: azure-site-recovery
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/04/2023
 ms.author: ankitadutta
 author: ankitaduttaMSFT

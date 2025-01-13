@@ -2,7 +2,7 @@
 title: Use Azure Service Bus Explorer to run data operations
 description: This article provides information on how to use the portal-based Azure Service Bus Explorer to access Azure Service Bus data.
 ms.topic: how-to
-ms.date: 11/30/2023
+ms.date: 12/11/2024
 ms.author: egrootenboer
 ---
 
@@ -145,14 +145,14 @@ The receive function on the Service Bus Explorer permits receiving messages from
     > [!NOTE]
     > For performance reasons, when receiving messages from a queue or subscription which has it's maximum message size set over 1MB, only one message will be received at a time. If the message body is over 1MB it will be truncated before being displayed.
 
-After a message has been received in **PeekLock** mode, there are various actions we can take on it.
+After a message is received in **PeekLock** mode, there are various actions you can take on it.
 
 > [!NOTE]
-> We can only take these actions as long as we have a lock on the message.
+> You can only take these actions as long as you have a lock on the message.
 
 ### Complete a message
 
-1. In the grid, select the received message(s) we want to complete.
+1. In the grid, select the received messages you want to complete.
 1. Select the **Complete** button.
 
     :::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-complete.png" alt-text="Screenshot indicating the Complete button." lightbox="./media/service-bus-explorer/receive-message-from-queue-complete.png":::
@@ -162,28 +162,36 @@ After a message has been received in **PeekLock** mode, there are various action
 
 ### Defer a message
 
-1. In the grid, select the received message(s) we want to [defer](./message-deferral.md).
+1. In the grid, select one or more received messages you want to [defer](./message-deferral.md).
 1. Select the **Defer** button.
 
     :::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-defer.png" alt-text="Screenshot indicating the Defer button." lightbox="./media/service-bus-explorer/receive-message-from-queue-defer.png":::
 
 ### Abandon lock
 
-1. In the grid, select the received message(s) for which we want to abandon the lock.
+1. In the grid, select one or more received messages for which you want to abandon the lock.
 1. Select the **Abandon lock** button.
 
     :::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-abandon-lock.png" alt-text="Screenshot indicating the Abandon Lock button." lightbox="./media/service-bus-explorer/receive-message-from-queue-abandon-lock.png":::
 
-After the lock has been abandoned, the message will be available for receive operations again.
+After the lock is abandoned, the message will be available for receive operations again.
 
 ### Dead-letter
 
-1. In the grid, select the received message(s) we want to [dead-letter](./service-bus-dead-letter-queues.md).
+1. In the grid, select one or more received messages you want to [dead-letter](./service-bus-dead-letter-queues.md).
 1. Select the **Dead-letter** button.
 
     :::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-dead-letter.png" alt-text="Screenshot indicating the Dead-letter button." lightbox="./media/service-bus-explorer/receive-message-from-queue-dead-letter.png":::
 
-After a message has been dead-lettered, it will be available from the **Dead-letter** subqueue.
+After a message is dead-lettered, it will be available from the **Dead-letter** subqueue.
+
+### Purge messages
+
+To Purge messages, select the **Purge messages** button of Service Bus explorer. 
+ 
+ :::image type="content" source="./media/service-bus-explorer/purge-messages.png" alt-text="Screenshot indicating the purge messages button." lightbox="./media/service-bus-explorer/purge-messages.png":::
+
+Once you enter 'purge' to confirm on the operation, messages would be purged from respective service bus entity. 
 
 ## Send a message to a queue or topic
 
@@ -191,28 +199,28 @@ To send a message to a **queue** or a **topic**, select the **Send messages** bu
 
 1. Select the **Content Type** to be either **Text/Plain**, **Application/Xml** or **Application/Json**.
 1. For **Message body**, add the message content. Ensure that it matches the **Content Type** set earlier.
-1. Set the **Broker properties** (optional) - these include Correlation ID, Message ID, ReplyTo, Label/Subject, Time to Live (TTL) and Scheduled Enqueue Time (for Scheduled Messages).
-1. Set the **Custom Properties** (optional) - these can be any user properties set against a dictionary key.
+1. Set the **Broker properties** (optional). These properties include Correlation ID, Message ID, ReplyTo, Label/Subject, Time to Live (TTL) and Scheduled Enqueue Time (for Scheduled Messages).
+1. Set the **Custom Properties** (optional). These properties can be any user properties set against a dictionary key.
 1. Check **Repeat send** to send the same message multiple times. If no Message ID was set, it's automatically populated with sequential values.
-1. Once the message has been composed, select the **Send** button.
+1. Once the message is composed, select the **Send** button.
 
     :::image type="content" source="./media/service-bus-explorer/send-experience.png" alt-text="Screenshot showing the compose message experience." lightbox="./media/service-bus-explorer/send-experience.png":::
 
-1. When the send operation is completed successfully, one of the following will happen: 
+1. When the send operation is completed successfully, one of the following changes happen: 
 
-    - If sending to a queue, **Active Messages** metrics counter will increment.
-    - If sending to a topic, **Active Messages** metrics counter will increment on the Subscriptions where the message was routed to.  
+    - If sending to a queue, **Active Messages** metrics counter is incremented.
+    - If sending to a topic, **Active Messages** metrics counter is incremented on the subscriptions where the message was routed to.  
 
 ## Resend a message
 
-After peeking or receiving a message, we can resend it, which will send a copy of the message to the same entity, while allowing us to update it's content and properties. The original will remain and isn't deleted even when resend is from the deadletter queue.
+After peeking or receiving a message, you can resend it, which will send a copy of the message to the same entity, while allowing us to update it's content and properties. The original remains and isn't deleted even when resend is from the deadletter queue.
 
-1. In the grid, select the message(s) we want to resend.
+1. In the grid, select one or more messages you want to resend.
 1. Select the **Re-send selected messages** button.
 
     :::image type="content" source="./media/service-bus-explorer/queue-select-messages-for-resend.png" alt-text="Screenshot indicating the Resend selected messages button." lightbox="./media/service-bus-explorer/queue-select-messages-for-resend.png":::
 
-1. Optionally, select any message for which we want to update its details and make the desired changes.
+1. Optionally, select any message for which you want to update its details and make the desired changes.
 1. Select the **Send** button to send the messages to the entity.
 
     :::image type="content" source="./media/service-bus-explorer/queue-resend-selected-messages.png" alt-text="Screenshot showing the resend messages experience." lightbox="./media/service-bus-explorer/queue-resend-selected-messages.png":::

@@ -53,7 +53,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourcegroupname -TemplateUri
 
 1. Use `Connect-AzAccount` to sign in to Azure. After you sign in, use `az account show --output table` to verify the subscription and tenant you want to use. Change the subscription and tenant if needed.
 
-1. Create a new resource group (or use an existing one) by skipping the "create reource group" step or commenting out the line starting with `az group create`.
+1. Create a new resource group (or use an existing one) by skipping the "create resource group" step or commenting out the line starting with `az group create`.
 
 ```bash
 ### variables

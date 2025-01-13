@@ -6,7 +6,7 @@ ms.author: makromer
 ms.subservice: pricing
 ms.topic: how-to
 ms.custom: subject-cost-optimization
-ms.date: 10/20/2023
+ms.date: 09/26/2024
 ---
 
 # Plan to manage costs for Azure Data Factory

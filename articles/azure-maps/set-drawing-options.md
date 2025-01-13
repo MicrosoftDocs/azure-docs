@@ -129,7 +129,7 @@ The [Drawing manager options] can be used to test out customization of all optio
 
 ### Put a shape into edit mode
 
-Programmatically put an existing shape into edit mode by passing it into the drawing managers `edit` function. If the shape is a GeoJSON feature, wrap it with the `atls.Shape` class before passing it in.
+Programmatically put an existing shape into edit mode by passing it into the drawing managers `edit` function. If the shape is a GeoJSON feature, wrap it with the `atlas.Shape` class before passing it in.
 
 To programmatically take a shape out of edit mode, set the drawing managers mode to `idle`.
 

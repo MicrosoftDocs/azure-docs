@@ -129,8 +129,7 @@ To save time, you should proceed with this phase while you wait for your DataBox
         This video is a guide and demo for how to securely expose Azure file shares directly to information workers and apps in five simple steps.</br>
         The video references dedicated documentation for the following topics. Note that Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](https://aka.ms/azureadnewname).
 
-* [Identity overview](storage-files-active-directory-overview.md)
-* [How to domain join a storage account](storage-files-identity-auth-active-directory-enable.md)
+* [Identity-based authentication for SMB overview](storage-files-active-directory-overview.md)
 * [Networking overview for Azure file shares](storage-files-networking-overview.md)
 * [How to configure public and private endpoints](storage-files-networking-endpoints.md)
 * [How to configure a S2S VPN](storage-files-configure-s2s-vpn.md)
@@ -268,7 +267,7 @@ Speed and success rate of a given RoboCopy run will depend on several factors:
 In this category, you need to consider abilities of the **source storage**, the **target storage**, and the **network** connecting them. The maximum possible throughput is determined by the slowest of these three components. Make sure your network infrastructure is configured to support optimal transfer speeds to its best abilities.
 
 > [!CAUTION]
-> While copying as fast as possible is often most desireable, consider the utilization of your local network and NAS appliance for other, often business-critical tasks.
+> While copying as fast as possible is often most desirable, consider the utilization of your local network and NAS appliance for other, often business-critical tasks.
 
 Copying as fast as possible might not be desirable when there's a risk that the migration could monopolize available resources.
 

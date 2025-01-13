@@ -133,7 +133,7 @@ Azure Event Hubs now has the capability to dispatch logs to either of two destin
 
 :::image type="content" source="media/monitor-event-hubs-reference/destination-table-toggle.png" alt-text="Screenshot of dialog box to set destination table." lightbox="media/monitor-event-hubs-reference/destination-table-toggle.png":::
 
-Azure Event Hubs uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#event-hubs).
+Azure Event Hubs uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. 
 
 You can view our sample queries to get started with different log categories.
 

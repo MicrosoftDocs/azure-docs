@@ -4,7 +4,6 @@ description: Learn how to purge all cached content from an Azure Content Deliver
 services: cdn
 author: duongau
 manager: kumud
-ms.assetid: 0b50230b-fe82-4740-90aa-95d4dde8bd4f
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
@@ -12,6 +11,8 @@ ms.author: duau
 ---
 
 # Purge an Azure Content Delivery Network endpoint
+
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 Azure Content Delivery Network edge nodes cache contents until the content's time to live (TTL) expires. After the TTL expires, when a client makes a request for the content from the edge node, the edge node will retrieve a new updated copy of the content to serve to the client. Then the refreshed content in cache of the edge node.
 

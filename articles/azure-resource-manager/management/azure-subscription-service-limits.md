@@ -2,7 +2,9 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 07/19/2024
+ms.custom:
+  - ignite-2024
+ms.date: 12/12/2024
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -255,7 +257,7 @@ The following limits apply to [Azure role-based access control (Azure RBAC)](../
 
 ## Azure Spring Apps limits
 
-To learn more about the limits for Azure Spring Apps, see [Quotas and service plans for Azure Spring Apps](../../spring-apps/enterprise/quotas.md).
+To learn more about the limits for Azure Spring Apps, see [Quotas and service plans for Azure Spring Apps](../../spring-apps/basic-standard/quotas.md).
 
 ## Azure Storage limits
 
@@ -397,7 +399,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ### Media Services v2 (legacy)
 
-For limits specific to Media Services v2 (legacy), see [Media Services v2 (legacy)](/azure/media-services/previous/media-services-quotas-and-limitations)
+For limits specific to Media Services v2 (legacy), see [Media Services v2 (legacy)]
 
 ## Mobile Services limits
 
@@ -410,6 +412,9 @@ For limits specific to Media Services v2 (legacy), see [Media Services v2 (legac
 ## Networking limits
 
 [!INCLUDE [azure-virtual-network-limits](../../../includes/azure-virtual-network-limits.md)]
+
+### <a name="load-balancer"></a>Azure Load Balancer limits
+[!INCLUDE [azure-load-balancer-limits](../../../includes/load-balancer-limits.md)]
 
 ### Application Gateway limits
 
@@ -576,6 +581,11 @@ The maximum number of allowed Managed Run Commands is currently limited to 25.
 ## Dev tunnels limits
 
 [!INCLUDE [dev-tunnels-service-limits](../../../includes/dev-tunnels/dev-tunnels-service-limits.md)]
+
+## Network Security Perimeters limits
+
+[!INCLUDE [network-security-perimeter-limits](../../../includes/network-security-perimeter-limits.md)]
+
 
 ## See also
 

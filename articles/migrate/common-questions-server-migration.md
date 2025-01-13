@@ -6,14 +6,11 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/07/2024
+ms.date: 10/25/2024
 ms.custom: engagement-fy25
 ---
 
 # Migration and modernization: Common questions
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article answers common questions about the Migration and modernization tool. If you've other questions, check these resources:
 
@@ -21,6 +18,9 @@ This article answers common questions about the Migration and modernization tool
 - Questions about the [Azure Migrate appliance](common-questions-appliance.md)
 - Questions about [discovery, assessment, and dependency visualization](common-questions-discovery-assessment.md)
 - Get questions answered in the [Azure Migrate forum](https://aka.ms/AzureMigrateForum)
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 ## General questions
 
@@ -34,11 +34,11 @@ Regardless of the migration option chosen, the first step to migrate a server us
 Here are some considerations to keep in mind while deciding on the migration option.
 
 **Agentless migrations** don't require any software (agents) to be deployed on the source VMs/servers being migrated. The agentless option orchestrates replication by integrating with the functionality provided by the virtualization provider.
-The Agentless replication options are available for [VMware VMs](./tutorial-migrate-vmware.md) and [Hyper-V VMs](./tutorial-migrate-hyper-v.md).
+The Agentless replication options are available for [VMware VMs](tutorial-migrate-vmware.md) and [Hyper-V VMs](./tutorial-migrate-hyper-v.md).
 
 **Agent-based migrations** require Azure Migrate software (agents) to be installed on the source VMs/machines to be migrated. The agent-based option doesn’t rely on the virtualization platform for the replication functionality. Therefore, it can be used with any server running an x86/x64 architecture and a version of an operating system supported by the agent-based replication method.
 
-Agent-based migration option can be used for [VMware VMs](./tutorial-migrate-vmware-agent.md), [Hyper-V VMs](./tutorial-migrate-physical-virtual-machines.md), [physical servers](./tutorial-migrate-physical-virtual-machines.md), [VMs running on AWS](./tutorial-migrate-aws-virtual-machines.md), VMs running on GCP, or VMs running on a different virtualization provider. The agent-based migration treats your machines as physical servers for migration.
+Agent-based migration option can be used for [VMware VMs](tutorial-migrate-vmware-agent.md), [Hyper-V VMs](./tutorial-migrate-physical-virtual-machines.md), [physical servers](./tutorial-migrate-physical-virtual-machines.md), [VMs running on AWS](./tutorial-migrate-aws-virtual-machines.md), VMs running on GCP, or VMs running on a different virtualization provider. The agent-based migration treats your machines as physical servers for migration.
 
 While the agentless migration offers another convenience and simplicity over the agent-based replication options for the supported scenarios (VMware and Hyper-V), you may want to consider using the agent-based scenario for the following use cases:
 
@@ -127,16 +127,20 @@ Migration and modernization tool migrates all the UEFI-based machines to Azure a
 
 ### Which operating systems are supported for migration of UEFI-based machines to Azure?
 
+> [!Note]
+> If a major version of an operating system is supported in agentless migration, all minor versions and kernels are automatically supported.
+
 | **Operating systems supported for UEFI-based machines** | **Agentless VMware to Azure**                                                                                                             | **Agentless Hyper-V to Azure** | **Agent-based VMware, physical and other clouds to Azure** |
 | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ---------------------------------------------------------- |
-| Windows Server 2019, 2016, 2012 R2, 2012                | Y                                                                                                                                         | Y                              | Y                                                          |
+| Windows Server 2025, 2022, 2019, 2016, 2012 R2, 2012                | Y                                                                                                                                         | Y                              | Y                                                          |
+| Windows 11 Pro, Windows 11 Enterprise                   | Y                                                                                                                                         | Y                              | Y                                                          |
 | Windows 10 Pro, Windows 10 Enterprise                   | Y                                                                                                                                         | Y                              | Y                                                          |
-| SUSE Linux Enterprise Server 15 SP1                     | Y                                                                                                                                         | Y                              | Y                                                          |
+| SUSE Linux Enterprise Server 15 SP1, SP2, SP3, SP4, SP5, SP6                    | Y                                                                                                                                         | Y                              | Y                                                          |
 | SUSE Linux Enterprise Server 12 SP4                     | Y                                                                                                                                         | Y                              | Y                                                          |
-| Ubuntu Server 16.04, 18.04, 19.04, 19.10                | Y                                                                                                                                         | Y                              | Y                                                          |
-| RHEL 8.1, 8.0, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x        | Y      | Y                              | Y                                                          |
+| Ubuntu Server 22.04 LTS, 20.04 LTS, 18.04 LTS, 16.04 LTS               | Y                                                                                                                                         | Y                              | Y                                                          |
+| RHEL 9.x, 8.1, 8.0, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x        | Y      | Y                              | Y                                                          |
 | CentOS Stream               | Y | Y                              | Y                                                          |
-| Oracle Linux 7.7, 7.7-CI                                |  Y                                                                                                                                        | Y                              | Y                                                          |
+| Oracle Linux 9, 8, 7.7-CI, 7.7, 6                             |  Y                                                                                                                                        | Y                              | Y                                                          |
 
 ### Can I migrate Active Directory domain-controllers using Azure Migrate?
 
@@ -178,7 +182,7 @@ When replication is configured for a virtual machine, it first goes through an i
 
 When you perform the migrate operation on a replicating virtual machine, you've the option to shut down the on-premises virtual machine, and perform one final incremental replication to ensure zero data loss. On performing the migration, the replica managed disks corresponding to the virtual machine are used to create the virtual machine in Azure.
 
-To get started, refer the [VMware agentless migration](./tutorial-migrate-vmware.md) and [Hyper-V agentless migration](./tutorial-migrate-hyper-v.md) tutorials.
+To get started, refer the [VMware agentless migration](tutorial-migrate-vmware.md) and [Hyper-V agentless migration](./tutorial-migrate-hyper-v.md) tutorials.
 
 ### How do I gauge the bandwidth requirement for my migrations?
 
@@ -323,4 +327,4 @@ When replication starts for a VM, an initial replication cycle occurs in which f
 You can work out the bandwidth requirement based on the volume of data needed to be moved in the wave and time within which you would like initial replication to complete (ideally you’d want initial replication to have completed at least 3-4 days prior to the actual migration window to give you sufficient time to perform a test migration prior to the actual window and to keep downtime to a minimum during the window).
 
 ## Next steps
-Learn more about migrating [VMware VMs](./vmware/tutorial-migrate-vmware.md), [Hyper-V VMs](tutorial-migrate-hyper-v.md), and [Physical servers](tutorial-migrate-physical-virtual-machines.md).
+Learn more about migrating [VMware VMs](tutorial-migrate-vmware.md), [Hyper-V VMs](tutorial-migrate-hyper-v.md), and [Physical servers](tutorial-migrate-physical-virtual-machines.md).

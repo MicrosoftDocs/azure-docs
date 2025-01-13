@@ -6,6 +6,10 @@ ms.topic: conceptual
 ms.date: 05/16/2024
 ms.author: raynew
 ms.custom: fasttrack-edit
+
+
+#Customer intent: As a security operations team member, I want to complete advanced training on Microsoft Sentinel so that I can enhance my skills in threat detection, incident response, and security automation.
+
 ---
 
 # Microsoft Sentinel skill-up training 
@@ -168,10 +172,10 @@ The first piece of information you see for each connector is its *data ingestion
 | ----------- | ----------- |
 | Azure service-to-service integration     | [Connect to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md)     |
 | Common Event Format (CEF) over Syslog	  |[Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md)|
-| Microsoft Sentinel Data Collector API | [Connect your data source to the Microsoft Sentinel Data Collector API to ingest data](connect-rest-api-template.md) |
+| Microsoft Sentinel Data Collector API | [Connect with the Log Ingestion API](create-custom-connector.md#connect-with-the-log-ingestion-api) |
 | Azure Functions and the REST API | [Use Azure Functions to connect Microsoft Sentinel to your data source](connect-azure-functions-template.md) |
 | Syslog | [Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md) |
-| Custom logs | [Collect data in custom log formats to Microsoft Sentinel with the Log Analytics agent](connect-custom-logs.md) |
+| Custom logs | [Custom Logs via AMA data connector - Configure data ingestion to Microsoft Sentinel from specific applications](unified-connector-custom-device.md) |
 
 If your source isn't available, you can [create a custom connector](create-custom-connector.md). Custom connectors use the ingestion API and therefore are similar to direct sources. You most often implement custom connectors by using Azure Logic Apps, which offers a codeless option, or Azure Functions.
 
@@ -276,9 +280,8 @@ Microsoft Sentinel supports two new features for data ingestion and transformati
 - [**Logs ingestion API**](/azure/azure-monitor/logs/logs-ingestion-api-overview): Use it to send custom-format logs from any data source to your Log Analytics workspace and then store those logs either in certain specific standard tables, or in custom-formatted tables that you create. You can perform the actual ingestion of these logs by using direct API calls. You can use Azure Monitor [data collection rules](/azure/azure-monitor/essentials/data-collection-rule-overview) to define and configure these workflows.
 
 - [**Workspace data transformations for standard logs**](/azure/azure-monitor/essentials/data-collection-transformations-workspace): It uses [data collection rules](/azure/azure-monitor/essentials/data-collection-rule-overview) to filter out irrelevant data, to enrich or tag your data, or to hide sensitive or personal information. You can configure data transformation at ingestion time for the following types of built-in data connectors:
-    - Azure Monitor agent (AMA)-based data connectors (based on the new Azure Monitor agent)
-    - Microsoft Monitoring agent (MMA)-based data connectors (based on the legacy Azure Monitor Logs Agent)
-    - Data connectors that use diagnostics settings
+    - Azure Monitor Agent (AMA)-based data connectors ([Syslog and CEF](connect-cef-syslog-ama.md) | [Windows DNS](connect-dns-ama.md) | [Custom](connect-custom-logs-ama.md))
+    - [Data connectors that use diagnostics settings](connect-services-diagnostic-setting-based.md)
     - [Service-to-service data connectors](data-connectors-reference.md)
 
 For more information, see: 
@@ -306,7 +309,7 @@ The current implementation is based on query time normalization, which uses KQL 
     - View the "Understanding normalization in Microsoft Sentinel" webinar: [YouTube](https://www.youtube.com/watch?v=WoGD-JeC7ng) or [presentation](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG).
     - View the "Deep Dive into Microsoft Sentinel normalizing parsers and normalized content" webinar: [YouTube](https://www.youtube.com/watch?v=zaqblyjQW6k), [MP3](https://aka.ms/AS_Normalizing_Parsers_and_Normalized_Content_11AUG2021_MP4), or [presentation](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM).
 
-- **Parsers** map existing data to the normalized schemas. You implement parsers by using [KQL functions](/azure/data-explorer/kusto/query/functions/user-defined-functions). View the "Extend and manage ASIM: Developing, testing and deploying parsers" webinar: [YouTube](https://youtu.be/NHLdcuJNqKw) or [presentation](https://1drv.ms/b/s!AnEPjr8tHcNmk0_k0zs21rL7euHp?e=5XkTnW).
+- **Parsers** map existing data to the normalized schemas. You implement parsers by using [KQL functions](/kusto/query/functions/user-defined-functions?view=microsoft-sentinel&preserve-view=true). View the "Extend and manage ASIM: Developing, testing and deploying parsers" webinar: [YouTube](https://youtu.be/NHLdcuJNqKw) or [presentation](https://1drv.ms/b/s!AnEPjr8tHcNmk0_k0zs21rL7euHp?e=5XkTnW).
 
 - **Content** for each normalized schema includes analytics rules, workbooks, and hunting queries. This content works on any normalized data without the need to create source-specific content.
 
@@ -359,7 +362,7 @@ In this section, we grouped the modules that help you learn how to create such c
 
 ### Module 10: Kusto Query Language
 
-Most Microsoft Sentinel capabilities use [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/). When you search in your logs, write rules, create hunting queries, or design workbooks, you use KQL.  
+Most Microsoft Sentinel capabilities use [Kusto Query Language (KQL)](/kusto/query/?view=microsoft-sentinel&preserve-view=true). When you search in your logs, write rules, create hunting queries, or design workbooks, you use KQL.  
 
 The next section on writing rules explains how to use KQL in the specific context of SIEM rules.
 

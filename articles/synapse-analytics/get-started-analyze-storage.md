@@ -7,23 +7,24 @@ ms.reviewer: whhender
 ms.service: azure-synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 11/18/2022
+ms.date: 12/17/2024
 ---
 
-# Analyze data in a storage account
+# Tutorial: Analyze data in a storage account
 
 In this tutorial, you'll learn how to analyze data located in a storage account.
-
-## Overview
 
 So far, we've covered scenarios where data resides in databases in the workspace. Now we'll show you how to work with files in storage accounts. In this scenario, we'll use the primary storage account of the workspace and container that we specified when creating the workspace.
 
 * The name of the storage account: **contosolake**
 * The name of the container in the storage account: **users**
 
-### Create CSV and Parquet files in your storage account
+## Create CSV and Parquet files in your storage account
 
 Run the following code in a notebook in a new code cell. It creates a CSV file and a parquet file in the storage account.
+
+>[!TIP]
+>This table was created earlier in the quickstart, and you can find the steps [here](get-started-analyze-spark.md#analyze-the-nyc-taxi-data-using-spark-and-notebooks).
 
 ```py
 %%pyspark
@@ -33,7 +34,7 @@ df.write.mode("overwrite").csv("/NYCTaxi/PassengerCountStats_csvformat")
 df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
 ```
 
-### Analyze data in a storage account
+## Analyze data in a storage account
 
 You can analyze the data in your workspace default Azure Data Lake Storage (ADLS) Gen2 account or you can link an ADLS Gen2 or Blob storage account to your workspace through "**Manage**" > "**Linked Services**" > "**New**" (The next steps will refer to the primary ADLS Gen2 account).
 
@@ -66,9 +67,7 @@ You can analyze the data in your workspace default Azure Data Lake Storage (ADLS
 
 1. Run the script.
 
-
-
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Orchestrate activities with pipelines](get-started-pipelines.md)

@@ -11,7 +11,9 @@ Your Microsoft Defender for IoT deployment for OT monitoring is managed through 
 
 If you're looking to manage support for enterprise IoT security, see [Manage enterprise IoT monitoring support with Microsoft Defender for IoT](manage-subscriptions-enterprise.md).
 
-This article is relevant for commercial Defender for IoT customers. If you're a government customer, contact your Microsoft sales representative for more information.
+This article is relevant for commercial Defender for IoT customers.
+
+If you're a government customer, see [government customers trial license](getting-started.md#government-customers-trial-license) or contact your Microsoft sales representative for more information.
 
 ## Prerequisites
 
@@ -62,14 +64,9 @@ This procedure describes how to add an OT plan for Defender for IoT in the Azure
 
 1. Select **Next** and review the details for any of your licensed sites. The details listed on the **Review and purchase** pane reflect any licenses you've purchased from the Microsoft 365 admin center.
 
-1. Do one or both of the following:
+1. Select the terms and conditions.
 
-   - Select the terms and conditions.
-   - If you're working with an on-premises management console, select **Download OT activation file (Optional)**.
-
-   When you're finished, select **Save**. If you've selected to download the on-premises management console activation file, the file is downloaded and you're prompted to save it locally. You'll use it later, when [activating your on-premises management console](legacy-central-management/activate-deploy-management.md#activate-the-on-premises-management-console).
-
-   [!INCLUDE [on-premises-management-deprecation](includes/on-premises-management-deprecation.md)]
+1. When you're finished, select **Save**.
 
 Your new plan is listed under the relevant subscription on the **Plans and pricing** > **Plans** page.
 
@@ -91,10 +88,30 @@ You might need to cancel a Defender for IoT plan from your Azure subscription, f
 
 ### Cancel your Defender for IoT licenses
 
-Canceling an OT plan in the Azure portal *doesn't* also cancel your Defender for IoT license. To change your billed licenses,  make sure that you also cancel your Defender for IoT license from the Microsoft 365 admin center.
- 
+Canceling an OT plan in the Azure portal *doesn't* also cancel your Defender for IoT license. To change your billed licenses, make sure that you also cancel your Defender for IoT license from the Microsoft 365 admin center.
+
 For more information, see the [Microsoft 365 admin center documentation](/microsoft-365/commerce/subscriptions/manage-self-service-purchases-admins#cancel-a-purchase-or-trial-subscription).
 
+## The trial license
+
+A trial license covers a site with up to 1,000 devices for a minimum of 30 days. To start a trial license, see [start a Microsoft Defender for IoT trial](getting-started.md).
+
+### Extend a trial license in the Admin Center
+
+If you need more time to evaluate the product and security value of Defender for IoT the trial license can be extended up until 15 days before the end of the trial. Within the last 15 days the trial can’t be extended.
+
+To extend the trial, either:
+
+1. Use the [Microsoft 365 Admin Center](https://admin.microsoft.com/Adminportal/Home?#/homepage) portal and follow the [extend your trial instructions](/microsoft-365/commerce/try-or-buy-microsoft-365#extend-your-trial).
+
+    The trial extension request must be made by a user with Global or Billing Admin permissions on the customer tenant. For more information, see admin roles in [Microsoft 365 Admin Center](https://admin.microsoft.com/Adminportal/Home?#/homepage).
+
+1. Contact your sale's team representative who can help you extend your license.
+
+>[!NOTE]
+>
+>A trial license can be extended by the customer up until 15 days before the end of the trial using the [Microsoft 365 Admin Center](https://admin.microsoft.com/Adminportal/Home?#/homepage).
+>
 
 ## Migrate from a legacy OT plan
 
@@ -128,7 +145,6 @@ After migrating your plan to a site-based Microsoft 365 plan, edits are supporte
 1. In the **Edit site** pane, in the **Size** field, edit your site size to match your licensed sites. For example:
 
    :::image type="content" source="media/release-notes/edit-site-size.png" alt-text="Screenshot of editing a site size on the Azure portal.":::
-
 
 ## Legacy procedures for plan management in the Azure portal
 
@@ -182,9 +198,8 @@ If you have multiple legacy subscriptions and are migrating to a Microsoft 365 p
 
 1. After any changes are made, make sure to reactivate your sensors. For more information, see [Reactivate an OT sensor](how-to-manage-sensors-on-the-cloud.md#reactivate-an-ot-sensor).
 
-1. If you have an on-premises management console, make sure to upload a new activation file, which reflects the changes made. For more information, see [Upload a new activation file](legacy-central-management/how-to-manage-the-on-premises-management-console.md#upload-a-new-activation-file).
-
 Changes to your plan will take effect one hour after confirming the change. This change appears on your next monthly statement, and you're charged based on the length of time each plan was in effect.
+
 ## Next steps
 
 For more information, see:

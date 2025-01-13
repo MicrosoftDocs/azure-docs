@@ -3,7 +3,7 @@ title: "Create and manage chamber VMs: Azure Modeling and Simulation Workbench"
 description: How to create and manage a chamber VMs in the Azure Modeling and Simulation Workbench.
 author: yousefi-msft
 ms.author: yousefi
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: how-to
 ms.date: 08/16/2024
 #CustomerIntent: As a Workbench Owner, I want to create and manage a chamber to isolate users, workloads and data.

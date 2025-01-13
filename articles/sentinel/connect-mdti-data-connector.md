@@ -11,7 +11,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customer intent: As an SOC admin, I want to use the best threat intelligence from Microsoft so that I can generate high-fidelity alerts and incidents.
+
+
+#Customer intent: As a security administrator, I want to enable the data connector for Microsoft Defender Threat Intelligence so that I can ingest high fidelity indicators of compromise into my Microsoft Sentinel workspace for enhanced threat monitoring and response.
+
 ---
 
 # Enable data connector for Microsoft Defender Threat Intelligence

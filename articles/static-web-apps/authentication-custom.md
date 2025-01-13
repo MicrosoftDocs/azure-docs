@@ -484,7 +484,7 @@ See the following example payload from Microsoft Entra ID:
 ```json
 {
   "identityProvider": "aad",
-  "userId": "72137ad3-ae00-42b5-8d54-aacb38576d76",
+  "userId": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
   "userDetails": "ellen@contoso.com",
   "claims": [
       {
@@ -509,7 +509,7 @@ See the following example payload from Microsoft Entra ID:
       },
       {
           "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
-          "val": "72137ad3-ae00-42b5-8d54-aacb38576d76"
+          "val": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee"
       },
       {
           "typ": "http://schemas.microsoft.com/identity/claims/tenantid",

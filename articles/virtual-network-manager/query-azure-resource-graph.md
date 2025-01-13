@@ -71,14 +71,14 @@ networkresources
 
 #### List commit details of latest security admin commit for a given network manager
 
-Input: Enter **id** of the virtual network manager. It uses the following syntax: */subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkManagers/myVirtualNetworkManager*
+Input: Enter **id** of the virtual network manager. It uses the following syntax: */subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkManagers/myVirtualNetworkManager*
 
 Output: List of commit details for security admin configurations including *CommitId, CommitTimestamp, location, SecurityAdminConfigurationId, SecurityAdminRuleIds, SecurityAdminRuleCollectionIds, status, and errorMessage*.
 
 ```kusto
 networkresources
 | where type == "microsoft.network/networkmanagers/securityadminregionalgoalstates"
-| where id contains tolower("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkManagers/myVirtualNetworkManager")
+| where id contains tolower("/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkManagers/myVirtualNetworkManager")
 | extend adminConfigurationId = tolower(iff(properties.securityAdminConfigurations[0].id == "", properties.SecurityAdminConfigurations[0].Id, properties.securityAdminConfigurations[0].id))
 | extend adminRuleCollectionIds = todynamic(iff(properties.securityAdminRuleCollections == "", properties.SecurityAdminRuleCollections, properties.securityAdminRuleCollections))
 | extend adminRuleIds = todynamic(iff(properties.securityAdminRules == "", properties.SecurityAdminRules, properties.securityAdminRules))
@@ -93,7 +93,7 @@ networkresources
 #### Count of virtual networks impacted by a given security admin configuration
 
 Input: Enter the **adminConfigurationID** of the security admin configuration snapshot. It uses the following syntax:
-`"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkManagers/myVirtualNetworkManager/securityAdminConfigurations/config_2023-05-15-15-07-27/snapshots/0"`
+`"/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkManagers/myVirtualNetworkManager/securityAdminConfigurations/config_2023-05-15-15-07-27/snapshots/0"`
 
 Output: List the virtual networks impacted including *Region, successCount, and failedcount*.
 
@@ -103,7 +103,7 @@ Output: List the virtual networks impacted including *Region, successCount, and 
 ```kusto
 networkresources
 | where type == "microsoft.network/effectivesecurityadminrules"
-| extend snapshotConfigIdToCheck =  tolower("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkManagers/myVirtualNetworkManager/securityAdminConfigurations/config_2023-05-15-15-07-27/snapshots/0")
+| extend snapshotConfigIdToCheck =  tolower("/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkManagers/myVirtualNetworkManager/securityAdminConfigurations/config_2023-05-15-15-07-27/snapshots/0")
 | mv-expand properties.effectiveSecurityAdminConfigurations
 | mv-expand properties.EffectiveSecurityAdminConfigurations
 | extend configurationId = tolower(iff(properties_effectiveSecurityAdminConfigurations.id == "", properties_EffectiveSecurityAdminConfigurations.Id, properties_effectiveSecurityAdminConfigurations.id))

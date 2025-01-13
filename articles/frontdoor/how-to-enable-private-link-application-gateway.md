@@ -28,8 +28,6 @@ This article guides you through the steps to configure an Azure Front Door Premi
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
-- Have a functioning Azure Application Gateway. For more information on how to create an Application Gateway, see [Direct web traffic with Azure Application Gateway using Azure PowerShell](../application-gateway/quick-create-powershell.md)
-
 - Have a functioning Azure Front Door Premium profile and an endpoint. For more information on how to create an Azure Front Door profile, see [Create a Front Door - PowerShell](create-front-door-powershell.md).
 
 - Have a functioning Azure Application Gateway. For more information on how to create an Application Gateway, see [Direct web traffic with Azure Application Gateway using Azure PowerShell](../application-gateway/quick-create-powershell.md)
@@ -109,7 +107,7 @@ Follow the instructions in [Configure Azure Application Gateway Private Link](..
     Get-AzPrivateEndpointConnection -ResourceGroupName myResourceGroup -ServiceName myAppGateway -PrivateLinkResourceType Microsoft.Network/applicationgateways
     ```
 
-2. Run [Get-AzPrivateEndpointConnection](/powershell/module/az.network/get-azprivateendpointconnection) to retrieve the private endpoint connection details. Use the *Name* value from the output in the next step for approving the connection.
+2. Run [Approve-AzPrivateEndpointConnection](/powershell/module/az.network/approve-azprivateendpointconnection) to approve the private endpoint connection details. Use the *Name* value from the output in the previous step for approving the connection.
 
     ```azurepowershell-interactive
     Get-AzPrivateEndpointConnection -Name aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb.bbbbbbbb-1111-2222-3333-cccccccccccc -ResourceGroupName myResourceGroup -ServiceName myAppGateway -PrivateLinkResourceType Microsoft.Network/applicationgateways

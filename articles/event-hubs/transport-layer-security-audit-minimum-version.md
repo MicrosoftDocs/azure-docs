@@ -37,7 +37,7 @@ To create a policy with an audit effect for the minimum TLS version with the Azu
             },
             {
               "not": {
-                "field": " Microsoft.EventHub/namespaces/minimumTlsVersion",
+                "field": "Microsoft.EventHub/namespaces/minimumTlsVersion",
                 "equals": "1.2"
               }
             }

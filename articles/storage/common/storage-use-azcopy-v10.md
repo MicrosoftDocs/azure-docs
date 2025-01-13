@@ -4,7 +4,7 @@ description: AzCopy is a command-line utility that you can use to copy data to, 
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 07/18/2024
+ms.date: 09/27/2024
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: ai-video-demo
@@ -16,16 +16,34 @@ ai-usage: ai-assisted
 AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you download AzCopy, connect to your storage account, and then transfer data.
 
 > [!NOTE]
-> AzCopy **V10** is the currently supported version of AzCopy.
->
+> AzCopy **V10** is the currently supported version of AzCopy. The tool is not supported on versions of Windows, Linux, or macOS that are no longer officially maintained.
+> 
 > If you need to use a previous version of AzCopy, see the [Use the previous version of AzCopy](#previous-version) section of this article.
 
-<a id="download-and-install-azcopy"></a>
+<a id="download-and-install-azcopy"></a>This video shows you how to download and run the AzCopy utility.
 
-This video shows you how to download and run the AzCopy utility.
 > [!VIDEO 4238a2be-881a-4aaa-8ccd-07a6557a05ef]
 
 The steps in the video are also described in the following sections.
+
+## Use cases for AzCopy
+
+AzCopy can be used to copy your data to, from, or between Azure storage accounts. Common use cases include:
+
+- Copying data from an on-premises source to an Azure storage account
+- Copying data from an Azure storage account to an on-premises source
+- Copying data from one storage account to another storage account
+
+Each of these use cases has unique options. For example, AzCopy has native commands for copying and/or synchronizing data. This makes AzCopy a flexible tool that can be used for one-time copy activities and ongoing synchronization scenarios. AzCopy also allows you to target specific storage services such as Azure Blob Storage or Azure Files. This allows you to copy data from blob to file, file to blob, file to file, etc.
+
+To learn more about these scenarios, see:
+
+- [Upload files to Azure Blob storage by using AzCopy](storage-use-azcopy-blobs-upload.md)
+- [Download blobs from Azure Blob Storage by using AzCopy](storage-use-azcopy-blobs-download.md)
+- [Copy blobs between Azure storage accounts by using AzCopy](storage-use-azcopy-blobs-copy.md)
+- [Synchronize with Azure Blob storage by using AzCopy](storage-use-azcopy-blobs-synchronize.md)
+
+[!INCLUDE [storage-azcopy-change-support](includes/storage-azcopy-change-support.md)]
 
 ## Install AzCopy on Linux by using a package manager
 
@@ -92,9 +110,9 @@ You can install AzCopy by using a Linux package that is hosted on the [Linux Sof
 4. Update the package index files.
 
    ```bash
-   sudo dnf update
+   sudo zypper --gpg-auto-import-keys refresh
    ```
-
+   
 5. Install AzCopy.
    
    ```bash
@@ -154,6 +172,7 @@ As an alternative to installing a package, you can download the AzCopy V10 execu
 
 - [Windows 64-bit](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Windows 32-bit](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
+- [Windows ARM64 Preview](https://aka.ms/downloadazcopy-v10-windows-arm64) (zip)
 - [Linux x86-64](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [Linux ARM64](https://aka.ms/downloadazcopy-v10-linux-arm64) (tar)
 - [macOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
@@ -284,7 +303,7 @@ wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azc
 ```
 **Windows PowerShell** 
 ```PowerShell
-Invoke-WebRequest -Uri 'https://azcopyvnext.azureedge.net/release20220315/azcopy_windows_amd64_10.14.1.zip' -OutFile 'azcopyv10.zip'
+Invoke-WebRequest -Uri <URL from the previous command> -OutFile 'azcopyv10.zip'
 Expand-archive -Path '.\azcopyv10.zip' -Destinationpath '.\'
 $AzCopy = (Get-ChildItem -path '.\' -Recurse -File -Filter 'azcopy.exe').FullName
 # Invoke AzCopy 
@@ -292,7 +311,7 @@ $AzCopy = (Get-ChildItem -path '.\' -Recurse -File -Filter 'azcopy.exe').FullNam
 ```
 **PowerShell 6.1+**
 ```PowerShell
-Invoke-WebRequest -Uri 'https://azcopyvnext.azureedge.net/release20220315/azcopy_windows_amd64_10.14.1.zip' -OutFile 'azcopyv10.zip'
+Invoke-WebRequest -Uri <URL from the previous command> -OutFile 'azcopyv10.zip'
 $AzCopy = (Expand-archive -Path '.\azcopyv10.zip' -Destinationpath '.\' -PassThru | where-object {$_.Name -eq 'azcopy.exe'}).FullName
 # Invoke AzCopy
 & $AzCopy

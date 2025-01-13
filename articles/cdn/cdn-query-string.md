@@ -4,7 +4,6 @@ description: Azure Content Delivery Network query string caching controls how fi
 services: cdn
 author: duongau
 manager: danielgi
-ms.assetid: 17410e4f-130e-489c-834e-7ca6d6f9778d
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
@@ -12,6 +11,8 @@ ms.author: duau
 ---
 
 # Control Azure Content Delivery Network caching behavior with query strings - standard tier
+
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 > [!div class="op_single_selector"]
 > - [Standard tier](cdn-query-string.md)

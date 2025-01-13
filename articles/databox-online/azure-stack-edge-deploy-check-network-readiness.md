@@ -4,8 +4,7 @@ description: Pre-qualify your network before deploying Azure Stack Edge Pro GPU,
 services: databox
 author: v-dalc
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 02/22/2022
 ms.author: alkohli

@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: iefedore
 ms.date: 06/03/2024
 ms.topic: how-to
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 

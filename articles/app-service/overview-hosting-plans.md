@@ -32,6 +32,8 @@ The _pricing tier_ of an App Service plan determines what App Service features y
 
 Each tier also provides a specific subset of App Service features. These features include custom domains and TLS/SSL certificates, autoscaling, deployment slots, backups, Traffic Manager integration, and more. The higher the tier, the more features that are available. To find out which features are supported in each pricing tier, see [App Service plan details](https://azure.microsoft.com/pricing/details/app-service/windows/#pricing).
 
+You can find more comparisons between plans at [App Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
+
 <a name="new-pricing-tier-premiumv3"></a>
 
 ## PremiumV3 pricing tier

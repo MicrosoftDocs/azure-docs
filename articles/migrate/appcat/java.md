@@ -14,7 +14,7 @@ ms.date: 07/12/2024
 
 This guide describes how to use the Azure Migrate application and code assessment tool for Java to assess and replatform any type of Java application. The tool enables you to evaluate application readiness for replatforming and migration to Azure. This tool is offered as a CLI (command-line interface) and assesses Java application binaries and source code to identify replatforming and migration opportunities for Azure. It helps you modernize and replatform large-scale Java applications by identifying common use cases and code patterns and proposing recommended changes.
 
-The tool discovers application technology usage through static code analysis, provides effort estimation, and accelerates code replatforming, helping you to prioritize and move Java applications to Azure. With a set of engines and rules, it can discover and assess different technologies such as Java 11, Java 17, Jakarta EE, Spring, Hibernate, Java Message Service (JMS), and more. It then helps you replatform the Java application to different Azure targets (Azure App Service, Azure Kubernetes Service, Azure Container Apps, and Azure Spring Apps) with specific Azure replatforming rules.
+The tool discovers application technology usage through static code analysis, provides effort estimation, and accelerates code replatforming, helping you to prioritize and move Java applications to Azure. With a set of engines and rules, it can discover and assess different technologies such as Java 11, Java 17, Jakarta EE, Spring, Hibernate, Java Message Service (JMS), and more. It then helps you replatform the Java application to different Azure targets (Azure App Service, Azure Kubernetes Service, and Azure Container Apps) with specific Azure replatforming rules.
 
 This tool is open source and is based on [WindUp](https://github.com/windup), a project created by Red Hat and published under the [Eclipse Public License](https://github.com/windup/windup/blob/master/LICENSE).
 
@@ -36,7 +36,6 @@ The rules used by Azure Migrate application and code assessment are grouped base
 | Target                   | Description                                                            | ID                     |
 |--------------------------|------------------------------------------------------------------------|------------------------|
 | Azure App Service        | Best practices for deploying an app to Azure App Service.              | `azure-appservice`     |
-| Azure Spring Apps        | Best practices for deploying an app to Azure Spring Apps.              | `azure-spring-apps`    |
 | Azure Kubernetes Service | Best practices for deploying an app to Azure Kubernetes Service.       | `azure-aks`            |
 | Azure Container Apps     | Best practices for deploying an app to Azure Container Apps.           | `azure-container-apps` |
 | Cloud Readiness          | General best practices for making an application Cloud (Azure) ready.  | `cloud-readiness`      |
@@ -61,7 +60,7 @@ When the tool assesses for Cloud Readiness and related Azure services, it can al
 To use the `appcat` CLI, you must download the ZIP file described in the next section, and have a compatible JDK 11 or JDK 17 installation on your computer. The `appcat` CLI runs on any Java-compatible environment such as Windows, Linux, or Mac, both for Intel, Arm, and Apple Silicon hardware. We recommend you use the [Microsoft Build of OpenJDK](/java/openjdk). 
 
 > [!div class="nextstepaction"]
-> [Download Azure Migrate application and code assessment for Java 6.3.0.9](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.0.9-preview.zip). Updated on 2024-08-06.
+> [Download Azure Migrate application and code assessment for Java 6.3.9.0](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.9.0-preview.zip). Updated on 2024-12-09.
 
 For more information, see the [Release notes](#release-notes) section.
 
@@ -75,6 +74,7 @@ Running `appcat` in a non-unicode environment with complex double-byte character
 
 The following previous releases are also available for download:
 
+ - [Azure Migrate application and code assessment for Java 6.3.0.9](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.0.9-preview.zip). Released on August, 2024.
  - [Azure Migrate application and code assessment for Java 6.3.0.8](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.0.8-preview.zip). Released on March, 2024.
  - [Azure Migrate application and code assessment for Java 6.3.0.7](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.0.7-preview.zip). Released on November, 2023.
 
@@ -84,8 +84,8 @@ To run `appcat`, make sure you have a supported JDK installed. The tool supports
 
 * Microsoft Build of OpenJDK 11
 * Microsoft Build of OpenJDK 17
-* Eclipse Temurin™ JDK 11
-* Eclipse Temurin™ JDK 17
+* Eclipse Temurin&trade; JDK 11
+* Eclipse Temurin&trade; JDK 17
 
 After you have a valid JDK installed, make sure its installation directory is properly configured in the `JAVA_HOME` environment variable.
 
@@ -164,7 +164,6 @@ Available target technologies:
     azure-aks
     azure-appservice
     azure-container-apps
-    azure-spring-apps
     cloud-readiness
     discovery
     linux
@@ -275,7 +274,7 @@ To write a custom rule, you use a rich domain specific language (DLS) expressed 
 To detect the use of this dependency, the rule uses the following XML tags:
 
 * `ruleset`: The unique identifier of the ruleset. A ruleset is a collection of rules that are related to a specific technology.
-* `targetTechnology`: The technology that the rule targets. In this case, the rule is targeting Azure App Services, Azure Kubernetes Service (AKS), Azure Spring Apps, and Azure Container Apps.
+* `targetTechnology`: The technology that the rule targets. In this case, the rule is targeting Azure App Services, Azure Kubernetes Service (AKS), and Azure Container Apps.
 * `rule`: The root element of a single rule.
 * `when`: The condition that must be met for the rule to be triggered.
 * `perform`: The action to be performed when the rule is triggered.
@@ -296,7 +295,6 @@ The following XML shows the custom rule definition:
         <targetTechnology id="azure-appservice"/>
         <targetTechnology id="azure-aks"/>
         <targetTechnology id="azure-container-apps"/>
-        <targetTechnology id="azure-spring-apps"/>
     </metadata>
     <rules>
         <rule id="azure-postgre-flexible-server">
@@ -323,6 +321,28 @@ After executing this rule through `appcat`, rerun the analysis to review the gen
 The complete guide for Rules Development is available at [azure.github.io/appcat-docs/rules-development-guide](https://azure.github.io/appcat-docs/rules-development-guide/).
 
 ## Release notes
+
+### 6.3.9.0
+
+This release contains the following fixes and includes a set of new rules. For more information, see below.
+
+**General Updates**
+ - Integrated changes from the Windup upstream repository (6.3.9.Final Release).
+ - Resolved broken links in rule descriptions and help text.
+
+**Rules**
+ - Azure Message Queue: updated and added new rules for azure-message-queue-rabbitmq and azure-message-queue-amqp.
+ - Azure Service Bus: introduced a detection rule for Azure Service Bus.
+ - MySQL & PostgreSQL: refined dependency detection rules.
+ - Azure-AWS Rules: enhanced and improved existing rules.
+ - S3 Spring Starter: added a detection rule for S3 Spring Starter.
+ - RabbitMQ Spring JMS: added a detection rule for RabbitMQ Spring JMS.
+ - Logging Rules: updated and refined logging-related rules.
+ - Local-Storage Rule: updated and refined the local storage rule.
+ - Azure File System Rule: updated and refined the Azure File System rule.
+
+**Libraries**
+ - Updated libraries to address security vulnerabilities.
 
 ### 6.3.0.9
 

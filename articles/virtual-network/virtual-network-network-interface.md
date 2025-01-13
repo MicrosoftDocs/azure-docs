@@ -6,7 +6,7 @@ author: asudbring
 ms.service: azure-virtual-network
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 03/20/2023
+ms.date: 10/09/2024
 ms.author: allensu
 ---
 
@@ -499,6 +499,9 @@ $nic | Set-AzNetworkInterface
 ```
 
 ---
+
+> [!WARNING]
+> You can change the subnet of a primary network interface while the virtual machine is started. You can't change the subnet of a secondary network interface in the same manner. To change the subnet of a secondary network interface, you must first stop and de-allocate the virtual machine.
 
 ### Add or remove from application security groups
 

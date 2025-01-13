@@ -3,7 +3,7 @@ title: "Storage: Azure Modeling and Simulation Workbench"
 description: Types of storage offered in Modeling and Simulation Workbench.
 author: yousefi-msft
 ms.author: yousefi
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: concept-article
 ms.date: 08/22/2024
 
@@ -34,7 +34,7 @@ The data pipeline file structure has two directories: `/mount/datapipeline/datai
 Chamber Storage is the high-performance, high-capacity storage solution for use within chambers. Based on Azure NetApp Files, it's available in two high-performance tiers, and dynamically scalable after creation. Chamber Storage can be accessed at `/mount/chamberstorages` where a different directory exists for each created volume. Volumes are sizable in 4 TB increments up to the user's subscription quota.
 
 > [!TIP]
-> Users are encouraged to place all working directories and point all application runs at a chamber storage volume for increased performance and data reliablity.
+> Users are encouraged to place all working directories and point all application runs at a chamber storage volume for increased performance and data reliability.
 
 ## Workbench tier shared storage
 

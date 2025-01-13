@@ -41,6 +41,10 @@ Default template implementations for many common scenarios can be found on the [
 ## Debugging and testing
 In addition to testing templates on an instance of the service, a [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) is available. The extension can be used to modify templates and test them with sample data payloads. There are also several existing test scenarios in the [FHIR Converter GitHub repository](https://github.com/microsoft/FHIR-Converter/tree/main/src/Microsoft.Health.Fhir.Liquid.Converter.FunctionalTests) that can be used as a reference.
  
+## Troubleshooting Azure Container Registry
+
+When using Azure Container Registry (ACR) for custom template storage, if you encounter a "Failed to get access token for Azure Container Registry" error when reading templates, check to make sure that the correct role assignments are configured for the managed identity. [Configure settings for $convert-data](convert-data-configuration.md)
+
 ## Next steps
 [Overview of $convert-data](convert-data-overview.md)
 

@@ -82,7 +82,7 @@ This error appears due to absence of these FQDN rules because of which configura
 
 **Resolution**: To resolve the issue, you need to create a *CoreDNS-custom override* for the *DP* endpoint to pass through the public network.
 
-1. Get Existing CoreDNS-custom YAML in your cluster (save it on your local for reference later)::
+1. Get Existing CoreDNS-custom YAML in your cluster (save it on your local for reference later):
 
    ```azurecli-interactive
    kubectl get configmap coredns-custom -n kube-system -o yaml
@@ -342,6 +342,14 @@ These error codes can appear while you enable AKS backup to store backups in a v
 **Cause**: The source AKS cluster and Target AKS cluster during restore have different versions of *FlowSchema* and *PriorityLevelConfigurations CRs*. Some Kubernetes resources aren't restored due to the mismatch in cluster versions.
 
 **Recommended action**: Use same cluster version for Target cluster as Source cluster or manually apply the CRs.
+
+### LinkedAuthorizationFailed
+
+**Error code**: LinkedAuthorizationFailed
+
+**Cause**: To perform a restore operation, user needs to have a **read** permission over the backed up AKS cluster. 
+
+**Recommended action**: Assign Reader role on the source AKS cluster and then proceed to perform the restore operation. 
 
 ## Next steps
 

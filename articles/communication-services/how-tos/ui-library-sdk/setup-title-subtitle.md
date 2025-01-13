@@ -17,11 +17,11 @@ zone_pivot_groups: acs-plat-ios-android
 
 # Customize the title and subtitle 
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 Developers now have the capability to customize the title and subtitle of a call, both during setup and while the call is in progress. This feature allows for greater flexibility in aligning the call experience with specific use cases.
 
 For instance, in a customer support scenario, the title could display the issue being addressed, while the subtitle could show the customer's name or ticket number.
+
+:::image type="content" source="./media/title-subtitle.png" alt-text="Screenshot that shows the experience of title and subtitle in the UI Library.":::
 
 Additionally, if tracking time spent in various segments of the call is crucial, the subtitle could dynamically update to display the elapsed call duration, helping to manage the meeting or session effectively.
 

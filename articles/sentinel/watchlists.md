@@ -10,6 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to understand how to use watchlists in Microsoft Sentinel so that I can efficiently correlate and enrich event data, reduce alert fatigue, and quickly respond to threats.
+
 ---
 
 # Watchlists in Microsoft Sentinel
@@ -18,7 +22,7 @@ Watchlists in Microsoft Sentinel allow you to correlate data from a data source 
 
 Use watchlists in your search, detection rules, threat hunting, and response playbooks.
 
-Watchlists are stored in your Microsoft Sentinel workspace as name-value pairs and are cached for optimal query performance and low latency.
+Watchlists are stored in your Microsoft Sentinel workspace in the `Watchlist` table as name-value pairs and are cached for optimal query performance and low latency.
 
 > [!IMPORTANT]
 > The features for watchlist templates and the ability to create a watchlist from a file in Azure Storage are currently in **PREVIEW**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -47,7 +51,7 @@ Before you create a watchlist, be aware of the following limitations:
 - Using Lighthouse to manage watchlists across different workspaces is not supported at this time.
 - Local file uploads are currently limited to files of up to 3.8 MB in size.
 - File uploads from an Azure Storage account (in preview) are currently limited to files up to 500 MB in size.
-- Watchlists must adhere to the same column and table restrictions as KQL entities. For more information, see [KQL entity names](/azure/data-explorer/kusto/query/schema-entities/entity-names).
+- Watchlists must adhere to the same column and table restrictions as KQL entities. For more information, see [KQL entity names](/kusto/query/schema-entities/entity-names?view=microsoft-sentinel&preserve-view=true).
 
 ## Options to create watchlists
 
@@ -65,14 +69,16 @@ For more information, see the following articles:
 
 ## Watchlists in queries for searches and detection rules
 
-Query data in any table against data from a watchlist by treating the watchlist as a table for joins and lookups. When you create a watchlist, you define the *SearchKey*. The search key is the name of a column in your watchlist that you expect to use as a join with other data or as a frequent object of searches. For example, suppose you have a server watchlist that contains country names and their respective two-letter country codes. You expect to use the country codes often for searches or joins. So you use the country code column as the search key.
+To correlate your watchlist data with other Microsoft Sentinel data, use Kusto tabular operators such as `join` and `lookup` with the `Watchlist` table. Microsoft Sentinel creates two functions in the workspace to help reference and query your watchlists.
+- `_GetWatchlistAlias` - simply returns the aliases of all your watchlists
+- `_GetWatchlist` - queries the name-value pairs of the specified watchlist
 
-The following example query joins the `RemoteIPCountry` column in the `Heartbeat` table with the search key defined for the watchlist named `mywatchlist`.
+When you create a watchlist, you define the *SearchKey*. The search key is the name of a column in your watchlist that you expect to use as a join with other data or as a frequent object of searches. For example, suppose you have a server watchlist that contains country/region names and their respective two-letter country codes. You expect to use the country codes often for searches or joins. So you use the country code column as the search key.
 
   ```kusto
-     Heartbeat
-    | lookup kind=leftouter _GetWatchlist('mywatchlist') 
-     on $left.RemoteIPCountry == $right.SearchKey
+  Heartbeat
+  | lookup kind=leftouter _GetWatchlist('mywatchlist') 
+    on $left.RemoteIPCountry == $right.SearchKey
   ```
 
 Let's look some other example queries. 
@@ -86,7 +92,7 @@ Suppose you want to use a watchlist in an analytics rule. You create a watchlist
    |`10.0.150.39,Home`     |
    |`172.20.32.117,Work`   |
 
-To only include events from IP addresses in the watchlist, you might use a query where watchlist is used as a variable or where the watchlist is used inline. 
+To only include events from IP addresses in the watchlist, you might use a query where `watchlist` is used as a variable or where the watchlist is used inline.
 
 The following example query uses the watchlist as a variable:
 
@@ -110,6 +116,15 @@ The following example query uses the watchlist inline with the query and the sea
   ```
 
 For more information, see [Build queries and detection rules with watchlists in Microsoft Sentinel](watchlists-queries.md).
+
+See more information on the following items used in the preceding examples, in the Kusto documentation:
+- [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+- [***project*** operator](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true)
+- [***lookup*** operator](/kusto/query/lookup-operator?view=microsoft-sentinel&preserve-view=true)
+- [***in*** operator](/kusto/query/in-cs-operator?view=microsoft-sentinel&preserve-view=true)
+- [***let*** statement](/kusto/query/let-statement?view=microsoft-sentinel&preserve-view=true)
+
+[!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
 
 ## Next steps
 

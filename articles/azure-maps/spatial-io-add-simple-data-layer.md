@@ -13,12 +13,6 @@ ms.subservice: web-sdk
 
 # Add a simple data layer
 
-> [!NOTE]
->
-> **Azure Maps Spatial service retirement**
->
-> The Azure Maps Spatial service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Spatial](https://aka.ms/AzureMapsSpatialDeprecation).
-
 The spatial IO module provides a `SimpleDataLayer` class. This class makes it easy to render styled features on the map. It can even render data sets that have style properties and data sets that contain mixed geometry types. The simple data layer achieves this functionality by wrapping multiple rendering layers and using style expressions. The style expressions search for common style properties of the features inside these wrapped layers. The `atlas.io.read` function and the `atlas.io.write` function use these properties to read and write styles into a supported file format. After adding the properties to a supported file format, the file can be used for various purposes. For example, the file can be used to display the styled features on the map.
 
 In addition to styling features, the `SimpleDataLayer` provides a built-in popup feature with a popup template. The popup displays when a feature is selected. The default popup feature can be disabled, if desired. This layer also supports clustered data. When a cluster is clicked, the map zooms into the cluster and expands it into individual points and subclusters.
@@ -69,7 +63,18 @@ function InitMap()
     map.layers.add(layer);
 
     //Load an initial data set.
-    loadDataSet('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1717245/use-simple-data-layer.json');
+    const dataSet = {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [0, 0]
+        },
+        "properties": {
+            "color": "red"
+        }
+    };
+    
+    loadDataSet(dataSet);
 
     function loadDataSet(url) {
       //Read the spatial data and add it to the map.
@@ -89,21 +94,6 @@ function InitMap()
       });
     }
   });
-}
-```
-
-The url passed to the `loadDataSet` function points to the following json:
-
-```json
-{
-    "type": "Feature",
-    "geometry": {
-        "type": "Point",
-        "coordinates": [0, 0]
-    },
-    "properties": {
-        "color": "red"
-    }
 }
 ```
 

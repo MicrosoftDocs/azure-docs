@@ -17,8 +17,9 @@ This page shows supported authentication methods and clients, and shows sample c
 Service Connector can be used to connect the following compute services to Azure Cache for Redis:
 
 - Azure App Service
-- Azure Functions
 - Azure Container Apps
+- Azure Functions
+- Azure Kubernetes Service (AKS)
 - Azure Spring Apps
 
 ## Supported Authentication types and client types
@@ -27,19 +28,42 @@ The table below shows which combinations of authentication methods and clients a
 
 | Client type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string | Service principal |
 |--------------------|----------------------------------|--------------------------------|----------------------------|-------------------|
-| .NET               | No                               | No                             | Yes                        | No                |
+| .NET               | Yes                               | Yes                             | Yes                        | Yes                |
 | Go                 | No                               | No                             | Yes                        | No                |
-| Java               | No                               | No                             | Yes                        | No                |
+| Java               | Yes                               | Yes                             | Yes                        | Yes                |
 | Java - Spring Boot | No                               | No                             | Yes                        | No                |
-| Node.js            | No                               | No                             | Yes                        | No                |
-| Python             | No                               | No                             | Yes                        | No                |
-| None               | No                               | No                             | Yes                        | No                |
+| Node.js            | Yes                               | Yes                             | Yes                        | Yes                |
+| Python             | Yes                               | Yes                             | Yes                        | Yes                |
+| None               | Yes                               | Yes                             | Yes                        | Yes                |
 
 This table indicates that the only supported authentication method for all client types in the table is the Secret / connection string method. Other authentication methods are not supported for any of the client types to connect to Azure Cache for Redis using Service Connector.
 
 ## Default environment variable names or application properties and sample code
 
 Use the environment variable names and application properties listed below to connect compute services to Redis Server. For each example below, replace the placeholder texts `<redis-server-name>`, and `<redis-key>` with your own Redis server name and key. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+
+### System-assigned managed identity
+
+| Default environment variable name        | Description           | Sample value                                       |
+| ---------------------------------------- | --------------------- | -------------------------------------------------- |
+| AZURE_REDIS_HOST | Redis Endpoint | `<RedisName>.redis.cache.windows.net` |
+
+#### Sample code
+
+Refer to the steps and code below to connect to Redis using a system-assigned managed identity.
+[!INCLUDE [code sample for redis](./includes/code-redis-me-id.md)]
+
+### User-assigned managed identity
+
+| Default environment variable name        | Description           | Sample value                                       |
+| ---------------------------------------- | --------------------- | -------------------------------------------------- |
+| AZURE_REDIS_HOST | Redis Endpoint | `<RedisName>.redis.cache.windows.net` |
+| AZURE_REDIS_CLIENTID                | managed identity client ID        | `<client-ID>`                                    |
+
+#### Sample code
+
+Refer to the steps and code below to connect to Redis using a user-assigned managed identity.
+[!INCLUDE [code sample for Redis](./includes/code-redis-me-id.md)]
 
 ### Connection String
 
@@ -102,6 +126,20 @@ Use the environment variable names and application properties listed below to co
 
 Refer to the steps and code below to connect to Azure Cache for Redis using a connection string.
 [!INCLUDE [code for redis](./includes/code-redis-secret.md)]
+
+### Service Principal
+
+| Default environment variable name        | Description           | Sample value                                       |
+| ---------------------------------------- | --------------------- | -------------------------------------------------- |
+| AZURE_REDIS_HOST | Redis Endpoint | `<RedisName>.redis.cache.windows.net` |
+| AZURE_REDIS_CLIENTID   | client ID of service principal    | `<client-ID>`           |
+| AZURE_REDIS_CLIENTSECRET  | secret of the service principal | `<client-secret>` |
+| AZURE_REDIS_TENANTID   | tenant ID of the service principal | `<tenant-id>` |
+
+#### Sample code
+
+Refer to the steps and code below to connect to Redis using a Service Principal.
+[!INCLUDE [code sample for Redis](./includes/code-redis-me-id.md)]
 
 ## Next steps
 

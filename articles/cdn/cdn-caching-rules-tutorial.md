@@ -14,6 +14,8 @@ ms.custom: mvc
 
 # Tutorial: Set Azure Content Delivery Network caching rules
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 > [!NOTE]
 > Caching rules are available only for **Azure CDN Standard from Edgio** profiles. For **Azure CDN from Microsoft** profiles, you must use the [Standard rules engine](cdn-standard-rules-engine-reference.md) For **Azure CDN Premium from Edgio** profiles, you must use the [Edgio Premium rules engine](./cdn-verizon-premium-rules-engine.md) in the **Manage** portal for similar functionality.
 

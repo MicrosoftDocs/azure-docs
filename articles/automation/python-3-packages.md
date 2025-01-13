@@ -96,12 +96,12 @@ You can import a Python 3.8 package and its dependencies by importing the follow
 
 #### [System assigned managed identity](#tab/sa-mi)
 
-```cmd
+```
 https://github.com/azureautomation/runbooks/blob/master/Utility/Python/import_py3package_from_pypi.py
 ```
 
 #### [User assigned managed identity](#tab/ua-mi)
-```cmd
+```python
 import requests
 import sys
 import pip
@@ -167,7 +167,7 @@ def make_temp_dir():
     return destdir
 
 def import_package_with_dependencies (packagename):
-    # download package with all depeendencies
+    # download package with all dependencies
     download_dir = make_temp_dir()
     pip.main(['download', '-d', download_dir, packagename])
     for file in os.listdir(download_dir):

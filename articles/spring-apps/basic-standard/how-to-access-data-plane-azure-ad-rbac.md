@@ -12,10 +12,9 @@ ms.custom: devx-track-java, devx-track-extended-java, subject-rbac-steps
 
 # Access Config Server and Service Registry
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ❌ Enterprise
+**This article applies to:** ✅ Basic/Standard ❎ Enterprise
 
 This article explains how to access the Spring Cloud Config Server and Spring Cloud Service Registry managed by Azure Spring Apps using Microsoft Entra role-based access control (RBAC).
 
@@ -142,4 +141,4 @@ eureka.instance.prefer-ip-address=true
 
 * [Authenticate Azure CLI](/cli/azure/authenticate-azure-cli)
 * [Production ready endpoints](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints)
-* [Create roles and permissions](../enterprise/how-to-permissions.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
+* [Create roles and permissions](how-to-permissions.md)

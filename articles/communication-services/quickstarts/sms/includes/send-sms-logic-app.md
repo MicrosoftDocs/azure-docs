@@ -33,7 +33,7 @@ Although this quickstart focuses on using the connector to respond to a trigger,
 
   This quickstart uses the **When a new email arrives** trigger, which is available with the [Office 365 Outlook connector](/connectors/office365/).
 
-- An SMS enabled phone number, or [get a phone number](./../../telephony/get-phone-number.md).
+- An SMS-enabled telephone number, short code, or alphanumeric sender ID. [Get a phone number](./../../telephony/get-phone-number.md).
 
 [!INCLUDE [Regional Availability Notice](../../../includes/regional-availability-include.md)]
 
@@ -62,7 +62,7 @@ To add the **Send SMS** action as a new step in your workflow by using the Azure
         
         1. Provide a name for the connection.
         
-        1. Select ConnectionString Authentication from the drop down options.
+        1. Select ConnectionString Authentication from the dropdown options.
         
         1. Enter the connection string of your Communication Services resource.
         
@@ -73,7 +73,7 @@ To add the **Send SMS** action as a new step in your workflow by using the Azure
     1. Using Service Principal ([Refer Services Principal Creation](../../identity/service-principal-from-cli.md)):
         1. Provide a name for the connection.
         
-        1. Select Service principal (Microsoft Entra application) Authentication from the drop down options.
+        1. Select Service principal (Microsoft Entra application) Authentication from the dropdown options.
         
         1. Enter the Tenant ID, Client ID & Client Secret of your Service Principal.
         

@@ -29,7 +29,7 @@ Carefully review the following steps. You should first try it on a test policy t
 
 ```azurepowershell
 Connect-AzAccount
-Set-AzContext -Subscription "<Subscritpion ID>"
+Set-AzContext -Subscription "<Subscription ID>"
 
 ```
 

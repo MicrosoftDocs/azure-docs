@@ -4,12 +4,12 @@ titleSuffix: Azure AD B2C
 description: Learn how to configure Azure Active Directory B2C with Transmit Security for risk detect.
 author: yoelh
 manager: martinco
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 06/04/2024
 ms.author: yoelh
 ms.reviewer: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 # Customer intent: As a developer integrating Transmit Security with Azure AD B2C for risk detect. I want to configure a custom poicy with Transmit Security and set it up in Azure AD B2C, so I can detect and remidiate risks by using multi-factor authentication.

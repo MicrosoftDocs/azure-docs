@@ -19,7 +19,7 @@
 - name: Quickstarts
   items:
   - name: Create Bicep templates - VS Code
-    displayName: vscode
+    displayName: vscode,vs code
     href: quickstart-create-bicep-use-visual-studio-code.md
   - name: Create Bicep templates - Visual Studio
     href: quickstart-create-bicep-use-visual-studio.md
@@ -262,22 +262,31 @@
   - name: Data types
     href: data-types.md
     displayName: supported types,arrays,booleans,integers,objects,strings,secure,interpolation
-  - name: User-defined data types (type)
-    displayName: custom
-    href: user-defined-data-types.md
-  - name: User-defined functions (func)
-    displayName: custom
-    href: user-defined-functions.md
   - name: Parameters (param)
     href: parameters.md
     displayName: decorators,secure,objects,constraints
   - name: Variables (var)
     href: variables.md
     displayName: configuration
-  - name: Import (import)
-    href: bicep-import.md
   - name: Resources (resource)
     href: resource-declaration.md
+  - name: Outputs (output)
+    href: outputs.md
+    displayName: dynamic number of outputs,modules
+  - name: Modules (module)
+    href: modules.md
+    displayName: scopes,consume,registry,module registry,private module registry,public module registry,avm,azure verified modules 
+  - name: Using (using)
+    displayName: avm,azure verified modules 
+    href: bicep-using.md
+  - name: Import (import)
+    href: bicep-import.md
+  - name: User-defined data types (type)
+    displayName: custom
+    href: user-defined-data-types.md
+  - name: User-defined functions (func)
+    displayName: custom
+    href: user-defined-functions.md
   - name: Existing resources (existing)
     href: existing-resource.md
   - name: Child resources (parent)
@@ -287,20 +296,13 @@
     href: scope-extension-resources.md
   - name: Dependencies (dependsOn)
     href: resource-dependencies.md
-  - name: Modules (module)
-    href: modules.md
-    displayName: scopes,consume,registry,module registry,private module registry,public module registry,avm,azure verified modules 
-  - name: Outputs (output)
-    href: outputs.md
-    displayName: dynamic number of outputs,modules
   - name: Loops (for)
     href: loops.md
     displayName: multiple
   - name: Conditions (if)
     href: conditional-resource-deployment.md
-  - name: Using (using)
-    displayName: avm,azure verified modules 
-    href: bicep-using.md
+  - name: Extension (extension)
+    href: bicep-extension.md
   - name: Scopes (targetScope)
     items:
     - name: Resource group
@@ -409,11 +411,13 @@
       href: template-specs.md
     - name: Deployment stacks
       href: deployment-stacks.md
-    - name: Bicep extensibility
+    - name: Bicep extensions
       items:
       - name: Kubernetes extension
+        displayName: provider
         href: ./bicep-kubernetes-extension.md
       - name: Microsoft Graph extension
+        displayName: provider
         href: https://aka.ms/graphbicep
     - name: Patterns
       items:
@@ -596,6 +600,8 @@
     - name: Decompile
       href: decompile.md
       displayName: conversion issues,export,convert,playground
+    - name: Blueprint to deployment stack 
+      href: migrate-blueprint.md
   - name: Contribute to Bicep
     href: contribute.md
 - name: Reference
@@ -611,6 +617,10 @@
     items:
     - name: All codes
       href: bicep-core-diagnostics.md
+    - name: BCP007
+      href: diagnostics/bcp007.md
+    - name: BCP009
+      href: diagnostics/bcp009.md
     - name: BCP018
       href: diagnostics/bcp018.md
     - name: BCP033
@@ -633,6 +643,10 @@
       href: diagnostics/bcp057.md
     - name: BCP062
       href: diagnostics/bcp062.md
+    - name: BCP063
+      href: diagnostics/bcp063.md
+    - name: BCP071
+      href: diagnostics/bcp071.md
     - name: BCP072
       href: diagnostics/bcp072.md
     - name: BCP073
@@ -641,22 +655,54 @@
       href: diagnostics/bcp077.md
     - name: BCP078
       href: diagnostics/bcp078.md
+    - name: BCP082
+      href: diagnostics/bcp082.md
     - name: BCP083
       href: diagnostics/bcp083.md
     - name: BCP088
       href: diagnostics/bcp088.md
     - name: BCP089
       href: diagnostics/bcp089.md
+    - name: BCP124
+      href: diagnostics/bcp124.md
+    - name: BCP125
+      href: diagnostics/bcp125.md
+    - name: BCP126
+      href: diagnostics/bcp126.md
+    - name: BCP127
+      href: diagnostics/bcp127.md
+    - name: BCP128
+      href: diagnostics/bcp128.md
+    - name: BCP129
+      href: diagnostics/bcp129.md
+    - name: BCP132
+      href: diagnostics/bcp132.md
     - name: BCP139
       href: diagnostics/bcp139.md
+    - name: BCP147
+      href: diagnostics/bcp147.md
+    - name: BCP152
+      href: diagnostics/bcp152.md
+    - name: BCP153
+      href: diagnostics/bcp153.md
+    - name: BCP166
+      href: diagnostics/bcp166.md
     - name: BCP192
       href: diagnostics/bcp192.md
+    - name: BCP266
+      href: diagnostics/bcp266.md
     - name: BCP288
       href: diagnostics/bcp288.md
+    - name: BCP290
+      href: diagnostics/bcp290.md
+    - name: BCP292
+      href: diagnostics/bcp292.md
     - name: BCP294
       href: diagnostics/bcp294.md
     - name: BCP302
       href: diagnostics/bcp302.md
+    - name: BCP311
+      href: diagnostics/bcp311.md
     - name: BCP327
       href: diagnostics/bcp327.md
     - name: BCP328

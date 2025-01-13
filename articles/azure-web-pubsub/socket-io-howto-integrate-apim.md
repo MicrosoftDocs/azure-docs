@@ -17,7 +17,7 @@ Azure API Management service provides a hybrid, multicloud management platform f
 
 ## Limitations
 
-Socket.IO clients support WebSocket and Long Polling and by default, the client connects to the service with Long Polling and then upgrade to WebSocket. However, as for now, API Management doesn't yet support different types of APIs (WebSocket or Http) with the same path. You must set  either `websocket` or `polling` in client settings.
+Socket.IO clients support WebSocket and Long Polling and by default, the client connects to the service with Long Polling and then upgrade to WebSocket. However, as for now, API Management doesn't yet support different types of APIs (WebSocket or HTTP) with the same path. You must set  either `websocket` or `polling` in client settings.
 
 ## Create resources
  

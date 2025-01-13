@@ -4,7 +4,8 @@ description: In this tutorial, you create an Azure data factory with a pipeline 
 ms.author: yexu
 author: dearandyxu
 ms.topic: tutorial
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Incrementally load data from multiple tables in SQL Server to a database in Azure SQL Database using the Azure portal

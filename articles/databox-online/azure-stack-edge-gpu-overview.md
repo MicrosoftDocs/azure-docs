@@ -4,10 +4,9 @@ description: Describes Azure Stack Edge Pro with GPU, a storage solution that us
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: overview
-ms.date: 05/22/2023
+ms.date: 01/10/2025
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro GPU is and how it works so I can use it to process and transform data before sending it to Azure.
 ---
@@ -85,7 +84,7 @@ Azure Stack Edge Pro GPU physical device, Azure resource, and target storage acc
     
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions. For best performance, the regions where the storage accounts store Azure Stack Edge Pro GPU data should be close to the device location. A storage account located far from the device results in long latencies and slower performance.
 
-Azure Stack Edge service is a non-regional service. For more information, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md). Azure Stack Edge service doesn’t have dependency on a specific Azure region, making it resilient to zone-wide outages and region-wide outages.
+Azure Stack Edge service is a non-regional service. For more information, see [Regions and Availability Zones in Azure](../reliability/availability-zones-overview.md). Azure Stack Edge service doesn’t have dependency on a specific Azure region, making it resilient to zone-wide outages and region-wide outages.
 
 For a discussion of considerations for choosing a region for the Azure Stack Edge service, device, and data storage, see [Choosing a region for Azure Stack Edge](azure-stack-edge-gpu-regions.md).
 

@@ -7,9 +7,10 @@ ms.author: kgremban
 manager: lizross
 ms.date: 08/16/2024
 ms.topic: quickstart
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps
 ms.custom: mvc, mode-ui
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Quickstart: Set up IoT Hub Device Provisioning Service with the Azure portal

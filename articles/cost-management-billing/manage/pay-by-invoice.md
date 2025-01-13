@@ -6,7 +6,7 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/06/2024
+ms.date: 10/15/2024
 ms.author: banders
 ---
 
@@ -40,11 +40,8 @@ To qualify for wire transfer payments, you must:
 - Have a subscription cost that exceeds a certain amount. This amount varies by service location.
 
 > [!IMPORTANT]
-> - Payment by wire transfer is available only for customers who use Azure on behalf of a company.
 > - You must pay all outstanding charges before switching to payment by wire transfer.
-> - Your default payment method pays any outstanding invoice. To have a wire transfer pay an outstanding invoice, you must change your default payment method to wire transfer after you're approved.
-> - Currently, payment by wire transfer isn't supported for Azure global in China.
-> - If you switch to payment by wire transfer, you can't switch back to paying by credit or debit card, except for one-time payments.
+> - If you switch to payment by wire transfer, you can't switch back to paying by credit or debit card as your recurring form of payment. However, you can make manual, one-time (non-recurring) payments with a credit or debit card.
 > - As of September 30, 2023, Microsoft no longer accepts checks as a payment method.
 
 ## Submit a request to set up payment by wire transfer

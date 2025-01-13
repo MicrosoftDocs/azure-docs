@@ -3,11 +3,11 @@ title: Tutorial - Create user flows and custom policies - Azure Active Directory
 description: Follow this tutorial to learn how to create user flows and custom policies in the Azure portal to enable sign up, sign in, and user profile editing for your applications in Azure Active Directory B2C.
 author: garrodonnell
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: tutorial
-ms.date: 11/10/2023
+ms.date: 01/10/2025
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 #Customer intent: As a developer, I want to learn how to create user flows and custom policies in the Azure portal to enable sign up, sign in, and user profile editing for my applications in Azure Active Directory B2C.
@@ -221,7 +221,7 @@ Now, grant permissions to the API scope you exposed earlier in the *IdentityExpe
 1. Select the **APIs my organization uses** tab, then select the **IdentityExperienceFramework** application.
 1. Under **Permission**, select the **user_impersonation** scope that you defined earlier.
 1. Select **Add permissions**. As directed, wait a few minutes before proceeding to the next step.
-1. Select **Grant admin consent for *<your tenant name)>***.
+1. Select **Grant admin consent for *&lt;your tenant name>***.
 1. Select **Yes**.
 1. Select **Refresh**, and then verify that "Granted for ..." appears under **Status** for the scope.
 

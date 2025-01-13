@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/23/2024
+ms.date: 10/23/2024
 ---
 
 # Copy data from ServiceNow using Azure Data Factory or Synapse Analytics
@@ -17,8 +17,7 @@ ms.date: 08/23/2024
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from ServiceNow. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 >[!IMPORTANT]
->The new ServiceNow connector provides improved native ServiceNow support. If you are using the legacy ServiceNow connector in your solution, supported as-is for backward compatibility only, refer to [ServiceNow connector (legacy)](connector-servicenow-legacy.md) article.
-
+>The new ServiceNow connector provides improved native ServiceNow support. If you are using the legacy ServiceNow connector in your solution, you are recommended to [upgrade your ServiceNow connector](#upgrade-your-servicenow-linked-service) at your earliest convenience. Refer to this [section](#differences-between-servicenow-and-servicenow-legacy) for details on the difference between the legacy and latest version. 
 
 ## Supported capabilities
 
@@ -148,9 +147,9 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **ServiceNowV2Source** | Yes |
-| expression| Use the expression to read data. You can configure the expression in **Query builder**. It has the same usage as the condition builder in ServiceNow. For instructions on how to use it, see this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/concept/c_ConditionBuilder.html). | No |
+| expression| Use the expression to read data. You can configure the expression in **Query builder**. It has the same usage as the condition builder in ServiceNow. For instructions on how to use it, see this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/concept/c_ConditionBuilder.html). You can also [use expression parameters](#using-expression-parameters).| No |
 | *Under `expression`* |  |  |
-| type | The expression type. Values can be Constant (default), Unary, Binary, and Field.  | No  |
+| type | The expression type. Values can be Constant (default), Unary, Binary, Field and Nary.  | No  |
 | value | The constant value. |Yes when the expression type is Constant or Field |
 | operators | The operator value. For more information about operators, see *Operators available for choice fields containing strings* section in this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/reference/r_OpAvailableFiltersQueries.html).| Yes when the expression type is Unary or Binary |
 | operands | List of expressions on which operator is applied.| Yes when the expression type is Unary or Binary |
@@ -202,13 +201,71 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
 ]
 ```
 
+### Using expression parameters
+
+You can configure the expression parameter in **Query builder** by selecting **Add dynamic content**. The parameter type should be **Object**, and the value should follow the format shown in the example JSON below:
+
+```json
+ {
+	"type": "Nary",
+	"operators": [
+		"="
+	],
+	"operands": [
+		{
+			"type": "Field",
+			"value": "col"
+		},
+		{
+			"type": "Constant",
+			"value": "val"
+		}
+	]
+}
+```
+
+Here is an example of the source JSON using the expression parameter:
+
+```json
+"activities": [
+    {
+        "name": "CopyFromServiceNow",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<ServiceNow input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "ServiceNowV2Source",
+                "expression": {
+                    "type": "Expression",
+                    "value": "@pipeline().parameters.expressionParameter"
+                }
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade your ServiceNow linked service
+## <a name="upgrade-your-servicenow-linked-service"></a> Upgrade the ServiceNow connector
 
-Here are the steps that help you to upgrade your ServiceNow linked service:
+Here are the steps that help you to upgrade your ServiceNow connector:
 
 1. Create a new linked service by referring to [Linked service properties](#linked-service-properties).
 2. **Query** in source is upgraded to **Query builder**, which has the same usage as the condition builder in ServiceNow. Learn how to configure it referring to [ServiceNow as source](#servicenow-as-source).

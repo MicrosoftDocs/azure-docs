@@ -112,8 +112,6 @@ To configure DNS proxy, you must configure your virtual network DNS servers sett
 4. Review the **DNS servers** configuration to make sure that the settings are appropriate for your environment.
 5. Select **Save**.
 
-:::image type="content" source="../firewall/media/dns-settings/dns-proxy.png" alt-text="Screenshot showing settings for the DNS proxy.":::
-
 #### [CLI](#tab/azure-devops-cli)
 
 You can use the Azure CLI to configure DNS proxy settings in Azure Firewall. You can also use it to update virtual networks to use Azure Firewall as the DNS server.

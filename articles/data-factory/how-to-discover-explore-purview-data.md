@@ -4,7 +4,8 @@ description: Learn how to discover, explore data in Azure Data Factory using Mic
 ms.topic: conceptual
 author: jianleishen
 ms.author: jianleishen
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: monitoring
 ---
 
 # Discover and explore data in ADF using Microsoft Purview

@@ -6,7 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 07/10/2024
+ms.date: 12/11/2024
 ms.author: allensu
 ---
 
@@ -46,7 +46,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AppConfiguration** | App Configuration. | Outbound | No | Yes |
 | **[AppService](/azure/app-service/overview-inbound-outbound-ips)**    | Azure App Service. This tag is recommended for outbound security rules to web apps and function apps.<br/><br/>**Note**: This tag doesn't include IP addresses assigned when using IP-based SSL (App-assigned address). | Outbound | Yes | Yes |
 | **[AppServiceManagement](/azure/app-service/environment/management-addresses)** | Management traffic for deployments dedicated to App Service Environment. | Both | No | Yes |
-| **AzureActiveDirectory** | Microsoft Entra ID. | Outbound | No | Yes |
+| **AzureActiveDirectory** | Microsoft Entra ID Services. This tag includes login, MS Graph and other Entra services not specifically listed in this table | Outbound | No | Yes |
 | **[AzureActiveDirectoryDomainServices](/entra/identity/domain-services/network-considerations#inbound-connectivity)** | Management traffic for deployments dedicated to Microsoft Entra Domain Services. | Both | No | Yes |
 | **[AzureAdvancedThreatProtection](/defender-for-identity/deploy/configure-proxy#enable-access-with-a-service-tag)** | Microsoft Defender for Identity. | Outbound | No | Yes |
 | **AzureArcInfrastructure** | Azure Arc-enabled servers, Azure Arc-enabled Kubernetes, and Guest Configuration traffic.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory**,**AzureTrafficManager**, and **AzureResourceManager** tags. | Outbound | No | Yes |
@@ -108,9 +108,9 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **[M365ManagementActivityApi](/office/office-365-management-api/office-365-management-activity-api-reference#working-with-the-office-365-management-activity-api)** | The Office 365 Management Activity API provides information about various user, admin, system, and policy actions and events from Office 365 and Microsoft Entra activity logs. Customers and partners can use this information to create new or enhance existing operations, security, and compliance-monitoring solutions for the enterprise.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory** tag. | Outbound | Yes | Yes |
 | **[M365ManagementActivityApiWebhook](/office/office-365-management-api/office-365-management-activity-api-reference#working-with-the-office-365-management-activity-api)** | Notifications are sent to the configured webhook for a subscription as new content becomes available. | Inbound | Yes | Yes |
 | **MicrosoftAzureFluidRelay** | This tag represents the IP addresses used for Azure Microsoft Fluid Relay Server. </br> **Note**: This tag has a dependency on the **AzureFrontDoor.Frontend** tag. | Both | No | Yes |
-| **MicrosoftCloudAppSecurity** | Microsoft Defender for Cloud Apps. | Outbound | No | Yes |
+| **[MicrosoftCloudAppSecurity](/defender-cloud-apps/network-requirements)** | Microsoft Defender for Cloud Apps. | Both | No | Yes |
 | **[MicrosoftDefenderForEndpoint](/defender-endpoint/configure-device-connectivity)** | Microsoft Defender for Endpoint core services.<br/><br/>**Note**: Devices need to be onboarded with streamlined connectivity and meet requirements in order to use this service tag. Defender for Endpoint/Server require additional service tags, like OneDSCollector, to support all functionality.<br/></br> For more information, see [Onboarding devices using streamlined connectivity for Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/configure-device-connectivity) | Both | No | Yes |
-| **[PowerBI](/power-bi/enterprise/service-premium-service-tags)** | Power BI platform backend services and API endpoints.<br/><br/>**Note:** does not include frontend endpoints at the moment (e.g., app.powerbi.com).<br/><br/>Access to frontend endpoints should be provided through AzureCloud tag (Outbound, HTTPS, can be regional). | Both | No | Yes |
+| **[PowerBI](/power-bi/enterprise/service-premium-service-tags)** | Power BI platform backend services and API endpoints.<br/><br/> | Both | No | Yes |
 | **[PowerPlatformInfra](/power-platform/admin/online-requirements)** | This tag represents the IP addresses used by the infrastructure to host Power Platform services. | Both | Yes | Yes |
 | **[PowerPlatformPlex](/power-platform/admin/online-requirements)** | This tag represents the IP addresses used by the infrastructure to host Power Platform extension execution on behalf of the customer. | Both | Yes | Yes |
 | **[PowerQueryOnline](/data-integration/gateway/service-gateway-communication)** | Power Query Online. | Both | No | Yes |

@@ -2,13 +2,13 @@
 title: Azure threat protection | Microsoft Docs
 description: Learn about built-in threat protection functionality for Azure, such as the Microsoft Entra ID Protection service. 
 services: security
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 06/27/2024
-ms.author: terrylan
+ms.author: mbaldwin
 
 ---
 

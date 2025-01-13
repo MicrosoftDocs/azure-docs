@@ -4,8 +4,7 @@ description: In this tutorial, learn how to return Azure Data Box Heavy, includi
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: heavy
+ms.service: azure-data-box-heavy
 ms.topic: tutorial
 ms.date: 10/29/2021
 ms.author: shaas

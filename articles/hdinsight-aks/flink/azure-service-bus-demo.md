@@ -45,7 +45,7 @@ After submitting the job, access the Flink Dashboard UI and click on the running
 
 Navigate to the Service Bus Explorer on the Azure portal and send messages to the corresponding Service Bus.
 
-:::image type="content" source="./media/azure-service-bus-demo/sending-message-azure-portal.png" alt-text="Screenshot shows sending message from Azure portal Serice Bus Explorer." lightbox="./media/azure-service-bus-demo/sending-message-azure-portal.png":::
+:::image type="content" source="./media/azure-service-bus-demo/sending-message-azure-portal.png" alt-text="Screenshot shows sending message from Azure portal Service Bus Explorer." lightbox="./media/azure-service-bus-demo/sending-message-azure-portal.png":::
 
 
 ### Check job run details on Apache Flink UI
@@ -318,7 +318,7 @@ This Flink source function, encapsulated within the `SessionBasedServiceBusSourc
 
 1. **Instance Variables**
 
-   The `connectionString`, `topicName`, and `subscriptionName` variables hold the connection string, topic name, and subscription name for your Azure Service Bus. The isRunning flag is used to control the execution of the source function. The `sessionReceiver` is an instance of `erviceBusSessionReceiverAsyncClient`, which is used to receive messages from the Service Bus.
+   The `connectionString`, `topicName`, and `subscriptionName` variables hold the connection string, topic name, and subscription name for your Azure Service Bus. The isRunning flag is used to control the execution of the source function. The `sessionReceiver` is an instance of `ServiceBusSessionReceiverAsyncClient`, which is used to receive messages from the Service Bus.
 
 1. **Constructor**
 

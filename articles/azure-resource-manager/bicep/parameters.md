@@ -1,16 +1,16 @@
 ---
 title: Parameters in Bicep files
-description: Describes how to define parameters in a Bicep file.
+description: Learn how to define and use parameters in a Bicep file.
 ms.topic: conceptual
+ms.date: 01/10/2025
 ms.custom: devx-track-bicep
-ms.date: 08/20/2024
 ---
 
 # Parameters in Bicep
 
 This article describes how to define and use parameters in a Bicep file. By providing different values for parameters, you can reuse a Bicep file for different environments.
 
-Resource Manager resolves parameter values before starting the deployment operations. Wherever the parameter is used, Resource Manager replaces it with the resolved value.
+Azure Resource Manager resolves parameter values before starting the deployment operations. Wherever the parameter is used, Resource Manager replaces it with the resolved value.
 
 Each parameter must be set to one of the [data types](data-types.md).
 
@@ -20,7 +20,7 @@ For parameter best practices, see [Parameters](./best-practices.md#parameters).
 
 ### Training resources
 
-If you would rather learn about parameters through step-by-step guidance, see [Build reusable Bicep templates by using parameters](/training/modules/build-reusable-bicep-templates-parameters).
+See the [Build reusable Bicep templates by using parameters](/training/modules/build-reusable-bicep-templates-parameters) Learn module for step-by-step guidance about parameters.
 
 ## Define parameters
 
@@ -43,13 +43,11 @@ param demoObject object
 param demoArray array
 ```
 
-The `param` keyword is also used in [.bicepparam files](./parameter-files.md). In .bicepparam files, you don't need to specify the data type as it is defined in Bicep files.
+The `param` keyword is also used in [`.bicepparam` files](./parameter-files.md). You don't need to specify the data type in `.bicepparam` files since it's defined in Bicep files.
 
 ```bicep
 param <parameter-name> = <value>
 ```
-
-For more information, see [Parameters file](./parameter-files.md).
 
 User-defined type expressions can be used as the type clause of a `param` statement. For example:
 
@@ -95,7 +93,7 @@ Parameters use decorators for constraints or metadata. The decorators are in the
 | Decorator | Apply to | Argument | Description |
 | --------- | ---- | ----------- | ------- |
 | [allowed](#allowed-values) | all | array | Use this decorator to make sure the user provides correct values. This decorator is only permitted on `param` statements. To declare that a property must be one of a set of predefined values in a [`type`](./user-defined-data-types.md) or [`output`](./outputs.md) statement, use [union type syntax](./data-types.md#union-types). Union type syntax can also be used in `param` statements.|
-| [description](#description) | all | string | Text that explains how to use the parameter. The description is displayed to users through the portal. |
+| [description](#description) | all | string | Text that explains how to use the parameter. The description is displayed to users in the Azure portal. |
 | [discriminator](#discriminator) | object | string | Use this decorator to ensure the correct subclass is identified and managed. For more information, see [Custom-tagged union data type](./data-types.md#custom-tagged-union-data-type).|
 | [maxLength](#length-constraints) | array, string | int | The maximum length for string and array parameters. The value is inclusive. |
 | [maxValue](#integer-constraints) | int | int | The maximum value for the integer parameter. This value is inclusive. |
@@ -130,7 +128,7 @@ If you define allowed values for an array parameter, the actual value can be any
 
 ### Description
 
-To help users understand the value to provide, add a description to the parameter. When a user deploys the template through the portal, the description's text is automatically used as a tip for that parameter. Only add a description when the text provides more information than can be inferred from the parameter name.
+To help users understand the value to provide, add a description to the parameter. When a user deploys the template through the Azure portal, the description's text is automatically used as a tip for that parameter. Only add a description when the text provides more information than can be inferred from the parameter name.
 
 ```bicep
 @description('Must be at least Standard_A3 to support 2 NICs.')
@@ -150,7 +148,7 @@ Storage account name restrictions:
 param storageAccountName string
 ```
 
-When you hover your cursor over **storageAccountName** in VS Code, you see the formatted text:
+When you hover your cursor over **storageAccountName** in Visual Studio Code, you see the formatted text:
 
 :::image type="content" source="./media/parameters/vscode-bicep-extension-description-decorator-markdown.png" alt-text="Use Markdown-formatted text in VSCode":::
 
@@ -291,6 +289,6 @@ resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
 
 ## Next steps
 
-- To learn about the available properties for parameters, see [Understand the structure and syntax of Bicep files](file.md).
-- To learn about passing in parameter values as a file, see [Create a Bicep parameter file](parameter-files.md).
-- To learn about providing parameter values at deployment, see [Deploy with Azure CLI](./deploy-cli.md), and [Deploy with Azure PowerShell](./deploy-powershell.md).
+- To learn about the properties available for parameters, see [Understand the structure and syntax of Bicep files](file.md).
+- To learn about passing in parameter values as a file, see [Create parameters files for Bicep deployment](parameter-files.md).
+- To learn about providing parameter values at deployment, see [Deploy Bicep files with the Azure CLI](deploy-cli.md) and [Azure PowerShell](deploy-powershell.md).

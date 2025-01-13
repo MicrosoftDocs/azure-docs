@@ -269,7 +269,7 @@ This section contains an example of what that data would look like for each even
         }
       },
       "incomingCallContext": "eyJhbGciOiJub25lIiwidHliSldUIn0.eyJjYyI6Ikg0c0lBQi9iT0JiOUs0SVhtQS9UMGhJbFVaUUlHQVBIc1J1M1RlbzgyNW4xcmtHJNa2hCNVVTQkNUbjFKTVo1NCt3ZDk1WFY0ZnNENUg0VDV2dk5VQ001NWxpRkpJb0pDUWlXS0F3OTJRSEVwUWo4aFFleDl4ZmxjRi9lMTlaODNEUmN6QUpvMVRWVXoxK1dWYm1lNW5zNmF5cFRyVGJ1KzMxU3FMY3E1SFhHWHZpc3FWd2kwcUJWSEhta0xjVFJEQ0hlSjNhdzA5MHE2T0pOaFNqS0pFdXpCcVdidzRoSmJGMGtxUkNaOFA4T3VUMTF0MzVHN0kvS0w3aVQyc09aS2F0NHQ2cFV5d0UwSUlEYm4wQStjcGtiVjlUK0E4SUhLZ2JKUjc1Vm8vZ0hFZGtRT3RCYXl1akc4cUt2U1dITFFCR3JFYjJNY3RuRVF0TEZQV1JEUzJHMDk3TGU5VnhhTktob2JIV0wzOHdab3dWcGVWZmsrL2QxYVZnQ2U1bVVLQTh1T056YmpvdXdnQjNzZTlnTEhjNFlYem5BVU9nRGY5dUFQMndsMXA0WU5nK1cySVRxSEtZUzJDV25IcEUySkhVZzd2UnVHOTBsZ081cU81MngvekR0OElYWHBFSi9peUxtNkdibmR1eEdZREozRXNWWXh4ZzZPd1hqc0pCUjZvR1U3NDIrYTR4M1RpQXFaV245UVIrMHNaVDg3YXpRQzbDNUR3BuZFhST1FTMVRTRzVVTkRGeU5UVjNORTFHU2kxck1UTk9VMUF0TWtWNVNreFRUVVI0YlMxRk1VdEVabnBRTjFsQ1EwWkVlVTQxZURCc1IyaHljVTVYTFROeWVTMVJNVjgyVFhrdGRFNUJZV3hrZW5SSVUwMTFVVE5GWkRKUkluMTlmUS5hMTZ0eXdzTDhuVHNPY1RWa2JnV3FPbTRncktHZmVMaC1KNjZUZXoza0JWQVJmYWYwOTRDWDFJSE5tUXRJeDN1TWk2aXZ3QXFFQWV1UlNGTjhlS3gzWV8yZXppZUN5WDlaSHp6Q1ZKemdZUVprc0RjYnprMGJoR09laWkydkpEMnlBMFdyUW1SeGFxOGZUM25EOUQ1Z1ZSUVczMGRheGQ5V001X1ZuNFNENmxtLVR5TUSVEifQ.",
-      "correlationId": "d732db64-4803-462d-be9c-518943ea2b7a"
+      "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd"
     },
     "eventType": "Microsoft.Communication.IncomingCall",
     "dataVersion": "1.0",
@@ -287,6 +287,3 @@ No calling events will be available for Azure Communication Services - Teams mee
 
 ## Next steps
 See the following tutorial: [Quickstart: Handle voice and video calling events](../communication-services/quickstarts/voice-video-calling/handle-calling-events.md).
-
-
-

@@ -27,7 +27,7 @@ Due to the ephemeral nature of these disks, Azure Container Storage supports the
 
 ## Choose a VM type that supports local NVMe
 
-Ephemeral Disk is only available in certain types of VMs. If you plan to use local NVMe, a [storage optimized VM](/azure/virtual-machines/sizes-storage) such as **standard_l8s_v3** is required.
+Local NVMe Disk is only available in certain types of VMs, for example, [Storage optimized VM SKUs](/azure/virtual-machines/sizes/overview#storage-optimized) or [GPU accelerated VM SKUs](/azure/virtual-machines/sizes/overview#gpu-accelerated). If you plan to use local NVMe capacity, choose one of these VM SKUs.
 
 Run the following command to get the VM type that's used with your node pool. Replace `<resource group>` and `<cluster name>` with your own values. You don't need to supply values for `PoolName` or `VmSize`, so keep the query as shown here.
 
@@ -408,9 +408,9 @@ These three tiers offer a different range of IOPS. The following table contains 
 
 | **Tier** | **Number of vCPUs** | **100 % Read IOPS** | **100 % Write IOPS** |
 | --- | --- | --- | --- |
-| `Basic` | 12.5% of total VM cores | Up to 100,000  | Up to 90,000 |
-| `Standard` (default)| 25% of total VM cores | Up to 200,000  | Up to 180,000 |
-| `Premium` | 50% of total VM cores | Up to 400,000  | Up to 360,000 |
+| `Basic` | 12.5% of total VM cores | Up to 120,000  | Up to 90,000 |
+| `Standard` (default)| 25% of total VM cores | Up to 220,000  | Up to 180,000 |
+| `Premium` | 50% of total VM cores | Up to 550,000  | Up to 360,000 |
 
 > [!NOTE]
 > RAM and hugepages consumption will stay consistent across all tiers: 1 GiB of RAM and 2 GiB of hugepages.

@@ -29,7 +29,7 @@
           href: deploy-visual-studio.md
         - name: Visual Studio Code
           href: deploy-visual-studio-code.md
-      - name: Deploy from artifact
+      - name: Deploy from artifact (preview)
         items:
         - name: Command line
           href: deploy-artifact.md
@@ -67,8 +67,10 @@
         href: sessions-custom-container.md
     - name: Microservices
       href: microservices.md
+    - name: Planned maintenance
+      href: planned-maintenance.md
     - name: Build and deliver apps with Container Apps (video)
-      href: https://www.youtube.com/watch?v=b3dopSTnSRg
+      href: https://youtu.be/OxmVds31qL8
 - name: Develop & deploy
   items:
     - name: Deployment options
@@ -84,16 +86,6 @@
             - name: Overview
               href: services.md
               displayName: Connecting to services overview
-            - name: Tutorials
-              items:
-              - name: Apache Kafka
-                href: tutorial-dev-services-kafka.md
-              - name: PostgreSQL
-                href: tutorial-dev-services-postgresql.md
-              - name: Qdrant
-                href: add-ons-qdrant.md
-              - name: Redis
-                href: connect-services.md
         - name: Connect multiple apps
           href: connect-apps.md
         - name: Connect to a cloud service using Service Connector
@@ -144,10 +136,10 @@
             href: sessions-tutorial-llamaindex.md
           - name: Semantic Kernel
             href: sessions-tutorial-semantic-kernel.md
+          - name: JavaScript Code Interpreter (preview)
+            href: sessions-tutorial-nodejs.md
     - name: Event-driven processing
       items:
-        - name: With an app
-          href: background-processing.md
         - name: With a job
           href: tutorial-event-driven-jobs.md
     - name: Troubleshooting
@@ -239,7 +231,7 @@
   items:
   - name: Reliability in Azure Container Apps
     href: ../reliability/reliability-azure-container-apps.md
-- name: Dedicated hardware
+- name: Dedicated compute
   items:
     - name: Workload profiles
       href: workload-profiles-overview.md
@@ -249,6 +241,14 @@
           href: workload-profiles-manage-cli.md
         - name: Portal
           href: workload-profiles-manage-portal.md
+- name: GPUs
+  items:
+    - name: Serverless GPUs
+      href: gpu-serverless-overview.md
+    - name: Tutorials
+      items:
+      - name: Generate images with serverless GPUs
+        href: gpu-image-generation.md
 - name: Microservices
   items:
     - name: Developing with Dapr
@@ -258,15 +258,25 @@
         displayName: Developing with Dapr overview
       - name: Get started
         items:
-        - name: Connect to Azure services via Dapr components
-          href: dapr-component-connection.md
-        - name: Enable Dapr
+        - name: Deploy using Azure CLI
+          href: microservices-dapr.md
+        - name: Deploy using ARM or Bicep
+          href: microservices-dapr-azure-resource-manager.md
+        - name: Enable Dapr on an existing container app
           href: enable-dapr.md
+        - name: Deploy using the Dapr extension for Azure Functions
+          href: dapr-functions-extension.md
+      - name: Components
+        items:
+        - name: Components overview
+          href: dapr-components.md
+        - name: Connect to Azure or third-party services
+          href: dapr-component-connect-services.md
+        - name: Connect to Azure services via Azure portal
+          href: dapr-component-connection.md
       - name: Configure
         items:
-        - name: Dapr components
-          href: dapr-components.md
-        - name: Dapr component resiliency (preview)
+        - name: Set up Dapr resiliency policies (preview)
           href: dapr-component-resiliency.md
         - name: Scale Dapr apps with KEDA using Bicep
           href: dapr-keda-scaling.md
@@ -280,22 +290,12 @@
           href: microservices-dapr-bindings.md
         - name: Microservices communication using Dapr Service Invocation
           href: microservices-dapr-service-invoke.md
-        - name: Deploy using the Dapr extension for Azure Functions
-          href: dapr-functions-extension.md
-        - name: Deploy using Azure CLI
-          href: microservices-dapr.md
-        - name: Deploy using ARM or Bicep
-          href: microservices-dapr-azure-resource-manager.md
 - name: Networking, ingress, and network security
   items:
     - name: Architecture overview
       href: networking.md
-    - name: Environments
-      items:
-        - name: Deploy with an external environment
-          href: vnet-custom.md
-        - name: Deploy with an internal environment
-          href: vnet-custom-internal.md
+    - name: Use a custom virtual network
+      href: vnet-custom.md
     - name: Ingress
       items:
         - name: Overview
@@ -325,8 +325,10 @@
           href: user-defined-routes.md
         - name: Securing a custom VNET with an NSG
           href: firewall-integration.md
-    - name: Use a custom VNET
-      href: vnet-custom.md
+        - name: Use a private endpoint
+          href: how-to-use-private-endpoint.md
+        - name: Integrate with Azure Front Door
+          href: how-to-integrate-with-azure-front-door.md
 - name: Languages and runtimes
   items:
     - name: .NET
@@ -343,48 +345,60 @@
       - name: Overview
         href: java-overview.md
         displayName: java
+      - name: Turn on Java features
+        href: java-feature-switch.md
+        displayName: java
       - name: Launch your first Java app
         href: java-get-started.md
+        displayName: java
+      - name: Launch your first Java microservice apps with managed Java components
+        href: java-microservice-get-started.md
         displayName: java
       - name: Get started using IntelliJ
         href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
         displayName: java
-      - name: Automatic memory fitting
+      - name: Automatic memory fitting (preview)
         href: java-memory-fit.md
         displayName: java
-      - name: Build environment variables
+      - name: Build environment variables (preview)
         href: java-build-environment-variables.md
         displayName: java
       - name: Metrics
         href: java-metrics.md
         displayName: java
-      - name: Use Eureka Server for Spring
-        href: java-eureka-server-usage.md
-      - name: Use Admin for Spring
-        href: java-admin-for-spring-usage.md
-      - name: Use Config Server for Spring
-        href: java-config-server-usage.md
+      - name: Scale with Java metrics
+        href: java-metrics-scale-with-keda.md
+        displayName: java
+      - name: Connect to Eureka Server for Spring
+        href: java-eureka-server.md
+        displayName: java
+      - name: Connect to Admin for Spring
+        href: java-admin.md
+        displayName: java
+      - name: Connect to Config Server for Spring
+        href: java-config-server.md
+        displayName: java
+      - name: Connect to Gateway for Spring
+        href: java-gateway-for-spring.md
         displayName: java
       - name: Set dynamic logger level
         href: java-dynamic-log-level.md
         displayName: java
       - name: Tutorials
         items:
-          - name: Connect to Eureka Server for Spring
-            href: java-eureka-server.md
-          - name: Connect to Admin for Spring
-            href: java-admin.md
-          - name: Connect to Config Server for Spring
-            href: java-config-server.md
-            displayName: java
           - name: Integrate Eureka Server with Admin for Spring
             href: java-admin-eureka-integration.md
             displayName: java
           - name: Query managed component logs
             href: java-component-logs.md
             displayName: java
+          - name: Configure Application Performance Management (APM) Java agent with init-container
+            href: java-application-performance-management-config.md
           - name: Create a highly available Eureka server component cluster
             href: java-eureka-server-highly-available.md
+            displayName: java
+          - name: Build a Java metrics dashboard with Azure Managed Grafana
+            href: java-metrics-with-grafana.md
             displayName: java
 - name: Billing & quotas
   items:

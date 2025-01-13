@@ -166,7 +166,7 @@ Sometimes, you might want to define a relationship without a specific target, so
 
 Here's an example of a relationship on a DTDL model that doesn't have a target. In this example, the relationship is for defining what sensors a Room might have, and the relationship can connect to any type.
 
-:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" range="2-27" highlight="20-25":::
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" range="2-30" highlight="22-27":::
 
 ### Properties of relationships
 
@@ -186,7 +186,7 @@ For a comprehensive list of the fields that may appear as part of a component, s
 
 Here's a basic example of a component on a DTDL model. This example shows a Room model that makes use of a thermostat model as a component.
 
-:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" highlight="15-19, 28-41":::
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" highlight="18-22, 31-47":::
 
 If other models in this solution should also contain a thermostat, they can reference the same thermostat model as a component in their own definitions, just like Room does.
 
@@ -212,7 +212,7 @@ The following example re-imagines the Home model from the earlier DTDL example a
 
 In this case, Core contributes an ID and name to Home. Other models can also extend the Core model to get these properties as well. Here's a Room model extending the same parent interface:
 
-:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" range="2-9" highlight="6":::
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" range="2-10" highlight="9":::
 
 Once inheritance is applied, the extending interface exposes all properties from the entire inheritance chain.
 

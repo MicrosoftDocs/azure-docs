@@ -3,7 +3,7 @@ title: "Manage shared storage: Azure Modeling and Simulation Workbench"
 description: Learn how to manage shared storage in Azure Modeling and Simulation Workbench.
 author: yousefi-msft
 ms.author: yousefi
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: how-to
 ms.date: 08/22/2024
 # Customer intent: As a Chamber Admin in Azure Modeling and Simulation Workbench, I want to manage shared storage.

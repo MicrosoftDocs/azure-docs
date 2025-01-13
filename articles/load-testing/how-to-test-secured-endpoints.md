@@ -193,8 +193,6 @@ To add a client certificate to your load test in the Azure portal:
     | **Name** | Name of the certificate. |
     | **Value** | Matches the Azure Key Vault **Secret identifier** of the certificate. |
 
-    :::image type="content" source="media/how-to-test-secured-endpoints/load-test-certificates.png" alt-text="Screenshot that shows how to add a certificate to a load test in the Azure portal." lightbox="media/how-to-test-secured-endpoints/load-test-certificates.png":::
-
 1. Select **Apply**, to save the load test configuration changes.
 
 # [GitHub Actions](#tab/github)

@@ -3,11 +3,15 @@ title: Discover and deploy Microsoft Sentinel out-of-the-box content from Conten
 description: Learn how to find and deploy Sentinel packaged solutions containing data connectors, analytics rules, hunting queries, workbooks, and other content.
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 03/01/2024
+ms.date: 01/09/2025
 ms.author: cwatson
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal.
+
+
+#Customer intent: As a security operations administrator, I want to discover, install, and centrally manage out-of-the-box content so that I can efficiently enhance and maintain my security monitoring capabilities.
+
 ---
 
 # Discover and manage Microsoft Sentinel out-of-the-box content
@@ -219,3 +223,4 @@ In this document, you learned how to find and deploy built-in solutions and stan
 Many solutions include data connectors that you need to configure so that you can start ingesting your data into Microsoft Sentinel. Each data connector has its own set of requirements that are detailed on the data connector page in Microsoft Sentinel. 
 
 For more information, see [Connect your data source](data-connectors-reference.md).
+

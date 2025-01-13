@@ -20,6 +20,10 @@ To learn more about FOCUS, see [FOCUS: A new specification for cloud cost transp
 
 You can view the latest changes to the FOCUS cost and usage details file schema in the [FinOps Open Cost and Usage Specification changelog](https://github.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/blob/working_draft/CHANGELOG.md).
 
+#### Note: Version 1.0r2
+
+FOCUS 1.0r2 is a follow-up release to the FOCUS 1.0 dataset that changes how date columns are formatted, which may impact anyone who is parsing and especially modifying these values. The 1.0r2 dataset is still aligned with the FOCUS 1.0 specification. The "r2" indicates this is the second release of that 1.0 specification. The only change in this release is that all date columns now include seconds to more closely adhere to the FOCUS 1.0 specification. As an example, a 1.0 export may use "2024-01-01T00:00Z" and a 1.0r2 export would use "2024-01-01T00:00:00Z". The only difference is the extra ":00" for seconds at the end of the time segment of the ISO formatted date string.
+
 ## Version 1.0
 
 | Column | Fields | Description |

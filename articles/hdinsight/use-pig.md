@@ -5,13 +5,13 @@ description: Learn how to use Pig with Apache Hadoop on HDInsight.
 ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 10/16/2023
+ms.date: 10/17/2024
 ---
 # Use Apache Pig with Apache Hadoop on HDInsight
 
 Learn how to use [Apache Pig](https://pig.apache.org/) with HDInsight.
 
-Apache Pig is a platform for creating programs for Apache Hadoop by using a procedural language known as *Pig Latin*. Pig is an alternative to Java for creating *MapReduce* solutions, and it is included with Azure HDInsight. Use the following table to discover the various ways that Pig can be used with HDInsight:
+Apache Pig is a platform for creating programs for Apache Hadoop by using a procedural language known as *Pig Latin*. Pig is an alternative to Java for creating *MapReduce* solutions, and it's included with Azure HDInsight. Use the following table to discover the various ways that Pig can be used with HDInsight:
 
 ## <a id="why"></a>Why use Apache Pig
 
@@ -35,7 +35,7 @@ For more information about Pig Latin, see [Pig Latin Reference Manual 1](https:/
 
 ## <a id="data"></a>Example data
 
-HDInsight provides various example data sets, which are stored in the `/example/data` and `/HdiSamples` directories. These directories are in the default storage for your cluster. The Pig example in this document uses the *log4j* file from `/example/data/sample.log`.
+HDInsight provides various example data sets, which are stored in the `/example/data` and `/HdiSamples` directories. These directories are in the default storage for your cluster. The Pig example in this document uses the *Log4j* file from `/example/data/sample.log`.
 
 Each log inside the file consists of a line of fields that contains a `[LOG LEVEL]` field to show the type and the severity, for example:
 

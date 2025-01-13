@@ -3,7 +3,7 @@ title: Type definitions in templates
 description: Describes how to create type definitions in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 08/22/2023
+ms.date: 09/26/2024
 ---
 
 # Type definitions in ARM templates
@@ -347,7 +347,6 @@ If the value is true, elements of the array whose index is greater than the larg
 ## nullable constraint
 
 The nullable constraint indicates that the value may be `null` or omitted. See [Properties](#properties) for an example.
-
 
 ## Description
 

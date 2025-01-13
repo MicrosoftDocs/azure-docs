@@ -29,7 +29,7 @@ This article shows you how to configure your function app to export log and trac
 
 + Correlation across traces and logs being generated both at the host and in your application code.
 + Consistent, standards-based generation of exportable telemetry data. 
-+ Integrates with other providers that can consume OpenTeleletry-compliant data. 
++ Integrates with other providers that can consume OpenTelemetry-compliant data. 
 
 OpenTelemetry is enabled at the function app level, both in host configuration (`host.json`) and in your code project. Functions also provides a client optimized experience for exporting OpenTelemetry data from your function code that's running in a language-specific worker process.
 

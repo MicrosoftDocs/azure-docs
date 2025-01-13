@@ -4,7 +4,7 @@ description: This article covers using security admin rules Azure Virtual Networ
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
-ms.topic: conceptual 
+ms.topic: concept-article
 ms.date: 03/22/2024
 ---
 # Virtual network enforcement with security admin rules in Azure Virtual Network Manager

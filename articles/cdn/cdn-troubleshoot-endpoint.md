@@ -4,7 +4,6 @@ description: Learn how to troubleshoot issues with Azure Content Delivery Networ
 services: cdn
 author: duongau
 manager: kumudd
-ms.assetid: b588a1eb-ab69-4fc7-ae4d-157c3e46f4a8
 ms.service: azure-cdn
 ms.topic: troubleshooting
 ms.date: 03/20/2024
@@ -12,6 +11,8 @@ ms.author: duau
 ---
 
 # Troubleshooting Azure Content Delivery Network endpoints that return a 404 status code
+
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 This article enables you to troubleshoot issues with Azure Content Delivery Network endpoints that return 404 HTTP response status codes.
 

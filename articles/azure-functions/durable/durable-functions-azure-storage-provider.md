@@ -243,7 +243,7 @@ As an example, if `durableTask/extendedSessionIdleTimeoutInSeconds` is set to 30
 The specific effects of extended sessions on orchestrator and entity functions are described in the next sections.
 
 > [!NOTE]
-> Extended sessions are currently only supported in .NET languages, like C# or F#. Setting `extendedSessionsEnabled` to `true` for other platforms can lead to runtime issues, such as silently failing to execute activity and orchestration-triggered functions.
+> Extended sessions are currently only supported in .NET languages, like C# (in-process model only) or F#. Setting `extendedSessionsEnabled` to `true` for other platforms can lead to runtime issues, such as silently failing to execute activity and orchestration-triggered functions.
 
 ### Orchestrator function replay
 
@@ -279,6 +279,16 @@ If you are not seeing the throughput numbers you expect and your CPU and memory 
 
 > [!TIP]
 > In some cases you can significantly increase the throughput of external events, activity fan-in, and entity operations by increasing the value of the `controlQueueBufferThreshold` setting in **host.json**. Increasing this value beyond its default causes the Durable Task Framework storage provider to use more memory to prefetch these events more aggressively, reducing delays associated with dequeueing messages from the Azure Storage control queues. For more information, see the [host.json](durable-functions-bindings.md#host-json) reference documentation.
+
+### Flex Consumption Plan 
+The [Flex Consumption plan](../flex-consumption-plan.md) is an Azure Functions hosting plan that provides many of the benefits of the Consumption plan, including a serverless billing model, while also adding useful features, such as private networking, instance memory size selection, and full support for managed identity authentication.
+
+Azure Storage is currently the only supported [storage provider](durable-functions-storage-providers.md) for Durable Functions when hosted in the Flex Consumption plan.
+
+You should follow these performance recommendations when hosting Durable Functions in the Flex Consumption plan:
+
+* Set the [always ready instance count](../flex-consumption-how-to.md#set-always-ready-instance-counts) for the `durable` group to `1`. This ensures that there is always one instance ready to handle Durable Functions related requests, thus reducing the application's cold start. 
+* Reduce the [queue polling interval](durable-functions-azure-storage-provider.md#queue-polling) to 10 seconds or less. Since this plan type is more sensitive to queue polling delays, lowering the polling interval will help increase the frequency of polling operations, thus ensuring requests are handled faster. However, more frequent polling operations will lead to a higher Azure Storage account cost. 
 
 ### High throughput processing
 

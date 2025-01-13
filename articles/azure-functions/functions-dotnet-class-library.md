@@ -226,9 +226,12 @@ The following example shows the relevant parts of the `.csproj` files that have 
   <AzureFunctionsVersion>v4</AzureFunctionsVersion>
 </PropertyGroup>
 <ItemGroup>
-  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.4.0" />
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.5.0" />
 </ItemGroup>
 ```
+
+> [!IMPORTANT]
+> Starting with version 4.0.6517 of the Core Tools, in-process model projects must reference [version 4.5.0 or later of `Microsoft.NET.Sdk.Functions`](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/4.5.0). If an earlier version is used, the `func start` command will error.
 
 # [v1.x](#tab/v1)
 

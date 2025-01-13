@@ -1,13 +1,10 @@
 ---
-ms.date: 11/15/2023
+ms.date: 09/25/2024
 author: robece
 ms.author: robece
 title: Introduction to pull delivery
 description: Learn about Event Grid's http pull delivery and the resources that support them.
 ms.topic: conceptual
-ms.custom:
-  - ignite-2023
-  - build-2024
 ---
 
 # Pull delivery with HTTP
@@ -21,7 +18,7 @@ This article builds on the [What is Azure Event Grid?](overview.md) and on the E
 
 Event Grid namespace topics accepts events that comply with the Cloud Native Computing Foundation (CNCF)’s open standard [CloudEvents 1.0](https://github.com/cloudevents/spec) specification using the [HTTP protocol binding](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md) with [JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md). 
 
-Consult the [CloudEvents concepts](concepts-event-grid-namespaces.md#cloudevents) for more information.
+For more information, see [CloudEvents support](namespaces-cloud-events.md) for more information.
 
 ### CloudEvents content modes
 
@@ -32,7 +29,7 @@ The CloudEvents specification defines three [content modes](https://github.com/c
 
 The content modes aren't about the encoding you use, binary or text, but about how the event data and its metadata are described and exchanged. The structured content mode uses a single structure, for example, a JSON object, where both the context attributes and event data are together in the HTTP payload. The binary content mode separates context attributes, which are mapped to HTTP headers, and event data, which is the HTTP payload encoded according to the media type value in ```Content-Type```.
 
-Consult [CloudEvents content modes](concepts-event-grid-namespaces.md#cloudevents-content-modes) for more information.
+For more information, see [CloudEvents content modes](namespaces-cloud-events.md#cloudevents-content-modes) for more information.
 
 ### Messages and events
 

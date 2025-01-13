@@ -1,8 +1,8 @@
 ---
 title: What is Azure Private 5G Core?
 description: Azure Private 5G Core is an Azure cloud service for deploying 5G core network functions to form on-premises private mobile networks for 5G Internet of Things (IoT) devices. 
-author: robswain
-ms.author: robswain
+author: karthikananth
+ms.author: kaanan
 ms.service: azure-private-5g-core
 ms.topic: overview 
 ms.date: 02/20/2022
@@ -10,6 +10,8 @@ ms.custom: template-overview
 ---
 
 # What is Azure Private 5G Core?
+> [!IMPORTANT]
+> Azure Private 5G Core service will retire on September 30, 2025. To prevent any service disruption, please migrate before September 30, 2025 to a Microsoft partner solution in Azure marketplace such as [Nokia 4G & 5G private wireless](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/nokiaofamericacorporation1591716055441.ndac_5g-ready_private_wireless?tab=Overview), [Ericsson Private 5G](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/ericssonab1605633442837.ericsson_private_five_g?tab=Overview) or other private network solution of your choice.
 
 *Azure Private 5G Core* is an Azure cloud service for deploying and managing 5G core network functions on an Azure Stack Edge device, as part of an on-premises private mobile network for enterprises. The 5G core network functions connect with standard 4G and 5G standalone radio access networks (RANs) to provide high performance, low latency, and secure connectivity for 5G Internet of Things (IoT) devices. Azure Private 5G Core gives enterprises full control and visibility of their private mobile networks.
 

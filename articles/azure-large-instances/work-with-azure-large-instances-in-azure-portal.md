@@ -2,7 +2,7 @@
 title: Work with Azure Large Instances in the Azure portal
 titleSuffix: Azure Large Instances
 description: Shows how to what you can do in the Azure portal with Azure Large Instances.
-ms.topic: conceptual
+ms.topic: how-to
 author: jjaygbay1
 ms.title: Work with Azure Large Instances in the Azure portal
 ms.author: jacobjaygbay

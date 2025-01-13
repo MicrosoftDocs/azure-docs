@@ -4,7 +4,7 @@ description: Plan for an Azure Elastic SAN deployment. Learn about storage capac
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 02/13/2024
+ms.date: 12/10/2024
 ms.author: rogarana
 ms.custom:
   - ignite-2023-elastic-SAN
@@ -38,6 +38,14 @@ You create volumes from the storage that you allocated to your Elastic SAN. When
 
 Using the same example of a 100 TiB SAN that has 500,000 IOPS and 20,000 MB/s. Say this SAN had 100 1 TiB volumes. You could potentially have six of these volumes operating at their maximum performance (80,000 IOPS, 1,280 MB/s) since this would be below the SAN's limits. But if seven volumes all needed to operate at maximum at the same time, they wouldn't be able to. Instead the performance of the SAN would be split evenly among them.
 
+### Autoscaling (preview)
+
+As a preview feature, you can automatically scale up your SAN by specific increments until a specified maximum size using an autoscale policy. An autoscale policy is helpful for environments where storage consumption continually increases, like environments using volume snapshots. Volume snapshots consume some of the total capacity of an elastic SAN, and having an autoscale policy helps ensure your SAN doesn't run out of space to store volume snapshots.
+
+When setting an autoscale policy, there's a minimum capacity increment of 1 TiB, and you can only automatically scale additional capacity, rather than base capacity. So when autoscaling, the IOPS and throughput of your SAN doesn't automatically scale up.
+
+Here's an example of how an autoscale policy works. Say you have an elastic SAN that has 100 TiB total storage capacity. This SAN has volume snapshots configured, so you want the capacity to automatically scale to accommodate your snapshots. You can set a policy so that whenever the unused capacity is less than or equal to 20 TiB, additional capacity on your SAN increases by 5 TiB, up to a maximum of 150 TiB total storage. So, if you use 80 TiB of space, it automatically provisions an additional 5 TiB, so your SAN now has a total storage capacity of 105 TiB.
+
 ## Networking
 
 In the Elastic SAN, you can enable or disable public network access at the Elastic SAN level. You can also configure access to volume groups in the SAN over both public [Storage service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) and [private endpoints](../../private-link/private-endpoint-overview.md) from selected virtual network subnets. Once network access is configured for a volume group, the configuration is inherited by all volumes belonging to the group. If you disable public access at the SAN level, access to the volume groups within that SAN is only available over private endpoints, regardless of individual configurations for the volume group.
@@ -46,10 +54,15 @@ To allow network access or an individual volume group, you must [enable a servic
 
 ## Redundancy
 
-To protect the data in your Elastic SAN against data loss or corruption, all SANs store multiple copies of each file as they're written. Depending on the requirements of your workload, you can select additional degrees of redundancy. The following data redundancy options are currently supported:
+To protect the data in your Elastic SAN against data loss or corruption, all SAN store multiple copies of each file as they're written. Depending on the requirements of your workload, you can select additional degrees of redundancy. Two data redundancy options are currently supported.
 
-- **Locally-redundant storage (LRS)**: With LRS, every SAN is stored three times within an Azure storage cluster. This protects against loss of data due to hardware faults, such as a bad disk drive. However, if a disaster such as fire or flooding occurs within the data center, all replicas of an Elastic SAN using LRS could be lost or unrecoverable.
-- **Zone-redundant storage (ZRS)**: With ZRS, three copies of each SAN are stored in three distinct and physically isolated storage clusters in different Azure *availability zones*. Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more data centers equipped with independent power, cooling, and networking. A write request to storage that is using ZRS happens synchronously. The write operation only returns successfully after the data is written to all replicas across the three availability zones.
+### Locally redundant storage
+
+With Locally redundant storage (LRS), every SAN is stored three times within an Azure storage cluster. This protects against loss of data due to hardware faults, such as a bad disk drive. However, if a disaster such as fire or flooding occurs within the data center, all replicas of an Elastic SAN using LRS could be lost or unrecoverable.
+
+### Zone-redundant storage
+
+With Zone-redundant storage (ZRS), three copies of each SAN are stored in three distinct and physically isolated storage clusters in different Azure *availability zones*. Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more data centers equipped with independent power, cooling, and networking. A write request to storage that is using ZRS happens synchronously. The write operation only returns successfully after the data is written to all replicas across the three availability zones.
 
 ## Encryption
 

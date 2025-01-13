@@ -1,10 +1,10 @@
 ---
 title: Troubleshoot Azure Modeling and Simulation Workbench
-description: Learn how to troubleshoot  issues with an Azure Modeling and Simulation Workbench.
+description: Learn how to troubleshoot issues with an Azure Modeling and Simulation Workbench.
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: conceptual
 ms.date: 07/19/2023
 # Customer intent: As a user of the Modeling and Simulation Workbench, I want to troubleshoot issues I may have encountered.
@@ -13,6 +13,8 @@ ms.date: 07/19/2023
 # Troubleshoot Azure Modeling and Simulation Workbench
 
 This troubleshooting guide contains general troubleshooting steps and information for Azure Modeling and Simulation Workbench. The content is organized by topic type.
+
+Additional troubleshooting steps for transient issues can be found on the [Known Issues](./troubleshoot-known-issues.md) page.
 
 ## Remote desktop troubleshooting
 
@@ -30,8 +32,8 @@ A *not authorized error* while accessing the remote desktop dashboard URL indica
 
 #### Failing for all users
 
-- Review the [Create an application in Microsoft Entra ID](./quickstart-create-portal.md#create-an-application-in-microsoft-entra-id) article and verify your application registration is set up correctly.
-- Review the redirect URI registrations for the specific chamber and confirm the connector's redirects match those found with the application. If they don't match, re[register the redirect URIs](./how-to-guide-add-redirect-uris.md).
+- Review the [Create an application in Microsoft Entra ID](./get-started-modeling-simulation-workbench.md#create-an-application-in-microsoft-entra-id) article and verify your application registration is set up correctly.
+- Review the redirect URI registrations for the specific chamber and confirm the connector's redirects match those found with the application. If they don't match, [re-register the redirect URIs](./how-to-guide-add-redirect-uris.md).
 - Review the application registration secrets for Modeling and Simulation Workbench and check to see if your application client secret has expired. Complete the following steps if it's expired.
     1. Generate a new secret and make note of the client secret value.
     1. Update your Key Vault app secret value with the newly generated client **secret value.**

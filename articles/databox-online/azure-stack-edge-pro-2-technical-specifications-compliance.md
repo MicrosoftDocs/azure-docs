@@ -4,8 +4,7 @@ description: Learn about the technical specifications and compliance for your Az
 services: databox
 author: sipastak
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 04/12/2023
 ms.author: sipastak

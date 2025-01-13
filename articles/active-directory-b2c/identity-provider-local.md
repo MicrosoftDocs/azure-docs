@@ -4,11 +4,11 @@ titleSuffix: Azure AD B2C
 description: Define the identity types uses can use to sign-up or sign-in (email, username, phone number) in your Azure Active Directory B2C tenant.
 author: garrodonnell
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/24/2024
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 #Customer Intent: As an Azure AD B2C administrator, I want to configure the sign-in methods for local accounts, so that users can sign up and sign in to the application using their preferred method (email, username, or phone number).

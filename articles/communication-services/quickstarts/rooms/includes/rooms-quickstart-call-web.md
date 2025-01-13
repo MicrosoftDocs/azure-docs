@@ -245,7 +245,7 @@ subscribeToCall = (call) => {
 
 /**
  * Subscribe to a remote participant obj.
- * Listen for property changes and collection udpates.
+ * Listen for property changes and collection updates.
  */
 subscribeToRemoteParticipant = (remoteParticipant) => {
     try {
@@ -261,7 +261,7 @@ subscribeToRemoteParticipant = (remoteParticipant) => {
             subscribeToRemoteVideoStream(remoteVideoStream)
         });
         // Subscribe to the remoteParticipant's 'videoStreamsUpdated' event to be
-        // notified when the remoteParticiapant adds new videoStreams and removes video streams.
+        // notified when the remoteParticipant adds new videoStreams and removes video streams.
         remoteParticipant.on('videoStreamsUpdated', e => {
             // Subscribe to new remote participant's video streams that were added.
             e.added.forEach(remoteVideoStream => {

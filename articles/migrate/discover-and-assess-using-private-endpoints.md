@@ -5,13 +5,13 @@ author: vijain
 ms.author: vijain
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 07/02/2024
-ms.custom: engagement-fy23
+ms.date: 09/26/2024
+ms.custom: engagement-fy25
 ---
  
 # Discover and assess servers for migration using Private Link 
 
-This article describes how to create an Azure Migrate project, set up the Azure Migrate appliance, and use it to discover and assess servers for migration using [Azure Private Link](../private-link/private-endpoint-overview.md).  You can use the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link.
+This article describes how to create an Azure Migrate project, set up the Azure Migrate appliance, and use it to discover and assess servers for migration using [Azure Private Link](../private-link/private-endpoint-overview.md).  You can use the [Azure Migrate: Discovery and assessment](migrate-services-overview.md) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link.
 
 ## Create a project with private endpoint connectivity
 
@@ -157,4 +157,5 @@ You can also [assess your on-premises machines](./tutorial-discover-import.md#pr
 
 ## Next steps
 
-- [Migrate servers to Azure using Private Link](migrate-servers-to-azure-using-private-link.md).
+- [Migrate servers to Azure using Private Link](migrate-hyper-v-servers-to-azure-using-private-link.md)
+- [Migrate servers to Azure using Private Link for agent-based replications](migrate-servers-to-azure-using-private-link-agent-based.md).
