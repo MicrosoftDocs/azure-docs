@@ -1,29 +1,29 @@
 ---
 title: Using statement
-description: Describes how to use the using statement in Bicep.
+description: Learn how to use the `using` statement in Bicep.
 ms.topic: conceptual
+ms.date: 01/10/2025
 ms.custom: devx-track-bicep
-ms.date: 12/06/2024
 ---
 
 # Using statement
 
-The `using` statement in [Bicep parameters files](./parameter-files.md) ties the [Bicep parameters file](./parameter-files.md) to a [Bicep file](./file.md), an [ARM JSON template](../templates/syntax.md), or a [Bicep module](./modules.md), or a [template spec](./template-specs.md). A `using` declaration must be present in any Bicep parameters file.
+The `using` statement in [Bicep parameters files](./parameter-files.md) ties the file to a [Bicep file](./file.md), a [JSON Azure Resource Manager template (ARM template)](../templates/syntax.md), a [Bicep module](./modules.md), or a [template spec](./template-specs.md). A `using` declaration must be present in all Bicep parameters files.
 
 > [!NOTE]
-> The Bicep parameters file is only supported in [Bicep CLI](./install.md) version 0.18.4 or newer, [Azure CLI](/cli/azure/install-azure-cli) version 2.47.0 or newer, and [Azure PowerShell](/powershell/azure/install-azure-powershell) version 9.7.1 or newer.
+> The Bicep parameters file is only supported in the [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.18.4 or later, [Azure CLI](/cli/azure/install-azure-cli) version 2.47.0 or later, and [Azure PowerShell](/powershell/azure/install-azure-powershell) version 9.7.1 or later.
 >
-> To use the statement with ARM JSON templates, Bicep modules, and template specs, you need to have [Bicep CLI](./install.md) version 0.22.6 or later, and [Azure CLI](/cli/azure/install-azure-cli) version 2.53.0 or later.
+> To use the statement with JSON ARM templates, Bicep modules, and template specs, you need to have [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.22.6 or later and [Azure CLI](/cli/azure/install-azure-cli) version 2.53.0 or later.
 
 ## Syntax
 
-- To use Bicep file:
+- To use Bicep files:
 
   ```bicep
   using '<path>/<file-name>.bicep'
   ```
 
-- To use ARM JSON template:
+- To use JSON ARM templates:
 
   ```bicep
   using '<path>/<file-name>.json'
@@ -43,7 +43,7 @@ The `using` statement in [Bicep parameters files](./parameter-files.md) ties the
   param name = 'mystorage'
   ```
 
-- To use private module:
+- To use private modules:
 
   ```bicep
   using 'br:<acr-name>.azurecr.io/bicep/<file-path>:<tag>'
@@ -55,7 +55,7 @@ The `using` statement in [Bicep parameters files](./parameter-files.md) ties the
   using 'br:myacr.azurecr.io/bicep/modules/storage:v1'
   ```
 
-  To use a private module with an alias defined in [bicepconfig.json](./bicep-config.md):
+  To use a private module with an alias defined in a [_bicepconfig.json_](./bicep-config.md) file:
 
   ```bicep
   using 'br/<alias>:<file>:<tag>'
@@ -67,7 +67,7 @@ The `using` statement in [Bicep parameters files](./parameter-files.md) ties the
   using 'br/storageModule:storage:v1'
   ```
 
-- To use template spec:
+- To use template specs:
 
   ```bicep
   using 'ts:<subscription-id>/<resource-group-name>/<template-spec-name>:<tag>
@@ -79,7 +79,7 @@ The `using` statement in [Bicep parameters files](./parameter-files.md) ties the
   using 'ts:00000000-0000-0000-0000-000000000000/myResourceGroup/storageSpec:1.0'
   ```
 
-  To use a template spec with an alias defined in [bicepconfig.json](./bicep-config.md):
+  To use a template spec with an alias defined in a [_bicepconfig.json_](./bicep-config.md) file:
 
   ```bicep
   using 'ts/<alias>:<template-spec-name>:<tag>'
@@ -93,5 +93,5 @@ The `using` statement in [Bicep parameters files](./parameter-files.md) ties the
 
 ## Next steps
 
-- To learn about the Bicep parameters files, see [Parameters file](./parameter-files.md).
-- To learn about configuring aliases in bicepconfig.json, see [Bicep config file](./bicep-config.md).
+- Learn about Bicep parameters files in [Create parameters files for Bicep deployment](./parameter-files.md).
+- Learn about configuring aliases in _bicepconfig.json_ files in [Configure your Bicep environment](./bicep-config.md).

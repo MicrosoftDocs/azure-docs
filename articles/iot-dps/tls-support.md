@@ -136,7 +136,7 @@ Use the links below to configure TLS 1.2 and allowed ciphers in the Azure IoT cl
 
 ## Use TLS 1.2 with IoT Hub
 
-IoT Hub can be configured to use TLS 1.2 when communicating with devices. For more information, see [Deprecating TLS 1.0 and 1.1 for IoT Hub](../iot-hub/iot-hub-tls-deprecating-1-0-and-1-1.md).
+IoT Hub can be configured to use TLS 1.2 when communicating with devices. For more information, see [IoT Hub TLS enforcement](../iot-hub/iot-hub-tls-support.md#enforce-iot-hub-to-use-tls-12-and-strong-cipher-suites).
 
 ## Use TLS 1.2 with IoT Edge
 
