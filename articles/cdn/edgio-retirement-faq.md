@@ -48,10 +48,10 @@ The following process is a recap of the migration options we sent to all users:
 
 If Azure CDN from Edgio customers don't [set the Feature Flag](../azure-resource-manager/management/preview-features.md) `DoNotForceMigrateEdgioCDNProfiles` before 7 January 2025, Microsoft will migrate existing Azure CDN from Edgio profiles to Azure Front Door Standard profiles. Migration is happening between January 7th and 14th, 2025. These migrations to Azure Front Door are performed on a "best effort" basis, and doing so might cause issues related to the billing, features, availability, and/or performance you're currently consuming with Azure CDN from Edgio. Hence, as noted previously, customers should migrate themselves and not rely on this automatic migration.
 Important notes regarding these "best effort" automatic migrations to Azure Front Door Standard:
--	Between January 7th and 14th, 2025 you'll receive an email notification confirming if your workloads have been successfully migrated to Azure Front Door Standard or if the migration was unsuccessful. If the migration was successful and you encounter issues with availability, performance, or feature functionality, contact Microsoft support for assistance. For customers whom the migration unsuccessful should reach out to Azure support for assistance and move to Akamai/another CDN provider if AFD is not suitable for their traffic.
+-	Between January 7th and 14th, 2025 you'll receive an email notification confirming if your workloads have been successfully migrated to Azure Front Door Standard or if the migration was unsuccessful. If the migration was successful and you encounter issues with availability, performance, or feature functionality, contact Microsoft support for assistance. For customers whom the migration unsuccessful should reach out to Azure support for assistance and move to Akamai/another CDN provider if AFD isn't suitable for their traffic.
 -	We're migrating customers to Azure Front Door Standard as it may be more cost-effective. If you need the extra features of Azure Front Door Premium, you can [upgrade your service](../frontdoor/tier-upgrade.md).
 -	Existing Azure CDN from Edgio domains (custom domains and/or *.azureedge.net domains) will be added as custom domains on the new Front Door endpoints and we'll switch the traffic from Edgio platform to Front Door platform.
--	We are not able to roll back the automatic migration.
+-	We aren't able to roll back the automatic migration.
 -	Microsoft can't always maintain feature level parity in the new Front Door configuration.
 -	Automatic migration isn't possible for endpoints with `*.vo.msecnd.net` domains.
 
@@ -59,12 +59,12 @@ Important notes regarding these "best effort" automatic migrations to Azure Fron
 
 | Issue              | Mitigation                                                                                                                     |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------|
-| Custom domain couldn't be migrated as domain validation could not be performed due to missing CNAME | [Manually perform domain validation](../frontdoor/standard-premium/how-to-add-custom-domain.md) |
+| Custom domain couldn't be migrated as domain validation couldn't be performed due to missing CNAME | [Manually perform domain validation](../frontdoor/standard-premium/how-to-add-custom-domain.md) |
 | Customer was using APEX domain | [Use Alias record on Azure DNS to use APEX domain](../frontdoor/front-door-how-to-onboard-apex-domain.md)|
-| Customer was using SAS token through rule engine to access their Azure Storage backend which has public access disabled | [Upgrade](../frontdoor/tier-upgrade.md) to Front Door Premium and use [private link](../frontdoor/standard-premium/how-to-enable-private-link-storage-account.md). If you are facing any errors in setting up private link, raise a support ticket. |
-| Customer was using geo-filtering rules which were not migrated | [Configure geo-filtering using WAF](../web-application-firewall/afds/waf-front-door-tutorial-geo-filtering.md)|
+| Customer was using SAS token through rule engine to access their Azure Storage backend which has public access disabled | [Upgrade](../frontdoor/tier-upgrade.md) to Front Door Premium and use [private link](../frontdoor/standard-premium/how-to-enable-private-link-storage-account.md). If you're facing any errors in setting up private link, raise a support ticket. |
+| Customer was using geo-filtering rules which weren't migrated | [Configure geo-filtering using WAF](../web-application-firewall/afds/waf-front-door-tutorial-geo-filtering.md)|
 | Customer sees 502 Bad Gateway error | This happens when the hostname in origin certificate doesn't match the origin hostname/host header. To mitigate [disable 'Certificate subject name validation'](../frontdoor/how-to-configure-origin) at the origin. |
-| Customers was using [CORS on Edgio](cdn-cors.md) and is seeing their traffic blocked on AFD | No mitigation available as [domain fronting behavior is blocked on AFD](https://techcommunity.microsoft.com/blog/azurenetworkingblog/prohibiting-domain-fronting-with-azure-front-door-and-azure-cdn-standard-from-mi/4006619). No exceptions are possible. |
+| Customers were using [CORS on Edgio](cdn-cors.md) and is seeing their traffic blocked on AFD | No mitigation available as [domain fronting behavior is blocked on AFD](https://techcommunity.microsoft.com/blog/azurenetworkingblog/prohibiting-domain-fronting-with-azure-front-door-and-azure-cdn-standard-from-mi/4006619). No exceptions are possible. |
 
 ### What is the recap of the key dates?
 
@@ -74,7 +74,7 @@ Important notes regarding these "best effort" automatic migrations to Azure Fron
 | January 3, 2025   | No more profile changes are allowed on Azure CDN from Edgio. |
 | January 6, 2025   | Last date for customers to set a Feature Flag to advise Microsoft not to migrate your workloads to Azure Front Door. |
 | January 7-14, 2025 | All remaining Azure CDN from Edgio profiles are migrated to Azure Front Door if the said Feature Flag isn't set. |
-| January 7-14, 2025 | Azure CDN from Edgio customers who did not act are notified via email of their migration status to Azure Front Door. |
+| January 7-14, 2025 | Azure CDN from Edgio customers who didn't act are notified via email of their migration status to Azure Front Door. |
 | January 14, 2025  | Last day of service on Azure CDN from Edgio. |
 | January 15, 2025  | Shutdown of the Edgio platform. |
 
@@ -129,15 +129,15 @@ No.
 
 ### Can I be informed regarding the exact date and time when my Edgio profile is automatically migrated?
 
-No. We're doing this migration on a "best effort" basis between January 7th and 14th, 2025 for customers who did not take action prior. Therefore we can't inform each customer regarding exact migration timings, but as noted previously after the migration we'll inform you as to whether it was successful.
+No. We're doing this migration on a "best effort" basis between January 7th and 14th, 2025 for customers who didn't take action prior. Therefore we can't inform each customer regarding exact migration timings, but as noted previously after the migration we'll inform you as to whether it was successful.
 
-### I am not able to stop my Azure CDN from Edgio anymore. What is happening?
+### I'm not able to stop my Azure CDN from Edgio anymore. What is happening?
 
 For profiles that didn't apply the feature flag, configuration was frozen on January 3rd. These profiles will no longer be allowed to stop their endpoints. You can delete the profile instead. Do note that for Azure CDN from Edgio, stopping an endpoint has always meant as a configuration deletion. When an endpoint is disabled or stopped for any reason, all resources configured through the Edgio supplemental portal will be cleaned up. These configurations can't be restored automatically by restarting the endpoint. 
 
 ## Known bugs
 - After the changes, under AFD Domains blade, the 'Certificate state' field may show the value as 'issuing' and the 'DNS state' field may show the value as 'Certificate needed'. This is just a portal bug that will be fixed by January 31st. The bug doesn't impact your certificates or traffic in any manner as the Certificate and DNS State for *.azureedge.net domains are completely managed by AFD.
-- Traffic of some migrated profiles maybe billed on Zone 1 rates only despite the traffic being present globally. This is a billing bug which will fixed later.
+- Traffic of some migrated profiles maybe billed on Zone 1 rates only despite the traffic being present globally. This is a billing bug which will be fixed later.
 
 ## Next steps
 
