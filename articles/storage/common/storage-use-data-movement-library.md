@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 08/14/2024
+ms.date: 01/31/2025
 ms.author: pauljewell
 ms.subservice: storage-common-concepts
 ms.devlang: csharp
@@ -136,9 +136,9 @@ You can start a new transfer by calling the following method:
 
 - [TransferManager.StartTransferAsync](/dotnet/api/azure.storage.datamovement.transfermanager.starttransferasync)
 
-This method returns a [DataTransfer](/dotnet/api/azure.storage.datamovement.datatransfer) object that represents the transfer. You can use the `DataTransfer` object to monitor the transfer progress or obtain the transfer ID. The transfer ID is a unique identifier for the transfer that's needed to [resume a transfer](#resume-an-existing-transfer) or pause a transfer.
+This method returns a [TransferOperation](/dotnet/api/azure.storage.datamovement.transferoperation) object that represents the transfer. You can use the `TransferOperation` object to monitor the transfer progress or obtain the transfer ID. The transfer ID is a unique identifier for the transfer that's needed to [resume a transfer](#resume-an-existing-transfer) or pause a transfer.
 
-You can optionally provide an instance of [DataTransferOptions](/dotnet/api/azure.storage.datamovement.datatransferoptions) to `StartTransferAsync`, which applies certain configuration options, including creation preference and transfer size, to a specific transfer.
+You can optionally provide an instance of [TransferOptions](/dotnet/api/azure.storage.datamovement.transferoptions) to `StartTransferAsync`, which applies certain configuration options, including creation preference and transfer size, to a specific transfer.
 
 ### Example: Upload a local file to a blob
 
@@ -157,11 +157,11 @@ BlobsStorageResourceProvider blobsProvider = new(tokenCredential);
 string localFilePath = "C:/path/to/file.txt";
 Uri blobUri = new Uri("https://<storage-account-name>.blob.core.windows.net/sample-container/sample-blob");
 
-DataTransfer dataTransfer = await transferManager.StartTransferAsync(
+TransferOperation transferOperation = await transferManager.StartTransferAsync(
     sourceResource: localFilesProvider.FromFile(localFilePath),
     destinationResource: blobsProvider.FromBlob(
         new Uri(blobUri)));
-await dataTransfer.WaitForCompletionAsync();
+await transferOperation.WaitForCompletionAsync();
 ```
 
 ### Example: Copy a container or blob
@@ -174,7 +174,7 @@ The following code example shows how to start a new transfer to copy a source bl
 Uri sourceContainerUri = new Uri("https://<storage-account-name>.blob.core.windows.net/source-container");
 Uri destinationContainerUri = new Uri("https://<storage-account-name>.blob.core.windows.net/dest-container");
 
-DataTransfer dataTransfer = await transferManager.StartTransferAsync(
+TransferOperation transferOperation = await transferManager.StartTransferAsync(
     sourceResource: blobsProvider.FromContainer(
         sourceContainerUri,
         new BlobStorageResourceContainerOptions()
@@ -192,7 +192,7 @@ DataTransfer dataTransfer = await transferManager.StartTransferAsync(
         }
         )
     );
-await dataTransfer.WaitForCompletionAsync();
+await transferOperation.WaitForCompletionAsync();
 ```
 
 The following code example shows how to start a new transfer to copy a source blob to a destination blob:
@@ -203,15 +203,15 @@ Uri sourceBlobUri = new Uri(
 Uri destinationBlobUri = new Uri(
     "https://<storage-account-name>.blob.core.windows.net/dest-container/dest-blob");
 
-DataTransfer dataTransfer = await transferManager.StartTransferAsync(
+TransferOperation transferOperation = await transferManager.StartTransferAsync(
     sourceResource: blobs.FromBlob(sourceBlobUri),
     destinationResource: blobs.FromBlob(destinationBlobUri, new BlockBlobStorageResourceOptions()));
-await dataTransfer.WaitForCompletionAsync();
+await transferOperation.WaitForCompletionAsync();
 ```
 
 ### Set configuration options for a transfer
 
-You can set configuration options for a transfer by providing an instance of [DataTransferOptions](/dotnet/api/azure.storage.datamovement.datatransferoptions) to the `StartTransferAsync` method. The `DataTransferOptions` class provides properties that allow you to set the number of parallel operations, the size of the buffer, and more.
+You can set configuration options for a transfer by providing an instance of [TransferOptions](/dotnet/api/azure.storage.datamovement.transferoptions) to the `StartTransferAsync` method. The `TransferOptions` class provides properties that allow you to set the number of parallel operations, the size of the buffer, and more.
 
 ## Resume an existing transfer
 
@@ -241,12 +241,12 @@ To resume a transfer, call the following method:
 
 - [TransferManager.ResumeTransferAsync](/dotnet/api/azure.storage.datamovement.transfermanager.resumetransferasync)
 
-Provide the transfer ID of the transfer that you want to resume. The transfer ID is a unique identifier for the transfer that's returned as part of the `DataTransfer` object when the transfer is started. If you don't know the transfer ID value, you can call [TransferManager.GetTransfersAsync](/dotnet/api/azure.storage.datamovement.transfermanager.gettransfersasync) to find the transfer and it's corresponding ID.
+Provide the transfer ID of the transfer that you want to resume. The transfer ID is a unique identifier for the transfer that's returned as part of the `TransferOperation` object when the transfer is started. If you don't know the transfer ID value, you can call [TransferManager.GetTransfersAsync](/dotnet/api/azure.storage.datamovement.transfermanager.gettransfersasync) to find the transfer and it's corresponding ID.
 
 The following code example shows how to resume a transfer:
 
 ```csharp
-DataTransfer resumedTransfer = await transferManager.ResumeTransferAsync(transferId: ID);
+TransferOperation resumedTransfer = await transferManager.ResumeTransferAsync(transferId: ID);
 ```
 
 > [!NOTE]
@@ -254,47 +254,47 @@ DataTransfer resumedTransfer = await transferManager.ResumeTransferAsync(transfe
 
 ## Monitor transfer progress
 
-Transfers can be monitored and observed through several mechanisms, depending on the needs of your app. In this section, you learn how to monitor transfer progress using the `DataTransfer` object, and how to monitor a transfer using `DataTransferOptions` events.
+Transfers can be monitored and observed through several mechanisms, depending on the needs of your app. In this section, you learn how to monitor transfer progress using the `TransferOperation` object, and how to monitor a transfer using `TransferOptions` events.
 
-### Example: Monitor transfer progress using the `DataTransfer` object
+### Example: Monitor transfer progress using the `TransferOperation` object
 
-You can monitor transfer progress using the `DataTransfer` object returned by the `StartTransferAsync` method. You can also call [TransferManager.GetTransfersAsync](/dotnet/api/azure.storage.datamovement.transfermanager.gettransfersasync) to enumerate all transfers for a `TransferManager` object.
+You can monitor transfer progress using the `TransferOperation` object returned by the `StartTransferAsync` method. You can also call [TransferManager.GetTransfersAsync](/dotnet/api/azure.storage.datamovement.transfermanager.gettransfersasync) to enumerate all transfers for a `TransferManager` object.
 
 The following code example shows how to iterate over all transfers and write the status of each transfer to a log file:
 
 ```csharp
 async Task CheckTransfersAsync(TransferManager transferManager)
 {
-    await foreach (DataTransfer transfer in transferManager.GetTransfersAsync())
+    await foreach (TransferOperation transfer in transferManager.GetTransfersAsync())
     {
         using StreamWriter logStream = File.AppendText("path/to/log/file");
-        logStream.WriteLine(Enum.GetName(typeof(DataTransferStatus), transfer.TransferStatus));
+        logStream.WriteLine(Enum.GetName(typeof(TransferStatus), transfer.TransferStatus));
     }
 }
 ```
 
-The `TransferStatus` property returns a [DataTransferStatus](/dotnet/api/azure.storage.datamovement.datatransferstatus) value. `DataTransferStatus` includes the following properties:
+The `TransferStatus` property returns a [TransferStatus](/dotnet/api/azure.storage.datamovement.transferstatus) value. `TransferStatus` includes the following properties:
 
 | Property | Type | Description |
 | --- | --- | --- |
 | `HasCompletedSuccessfully` | Boolean | Represents if the transfer has completed successfully without any failure or skipped items. |
 | `HasFailedItems` | Boolean | Represents if transfer has any failure items. If set to `true`, the transfer has at least one failure item. If set to `false`, the transfer currently has no failures. |
-| `HasSkippedItems` | Boolean | Represents if transfer has any skipped items. If set to `true`, the transfer has at least one skipped item. If set to `false`, the transfer currently has no skipped items. It's possible to never have any items skipped if `SkipIfExists` isn't enabled in [DataTransferOptions.CreationPreference](/dotnet/api/azure.storage.datamovement.datatransferoptions.creationpreference). |
-| `State` | [DataTransferState](/dotnet/api/azure.storage.datamovement.datatransferstate) | Defines the types of the state a transfer can have. See [DataTransferState](/dotnet/api/azure.storage.datamovement.datatransferstate) for details. |
+| `HasSkippedItems` | Boolean | Represents if transfer has any skipped items. If set to `true`, the transfer has at least one skipped item. If set to `false`, the transfer currently has no skipped items. It's possible to never have any items skipped if `SkipIfExists` isn't enabled in [TransferOptions.CreationPreference](/dotnet/api/azure.storage.datamovement.transferoptions.creationpreference). |
+| `State` | [TransferState](/dotnet/api/azure.storage.datamovement.transferstate) | Defines the types of the state a transfer can have. See [TransferState](/dotnet/api/azure.storage.datamovement.transferstate) for details. |
 
-### Example: Monitor transfer progress using `DataTransferOptions` events
+### Example: Monitor transfer progress using `TransferOptions` events
 
-You can monitor transfer progress by listening for events provided by the [DataTransferOptions](/dotnet/api/azure.storage.datamovement.datatransferoptions) class. The `DataTransferOptions` instance is passed to the `StartTransferAsync` method and provides [events](/dotnet/api/azure.storage.datamovement.datatransferoptions#events) that are triggered when a transfer completes, fails, is skipped, or changes status.
+You can monitor transfer progress by listening for events provided by the [TransferOptions](/dotnet/api/azure.storage.datamovement.transferoptions) class. The `TransferOptions` instance is passed to the `StartTransferAsync` method and provides [events](/dotnet/api/azure.storage.datamovement.transferoptions#events) that are triggered when a transfer completes, fails, is skipped, or changes status.
 
-The following code example shows how to listen for a transfer completion event using `DataTransferOptions`:
+The following code example shows how to listen for a transfer completion event using `TransferOptions`:
 
 ```csharp
-async Task<DataTransfer> ListenToTransfersAsync(
+async Task<TransferOperation> ListenToTransfersAsync(
     TransferManager transferManager,
     StorageResource source,
     StorageResource destination)
 {
-    DataTransferOptions transferOptions = new();
+    TransferOptions transferOptions = new();
     transferOptions.ItemTransferCompleted += (TransferItemCompletedEventArgs args) =>
     {
         using (StreamWriter logStream = File.AppendText("path/to/log/file"))
@@ -330,7 +330,7 @@ BlobContainerClient containerClient = client.GetBlobContainerClient("sample-cont
 The following code example shows how to upload local directory contents to `sample-container` using `StartUploadDirectoryAsync`:
 
 ```csharp
-DataTransfer transfer = await containerClient.StartUploadDirectoryAsync("local/directory/path");
+TransferOperation transfer = await containerClient.StartUploadDirectoryAsync("local/directory/path");
 
 await transfer.WaitForCompletionAsync();
 ```
@@ -338,7 +338,7 @@ await transfer.WaitForCompletionAsync();
 The following code example shows how to download the contents of `sample-container` to a local directory using `StartDownloadDirectoryAsync`:
 
 ```csharp
-DataTransfer transfer = await containerClient.StartDownloadToDirectoryAsync("local/directory/path");
+TransferOperation transfer = await containerClient.StartDownloadToDirectoryAsync("local/directory/path");
 
 await transfer.WaitForCompletionAsync();
 ```
