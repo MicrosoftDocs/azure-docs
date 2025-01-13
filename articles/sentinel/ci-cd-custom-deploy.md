@@ -164,13 +164,13 @@ For more information, see the [Azure DevOps documentation](/azure/devops/pipelin
 
 ## Scale your deployments with parameter files
 
-Rather than passing parameters as inline values in your content files, consider [using a JSON file that contains the parameter values](../azure-resource-manager/templates/parameter-files.md). Then map those parameter JSON files to their associated Sentinel content files to better scale your deployments across different workspaces. There are several ways to map parameter files to Sentinel files, and the repositories deployment pipeline considers them in the following order: 
+Rather than passing parameters as inline values in your content files, consider [using a Bicep parameter file](../azure-resource-manager/bicep/parameter-files.md) or a [JSON file that contains the parameter values](../azure-resource-manager/templates/parameter-files.md). Then map those parameter files to their associated Sentinel content files to better scale your deployments across different workspaces. There are several ways to map parameter files to Sentinel files, and the repositories deployment pipeline considers them in the following order: 
  
-:::image type="content" source="media/ci-cd-custom-deploy/deploy-parameter-file-precedence.svg" alt-text="A diagram showing the precedence of parameter file mappings.":::
+:::image type="content" source="media/ci-cd-custom-deploy/deploy-parameter-file-precedence-with-bicep.svg" alt-text="A diagram showing the precedence of parameter file mappings.":::
 
 1. Is there a mapping in the *sentinel-deployment.config*? For more information, see [Customize your connection configuration](ci-cd-custom-deploy.md#customize-your-connection-configuration).
-1. Is there a workspace-mapped parameter file? Yes it's a parameter file in the same directory as the content files that ends with *.parameters-\<WorkspaceID>.json*
-1. Is there a default parameter file? Yes, any parameter file in the same directory as the content files that ends with *.parameters.json*
+1. Is there a workspace-mapped parameter file? Yes, it's a parameter file in the same directory as the content files that ends with *.\<WorkspaceID>.bicepparam* or *.parameters-\<WorkspaceID>.json*
+1. Is there a default parameter file? Yes, any parameter file in the same directory as the content files that ends with *.bicepparam* or *.parameters.json*
      
 It's encouraged to map your parameter files through the configuration file or by specifying the workspace ID in the file name to avoid clashes in scenarios with multiple deployments.
 
@@ -178,7 +178,15 @@ It's encouraged to map your parameter files through the configuration file or by
 > Once a parameter file match is determined based on the mapping precedence, the pipeline ignores any remaining mappings.
 > 
 
-Modifying the mapped parameter file listed in the sentinel-deployment.config triggers the deployment of its paired content file. Adding or modifying a *.parameters-\<WorkspaceID\>.json* file or *.parameters.json* file also triggers a deployment of the paired content files along with the newly modified parameters, unless a higher precedence parameter mappings is in place. Other content files aren't deployed as long as the smart deployments feature is still enabled in the workflow/pipeline definition file.
+Modifying the mapped parameter file listed in the sentinel-deployment.config triggers the deployment of its paired content file. Adding or modifying a workspace-mapped parameter file or a default parameter file also triggers a deployment of the paired content files along with the newly modified parameters, unless a higher precedence parameter mappings is in place. Other content files aren't deployed as long as the smart deployments feature is still enabled in the workflow/pipeline definition file.
+
+Examples of workspace-mapped parameter files:
+- *.\<WorkspaceID>.bicepparam*
+- *.parameters-\<WorkspaceID\>.json*
+
+Examples of default parameter files:
+- *.bicepparam*
+- *.parameters.json*
 
 ## Customize your connection configuration
 
