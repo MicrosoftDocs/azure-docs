@@ -106,7 +106,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/operator-5g-core/index.yml",
+      "source_path_from_root": "articles/operator-5g-core/index.yml",
+
       "redirect_url": "/azure/index",
 
       "redirect_document_id": false
