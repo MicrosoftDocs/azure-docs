@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: azure-mqtt-broker
 ms.custom:
   - ignite-2023
-ms.date: 11/11/2024
+ms.date: 01/13/2025
 
 #CustomerIntent: As an operator, I want to understand the settings for the MQTT broker so that I can configure it for high availability and scale.
 ms.service: azure-iot-operations
@@ -24,7 +24,7 @@ For a list of the available settings, see the [Broker](/rest/api/iotoperations/b
 ## Configure scaling settings
 
 > [!IMPORTANT]
-> This setting requires modifying the Broker resource and can only be configured at initial deployment time using the Azure CLI or Azure Portal. A new deployment is required if Broker configuration changes are needed. To learn more, see [Customize default Broker](./overview-broker.md#customize-default-broker).
+> This setting requires modifying the Broker resource and can only be configured at initial deployment time using the Azure CLI or Azure portal. A new deployment is required if Broker configuration changes are needed. To learn more, see [Customize default Broker](./overview-broker.md#customize-default-broker).
 
 To configure the scaling settings of MQTT broker, specify the **cardinality** fields in the specification of the Broker resource during Azure IoT Operations deployment. 
 
@@ -140,8 +140,10 @@ For example, if your cluster has three nodes, each with eight CPU cores, then se
 
 ## Configure memory profile
 
+The memory profile specifies the broker's memory usage for resource-limited environments. You can choose from predefined memory profiles that have different memory usage characteristics. The memory profile setting is used to configure the memory usage of the frontend and backend replicas. The memory profile interacts with the cardinality settings to determine the total memory usage of the broker.
+
 > [!IMPORTANT]
-> This setting requires modifying the Broker resource and can only be configured at initial deployment time using the Azure CLI or Azure Portal. A new deployment is required if Broker configuration changes are needed. To learn more, see [Customize default Broker](./overview-broker.md#customize-default-broker).
+> This setting requires modifying the Broker resource and can only be configured at initial deployment time using the Azure CLI or Azure portal. A new deployment is required if Broker configuration changes are needed. To learn more, see [Customize default Broker](./overview-broker.md#customize-default-broker).
 
 To configure the memory profile settings MQTT broker, specify the memory profile fields in the specification of the Broker resource during Azure IoT Operations deployment. 
 
@@ -165,7 +167,7 @@ To learn more, see [`az iot ops create` optional parameters](/cli/azure/iot/ops#
 
 ---
 
-There are a few memory profiles to choose from, each with different memory usage characteristics.
+There are predefined memory profiles with different memory usage characteristics.
 
 ### Tiny
 
@@ -191,7 +193,11 @@ Recommendations when using this profile:
 - Only one or two frontends should be used.
 - Clients shouldn't send large packets. You should only send packets smaller than 10 MiB.
 
+If the memory profile is set to *Low* and each message coming in is 10 MB, here's how to figure out the throughput limit in messages/s.
+
 ### Medium
+
+Use this profile when you need to handle a moderate number of connections and messages.
 
 Medium is the default profile.
 
@@ -200,8 +206,36 @@ Medium is the default profile.
 
 ### High
 
+Use this profile when you need to handle a large number of connections and messages.
+
 - Maximum memory usage of each frontend replica is approximately 4.9 GiB but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 5.8 GiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
+
+
+## Calculate total memory usage
+
+The memory profile setting specifies the memory usage for each frontend and backend replica and interacts with the cardinality settings. You can calculate the total memory usage per replica using the formula: 
+
+`M_total = R_fe * M_fe + (P_be * RF_be) * M_be * W_be.`
+
+Where:
+| Variable | Description |
+|----------|-------------|
+| `M_total` | Total memory usage per replica |
+| `R_fe` | The number of frontend replicas |
+| `M_fe` | The memory usage of each frontend replica |
+| `P_be` | The number of backend partitions |
+| `RF_be` | Backend redundancy factor |
+| `M_be` | The memory usage of each backend replica |
+| `W_be` | The number of workers per backend replica |
+
+For example if you select the *Medium* memory profile with two frontend replicas, two backend partitions, and a backend redundancy factor of two, the total memory usage per replica would be:
+
+`2 * 1.9GB + (2 * 2) * 1.5GB * 2 = 3.8GB + 12GB = 15.8GB.`
+
+In comparison, the *Tiny* memory profile with two frontend replicas, two backend partitions, and a backend redundancy factor of two, the total memory usage per replica would be:
+
+`2 * 99MB + (2 * 2) * 102MB * 2 = 198MB + 816MB = 1.014GB.`
 
 ## Cardinality and Kubernetes resource limits
 
@@ -209,9 +243,9 @@ To prevent resource starvation in the cluster, the broker is configured by defau
 
 MQTT broker currently requests one (1.0) CPU unit per frontend worker and two (2.0) CPU units per backend worker. See [Kubernetes CPU resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-cpu) for more details. 
 
-For example, the below cardinality would request the following CPU resources:
-- For frontends: 2 CPU units per frontend pod, totalling 6 CPU units.
-- For backends: 4 CPU units per backend pod (for two backend workers), times 2 (redundancy factor), times 3 (number of partitions), totalling 24 CPU units.
+For example, the following cardinality would request the following CPU resources:
+- For frontends: 2 CPU units per frontend pod, totaling 6 CPU units.
+- For backends: 4 CPU units per backend pod (for two backend workers), times 2 (redundancy factor), times 3 (number of partitions), totaling 24 CPU units.
 
 ```json
 {
@@ -275,7 +309,7 @@ To verify the anti-affinity settings for a backend pod, use the following comman
 kubectl get pod aio-broker-backend-1-0 -n azure-iot-operations -o yaml | grep affinity -A 15
 ```
 
-The output will show the anti-affinity configuration, similar to the following:
+The output shows the anti-affinity configuration, similar to the following:
 
 ```yaml
 affinity:
