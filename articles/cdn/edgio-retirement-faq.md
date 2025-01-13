@@ -65,6 +65,9 @@ Important notes regarding these "best effort" automatic migrations to Azure Fron
 | Customer was using geo-filtering rules which weren't migrated | [Configure geo-filtering using WAF](../web-application-firewall/afds/waf-front-door-tutorial-geo-filtering.md)|
 | Customer sees 502 Bad Gateway error | This happens when the hostname in origin certificate doesn't match the origin hostname/host header. To mitigate [disable 'Certificate subject name validation'](../frontdoor/how-to-configure-origin.md) at the origin. |
 | Customers were using [CORS on Edgio](cdn-cors.md) and is seeing their traffic blocked on AFD | No mitigation available as [domain fronting behavior is blocked on AFD](https://techcommunity.microsoft.com/blog/azurenetworkingblog/prohibiting-domain-fronting-with-azure-front-door-and-azure-cdn-standard-from-mi/4006619). No exceptions are possible. |
+| Customer was using self signed certificates | Use Front Door [managed certificates](../frontdoor/standard-premium/how-to-configure-https-custom-domain.md) or create a complete certificate chain with an allowed Certificate Authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT). If you use a non-allowed CA, your request will be rejected. |
+
+Certificates from internal CAs or self-signed certificates aren't allowed.
 
 ### What is the recap of the key dates?
 
