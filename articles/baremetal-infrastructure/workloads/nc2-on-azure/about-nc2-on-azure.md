@@ -70,7 +70,7 @@ More cost savings on the hardware can be realized with reserved instances: [Save
 NC2 on Azure infrastructure counts toward your organization's Microsoft Azure Consumption Commitment (MACC) agreement.
 
 ### Azure Hybrid Benefit for Windows and SQL Server
-Azure Hybrid Benefit enables commercial customers to use their qualifying on-premises licenses on Azure at a reduced cost. With Software Assurance or an active Linux subscription, you can also take advantage of Azure Hybrid Benefit for SQL Server, Windows Server, or Linux running in the NC2 on Azure environment. 
+Azure Hybrid Benefit enables commercial customers to use their qualifying on-premises licenses on Azure. With Software Assurance or an active Linux subscription, you can take advantage of Azure Hybrid Benefit for SQL Server, Windows Server, or Linux running in the NC2 on Azure environment. 
 
 The primary benefit allows you to reuse you existing licensing investments to run in NC2 on Azure. There are other benefits, including allowing you to migrate over time while maintaining license compliance both on-premises and in Azure. 
 
