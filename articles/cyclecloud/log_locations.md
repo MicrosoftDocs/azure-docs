@@ -2,7 +2,7 @@
 title: Cyclecloud Log Locations
 description: The location of the different logs associated with CycleCloud
 author: adriankjohnson
-ms.date: 12/16/2019
+ms.date: 12/20/2024
 ms.author: adjohnso
 ---
 
@@ -18,3 +18,13 @@ Depending on the issue you're trying to troubleshoot, there are different logs a
 | Cluster Node | Detailed chef stacktrace output                        | /opt/cycle/jetpack/system/chef/cache/chef-stacktrace.out |
 | Cluster Node | Detailed cluster-init log output                       | /opt/cycle/jetpack/logs/cluster-init/{PROJECT_NAME}      |
 | Cluster Node | Waagent logs (used to install Jetpack)                 | /var/log/waagent.log                                     |
+
+## CycleCloud Workspace for Slurm logs
+
+In a CycleCloud Workspace for Slurm environment, additional logs will be created on top of the CycleCloud ones describes above.
+
+| Server       | Purpose                                                | Path                                                     |
+| ------------ | -------------------------------------------------------| -------------------------------------------------------- |
+| CycleCloud   | Log of the CycleCloud Workspace installation           | /var/log/cloud-init-output.log                           |
+| Any machine with access to `/shared` | Compute node diagnostics, Slurm, and Jetpack logs | /shared/<cluster_name>/node_logs/<vm_name> |
+
