@@ -199,68 +199,26 @@ In this section, you create a web application that allows users to sign in and u
 
 ## Enable targeting for the web application
 
-The targeting filter evaluates a user's feature state based on the user's targeting context, which comprises the user ID and the groups the user belongs to. In this example, you use the signed-in user's email address as the user ID and the domain name of the email address as the group.
+A targeting context is required for feature evaluation with targeting. You can provide it as a parameter to the `featureManager.IsEnabledAsync` API explicitly. In ASP.NET Core, the targeting context can also be provided through the service collection as an ambient context by implementing the [ITargetingContextAccessor](./feature-management-dotnet-reference.md#itargetingcontextaccessor) interface.
 
-1. Add an *ExampleTargetingContextAccessor.cs* file with the following code. You implement the `ITargetingContextAccessor` interface to provide the targeting context for the signed-in user of the current request.
+### Targeting Context Accessor
 
-    ```csharp
-    using Microsoft.FeatureManagement.FeatureFilters;
+To provide the targeting context, pass your implementation type of the `ITargetingContextAccessor` to the `WithTargeting<T>` method. If no type is provided, a default implementation is used, as shown in the following code snippet. The default targeting context accessor utilizes `HttpContext.User.Identity.Name` as `UserId` and `HttpContext.User.Claims` of type [`Role`](/dotnet/api/system.security.claims.claimtypes.role#system-security-claims-claimtypes-role) for `Groups`. You can reference the [DefaultHttpTargetingContextAccessor](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs) to implement your own if customization is needed. To learn more about implementing the `ITargetingContextAccessor`, see the [feature reference for targeting](./feature-management-dotnet-reference.md#itargetingcontextaccessor).
 
-    namespace TestFeatureFlags
-    {
-        public class ExampleTargetingContextAccessor : ITargetingContextAccessor
-        {
-            private const string TargetingContextLookup = "ExampleTargetingContextAccessor.TargetingContext";
-            private readonly IHttpContextAccessor _httpContextAccessor;
+``` C#
+// Existing code in Program.cs
+// ... ...
 
-            public ExampleTargetingContextAccessor(IHttpContextAccessor httpContextAccessor)
-            {
-                _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
-            }
+// Add feature management to the container of services
+builder.Services.AddFeatureManagement()
+                .WithTargeting();
 
-            public ValueTask<TargetingContext> GetContextAsync()
-            {
-                HttpContext httpContext = _httpContextAccessor.HttpContext;
-                if (httpContext.Items.TryGetValue(TargetingContextLookup, out object value))
-                {
-                    return new ValueTask<TargetingContext>((TargetingContext)value);
-                }
-                List<string> groups = new List<string>();
-                if (httpContext.User.Identity.Name != null)
-                {
-                    groups.Add(httpContext.User.Identity.Name.Split("@", StringSplitOptions.None)[1]);
-                }
-                TargetingContext targetingContext = new TargetingContext
-                {
-                    UserId = httpContext.User.Identity.Name,
-                    Groups = groups
-                };
-                httpContext.Items[TargetingContextLookup] = targetingContext;
-                return new ValueTask<TargetingContext>(targetingContext);
-            }
-        }
-    }
-    ```
+// The rest of existing code in Program.cs
+// ... ...
+```
 
-1. Open the *Program.cs* file and enable the targeting filter by calling the `WithTargeting` method. You pass in the type `ExampleTargetingContextAccessor` that the targeting filter will use to get the targeting context during feature flag evaluation. Add `HttpContextAccessor` to the service collection to allow `ExampleTargetingContextAccessor` to access the signed-in user information from the `HttpContext`.
-
-    ```csharp
-    // Existing code in Program.cs
-    // ... ...
-
-    // Add feature management to the container of services
-    builder.Services.AddFeatureManagement()
-                    .WithTargeting<ExampleTargetingContextAccessor>();
-
-    // Add HttpContextAccessor to the container of services.
-    builder.Services.AddHttpContextAccessor();
-
-    // The rest of existing code in Program.cs
-    // ... ...
-    ```
-    
-    > [!NOTE]
-    > For Blazor applications, see [instructions](./faq.yml#how-to-enable-feature-management-in-blazor-applications-or-as-scoped-services-in--net-applications) for enabling feature management as scoped services.
+> [!NOTE]
+> For Blazor applications, see [instructions](./faq.yml#how-to-enable-feature-management-in-blazor-applications-or-as-scoped-services-in--net-applications) for enabling feature management as scoped services.
 
 ## Targeting filter in action
 
@@ -279,10 +237,6 @@ The targeting filter evaluates a user's feature state based on the user's target
     > ![User logged in and Beta item displayed](./media/feature-filters/beta-targeted-by-user.png)
 
     Now sign in as `testuser@contoso.com`, using the password you set when registering the account. The **Beta** item doesn't appear on the toolbar, because `testuser@contoso.com` is specified as an excluded user.
-
-    You can create more users with `@contoso.com` and `@contoso-xyz.com` email addresses to see the behavior of the group settings.
-
-    Users with `contoso-xyz.com` email addresses won't see the **Beta** item. While 50% of users with `@contoso.com` email addresses will see the **Beta** item, the other 50% won't see the **Beta** item.
 
 ## Next steps
 
