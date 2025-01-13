@@ -45,7 +45,8 @@ The following information applies when using a dedicated SQL DW (formerly SQL DW
 
 ## Availability
 
-For regional availability for the **Synapse workspace** Product SKU, see [Product Availability by Region](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/table).
+For regional availability for the **Synapse workspace** Product SKU, see [Product Availability by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
 
-## Next steps
-Enable [Synapse workspace features](workspace-connected-create.md) on your existing dedicated SQL pool (formerly SQL DW)
+## Next step
+
+Enable [Synapse workspace features](workspace-connected-create.md) on your existing dedicated SQL pool (formerly SQL DW).
