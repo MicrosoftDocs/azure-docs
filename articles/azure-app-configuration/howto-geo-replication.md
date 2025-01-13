@@ -5,7 +5,7 @@ services: azure-app-configuration
 author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: csharp
-# ms.devlang: csharp, java
+# ms.devlang: csharp, java, python, javascript
 ms.topic: how-to
 ms.date: 09/09/2024
 ms.author: mametcal
@@ -98,7 +98,7 @@ Automatic replica discovery is enabled by default, but you can refer to the foll
 
 Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application.
 
-```csharp
+``` csharp
 configurationBuilder.AddAzureAppConfiguration(options =>
 {
     // Disable automatic replica discovery
@@ -118,7 +118,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 
 Specify the `replicaDiscoveryEnabled` property in the `bootstrap.properties` file of your application.
 
-```properties
+``` properties
 spring.cloud.azure.appconfiguration.stores[0].replica-discovery-enabled=false
 ```
 
@@ -152,12 +152,25 @@ spec:
 Specify the `replica_discovery_enabled` property when loading the configuration store and set it to `False`.
 
 
-```python
+``` python
 config = load(endpoint=endpoint, credential=credential, replica_discovery_enabled=False)
 ```
 
 > [!NOTE]
 > The automatic replica discovery support is available if you use version **1.3.0** or later.
+
+### [JavaScript](#tab/javascript)
+
+Specify the `AzureAppConfigurationOptions.replicaDiscoveryEnabled` property when loading the configuration store and set it to `false`.
+
+
+``` javascript
+const config = load(endpoint, credential, { replicaDiscoveryEnabled: false })
+```
+
+> [!NOTE]
+> The automatic replica discovery support is available if you use version **2.0.0-preview.2** or later of [@azure/app-configuration-provider](./quickstart-javascript-provider.md).
+> The feature is not available for browser-based applications due to the restriction of browser security sandbox.
 
 ---
 
@@ -244,6 +257,10 @@ The Azure App Configuration Kubernetes Provider supports failover with automatic
 ### [Python](#tab/python)
 
 The Azure App Configuration Python Provider supports failover with automatically discovered replicas by default, as long as automatic replica discovery isn't disabled. It doesn't support or require user-provided replicas.
+
+### [JavaScript](#tab/javascript)
+
+The Azure App Configuration JavaScript Provider supports failover with automatically discovered replicas by default, as long as automatic replica discovery isn't disabled. It doesn't support or require user-provided replicas.
 
 ---
 
