@@ -1,13 +1,13 @@
 ---
 title: Azure Load Balancer Best Practices
 titleSuffix: Azure Load Balancer
-description: 
+description: Learn about the best practices for deploying and configuring Azure Load Balancer.
 services: load-balancer
-author: 
+author: cozhang8
 ms.service: azure-load-balancer
 ms.topic: troubleshooting
 ms.date: 06/26/2024
-ms.author: 
+ms.author: mbender
 ---
 
 # Azure Load Balancer Best Practices
