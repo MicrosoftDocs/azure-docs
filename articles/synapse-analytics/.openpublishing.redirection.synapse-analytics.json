@@ -734,6 +734,11 @@
              "source_path_from_root": "/articles/synapse-analytics/monitoring/how-to-monitor-using-azure-monitor.md",
              "redirect_url": "/azure/synapse-analytics/monitor-synapse-analytics",
              "redirect_document_id": false
+           },
+           {
+             "source_path_from_root": "/articles/synapse-analytics/sql-data-warehouse/workspace-connected-regions.md",
+             "redirect_url": "https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table",
+             "redirect_document_id": false
            }
     ]
 }

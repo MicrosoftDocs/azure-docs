@@ -42,5 +42,9 @@ The following information will apply when using a dedicated SQL DW (formerly SQL
 - **Studio** SQL pools in the **Data hub** A workspace enabled dedicated SQL pool (formerly SQL DW) can be identified via the tool tip in the Data hub. 
 - **Creating a new dedicated SQL pool (formerly SQL DW)** New dedicated SQL pools can be created via the Synapse workspace and Studio after the workspace feature has been enabled and provisioning of a new pool will take place on the logical SQL server. The new resources will appear in the portal and Studio when provisioning completes.      
 
+## Availability
+
+For regional availability for the **Synapse workspace** Product SKU, see [Product Availability by Region](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/table).
+
 ## Next steps
 Enable [Synapse workspace features](workspace-connected-create.md) on your existing dedicated SQL pool (formerly SQL DW)
