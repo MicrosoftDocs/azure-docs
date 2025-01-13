@@ -13,7 +13,7 @@ Dedicated clusters are provisioned and billed by **capacity units (CUs)**, a pre
 
 > [!NOTE]
 > - The Dedicated tier isn't available in all regions. Try to create a Dedicated cluster in the Azure portal and see supported regions in the **Location** drop-down list on the **Create Event Hubs Cluster** page.
-> - This [Azure Portal](https://aka.ms/eventhubsclusterquickstart) self-serve experience is currently in **preview**. If you have any questions about the Dedicated offering, reach out to the [Event Hubs team](mailto:askeventhubs@microsoft.com).
+> - This [Azure Portal]((https://portal.azure.com)) self-serve experience is currently in **preview**. If you have any questions about the Dedicated offering, reach out to the [Event Hubs team](mailto:askeventhubs@microsoft.com).
 
 
 ## Prerequisites
@@ -32,7 +32,7 @@ An Event Hubs cluster provides a unique scoping container in which you can creat
 
 To create a cluster in your resource group using the Azure portal, complete the following steps:
 
-1. Follow [this link](https://aka.ms/eventhubsclusterquickstart) to create a cluster on Azure portal. Conversely, select **All services** from the left navigation pane, then type in **Event Hubs Clusters** in the search bar and select **Event Hubs Clusters** from the list of results.
+1. Follow [this link]((https://portal.azure.com)) to create a cluster on Azure portal. Conversely, select **All services** from the left navigation pane, then type in **Event Hubs Clusters** in the search bar and select **Event Hubs Clusters** from the list of results.
 1. On the **Event Hubs Clusters** page, select **+ Create** on the toolbar. 
 1. On the **Create Cluster** page, configure the following settings:
     1. Enter a **name for the cluster**. The system immediately checks to see if the name is available.
