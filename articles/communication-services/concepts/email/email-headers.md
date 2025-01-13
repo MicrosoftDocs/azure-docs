@@ -10,17 +10,16 @@ ms.date: 01/09/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
-# Adding Custom headers
+# Adding Reservd Custom headers
 
 Custom headers can be sent along with an email request. These headers are defined as a dictionary. There are some pre defined custom headers which can be used to handle some of the email sending scenarios.
 
 
 | Custom Header Name |  Property |
 | --- | --- |
-| x-ms-acsemail-ignore-duplicate-content-id | When this header is explicitly set to true, we do not validate duplicate content id and will let the author manage duplicates. |
+| x-ms-acsemail-ignore-duplicate-content-id | When this header is explicitly set to true, we do not validate duplicate content id and will let the author manage duplicates. By default we will return a bad request |
 | x-ms-acsemail-suppress-invalid-attachment | By default, if the attachment is invalid, we return bad request. If this header is set to true and if an attachment is invalid, we continue with the request without the attachment. |
-| x-ms-acsemail-validate-message-id |  When this header is explicitly set to true, we validate the internet message id sent by the customer. The validations include checking for RFC 2822 Internet Message Id format and also if there's a duplicate already present. If it fails, we return bad request. If the header is not set and the internet message id validation fails, we remove the message id and let ideas create one. |
-
+| x-ms-acsemail-validate-message-id |  When this header is explicitly set to true, we validate the internet message id sent by the customer. The validations include checking for [RFC 2822](https://www.rfc-editor.org/rfc/rfc2822) Internet Message Id format and also if there's a duplicate already present. If it fails, we return bad request. If the header is not set and the internet message id validation fails, we remove the message id and let the service create one. By default, we do not force this validation.  <table><thead><tr><th>Internet Message Id</th><th>Validity</th></tr></thead><tbody><tr><td>&lt;guid@domain.com&gt;</td><td>Valid</td></tr><tr><td>&lt;202501131823.34067409c4494c2c8b2de03ceb26f173-NVZOA======@microsoft.com&gt;</td><td>Valid</td></tr><tr><td>guid@domain.com</a></td><td>Invalid</td></tr><tr><td>&lt;guid&gt;</td><td>Invalid</td></tr><tr><td>&lt;guid.domain&gt;</td><td>Invalid</td></tr></tbody></table> |
 
 ## Send an email message with custom headers
 
@@ -44,7 +43,7 @@ var toRecipients = new List<EmailAddress>
 // Add Custom headers
 var customHeaders = new Dictionary<string, string>
 {
-  {"x-ms-acsemail-suppress-invalid-attachment", "true"}, // if the attachment 
+  {"x-ms-acsemail-suppress-invalid-attachment", "true"}, // if the attachment is of invalid type, this request will still be processed without the attachment.
 }
 
 var emailAttachment = new EmailAttachment("attachment.pdf", MediaTypeNames.Application.Pdf, contentBinaryData);
