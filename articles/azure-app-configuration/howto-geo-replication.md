@@ -2,13 +2,13 @@
 title: Enable geo-replication
 description: Learn how to use Azure App Configuration geo replication to create, delete, and manage replicas of your configuration store. 
 services: azure-app-configuration
-author: mrm9084
+author: zhiyuanliang-ms
 ms.service: azure-app-configuration
 ms.devlang: csharp
 # ms.devlang: csharp, java, python, javascript
 ms.topic: how-to
-ms.date: 09/09/2024
-ms.author: mametcal
+ms.date: 01/13/2025
+ms.author: zhiyuanliang
 ms.custom: devx-track-azurecli
 
 #Customer intent: I want to be able to list, create, and delete the replicas of my configuration store. 
@@ -165,7 +165,9 @@ Specify the `AzureAppConfigurationOptions.replicaDiscoveryEnabled` property when
 
 
 ``` javascript
-const config = load(endpoint, credential, { replicaDiscoveryEnabled: false })
+const config = load(endpoint, credential, {
+    replicaDiscoveryEnabled: false
+});
 ```
 
 > [!NOTE]
@@ -188,7 +190,7 @@ Edit the call to the `AddAzureAppConfiguration` method, which is often found in 
 
 **Connect with Microsoft Entra ID**
 
-```csharp
+``` csharp
 configurationBuilder.AddAzureAppConfiguration(options =>
 {
     // Provide an ordered list of replica endpoints
@@ -205,7 +207,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 
 **Connect with Connection String**
 
-```csharp
+``` csharp
 configurationBuilder.AddAzureAppConfiguration(options =>
 {
     // Provide an ordered list of replica connection strings
@@ -323,6 +325,19 @@ spec:
 ### [Python](#tab/python)
 
 This feature isn't yet supported in the Azure App Configuration Python Provider.
+
+### [JavaScript](#tab/javascript)
+
+Set `AzureAppConfigurationOptions.loadBalancingEnabled` to `true` while loading configuration from App Configuration.
+
+``` javascript
+const config = load(endpoint, credential, {
+    loadBalancingEnabled: true
+});
+```
+
+> [!NOTE]
+> Load balancing support is available if you use version **2.0.0-preview.2** or later of [@azure/app-configuration-provider](./quickstart-javascript-provider.md).
 
 ---
 
