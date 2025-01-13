@@ -201,20 +201,20 @@ In addition, follow the guidance in the [authentication and authorization](#auth
 
 Dynamic sessions are available in the following regions:
 
-    | Region | Code interpreter | Custom container |
-    |--------|------------------|------------------|
-    | Australia East | ✔ | ✔ |
-    | Central US EUAP | ✔ | ✔ |
-    | East US 2 EUAP | ✔ | ✔ |
-    | East US | ✔ | ✔ |
-    | East Asia | ✔ | ✔ |
-    | Germany West Central | ✔ | ✔ |
-    | Italy North | ✔ | ✔ |
-    | North Central US | ✔ | - |
-    | Poland Central | ✔ | ✔ |
-    | Switzerland North | ✔ | ✔ |
-    | West Central US | ✔ | ✔ |
-    | West US 2 | ✔ | ✔ |
+| Region | Code interpreter | Custom container |
+|--------|------------------|------------------|
+| Australia East | ✔ | ✔ |
+| Central US EUAP | ✔ | ✔ |
+| East US 2 EUAP | ✔ | ✔ |
+| East US | ✔ | ✔ |
+| East Asia | ✔ | ✔ |
+| Germany West Central | ✔ | ✔ |
+| Italy North | ✔ | ✔ |
+| North Central US | ✔ | - |
+| Poland Central | ✔ | ✔ |
+| Switzerland North | ✔ | ✔ |
+| West Central US | ✔ | ✔ |
+| West US 2 | ✔ | ✔ |
 
 ## Next steps
 
