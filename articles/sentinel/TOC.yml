@@ -1128,6 +1128,8 @@
     href: sentinel-content-centralize.md
   - name: Build and publish Microsoft Sentinel solutions
     items:
+    - name: Sentinel integration guide
+      href: sentinel-integration-guide.md
     - name: Publish solutions
       href: publish-sentinel-solutions.md
     - name: Solution lifecycle post publish
