@@ -230,7 +230,7 @@ The following example shows how to update an existing http server to use refresh
         });
     }
 
-    startServer()
+    startServer();
     ```
 
 1. Run your script:
