@@ -63,6 +63,8 @@ Important notes regarding these "best effort" automatic migrations to Azure Fron
 | Customer was using APEX domain | [Use Alias record on Azure DNS to use APEX domain](../frontdoor/front-door-how-to-onboard-apex-domain.md)|
 | Customer was using SAS token through rule engine to access their Azure Storage backend which has public access disabled | [Upgrade](../frontdoor/tier-upgrade.md) to Front Door Premium and use [private link](../frontdoor/standard-premium/how-to-enable-private-link-storage-account.md). If you are facing any errors in setting up private link, raise a support ticket. |
 | Customer was using geo-filtering rules which were not migrated | [Configure geo-filtering using WAF](../web-application-firewall/afds/waf-front-door-tutorial-geo-filtering.md)|
+| Customer sees 502 Bad Gateway error | This happens when the hostname in origin certificate doesn't match the origin hostname/host header. To mitigate [disable 'Certificate subject name validation'](../frontdoor/how-to-configure-origin) at the origin. |
+| Customers was using [CORS on Edgio](cdn-cors.md) and is seeing their traffic blocked on AFD | No mitigation available as [domain fronting behavior is blocked on AFD](https://techcommunity.microsoft.com/blog/azurenetworkingblog/prohibiting-domain-fronting-with-azure-front-door-and-azure-cdn-standard-from-mi/4006619). No exceptions are possible. |
 
 ### What is the recap of the key dates?
 
@@ -132,6 +134,10 @@ No. We're doing this migration on a "best effort" basis between January 7th and 
 ### I am not able to stop my Azure CDN from Edgio anymore. What is happening?
 
 For profiles that didn't apply the feature flag, configuration was frozen on January 3rd. These profiles will no longer be allowed to stop their endpoints. You can delete the profile instead. Do note that for Azure CDN from Edgio, stopping an endpoint has always meant as a configuration deletion. When an endpoint is disabled or stopped for any reason, all resources configured through the Edgio supplemental portal will be cleaned up. These configurations can't be restored automatically by restarting the endpoint. 
+
+## Known bugs
+- After the changes, under AFD Domains blade, the 'Certificate state' field may show the value as 'issuing' and the 'DNS state' field may show the value as 'Certificate needed'. This is just a portal bug that will be fixed by January 31st. The bug doesn't impact your certificates or traffic in any manner as the Certificate and DNS State for *.azureedge.net domains are completely managed by AFD.
+- Traffic of some migrated profiles maybe billed on Zone 1 rates only despite the traffic being present globally. This is a billing bug which will fixed later.
 
 ## Next steps
 
