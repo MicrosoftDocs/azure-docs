@@ -399,13 +399,13 @@ Follow these steps to create your App Service resources and publish your project
 
 1. Sign into your Azure account by using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and following the prompt:
 
-   ```azurepowershell-interactive
+   ```azurepowershell
    Connect-AzAccount
    ```
    <!-- ### [Deploy to Windows](#tab/windows) -->
 1. Create a new app by using the [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) command:
 
-   ```azurepowershell-interactive
+   ```azurepowershell
    New-AzWebApp -ResourceGroupName myResourceGroup -Name <app-name> -Location westeurope
    ```
 
@@ -418,7 +418,7 @@ Follow these steps to create your App Service resources and publish your project
     
     2. Create the Azure resources you need:
     
-        ```azurepowershell-interactive
+        ```azurepowershell
         New-AzResourceGroup -Name myResourceGroup -Location westeurope
         New-AzAppServicePlan -ResourceGroupName myResourceGroup -Name myAppServicePlan -Location westeurope -Linux
         New-AzWebApp -ResourceGroupName myResourceGroup -AppServicePlan myAppServicePlan -Name <app-name>
@@ -441,14 +441,14 @@ Follow these steps to create your App Service resources and publish your project
 
 1. Change to the release directory and create a zip file from the contents:
 
-   ```powershell-interactive
+   ```powershell
    cd bin\Release\net8.0\publish
    Compress-Archive -Path * -DestinationPath deploy.zip
    ```
 
 1. Publish the zip file to the Azure app using the [Publish-AzWebApp](/powershell/module/az.websites/publish-azwebapp) command:
 
-   ```azurepowershell-interactive
+   ```azurepowershell
    Publish-AzWebApp -ResourceGroupName myResourceGroup -Name <app-name> -ArchivePath (Get-Item .\deploy.zip).FullName -Force
    ```
 
@@ -706,14 +706,14 @@ You see the updated ASP.NET Core 8.0 web app displayed in the page.
 
 1. Change to the release directory and create a zip file from the contents:
 
-   ```powershell-interactive
+   ```powershell
    cd bin\Release\net8.0\publish
    Compress-Archive -Path * -DestinationPath deploy.zip -Force
    ```
 
 1. Publish the zip file to the Azure app using the [Publish-AzWebApp](/powershell/module/az.websites/publish-azwebapp) command:
 
-   ```azurepowershell-interactive
+   ```azurepowershell
    Publish-AzWebApp -ResourceGroupName myResourceGroup -Name <app-name> -ArchivePath (Get-Item .\deploy.zip).FullName -Force
    ```
 
@@ -870,7 +870,7 @@ The **Overview** page for your web app, contains options for basic management li
 <!-- markdownlint-enable MD044 -->
 In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell:
 
-```azurecli-interactive
+```azurecli
 az group delete
 ```
 
