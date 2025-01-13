@@ -295,7 +295,7 @@ The following example shows how to update an existing http server to use refresh
 1. Visit `http://localhost:3000` and verify the response which is the `message` key in your App Configuration store.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of browser with a message.](./media/dynamic-refresh-javascript/http-server.png)
+    > ![Screenshot of browser with a message from App Configuration.](./media/dynamic-refresh-javascript/http-server.png)
 
 1. Update the following key-values to the Azure App Configuration store. Update value of the key `message` first and then `sentinel`.
 
@@ -307,7 +307,7 @@ The following example shows how to update an existing http server to use refresh
 1. After about 15 seconds, refresh the page and the message should be updated.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of browser with a message.](./media/dynamic-refresh-javascript/http-server-refreshed.png)
+    > ![Screenshot of browser with an updated message from App Configuration.](./media/dynamic-refresh-javascript/http-server-refreshed.png)
 
 ## Clean up resources
 
