@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 12/20/2024
+ms.date: 01/13/2025
 ---
 
 # Azure HDInsight release notes
@@ -57,18 +57,14 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 
   * Azure HDInsight now supports OAuth-based authentication for accessing Azure Blob storage by leveraging Azure Active Directory (AAD) and managed identities (MSI). With this enhancement, HDInsight uses user-assigned managed identities to access Azure blob storage. For more information, see [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
-* HDInsight service is transitioning to use standard load balancers for all its cluster configurations because of [deprecation announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer#main) of Azure basic load balancer.
-  * This change will be rolled out in a phased manner for different regions.
-  > [!NOTE]
-  > Standard LB changes in HDInsight are available in all public regions except US East, US East2, US West, US West2, US South Central, US Gov Regions, and China regions.
-  >
-  > This change will be available in these pending regions effective January 9, 2025. 
-  >
-  > For any assistance, contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+> [!NOTE]
+> HDInsight service transitioned to use standard load balancers for all its cluster configurations due to [deprecation announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer#main) of Azure basic load balancer.
+>
+> This change is available in all regions. Recreate your cluster to consume this change. For any assistance, contact [support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
 
-  > [!IMPORTANT]
-  > When using your own Virtual Network (custom VNet) during cluster creation, please be advised that the cluster creation will not succeed once this change is enabled. We recommend referring to the [migration guide to recreate the cluster](./load-balancer-migration-guidelines.md).
-  > For any assistance, contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+> [!IMPORTANT]
+> When using your own Virtual Network (custom VNet) during cluster creation, please be advised that the cluster creation will not succeed once this change is enabled. We recommend referring to the [migration guide to recreate the cluster](./load-balancer-migration-guidelines.md).
+> For any assistance, contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
 
