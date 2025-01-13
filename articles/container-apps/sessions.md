@@ -197,11 +197,9 @@ By default, sessions are prevented from making outbound network requests. You ca
 
 In addition, follow the guidance in the [authentication and authorization](#authentication) section to ensure that only authorized users can access sessions and in the [protecting session identifiers](#protecting-session-identifiers) section to ensure that session identifiers are secure.
 
-## Preview limitations
+## Region availability
 
-The following limitations apply to dynamic sessions:
-
-* It's only available in the following regions:
+Dynamic sessions are available in the following regions:
 
     | Region | Code interpreter | Custom container |
     |--------|------------------|------------------|
