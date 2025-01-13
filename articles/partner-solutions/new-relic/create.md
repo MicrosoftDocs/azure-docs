@@ -29,7 +29,7 @@ The *Basics* tab has three sections:
 - Azure resource details
 - New Relic account details
 
-:::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create a New Relic resource in Azure options inside of the Azure portal's working pane with the Basics tab displayed":::
+:::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create a New Relic resource in Azure options inside of the Azure portal's working pane with the Basics tab displayed.":::
 
 There are required fields (identified with a red asterisk) in each section that you need to fill out.
 
@@ -86,7 +86,7 @@ To filter the set of Azure resources that send logs to New Relic, use inclusion 
 > [!NOTE]
 > If there's a conflict between inclusion and exclusion rules, the exclusion rule applies.
 
-1. After you finish configuring metrics and logs, select **Next**.
+-  After you finish configuring metrics and logs, select **Next**.
 
 ### Tags tab (optional)
 

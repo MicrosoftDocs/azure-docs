@@ -104,7 +104,7 @@ For information on New Relic agents, review the [New Relic documentation](https:
 
 To monitor virtual machines using the New Relic agent:
 
-1. Select **New Relic account config** > **Virtual Machines** from the *Service menu*. 
+- Select **New Relic account config** > **Virtual Machines** from the *Service menu*. 
 
     A list of all virtual machines in the subscription displays in the working pane.
 
@@ -126,7 +126,7 @@ For each virtual machine, the following info appears:
 
 To monitor Virtual Machine Scale Sets using the New Relic Agent:
 
-1. Select **New Relic account config** > **Virtual Machine Scale Sets** from the *Service menu*. 
+- Select **New Relic account config** > **Virtual Machine Scale Sets** from the *Service menu*. 
 
     A list of all Virtual Machine Scale Sets in the subscription displays in the working pane.
 
@@ -137,9 +137,11 @@ To monitor Virtual Machine Scale Sets using the New Relic Agent:
 > [!NOTE]
 > The agent installation dashboard supports the automatic and rolling upgrade policy for Flex orchestration mode in the next release when similar support is available from Virtual Machine Scale Sets Flex resources.
 
-### Monitor app services using the New Relic agent
+### Monitor App Services using the New Relic agent
 
-1. Select **New Relic account config** > **App Services** from the *Service menu*. 
+To monitor App Services using the New Relic Agent:
+
+- Select **New Relic account config** > **App Services** from the *Service menu*. 
 
 For each app service, the following information appears:
 
