@@ -22,7 +22,7 @@ When you create a virtual network gateway, you need to specify several settings.
 
 * `Vpn`: To send encrypted traffic across the public internet, use `Vpn` for `-GatewayType` (also called a VPN gateway). Site-to-site, point-to-site, and VNet-to-VNet connections all use a VPN gateway.
 
-* `ExpressRoute`: To send network traffic on a private connection, use `ExpressRoute` for `-GatewayType` (also called an ExpressRoute gateway). This type of gateway is used when configuring ExpressRoute.
+* `ExpressRoute`: To send network traffic on a private connection, use `ExpressRoute` for `-GatewayType` (also called an ExpressRoute gateway). This type of gateway is used when you're configuring ExpressRoute.
 
 Each virtual network can have only one virtual network gateway per gateway type. For example, you can have one virtual network gateway that uses `Vpn` for `-GatewayType`, and one that uses `ExpressRoute` for `-GatewayType`.
 
@@ -187,7 +187,7 @@ To avoid or minimize connectivity problems with private endpoints during mainten
 
 ## <a name="resources"></a>REST APIs and PowerShell cmdlets
 
-See the following pages for more technical resources and specific syntax requirements when using REST APIs and PowerShell cmdlets for virtual network gateway configurations:
+See the following pages for more technical resources and specific syntax requirements when you're using REST APIs and PowerShell cmdlets for virtual network gateway configurations:
 
 | **Classic** | **Resource Manager** |
 | --- | --- |
