@@ -46,9 +46,6 @@ To use the SAP connector operations, you have to first authenticate your connect
 
 You can use SNC for SAP NetWeaver single sign-on (SSO) or for security capabilities from external products. If you choose to use SNC, review the [SNC prerequisites](#snc-prerequisites).
 
-> [!TIP]
-> Find more details about SNC on our [blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
-
 ## Connector technical reference
 
 The SAP connector has different versions, based on [logic app type and host environment](../logic-apps-overview.md#resource-environment-differences).
@@ -343,9 +340,6 @@ For Consumption workflows in multitenant Azure Logic Apps that use the on-premis
 
   ![Screenshot that shows the on-premises data gateway installer and Service Settings page with button to change gateway service account selected.](./media/sap/gateway-account.png)
 
-> [!TIP]
-> Find more details about SNC on our [blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
-
 For more information about enabling SNC, review [Enable Secure Network Communications (SNC)](#enable-secure-network-communications).
 
 ### [Standard](#tab/standard)
@@ -561,6 +555,9 @@ For a Consumption workflow that runs in multitenant Azure Logic Apps, you can en
 
    If the parameters are correct, the connection is created. If there's a problem with the parameters, the connection creation dialog displays an error message. To troubleshoot connection parameter issues, you can use the on-premises data gateway installation and the gateway's local logs.
 
+> [!TIP]
+> Find more details about SNC on our [blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
+
 ### [Standard](#tab/standard)
 
 For a Standard workflow that runs in single-tenant Azure Logic Apps, you can enable SNC for authentication. Before you start, make sure that you met all the necessary [prerequisites](sap.md?tabs=single-tenant#prerequisites) and [SNC prerequisites for single-tenant](sap.md?tabs=single-tenant#snc-prerequisites).
@@ -599,6 +596,9 @@ For a Standard workflow that runs in single-tenant Azure Logic Apps, you can ena
    | **SNC Certificate** | Enter your SNC client's public certificate in base64-encoded format. <br><br>**Note**: - Don't include the PEM header or footer. <br><br>- Don't enter the private certificate here because the PSE might contain multiple private certificates. However, this **SNC Certificate** parameter identifies the certificates that this connection must use. |
 
 1. To finish creating your connection, select **Create**.
+
+> [!TIP]
+> Find more details about SNC on our [blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
 
 ---
 
