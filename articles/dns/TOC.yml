@@ -71,9 +71,9 @@
       href: tutorial-dns-private-resolver-failover.md
 - name: Concepts
   items:
-  - name: DNS security policy
+  - name: Security
     items:
-    - name: Monitor and manage DNS traffic
+    - name: DNS security policy
       href: dns-security-policy.md
     - name: Monitor Azure DNS
       href: monitor-dns.md
