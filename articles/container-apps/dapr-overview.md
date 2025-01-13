@@ -28,7 +28,7 @@ Configure microservices APIs for your container apps environment with a [Dapr-en
 ## Versioning
 
 Dapr versions in Azure Container Apps include:
-- A semantic versioning prefix, such as `1.13.6`, which denotes compatibility with the corresponding OSS Dapr version (SDKs, CLI, etc.).
+- A semantic versioning prefix, such as `1.13.6`, which denotes compatibility with the corresponding OSS Dapr runtime version APIs and related tools like SDKs, CLI, etc.
 - A `-msft.<number>` suffix, which denotes incorporating Azure-specific customizations for enhanced security and production readiness.
 
 The complete version format for Dapr in Azure Container Apps can look something like `1.13.6-msft.1`.
