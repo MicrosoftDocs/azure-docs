@@ -2,7 +2,7 @@
 title: Deploy Bicep files with Azure PowerShell 
 description: Use Azure Resource Manager and Azure PowerShell to deploy resources to Azure. The resources are defined in a Bicep file.
 ms.topic: how-to
-ms.date: 01/10/2025
+ms.date: 01/13/2025
 ms.custom: devx-track-arm-template, devx-track-bicep, devx-track-azurepowershell
 ---
 
@@ -135,7 +135,7 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
 
 ### Bicep parameters files
 
-Rather than passing parameters as inline values in your script, you might find it easier to use a [Bicep parameters file](#bicep-parameters-files) or a [JSON parameters file](#json-parameters-files) that contains the parameter values. The parameters file must be a local file. For more information about parameters files, see [Create parameters files for Bicep deployment](./parameter-files.md).
+Rather than passing parameters as inline values in your script, you might find it easier to use a [Bicep parameters file](#bicep-parameters-files) or a [JSON parameters file](#json-parameters-files) that contains the parameter values. The Bicep parameters file must be a local file, while the JSON template file can be located somewhere online. For more information about parameters files, see [Create parameters files for Bicep deployment](./parameter-files.md).
 
 You can use a Bicep parameters file to deploy a Bicep file with [Azure PowerShell](./install.md#azure-powershell) version 10.4.0 or later and [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.22.X or later. With the `using` statement within the Bicep parameters file, there's no need to provide the `-TemplateFile` switch when specifying a Bicep parameters file for the `-TemplateParameterFile` switch.
 
