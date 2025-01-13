@@ -52,7 +52,7 @@ Follow these steps to add the necessary code snippets to the messages-quickstart
 Advanced Messages SDK allows Contoso to receive or download media from a WhatsApp user, which initiated by WhatsApp users. To send text messages below details are required:
 - [WhatsApp Channel ID](#set-channel-registration-id)
 - [Recipient Phone Number in E16 format](#set-recipient-list)
-- Download media id as Guid.
+- Download media ID as Guid.
 
 > [!IMPORTANT]
 > To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).

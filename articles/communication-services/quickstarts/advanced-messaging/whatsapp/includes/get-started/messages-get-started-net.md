@@ -50,7 +50,7 @@ Follow these steps to add the necessary code snippets to the messages-quickstart
 
 Follow these steps to add the necessary code snippets to the Main function of your *Program.cs* file.
 - [Send a text message to a WhatsApp user](#send-a-text-message-to-a-whatsapp-user)
-- [Send a image media message to a WhatsApp user](#send-a-image-media-message-to-a-whatsapp-user)
+- [Send an image media message to a WhatsApp user](#send-an-image-media-message-to-a-whatsapp-user)
 - [Send a document media message to a WhatsApp user](#send-a-document-media-message-to-a-whatsapp-user)
 - [Send an audio media message to a WhatsApp user](#send-an-audio-media-message-to-a-whatsapp-user)
 - [Send a video media message to a WhatsApp user](#send-a-video-media-message-to-a-whatsapp-user)
@@ -78,7 +78,7 @@ Response<SendMessageResult> sendTextMessageResult =
     await notificationMessagesClient.SendAsync(textContent);
 ```
 
-### Send a image media message to a WhatsApp user
+### Send an image media message to a WhatsApp user
 
 The Messages SDK allows Contoso to send WhatsApp media messages to WhatsApp users. To send an embedded media message, you need:
 - [Authenticated NotificationMessagesClient](#authenticate-the-client)

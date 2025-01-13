@@ -31,7 +31,7 @@ The following classes and interfaces handle some of the major features of the Az
 | Name                        | Description                                                                                            |
 |-----------------------------|--------------------------------------------------------------------------------------------------------|
 | NotificationMessagesClient  | This class connects to your Azure Communication Services resource. It sends the messages.              |
-| ReactionNotificationContent | This class defines the reaction content of the messages with emoji and reply message id.|
+| ReactionNotificationContent | This class defines the reaction content of the messages with emoji and reply message ID.|
 
 > [!NOTE]
 > Please find the SDK reference [here](/python/api/azure-communication-messages/azure.communication.messages).
@@ -59,7 +59,7 @@ Advanced Messages SDK allows Contoso to send reaction WhatsApp messages, which i
 | Action type   | Description |
 |----------|---------------------------|
 | ReactionNotificationContent    | This class defines title of the group content and array of the group.    |
-| Emoji    | This property defines the unnicode for emoji character.   |
+| Emoji    | This property defines the unicode for emoji character.   |
 | Reply Message Id | This property defines Id of the message to be replied with emoji. |
 
 > [!IMPORTANT]
@@ -84,7 +84,7 @@ In this example, business sends reaction to the user message"
         # calling send() with whatsapp message details
         message_responses = messaging_client.send(video_options)
         response = message_responses.receipts[0]
-        print("Message with message id {} was successful sent to {}".format(response.message_id, response.to))
+        print("Message with message ID {} was successful sent to {}".format(response.message_id, response.to))
 ```
 
 To run send_reaction_message(), update the [main method](#basic-program-structure)
@@ -105,7 +105,7 @@ python reaction-messages-quickstart.py
 
 ```output
 Azure Communication Services - Advanced Messages Quickstart
-WhatsApp Reaction Message with message id <<GUID>> was successfully sent to <<ToRecipient>>
+WhatsApp Reaction Message with message ID <<GUID>> was successfully sent to <<ToRecipient>>
 ```
 
 ## Full sample code
@@ -138,7 +138,7 @@ class MessagesQuickstart(object):
         # calling send() with whatsapp message details
         message_responses = messaging_client.send(video_options)
         response = message_responses.receipts[0]
-        print("WhatsApp Reaction Message with message id {} was successful sent to {}".format(response.message_id, response.to))
+        print("WhatsApp Reaction Message with message ID {} was successful sent to {}".format(response.message_id, response.to))
 
 if __name__ == '__main__':
     messages = MessagesQuickstart()

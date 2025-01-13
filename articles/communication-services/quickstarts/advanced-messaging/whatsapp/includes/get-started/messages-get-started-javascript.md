@@ -50,7 +50,7 @@ Follow these steps to add the necessary code snippets to the messages-quickstart
 
 Follow these steps to add the necessary code snippets to the main function of your *send-messages.js* file.
 - [Send a text message to a WhatsApp user](#send-a-text-message-to-a-whatsapp-user)
-- [Send a image media message to a WhatsApp user](#send-a-image-media-message-to-a-whatsapp-user)
+- [Send an image media message to a WhatsApp user](#send-an-image-media-message-to-a-whatsapp-user)
 - [Send a document media message to a WhatsApp user](#send-a-document-media-message-to-a-whatsapp-user)
 - [Send an audio media message to a WhatsApp user](#send-an-audio-media-message-to-a-whatsapp-user)
 - [Send a video media message to a WhatsApp user](#send-a-video-media-message-to-a-whatsapp-user)
@@ -89,7 +89,7 @@ if (textMessageResult.status === "202") {
 }
 ```
 
-### Send a image media message to a WhatsApp user
+### Send an image media message to a WhatsApp user
 
 Messages SDK allows Contoso to send media (Image, Video, Audio or Document) messages to WhatsApp users. To send an embedded media message, you need:
 - [WhatsApp Channel ID](#set-channel-registration-id)

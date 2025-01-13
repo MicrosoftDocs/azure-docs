@@ -146,7 +146,7 @@ Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. T
 | Action type   | Description |
 |----------|---------------------------|
 | ButtonSetContent    | This class defines button set content for reply button messages.  |
-| ButtonContent    | This class defines id and title of the reply buttons.  |
+| ButtonContent    | This class defines ID and title of the reply buttons.  |
 | WhatsAppButtonActionBindings| This class defines the ButtonSetContent binding with the Interactive message. |
 
 > [!IMPORTANT]
@@ -250,7 +250,7 @@ In this example, business sends click to a link message to user.
         # calling send() with whatsapp message details
         message_responses = messaging_client.send(interactiveMessageContent)
         response = message_responses.receipts[0]
-        print("Message with message id {} was successful sent to {}".format(response.message_id, response.to))
+        print("WhatsApp CTA containing Message with message ID {} was successfully sent to {}".format(response.message_id, response.to))
 ```
 
 To run send_whatapp_click_to_action_message(), update the [main method](#basic-program-structure)
@@ -271,9 +271,9 @@ python interactive-messages-quickstart.py
 
 ```output
 Azure Communication Services - Advanced Messages Quickstart
-WhatsApp List Message with message id <<GUID>> was successfully sent to <<ToRecipient>>
-WhatsApp Button Message with message id <<GUID>> was successfully sent to <<ToRecipient>>
-WhatsApp CTA containing Message with message id <<GUID>> was successfully sent to <<ToRecipient>>
+WhatsApp List Message with message ID <<GUID>> was successfully sent to <<ToRecipient>>
+WhatsApp Button Message with message ID <<GUID>> was successfully sent to <<ToRecipient>>
+WhatsApp CTA containing Message with message ID <<GUID>> was successfully sent to <<ToRecipient>>
 ```
 
 ## Full sample code

@@ -19,7 +19,14 @@ To set up an environment for sending messages, take the steps in the following s
 
 ## Code examples
 Follow these steps to add the necessary code snippets to the main function of your *App.java* file.
-- TODO
+- [List WhatsApp templates in Azure Portal](#list-whatsapp-templates-in-azure-portal)
+- [Send Template message with no parameters](#send-template-message-with-no-parameters)
+- [Send Template message with text parameters in the body](#send-template-message-with-text-parameters-in-the-body)
+- [Send Template message with media parameter in the header](#send-template-message-with-media-parameter-in-the-header)
+- [Send Template message with location in the header](#send-template-message-with-location-in-the-header)
+- [Send Template message with quick reply buttons](#send-template-message-with-quick-reply-buttons)
+- [Send Template message with call to action buttons](#send-template-message-with-call-to-action-buttons)
+
 
 
 

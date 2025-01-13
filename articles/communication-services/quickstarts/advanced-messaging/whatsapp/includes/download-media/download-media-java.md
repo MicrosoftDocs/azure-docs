@@ -74,9 +74,6 @@ The Messages SDK allows Contoso to download the media in received WhatsApp media
     }
 ```
 
-### Download the media payload to a file
-Coming soon
-
 ### Run the code
 
 1. Navigate to the directory that contains the **pom.xml** file and compile the project by using the `mvn` command.
