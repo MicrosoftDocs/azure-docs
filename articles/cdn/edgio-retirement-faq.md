@@ -63,7 +63,7 @@ Important notes regarding these "best effort" automatic migrations to Azure Fron
 | Customer was using APEX domain | [Use Alias record on Azure DNS to use APEX domain](../frontdoor/front-door-how-to-onboard-apex-domain.md)|
 | Customer was using SAS token through rule engine to access their Azure Storage backend which has public access disabled | [Upgrade](../frontdoor/tier-upgrade.md) to Front Door Premium and use [private link](../frontdoor/standard-premium/how-to-enable-private-link-storage-account.md). If you're facing any errors in setting up private link, raise a support ticket. |
 | Customer was using geo-filtering rules which weren't migrated | [Configure geo-filtering using WAF](../web-application-firewall/afds/waf-front-door-tutorial-geo-filtering.md)|
-| Customer sees 502 Bad Gateway error | This happens when the hostname in origin certificate doesn't match the origin hostname/host header. To mitigate [disable 'Certificate subject name validation'](../frontdoor/how-to-configure-origin) at the origin. |
+| Customer sees 502 Bad Gateway error | This happens when the hostname in origin certificate doesn't match the origin hostname/host header. To mitigate [disable 'Certificate subject name validation'](../frontdoor/how-to-configure-origin.md) at the origin. |
 | Customers were using [CORS on Edgio](cdn-cors.md) and is seeing their traffic blocked on AFD | No mitigation available as [domain fronting behavior is blocked on AFD](https://techcommunity.microsoft.com/blog/azurenetworkingblog/prohibiting-domain-fronting-with-azure-front-door-and-azure-cdn-standard-from-mi/4006619). No exceptions are possible. |
 
 ### What is the recap of the key dates?
