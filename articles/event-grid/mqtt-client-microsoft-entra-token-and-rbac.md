@@ -78,4 +78,4 @@ You can use these roles to provide permissions at subscription, resource group, 
 - To learn more about Azure Identity client library, you can refer to [using Azure Identity client library](/entra/identity/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-the-azure-identity-client-library)
 - To learn more about implementing an interface for credentials that can provide a token, you can refer to [TokenCredential Interface](/java/api/com.azure.core.credential.tokencredential)
 - To learn more about how to authenticate using Azure Identity, you can refer to [examples](https://github.com/Azure/azure-sdk-for-java/wiki/Azure-Identity-Examples)
-- If you prefer to use custom roles, you can review the process to [create a custom role](/azure/role-based-access-control/custom-roles-portal)
+- If you prefer to use custom roles, you can review the process to [create a custom role](../role-based-access-control/custom-roles-portal.md)
