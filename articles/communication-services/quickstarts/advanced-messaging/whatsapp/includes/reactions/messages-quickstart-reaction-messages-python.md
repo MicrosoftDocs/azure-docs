@@ -60,7 +60,7 @@ Advanced Messages SDK allows Contoso to send reaction WhatsApp messages, which i
 |----------|---------------------------|
 | ReactionNotificationContent    | This class defines title of the group content and array of the group.    |
 | Emoji    | This property defines the unicode for emoji character.   |
-| Reply Message Id | This property defines Id of the message to be replied with emoji. |
+| Reply Message Id | This property defines ID of the message to be replied with emoji. |
 
 > [!IMPORTANT]
 > To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).

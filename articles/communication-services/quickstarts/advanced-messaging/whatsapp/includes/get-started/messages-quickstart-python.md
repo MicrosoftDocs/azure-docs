@@ -40,7 +40,7 @@ The following classes and interfaces handle some of the major features of the Az
 | AudioNotificationContent    | This class defines the "who" and the "what" of the Audio media message you intend to send.             |
 
 > [!NOTE]
-> Please find the SDK reference [here](/python/api/azure-communication-messages/azure.communication.messages).
+> Find the SDK reference [here](/python/api/azure-communication-messages/azure.communication.messages).
 
 ## Common configuration
 Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
@@ -202,7 +202,7 @@ Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. T
 - MediaUri of the Audio
 
 > [!IMPORTANT]
-> To send a audio message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+> To send an audio message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
 An example of media_uri used in sending media WhatsApp message.
 
@@ -466,7 +466,7 @@ if __name__ == '__main__':
 ```
 
 > [!NOTE]
-> Please update all placeholder variables in the above code.
+> Update all placeholder variables in the sample code.
 
 ### Other Samples
 

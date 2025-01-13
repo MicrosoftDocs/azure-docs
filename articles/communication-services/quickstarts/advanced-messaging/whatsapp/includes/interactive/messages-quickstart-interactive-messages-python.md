@@ -34,7 +34,7 @@ The following classes and interfaces handle some of the major features of the Az
 | WhatsAppListActionBindings | This class defines WhatsApp List interactive message properties binding. |
 | WhatsAppButtonActionBindings| This class defines WhatsApp Button interactive message properties binding.|
 | WhatsAppUrlActionBindings | This class defines WhatsApp Url interactive message properties binding.|
-| TextMessageContent     | This class defines the text content for Interactive message body,footer,header. |
+| TextMessageContent     | This class defines the text content for Interactive message body, footer, header. |
 | VideoMessageContent   | This class defines the video content for Interactive message header.  |
 | DocumentMessageContent | This class defines the document content for Interactive message header. |
 | ImageMessageContent | This class defines the image content for Interactive message header.|
@@ -71,7 +71,7 @@ Advanced Messages SDK allows Contoso to send interactive WhatsApp messages, whic
 |----------|---------------------------|
 | ActionGroupContent    | This class defines title of the group content and array of the group.    |
 | ActionGroup    | This class defines title of the group and array of the group Items.   |
-| ActionGroupItem | This class defines Id, Title, and description of the group Item. |
+| ActionGroupItem | This class defines ID, Title, and description of the group Item. |
 | WhatsAppListActionBindings| This class defines the ActionGroupContent binding with the Interactive message. |
 
 > [!IMPORTANT]
