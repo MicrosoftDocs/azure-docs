@@ -24,7 +24,7 @@ Azure Event Grid is used at different stages of data pipelines to achieve a dive
 
 **MQTT messaging**. IoT devices and applications can communicate with each other over MQTT. Event Grid can also be used to route MQTT messages to Azure services or custom endpoints for further data analysis, visualization, or storage. This integration with Azure services enables you to build data pipelines that start with data ingestion from your IoT devices.
 
-**Data distribution using push and pull delivery modes**. At any point in a data pipeline, HTTP applications can consume messages using push or pull APIs. The source of the data may include MQTT clients’ data, but also includes the following data sources that send their events over HTTP:
+**Data distribution using push and pull delivery modes**. At any point in a data pipeline, HTTP applications can consume messages using push or pull APIs. The source of the data might include MQTT clients’ data, but also includes the following data sources that send their events over HTTP:
 
 - Azure services
 - Your custom applications
@@ -43,7 +43,7 @@ Event Grid offers a rich mixture of features. These features include:
 - **Publish-subscribe messaging model** - Communicate efficiently using one-to-many, many-to-one, and one-to-one messaging patterns.
 - **[Built-in cloud integration](mqtt-routing.md)** - Route your MQTT messages to Azure services or custom webhooks for further processing.
 - **Flexible and fine-grained [access control model](mqtt-access-control.md)** - Group clients and topic to simplify access control management, and use the variable support in topic templates for a fine-grained access control.
-- **MQTT broker authentication methods** - [X.509 certificate authentication](mqtt-client-authentication.md) is the industry authentication standard in IoT devices, [Microsoft Entra IDauthentication](mqtt-client-microsoft-entra-token-and-rbac.md) is Azure's authentication standard for applications and [OAuth 2.0 (JSON Web Token) authentication](oauth-json-web-token-authentication.md) provides a lightweight, secure, and flexible option for MQTT clients that are not provisioned in Azure.
+- **MQTT broker authentication methods** - [X.509 certificate authentication](mqtt-client-authentication.md) is the industry authentication standard in IoT devices, [Microsoft Entra IDauthentication](mqtt-client-microsoft-entra-token-and-rbac.md) is Azure's authentication standard for applications and [OAuth 2.0 (JSON Web Token) authentication](oauth-json-web-token-authentication.md) provides a lightweight, secure, and flexible option for MQTT clients that aren't provisioned in Azure.
 - **TLS 1.2 and TLS 1.3 support** - Secure your client communication using robust encryption protocols.
 - **Multi-session support** - Connect your applications with multiple active sessions to ensure reliability and scalability.
 - **MQTT over WebSockets** - Enable connectivity for clients in firewall-restricted environments.
@@ -151,7 +151,7 @@ Azure Event Grid features [pull CloudEvents delivery](pull-delivery-overview.md#
 One or more clients can connect to Azure Event Grid to read messages at their own pace. Event Grid affords clients full control on events consumption. Your application can receive events at certain times of the day, for example. Your solution can also increase the rate of consumption by adding more clients that read from Event Grid.
 
 #### Consume events over a private link
-:::image type="content" source="media/overview/consume-private-link-pull-api.png" alt-text="High-level diagram of a consumer app inside a VNET reading events from Event Grid over a private endpoint inside the VNET." lightbox="media/overview/consume-private-link-pull-api-high-res.png" border="false":::
+:::image type="content" source="media/overview/consume-private-link-pull-api.png" alt-text="High-level diagram of a consumer app inside a virtual network reading events from Event Grid over a private endpoint inside the virtual network." lightbox="media/overview/consume-private-link-pull-api-high-res.png" border="false":::
 
 You can configure **private links** to connect to Azure Event Grid to **publish and read** CloudEvents through a [private endpoint](../private-link/private-endpoint-overview.md) in your virtual network. Traffic between your virtual network and Event Grid travels the Microsoft backbone network.
 
