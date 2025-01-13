@@ -759,13 +759,13 @@ Targeting is a feature management strategy that enables developers to progressiv
 The following steps demonstrate an example of a progressive rollout for a new 'Beta' feature:
 
 1. Individual users Jeff and Alicia are granted access to the Beta
-2. Another user, Mark, asks to opt-in and is included.
+2. Another user, Mark, asks to opt in and is included.
 3. Twenty percent of a group known as "Ring1" users are included in the Beta.
 5. The number of "Ring1" users included in the beta is bumped up to 100 percent.
 5. Five percent of the user base is included in the beta.
 6. The rollout percentage is bumped up to 100 percent and the feature is completely rolled out.
 
-This strategy for rolling out a feature is built-in to the library through the included [Microsoft.Targeting](#microsofttargeting) feature filter.
+This strategy for rolling out a feature is built into the library through the included [Microsoft.Targeting](#microsofttargeting) feature filter.
 
 ### Targeting in a Web Application
 
@@ -793,7 +793,7 @@ services.AddFeatureManagement()
 
 To use the `TargetingFilter` in a web application, an implementation of `ITargetingContextAccessor` is required. This requirement is because when a targeting evaluation is being performed, contextual information such as what user is currently being evaluated is needed. This information is known as the [`TargetingContext`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement/Targeting/TargetingContext.cs). Different applications may extract this information from different places. Some common examples of where an application may pull the targeting context are the request's HTTP context or a database.
 
-An example that extracts targeting context information from the application's HTTP context is the [`DefaultHttpTargetingContextAccessor`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs) provided by the `Microsoft.FeatureManagement.AspNetCore` package. It will extract targeting info from `HttpContext.User`. `UserId` information will be extracted from from the `Identity.Name` field and `Groups` information will be extracted from claims of type [`Role`](/dotnet/api/system.security.claims.claimtypes.role). This implementation relies on the use of `IHttpContextAccessor`, which is discussed [here](#using-httpcontext).
+An example that extracts targeting context information from the application's HTTP context is the [`DefaultHttpTargetingContextAccessor`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs) provided by the `Microsoft.FeatureManagement.AspNetCore` package. It will extract targeting info from `HttpContext.User`. `UserId` information will be extracted from the `Identity.Name` field and `Groups` information will be extracted from claims of type [`Role`](/dotnet/api/system.security.claims.claimtypes.role). This implementation relies on the use of `IHttpContextAccessor`, which is discussed [here](#using-httpcontext).
 
 ### Targeting in a Console Application
 
@@ -1206,7 +1206,7 @@ builder.services
 > [!NOTE]
 > To ensure Application Insights telemetry works as expected, the `TargetingHttpContextMiddleware` should be used.
 
-To enable persistance of targeting context in the current activity, you can use the [`TargetingHttpContextMiddleware`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/TargetingHttpContextMiddleware.cs).
+To enable persistence of targeting context in the current activity, you can use the [`TargetingHttpContextMiddleware`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/TargetingHttpContextMiddleware.cs).
 
 ``` C#
 app.UseMiddleware<TargetingHttpContextMiddleware>();
@@ -1216,7 +1216,7 @@ An example of its usage can be found in the [VariantAndTelemetryDemo](https://gi
 
 #### Prerequisite
 
-This telemetry publisher depends on Application Insights already being setup registered as an application service. For example, that is done [here](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/examples/VariantAndTelemetryDemo/Program.cs#L22-L32) in the example application.
+This telemetry publisher depends on Application Insights already being set up registered as an application service. For example, that is done [here](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/examples/VariantAndTelemetryDemo/Program.cs#L22-L32) in the example application.
 
 This telemetry publisher depends on Application Insights already being [setup](/azure/azure-monitor/app/asp-net-core#enable-application-insights-server-side-telemetry-no-visual-studio) and registered as an application service.
 
