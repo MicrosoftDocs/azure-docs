@@ -19,7 +19,7 @@ To create a cluster without a service principal user name and password, you can 
 1. Install the latest version of the
    [appropriate CLI extensions](./howto-install-cli-extensions.md)
 1. A Log Analytics Workspace 
-1. A user-assigned managed identity resource with permissions over the log analytics workspace of [Log Analytics Contributor](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/analytics#log-analytics-contributor).
+1. A user-assigned managed identity resource with permissions over the log analytics workspace of [Log Analytics Contributor](/azure/role-based-access-control/built-in-roles/analytics#log-analytics-contributor).
 
 > [!NOTE]
 > This functionality exists with the latest GA API offered by Azure Operator Nexus 
@@ -29,7 +29,7 @@ To create a cluster without a service principal user name and password, you can 
 
 1. Create a Log Analytics Workspace [Create a Log Analytics Workspace](/azure/azure-monitor/logs/quick-create-workspace).
 1. Assign the "Log Analytics Contributor" role to users and managed identities which need access to the Log Analytics Workspace.
-   1. See [Assign an Azure role for access to the analytics Workspace](azure/azure-monitor/logs/manage-access?tabs=portal#azure-rbac). The role must also be assigned to either a user-assigned managed identity or the cluster's own system-assigned managed identity.
+   1. See [Assign an Azure role for access to the analytics Workspace](/azure/azure-monitor/logs/manage-access?tabs=portal#azure-rbac). The role must also be assigned to either a user-assigned managed identity or the cluster's own system-assigned managed identity.
    1. For more information on managed identities, see [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
    1. If using the Cluster's system assigned identity, the system assigned identity needs to be added to the cluster before it can be granted access.
    1. When assigning a role to the cluster's system-assigned identity, make sure you select the resource with the type "Cluster (Operator Nexus)."
