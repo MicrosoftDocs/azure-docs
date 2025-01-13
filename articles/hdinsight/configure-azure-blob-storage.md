@@ -128,8 +128,7 @@ Use manage identities to authenticate Azure blob storage while configuring it as
 1. Choose the **Storage Account** from the drop-down. 
 1. Select authentication mechanism as `Use managed identity`. 
 1. Select the **managed identity** from the list. 
-
-Click **Next**.
+1. Click **Next**.
 
 ## Next steps
 
