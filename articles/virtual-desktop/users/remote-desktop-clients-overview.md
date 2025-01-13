@@ -9,7 +9,7 @@ ms.author: daknappe
 
 # Remote Desktop clients for Azure Virtual Desktop
 
-> [!IMPORTANT]
+> [!TIP]
 > To ensure a seamless experience, users are encouraged to download Windows App. Windows App is the gateway to securely connect to any devices or apps across Azure Virtual Desktop, Windows 365, and Microsoft Dev Box. For more information, see [What is Windows App](/windows-app/overview).
 
 With the Microsoft Remote Desktop clients, you can connect to Azure Virtual Desktop and use and control desktops and apps that your admin has made available to you. There are clients available for many different types of devices on different platforms and form factors, such as desktops and laptops, tablets, smartphones, and through a web browser. Using your web browser on desktops and laptops, you can connect without having to download and install any software.
