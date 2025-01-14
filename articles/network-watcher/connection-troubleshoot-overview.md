@@ -37,7 +37,7 @@ Connection troubleshoot provides the capability to check TCP or ICMP connections
 - Application gateways v2 (except private deployments. For more information, see [Private Application Gateway deployment (preview)](../application-gateway/application-gateway-private-deployment.md))
 
 > [!IMPORTANT]
-> Connectivity test of connection troubleshoot requires that the virtual machine you run the test from has the **Network Watcher agent VM extension** installed.  This extension is not required for running other connection troubleshoot tests or on the destination virtual machine.
+> Connectivity test of connection troubleshoot requires that the virtual machine you run the test from has the ***Network Watcher agent VM extension*** installed.  This extension is not required for running other connection troubleshoot tests or on the destination virtual machine.
 > - To install the extension on a Windows virtual machine, see [Network Watcher agent VM extension for Windows](network-watcher-agent-windows.md).
 > - To install the extension on a Linux virtual machine, see [Network Watcher agent VM extension for Linux](network-watcher-agent-linux.md).
 > - To update an already installed extension, see [Update Network Watcher agent VM extension to the latest version](network-watcher-agent-update.md).
