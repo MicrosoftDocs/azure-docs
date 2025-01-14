@@ -269,7 +269,9 @@ The environment variables associated with the Azure SDK's [`EnvironmentCredentia
 > [!NOTE]
 > Local development with identity-based connections requires version `4.0.3904` of [Azure Functions Core Tools](functions-run-local.md), or a later version.
 
-When you're running your function project locally, the above configuration tells the runtime to use your local developer identity. The connection attempts to get a token from the following locations, in order:
+When you're running your function project locally with credential set to `managedidentity`, the runtime will attempt to use the managed identity endpoint, which is not available in local development environments. For local development, you should use `defaultazurecredential` instead.
+
+With this configuration, the connection attempts to get a token from the following locations, in order:
 
 - A local cache shared between Microsoft applications
 - The current user context in Visual Studio
