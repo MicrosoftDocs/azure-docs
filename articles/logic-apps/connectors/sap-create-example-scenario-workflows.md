@@ -56,8 +56,8 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
    | **Safe Typing** | No | This option available for backward compatibility and only checks the string length. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. Learn more about the [Safe Typing setting](#safe-typing). |
    | **Use SNC** | No | To create an SNC connection, see [Enable Secure Network Communications (SNC)](sap.md?tabs=single-tenant#enable-secure-network-communications). |
 
-> [!TIP]
-> Find more details about SNC on our [blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
+
+For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
 
    For other optional available connection parameters, see [Default connection information](/connectors/sap/#default-connection).
 
@@ -357,8 +357,8 @@ Next, create an action to send your IDoc to SAP when the workflow's **Request** 
    | **Safe Typing** | No | This option available for backward compatibility and only checks the string length. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. Learn more about the [Safe Typing setting](#safe-typing). |
    | **Use SNC** | No | To create an SNC connection, see [Enable Secure Network Communications (SNC)](sap.md?tabs=single-tenant#enable-secure-network-communications). |
 
-> [!TIP]
-> Find more details about SNC on our [blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
+
+For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
 
    For other optional available connection parameters, see [Default connection information](/connectors/sap/#default-connection).
 
