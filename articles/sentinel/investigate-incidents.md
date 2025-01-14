@@ -84,7 +84,7 @@ The **Overview** tab contains the following widgets, each of which represents an
 
 The **Entities** tab shows you the complete list of entities in the incident, which are also shown in the **Entities** widget on the **Overview** page. When you select an entity in the widget, you're directed here to see the entity's full dossier&mdash;its identifying information, a timeline of its activity (both within and outside the incident), and the full set of insights about the entity, just as you would see in its full entity page, but limited to the time frame appropriate to the incident.
 
-## Reconstruct the timeline of attacker activity
+## Reconstruct the timeline of the attack story
 
 The **Incident timeline** widget shows you the timeline of alerts and [bookmarks](bookmarks.md) in the incident, which can help you reconstruct the timeline of attacker activity. 
 

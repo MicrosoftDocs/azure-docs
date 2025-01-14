@@ -37,7 +37,7 @@ Microsoft Sentinel incidents give you tools to help your Security Operations (Se
 - **SOC managers and engineers** can develop these task lists and have them automatically apply to different groups of incidents as appropriate, or across the board. 
 - **SOC analysts** can then access the assigned tasks within each incident, marking them off as they’re completed. 
 
-Analysts can also manually add tasks to their open incidents, either as self-reminders or for the benefit of other analysts who may collaborate on the incident (for example, due to a shift change or escalation).
+    Analysts can also manually add tasks to their open incidents, either as self-reminders or for the benefit of other analysts who may collaborate on the incident (for example, due to a shift change or escalation).
 
 For more information, see [Use tasks to manage incidents in Microsoft Sentinel in the Azure portal](incident-tasks.md).
 
@@ -108,7 +108,7 @@ Next, having the broad outlines of what happened (or is still happening), and ha
 
 Microsoft Sentinel automatically asks the big questions about the entities in your incident and shows the top answers in the **Top insights** widget, visible on the right side of the incident details page. This widget shows a collection of insights based on both machine-learning analysis and the curation of top teams of security experts.
 
-These are a specially selected subset of the insights that appear on [entity pages](entity-pages.md#entity-insights), but in this context, insights for all the entities in theincident are presented together, giving you a more complete picture of what's happening. The full set of insights appears on the **Entities tab**, for each entity separately&mdashsee below.
+These are a specially selected subset of the insights that appear on [entity pages](entity-pages.md#entity-insights), but in this context, insights for all the entities in the incident are presented together, giving you a more complete picture of what's happening. The full set of insights appears on the **Entities tab**, for each entity separately&mdash;see below.
 
 The **Top insights** widget answers questions about the entity relating to its behavior in comparison to its peers and its own history, its presence on watchlists or in threat intelligence, or any other sort of unusual occurrence relating to it.
 
@@ -130,7 +130,7 @@ Select an entity in the list to open a side panel with information based on the 
 
 - **Insights** contains answers to questions about the entity relating to its behavior in comparison to its peers and its own history, its presence on watchlists or in threat intelligence, or any other sort of unusual occurrence relating to it.
 
-These answers are the results of queries defined by Microsoft security researchers that provide valuable and contextual security information on entities, based on data from a collection of sources.
+    These answers are the results of queries defined by Microsoft security researchers that provide valuable and contextual security information on entities, based on data from a collection of sources.
 
 Depending on the entity type, you can take a number of further actions from this side panel, including:
 
@@ -153,7 +153,7 @@ Depending on the entity type, you can take a number of further actions from this
 | **Azure resource** | &#10004; | | | 
 | **IoT device** | &#10004; | | |
 
-\* For entities for which the **Add to TI** or **Run playbook** actions are available, you can take those actions right from the **Entities** widget in the **Overview tab**, neverleaving the incident page.
+\* For entities for which the **Add to TI** or **Run playbook** actions are available, you can take those actions right from the **Entities** widget in the **Overview tab**, never leaving the incident page.
 
 ### Incident logs
 
@@ -165,7 +165,7 @@ These results are displayed in the Logs (log analytics) screen that appears here
 
 ## Organized records with incidents
 
-In the interests of transparency, accountability, and continuity, you’ll want a record of all the actions that have been taken on the incident – whether by automated processes or by people. The incident **activity log** shows you all of these activities. You can also see any comments that have been made and add your own.
+In the interests of transparency, accountability, and continuity, you’ll want a record of all the actions that have been taken on the incident&mdash;whether by automated processes or by people. The incident **activity log** shows you all of these activities. You can also see any comments that have been made and add your own.
 
 The activity log is constantly auto-refreshing, even while open, so you can see changes to it in real time.
 
