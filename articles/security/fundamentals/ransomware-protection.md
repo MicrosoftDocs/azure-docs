@@ -60,7 +60,7 @@ There are several reasons why ransomware attacks succeed. Businesses that are vu
 
 - The attack surface is increased as more businesses offer more services through digital outlets
 - There's a considerable ease of obtaining off-the-shelf malware, Ransomware-as-a-Service (RaaS)
-- The option to use cryptocurrency for blackmail payments openes new avenues for exploit
+- The option to use cryptocurrency for blackmail payments opens new avenues for exploit
 - Expansion of computers and their usage in different workplaces (local school districts, police departments, police squad cars, etc.) each of which is a potential access point for malware, resulting in potential attack surface
 - Prevalence of old, outdated, and antiquated infrastructure systems and software
 - Poor patch-management regimens

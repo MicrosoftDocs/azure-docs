@@ -71,14 +71,6 @@ EOF
 
 ### Metrics & Monitoring
 
-WebSockets Metrics:
-
-- New Connection Upgrades: This metric incrments on new WebSocket connections created (or upgraded) from regular HTTP requests.
-- Current Connection Upgrades: This metrics reflects active upgraded connections.
-
->[!Note]
->Connection upgrade metrics also include other connection upgrades, such as HTTP 1.1 to HTTP 2.
-
 Diagnostic Logs:
 
 WebSocket connections operate using a distinct protocol. Upon initiating the connection, the browser receives an HTTP 101 status code, indicating the switch from HTTP to WebSocket and will be reflected in the access log.
