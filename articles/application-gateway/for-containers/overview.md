@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.custom: references_regions
 ms.service: azure-appgw-for-containers
 ms.topic: overview
-ms.date: 9/16/2024
+ms.date: 1/14/2025
 ms.author: greglin
 ---
 
@@ -77,6 +77,7 @@ Application Gateway for Containers supports the following features for traffic m
 - TLS policies
 - URL redirect
 - URL rewrite
+- WebSocket support
 
 ### Deployment strategies
 
