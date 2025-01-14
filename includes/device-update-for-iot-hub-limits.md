@@ -30,7 +30,7 @@ The following table shows the limits associated with various Device Update opera
 | Number of device groups per instance | 100 | 10 | Yes |
 | Number of device classes per instance | 80 | 10 | Yes |
 | Number of active deployments per instance | 50, including one reserved for cancellations | 5, including one reserved for cancellations | Yes |
-| Number of total deployments per instance, including all active, inactive, and cancelled deployments that aren't deleted | 100 | 20 | No |
+| Number of total deployments per instance, including all active, inactive, and canceled deployments that aren't deleted | 100 | 20 | No |
 | Number of update providers per instance | 25 | 2 | No |
 | Number of update names per provider per instance | 25 | 2 | No |
 | Number of update versions per update provider and name per instance | 100 | 5 | No |
@@ -41,4 +41,4 @@ The following table shows the limits associated with various Device Update opera
 | Total data storage included per instance | 100 GB | 5 GB | No |
 
 > [!NOTE]
-> Cancelled or inactive deployments count toward your total deployment limit. Make sure to clean up these deployments periodically so you aren't prevented from creating new deployments.
+> Canceled or inactive deployments count toward your total deployment limit. Make sure to clean up these deployments periodically so you aren't prevented from creating new deployments.
