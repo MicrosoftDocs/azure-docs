@@ -94,33 +94,33 @@ $networkmanager = New-AzNetworkManager @avnm
 
 ## Create three virtual networks
 
-Create three virtual networks by using [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). This example creates virtual networks named *vnet-spoke-001*, *vnet-spoke-002*, and *vnet-hub-001* in the *(US) West US 2* region. If you already have virtual networks that you want create a mesh network with, you can skip to the next section.
+Create three virtual networks by using [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). This example creates virtual networks named *vnet-00*, *vnet-01*, and *vnet-02* in the *(US) West US 2* region. If you already have virtual networks that you want create a mesh network with, you can skip to the next section.
 
 ```azurepowershell
-$vnetspoke001 = @{
-    Name = 'vnet-spoke-001'
+$vnet_00 = @{
+    Name = 'vnet-00'
     ResourceGroupName = $rg.Name
     Location = $location
     AddressPrefix = '10.0.0.0/16'    
 }
 
-$vnet_spoke_001 = New-AzVirtualNetwork @vnetspoke001
+$vnet_00 = New-AzVirtualNetwork @vnet_00
 
-$vnetspoke002 = @{
-    Name = 'vnet-spoke-002'
+$vnet_01 = @{
+    Name = 'vnet-01'
     ResourceGroupName = $rg.Name
     Location = $location
     AddressPrefix = '10.1.0.0/16'    
 }
-$vnet_spoke_002 = New-AzVirtualNetwork @vnetspoke002
+$vnet_01 = New-AzVirtualNetwork @vnet_01
 
-$vnethub001 = @{
-    Name = 'vnet-hub-001'
+$vnet_02 = @{
+    Name = 'vnet-02'
     ResourceGroupName = $rg.Name
     Location = $location
     AddressPrefix = '10.2.0.0/16'    
 }
-$vnet_hub_001 = New-AzVirtualNetwork @vnethub001
+$vnet_02 = New-AzVirtualNetwork @vnet_02
 ```
 
 ### Add a subnet to each virtual network
@@ -128,29 +128,29 @@ $vnet_hub_001 = New-AzVirtualNetwork @vnethub001
 To complete the configuration of the virtual networks, create a subnet configuration named *default* with a subnet address prefix of */24* by using [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). Then, use [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to apply the subnet configuration to the virtual network.
 
 ```azurepowershell
-$subnet_vnetspoke001 = @{
+$subnet_vnet_00 = @{
     Name = 'default'
-    VirtualNetwork = $vnet_spoke_001
+    VirtualNetwork = $vnet_00
     AddressPrefix = '10.0.0.0/24'
 }
-$subnetConfig_vnetspoke001 = Add-AzVirtualNetworkSubnetConfig @subnet_vnetspoke001
-$vnet_spoke_001 | Set-AzVirtualNetwork
+$subnetConfig_vnet_00 = Add-AzVirtualNetworkSubnetConfig @subnet_vnet_00
+$vnet_00 | Set-AzVirtualNetwork
 
-$subnet_vnetspoke002 = @{
+$subnet_vnet_01 = @{
     Name = 'default'
-    VirtualNetwork = $vnet_spoke_002
+    VirtualNetwork = $vnet_01
     AddressPrefix = '10.1.0.0/24'
 }
-$subnetConfig_vnetspoke002 = Add-AzVirtualNetworkSubnetConfig @subnet_vnetspoke002
-$vnet_spoke_002 | Set-AzVirtualNetwork
+$subnetConfig_vnet_01 = Add-AzVirtualNetworkSubnetConfig @subnet_vnet_01
+$vnet_01 | Set-AzVirtualNetwork
 
-$subnet_vnet_hub_001 = @{
+$subnet_vnet_02 = @{
     Name = 'default'
-    VirtualNetwork = $vnet_hub_001
+    VirtualNetwork = $vnet_02
     AddressPrefix = '10.2.0.0/24'
 }
-$subnetConfig_vnet_hub_001 = Add-AzVirtualNetworkSubnetConfig @subnet_vnet_hub_001
-$vnet_hub_001 | Set-AzVirtualNetwork
+$subnetConfig_vnet_02 = Add-AzVirtualNetworkSubnetConfig @subnet_vnet_02
+$vnet_02 | Set-AzVirtualNetwork
 ```
 
 ## Create a network group
@@ -168,7 +168,7 @@ $ng = @{
 
 ## Define membership for a mesh configuration
 
-In this task, you add the static members *vnet-spoke-001* and *vnet-spoke-002* to the network group *network-group* by using [New-AzNetworkManagerStaticMember](/powershell/module/az.network/new-aznetworkmanagerstaticmember).
+In this task, you add the static members *vnet-spoke-001* and *vnet-01* to the network group *network-group* by using [New-AzNetworkManagerStaticMember](/powershell/module/az.network/new-aznetworkmanagerstaticmember).
 
 Static members must have a unique name that's scoped to the network group. We recommend that you use a consistent hash of the virtual network ID. This approach uses the Azure Resource Manager template's `uniqueString()` implementation.
 
@@ -181,25 +181,25 @@ Static members must have a unique name that's scoped to the network group. We re
 ```
 
 ```azurepowershell
-$sm_vnetspoke001 = @{
+$sm_vnet_00 = @{
         Name = Get-UniqueString $vnet_spoke_001.Id
         ResourceGroupName = $rg.Name
         NetworkGroupName = $ng.Name
         NetworkManagerName = $networkManager.Name
         ResourceId = $vnet_spoke_001.Id
     }
-    $sm_vnetspoke001 = New-AzNetworkManagerStaticMember @sm_vnetspoke001
+    $sm_vnet_00 = New-AzNetworkManagerStaticMember @sm_vnet_00
 ```
 
 ```azurepowershell
-$sm_vnetspoke002 = @{
+$sm_vnet_01 = @{
         Name = Get-UniqueString $vnet_spoke_002.Id
         ResourceGroupName = $rg.Name
         NetworkGroupName = $ng.Name
         NetworkManagerName = $networkManager.Name
         ResourceId = $vnet_spoke_002.Id
     }
-    $sm_vnetspoke002 = New-AzNetworkManagerStaticMember @sm_vnetspoke002
+    $sm_vnet_01 = New-AzNetworkManagerStaticMember @sm_vnet_01
 ```
 
 ## Create a connectivity configuration
