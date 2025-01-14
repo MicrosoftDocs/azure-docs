@@ -332,6 +332,8 @@ To enable CAPTCHA in MFA flow, you need to make an update in two technical profi
 
 ### Enable CAPTCHA feature flag
 
+To enforce CAPTCHA during signup, signin, or MFA, you'll need to add a technical profile that enables a feature flag for each scenario, then call the technical profile during the user journey.
+
 1. In the *TrustFrameworkBase.XML* file, locate the `ClaimsProviders` element and add the claims provider by using the following code:
 
 ```xml
