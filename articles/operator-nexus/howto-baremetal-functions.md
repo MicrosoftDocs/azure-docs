@@ -43,6 +43,9 @@ This article describes how to perform lifecycle management operations on bare me
 
 ## Power off a BMM
 
+> [!IMPORTANT]
+> There are rare cases where running Nexus VMs fail to relaunch after BMM shutdown or restart. To prevent these cases, power off any virtual machines on the BMM before powering off or restarting the BMM. See the [`cordon`][`cordon`](#make-a-bmm-unschedulable-cordon) command for instructions on finding the workloads running on a BMM.
+
 This command will `power-off` the specified `bareMetalMachineName`.
 
 ```azurecli
@@ -64,6 +67,9 @@ az networkcloud baremetalmachine start \
 ```
 
 ## Restart a BMM
+
+> [!IMPORTANT]
+> There are rare cases where running Nexus VMs fail to relaunch after BMM shutdown or restart. To prevent these cases, power off any virtual machines on the BMM before powering off or restarting the BMM. See the [`cordon`][`cordon`](#make-a-bmm-unschedulable-cordon) command for instructions on finding the workloads running on a BMM.
 
 This command will `restart` the specified `bareMetalMachineName`.
 
