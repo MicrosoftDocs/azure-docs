@@ -47,7 +47,80 @@ Before you start, make sure you have:
 
 ## Paste the playbook code and modify fields
 
-1. Select **Logic app code view**, and paste the following code into the editor:
+1. Select **Logic app code view**, and paste the [playbook code](#playbook-code) into the editor.     
+1. Modify these fields in the code:
+
+    - Under the `post` body, in the `To` field, type the email to which you want to receive the notifications.
+    - Under the `office365` parameter:
+        - Under the `id` field, replace `Replace with subscription` with the ID of the subscription running Microsoft Sentinel, for example:  
+    
+        ```json                      
+        "id": "/subscriptions/exampleID/providers/Microsoft.Web/locations/eastus/managedApis/office365"
+        ```
+
+        - Under the `connectionId` field, replace `Replace with subscription` with your subscription ID, and replace `Replace with RG name` with your resource group name, for example:
+
+        ```json           
+         "connectionId": "/subscriptions/exampleID/resourceGroups/ExampleResourceGroup/providers/Microsoft.Web/connections/office365"
+        ```
+
+1. Select **Save**.
+1. Go back to the **Logic app designer** to view the logic that the playbook follows.
+
+    :::image type="content" source="media/automate-sensor-disconnection-alerts/playbook-logic.png" alt-text="Screenshot of a of the playbook logic for Defender for IoT sensor disconnection alerts." lightbox="media/automate-sensor-disconnection-alerts/playbook-logic.png":::    
+
+## Set up managed identity for your subscription
+
+To give the playbook permission to run Keyword Query Language (KQL) queries and get relevant sensor data:
+
+1. In the Azure portal, select **Subscriptions**.
+1. Select the subscription running Microsoft Sentinel and select **Access Control (IAM)**.
+1. Select **Add > Add Role Assignment**.
+1. Search for the **Reader** role. 
+1. In the **Role** tab, select **Next**.
+1. In the **Members** tab, under **Assign access to**, select **Managed Identity**.
+1. In the **Select Managed identities** window: 
+    1. Under **Subscription**, select the subscription running Microsoft Sentinel.
+    1. Under **Managed identity**, select your playbook's name.
+    1. Under **Select**, select the name of the automation rule you created and select **Select**.
+
+    :::image type="content" source="media/automate-sensor-disconnection-alerts/playbook-permissions-managed-identity-members.png" alt-text="Screenshot of a of setting up members for a managed identity while creating a Defender for IoT sensor disconnection alerts playbook." lightbox="media/automate-sensor-disconnection-alerts/playbook-permissions-managed-identity-members.png":::
+
+1. In the editor, select **HTTP2** and verify that the **Authentication Type** is set to **Managed Identity**. 
+
+    :::image type="content" source="media/automate-sensor-disconnection-alerts/playbook-permissions-managed-identity.png" alt-text="Screenshot of sending up a managed identity for the Defender for IoT sensor disconnection alerts playbook." lightbox="media/automate-sensor-disconnection-alerts/playbook-permissions-managed-identity.png":::
+
+## Verify the sensor status 
+
+If you can't create the playbook successfully, run a KQL query in Azure Resource Graph to confirm that the sensor is offline. 
+
+1. In the Azure portal, search for *Azure resource graph explorer*.
+1. Run the following query:
+
+    ```kusto    
+    iotsecurityresources  
+    
+    | where type =='microsoft.iotsecurity/locations/sites/sensors'  
+    
+    |extend Status=properties.sensorStatus  
+    
+    |extend LastConnectivityTime=properties.connectivityTime  
+    
+    |extend Status=iif(LastConnectivityTime<ago(5m),'Disconnected',Status)  
+    
+    |project SensorName=name, Status, LastConnectivityTime  
+    
+    |where Status == 'Disconnected' 
+    ```
+
+If the sensor has been offline for at least five minutes, the sensor status is **Disconnected**. 
+
+> [!NOTE]
+> It takes up to 15 minutes for the sensor to synchronize the status update with the cloud. This means that the sensor needs to be offline for at least 15 minutes before the status is updated.
+
+### Playbook code
+
+Copy this code and return to the [paste the playbook code](#paste-the-playbook-code-and-modify-fields) step.
 
 ```json
         { 
@@ -433,77 +506,7 @@ Before you start, make sure you have:
     } 
 
 } 
-```     
-1. Modify these fields in the code:
-
-    - Under the `post` body, in the `To` field, type the email to which you want to receive the notifications.
-    - Under the `office365` parameter:
-        - Under the `id` field, replace `Replace with subscription` with the ID of the subscription running Microsoft Sentinel, for example:  
-    
-        ```json                      
-        "id": "/subscriptions/exampleID/providers/Microsoft.Web/locations/eastus/managedApis/office365"
-        ```
-
-        - Under the `connectionId` field, replace `Replace with subscription` with your subscription ID, and replace `Replace with RG name` with your resource group name, for example:
-
-        ```json           
-         "connectionId": "/subscriptions/exampleID/resourceGroups/ExampleResourceGroup/providers/Microsoft.Web/connections/office365"
-        ```
-
-1. Select **Save**.
-1. Go back to the **Logic app designer** to view the logic that the playbook follows.
-
-    :::image type="content" source="media/automate-sensor-disconnection-alerts/playbook-logic.png" alt-text="Screenshot of a of the playbook logic for Defender for IoT sensor disconnection alerts." lightbox="media/automate-sensor-disconnection-alerts/playbook-logic.png":::    
-
-## Set up managed identity for your subscription
-
-To give the playbook permission to run Keyword Query Language (KQL) queries and get relevant sensor data:
-
-1. In the Azure portal, select **Subscriptions**.
-1. Select the subscription running Microsoft Sentinel and select **Access Control (IAM)**.
-1. Select **Add > Add Role Assignment**.
-1. Search for the **Reader** role. 
-1. In the **Role** tab, select **Next**.
-1. In the **Members** tab, under **Assign access to**, select **Managed Identity**.
-1. In the **Select Managed identities** window: 
-    1. Under **Subscription**, select the subscription running Microsoft Sentinel.
-    1. Under **Managed identity**, select your playbook's name.
-    1. Under **Select**, select the name of the automation rule you created and select **Select**.
-
-    :::image type="content" source="media/automate-sensor-disconnection-alerts/playbook-permissions-managed-identity-members.png" alt-text="Screenshot of a of setting up members for a managed identity while creating a Defender for IoT sensor disconnection alerts playbook." lightbox="media/automate-sensor-disconnection-alerts/playbook-permissions-managed-identity-members.png":::
-
-1. In the editor, select **HTTP2** and verify that the **Authentication Type** is set to **Managed Identity**. 
-
-    :::image type="content" source="media/automate-sensor-disconnection-alerts/playbook-permissions-managed-identity.png" alt-text="Screenshot of sending up a managed identity for the Defender for IoT sensor disconnection alerts playbook." lightbox="media/automate-sensor-disconnection-alerts/playbook-permissions-managed-identity.png":::
-
-## Verify the sensor status 
-
-If you can't create the playbook successfully, run a KQL query in Azure Resource Graph to confirm that the sensor is offline. 
-
-1. In the Azure portal, search for *Azure resource graph explorer*.
-1. Run the following query:
-
-    ```kusto    
-    iotsecurityresources  
-    
-    | where type =='microsoft.iotsecurity/locations/sites/sensors'  
-    
-    |extend Status=properties.sensorStatus  
-    
-    |extend LastConnectivityTime=properties.connectivityTime  
-    
-    |extend Status=iif(LastConnectivityTime<ago(5m),'Disconnected',Status)  
-    
-    |project SensorName=name, Status, LastConnectivityTime  
-    
-    |where Status == 'Disconnected' 
-    ```
-
-If the sensor has been offline for at least five minutes, the sensor status is **Disconnected**.  
-
-> [!NOTE]
-> It takes up to 15 minutes for the sensor to synchronize the status update with the cloud. This means that the sensor needs to be offline for at least 15 minutes before the status is updated.
-
+```
 ## Next steps
 
 > [!div class="nextstepaction"]
