@@ -2,8 +2,7 @@
 title: Manage Azure Native New Relic Service
 description: Learn how to manage your Azure Native New Relic Service settings.
 ms.topic: how-to
-
-ms.date: 06/11/2024
+ms.date: 01/10/2025
 
 ---
 
@@ -11,13 +10,13 @@ ms.date: 06/11/2024
 
 This article describes how to manage the settings for Azure Native New Relic Service.
 
-## Resource overview
+## Resource overview 
 
-To see the details of your New Relic resource, select **Overview** on the left pane.
+[!INCLUDE [change-plan](../includes/manage.md)]
 
-:::image type="content" source="media/new-relic-how-to-manage/new-relic-overview.png" alt-text="Screenshot that shows an overview for a New Relic resource.":::
+:::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of a New Relic resource in the Azure portal with the overview displayed in the working pane.":::
 
-The details include:
+The *Essentials* details include:
 
 - Resource group
 - Region
@@ -29,174 +28,152 @@ The details include:
 - Pricing plan
 - Billing term
 
-At the bottom:
+To manage your resource, select the links next to corresponding details.
+
+Below the essentials, you can navigate to other details about your resource by selecting a tab.
 
 - The **Get started** tab provides deep links to New Relic dashboards, logs, and alerts.
 - The **Monitoring** tab provides a summary of the resources that send logs and metrics to New Relic.
 
-If you select **Monitored resources**, the pane that opens includes a table with information about the Azure resources that are sending logs and metrics to New Relic.
+### Monitoring tab
 
-:::image type="content" source="media/new-relic-how-to-manage/new-relic-monitored-resources.png" alt-text="Screenshot showing a table of monitored resources below properties.":::
+If you select **Monitoring**, the pane that opens includes a table with information about the Azure resources that are sending logs and metrics to New Relic.
+
+:::image type="content" source="media/manage/resource-overview-monitoring.png" alt-text="A screenshot of a New Relic resource's Monitoring information displayed in the working pane of Azure portal.":::
 
 The columns in the table denote valuable information for your resource:
 
-|Property  | Description  |
-|---------|---------|
-| **Resource type**      |   Azure resource type      |
-| **Total resources**      | Count of all resources for the resource type      |
-| **Logs to New Relic**        |    Count of logs for the resource type       |
-| **Metrics to New Relic**         |   Count of resources that are sending metrics to New Relic through the integration      |
+|Property                  | Description                                                                      |
+|--------------------------|----------------------------------------------------------------------------------|
+| **Resource type**        | Azure resource type                                                              |
+| **Total resources**      | Count of all resources for the resource type                                     |
+| **Logs to New Relic**    | Count of logs for the resource type                                              |
+| **Metrics to New Relic** | Count of resources sending metrics to New Relic through the integration          |
 
-If New Relic currently manages billing and you want to change to Azure Marketplace billing to consume your Azure commitment, you should work with New Relic to align on timeline as per the current contract tenure. Then, switch your billing using the **Bill via Marketplace**  from the working pane of the Overview page or your New Relic resource.
+## Reconfigure rules for metrics and logs
 
-:::image type="content" source="media/new-relic-how-to-manage/new-relic-bill-marketplace.png" alt-text="Screenshot with 'Bill via Azure Marketplace' selection highlighted.":::
+To change the configuration rules for metrics and [logs](overview.md#logs), select **New Relic account config** > **Metrics and logs** from the *Service menu*. 
 
-## Reconfigure rules for logs or metrics
-
-To change the configuration rules for logs or metrics, select **Metrics and Logs** in the Resource menu.
-
-:::image type="content" source="media/new-relic-how-to-manage/new-relic-metrics.png" alt-text="Screenshot that shows metrics and logs for a New Relic resource.":::
-
-For more information, see [Configure metrics and logs](new-relic-how-to-configure-prereqs.md).
+:::image type="content" source="media/manage/resource-overview-monitoring.png" alt-text="A screenshot of a New Relic resource's Metrics and logs displayed in the working pane of the Azure portal.":::
 
 ## View monitored resources
 
-To see the list of resources that are sending metrics and logs to New Relic, select **Monitored resources** on the left pane.
-
-:::image type="content" source="media/new-relic-how-to-manage/new-relic-monitoring.png" alt-text="Screenshot that shows monitored resources for a New Relic resource.":::
+To see the list of resources sending metrics and logs to New Relic, select **New Relic account config** > **Monitored resources** from the *Service menu*. 
 
 You can filter the list of resources by resource type, resource group name, region, and whether the resource is sending metrics and logs.
 
-The column **Logs to New Relic** indicates whether the resource is sending logs to New Relic. If the resource isn't sending logs, the reasons could be:
-
-- **Resource does not support sending logs**: Only resource types with monitoring log categories can be configured to send logs. See [Supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
-- **Limit of five diagnostic settings reached**: Each Azure resource can have a maximum of five diagnostic settings. For more information, see [Diagnostic settings](/cli/azure/monitor/diagnostic-settings).
-- **Error**: The resource is configured to send logs to New Relic but an error blocked it.
-- **Logs not configured**: Only Azure resources that have the appropriate resource tags are configured to send logs to New Relic.
-- **Agent not configured**: Virtual machines or app services without the New Relic agent installed don't send logs to New Relic.
-
-The column **Metrics to New Relic** indicates whether New Relic is receiving metrics that correspond to this resource.
+The column **Logs to New Relic** indicates whether the resource is sending logs to New Relic. 
 
 ## Monitor multiple subscriptions
 
-You can now monitor all your subscriptions through a single New Relic resource using **Monitored Subscriptions**. Your experience is simplified because you don't have to set up a New Relic resource in every subscription that you intend to monitor. You can monitor multiple subscriptions by linking them to a single New Relic resource that is tied to a New Relic organization. This provides a single pane view for all resources across multiple subscriptions.
+You can now monitor all your subscriptions through a single New Relic resource using **Monitored Subscriptions**. You don't have to set up a New Relic resource in every subscription that you intend to monitor. Instead, monitor multiple subscriptions by linking them to a single New Relic resource tied to a New Relic organization to view all resources across multiple subscriptions from a single pane.
 
-To manage multiple subscriptions that you want to monitor, select **Monitored Subscriptions** in the **New Relic New Relic organization configurations** section of the Resource menu.
+To monitor multiple subscriptions:
 
-:::image type="content" source="media/new-relic-how-to-manage/new-relic-monitored-subscriptions.png" alt-text="Screenshot showing Monitored Subscriptions selected in the Resource menu.":::
+1. Select **New Relic account config** > **Monitored Subscriptions** from the *Service menu*. 
 
-From **Monitored Subscriptions** in the Resource menu, select the **Add Subscriptions**. The **Add Subscriptions** experience that opens and shows the subscriptions you have _Owner_ role assigned to and any New Relic resource created in those subscriptions that is already linked to the same New Relic organization as the current resource.
+1. Select **Add subscriptions**. 
 
-If the subscription you want to monitor has a resource already linked to the same New Relic org, we recommended that you delete the New Relic resources to avoid shipping duplicate data, and incurring double the charges.
+    A list of subscriptions displays in the working pane.
 
-Select the subscriptions you want to monitor through the New Relic resource and select **Add**.
+    > [!TIP]
+    > If the subscription you want to monitor has a resource already linked to the same New Relic organization, we recommend deleting one to avoid shipping duplicate data, which results in duplicate charges.
 
-:::image type="content" source="media/new-relic-how-to-manage/new-relic-add-subscription.png" alt-text="Screenshot showing subscriptions to add.":::
+1. Select the subscriptions you want to monitor through the New Relic resource and select the **Add** button.
 
-If the list doesn’t get updated automatically, select **Refresh**  to view the subscriptions and their monitoring status. You might see an intermediate status of _In Progress_ while a subscription gets added. When the subscription is successfully added, you see the status is updated to **Active**. If a subscription fails to get added, **Monitoring Status** shows as **Failed**.
-
-:::image type="content" source="media/new-relic-how-to-manage/new-relic-monitored-subscriptions-list.png" alt-text="Screenshot showing statuses of monitored subscriptions.":::
+    If the list doesn’t update automatically, select **Refresh**. When the subscription is successfully added, you see the status is updated to **Active**. If a subscription fails to get added, **Monitoring Status** shows as **Failed**.
 
 The set of tag rules for metrics and logs defined for the New Relic resource apply to all subscriptions that are added for monitoring. Setting separate tag rules for different subscriptions isn't supported. Diagnostics settings are automatically added to resources in the added subscriptions that match the tag rules defined for the New Relic resource.
 
-If you have existing New Relic resources that are linked to the account for monitoring, you can end up with duplication of logs that can result in added charges. Ensure you delete redundant New Relic resources that are already linked to the account. You can view the list of connected resources and delete the redundant ones. We recommended to consolidate subscriptions into the same New Relic resource where possible.
+If you have existing New Relic resources that are linked to the account for monitoring, duplication of logs can result in added charges. To prevent duplicate charges, delete redundant New Relic resources that are already linked to the account. We recommended consolidating subscriptions into the same New Relic resource where possible.
 
-The tag rules and logs that you defined for the New Relic resource are applied to all the subscriptions that you select to be monitored. If you would like to reconfigure the tag rules, you can follow the steps described here.  
-
-For more information about the following capabilities, see  [Monitor Virtual Machines  using the New Relic agent](#monitor-virtual-machines-by-using-the-new-relic-agent) and [Monitor App Services using the New Relic agent](#monitor-app-services-by-using-the-new-relic-agent).
+The tag rules and logs that you defined for the New Relic resource apply to all the subscriptions that you select to be monitored.
 
 ## Connected New Relic resources
 
-To access all New Relic resources and deployments you created using the Azure or New Relic portal experience, go to the **Connected New Relic resources** tab in any of your Azure New Relic resources.
+To view and manage all your New Relic Resources, select **New Relic account config** > **Connected New Relic Resources** from the *Service menu*. 
 
-:::image type="content" source="media/new-relic-how-to-manage/connected-new-relic-resources.png" alt-text="Screenshot showing Connected New Relic resources selected in the Resource menu.":::
+> [!NOTE]
+> Your Azure role must be set to *Owner* or a *Contributor* for the subscription to manage these resources.
 
-You can easily manage the corresponding New Relic deployments or Azure resources using the links, provided you have owner or contributor rights to those deployments and resources.
+## New Relic agents
 
-## Monitor virtual machines by using the New Relic agent
+For information on New Relic agents, review the [New Relic documentation](https://docs.newrelic.com/docs/infrastructure/choose-infra-install-method/). 
 
-You can install the New Relic agent on virtual machines as an extension. Select **Virtual Machines** on the left pane. The **Virtual machine agent** pane shows a list of all virtual machines in the subscription.
+### Monitor virtual machines with the New Relic agent
 
-:::image type="content" source="media/new-relic-how-to-manage/new-relic-virtual-machines.png" alt-text="Screenshot that shows virtual machines for a New Relic resource.":::
+To monitor virtual machines using the New Relic agent:
+
+- Select **New Relic account config** > **Virtual Machines** from the *Service menu*. 
+
+    A list of all virtual machines in the subscription displays in the working pane.
 
 For each virtual machine, the following info appears:
 
-  |  Property | Description |
-  |--|--|
-  | **Virtual machine name** | Name of the virtual machine. |
-  | **Resource status**  | Indicates whether the virtual machine is stopped or running. The New Relic agent can be installed only on virtual machines that are running. If the virtual machine is stopped, installing the New Relic agent is disabled. |
-  | **Agent status**  | Indicates whether the New Relic agent is running on the virtual machine. |
-  | **Agent version**    | Version number of the New Relic agent. |
+|  Property                | Description                                                              |
+|--------------------------|--------------------------------------------------------------------------|
+| **Virtual machine name** | Name of the virtual machine.                                             |
+| **Resource status**      | Indicates whether the virtual machine is stopped or running.             |
+| **Agent status**         | Indicates whether the New Relic agent is running on the virtual machine. |
+| **Agent version**        | Version number of the New Relic agent.                                   |
+
+> [!IMPORTANT]
+> 
+> - The New Relic agent can be installed only on virtual machines that are running. If the virtual machine is stopped, installing the New Relic agent is disabled.
+> - If a virtual machine shows that an agent is installed, but the option **Uninstall extension** is disabled, the agent was configured through a different New Relic resource in the same Azure subscription. To make any changes, go to the other New Relic resource in the Azure subscription.
+
+### Monitor Virtual Machine Scale Sets with the New Relic agent
+
+To monitor Virtual Machine Scale Sets using the New Relic Agent:
+
+- Select **New Relic account config** > **Virtual Machine Scale Sets** from the *Service menu*. 
+
+    A list of all Virtual Machine Scale Sets in the subscription displays in the working pane.
 
 > [!NOTE]
-> If a virtual machine shows that an agent is installed, but the option **Uninstall extension** is disabled, the agent was configured through a different New Relic resource in the same Azure subscription. To make any changes, go to the other New Relic resource in the Azure subscription.
-
-## Monitor Azure Virtual Machine Scale Sets by using the New Relic agent
-
-You can install New Relic agent on Azure Virtual Machine Scale Sets as an extension.
-
-1. Select **Virtual Machine Scale Sets** under **New Relic account config** in the Resource menu.
-1. In the working pane, you see a list of all virtual machine scale sets in the subscription.
-
-Virtual Machine Scale Sets is an Azure Compute resource that can be used to deploy and manage a set of identical VMs. For more information, see [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
-
-For more information on the orchestration modes available [orchestration modes](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes).
-
-Use  native integration to install an agent on both the uniform and flexible scale-sets. The new instances (VMs) of a scale set, in any mode, receive the agent extension during scale-up. Virtual Machine Scale Sets resources in a uniform orchestration mode support _Automatic_, _Rolling_, and _Manual_ upgrade policy. Resources in Flexible orchestration mode only support manual upgrade.
-
-If a manual upgrade policy is set for a resource, upgrade the instances manually by installing the agent extension for the already scaled up instances. For more information on autoscaling and instance orchestration, see [autoscaling-and-instance-orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#autoscaling-and-instance-orchestration).
-
-> [!NOTE]
-> In manual upgrade policy, pre-existing VM instances don't receive the extension automatically. The agent status shows as **Partially Installed**. Upgrade the VM instances by manually installing the extension on them from the VM extensions Resource menu, or go to specific Virtual Machine Scale Sets and select **Instances** from the Resource menu.
+> 
+> In manual upgrade policy, preexisting instances don't receive the extension automatically. The agent status shows as **Partially Installed**. Upgrade instances by manually [installing a New Relic agent](#install-a-new-relic-agent) for each preexisting virtual machine.
 
 > [!NOTE]
 > The agent installation dashboard supports the automatic and rolling upgrade policy for Flex orchestration mode in the next release when similar support is available from Virtual Machine Scale Sets Flex resources.
 
-## Monitor app services by using the New Relic agent
+### Monitor App Services using the New Relic agent
 
-You can install the New Relic agent on app services as an extension. Select **App Services** on the left pane. The working pane shows a list of all app services in the subscription.
+To monitor App Services using the New Relic Agent:
 
-:::image type="content" source="media/new-relic-how-to-manage/new-relic-app-services.png" alt-text="Screenshot that shows app services for a New Relic resource.":::
+- Select **New Relic account config** > **App Services** from the *Service menu*. 
 
 For each app service, the following information appears:
 
- |Property |         Description |
- |--|----|
- | **Resource name**         | App service name.|
- | **Resource status**       | Indicates whether the App service is running or stopped. The New Relic agent can be installed only on app services that are running.|
- | **App Service plan**      | The plan configured for the app service.|
- | **Agent status**          | Status of the agent. |
+|Property                   | Description                                             |
+|---------------------------|---------------------------------------------------------|
+| **Resource name**         | App service name.                                       |
+| **Resource status**       | Indicates whether the App service is running or stopped.|
+| **App Service plan**      | The plan configured for the app service.                |
+| **Agent status**          | Status of the agent.                                    |
   
-To install the New Relic agent, select the app service and then select **Install Extension**. The application settings for the selected app service are updated, and the app service is restarted to complete the configuration of the New Relic agent.
+> [!IMPORTANT]
+>
+> - App Service extensions only supported for app services that are running on Windows operating systems.
+> - App Services that use Linux operating systems aren't displayed.
+> - You can only manage Web App Services. Function Apps aren't supported at this time. 
 
-> [!NOTE]
-> App Service extensions are currently supported only for app services that are running on Windows operating systems. The list doesn't show app services that use Linux operating systems.
+### Install a New Relic agent
 
-> [!NOTE]
-> This page currently shows only the web app type of app services. Managing agents for function apps is not supported at this time.
+You can install New Relic agents on Virtual Machine, Virtual Machine Scale Set, or App Service as an extension by selecting **Install Extension** command bar in the working pane. 
+
+## Change billing plan
+
+[!INCLUDE [change-plan](../includes/change-plan.md)]
 
 ## Delete a New Relic resource
 
-1. Select **Overview** on the left pane. Then, select **Delete**.
+[!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
-   :::image type="content" source="media/new-relic-how-to-manage/new-relic-delete.png" alt-text="Screenshot of the delete button on a resource overview.":::
-
-1. Confirm that you want to delete the New Relic resource. Select **Delete**.
-
-If only one New Relic resource is mapped to a New Relic account, logs and metrics are no longer sent to New Relic.
-
-For a New Relic organization where billing is managed through Azure Marketplace, deleting the last associated New Relic resource also removes the corresponding Azure Marketplace billing relationship.
-
-If you map more than one New Relic resource to the New Relic account by using the link option, deleting the New Relic resource only stops sending logs for Azure resources associated with that New Relic resource. Because other Azure Native New Relic Service resources are linked with this New Relic account, billing continues through Azure Marketplace.
+> [!NOTE]
+> If you have other New Relic resources linked to the New Relic account, billing for those other resources continues through Azure Marketplace.
 
 ## Next steps
 
 - [Troubleshoot Azure Native New Relic Service](troubleshoot.md)
-- [Quickstart: Get started with New Relic](create.md)
-- Get started with Azure Native New Relic Service on
 
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NewRelic.Observability%2Fmonitors)
-
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/newrelicinc1635200720692.newrelic_liftr_payg?tab=Overview)

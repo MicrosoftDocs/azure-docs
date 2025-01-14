@@ -98,7 +98,7 @@ A user or service principal must have sufficient permissions to execute an opera
 
 |Error Code| Message|
 |--|--|
-|LinkedAccessCheckFailed| The client with object id 'xxx' does not have authorization to perform action 'xxx' over scope 'zzz resource' or the scope is invalid. If access was recently granted, please refresh your credentials.|
+|LinkedAccessCheckFailed| The client with object id 'xxx' does not have authorization to perform action 'xxx' over scope 'zzz resource' or the scope is invalid. For details on the required permissions, please visit 'zzz'. If access was recently granted, please refresh your credentials.|
 
 > [!NOTE]
 > A user or service principal may be missing multiple permissions needed to manage a Virtual WAN resource. The returned error message only references one missing permission. As a result, you may see a different  missing permission after you update the permissions assigned to your service principal or user.  
