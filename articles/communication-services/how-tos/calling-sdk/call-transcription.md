@@ -72,6 +72,16 @@ The following tables show support of transcription in individual Azure Communica
 [!INCLUDE [Call transcription client-side Windows](./includes/call-transcription/call-transcription-windows.md)]
 ::: zone-end
 
+## Troubleshooting
+
+The following table show the minimum version of the APIs availability accross the SDKs.
+|Operations | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows | 
+|-------------|-----|--------|-----|--------|---------|------------|---------|
+|Get event that transcription has started| 1.0.0, <br> 1.25.3-beta.1|1.0.0, <br> 1.0.0-beta.8|2.1.0, <br> 2.1.0-beta.1|1.0.0, <br> 1.0.0-beta.8|1.1.0, <br> 1.2.0-beta.1|1.0.0, <br> 1.0.0-beta.8|1.0.0 <br> 1.0.0-beta.31|
+|Get transcription state | 1.0.0, <br> 1.25.3-beta.1|1.0.0, <br> 1.0.0-beta.8|2.1.0, <br> 2.1.0-beta.1|1.0.0, <br> 1.0.0-beta.8|1.1.0, <br> 1.2.0-beta.1|1.0.0, <br> 1.0.0-beta.8|1.0.0 <br> 1.0.0-beta.31|
+|Learn whether explicit consent is required| v1.31.2,<br>1.32.1-beta.1|X|X|X|X|X|X|
+|Give explicit consent for being recorded| v1.31.2,<br>1.32.1-beta.1|X|X|X|X|X|X|
+
 ## Next steps
 - [Learn how to manage video](./manage-video.md)
 - [Learn how to manage calls](./manage-calls.md)
