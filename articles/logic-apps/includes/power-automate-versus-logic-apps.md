@@ -9,6 +9,11 @@ ms.date: 01/14/2025
 ms.topic: include
 ---
 
+> [!NOTE]
+>
+> The following information serves only as a guide and doesn't include pricing information. 
+> Make sure to review the pricing or license plan information for each service.
+
 | Area or scenario | Azure Logic Apps - Standard | Azure Logic Apps - Consumption | Power Automate |
 |------------------|-----------------------------|--------------------------------|----------------|
 | **Purpose** | Workflow automation with advanced features for enterprise developers | Same as Standard | Workflow automation for citizen developers and business users |
@@ -27,9 +32,3 @@ ms.topic: include
 | **Admin experience** | Manage resource groups, connections, access management, and logging: [Azure portal](https://portal.azure.com) | | Manage Power Automate environments and data loss prevention (DLP) policies, track licensing: [Admin center](https://admin.powerplatform.microsoft.com/) |
 | **Error handling** | 	Save Failed - highlights errors | | Flow Checker - providing a list of errors within the flow |
 | **Pricing or licensing model*** | Fixed pricing - Azure subscription | Consumption (Pay per execution) - Azure subscription | Microsoft 365 per user license |
-
-> [!NOTE]
->
-> *Make sure to review the pricing or license plan information for each service.
-> This article serves only as a guide and doesn't include pricing information.
-
