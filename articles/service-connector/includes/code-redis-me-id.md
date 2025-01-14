@@ -10,12 +10,13 @@ ms.author: xiaofanzhou
 #### [.NET](#tab/dotnet)
 
 1. Install dependencies.
+
     ```bash
     dotnet add package Microsoft.Azure.StackExchangeRedis --version 3.2.0
     ```
+
 1. Add the authentication logic with environment variables set by Service Connector. For more information, see [Microsoft.Azure.StackExchangeRedis Extension](https://github.com/Azure/Microsoft.Azure.StackExchangeRedis).
-    
-    
+
     ```csharp
     using StackExchange.Redis;
     var cacheHostName = Environment.GetEnvironmentVariable("AZURE_REDIS_HOST");
@@ -38,10 +39,11 @@ ms.author: xiaofanzhou
 
     var connectionMultiplexer = await ConnectionMultiplexer.ConnectAsync(configurationOptions);
     ```
-    
+
 #### [Java](#tab/java)
 
 1. Add the following dependency in your `pom.xml` file:
+
     ```xml
     <dependency>
         <groupId>com.azure</groupId>
@@ -55,7 +57,9 @@ ms.author: xiaofanzhou
         <version>5.1.0</version>  <!-- {x-version-update;redis.clients:jedis;external_dependency} -->
     </dependency>
     ```
+
 1. Add the authentication logic with environment variables set by Service Connector. For more information, see [Azure-AAD-Authentication-With-Jedis](https://aka.ms/redis/aad/sample-code/java-jedis).
+
     ```java
     import redis.clients.jedis.DefaultJedisClientConfig;
     import redis.clients.jedis.Jedis;
@@ -109,10 +113,13 @@ ms.author: xiaofanzhou
 #### [Python](#tab/python)
 
 1. Install dependencies.
+
     ```bash
     pip install redis azure-identity
     ```
+
 1. Add the authentication logic with environment variables set by Service Connector. For more information, see [azure-aad-auth-with-redis-py](https://aka.ms/redis/aad/sample-code/python).
+
     ```python
     import os
     import time
@@ -206,11 +213,13 @@ ms.author: xiaofanzhou
 #### [Node.js](#tab/nodejs)
 
 1. Install dependencies.
+
     ```bash
     npm install redis @azure/identity
     ```
+
 1. Add the authentication logic with environment variables set by Service Connector. For more information, see [Azure Cache for Redis: Microsoft Entra ID with node-redis client library](https://aka.ms/redis/aad/sample-code/js-noderedis).
-    
+
     ```javascript
     import { createClient } from "redis";
     import { DefaultAzureCredential } from "@azure/identity";

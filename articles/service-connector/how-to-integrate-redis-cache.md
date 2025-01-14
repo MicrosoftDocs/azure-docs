@@ -51,6 +51,7 @@ Use the following environment variable names and application properties to conne
 #### Sample code
 
 The following steps and code show you how to use a system-assigned managed identity to connect to Redis.
+
 [!INCLUDE [code sample for redis](./includes/code-redis-me-id.md)]
 
 ### User-assigned managed identity
@@ -63,6 +64,7 @@ The following steps and code show you how to use a system-assigned managed ident
 #### Sample code
 
 The following steps and code show you how to use a user-assigned managed identity to connect to Redis.
+
 [!INCLUDE [code sample for Redis](./includes/code-redis-me-id.md)]
 
 ### Connection string
@@ -125,6 +127,7 @@ The following steps and code show you how to use a user-assigned managed identit
 #### Sample code
 
 The following steps and code show you how to use a connection string to connect to Azure Cache for Redis.
+
 [!INCLUDE [code for redis](./includes/code-redis-secret.md)]
 
 ### Service principal
@@ -139,6 +142,7 @@ The following steps and code show you how to use a connection string to connect 
 #### Sample code
 
 The following steps and code show you how to use a service principal to connect to Redis.
+
 [!INCLUDE [code sample for Redis](./includes/code-redis-me-id.md)]
 
 ## Related content
