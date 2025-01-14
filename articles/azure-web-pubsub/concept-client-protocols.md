@@ -65,7 +65,7 @@ Simple WebSocket client has two modes: `sendEvent` and `sendToGroup`. The mode i
 
 You can also customize the event name by using `event` query parameter.
 ```javascript
-// When every data frame is considered as a `message` event
+// Every data frame is considered as a `message` event
 var client3 = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1');
 
 // Or explicitly set the mode
