@@ -17,7 +17,7 @@ This article explains how Device Update and Azure IoT Hub use Azure role-based a
 
 ## Device Update access control roles
 
-Device Update supports the following RBAC roles:
+Device Update supports the following RBAC roles. For more information, see [Configure access control to the Device Update account](configure-access-control-device-update.md#configure-access-control-for-device-update-account).
 
 |   Role Name   | Description  |
 | :--------- | :---- |

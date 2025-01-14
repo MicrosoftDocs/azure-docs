@@ -58,7 +58,7 @@ For example:
 
 Each apt manifest includes the following properties:
 
-- **Name**: A name for this apt manifest, which can be any meaningful name or ID for your scenario. For example, `contoso-iot-edge`.
+- **Name**: A name for this apt manifest, which can be any meaningful name or ID that fits your scenario. For example, `contoso-iot-edge`.
 - **Version**: A version number for this apt manifest, for example `1.0.0.0`.
 - **Packages**: A list of objects containing package-specific properties.
   - **Name**: The package name or ID, for example `iotedge`.
@@ -75,13 +75,13 @@ If version is omitted, Device Update installs the latest available version of th
 > [!NOTE]
 > Unless explicit versions of dependent packages are given, the apt package manager installs the latest versions, even if the package itself specifies a strict requirement (`=`) on a given version. The package manager ignores the package versioning requirements when automatically resolving the dependent packages to install. This automatic resolution can lead to errors regarding unmet dependencies.
 > 
-> Ideally, when you install a specific version of a package, also include the explicit versions of the dependent packages to install. For more information, see [apt-get not properly resolving a dependency on a fixed version in a Debian/Ubuntu package](https://unix.stackexchange.com/questions/350192/apt-get-not-properly-resolving-a-dependency-on-a-fixed-version-in-a-debian-ubunt).
+> Therefore, when you install a specific version of a package, it's best to also include the explicit versions of the dependent packages to install. For more information, see [apt-get not properly resolving a dependency on a fixed version in a Debian/Ubuntu package](https://unix.stackexchange.com/questions/350192/apt-get-not-properly-resolving-a-dependency-on-a-fixed-version-in-a-debian-ubunt).
 
 If you update a specific version of the Azure IoT Edge security daemon, you should include the desired version of the `aziot-edge` package and its dependent `aziot-identity-service` package in your apt manifest. For more information, see [How to update IoT Edge](../iot-edge/how-to-update-iot-edge.md#update-the-security-subsystem).
 
 ## Installed criteria
 
-The installed criteria for an apt manifest is `<name>-<version>`, where `<name>` is the name of the apt manifest and `<version>` is its version. For example, `contoso-iot-edge-1.0.0.0`.
+The recommended installed criteria value for an apt manifest is `<name>-<version>`, where `<name>` is the name of the apt manifest and `<version>` is its version. For example, `contoso-iot-edge-1.0.0.0`.
 
 ## Package removal
 
@@ -131,7 +131,7 @@ Keep the following guidelines in mind when you create an apt manifest:
   }
   ```
 
-  The following version 2.0 update includes the `contoso2` package, but not the `contoso1` package. Not all devices that receive the 2.0 update might have the `contoso1` package.
+  The following version 2.0 update includes the `contoso2` package, but not the `contoso1` package. All devices that receive the 2.0 update might not have the `contoso1` package.
 
   ```JSON
   {

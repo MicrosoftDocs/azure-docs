@@ -11,7 +11,7 @@ If a given resource or operation doesn't have adjustable limits, the default and
 
 Limits can be adjusted only for the Standard SKU. Free SKU limit adjustment requests aren't accepted, and Free SKU instances can't be upgraded to Standard SKU instances.
 
-To raise a limit or quota above the default limit, open an [online customer support request](https://azure.microsoft.com/support/options/). Limit adjustment requests are evaluated on a case-by-case basis, and approvals aren't guaranteed.
+To raise a limit or quota above the default limit, [open an online customer support request](https://azure.microsoft.com/support/options/). Limit adjustment requests are evaluated on a case-by-case basis, and approvals aren't guaranteed.
 
 The following table shows the limits for the Device Update for IoT Hub resource in Azure Resource Manager.
 
