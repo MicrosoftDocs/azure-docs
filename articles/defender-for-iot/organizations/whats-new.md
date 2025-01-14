@@ -30,7 +30,7 @@ The legacy on-premises management console won't be available for download after 
 
 ### "Unauthorized Internet Connectivity Detected" alert now includes URL information
 
-The "Unauthorized Internet Connectivity Detected" alert details now includes the URL from which the suspicious connection initiated, helping SOC analysts assess and respond to incidents more effectively.
+The "Unauthorized Internet Connectivity Detected" alert details now include the URL from which the suspicious connection initiated, helping SOC analysts assess and respond to incidents more effectively.
 
 ## December 2024
 
