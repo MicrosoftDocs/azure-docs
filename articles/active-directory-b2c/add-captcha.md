@@ -378,7 +378,6 @@ To enable CAPTCHA in MFA flow, you need to make an update in two technical profi
 <!--<UserJourneys>-->
 ```
 
-4. Reorder the rest of the orchestration steps in chronological order
 
 ## Upload the custom policy files
 
