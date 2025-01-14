@@ -85,7 +85,7 @@ To create a new Spring Boot project:
 ## Connect to an App Configuration store
 
 
-1. Navigate to the `resources` directory of your app and open `bootstrap.properties` or `bootstrap.yaml` file. If the file does not exist, create it. Add the following line to the file.
+1. Navigate to the `resources` directory of your app and open the `bootstrap.properties` or `bootstrap.yaml` file. If the file does not exist, create it. Add the following line to the file.
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
     You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application. Create a new file named *AppConfigCredential.java* and add the following lines:
