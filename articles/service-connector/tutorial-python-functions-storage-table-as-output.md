@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Python function with Azure Table Storage as output'
-description: Learn how you can connect a Python function to a storage table as output using Service Connector
+title: Configure Python function with Azure Table Storage output
+description: Learn how you can configure a Python function to use a storage table as output with Service Connector.
 author: houk-ms
 ms.author: honc
 ms.service: service-connector
 ms.custom: devx-track-python
 ms.topic: tutorial
-ms.date: 11/14/2023
+ms.date: 12/18/2024
 ---
-# Tutorial: Python function with Azure Table Storage as output
+# Tutorial: Configure a Python function with Azure Table Storage output
 
-In this tutorial, you learn how to configure a Python function with Storage Table as output by completing the following tasks.
+In this tutorial, you learn how to configure a Python function to use Azure Table Storage as an output binding by completing the following tasks.
 
 > [!div class="checklist"]
 > * Use Visual Studio Code to create a Python function project.

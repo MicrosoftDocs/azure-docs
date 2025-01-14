@@ -1,6 +1,226 @@
 {
   "redirections": [
     {
+      "source_path": "articles/defender-for-iot/organizations/appliance-catalog/virtual-management-hyper-v.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/appliance-catalog/virtual-management-hyper-v",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/appliance-catalog/virtual-management-vmware.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/appliance-catalog/virtual-management-vmware",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/api/management-alert-apis.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/api/management-alert-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/api/management-inventory-apis.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/api/management-inventory-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/api/management-appliances-apis.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/api/management-appliances-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/api/management-auth-apis.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/api/management-auth-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/api/management-integration-apis.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/api/management-integration-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/back-up-sensors-from-management.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/back-up-sensors-from-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/back-up-restore-management.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/back-up-restore-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-set-up-high-availability.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-set-up-high-availability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-manage-the-on-premises-management-console.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-manage-the-on-premises-management-console",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-troubleshoot-on-premises-management-console.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-troubleshoot-on-premises-management-console",
+       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/legacy-air-gapped-deploy.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/legacy-air-gapped-deploy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/prepare-management-appliance.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/prepare-management-appliance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/install-software-on-premises-management-console.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/install-software-on-premises-management-console",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/activate-deploy-management.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/activate-deploy-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/connect-sensors-to-management.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/connect-sensors-to-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/sites-and-zones-on-premises.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/sites-and-zones-on-premises",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-work-with-alerts-on-premises-management-console.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-work-with-alerts-on-premises-management-console",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/akamai-retirement-faq.md",
+      "redirect_url": "/previous-versions/azure/cdn/akamai-retirement-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/migrate/replicate-using-expressroute.md",
+      "redirect_url": "/azure/migrate/discover-and-assess-using-private-endpoints",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-5g-core/concept-centralized-lifecycle-management.md",
+      "redirect_url": "/previous-versions/azure/operator-5g-core/concept-centralized-lifecycle-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-5g-core/concept-deployment-order.md",
+      "redirect_url": "/previous-versions/azure/operator-5g-core/concept-deployment-order",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-5g-core/concept-observability-analytics.md",
+      "redirect_url": "/previous-versions/azure/operator-5g-core/concept-observability-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-5g-core/concept-security.md",
+      "redirect_url": "/previous-versions/azure/operator-5g-core/concept-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-5g-core/how-to-configure-network-function.md",
+      "redirect_url": "/previous-versions/azure/operator-5g-core/how-to-configure-network-function",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-5g-core/how-to-delete-network-function-cluster.md",
+      "redirect_url": "/previous-versions/azure/operator-5g-core/how-to-delete-network-function-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-5g-core/how-to-deploy-network-functions.md",
+      "redirect_url": "/previous-versions/azure/operator-5g-core/how-to-deploy-network-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-5g-core/how-to-deploy-observability.md",
+      "redirect_url": "/previous-versions/azure/operator-5g-core/how-to-deploy-observability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-5g-core/overview-product.md",
+      "redirect_url": "/previous-versions/azure/operator-5g-core/overview-product",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-5g-core/quickstart-complete-prerequisites-deploy-azure-kubernetes-service.md",
+      "redirect_url": "/previous-versions/azure/operator-5g-core/quickstart-complete-prerequisites-deploy-azure-kubernetes-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-5g-core/quickstart-complete-prerequisites-deploy-nexus-azure-kubernetes-service.md",
+      "redirect_url": "/previous-versions/azure/operator-5g-core/quickstart-complete-prerequisites-deploy-nexus-azure-kubernetes-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-5g-core/quickstart-configure-extension-for-status-monitoring.md",
+      "redirect_url": "/previous-versions/azure/operator-5g-core/quickstart-configure-extension-for-status-monitoring",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-5g-core/quickstart-deploy-5g-core.md",
+      "redirect_url": "/previous-versions/azure/operator-5g-core/quickstart-deploy-5g-core",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-5g-core/quickstart-monitor-deployment-status.md",
+      "redirect_url": "/previous-versions/azure/operator-5g-core/quickstart-monitor-deployment-status",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-5g-core/quickstart-subscription.md",
+      "redirect_url": "/previous-versions/azure/operator-5g-core/quickstart-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-5g-core/tutorial-configure-network-function.md",
+      "redirect_url": "/previous-versions/azure/operator-5g-core/tutorial-configure-network-function",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-call-protection/deployment-overview.md",
+      "redirect_url": "/previous-versions/azure/operator-call-protection/deployment-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-call-protection/onboarding.md",
+      "redirect_url": "/previous-versions/azure/operator-call-protection/onboarding",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-call-protection/overview.md",
+      "redirect_url": "/previous-versions/azure/operator-call-protection/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-call-protection/responsible-ai-faq.md",
+      "redirect_url": "/previous-versions/azure/operator-call-protection/responsible-ai-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-call-protection/set-up-operator-call-protection.md",
+      "redirect_url": "/previous-versions/azure/operator-call-protection/set-up-operator-call-protection",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/private-multi-access-edge-compute-mec/overview.md",
       "redirect_url": "/previous-versions/azure/private-multi-access-edge-compute-mec/overview",
       "redirect_document_id": false
@@ -8,6 +228,7 @@
     {
       "source_path": "articles/private-multi-access-edge-compute-mec/partner-programs.md",
       "redirect_url": "/previous-versions/azure/private-multi-access-edge-compute-mec/partner-programs",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/time-series-insights/breaking-changes-long-data-type.md",
@@ -635,6 +856,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/api-management/howto-use-analytics.md",
+      "redirect_url": "/azure/api-management/monitor-api-management",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/api-management/visualize-using-managed-grafana-dashboard.md",
+      "redirect_url": "/azure/api-management/monitor-api-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/api-management/developer-portal-enable-usage-logs.md",
+      "redirect_url": "/azure/api-management/monitor-api-management",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/governance/machine-configuration/whats-new/migrating-from-dsc-extension.md ",
       "redirect_url": " https://azure.microsoft.com/updates/migrate-from-linux-dsc-extension-to-the-guest-configuration-feature-of-azure-policy-by-may-1-2025/",
       "redirect_document_id": false
@@ -657,6 +893,16 @@
     {
       "source_path_from_root": "/articles/azure-app-configuration/run-experiments-aspnet-core.md",
       "redirect_url": "/azure/azure-app-configuration/concept-experimentation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-app-configuration/use-variant-feature-flags.md",
+      "redirect_url": "/azure/azure-app-configuration/howto-variant-feature-flags",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-app-configuration/use-variant-feature-flags-aspnet-core.md",
+      "redirect_url": "/azure/azure-app-configuration/howto-variant-feature-flags-aspnet-core",
       "redirect_document_id": false
     },
     {
@@ -2831,32 +3077,152 @@
     },
     {
       "source_path_from_root": "/articles/orbital/delete-contact.md",
-      "redirect_url": "/azure/orbital/spacecraft-object",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/orbital/license-spacecraft.md",
-      "redirect_url": "/azure/orbital/initiate-licensing",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/orbital/orbital-preview.md",
-      "redirect_url": "/azure/orbital/overview",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/orbital/overview-analytics.md",
-      "redirect_url": "/azure/orbital/overview",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/orbital/partner-network-integration.md",
-      "redirect_url": "/azure/orbital/about-ground-stations#partner-ground-stations",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/orbital/space-partner-program-overview.md",
-      "redirect_url": "/azure/orbital/overview",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/virtual-rf-tutorial.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/update-tle.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/spacecraft-object.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/schedule-contact.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/satellite-imagery-with-orbital-ground-station.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/sar-reference-architecture.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/resource-graph-samples.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/register-spacecraft.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/receive-real-time-telemetry.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/prepare-for-launch.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/modem-chain.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/organize-stac-data.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/overview.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/mission-phases.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/initiate-licensing.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/index.yml",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/get-started.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/geospatial-reference-architecture.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/downlink-aqua.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/contact-profile.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/concepts-contact.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/concepts-contact-profile.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/about-ground-stations.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/prepare-network.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
       "redirect_document_id": false
     },
     {
@@ -4250,6 +4616,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/logic-apps/business-continuity-disaster-recovery-guidance.md",
+      "redirect_url": "/azure/logic-apps/multi-region-disaster-recovery",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/virtual-network/tutorial-connect-virtual-networks-portal.md",
       "redirect_url": "/azure/virtual-network/tutorial-connect-virtual-networks",
       "redirect_document_id": false
@@ -4357,6 +4728,51 @@
     {
       "source_path_from_root": "/articles/fasttrack/index.yml",
       "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/data-connectors/threat-intelligence-upload-indicators-api.md",
+      "redirect_url": "/azure/sentinel/data-connectors/threat-intelligence-upload-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/how-to-add-components.md",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/how-to-manage-components.md",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/index.yml",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/overview.md",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/quickstart-deploy-starter-app.md",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/quickstart-deploy-your-app.md",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/create-vm-accelerated-networking-cli.md",
+      "redirect_url": "/azure/virtual-network/create-virtual-machine-accelerated-networking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/create-vm-accelerated-networking-powershell.md",
+      "redirect_url": "/azure/virtual-network/create-virtual-machine-accelerated-networking",
       "redirect_document_id": false
     }
   ]

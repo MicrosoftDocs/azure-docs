@@ -4,7 +4,7 @@ description: This page provides a list of requirements to be met before you can 
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/15/2023
 ms.author: duau
 ---
@@ -22,7 +22,7 @@ To connect to Microsoft cloud services using ExpressRoute, you need to verify th
 
 ## Connectivity provider
 
-* You can work with an [ExpressRoute connectivity partner](expressroute-locations.md#partners) to connect to the Microsoft cloud. You can set up a connection between your on-premises network and Microsoft in [three ways](expressroute-introduction.md).
+* You can work with an [ExpressRoute connectivity partner](expressroute-locations.md#partners) to connect to the Microsoft cloud. You can set up a connection between your on-premises network and Microsoft in [three ways](expressroute-connectivity-models.md).
 * If your provider isn't an ExpressRoute connectivity partner, you can still connect to the Microsoft cloud through a [cloud exchange provider](expressroute-locations.md#connectivity-through-exchange-providers).
 
 ## Network requirements

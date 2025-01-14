@@ -15,8 +15,7 @@ The Redis Output Cache Provider is an out-of-process storage mechanism for outpu
 
 For ASP.NET Core applications, see [Output Caching in ASP.NET core using Redis in .NET 8](/aspnet/core/performance/caching/output?view=aspnetcore-8.0#redis-cache&preserve-view=true).
 
-<!-- This section points to create azure cache for redis instead of amr. Not sure if this article was updated or not? -->
-To use the Redis Output Cache Provider, first configure your cache, and then configure your ASP.NET application using the Redis Output Cache Provider NuGet package. This article provides guidance on configuring your application to use the Redis Output Cache Provider. For more information about creating and configuring an Azure Managed Redis (preview) instance, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+To use the Redis Output Cache Provider, first configure your cache, and then configure your ASP.NET application using the Redis Output Cache Provider NuGet package. This article provides guidance on configuring your application to use the Redis Output Cache Provider.
 
 ## Store ASP.NET core page output in Redis
 

@@ -73,6 +73,8 @@ If the Datadog agent is configured with an incorrect key, navigate to the API ke
 
 If logs are being emitted and diagnostic settings remain active on monitored resources even after the Datadog resource is disabled or tag rules are modified to exclude certain resources, it's likely that there's a delete lock applied to the resources or the resource group containing the resource. This lock prevents the cleanup of the diagnostic settings, and hence, logs continue to be forwarded for those resources. To resolve this issue, remove the delete lock from the resource or the resource group. If the lock is removed after the Datadog resource is deleted, the diagnostic settings have to be cleaned up manually to stop log forwarding.
 
+[!INCLUDE [diagnostic-settings](../includes/diagnostic-settings.md)]
+
 ## Next steps
 
 - Learn about [managing your instance](manage.md) of Datadog.

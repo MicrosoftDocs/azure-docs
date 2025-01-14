@@ -1,6 +1,6 @@
 ---
 author: wchigit
-description: code example
+description: Code example
 ms.service: service-connector
 ms.topic: include
 ms.date: 10/24/2023
@@ -13,7 +13,7 @@ ms.author: wchi
     ```bash
     dotnet add package StackExchange.Redis --version 2.6.122
     ```
-1. Get the Redis connection string from the environment variable added by Service Connector.
+1. Get the connection string from the environment variable added by Service Connector.
     
     ```csharp
     using StackExchange.Redis;
@@ -33,7 +33,7 @@ ms.author: wchi
       <scope>compile</scope>
     </dependency>
     ```
-1. Get the Redis connection string from the environment variable added by Service Connector.
+1. Get the connection string from the environment variable added by Service Connector.
     ```java
     import redis.clients.jedis.DefaultJedisClientConfig;
     import redis.clients.jedis.Jedis;
@@ -57,7 +57,7 @@ Refer to [Use Azure Redis Cache in Spring](/azure/developer/java/spring-framewor
     ```bash
     pip install redis
     ```
-1. Get the Redis connection string from the environment variable added by Service Connector.
+1. Get the connection string from the environment variable added by Service Connector.
     ```python
     import os
     import redis
@@ -73,7 +73,7 @@ Refer to [Use Azure Redis Cache in Spring](/azure/developer/java/spring-framewor
     ```bash
     go get github.com/redis/go-redis/v9
     ```
-1. Get the Redis connection string from the environment variable added by Service Connector.
+1. Get the connection string from the environment variable added by Service Connector.
     ```go
     import (
         "context"
@@ -97,7 +97,7 @@ Refer to [Use Azure Redis Cache in Spring](/azure/developer/java/spring-framewor
     ```bash
     npm install redis
     ```
-1. Get the Redis connection string from the environment variable added by Service Connector.
+1. Get the connection string from the environment variable added by Service Connector.
     
     ```javascript
     const redis = require("redis");
@@ -110,4 +110,4 @@ Refer to [Use Azure Redis Cache in Spring](/azure/developer/java/spring-framewor
     ```
 
 ### [Other](#tab/none)
-For other languages, you can use the connection information that Service Connector sets to the environment variables to connect to Azure Cache for Redis. For environment variable details, see [Integrate Azure App Configuration with Service Connector](../how-to-integrate-app-configuration.md).
+For other languages, you can use the connection information that Service Connector sets to the environment variables to connect to Azure Cache for Redis.

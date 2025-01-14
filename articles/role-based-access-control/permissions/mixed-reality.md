@@ -28,16 +28,6 @@ Blend your physical and digital worlds to create immersive, collaborative experi
 > | Microsoft.MixedReality/register/action | Register the subscription for Microsoft.MixedReality |
 > | Microsoft.MixedReality/unregister/action | Unregister the subscription for Microsoft.MixedReality |
 > | Microsoft.MixedReality/locations/checknameavailability/read | Checks for name availability |
-> | Microsoft.MixedReality/ObjectAnchorsAccounts/delete | Delete an Object Anchors account |
-> | Microsoft.MixedReality/ObjectAnchorsAccounts/listkeys/action | List the keys an Object Anchors account |
-> | Microsoft.MixedReality/ObjectAnchorsAccounts/read | Read the properties an Object Anchors account |
-> | Microsoft.MixedReality/ObjectAnchorsAccounts/regeneratekeys/action | Regenerate the keys of an Object Anchors account |
-> | Microsoft.MixedReality/ObjectAnchorsAccounts/write | Update the properties an Object Anchors account |
-> | Microsoft.MixedReality/ObjectUnderstandingAccounts/delete | Delete an Object Understanding account |
-> | Microsoft.MixedReality/ObjectUnderstandingAccounts/listkeys/action | List the keys an Object Understanding account |
-> | Microsoft.MixedReality/ObjectUnderstandingAccounts/read | Read the properties an Object Understanding account |
-> | Microsoft.MixedReality/ObjectUnderstandingAccounts/regeneratekeys/action | Regenerate the keys of an Object Understanding account |
-> | Microsoft.MixedReality/ObjectUnderstandingAccounts/write | Update the properties an Object Understanding account |
 > | Microsoft.MixedReality/operations/read | List available operations for Microsoft Mixed Reality |
 > | Microsoft.MixedReality/RemoteRenderingAccounts/delete | Delete a remote rendering account |
 > | Microsoft.MixedReality/RemoteRenderingAccounts/listkeys/action | List keys of a remote rendering account |
@@ -47,10 +37,6 @@ Blend your physical and digital worlds to create immersive, collaborative experi
 > | Microsoft.MixedReality/RemoteRenderingAccounts/keys/read | Read keys of a remote rendering account |
 > | Microsoft.MixedReality/remoteRenderingAccounts/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for Microsoft.MixedReality/remoteRenderingAccounts |
 > | **DataAction** | **Description** |
-> | Microsoft.MixedReality/ObjectAnchorsAccounts/ingest/action | Create model Ingestion Job |
-> | Microsoft.MixedReality/ObjectAnchorsAccounts/ingest/read | Get model Ingestion Job Status |
-> | Microsoft.MixedReality/ObjectUnderstandingAccounts/ingest/action | Create Model Ingestion Job |
-> | Microsoft.MixedReality/ObjectUnderstandingAccounts/ingest/read | Get model Ingestion Job Status |
 > | Microsoft.MixedReality/RemoteRenderingAccounts/convert/action | Start asset conversion |
 > | Microsoft.MixedReality/RemoteRenderingAccounts/managesessions/action | Start sessions |
 > | Microsoft.MixedReality/RemoteRenderingAccounts/convert/read | Get asset conversion properties |

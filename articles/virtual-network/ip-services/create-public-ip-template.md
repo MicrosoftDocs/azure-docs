@@ -8,8 +8,7 @@ ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
-ms.date: 08/24/2023
-ms.custom: mode-other
+ms.date: 01/08/2025
 ---
 
 # Quickstart: Create a public IP address using a Resource Manager template
@@ -151,7 +150,7 @@ Template section to add:
 If it's acceptable for the IP address to change over time, **publicIPAllocationMethod** IP assignment can be selected by changing the AllocationMethod to **Dynamic**. 
 
 >[!NOTE]
-> A basic IPv6 address must always be 'Dynamic'.
+> A basic IPv6 address must always be `Dynamic`.
 
 ## Routing preference and tier
 

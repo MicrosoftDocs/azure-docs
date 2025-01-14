@@ -5,7 +5,7 @@ author: timlt
 ms.author: timlt
 ms.service: azure-iot
 ms.topic: concept-article
-ms.date: 04/09/2024
+ms.date: 1/10/2025
 
 #Customer intent: As a device builder, I want to understand the options for device development using Azure IoT. 
 ---

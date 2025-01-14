@@ -4,7 +4,7 @@ description: Learn about architectural recommendations for disaster recovery whi
 services: virtual-wan
 author: rambk
 ms.service: azure-virtual-wan
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/10/2024
 ms.author: rambala
 ---

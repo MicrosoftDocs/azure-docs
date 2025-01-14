@@ -8,7 +8,7 @@ ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
-ms.date: 08/24/2023
+ms.date: 01/09/2025
 ms.custom: mode-ui
 ---
 
@@ -38,17 +38,17 @@ In this section, you create a public IP prefix using the Azure portal. Use the f
 
 3. Select **+ Create**.
 
-4. In **Create public IP prefix**, enter, or select the following information in the **Basics** tab:
+4. In **Create a public IP prefix**, enter or select the following information in the **Basics** tab:
 
 # [**Default**](#tab/create-default)
 
 | Setting | Value |
 |---|---|
 | **Project details** |  |
-| Resource group | Select **Create new** and enter **test-rg**. </br> Select **OK**. |
+| Resource group | Select **Create new** and enter **test-rg**</br> Select **OK**. |
 | **Instance details** |  |
 | Name | Enter **public-ip-prefix**. |
-| Region | Select **East US 2**. |
+| Region | Select **West US 2**. |
 | IP version | Select **IPv4**. |
 | Prefix ownership | Select **Microsoft owned**. |
 | Prefix size | Select your prefix size. |
@@ -81,10 +81,10 @@ By default, the routing preference for a public IP address is set to the Microso
 | Setting | Value |
 |---|---|
 | **Project details** |  |
-| Resource group | Select **Create new** and enter **test-rg**. </br> Select **OK**. |
+| Resource group | Select **Create new** and enter **test-rg**</br> Select **OK**. |
 | **Instance details** |  |
 | Name | Enter **public-ip-prefix**. |
-| Region | Select **East US 2**. |
+| Region | Select **West US 2**. |
 | IP version | Select **IPv4**. |
 | Prefix ownership | Select **Microsoft owned**. |
 | Prefix size | Select your prefix size. |
@@ -104,10 +104,10 @@ Public IP prefixes are associated with a single region. The **Global** tier span
 | Setting | Value |
 |---|---|
 | **Project details** |  |
-| Resource group | Select **Create new** and enter **test-rg**. </br> Select **OK**. |
+| Resource group | Select **Create new** and enter **test-rg**</br> Select **OK**. |
 | **Instance details** |  |
 | Name | Enter **public-ip-prefix**. |
-| Region | Select **East US 2**. |
+| Region | Select **West US 2**. |
 | IP version | Select **IPv4**. |
 | Prefix ownership | Select **Microsoft owned**. |
 | Prefix size | Select your prefix size. |
@@ -131,15 +131,15 @@ In this section, you create a public IP prefix using the Azure portal. Use the f
 
 3. Select **+ Create**.
 
-4. In **Create public IP prefix**, enter, or select the following information in the **Basics** tab:
+4. In **Create a public IP prefix**, enter, or select the following information in the **Basics** tab:
 
     | Setting | Value |
     |---|---|
     | **Project details** |  |
-    | Resource group | Select **Create new** and enter **test-rg**. </br> Select **OK**. |
+    | Resource group | Select **Create new** and enter **test-rg**</br> Select **OK**. |
     | **Instance details** |  |
     | Name | Enter **public-ip-prefix**. |
-    | Region | Select **East US 2**. |
+    | Region | Select **West US 2**. |
     | IP version | Select **IPv6**. |
     | Prefix size | Select your prefix size. |
     | Availability zone | Leave the default of **Zone-redundant**. |
