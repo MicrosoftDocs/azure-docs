@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 
 In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following PowerShell command:
 
-```azurecli-interactive
+```azurepowershell
 Remove-AzResourceGroup -Name myResourceGroup
 ```
 
