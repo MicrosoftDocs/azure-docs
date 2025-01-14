@@ -99,7 +99,7 @@ Container Apps supports apex domains and subdomains. Each domain type requires a
 | Apex domain | A record | HTTP | An apex domain is a domain at the root level of your domain. For example, if your DNS zone is `contoso.com`, then `contoso.com` is the apex domain. |
 | Subdomain | CNAME | CNAME | A subdomain is a domain that is part of another domain. For example, if your DNS zone is `contoso.com`, then `www.contoso.com` is an example of a subdomain that can be configured in the zone. |
 
-1. Log in to Azure with the Azure CLI. 
+1. Log in to Azure with the Azure CLI.
 
     ```azurecli
     az login
@@ -194,10 +194,10 @@ Container Apps supports apex domains and subdomains. Each domain type requires a
         |--|--|--|
         | CNAME | The subdomain (for example, `www`) | The generated domain of your container app. |
         | TXT | `asuid.` followed by the subdomain (for example, `asuid.www`) | The domain verification code. |
-    
+
     # [Private endpoint](#tab/private-endpoint)
 
-    When using a private endpoint for your incoming traffic, you need to [create a private DNS zone](how-to-use-private-endpoint.md#configure-the-private-dns-zone).    
+    When using a private endpoint for your incoming traffic, you need to [create a private DNS zone](how-to-use-private-endpoint.md#configure-the-private-dns-zone).
 
     - If you selected *A record*, create the following DNS records:
 
@@ -236,6 +236,7 @@ Container Apps supports apex domains and subdomains. Each domain type requires a
     ```
 
     - If you're configuring an *A record*, replace `<VALIDATION_METHOD>` with `HTTP`.
+
     - If you're configuring a *CNAME*, replace `<VALIDATION_METHOD>` with `CNAME`.
 
     It might take several minutes to issue the certificate and add the domain to your container app.
