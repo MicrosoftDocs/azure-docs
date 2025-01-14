@@ -232,3 +232,4 @@ In this document, you learned how to find and deploy built-in solutions and stan
 Many solutions include data connectors that you need to configure so that you can start ingesting your data into Microsoft Sentinel. Each data connector has its own set of requirements that are detailed on the data connector page in Microsoft Sentinel. 
 
 For more information, see [Connect your data source](data-connectors-reference.md).
+

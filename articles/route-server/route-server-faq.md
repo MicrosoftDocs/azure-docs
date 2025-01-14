@@ -170,6 +170,12 @@ Azure Route Server has the following limits (per deployment).
 
 For information on troubleshooting routing problems in a virtual machine, see [Diagnose an Azure virtual machine routing problem](../virtual-network/diagnose-network-routing-problem.md).
 
+### Why am I seeing an error about invalid scope and authorization to perform operations on Route Server resources?
+
+If you see an error in the below format, then please make sure you have the following permissions configured: [Route Server Roles and Permissions](roles-permissions.md).
+
+Error message format: "The client with object id {} does not have authorization to perform action {} over scope {} or the scope is invalid. For details on the required permissions, please visit {}. If access was recently granted, please refresh your credentials."
+
 ## Next steps
 
 Learn how to [configure Azure Route Server](quickstart-configure-route-server-powershell.md).

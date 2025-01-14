@@ -209,6 +209,7 @@ The following clients have compatible algorithm support with SFTP for Azure Blob
 - WinSCP 5.10+
 - Workday
 - XFB.Gateway
+- Apache NiFi
 
 <sup>1</sup>    Must set `AllowPKCS12KeystoreAutoOpen` option to `no`.
 

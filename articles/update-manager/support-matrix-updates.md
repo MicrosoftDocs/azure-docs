@@ -4,7 +4,7 @@ description: This article provides a summary of support for updates, one time up
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 01/4/2025
+ms.date: 01/06/2025
 ms.topic: overview
 zone_pivot_groups: support-matrix-updates
 ---
@@ -47,7 +47,8 @@ Following is the list of supported images and no other marketplace images releas
 || cis-windows-server                    | cis-windows-server2016-l*   ||
 ||| cis-windows-server2019-l*  ||
 ||| cis-windows-server2022-l* ||
-|| cis-windows-server2019-stig-gen1|cis-windows-server-l*-azure-observability |                                          |
+|||cis-windows-server2019-stig-gen1|
+||||cis-windows-server-l*-azure-observability |
 |                                  | cis-win-2016-stig | cis-win-2016-stig  |    |
 |                                  | cis-win-2019-stig | cis-win-2019-stig  |    |
 | cloud-infrastructure-services    | hpc2019-windows-server-2019 | hpc2019-windows-server-2019 | |
@@ -106,49 +107,37 @@ Following is the list of supported images and no other marketplace images releas
 | almalinux | almalinux-x86_64  | 8_7-gen2 | |
 | | | 8-gen* | |
 | | | 9-gen* | |
-| almalinux-hpc | | 8_6-hpc | |
+| |almalinux-hpc | 8_6-hpc | |
 | | | 8_6-hpc-gen2 | |
 | | | 8-hpc-gen* | |
-| | | 8_5-hpc* | |
+| | | 8_5-hpc* |  |
 | | | 8_7-hpc-gen* ||
-| almalinux | | 8-gen* | |
+| |almalinux | 8-gen* | |
 | | | 9-gen*| |
 | aviatrix-systems | aviatrix-bundle-payg | aviatrix-enterprise-bundle-byol | |
-| aviatrix-copilot | avx-cplt-byol-01 | | |
-| | avx-cplt-byol-02 | | |
-| aviatrix-companion-gateway-v9 | aviatrix-companion-gateway-v9 | | |
-| aviatrix-companion-gateway-v10 | aviatrix-companion-gateway-v10 | | |
-|| aviatrix-companion-gateway-v10u |||
-| aviatrix-companion-gateway-v12| aviatrix-companion-gateway-v12 | | |
-| aviatrix-companion-gateway-v13 | aviatrix-companion-gateway-v13 | | |
-| | aviatrix-companion-gateway-v13u |||
-| aviatrix-companion-gateway-v14 | aviatrix-companion-gateway-v14 | | |
-| | aviatrix-companion-gateway-v14u | | |
-| aviatrix-companion-gateway-v16 | aviatrix-companion-gateway-v16 | | |
-| openlogic | centos-hpc | * | |
-| | centos-lvm | 7-lvm | |
-| | | 7-lvm-gen2| |
-| | | 8-lvm | |
+| |aviatrix-copilot | avx-cplt-byol-01 | | 
+| || avx-cplt-byol-02 | | 
+| |aviatrix-companion-gateway-v9 | aviatrix-companion-gateway-v9 | | 
+| |aviatrix-companion-gateway-v10 | aviatrix-companion-gateway-v10 </br> aviatrix-companion-gateway-v10u ||
+| |aviatrix-companion-gateway-v12| aviatrix-companion-gateway-v12 | | |
+| |aviatrix-companion-gateway-v13 | aviatrix-companion-gateway-v13 </br> aviatrix-companion-gateway-v13u ||
+| |aviatrix-companion-gateway-v14 | aviatrix-companion-gateway-v14 </br> aviatrix-companion-gateway-v14u||
+| |aviatrix-companion-gateway-v16 | aviatrix-companion-gateway-v16 | | 
+| openlogic | centos-hpc | |* | 
+| | centos-lvm | 7-lvm </br> 7-lvm-gen2 </br> 8-lvm | |
 | | centos-ci | 7-ci | |
-| centos | | 7*| |
-| | | 8* | |
-| center-for-internet-security-inc | cis-rhel | cis-redhat7-l1-gen1 | |
-| | | cis-redhat8-l*-gen1 | |
-| | | cis-redhat9-l1-gen* ||
+| | centos | 7* |8* |
+| center-for-internet-security-inc | cis-rhel | cis-redhat7-l1-gen1 </br> cis-redhat8-l*-gen1 </br> cis-redhat9-l1-gen* ||
 | | cis-rhel-7-l2 | cis-rhel7-l2 ||
 || cis-rhel-7-v2-2-0-l1| cis-rhel7-l1||
 || cis-rhel-7-stig| cis-rhel-7-stig||
 || cis-rhel-8-stig| cis-rhel-8-stig||
-|| cis-oracle| cis-oraclelinux8-l1-gen1||
-||| cis-oraclelinux9-l1-gen*||
-||| cis-oracle-linux-8-l1| cis-oracle8-l1|
-|| cis-ubuntu| cis-ubuntu1804-l1||
-||| cis-ubuntulinux2004-l1-gen1||
-||| cis-ubuntulinux2204-l1-gen*||
-||| cis-ubuntu-linux-1804-l1| cis-ubuntu1804-l1|
-||| cis-ubuntu-linux-2004-l1| cis-ubuntu2004-l1|
-||| cis-ubuntu-linux-2204-l1| cis-ubuntu-linux-2204-l1 |
-||| cis-ubuntu-linux-2204-l1-gen2||
+|| cis-oracle| cis-oraclelinux8-l1-gen1 </br> cis-oraclelinux9-l1-gen*||
+|| cis-oracle-linux-8-l1 | cis-oracle8-l1||
+|| cis-ubuntu| cis-ubuntu1804-l1 </br> cis-ubuntulinux2004-l1-gen1 </br> cis-ubuntulinux2204-l1-gen*||
+|| cis-ubuntu-linux-1804-l1| cis-ubuntu1804-l1||
+|| cis-ubuntu-linux-2004-l1| cis-ubuntu2004-l1||
+|| cis-ubuntu-linux-2204-l1| cis-ubuntu-linux-2204-l1 </br> cis-ubuntu-linux-2204-l1-gen2||
 || cis-rhel-8-l*| cis-rhel8-l*||
 || cis-rhel9-l1| cis-rhel9-l1*||
 | canonical| *| *||
@@ -198,61 +187,27 @@ Following is the list of supported images and no other marketplace images releas
 | ntegralinc1586961136942| ntg_oracle_8_7| ntg_oracle_8_7||
 || ntg_ubuntu_20_04_lts| ntg_ubuntu_20_04_lts||
 || ntg_cbl_mariner_2| ntg_cbl_mariner_2_gen2||
-| oracle| oracle-linux| 8||
-||| 8-ci||
-||| 81||
-||| 81-ci||
-||| 81-gen2||
-|| ol82|||
-|| ol8_2-gen2|||
-|| ol82-gen2|||
-|| ol83-lvm|||
-|| ol83-lvm-gen2|||
-|| ol84-lvm|||
-|| ol84-lvm-gen2|||
+| oracle| oracle-linux| 8 </br> 8-ci </br> 81 </br> 81-ci </br> 81-gen2 </br> ol82 </br> ol8_2-gen2 </br> ol82-gen2 </br> ol83-lvm </br> ol83-lvm-gen2 </br> ol84-lvm </br> ol84-lvm-gen2||
 | procomputers| almalinux-8-7| almalinux-8-7||
 || rhel-8-2| rhel-8-2||
 || rhel-8-8-gen2| rhel-8-8-gen2||
 || rhel-8-9-gen2| rhel-8-9-gen2||
-| redhat| rhel| 7*||
-||| 8*||
-||| 9*||
-|| rhel-raw| 7*||
-||| 8*||
-||| 9*||
-|| rhel-byos| rhel-raw76||
-||| rhel-lvm7*||
-||| rhel-lvm8*||
-||| rhel-lvm92||
-||| rhel-lvm-92-gen2||
-|| rhel-ha| 8*||
-||| 81_gen2||
-||| 9_2||
-||| 9_2-gen2||
-|| rhel-sap-apps| 7*||
-||| 8*||
-||| 9_0||
-||| 90sapapps-gen2||
-||| 9_2||
-||| 92sapapps-gen2||
-|| rhel-sap-ha| 7*||
-||| 8*||
-||| 9_2||
-||| 92sapha-gen2||
+| redhat| rhel| 7* </br> 8* </br> 9*||
+|| rhel-raw| 7* </br> 8* </br> 9*||
+|| rhel-byos| rhel-raw76 </br> rhel-lvm7* </br> rhel-lvm8* </br> rhel-lvm92 </br> rhel-lvm-92-gen2||
+|| rhel-ha| 8* </br> 9_2 </br> 9_2-gen2 |81_gen2|
+|| rhel-sap-apps| 7* </br> 8* </br> 9_0 </br> 90sapapps-gen2 </br> 9_2 </br> 92sapapps-gen2||
+|| rhel-sap-ha| 7* </br> 8* </br> 9_2 </br> 92sapha-gen2||
 || rhel-sap| 7*||
-||| rhel-sap-*| 9_0||
+|| rhel-sap-*| 9_0||
 | microsoftsqlserver| *| *||
-|| sql2019-sles*| *||
-|| sql2019-rhel7| *||
-|| sql2017-rhel7| *||
+|| sql2019-sles*|| *|
+|| sql2019-rhel7|| *|
+|| sql2017-rhel7|| *|
 | oracle| oracle-database| oracle_db_21||
-||| oracle-database-19-3| oracle-database-19-0904 |
-||| oracle-database-*| 18.*|
-|| oracle-linux| 7*||
-||| ol7*||
-||| ol8*||
-||| ol9*||
-||| ol9-lvm*||
+|| oracle-database-19-3| oracle-database-19-0904 |
+|| oracle-database-*| 18.*||
+|| oracle-linux| 7* </br> ol7* </br> ol8* </br> ol9* </br> ol9-lvm*||
 | talend| talend_re_image| tlnd_re||
 | tenable| tenablecorewas| tenablecoreol8wasbyol||
 || tenablecorenessus| tenablecorenessusbyol||
@@ -260,20 +215,15 @@ Following is the list of supported images and no other marketplace images releas
 | zscaler| zscaler-private-access| zpa-con-azure||
 | cloudrichness| rockey_linux_image| rockylinux86||
 | openvpn| openvpnas| access_server_byol||
-| suse| sles| 12-sp4-gen2||
-||| 12-sp3||
-||| sles-12-sp5| gen1|
-|||| gen2                 |
+| suse| sles| 12-sp4-gen2 </br> 12-sp3||
+|| sles-12-sp5| gen1 </br> gen2 ||
 || sles-12-sp5-*| gen*||
 || sles-15-sp1-basic| gen1||
 || sles-15-sp1-sapcal| gen*||
-|| sles-15-sp2-basic| gen1||
-||| gen2||
-|| sles-15-sp2| gen1||
-||| gen2||
+|| sles-15-sp2-basic| gen1 </br> gen2||
+|| sles-15-sp2| gen1 </br> gen2||
 || sles-15-sp2-hpc| gen2||
-|| sles-15-sp3-basic| gen1||
-||| gen2||
+|| sles-15-sp3-basic| gen1 </br> gen2||
 || sles-15-sp3-sapcal| gen*||
 || sles-15-sp4| gen*||
 || sles-15-sp4-basic| gen*||
@@ -287,17 +237,9 @@ Following is the list of supported images and no other marketplace images releas
 || sles-15-sp5-hardened-byos| gen*|
 || sles-15-sp5-sapcal| gen*||
 || sles-15-sp5 | gen*||
-|| sles-byos| 12-sp4||
-||| 12-sp4-gen2||
-|| sles-sap| 12-sp3||
-||| 12-sp4||
-||| 12-sp4-gen2||
-||| 15||
-||| gen2-15||
-|| sles-sap-byos| 12-sp4||
-||| 12-sp4-gen2||
-||| gen2-12-sp4||
-||| 15||
+|| sles-byos| 12-sp4 </br> 12-sp4-gen2||
+|| sles-sap| 12-sp3 </br> 12-sp4 </br> 12-sp4-gen2 </br> 15 </br> gen2-15||
+|| sles-sap-byos| 12-sp4 </br> 12-sp4-gen2 </br> gen2-12-sp4 </br> 15||
 || sles-sap-12-sp5*| gen*||
 || sles-sap-15-*| gen*||
 || sles-sapcal| 12-sp3||
@@ -309,6 +251,7 @@ Following is the list of supported images and no other marketplace images releas
 || sle-hpc-15-sp5 | gen*||
 | rapid7| nexpose-scan-engine| nexpose-scan-engine||
 || rapid7-vm-console| rapid7-vm-console||
+
 ### Custom images
 
 Custom images (including images uploaded to [Azure Compute gallery](/azure/virtual-machines/linux/tutorial-custom-images#overview)) which are created from below listed operating systems are supported for all Azure Update Manager operations except automatic VM guest patching. For instructions on how to use Azure Update Manager to manage updates on VMs created from custom images, see [Manage updates for custom images](manage-updates-customized-images.md). 
@@ -337,7 +280,7 @@ Custom images (including images uploaded to [Azure Compute gallery](/azure/virtu
 
 ::: zone pivot="azure-arc-enabled-servers"
 
-### Azure Arc-enabled servers
+## Azure Arc-enabled servers
 
 The following table lists the operating systems supported on [Azure Arc-enabled servers](/azure/azure-arc/servers/overview).
 
@@ -359,7 +302,7 @@ The following table lists the operating systems supported on [Azure Arc-enabled 
 
 ::: zone pivot="win-iot-arc-servers"
 
-### Windows IoT Enterprise on Arc enabled servers (preview)
+## Windows IoT Enterprise on Arc enabled servers (preview)
 
 | Windows Enterprise systems |
 | --- |
