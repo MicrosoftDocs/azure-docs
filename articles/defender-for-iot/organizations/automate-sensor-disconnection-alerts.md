@@ -31,12 +31,19 @@ Before you start, make sure you have:
 
 1. In Microsoft Sentinel, select **Automation**.
 1. In the **Automation** page, select **Create > Playbook with alert trigger**.
+
+    :::image type="content" source="media/automate-sensor-disconnection-alerts/sentinel-create-playbook.png" alt-text="Screenshot of creating a playbook for Defender for IoT sensor disconnection." lightbox="media/automate-sensor-disconnection-alerts/sentinel-create-playbook.png":::
+
 1. In the **Create playbook** page **Basics** tab, select the subscription and resource group running Microsoft Sentinel, and give the playbook a name.
 1. Select **Next: Connections**.
 1. In the **Connections** tab, select **Microsoft Sentinel > Connect with managed identity**.
 1. Review the playbook information and select **Create playbook**.
+
+    :::image type="content" source="media/automate-sensor-disconnection-alerts/sentinel-save-playbook.png" alt-text="Screenshot of reviewing a playbook for Defender for IoT sensor disconnection.":::
     
     When the playbook is ready, Microsoft Sentinel displays a **Deployment successful** message and navigates to the **Logic app designer** page.
+
+    :::image type="content" source="media/automate-sensor-disconnection-alerts/sentinel-playbook-successful-message.png" alt-text="Screenshot of a "Deployment successful" message for a playbook that sends Defender for IoT sensor disconnection alerts.":::
 
 ## Paste the playbook code and modify fields
 
@@ -444,7 +451,9 @@ Before you start, make sure you have:
         ```
 
 1. Select **Save**.
-1. Go back to the **Logic app designer** to view the workflow that the playbook follows.
+1. Go back to the **Logic app designer** to view the logic that the playbook follows.
+
+    :::image type="content" source="media/automate-sensor-disconnection-alerts/playbook-logic.png" alt-text="Screenshot of a of the playbook logic for Defender for IoT sensor disconnection alerts." lightbox="media/automate-sensor-disconnection-alerts/playbook-logic.png":::    
 
 ## Set up managed identity for your subscription
 
@@ -460,7 +469,12 @@ To give the playbook permission to run Keyword Query Language (KQL) queries and 
     1. Under **Subscription**, select the subscription running Microsoft Sentinel.
     1. Under **Managed identity**, select your playbook's name.
     1. Under **Select**, select the name of the automation rule you created and select **Select**.
+
+    :::image type="content" source="media/automate-sensor-disconnection-alerts/playbook-permissions-managed-identity-members.png" alt-text="Screenshot of a of setting up members for a managed identity while creating a Defender for IoT sensor disconnection alerts playbook." lightbox="media/automate-sensor-disconnection-alerts/playbook-permissions-managed-identity-members.png":::
+
 1. In the editor, select **HTTP2** and verify that the **Authentication Type** is set to **Managed Identity**. 
+
+    :::image type="content" source="media/automate-sensor-disconnection-alerts/playbook-permissions-managed-identity.png" alt-text="Screenshot of sending up a managed identity for the Defender for IoT sensor disconnection alerts playbook." lightbox="media/automate-sensor-disconnection-alerts/playbook-permissions-managed-identity.png":::
 
 ## Verify the sensor status 
 
