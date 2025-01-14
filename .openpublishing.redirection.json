@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "articles/defender-for-iot/organizations/appliance-catalog/virtual-management-hyper-v.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/appliance-catalog/virtual-management-hyper-v",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/appliance-catalog/virtual-management-vmware.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/appliance-catalog/virtual-management-vmware",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/defender-for-iot/organizations/api/management-alert-apis.md",
       "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/api/management-alert-apis",
       "redirect_document_id": false
@@ -4728,6 +4738,36 @@
     {
       "source_path_from_root": "/articles/sentinel/data-connectors/threat-intelligence-upload-indicators-api.md",
       "redirect_url": "/azure/sentinel/data-connectors/threat-intelligence-upload-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/how-to-add-components.md",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/how-to-manage-components.md",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/index.yml",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/overview.md",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/quickstart-deploy-starter-app.md",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/quickstart-deploy-your-app.md",
+      "redirect_url": "/azure/container-apps/",
       "redirect_document_id": false
     },
     {
