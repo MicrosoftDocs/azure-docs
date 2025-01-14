@@ -171,6 +171,8 @@ There are predefined memory profiles with different memory usage characteristics
 
 ### Tiny
 
+Use this profile when you need to handle a small number of connections and messages and have limited memory resources.
+
 When using this profile:
 
 - Maximum memory usage of each frontend replica is approximately 99 MiB but the actual maximum memory usage might be higher.
@@ -182,6 +184,8 @@ Recommendations when using this profile:
 - Clients shouldn't send large packets. You should only send packets smaller than 4 MiB.
 
 ### Low
+
+Use this profile when you need to handle a low number of connections and messages.
 
 When using this profile:
 
