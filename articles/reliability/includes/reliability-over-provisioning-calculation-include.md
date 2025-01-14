@@ -25,4 +25,4 @@ Follow these steps to find out the total number of instances you should provisio
 | Peak workload instance count | Factor of  [(zones/(zones-1)]|Formula| Instances to provision (Rounded) |
 |-------|---------|---------|--------|
 |3|3/2 or 1.5|(3 x 1.5 = 4.5)|5 instances|
-|4|3/2 or 1.5|(4 x 1.5 = 6.5)|6 instances|
+|4|3/2 or 1.5|(4 x 1.5 = 6)|6 instances|
