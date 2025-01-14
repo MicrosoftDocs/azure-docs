@@ -23,8 +23,7 @@ Hibernation can be either enabled on VM creation or on an existing VM. To enable
 
 [!NOTE]
 Please note that Hibernation support is limited to certain VM sizes and OS versions. Make sure you have a supported configuration before using hibernation.
-To learn more about Hibernation in general, its supported configurations in Azure, and other limitations, please visit 
-- [Hibernation for Azure Virtual Machines](https://learn.microsoft.com/azure/virtual-machines/hibernate-resume) 
+To learn more about Hibernation in general, its supported configurations in Azure, and other limitations, please visit [Hibernation for Azure Virtual Machines](https://learn.microsoft.com/azure/virtual-machines/hibernate-resume) 
 
 This article explains how to Hibernate VMs in DevTest Labs.
 
@@ -82,6 +81,6 @@ To learn more about how to create Azure virtual machines (VMs) in Azure DevTest 
 1. On the home page for your lab, select the VM from the **My virtual machines** list. 
 
     :::image type="content" source="./media/connect-windows-virtual-machine/select-windows-vm.png" alt-text="Select your Windows VM":::                
-1. On the **Virtual machine** page for your VM, select **Hibernate** on the toolbar. The VM should be in a running state for Hibernate to be enabled.
+1. On the **Virtual machine** page for your VM, select **Hibernate** on the toolbar. The VM sgit statushould be in a running state for Hibernate to be enabled.
 
     :::image type="content" source="./media/devtest-lab-hibernate/devtest-lab-hibernate-vm.png" alt-text="Select connect on the toolbar":::
