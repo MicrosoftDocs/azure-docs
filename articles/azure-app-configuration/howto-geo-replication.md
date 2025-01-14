@@ -98,7 +98,7 @@ Automatic replica discovery is enabled by default, but you can refer to the foll
 
 Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application.
 
-``` csharp
+```csharp
 configurationBuilder.AddAzureAppConfiguration(options =>
 {
     // Disable automatic replica discovery
@@ -118,7 +118,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 
 Specify the `replicaDiscoveryEnabled` property in the `bootstrap.properties` file of your application.
 
-``` properties
+```properties
 spring.cloud.azure.appconfiguration.stores[0].replica-discovery-enabled=false
 ```
 
@@ -132,7 +132,7 @@ spring.cloud.azure.appconfiguration.stores[0].replica-discovery-enabled=false
 
 Update the `AzureAppConfigurationProvider` resource of your Azure App Configuration Kubernetes Provider. Add a `replicaDiscoveryEnabled` property and set it to `false`.
 
-``` yaml
+```yaml
 apiVersion: azconfig.io/v1
 kind: AzureAppConfigurationProvider
 metadata:
@@ -152,7 +152,7 @@ spec:
 Specify the `replica_discovery_enabled` property when loading the configuration store and set it to `False`.
 
 
-``` python
+```python
 config = load(endpoint=endpoint, credential=credential, replica_discovery_enabled=False)
 ```
 
@@ -164,7 +164,7 @@ config = load(endpoint=endpoint, credential=credential, replica_discovery_enable
 Specify the `AzureAppConfigurationOptions.replicaDiscoveryEnabled` property when loading the configuration store and set it to `false`.
 
 
-``` javascript
+```javascript
 const config = load(endpoint, credential, {
     replicaDiscoveryEnabled: false
 });
@@ -190,7 +190,7 @@ Edit the call to the `AddAzureAppConfiguration` method, which is often found in 
 
 **Connect with Microsoft Entra ID**
 
-``` csharp
+```csharp
 configurationBuilder.AddAzureAppConfiguration(options =>
 {
     // Provide an ordered list of replica endpoints
@@ -207,7 +207,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 
 **Connect with Connection String**
 
-``` csharp
+```csharp
 configurationBuilder.AddAzureAppConfiguration(options =>
 {
     // Provide an ordered list of replica connection strings
@@ -307,7 +307,7 @@ This feature isn't yet supported in the Azure App Configuration Java Spring Prov
 
 Update the `AzureAppConfigurationProvider` resource of your Azure App Configuration Kubernetes Provider. Add a `loadBalancingEnabled` property and set it to `true`.
 
-``` yaml
+```yaml
 apiVersion: azconfig.io/v1
 kind: AzureAppConfigurationProvider
 metadata:
@@ -330,7 +330,7 @@ This feature isn't yet supported in the Azure App Configuration Python Provider.
 
 Set `AzureAppConfigurationOptions.loadBalancingEnabled` to `true` while loading configuration from App Configuration.
 
-``` javascript
+```javascript
 const config = load(endpoint, credential, {
     loadBalancingEnabled: true
 });
