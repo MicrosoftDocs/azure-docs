@@ -209,7 +209,7 @@ You can now use the Native UI Library to:
 
    Enterprises providing customer support through calling can now use customized buttons to streamline the user experience. For example, instead of a generic button layout, they can configure buttons like **Hold**, **Transfer to Supervisor**, or **Open Ticket** to match their specific operational workflows. Custom workflows improve agent efficiency and enhance customer satisfaction.
 
-:::image type="content" source="media/whats-new-images/native-ui-custom-workflows.png" alt-text="Side-by-side screen capture of mobile phone screens comparing unbranded to branded experiences." lightbox="media/whats-new-images/native-ui-custom-workflows.png":::
+:::image type="content" source="media/whats-new-images/native-ui-custom-workflows.png" alt-text="Side-by-side screen capture of mobile phone screens comparing unbranded to branded experiences.":::
 
 #### Captions components
 
