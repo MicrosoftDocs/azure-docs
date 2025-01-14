@@ -35,6 +35,7 @@ You need at least [user](devtest-lab-add-devtest-user.md#devtest-labs-user) acce
    - **Password**: If you don't choose to use a secret, enter a VM password between 8 and 123 characters long.
    - **Save as default password**: Select this checkbox to save the password in the Key Vault associated with the lab.
    - **Virtual machine size**: Keep the default value for the base, or select **Change Size** to select different sizes.
+   - **Hibernation**: Select **Enabled** to enable hibernation for this virtual machine.
    - **OS disk type**: Keep the default value for the base, or select a different option from the dropdown list.
    - **Artifacts**: This field shows the number of artifacts already configured for this VM base. Optionally, select **Add or Remove Artifacts** to select and configure artifacts to add to the VM.
 
