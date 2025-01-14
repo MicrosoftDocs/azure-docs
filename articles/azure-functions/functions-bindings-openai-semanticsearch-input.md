@@ -40,14 +40,12 @@ This example shows how to perform a semantic search on a file.
 ::: zone pivot="programming-language-javascript,programming-language-typescript" 
 This example shows how to perform a semantic search on a file.
 ::: zone-end  
-::: zone pivot="programming-language-typescript"
+::: zone pivot="programming-language-javascript"
 
 :::code language="javascript" source="~/functions-openai-extension/samples/embeddings/javascript/src/app.js" range="39-57":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
-
-This example shows how to perform a semantic search on a file.
 
 :::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="42-60":::
 
