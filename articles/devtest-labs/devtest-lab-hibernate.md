@@ -82,6 +82,6 @@ To learn more about how to create Azure virtual machines (VMs) in Azure DevTest 
 1. On the home page for your lab, select the VM from the **My virtual machines** list. 
 
     :::image type="content" source="./media/connect-windows-virtual-machine/select-windows-vm.png" alt-text="Select your Windows VM":::                
-1. On the **Virtual machine** page for your VM, select **Hibernate** on the toolbar. The VM hould be in a running state for Hibernate to be enabled.
+1. On the **Virtual machine** page for your VM, select **Hibernate** on the toolbar. The VM should be in a running state for Hibernate to be enabled.
 
     :::image type="content" source="./media/devtest-lab-hibernate/devtest-lab-hibernate-vm.png" alt-text="Select connect on the toolbar":::
