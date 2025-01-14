@@ -197,8 +197,6 @@ Recommendations when using this profile:
 - Only one or two frontends should be used.
 - Clients shouldn't send large packets. You should only send packets smaller than 10 MiB.
 
-If the memory profile is set to *Low* and each message coming in is 10 MB, here's how to figure out the throughput limit in messages/s.
-
 ### Medium
 
 Use this profile when you need to handle a moderate number of connections and messages.
