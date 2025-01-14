@@ -14,15 +14,15 @@ zone_pivot_groups: iot-hub-howto-c2d-1
 
 # How to schedule and broadcast jobs
 
-This article shows you how to create back-end app code to schedule device direct method and device twin desired property updates.
+This article shows you how to create back-end app code to schedule and broadcast jobs.
 
-Use Azure IoT Hub to schedule and track jobs that update millions of devices. Use jobs to:
+Use Azure IoT Hub to schedule and track jobs that update up to millions of devices for the following:
 
 * Update desired properties
 * Update tags
 * Invoke direct methods
 
-A job wraps one of these actions and tracks the execution against a set of devices that is defined by a device twin query. For example, a back-end app can use a job to invoke a direct method on 10,000 devices that reboots the devices. You specify the set of devices with a device twin query and schedule the job to run at a future time. The job tracks progress as each of the devices receives and executes the reboot direct method.
+A job wraps one of these actions and tracks the execution against a set of devices that is defined by a device twin query. For example, a back-end app can use a job to invoke a direct method on 10,000 devices that reboots the devices. You specify the set of devices with a device twin query and schedule the job to run at a future time. The job monitors progress as each of the devices receives and executes the reboot direct method.
 
 To learn more about each of these capabilities, see:
 

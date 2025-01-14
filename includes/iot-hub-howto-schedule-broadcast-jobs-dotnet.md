@@ -15,9 +15,9 @@ ms.custom: [amqp, mqtt, "Role: Cloud Development", "Role: IoT Device", devx-trac
 
 ## Overview
 
-This article describes how to use the [Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/readme.md) to create backend service application code to schedule job to invoke a direct method or perform a device twin desired property update on one or more devices.
+This article describes how to use the [Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/readme.md) to create backend service application code to a schedule job to invoke a direct method or perform a device twin desired property update on one or more devices.
 
-### Add service NuGet Package
+### Add service NuGet package
 
 Backend service applications require the **Microsoft.Azure.Devices** NuGet package.
 
@@ -62,14 +62,15 @@ jobClient = JobClient.CreateFromConnectionString(connString);
 
 ### Create a direct method update job
 
-Use [ScheduleDeviceMethodAsync](/dotnet/api/microsoft.azure.devices.jobclient.scheduledevicemethodasync) to create a new direct method to run a direct method on one or multiple devices.
+Use [ScheduleDeviceMethodAsync](/dotnet/api/microsoft.azure.devices.jobclient.scheduledevicemethodasync) to create a job to run a direct method on one or multiple devices.
 
-This example schedules a job for a direct method method named "LockDoor".
+This example schedules a job for a direct method method named "LockDoor" on one device named "Device-1". The device(s) included in the scheduled job are contained second parameter as a query condition.
 
 ```csharp
-string methodJobId = Guid.NewGuid().ToString();
-static string deviceId = "Device-1";
+string methodJobId = Guid.NewGuid().ToString();  // a unique job ID
+static string deviceId = "Device-1";             // In this example, there is only one device affected.
 
+// The CloudToDeviceMethod record specifies the direct method name and device connection timeout.
 CloudToDeviceMethod directMethod = 
 new CloudToDeviceMethod("LockDoor", TimeSpan.FromSeconds(5), 
 TimeSpan.FromSeconds(5));

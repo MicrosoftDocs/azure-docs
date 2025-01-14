@@ -129,6 +129,9 @@ Call `scheduleTwinUpdate` to schedule the device twin desired property update jo
 
 ```javascript
 var twinJobId = uuid.v4();
+var queryCondition = "deviceId IN ['myDeviceId']";
+var startTime = new Date();
+var maxExecutionTimeInSeconds =  300;
 
 console.log('scheduling Twin Update job with id: ' + twinJobId);
 jobClient.scheduleTwinUpdate(twinJobId,
