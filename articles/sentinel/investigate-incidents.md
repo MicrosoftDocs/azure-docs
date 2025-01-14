@@ -39,7 +39,7 @@ As you're setting up to investigate an incident, assemble the things you need to
 
 - Select **Tasks** to [see the tasks assigned for this incident](work-with-tasks.md#view-and-follow-incident-tasks), or to [add your own tasks](work-with-tasks.md#manually-add-an-ad-hoc-task-to-an-incident). Tasks can improve process standardization in your SOC. For more information, see [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md).
 
-- Select **Activity log** to see if any actions have already been taken on this incident&mdash;by automation rules, for example&mdash;and any comments that have been made. You can add your own comments here as well. For more information, see [Audit and comment on incidents](incident-navigate-triage.md#audit-and-comment-on-incidents).
+- Select **Activity log** to see if any actions have already been taken on this incident&mdash;by automation rules, for example&mdash;and any comments that have been made. You can add your own comments here as well. For more information, see [Audit incident events and add comments](#audit-incident-events-and-add-comments).
 
 - Select **Logs** at any time to open a full, blank Log analytics query window *inside* the incident page. Compose and run a query, related or not, without leaving the incident. So, whenever you're struck with sudden inspiration to go chasing a thought, don't worry about interrupting your flow--the logs are there for you. For more information, see [Dive deeper into your data in Logs](#dive-deeper-into-your-data-in-logs).
 
@@ -309,7 +309,7 @@ The following table lists limits for supported inputs in comments:
 | **Text** | Comments in Microsoft Sentinel support text inputs in plain text, basic HTML, and Markdown. You can also paste copied text, HTML, and Markdown into the comment window. |
 | **Links** | Links must be in the form of HTML anchor tags, and they must have the parameter `target="_blank"`. For example::<br><br>```html<br><a href="https://www.url.com" target="_blank">link text</a><br>```<br><br>If you have playbooks that create comments in incidents, links in those comments must conform to this template as well. |
 | **Images** | Images can't be uploaded directly to comments. Instead, insert links to images in comments to display images inline. Linked images must already be hosted in a publicly accessible location such as Dropbox, OneDrive, Google Drive and so on. |
-| **Size limit** | **Per comment:** A single comment can contain up to **30,000 characters**.<br><br>**Per incident:** A single incident can contain up to **100 comments**.<br><br>The size limit of a single incident record in the *SecurityIncident* table in Log Analytics is 64 KB. If this limit is exceeded, comments (starting with the earliest) are truncated, which may affect the comments that appear in [advanced search](#search-for-incidents) results. The actual incident records in the incidents database aren't affected. |
+| **Size limit** | **Per comment:** A single comment can contain up to **30,000 characters**.<br><br>**Per incident:** A single incident can contain up to **100 comments**.<br><br>The size limit of a single incident record in the *SecurityIncident* table in Log Analytics is 64 KB. If this limit is exceeded, comments (starting with the earliest) are truncated, which may affect the comments that appear in [advanced search](incident-navigate-triage.md#search-for-incidents) results. The actual incident records in the incidents database aren't affected. |
 
 ## Next step
 
