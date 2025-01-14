@@ -30,9 +30,9 @@ The detailed information added to the **Tasks** field consists of key-value pair
 | --- | ----- |
 | **createdBy** | The identity that created the task:<br>**- email**: email address of identity<br>**- name**: name of the identity<br>**- objectId**: GUID of the identity<br>**- userPrincipalName**: UPN of the identity |
 | **createdTimeUtc** | Time the task was created, in UTC. |
-| **lastCompletedTimeUtc** | Time the task was marked complete, in UTC.
+| **lastCompletedTimeUtc** | Time the task was marked complete, in UTC. |
 | **lastModifiedBy** | The identity that last modified the task:<br>**- email**: email address of identity<br>**- name**: name of the identity<br>**- objectId**: GUID of the identity<br>**- userPrincipalName**: UPN of the identity |
-| **lastModifiedTimeUtc** | Time the task was last modified, in UTC.
+| **lastModifiedTimeUtc** | Time the task was last modified, in UTC. |
 | **status** | Current status of the task: New, Completed, Deleted. |
 | **taskId** | Resource ID of the task. |
 | **title** | Friendly name given to the task by its creator. |
