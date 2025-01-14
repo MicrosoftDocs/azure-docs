@@ -62,7 +62,7 @@ The following table provides an overview of how to switch between replication ty
 <sup>2</sup> If your storage account contains blobs in the archive tier, review the [access tier limitations](#access-tier) before changing the redundancy type to geo- or zone-redundant.<br />
 <sup>3</sup> The type of conversion supported depends on the storage account type. For more information, see the [storage account table](#storage-account-type).<br />
 <sup>4</sup> Conversion to ZRS or GZRS for an LRS account resulting from a failover isn't supported. For more information, see [Failover and failback](#failover-and-failback).<br />
-<sup>5</sup> Converting from LRS to ZRS [isn't supported if the NFSv3 protocol support is enabled for Azure Blob Storage or if the storage account contains Azure Files NFSv4.1 shares](#protocol-support). <br />
+<sup>5</sup> Converting from LRS to ZRS [isn't supported if the NFSv3 protocol support is enabled for Azure Blob Storage or if the storage account contains Azure Files NFSv4.1 shares with public endpoints configured](#protocol-support). <br />
 <sup>6</sup> Even though enabling geo-redundancy appears to occur instantaneously, failover to the secondary region can't be initiated until data synchronization between the two regions is complete.<br />
 
 ## Change the replication setting
@@ -430,7 +430,7 @@ An LRS storage account containing blobs in the archive tier can be switched to G
 You can't convert storage accounts to zone-redundancy (ZRS, GZRS or RA-GZRS) if either of the following cases are true:
 
 - NFSv3 protocol support is enabled for Azure Blob Storage
-- The storage account contains Azure Files NFSv4.1 shares
+- The storage account contains Azure Files NFSv4.1 shares with public endpoints configured
 
 ### Failover and failback
 
