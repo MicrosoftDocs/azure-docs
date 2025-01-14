@@ -264,8 +264,10 @@ Container Apps supports apex domains and subdomains. Each domain type requires a
         --environment $ENVIRONMENT \
         --certificate $CERTIFICATE_LOWERCASE_NAME \
         --validation-method <VALIDATION_METHOD>
+    ```
 
     - If you're configuring an *A record*, replace `<VALIDATION_METHOD>` with `HTTP`.
+
     - If you're configuring a *CNAME*, replace `<VALIDATION_METHOD>` with `CNAME`.
 
     It might take several minutes to issue the certificate and add the domain to your container app.
