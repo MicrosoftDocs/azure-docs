@@ -66,23 +66,30 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-If you use version 2.0 (Preview), the following properties are supported for Greenplum linked service:
+The Greenplum connector now supports version 2.0. Refer to this [section](#upgrade-the-greenplum-connector) to upgrade your Greenplum connector version from version 1.0. For the property details, see the corresponding sections.
+
+- [Version 2.0](#version-20)
+- [Version 1.0](#version-10)
+
+### Version 2.0
+
+The Greenplum linked service supports the following properties when apply version 2.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Greenplum** | Yes |
 | version | The version that you specify. The value is `2.0`. | Yes |
 | host | Specifies the host name - and optionally port - on which database is running.  | Yes |
-| port | The TCP port of the database server. | No |
+| port | The TCP port of the database server. The default value is `5432`.| No |
 | database | The database to connect to. | Yes |
 | username | The username to connect with. Not required if using IntegratedSecurity. |Yes |
-| password| The password to connect with. Not required if using IntegratedSecurity. | Yes |
+| password| The password to connect with. Not required if using IntegratedSecurity. You can also choose to [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | sslMode | Controls whether SSL is used, depending on server support. <br/>- **Disable**: SSL is disabled. If the server requires SSL, the connection will fail. <br/>- **Allow**: Prefer non-SSL connections if the server allows them, but allow SSL connections. <br/>- **Prefer**: Prefer SSL connections if the server allows them, but allow connections without SSL. <br/>- **Require**: Fail the connection if the server doesn't support SSL. <br/>- **Verify-ca**: Fail the connection if the server doesn't support SSL. Also verifies server certificate. <br/>- **Verify-full**: Fail the connection if the server doesn't support SSL. Also verifies server certificate with host's name. <br/> Options: Disable (0) / Allow (1) / Prefer (2) / Require (3) **(Default)** / Verify-ca (4) / Verify-full (5) | Yes |
 | authenticationType | Authentication type for connecting to the database. Only supports **Basic**. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 | ***Additional connection properties:*** |  |  |
-| connectionTimeout | The time to wait (in seconds) while trying to establish a connection before terminating the attempt and generating an error. The default value is 15. | No |
-| commandTimeout | The time to wait (in seconds) while trying to execute a command before terminating the attempt and generating an error. Set to zero for infinity. The default value is 30. | No |
+| connectionTimeout | The time to wait (in seconds) while trying to establish a connection before terminating the attempt and generating an error. The default value is `15`. | No |
+| commandTimeout | The time to wait (in seconds) while trying to execute a command before terminating the attempt and generating an error. Set to zero for infinity. The default value is `30`. | No |
 
 **Example:**
 
@@ -141,7 +148,9 @@ If you use version 2.0 (Preview), the following properties are supported for Gre
 }
 ```
 
-If you use version 1.0, the following properties are supported:
+### Version 1.0 
+
+The Greenplum linked service supports the following properties when apply version 1.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -158,6 +167,31 @@ If you use version 1.0, the following properties are supported:
         "type": "Greenplum",
         "typeProperties": {
             "connectionString": "HOST=<server>;PORT=<port>;DB=<database>;UID=<user name>;PWD=<password>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Example: store password in Azure Key Vault**
+```json
+{
+    "name": "GreenplumLinkedService",
+    "properties": {
+        "type": "Greenplum",
+        "typeProperties": {
+            "connectionString": "HOST=<server>;PORT=<port>;DB=<database>;UID=<user name>;",
+            "pwd": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }        
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -244,7 +278,7 @@ To copy data from Greenplum, set the source type in the copy activity to **Green
 
 ## Data type mapping for Greenplum
 
-When copying data from Greenplum, the following mappings are used from Greenplum data types to interim data types used by the service internally. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
+When you copy data from Greenplum, the following mappings apply from Greenplum's data types to the internal data types used by the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
 |Greenplum data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) |
 |:---|:---|:---|
@@ -306,9 +340,9 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 Here are steps that help you upgrade your Greenplum connector:
 
-1. In **Edit linked service page**, select **2.0 (Preview)** under **Version** and configure the linked service by referring to [Linked service properties](#linked-service-properties). 
+1. In **Edit linked service** page, select **2.0 (Preview)** under **Version** and configure the linked service by referring to [linked service version 2.0 properties](#version-20).
 
-1. The data type mapping for the latest Greenplum linked service is different from that for version 1.0. To learn the latest data type mapping, see [Data type mapping for Greenplum](#data-type-mapping-for-greenplum).
+2. The data type mapping for the Greenplum linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Greenplum](#data-type-mapping-for-greenplum).
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
