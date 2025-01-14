@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: build-2023, devx-track-azurecli, ignite-2024
 ms.topic: how-to
-ms.date: 12/18/2024
+ms.date: 01/14/2025
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -18,7 +18,7 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
 If you want to set up a custom domain using your own certificate, see [Custom domain names and certificates in Azure Container Apps](custom-domains-certificates.md).
 
 > [!NOTE]
-> If you configure a [custom environment DNS suffix](environment-custom-dns-suffix.md), you cannot add a custom domain that contains this suffix to your Container App.
+> If you configure a [custom environment DNS suffix](environment-custom-dns-suffix.md), you can't add a custom domain that contains this suffix to your Container App.
 
 ## Free certificate requirements
 
@@ -30,10 +30,11 @@ The requirements are:
 
 - Must have an A record for apex domains that points to your Container Apps environment's IP address.
 
-- Establish a CNAME record for subdomains that maps directly to the container app's automatically generated domain name. Mapping to an intermediate CNAME value blocks certificate issuance and renewal. Examples of CNAME values are traffic managers, Cloudflare, and similar services.
+- Establish a CNAME record for subdomains that maps directly to the container app's generated domain name. Mapping to an intermediate CNAME value blocks certificate issuance and renewal. Examples of CNAME values are traffic managers, Cloudflare, and similar services.
 
 > [!NOTE]
 > To ensure the certificate issuance and subsequent renewals proceed successfully, all requirements must be met at all times when the managed certificate is assigned.
+
 ## Add a custom domain and managed certificate
 
 ::: zone pivot="azure-portal"
@@ -176,7 +177,7 @@ Container Apps supports apex domains and subdomains. Each domain type requires a
         --query "properties.customDomainVerificationId"
     ```
 
-1. Using the DNS provider that is hosting your domain, create DNS records based on the record type you selected using the values shown in the *Domain validation* section. The records point the domain to your container app and verify that you own it. The setup depends on whether you are using custom domains with the private endpoint (preview) feature:
+1. Using the DNS provider that is hosting your domain, create DNS records based on the record type you selected using the values shown in the *Domain validation* section. The records point the domain to your container app and verify that you own it. The setup depends on whether you're using custom domains with the private endpoint (preview) feature:
 
     # [General](#tab/general)
     

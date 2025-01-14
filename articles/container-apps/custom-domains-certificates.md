@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: build-2023, ignite-2024
 ms.topic: how-to
-ms.date: 12/18/2024
+ms.date: 1/14/2025
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -21,14 +21,14 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
 - Ingress must be enabled for the container app.
 
 > [!NOTE]
-> If you configure a [custom environment DNS (Domain Name System) suffix](environment-custom-dns-suffix.md), you cannot add a custom domain that contains this suffix to your Container App.
+> If you configure a [custom environment DNS (Domain Name System) suffix](environment-custom-dns-suffix.md), you can't add a custom domain that contains this suffix to your Container App.
 
 ## Add a custom domain and certificate
 
 ::: zone pivot="azure-portal"
 
 > [!IMPORTANT]
-> If you are using a new certificate, you must have an existing [SNI domain certificate](https://wikipedia.org/wiki/Server_Name_Indication) file available to upload to Azure.
+> If you're using a new certificate, you must have an existing [SNI domain certificate](https://wikipedia.org/wiki/Server_Name_Indication) file available to upload to Azure.
 
 1. Navigate to your container app in the [Azure portal](https://portal.azure.com)
 
@@ -66,7 +66,7 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
     | Apex domain | A record | An apex domain is a domain at the root level of your domain. For example, if your DNS (Domain Name System) zone is `contoso.com`, then `contoso.com` is the apex domain. |
     | Subdomain | CNAME | A subdomain is a domain that is part of another domain. For example, if your DNS zone is `contoso.com`, then `www.contoso.com` is an example of a subdomain that can be configured in the zone. |
 
-1. Using the DNS provider that is hosting your domain, create DNS records based on the *Hostname record type* you selected using the values shown in the *Domain validation* section. The records point the domain to your container app and verify that you own it. The setup depends on whether you are using custom domains with the private endpoint (preview) feature:
+1. Using the DNS provider that is hosting your domain, create DNS records based on the *Hostname record type* you selected using the values shown in the *Domain validation* section. The records point the domain to your container app and verify that you own it. The setup depends on whether you're using custom domains with the private endpoint (preview) feature:
 
     # [General](#tab/general)
     
@@ -92,7 +92,7 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
         |--|--|--|
         | A | `@` | The Private IP of your private endpoint on your container apps environment. |
 
-        In addition, you will need to add the following record to your public DNS zone.
+        In addition, you'll need to add the following record to your public DNS zone.
 
         | Record type | Host | Value |
         |--|--|--|
@@ -114,7 +114,7 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
 1. Once the operation is complete, you see your domain name in the list of custom domains with a status of *Secured*. Navigate to your domain to verify that it's accessible.
 
 > [!NOTE]
-> For container apps in internal Container Apps environments, [additional configuration](./networking.md#dns) is required to use custom domains with VNET-scope ingress.
+> For container apps in internal Container Apps environments, [extra configuration](./networking.md#dns) is required to use custom domains with VNET-scope ingress.
 
 ::: zone-end
 
@@ -127,7 +127,7 @@ Container Apps supports apex domains and subdomains. Each domain type requires a
 | Apex domain | A record | HTTP | An apex domain is a domain at the root level of your domain. For example, if your DNS zone is `contoso.com`, then `contoso.com` is the apex domain. |
 | Subdomain | CNAME | CNAME | A subdomain is a domain that is part of another domain. For example, if your DNS zone is `contoso.com`, then `www.contoso.com` is an example of a subdomain that can be configured in the zone. |
 
-1. Log in to Azure with the Azure CLI. 
+1. Log in to Azure with the Azure CLI.
 
     ```azurecli
     az login
@@ -205,7 +205,7 @@ Container Apps supports apex domains and subdomains. Each domain type requires a
         --query "properties.customDomainVerificationId"
     ```
 
-1. Using the DNS provider that is hosting your domain, create DNS records based on the record type you selected using the values shown in the *Domain validation* section. The records point the domain to your container app and verify that you own it. The setup depends on whether you are using custom domains with the private endpoint (preview) feature:
+1. Using the DNS provider that is hosting your domain, create DNS records based on the record type you selected using the values shown in the *Domain validation* section. The records point the domain to your container app and verify that you own it. The setup depends on whether you're using custom domains with the private endpoint (preview) feature:
 
     # [General](#tab/general)
     
