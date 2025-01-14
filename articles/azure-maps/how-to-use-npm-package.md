@@ -265,7 +265,7 @@ The following sample shows how to import a module and use it in your application
     document.body.onload = onload;
     ```
 
-4. webpack 5 may throw errors about not being able to resolve some node.js core modules. Add these settings to your webpack config file to fix the problem.
+4. Webpack 5 may throw errors about not being able to resolve some node.js core modules. Add these settings to your webpack config file to fix the problem.
 
    ```js
    module.exports = {
