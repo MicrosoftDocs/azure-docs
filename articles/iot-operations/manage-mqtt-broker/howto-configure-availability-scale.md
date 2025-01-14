@@ -214,28 +214,31 @@ Use this profile when you need to handle a large number of connections and messa
 
 ## Calculate total memory usage
 
-The memory profile setting specifies the memory usage for each frontend and backend replica and interacts with the cardinality settings. You can calculate the total memory usage per replica using the formula: 
+The memory profile setting specifies the memory usage for each frontend and backend replica and interacts with the cardinality settings. You can calculate the total memory usage using the formula: 
 
-`M_total = R_fe * M_fe + (P_be * RF_be) * M_be * W_be.`
+<!-- M_total = R_fe * M_fe + (P_be * RF_be) * M_be * W_be. -->
+
+$M_{\text{total}} = R_{\text{fe}} \cdot M_{\text{fe}} + (P_{\text{be}} \cdot RF_{\text{be}}) \cdot M_{\text{be}} \cdot W_{\text{be}}$
 
 Where:
+
 | Variable | Description |
 |----------|-------------|
-| `M_total` | Total memory usage per replica |
-| `R_fe` | The number of frontend replicas |
-| `M_fe` | The memory usage of each frontend replica |
-| `P_be` | The number of backend partitions |
-| `RF_be` | Backend redundancy factor |
-| `M_be` | The memory usage of each backend replica |
-| `W_be` | The number of workers per backend replica |
+| $M_{\text{total}}$ | Total memory usage |
+| $R_{\text{fe}}$ | The number of frontend replicas |
+| $M_{\text{fe}}$ | The memory usage of each frontend replica |
+| $P_{\text{be}}$ | The number of backend partitions |
+| $RF_{\text{be}}$ | Backend redundancy factor |
+| $M_{\text{be}}$ | The memory usage of each backend replica |
+| $W_{\text{be}}$ | The number of workers per backend replica |
 
-For example if you select the *Medium* memory profile with two frontend replicas, two backend partitions, and a backend redundancy factor of two, the total memory usage per replica would be:
+For example if you choose the *Medium* memory profile, the profile has a frontend memory usage of 1.9 GB and backend memory usage of 1.5 GB. Assume that the broker configuration is 2 frontend replicas, 2 backend partitions, and a backend redundancy factor of 2. The total memory usage is:
 
-`2 * 1.9GB + (2 * 2) * 1.5GB * 2 = 3.8GB + 12GB = 15.8GB.`
+*2 * 1.9 GB + (2 * 2) * 1.5 GB * 2* = 15.8 GB
 
-In comparison, the *Tiny* memory profile with two frontend replicas, two backend partitions, and a backend redundancy factor of two, the total memory usage per replica would be:
+In comparison, the *Tiny* memory profile has a frontend memory usage of 1.9 GB and backend memory usage of 1.5 GB. If you assume the same broker configuration, the total memory usage is:
 
-`2 * 99MB + (2 * 2) * 102MB * 2 = 198MB + 816MB = 1.014GB.`
+*2 * 99 MB + (2 * 2) * 102 MB * 2 = 198 MB + 816 MB* = 1.014 GB.
 
 ## Cardinality and Kubernetes resource limits
 
