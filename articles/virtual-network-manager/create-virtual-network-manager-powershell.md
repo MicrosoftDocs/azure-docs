@@ -20,8 +20,8 @@ In this quickstart, you deploy three virtual networks and use Azure Virtual Netw
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Perform this quickstart by using PowerShell locally, not through Azure Cloud Shell. The version of *Az.Network* in Azure Cloud Shell does not currently support the Azure Virtual Network Manager cmdlets.
-- To modify dynamic network groups, you must be [granted access via Azure RBAC role](concept-network-groups.md#network-groups-and-azure-policy) assignment only. Classic Admin/legacy authorization is not supported.
+- Perform this quickstart by using PowerShell locally, not through Azure Cloud Shell. The version of *Az.Network* in Azure Cloud Shell doesn't currently support the Azure Virtual Network Manager cmdlets.
+- To modify dynamic network groups, you must be [granted access via Azure RBAC role](concept-network-groups.md#network-groups-and-azure-policy) assignment only. Classic Admin/legacy authorization isn't supported.
 
 ## Sign in to your Azure account and select your subscription
 
@@ -47,7 +47,7 @@ Install the latest *Az.Network* Azure PowerShell module by using this command:
 
 ## Create a resource group
 
-Before you can create an Azure Virtual Network Manager instance, you have to create a resource group to host it. Create a resource group by using [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). This example creates a resource group named *resource-group* in the *West US 2* region:
+In this task, create a resource group to host a network manager instance. Create a resource group by using [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). This example creates a resource group named *resource-group* in the *West US 2* region:
 
 ```azurepowershell
 # Create a resource group
@@ -62,7 +62,7 @@ New-AzResourceGroup @rg
 
 ## Define the scope and access type
 
-Define the scope and access type for the Azure Virtual Network Manager instance by using [New-AzNetworkManagerScope](/powershell/module/az.network/new-aznetworkmanagerscope). This example defines a scope with a single subscription and sets the access type to *Connectivity*. Replace `<subscription_id>` with the ID of the subscription that you want to manage through Azure Virtual Network Manager.
+In this task, define the scope and access type for the Azure Virtual Network Manager instance by using [New-AzNetworkManagerScope](/powershell/module/az.network/new-aznetworkmanagerscope). This example defines a scope with a single subscription and sets the access type to *Connectivity*. Replace `<subscription_id>` with the ID of the subscription that you want to manage through Azure Virtual Network Manager.
 
 ```azurepowershell
 $subID= "d9f0f529-83ab-4840-9c8b-76db5d68517f"
@@ -79,7 +79,7 @@ $scope = New-AzNetworkManagerScope -Subscription $subGroup
 
 ## Create a Virtual Network Manager instance
 
-Create a Virtual Network Manager instance by using [New-AzNetworkManager](/powershell/module/az.network/new-aznetworkmanager). This example creates an instance named *network-manager* in the *(US) West US 2* region:
+In this task, create a Virtual Network Manager instance by using [New-AzNetworkManager](/powershell/module/az.network/new-aznetworkmanager). This example creates an instance named *network-manager* in the *(US) West US 2* region:
     
 ```azurepowershell
 $avnm = @{
@@ -94,7 +94,7 @@ $networkmanager = New-AzNetworkManager @avnm
 
 ## Create three virtual networks
 
-Create three virtual networks by using [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). This example creates virtual networks named *vnet-00*, *vnet-01*, and *vnet-02* in the *(US) West US 2* region. If you already have virtual networks that you want create a mesh network with, you can skip to the next section.
+In this task, create three virtual networks by using [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). This example creates virtual networks named *vnet-00*, *vnet-01*, and *vnet-02* in the *(US) West US 2* region. If you already have virtual networks that you want create a mesh network with, you can skip to the next section.
 
 ```azurepowershell
 $vnet_00 = @{
@@ -125,7 +125,7 @@ $vnet_02 = New-AzVirtualNetwork @vnet_02
 
 ### Add a subnet to each virtual network
 
-To complete the configuration of the virtual networks, create a subnet configuration named *default* with a subnet address prefix of */24* by using [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). Then, use [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to apply the subnet configuration to the virtual network.
+In this task, create a subnet configuration named *default* with a subnet address prefix of */24* by using [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). Then, use [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to apply the subnet configuration to the virtual network.
 
 ```azurepowershell
 $subnet_vnet_00 = @{
@@ -257,7 +257,7 @@ Deploy-AzNetworkManagerCommit @deployment
 
 ## Clean up resources
 
-If you no longer need the Azure Virtual Network Manager instance and it's associated resources, follow these steps to delete them:
+If you no longer need the Azure Virtual Network Manager instance and it's resources, follow these steps to delete them by deleting the resource group containing the resources:
 
 1. Delete the resource group using [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup):
 
@@ -267,7 +267,7 @@ If you no longer need the Azure Virtual Network Manager instance and it's associ
 
 ## Next steps
 
-Now that you've created an Azure Virtual Network Manager instance, learn how to block network traffic by using a security admin configuration:
+In this step, learn how to block network traffic by using a security admin configuration:
 
 > [!div class="nextstepaction"]
 > [Block network traffic with Azure Virtual Network Manager](how-to-block-network-traffic-powershell.md)

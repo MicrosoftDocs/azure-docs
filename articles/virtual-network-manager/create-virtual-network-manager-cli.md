@@ -48,7 +48,7 @@ az extension update --name virtual-network-manager
 
 ## Create a resource group
 
-Before you can deploy Azure Virtual Network Manager, you have to create a resource group to host it by using [az group create](/cli/azure/group#az-group-create). This example creates a resource group named *resource-group* in the *(US) West 2* location:
+In this task, you create a resource group to host  a network manager instance by using [az group create](/cli/azure/group#az-group-create). This example creates a resource group named *resource-group* in the *(US) West 2* location:
 
 ```azurecli
 az group create \
@@ -58,7 +58,7 @@ az group create \
 
 ## Create a Virtual Network Manager instance
 
-Define the scope and access type for this Virtual Network Manager instance. Create the scope by using [az network manager create](/cli/azure/network/manager#az-network-manager-create). Replace the value  `<subscriptionID>` with the subscription that you want Virtual Network Manager to manage virtual networks for. Replace `<mgName\>` with the management group that you want to manage.
+In this task, define the scope and access type for this Virtual Network Manager instance. Create the scope by using [az network manager create](/cli/azure/network/manager#az-network-manager-create). Replace the value  `<subscriptionID>` with the subscription that you want Virtual Network Manager to manage virtual networks for. Replace `<mgName\>` with the management group that you want to manage.
 
 ```azurecli
 az network manager create \
@@ -71,7 +71,7 @@ az network manager create \
 
 ## Create a network group
 
-Virtual Network Manager applies configurations to groups of virtual networks by placing them in network groups. Create a network group by using [az network manager group create](/cli/azure/network/manager/group#az-network-manager-group-create):
+In this task, create a network group by using [az network manager group create](/cli/azure/network/manager/group#az-network-manager-group-create):
 
 ```azurecli
 az network manager group create \
@@ -83,7 +83,7 @@ az network manager group create \
 
 ## Create virtual networks
 
-Create five virtual networks by using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). This example creates virtual networks named three virtual in the *(US) West 2* location. Each virtual network has a tag of `networkType` that's used for dynamic membership. If you already have virtual networks that you want create a mesh network with, you can skip to the next section.
+In this task, create three virtual networks using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). This example creates virtual networks named three virtual in the *(US) West 2* location. Each virtual network has a tag of `networkType` that's used for dynamic membership. If you already have virtual networks that you want create a mesh network with, you can skip to the next section.
 
 ```azurecli
 az network vnet create \
@@ -107,7 +107,7 @@ az network vnet create \
 
 ### Add a subnet to each virtual network
 
-Complete the configuration of the virtual networks by adding a */24* subnet to each one. Create a subnet configuration named *default* by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create):
+In this task, complete the configuration of the virtual networks by adding a */24* subnet to each one. Create a subnet configuration named *default* by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create):
 
 ```azurecli 
 az network vnet subnet create \
@@ -172,7 +172,7 @@ You can apply policies to a subscription or a management group, and you must alw
 
 ## Create a policy definition
 
-Create a policy definition by using [az policy definition create](/cli/azure/policy/definition#az-policy-definition-create) for virtual networks tagged as `Prod`. Replace `<subscriptionID>` with the subscription that you want to apply this policy to. If you want to apply it to a management group, replace `--subscription <subscriptionID>` with `--management-group <mgName>`.
+In this task, create a policy definition by using [az policy definition create](/cli/azure/policy/definition#az-policy-definition-create) for virtual networks tagged as `Prod`. Replace `<subscriptionID>` with the subscription that you want to apply this policy to. If you want to apply it to a management group, replace `--subscription <subscriptionID>` with `--management-group <mgName>`.
 
 ```azurecli
 az policy definition create \
@@ -185,7 +185,7 @@ az policy definition create \
 
 ## Apply a policy definition
 
-After you define a policy, you must apply it by using [az policy assignment create](/cli/azure/policy/assignment#az-policy-assignment-create). Replace `<subscriptionID>` with the subscription that you want to apply this policy to. If you want to apply it to a management group, replace `--scope "/subscriptions/<subscriptionID>"` with `--scope "/providers/Microsoft.Management/managementGroups/<mgName>`, and replace `<mgName\>` with your management group.
+In this task, you apply the previously created policy using [az policy assignment create](/cli/azure/policy/assignment#az-policy-assignment-create). Replace `<subscriptionID>` with the subscription that you want to apply this policy to. If you want to apply it to a management group, replace `--scope "/subscriptions/<subscriptionID>"` with `--scope "/providers/Microsoft.Management/managementGroups/<mgName>`, and replace `<mgName\>` with your management group.
 
 ```azurecli
 
@@ -199,7 +199,7 @@ az policy assignment create \
 
 ## Create a configuration
 
-In this step, create a mesh network topology configuration by using [az network manager connect-config create](/cli/azure/network/manager/connect-config#az-network-manager-connect-config-create). Replace `<subscriptionID>` with your subscription ID.
+In this task, create a mesh network topology configuration by using [az network manager connect-config create](/cli/azure/network/manager/connect-config#az-network-manager-connect-config-create). Replace `<subscriptionID>` with your subscription ID.
 
 ```azurecli
 az network manager connect-config create \
