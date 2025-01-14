@@ -77,6 +77,8 @@
       href: how-to-url-redirect-gateway-api.md
     - name: URL rewrite
       href: how-to-url-rewrite-gateway-api.md
+    - name: WebSockets
+      href: how-to-websockets-gateway-api.md
   - name: Ingress API
     items:
     - name: End-to-End TLS
