@@ -62,7 +62,7 @@ To remove a cache instance from an active geo-replication group, you just delete
 
 In case one of the caches in your replication group is unavailable due to region outage, you can forcefully remove the unavailable cache from the replication group. After you apply **Force-unlink** to a cache, you can't sync any data that is written to that cache back to the replication group after force-unlinking.
 
-You should remove the unavailable cache because the remaining caches in the replication group start storing the metadata that hasn’t been shared to the unavailable cache. When this happens, the available caches in your replication group might run out of memory.
+You should remove the unavailable cache because the remaining caches in the replication group start storing the metadata that wasn't shared to the unavailable cache. When this happens, the available caches in your replication group might run out of memory.
 
 1. Go to Azure portal and select one of the caches in the replication group that is still available.
 
@@ -154,7 +154,7 @@ Let's say you want to scale up each instance in this geo-replication group to an
 
 At this point, the `Redis01` and `Redis02` instances can only scale up to an Enterprise E20 instance. All other scaling operations are blocked.
 >[!NOTE]
-> The `Redis00` instance is not blocked from scaling further at this point. But it will be blocked once either `Redis01` or `Redis02` is scaled to be an Enterprise E20.
+> The `Redis00` instance isn't blocked from scaling further at this point. But it's blocked once either `Redis01` or `Redis02` is scaled to be an Enterprise E20.
 >
 
 Once each instance is scaled to the same tier and size, all scaling locks are removed:
@@ -171,29 +171,38 @@ Due to the potential for inadvertent data loss, you can't use the `FLUSHALL` and
 
 ## Geo-replication Metric
 
-The _Geo Replication Healthy_ metric in Azure Cache for Redis Enterprise/Azure Managed Redis helps monitor the health of geo-replicated clusters. You can use this metric to monitor the sync status among geo-replicas.  
+The _Geo Replication Healthy_ metric in the Enterprise tier of Azure Cache for Redis helps monitor the health of geo-replicated clusters. You use this metric to monitor the sync status among geo-replicas.  
 
 To monitor the _Geo Replication Healthy_ metric in the Azure portal:
 
-1. Navigate to Your Redis Resource: Open the Azure portal and select your Azure Cache for Redis instance.
-1. Go to Metrics: In the left-hand menu, click Metrics under the Monitoring section.
-1. Add Metric: Click on + Add Metric and select the "Geo Replication Healthy" metric.
-1. Set Filters: If needed, apply filters for specific geo-replicas.
-1. Create Alerts (optional): Configure an alert to notify you if the "Geo Replication Healthy" metric emits an unhealthy value (0) continuously for over 60 minutes.
-    1. Click New Alert Rule.
-    1. Define the condition to trigger if the metric value is 0 for at least 60 minutes. (recommended time)
-    1. Add action groups for notifications (email, SMS, etc.).
+1. Open the Azure portal and select your Azure Cache for Redis instance.
+
+1. On the Resource menu, select **Metrics** under the **Monitoring** section.
+
+1. Select **Add Metric** and select the **Geo Replication Healthy** metric.
+
+1. If needed, apply filters for specific geo-replicas.
+
+1. You can configure an alert to notify you if the **Geo replication Healthy** metric emits an unhealthy value (0) continuously for over 60 minutes.
+
+    1. Select **New Alert Rule**.
+
+    1. Define the condition to trigger if the metric value is 0 for at least 60 minutes, the recommended time.
+
+    1. Add action groups for notifications, for example: email, SMS, and others.
+
     1. Save the alert.
-    1. For more information on how to setup alerts for you Redis Enterprise/AMR cache follow this documentation - Monitor Azure Cache for Redis - Azure Cache for Redis | Microsoft Learn
+
+    1. For more information on how to setup alerts for you Redis Enterprise cache, see [Monitor Azure Cache for Redis](monitor-cache.md).
 
 > [!IMPORTANT]
-> This metric may temporarily show as unhealthy due to routine operations like maintenance events or scaling, initiated either by Azure or the customer. To avoid false alarms, we strongly recommend setting up an observation window of 60 minutes where the metric continues to stay unhealthy as the appropriate time for generating an alert as it may indicate a problem that requires intervention.
+> This metric might temporarily show as unhealthy due to routine operations like maintenance events or scaling, initiated either by Azure or the customer. To avoid false alarms, we recommend setting up an observation window of 60 minutes, where the metric continues to stay unhealthy as the appropriate time for generating an alert as it might indicate a problem that requires intervention.
 
 ## Common Client-side issues that can cause sync issues among geo-replicas
 
-- Use of custom Hash tags – Using custom hashtags in Redis can lead to uneven distribution of data across shards, which may cause performance issues and synchronization problems in geo-replicas therefore avoid using custom hashtags unless the database needs to perform multiple key operations.
+- Use of custom Hash tags – Using custom hashtags in Redis can lead to uneven distribution of data across shards, which might cause performance issues and synchronization problems in geo-replicas therefore avoid using custom hashtags unless the database needs to perform multiple key operations.
 
-- Large Key Size - Large keys can create synchronization issues among geo-replicas. To maintain smooth performance and reliable replication, we recommend keeping key sizes under 500MB when using geo-replication. If individual key size gets close to 2GB the cache will face geo=replication health issues.  
+- Large Key Size - Large keys can create synchronization issues among geo-replicas. To maintain smooth performance and reliable replication, we recommend keeping key sizes under 500MB when using geo-replication. If individual key size gets close to 2GB the cache faces geo=replication health issues.  
 
 ### Flush caches using Azure CLI or PowerShell
 
