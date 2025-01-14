@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 1/13/2024
+ms.date: 1/13/2025
 ms.author: cshoe
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, build-2023
 ---
