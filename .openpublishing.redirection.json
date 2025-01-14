@@ -1,6 +1,111 @@
 {
   "redirections": [
     {
+      "source_path": "articles/defender-for-iot/organizations/appliance-catalog/virtual-management-hyper-v.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/appliance-catalog/virtual-management-hyper-v",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/appliance-catalog/virtual-management-vmware.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/appliance-catalog/virtual-management-vmware",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/api/management-alert-apis.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/api/management-alert-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/api/management-inventory-apis.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/api/management-inventory-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/api/management-appliances-apis.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/api/management-appliances-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/api/management-auth-apis.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/api/management-auth-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/api/management-integration-apis.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/api/management-integration-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/back-up-sensors-from-management.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/back-up-sensors-from-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/back-up-restore-management.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/back-up-restore-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-set-up-high-availability.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-set-up-high-availability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-manage-the-on-premises-management-console.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-manage-the-on-premises-management-console",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-troubleshoot-on-premises-management-console.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-troubleshoot-on-premises-management-console",
+       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/legacy-air-gapped-deploy.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/legacy-air-gapped-deploy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/prepare-management-appliance.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/prepare-management-appliance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/install-software-on-premises-management-console.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/install-software-on-premises-management-console",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/activate-deploy-management.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/activate-deploy-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/connect-sensors-to-management.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/connect-sensors-to-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/sites-and-zones-on-premises.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/sites-and-zones-on-premises",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-work-with-alerts-on-premises-management-console.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-work-with-alerts-on-premises-management-console",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cdn/akamai-retirement-faq.md",
       "redirect_url": "/previous-versions/azure/cdn/akamai-retirement-faq",
       "redirect_document_id": false
@@ -88,6 +193,7 @@
     {
       "source_path": "articles/operator-5g-core/tutorial-configure-network-function.md",
       "redirect_url": "/previous-versions/azure/operator-5g-core/tutorial-configure-network-function",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-call-protection/deployment-overview.md",
@@ -112,6 +218,7 @@
     {
       "source_path": "articles/operator-call-protection/set-up-operator-call-protection.md",
       "redirect_url": "/previous-versions/azure/operator-call-protection/set-up-operator-call-protection",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/private-multi-access-edge-compute-mec/overview.md",
@@ -121,6 +228,7 @@
     {
       "source_path": "articles/private-multi-access-edge-compute-mec/partner-programs.md",
       "redirect_url": "/previous-versions/azure/private-multi-access-edge-compute-mec/partner-programs",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/time-series-insights/breaking-changes-long-data-type.md",
@@ -4625,6 +4733,36 @@
     {
       "source_path_from_root": "/articles/sentinel/data-connectors/threat-intelligence-upload-indicators-api.md",
       "redirect_url": "/azure/sentinel/data-connectors/threat-intelligence-upload-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/how-to-add-components.md",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/how-to-manage-components.md",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/index.yml",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/overview.md",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/quickstart-deploy-starter-app.md",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/quickstart-deploy-your-app.md",
+      "redirect_url": "/azure/container-apps/",
       "redirect_document_id": false
     },
     {

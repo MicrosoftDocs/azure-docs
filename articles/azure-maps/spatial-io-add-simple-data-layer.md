@@ -36,65 +36,68 @@ map.layers.add(layer);
 The following code snippet demonstrates using a simple data layer, referencing the data from an online source.
 
 ```javascript
-function InitMap()
-{
-  var map = new atlas.Map('myMap', {
-    center: [-73.967605, 40.780452],
-    zoom: 12,
-    view: "Auto",
+<script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.min.js"></script>
 
-    //Add authentication details for connecting to Azure Maps.
-    authOptions: {
-      // Get an Azure Maps key at https://azuremaps.com/.
-      authType: 'subscriptionKey',
-      subscriptionKey: '{Your-Azure-Maps-Subscription-key}'
-    },
-  });    
+<script>
+    function InitMap() {
+        var map = new atlas.Map("myMap", {
+            center: [-73.967605, 40.780452],
+            zoom: 12,
+            view: "Auto",
 
-  //Wait until the map resources are ready.
-  map.events.add('ready', function () {
+            //Add authentication details for connecting to Azure Maps.
+            authOptions: {
+                // Get an Azure Maps key at https://azuremaps.com/.
+                authType: "subscriptionKey",
+                subscriptionKey: '{Your-Azure-Maps-Subscription-key}'
+            }
+        });
 
-    //Create a data source and add it to the map.
-    var datasource = new atlas.source.DataSource();
-    map.sources.add(datasource);
+        //Wait until the map resources are ready.
+        map.events.add("ready", function () {
+            //Create a data source and add it to the map.
+            var datasource = new atlas.source.DataSource();
+            map.sources.add(datasource);
 
-    //Add a simple data layer for rendering data.
-    var layer = new atlas.layer.SimpleDataLayer(datasource);
-    map.layers.add(layer);
+            //Add a simple data layer for rendering data.
+            var layer = new atlas.layer.SimpleDataLayer(datasource);
+            map.layers.add(layer);
 
-    //Load an initial data set.
-    const dataSet = {
-        "type": "Feature",
-        "geometry": {
-            "type": "Point",
-            "coordinates": [0, 0]
-        },
-        "properties": {
-            "color": "red"
-        }
-    };
-    
-    loadDataSet(dataSet);
+            //Load an initial data set.
+            const dataSet = {
+                type: "FeatureCollection",
+                bbox: [0, 0, 0, 0],
+                features: [
+                    {
+                        type: "Feature",
+                        geometry: {
+                            type: "Point",
+                            coordinates: [0, 0]
+                        },
+                        properties: {
+                            color: "red"
+                        }
+                    }
+                ]
+            };
 
-    function loadDataSet(url) {
-      //Read the spatial data and add it to the map.
-      atlas.io.read(url).then(r => {
-      if (r) {
-        //Update the features in the data source.
-        datasource.setShapes(r);
+            loadDataSet(dataSet);
 
-        //If bounding box information is known for data, set the map view to it.
-        if (r.bbox) {
-          map.setCamera({
-            bounds: r.bbox,
-            padding: 50
-          });
-        }
-      }
-      });
+            function loadDataSet(r) {
+                //Update the features in the data source.
+                datasource.setShapes(r);
+
+                //If bounding box information is known for data, set the map view to it.
+                if (r.bbox) {
+                    map.setCamera({
+                        bounds: r.bbox,
+                        padding: 50
+                    });
+                }
+            }
+        });
     }
-  });
-}
+</script>
 ```
 
 Once you add features to the data source, the simple data layer figures out how best to render them. Styles for individual features can be set as properties on the feature.
@@ -113,10 +116,6 @@ This sample code renders the point feature using the simple data layer, and appe
 > Are overwritten by the value from the datasource:
 >
 > &emsp; "coordinates": [0, 0]
-
-<!------------------------------------
-> [!VIDEO //codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result&editable=true]
------------------------------------->
 
 The real power of the simple data layer comes when:
 
