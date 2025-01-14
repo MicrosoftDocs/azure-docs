@@ -539,8 +539,8 @@ Contact SAP or your DBMS vendor for support on how to enable, use, or troublesho
 
 Transport or *communication encryption* can be applied to SQL Server connections between SAP engines and the DBMS. Similarly, you can encrypt connections from the SAP presentation layer (SAPGui secure network connection or *SNC)* or an HTTPS connection to a web front end. See the applications vendor's documentation to enable and manage encryption in transit.
 
-> [!TIP]
-> Find more details about SNC on our [blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
+
+For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
 
 ### Threat monitoring and alerting
 
