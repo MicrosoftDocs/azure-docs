@@ -11,7 +11,6 @@ ms.custom: subject-armqs
 ms.date: 01/09/2025
 ---
 
-
 # Create a storage task by using Azure Resource Manager template (ARM template)
 
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to create
@@ -30,43 +29,66 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/storage-account-create/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/storage-task/).
 
-:::code language="json" source="~/quickstart-templates/storage-account-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/storage-task/azuredep****loy.json":::
 
 ## Deploy the template
 
-Provide an example of at least one deployment method: Azure CLI, Azure PowerShell, or Azure portal.
+The following scripts are designed for and tested in [Azure Cloud Shell](../cloud-shell/overview.md). Choose **Try It** to open a Cloud Shell instance right in your browser. 
+
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+read -p "Enter a resource group name that is used for generating resource names:" resourceGroupName &&
+read -p "Enter the location (like 'eastus' or 'northeurope'):" location &&
+templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage.actions/storage-task/azuredeploy.json" &&
+az group create --name $resourceGroupName --location "$location" &&
+az deployment group create --resource-group $resourceGroupName --template-uri  $templateUri &&
+echo "Press [ENTER] to continue ..." &&
+read
+```
+### [Azure PowerShell](#tab/azure-powershell)
+
+```powershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter a resource group name that is used for generating resource names"
+$location = Read-Host -Prompt "Enter the location (like 'eastus' or 'northeurope')"
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage.actions/storage-task/azuredeploy.json"
+
+New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
+
+Read-Host -Prompt "Press [ENTER] to continue ..."
+```
+---
 
 ## Review deployed resources
-
-<!-- This heading must be titled "Review deployed resources" or "Validate the deployment". -->
 
 Provide an example of at least one method to review deployed resources. Use a portal screenshot of
 the resources, Azure CLI commands, or Azure PowerShell commands.
 
 ## Clean up resources
 
-<!-- Include a paragraph that explains how to delete unneeded resources. Use the Azure portal, Azure
-CLI, or Azure PowerShell.
-
-For more information, see the contributor guide article: Write an ARM template quickstart.
-
--->
-
 When no longer needed, delete the resource group. The resource group and all the resources in the
-resource group are deleted.
+resource group are deleted. Use the following command to delete the resource group and all its contained resources.
+
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az group delete --name <resource-group-name>
+```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name <resource-group-name>
+```
+
+---
+
+Replace `<resource-group-name>` with the name of your resource group.
 
 ## Next steps
-
-<!-- Make the next steps similar to other quickstarts and use a blue button to link to the next
-article for your service. Or direct readers to the article: "Tutorial: Create and deploy your first
-ARM template" to follow the process of creating a template.
-
-To include additional links for more information about the service, it's acceptable to use a
-paragraph and bullet points.
-
--->
 
 For a step-by-step tutorial that guides you through the process of creating a template, see:
 
