@@ -61,32 +61,22 @@ var client2 = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', '
 
 Simple WebSocket client has two modes: `sendEvent` and `sendToGroup`. The mode is determined once the connection is established and cannot be changed later.
 
-`sendEvent` is the default mode for the simple WebSocket client. In `sendEvent` mode, every WebSocket frame the client sent is considered as a `message` event by default. Users can configure [event handlers](./concept-service-internals.md#event-handler) or [event listeners](./concept-service-internals.md#event-listener) to handle these `message` events. 
+`sendEvent` is the default mode for the simple WebSocket client. In `sendEvent` mode, every WebSocket frame the client sent is considered as a `message` event. Users can configure [event handlers](./concept-service-internals.md#event-handler) or [event listeners](./concept-service-internals.md#event-listener) to handle these `message` events. 
 
 You can also customize the event name by using `event` query parameter.
 ```javascript
 // When every data frame is considered as a `message` event
 var client3 = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1');
 
-// When every data frame is considered as a `chat` event
-var client4 = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1?event=chat');
-
 // Or explicitly set the mode
-var client5 = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1?webpubsub_mode=sendEvent&event=chat');
+var client4 = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1?webpubsub_mode=sendEvent');
 ```
 
 In `sendToGroup` mode, every WebSocket frame the client sent is considered as a message to be published to a specific group. `group` is a required query parameter in this mode, and only a single value is allowed. The connection should also have corresponding [permissions](#permissions) to send messages to the target group. Both `webpubsub.sendToGroup.<group>` and `webpubsub.sendToGroup` roles work for it.
 
 For example, in JavaScript, you can create a simple WebSocket client in `sendToGroup` mode with `group=group1` by using the following code:
 ```javascript
-// simple WebSocket client4 in sendToGroup mode. Messages sent from client3 will be fixedly forwarded to group1
-var client6 = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1?webpubsub_mode=sendToGroup&group=group1');
-```
-
-The default mode of a simple WebSocket client is `sendEvent` with parameter `event=message`. For example, in JavaScript, the following code creates two clients in the same mode with the same corresponding parameter.
-```javascript
-var client7 = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1');
-var client8 = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1?webpubsub_mode=sendEvent&event=message');
+var client5 = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1?webpubsub_mode=sendToGroup&group=group1');
 ```
 
 ## The PubSub WebSocket client
