@@ -17,6 +17,8 @@ In *single-tenant* Azure Logic Apps, the *app settings* for a Standard logic app
 
 Your logic app also has *host settings*, which specify the runtime configuration settings and values that apply to *all the workflows* in that logic app, for example, default values for throughput, capacity, data size, and so on, *whether they run locally or in Azure*.
 
+Settings are *key-value* pairs that define the setting name and value.
+
 <a name="app-settings-parameters-deployment"></a>
 
 ## App settings, parameters, and deployment
@@ -95,15 +97,17 @@ To add, update, or delete app settings, select and review the following sections
 
    For more information about these settings, review the [reference guide for available app settings - local.settings.json](#reference-local-settings-json).
 
-1. To view all values, select **Show Values**. Or, to view a single value, in the **Value** column, next to the value, select the "eye".
+1. To view all values, on the page toolbar, select **Show Values**. Or, to view a single value, in the **Value** column, select **Show value** (eye icon).
 
 ##### Add an app setting in the portal
 
-1. On the **App settings** tab, at the bottom of the list, in the **Name** column, enter the *key* or name for your new setting.
+1. On the **App settings** tab, on the toolbar, select **Add**.
+
+1. On the **Add/Edit application setting** pane, for **Name**, enter the *key* or name for your new setting.
 
 1. For **Value**, enter the value for your new setting.
 
-1. When you're ready to create your new *key-value* pair, select **Apply**.
+1. When you're done, select **Apply**.
 
    :::image type="content" source="./media/edit-app-settings-host-settings/portal-app-settings-values.png" alt-text="Screenshot shows Azure portal with app settings page and values for a Standard logic app resource." lightbox="./media/edit-app-settings-host-settings/portal-app-settings-values.png":::
 
