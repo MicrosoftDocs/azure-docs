@@ -181,7 +181,6 @@ az policy definition create \
     --rules "{\"if\":{\"allOf\":[{\"field\":\"Name\",\"contains\":\"vnet\"},{\"field\":\"tags['NetworkType']\",\"equals\":\"Prod\"}]},\"then\":{\"effect\":\"addToNetworkGroup\",\"details\":{\"networkGroupId\":\"/subscriptions/<subscriptionID>/resourceGroups/resource-group/providers/Microsoft.Network/networkManagers/network-manager/networkGroups/network-group\"}}}" \
     --subscription <subscriptionID> \
     --mode "Microsoft.Network.Data"
-
 ```
 
 ## Apply a policy definition

@@ -168,7 +168,7 @@ $ng = @{
 
 ## Define membership for a mesh configuration
 
-In this task, you add the static members *vnet-spoke-001* and *vnet-01* to the network group *network-group* by using [New-AzNetworkManagerStaticMember](/powershell/module/az.network/new-aznetworkmanagerstaticmember).
+In this task, you add the static members *vnet-00* and *vnet-01* to the network group *network-group* by using [New-AzNetworkManagerStaticMember](/powershell/module/az.network/new-aznetworkmanagerstaticmember).
 
 Static members must have a unique name that's scoped to the network group. We recommend that you use a consistent hash of the virtual network ID. This approach uses the Azure Resource Manager template's `uniqueString()` implementation.
 
@@ -182,22 +182,22 @@ Static members must have a unique name that's scoped to the network group. We re
 
 ```azurepowershell
 $sm_vnet_00 = @{
-        Name = Get-UniqueString $vnet_spoke_001.Id
+        Name = Get-UniqueString $vnet_00.Id
         ResourceGroupName = $rg.Name
         NetworkGroupName = $ng.Name
         NetworkManagerName = $networkManager.Name
-        ResourceId = $vnet_spoke_001.Id
+        ResourceId = $vnet_00.Id
     }
     $sm_vnet_00 = New-AzNetworkManagerStaticMember @sm_vnet_00
 ```
 
 ```azurepowershell
 $sm_vnet_01 = @{
-        Name = Get-UniqueString $vnet_spoke_002.Id
+        Name = Get-UniqueString $vnet_01.Id
         ResourceGroupName = $rg.Name
         NetworkGroupName = $ng.Name
         NetworkManagerName = $networkManager.Name
-        ResourceId = $vnet_spoke_002.Id
+        ResourceId = $vnet_01.Id
     }
     $sm_vnet_01 = New-AzNetworkManagerStaticMember @sm_vnet_01
 ```
@@ -257,7 +257,7 @@ Deploy-AzNetworkManagerCommit @deployment
 
 ## Clean up resources
 
-If you no longer need the Azure Virtual Network Manager instance and it's associate resources, delete the resource group that contains them. Deleting the resource group also deletes the resources that you created.
+If you no longer need the Azure Virtual Network Manager instance and it's associated resources, follow these steps to delete them:
 
 1. Delete the resource group using [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup):
 
@@ -271,3 +271,4 @@ Now that you've created an Azure Virtual Network Manager instance, learn how to 
 
 > [!div class="nextstepaction"]
 > [Block network traffic with Azure Virtual Network Manager](how-to-block-network-traffic-powershell.md)
+
