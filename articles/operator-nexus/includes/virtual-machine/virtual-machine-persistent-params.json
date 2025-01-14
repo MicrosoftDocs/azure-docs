@@ -32,6 +32,11 @@
               "deleteOption": "Delete",
               "diskSizeGB": 64
             }
+          },
+          "volumeAttachments": {
+            "value": [
+              "/subscriptions/<subscription>/resourceGroups/<volume-resource-group>/providers/Microsoft.NetworkCloud/volumes/<volume-name>"
+            ]
           }
         }
       },
