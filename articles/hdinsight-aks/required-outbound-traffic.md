@@ -42,7 +42,7 @@ You need to configure the following network and application security rules in yo
 | ** FQDN|API Server FQDN (available once AKS cluster is created)|TCP|443|Network security rule| Required as the running pods/deployments use it to access the API Server. You can get this information from the AKS cluster running behind the cluster pool. For more information, see [how to get API Server FQDN](secure-traffic-by-firewall-azure-portal.md#get-aks-cluster-details-created-behind-the-cluster-pool) using Azure portal.|
 
 > [!NOTE]
-> ** This configiration isn't required if you enable private AKS. 
+> ** This configuration isn't required if you enable private AKS. 
 
 ## Cluster specific traffic
 

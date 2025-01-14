@@ -4,7 +4,7 @@ description: Significant updates to Azure Automation updated each month.
 services: automation
 ms.subservice:
 ms.topic: overview
-ms.date: 07/19/2024
+ms.date: 02/01/2025
 ms.custom: references_regions
 ---
 
@@ -20,6 +20,21 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
+
+## December 2024
+
+###  Final retirement notice: AzureRM modules starting February 01, 2025
+
+Azure Automation will **discontinue** execution of all runbooks that use AzureRM modules. AzureRM PowerShell module has retired on **February 29, 2024**. Refer [migration resources](https://aka.ms/azpsmigrate) for guidance on transitioning from AzureRM to Az PowerShell module.
+
+### Final retirement notice: TLS 1.0/1.1 protocols for Azure Automation
+
+Starting **March 01, 2025** all agent-based and extension-based User Hybrid Runbook Workers, Webhooks and DSC nodes using Transport Layer Security (TLS) 1.0 and 1.1 protocols would no longer be able to connect to Azure Automation. All jobs running or scheduled on Hybrid Workers using TLS 1.0 and 1.1 protocols will fail. [Learn more](automation-managing-data.md#tls-for-azure-automation).
+
+### Final retirement notice: Agent-based User Hybrid Runbook Worker
+
+Starting **April 01, 2025** all jobs running on Agent-based User Hybrid Runbook Worker (Windows and Linux) will be stopped. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
+
 
 ## July 2024
 

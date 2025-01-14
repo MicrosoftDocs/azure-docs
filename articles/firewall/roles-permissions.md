@@ -4,7 +4,7 @@ titleSuffix: Azure Firewall
 description: Learn about roles and permissions for Azure Firewall.
 author: raboilla
 ms.service: azure-firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/9/2024
 ms.author: victorh
 
