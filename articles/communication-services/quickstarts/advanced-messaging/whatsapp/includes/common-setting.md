@@ -13,13 +13,13 @@ ms.author: shamkh
 
 ### Authenticate the client 
 
-Messages sending is done using NotificationMessagesClient. NotificationMessagesClient is authenticated using your connection string acquired from Azure Communication Services resource in the Azure portal. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
+The Messages SDK uses the `NotificationMessagesClient` to send messages. The `NotificationMessagesClient` method authenticates using your connection string acquired from Azure Communication Services resource in the Azure portal. For more information about connection strings, see [access-your-connection-strings-and-service-endpoints](../../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 
 [!INCLUDE [Authenticate the client ](./authenticate-notification-messages-client-net.md)]
 
 ### Set channel registration ID   
 
-The Channel Registration ID GUID was created during [channel registration](../connect-whatsapp-business-account.md). You can look it up in the portal on the Channels tab of your Azure Communication Services resource.
+You created the Channel Registration ID GUID during [channel registration](../connect-whatsapp-business-account.md). Find it in the portal on the **Channels** tab of your Azure Communication Services resource.
 
 :::image type="content" source="../media/get-started/get-messages-channel-id.png" lightbox="../media/get-started/get-messages-channel-id.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Channels' tab. Attention is placed on the copy action of the 'Channel ID' field.":::
 
@@ -30,12 +30,13 @@ Assign it to a variable called channelRegistrationId.
 
 ### Set recipient list
 
-You need to supply a real phone number that has a WhatsApp account associated with it. This WhatsApp account receives the template, text, and media messages sent in this quickstart.
-For this quickstart, this phone number may be your personal phone number.   
+You need to supply an active phone number associated with a WhatsApp account. This WhatsApp account receives the template, text, and media messages sent in this quickstart.
+
+For this example, you can use your personal phone number.   
 
 The recipient phone number can't be the business phone number (Sender ID) associated with the WhatsApp channel registration. The Sender ID appears as the sender of the text and media messages sent to the recipient.
 
-The phone number should include the country code. For more information on phone number formatting, see WhatsApp documentation for [Phone Number Formats](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/phone-numbers#phone-number-formats).
+The phone number must include the country code. For more information about phone number formatting, see WhatsApp documentation for [Phone Number Formats](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/phone-numbers#phone-number-formats).
 
 > [!NOTE]
 > Only one phone number is currently supported in the recipient list.
@@ -57,9 +58,8 @@ Conversations between a WhatsApp Business Account and a WhatsApp user can be ini
 - The business sends a template message to the WhatsApp user.
 - The WhatsApp user sends any message to the business number.
 
-For Interactive messages, Only after the user sends a message to the business, the business is allowed to send interactive messages to the user during the active conversation. Once the 24 hour conversation window expires, the conversation must be reinitiated. To learn more about conversations, see the definition at [WhatsApp Business Platform](https://developers.facebook.com/docs/whatsapp/pricing#conversations).
+A business can't initiate an interactive conversation. A business can only send an interactive message after receiving a message from the user. The business can only send interactive messages to the user during the active conversation. Once the 24 hour conversation window expires, only the user can restart the interactive conversation. For more information about conversations, see the definition at [WhatsApp Business Platform](https://developers.facebook.com/docs/whatsapp/pricing#conversations).
 
-To initiate a conversation between a WhatsApp Business Account and a WhatsApp user is to have the user initiate the conversation.
-To do so, from your personal WhatsApp account, send a message to your business number (Sender ID).
+To initiate an interactive conversation from your personal WhatsApp account, send a message to your business number (Sender ID).
 
 :::image type="content" source="../media/get-started/user-initiated-conversation.png" lightbox="../media/get-started/user-initiated-conversation.png" alt-text="A WhatsApp conversation viewed on the web showing a user message sent to the WhatsApp Business Account number.":::
