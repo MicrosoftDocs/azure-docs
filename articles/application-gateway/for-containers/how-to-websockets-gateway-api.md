@@ -5,7 +5,7 @@ services: application gateway
 author: greg-lindsay
 ms.service: azure-appgw-for-containers
 ms.topic: conceptual
-ms.date: 1/13/2024
+ms.date: 1/13/2025
 ms.author: greglin
 ---
 
@@ -39,7 +39,7 @@ WebSocket protocol has no specific implementation with Gateway API for configura
 
 # [ALB managed deployment](#tab/alb-managed)
 
-1. Create a Gateway
+Create a Gateway
 
     ```bash
     kubectl apply -f - <<EOF
