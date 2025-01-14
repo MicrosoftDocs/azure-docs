@@ -42,12 +42,12 @@ This example shows how to perform a semantic search on a file.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
 
-:::code language="javascript" source="~/functions-openai-extension/samples/embeddings/javascript/src/app.js" range="39-57":::
+:::code language="javascript" source="~/functions-openai-extension/samples/rag-aisearch/javascript/src/app.js" range="39-57":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
 
-:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="42-60":::
+:::code language="typescript" source="~/functions-openai-extension/samples/rag-aisearch/typescript/src/app.ts" range="42-60":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
