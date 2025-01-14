@@ -14,7 +14,8 @@ In this tutorial, you:
 
 > [!div class="checklist"]
 >
-> * Create the playbook
+> * Create a playbook to send automatic sensor disconnection notifications
+> * Paste the playbook code ino the editor and modify fields
 > * Set up managed identity for your subscription 
 > * Verify the sensor status
 
@@ -22,11 +23,9 @@ In this tutorial, you:
 
 Before you start, make sure you have:
 
-- **Read** and **Write** permissions on your Microsoft Sentinel workspace. For more information, see [Permissions in Microsoft Sentinel](../../sentinel/roles.md).
-
 - Completed [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](iot-solution.md).
 
-- The subscription ID and the resource group for the relevant subscription. In the Azure portal **Subscriptions** page, copy the subscription ID and resource group and save them for a later stage.
+- The subscription ID and the resource group for the relevant subscription. In the Azure portal **Subscriptions** page, copy the subscription ID and save it for a later stage.
 
 ## Create the playbook
 
@@ -39,7 +38,397 @@ Before you start, make sure you have:
     
     When the playbook is ready, Microsoft Sentinel displays a **Deployment successful** message and navigates to the **Logic app designer** page.
 
-1. Select **Logic app code view**, modify these fields in the following code, and paste the code into the editor:
+## Paste the playbook code and modify fields
+
+1. Select **Logic app code view**, and paste the following code into the editor:
+
+```json
+        { 
+
+    "definition": { 
+
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#", 
+
+        "contentVersion": "1.0.0.0", 
+
+        "triggers": { 
+
+            "Recurrence": { 
+
+                "type": "Recurrence", 
+
+                "recurrence": { 
+
+                    "frequency": "Minute", 
+
+                    "interval": 5, 
+
+                    "startTime": "2024-11-12T19:00:00Z" 
+
+                } 
+
+            } 
+
+        }, 
+
+        "actions": { 
+
+            "For_each": { 
+
+                "type": "Foreach", 
+
+                "foreach": "@body('Parse_JSON_2')", 
+
+                "actions": { 
+
+                    "Condition": { 
+
+                        "type": "If", 
+
+                        "expression": { 
+
+                            "and": [ 
+
+                                { 
+
+                                    "equals": [ 
+
+                                        "@items('For_each')['Status']", 
+
+                                        "Disconnected" 
+
+                                    ] 
+
+                                }, 
+
+                                { 
+
+                                    "less": [ 
+
+                                        "@items('For_each')['LastConnectivityTime']", 
+
+                                        "@getPastTime(5, 'Minute')" 
+
+                                    ] 
+
+                                } 
+
+                            ] 
+
+                        }, 
+
+                        "actions": { 
+
+                            "Send_an_email_(V2)-copy": { 
+
+                                "type": "ApiConnection", 
+
+                                "inputs": { 
+
+                                    "host": { 
+
+                                        "connection": { 
+
+                                            "name": "@parameters('$connections')['office365']['connectionId']" 
+
+                                        } 
+
+                                    }, 
+
+                                    "method": "post", 
+
+                                    "body": { 
+
+                                        "To": [Please add your email], 
+
+                                        "Subject": "Sensor disconnected - True", 
+
+                                        "Body": "<p class=\"editor-paragraph\"><br>True</p>", 
+
+                                        "Importance": "Normal" 
+
+                                    }, 
+
+                                    "path": "/v2/Mail" 
+
+                                } 
+
+                            } 
+
+                        }, 
+
+                        "else": { 
+
+                            "actions": {} 
+
+                        } 
+
+                    } 
+
+                }, 
+
+                "runAfter": { 
+
+                    "Parse_JSON_2": [ 
+
+                        "Succeeded" 
+
+                    ] 
+
+                } 
+
+            }, 
+
+            "HTTP_2": { 
+
+                "type": "Http", 
+
+                "inputs": { 
+
+                    "uri": "https://management.azure.com/providers/Microsoft.ResourceGraph/resources", 
+
+                    "method": "POST", 
+
+                    "headers": { 
+
+                        "Content-Type": "application/json" 
+
+                    }, 
+
+                    "queries": { 
+
+                        "api-version": "2021-03-01" 
+
+                    }, 
+
+                    "body": { 
+
+                        "query": "iotsecurityresources | where type =='microsoft.iotsecurity/locations/sites/sensors' |extend Status=properties.sensorStatus |extend LastConnectivityTime=properties.connectivityTime |extend Status=iif(LastConnectivityTime<ago(5m),'Disconnected',Status) |project SensorName=name, Status, LastConnectivityTime | where Status == 'Disconnected'" 
+
+                    }, 
+
+                    "authentication": { 
+
+                        "type": "ManagedServiceIdentity" 
+
+                    } 
+
+                }, 
+
+                "runAfter": {} 
+
+            }, 
+
+            "Parse_JSON": { 
+
+                "type": "ParseJson", 
+
+                "inputs": { 
+
+                    "content": "@body('HTTP_2')", 
+
+                    "schema": { 
+
+                        "properties": { 
+
+                            "count": { 
+
+                                "type": "integer" 
+
+                            }, 
+
+                            "data": { 
+
+                                "items": { 
+
+                                    "properties": { 
+
+                                        "LastConnectivityTime": { 
+
+                                            "type": "string" 
+
+                                        }, 
+
+                                        "SensorName": { 
+
+                                            "type": "string" 
+
+                                        }, 
+
+                                        "Status": { 
+
+                                            "type": "string" 
+
+                                        } 
+
+                                    }, 
+
+                                    "required": [ 
+
+                                        "SensorName", 
+
+                                        "Status", 
+
+                                        "LastConnectivityTime" 
+
+                                    ], 
+
+                                    "type": "object" 
+
+                                }, 
+
+                                "type": "array" 
+
+                            }, 
+
+                            "facets": { 
+
+                                "type": "array" 
+
+                            }, 
+
+                            "resultTruncated": { 
+
+                                "type": "string" 
+
+                            }, 
+
+                            "totalRecords": { 
+
+                                "type": "integer" 
+
+                            } 
+
+                        }, 
+
+                        "type": "object" 
+
+                    } 
+
+                }, 
+
+                "runAfter": { 
+
+                    "HTTP_2": [ 
+
+                        "Succeeded" 
+
+                    ] 
+
+                } 
+
+            }, 
+
+            "Parse_JSON_2": { 
+
+                "type": "ParseJson", 
+
+                "inputs": { 
+
+                    "content": "@body('Parse_JSON')?['data']", 
+
+                    "schema": { 
+
+                        "items": { 
+
+                            "properties": { 
+
+                                "LastConnectivityTime": { 
+
+                                    "type": "string" 
+
+                                }, 
+
+                                "SensorName": { 
+
+                                    "type": "string" 
+
+                                }, 
+
+                                "Status": { 
+
+                                    "type": "string" 
+
+                                } 
+
+                            }, 
+
+                            "required": [ 
+
+                                "SensorName", 
+
+                                "Status", 
+
+                                "LastConnectivityTime" 
+
+                            ], 
+
+                            "type": "object" 
+
+                        }, 
+
+                        "type": "array" 
+
+                    } 
+
+                }, 
+
+                "runAfter": { 
+
+                    "Parse_JSON": [ 
+
+                        "Succeeded" 
+
+                    ] 
+
+                } 
+
+            } 
+
+        }, 
+
+        "outputs": {}, 
+
+        "parameters": { 
+
+            "$connections": { 
+
+                "type": "Object", 
+
+                "defaultValue": {} 
+
+            } 
+
+        } 
+
+    }, 
+
+    "parameters": { 
+
+        "$connections": { 
+
+            "value": { 
+
+                "office365": { 
+
+                    "id": "/subscriptions/[Replace with Subscription ID]/providers/Microsoft.Web/locations/eastus/managedApis/office365", 
+
+                    "connectionId": "/subscriptions/[Replace with Subscription ID]/resourceGroups/[replace with RG name]/providers/Microsoft.Web/connections/office365", 
+
+                    "connectionName": "office365" 
+
+                } 
+
+            } 
+
+        } 
+
+    } 
+
+} 
+```     
+1. Modify these fields in the code:
+
     - Under the `post` body, in the `To` field, type the email to which you want to receive the notifications.
     - Under the `office365` parameter:
         - Under the `id` field, replace `Replace with subscription` with the ID of the subscription running Microsoft Sentinel, for example:  
@@ -59,6 +448,8 @@ Before you start, make sure you have:
 
 ## Set up managed identity for your subscription
 
+To give the playbook permission to run Keyword Query Language (KQL) queries and get relevant sensor data:
+
 1. In the Azure portal, select **Subscriptions**.
 1. Select the subscription running Microsoft Sentinel and select **Access Control (IAM)**.
 1. Select **Add > Add Role Assignment**.
@@ -67,13 +458,13 @@ Before you start, make sure you have:
 1. In the **Members** tab, under **Assign access to**, select **Managed Identity**.
 1. In the **Select Managed identities** window: 
     1. Under **Subscription**, select the subscription running Microsoft Sentinel.
-    1. Under **Managed identity**, select **Logic app 5**.
+    1. Under **Managed identity**, select your playbook's name.
     1. Under **Select**, select the name of the automation rule you created and select **Select**.
 1. In the editor, select **HTTP2** and verify that the **Authentication Type** is set to **Managed Identity**. 
 
 ## Verify the sensor status 
 
-If you can't create the playbook successfully, run a Keyword Query Language (KQL) query in Azure Resource Graph to confirm that the sensor is offline. 
+If you can't create the playbook successfully, run a KQL query in Azure Resource Graph to confirm that the sensor is offline. 
 
 1. In the Azure portal, search for *Azure resource graph explorer*.
 1. Run the following query:
@@ -97,7 +488,7 @@ If you can't create the playbook successfully, run a Keyword Query Language (KQL
 If the sensor has been offline for at least five minutes, the sensor status is **Disconnected**.  
 
 > [!NOTE]
-> It takes up to 15 minutes for the sensor to synchronize the status update with the cloud. This means that you should wait at least 15 minutes before checking the status.
+> It takes up to 15 minutes for the sensor to synchronize the status update with the cloud. This means that the sensor needs to be offline for at least 15 minutes before the status is updated.
 
 ## Next steps
 
