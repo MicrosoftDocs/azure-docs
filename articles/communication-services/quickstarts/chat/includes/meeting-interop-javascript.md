@@ -339,7 +339,7 @@ var displayName = call.remoteParticipants.find(p => p.identifier.communicationUs
 
 ## Run the code
 
-webpack users can use the `webpack-dev-server` to build and run your app. Run the following command to bundle your application host on a local webserver:
+Use the `webpack-dev-server` to build and run your app. Run the following command to bundle your application host on a local webserver:
 
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
