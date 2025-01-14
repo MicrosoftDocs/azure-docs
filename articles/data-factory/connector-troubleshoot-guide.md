@@ -5,7 +5,7 @@ description: Learn how to troubleshoot connector issues in Azure Data Factory an
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 09/25/2024
+ms.date: 01/14/2025
 ms.author: jianleishen
 ms.custom: synapse
 ai-usage: ai-assisted
@@ -44,8 +44,7 @@ You can refer to the troubleshooting pages for each connector to see problems sp
 
 The following errors are general to the copy activity and could occur with any connector.
 
-<a name="error-code-usererrorodbcoperationFailed"></a>
-#### Error code: 2200 - UserErrorOdbcOperationFailed
+#### <a name="error-code-usererrorodbcoperationFailed"></a> Error code: 2200 - UserErrorOdbcOperationFailed
 
 - **Message**: `The underlying connection was closed: An unexpected error occurred on a send.`
 
@@ -56,8 +55,7 @@ The following errors are general to the copy activity and could occur with any c
   - Check the authentication method used for the connection.
   - Review firewall configuration settings for Azure Cosmos DB to ensure they allow the necessary traffic.
 
-<a name="error-code-jrenotfound"></a>
-#### Error code: 20000 - JreNotFound
+#### <a name="error-code-jrenotfound"></a> Error code: 20000 - JreNotFound
 
 - **Message**: `Java Runtime Environment cannot be found on the Self-hosted Integration Runtime machine. It is required for parsing or writing to Parquet/ORC files. Make sure Java Runtime Environment has been installed on the Self-hosted Integration Runtime machine.`
 
@@ -137,8 +135,7 @@ The following errors are general to the copy activity and could occur with any c
 
 - **Recommendation**: Use a valid client ID.
 
-<a name="error-code-ManagedIdentityCredentialObjectNotSupported"></a>
-#### Error code: 20523 - ManagedIdentityCredentialObjectNotSupported
+#### <a name="error-code-ManagedIdentityCredentialObjectNotSupported"></a> Error code: 20523 - ManagedIdentityCredentialObjectNotSupported
 
 - **Message**: `Managed identity credential is not supported in this version ('%version;') of Self Hosted Integration Runtime.`
 
