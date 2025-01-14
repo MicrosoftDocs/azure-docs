@@ -118,7 +118,7 @@ SecurityIncident
 | summarize arg_max(lastModifiedTimeUtc, *) by taskId
 | where status !in ('Completed', 'Deleted')
 | project TaskTitle = ['title'], TaskStatus = ['status'], createdTimeUtc, lastModifiedTimeUtc = column_ifexists("lastModifiedTimeUtc", datetime(null)), TaskCreator = ['createdBy'].name, lastModifiedBy, IncidentNumber, IncidentOwner = Owner.userPrincipalName
-| order by lastModifiedTimeUtc desc
+| sort by lastModifiedTimeUtc desc
 ```
 
 See more information on the following items used in the preceding examples, in the Kusto documentation:
