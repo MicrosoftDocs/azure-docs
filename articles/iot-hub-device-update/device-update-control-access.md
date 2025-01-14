@@ -11,7 +11,9 @@ ms.subservice: device-update
 
 # Azure RBAC and Azure Device Update for IoT Hub
 
-For users and applications to access Azure Device Update for IoT Hub, they must be granted access to the Device Update resource. The Device Update service principal must also get access to the IoT hub to deploy updates and manage devices. This article explains how Device Update uses Azure role-based access control (Azure RBAC) to provide authentication and authorization for users and service APIs.
+For users and applications to access Azure Device Update for IoT Hub, they must be granted access to the Device Update resource. The Device Update service principal must also get access to its associated IoT hub to deploy updates and manage devices.
+
+This article explains how Device Update and Azure IoT Hub use Azure role-based access control (Azure RBAC) to provide authentication and authorization for users and service APIs. The article also describes Microsoft Entra ID authentication for Device Update REST APIs, and support for managed identities in Device Update and Azure IoT Hub.
 
 ## Device Update access control roles
 
@@ -26,13 +28,13 @@ Device Update supports the following RBAC roles:
 |  Device Update Deployments Administrator | Can manage deployments of updates to devices|
 |  Device Update Deployments Reader| Can view deployments of updates to devices |
 
-You can assign a combination of roles to provide the right level of access. For example, the Device Update Content Administrator role can import and manage updates, but you need the Device Update Deployments Reader role to view the progress of an update. Conversely, the Device Update Reader role can view all updates, but you need the Device Update Deployments Administrator role to deploy an update to devices.
+You can assign a combination of roles to provide the right level of access. For example, you can use the Device Update Content Administrator role to import and manage updates, but you need the Device Update Deployments Reader role to view the progress of an update. Conversely, with the Device Update Reader role you can view all updates, but you need the Device Update Deployments Administrator role to deploy an update to devices.
 
 ## Device Update service principal access to IoT Hub
 
-Device Update communicates with the IoT hub it's associated with to deploy and manage updates at scale. To enable this communication, you need to grant the Device Update service principal IoT Hub Data Contributor access to the IoT hub.
+Device Update communicates with its associated IoT hub to deploy and manage updates at scale. To enable this communication, you need to grant the Device Update service principal access to the IoT hub with IoT Hub Data Contributor role.
 
-Setting this permission allows the following deployment, device and update management, and diagnostic actions:
+Granting this permission allows the following deployment, device and update management, and diagnostic actions:
 
 - Create deployment
 - Cancel deployment
@@ -53,8 +55,8 @@ To integrate an application or service with Microsoft Entra ID, first [register 
 - To call Device Update from a mobile or desktop application, select **Public client/native (mobile & desktop)** in **Select a platform** and enter `https://login.microsoftonline.com/common/oauth2/nativeclient` for the **Redirect URI**.
 - To call Device Update from a website with implicit sign-on, use **Web** platform. Under **Implicit grant and hybrid flows**, select **Access tokens (used for implicit flows)**.
 
->[!NOTE]
->Use the most secure authentication flow available. Implicit flow authentication requires a high degree of trust in the application, and carries risks that aren't present in other flows. You should use this flow only when other more secure flows, such as managed identities, aren't viable.
+  >[!NOTE]
+  >Use the most secure authentication flow available. Implicit flow authentication requires a high degree of trust in the application, and carries risks that aren't present in other flows. You should use this flow only when other more secure flows, such as managed identities, aren't viable.
 
 ### Configure permissions
 
