@@ -4,7 +4,7 @@ titleSuffix: ExpressRoute
 description: Learn about roles and permissions for ExpressRoute circuits and gateways.
 author: rambk
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/18/2024
 ms.author: rambala
 ---

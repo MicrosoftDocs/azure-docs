@@ -1,10 +1,8 @@
 ---
 title: Elastic integration overview
 description: Learn about using the Elastic Cloud-Native Observability Platform in the Azure Marketplace.
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 05/15/2023
-
-
 ---
 
 # What is Elastic Cloud (Elasticsearch) - An Azure Native ISV Service?

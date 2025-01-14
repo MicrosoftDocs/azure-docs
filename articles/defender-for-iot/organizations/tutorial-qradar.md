@@ -21,8 +21,6 @@ Integrating with QRadar supports:
 
 - Access to a Defender for IoT OT sensor as an Admin user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
-- Access to a Defender for IoT OT on-premises management console as an Admin user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
-
 - Access to the QRadar Admin area.
 
 ## Configure Syslog listener for QRadar
@@ -68,7 +66,7 @@ A **QID** is a QRadar event identifier. Since all Defender for IoT reports are t
 
 ## Create QRadar forwarding rules
 
-Create a forwarding rule from your on-premises management console to forward alerts to QRadar.
+Create a forwarding rule from your OT sensor to forward alerts to QRadar.
 
 Forwarding alert rules run only on alerts triggered after the forwarding rule is created. The rule doesn't affect any alerts already in the system from before the forwarding rule was created.
 
@@ -87,7 +85,6 @@ When configuring the forwarding rule:
 1. Optionally, select to enable encryption, and then configure encryption, and/or select to manage alerts externally. 
 
 For more information, see [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md).
-
 
 ## Map notifications to QRadar
 
@@ -132,7 +129,7 @@ For example:
 ```
 
 > [!NOTE]
-> The forwarding rule you create for QRadar uses the `UUID` API from the on-premises management console. For more information, see [UUID (Manage alerts based on the UUID)](api/management-alert-apis.md#uuid-manage-alerts-based-on-the-uuid).
+> The forwarding rule you create for QRadar uses the `UUID` API from the OT sensor. For more information, see [UUID (Manage alerts based on the UUID)](api/management-alert-apis.md#uuid-manage-alerts-based-on-the-uuid).
 
 ## Add custom fields to the alerts
 
