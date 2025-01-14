@@ -16,12 +16,12 @@ ms.date: 01/09/2025
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to create
 storage task.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the
 **Deploy to Azure** button. The template will open in the Azure portal.
 
-:::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/<encoded template URL>":::
+:::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage.actions%2Fstorage-task%2Fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -31,11 +31,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/storage-task/).
 
-:::code language="json" source="~/quickstart-templates/storage-task/azuredep****loy.json":::
+:::code language="json" source="~/quickstart-templates/microsoft.storage.actions/storage-task/azuredeploy.json":::
 
 ## Deploy the template
 
-The following scripts are designed for and tested in [Azure Cloud Shell](../cloud-shell/overview.md). Choose **Try It** to open a Cloud Shell instance right in your browser. 
+The following scripts are designed for and tested in [Azure Cloud Shell](../../cloud-shell/overview.md). Choose **Try It** to open a Cloud Shell instance right in your browser. 
 
 ### [Azure CLI](#tab/azure-cli)
 
