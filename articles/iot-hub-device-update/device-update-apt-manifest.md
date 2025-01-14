@@ -18,7 +18,7 @@ When you deliver an apt manifest to a Device Update agent as an update, the agen
 
 Device Update supports the apt `updateType` and apt [update handler](device-update-agent-overview.md#update-handlers). This support allows the Device Update agent to evaluate the installed Debian packages and update the necessary packages.
 
-You can use an apt manifest to update the Device Update agent and its dependencies. List the device update agent name and desired version in the apt manifest like you would for any other package. You can then import this apt manifest and deploy it through the Device Update pipeline.
+You can use an apt manifest to update the Device Update agent and its dependencies. List the device update agent name and desired version in the apt manifest as you would any other package. You can then import this apt manifest and deploy it through the Device Update pipeline.
 
 ## Schema
 
@@ -58,7 +58,7 @@ For example:
 
 Each apt manifest includes the following properties:
 
-- **Name**: A name for this apt manifest that can be whatever name or ID is meaningful for your scenarios. For example, `contoso-iot-edge`.
+- **Name**: A name for this apt manifest, which can be whatever name or ID is meaningful for your scenarios. For example, `contoso-iot-edge`.
 - **Version**: A version number for this apt manifest, for example, `1.0.0.0`.
 - **Packages**: A list of objects containing package-specific properties.
   - **Name**: The package name or ID, for example `iotedge`.
@@ -88,7 +88,7 @@ You can also use an apt manifest to remove installed packages from devices. You 
 
 To remove a package, add a minus sign `-` after the package name. Don't include a version number for the packages you're removing. Removing a package through an apt manifest doesn't remove its dependencies and configurations.
 
-For example, the following apt manifest removes the package `contoso1` from the device(s) it's deployed to.
+For example, the following apt manifest removes the package `contoso1` from any devices it's deployed to.
 
 
 ```json
@@ -113,9 +113,9 @@ Keep the following guidelines in mind when you create an apt manifest:
 - List the packages in the apt manifest in the order they should be installed or removed.
 - Always validate the installation of packages on a test device to ensure the desired outcome.
 - When you install a specific version of a package, for example `iotedge 1.0.9-1`, also include the explicit versions of the dependent packages to install, for example, `libiothsm 1.0.9-1`.
-- While not required, it's best to always make your apt manifest cumulative, to avoid getting your device into an unknown state. A cumulative update ensures that your devices have the desired version of every relevant package, even if the device skipped an apt update deployment because of installation failure or being offline.
+- While not required, it's best to always make your apt manifest cumulative, to avoid getting your device into an unknown state. A cumulative update ensures that your devices have the desired version of every relevant package, even if the device skipped an update because of installation failure or being offline.
 
-  For example, given the following base apt manifest:
+  For example, consider the following base apt manifest:
 
   ```JSON
   {
@@ -130,7 +130,7 @@ Keep the following guidelines in mind when you create an apt manifest:
   }
   ```
 
-  The following update includes the `contoso2` package, but not the `contoso1` package.
+  The following version 2.0 update includes the `contoso2` package, but not the `contoso1` package. Not all devices that receive the 2.0 update might have the `contoso1` package.
 
   ```JSON
   {
@@ -145,7 +145,7 @@ Keep the following guidelines in mind when you create an apt manifest:
   }
   ```
 
-  The following update is better because it includes both the `contoso1` and `contoso2` packages:
+  The following version 2.0 update is better because it includes both the `contoso1` and `contoso2` packages:
 
   ```JSON
   {

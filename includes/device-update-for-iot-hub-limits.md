@@ -1,13 +1,13 @@
 ---
 author: vimeht
 ms.author: vimeht
-ms.date: 01/10/2024
+ms.date: 01/13/2024
 ms.topic: include
 ms.service: azure-iot-hub
 ms.subservice: device-update
 ---
 
-If a given resource or operation doesn't have adjustable limits, the default and the maximum limits are the same. For adjustable limits, the following tables show both the default and maximum limits. The limits can be raised above the default limit but not above the maximum limit.
+If a given resource or operation doesn't have adjustable limits, the default and the maximum limits are the same. For adjustable limits, the limits can be raised above the default limit but not above the maximum limit.
 
 Limits can be adjusted only for the Standard SKU. Free SKU limit adjustment requests aren't accepted, and Free SKU instances can't be upgraded to Standard SKU instances.
 
@@ -26,11 +26,11 @@ The following table shows the limits associated with various Device Update opera
 
 | Operation | Standard SKU limit | Free SKU limit | Adjustable for Standard SKU? |
 | --- | --- | --- | --- |
-| Number of devices per instance | 1 Million | 10 | Yes |
+| Number of devices per instance | 1 million | 10 | Yes |
 | Number of device groups per instance | 100 | 10 | Yes |
 | Number of device classes per instance | 80 | 10 | Yes |
-| Number of active deployments per instance | 50, including one reserved deployment for cancellations | 5, including one reserved deployment for cancellations) | Yes |
-| Number of total deployments per instance, including all active, inactive, and cancelled deployments that aren't deleted) | 100 | 20 | No |
+| Number of active deployments per instance | 50, including one reserved deployment for cancellations | 5, including one reserved deployment for cancellations | Yes |
+| Number of total deployments per instance, including all active, inactive, and cancelled deployments that aren't deleted | 100 | 20 | No |
 | Number of update providers per instance | 25 | 2 | No |
 | Number of update names per provider per instance | 25 | 2 | No |
 | Number of update versions per update provider and name per instance | 100 | 5 | No |

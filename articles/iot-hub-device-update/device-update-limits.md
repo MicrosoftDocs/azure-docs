@@ -3,7 +3,7 @@ title: Azure Device Update for IoT Hub limits | Microsoft Docs
 description: Understand key limits for Azure Device Update for IoT Hub.
 author: vimeht
 ms.author: vimeht
-ms.date: 01/10/2025
+ms.date: 01/13/2025
 ms.topic: conceptual
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -11,7 +11,7 @@ ms.subservice: device-update
 
 # Azure Device Update for IoT Hub limits
 
-This article provides an overview of the various limits imposed on the Azure Device Update for IoT Hub resource and its associated operations. The article also indicates whether the Standard SKU limits are adjustable by contacting Microsoft Support, and the default and maximum values for adjustable limits.
+This article provides an overview of the various limits imposed on the Azure Device Update for IoT Hub resource and its associated operations. The article also indicates whether the Standard SKU limits are adjustable by contacting Microsoft Support, and the maximum values for adjustable limits.
 
 ## General availability limits
 
@@ -21,7 +21,7 @@ The following tables describe the limits for the Device Update service for the S
 
 ## Requirements for large-file downloads
 
-To deploy large-file packages with file size larger than 100 MB, it's best to use byte range requests for reliable download performance. Device Update uses Content Delivery Networks (CDNs) that work optimally with range requests of 1 MB in size. Range requests larger than 100 MB aren't supported.
+To deploy large-file packages with file sizes larger than 100 MB, it's best to use byte range requests for reliable download performance. Device Update uses Content Delivery Networks (CDNs) that work optimally with range requests of 1 MB in size. Range requests larger than 100 MB aren't supported.
 
 ## Throttling limits
 
@@ -51,9 +51,9 @@ The following table shows the enforced throttles for operations in all Device Up
 |List Versions| 510/min*|
 |List Operation Statuses| 50/min|
 
-\* The number of calls per minute is shared across all the listed operations.
+\*The number of calls per minute is shared across all the listed operations.
 
-Also, the number of concurrent asynchronous import and/or delete operations is limited to 10 total operation jobs.
+Also, the number of concurrent asynchronous import and delete operations is limited to 10 total operation jobs.
 
 ## Related content
 

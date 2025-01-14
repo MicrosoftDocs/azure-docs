@@ -1,6 +1,6 @@
 ---
-title: Azure RBAC and Azure Device Update for IoT Hub
-description: Understand how Azure Device Update for IoT Hub uses Azure role-based access control (Azure RBAC) to provide authentication and authorization for users and service APIs.
+title: Azure role-based access control (RBAC) and Azure Device Update for IoT Hub
+description: Understand how Azure Device Update for IoT Hub uses Azure role-based access control (RBAC) to provide authentication and authorization for users and service APIs.
 author: vimeht
 ms.author: vimeht
 ms.date: 01/13/2025
@@ -9,9 +9,9 @@ ms.service: azure-iot-hub
 ms.subservice: device-update
 ---
 
-# Azure Device Update for IoT Hub and Azure RBAC
+# Azure RBAC and Azure Device Update for IoT Hub
 
-For users and applications to access Azure Device Update for IoT Hub, they must be granted access to the Device Update resource. You must also configure access for the Device Update service principal to access the IoT hub to deploy updates and manage devices. This article explains how Device Update uses Azure role-based access control (Azure RBAC) to provide authentication and authorization for users and service APIs.
+For users and applications to access Azure Device Update for IoT Hub, they must be granted access to the Device Update resource. The Device Update service principal must also get access to the IoT hub to deploy updates and manage devices. This article explains how Device Update uses Azure role-based access control (Azure RBAC) to provide authentication and authorization for users and service APIs.
 
 ## Device Update access control roles
 
@@ -26,20 +26,20 @@ Device Update supports the following RBAC roles:
 |  Device Update Deployments Administrator | Can manage deployments of updates to devices|
 |  Device Update Deployments Reader| Can view deployments of updates to devices |
 
-You can assign a combination of roles to provide the right level of access. For example, the Device Update Content Administrator role can import and manage updates, but you need the Device Update Deployments Reader role to view the progress of an update. Conversely, the Device Update Reader role can view all updates, but you need the Device Update Deployments Administrator role to deploy a specific update to devices.
+You can assign a combination of roles to provide the right level of access. For example, the Device Update Content Administrator role can import and manage updates, but you need the Device Update Deployments Reader role to view the progress of an update. Conversely, the Device Update Reader role can view all updates, but you need the Device Update Deployments Administrator role to deploy an update to devices.
 
 ## Device Update service principal access to IoT Hub
 
-Device Update communicates with the IoT hub for deployments and to manage updates at scale. To enable this communication, you need to use the IoT hub access permissions to grant IoT Hub Data Contributor access to the Device Update service principal.
+Device Update communicates with the IoT hub it's associated with to deploy and manage updates at scale. To enable this communication, you need to grant the Device Update service principal IoT Hub Data Contributor access to the IoT hub.
 
-You must set these permissions to allow the following deployment, device and update management, and diagnostic actions:
+Setting this permission allows the following deployment, device and update management, and diagnostic actions:
 
 - Create deployment
 - Cancel deployment
 - Retry deployment 
 - Get device
 
-You can set this permission from the IoT hub access control (IAM) page. For more information, see [Configure IoT hub access for the Device Update service principal](configure-access-control-device-update.md#configure-access-for-azure-device-update-service-principal-in-linked-iot-hub).
+You can set this permission from the IoT hub **Access Control (IAM)** page. For more information, see [Configure IoT hub access for the Device Update service principal](configure-access-control-device-update.md#configure-access-for-azure-device-update-service-principal-in-linked-iot-hub).
 
 ## Device Update REST APIs
 
@@ -50,8 +50,8 @@ Device Update uses Microsoft Entra ID for authentication to its REST APIs. To ge
 
 To integrate an application or service with Microsoft Entra ID, first [register a client application with Microsoft Entra ID](../active-directory/develop/quickstart-register-app.md). Client application setup varies depending on the authorization flow you need: users, applications, or managed identities. For example:
 
-- To call Device Update from a mobile or desktop application, add **Mobile and desktop applications** platform with `https://login.microsoftonline.com/common/oauth2/nativeclient` for the redirect URI.
-- To call Device Update from a website with implicit sign-on, add **Web** platform and select **Access tokens (used for implicit flows)**.
+- To call Device Update from a mobile or desktop application, select **Public client/native (mobile & desktop)** in **Select a platform** and enter `https://login.microsoftonline.com/common/oauth2/nativeclient` for the **Redirect URI**.
+- To call Device Update from a website with implicit sign-on, use **Web** platform. Under **Implicit grant and hybrid flows**, select **Access tokens (used for implicit flows)**.
 
 >[!NOTE]
 >Use the most secure authentication flow available. Implicit flow authentication requires a high degree of trust in the application, and carries risks that aren't present in other flows. You should use this flow only when other more secure flows, such as managed identities, aren't viable.
@@ -77,7 +77,7 @@ az account get-access-token --resource 'https://api.adu.microsoft.com/'
 
 #### PowerShell MSAL Library
 
-[MSAL.PS](https://github.com/AzureAD/MSAL.PS) PowerShell module is a wrapper over [Microsoft Authentication Library for .NET (MSAL .NET)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) that supports various authentication methods.
+[`MSAL.PS`](https://github.com/AzureAD/MSAL.PS) PowerShell module is a wrapper over [Microsoft Authentication Library for .NET (MSAL .NET)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) that supports various authentication methods.
 
 - User credentials:
 
