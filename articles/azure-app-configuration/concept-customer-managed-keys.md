@@ -79,7 +79,7 @@ After these resources are configured, use the following steps so that the Azure 
     ```
 
     > [!NOTE]
-    > If you want to create a user-assigned managed identity, please go to this [tutorial](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity).
+    > To create a user-assigned managed identity, follow this [tutorial](./overview-managed-identity#adding-a-user-assigned-identity).
 
 1. The managed identity of the Azure App Configuration instance needs access to the key to perform key validation, encryption, and decryption. The specific set of actions to which it needs access includes: `GET`, `WRAP`, and `UNWRAP` for keys. These permissions can be granted by assigning the `Key Vault Crypto Service Encryption User` role for Azure RBAC enabled Key Vaults. For Key Vaults using access policy authorization, set the policy for the aforementioned key permissions. Granting access requires the principal ID of the App Configuration instance's managed identity. Replace the value shown below as `contoso-principalId` with the principal ID obtained in the previous step. Grant permission to the managed key by using the command line:
 
