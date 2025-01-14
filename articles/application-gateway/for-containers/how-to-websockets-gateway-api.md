@@ -39,7 +39,7 @@ WebSocket protocol has no specific implementation with Gateway API for configura
 
 # [ALB managed deployment](#tab/alb-managed)
 
-Create a Gateway
+1. Create a Gateway
 
     ```bash
     kubectl apply -f - <<EOF
