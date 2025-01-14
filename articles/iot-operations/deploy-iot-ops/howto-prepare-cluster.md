@@ -76,7 +76,7 @@ To prepare an Azure Arc-enabled Kubernetes cluster, you need:
 
 ---
 
-## Create and Arc-enable a cluster
+## Create an Arc-enable a cluster
 
 This section provides steps to create clusters in validated environments on Linux and Windows.
 
@@ -192,7 +192,7 @@ Connect your cluster to Azure Arc so that it can be managed remotely.
 
 1. Save the file and exit the nano editor.
 
-1. Prepare for enabling the Azure Arc service, custom location, on your Arc cluster by getting the custom location object ID and saving it as the environment variable, OBJECT_ID. You must be logged into Azure CLI with a Microsoft Entra user account to sucessfully run the command, not a service principal. Run the following command **exactly as written**, without changing the GUID value. 
+1. Prepare for enabling the Azure Arc service, custom location, on your Arc cluster by getting the custom location object ID and saving it as the environment variable, OBJECT_ID. You must be logged into Azure CLI with a Microsoft Entra user account to successfully run the command, not a service principal. Run the following command **exactly as written**, without changing the GUID value. 
 
    ```azurecli
    export OBJECT_ID=$(az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv)

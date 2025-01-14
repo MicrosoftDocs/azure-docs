@@ -49,11 +49,11 @@ Before you update session hosts using session host update, you need:
 
       | Name | Type | Applies to |
       |--|--|--|
-      | Reset password | Allow | Decendent Computer objects |
-      | Validated write to DNS host name | Allow | Decendent Computer objects |
-      | Validated write to service principal name | Allow | Decendent Computer objects |
-      | Read account restrictions | Allow | Decendent Computer objects |
-      | Write account restrictions | Allow | Decendent Computer objects |
+      | Reset password | Allow | Descendant Computer objects |
+      | Validated write to DNS host name | Allow | Descendant Computer objects |
+      | Validated write to service principal name | Allow | Descendant Computer objects |
+      | Read account restrictions | Allow | Descendant Computer objects |
+      | Write account restrictions | Allow | Descendant Computer objects |
 
       Beginning with [KB5020276](https://support.microsoft.com/help/5020276), further protections were introduced for the reuse of computer accounts in an Active Directory domain. To successfully reuse the existing computer object for the session host, either:
 

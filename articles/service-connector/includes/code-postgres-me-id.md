@@ -75,7 +75,7 @@ using (var connection = new NpgsqlConnection(connectionString))
     import java.sql.*;
     
     String url = System.getenv("AZURE_POSTGRESQL_CONNECTIONSTRING");
-    String pluginName = "com.Azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin";  
+    String pluginName = "com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin";  
     Connection connection = DriverManager.getConnection(url + "&authenticationPluginClassName=" + pluginName);
     ```
 
@@ -269,6 +269,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     // const tenantId = process.env.AZURE_POSTGRESQL_TENANTID;
     // const clientId = process.env.AZURE_POSTGRESQL_CLIENTID;
     // const clientSecret = process.env.AZURE_POSTGRESQL_CLIENTSECRET;
+    // const credential = new ClientSecretCredential(tenantId, clientId, clientSecret);
 
     // Acquire the access token.
     var accessToken = await credential.getToken('https://ossrdbms-aad.database.windows.net/.default');
@@ -364,4 +365,4 @@ For other languages, use the connection properties that Service Connector sets t
 
 ---
 
-[!INCLUDE [Postgresql grant permission](./postgres-grant-permission.md)]
+[!INCLUDE [PostgreSQL grant permission](./postgres-grant-permission.md)]

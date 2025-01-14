@@ -7,7 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: tutorial
 ms.date: 02/07/2024
 ms.author: greglin
-ms.custom: template-tutorial, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Enable the ingress controller add-on for a new AKS cluster with a new application gateway instance

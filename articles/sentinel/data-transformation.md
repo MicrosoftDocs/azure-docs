@@ -69,7 +69,7 @@ In Log Analytics, data collection rules (DCRs) determine the data flow for diffe
 
 Support for DCRs in Microsoft Sentinel includes:
 
-- *Standard DCRs*, currently supported only for AMA-based connectors and workflows using the [Logs ingestion API](/azure/azure-monitor/logs/logs-ingestion-api-overview). <!--"currently". is this still true?-->
+- *Standard DCRs*, currently supported only for AMA-based connectors and workflows using the [Logs ingestion API](/azure/azure-monitor/logs/logs-ingestion-api-overview).
 
     Each connector or log source workflow can have its own dedicated *standard DCR*, though multiple connectors or sources can share a common *standard DCR* as well.
 

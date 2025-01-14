@@ -76,12 +76,6 @@ Because subnet size can't be changed after assignment, use a subnet that's large
 
 With multi plan subnet join (MPSJ), you can join multiple App Service plans in to the same subnet. All App Service plans must be in the same subscription but the virtual network/subnet can be in a different subscription. Each instance from each App Service plan requires an IP address from the subnet and to use MPSJ a minimum size of `/26` subnet is required. If you plan to join many and/or large scale plans, you should plan for larger subnet ranges.
 
-> [!IMPORTANT]
-> Due to a known bug, MPSJ fails if multiple sites are created and attempt to integrate with the virtual network at the same time. A fix will be deployed soon. In the meantime, you can work around the issue with either of the following methods:
-> * If you create sites manually, create and integrate the sites one by one.
-> * If you create sites programmatically, for example using Terraform or ARM templates, add a [dependsOn](/azure/azure-resource-manager/templates/resource-dependency#dependson) element to each site in your templates to depend on the creation of the previous site for all but the first site in the template. This creates a delay between the site creation and the virtual network integration for each site and therefore isn't blocked by the known bug. For more information see, [Define the order for deploying resources in ARM templates](/azure/azure-resource-manager/templates/resource-dependency).
->
-
 ### Windows Containers specific limits
 
 Windows Containers uses an extra IP address per app for each App Service plan instance, and you need to size the subnet accordingly. If you have, for example, 10 Windows Container App Service plan instances with four apps running, you need 50 IP addresses and extra addresses to support horizontal (in/out) scale.
@@ -176,9 +170,21 @@ You can use route tables to route outbound traffic from your app without restric
 
 Route tables and network security groups only apply to traffic routed through the virtual network integration. See [application routing](#application-routing) and [configuration routing](#configuration-routing) for details. Routes don't apply to replies from inbound app requests and inbound rules in an NSG don't apply to your app. Virtual network integration affects only outbound traffic from your app. To control inbound traffic to your app, use the [access restrictions](./overview-access-restrictions.md) feature or [private endpoints](./networking/private-endpoint.md).
 
-When configuring network security groups or route tables that applies to outbound traffic, you must make sure you consider your application dependencies. Application dependencies include endpoints that your app needs during runtime. Besides APIs and services the app is calling, these endpoints could also be derived endpoints like certificate revocation list (CRL) check endpoints and identity/authentication endpoint, for example Microsoft Entra ID. If you're using [continuous deployment in App Service](./deploy-continuous-deployment.md), you might also need to allow endpoints depending on type and language. Specifically for [Linux continuous deployment](https://github.com/microsoft/Oryx/blob/main/doc/hosts/appservice.md#network-dependencies), you need to allow `oryx-cdn.microsoft.io:443`. For Python you additionally need to allow `files.pythonhosted.org`, `pypi.org`.
+When configuring network security groups or route tables that applies to outbound traffic, you must make sure you consider your application dependencies. Application dependencies include endpoints that your app needs during runtime. Besides APIs and services the app is calling, these endpoints could also be derived endpoints like certificate revocation list (CRL) check endpoints and identity/authentication endpoint, for example Microsoft Entra ID. If you're using [continuous deployment in App Service](./deploy-continuous-deployment.md), you might also need to allow endpoints depending on type and language.
 
-Azure uses UDP port 30,000 to do network health checks. If you block this traffic, it will not directly impact your app, but it will be more difficult for Azure support to detect and troubleshoot network related issues. 
+#### Linux continuous deployment
+
+Specifically for [Linux continuous deployment](https://github.com/microsoft/Oryx/blob/main/doc/hosts/appservice.md#network-dependencies), you need to allow `oryx-cdn.microsoft.io:443`. For Python you additionally need to allow `files.pythonhosted.org`, `pypi.org`.
+
+#### Health checks
+
+Azure uses UDP port 30,000 to do network health checks. If you block this traffic, it will not directly impact your app, but it will be more difficult for Azure support to detect and troubleshoot network related issues.
+
+#### Private ports
+
+The App Service private ports feature uses ports 20,000 to 30,000 on both TCP and UDP to route traffic between instances through the integrated network. The mentioned port range need to be open both inbound and outbound.
+
+#### On-premises traffic
 
 When you want to route outbound traffic on-premises, you can use a route table to send outbound traffic to your Azure ExpressRoute gateway. If you do route traffic to a gateway, set routes in the external network to send any replies back. Border Gateway Protocol (BGP) routes also affect your app traffic. If you have BGP routes from something like an ExpressRoute gateway, your app outbound traffic is affected. Similar to user-defined routes, BGP routes affect traffic according to your routing scope setting.
 
