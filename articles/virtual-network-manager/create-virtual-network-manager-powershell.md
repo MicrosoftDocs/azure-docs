@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: quickstart
-ms.date: 10/22/2024
+ms.date: 1/13/2024
 ms.custom: template-quickstart, mode-api, engagement-fy23, devx-track-azurepowershell
 ---
 
@@ -51,7 +51,7 @@ Before you can create an Azure Virtual Network Manager instance, you have to cre
 
 ```azurepowershell
 # Create a resource group
-$location = "West US 2"
+$location = "westus2"
 $rg = @{
     Name = 'resource-group'
     Location = $location
@@ -65,7 +65,7 @@ New-AzResourceGroup @rg
 Define the scope and access type for the Azure Virtual Network Manager instance by using [New-AzNetworkManagerScope](/powershell/module/az.network/new-aznetworkmanagerscope). This example defines a scope with a single subscription and sets the access type to *Connectivity*. Replace `<subscription_id>` with the ID of the subscription that you want to manage through Azure Virtual Network Manager.
 
 ```azurepowershell
-$subID= <subscription_id>
+$subID= "d9f0f529-83ab-4840-9c8b-76db5d68517f"
 
 [System.Collections.Generic.List[string]]$subGroup = @()  
 $subGroup.Add("/subscriptions/$subID")
@@ -79,12 +79,12 @@ $scope = New-AzNetworkManagerScope -Subscription $subGroup
 
 ## Create a Virtual Network Manager instance
 
-Create a Virtual Network Manager instance by using [New-AzNetworkManager](/powershell/module/az.network/new-aznetworkmanager). This example creates an instance named *network-manager* in the *West US 2* region:
+Create a Virtual Network Manager instance by using [New-AzNetworkManager](/powershell/module/az.network/new-aznetworkmanager). This example creates an instance named *network-manager* in the *(US) West US 2* region:
     
 ```azurepowershell
 $avnm = @{
     Name = 'network-manager'
-    ResourceGroupName = $rg.ResourceGroupName
+    ResourceGroupName = $rg.Name
     NetworkManagerScope = $scope
     NetworkManagerScopeAccess = $access
     Location = $location
@@ -94,12 +94,12 @@ $networkmanager = New-AzNetworkManager @avnm
 
 ## Create three virtual networks
 
-Create three virtual networks by using [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). This example creates virtual networks named *vnet-spoke-001*, *vnet-spoke-002*, and *vnet-hub-001* in the *West US 2* region. If you already have virtual networks that you want create a mesh network with, you can skip to the next section.
+Create three virtual networks by using [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). This example creates virtual networks named *vnet-spoke-001*, *vnet-spoke-002*, and *vnet-hub-001* in the *(US) West US 2* region. If you already have virtual networks that you want create a mesh network with, you can skip to the next section.
 
 ```azurepowershell
 $vnetspoke001 = @{
     Name = 'vnet-spoke-001'
-    ResourceGroupName = $rg.ResourceGroupName
+    ResourceGroupName = $rg.Name
     Location = $location
     AddressPrefix = '10.0.0.0/16'    
 }
@@ -108,7 +108,7 @@ $vnet_spoke_001 = New-AzVirtualNetwork @vnetspoke001
 
 $vnetspoke002 = @{
     Name = 'vnet-spoke-002'
-    ResourceGroupName = $rg.ResourceGroupName
+    ResourceGroupName = $rg.Name
     Location = $location
     AddressPrefix = '10.1.0.0/16'    
 }
@@ -116,7 +116,7 @@ $vnet_spoke_002 = New-AzVirtualNetwork @vnetspoke002
 
 $vnethub001 = @{
     Name = 'vnet-hub-001'
-    ResourceGroupName = $rg.ResourceGroupName
+    ResourceGroupName = $rg.Name
     Location = $location
     AddressPrefix = '10.2.0.0/16'    
 }
@@ -155,12 +155,12 @@ $vnet_hub_001 | Set-AzVirtualNetwork
 
 ## Create a network group
 
-Virtual Network Manager applies configurations to groups of virtual networks by placing them in network groups. Create a network group by using [New-AzNetworkManagerGroup](/powershell/module/az.network/new-aznetworkmanagergroup). This example creates a network group named *network-group* in the West US 2 region:
+Virtual Network Manager applies configurations to groups of virtual networks by placing them in network groups. Create a network group by using [New-AzNetworkManagerGroup](/powershell/module/az.network/new-aznetworkmanagergroup). This example creates a network group named *network-group* in the *(US) West US 2* region:
 
 ```azurepowershell
 $ng = @{
         Name = 'network-group'
-        ResourceGroupName = $rg.ResourceGroupName
+        ResourceGroupName = $rg.Name
         NetworkManagerName = $networkManager.Name
     }
     $ng = New-AzNetworkManagerGroup @ng
@@ -183,7 +183,7 @@ Static members must have a unique name that's scoped to the network group. We re
 ```azurepowershell
 $sm_vnetspoke001 = @{
         Name = Get-UniqueString $vnet_spoke_001.Id
-        ResourceGroupName = $rg.ResourceGroupName
+        ResourceGroupName = $rg.Name
         NetworkGroupName = $ng.Name
         NetworkManagerName = $networkManager.Name
         ResourceId = $vnet_spoke_001.Id
@@ -194,7 +194,7 @@ $sm_vnetspoke001 = @{
 ```azurepowershell
 $sm_vnetspoke002 = @{
         Name = Get-UniqueString $vnet_spoke_002.Id
-        ResourceGroupName = $rg.ResourceGroupName
+        ResourceGroupName = $rg.Name
         NetworkGroupName = $ng.Name
         NetworkManagerName = $networkManager.Name
         ResourceId = $vnet_spoke_002.Id
@@ -227,7 +227,7 @@ In this task, you create a connectivity configuration with the network group *ne
     ```azurepowershell
     $config = @{
         Name = 'connectivity-configuration'
-        ResourceGroupName = $rg.ResourceGroupName
+        ResourceGroupName = $rg.Name
         NetworkManagerName = $networkManager.Name
         ConnectivityTopology = 'Mesh'
         AppliesToGroup = $configGroup
@@ -247,7 +247,7 @@ $target.Add("westus2")
 
 $deployment = @{
     Name = $networkManager.Name
-    ResourceGroupName = $rg.ResourceGroupName
+    ResourceGroupName = $rg.Name
     ConfigurationId = $configIds
     TargetLocation = $target
     CommitType = 'Connectivity'
@@ -262,7 +262,7 @@ If you no longer need the Azure Virtual Network Manager instance and it's associ
 1. Delete the resource group using [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup):
 
     ```azurepowershell
-    Remove-AzResourceGroup -Name $rg.ResourceGroupName -Force
+    Remove-AzResourceGroup -Name $rg.Name -Force
     ```
 
 ## Next steps
