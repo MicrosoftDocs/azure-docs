@@ -108,7 +108,7 @@ After these resources are configured, use the following steps so that the Azure 
     The command uses system-assigned managed identity to do authentication with the key vault by default. 
 
     > [!NOTE]
-    > When using a user-assigned managed identity to access the managed key, you can specify its client id explicitly by adding `--identity-client-id <client id of your user assigned identity>` to the command.
+    > When using a user-assigned managed identity to access the managed key, you can specify its client ID explicitly by adding `--identity-client-id <client ID of your user assigned identity>` to the command.
 
 Your Azure App Configuration instance is now configured to use a customer-managed key stored in Azure Key Vault.
 
