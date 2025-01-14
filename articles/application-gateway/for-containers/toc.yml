@@ -33,6 +33,8 @@
     href: session-affinity.md
   - name: TLS policy
     href: tls-policy.md
+  - name: WebSockets
+    href: websockets.md
   - name: Frequently Asked Questions (FAQ)
     href: faq.yml
   - name: Understanding pricing
