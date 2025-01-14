@@ -22,6 +22,16 @@ Features released earlier than nine months ago are described in the [What's new 
 
 The legacy on-premises management console won't be available for download after **January 1st, 2025**. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
 
+## January 2025
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - ["Unauthorized Internet Connectivity Detected" alert now includes URL information](#unauthorized-internet-connectivity-detected-alert-now-includes-url-information) |
+
+### "Unauthorized Internet Connectivity Detected" alert now includes URL information
+
+The "Unauthorized Internet Connectivity Detected" alert details now includes the URL from which the suspicious connection initiated, helping SOC analysts assess and respond to incidents more effectively.
+
 ## December 2024
 
 |Service area  |Updates  |
