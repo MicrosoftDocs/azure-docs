@@ -16,13 +16,14 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Quickstart: Download WhatsApp message media
 
-Azure Communication Services enables you to send and receive WhatsApp messages. In this quickstart, you learn how to download the media payload received in a WhatsApp message. 
+Azure Communication Services enables you to send and receive WhatsApp messages. This article describes how to download the media payload received in a WhatsApp message. 
 
-Use case: A business receives a WhatsApp message from their customer that contains an image. The business needs to download the image from WhatsApp in order to view the image.
+**Use case:** A business receives a WhatsApp message from their customer that contains an image. The business needs to download the image from WhatsApp in order to view the image.
 
-Incoming messages to the business are published as [Microsoft.Communication.AdvancedMessageReceived](/azure/event-grid/communication-services-advanced-messaging-events#microsoftcommunicationadvancedmessagereceived-event) Event Grid events. This quickstart uses the media ID and media MIME type in the AdvancedMessageReceived event to download the media payload.
+Incoming messages to the business are published as [Microsoft.Communication.AdvancedMessageReceived](/azure/event-grid/communication-services-advanced-messaging-events#microsoftcommunicationadvancedmessagereceived-event) Event Grid events. This example uses the media ID and media MIME type in the `AdvancedMessageReceived` event to download the media payload.
 
-Here's an example of an AdvancedMessageReceived event with media content:
+An example of an `AdvancedMessageReceived` event with media content:
+
 ```json
 [{
   "id": "00000000-0000-0000-0000-000000000000",
@@ -63,7 +64,7 @@ Here's an example of an AdvancedMessageReceived event with media content:
 
 ## Next steps
 
-In this quickstart, you tried out the Advanced Messaging for WhatsApp SDK. Next you might also want to see the following articles:
+This article described how to download the media received in a WhatsApp message using Advanced Messaging for WhatsApp SDK. Next you might want to continue with the following articles:
 
 - [More Sample](/samples/azure/azure-sdk-for-js/communication-messages-javascript)
 - [Send WhatsApp Messages using Advanced Messages](../../../quickstarts/advanced-messaging/whatsapp/get-started.md)
