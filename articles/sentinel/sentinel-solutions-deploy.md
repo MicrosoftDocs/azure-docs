@@ -3,7 +3,7 @@ title: Discover and deploy Microsoft Sentinel out-of-the-box content from Conten
 description: Learn how to find and deploy Sentinel packaged solutions containing data connectors, analytics rules, hunting queries, workbooks, and other content.
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 01/05/2025
+ms.date: 01/14/2025
 ms.author: cwatson
 appliesto:
     - Microsoft Sentinel in the Azure portal
@@ -53,30 +53,24 @@ The content hub offers the best way to find new content or manage the solutions 
 
     For more information, see [Categories for Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions.md#categories-for-microsoft-sentinel-out-of-the-box-content-and-solutions).
 
-1. Select a solution from the list to view information about the solution as well as the types of content items it includes.
+1. In the list view (:::image type="icon" source="media/sentinel-solutions-deploy/list-view.png" border="false":::), select a solution from the list to view information about the solution as well as the types of content items it includes.
 
-    Expand a solution in the search or filter results to view the list of content items it includes. The information pane on the left presents detailed information about the content item.
+    Expand a solution in the search or filter results to view the list of content items it includes. The information pane on the side presents detailed information about the content item.
 
-    For example, in the following image, the **Windows Security Events** solution indicates it includes two data connector, analytics rules, hunting queries, and playbooks.
-
-    The following examples show several solutions that include content items that match the search criteria.
-1. Filter the list displayed, either by selecting specific values from the filters, or entering any part of a content name or description in the **Search** field.
-
-    For more information, see [Categories for Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions.md#categories-for-microsoft-sentinel-out-of-the-box-content-and-solutions).
-
-1. Select the **Card view** to view more information about a solution.
-
-   Each content item shows categories that apply to it, and solutions show the types of content included. For example, in the following image, the **Cisco Umbrella** solution lists one of its categories as **Security - Cloud Security**, and indicates it includes a data connector, analytics rules, hunting queries, playbooks, and more.
-
-   #### [Azure portal](#tab/azure-portal)
+    #### [Azure portal](#tab/azure-portal)
     :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of the Microsoft Sentinel content hub in the Azure portal.":::
 
-   #### [Defender portal](#tab/defender-portal)
-   :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list-defender.png" alt-text="Screenshot of the Microsoft Sentinel content hub in the Defender portal.":::
+    #### [Defender portal](#tab/defender-portal)
+    :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list-defender.png" alt-text="Screenshot of the Microsoft Sentinel content hub in the Defender portal.":::
 
     ----
 
-To use a content item that's part of a solution, you must install the entire solution. If you've selected a specific content item, select **Install solution** in the details pane on the side to install the relevant solution.
+    Alternately, select the card view (:::image type="icon" source="media/sentinel-solutions-deploy/card-view.png" border="false":::) to view solutions presented in a grid. Each card shows the solution name, description, and categories. Select a card to view more information about the solution on the side.
+
+To use a content item that's part of a solution, you must install the entire solution. If you've selected a specific content item in the list view, select **Install solution** in the details pane on the side to install the relevant solution.
+
+For more information, see [Categories for Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions.md#categories-for-microsoft-sentinel-out-of-the-box-content-and-solutions).
+
 
 ## Install or update content
 
