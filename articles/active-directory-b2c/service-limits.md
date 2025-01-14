@@ -208,6 +208,19 @@ As a protection for our customers, Microsoft places some restrictions on telepho
 | 998 | Uzbekistan | 10 | 30 
 | 223 | Mali | 20 | 100 
 | 52 | Mexico | 100 | 500 
+| Malaysia | 60 | 50 | 200
+| Senegal | 221 | 10 | 30
+| Tunisia | 216 | 20 | 100
+| El Salvador | 503 | 10 | 30
+| Nigeria | 234 | 20 | 100
+| Slovenia | 386 | 10 | 50
+| Bolivia | 591 | 10 | 30
+| Zimbabwe | 263 | 10 | 30
+| Madagascar | 261 | 10 | 30
+| Georgia | 995 | 10 | 30
+| Turkmenistan | 993 | 10 | 30
+| Uganda | 256 | 20 | 100
+| Moroccoa | 212 | 20 | 100
 
 ## Next steps
 
