@@ -103,7 +103,9 @@ You also can retrieve the logs via the UI:
 
 ## Rotate the BTP client secret
 
-We recommend that you periodically rotate the BPT subaccount client secrets. The following sample script demonstrates the process of updating an existing data connector with a new secret fetched from Azure Key Vault.
+We recommend that you periodically rotate the BTP subaccount client secrets. For automated platform-based approaches, see our [blog on the SAP community](https://community.sap.com/t5/technology-blogs-by-members/automatic-sap-btp-trust-store-certificate-renewal-with-azure-key-vault-or/ba-p/13565138).
+
+In addition, the following sample script demonstrates the process of updating an existing data connector with a new secret fetched from Azure Key Vault.
 
 Before you start, collect the values you need for the scripts parameters, including:
 
@@ -155,8 +157,6 @@ catch {
     Write-Error "An error occurred: $_"
 }
 ```
-
-For automated platform-based approaches, see our [blog on the SAP community](https://community.sap.com/t5/technology-blogs-by-members/automatic-sap-btp-trust-store-certificate-renewal-with-azure-key-vault-or/ba-p/13565138).
 
 ## Related content
 
