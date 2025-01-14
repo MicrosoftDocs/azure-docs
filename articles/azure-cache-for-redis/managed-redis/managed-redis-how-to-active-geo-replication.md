@@ -215,13 +215,11 @@ Due to the potential for inadvertent data loss, you can't use the `FLUSHALL` and
 
 ## Geo-replication Metric
 
-The _Geo Replication Healthy_ metric in Azure Cache for Redis Enterprise/Azure Managed Redis helps monitor the health of geo-replicated clusters. You can use this metric to monitor the sync status among geo-replicas.  
-
 The _Geo Replication Healthy_ metric in the Azure Managed Redis helps monitor the health of geo-replicated clusters. You use this metric to monitor the sync status among geo-replicas.  
 
 To monitor the _Geo Replication Healthy_ metric in the Azure portal:
 
-1. Open the Azure portal and select your Azure Cache for Redis instance.
+1. Open the Azure portal and select your Azure Managed Redis instance.
 
 1. On the Resource menu, select **Metrics** under the **Monitoring** section.
 
@@ -239,7 +237,7 @@ To monitor the _Geo Replication Healthy_ metric in the Azure portal:
 
     1. Save the alert.
 
-    1. For more information on how to setup alerts for you Redis Enterprise cache, see [Monitor Azure Cache for Redis](monitor-cache.md).
+    1. For more information on how to setup alerts for you Redis Enterprise cache, see .
 
 > [!IMPORTANT]
 > This metric might temporarily show as unhealthy due to routine operations like maintenance events or scaling, initiated either by Azure or the customer. To avoid false alarms, we recommend setting up an observation window of 60 minutes, where the metric continues to stay unhealthy as the appropriate time for generating an alert as it might indicate a problem that requires intervention.
@@ -248,7 +246,7 @@ To monitor the _Geo Replication Healthy_ metric in the Azure portal:
 
 - Use of custom Hash tags – Using custom hashtags in Redis can lead to uneven distribution of data across shards, which might cause performance issues and synchronization problems in geo-replicas therefore avoid using custom hashtags unless the database needs to perform multiple key operations.
 
-- Large Key Size - Large keys can create synchronization issues among geo-replicas. To maintain smooth performance and reliable replication, we recommend keeping key sizes under 500MB when using geo-replication. If individual key size gets close to 2GB the cache faces geo=replication health issues.  
+- Large Key Size - Large keys can create synchronization issues among geo-replicas. To maintain smooth performance and reliable replication, we recommend keeping key sizes under 500MB when using geo-replication. If individual key size gets close to 2GB the cache faces geo-replication health issues.  
 
 ### Flush caches using Azure CLI or PowerShell
 
