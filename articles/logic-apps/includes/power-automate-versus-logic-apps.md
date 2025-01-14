@@ -10,14 +10,14 @@ ms.topic: include
 ---
 
 > [!NOTE]
->
-> The following information serves only as a guide and doesn't include pricing information. 
-> Make sure to review the pricing or license plan information for each service.
+> This information is only a guide and doesn't include pricing information. 
+> Make sure that you review the pricing or license plan information for each service.
 
 | Area or scenario | Azure Logic Apps - Standard | Azure Logic Apps - Consumption | Power Automate |
 |------------------|-----------------------------|--------------------------------|----------------|
 | **Purpose** | Workflow automation with advanced features for enterprise developers | Same as Standard | Workflow automation for citizen developers and business users |
 | **Users** | Professional integrators and developers, IT professionals | Same as Standard | Citizen developers, business users, office workers, SharePoint administrators |
+| **Pricing or licensing model** | Fixed pricing - Azure subscription | Consumption (Pay per execution) - Azure subscription | Microsoft 365 per user license |
 | **Development environment** | Visual designer and JSON code view in [Azure portal](https://portal.azure.com) and Visual Studio Code | Visual designer and JSON code view in [Azure portal](https://portal.azure.com) and Visual Studio Code | Browser-based designer, drag-and-drop interface, mobile app, UI only |
 | **Integration** | - 1,400+ connectors for Microsoft, Azure, and non-Microsoft services, apps, and data <br><br>- On-premises systems support <br><br>- B2B capabilities <br><br>- Create your own connectors <br><br>- Integrate with hybrid solutions | Same as Standard except for hybrid deployment | 400+ connectors for Microsoft and non-Microsoft services, apps, systems, and data, such as SharePoint, Dynamics 365, and others |
 | **Trigger types** | - Schedule-driven or *polling*, such as **Recurrence** and many service-based triggers, such as **When a new email arrives** <br><br>- Event-driven or *push*, such as **Request** (inbound) and some service-based triggers, such as Event Grid <br><br>- HTTP call (outbound), such as **HTTP** | Same as Standard | - Schedule-driven or *polling*, such as **Recurrence** and many service-based triggers, such as **When a new email arrives** <br><br>- Event-driven or *push*, such as **Request** (inbound) and some service-based triggers, such as Event Grid <br><br>- User activity-based, such as **Flow button** or specific connectors Instant, UI Flow, Business Process |
@@ -31,4 +31,3 @@ ms.topic: include
 | **Application Lifecycle Management** (ALM) | Azure DevOps: source control, testing, support, automation, and manageability in [Azure Resource Manager](/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview) | | Power Platform [tools](/power-platform/alm/tools-apps-used-alm) that integrate with DevOps and [GitHub Actions](/power-platform/alm/devops-github-actions) so you can build automated pipelines for the ALM cycle. |
 | **Admin experience** | Manage resource groups, connections, access management, and logging: [Azure portal](https://portal.azure.com) | | Manage Power Automate environments and data loss prevention (DLP) policies, track licensing: [Admin center](https://admin.powerplatform.microsoft.com/) |
 | **Error handling** | 	Save Failed - highlights errors | | Flow Checker - providing a list of errors within the flow |
-| **Pricing or licensing model*** | Fixed pricing - Azure subscription | Consumption (Pay per execution) - Azure subscription | Microsoft 365 per user license |
