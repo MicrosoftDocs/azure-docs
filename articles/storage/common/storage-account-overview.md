@@ -57,23 +57,23 @@ Azure Storage customers use a variety of workloads to store data, access it and 
 
 Below is a high-level categorization of different primary workloads for your storage accounts.
 
-#### Cloud native
+### Cloud native
 
-Cloud native apps are large-scale distributed applications that are built on a foundation of cloud paradigms and technologies. This modern approach focuses on cloud scale and performance capabilities. Cloud native apps are based on microservices architecture, use managed services, and employ continuous delivery to achieve reliability. These applications are typically categorized into web apps, mobile apps, containerized apps, and serverless/FaaS. 
+Cloud native apps are large-scale distributed applications that are built on a foundation of cloud paradigms and technologies. This modern approach focuses on cloud scale and performance capabilities. Cloud native apps can be based on microservices architecture, use managed services, and employ continuous delivery to achieve reliability. These applications are typically categorized into web apps, mobile apps, containerized apps, and serverless/FaaS. 
 
-#### Analytics
+### Analytics
 
-Analytics is the systematic, computational analysis of data and statistics. This science involves discovering, interpreting, and communication of meaningful insights/patterns found in data. The data discovered can be manipulated and interpreted in ways to further a business’s objectives and to help it meet its goals. These workloads typically consist of a pipeline ingesting large volumes of data that are prepped, curated, and aggregated for downstream consumption via Power BI, data warehouses or applications. The workloads require high ingress and egress with the larger driver of bandwidth. Some different types of analytics include (but are not limited to) real-time analytics, advanced analytics, predictive analytics, emotional analytics, and sentiment analysis. For analytics, we guarantee that our customers have high throughput access to large amounts of data in distributed storage architectures. 
+Analytics is the systematic, computational analysis of data and statistics. This science involves discovering, interpreting, and communication of meaningful insights/patterns found in data. The data discovered can be manipulated and interpreted in ways to further a business’s objectives and to help it meet its goals. These workloads typically consist of a pipeline ingesting large volumes of data that are prepped, curated, and aggregated for downstream consumption via Power BI, data warehouses or applications. Analytics workloads can require high ingress and egress driving higher throughput on your storage account. Some different types of analytics include (but are not limited to) real-time analytics, advanced analytics, predictive analytics, emotional analytics, and sentiment analysis. For analytics, we guarantee that our customers have high throughput access to large amounts of data in distributed storage architectures. 
 
-#### High-performance computing (HPC)
+### High-performance computing (HPC)
 
 High-performance computing is the aggregation of multiple computing nodes acting on the same set of tasks to achieve more than that of a single node in a given time frame. It involves using powerful processors that work in parallel to process massive, multi-dimensional data sets. HPC workloads require very high throughput read and write operations for workloads like gene sequencing and reservoir simulation. HPC workloads also include applications with high IOPS and low latency access to a large number of small files for workloads like seismic interpretation, autonomous driving and risk workloads. The primary goal is to solve complex problems at ultra-fast speeds. Other examples of high-performance computing include fluid dynamics and other physical simulation or analysis which require scalability and high throughput. To enable our customers to perform HPC, we ensure that large amounts of data are accessible with a large amount of concurrency.  
 
-#### Backup and archive
+### Backup and archive
 
 Business continuity and disaster recovery (BCDR) is a business’s ability to remain operational after an adverse event. In terms of storage, this objective equates to maintaining business continuity across outages to storage systems.  With the introduction of Backup-as-a-Service offerings throughout the industry, BCDR data is increasingly migrating to the public cloud. The backup and archive workload functions as the last line of defense against rising ransomware and malicious attacks. When there is a service interruption or accidental deletion or corruption of data, recovering the data in an efficient and orchestrated manner is the highest priority. To accomplish this, Azure Storage makes it possible to store and retrieve large amounts of data in the most cost-effective fashion. 
 
-#### Machine learning and artificial intelligence
+### Machine learning and artificial intelligence
 
 Artificial intelligence (AI) is technology that simulates human intelligence and problem-solving capabilities in machines. Machine Learning (ML) is a sub-discipline of AI that uses algorithms to create models that enable machines to perform tasks. Both represent the newest workload on Azure which is growing at a rapid pace. This type of workload can be applied across every industry to improve metrics and meet performance goals. These types of technologies can lead to discoveries of life-saving drugs and practices in the field of medicine/health while also providing health assessments. Other everyday uses of ML and AI include fraud detection, image recognition, and the flagging of misinformation. These workloads typically need highly specialized compute (large numbers of GPU) and require high throughput and IOPS, low latency access to storage and POSIX file system access. Azure Storage supports these types of workloads by storing checkpoints and providing storage for large-scale datasets and models. These datasets and models read and write at a pace to keep GPUs utilized. 
 
@@ -88,9 +88,9 @@ The table below illustrates Microsoft's suggested storage account configurations
 |Backup and archive |General purpose v2 |Standard |ZRS, RA-GRS |No |Cool<sup>3</sup> |Yes |
 |Machine learning and artificial intelligence |General purpose v2 |Standard |ZRS, RA-GRS |Yes |Hot |No |
 
-<sup>1</sup> Zone Redundant Storage (ZRS) is a good default for analytics workloads because ZRS offers better integration with analytics frameworks, cost efficiency, and scalability without the critical blockers associated with regional accounts for GRS redundancy.
-<br/><br/><sup>2</sup> As a core capability of ADLS, the hierarchical namespace enhances data organization and access efficiency for large amounts of data, making it ideal for analytics workloads.
-<br/><br/><sup>3</sup> The cool access tier offers a cost-effective solution for storing infrequently accessed data, which is typical for a backup and archive workload.
+<sup>1</sup> Zone Redundant Storage (ZRS) is a good default for analytics workloads because ZRS offers additional redundancy compared to Locally Redundant Storage (LRS), protecting against zonal failures while remaining fully compatible with analytics frameworks. Customers that require additional redundancy can also leverage Geo-redundant Storage (GRS/RA-GRS) if additional redundancy is required for an Analytics workload.
+<br/><br/><sup>2</sup> As a core capability of Azure Data Lake Storage (ADLS), the <a href="https://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-namespace">hierarchical namespace </a> enhances data organization and access efficiency for large amounts of data, making it ideal for analytics workloads.
+<br/><br/><sup>3</sup> The cool access tier offers a cost-effective solution for storing infrequently accessed data, which is typical for a backup and archive workload. Customers can also consider the cold access tier after evaluating costs.
 
 ## Storage account endpoints
 
