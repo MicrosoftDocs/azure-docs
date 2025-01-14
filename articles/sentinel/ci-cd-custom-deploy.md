@@ -169,24 +169,16 @@ Rather than passing parameters as inline values in your content files, consider 
 :::image type="content" source="media/ci-cd-custom-deploy/deploy-parameter-file-precedence-with-bicep.svg" alt-text="A diagram showing the precedence of parameter file mappings.":::
 
 1. Is there a mapping in the *sentinel-deployment.config*?</br>For more information, see [Customize your connection configuration](ci-cd-custom-deploy.md#customize-your-connection-configuration).
-1. Is there a workspace-mapped parameter file?</br>Yes, it's a parameter file in the same directory as the content files that ends with *.\<WorkspaceID>.bicepparam* or *.parameters-\<WorkspaceID>.json*
-1. Is there a default parameter file?</br>Yes, any parameter file in the same directory as the content files that ends with *.bicepparam* or *.parameters.json*
+1. Is there a workspace-mapped parameter file?</br>Yes, the content files are in the same directory with a workspace-mapped parameter file matching one of these patterns:</br>  *.\<WorkspaceID>.bicepparam*</br>  *.parameters-\<WorkspaceID>.json*
+1. Is there a default parameter file?</br>Yes, the content files are in the same directory with a parameter file matching one of these patterns:</br>  *.bicepparam*</br>  *.parameters.json*
      
-It's encouraged to map your parameter files through the configuration file or by specifying the workspace ID in the file name to avoid clashes in scenarios with multiple deployments.
+Avoid clashes with multiple workspace deployments by mapping your parameter files through the configuration file or specifying the workspace ID in the file name.
 
 > [!IMPORTANT]
 > Once a parameter file match is determined based on the mapping precedence, the pipeline ignores any remaining mappings.
 > 
 
-Modifying the mapped parameter file listed in the *sentinel-deployment.config* triggers the deployment of its paired content file. Adding or modifying a workspace-mapped parameter file or a default parameter file also triggers a deployment of the paired content files along with the newly modified parameters, unless a higher precedence parameter mappings is in place. Other content files aren't deployed as long as the smart deployments feature is still enabled in the workflow/pipeline definition file.
-
-Examples of workspace-mapped parameter files:
-- *.\<WorkspaceID>.bicepparam*
-- *.parameters-\<WorkspaceID\>.json*
-
-Examples of default parameter files:
-- *.bicepparam*
-- *.parameters.json*
+Modifying the mapped parameter file listed in the *sentinel-deployment.config* triggers the deployment of its paired content file. Adding or modifying a workspace-mapped parameter file or a default parameter file also triggers a deployment of the paired content files along with the newly modified parameters, unless a higher precedence parameter mapping is in place. Other content files aren't deployed as long as the smart deployments feature is still enabled in the workflow/pipeline definition file.
 
 ## Customize your connection configuration
 
