@@ -27,9 +27,9 @@ Get notified when this page is updated by copying and pasting the following URL 
 
 ### View granular solution content in the Microsoft Sentinel content hub
 
-Now you can view the individual content available in a specific solution directly from the **Content hub**, even before you've installed the solution.
+Now you can view the individual content available in a specific solution directly from the **Content hub**, even before you've installed the solution. This new visibility helps you understand the content available to you, and more easily identify, plan, and install the specific solutions you need.
 
-This new visibility helps you understand the content available to you, and more easily identify, plan, and install the specific solutions you need. For example:
+Expand each solution in the Content hub to view included security content. For example:
 
 :::image type="content" source="media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of showing granular content.":::
 
