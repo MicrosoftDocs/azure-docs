@@ -156,6 +156,8 @@ catch {
 }
 ```
 
+For automated platform-based approaches, see our [blog on the SAP community](https://community.sap.com/t5/technology-blogs-by-members/automatic-sap-btp-trust-store-certificate-renewal-with-azure-key-vault-or/ba-p/13565138).
+
 ## Related content
 
 - [Learn how to enable the security content](../sentinel-solutions-deploy.md#analytics-rule)
