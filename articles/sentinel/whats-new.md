@@ -23,7 +23,13 @@ Get notified when this page is updated by copying and pasting the following URL 
 
 ## January 2025
 
+- [Bicep template support for repositories (Preview)](#bicep-template-support-for-repositories-preview)
 - [Microsoft Sentinel availability in Microsoft Defender portal](#microsoft-sentinel-availability-in-microsoft-defender-portal)
+
+### Bicep template support for repositories (Preview)
+Use Bicep templates alongside or as a replacement of ARM JSON templates in Microsoft Sentinel repositories. Bicep provides an intuitive way to create templates of Azure resources and Microsoft Sentinel content items. Not only is it easier to develop new content items, Bicep makes reviewing and updating content easier for anyone that's a part of the continuous integration and delivery of your Microsoft Sentinel content.
+
+For more information, see [Plan your repository content](ci-cd-custom-content.md#plan-your-repository-content).
 
 ### View granular solution content in the Microsoft Sentinel content hub
 
