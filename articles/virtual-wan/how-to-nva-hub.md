@@ -90,7 +90,7 @@ The following section describes the steps needed to deploy a Network Virtual App
 
 2. Select **Create network virtual appliance**.
 
-  :::image type="content" source="./media/network-virtual-appliance-creation/network-virtual-appliance-create.png"alt-text="Screenshot showing how to create NVA/"lightbox="./media/network-virtual-appliance-creation/network-virtual-appliance-create.png":::
+  :::image type="content" source="./media/network-virtual-appliance-creation/network-virtual-appliance-create.png"alt-text="Screenshot showing how to create NVA."lightbox="./media/network-virtual-appliance-creation/network-virtual-appliance-create.png":::
 
 3. Choose the NVA vendor. In this example, "fortinet-ngfw" is selected and select **Create**. At this point, you're redirected to the NVA partner's Azure Marketplace managed application.
 
@@ -102,12 +102,15 @@ The following section describes the steps needed to deploy a Network Virtual App
 
 ### Permission errors
 
-* If you see an error message with error code **LinkeAuthorizationFailed**,  the user-assigned identity supplied as part of the Managed Application deployment didn't have the proper permissions assigned. The exact permissions that are missing are described in the error message. In the following example, double-check that the user-assigned managed identity has READ permissions over the Virtual WAN hub you're trying to deploy the NVA into.
+>[!NOTE]
+> The  error message associated with a **LinkedAuthorizationFailed** only displays one missing permission. As a result, you may see a different  missing permission after you update the permissions assigned to your service principal, managed identity or user.
+
+* If you see an error message with error code **LinkedAuthorizationFailed**,  the user-assigned identity supplied as part of the Managed Application deployment didn't have the proper permissions assigned. The exact permissions that are missing are described in the error message. In the following example, double-check that the user-assigned managed identity has READ permissions over the Virtual WAN hub you're trying to deploy the NVA into. 
 
 ```
-The client with object id '<>>' does not have authorization to perform action 'Microsoft.Network/virtualHubs/read' over scope '/subscriptions/<>/resourceGroups/<>/providers/Microsoft.Network/virtualHubs/<>' or the scope is invalid. If access was recently granted, please refresh your credentials
+The client with object id '<>' does not have authorization to perform action 'Microsoft.Network/virtualHubs/read' over scope '/subscriptions/<>/resourceGroups/<>/providers/Microsoft.Network/virtualHubs/<>' or the scope is invalid. If access was recently granted, please refresh your credentials
 ```
-                             
+
 ## Next steps
 
 * To learn more about Virtual WAN, see [What is Virtual WAN?](virtual-wan-about.md)
