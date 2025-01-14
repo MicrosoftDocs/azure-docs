@@ -43,7 +43,7 @@ Before you start, make sure you have:
     
     When the playbook is ready, Microsoft Sentinel displays a **Deployment successful** message and navigates to the **Logic app designer** page.
 
-    :::image type="content" source="media/automate-sensor-disconnection-alerts/sentinel-playbook-successful-message.png" alt-text="Screenshot of a "Deployment successful" message for a playbook that sends Defender for IoT sensor disconnection alerts.":::
+    :::image type="content" source="media/automate-sensor-disconnection-alerts/sentinel-playbook-successful-message.png" alt-text="Screenshot of a Deployment successful message for a playbook that sends Defender for IoT sensor disconnection alerts.":::
 
 ## Paste the playbook code and modify fields
 
