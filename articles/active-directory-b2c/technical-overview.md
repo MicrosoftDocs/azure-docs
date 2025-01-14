@@ -5,7 +5,7 @@ author: garrodonnell
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: overview
-ms.date: 11/08/2023
+ms.date: 01/10/2025
 ms.author: godonnell
 ms.subservice: b2c
 

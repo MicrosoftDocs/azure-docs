@@ -5,7 +5,7 @@ author: timlt
 ms.author: timlt
 ms.service: azure-iot
 ms.topic: tutorial
-ms.date: 04/04/2024
+ms.date: 1/10/2025
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
 ms.custom: mode-other, devx-track-azurecli, devx-track-extended-java, devx-track-python, linux-related-content, devx-track-js

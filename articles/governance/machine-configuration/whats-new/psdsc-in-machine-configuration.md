@@ -146,7 +146,7 @@ string value for the **Phrase** property.
 ```powershell
 $reasons = @()
 $reasons += @{
-  Code   = 'Name:Name:ReasonIdentifer'
+  Code   = 'Name:Name:ReasonIdentifier'
   Phrase = 'Explain why the setting is not compliant'
 }
 return @{
