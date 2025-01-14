@@ -41,10 +41,10 @@ To complete this tutorial, you need to:
 
 + [Create an Azure API Management instance](get-started-create-service-instance.md)
 + Understand [caching in Azure API Management](api-management-howto-cache.md)
-+ Have an [Azure Cache for Redis](../azure-cache-for-redis/quickstart-create-redis), [Azure Managed Redis](../azure-cache-for-redis/quickstart-create-managed-redis.md), or another Redis-compatible cache available. 
++ Have an [Azure Cache for Redis](../azure-cache-for-redis/quickstart-create-redis.md), [Azure Managed Redis](../azure-cache-for-redis/quickstart-create-managed-redis.md), or another Redis-compatible cache available. 
 
     > [!IMPORTANT]
-    > Azure API Management uses a Redis connection string to connect to the cache. If you use Azure Cache for Redis or Azure Managed Redis, enable access keys authentication in your cache to use a connection string. Currently, you can't use Microsoft Entra authentication to connect from Azure API Management to Azure Cache for Redis or Azure Managed Redis.
+    > Azure API Management uses a Redis connection string to connect to the cache. If you use Azure Cache for Redis or Azure Managed Redis, enable access key authentication in your cache to use a connection string. Currently, you can't use Microsoft Entra authentication to connect Azure API Management to Azure Cache for Redis or Azure Managed Redis.
 
 ### Redis cache for Kubernetes
 
@@ -66,9 +66,9 @@ The **Use from** setting in the configuration specifies the location of your API
 
 * **Default**, to configure the cache as the default for all gateway locations in the API Management instance
 
-    A cache used for **Default** will be overridden by a cache used for a specific matching region or location.
+    A cache used for **Default** is overridden by a cache used for a specific matching region or location.
 
-    For example, consider an API Management instance that's hosted in the East US, Southeast Asia, and West Europe regions. There are two caches configured, one for **Default** and one for **Southeast Asia**. In this example, API Management in **Southeast Asia** will use its own cache, while the other two regions will use the **Default** cache entry.
+    For example, consider an API Management instance that's hosted in the East US, Southeast Asia, and West Europe regions. There are two caches configured, one for **Default** and one for **Southeast Asia**. In this example, API Management in **Southeast Asia** uses its own cache, while the other two regions use the **Default** cache entry.
 
 > [!NOTE]
 > You can configure the same external cache for more than one API Management instance. The API Management instances can be in the same or different regions. When sharing the cache for more than one instance, you must select **Default** in the **Use from** setting. 
