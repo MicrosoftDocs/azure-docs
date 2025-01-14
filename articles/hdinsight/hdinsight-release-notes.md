@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 01/13/2025
+ms.date: 01/14/2025
 ---
 
 # Azure HDInsight release notes
@@ -60,12 +60,12 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 
 * HDInsight service transitioned to use standard load balancers for all its cluster configurations due to [deprecation announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer#main) of Azure basic load balancer.
 
-> [!NOTE]
-> This change is available in all regions. Recreate your cluster to consume this change. For any assistance, contact [support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
+  > [!NOTE]
+  > This change is available in all regions. Recreate your cluster to consume this change. For any assistance, contact [support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
 
-> [!IMPORTANT]
-> When using your own Virtual Network (custom VNet) during cluster creation, be advised that the cluster creation won't succeed once this change is enabled. We recommend referring to the [migration guide to recreate the cluster](./load-balancer-migration-guidelines.md).
-> For any assistance, contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+  > [!IMPORTANT]
+  > When using your own Virtual Network (custom VNet) during cluster creation, be advised that the cluster creation won't succeed once this change is enabled. We recommend referring to the [migration guide to recreate the cluster](./load-balancer-migration-guidelines.md).
+  > For any assistance, contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
 
