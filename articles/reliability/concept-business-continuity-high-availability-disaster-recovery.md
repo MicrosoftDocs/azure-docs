@@ -4,7 +4,7 @@ description: Understand business continuity, high availability, and disaster rec
 author: anaharris-ms
 ms.service: azure
 ms.topic: conceptual
-ms.date: 01/10/2025
+ms.date: 01/15/2025
 ms.author: anaharris
 ms.custom: subject-reliability
 ms.subservice: azure-reliability
@@ -12,7 +12,7 @@ ms.subservice: azure-reliability
 
 # What are business continuity, high availability, and disaster recovery?
 
-This article defines and describes business continuity and business continuity planning in terms of risk management through high availability and disaster recovery design. 
+This article defines and describes business continuity and business continuity planning in terms of risk management through high availability and disaster recovery design. While this article doesn't provide explicit guidance about how to meet your own business continuity needs, it helps you to understand the concepts that are used throughout Microsoft's reliability guidance.
 
 *Business continuity* is the state in which a business can continue operations during failures, outages, or disasters. Business continuity requires proactive planning, preparation, and the implementation of resilient systems and processes.
 
@@ -20,7 +20,7 @@ Planning for business continuity requires identifying, understanding, classifyin
 
 *High availability* is about designing a solution to be resilient to day-to-day issues and to meet the business needs for availability. 
 
-*Disaster recovery* is about planning how to deal with catastrophic outages and uncommon risks.
+*Disaster recovery* is about planning how to deal with uncommon risks and the catastrophic outages that can result.
 
 ## Business continuity
 
@@ -87,7 +87,7 @@ Business continuity plans must address both common and uncommon risks.
 
   A high availability strategy must consider and control for each risk of this type.
 
-- *Uncommon risks* are generally the result of a catastrophic and unforeseeable event, such as natural disasters or major network attacks.
+- *Uncommon risks* are generally the result of an unforeseeable event, such as a natural disaster or major network attack, that can lead to a catastrophic outage.
 
   Disaster recovery processes deal with these rare risks.
 
@@ -140,8 +140,13 @@ Have a formal change control process for anything that would alter the state of 
 High availability is the state in which a specific workload can maintain its necessary level of uptime on a day-to-day basis, even during transient faults and intermittent failures. Because these events happen regularly, it's important that each workload is designed and configured for high availability in accordance with the requirements of the specific application and customer expectations. The HA of each workload contributes to your business continuity plan.
 
 Because HA can vary with each workload, it's important to understand the requirements and customer expectations when determining high availability. For example, an application that's used within your organization might require a relatively low level of uptime, while a critical financial application might require a much higher uptime. Even within a workload, different *flows* might have different requirements. For example, in an eCommerce application, flows that support customers browsing and placing orders might be more important than order fulfillment and back-office processing flows. To learn more about flows, see [Recommendations for identifying and rating flows](/azure/well-architected/reliability/identify-flows).
- 
-Commonly, uptime is measured based on the number of "nines" in the uptime percentage, such as 99.9% (three nines) or 99.95% (three and a half nines). The higher the uptime requirement, the less tolerance you have for outages, and the more work you have to do to reach that level of availability. Uptime isn't measured by the uptime of a single component like a node, but by the overall availability of the entire workload.
+
+Commonly, uptime is measured based on the number of "nines" in the uptime percentage. The uptime percentage relates to how much downtime you're allowing for over a given period of time. Here are some examples:
+
+- A 99.9% uptime requirement (three nines) allows for approximately 43 minutes of downtime in a month.
+- A 99.95% uptime requirement (three and a half nines) allows for approximately 21 minutes of downtime in a month.
+
+The higher the uptime requirement, the less tolerance you have for outages, and the more work you have to do to reach that level of availability. Uptime isn't measured by the uptime of a single component like a node, but by the overall availability of the entire workload.
 
 > [!IMPORTANT]
 > Don't overengineer your solution to reach higher levels of reliability than are justified. Use business requirements to guide your decisions.
@@ -151,7 +156,7 @@ Commonly, uptime is measured based on the number of "nines" in the uptime percen
 To achieve HA requirements, a workload can include a number of design elements. Some of the common elements are listed and described below in this section.
 
 > [!NOTE]
-> Some workloads are *mission-critical*, which means any downtime can have severe consequences. If you're designing a mission-critical workload, there are specific things you need to think about when you design your solution and manage your business continuity. For more information, see the [Azure Well-Architected Framework: Mission-critical workloads](/azure/well-architected/mission-critical/mission-critical-overview).
+> Some workloads are *mission-critical*, which means any downtime can have severe consequences to human life and safety, or major financial losses. If you're designing a mission-critical workload, there are specific things you need to think about when you design your solution and manage your business continuity. For more information, see the [Azure Well-Architected Framework: Mission-critical workloads](/azure/well-architected/mission-critical/mission-critical-overview).
 
 #### Azure services and tiers that support high availability
 
@@ -160,9 +165,9 @@ Many Azure services are designed to be highly available, and can be used to buil
 - Azure Virtual Machine Scale Sets provide high availability for virtual machines (VMs) by automatically creating and managing VM instances, and distributing those VM instances to reduce the impact of infrastructure failures.
 - Azure App Service provides high availability through a variety of approaches, including automatically moving workers from an unhealthy node to a healthy node, and by providing capabilities for self-healing from many common fault types.
 
-To understand the capabilities of each Azure service, decide which tiers to use, and which capabilities to include in your high availability strategy, see its [reliability guide](./overview-reliability-guidance.md).
+Use each [service reliability guide](./overview-reliability-guidance.md) to understand the capabilities of the service, decide which tiers to use, and determine which capabilities to include in your high availability strategy.
     
-Review the service level agreements (SLAs) for each service to understand the expected levels of availability and the conditions you need to meet. You might need to select or avoid specific tiers of services to achieve certain levels of availability. Some services from Microsoft are offered with the understanding that no SLA is provided, such as development or basic tiers, or that the resource could be reclaimed from your running system, such as spot-based offerings. Also, some tiers have added reliability characteristics, such as support for [availability zones](availability-zones-overview.md). 
+Review the service level agreements (SLAs) for each service to understand the expected levels of availability and the conditions you need to meet. You might need to select or avoid specific tiers of services to achieve certain levels of availability. Some services from Microsoft are offered with the understanding that no SLA is provided, such as development or basic tiers, or that the resource could be reclaimed from your running system, such as spot-based offerings. Also, some tiers have added reliability features, such as support for [availability zones](availability-zones-overview.md).
 
 #### Fault tolerance
 
@@ -268,7 +273,7 @@ DR isn't an automatic feature of Azure. However, many services do provide featur
 
 The following sections list some common elements of a disaster recovery plan, and describe how Azure can help you to achieve them.
 
-#### Failover
+#### Failover and failback
 
 Some disaster recovery plans involve provisioning a secondary deployment in another location. If a disaster affects the primary deployment of the solution, traffic can be *failed over* to the other site. Failover needs careful planning and implementation. Azure provides a variety of services to assist with failover, such as the following:
 
@@ -277,9 +282,11 @@ Some disaster recovery plans involve provisioning a secondary deployment in anot
 
 It usually takes some time for a failover process to detect the primary instance has failed and to switch to the secondary instance. Ensure that the RTO of the workload is aligned with the failover time.
 
+It's also important to consider *failback*, which is the process by which you restore operations in the primary region after it's recovered. Failback can be complex to plan and implement. For example, you might have data in the primary region that was written after you failed over to the secondary region, and you need to decide what to do with that data.
+
 #### Backups
 
-Backups involve taking a copy of your data and storing it safely for a defined period of time. Backups help you to recover from disasters when you can't automatically fail over to another replica, or where data corruption has occurred.
+Backups involve taking a copy of your data and storing it safely for a defined period of time. Backups help you to recover from disasters when you can't automatically fail over to another replica, or where data corruption has occurred. Restoring from a backup is usually a last resort, because it involves data loss. A disaster recovery plan should specify the sequence of steps and recovery attempts that must take place before restoring from a backup.
 
 Many Azure data and storage services support backups, such as the following:
 
@@ -287,15 +294,19 @@ Many Azure data and storage services support backups, such as the following:
 - Many Azure database services, including Azure SQL Database and Azure Cosmos DB, have an automated backup capability for your databases.
 - Azure Key Vault provides features to back up your secrets, certificates, and keys.
 
-Because backups are typically taken infrequently, restoring a backup can result in some data loss. Ensure that the RPO of the workload is aligned with the backup interval.
+Because backups are typically taken infrequently, restoring a backup can result in some data loss. Ensure that the RPO of the workload is aligned with the backup interval. Also, restoring a backup often takes time. It's important to test your backups and restoration processes so you verify their integrity and understand how long the restoration process takes.
 
 #### Automated deployments
 
-Infrastructure as code (IaC) assets, such as Bicep files, ARM templates, or Terraform configuration files, can be part of a disaster recovery strategy. If you need to deploy new resources to respond to a disaster, then using IaC can help you to rapidly deploy and configure those resources based on your requirements, and reduce your RTO compared to manually deploying and configuring resources.
+Infrastructure as code (IaC) assets, such as Bicep files, ARM templates, or Terraform configuration files, should be part of a disaster recovery strategy. If you need to deploy new resources to respond to a disaster, then using IaC can help you to rapidly deploy and configure those resources based on your requirements, and reduce your RTO compared to manually deploying and configuring resources.
 
 #### Testing and drills
 
-It's critical that you routinely validate and test your DR plans, and your wider reliability strategy. By testing your DR plans, you also help to validate that your RTO is feasible based on the processes you need to follow. To learn more, see [Recommendations for designing a reliability testing strategy](/azure/well-architected/reliability/testing-strategy).
+It's critical that you routinely validate and test your DR plans, and your wider reliability strategy. If you haven't tested your recovery processes then there can be major problems when you need to use them in a real disaster.
+
+By testing your DR plans, you also help to validate that your RTO is feasible based on the processes you need to follow.
+
+To learn more, see [Recommendations for designing a reliability testing strategy](/azure/well-architected/reliability/testing-strategy).
 
 ## Related content
 
