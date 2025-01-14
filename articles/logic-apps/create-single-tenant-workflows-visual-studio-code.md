@@ -22,13 +22,13 @@ This how-to guide shows how to create an example integration workflow that runs 
 
 * You can locally create, run, and test workflows using the Visual Studio Code development environment.
 
-  When you're ready, you can deploy your logic app to Azure where your workflow can run in the single-tenant Azure Logic Apps environment or in an App Service Environment v3 (Windows-based App Service plans only). You can also deploy and run your workflow anywhere that Kubernetes can run, including Azure, Azure Kubernetes Service, on premises, or even other cloud providers, due to the Azure Logic Apps containerized runtime. 
+  When you're ready, you can deploy your logic app to Azure where your workflow can run in the single-tenant Azure Logic Apps environment or in an App Service Environment v3 (Windows-based App Service plans only). You can also deploy and run your workflow anywhere that Kubernetes can run, including Azure, Azure Kubernetes Service, on premises, or even other cloud providers, due to the Azure Logic Apps containerized runtime.
 
-   > [!NOTE]
-   > 
-   > Deploying your logic app to a Kubernetes cluster is currently in public preview. 
+  > [!NOTE]
+  > 
+  > Deploying your logic app to a Kubernetes cluster is currently in public preview. 
    
-    For more information about single-tenant Azure Logic Apps, review [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md#resource-environment-differences).
+  For more information about single-tenant Azure Logic Apps, see [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md#resource-environment-differences).
 
 While the example workflow is cloud-based and has only two steps, you can create workflows from hundreds of operations that can connect a wide range of apps, data, services, and systems across cloud, on premises, and hybrid environments. The example workflow starts with the built-in **Request** trigger and follows with an Office 365 Outlook action. The trigger creates a callable endpoint for the workflow and waits for an inbound HTTPS request from any caller. When the trigger receives a request and fires, the next action runs by sending email to the specified email address along with selected outputs from the trigger.
 
@@ -72,8 +72,6 @@ As you progress, you'll complete these high-level tasks:
 ### Tools
 
 1. Download and install [Visual Studio Code](https://code.visualstudio.com/), which is free.
-
-1. Download and install the [Azure Account extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) so that you have a single common experience for Azure sign-in and subscription filtering across all Azure extensions in Visual Studio Code. This how-to guide includes steps that use this experience.
 
 1. Download and install the following Visual Studio Code dependencies for your specific operating system using either method:
 
@@ -294,11 +292,11 @@ Before you can create your logic app, create a local project so that you can man
 
 1. In Visual Studio Code, close all open folders.
 
-1. In the **Azure** window, on the **Workspace** section toolbar, from the **Azure Logic Apps** menu, select **Create New Project**.
+1. In the **Azure** window, on the **Workspace** section toolbar, from the **Azure Logic Apps** menu, select **Create new project**.
 
    ![Screenshot shows Azure window, Workspace toolbar, and Azure Logic Apps menu with Create New Project selected.](./media/create-single-tenant-workflows-visual-studio-code/create-new-project-folder.png)
 
-1. If Windows Defender Firewall prompts you to grant network access for `Code.exe`, which is Visual Studio Code, and for `func.exe`, which is the Azure Functions Core Tools, select **Private networks, such as my home or work network** **>** **Allow access**.
+1. If Windows Defender Firewall prompts you to grant network access for **Code.exe**, which is Visual Studio Code, and for **func.exe**, which is the Azure Functions Core Tools, select **Private networks, such as my home or work network** **>** **Allow access**.
 
 1. Browse to the location where you created your project folder, select that folder and continue.
 
@@ -313,6 +311,7 @@ Before you can create your logic app, create a local project so that you can man
    ![Screenshot shows Create new Stateful Workflow (3/4) box and workflow name, Stateful-Workflow.](./media/create-single-tenant-workflows-visual-studio-code/name-your-workflow.png)
 
    > [!NOTE]
+   >
    > You might get an error named **azureLogicAppsStandard.createNewProject** with the error message, 
    > **Unable to write to Workspace Settings because azureFunctions.suppressProject is not a registered configuration**. 
    > If you do, try installing the [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions), 
