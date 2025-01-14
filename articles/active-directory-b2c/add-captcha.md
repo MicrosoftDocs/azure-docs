@@ -360,7 +360,7 @@ To enable CAPTCHA in MFA flow, you need to make an update in two technical profi
 
 2. Set `DefaultValue` to true or false depending on the CAPTCHA scenario
 
-3. Add the feature flags technical profile to the user journey
+3. Add the feature flags technical profile to the user journey then update the order of the rest of the orchestration steps.
 
 ```xml
 <!--<UserJourneys>-->
