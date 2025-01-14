@@ -109,5 +109,5 @@ To set up your Spring application, refer to [Use Azure Redis Cache in Spring](/a
     await cacheConnection.connect();
     ```
 
-#### [Other](#tab/none)
+#### [Other](#tab/other)
 For other languages, you can use the connection information that Service Connector sets to the environment variables to connect to Azure Cache for Redis.
