@@ -164,13 +164,13 @@ For more information, see the [Azure DevOps documentation](/azure/devops/pipelin
 
 ## Scale your deployments with parameter files
 
-Rather than passing parameters as inline values in your content files, consider [using a Bicep parameter file](../azure-resource-manager/bicep/parameter-files.md) or a [JSON file that contains the parameter values](../azure-resource-manager/templates/parameter-files.md). Then map those parameter files to their associated Sentinel content files to better scale your deployments across different workspaces. There are several ways to map parameter files to Sentinel files, and the repositories deployment pipeline considers them in the following order: 
+Rather than passing parameters as inline values in your content files, consider [using a Bicep parameter file](../azure-resource-manager/bicep/parameter-files.md) or a [JSON file that contains the parameter values](../azure-resource-manager/templates/parameter-files.md). Then map those parameter files to their associated Microsoft Sentinel content files to better scale your deployments across different workspaces. Bicep parameter files only support Bicep file templates, and JSON parameter files only support JSON ARM templates. There are several ways to map parameter files to the content files, and the repositories deployment pipeline considers them in the following order: 
  
 :::image type="content" source="media/ci-cd-custom-deploy/deploy-parameter-file-precedence-with-bicep.svg" alt-text="A diagram showing the precedence of parameter file mappings.":::
 
-1. Is there a mapping in the *sentinel-deployment.config*? For more information, see [Customize your connection configuration](ci-cd-custom-deploy.md#customize-your-connection-configuration).
-1. Is there a workspace-mapped parameter file? Yes, it's a parameter file in the same directory as the content files that ends with *.\<WorkspaceID>.bicepparam* or *.parameters-\<WorkspaceID>.json*
-1. Is there a default parameter file? Yes, any parameter file in the same directory as the content files that ends with *.bicepparam* or *.parameters.json*
+1. Is there a mapping in the *sentinel-deployment.config*?</br>For more information, see [Customize your connection configuration](ci-cd-custom-deploy.md#customize-your-connection-configuration).
+1. Is there a workspace-mapped parameter file?</br>Yes, it's a parameter file in the same directory as the content files that ends with *.\<WorkspaceID>.bicepparam* or *.parameters-\<WorkspaceID>.json*
+1. Is there a default parameter file?</br>Yes, any parameter file in the same directory as the content files that ends with *.bicepparam* or *.parameters.json*
      
 It's encouraged to map your parameter files through the configuration file or by specifying the workspace ID in the file name to avoid clashes in scenarios with multiple deployments.
 
@@ -178,7 +178,7 @@ It's encouraged to map your parameter files through the configuration file or by
 > Once a parameter file match is determined based on the mapping precedence, the pipeline ignores any remaining mappings.
 > 
 
-Modifying the mapped parameter file listed in the sentinel-deployment.config triggers the deployment of its paired content file. Adding or modifying a workspace-mapped parameter file or a default parameter file also triggers a deployment of the paired content files along with the newly modified parameters, unless a higher precedence parameter mappings is in place. Other content files aren't deployed as long as the smart deployments feature is still enabled in the workflow/pipeline definition file.
+Modifying the mapped parameter file listed in the *sentinel-deployment.config* triggers the deployment of its paired content file. Adding or modifying a workspace-mapped parameter file or a default parameter file also triggers a deployment of the paired content files along with the newly modified parameters, unless a higher precedence parameter mappings is in place. Other content files aren't deployed as long as the smart deployments feature is still enabled in the workflow/pipeline definition file.
 
 Examples of workspace-mapped parameter files:
 - *.\<WorkspaceID>.bicepparam*
@@ -197,16 +197,16 @@ The deployment script for repositories supports the usage of a deployment config
 
      :::image type="content" source="media/ci-cd-custom-deploy/deployment-config.png" alt-text="Screenshot of a repository root directory. The RepositoriesSampleContent is shown with the location of the sentinel-deployment.config file." lightbox="media/ci-cd-custom-deploy/deployment-config.png":::
 
-1. Include JSON structured content in three optional sections, `"prioritizedcontentfiles":`, `"excludecontentfiles":`, and `"parameterfilemappings":`. If no sections are included or the .config file is omitted, the deployment process still runs. Invalid or unrecognized sections are ignored.
+1. Include your structured content in three optional sections, `"prioritizedcontentfiles":`, `"excludecontentfiles":`, and `"parameterfilemappings":`. If no sections are included or the .config file is omitted, the deployment process still runs. Invalid or unrecognized sections are ignored.
 
-Here's an example of the entire contents of a valid *sentinel-deployment.config* file. This sample can also be found at the [Sentinel CICD repositories sample](https://github.com/SentinelCICD/RepositoriesSampleContent). 
+Here's an example of the entire contents of a valid *sentinel-deployment.config* file. This sample can also be found at the [Microsoft Sentinel CICD repositories sample](https://github.com/SentinelCICD/RepositoriesSampleContent). 
 
 ```json
 {
   "prioritizedcontentfiles": [
     "parsers/Sample/ASimAuthenticationAWSCloudTrail.json",
     "workbooks/sample/TrendMicroDeepSecurityAttackActivity_ARM.json",
-    "Playbooks/PaloAlto-PAN-OS/PaloAltoCustomConnector/azuredeploy.json"
+    "Playbooks/PaloAlto-PAN-OS/PaloAltoCustomConnector/azuredeploy.bicep"
   ], 
   "excludecontentfiles": [
      "Detections/Sample/PaloAlto-PortScanning.json",
@@ -214,7 +214,7 @@ Here's an example of the entire contents of a valid *sentinel-deployment.config*
   ],
   "parameterfilemappings": {
     "879001c8-2181-4374-be7d-72e5dc69bd2b": {
-      "Playbooks/PaloAlto-PAN-OS/Playbooks/PaloAlto-PAN-OS-BlockIP/azuredeploy.json": "parameters/samples/parameter-file-1.json"
+      "Playbooks/PaloAlto-PAN-OS/Playbooks/PaloAlto-PAN-OS-BlockIP/azuredeploy.bicep": "parameters/samples/auzredeploy.bicepparam"
     },
     "9af71571-7181-4cef-992e-ef3f61506b4e": {
       "Playbooks/Enrich-SentinelIncident-GreyNoiseCommunity-IP/azuredeploy.json": "path/to/any-parameter-file.json"
@@ -238,14 +238,15 @@ Here's an example of the entire contents of a valid *sentinel-deployment.config*
 
 - **To map parameters**:
 
-    The deployment script accepts three methods of mapping parameters as described in [Scale your deployments with parameter files](ci-cd-custom-deploy.md#scale-your-deployments-with-parameter-files). Mapping parameters through the sentinel-deployment.config takes the highest precedence and guarantees that a given parameter file is mapped to its associated content files. Modify the `"parameterfilemappings":` section with your target connection's workspace ID and full path names of individual .json files.
+    The deployment script accepts three methods of mapping parameters as described in [Scale your deployments with parameter files](ci-cd-custom-deploy.md#scale-your-deployments-with-parameter-files). Mapping parameters through the *sentinel-deployment.config* takes the highest precedence and guarantees that a given parameter file is mapped to its associated content files. Modify the `"parameterfilemappings":` section with your target connection's workspace ID and full path names of individual .json files.
 
 
 ## Related content
 
-A sample repository is available demonstrating the deployment config file and all three parameter mapping methods. For more information, see [Sentinel CICD repositories sample](https://github.com/SentinelCICD/RepositoriesSampleContent).
+A sample repository is available demonstrating the deployment config file and all three parameter mapping methods. For more information, see [Microsoft Sentinel CICD repositories sample](https://github.com/SentinelCICD/RepositoriesSampleContent).
 
 - [Understand the structure and syntax of Bicep files](../azure-resource-manager/bicep/file.md)
+- [Parameters in Bicep](../azure-resource-manager/bicep/parameters.md)
 - [Create Resource Manager parameter file](../azure-resource-manager/templates/parameter-files.md)
 - [Parameters in ARM templates](../azure-resource-manager/templates/parameters.md)
-- [Parameters in Bicep](../azure-resource-manager/bicep/parameters.md)
+
