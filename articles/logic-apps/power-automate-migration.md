@@ -32,7 +32,7 @@ Azure Logic Apps (Standard) provides the following benefits by providing capabil
 | Version control with CI/CD <br>(continuous integration and deployment) | - Seamless integration with Git repositories, which provide change tracking, branching, and team collaboration <br><br>- Automate deployment with CI/CD pipelines and infrastructure as code (ARM templates and Bicep templates) <br><br>For more information, see [Version control with CI/CD](#version-control-ci-cd). |
 | Migration tool support | - Convert Power Automate flows into Standard workflow configurations for Azure Logic Apps, preserving your flow's logic and functionality. <br><br>- Test and validate converted workflows using functional testing, connector testing, performance testing, and security validation to ensure workflow continuity and performance. <br><br>For more information, see [Migration tool support](#migration-tool). |
 
-For more detailed capability information and comparisons, see [Detailed capability comparisons](#compare-platforms).
+For more detailed capability information and comparisons, see [Compare capability details](#compare-capabilities).
 
 <a name="security-compliance"></a>
 
@@ -157,7 +157,9 @@ To make sure that your converted flow works with the expected continuity and per
 | Security validation | Comprehensively confirm that workflows meet corporate security policies and Azure's enhanced security standards. |
 | Performance testing | Make sure that high-throughput workflows exceed the performance standards for Power Automate. |
 
-## Detailed capability comparison
+<a name="compare-capabilities"></a>
+
+## Compare capability details
 
 The following table provides an in-depth comparison between Azure Logic Apps (Standard), Azure Logic Apps (Consumption), and Power Automate:
 
