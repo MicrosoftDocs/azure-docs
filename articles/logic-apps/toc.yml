@@ -109,6 +109,8 @@ items:
       href: workflow-assistant-standard.md
     - name: Create Standard workflows - Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
+    - name: Power Automate migration to Azure Logic Apps
+      href: power-automate-migration.md
     - name: Create and run .NET code
       href: create-run-custom-code-functions.md
     - name: Add and run C# scripts
