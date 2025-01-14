@@ -65,7 +65,7 @@ New-AzResourceGroup @rg
 In this task, define the scope and access type for the Azure Virtual Network Manager instance by using [New-AzNetworkManagerScope](/powershell/module/az.network/new-aznetworkmanagerscope). This example defines a scope with a single subscription and sets the access type to *Connectivity*. Replace `<subscription_id>` with the ID of the subscription that you want to manage through Azure Virtual Network Manager.
 
 ```azurepowershell
-$subID= "d9f0f529-83ab-4840-9c8b-76db5d68517f"
+$subID= "<subscription_id>"
 
 [System.Collections.Generic.List[string]]$subGroup = @()  
 $subGroup.Add("/subscriptions/$subID")
@@ -257,7 +257,7 @@ Deploy-AzNetworkManagerCommit @deployment
 
 ## Clean up resources
 
-If you no longer need the Azure Virtual Network Manager instance and it's resources, follow these steps to delete them by deleting the resource group containing the resources:
+If you no longer need the Azure Virtual Network Manager instance and its resources, follow these steps to delete them by deleting the resource group containing the resources:
 
 1. Delete the resource group using [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup):
 
