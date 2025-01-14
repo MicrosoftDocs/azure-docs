@@ -110,40 +110,6 @@ Using advanced search options changes the search behavior as follows:
 >  If you're unable to find the incident you're looking for, remove search parameters to expand your search. If your search results in too many items, add more filters to narrow down your results.
 >
 
-## Audit and comment on incidents
-
-When investigating an incident, you want to thoroughly document the steps you take, both to ensure accurate reporting to management and to enable seamless cooperation and collaboration among coworkers. You also want to clearly see records of any actions taken on the incident by others, including by automated processes. Microsoft Sentinel gives you the **Activity log**, a rich audit and commenting environment, to help you accomplish this.
-
-You can also enrich your incidents automatically with comments. For example, when you run a playbook on an incident that fetches relevant information from external sources (say, checking a file for malware at VirusTotal), you can have the playbook place the external source's response&mdash;along with any other information you define&mdash;in the incident's comments.
-
-The activity log autorefreshes, even while open, so that you can always see changes in real time. You're also notified of any changes made to the activity log while you have it open.
-
-**Prerequisites**
-
-- **Editing:** Only the author of a comment has permission to edit it.
-
-- **Deleting:** Only users with the [Microsoft Sentinel Contributor](roles.md) role have permission to delete comments. Even the comment's author must have this role in order to delete it.
-
-**To view the log of activities and comments, or to add your own comments**:
-
-1. Select **Activity log** at the top of the incident details page.
-1. To filter the log to show either only activities or only comments, select the filter control at the top of the log.
-1. If you want to add a comment, enter it in the rich text editor at the bottom of the **Incident activity log** panel.
-1. Select **Comment** to submit the comment. Your comment is added at the top of the log.
-
-:::image type="content" source="media/investigate-incidents/comments-screen.png" alt-text="Screenshot of viewing and entering comments.":::
-
-### Supported input for comments
-
-The following table lists limits for supported inputs in comments:
-
-| **Type** | **Description** |
-| --- | --- |
-| **Text** | Comments in Microsoft Sentinel support text inputs in plain text, basic HTML, and Markdown. You can also paste copied text, HTML, and Markdown into the comment window. |
-| **Links** | Links must be in the form of HTML anchor tags, and they must have the parameter `target="_blank"`. For example::<br><br>```html<br><a href="https://www.url.com" target="_blank">link text</a><br>```<br><br>If you have playbooks that create comments in incidents, links in those comments must conform to this template as well. |
-| **Images** | Images can't be uploaded directly to comments. Instead, insert links to images in comments to display images inline. Linked images must already be hosted in a publicly accessible location such as Dropbox, OneDrive, Google Drive and so on. |
-| **Size limit** | **Per comment:** A single comment can contain up to **30,000 characters**.<br><br>**Per incident:** A single incident can contain up to **100 comments**.<br><br>The size limit of a single incident record in the *SecurityIncident* table in Log Analytics is 64 KB. If this limit is exceeded, comments (starting with the earliest) are truncated, which may affect the comments that appear in [advanced search](#search-for-incidents) results. The actual incident records in the incidents database aren't affected. |
-
 ## Close an incident
 
 Once you resolve a particular incident (for example, when your investigation reaches its conclusion), set the incident’s status to **Closed**. When you do so, you're asked to classify the incident by specifying the reason you're closing it. This step is mandatory. 
