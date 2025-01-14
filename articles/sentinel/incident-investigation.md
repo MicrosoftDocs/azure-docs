@@ -66,7 +66,7 @@ Search the list of alerts and bookmarks, or filter the list by severity, tactics
 - The **alert provider**, in the second part of the subtitle. For bookmarks, the **creator** of the bookmark.
 - The MITRE ATT&CK **tactics** associated with the alert, indicated by icons and ToolTips, in the third part of the subtitle.
 
-For more information, see [Reconstruct the timeline of attacker activity](investigate-incidents.md#reconstruct-the-timeline-of-attacker-activity).
+For more information, see [Reconstruct the timeline of the attack story](investigate-incidents.md#reconstruct-the-timeline-of-the-attack-story).
 
 ### Lists of similar incidents
 
