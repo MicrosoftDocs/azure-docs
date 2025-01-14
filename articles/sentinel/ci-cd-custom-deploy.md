@@ -164,13 +164,21 @@ For more information, see the [Azure DevOps documentation](/azure/devops/pipelin
 
 ## Scale your deployments with parameter files
 
-Rather than passing parameters as inline values in your content files, consider [using a Bicep parameter file](../azure-resource-manager/bicep/parameter-files.md) or a [JSON file that contains the parameter values](../azure-resource-manager/templates/parameter-files.md). Then map those parameter files to their associated Microsoft Sentinel content files to better scale your deployments across different workspaces. Bicep parameter files only support Bicep file templates, and JSON parameter files only support JSON ARM templates. There are several ways to map parameter files to the content files, and the repositories deployment pipeline considers them in the following order: 
+Rather than passing parameters as inline values in your content files, consider [using a Bicep parameter file](../azure-resource-manager/bicep/parameter-files.md) or a [JSON file that contains the parameter values](../azure-resource-manager/templates/parameter-files.md). Then map those parameter files to their associated Microsoft Sentinel content files to better scale your deployments across different workspaces. 
+
+There are several ways to map parameter files to the content files. Keep in mind, Bicep parameter files only support Bicep file templates, but JSON parameter files support both. The repositories deployment pipeline considers parameter files in the following order: 
  
 :::image type="content" source="media/ci-cd-custom-deploy/deploy-parameter-file-precedence-with-bicep.svg" alt-text="A diagram showing the precedence of parameter file mappings.":::
 
 1. Is there a mapping in the *sentinel-deployment.config*?</br>For more information, see [Customize your connection configuration](ci-cd-custom-deploy.md#customize-your-connection-configuration).
-1. Is there a workspace-mapped parameter file?</br>Yes, the content files are in the same directory with a workspace-mapped parameter file matching one of these patterns:</br>  *.\<WorkspaceID>.bicepparam*</br>  *.parameters-\<WorkspaceID>.json*
-1. Is there a default parameter file?</br>Yes, the content files are in the same directory with a parameter file matching one of these patterns:</br>  *.bicepparam*</br>  *.parameters.json*
+
+1. Is there a workspace-mapped parameter file? Yes, the content files are in the same directory with a workspace-mapped parameter file matching one of these patterns:
+   </br>*.\<WorkspaceID>.bicepparam*
+   </br>*.parameters-\<WorkspaceID>.json*
+
+1. Is there a default parameter file? Yes, the content files are in the same directory with a parameter file matching one of these patterns:
+   </br>*.bicepparam*
+   </br>*.parameters.json*
      
 Avoid clashes with multiple workspace deployments by mapping your parameter files through the configuration file or specifying the workspace ID in the file name.
 
