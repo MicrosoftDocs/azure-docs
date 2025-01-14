@@ -135,9 +135,6 @@ Here's how to find the threat intelligence workbook provided in Microsoft Sentin
     - [***summarize*** operator](/kusto/query/summarize-operator?view=microsoft-sentinel&preserve-view=true)
     - [***count()*** aggregation function](/kusto/query/count-aggregation-function?view=microsoft-sentinel&preserve-view=true)
 
-    [!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
-
-
 1. On the **Visualization** dropdown menu, select **Bar chart**.
 
 1. Select **Done editing**, and view the new chart for your workbook.
@@ -152,8 +149,10 @@ There's also a rich resource for [Azure Monitor workbooks on GitHub](https://git
 
 ## Related content
 
-In this article, you learned how to work with threat intelligence indicators throughout Microsoft Sentinel. For more about threat intelligence in Microsoft Sentinel, see the following articles:
+For more about threat intelligence in Microsoft Sentinel, see the following articles:
 
 - [Understand threat intelligence in Microsoft Sentinel](understand-threat-intelligence.md).
 - Connect Microsoft Sentinel to [STIX/TAXII threat intelligence feeds](./connect-threat-intelligence-taxii.md).
 - See which [TIPs, TAXII feeds, and enrichments](threat-intelligence-integration.md) can be readily integrated with Microsoft Sentinel.
+
+[!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
