@@ -5,7 +5,6 @@ author: KarlErickson
 ms.author: zhihaoguo
 ms.date: 01/04/2022
 ms.topic: quickstart
-
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-javaee, mode-api, mvc, devx-track-extended-java, ignite-2024
 ---
@@ -31,7 +30,6 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 
 [!INCLUDE [redis-setup-working-environment](includes/redis-setup-working-environment.md)]
 
-
 ## Create a new Java app
 
 1. Use maven to generate a new quickstart app:
@@ -47,8 +45,8 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
         -Dversion=1.0
     ```
 
-1. Change to the new **redis-jedis-test** project directory.  
-1. Open the *pom.xml* file. In the file, you see a dependency for [Jedis](https://github.com/xetorthio/jedis):
+1. Change to the new **redis-jedis-test** project directory.
+1. Open the **pom.xml** file. In the file, you see a dependency for [Jedis](https://github.com/xetorthio/jedis):
 
     ### [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
 
@@ -66,7 +64,6 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
     </dependency>
     ```
 
-
     ### [Access Key Authentication](#tab/accesskey)
 
     [!INCLUDE [redis-access-key-alert](includes/redis-access-key-alert.md)]
@@ -78,31 +75,31 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
         <version>5.1.0</version>  <!-- {x-version-update;redis.clients:jedis;external_dependency} -->
     </dependency>
     ```
-        
-    ---
 
-1. Close the *pom.xml* file.  
-1. Open *App.java* and see the code with the following code:
-    
+1. Close the **pom.xml** file.
+
+1. Open **App.java** and see the code with the following code:
+
     ### [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
-     ```java
+
+    ```java
     package example.demo;
-    
+
     import com.azure.identity.DefaultAzureCredential;
     import com.azure.identity.DefaultAzureCredentialBuilder;
     import com.azure.core.credential.TokenRequestContext;
     import redis.clients.jedis.DefaultJedisClientConfig;
     import redis.clients.jedis.Jedis;
-    
+
     /**
      * Redis test
      *
      */
-    public class App 
+    public class App
     {
         public static void main( String[] args )
         {
-    
+
             boolean useSsl = true;
 
             //Construct a Token Credential from Identity library, e.g. DefaultAzureCredential / ClientSecretCredential / Client CertificateCredential / ManagedIdentityCredential etc.
@@ -149,62 +146,63 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
     ```
 
     ### [Access Key Authentication](#tab/accesskey)
+
     ```java
     package example.demo;
-    
+
     import redis.clients.jedis.DefaultJedisClientConfig;
     import redis.clients.jedis.Jedis;
-    
+
     /**
      * Redis test
      *
      */
-    public class App 
+    public class App
     {
         public static void main( String[] args )
         {
-    
+
             boolean useSsl = true;
             String cacheHostname = System.getenv("REDIS_CACHE_HOSTNAME");
             String cachekey = System.getenv("REDIS_CACHE_KEY");
-    
+
             // Connect to the Azure Cache for Redis over the TLS/SSL port using the key.
             Jedis jedis = new Jedis(cacheHostname, 6380, DefaultJedisClientConfig.builder()
                 .password(cachekey)
                 .ssl(useSsl)
                 .build());
-    
+
             // Perform cache operations using the cache connection object...
-    
+
             // Simple PING command
             System.out.println( "\nCache Command  : Ping" );
             System.out.println( "Cache Response : " + jedis.ping());
-    
+
             // Simple get and put of integral data types into the cache
             System.out.println( "\nCache Command  : GET Message" );
             System.out.println( "Cache Response : " + jedis.get("Message"));
-    
+
             System.out.println( "\nCache Command  : SET Message" );
             System.out.println( "Cache Response : " + jedis.set("Message", "Hello! The cache is working from Java!"));
-    
+
             // Demonstrate "SET Message" executed as expected...
             System.out.println( "\nCache Command  : GET Message" );
             System.out.println( "Cache Response : " + jedis.get("Message"));
-    
+
             // Get the client list, useful to see if connection list is growing...
             System.out.println( "\nCache Command  : CLIENT LIST" );
             System.out.println( "Cache Response : " + jedis.clientList());
-    
+
             jedis.close();
         }
     }
     ```
+
     ---
-    
+
     This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed.
 
-1. Close the *App.java*.  
-
+1. Close the **App.java** file.
 
 ## Build and run the app
 
@@ -234,7 +232,6 @@ Cache Response : id=777430 addr=             :58989 fd=22 name= age=1 idle=0 fla
 ```
 
 [!INCLUDE [redis-cache-resource-group-clean-up](includes/redis-cache-resource-group-clean-up.md)]
-
 
 ## Next steps
 

@@ -5,7 +5,6 @@ author: KarlErickson
 ms.author: zhihaoguo
 ms.date: 01/18/2024
 ms.topic: quickstart
-
 ms.devlang: java
 ms.custom: mvc, seo-java-january2024, seo-java-february2024, mode-api, devx-track-java, devx-track-extended-java, devx-track-javaee, ignite-2024
 #Customer intent: As a Java developer, new to Azure Cache for Redis, I want to create a new Java app that uses Azure Cache for Redis and Redisson as Redis client.
@@ -33,213 +32,203 @@ This quickstart uses the Maven archetype feature to generate the scaffolding for
 
 [!INCLUDE [redis-setup-working-environment](includes/redis-setup-working-environment.md)]
 
-
 ## Create a new Java app
 
-Use maven to generate a new quickstart app:
+1. Use Maven to generate a new quickstart app:
 
+   ```bash
+   mvn archetype:generate \
+       -DarchetypeGroupId=org.apache.maven.archetypes \
+       -DarchetypeArtifactId=maven-archetype-quickstart \
+       -DarchetypeVersion=1.3 \
+       -DinteractiveMode=false \
+       -DgroupId=example.demo \
+       -DartifactId=redis-redisson-test \
+       -Dversion=1.0
+   ```
 
-```bash
-mvn archetype:generate \
-    -DarchetypeGroupId=org.apache.maven.archetypes \
-    -DarchetypeArtifactId=maven-archetype-quickstart \
-    -DarchetypeVersion=1.3 \
-    -DinteractiveMode=false \
-    -DgroupId=example.demo \
-    -DartifactId=redis-redisson-test \
-    -Dversion=1.0
-```
+1. Change to the new **redis-redisson-test** project directory.
 
-1. Change to the new *redis-redisson-test* project directory.
+1. Open the **pom.xml** file and add a dependency for [Redisson](https://github.com/redisson/redisson#maven):
 
-2. Open the *pom.xml* file and add a dependency for [Redisson](https://github.com/redisson/redisson#maven):  
+   ### [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
 
-### [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
+   ```xml
+   <dependency>
+       <groupId>com.azure</groupId>
+       <artifactId>azure-identity</artifactId>
+       <version>1.11.2</version> <!-- {x-version-update;com.azure:azure-identity;dependency} -->
+   </dependency>
 
-```xml
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-identity</artifactId>
-    <version>1.11.2</version> <!-- {x-version-update;com.azure:azure-identity;dependency} -->
-</dependency>
+   <dependency>
+       <groupId>org.redisson</groupId>
+       <artifactId>redisson</artifactId>
+       <version>3.27.0</version> <!-- {x-version-update;org.redisson:redisson;external_dependency} -->
+   </dependency>
+   ```
 
-<dependency>
-    <groupId>org.redisson</groupId>
-    <artifactId>redisson</artifactId>
-    <version>3.27.0</version> <!-- {x-version-update;org.redisson:redisson;external_dependency} -->
-</dependency>
-```
+   ### [Access Key Authentication](#tab/accesskey)
 
-### [Access Key Authentication](#tab/accesskey)
+   [!INCLUDE [redis-access-key-alert](includes/redis-access-key-alert.md)]
 
-[!INCLUDE [redis-access-key-alert](includes/redis-access-key-alert.md)]
+   ```xml
+   <dependency>
+       <groupId>org.redisson</groupId>
+       <artifactId>redisson</artifactId>
+       <version>3.27.0</version> <!-- {x-version-update;org.redisson:redisson;external_dependency} -->
+   </dependency>
+   ```
 
-```xml
-<dependency>
-    <groupId>org.redisson</groupId>
-    <artifactId>redisson</artifactId>
-    <version>3.27.0</version> <!-- {x-version-update;org.redisson:redisson;external_dependency} -->
-</dependency>
-```
-    
----
+4. Save the **pom.xml** file.
 
-3. Save the *pom.xml* file.  
+1. Open **App.java** and replace the code with the following code:
 
-4. Open *App.java* and replace the code with the following code:  
+   ### [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
 
+   ```java
+   package example.demo;
 
-### [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
+   import com.azure.core.credential.TokenRequestContext;
+   import com.azure.identity.DefaultAzureCredential;
+   import com.azure.identity.DefaultAzureCredentialBuilder;
+   import org.redisson.Redisson;
+   import org.redisson.api.RedissonClient;
+   import org.redisson.config.Config;
+   import org.redisson.jcache.configuration.RedissonConfiguration;
 
-```java
-package example.demo;
+   import javax.cache.Cache;
+   import javax.cache.CacheManager;
+   import javax.cache.Caching;
+   import javax.cache.configuration.Configuration;
+   import javax.cache.configuration.MutableConfiguration;
+   import java.time.LocalDateTime;
 
-import com.azure.core.credential.TokenRequestContext;
-import com.azure.identity.DefaultAzureCredential;
-import com.azure.identity.DefaultAzureCredentialBuilder;
-import org.redisson.Redisson;
-import org.redisson.api.RedissonClient;
-import org.redisson.config.Config;
-import org.redisson.jcache.configuration.RedissonConfiguration;
+   /**
+    * Redis test
+    *
+    */
+   public class App {
+       public static void main(String[] args) {
 
-import javax.cache.Cache;
-import javax.cache.CacheManager;
-import javax.cache.Caching;
-import javax.cache.configuration.Configuration;
-import javax.cache.configuration.MutableConfiguration;
-import java.time.LocalDateTime;
+           Config redissonconfig = getConfig();
 
-/**
- * Redis test
- *
- */
-public class App {
-    public static void main(String[] args) {
+           RedissonClient redissonClient = Redisson.create(redissonconfig);
 
-        Config redissonconfig = getConfig();
+           MutableConfiguration<String, String> jcacheConfig = new MutableConfiguration<>();
+           Configuration<String, String> config = RedissonConfiguration.fromInstance(redissonClient, jcacheConfig);
 
-        RedissonClient redissonClient = Redisson.create(redissonconfig);
+           // Perform cache operations using JCache
+           CacheManager manager = Caching.getCachingProvider().getCacheManager();
+           Cache<String, String> map = manager.createCache("test", config);
 
-        MutableConfiguration<String, String> jcacheConfig = new MutableConfiguration<>();
-        Configuration<String, String> config = RedissonConfiguration.fromInstance(redissonClient, jcacheConfig);
+           // Simple get and put of string data into the cache
+           System.out.println("\nCache Command  : GET Message");
+           System.out.println("Cache Response : " + map.get("Message"));
 
-        // Perform cache operations using JCache
-        CacheManager manager = Caching.getCachingProvider().getCacheManager();
-        Cache<String, String> map = manager.createCache("test", config);
+           System.out.println("\nCache Command  : SET Message");
+           map.put("Message",
+                   String.format("Hello! The cache is working from Java! %s", LocalDateTime.now()));
 
-        // Simple get and put of string data into the cache
-        System.out.println("\nCache Command  : GET Message");
-        System.out.println("Cache Response : " + map.get("Message"));
+           // Demonstrate "SET Message" executed as expected
+           System.out.println("\nCache Command  : GET Message");
+           System.out.println("Cache Response : " + map.get("Message"));
 
-        System.out.println("\nCache Command  : SET Message");
-        map.put("Message",
-                String.format("Hello! The cache is working from Java! %s", LocalDateTime.now()));
+           redissonClient.shutdown();
 
-        // Demonstrate "SET Message" executed as expected
-        System.out.println("\nCache Command  : GET Message");
-        System.out.println("Cache Response : " + map.get("Message"));
+       }
 
-        redissonClient.shutdown();
+       private static Config getConfig() {
+           //Construct a Token Credential from Identity library, e.g. DefaultAzureCredential / ClientSecretCredential / Client    CertificateCredential / ManagedIdentityCredential etc.
+           DefaultAzureCredential defaultAzureCredential = new DefaultAzureCredentialBuilder().build();
 
-    }
+           // Fetch a Microsoft Entra token to be used for authentication.
+           String token = defaultAzureCredential
+                   .getToken(new TokenRequestContext()
+                           .addScopes("https://redis.azure.com/.default")).block().getToken();
 
-    private static Config getConfig() {
-        //Construct a Token Credential from Identity library, e.g. DefaultAzureCredential / ClientSecretCredential / Client CertificateCredential / ManagedIdentityCredential etc.
-        DefaultAzureCredential defaultAzureCredential = new DefaultAzureCredentialBuilder().build();
+           // Connect to the Azure Cache for Redis over the TLS/SSL port using the key
+           Config redissonconfig = new Config();
+           redissonconfig.useSingleServer()
+                   .setAddress(String.format("rediss://%s:6380", System.getenv("REDIS_CACHE_HOSTNAME")))
+                   .setUsername(System.getenv("USER_NAME")) // (Required) Username is Object ID of your managed identity or service principal
+                   .setPassword(token); // Microsoft Entra access token as password is required.
+           return redissonconfig;
+       }
+   }
 
-        // Fetch a Microsoft Entra token to be used for authentication.
-        String token = defaultAzureCredential
-                .getToken(new TokenRequestContext()
-                        .addScopes("https://redis.azure.com/.default")).block().getToken();
+   ```
 
-        // Connect to the Azure Cache for Redis over the TLS/SSL port using the key
-        Config redissonconfig = new Config();
-        redissonconfig.useSingleServer()
-                .setAddress(String.format("rediss://%s:6380", System.getenv("REDIS_CACHE_HOSTNAME")))
-                .setUsername(System.getenv("USER_NAME")) // (Required) Username is Object ID of your managed identity or service principal
-                .setPassword(token); // Microsoft Entra access token as password is required.
-        return redissonconfig;
-    }
-}
+   ### [Access Key Authentication](#tab/accesskey)
 
-```
+   ```java
+   package example.demo;
 
-### [Access Key Authentication](#tab/accesskey)
+   import org.redisson.Redisson;
+   import org.redisson.api.RedissonClient;
+   import org.redisson.config.Config;
+   import org.redisson.jcache.configuration.RedissonConfiguration;
 
-```java
-package example.demo;
+   import javax.cache.Cache;
+   import javax.cache.CacheManager;
+   import javax.cache.Caching;
+   import javax.cache.configuration.Configuration;
+   import javax.cache.configuration.MutableConfiguration;
+   import java.time.LocalDateTime;
 
-import org.redisson.Redisson;
-import org.redisson.api.RedissonClient;
-import org.redisson.config.Config;
-import org.redisson.jcache.configuration.RedissonConfiguration;
+   /**
+    * Redis test
+    *
+    */
+   public class App {
+       public static void main(String[] args) {
 
-import javax.cache.Cache;
-import javax.cache.CacheManager;
-import javax.cache.Caching;
-import javax.cache.configuration.Configuration;
-import javax.cache.configuration.MutableConfiguration;
-import java.time.LocalDateTime;
+          Config redissonconfig = getConfig();
 
-/**
- * Redis test
- *
- */
-public class App {
-    public static void main(String[] args) {
+           RedissonClient redissonClient = Redisson.create(redissonconfig);
 
-       Config redissonconfig = getConfig();
+           MutableConfiguration<String, String> jcacheConfig = new MutableConfiguration<>();
+           Configuration<String, String> config = RedissonConfiguration.fromInstance(redissonClient, jcacheConfig);
 
-        RedissonClient redissonClient = Redisson.create(redissonconfig);
+           // Perform cache operations using JCache
+           CacheManager manager = Caching.getCachingProvider().getCacheManager();
+           Cache<String, String> map = manager.createCache("test", config);
 
-        MutableConfiguration<String, String> jcacheConfig = new MutableConfiguration<>();
-        Configuration<String, String> config = RedissonConfiguration.fromInstance(redissonClient, jcacheConfig);
+           // Simple get and put of string data into the cache
+           System.out.println("\nCache Command  : GET Message");
+           System.out.println("Cache Response : " + map.get("Message"));
 
-        // Perform cache operations using JCache
-        CacheManager manager = Caching.getCachingProvider().getCacheManager();
-        Cache<String, String> map = manager.createCache("test", config);
+           System.out.println("\nCache Command  : SET Message");
+           map.put("Message",
+                   String.format("Hello! The cache is working from Java! %s", LocalDateTime.now()));
 
-        // Simple get and put of string data into the cache
-        System.out.println("\nCache Command  : GET Message");
-        System.out.println("Cache Response : " + map.get("Message"));
+           // Demonstrate "SET Message" executed as expected
+           System.out.println("\nCache Command  : GET Message");
+           System.out.println("Cache Response : " + map.get("Message"));
 
-        System.out.println("\nCache Command  : SET Message");
-        map.put("Message",
-                String.format("Hello! The cache is working from Java! %s", LocalDateTime.now()));
+           redissonClient.shutdown();
 
-        // Demonstrate "SET Message" executed as expected
-        System.out.println("\nCache Command  : GET Message");
-        System.out.println("Cache Response : " + map.get("Message"));
+       }
 
-        redissonClient.shutdown();
+       private static Config getConfig() {
+           // Connect to the Azure Cache for Redis over the TLS/SSL port using the key
+           Config redissonconfig = new Config();
+           redissonconfig.useSingleServer().setPassword(System.getenv("REDIS_CACHE_KEY"))
+                   .setAddress(String.format("rediss://%s:6380", System.getenv("REDIS_CACHE_HOSTNAME")));
+           return redissonconfig;
+       }
+   }
 
-    }
+   ```
 
-    private static Config getConfig() {
-        // Connect to the Azure Cache for Redis over the TLS/SSL port using the key
-        Config redissonconfig = new Config();
-        redissonconfig.useSingleServer().setPassword(System.getenv("REDIS_CACHE_KEY"))
-                .setAddress(String.format("rediss://%s:6380", System.getenv("REDIS_CACHE_HOSTNAME")));
-        return redissonconfig;
-    }
-}
-
-```
-
----
-
-
-5. Save *App.java*.
+1. Save **App.java**.
 
 ## Build and run the app
 
 Execute the following Maven command to build and run the app:
 
-
 ```bash
 mvn compile exec:java -Dexec.mainClass=example.demo.App
 ```
-
 
 In the following output, you can see that the `Message` key previously had a cached value, which was set in the last run. The app updated that cached value.
 

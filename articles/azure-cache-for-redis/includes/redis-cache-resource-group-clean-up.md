@@ -1,8 +1,6 @@
 ---
 ms.date: 12/20/2024
-
 ms.topic: include
-
 ---
 
 ## Clean up resources
