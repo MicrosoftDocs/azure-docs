@@ -115,7 +115,7 @@ A NAT gateway doesn't affect the network bandwidth of your compute resources. Le
 
 * Multiple NAT gateways can’t be attached to a single subnet.
 
-* A NAT gateway can’t span multiple virtual networks.
+* A NAT gateway can’t span multiple virtual networks. However, NAT Gateway can be used to provide outbound connectivity in a hub and spoke model. For more details, see the [NAT gateway hub and spoke tutorial](/azure/nat-gateway/tutorial-hub-spoke-route-nat).
 
 * A NAT gateway can’t be deployed in a [gateway subnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub).
 

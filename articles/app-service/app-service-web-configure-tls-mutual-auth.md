@@ -109,7 +109,7 @@ In the following screenshot, any path for your app that starts with `/public` do
 ![Certificate Exclusion Paths][exclusion-paths]
 
 ## Client certificate and TLS renegotiation
-App Service requires TLS renegotiation to read a request before knowing whether to prompt for a client certificate. Any of the following settings triggers TLS renegotiation:
+For some client certificate settings, App Service requires TLS renegotiation to read a request before knowing whether to prompt for a client certificate. Any of the following settings triggers TLS renegotiation:
 1. Using "Optional Interactive User" client certificate mode.
 1. Using [client certificate exclusion path](#exclude-paths-from-requiring-authentication).
 
@@ -125,7 +125,7 @@ Client certificate configurations that use TLS renegotiation cannot support inco
 
 To address the 100 kb limit, consider these alternative solutions:
 
-1. Update your app's client certificate configurations with _all_ these settings:
+1. Disable TLS renegotiation. Update your app's client certificate configurations with _all_ these settings:
     - Set client certificate mode to either "Required" or "Optional"
     - Remove all client certificate exclusion paths
 1. Send a HEAD request before the PUT/POST request. The HEAD request handles the client certificate.
