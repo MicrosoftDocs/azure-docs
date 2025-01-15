@@ -5,13 +5,13 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 10/21/2024
+ms.date: 01/15/2025
 ms.author: cshoe
 ---
 
 # Azure Container Apps on Azure Arc (Preview)
 
-You can run Container Apps on an Azure Arc-enabled AKS or AKS-HCI cluster.
+You can run Container Apps on an Azure Arc-enabled AKS or AKS on Azure Local cluster.
 
 Running in an Azure Arc-enabled Kubernetes cluster allows:
 
