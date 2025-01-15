@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-app-service
-ms.date: 01/14/2025
+ms.date: 01/15/2025
 zone_pivot_groups: app-service-sku
 #customer intent: As an engineer responsible for business continuity, I want to understand how Azure App Service works from a reliability perspective.
 ---
