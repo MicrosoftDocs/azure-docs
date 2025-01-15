@@ -6,7 +6,7 @@ ms.author: rogarana
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-elastic-san-storage
-ms.date: 12/10/2024
+ms.date: 1/15/2025
 ---
 
 # Reliability in Elastic SAN
