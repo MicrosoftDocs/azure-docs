@@ -13,31 +13,33 @@ ms.author: armohamed
 
 ## Prerequisites
 
-- [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md)
-- [Event subscription and handling of Advanced Message Received events](./../../handle-advanced-messaging-events.md#subscribe-to-advanced-messaging-events)
-- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or later
-- [Apache Maven](https://maven.apache.org/download.cgi)
+- [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md).
+- [Event subscription and handling of Advanced Message Received events](./../../handle-advanced-messaging-events.md#subscribe-to-advanced-messaging-events).
+- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or later.
+- [Apache Maven](https://maven.apache.org/download.cgi).
 
-## Setting up
+## Set up environment
 
-To set up an environment for sending messages, take the steps in the following sections.
+To set up an environment for sending messages, complete the following steps.
 
 [!INCLUDE [Setting up for Java Application](../java-application-setup.md)]
 
 ## Object model
+
 The following classes and interfaces handle some of the major features of the Azure Communication Services Advance Messaging SDK for Java.
 
-| Name                                                                                                             | Description                                                                                                 |
-|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| Name | Description |
+| --- | --- |
 | [NotificationMessagesClient](/java/api/com.azure.communication.messages.notificationmessagesclient)          | This class connects to your Azure Communication Services resource. It sends the messages.                   |
 | [DownloadMediaAsync](/java/api/com.azure.communication.messages)  | Download the media payload from a User to Business message asynchronously, writing the content to a stream. |
 | [Microsoft.Communication.AdvancedMessageReceived](/azure/event-grid/communication-services-advanced-messaging-events#microsoftcommunicationadvancedmessagereceived-event) | Event Grid event that is published when Advanced Messaging receives a message. |
 
 > [!NOTE]
-> Please find the SDK reference [here](/java/api/com.azure.communication.messages)
+> For more information, see the Azure SDK for Java reference at [com.azure.communication.messages Package](/java/api/com.azure.communication.messages).
 
 ## Common configuration
-Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
+
+Follow these steps to add the necessary code snippets to the `messages-quickstart.py` python program.
 
 - [Authenticate the client](#authenticate-the-client)
 - [Set channel registration ID](#set-channel-registration-id)
@@ -46,14 +48,15 @@ Follow these steps to add the necessary code snippets to the messages-quickstart
 [!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting.md)]
 
 ## Code examples
-Follow these steps to add the necessary code snippets to the main function of your *App.java* file.
+
+Follow these steps to add required code snippets to the main function of `App.java`.
 - [Download the media payload to a stream](#download-the-media-payload-to-a-stream)
 
 ### Download the media payload to a stream
 
-The Messages SDK allows Contoso to download the media in received WhatsApp media messages from WhatsApp users. To download the media payload to a stream, you need:
-- [Authenticated NotificationMessagesClient](#authenticate-the-client)
-- The media ID GUID of the media (Received from an incoming message in an [AdvancedMessageReceived event](/azure/event-grid/communication-services-advanced-messaging-events#microsoftcommunicationadvancedmessagereceived-event))
+The Messages SDK enables Contoso to download the media in received WhatsApp media messages from WhatsApp users. To download the media payload to a stream, you need:
+- [Authenticated NotificationMessagesClient](#authenticate-the-client).
+- The media ID GUID of the media (Received from an incoming message in an [AdvancedMessageReceived event](/azure/event-grid/communication-services-advanced-messaging-events#microsoftcommunicationadvancedmessagereceived-event)).
 
 ```java
     public static void main(String[] args) throws IOException {
@@ -76,7 +79,7 @@ The Messages SDK allows Contoso to download the media in received WhatsApp media
 
 ### Run the code
 
-1. Navigate to the directory that contains the **pom.xml** file and compile the project by using the `mvn` command.
+1. Open the directory that contains the `pom.xml` file and compile the project using the `mvn` command.
 
    ```console
    mvn compile

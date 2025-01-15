@@ -15,49 +15,54 @@ ms.author: shamkh
 
 ## Prerequisites
 
-- [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md)
-- .NET development environment (such as [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/Download), or [.NET CLI](https://dotnet.microsoft.com/download))
-- Event subscription and handling of [Advanced Message Received events](./../../handle-advanced-messaging-events.md#subscribe-to-advanced-messaging-events)
+- [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md).
+- .NET development environment, such as [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/Download), or [.NET CLI](https://dotnet.microsoft.com/download).
+- Event subscription and handling of [Advanced Message Received events](./../../handle-advanced-messaging-events.md#subscribe-to-advanced-messaging-events).
 
 ## Setting up
 
 [!INCLUDE [Setting up for Python Application](../python-application-setup.md)]
 
 ## Object model
+
 The following classes and interfaces handle some of the major features of the Azure Communication Services Messages SDK for Python.
 
-| Name            | Description                         |
-|-----------------------------------|-------------------|
+| Name | Description |
+| --- | --- |
 | [NotificationMessagesClient](/python/api/azure-communication-messages/azure.communication.messages.notificationmessagesclient)  | This class connects to your Azure Communication Services resource. It sends the messages.                   |
 | [DownloadMediaAsync](/python/api/azure-communication-messages/azure.communication.messages.aio.notificationmessagesclient)     | Download the media payload from a User to Business message asynchronously, writing the content to a stream. |
 | [Microsoft.Communication.AdvancedMessageReceived](/azure/event-grid/communication-services-advanced-messaging-events#microsoftcommunicationadvancedmessagereceived-event) | Event Grid event that is published when Advanced Messaging receives a message. |
 
 > [!NOTE]
-> Please find the SDK reference [here](/python/api/azure-communication-messages/azure.communication.messages).
+> For more information, see the Azure SDK for Python reference [messages Package](/python/api/azure-communication-messages/azure.communication.messages).
 
 ## Common configuration
-Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
 
-- [Authenticate the client](#authenticate-the-client)
-- [Set channel registration ID](#set-channel-registration-id)
-- [Set recipient list](#set-recipient-list)
+Follow these steps to add required code snippets to the `messages-quickstart.py` python program.
+
+- [Authenticate the client](#authenticate-the-client).
+- [Set channel registration ID](#set-channel-registration-id).
+- [Set recipient list](#set-recipient-list).
 
 [!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting.md)]
 
 ## Code examples
-Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
+
+Follow these steps to add required code snippets to the `messages-quickstart.py` python program.
 - [Download the media payload to a stream](#download-the-media-payload-to-a-stream)
 
 ### Download the media payload to a stream
-Advanced Messages SDK allows Contoso to receive or download media from a WhatsApp user, which initiated by WhatsApp users. To send text messages below details are required:
-- [WhatsApp Channel ID](#set-channel-registration-id)
-- [Recipient Phone Number in E16 format](#set-recipient-list)
+
+The Messages SDK enables Contoso to receive or download media from a WhatsApp user, when initiated by the WhatsApp users. To download the media payload to a stream, you need:
+- [WhatsApp Channel ID](#set-channel-registration-id).
+- [Recipient Phone Number in E16 format](#set-recipient-list).
 - Download media ID as Guid.
 
 > [!IMPORTANT]
 > To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
-In this example, business sends reaction to the user message"
+In this example, the business sends a reaction to the user message.
+
 ```python
       def download_media(self):
 
@@ -75,7 +80,8 @@ In this example, business sends reaction to the user message"
 
 ```
 
-To run download_media(), update the [main method](#basic-program-structure)
+To run `download_media()`, update the [main method](#basic-program-structure).
+
 ```python
     #Calling download_media()
     messages.download_media()
@@ -83,7 +89,7 @@ To run download_media(), update the [main method](#basic-program-structure)
 
 ### Run the code
 
-To run the code, make sure you are on the directory where your `download-media-quickstart.py` file is.
+To run the code, make sure you are on the same directory where your `download-media-quickstart.py` file is located.
 
 ```console
 python download-media-quickstart.py
@@ -95,6 +101,9 @@ WhatsApp Media stream downloaded.
 ```
 
 ## Full sample code
+
+> [!NOTE]
+> Change all placeholder variables in the following code so they match your values.
 
 ```python
 import os
@@ -124,9 +133,6 @@ if __name__ == '__main__':
     messages = MessagesQuickstart()
     messages.download_media()
 ```
-
-> [!NOTE]
-> Please update all placeholder variables in the above code.
 
 ### Other Samples
 

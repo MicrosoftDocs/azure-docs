@@ -17,13 +17,14 @@ ms.author: shamkh
 
 To create your project, follow the tutorial at [Create a .NET console application using Visual Studio](/dotnet/core/tutorials/with-visual-studio).
 
-To compile your code, press <kbd>Ctrl</kbd>+<kbd>F7</kbd>.
+To compile your code, press **Ctrl**+**F7**.
 
 #### [Visual Studio Code](#tab/vs-code)
 
 To create your project, follow the tutorial at [Create a .NET console application using Visual Studio Code](/dotnet/core/tutorials/with-visual-studio-code).
 
-Build and run your program by running the following commands in the Visual Studio Code Terminal (View > Terminal).
+Build and run your program by running the following commands in the Visual Studio Code Terminal (**View** > **Terminal**).
+
 ```console
 dotnet build
 dotnet run
@@ -32,6 +33,7 @@ dotnet run
 #### [.NET CLI](#tab/dotnet-cli)
 
 First, create your project.
+
 ```console
 dotnet new console -o AdvancedMessagingQuickstart
 ```
@@ -59,6 +61,7 @@ Install the Azure.Communication.Messages NuGet package to your C# project.
 
 1. Open the Visual Studio Code terminal ( `View` > `Terminal` ).
 2. Install the package by running the following command.
+
 ```console
 dotnet add package Azure.Communication.Messages
 ```
@@ -66,6 +69,7 @@ dotnet add package Azure.Communication.Messages
 #### [.NET CLI](#tab/dotnet-cli)
 
 Install the package by running the following command.
+
 ```console
 dotnet add package Azure.Communication.Messages
 ```
@@ -74,9 +78,9 @@ dotnet add package Azure.Communication.Messages
 
 ### Set up the app framework
 
-Open the *Program.cs* file in a text editor.   
+Open the `Program.cs` file in a text editor.   
 
-Replace the contents of your *Program.cs* with the following code:
+Replace the contents of your `Program.cs` with the following code:
 
 ```csharp
 using System;
@@ -99,7 +103,7 @@ namespace AdvancedMessagingQuickstart
 }
 ```
 
-To use the Advanced Messaging features, we add a `using` directive to include the `Azure.Communication.Messages` namespace.
+To use the Advanced Messaging features, add a `using` directive to include the `Azure.Communication.Messages` namespace.
 
 ```csharp
 using Azure.Communication.Messages;

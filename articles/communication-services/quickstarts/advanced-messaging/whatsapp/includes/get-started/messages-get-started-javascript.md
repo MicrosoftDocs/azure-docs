@@ -13,59 +13,65 @@ ms.author: armohamed
 
 ## Prerequisites
 
-- [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md)
-- Active WhatsApp phone number to receive messages
+- [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md).
+- Active WhatsApp phone number to receive messages.
+- [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (We recommend 8.11.1 and 10.14.1).
+- In a terminal or command window, make sure Node.js is installed.
 
-- [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 are recommended)
-    - In a terminal or command window, run `node --version` to check that Node.js is installed
+   ```console
+   node --version
+   ```
 
-## Setting up
+## Set up the environment
 
-To set up an environment for sending messages, take the steps in the following sections.
+To set up an environment for sending messages, complete the steps in the following sections.
 
 [!INCLUDE [Setting up for JavaScript Application](../javascript-application-setup.md)]
 
 ## Object model
+
 The following classes and interfaces handle some of the major features of the Azure Communication Services Advance Messaging SDK for JavaScript.
 
-| Name            | Description                                                                                            |
-|-----------------|--------------------------------------------------------------------------------------------------------|
-| MessageClient   | This class connects to your Azure Communication Services resource. It sends the messages.              |
-| MessageTemplate | This class defines which template you use and the content of the template properties for your message. |
+| Class Name | Description |
+| --- | --- |
+| `MessageClient`   | Connects to your Azure Communication Services resource. It sends the messages.              |
+| `MessageTemplate` | Defines which template you use and the content of the template properties for your message. |
 
 > [!NOTE]
-> Please find the SDK reference [here](/javascript/api/@azure-rest/communication-messages)
+> For more information, see the Azure SDK for JavaScript reference [@azure-rest/communication-messages package](/javascript/api/@azure-rest/communication-messages)
 
 ## Common configuration
-Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
 
-- [Authenticate the client](#authenticate-the-client)
-- [Set channel registration ID](#set-channel-registration-id)
-- [Set recipient list](#set-recipient-list)
-- [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user)
+Follow these steps to add required code snippets to the `messages-quickstart.py` python program.
+
+- [Authenticate the client](#authenticate-the-client).
+- [Set channel registration ID](#set-channel-registration-id).
+- [Set recipient list](#set-recipient-list).
+- [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
 [!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting.md)]
 
 ## Code examples
 
-Follow these steps to add the necessary code snippets to the main function of your *send-messages.js* file.
-- [Send a text message to a WhatsApp user](#send-a-text-message-to-a-whatsapp-user)
-- [Send an image media message to a WhatsApp user](#send-an-image-media-message-to-a-whatsapp-user)
-- [Send a document media message to a WhatsApp user](#send-a-document-media-message-to-a-whatsapp-user)
-- [Send an audio media message to a WhatsApp user](#send-an-audio-media-message-to-a-whatsapp-user)
-- [Send a video media message to a WhatsApp user](#send-a-video-media-message-to-a-whatsapp-user)
+Follow these steps to add required code snippets to the main function of your `send-messages.js` file.
+- [Send a text message to a WhatsApp user](#send-a-text-message-to-a-whatsapp-user).
+- [Send an image media message to a WhatsApp user](#send-an-image-media-message-to-a-whatsapp-user).
+- [Send a document media message to a WhatsApp user](#send-a-document-media-message-to-a-whatsapp-user).
+- [Send an audio media message to a WhatsApp user](#send-an-audio-media-message-to-a-whatsapp-user).
+- [Send a video media message to a WhatsApp user](#send-a-video-media-message-to-a-whatsapp-user).
 
 > [!IMPORTANT]
 > To send a media message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
 ### Send a text message to a WhatsApp user
 
-Messages SDK allows Contoso to send text WhatsApp messages, which initiated WhatsApp users initiated. To send text messages below details are required:
-- [WhatsApp Channel ID](#set-channel-registration-id)
-- [Recipient Phone Number in E16 format](#set-recipient-list)
+The Messages SDK enables Contoso to send text WhatsApp messages, when initiated by a WhatsApp users. To send text messages:
+- [WhatsApp Channel ID](#set-channel-registration-id).
+- [Recipient Phone Number in E16 format](#set-recipient-list).
 - Message body/text to be sent.
 
-In this example, we reply to the WhatsApp user with the text "Thanks for your feedback.\n From Notification Messaging SDK".
+In this example, we reply to the WhatsApp user with the text `"Thanks for your feedback.\n From Notification Messaging SDK."`
+
 Assemble and send the media message:
 ```javascript
 // Send text message
@@ -91,20 +97,22 @@ if (textMessageResult.status === "202") {
 
 ### Send an image media message to a WhatsApp user
 
-Messages SDK allows Contoso to send media (Image, Video, Audio or Document) messages to WhatsApp users. To send an embedded media message, you need:
-- [WhatsApp Channel ID](#set-channel-registration-id)
-- [Recipient Phone Number in E16 format](#set-recipient-list)
-- URL of the Image media
+The Messages SDK enables Contoso to send media (image, video, audio, or document) messages to WhatsApp users. To send an embedded media message, you need:
+- [WhatsApp Channel ID](#set-channel-registration-id).
+- [Recipient Phone Number in E16 format](#set-recipient-list).
+- URL of the Image media.
 
 > [!IMPORTANT]
-> As of SDK version 2.0.0, `MediaNotificationContent` is being deprecated for images. We encourage you to use `ImageNotificationContent` for sending images and explore other content-specific classes for other media types like `DocumentNotificationContent`, `VideoNotificationContent`, and `AudioNotificationContent`.
+> As of SDK version 2.0.0, `MediaNotificationContent` is being deprecated for images. We encourage you to use `ImageNotificationContent` to send images. Explore other content-specific classes for other media types like `DocumentNotificationContent`, `VideoNotificationContent`, and `AudioNotificationContent`.
 
-To send an image message, provide a URL to an image. As an example,
+To send an image message, provide a URL to an image. For example:
+
 ```javascript
 const url = "https://example.com/image.jpg";
 ```
 
 Assemble and send the media message:
+
 ```javascript
 // Send image message
 const mediaMessageResult = await client.path("/messages/notifications:send").post({
@@ -128,10 +136,11 @@ if (mediaMessageResult.status === "202") {
 ```
 
 ### Send a video media message to a WhatsApp user
-Messages SDK allows Contoso to send media (Image, Video, Audio or Document) messages to WhatsApp users. To send an embedded media message, you need:
-- [WhatsApp Channel ID](#set-channel-registration-id)
-- [Recipient Phone Number in E16 format](#set-recipient-list)
-- URL of the Video
+
+The Messages SDK enables Contoso to send media (image, video, audio, or document) messages to WhatsApp users. To send an embedded media message, you need:
+- [WhatsApp Channel ID](#set-channel-registration-id).
+- [Recipient Phone Number in E16 format](#set-recipient-list).
+- URL of the video.
 
 To send a video message, provide a URL to a video. As an example,
 ```javascript
@@ -162,12 +171,14 @@ if (mediaMessageResult.status === "202") {
 ```
 
 ### Send an audio media message to a WhatsApp user
-Messages SDK allows Contoso to send media (Image, Video, Audio or Document) messages to WhatsApp users. To send an embedded media message, you need:
-- [WhatsApp Channel ID](#set-channel-registration-id)
-- [Recipient Phone Number in E16 format](#set-recipient-list)
-- URL of the Audio media
 
-To send an audio message, provide a URL to an audio file. As an example,
+The Messages SDK enables Contoso to send media (image, video, audio, or document) messages to WhatsApp users. To send an embedded media message, you need:
+- [WhatsApp Channel ID](#set-channel-registration-id).
+- [Recipient Phone Number in E16 format](#set-recipient-list).
+- URL of the Audio media.
+
+To send an audio message, provide a URL to an audio file. As an example:
+
 ```javascript
 const url = "https://example.com/audio.mp3";
 ```
@@ -196,10 +207,11 @@ if (mediaMessageResult.status === "202") {
 ```
 
 ### Send a document media message to a WhatsApp user
-Messages SDK allows Contoso to send media (Image, Video, Audio or Document) messages to WhatsApp users. To send an embedded media message, you need:
-- [WhatsApp Channel ID](#set-channel-registration-id)
-- [Recipient Phone Number in E16 format](#set-recipient-list)
-- URL of the  Document media
+
+The Messages SDK enables Contoso to send media (image, video, audio, or document) messages to WhatsApp users. To send an embedded media message, you need:
+- [WhatsApp Channel ID](#set-channel-registration-id).
+- [Recipient Phone Number in E16 format](#set-recipient-list).
+- URL of the  Document media.
 
 To send a document message, provide a URL to a document. As an example,
 ```javascript
@@ -231,7 +243,7 @@ if (mediaMessageResult.status === "202") {
 
 ### Run the code
 
-Use the node command to run the code you added to the send-messages.js file.
+Use the node command to run the code you added to the `send-messages.js` file.
 
 ```console
 node ./send-messages.js
@@ -240,4 +252,3 @@ node ./send-messages.js
 ## Full sample code
 
 You can download the sample app from [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/7efc61a0414c6f898409e355d0ba8d228882625f/sdk/communication/communication-messages-rest/samples-dev).
-

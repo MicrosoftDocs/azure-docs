@@ -13,26 +13,28 @@ ms.author: memontic
 
 ## Prerequisites
 
-- [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md)
-- .NET development environment (such as [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/Download), or [.NET CLI](https://dotnet.microsoft.com/download))
-- Event subscription and handling of [Advanced Message Received events](./../../handle-advanced-messaging-events.md#subscribe-to-advanced-messaging-events)
+- [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md).
+- .NET development environment, such as [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/Download), or [.NET CLI](https://dotnet.microsoft.com/download).
+- Event subscription and handling of [Advanced Message Received events](./../../handle-advanced-messaging-events.md#subscribe-to-advanced-messaging-events).
 
-## Setting up
+## Set up environment
 
 [!INCLUDE [Setting up for .NET Application](../dot-net-application-setup.md)]
 
 ## Object model
+
 The following classes and interfaces handle some of the major features of the Azure Communication Services Advance Messaging SDK for .NET.
 
-| Name                                                                                                             | Description                                                                                                 |
-|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| Name | Description |
+| --- | --- |
 | [NotificationMessagesClient](/dotnet/api/azure.communication.messages.notificationmessagesclient)                | This class connects to your Azure Communication Services resource. It sends the messages.                   |
 | [DownloadMediaAsync](/dotnet/api/azure.communication.messages.notificationmessagesclient.downloadmediaasync)     | Download the media payload from a User to Business message asynchronously, writing the content to a stream. |
 | [DownloadMediaToAsync](/dotnet/api/azure.communication.messages.notificationmessagesclient.downloadmediatoasync) | Download the media payload from a User to Business message asynchronously, writing the content to a file.   |
 | [Microsoft.Communication.AdvancedMessageReceived](/azure/event-grid/communication-services-advanced-messaging-events#microsoftcommunicationadvancedmessagereceived-event) | Event Grid event that is published when Advanced Messaging receives a message. |
 
 ## Common configuration
-Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
+
+Follow these steps to add required code snippets to the messages-quickstart.py python program.
 
 - [Authenticate the client](#authenticate-the-client)
 - [Set channel registration ID](#set-channel-registration-id)
@@ -42,35 +44,40 @@ Follow these steps to add the necessary code snippets to the messages-quickstart
 
 ## Code examples
 
-Follow these steps to add the necessary code snippets to the Main function of your *Program.cs* file.
+Follow these steps to add required code snippets to the Main function of your `Program.cs` file.
 - [Download the media payload to a stream](#download-the-media-payload-to-a-stream)
 - [Download the media payload to a file](#download-the-media-payload-to-a-file)
 
 ### Download the media payload to a stream   
 
-The Messages SDK allows Contoso to download the media in received WhatsApp media messages from WhatsApp users. To download the media payload to a stream, you need:
-- [Authenticated NotificationMessagesClient](#authenticate-the-client)
-- The media ID GUID of the media (Received from an incoming message in an [AdvancedMessageReceived event](/azure/event-grid/communication-services-advanced-messaging-events#microsoftcommunicationadvancedmessagereceived-event))
+The Messages SDK enables Contoso to download the media in received WhatsApp media messages from WhatsApp users. To download the media payload to a stream, you need:
+- [Authenticated NotificationMessagesClient](#authenticate-the-client).
+- The media ID GUID of the media, received from an incoming message in an [AdvancedMessageReceived event](/azure/event-grid/communication-services-advanced-messaging-events#microsoftcommunicationadvancedmessagereceived-event).
 
 
 Define the media ID of the media you want to fetch.
+
 ```csharp
 // MediaId GUID of the media received in an incoming message.
 // Ex. "00000000-0000-0000-0000-000000000000"
 var mediaId = "<MediaId>";
 ```
 
-Download the media to the destination stream:
+Download the media to the destination stream.
+
 ```csharp
 // Download media to stream
 Response<Stream> fileResponse = await notificationMessagesClient.DownloadMediaAsync(mediaId);
 ```
 
-The media payload is now available in the response stream.    
-Continue on with this example to write the stream to a file.
+The media payload is now available in the response stream.
+
+Continue with this example to write the stream to a file.
 
 The media ID and MIME type of the payload are available in the [media content](/azure/event-grid/communication-services-advanced-messaging-events#mediacontent) of the [AdvancedMessageReceived event](/azure/event-grid/communication-services-advanced-messaging-events#microsoftcommunicationadvancedmessagereceived-event). However, when downloading media to a stream, the MIME type is again available to you in the response headers in the `Response<Stream>`.
+
 In either case, you need to convert the MIME type into a file type. Define this helper for the conversion.
+
 ```csharp
 private static string GetFileExtension(string contentType)
 {
@@ -87,7 +94,8 @@ private static readonly Dictionary<string, string> MimeTypes = new Dictionary<st
 };
 ```
 
-Define the file location of where you want to write the media. This example uses the MIME type returned in the response headers from `DownloadMediaAsync`.
+Define the file location where you want to write the media. This example uses the MIME type returned in the response headers from `DownloadMediaAsync`.
+
 ```csharp
 // File extension derived from the MIME type in the response headers.
 // Ex. A MIME type of "image/jpeg" would mean the fileExtension should be ".jpg"
@@ -100,6 +108,7 @@ string filePath = @"<FilePath>" + "<FileName>" + fileExtension;
 ```
 
 Write the stream to the file.
+
 ```csharp
  // Write the media stream to the file
 using (Stream outStream = File.OpenWrite(filePath))
@@ -110,14 +119,15 @@ using (Stream outStream = File.OpenWrite(filePath))
 
 ### Download the media payload to a file   
 
-The Messages SDK allows Contoso to download the media in WhatsApp media messages received from WhatsApp users. To download the media payload to a file, you need:
-- [Authenticated NotificationMessagesClient](#authenticate-the-client)
-- The media ID GUID of the media (Received from an incoming message in an [AdvancedMessageReceived event](/azure/event-grid/communication-services-advanced-messaging-events#microsoftcommunicationadvancedmessagereceived-event))
-- The media file extension (Derived from the MIME type received in an incoming message with [media content](/azure/event-grid/communication-services-advanced-messaging-events#mediacontent))
-- The destination file name (Generated name of your choosing)
-- The destination file path (File path of your choosing)
+The Messages SDK enables Contoso to download the media in WhatsApp media messages received from WhatsApp users. To download the media payload to a file, you need:
+- [Authenticated NotificationMessagesClient](#authenticate-the-client).
+- The media ID GUID of the media, received from an incoming message in an [AdvancedMessageReceived event](/azure/event-grid/communication-services-advanced-messaging-events#microsoftcommunicationadvancedmessagereceived-event).
+- The media file extension, derived from the MIME type received in an incoming message with [media content](/azure/event-grid/communication-services-advanced-messaging-events#mediacontent).
+- The destination file name of your choosing.
+- The destination file path of your choosing.
 
 Define the media ID of the media you want to fetch and the file location of where you want to write the media.
+
 ```csharp
 // MediaId GUID of the media received in an incoming message.
 // Ex. "00000000-0000-0000-0000-000000000000"
@@ -131,7 +141,8 @@ string fileExtension = "<FileExtension>";
 string filePath = @"<FilePath>" + "<FileName>" + fileExtension; 
 ```
 
-Download the media to the destination path:
+Download the media to the destination path.
+
 ```csharp
 // Download media to file
 Response response = await notificationMessagesClient.DownloadMediaToAsync(mediaId, filePath);
@@ -143,12 +154,13 @@ Build and run your program.
 
 #### [Visual Studio](#tab/visual-studio)
 
-1. To compile your code, press <kbd>Ctrl</kbd>+<kbd>F7</kbd>.
-1. To run the program without debugging, press <kbd>Ctrl</kbd>+<kbd>F5</kbd>.
+1. To compile your code, press **Ctrl**+**F7**.
+1. To run the program without debugging, press **Ctrl**+**F5**.
 
 #### [Visual Studio Code](#tab/vs-code)
 
-Build and run your program by running the following commands in the Visual Studio Code Terminal (View > Terminal).
+Build and run your program in the Visual Studio Code Terminal (**View** > **Terminal**).
+
 ```console
 dotnet build
 dotnet run
@@ -157,6 +169,7 @@ dotnet run
 #### [.NET CLI](#tab/dotnet-cli)
 
 Build and run your program.
+
 ```console
 dotnet build
 dotnet run
