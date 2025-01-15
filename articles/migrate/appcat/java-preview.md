@@ -1,36 +1,29 @@
 ---
-title: Azure Migrate application and code assessment for Java version 7
+title: Azure Migrate Application and Code Assessment for Java Version 7
 description: Learn how to use the next generation of Azure Migrate application and code assessment tool to determine readiness to migrate any type of Java application to Azure.
-author: brborges
+author: KarlErickson
 ms.author: brborges
 ms.service: azure
 ms.custom: devx-track-java, devx-track-extended-java
 ms.topic: overview
-ms.date: 01/08/2025
+ms.date: 01/15/2025
 #customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
 ---
 
 # Azure Migrate application and code assessment for Java version 7 (Preview)
 
-   > [!Note]
-   > This documentation is for the next generation of _Azure Migrate application and code assessment for Java_ **version 7.x**. This version is in **preview**.
-   > For the previous **stable** version of _Azure Migrate application and code assessment for Java_ **version 6.x**, [visit this page](./java.md).
+> [!NOTE]
+> This article is for the next generation of *Azure Migrate application and code assessment for Java*, version 7.x. This version is in preview. For the previous stable version, version 6.x, see [Azure Migrate application and code assessment for Java](./java.md).
 
-This guide describes how to use the Azure Migrate application and code assessment tool for Java to assess and replatform any type of Java application.
-The tool enables you to evaluate application readiness for replatforming and migration to Azure.
-This tool is offered as a CLI (command-line interface) and assesses Java application binaries and source code to identify replatforming and migration opportunities for Azure.
-It helps you modernize and replatform large-scale Java applications by identifying common use cases and code patterns and proposing recommended changes.
+This article shows you how to use the Azure Migrate application and code assessment tool for Java to assess and replatform any type of Java application. The tool enables you to evaluate application readiness for replatforming and migration to Azure. This tool is offered as a command-line interface (CLI), and assesses Java application binaries and source code to identify replatforming and migration opportunities for Azure. It helps you modernize and replatform large-scale Java applications by identifying common use cases and code patterns and proposing recommended changes.
 
-The tool discovers application technology usage through static code analysis, provides effort estimation, and accelerates code replatforming, helping you to prioritize and move Java applications to Azure.
-With a set of engines and rules, it can discover and assess different technologies such as Java 11, Java 17, Jakarta EE, Spring, Hibernate, Java Message Service (JMS), and more.
-It then helps you replatform the Java application to different Azure targets (Azure App Service, Azure Kubernetes Service, and Azure Container Apps) with specific Azure replatforming rules.
+The tool discovers application technology usage through static code analysis, provides effort estimation, and accelerates code replatforming. This assessment helps you to prioritize and move Java applications to Azure. With a set of engines and rules, the tool can discover and assess different technologies such as Java 11, Java 17, Jakarta EE, Spring, Hibernate, Java Message Service (JMS), and more. The tool then helps you replatform the Java application to different Azure targets - Azure App Service, Azure Kubernetes Service, and Azure Container Apps - with specific Azure replatforming rules.
 
 The tool is based on a set of components in the [Cloud Native Computing Foundation](https://www.cncf.io/) project [Konveyor](https://github.com/konveyor), created and led by Red Hat.
 
 ## Overview
 
-The tool is designed to help organizations modernize their Java applications in a way that reduces costs and enables faster innovation.
-The tool uses advanced analysis techniques to understand the structure and dependencies of any Java application, and provides guidance on how to refactor and migrate the applications to Azure.
+The tool is designed to help organizations modernize their Java applications in a way that reduces costs and enables faster innovation. The tool uses advanced analysis techniques to understand the structure and dependencies of any Java application, and provides guidance on how to refactor and migrate the applications to Azure.
 
 With it, you can perform the following tasks:
 
@@ -43,7 +36,7 @@ The tool contains rules for helping you replatform your applications so you can 
 
 The rules used by Azure Migrate application and code assessment are grouped based on a *target*. A target is where or how the application runs, and general needs and expectations. When assessing an application, you can choose multiple targets. The following table describes the available targets:
 
-| Target Name              | Description                                                            | Target                 |
+| Target name              | Description                                                            | Target                 |
 |--------------------------|------------------------------------------------------------------------|------------------------|
 | Azure App Service        | Best practices for deploying an app to Azure App Service.              | `azure-appservice`     |
 | Azure Kubernetes Service | Best practices for deploying an app to Azure Kubernetes Service.       | `azure-aks`            |
@@ -108,11 +101,9 @@ For the JDK requirement, we recommend you use the [Microsoft Build of OpenJDK](/
 
 ### Installation
 
-To install `appcat`, download the appropriate zip file for your platform.
-Once you've downloaded the file, depending on your operating system, you should find either a **.tar.gz** (Linux/macOS) or **.zip** file (Windows).
-Please proceed to extract the binary from the downloaded file. 
+To install `appcat`, download the appropriate zip file for your platform. After you download the file, depending on your operating system, you should find either a **.tar.gz** (Linux/macOS) or **.zip** file (Windows).
 
-You should see a folder structure similar to the following:
+Extract the binary from the downloaded file. You should see the following folder structure:
 
 ```
 /azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview/
@@ -131,7 +122,7 @@ You should see a folder structure similar to the following:
 
 ### Running the tool
 
-#### Option 1: Run `appcat` from the downloaded folder
+#### Option 1: Run appcat from the downloaded folder
 
 Change the directory to the extracted folder:
 
@@ -140,68 +131,75 @@ cd /azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-prev
 ./appcat --help
 ```
 
-__Note:__ `appcat` binary will first look for its dependencies in the current directory where it is running from, and will fall back to the scenario below if not found.
+> [!NOTE]
+> The `appcat` binary first looks for its dependencies in the current directory, where it's running from, and falls back to the following scenario if they aren't found.
 
-#### Option 2: Add `appcat` binary path to your `$PATH`
+#### Option 2: Add the appcat binary path to your $PATH
 
-Move the contents of the folder to an `.appcat` folder in the user's home directory.
-On Windows, this is `%USERPROFILE%/.appcat` and on Linux/Mac, this is `$HOME/.appcat`.
+Move the contents of the folder to the **.appcat** folder in the user's home directory - **$HOME/.appcat** on Linux/Mac and **%USERPROFILE%/.appcat** on Windows.
 
-Add the `.appcat` folder to your PATH environment variable so you can run the tool from any folder in the terminal.
+Add the **.appcat** folder to your `PATH` environment variable so you can run the tool from any folder in the terminal.
 
 # [Linux / macOS](#tab/linux)
 
 ```bash
-mv /path/to/extracted/azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview/ $HOME/.appcat
+mv <path-to-extracted>/azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview/ $HOME/.appcat
 ```
 
 # [Windows](#tab/windows)
 
 ```cmd
-move /path/to/extracted/azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview/ %USERPROFILE%/.appcat
+move <path-to-extracted>\azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview\ %USERPROFILE%\.appcat
 ```
 
-__Note:__ In this context, when `appcat` binary is called from a different folder than where it is actually installed, it will look for its dependencies on the `.appcat` folder in the user's home directory.
+---
+
+> [!NOTE]
+> In this context, when the `appcat` binary is called from a different folder than where it's installed, it looks for its dependencies in the **.appcat** folder in the user's home directory.
 
 ## Usage
 
 ### Subcommands
 
 AppCAT provides two subcommands for usage:
-- **analyze**: Run source code analysis on input source code or a binary.
-- **transform**: Convert XML rules from previous versions (6 and older) to YAML format used by this version.
 
-**Note - macOS users:** If you encounter an error stating "Apple could not verify" when trying to run the app, you can resolve this by executing the following command:
-```bash
-xattr -d -r com.apple.quarantine /path/to/appcat_binary
-```
+- `analyze`: Run source code analysis on input source code or a binary.
+- `transform`: Convert XML rules from previous versions (6 and older) to YAML format used by this version.
 
-Example:
+> [!NOTE]
+> For macOS users: If you encounter an error stating "Apple could not verify" when trying to run the app, you can resolve this error by using the following command:
+>
+> ```bash
+> xattr -d -r com.apple.quarantine /path/to/appcat_binary
+> ```
+> 
+> For example:
+>
+> ```bash
+> xattr -d -r com.apple.quarantine $HOME/.appcat/appcat
+> ```
 
-```bash
-xattr -d -r com.apple.quarantine $HOME/.appcat/appcat
-```
+#### Analyze subcommand
 
-#### Analyze Subcommand
-The **analyze** subcommand allows you to run source code and binary analysis.
+The `analyze` subcommand allows you to run source code and binary analysis.
 
 To analyze application source code, run the following command:
 
 # [Linux / macOS](#tab/linux)
 
 ```bash
-./appcat analyze --input=<path/to/source/code> --output=<path/to/output/dir> --target=azure-appservice --overwrite
+./appcat analyze --input=<path-to-source-code> --output=<path-to-output-directory> --target=azure-appservice --overwrite
 ```
 
 # [Windows](#tab/windows)
 
 ```cmd
-.\appcat.exe analyze --input=<path/to/source/code> --output=<path/to/output/dir> --target=azure-appservice --overwrite
+.\appcat.exe analyze --input=<path-to-source-code> --output=<path-to-output-directory> --target=azure-appservice --overwrite
 ```
 
 ---
 
-The **--input** flag must point to a source code directory or a binary file, and **--output** must point to a directory to store the analysis results.
+The `--input` flag must point to a source code directory or a binary file, and `--output` must point to a directory to store the analysis results.
 
 For more information on the analyze flags, run the following command:
 
@@ -235,9 +233,9 @@ To check the available targets for AppCAT, run the following command:
 
 ---
 
-With the above command, you should see the following output:
+This command produces the following output:
 
-```
+```output
 available target technologies:
 azure-aks
 azure-appservice
@@ -251,64 +249,67 @@ openjdk21
 ```
 
 #### Analyzing Multiple Applications
-AppCAT is designed to analyze a single application per command execution, but if you use the **--bulk** option, you can analyze multiple applications in a single execution. This generates a single static report in the output directory that includes the results for all applications.
+
+AppCAT is designed to analyze a single application per command execution, but if you use the `--bulk` option, you can analyze multiple applications in a single execution. This option generates a single static report in the output directory that includes the results for all applications.
 
 To analyze multiple applications, run the following command:
 
 # [Linux / macOS](#tab/linux)
 
 ```bash
-./appcat analyze --bulk --input=<path/to/source/A> --output=<path/to/output/ABC> --target=<targetname>
-./appcat analyze --bulk --input=<path/to/source/B> --output=<path/to/output/ABC> --target=<targetname>
-./appcat analyze --bulk --input=<path/to/source/C> --output=<path/to/output/ABC> --target=<targetname>
+./appcat analyze --bulk --input=<path-to-source-A> --output=<path-to-output-ABC> --target=<targetname>
+./appcat analyze --bulk --input=<path-to-source-B> --output=<path-to-output-ABC> --target=<targetname>
+./appcat analyze --bulk --input=<path-to-source-C> --output=<path-to-output-ABC> --target=<targetname>
 ```
 
 # [Windows](#tab/windows)
 
 ```cmd
-.\appcat.exe analyze --bulk --input=<path/to/source/A> --output=<path/to/output/ABC> --target=<targetname>
-.\appcat.exe analyze --bulk --input=<path/to/source/B> --output=<path/to/output/ABC> --target=<targetname>
-.\appcat.exe analyze --bulk --input=<path/to/source/C> --output=<path/to/output/ABC> --target=<targetname>
+.\appcat.exe analyze --bulk --input=<path-to-source-A> --output=<path-to-output-ABC> --target=<targetname>
+.\appcat.exe analyze --bulk --input=<path-to-source-B> --output=<path-to-output-ABC> --target=<targetname>
+.\appcat.exe analyze --bulk --input=<path-to-source-C> --output=<path-to-output-ABC> --target=<targetname>
 ```
 
 ---
 
 #### Transform Subcommand
 
-The **transform** subcommand allows you to convert the previous `appcat` XML rules used in the 6.x version into the new YAML format used by this version 7.x.
+The `transform` subcommand allows you to convert the previous `appcat` XML rules used in the 6.x version into the new YAML format used by this version 7.x.
 
 To transform rules, run the following command:
 
 # [Linux / macOS](#tab/linux)
 
 ```bash
-./appcat transform rules --input=<path/to/xmlrules> --output=<path/to/output/dir>
+./appcat transform rules --input=<path-to-xml-rules> --output=<path-to-output-directory>
 ```
 
 # [Windows](#tab/windows)
 
 ```cmd
-.\appcat.exe transform rules --input=<path/to/xmlrules> --output=<path/to/output/dir>
+.\appcat.exe transform rules --input=<path-to-xml-rules> --output=<path-to-output-directory>
 ```
 
 ---
 
-The **--input** flag should point to a file or directory containing XML rules, and the **--output** flag should point to the output directory for the converted YAML rules.
+The `--input` flag should point to a file or directory containing XML rules, and the `--output` flag should point to the output directory for the converted YAML rules.
 
 ### Samples
-**Note:** Ensure that the file permissions for scripts in the extracted folder are set to allow execution.
 
-In the **samples** folder, you will find a sample web application called **airsonic.war**. Airsonic is a web-based media streamer, providing access to your music and enabling you to share it with friends.
-To learn more about Airsonic, visit the following link: [Airsonic](https://github.com/airsonic/airsonic).
+> [!NOTE]
+> Ensure that the file permissions for scripts in the extracted folder are set to allow execution.
 
-In the **samples** directory, you will find several scripts to run different types of analysis:
+In the **samples** folder, you can find a sample web application called **airsonic.war**. Airsonic is a web-based media streamer, providing access to your music and enabling you to share it with friends. To learn more about Airsonic, see [Airsonic](https://github.com/airsonic/airsonic).
+
+In the **samples** directory, you can find the following scripts to run different types of analysis:
+
 - **run-assessment**: Provides a report with code assessment and steps for migrating Airsonic to Azure App Service on Tomcat.
 - **run-assessment-transform-rules**: Converts Windup XML rules to analyzer-lsp-compatible YAML rules.
 - **run-assessment-custom-rules**: Provides a code assessment report using custom rules (transform XML to YAML).
 - **run-assessment-openjdk21**: Generates a report with code assessment and steps for migrating Airsonic to OpenJDK 21.
 - **run-assessment-package-only**: Produces a report by assessing specific packages.
 
-Depending on your operating system, run the appropriate script. For example,
+Depending on your operating system, run the appropriate script, as shown in the following example:
 
 # [Linux / macOS](#tab/linux)
 
@@ -324,19 +325,7 @@ Depending on your operating system, run the appropriate script. For example,
 
 ---
 
-The reports will be automatically generated and launched. You can find the reports under:
-
-# [Linux / macOS](#tab/linux)
-
-```bash
-../samples/report-*
-```
-
-# [Windows](#tab/windows)
-
-```cmd
-..\samples\report-*
-```
+The reports are automatically generated and launched. You can find the reports under **../samples/report-\*** (Linux/macOS) or **..\samples\report-\*** (Windows).
 
 ---
 
@@ -377,37 +366,41 @@ Then, for each file or class affected by the incident, you can jump into the sou
 This release is based on a different set of components of the Konveyor project.
 
 **General Updates**
-  - New engine based on the [Konveyor Analyzer LSP](https://github.com/konveyor/analyzer-lsp) project, with a CLI based on the [Konveyor Kantra](https://github.com/konveyor/kantra/) project.
+
+- New engine based on the [Konveyor Analyzer LSP](https://github.com/konveyor/analyzer-lsp) project, with a CLI based on the [Konveyor Kantra](https://github.com/konveyor/kantra/) project.
 
 ### 6.3.9.0
 
-This release contains the following fixes and includes a set of new rules. For more information, see below.
+This release contains the following fixes and includes a set of new rules.
 
 **General Updates**
- - Integrated changes from the Windup upstream repository (6.3.9.Final Release).
- - Resolved broken links in rule descriptions and help text.
+
+- Integrated changes from the Windup upstream repository (6.3.9.Final Release).
+- Resolved broken links in rule descriptions and help text.
 
 **Rules**
- - Azure Message Queue: updated and added new rules for azure-message-queue-rabbitmq and azure-message-queue-amqp.
- - Azure Service Bus: introduced a detection rule for Azure Service Bus.
- - MySQL & PostgreSQL: refined dependency detection rules.
- - Azure-AWS Rules: enhanced and improved existing rules.
- - S3 Spring Starter: added a detection rule for S3 Spring Starter.
- - RabbitMQ Spring JMS: added a detection rule for RabbitMQ Spring JMS.
- - Logging Rules: updated and refined logging-related rules.
- - Local-Storage Rule: updated and refined the local storage rule.
- - Azure File System Rule: updated and refined the Azure File System rule.
+
+- Azure Message Queue: updated and added new rules for `azure-message-queue-rabbitmq` and `azure-message-queue-amqp`.
+- Azure Service Bus: introduced a detection rule for Azure Service Bus.
+- MySQL and PostgreSQL: refined dependency detection rules.
+- Azure-AWS Rules: enhanced and improved existing rules.
+- S3 Spring Starter: added a detection rule for S3 Spring Starter.
+- RabbitMQ Spring JMS: added a detection rule for RabbitMQ Spring JMS.
+- Logging Rules: updated and refined logging-related rules.
+- Local-Storage Rule: updated and refined the local storage rule.
+- Azure File System Rule: updated and refined the Azure File System rule.
 
 **Libraries**
- - Updated libraries to address security vulnerabilities.
+
+- Updated libraries to address security vulnerabilities.
 
 ### 6.3.0.9
 
-This release contains the following fixes and includes a set of new rules. For more information, see below.
+This release contains the following fixes and includes a set of new rules.
 
 - Resolved an issue with the `localhost-java-00001` rule.
 - Introduced new rules for identifying technologies such as AWS S3, AWS SQS, Alibaba Cloud OSS, Alibaba Cloud SMS, Alibaba Scheduler X, Alibaba Cloud Seata, and Alibaba Rocket MQ.
-- Updated the `azure-file-system-02000` to now support xml file extensions.
+- Updated the `azure-file-system-02000` to now support XML file extensions.
 - Upgraded various libraries to address security vulnerabilities.
 
 ### 6.3.0.8
@@ -422,25 +415,25 @@ GA (Generally Available) release of Azure Migrate application and code assessmen
 
 ### 7.6.0.0
 
-1. The flag `--analyze-known-libraries` is not working on Windows.
-2. On Windows, extra folders are generated during the analysis process but are not automatically removed after completion. You will likely want to clean up these extra folders once the analysis has finished. The folders are:
-     - .metadata
-     - org.eclipse.osgi
-     - org.eclipse.equinox.app
-     - org.eclipse.core.runtime
-     - org.eclipse.equinox.launcher
-3. The flag `--overrideProviderSettings` is not supported.
-5. The flag `--json-output` is not supported. In a future release, it will generate JSON outputs for the `output.yaml` and `dependency.yaml` files.
-7. Rules issues:
-    - **azure-system-config-01000**, **http-session-01000**, **java-removals-00150** rules are not being triggered.
-    - **FileSystem - Java IO** rule is not being triggered
+1. The flag `--analyze-known-libraries` isn't working on Windows.
+1. On Windows, the following extra folders are generated during the analysis process but aren't automatically removed after completion. You might want to remove these extra folders after the analysis finishes.
+     - **.metadata**
+     - **org.eclipse.osgi**
+     - **org.eclipse.equinox.app**
+     - **org.eclipse.core.runtime**
+     - **org.eclipse.equinox.launcher**
+1. The flag `--overrideProviderSettings` isn't supported.
+1. The flag `--json-output` isn't supported. In a future release, it generates JSON outputs for the **output.yaml** and **dependency.yaml** files.
+1. Rules issues:
+    - **azure-system-config-01000**, **http-session-01000**, **java-removals-00150** rules aren't being triggered.
+    - **FileSystem - Java IO** rule isn't being triggered
     - _"unable to parse all the rules for ruleset"_ when running analysis. This error occurs during analysis when the tool fails to parse all rules in the ruleset.
-8. Analyzing WAR files on Windows produces the following error: _"Failed to Move Decompiled File"_. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant incidents created on Windows OS.
-9. Missing descriptions for some rules on the Insights tab. Some tag rules are lacking descriptions, leading to blank titles appearing on the `Insights` tab of the report.
-10. Error in Watcher Error channel: Windows system assumed buffer larger than it is, events have likely been missed" on Windows. This error message appears on the command line during long-running jobs on Windows.
-11. This release requires an active internet connection for dependency analysis.
-12. `Ctrl+C` fails to stop ongoing analysis. To work around, manually terminate the process by explicitly killing the process.
-13. When the flag `--context-lines` is set to a number 0, it does not work as expected. This flag allows the user to limit how much of the source code should appear on the report. Setting to a value 0 may not work as expected.
+1. Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant incidents created on Windows OS.
+1. Missing descriptions for some rules on the Insights tab. Some tag rules are lacking descriptions, leading to blank titles appearing on the `Insights` tab of the report.
+1. Error in Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
+1. This release requires an active internet connection for dependency analysis.
+1. <kbd>Ctrl</kbd>+<kdb>C</kdb> fails to stop ongoing analysis. To work around, manually terminate the process by explicitly killing the process.
+1. When the flag `--context-lines` is set to a number 0, it doesn't work as expected. This flag allows the user to limit how much of the source code should appear on the report. Setting to a value 0 might not work as expected.
 
 ## License
 
