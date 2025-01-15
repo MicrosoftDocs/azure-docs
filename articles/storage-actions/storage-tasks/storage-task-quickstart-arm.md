@@ -37,32 +37,13 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 ## Deploy the template
 
-The following scripts are designed for and tested in [Azure Cloud Shell](../../cloud-shell/overview.md). Choose **Try It** to open a Cloud Shell instance right in your browser. 
+1. Select the following link to sign in to Azure and open a template. The template creates a key vault and a secret.
 
-### [Azure CLI](#tab/azure-cli)
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage.actions%2Fstorage-task%2Fazuredeploy.json":::
 
-```azurecli-interactive
-read -p "Enter a resource group name that is used for generating resource names:" resourceGroupName &&
-read -p "Enter the location (like 'eastus' or 'northeurope'):" location &&
-templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage.actions/storage-task/azuredeploy.json" &&
-az group create --name $resourceGroupName --location "$location" &&
-az deployment group create --resource-group $resourceGroupName --template-uri  $templateUri &&
-echo "Press [ENTER] to continue ..." &&
-read
-```
-### [Azure PowerShell](#tab/azure-powershell)
+2. Specify the subscription, resource group, and the storage task name. Then, select **Review + create** to deploy the template.
 
-```powershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter a resource group name that is used for generating resource names"
-$location = Read-Host -Prompt "Enter the location (like 'eastus' or 'northeurope')"
-$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage.actions/storage-task/azuredeploy.json"
-
-New-AzResourceGroup -Name $resourceGroupName -Location "$location"
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
-
-Read-Host -Prompt "Press [ENTER] to continue ..."
-```
----
+  You can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Review deployed resources
 

@@ -31,32 +31,27 @@ The [Microsoft.StorageActions/storageTasks](/azure/templates/microsoft.storageac
 
 ## Deploy the Bicep file
 
-The following scripts are designed for and tested in [Azure Cloud Shell](../../cloud-shell/overview.md). Choose **Try It** to open a Cloud Shell instance right in your browser. 
+1. Save the Bicep file as **main.bicep** to your local computer.
 
-### [Azure CLI](#tab/azure-cli)
+2. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
 
-```azurecli-interactive
-read -p "Enter a resource group name that is used for generating resource names:" resourceGroupName &&
-read -p "Enter the location (like 'eastus' or 'northeurope'):" location &&
-templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage.actions/storage-task/main.bicep" &&
-az group create --name $resourceGroupName --location "$location" &&
-az deployment group create --resource-group $resourceGroupName --template-uri  $templateUri &&
-echo "Press [ENTER] to continue ..." &&
-read
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az group create --name exampleRG --location <region>
+
+az deployment group create --resource-group exampleRG --template-file main.bicep --parameters storageTaskName="<storage-task-name>" description="<description>" 
 ```
-### [Azure PowerShell](#tab/azure-powershell)
 
-```powershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter a resource group name that is used for generating resource names"
-$location = Read-Host -Prompt "Enter the location (like 'eastus' or 'northeurope')"
-$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage.actions/storage-task/main.bicep"
+# [Azure PowerShell](#tab/azure-powershell)
 
-New-AzResourceGroup -Name $resourceGroupName -Location "$location"
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
+```azurepowershell
+New-AzResourceGroup -Name exampleRG -Location <region>
 
-Read-Host -Prompt "Press [ENTER] to continue ..."
+New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -storageTaskName "<storage-task-name>" -description "<description>"
 ```
----
+
+
 
 ## Review deployed resources
 
