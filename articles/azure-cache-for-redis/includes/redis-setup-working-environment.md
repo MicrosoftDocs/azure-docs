@@ -15,7 +15,7 @@ export USER_NAME=<user-name>
 
 Replace the placeholders with the following values:
 
-- `<your-host-name>`: The DNS host name. To get the host name and ports for your cache, select **Overview** from the Resource menu. The host name is of the form `<DNS name>.redis.cache.windows.net`.
+- `<your-host-name>`: The DNS host name. To get the host name and ports for your cache, select **Overview** from the **Resource** menu. The host name is of the form `<DNS name>.redis.cache.windows.net`.
 
   :::image type="content" source="media/redis-cache-access-keys/redis-cache-hostname-ports.png" alt-text="Screenshot showing Azure Cache for Redis properties.":::
 

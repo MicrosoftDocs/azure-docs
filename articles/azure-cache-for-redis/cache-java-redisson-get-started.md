@@ -51,7 +51,7 @@ This quickstart uses the Maven archetype feature to generate the scaffolding for
 
 1. Open the **pom.xml** file and add a dependency for [Redisson](https://github.com/redisson/redisson#maven):
 
-   ### [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
+   ### [Microsoft Entra ID authentication (recommended)](#tab/entraid)
 
    ```xml
    <dependency>
@@ -67,7 +67,7 @@ This quickstart uses the Maven archetype feature to generate the scaffolding for
    </dependency>
    ```
 
-   ### [Access Key Authentication](#tab/accesskey)
+   ### [Access key authentication](#tab/accesskey)
 
    [!INCLUDE [redis-access-key-alert](includes/redis-access-key-alert.md)]
 
@@ -83,7 +83,7 @@ This quickstart uses the Maven archetype feature to generate the scaffolding for
 
 1. Open **App.java** and replace the code with the following code:
 
-   ### [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
+   ### [Microsoft Entra ID authentication (recommended)](#tab/entraid)
 
    ```java
    package example.demo;
@@ -158,7 +158,7 @@ This quickstart uses the Maven archetype feature to generate the scaffolding for
 
    ```
 
-   ### [Access Key Authentication](#tab/accesskey)
+   ### [Access key authentication](#tab/accesskey)
 
    ```java
    package example.demo;

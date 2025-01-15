@@ -48,7 +48,7 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 1. Change to the new **redis-jedis-test** project directory.
 1. Open the **pom.xml** file. In the file, you see a dependency for [Jedis](https://github.com/xetorthio/jedis):
 
-    ### [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
+    ### [Microsoft Entra ID authentication (recommended)](#tab/entraid)
 
     ```xml
     <dependency>
@@ -64,7 +64,7 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
     </dependency>
     ```
 
-    ### [Access Key Authentication](#tab/accesskey)
+    ### [Access key authentication](#tab/accesskey)
 
     [!INCLUDE [redis-access-key-alert](includes/redis-access-key-alert.md)]
 
@@ -80,7 +80,7 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 
 1. Open **App.java** and see the code with the following code:
 
-    ### [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
+    ### [Microsoft Entra ID authentication (recommended)](#tab/entraid)
 
     ```java
     package example.demo;
@@ -145,7 +145,7 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
     }
     ```
 
-    ### [Access Key Authentication](#tab/accesskey)
+    ### [Access key authentication](#tab/accesskey)
 
     ```java
     package example.demo;
