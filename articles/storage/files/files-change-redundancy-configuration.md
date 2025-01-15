@@ -344,7 +344,7 @@ If you choose to perform a manual migration, downtime is required but you have m
 
 ## Timing and frequency
 
-If you initiate a zone-redundancy [conversion](#customer-initiated-conversion) from the Azure portal, the conversion process could take up to 72 hours to begin. It could take longer to start if you [request a conversion by opening a support request](#support-initiated-conversion). If a customer-initiated conversion doesn't enter the "In Progress" status within 96 hours of initiating the request, submit a support request to Microsoft to determine why. To monitor the progress of a customer-initiated conversion, see [Monitoring customer-initiated conversion progress](#monitoring-customer-initiated-conversion-progress).
+The customer-initiated zone-redundancy [conversion process](#customer-initiated-conversion) could take up to 72 hours to begin after initiation, but can take longer due to resource availability, data volume, and other factors. It could take longer to start if you [request a conversion by opening a support request](#support-initiated-conversion).  To monitor the progress of a customer-initiated conversion, see [Monitoring customer-initiated conversion progress](#monitoring-customer-initiated-conversion-progress).
 
 > [!IMPORTANT]
 > There is no SLA for completion of a conversion. If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Generally, the more data you have in your account, the longer it takes to replicate that data to other zones or regions.
