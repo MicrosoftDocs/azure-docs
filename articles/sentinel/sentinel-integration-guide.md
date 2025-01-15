@@ -19,7 +19,7 @@ This section covers everything independent software developers (ISVs) need to bu
    :::image type="content" source="media/sentinel-integration-guide/sentinel-integration-timeline.png" alt-text="Image showing the end-to-end steps involved in building and publishing solutions to Microsoft Sentinel." lightbox="media/sentinel-integration-guide/sentinel-integration-timeline.png":::   
 
 ## Learn about Microsoft Sentinel Integrations
-To get started, learn about Microsoft Sentinel offers, identify the content you want to build for your product, and find resources to help you learn more about building Microsoft Sentinel solutions.
+To get started, learn about Microsoft Sentinel offers, identify the content you want to build for your product, and find resources to help you learn more about building Microsoft Sentinel solutions. 
 
 |Step| Description|
 |--|--|
