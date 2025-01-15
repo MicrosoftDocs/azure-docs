@@ -912,13 +912,13 @@
     - name: Overview
       href: kusto-overview.md
     - name: Query best practices
-      href: /kusto/query/best-practices?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      href: /kusto/query/best-practices?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json&view=microsoft-sentinel&preserve-view=true
     - name: SQL to KQL cheat sheet
-      href: /kusto/query/sql-cheat-sheet?view=microsoft-fabric
+      href: /kusto/query/sql-cheat-sheet?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json&view=microsoft-sentinel&preserve-view=true
     - name: Splunk to KQL cheat sheet
-      href: /kusto/query/splunk-cheat-sheet?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      href: /kusto/query/splunk-cheat-sheet?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json&view=microsoft-sentinel&preserve-view=true
     - name: KQL quick reference
-      href: /kusto/query/kql-quick-reference?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      href: /kusto/query/kql-quick-reference?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json&view=microsoft-sentinel&preserve-view=true
     - name: Other KQL resources
       href: kusto-resources.md 
   - name: Create custom query
@@ -945,7 +945,10 @@
     items: 
     - name: Overview
       href: incident-investigation.md
-    - name: Investigate incidents
+    - name: Triage and manage your incidents
+      href: incident-navigate-triage.md
+      displayName: close incidents, search incidents, comment on incidents
+    - name: Investigate incidents in depth
       href: investigate-incidents.md
     - name: Tutorial - Investigate with UEBA
       href: investigate-with-ueba.md
