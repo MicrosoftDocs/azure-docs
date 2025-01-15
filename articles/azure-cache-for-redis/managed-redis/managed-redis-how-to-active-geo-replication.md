@@ -237,7 +237,7 @@ To monitor the _Geo Replication Healthy_ metric in the Azure portal:
 
     1. Save the alert.
 
-    1. For more information on how to set up alerts for you Redis Enterprise cache, see the alert section in [Monitor Redis Caches](/azure/azure-cache-for-redis/monitor-cache?tabs=enterprise-enterprise-flash).
+    1. For more information on how to setup alerts for you Redis Enterprise cache, see the alert section in [Monitor Redis Caches](/azure/azure-cache-for-redis/monitor-cache?tabs=enterprise-enterprise-flash).
 
 > [!IMPORTANT]
 > This metric might temporarily show as unhealthy due to routine operations like maintenance events or scaling, initiated either by Azure or the customer. To avoid false alarms, we recommend setting up an observation window of 60 minutes, where the metric continues to stay unhealthy as the appropriate time for generating an alert as it might indicate a problem that requires intervention.
