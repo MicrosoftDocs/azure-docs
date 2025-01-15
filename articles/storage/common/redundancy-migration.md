@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 02/07/2024
+ms.date: 01/15/2025
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23, references_regions, devx-track-azurepowershell
@@ -362,7 +362,7 @@ Some storage account types only support certain redundancy configurations, which
 
 The following table provides an overview of redundancy options available for storage account types and whether conversion and manual migration are supported:
 
-| Storage account type        | Supports LRS | Supports ZRS | Supports conversion<br>(from the portal) | Supports conversion<br>(by support request) | Supports manual migration |
+| Storage account type        | Supports LRS | Supports ZRS | Supports conversion<br>(from the Azure portal) | Supports conversion<br>(by support request) | Supports manual migration |
 |:----------------------------|:------------:|:------------:|:-----------------------:|:-------------------------:|:-------------------------:|
 | Standard general purpose v2 | &#x2705;     | &#x2705;     | &#x2705;                | &#x2705;                  | &#x2705;                  |
 | Premium file shares         | &#x2705;     | &#x2705;     |                         | &#x2705; <sup>1</sup>     | &#x2705;                  |
@@ -373,7 +373,7 @@ The following table provides an overview of redundancy options available for sto
 | ZRS Classic<sup>4</sup><br /><sub>(available in standard general purpose v1 accounts)</sub> | &#x2705; |  |  |  |                           |
 
 
-<sup>1</sup> Conversion for premium file shares is available by [opening a support request](#support-initiated-conversion); Customer-initiated conversion can be undertaken using either [PowerShell](redundancy-migration.md?tabs=powershell#customer-initiated-conversion) or the [Azure CLI](redundancy-migration.md?tabs=azure-cli#customer-initiated-conversion).<br />
+<sup>1</sup> Customer-initiated conversion can be undertaken using either [PowerShell](redundancy-migration.md?tabs=powershell#customer-initiated-conversion) or the [Azure CLI](redundancy-migration.md?tabs=azure-cli#customer-initiated-conversion). You can also [open a support request](#support-initiated-conversion).<br />
 <sup>2</sup> Managed disks are available for LRS and ZRS, though ZRS disks have some [limitations](/azure/virtual-machines/disks-redundancy#limitations). If an LRS disk is regional (no zone specified), it can be converted by [changing the SKU](/azure/virtual-machines/disks-convert-types). If an LRS disk is zonal, then it can only be manually migrated by following the process in [Migrate your managed disks](../../reliability/migrate-vm.md#migrate-your-managed-disks). You can store snapshots and images for standard SSD managed disks on standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview#integration-with-availability-sets).<br />
 <sup>3</sup> If your storage account is v1, you need to upgrade it to v2 before performing a conversion. To learn how to upgrade your v1 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md).<br />
 <sup>4</sup> ZRS Classic storage accounts are deprecated. For information about converting ZRS Classic accounts, see [Converting ZRS Classic accounts](#converting-zrs-classic-accounts).<br />
@@ -433,10 +433,16 @@ An LRS storage account containing blobs in the archive tier can be switched to G
 
 ### Protocol support
 
-You can't convert storage accounts to zone-redundancy (ZRS, GZRS or RA-GZRS) if either of the following cases are true:
+You can't convert storage accounts to zone-redundancy (ZRS, GZRS, or RA-GZRS) if either of the following cases are true:
 
 - NFSv3 protocol support is enabled for Azure Blob Storage
-- The storage account contains Azure Files NFSv4.1 shares with public endpoints configured
+- The storage account contains Azure Files NFSv4.1 shares with public endpoint access enabled
+
+Converting NFSv4.1 shares with public endpoints enabled isn't supported. To change redundancy for NFS shares with public endpoints, follow these steps in order:
+
+1. [Disable access](../files/storage-files-networking-endpoints.md#restrict-public-endpoint-access) to the storage account's public endpoint.
+1. Submit the conversion request to change redundancy of the given storage account.
+1. Once the storage account is migrated, [configure private or public endpoints](../files/storage-files-networking-endpoints.md) as required. 
 
 ### Failover and failback
 
