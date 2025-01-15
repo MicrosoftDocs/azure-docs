@@ -3,7 +3,7 @@ title: About Azure Site Recovery
 description: Provides an overview of the Azure Site Recovery service, and summarizes disaster recovery and migration deployment scenarios.
 ms.topic: overview
 ms.service: azure-site-recovery
-ms.date: 01/09/2025
+ms.date: 01/13/2025
 ms.custom: MVC
 ms.author: ankitadutta
 author: ankitaduttaMSFT
@@ -26,7 +26,6 @@ Site Recovery can manage replication for:
 
 - Azure VMs replicating between Azure regions
 - Replication from Azure Extended Zones to the region 
-- Replication between two Azure Extended Zones 
 - On-premises VMs, Azure Stack VMs, and physical servers
 
 > [!NOTE]
@@ -55,7 +54,7 @@ Site Recovery can manage replication for:
 
 **Supported** | **Details**
 --- | ---
-**Replication scenarios** | Replicate Azure VMs from one Azure region to another.<br/><br/>  Replicate on-premises VMware VMs, Hyper-V VMs, physical servers (Windows and Linux), Azure Stack VMs to Azure.<br/><br/> Replicate AWS Windows instances to Azure.<br/><br/> Replicate on-premises VMware VMs, Hyper-V VMs managed by System Center VMM, and physical servers to a secondary site.
+**Replication scenarios** | Replicate Azure VMs from <br> 1. One Azure region to another.<br/> 2. One Azure Extended zone to the Azure region it's connected to. <br><br/>  Replicate on-premises VMware VMs, Hyper-V VMs, physical servers (Windows and Linux), Azure Stack VMs to Azure.<br/><br/> Replicate AWS Windows instances to Azure.<br/><br/> Replicate on-premises VMware VMs, Hyper-V VMs managed by System Center VMM, and physical servers to a secondary site.
 **Regions** | Review [supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=site-recovery) for Site Recovery. |
 **Replicated machines** | Review the replication requirements for [Azure VM](azure-to-azure-support-matrix.md#replicated-machine-operating-systems) replication, [on-premises VMware VMs and physical servers](vmware-physical-azure-support-matrix.md#replicated-machines), and [on-premises Hyper-V VMs](hyper-v-azure-support-matrix.md#replicated-vms).
 **Workloads** | You can replicate any workload running on a machine that's supported for replication. Learn more about the app-specific [workload summary](site-recovery-workload.md#workload-summary). 
