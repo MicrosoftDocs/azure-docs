@@ -135,7 +135,7 @@ You should see a folder structure similar to the following:
 
 Change the directory to the extracted folder:
 
-```sh
+```bash
 cd /azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview/
 ./appcat --help
 ```
@@ -149,13 +149,14 @@ On Windows, this is `%USERPROFILE%/.appcat` and on Linux/Mac, this is `$HOME/.ap
 
 Add the `.appcat` folder to your PATH environment variable so you can run the tool from any folder in the terminal.
 
-- **Linux / macOS:**
-```sh
+# [Linux / macOS](#tab/linux)
+
+```bash
 mv /path/to/extracted/azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview/ $HOME/.appcat
 ```
 
-- **Windows:**
-```psh
+# [Windows](#tab/windows)
+```cmd
 move /path/to/extracted/azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview/ %USERPROFILE%/.appcat
 ```
 
@@ -170,13 +171,13 @@ AppCAT provides two subcommands for usage:
 - **transform**: Convert XML rules from previous versions (6 and older) to YAML format used by this version.
 
 **Note - macOS users:** If you encounter an error stating "Apple could not verify" when trying to run the app, you can resolve this by executing the following command:
-```sh
+```bash
 xattr -d -r com.apple.quarantine /path/to/appcat_binary
 ```
 
 Example:
 
-```sh
+```bash
 xattr -d -r com.apple.quarantine $HOME/.appcat/appcat
 ```
 
@@ -184,38 +185,45 @@ xattr -d -r com.apple.quarantine $HOME/.appcat/appcat
 The **analyze** subcommand allows you to run source code and binary analysis.
 
 To analyze application source code, run the following command:
-- **Linux / macOS:**
-    ```sh
-    ./appcat analyze --input=<path/to/source/code> --output=<path/to/output/dir> --target=azure-appservice --overwrite
-    ```
-- **Windows:**
-    ```sh
-    .\appcat.exe analyze --input=<path/to/source/code> --output=<path/to/output/dir> --target=azure-appservice --overwrite
-    ```
+
+# [Linux / macOS](#tab/linux)
+```bash
+./appcat analyze --input=<path/to/source/code> --output=<path/to/output/dir> --target=azure-appservice --overwrite
+```
+
+# [Windows](#tab/windows)
+```cmd
+.\appcat.exe analyze --input=<path/to/source/code> --output=<path/to/output/dir> --target=azure-appservice --overwrite
+```
 
 The **--input** flag must point to a source code directory or a binary file, and **--output** must point to a directory to store the analysis results.
 
 For more information on the analyze flags, run the following command:
-- **Linux / macOS:**
-    ```sh
-    ./appcat analyze --help
-    ```
-- **Windows:**
-    ```sh
-    .\appcat.exe analyze --help
-    ```
+
+# [Linux / macOS](#tab/linux)
+```bash
+./appcat analyze --help
+```
+
+# [Windows](#tab/windows)
+```cmd
+.\appcat.exe analyze --help
+```
 
 To check the available targets for AppCAT, run the following command:
-- **Linux / macOS:**
-    ```sh
-    ./appcat analyze --list-targets
-    ```
-- **Windows:**
-    ```sh
-    .\appcat.exe analyze --list-targets
-    ```
+
+# [Linux / macOS](#tab/linux)
+```bash
+./appcat analyze --list-targets
+```
+
+# [Windows](#tab/windows)
+```cmd
+.\appcat.exe analyze --list-targets
+```
 
 With the above command, you should see the following output:
+
 ```
 available target technologies:
 azure-aks
@@ -233,32 +241,37 @@ openjdk21
 AppCAT is designed to analyze a single application per command execution, but if you use the **--bulk** option, you can analyze multiple applications in a single execution. This generates a single static report in the output directory that includes the results for all applications.
 
 To analyze multiple applications, run the following command:
-- **Linux / macOS:**
-    ```sh
-    ./appcat analyze --bulk --input=<path/to/source/A> --output=<path/to/output/ABC> --target=<targetname>
-    ./appcat analyze --bulk --input=<path/to/source/B> --output=<path/to/output/ABC> --target=<targetname>
-    ./appcat analyze --bulk --input=<path/to/source/C> --output=<path/to/output/ABC> --target=<targetname>
-    ```
-- **Windows:**
-    ```sh
-    .\appcat.exe analyze --bulk --input=<path/to/source/A> --output=<path/to/output/ABC> --target=<targetname>
-    .\appcat.exe analyze --bulk --input=<path/to/source/B> --output=<path/to/output/ABC> --target=<targetname>
-    .\appcat.exe analyze --bulk --input=<path/to/source/C> --output=<path/to/output/ABC> --target=<targetname>
-    ```
+
+# [Linux / macOS](#tab/linux)
+
+```bash
+./appcat analyze --bulk --input=<path/to/source/A> --output=<path/to/output/ABC> --target=<targetname>
+./appcat analyze --bulk --input=<path/to/source/B> --output=<path/to/output/ABC> --target=<targetname>
+./appcat analyze --bulk --input=<path/to/source/C> --output=<path/to/output/ABC> --target=<targetname>
+```
+
+# [Windows](#tab/windows)
+```cmd
+.\appcat.exe analyze --bulk --input=<path/to/source/A> --output=<path/to/output/ABC> --target=<targetname>
+.\appcat.exe analyze --bulk --input=<path/to/source/B> --output=<path/to/output/ABC> --target=<targetname>
+.\appcat.exe analyze --bulk --input=<path/to/source/C> --output=<path/to/output/ABC> --target=<targetname>
+```
 
 #### Transform Subcommand
 
 The **transform** subcommand allows you to convert the previous `appcat` XML rules used in the 6.x version into the new YAML format used by this version 7.x.
 
 To transform rules, run the following command:
-- **Linux / macOS:**
-    ```sh
-    ./appcat transform rules --input=<path/to/xmlrules> --output=<path/to/output/dir>
-    ```
-- **Windows:**
-    ```sh
-    .\appcat.exe transform rules --input=<path/to/xmlrules> --output=<path/to/output/dir>
-    ```
+
+# [Linux / macOS](#tab/linux)
+```bash
+./appcat transform rules --input=<path/to/xmlrules> --output=<path/to/output/dir>
+```
+
+# [Windows](#tab/windows)
+```cmd
+.\appcat.exe transform rules --input=<path/to/xmlrules> --output=<path/to/output/dir>
+```
 
 The **--input** flag should point to a file or directory containing XML rules, and the **--output** flag should point to the output directory for the converted YAML rules.
 
@@ -276,21 +289,25 @@ In the **samples** directory, you will find several scripts to run different typ
 - **run-assessment-package-only**: Produces a report by assessing specific packages.
 
 Depending on your operating system, run the appropriate script. For example,
-- **Linux / macOS:**
-    ```sh
-    ./samples/run-assessment
-    ```
-- **Windows:**
-    ```sh
-    .\samples\run-assessment.bat
-    ```
+
+# [Linux / macOS](#tab/linux)
+```sh
+./samples/run-assessment
+```
+
+# [Windows](#tab/windows)
+```cmd
+.\samples\run-assessment.bat
+```
 
 The reports will be automatically generated and launched. You can find the reports under:
-- **Linux / macOS:**
+
+# [Linux / macOS](#tab/linux)
 ```
 ../samples/report-*
 ```
-- **Windows:**
+
+# [Windows](#tab/windows)
 ```
 ..\samples\report-*
 ```
