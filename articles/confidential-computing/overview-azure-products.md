@@ -17,7 +17,7 @@ Azure provides the broadest support for hardened technologies such as [AMD SEV-S
 
 - Confidential VMs using AMD SEV-SNP. [DCasv5](/azure/virtual-machines/dcasv5-dcadsv5-series) and [ECasv5](/azure/virtual-machines/ecasv5-ecadsv5-series) enable lift-and-shift of existing workloads and helps protect data from the cloud operator with VM-level confidentiality. 
 
-- Confidential VMs using Intel TDX. [DCesv5](/azure/virtual-machines/dcasv5-dcadsv5-series) and [ECesv5](/azure/virtual-machines/ecasv5-ecadsv5-series) enable lift-and-shift of existing workloads and helps protect data from the cloud operator with VM-level confidentiality.
+- Confidential VMs using Intel TDX. [DCesv5](/azure/virtual-machines/dcesv5-dcedsv5-series) and [ECesv5](/azure/virtual-machines/ecesv5-ecedsv5-series) enable lift-and-shift of existing workloads and helps protect data from the cloud operator with VM-level confidentiality.
 
 - VMs with Application Enclaves using Intel SGX. [DCsv2](/azure/virtual-machines/dcv2-series), [DCsv3, and DCdsv3](/azure/virtual-machines/dcv3-series) enable organizations to create hardware enclaves. These secure enclaves help protect from cloud operators, and your own VM admins.
 
