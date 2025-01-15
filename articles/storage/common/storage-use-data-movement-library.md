@@ -18,6 +18,8 @@ ms.custom: devx-track-csharp, devx-track-dotnet
 
 The Azure Storage Data Movement library is a cross-platform open source library that is designed for high performance uploading, downloading, and copying of blobs and files. The Data Movement library provides convenient methods that aren't available in the Azure Storage client library for .NET. These methods allow you to set the number of parallel operations, track transfer progress, resume a canceled transfer, and more.
 
+The Data Movement library is only available for .NET, and only supports Azure Blob Storage and Azure Files.
+
 [API reference docs](/dotnet/api/azure.storage.datamovement) | [Source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.DataMovement) | Samples: [Blobs](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement.Blobs/samples) / [Files](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement.Files.Shares/samples)
 
 ## Prerequisites
