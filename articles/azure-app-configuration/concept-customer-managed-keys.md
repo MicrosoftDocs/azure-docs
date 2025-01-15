@@ -105,10 +105,10 @@ After these resources are configured, use the following steps so that the Azure 
     az appconfig update -g contoso-resource-group -n contoso-app-config --encryption-key-name key-name --encryption-key-version key-version --encryption-key-vault key-vault-Uri
     ```
 
-    The command uses system-assigned managed identity to do authentication with the key vault by default. 
+    The command uses system-assigned managed identity to authenticate with the key vault by default. 
 
     > [!NOTE]
-    > When using a user-assigned managed identity to access the managed key, you can specify its client ID explicitly by adding `--identity-client-id <client ID of your user assigned identity>` to the command.
+    > When using a user-assigned managed identity to access the customer managed key, you can specify its client ID explicitly by adding `--identity-client-id <client ID of your user assigned identity>` to the command.
 
 Your Azure App Configuration instance is now configured to use a customer-managed key stored in Azure Key Vault.
 
