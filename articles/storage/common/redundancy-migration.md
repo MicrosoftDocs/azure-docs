@@ -62,7 +62,7 @@ The following table provides an overview of how to switch between replication ty
 <sup>2</sup> If your storage account contains blobs in the archive tier, review the [access tier limitations](#access-tier) before changing the redundancy type to geo- or zone-redundant.<br />
 <sup>3</sup> The type of conversion supported depends on the storage account type. For more information, see the [storage account table](#storage-account-type).<br />
 <sup>4</sup> Conversion to ZRS or GZRS for an LRS account resulting from a failover isn't supported. For more information, see [Failover and failback](#failover-and-failback).<br />
-<sup>5</sup> Converting from LRS to ZRS [isn't supported if the NFSv3 protocol support is enabled for Azure Blob Storage or if the storage account contains Azure Files NFSv4.1 shares](#protocol-support). <br />
+<sup>5</sup> Converting from LRS to ZRS [isn't supported if the NFSv3 protocol support is enabled for Azure Blob Storage or if the storage account contains Azure Files NFSv4.1 shares with public endpoints configured](#protocol-support). <br />
 <sup>6</sup> Even though enabling geo-redundancy appears to occur instantaneously, failover to the secondary region can't be initiated until data synchronization between the two regions is complete.<br />
 
 ## Change the replication setting
@@ -165,10 +165,10 @@ There are two ways to initiate a conversion:
 - [Support-initiated](#support-initiated-conversion)
 
 > [!IMPORTANT]
-> There is no SLA for completion of a conversion. If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Generally, the more data you have in your storage account, the longer it takes to replicate that data to other zones or regions.
+> There is no SLA for completion of a conversion. If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Conversion times can vary depending on the size of your account, current resource demands within a region, and other factors.
 
 > [!TIP]
-> Microsoft recommends using a customer-initiated conversion instead of support-initiated conversion whenever possible. A customer-initiated conversion allows you to initiate the conversion and monitor its progress directly from within the Azure portal. Because the conversion is initiated by the customer, there is no need to create and manage a support request.
+> Microsoft recommends using a [customer-initiated conversion](#customer-initiated-conversion) instead of support-initiated conversion whenever possible. You can initiate a conversion and monitor its progress directly from within the Azure portal or with client tool such as PowerShell and the Azure CLI. Because the conversion is initiated by the customer, there is no need to create and manage a support request.
 
 #### Customer-initiated conversion
 
@@ -177,7 +177,7 @@ Instead of opening a support request, customers in most regions can start a conv
 Customer-initiated conversion can be undertaken in supported regions using the [Azure portal](redundancy-migration.md?tabs=portal#customer-initiated-conversion), [PowerShell](redundancy-migration.md?tabs=powershell#customer-initiated-conversion), or the [Azure CLI](redundancy-migration.md?tabs=azure-cli#customer-initiated-conversion). A conversion typically begins within 72 hours after initiation, but can take longer due to resource availability, data volume, and other factors.
 
 > [!IMPORTANT]
-> If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Generally, the more data you have in your account, the longer it takes to replicate that data to other zones or regions.
+> If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Conversion times can vary depending on the size of your account, current resource demands within a region, and other factors.
 >
 > For more information about the timing of a customer-initiated conversion, see [Timing and frequency](#timing-and-frequency).
 
@@ -234,7 +234,7 @@ As the conversion request is evaluated and processed, the status should progress
 > [!NOTE]
 > While Microsoft acts upon your request for a conversion promptly, there's no guarantee as to when it will complete. If you need your data converted by a certain date, Microsoft recommends that you perform a manual migration instead.
 >
-> Generally, the more data you have in your account, the longer it takes to replicate that data to other zones in the region.
+> Conversion times can vary depending on the size of your account, current resource demands within a region, and other factors.
 
 # [Portal](#tab/portal)
 
@@ -324,9 +324,6 @@ For more detailed guidance on how to perform a manual migration, see [Move an Az
 
 ## Limitations for changing replication types
 
-> [!IMPORTANT]
-> Boot diagnostics doesn't support premium storage accounts or zone-redundant storage accounts. When either premium or zone-redundant storage accounts are used for boot diagnostics, users receive a `StorageAccountTypeNotSupported` error upon starting their virtual machine (VM).
-
 Limitations apply to some replication change scenarios depending on:
 
 - [Region](#region)
@@ -343,11 +340,17 @@ Make sure the region where your storage account is located supports all of the d
 > [!IMPORTANT]
 > [Customer-initiated conversion](#customer-initiated-conversion) from LRS to ZRS is available in all public regions that support ZRS except for the following:
 >
-> - (Europe) West Europe
+> - (Europe) Mexico Central
 >
 > [Customer-initiated conversion](#customer-initiated-conversion) from existing ZRS accounts to LRS is available in all public regions.
 
 ### Feature conflicts
+
+
+> [!IMPORTANT]
+> Boot diagnostics doesn't support premium storage accounts or zone-redundant storage accounts. When either premium or zone-redundant storage accounts are used for boot diagnostics, users receive a `StorageAccountTypeNotSupported` error upon starting their virtual machine (VM).
+>
+> Boot diagnostics doesn't support zone-redundant storage. Any conversion attempts to add zonal redundancy, such as LRS to ZRS or GRS to GZRS, will fail. To convert your account to a zone-redundant SKU, disable boot diagnostics on your account and resubmit the request. 
 
 Some storage account features aren't compatible with other features or operations. For example, the ability to fail over to the secondary region is the key feature of geo-redundancy, but other features aren't compatible with failover. For more information about features and services not supported with failover, see [Unsupported features and services](storage-disaster-recovery-guidance.md#unsupported-features-and-services). The conversion of an account to GRS, GZRS, or RA-GZRS might be blocked if a conflicting feature is enabled, or it might be necessary to disable the feature later before initiating a failover.
 
@@ -433,7 +436,7 @@ An LRS storage account containing blobs in the archive tier can be switched to G
 You can't convert storage accounts to zone-redundancy (ZRS, GZRS or RA-GZRS) if either of the following cases are true:
 
 - NFSv3 protocol support is enabled for Azure Blob Storage
-- The storage account contains Azure Files NFSv4.1 shares
+- The storage account contains Azure Files NFSv4.1 shares with public endpoints configured
 
 ### Failover and failback
 
@@ -449,12 +452,10 @@ If you choose to perform a manual migration, downtime is required but you have m
 
 ## Timing and frequency
 
-Initiating a zone-redundancy conversion by [opening a support request](#support-initiated-conversion) can take longer to begin.
-
 When you initiate a zone-redundancy [conversion](#customer-initiated-conversion) from the Azure portal, the conversion process typically begins within 72 hours after initiation, but can take longer due to resource availability, data volume, and other factors. To monitor the progress of a customer-initiated conversion, see [Monitoring customer-initiated conversion progress](#monitoring-customer-initiated-conversion-progress).
 
 > [!IMPORTANT]
-> There is no SLA for completion of a conversion. If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Generally, the more data you have in your storage account, the longer it takes to replicate that data to other zones or regions.
+> There is no SLA for completion of a conversion. If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Conversion times can vary depending on the size of your account, current resource demands within a region, and other factors.
 
 After a zone-redundancy conversion, you must wait at least 72 hours before changing the redundancy setting of the storage account again. The temporary hold allows background processes to complete before making another change, ensuring the consistency and integrity of the account. For example, going from LRS to GZRS is a 2-step process. You must add zone redundancy in one operation, then add geo-redundancy in a second. After going from LRS to ZRS, you must wait at least 72 hours before going from ZRS to GZRS.
 
