@@ -23,7 +23,7 @@ Follow these steps to add the necessary code snippets to the main function of yo
 - [Send Template message with text parameters in the body](#send-template-message-with-text-parameters-in-the-body)
 - [Send Template message with media parameter in the header](#send-template-message-with-media-parameter-in-the-header)
 - [Send Template message with quick reply buttons](#send-template-message-with-quick-reply-buttons)
-- [Send Template message with call to action buttons](#send-template-message-with-call-to-action-buttons)
+- [Send Template message with call to action buttons with dynamic link](#send-template-message-with-call-to-action-buttons-with-dynamic-link)
 
 ### List WhatsApp templates in the Azure Portal
 
@@ -304,8 +304,8 @@ private static void sendTextTemplateMessageWithQuickReply() {
 }
 ```
 
-### Send Template message with call to action buttons
-Use `MessageTemplateQuickAction` to define the url suffix for call to action buttons and `MessageTemplateQuickAction` object have the following three attributes.
+### Send Template message with call to action buttons with dynamic link
+Use `MessageTemplateQuickAction` to define the url suffix for call to action buttons and `MessageTemplateQuickAction` object have the following two attributes.
 
 |  Properties   | Description |  Type |
 |----------|---------------------------|-----------|
