@@ -55,5 +55,4 @@ Azure Operator Nexus supports migration of a VM with persistent disks from a sto
 ## Next steps
 
 * [How to deploy a data disk](./howto-deploy-data-disk-bicep.md)
-* [How to deploy a VM with a persistent OS disk](./howto-deploy-vm-persistent-disk-bicep.md)
-* [How to attach a data disk to a VM](./howto-attach-data-disk-bicep.md)
+* [How to deploy a VM with a persistent OS disk and a persistent data disk](./howto-deploy-persistent-vm-bicep.md)
