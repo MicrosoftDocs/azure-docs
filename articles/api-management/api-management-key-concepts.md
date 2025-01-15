@@ -100,15 +100,16 @@ Using the developer portal, API consumers can:
   * Download API definitions
   * Manage API keys
 
-## API platform deployment models
+## Federated API platform deployment with workspaces
 
-Azure API Management supports several deployment models for managing an organization's APIs, including *centralized*, *siloed*, and *federated*. The models offer different degrees of centralized control over the API platform infrastructure and autonomy of teams that produce and manage APIs. 
+Azure API Management supports several deployment models for managing an organization's API portfolio, including *centralized*, *siloed*, and *federated*. The models offer different degrees of centralized control over the API platform infrastructure, API governance, and API discovery. For organizations that want to manage API complexity by empowering decentralized teams to develop and manage their own APIs, API Management supports a federated model with workspaces.
 
-See the following table for a comparison of these models.
+[!INCLUDE [workspaces-benefits](../../includes/workspaces-benefits.md)]
 
-[!INCLUDE [api-management-platform-deployment-models](../../includes/api-management-platform-deployment-models.md)]
+**More information**:
 
-For example, a centralized model may be appropriate for smaller organizations that prioritize uniform API governance and cost-efficiency, while a federated model may be best for organizations that want to empower decentralized teams to develop and manage their own APIs using [workspaces](#workspaces). 
+* [Workspaces in API Management](workspaces-overview.md)
+* [API Management deployment models](workspaces-overview.md#centralized-api-platform-and-decentralized-api-teams)
 
 ## API Management tiers
 
