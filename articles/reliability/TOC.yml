@@ -2,12 +2,20 @@
   href: index.yml
 - name: What is reliability?
   href: overview.md
+- name: Reliability fundamentals
+  items:
+  - name: Shared responsibility for resiliency
+    href: concept-shared-responsibility.md
+  - name: Azure service incident response
+    href: incident-response.md
 - name: Availability zone support
   items:
   - name: What are Azure availability zones?
     href: availability-zones-overview.md
-  - name: Services and regions with availability zone support
+  - name: Services with availability zone support
     href: availability-zones-service-support.md
+  - name: Regions with availability zone support
+    href: availability-zones-region-support.md
   - name: Migrate to availability zone support
     items:
     - name: Overview
@@ -56,8 +64,6 @@
         href: migrate-load-balancer.md
       - name: Log Analytics Dedicated Cluster workspaces
         href: migrate-monitor-log-analytics.md
-      - name: Azure Logic Apps
-        href: /azure/logic-apps/set-up-zone-redundancy-availability-zones?tabs=standard&toc=/azure/reliability
       - name: Azure Recovery Services vault
         href: migrate-recovery-services-vault.md
       - name: Azure Service Fabric
@@ -232,6 +238,8 @@
     items:
     - name: Microsoft Community Training
       href: reliability-community-training.md
+    - name: Sustainability data solutions in Fabric
+      href: reliability-sustainability-data-solutions-fabric.md
   - name: Integration
     items:
     - name: Azure Service Bus
@@ -257,11 +265,7 @@
       - name: De-identification service
         href: reliability-health-data-services-deidentification.md
     - name: Azure Logic Apps
-      items:
-      - name: Availability zones
-        href: ../logic-apps/set-up-zone-redundancy-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Disaster recovery
-        href: ../logic-apps/business-continuity-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-logic-apps.md
   - name: Internet of Things
     items:
     - name: Azure Device Registry

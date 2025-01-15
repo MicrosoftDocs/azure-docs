@@ -6,7 +6,7 @@ ms.author: rogarana
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-elastic-san-storage
-ms.date: 02/13/2024
+ms.date: 12/10/2024
 ---
 
 # Reliability in Elastic SAN
@@ -17,7 +17,7 @@ This article describes reliability support in Azure Elastic SAN and covers both 
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
-Azure Elastic SAN supports availability zone deployment with locally redundant storage (LRS) and regional deployment with zone-redundant storage (ZRS).
+Azure Elastic SAN supports availability zone deployment with [locally redundant storage](../storage/elastic-san/elastic-san-planning.md#locally-redundant-storage) (LRS) and regional deployment with [zone-redundant storage](../storage/elastic-san/elastic-san-planning.md#zone-redundant-storage) (ZRS).
 
 ### Prerequisites
 
@@ -39,7 +39,7 @@ If you deployed an LRS Elastic SAN, you may need to deploy a new SAN using snaps
 
 ### Low-latency design
 
-Elastic SAN using ZRS are identical to Elastic SAN using LRS (they have the same scale targets), but ZRS does add more write latency. Benchmark your Elastic SAN to simulate the workload of your application and compare the latency between LRS and ZRS to see if it effects your workload.
+Deploying a ZRS Elastic SAN provides more reliability than an LRS Elastic SAN, but adds more write latency. Benchmark your Elastic SAN and simulate the workload of your application to compare the latency between LRS and ZRS, to see if it effects your workload.
 
 ### Availability zone migration
 

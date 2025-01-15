@@ -2,8 +2,8 @@
 title: Collect information for a site
 titleSuffix: Azure Private 5G Core
 description: Learn about the information you need to create a site in an existing private mobile network.
-author: robswain
-ms.author: robswain
+author: anzaman
+ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: how-to 
 ms.date: 02/07/2022

@@ -1,72 +1,85 @@
 ---
-title: Create tasks for Dev Box Team Customizations
-description: Learn how to create and manage tasks in a catalog for Dev Box Team Customizations, including adding tasks and attaching the catalog to a project.
+title: Create Tasks for Dev Box Team Customizations
+description: Learn how to create and manage tasks in a catalog for Dev Box team customizations, including adding tasks and attaching the catalog to a project.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
+ms.custom:
+  - ignite-2024
 ms.topic: how-to
 ms.date: 11/05/2024
 
-#customer intent: As a dev center administrator or Project Admin, I want to create additional tasks in a catlog so that I can create a specific customization in a customization or image definition file.
+#customer intent: As a Dev Center Admin or Project Admin, I want to create additional tasks in a catalog so that I can create a specific customization in a customization or image definition file.
 ---
 
-# Create Tasks for Dev Box Team Customizations
+# Create tasks for Dev Box team customizations
 
-Creating tasks for Dev Box Team Customizations allows you to define specific actions for your dev boxes, ensuring a consistent and efficient development environment. Creating new tasks in a catalog allows you to create reusable components tailored to your development teams and add guardrails around the configurations that are possible. This article guides you through creating a catalog for customization tasks, adding tasks, and attaching the catalog to a dev center or project.
+When you create tasks for Microsoft Dev Box team customizations, you can define specific actions for your dev boxes to help ensure a consistent and efficient development environment. Creating new tasks in a catalog allows you to define reusable components tailored to your development teams and add guardrails around the configurations that are possible. This article guides you through creating a catalog for customization tasks, adding tasks, and attaching the catalog to a dev center or project.
 
 [!INCLUDE [customizations-preview-text](includes/customizations-preview-text.md)]
 
 ## Prerequisites
+
 To complete the steps in this article, you must have:
-*    A dev center configured with a dev box project.
-*    An existing catalog in GitHub or Azure Repos.
+
+- A dev center configured with a dev box project.
+- An existing catalog in GitHub or Azure Repos.
 
 ## Permissions required to configure customizations
   
 [!INCLUDE [permissions-for-customizations](includes/permissions-for-customizations.md)]
 
 ## What are tasks?
-A task performs a specific action, like installing software. Each task consists of one or more PowerShell scripts, along with a task.yaml file that provides parameters and defines how the scripts run. You can also include a PowerShell command in the task.yaml file. You can store a collection of curated tasks in a catalog attached to your dev center, with each task in a separate folder. Dev Box supports using a GitHub repository or an Azure Repos repository as a catalog and scans a specified folder of the catalog recursively to find task definitions.
 
-WinGet and PowerShell are available from any dev center without requiring a catalog. If your customizations use only Winget or PowerShell, you can create tasks that use them in a customization file. If you need to use other tools or scripts, you can create tasks in a catalog.
+A task performs a specific action, like installing software. Each task consists of one or more PowerShell scripts, along with a task.yaml file that provides parameters and defines how the scripts run. You can also include a PowerShell command in the task.yaml file.
 
-Microsoft provides a quick start catalog to help you get started with customizations. It includes a default set of tasks that define common tasks:
+You can store a collection of curated tasks in a catalog that's attached to your dev center, with each task in a separate folder. Dev Box supports using a GitHub repository or an Azure Repos repository as a catalog. Dev Box scans a specified folder of the catalog recursively to find task definitions.
 
-- Install software with WinGet package manager
-- Deploy desired state configuration (DSC) using WinGet Configuration
-- Clone a repository using git-clone
-- Configure applications like installing Visual Studio extensions
-- Run PowerShell scripts
+WinGet and PowerShell are available from any dev center without requiring a catalog. If your customizations use only WinGet or PowerShell, you can create tasks that use them in a customization file. If you need to use other tools or scripts, you can create tasks in a catalog.
+
+Microsoft provides a quickstart catalog to help you get started with customizations. It includes a default set of tasks that define common actions:
+
+- Install software by using WinGet package manager.
+- Deploy Desired State Configuration (DSC) by using WinGet Configuration.
+- Clone a repository by using `git-clone`.
+- Configure applications like installing Visual Studio extensions.
+- Run PowerShell scripts.
 
 ## Create tasks in a catalog
 
-Tasks, such as installing software or running scripts, are organized into a catalog. You create and manage tasks in a catalog, define new tasks, and attach your catalog to a dev center. With Microsoft's quick start catalog, you can get started with common tasks like installing software, deploying desired state configurations, cloning repositories, and configuring applications. 
+Tasks, such as installing software or running scripts, are organized into a catalog. You create and manage tasks in a catalog, define new tasks, and attach your catalog to a dev center. With Microsoft's quickstart catalog, you can get started with common tasks like installing software, deploying DSC, cloning repositories, and configuring applications.
 
 ### Define new tasks
-To create and manage tasks for Dev Box Team Customizations, follow these steps:
 
-1. Create a repository to store your tasks. Optionally, you can make a copy of the [quick start catalog](https://github.com/microsoft/devcenter-catalog) in your own repository to use as a starting point.
+To create and manage tasks for Dev Box team customizations, follow these steps:
 
-1. Create tasks in your repository by modifying existing PowerShell scripts, or creating new scripts. To get started with creating tasks, you can use the examples given in the dev center examples repository on GitHub and PowerShell documentation.
+1. Create a repository to store your tasks. Optionally, you can make a copy of the [quickstart catalog](https://github.com/microsoft/devcenter-catalog) in your own repository to use as a starting point.
+
+1. Create tasks in your repository by modifying existing PowerShell scripts or by creating new scripts. To start creating tasks, you can use the examples in the GitHub repository for dev center examples and in PowerShell documentation.
 
 1. Attach your repository to your dev center as a catalog.
 
 1. Create a configuration file for those tasks by following the steps in [Write a customization file](./how-to-write-customization-file.md).
 
-### Use secrets from an Azure Key Vault
-You can use secrets from your Azure Key Vault in your yaml configurations to clone private repositories, or with any custom task you author that requires an access token. Your dev center needs access to your key vault. DevCenter does not support service tags, so if your key vault is kept private you must allow trusted Microsoft services to bypass the firewall.
+### Use secrets from an Azure key vault
 
-To configure your Key Vault secrets for use in your yaml configurations,
+You can use secrets from your Azure key vault in your YAML configurations to clone private repositories, or with any custom task you author that requires an access token.
+
+Your dev center needs access to your key vault. DevCenter doesn't support service tags, so if your key vault is kept private, you must allow trusted Microsoft services to bypass the firewall.
+
+To configure your key vault secrets for use in your YAML configurations:
 
 1. Ensure that your dev center project's managed identity has the Key Vault Reader role and Key Vault Secrets User role on your key vault.
 
-1. Grant the Secrets User role for the Key Vault secret to each user or user group who should be able to consume the secret during the customization of a dev box. The user or group granted the role must include the managed identity for the dev center, your own user account, and any user or group who needs the secret during the customization of a dev box.
- 
-For more information on using key vault secrets in a customization file, see [Clone a private repository using a customization file](how-to-write-customization-file.md#clone-a-private-repository-using-a-customization-file).
+1. Grant the Key Vault Secrets User role for the key vault secret to each user or user group that should be able to consume the secret during the customization of a dev box. The user or group that's granted the role must include the managed identity for the dev center, your own user account, and any user or group that needs the secret during the customization of a dev box.
 
-## Attach a catalog 
-You can attach a catalog to a project to make tasks accessible to the developer team. To attach a catalog to a project, follow the steps in this article: [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md).
+For more information on using key vault secrets in a customization file, see [Clone a private repository by using a customization file](how-to-write-customization-file.md#clone-a-private-repository-by-using-a-customization-file).
+
+## Attach a catalog
+
+You can attach a catalog to a project to make tasks accessible to the developer team. To attach a catalog to a project, follow the steps in [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md).
 
 ## Related content
-- [Microsoft Dev Box Team Customizations](concept-what-are-team-customizations.md)
-- [Write a customization file](./how-to-write-customization-file.md) 
+
+- [Microsoft Dev Box team customizations](concept-what-are-team-customizations.md)
+- [Write a customization file for a dev box](./how-to-write-customization-file.md)

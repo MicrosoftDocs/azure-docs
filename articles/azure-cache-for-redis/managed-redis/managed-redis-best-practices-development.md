@@ -2,11 +2,11 @@
 title: Best practices for development for Azure Managed Redis (preview)
 description: Learn how to develop code for Azure Managed Redis.
 
-ms.service: azure
+ms.service: azure-managed-redis
+ms.custom:
+  - ignite-2024
 ms.topic: conceptual
 ms.date: 11/15/2024
-
-
 ---
 
 # Development with Azure Managed Redis(preview)

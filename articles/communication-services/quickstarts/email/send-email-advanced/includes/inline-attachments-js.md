@@ -41,7 +41,7 @@ const message = {
   sender: "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>",
   content: {
     subject: "Welcome to Azure Communication Services Email",
-    plainText: "This email message is sent from Azure Communication Services Email using the Javascript SDK.",
+    plainText: "This email message is sent from Azure Communication Services Email using the JavaScript SDK.",
     html: "<html><h1>HTML body inline images:</h1><img src=\"cid:my-inline-attachment-1\" /><img src=\"cid:my-inline-attachment-2\" /></html>"
   },
   recipients: {

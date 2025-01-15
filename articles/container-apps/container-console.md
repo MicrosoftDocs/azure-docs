@@ -2,12 +2,12 @@
 title: Connect to a container console in Azure Container Apps
 description: Connect to a container console in your container app.
 services: container-apps
-author: v-jaswel
+author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 07/12/2024
-ms.author: v-wellsjason
+ms.author: cshoe
 ---
 
 

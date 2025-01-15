@@ -5,7 +5,7 @@ author: rishikeshmohanty
 ms.author: mohantyr
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 01/04/2024
+ms.date: 01/02/2025
 ---
 
 # Hive Warehouse Connector 2.0 APIs in Azure HDInsight
@@ -129,7 +129,7 @@ Complete the [Hive Warehouse Connector setup](./apache-hive-warehouse-connector.
 
     ```scala
     // Executes the <hive-query> against HiveServer2
-    // Throws exception, if propagateException is true and query threw excpetion in HiveServer2
+    // Throws exception, if propagateException is true and query threw exception in HiveServer2
     // Returns true or false if the query succeeded or failed respectively
     hive.executeUpdate("<hive-query>", propagateException) // propagate exception is boolean value
     ```
@@ -173,7 +173,7 @@ Complete the [Hive Warehouse Connector setup](./apache-hive-warehouse-connector.
     Builder supports the following operations:
 
     ```scala
-    mergeBuilder.mergeInto("<taget-table>", "<targetAlias>")
+    mergeBuilder.mergeInto("<target-table>", "<targetAlias>")
     ```
 
     ```scala

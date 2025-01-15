@@ -2,10 +2,11 @@
 title: How to upgrade the Redis version of Azure Managed Redis (preview)
 description: Learn how to upgrade the version of Azure Managed Redis.
 
-ms.service: azure
+ms.service: azure-managed-redis
+ms.custom:
+  - ignite-2024
 ms.topic: how-to
 ms.date: 11/15/2024
-
 ---
 
 # How to upgrade the version of your Azure Managed Redis (Preview) instance
@@ -71,7 +72,7 @@ To defer upgrades to your cache, navigate to the **Advanced Settings** on the Re
 
 ## Considerations before upgrading Redis versions
 
-Each new Redis version is intended to be a seamless upgrade from previous versions with backwards-compatibilty as a design principle. However, small changes and bug fixes do occur which can cause application changes. Being conscious of these changes is always a good idea.
+Each new Redis version is intended to be a seamless upgrade from previous versions with backwards-compatibility as a design principle. However, small changes and bug fixes do occur which can cause application changes. Being conscious of these changes is always a good idea.
 
 ### Client version
 

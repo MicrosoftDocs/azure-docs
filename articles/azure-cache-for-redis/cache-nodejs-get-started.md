@@ -6,8 +6,7 @@ description: In this quickstart, learn how to use Azure Managed Redis or Azure C
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 06/04/2024
-
-ms.custom: mvc, devx-track-js, mode-api, engagement-fy23
+ms.custom: mvc, devx-track-js, mode-api, engagement-fy23, ignite-2024
 zone_pivot_groups: redis-type
 #Customer intent: As a Node.js developer, new to Azure Redis, I want to create a new Node.js app that uses Azure Managed Redis or Azure Cache for Redis.
 ---
@@ -267,6 +266,8 @@ Microsoft Entra ID access tokens have a limited lifespan, [averaging 75 minutes]
 >
 
 ## [Access Key Authentication](#tab/accesskey)
+
+[!INCLUDE [redis-access-key-alert](includes/redis-access-key-alert.md)]
 
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 

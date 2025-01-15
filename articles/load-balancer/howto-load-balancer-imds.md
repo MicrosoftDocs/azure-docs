@@ -77,7 +77,7 @@ curl -H "Metadata:true" --noproxy "*" "http://169.254.169.254:80/metadata/loadba
          "privateIpAddress":"10.1.0.4"
       },
       {
-         "frotendIpAddress":"2603:10e1:100:2::1:1",
+         "frontendIpAddress":"2603:10e1:100:2::1:1",
          "privateIpAddress":"ace:cab:deca:deed::1"
       }
     ]

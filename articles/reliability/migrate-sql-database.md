@@ -17,14 +17,14 @@ Enabling zone redundancy for Azure SQL Database guarantees high availability as 
 
 ## Prerequisites
 
-Before you migrate to availability zone support, refer to the following table to ensure that your Azure SQL Database is in a supported service tier and deployment model. Make sure that your tier and model is offered in a [region that supports availability zones](/azure/reliability/availability-zones-service-support).
+Before you migrate to availability zone support, refer to the following table to ensure that your Azure SQL Database is in a supported service tier and deployment model. Make sure that your tier and model is offered in a [region that supports availability zones](availability-zones-region-support.md).
 
 | Service tier | Deployment model | Zone redundancy availability |
 |-----|------|------|
-| Premium  | Single database or Elastic Pool | [All regions that support availability zones](availability-zones-service-support.md#azure-regions-with-availability-zone-support)|
-| Business Critical | Single database or Elastic Pool | [All regions that support availability zones](availability-zones-service-support.md#azure-regions-with-availability-zone-support) |
+| Premium  | Single database or Elastic Pool | [All regions that support availability zones](availability-zones-region-support.md)|
+| Business Critical | Single database or Elastic Pool | [All regions that support availability zones](availability-zones-region-support.md) |
 | General Purpose  | Single database or Elastic Pool | [Selected regions that support availability zones](/azure/azure-sql/database/high-availability-sla?view=azuresql&tabs=azure-powershell&preserve-view=true#general-purpose-service-tier-zone-redundant-availability)|
-| Hyperscale | Single database | [All regions that support availability zones](availability-zones-service-support.md#azure-regions-with-availability-zone-support) |
+| Hyperscale | Single database | [All regions that support availability zones](availability-zones-region-support.md) |
  
 
 ## Downtime requirements
@@ -271,4 +271,7 @@ To disable zone-redundancy for Hyperscale service tier, you can reverse the step
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure services and regions that support availability zones](availability-zones-service-support.md)
+> [Azure services that support availability zones](availability-zones-service-support.md)
+
+> [!div class="nextstepaction"]
+> [Azure regions that support availability zones](availability-zones-region-support.md)

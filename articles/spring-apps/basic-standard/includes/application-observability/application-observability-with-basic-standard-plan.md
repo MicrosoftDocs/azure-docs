@@ -248,7 +248,7 @@ To set up an action group, use the following steps:
 
 1. On the **Create action group** page, select the subscription and resource group you want to cover. Enter the following information:
 
-   - **Action group name**: Enter *email-notifacation*.
+   - **Action group name**: Enter *email-notification*.
    - **Short name**: Enter *email*.
    - **Region**: Select the region you want to use.
 

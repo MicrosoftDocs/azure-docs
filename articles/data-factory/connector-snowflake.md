@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 11/11/2024
+ms.date: 11/12/2024
 ai-usage: ai-assisted
 ---
 
@@ -763,8 +763,9 @@ The Snowflake connector offers new functionalities and is compatible with most f
 | :----------- | :------- |
 | Support Basic and Key pair authentication. | Support Basic authentication. | 
 | Script parameters are not supported in Script activity currently. As an alternative, utilize dynamic expressions for script parameters. For more information, see [Expressions and functions in Azure Data Factory and Azure Synapse Analytics](control-flow-expression-language-functions.md). | Support script parameters in Script activity. | 
-| Support BigDecimal in Lookup activity. The NUMBER type, as defined in Snowflake, will be displayed as a string in Lookup activity. | BigDecimal is not supported in Lookup activity.  | 
-| Legacy ```connectionstring``` property is deprecated in favor of required parameters **Account**, **Warehouse**, **Database**, **Schema**, and **Role** | In the legacy Snowflake connector, the `connectionstring` property was used to establish a connection. |
+| Support BigDecimal in Lookup activity. The NUMBER type, as defined in Snowflake, will be displayed as a string in Lookup activity. If you want to covert it to numeric type, you can use the pipeline parameter with [int function](control-flow-expression-language-functions.md#int) or [float function](control-flow-expression-language-functions.md#float). For example, `int(activity('lookup').output.firstRow.VALUE)`, `float(activity('lookup').output.firstRow.VALUE)`| BigDecimal is not supported in Lookup activity.  | 
+| The `accountIdentifier`, `warehouse`, `database`, `schema` and `role` properties are used to establish a connection. | The `connectionstring` property is used to establish a connection. |
+| timestamp data type in Snowflake is read as DateTimeOffset data type in Lookup and Script activity. | timestamp data type in Snowflake is read as DateTime data type in Lookup and Script activity.<br> If you still need to use the Datetime value as a parameter in your pipeline after upgrading the connector, you can convert DateTimeOffset type to DateTime type by using [formatDateTime function](control-flow-expression-language-functions.md#formatdatetime) (recommended) or [concat function](control-flow-expression-language-functions.md#concat). For example: `formatDateTime(activity('lookup').output.firstRow.DATETIMETYPE)`, `concat(substring(activity('lookup').output.firstRow.DATETIMETYPE, 0, 19), 'Z')`|
 
 ## Related content
 

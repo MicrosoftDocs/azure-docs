@@ -14,7 +14,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ❌ Enterprise
+**This article applies to:** ✅ Basic/Standard ❎ Enterprise
 
 This article describes various concepts related to Java memory management to help you understand the behavior of Java applications hosted in Azure Spring Apps.
 

@@ -28,9 +28,8 @@ This guide shows how to add a map for your workflow to use. You can add maps eit
 
   * Visual Studio 2019 and the [Microsoft Azure Logic Apps Enterprise Integration Tools extension](https://aka.ms/vsenterpriseintegrationtools).
 
-  * Visual Studio 2015 and the [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0 extension](https://aka.ms/vsmapsandschemas).
-
     > [!NOTE]
+    >
     > Don't install the Microsoft Azure Logic Apps Enterprise Integration Tools extension alongside the BizTalk Server extension. 
     > Having both extensions might produce unexpected behavior. Make sure that you only have one of these extensions installed.
     >
@@ -106,11 +105,7 @@ When you create maps using Visual Studio Code and the Data Mapper extension, you
 
 ### Visual Studio
 
-When you create maps using Visual Studio, you'll need to create an integration project with either of the following tools:
-
-* Visual Studio 2019 and the [Microsoft Azure Logic Apps Enterprise Integration Tools extension](https://aka.ms/vsenterpriseintegrationtools)
-
-* Visual Studio 2015 and the [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0 extension](https://aka.ms/vsmapsandschemas).
+If you create maps with Visual Studio, you'll need to create an integration project with Visual Studio 2019 and the [Microsoft Azure Logic Apps Enterprise Integration Tools extension](https://aka.ms/vsenterpriseintegrationtools).
 
 In the integration project, you can build an integration map file, which lets you visually map items between two XML schema files. These tools offer the following map capabilities:
 

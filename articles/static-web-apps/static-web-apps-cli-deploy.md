@@ -11,6 +11,8 @@ ms.author: cshoe
 
 # Deploy a static web app with Azure Static Web Apps CLI
 
+[!INCLUDE [Required version](includes/static-web-apps-cli-required-version.md)]
+
 The Azure Static Web Apps CLI (SWA CLI) features the `deploy` command to deploy the current project to Azure Static Web Apps.
 
 Common deployment scenarios include:

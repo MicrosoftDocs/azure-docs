@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 11/19/2024
 ms.author: normesta
 ms.reviewer: santoshc
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023, engagement
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023, engagement, ignite-2024
 ---
 
 # Configure Azure Storage firewalls and virtual networks
@@ -86,14 +86,18 @@ To secure your storage account and build a secure network boundary for your appl
 
 After you apply network rules, they're enforced for all requests. SAS tokens that grant access to a specific IP address serve to limit the access of the token holder, but they don't grant new access beyond configured network rules.
 
-### Network Security Perimeter (preview)
+### network security perimeter (preview)
 
-[Network Security Perimeter](../../private-link/network-security-perimeter-concepts.md) (preview) allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Blob Storage and SQL Database) that are deployed outside their virtual networks. The feature restricts public network access to PaaS resources outside the perimeter. However, you can exempt access by using explicit access rules for public inbound and outbound traffic. By design, access to a storage account from within a Network Security Perimeter takes the highest precedence over other network access restrictions.
+[network security perimeter](../../private-link/network-security-perimeter-concepts.md) (preview) allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Blob Storage and SQL Database) that are deployed outside their virtual networks. The feature restricts public network access to PaaS resources outside the perimeter. However, you can exempt access by using explicit access rules for public inbound and outbound traffic. By design, access to a storage account from within a network security perimeter takes the highest precedence over other network access restrictions.
 
-Currently, Network Security Perimeter is in public preview for Azure Blobs, Azure Files (REST), Azure Tables, and Azure Queues. See [Transition to a Network Security Perimeter](../../private-link/network-security-perimeter-transition.md).
+Currently, network security perimeter is in public preview for Azure Blobs, Azure Files (REST), Azure Tables, and Azure Queues. See [Transition to a network security perimeter](../../private-link/network-security-perimeter-transition.md). 
+
+The list of services that have been onboarded to network security perimeter can be found [here](../../private-link/network-security-perimeter-concepts.md#onboarded-private-link-resources). 
+
+For services that are not on this list as they have not yet been onboarded to network security perimeter, if you would like to allow access you can use a subscription-based rule on the network security perimeter. All resources within that subscription will then be given access to that network security perimeter. For more information on adding subscription-based access rule, refer [here](/rest/api/networkmanager/nsp-access-rules/create-or-update).
 
 > [!IMPORTANT]
-> Private endpoint traffic is considered highly secure and therefore isn't subject to Network Security Perimeter rules. All other traffic, including trusted services, will be subject to Network Security Perimeter rules if the storage account is associated with a perimeter.
+> Private endpoint traffic is considered highly secure and therefore isn't subject to network security perimeter rules. All other traffic, including trusted services, will be subject to network security perimeter rules if the storage account is associated with a perimeter.
 
 #### Limitations
 
@@ -106,14 +110,14 @@ This preview doesn't support the following services, operations, and protocols o
 - Server message block (SMB) protocol with Azure Files can only be achieved through IP allowlisting at this time.
 - [Azure Blob Inventory](../blobs/blob-inventory.md)
 
-We recommend you don't enable Network Security Perimeter if you need to use any of these services, operations, or protocols. This is to prevent any potential data loss or data exfiltration risk.
+We recommend you don't enable network security perimeter if you need to use any of these services, operations, or protocols. This is to prevent any potential data loss or data exfiltration risk.
 
 > [!WARNING]
-> For storage accounts that are associated with a Network Security Perimeter, in order for customer managed keys (CMK) scenarios to work, ensure that the Azure Key Vault is accessible from within the perimeter to which the storage account has been associated.
+> For storage accounts that are associated with a network security perimeter, in order for customer managed keys (CMK) scenarios to work, ensure that the Azure Key Vault is accessible from within the perimeter to which the storage account has been associated.
 
-#### Associate a Network Security Perimeter with a storage account
+#### Associate a network security perimeter with a storage account
 
-To associate a Network Security Perimeter with a storage account, follow these [common instructions](../../private-link/network-security-perimeter-concepts.md) for all PaaS resources.
+To associate a network security perimeter with a storage account, follow these [common instructions](../../private-link/network-security-perimeter-concepts.md) for all PaaS resources.
 
 ## Restrictions and considerations
 
@@ -354,7 +358,7 @@ The following restrictions apply to IP address ranges:
 > You can't use IP network rules in the following cases:
 >
 > - To restrict access to clients in same Azure region as the storage account. IP network rules have no effect on requests that originate from the same Azure region as the storage account. Use [Virtual network rules](#grant-access-from-a-virtual-network) to allow same-region requests.
-> - To restrict access to clients in a [paired region](../../availability-zones/cross-region-replication-azure.md) that are in a virtual network that has a service endpoint.
+> - To restrict access to clients in a [paired region](../../reliability/cross-region-replication-azure.md) that are in a virtual network that has a service endpoint.
 > - To restrict access to Azure services deployed in the same region as the storage account. Services deployed in the same region as the storage account use private Azure IP addresses for communication. So, you can't restrict access to specific Azure services based on their public outbound IP address range.
 
 ### Configuring access from on-premises networks
@@ -654,7 +658,6 @@ The following table lists services that can access your storage account data if 
 | Azure Machine Learning          | `Microsoft.MachineLearningServices/workspaces` | Enables authorized Azure Machine Learning workspaces to write experiment output, models, and logs to Blob Storage and read the data. [Learn more](/azure/machine-learning/how-to-network-security-overview#secure-the-workspace-and-associated-resources). |
 | Azure Media Services            | `Microsoft.Media/mediaservices`         | Enables access to storage accounts. |
 | Azure Migrate                   | `Microsoft.Migrate/migrateprojects`     | Enables access to storage accounts. |
-| Azure Spatial Anchors           | `Microsoft.MixedReality/remoteRenderingAccounts` | Enables access to storage accounts. |
 | Azure ExpressRoute              | `Microsoft.Network/expressRoutePorts`   | Enables access to storage accounts. |
 | Microsoft Power Platform        | `Microsoft.PowerPlatform/enterprisePolicies` | Enables access to storage accounts. |
 | Microsoft Project Arcadia       | `Microsoft.ProjectArcadia/workspaces`   | Enables access to storage accounts. |

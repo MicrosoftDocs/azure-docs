@@ -75,11 +75,15 @@ Although Azure VPN gateway can receive the default route from its BGP peers incl
 
 The ASN that the Route Server uses is 65515. Make sure you configure a different ASN for your NVA so that an *eBGP* session can be established between your NVA and Route Server so route propagation can happen automatically. Make sure you enable "multi-hop" in your BGP configuration because your NVA and the Route Server are in different subnets in the virtual network.
 
+### Why does connectivity not work when I advertise routes with an ASN of 0 in the AS-Path? 
+
+Azure Route Server drops routes with an ASN of 0 in the AS-Path. To ensure these routes are successfully advertised into Azure, the AS-Path should not include 0. 
+
 ### The BGP peering between my NVA and Route Server is up. I can see routes exchanged correctly between them. Why aren't the NVA routes in the effective routing table of my VM? 
 
 * If your VM is in the same virtual network as your NVA and Route Server:
 
-    Route Server exposes two BGP peer IPs, which are hosted on two VMs that share the responsibility of sending the routes to all other VMs running in your virtual network. Each NVA must set up two identical BGP sessions (for example, use the same AS number, the same AS path and advertise the same set of routes) to the two VMs so that your VMs in the virtual network can get consistent routing info from Azure Route Server.
+    Route Server exposes two BGP peer IPs, which share the responsibility of sending the routes to all other VMs running in your virtual network. Each NVA must set up two identical BGP sessions (for example, use the same AS number, the same AS path and advertise the same set of routes) to the two BGP peer IPs so that your VMs in the virtual network can get consistent routing info from Azure Route Server.
 
     :::image type="content" source="./media/troubleshoot-route-server/network-virtual-appliances.png" alt-text="Diagram showing a network virtual appliance (NVA) with Azure Route Server.":::
 
@@ -90,6 +94,14 @@ The ASN that the Route Server uses is 65515. Make sure you configure a different
 ### Why is the Equal-Cost Multi-Path (ECMP) function of my ExpressRoute turned off after I deploy Route Server to the virtual network?
 
 When you advertise the same routes from your on-premises network to Azure over multiple ExpressRoute connections, normally ECMP is enabled by default for the traffic destined for these routes from Azure back to your on-premises network. Currently, when you deploy the Route Server, multiple-path information is lost in the BGP exchange between ExpressRoute and the Route Server, and consequently traffic from Azure will traverse only on one of the ExpressRoute connections.
+
+## Operational Issues
+
+### Why am I seeing an error about invalid scope and authorization to perform Route Server operations?
+
+If you see an error in the below format, then please make sure you have the following permissions configured: [Route Server Roles and Permissions](roles-permissions.md#permissions)
+
+Error message format: "The client with object id {} does not have authorization to perform action {} over scope {} or the scope is invalid. If access was recently granted, please refresh your credentials."
 
 ## Next step
 

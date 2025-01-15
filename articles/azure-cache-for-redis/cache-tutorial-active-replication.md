@@ -6,9 +6,10 @@ description: In this tutorial, you learn how to connect your AKS hosted applicat
 
 
 ms.topic: tutorial
+ms.custom:
+  - ignite-2024
 ms.date: 09/18/2023
 #CustomerIntent: As a developer, I want to see how to use a Enterprise cache that uses active geo-replication to capture data from two apps running against different caches in separate geo-locations.
-
 ---
 
 # Get started using Azure Cache for Redis Enterprise or Azure Managed Redis (preview) active replication with an AKS-hosted application

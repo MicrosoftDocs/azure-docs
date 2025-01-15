@@ -7,7 +7,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 03/11/2022
 zone_pivot_groups: redis-type
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, ignite-2024
 ---
 
 # Create an Azure Redis using the Azure CLI
@@ -97,7 +97,7 @@ az group delete --resource-group $resourceGroup -y
 [!INCLUDE [cli-clean-up-resources.md](~/reusable-content/ce-skilling/azure/includes/cli-clean-up-resources.md)]
 
 ```azurecli
-az group delete --reourceg $resourceGroup
+az group delete --resource-group $resourceGroup
 ```
 
 ## Sample reference
@@ -176,7 +176,7 @@ az group delete --resource-group $resourceGroup -y
 [!INCLUDE [cli-clean-up-resources.md](~/reusable-content/ce-skilling/azure/includes/cli-clean-up-resources.md)]
 
 ```azurecli
-az group delete --reourceg $resourceGroup
+az group delete --resource-group $resourceGroup
 ```
 
 ## Sample reference

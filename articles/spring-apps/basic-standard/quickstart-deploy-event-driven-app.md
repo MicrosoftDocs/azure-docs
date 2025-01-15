@@ -14,7 +14,7 @@ zone_pivot_groups: spring-apps-plan-selection
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Standard consumption and dedicated (Preview) ✅ Basic/Standard ✅ Enterprise
 
 This article explains how to deploy a Spring Boot event-driven application to Azure Spring Apps.
 

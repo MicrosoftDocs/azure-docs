@@ -7,7 +7,7 @@ author: mbender-ms
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 08/24/2023
+ms.date: 12/11/2024
 ms.author: mbender
 ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -49,7 +49,6 @@ Public IP addresses have a nominal fee. For details, see [pricing](https://azure
 1. In the **Edit IP configuration** window, select **Associate public IP address**, then select **Public IP address** to choose an existing public IP address from the drop-down list. If no public IP addresses are listed, you need to create one. To learn how, see [Create a public IP address](virtual-network-public-ip-address.md#create-a-public-ip-address).
 
     :::image type="content" source="./media/associate-public-ip-address-vm/choose-public-ip-address.png" alt-text="Screenshot showing how to select, create, and associate a new public IP address.":::
-
 
    > [!NOTE]
    > The public IP addresses that appear in the drop-down list are those that exist in the same region as the VM. If you have multiple public IP addresses created in the region, all will appear here. Any address that's already associated to a different resource is grayed out.
@@ -99,7 +98,7 @@ Install the [Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-netw
      The output includes one or more lines that are similar to the following example, where *myVMNic* is the name of the network interface:
   
      ```output
-     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMNic",
+     "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMNic",
      ```
 
 1. If you don't know the names of the IP configurations for a network interface, use the [az network nic ip-config list](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-list) command to retrieve them. For example, the following command lists the names of the IP configurations for a network interface named *myVMNic* in a resource group named *myResourceGroup*:

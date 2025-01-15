@@ -4,7 +4,7 @@ description: This page provides information about how to configure Azure Front D
 services: frontdoor
 author: johndowns
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/11/2024
 ms.author: jodowns
 ---
@@ -67,6 +67,10 @@ If you decide to use your own TLS certificates, then consider setting the Key Va
 For more information, see [Select the certificate for Azure Front Door to deploy](standard-premium/how-to-configure-https-custom-domain.md#select-the-certificate-for-azure-front-door-to-deploy).
 
 ## Domain name best practices
+
+### Adopt custom domains
+
+Adopt custom domains for your Front Door endpoints to ensure better availaility and flexiility while managing your domains and traffic. Don't hardcode AFD provided domains (like *.azurefd.z01.net) in your clients/codebases/firewall. Use custom domains for such scenarios.
 
 ### Use the same domain name on Front Door and your origin
 

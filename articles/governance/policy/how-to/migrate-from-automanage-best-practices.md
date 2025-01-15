@@ -6,11 +6,11 @@ ms.topic: how-to
 author: MutemwaRMasheke
 ms.author: mmasheke
 ---
- 
+
 # Automanage Best Practices to Azure Policy migration planning
 
 > [!CAUTION]
-> On September 30, 2027, the Azure Automanage Best Practices service will be retired. Migrate to Azure Policy before that date. For more information on migration, see the [Azure portal](https://ms.portal.azure.com/).
+> On September 30, 2027, the Azure Automanage Best Practices service will be retired. Migrate to Azure Policy before that date. For more information on migration, see the [Azure portal](https://portal.azure.com/).
 
 Azure Policy is a more robust cloud resource governance, enforcement, and compliance offering with full parity with the Azure Automanage Best Practices service. When possible, you should plan to move your content and machines to the new service. This article provides guidance on developing a migration strategy from Azure Automation to machine
 configuration. Azure Policy implements a robust array of features, including:
@@ -123,19 +123,19 @@ Now that you have an overview of Azure Policy and some of the key concepts, here
 [03]: /azure/virtual-machines/extensions/iaas-antimalware-windows
 [04]: /windows-server/manage/windows-admin-center/azure/manage-vm
 [05]: ../../../update-manager/migration-overview.md
-[06]: https://ms.portal.azure.com/
+[06]: https://portal.azure.com/
 [07]: ../concepts/definition-structure-basics.md
 [08]: ../assign-policy-portal.md
 [09]: https://azure.microsoft.com/pricing/details/azure-automanage/
-[10]: https://learn.microsoft.com/azure/security/fundamentals/antimalware#antimalware-deployment-scenarios
-[11]: https://learn.microsoft.com/azure/backup/policy-reference
-[12]: https://learn.microsoft.com/azure/azure-monitor/policy-reference
-[13]: https://learn.microsoft.com/azure/azure-monitor/overview
-[14]: https://learn.microsoft.com/azure/backup/backup-overview
-[15]: https://learn.microsoft.com/azure/automation/change-tracking/overview
-[16]: https://learn.microsoft.com/azure/defender-for-cloud/defender-for-cloud-introduction
-[17]: https://learn.microsoft.com/azure/defender-for-cloud/policy-reference
-[18]: https://learn.microsoft.com/azure/update-manager/periodic-assessment-at-scale
-[19]: https://learn.microsoft.com/azure/update-manager/overview
-[20]: https://learn.microsoft.com/azure/automation/policy-reference
-[21]: https://learn.microsoft.com/azure/automation/overview
+[10]: /azure/security/fundamentals/antimalware#antimalware-deployment-scenarios
+[11]: /azure/backup/policy-reference
+[12]: /azure/azure-monitor/policy-reference
+[13]: /azure/azure-monitor/overview
+[14]: /azure/backup/backup-overview
+[15]: /azure/automation/change-tracking/overview
+[16]: /azure/defender-for-cloud/defender-for-cloud-introduction
+[17]: /azure/defender-for-cloud/policy-reference
+[18]: /azure/update-manager/periodic-assessment-at-scale
+[19]: /azure/update-manager/overview
+[20]: /azure/automation/policy-reference
+[21]: /azure/automation/overview

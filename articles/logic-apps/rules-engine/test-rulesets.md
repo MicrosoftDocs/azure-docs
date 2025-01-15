@@ -46,7 +46,7 @@ If you wait to test your rules all at the same time or when you're all done, and
    > [!NOTE]
    >
    > If you assert a derived class into a rule, but the rules are directly written 
-   > against the base class members, a base class instance is assserted instead, 
+   > against the base class members, a base class instance is asserted instead, 
    > and the conditions are evaluated against the base class instance.
 
 1. To remove a fact instance, select the corresponding fact type, and then select **Remove Instance**.

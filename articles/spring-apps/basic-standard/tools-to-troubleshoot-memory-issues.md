@@ -14,7 +14,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article describes various tools that are useful for troubleshooting Java memory issues. You can use these tools in many scenarios not limited to memory issues, but this article focuses only on the topic of memory.
 

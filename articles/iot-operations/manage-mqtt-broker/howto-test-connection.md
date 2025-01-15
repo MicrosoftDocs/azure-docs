@@ -37,54 +37,22 @@ Before you begin, [install or configure IoT Operations](../get-started-end-to-en
 
 The first option is to connect from within the cluster. This option uses the default configuration and requires no extra updates. The following examples show how to connect from within the cluster using plain Alpine Linux and a commonly used MQTT client, using the service account and default root CA certificate.
 
-First, create a file named `client.yaml` with the following configuration:
+Download `mqtt-client.yaml` deployment from the GitHub sample repository.
 
-```yaml
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: mqtt-client
-  namespace: azure-iot-operations
----
-apiVersion: v1
-kind: Pod
-metadata:
-  name: mqtt-client
-  # Namespace must match MQTT broker BrokerListener's namespace
-  # Otherwise use the long hostname: aio-broker.azure-iot-operations.svc.cluster.local
-  namespace: azure-iot-operations
-spec:
-  # Use the "mqtt-client" service account created from above
-  # Otherwise create it with `kubectl create serviceaccount mqtt-client -n azure-iot-operations`
-  serviceAccountName: mqtt-client
-  containers:
-    # Mosquitto and mqttui on Alpine
-  - image: alpine
-    name: mqtt-client
-    command: ["sh", "-c"]
-    args: ["apk add mosquitto-clients mqttui && sleep infinity"]
-    volumeMounts:
-    - name: broker-sat
-      mountPath: /var/run/secrets/tokens
-    - name: trust-bundle
-      mountPath: /var/run/certs
-  volumes:
-  - name: broker-sat
-    projected:
-      sources:
-      - serviceAccountToken:
-          path: broker-sat
-          audience: aio-internal # Must match audience in BrokerAuthentication
-          expirationSeconds: 86400
-  - name: trust-bundle
-    configMap:
-      name: azure-iot-operations-aio-ca-trust-bundle # Default root CA cert
-```
-
-Then, use `kubectl` to deploy the configuration. It should only take a few seconds to start.
+> [!IMPORTANT]
+> Don't use the MQTT client in production. The client is for testing purposes only.
 
 ```bash
-kubectl apply -f client.yaml
+wget https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/mqtt-client.yaml -O mqtt-client.yaml
+```
+Apply the deployment file with kubectl.
+
+```bash
+kubectl apply -f mqtt-client.yaml
+```
+
+```output
+pod/mqtt-client created
 ```
 
 Once the pod is running, use `kubectl exec` to run commands inside the pod.
@@ -154,7 +122,7 @@ For example, to create a new broker listener with node port service type, servic
 # [Portal](#tab/portal)
 
 1. In the Azure portal, go to your IoT Operations instance.
-1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Under **Components**, select **MQTT Broker**.
 1. Select **MQTT broker listener for NodePort** > **Create**. You can only create one listener per service type. If you already have a listener of the same service type, you can add more ports to the existing listener.
 
     > [!CAUTION]
@@ -314,7 +282,7 @@ For example, to create a new broker listener with load balancer service type, se
 # [Portal](#tab/portal)
 
 1. In the Azure portal, go to your IoT Operations instance.
-1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Under **Components**, select **MQTT Broker**.
 1. Select **MQTT broker listener for NodePort** > **Create**. You can only create one listener per service type. If you already have a listener of the same service type, you can add more ports to the existing listener.
 
     > [!CAUTION]
@@ -446,13 +414,16 @@ If the external IP is not assigned, you might need to use port forwarding or a v
 
 With [minikube](https://minikube.sigs.k8s.io/docs/), [kind](https://kind.sigs.k8s.io/), and other cluster emulation systems, an external IP might not be automatically assigned. For example, it might show as *Pending* state. 
 
-1. To access the broker, forward the broker listening port 18883 to the host.
+1. To access the broker, forward the broker listener port to the host.
 
     ```bash
-    kubectl port-forward --namespace azure-iot-operations service/aio-broker 18883:mqtts-18883
+    # Using aio-broker-loadbalancer service name and listener port 1883 as example
+    kubectl port-forward --namespace azure-iot-operations service/aio-broker-loadbalancer <HOST_PORT>:1883
     ```
 
-1. Use 127.0.0.1 to connect to the broker at port 18883 with the same authentication and TLS configuration as the example without port forwarding.
+1. Leave the port forwarding command running in the terminal.
+
+1. Connect to the broker at the host port with the same authentication and TLS configuration as the example without port forwarding.
 
 For more information about minikube, see [Use Port Forwarding to Access Applications in a Cluster](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/)
 
@@ -521,7 +492,7 @@ The reason that MQTT broker uses TLS and service accounts authentication by defa
 # [Portal](#tab/portal)
 
 1. In the Azure portal, go to your IoT Operations instance.
-1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Under **Components**, select **MQTT Broker**.
 1. Select **MQTT broker listener for NodePort** or **MQTT broker listener for LoadBalancer** > **Create**. You can only create one listener per service type. If you already have a listener of the same service type, you can add more ports to the existing listener.
 
     > [!CAUTION]
@@ -615,3 +586,4 @@ spec:
 
 - [Configure TLS with manual certificate management to secure MQTT communication](howto-configure-tls-manual.md)
 - [Configure authentication](howto-configure-authentication.md)
+- [Tutorial: TLS, X.509 client authentication, and attribute-based access control (ABAC) authorization](./tutorial-tls-x509.md)

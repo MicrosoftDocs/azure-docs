@@ -4,6 +4,8 @@ description: Learn to run to generate images powered by serverless GPUs in Azure
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
+ms.custom:
+  - ignite-2024
 ms.topic: how-to
 ms.date: 11/06/2024
 ms.author: cshoe
@@ -100,7 +102,8 @@ In this tutorial you:
 From the *Overview* window, select the **Application Url** link to open the web app front end in your browser and use the GPU application.
 
 > [!NOTE]
-> To achieve the best performance of your GPU apps, follow the steps to [improve cold start for your serverless GPUs](gpu-serverless-overview.md#improve-gpu-cold-start).
+> - To achieve the best performance of your GPU apps, follow the steps to [improve cold start for your serverless GPUs](gpu-serverless-overview.md#improve-gpu-cold-start).
+> - When there are multiple containers in your application, the first container gets access to the GPU.
 
 ## Monitor your GPU
 
