@@ -1,0 +1,3 @@
+azure-functions
+azure-identity
+psycopg2-binary
