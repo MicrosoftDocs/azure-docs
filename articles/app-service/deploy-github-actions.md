@@ -49,9 +49,9 @@ For more information, see [Continuous deployment to Azure App Service](deploy-co
 
 You can deploy a workflow without using the Deployment Center. In that case you need to perform three steps:
 
-1. [Generate deployment credentials](#1-generate-deployment-credentials)
-1. [Configure the GitHub secret](#2-configure-the-github-secret)
-1. [Add the workflow file to your GitHub repository](#3-add-the-workflow-file-to-your-github-repository)
+1. [Generate deployment credentials](#generate-deployment-credentials)
+1. [Configure the GitHub secret](#configure-the-github-secret)
+1. [Add the workflow file to your GitHub repository](#add-the-workflow-file-to-your-github-repository)
 
 ### Generate deployment credentials
 

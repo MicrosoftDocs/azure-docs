@@ -6,7 +6,7 @@ ms.custom: devx-track-azurecli
 ms.date: 01/16/2025
 ---
 
-To deploy with OpenID Connect using the managed identity you configured, use the `azure/login@v1` action with the `client-id`, `tenant-id`, and `subscription-id` keys. Reference the GitHub secrets that you [created earlier](../../deploy-github-actions.md?tabs=openid#2-configure-the-github-secret).
+To deploy with OpenID Connect using the managed identity you configured, use the `azure/login@v1` action with the `client-id`, `tenant-id`, and `subscription-id` keys. Reference the GitHub secrets that you created earlier.
 
 # [ASP.NET Core](#tab/aspnetcore)
 
