@@ -76,7 +76,7 @@ CycleCloud `cluster` namespace contains configurations for distributed services 
 
 | Attribute | Type | Description |
 | --------- | ---- | ----------- |
-| autoscale.idle_time_after_jobs | Integer | Nodes are terminated if they are idle for specified time (in seconds) after they have run jobs. Default: `1800` |
+| autoscale.idle_time_after_jobs | Integer | Nodes are terminated if they are idle for specified time (in seconds) after they have run jobs. Default: `300` |
 | autoscale.idle_time_before_jobs | Integer | Nodes are terminated if they are idle for specified time (in seconds) before they have run jobs. Default: `1800` |
 | autoscale.stop_interval | Integer | Time delay between runs of auto-stop checks (in seconds). Default: `60`. |
 | autoscale.use_node_groups | Boolean | Enable grouped nodes - equivalent to placement groups. Effects only *PBSPro* and *Grid Engine* clusters. Default: `true` |
