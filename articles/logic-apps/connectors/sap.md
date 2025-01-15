@@ -523,6 +523,8 @@ For a Standard workflow in single-tenant Azure Logic Apps, use the SAP *built-in
 
 For a Consumption workflow that runs in multitenant Azure Logic Apps, you can enable SNC for authentication, which applies only when you use the data gateway. Before you start, make sure that you met all the necessary [prerequisites](sap.md?tabs=consumption#prerequisites) and [SNC prerequisites](sap.md?tabs=consumption#snc-prerequisites).
 
+For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
+
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and workflow in the designer.
 
 1. Add or edit an SAP managed connector operation.
@@ -555,9 +557,13 @@ For a Consumption workflow that runs in multitenant Azure Logic Apps, you can en
 
    If the parameters are correct, the connection is created. If there's a problem with the parameters, the connection creation dialog displays an error message. To troubleshoot connection parameter issues, you can use the on-premises data gateway installation and the gateway's local logs.
 
+
+
 ### [Standard](#tab/standard)
 
 For a Standard workflow that runs in single-tenant Azure Logic Apps, you can enable SNC for authentication. Before you start, make sure that you met all the necessary [prerequisites](sap.md?tabs=single-tenant#prerequisites) and [SNC prerequisites for single-tenant](sap.md?tabs=single-tenant#snc-prerequisites).
+
+For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 

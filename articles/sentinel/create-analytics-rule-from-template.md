@@ -84,6 +84,11 @@ From the Microsoft Defender navigation menu, expand **Microsoft Sentinel**, then
 
 1. Cycle through the tabs of the wizard, customizing the logic and other rule settings where possible to better suit your specific needs. 
 
+    If you need to make any changes to the query itself, consult the following articles from the Kusto documentation for help:
+    - [Kusto Query Language in Microsoft Sentinel](kusto-overview.md)
+    - [KQL quick reference guide](/kusto/query/kql-quick-reference?view=microsoft-sentinel&preserve-view=true)
+    - [Best practices for Kusto Query Language queries](/kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true)
+
     When you get to the end of the rule creation wizard, Microsoft Sentinel creates the rule. The new rule appears in the **Active rules** tab.
 
     Repeat the process to create more rules. For more details on how to customize your rules in the rule creation wizard, see [Create a custom analytics rule from scratch](create-analytics-rules.md).
