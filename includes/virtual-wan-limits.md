@@ -16,9 +16,8 @@
 | Aggregate throughput per Virtual WAN User VPN (Point-to-site) gateway | 200 Gbps |
 | Aggregate throughput per Virtual WAN ExpressRoute gateway | 20 Gbps |
 | ExpressRoute circuit connections per hub | 8 |
-| VNet connections per hub  | 500 minus total number of hubs in Virtual WAN |
+| VNet connections per hub without Routing Intent enabled | 500 minus total number of hubs in Virtual WAN |
+| Address spaces across all VNets directly connected to single hub with Routing Intent enabled | [400 per hub](../articles/virtual-wan/how-to-routing-policies.md) (Open a support case to request limit increase), up to 10,000 routes limit below. |
 | Aggregate throughput per Virtual WAN hub router | 50 Gbps for VNet to VNet transit |
 | VM workload across all VNets connected to a single Virtual WAN hub | 2000 (If you want to raise the limit or quota above the default limit, see [hub settings](../articles/virtual-wan/hub-settings.md)). |
 | Total number of routes the hub can accept from its connected resources (virtual networks, branches, other virtual hubs, etc.) | 10,000 |
-
-
