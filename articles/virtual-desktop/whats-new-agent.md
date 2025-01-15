@@ -3,7 +3,7 @@ title: What's new in the Azure Virtual Desktop Agent? - Azure
 description: New features and product updates for the Azure Virtual Desktop Agent.
 author: sipastak
 ms.topic: release-notes
-ms.date: 12/10/2024
+ms.date: 01/14/2025
 ms.author: sipastak
 ms.custom: references_regions
 ---
@@ -13,8 +13,9 @@ The Azure Virtual Desktop agent links your session hosts with the Azure Virtual 
 
 The Azure Virtual Desktop Agent is updated regularly. New versions of the Azure Virtual Desktop Agent are installed automatically. When new versions are released, they're rolled out progressively to session hosts. This process is called *flighting* and it enables Microsoft to monitor the rollout in [validation environments](create-validation-host-pool.md) first.
 
-A rollout might take several weeks before the agent is available in all environments. Some agent versions might not reach non-validation environments, so you might see multiple versions of the agent deployed across your environments.
-The Azure Virtual Desktop Agent updates regularly. This article is where you'll find out about:
+The agent rollout process can take several weeks to complete across all environments. Note that not all validation versions released will reach production.  Instead, updates will be repacked and assigned a new version number before being deployed to production. Consequently, multiple versions of the agent may be encountered in both validation and production environments. Validation updates are released more frequently than production updates. 
+
+This article is where you'll find out about:
 
 - The latest updates
 - New features
@@ -29,11 +30,23 @@ Here's information about the Azure Virtual Desktop Agent.
 
 | Release | Latest version |
 |--|--|
-| Production | 1.0.10004.2100 |
+| Production | 1.0.10159.600 |
 | Validation | 1.0.10434.200  |
 
 > [!TIP]
 > The Azure Virtual Desktop Agent is automatically installed when adding session hosts in most scenarios. If you need to install the agent manually, you can download it at [Register session hosts to a host pool](add-session-hosts-host-pool.md#register-session-hosts-to-a-host-pool), together with the steps to install it.
+
+## Version 1.0.10159.600 
+
+*Published: January 2025*
+
+In this update, we've made the following changes:
+
+- Perform RDAgent monitoring cleanup, 15 minutes after RDAgent starts. 
+- Increase timeout for Intune Provisioning.  
+- Updated Security Nuget packages to meet compliance requirements.  
+- Added detection time in RDAgent diagnostics.  
+- General improvements and bug fixes. 
 
 ## Version 1.0.10434.200 (validation)
 
