@@ -27,8 +27,6 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 
 [!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
-[!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
-
 ## Set up the working environment
 
 [!INCLUDE [redis-setup-working-environment](includes/redis-setup-working-environment.md)]

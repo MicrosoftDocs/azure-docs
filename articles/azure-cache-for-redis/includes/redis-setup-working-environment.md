@@ -15,7 +15,10 @@ export USER_NAME=<user-name>
 
 Replace the placeholders with the following values:
 
-- `<your-host-name>`: The DNS host name, obtained from the *Properties* section of your Azure Cache for Redis resource in the Azure portal.
+- `<your-host-name>`: The DNS host name. To get the host name and ports for your cache, select **Overview** from the Resource menu. The host name is of the form *\<DNS name>.redis.cache.windows.net*.
+
+  :::image type="content" source="media/redis-cache-access-keys/redis-cache-hostname-ports.png" alt-text="Screenshot showing Azure Cache for Redis properties.":::
+
 - `<user-name>`: Object ID of your managed identity or service principal.
   - You can get the user name by using the following steps:
 
@@ -34,7 +37,12 @@ export REDIS_CACHE_KEY=<your-primary-access-key>
 
 Replace the placeholders with the following values:
 
-- `<your-host-name>`: The DNS host name, obtained from the *Properties* section of your Azure Cache for Redis resource in the Azure portal.
-- `<your-primary-access-key>`: The primary access key, obtained from the *Access keys* section of your Azure Cache for Redis resource in the Azure portal.
+- `<your-host-name>`: The DNS host name.  To get the host name and ports for your cache, select **Overview** from the Resource menu. The host name is of the form *\<DNS name>.redis.cache.windows.net*.
+
+  :::image type="content" source="media/redis-cache-access-keys/redis-cache-hostname-ports.png" alt-text="Screenshot showing Azure Cache for Redis properties.":::
+
+- `<your-primary-access-key>`: The primary access key. To get the access keys, select **Authentication** from the Resource menu. Then, select the **Access keys** tab.
+
+  :::image type="content" source="media/redis-cache-access-keys/redis-cache-keys.png" alt-text="Screenshot showing Azure Cache for Redis access keys.":::
 
 ---
