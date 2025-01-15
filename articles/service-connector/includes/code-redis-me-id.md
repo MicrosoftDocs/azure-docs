@@ -109,8 +109,7 @@ ms.author: xiaofanzhou
     // Close the Jedis Client
     jedis.close();
     ```
-#### [Springboot](#tab/springboot)
-
+#### [Spring Boot](#tab/springBoot)
 Not supported yet.
 
 #### [Python](#tab/python)
@@ -212,8 +211,8 @@ Not supported yet.
     if __name__ == '__main__':
         re_authentication()
     ```
-#### [Go](#tab/go)
 
+#### [Go](#tab/go)
 Not supported yet.
 
 #### [Node.js](#tab/nodejs)
