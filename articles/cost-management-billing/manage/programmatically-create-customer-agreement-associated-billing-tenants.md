@@ -95,7 +95,7 @@ grant_type=client_credentials&client_id={{client_id}}&client_secret={{app_secret
 Use the information at [Find billing accounts that you have access to](programmatically-create-subscription-microsoft-customer-agreement.md?#find-billing-accounts-that-you-have-access-to) and [Find billing profiles & invoice sections to create subscriptions](programmatically-create-subscription-microsoft-customer-agreement.md?#find-billing-profiles--invoice-sections-to-create-subscriptions) sections to get the billing account, profile, and invoice section IDs.
 
 > [!NOTE]
-> We recommend using the REST method with the access token obtained previously to verify that the application billing role assignment was created successfully in the [Application Setup](#application-set-up) section.
+> We recommend using the REST method with the access token obtained previously to verify that the application billing role assignment was created successfully in the [Application Setup](#application-setup) section.
 
 #### Create a subscription alias
 
