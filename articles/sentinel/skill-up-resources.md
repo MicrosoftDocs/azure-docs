@@ -518,7 +518,7 @@ Microsoft Sentinel solutions provide in-product discoverability, single-step dep
 
 ### Module 16: Handling incidents
 
-After you build your SOC, you need to start using it. The "day in an SOC analyst's life" webinar ([YouTube](https://www.youtube.com/watch?v=HloK6Ay4h1M&ab_channel=MicrosoftSecurityCommunity), [MP4](https://onedrive.live.com/?authkey=%21ACD%5F1nY2ND8MOmg&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21273&parId=66C31D2DBF8E0F71%21271&o=OneUp), or [presentation](https://onedrive.live.com/?authkey=%21AAvOR9OSD51OZ8c&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21272&parId=66C31D2DBF8E0F71%21271&o=OneUp)) walks you through using Microsoft Sentinel in the SOC to *triage*, *investigate*, and *respond* to incidents.
+After you build your SOC, you need to start using it. The "day in an SOC analyst's life" webinar ([YouTube](https://www.youtube.com/watch?v=HloK6Ay4h1M&ab_channel=MicrosoftSecurityCommunity)) walks you through using Microsoft Sentinel in the SOC to *triage*, *investigate*, and *respond* to incidents.
 
 To help enable your teams to collaborate seamlessly across the organization  and with external stakeholders, see [Integrating with Microsoft Teams directly from Microsoft Sentinel](collaborate-in-microsoft-teams.md). And view the ["Decrease your SOC’s MTTR (Mean Time to Respond) by integrating Microsoft Sentinel with Microsoft Teams"](https://www.youtube.com/watch?v=0REgc2jB560&ab_channel=MicrosoftSecurityCommunity) webinar.
 

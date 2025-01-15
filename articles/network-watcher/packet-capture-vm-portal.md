@@ -37,7 +37,7 @@ If a network security group is associated to the network interface, or subnet th
 
 1. In the search box at the top of the portal, enter *Network Watcher*. Select **Network Watcher** from the search results.
 
-    :::image type="content" source="./media/packet-capture-vm-portal/portal-search.png" alt-text="Screenshot shows how to search for Network Watcher in the Azure portal." lightbox="./media/packet-capture-vm-portal/portal-search.png":::
+    :::image type="content" source="./media/network-watcher-portal-search.png" alt-text="Screenshot shows how to search for Network Watcher in the Azure portal." lightbox="./media/network-watcher-portal-search.png":::
 
 1. Select **Packet capture** under **Network diagnostic tools**. Any existing packet captures are listed, regardless of their status.
 

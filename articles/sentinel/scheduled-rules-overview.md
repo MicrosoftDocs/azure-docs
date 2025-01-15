@@ -102,8 +102,8 @@ Everything you type into the rule query window is instantly validated, so you fi
 
 For more help building Kusto queries, see the following articles:
 - [Kusto Query Language in Microsoft Sentinel](kusto-overview.md)
-- [KQL quick reference guide](/kusto/query/kql-quick-reference?view=microsoft-sentinel&preserve-view=true&toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json)
-- [Best practices for Kusto Query Language queries](/kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true&toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json)
+- [KQL quick reference guide](/kusto/query/kql-quick-reference?view=microsoft-sentinel&preserve-view=true)
+- [Best practices for Kusto Query Language queries](/kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true)
 
 ### Alert enhancement
 
@@ -260,7 +260,7 @@ To learn all about the different kinds of responses that can be crafted and auto
 
 Under the **Automation rules** heading, the wizard displays a list of the automation rules already defined on the whole workspace, whose conditions apply to this analytics rule. You can edit any of these existing rules, or you can [create a new automation rule](create-manage-use-automation-rules.md) that applies only to this analytics rule.
 
-Use automation rules to perform [basic triage](investigate-incidents.md#navigate-and-triage-incidents), assignment, [workflow](incident-tasks.md), and closing of incidents. 
+Use automation rules to perform [basic triage](incident-navigate-triage.md#navigate-and-triage-incidents), assignment, [workflow](incident-tasks.md), and closing of incidents. 
 
 Automate more complex tasks and invoke responses from remote systems to remediate threats by calling playbooks from these automation rules. You can invoke playbooks for incidents as well as for individual alerts.
 
