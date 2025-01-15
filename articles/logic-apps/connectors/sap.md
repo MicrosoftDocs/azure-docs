@@ -565,12 +565,12 @@ For a Standard workflow that runs in single-tenant Azure Logic Apps, you can ena
 
    1. On your logic app resource menu, under **Settings**, select **Environment variables**.
 
-   1. On the **App settings** tab, check whether the settings named **SAP_PSE** and **SAP_PSE_Password** already exist. If they don't exist, you have to add each setting at the end of the settings list, provide the following required information, and select **Apply** for each setting:
+   1. On the **App settings** tab, check whether the settings named **SAP_PSE** and **SAP_PSE_PASSWORD** already exist. If they don't exist, you have to add each setting at the end of the settings list, provide the following required information, and select **Apply** for each setting:
 
       | Name | Value | Description |
       |------|-------|-------------|
       | **SAP_PSE** | <*PSE-value*> | Enter your SNC Personal Security Environment (PSE) as a base64-encoded binary. <br><br>- Your PSE must contain the private key for the client certificate where the thumbprint matches the public key for the client certificate in the **SNC Certificate** parameter. <br><br>- Although your PSE might contain multiple client certificates, to use different client certificates, create separate workflows instead. <br><br>- The PSE must have no PIN. If necessary, set the PIN to empty using the SAPGENPSE utility. |
-      | **SAP_PSE_Password** | <*PSE-password*> | The password, also known as PIN, for your PSE |
+      | **SAP_PSE_PASSWORD** | <*PSE-password*> | The password, also known as PIN, for your PSE |
 
 1. Now, either create or open the workflow you want to use in the designer. On your logic app resource menu, under **Workflows**, select **Workflows**.
 
