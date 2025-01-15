@@ -14,7 +14,7 @@ appliesto:
 
 Microsoft Sentinel gives you a complete, full-featured case management platform for investigating and managing security incidents. **Incidents** are Microsoft Sentinel’s name for files that contain a complete and constantly updated chronology of a security threat, whether it’s individual pieces of evidence (alerts), suspects and parties of interest (entities), insights collected and curated by security experts and AI/machine learning models, or comments and logs of all the actions taken in the course of the investigation.
 
-The incident investigation experience in Microsoft Sentinel begins with the **Incidents** page&mdash;a experience designed to give you everything you need for your investigation in one place. The key goal of this experience is to increase your SOC’s efficiency and effectiveness, reducing its mean time to resolve (MTTR).
+The incident investigation experience in Microsoft Sentinel begins with the **Incidents** page&mdash;an experience designed to give you everything you need for your investigation in one place. The key goal of this experience is to increase your SOC’s efficiency and effectiveness, reducing its mean time to resolve (MTTR).
 
 This article describes Microsoft Sentinel's incident investigation and case management capabilities and features in the Azure portal, taking you through the phases of a typical incident investigation while presenting all the displays and tools available to you to help you along.
 
