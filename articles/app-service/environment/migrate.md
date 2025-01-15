@@ -11,7 +11,7 @@ zone_pivot_groups: app-service-cli-portal
 # Migration to App Service Environment v3 using the in-place migration feature
 
 > [!NOTE]
-> The migration feature described in this article is used for in-place (same subnet) automated migration of App Service Environment v1 and v2 to App Service Environment v3. If you haven't requested a 30-day grace period, review the [grace period overview](./auto-migration.md#grace-period), and then request a grace period by going to [Azure portal](https://portal.azure.com) and visiting the Migration blade for each of your App Service Environments.
+> The migration feature described in this article is used for in-place (same subnet) automated migration of App Service Environment v1 and v2 to App Service Environment v3.
 >
 > If you're looking for information on the side-by-side migration feature, see [Migrate to App Service Environment v3 by using the side-by-side migration feature](side-by-side-migrate.md). If you're looking for information on manual migration options, see [Manual migration options](migration-alternatives.md). For help deciding which migration option is right for you, see [Migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree). For more information on App Service Environment v3, see [App Service Environment v3 overview](overview.md).
 >
