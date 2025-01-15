@@ -350,8 +350,6 @@ issueResolutionTemplate.Values.Add(no);
 issueResolutionTemplate.Bindings = bindings;
 ```
 
-### Send template message with call to action buttons
-
 ### Send Template message with call to action buttons with dynamic link
 Use `MessageTemplateQuickAction` to define the URL suffix for call to action buttons and `MessageTemplateQuickAction` object have the following two attributes.
 
