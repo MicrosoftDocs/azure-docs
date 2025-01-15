@@ -4778,87 +4778,87 @@
     {
       "source_path": "articles/virtual-desktop/troubleshoot-agent.md",
       "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-agent",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-desktop/troubleshoot-app-attach.md",
       "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-app-attach",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-desktop/troubleshoot-authorization.md",
       "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-authorization",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-desktop/troubleshoot-azure-ad-connections.md",
       "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-azure-ad-connections",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-desktop/troubleshoot-connection-quality.md",
       "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-connection-quality",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-desktop/troubleshoot-custom-image-templates.md",
       "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-custom-image-templates",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-desktop/troubleshoot-device-redirections.md",
       "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-device-redirections",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-desktop/troubleshoot-insights.md",
       "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-insights",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-desktop/troubleshoot-management-issues.md",
       "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-management-issues",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-desktop/troubleshoot-multimedia-redirection.md",
       "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-multimedia-redirection",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-desktop/troubleshoot-powershell.md",
       "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-powershell",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-desktop/troubleshoot-rdp-shortpath.md",
       "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-rdp-shortpath",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-desktop/troubleshoot-service-connection.md",
       "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-service-connection",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-desktop/troubleshoot-session-host-configuration-update.md",
       "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-session-host-configuration-update",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-desktop/troubleshoot-set-up-issues.md",
       "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-set-up-issues",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-desktop/troubleshoot-set-up-overview.md",
       "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-set-up-overview",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-desktop/troubleshoot-vm-configuration.md",
       "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-vm-configuration",
-      "redirect_document_id": false
+      "redirect_document_id": true
     }
   ]
 }
