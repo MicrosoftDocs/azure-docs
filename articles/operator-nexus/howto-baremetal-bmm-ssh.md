@@ -24,7 +24,7 @@ Users in a keyset are validated every four hours, and also when any changes are 
 - The keyset is expired (in which case all users in the keyset are invalid)
 
 > [!NOTE]
-> The User Principal Name is now required for keysets. Microsoft Entra ID validation is enforced for all users, and any stale keysets that have not been updated with a User Principal Name prior to December 2024 will become `Invalid`. Note that if any user fails to specify a User Principal Name this will result in the entire keyset being invalidated.
+>> The User Principal Name is now required for keysets. Microsoft Entra ID validation is enforced for all users. Current keysets that do not specify User Principal Names for all users will continue to work until the expiration date. If a keyset without User Principal Names expires, it will require to be updated with User Principal Names for all users in order to become valid again. Keysets that have not been updated with the User Principal Names for all users will prior to December 2024 are at-risk of being `Invalid`. Note that if any user fails to specify a User Principal Name this will result in the entire keyset being invalidated.
 
 The keyset and each individual user also have detailed status messages communicating other information:
 - The keyset's detailedStatusMessage tells you whether the keyset is expired, and other information about problems encountered while updating the keyset across the cluster.
