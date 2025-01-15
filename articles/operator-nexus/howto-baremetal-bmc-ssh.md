@@ -19,11 +19,11 @@ There are rare situations where a user needs to investigate & resolve issues wit
 Users in a keyset are validated every four hours, and also when any changes are made to any keyset. Each user's status is then set to "Active" or "Invalid." Invalid users remain in the keyset but their keys are removed from all hosts and they aren't allowed access. Reasons for a user being invalid are:
 - The user's User Principal Name hasn't been specified
 - The user's User Principal Name isn't a member of the given Entra group
-- The given Entra group (if specified) doesn't exist (in which case all users in the keyset are invalid)
+- The given Entra group doesn't exist (in which case all users in the keyset are invalid)
 - The keyset is expired (in which case all users in the keyset are invalid)
 
 > [!NOTE]
->> The User Principal Name is now required for keysets. Microsoft Entra ID validation is enforced for all users. Current keysets that do not specify User Principal Names for all users will continue to work until the expiration date. If a keyset without User Principal Names expires, it will require to be updated with User Principal Names for all users in order to become valid again. Keysets that have not been updated with the User Principal Names for all users will prior to December 2024 are at-risk of being `Invalid`. Note that if any user fails to specify a User Principal Name this will result in the entire keyset being invalidated.
+>> The User Principal Name is now required for keysets as Microsoft Entra ID validation is enforced for all users. Current keysets that do not specify User Principal Names for all users will continue to work until the expiration date. If a keyset without User Principal Names expires, the keyset will need to be updated with User Principal Names, for all users, in order to become valid again. Keysets that have not been updated with the User Principal Names for all users will prior to December 2024 are at-risk of being `Invalid`. Note that if any user fails to specify a User Principal Name this results in the entire keyset being invalidated.
 
 The keyset and each individual user also have detailed status messages communicating other information:
 - The keyset's detailedStatusMessage tells you whether the keyset is expired, and other information about problems encountered while updating the keyset across the cluster.
