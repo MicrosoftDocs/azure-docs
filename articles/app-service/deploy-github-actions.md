@@ -1,5 +1,5 @@
 ---
-title: Configure CI/CD with GitHub Actions
+title: Deploy to App Service using GitHub Actions
 description: Learn how to deploy your code to Azure App Service from a CI/CD pipeline with GitHub Actions. Customize the build tasks and run complex deployments.
 ms.topic: article
 ms.date: 01/16/2025
