@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2024
 ms.topic:  how-to
-ms.date: 11/6/2024
+ms.date: 1/14/2025
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
