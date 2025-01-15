@@ -12,7 +12,7 @@ This article describes troubleshooting steps and possible resolutions for issues
 
 ## Issue
 
-You would recieve below errors in an Apache Spark Streaming application log
+You would receive below errors in an Apache Spark Streaming application log
 
 `NativeAzureFileSystem ... RequestBodyTooLarge`
 

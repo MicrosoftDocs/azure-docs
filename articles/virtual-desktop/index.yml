@@ -31,10 +31,10 @@ landingContent:
   # Card
   - title: Get started with Azure Virtual Desktop
     linkLists:
-      - linkListType: tutorial
+      - linkListType: quickstart
         links:
-          - text: Create and connect to a Windows 11 desktop with Azure Virtual Desktop
-            url: tutorial-create-connect-personal-desktop.md
+          - text: Deploy a sample Windows 11 desktop with Azure Virtual Desktop
+            url: quickstart.md
       - linkListType: get-started
         links:
           - text: Prerequisites
@@ -49,7 +49,7 @@ landingContent:
             url: manage-app-groups.md
 
   # Card
-  - title: Azure Virtual Desktop for users
+  - title: Connect to Azure Virtual Desktop
     linkLists:
       - linkListType: overview
         links:
@@ -100,4 +100,4 @@ landingContent:
       - linkListType: overview
         links:
           - text: Azure Virtual Desktop (classic)
-            url: ./virtual-desktop-fall-2019/index.yml
+            url: /previous-versions/azure/virtual-desktop-classic/

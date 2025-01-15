@@ -19,7 +19,7 @@ Complete reference documentation and other samples for retrieving metrics using 
 
 ## Table of metric names via CLI
 
-When you use CLI, Load Balancer metrics may use a different metric name for the CLI parameter value. When specifying the metric name via the `--metric dimension` parameter, use the CLI metric name instead. For example, the metric Data path availability would be used by specifying a parameter of `--metric VipAvaialbility`.
+When you use CLI, Load Balancer metrics may use a different metric name for the CLI parameter value. When specifying the metric name via the `--metric dimension` parameter, use the CLI metric name instead. For example, the metric Data path availability would be used by specifying a parameter of `--metric VipAvailability`.
 
 Here's a table of common Load Balancer metrics, the CLI metric name, and recommend aggregation values for queries:
 

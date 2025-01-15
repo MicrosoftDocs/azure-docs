@@ -186,7 +186,7 @@ createDirectory(avgMoMKPIChangePath)
    1. Print Delta Table Schema for transformed and average KPI data1.
 
     ```
-    // tranform data schema
+    // transform data schema
     dtTransformed.toDF.printSchema
     // Average KPI Data Schema
     dtAvgKpi.toDF.printSchema

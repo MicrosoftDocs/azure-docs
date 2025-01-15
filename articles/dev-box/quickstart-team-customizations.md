@@ -58,7 +58,7 @@ The sections that follow walk you through these tasks:
 
 ### Fork the example catalog repository
 
-1. Open the [example catalog repository](https://aka.ms/devcenter/preview/imaging/examples).
+1. Open the [example catalog repository](https://aka.ms/devcenter/preview/imaging/examples/repo).
 1. Select **Fork** to fork the repository to your GitHub organization.
 
 ### Install the Microsoft Dev Center app
@@ -146,7 +146,7 @@ To create a dev box pool that's associated with a project:
    | **Time zone** | Select the time zone for the stop time. |
    | **Licensing** | Select this checkbox to confirm that your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
 
-   :::image type="content" source="media/quickstart-team-customizations/create-pool-basics.png" alt-text="Screenshot of the pane for entering basic information about a new a dev box pool, including fields for name and definition. The image definition MyImageDefintion.yaml is highlighted.":::
+   :::image type="content" source="media/quickstart-team-customizations/create-pool-basics.png" alt-text="Screenshot of the pane for entering basic information about a new a dev box pool, including fields for name and definition. The image definition MyImageDefinition.yaml is highlighted.":::
 
 1. Select **Create**.
 

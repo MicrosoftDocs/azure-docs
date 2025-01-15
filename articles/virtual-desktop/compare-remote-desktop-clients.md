@@ -50,65 +50,70 @@ There are two versions of the Remote Desktop app for Windows, which are both sup
 The following table compares which Remote Desktop app experience features are supported on which platforms:
 
 ::: zone pivot="azure-virtual-desktop"
+
 | Feature | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| Appearance (dark or light) | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Integrated apps | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Localization | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Pin to Start Menu | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Search | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| URI schemes | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
+| Appearance (dark or light) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Integrated apps | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Localization | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ |
+| Pin to Start Menu | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Search | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ |
+| URI schemes | <sup>&#8197;&#8197;</sup>✅&sup1; | <sup>&#8197;&#8197;</sup>✅&sup1; | ❌ | ❌ | ❌ | ❌ | ❌ |
 
 1. [ms-rd and ms-avd URI schemes](uri-scheme.md) only.
 ::: zone-end
 
 ::: zone pivot="windows-365"
+
 | Feature | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|
-| Appearance (dark or light) | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Integrated apps | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Localization | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Pin to Start Menu | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Search | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Windows 365 Boot | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Windows 365 Frontline | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Windows 365 Switch | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
+| Appearance (dark or light) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Integrated apps | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Localization | ✅ | ❌ | ✅ | ❌ | ✅ |
+| Pin to Start Menu | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Search | ❌ | ✅ | ✅ | ✅ | ✅ |
+| Windows 365 Boot | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Windows 365 Frontline | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Windows 365 Switch | ✅ | ❌ | ❌ | ❌ | ❌ |
 
 ::: zone-end
 
 ::: zone pivot="dev-box"
+
 | Feature | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|
-| Appearance (dark or light) | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Integrated apps | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Localization | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Pin to Start Menu | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Search | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
+| Appearance (dark or light) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Integrated apps | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Localization | ✅ | ❌ | ✅ | ❌ | ✅ |
+| Pin to Start Menu | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Search | ❌ | ✅ | ✅ | ✅ | ✅ |
 
 ::: zone-end
 
 ::: zone pivot="remote-desktop-services"
+
 | Feature | Windows<br />(MSTSC) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|
-| Appearance (dark or light) | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Integrated apps | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Localization | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Pin to Start Menu | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Search | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| URI schemes | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
+| Appearance (dark or light) | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Integrated apps | <sup>&#8197;&#8197;</sup>✅&sup1; | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Localization | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ |
+| Pin to Start Menu | <sup>&#8197;&#8197;</sup>✅&sup1; | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Search | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ |
+| URI schemes | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup2; | <sup>&#8197;&#8197;</sup>✅&sup2; | <sup>&#8197;&#8197;</sup>✅&sup2; | ❌ |
 
 1. When subscribed to Remote Desktop Services using the **RemoteApp and Desktop Connections** Control Panel applet.
 1. [Legacy RDP URI scheme](/windows-server/remote/remote-desktop-services/clients/remote-desktop-uri#ms-rd-uri-scheme) only.
 ::: zone-end
 
 ::: zone pivot="remote-pc"
+
 | Feature | Windows<br />(MSTSC) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|
-| Appearance (dark or light) | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Localization | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Pin to Start Menu | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Search | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| URI schemes | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
+| Appearance (dark or light) | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Localization | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ |
+| Pin to Start Menu | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Search | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ |
+| URI schemes | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup1; | <sup>&#8197;&#8197;</sup>✅&sup1; | <sup>&#8197;&#8197;</sup>✅&sup1; | ❌ |
 
 1. [Legacy RDP URI scheme](/windows-server/remote/remote-desktop-services/clients/remote-desktop-uri#ms-rd-uri-scheme) only.
 ::: zone-end
@@ -116,6 +121,7 @@ The following table compares which Remote Desktop app experience features are su
 The following table provides a description for each of the experience features:
 
 ::: zone pivot="azure-virtual-desktop,remote-desktop-services"
+
 | Feature | Description |
 |--|--|
 | Appearance (dark or light) | Change the appearance of the Remote Desktop app to be light or dark. |
@@ -128,6 +134,7 @@ The following table provides a description for each of the experience features:
 ::: zone-end
 
 ::: zone pivot="windows-365"
+
 | Feature | Description |
 |--|--|
 | Appearance (dark or light) | Change the appearance of Windows App to be light or dark. |
@@ -142,6 +149,7 @@ The following table provides a description for each of the experience features:
 ::: zone-end
 
 ::: zone pivot="dev-box"
+
 | Feature | Description |
 |--|--|
 | Appearance (dark or light) | Change the appearance of Windows App to be light or dark. |
@@ -153,6 +161,7 @@ The following table provides a description for each of the experience features:
 ::: zone-end
 
 ::: zone pivot="remote-pc"
+
 | Feature | Description |
 |--|--|
 | Appearance (dark or light) | Change the appearance of the Remote Desktop app to be light or dark. |
@@ -168,37 +177,40 @@ The following table provides a description for each of the experience features:
 The following table compares which display features are supported on which platforms:
 
 ::: zone pivot="azure-virtual-desktop"
+
 | Feature | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| Dynamic resolution | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| External monitor | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Multiple monitors&sup1; | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Selected monitors | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Smart sizing | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
+| Dynamic resolution | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| External monitor | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ |
+| Multiple monitors&sup1; | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| Selected monitors | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ |
+| Smart sizing | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
 
 1. Up to 16 monitors.
 ::: zone-end
 
 ::: zone pivot="windows-365,dev-box"
+
 | Feature | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|
-| Dynamic resolution | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| External monitor | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Multiple monitors&sup1; | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Selected monitors | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Smart sizing | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
+| Dynamic resolution | ✅ | ✅ | ✅ | ✅ | ✅ |
+| External monitor | ✅ | ✅ | ✅ | ❌ | ❌ |
+| Multiple monitors&sup1; | ✅ | ✅ | ❌ | ❌ | ❌ |
+| Selected monitors | ✅ | ❌ | ✅ | ❌ | ❌ |
+| Smart sizing | ✅ | ✅ | ❌ | ❌ | ❌ |
 
 1. Up to 16 monitors.
 ::: zone-end
 
 ::: zone pivot="remote-desktop-services,remote-pc"
+
 | Feature | Windows<br />(MSTSC) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|
-| Dynamic resolution | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| External monitor | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Multiple monitors&sup1; | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Selected monitors | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Smart sizing | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
+| Dynamic resolution | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| External monitor | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ |
+| Multiple monitors&sup1; | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| Selected monitors | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ |
+| Smart sizing | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
 
 1. Up to 16 monitors.
 ::: zone-end
@@ -221,18 +233,20 @@ The following table shows which multimedia features are available on each platfo
 ::: zone-end
 
 ::: zone pivot="azure-virtual-desktop"
+
 | Feature | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| Multimedia redirection | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Teams media optimizations | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
+| Multimedia redirection | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Teams media optimizations | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
 
 ::: zone-end
 
 ::: zone pivot="windows-365,dev-box"
+
 | Feature | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|
-| Multimedia redirection | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Teams media optimizations | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
+| Multimedia redirection | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Teams media optimizations | ✅ | ✅ | ❌ | ❌ | ❌ |
 
 ::: zone-end
 
@@ -241,6 +255,7 @@ The following table provides a description for each of the multimedia features:
 ::: zone-end
 
 ::: zone pivot="azure-virtual-desktop"
+
 | Feature | Description |
 |--|--|
 | [Multimedia redirection](multimedia-redirection-video-playback-calls.md?pivots=azure-virtual-desktop) | Redirect video playback and calls from the desktop or app to the physical machine for faster processing and rendering. |
@@ -249,6 +264,7 @@ The following table provides a description for each of the multimedia features:
 ::: zone-end
 
 ::: zone pivot="windows-365,dev-box"
+
 | Feature | Description |
 |--|--|
 | [Multimedia redirection](multimedia-redirection-video-playback-calls.md?pivots=windows-365) | Redirect video playback and calls from the Cloud PC or dev box to the physical machine for faster processing and rendering. |
@@ -268,41 +284,44 @@ The following sections detail the redirection support available on each platform
 The following table shows which local devices you can redirect to a remote session on each platform:
 
 ::: zone pivot="azure-virtual-desktop"
+
 | Feature | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| Cameras | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; |
-| Local drive/storage | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; |
-| Microphones | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Printers | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup3; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&#8308; |
-| Scanners&#8309; | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Smart cards | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Speakers | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
+| Cameras | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | <sup>&#8197;&#8197;</sup>✅&sup1; |
+| Local drive/storage | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | <sup>&#8197;&#8197;</sup>✅&sup2; |
+| Microphones | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Printers | ✅ | ✅ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup3; | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&#8308; |
+| Scanners&#8309; | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Smart cards | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| Speakers | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 ::: zone-end
 
 ::: zone pivot="windows-365,dev-box"
+
 | Feature | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|
-| Cameras | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; |
-| Local drive/storage | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; |
-| Microphones | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Printers | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup3; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&#8308; |
-| Scanners&#8309; | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Smart cards | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Speakers | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
+| Cameras | ✅ | ✅ | ✅ | ✅ | <sup>&#8197;&#8197;</sup>✅&sup1; |
+| Local drive/storage | ✅ | ✅ | ✅ | ✅ | <sup>&#8197;&#8197;</sup>✅&sup2; |
+| Microphones | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Printers | ✅ | <sup>&#8197;&#8197;</sup>✅&sup3; | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&#8308; |
+| Scanners&#8309; | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Smart cards | ✅ | ✅ | ❌ | ❌ | ❌ |
+| Speakers | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 ::: zone-end
 
 ::: zone pivot="remote-desktop-services,remote-pc"
+
 | Feature | Windows<br />(MSTSC) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|
-| Cameras | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; |
-| Local drive/storage | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; |
-| Microphones | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Printers | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup3; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&#8308; |
-| Scanners&#8309; | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Smart cards | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Speakers | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
+| Cameras | ✅ | ❌ | ✅ | ✅ | ✅ | <sup>&#8197;&#8197;</sup>✅&sup1; |
+| Local drive/storage | ✅ | ❌ | ✅ | ✅ | ✅ | <sup>&#8197;&#8197;</sup>✅&sup2; |
+| Microphones | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Printers | ✅ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup3; | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&#8308; |
+| Scanners&#8309; | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Smart cards | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| Speakers | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 ::: zone-end
 
@@ -329,41 +348,44 @@ The following table provides a description for each type of device you can redir
 The following table shows which input methods you can redirect:
 
 ::: zone pivot="azure-virtual-desktop"
+
 | Feature | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| Keyboard | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Keyboard input language | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; |
-| Keyboard shortcuts | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Mouse/trackpad | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Multi-touch | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Pen | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Touch | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
+| Keyboard | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Keyboard input language | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup1; |
+| Keyboard shortcuts | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Mouse/trackpad | ✅ | ✅ | ✅ | ✅ | <sup>&#8197;&#8197;</sup>✅&sup2; | ✅ | ✅ |
+| Multi-touch | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ |
+| Pen | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ |
+| Touch | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ |
 
 ::: zone-end
 
 ::: zone pivot="windows-365,dev-box"
+
 | Feature | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|
-| Keyboard | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Keyboard input language | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; |
-| Keyboard shortcuts | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Mouse/trackpad | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Multi-touch | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Pen | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Touch | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
+| Keyboard | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Keyboard input language | ✅ | ✅ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup1; |
+| Keyboard shortcuts | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Mouse/trackpad | ✅ | ✅ | <sup>&#8197;&#8197;</sup>✅&sup2; | ✅ | ✅ |
+| Multi-touch | ✅ | ❌ | ✅ | ✅ | ❌ |
+| Pen | ✅ | ❌ | ✅ | ✅ | ✅ |
+| Touch | ✅ | ❌ | ✅ | ✅ | ✅ |
 
 ::: zone-end
 
 ::: zone pivot="remote-desktop-services,remote-pc"
+
 | Feature | Windows<br />(MSTSC) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|
-| Keyboard | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Keyboard input language | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; |
-| Keyboard shortcuts | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Mouse/trackpad | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false"::: | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Multi-touch | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Pen | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Touch | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
+| Keyboard | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Keyboard input language | ✅ | ✅ | ✅ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup1; |
+| Keyboard shortcuts | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Mouse/trackpad | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Multi-touch | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ |
+| Pen | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ |
+| Touch | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ |
 
 ::: zone-end
 
@@ -384,26 +406,29 @@ The following table provides a description for each type of input you can redire
 The following table shows which ports you can redirect:
 
 ::: zone pivot="azure-virtual-desktop"
+
 | Port type | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| Serial | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| USB | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub>  |<sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
+| Serial | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| USB | ✅ | ✅ | ❌ | ❌ | ❌ | ❌  |❌ |
 
 ::: zone-end
 
 ::: zone pivot="windows-365,dev-box"
+
 | Port type | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|
-| Serial | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| USB | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub>  |<sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
+| Serial | ✅ | ❌ | ❌ | ❌ | ❌ |
+| USB | ✅ | ❌ | ❌ | ❌  |❌ |
 
 ::: zone-end
 
 ::: zone pivot="remote-desktop-services,remote-pc"
+
 | Feature | Windows<br />(MSTSC) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|
-| Serial | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| USB | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
+| Serial | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| USB | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
 
 ::: zone-end
 
@@ -419,38 +444,41 @@ The following table provides a description for each port you can redirect:
 The following table shows which other features you can redirect:
 
 ::: zone pivot="azure-virtual-desktop"
+
 | Feature | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| Clipboard - bidirectional | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; |
-| Clipboard - unidirectional&sup3; | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Location | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&#8308; | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&#8308; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Third-party virtual channel plugins | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Time zone | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| WebAuthn | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
+| Clipboard - bidirectional | ✅ | ✅ | ✅ | ✅ | <sup>&#8197;&#8197;</sup>✅&sup1; | <sup>&#8197;&#8197;</sup>✅&sup2; | <sup>&#8197;&#8197;</sup>✅&sup2; |
+| Clipboard - unidirectional&sup3; | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Location | <sup>&#8197;&#8197;</sup>✅&#8308; | <sup>&#8197;&#8197;</sup>✅&#8308; | ❌ | ❌ | ✅ | ❌ | ✅ |
+| Third-party virtual channel plugins | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Time zone | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| WebAuthn | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
 
 ::: zone-end
 
 ::: zone pivot="windows-365,dev-box"
+
 | Feature | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|
-| Clipboard - bidirectional | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; |
-| Clipboard - unidirectional&sup3; | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Location | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&#8308; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Third-party virtual channel plugins | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Time zone | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| WebAuthn | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
+| Clipboard - bidirectional | ✅ | ✅ | <sup>&#8197;&#8197;</sup>✅&sup1; | <sup>&#8197;&#8197;</sup>✅&sup2; | <sup>&#8197;&#8197;</sup>✅&sup2; |
+| Clipboard - unidirectional&sup3; | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Location | <sup>&#8197;&#8197;</sup>✅&#8308; | ❌ | ✅ | ❌ | ✅ |
+| Third-party virtual channel plugins | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Time zone | ✅ | ✅ | ✅ | ✅ | ✅ |
+| WebAuthn | ✅ | ❌ | ❌ | ❌ | ❌ |
 
 ::: zone-end
 
 ::: zone pivot="remote-desktop-services,remote-pc"
+
 | Feature | Windows<br />(MSTSC) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|
-| Clipboard - bidirectional | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; |
-| Clipboard - unidirectional&sup3; | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Location | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&#8308; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Third-party virtual channel plugins | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Time zone | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| WebAuthn | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
+| Clipboard - bidirectional | ✅ | ✅ | ✅ | <sup>&#8197;&#8197;</sup>✅&sup1; | <sup>&#8197;&#8197;</sup>✅&sup2; | <sup>&#8197;&#8197;</sup>✅&sup2; |
+| Clipboard - unidirectional&sup3; | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Location | <sup>&#8197;&#8197;</sup>✅&#8308; | ❌ | ❌ | ✅ | ❌ | ✅ |
+| Third-party virtual channel plugins | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Time zone | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| WebAuthn | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
 
 ::: zone-end
 
@@ -492,30 +520,32 @@ The following table shows which credential types are available for each platform
 ::: zone-end
 
 ::: zone pivot="azure-virtual-desktop"
+
 | Feature | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| Passkeys (FIDO2) | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Microsoft Authenticator | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Password | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Smart card with Active Directory Federation Services | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Smart card with Microsoft Entra certificate-based authentication | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Windows Hello for Business certificate trust | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; |
-| Windows Hello for Business cloud trust | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; |
-| Windows Hello for Business key trust | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; |
+| Passkeys (FIDO2) | ✅ | ✅ | ✅ | <sup>&#8197;&#8197;</sup>✅&sup1; | <sup>&#8197;&#8197;</sup>✅&sup1; | ❌ | ✅ |
+| Microsoft Authenticator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Password | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Smart card with Active Directory Federation Services | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ |
+| Smart card with Microsoft Entra certificate-based authentication | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
+| Windows Hello for Business certificate trust | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup2; |
+| Windows Hello for Business cloud trust | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup2; |
+| Windows Hello for Business key trust | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup2; |
 
 ::: zone-end
 
 ::: zone pivot="windows-365,dev-box"
+
 | Feature | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|
-| Passkeys (FIDO2) | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Microsoft Authenticator | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Password | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Smart card with Active Directory Federation Services | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Smart card with Microsoft Entra certificate-based authentication | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Windows Hello for Business certificate trust | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; |
-| Windows Hello for Business cloud trust | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; |
-| Windows Hello for Business key trust | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; |
+| Passkeys (FIDO2) | ✅ | <sup>&#8197;&#8197;</sup>✅&sup1; | <sup>&#8197;&#8197;</sup>✅&sup1; | ❌ | ✅ |
+| Microsoft Authenticator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Password | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Smart card with Active Directory Federation Services | ✅ | ✅ | ❌ | ❌ | ✅ |
+| Smart card with Microsoft Entra certificate-based authentication | ✅ | ✅ | ✅ | ❌ | ✅ |
+| Windows Hello for Business certificate trust | ✅ | ❌ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup2; |
+| Windows Hello for Business cloud trust | ✅ | ❌ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup2; |
+| Windows Hello for Business key trust | ✅ | ❌ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup2; |
 
 ::: zone-end
 
@@ -530,28 +560,30 @@ When connecting to a remote session, there are multiple ways to authenticate. If
 ::: zone-end
 
 ::: zone pivot="azure-virtual-desktop"
+
 | Feature | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| Passkeys (FIDO2) | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Microsoft Authenticator | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Password | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Smart card | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Windows Hello for Business certificate trust | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Windows Hello for Business cloud trust | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Windows Hello for Business key trust | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup3; | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup3; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
+| Passkeys (FIDO2) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Microsoft Authenticator | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Password | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Smart card | <sup>&#8197;&#8197;</sup>✅&sup1; | <sup>&#8197;&#8197;</sup>✅&sup1; | ❌ | <sup>&#8197;&#8197;</sup>✅&sup2; | ❌ | ❌ | ❌ |
+| Windows Hello for Business certificate trust | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Windows Hello for Business cloud trust | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Windows Hello for Business key trust | <sup>&#8197;&#8197;</sup>✅&sup3; | <sup>&#8197;&#8197;</sup>✅&sup3; | ❌ | ❌ | ❌ | ❌ | ❌ |
 
 ::: zone-end
 
 ::: zone pivot="windows-365,dev-box"
+
 | Feature | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|
-| Passkeys (FIDO2) | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Microsoft Authenticator | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Password | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Smart card | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Windows Hello for Business certificate trust | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Windows Hello for Business cloud trust | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Windows Hello for Business key trust | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup3; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
+| Passkeys (FIDO2) | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Microsoft Authenticator | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Password | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Smart card | <sup>&#8197;&#8197;</sup>✅&sup1; | <sup>&#8197;&#8197;</sup>✅&sup2; | ❌ | ❌ | ❌ |
+| Windows Hello for Business certificate trust | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Windows Hello for Business cloud trust | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Windows Hello for Business key trust | <sup>&#8197;&#8197;</sup>✅&sup3; | ❌ | ❌ | ❌ | ❌ |
 
 ::: zone-end
 
@@ -567,26 +599,28 @@ The following table shows which types of credential are available when authentic
 ::: zone-end
 
 ::: zone pivot="azure-virtual-desktop"
+
 | Feature | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| Passkeys (FIDO2) | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Password | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Smart card | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Windows Hello for Business certificate trust | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Windows Hello for Business cloud trust | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Windows Hello for Business key trust | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
+| Passkeys (FIDO2) | <sup>&#8197;&#8197;</sup>✅&sup2; | <sup>&#8197;&#8197;</sup>✅&sup2; | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Password | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Smart card | <sup>&#8197;&#8197;</sup>✅&sup1; | <sup>&#8197;&#8197;</sup>✅&sup1; | ❌ | <sup>&#8197;&#8197;</sup>✅&sup1; | ❌ | ❌ | ❌ |
+| Windows Hello for Business certificate trust | <sup>&#8197;&#8197;</sup>✅&sup2; | <sup>&#8197;&#8197;</sup>✅&sup2; | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Windows Hello for Business cloud trust | <sup>&#8197;&#8197;</sup>✅&sup2; | <sup>&#8197;&#8197;</sup>✅&sup2; | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Windows Hello for Business key trust | <sup>&#8197;&#8197;</sup>✅&sup2; | <sup>&#8197;&#8197;</sup>✅&sup2; | ❌ | ❌ | ❌ | ❌ | ❌ |
 
 ::: zone-end
 
 ::: zone pivot="windows-365,dev-box"
+
 | Feature | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|
-| Passkeys (FIDO2) | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Password | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Smart card | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup1; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Windows Hello for Business certificate trust | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Windows Hello for Business cloud trust | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Windows Hello for Business key trust | <sup>&#160;&#160;&#8201;</sup><sub>:::image type="icon" source="media/yes.svg" border="false":::</sub>&sup2; | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
+| Passkeys (FIDO2) | <sup>&#8197;&#8197;</sup>✅&sup2; | ❌ | ❌ | ❌ | ❌ |
+| Password | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Smart card | <sup>&#8197;&#8197;</sup>✅&sup1; | <sup>&#8197;&#8197;</sup>✅&sup1; | ❌ | ❌ | ❌ |
+| Windows Hello for Business certificate trust | <sup>&#8197;&#8197;</sup>✅&sup2; | ❌ | ❌ | ❌ | ❌ |
+| Windows Hello for Business cloud trust | <sup>&#8197;&#8197;</sup>✅&sup2; | ❌ | ❌ | ❌ | ❌ |
+| Windows Hello for Business key trust | <sup>&#8197;&#8197;</sup>✅&sup2; | ❌ | ❌ | ❌ | ❌ |
 
 ::: zone-end
 
@@ -604,26 +638,29 @@ The following table shows which security features are available on each platform
 ::: zone-end
 
 ::: zone pivot="azure-virtual-desktop"
+
 | Feature | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| Screen capture protection | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |  <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Watermarking | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |  <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
+| Screen capture protection | ✅ | ✅ |  ❌ | ✅ | ❌ | ❌ | ❌ |
+| Watermarking | ✅ | ✅ |  ❌ | ✅ | ✅ | ✅ | ✅ |
 
 ::: zone-end
 
 ::: zone pivot="windows-365"
+
 | Feature | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|
-| Screen capture protection | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Watermarking | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
+| Screen capture protection | ✅ | ✅ | ❌ | ❌ | ❌ |
+| Watermarking | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 ::: zone-end
 
 ::: zone pivot="dev-box"
+
 | Feature | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|
-| Screen capture protection | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Watermarking | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
+| Screen capture protection | ✅ | ✅ | ❌ | ❌ | ❌ |
+| Watermarking | ✅ | ✅ | ✅ | ❌ | ✅ |
 
 ::: zone-end
 
@@ -652,34 +689,38 @@ The following table provides a description for each security feature:
 The following table shows which network features are available on each platform:
 
 ::: zone pivot="azure-virtual-desktop"
+
 | Feature | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| Connection information | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| RDP Shortpath for managed networks | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| RDP Shortpath for public networks | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Private Link | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
+| Connection information | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ |
+| RDP Shortpath for managed networks | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ |
+| RDP Shortpath for public networks | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ |
+| Private Link | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 ::: zone-end
 
 ::: zone pivot="windows-365,dev-box"
+
 | Feature | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|
-| Connection information | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| RDP Shortpath for managed networks | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| RDP Shortpath for public networks | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
+| Connection information | ✅ | ✅ | ❌ | ❌ | ✅ |
+| RDP Shortpath for managed networks | ✅ | ✅ | ✅ | ❌ | ❌ |
+| RDP Shortpath for public networks | ✅ | ✅ | ✅ | ❌ | ❌ |
 
 ::: zone-end
 
 ::: zone pivot="remote-desktop-services,remote-pc"
+
 | Feature | Windows<br />(MSTSC) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|
-| Connection information | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |  | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
+| Connection information | ✅ | ❌ | ✅ | ❌ |  | ✅ |
 
 ::: zone-end
 
 The following table provides a description for each network feature:
 
 ::: zone pivot="azure-virtual-desktop"
+
 | Feature | Description |
 |--|--|
 | Connection information | See the connection information of the remote session. |
@@ -690,6 +731,7 @@ The following table provides a description for each network feature:
 ::: zone-end
 
 ::: zone pivot="windows-365,dev-box"
+
 | Feature | Description |
 |--|--|
 | Connection information | See the connection information of the remote session. |
@@ -699,6 +741,7 @@ The following table provides a description for each network feature:
 ::: zone-end
 
 ::: zone pivot="remote-desktop-services,remote-pc"
+
 | Feature | Description |
 |--|--|
 | Connection information | See the connection information of the remote session. |

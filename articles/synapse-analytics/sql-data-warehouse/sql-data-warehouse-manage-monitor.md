@@ -212,7 +212,7 @@ ORDER BY sr.request_id;
 
 > [!NOTE]  
 > Data Movement uses the `tempdb`. To reduce the usage of `tempdb` during data movement, ensure that your table is using a distribution strategy that [distributes data evenly](sql-data-warehouse-tables-distribute.md#choose-a-distribution-column-with-data-that-distributes-evenly). 
-> Use [Azure Synapse SQL Distribution Advisor](../sql/distribution-advisor.md) to get recommendations on the distrbution method suited for your workloads.
+> Use [Azure Synapse SQL Distribution Advisor](../sql/distribution-advisor.md) to get recommendations on the distribution method suited for your workloads.
 > Use the [Azure Synapse Toolkit](https://github.com/microsoft/Azure_Synapse_Toolbox/tree/master/TSQL_Queries/TempDB) to monitor `tempdb` using T-SQL queries.
 
 If you have a query that is consuming a large amount of memory or have received an error message related to the allocation of `tempdb`, it could be due to a very large [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) or [INSERT SELECT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) statement running that is failing in the final data movement operation. This can usually be identified as a ShuffleMove operation in the distributed query plan right before the final INSERT SELECT.  Use [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to monitor ShuffleMove operations.
@@ -340,11 +340,13 @@ The following query provides the query text and identifier for the waiting and b
 SELECT waiting.session_id AS WaitingSessionId,
        waiting.request_id AS WaitingRequestId,
        COALESCE(waiting_exec_request.command,waiting_exec_request.command2) AS WaitingExecRequestText,
+       waiting.object_name AS Waiting_Object_Name,
+       waiting.object_type AS Waiting_Object_Type,
        blocking.session_id AS BlockingSessionId,
        blocking.request_id AS BlockingRequestId,
        COALESCE(blocking_exec_request.command,blocking_exec_request.command2) AS BlockingExecRequestText,
-       waiting.object_name AS Blocking_Object_Name,
-       waiting.object_type AS Blocking_Object_Type,
+       blocking.object_name AS Blocking_Object_Name,
+       blocking.object_type AS Blocking_Object_Type,
        waiting.type AS Lock_Type,
        waiting.request_time AS Lock_Request_Time,
        datediff(ms, waiting.request_time, getdate())/1000.0 AS Blocking_Time_sec

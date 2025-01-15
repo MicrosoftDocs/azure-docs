@@ -222,16 +222,8 @@
       href: load-balancer-multiple-ip-cli.md
     - name: Azure PowerShell
       href: load-balancer-multiple-ip-powershell.md
-  - name: Move across regions
-    items:
-    - name: Public load balancer - Portal
-      href: move-across-regions-external-load-balancer-portal.md
-    - name: Public load balancer - PowerShell
-      href: move-across-regions-external-load-balancer-powershell.md
-    - name: Internal load balancer - Portal
-      href: move-across-regions-internal-load-balancer-portal.md
-    - name: Internal load balancer - PowerShell
-      href: move-across-regions-internal-load-balancer-powershell.md
+  - name: Move a load balancer across regions
+    href: move-across-regions-azure-load-balancer.md
   - name: Cross-subscription load balancing
     items:
     - name: Attach a cross-subscription backend to an Azure Load Balancer

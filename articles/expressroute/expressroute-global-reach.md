@@ -4,7 +4,7 @@ description: Learn how Azure ExpressRoute Global Reach can link ExpressRoute cir
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/29/2023
 ms.author: duau
 ms.custom: references_regions

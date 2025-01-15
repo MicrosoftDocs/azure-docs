@@ -3,7 +3,7 @@ title: Introduction to IoT Plug and Play | Microsoft Docs
 description: Learn about IoT Plug and Play. IoT Plug and Play is based on an open modeling language that enables smart IoT devices to declare their capabilities. IoT devices present that declaration, called a device model, when they connect to cloud solutions. The cloud solution can then automatically understand the device and start interacting with it, all without writing any code.
 author: timlt
 ms.author: timlt
-ms.date: 1/23/2024
+ms.date: 1/10/2025
 ms.topic: conceptual
 ms.service: azure-iot
 ms.custom: references_regions

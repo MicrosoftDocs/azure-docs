@@ -244,6 +244,8 @@ To run your frontend app and API together locally, Azure Static Web Apps provide
 
 Ensure you have the necessary command line tools installed.
 
+[!INCLUDE [Required version](includes/static-web-apps-cli-required-version.md)]
+
 ```bash
 npm install -g @azure/static-web-apps-cli
 ```

@@ -4,7 +4,7 @@ description: This article provides a comparison between the different Azure Fron
 services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/12/2024
 ms.author: duau
 ---
@@ -88,7 +88,7 @@ The following table lists services that are on retirement path, frequently asked
 
 | Details | Front Door (classic) | CDN Standard from Microsoft (classic) | CDN Standard from Akamai | CDN Standard/Premium from Edgio |
 | --- | --- | --- | --- | --- |
-| Retirement Date | March 31, 2027 | September 30, 2027 | December 31, 2023 | November 4, 2025 |
+| Retirement Date | March 31, 2027 | September 30, 2027 | December 31, 2023 | January 15, 2025 |
 | Date until new resources can be created | March 31, 2025 | September 30, 2025 | Service is already retired | January 15, 2025 |
 | Documentation | [Azure update](https://azure.microsoft.com/updates/azure-front-door-classic-will-be-retired-on-31-march-2027/), [FAQ](classic-retirement-faq.md) | [Azure update](https://azure.microsoft.com/updates/v2/Azure-CDN-Standard-from-Microsoft-classic-will-be-retired-on-30-September-2027), [FAQ](../cdn/classic-cdn-retirement-faq.md) | [FAQ](../cdn/akamai-retirement-faq.md)|[FAQ](../cdn/edgio-retirement-faq.md) |
 | Migration | [Considerations](tier-migration.md), [Step-by-step instructions](migrate-tier.md) | [Considerations](../cdn/tier-migration.md), [Step-by-step instructions](../cdn/migrate-tier.md) | Service is already retired | [Step-by-step instructions](migrate-cdn-to-front-door.md) |

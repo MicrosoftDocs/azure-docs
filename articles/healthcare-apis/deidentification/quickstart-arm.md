@@ -39,7 +39,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](/sampl
 
 One Azure resource is defined in the template:
 
-- [Microsoft.HealthDataAIServices/deidServices](/azure/templates): Create a de-identification service.
+- [Microsoft.HealthDataAIServices/deidServices](/azure/templates/microsoft.healthdataaiservices/deidservices?pivots=deployment-language-arm-template): Create a de-identification service.
 
 ## Deploy the template
 

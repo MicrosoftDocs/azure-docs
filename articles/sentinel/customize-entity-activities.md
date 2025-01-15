@@ -191,13 +191,13 @@ Add any of the following parameters to your query:
 
     The `count` parameter adds the following command to your query in the background, even though it's not displayed fully in the editor:
 
-    ```kql
+    ```kusto
     Summarize count() by <each parameter you’ve projected in the activity>
     ```
 
     Then, when you use the **Bucket Size** filter in the entity pages, the following command is also added to the query that's run in the background:
 
-    ```kql
+    ```kusto
     Summarize count() by <each parameter you’ve projected in the activity>, bin (TimeGenerated, Bucket in Hours)
     ```
 

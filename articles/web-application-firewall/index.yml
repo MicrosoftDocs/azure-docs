@@ -33,7 +33,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: What's new
-            url: https://azure.microsoft.com/updates/?category=networking&query=Web%20Application%20Firewall
+            url: https://azure.microsoft.com/updates?filters=%5B%22Web+Application+Firewall%22%5D
       - linkListType: learn
         links:
           - text: Introduction to Azure Web Application Firewall

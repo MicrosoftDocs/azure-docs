@@ -23,7 +23,7 @@ To change email notifications after Start/Stop VMs v2 is deployed, you can modif
 
 1. In the Azure portal, navigate to **Monitor**, then **Alerts**. Select **Action groups**.
 
-1. On the **Manage actions** page, select the action group called **StartStopV2_VM_Notication**.
+1. On the **Manage actions** page, select the action group called **StartStopV2_VM_Notification**.
 
     :::image type="content" source="media/manage/alerts-action-groups.png" alt-text="Screenshot of the Action groups page.":::
 

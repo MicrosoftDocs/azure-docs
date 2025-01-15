@@ -5,8 +5,7 @@ description: Learn how Azure Load Balancer is used for outbound internet connect
 services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
-ms.topic: conceptual
-ms.custom: engagement-fy23
+ms.topic: concept-article
 ms.date: 06/26/2024
 ms.author: mbender
 ---
@@ -67,6 +66,7 @@ Using a NAT gateway is the best method for outbound connectivity. A NAT gateway 
 NAT gateway takes precedence over other outbound connectivity methods, including a load balancer, instance-level public IP addresses, and Azure Firewall.
 
 For more information about Azure NAT Gateway, see [What is Azure NAT Gateway](../virtual-network/nat-gateway/nat-overview.md).
+For details on how SNAT behavior works with NAT Gateway, see [SNAT with NAT Gateway](/azure/nat-gateway/nat-gateway-snat).
 
 ##  3. Assign a public IP to the virtual machine
 
@@ -89,7 +89,7 @@ A public IP assigned to a VM is a 1:1 relationship (rather than 1: many) and imp
 In Azure, virtual machines created in a virtual network without explicit outbound connectivity defined are assigned a default outbound public IP address. This IP address enables outbound connectivity from the resources to the Internet. This access is referred to as [default outbound access](../virtual-network/ip-services/default-outbound-access.md).  This method of access is **not recommended** as it's insecure and the IP addresses are subject to change.
 
 >[!Important]
->On September 30, 2025, default outbound access for new deployments will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/).  It is recommended to use one the explict forms of connectivity as shown in options 1-3 above.
+>On September 30, 2025, default outbound access for new deployments will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/).  It is recommended to use one the explicit forms of connectivity as shown in options 1-3 above.
 
 ### What are SNAT ports?
 

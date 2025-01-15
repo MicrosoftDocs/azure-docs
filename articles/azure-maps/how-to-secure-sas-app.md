@@ -272,7 +272,7 @@ The following steps describe how to create and configure an Azure Maps account w
                 "defaultValue": "primaryKey",
                 "allowedValues": [
                     "primaryKey",
-                    "seconaryKey"
+                    "secondaryKey"
                 ],
                 "metadata": {
                     "description": "The specified signing key which will be used to create the SAS token."
