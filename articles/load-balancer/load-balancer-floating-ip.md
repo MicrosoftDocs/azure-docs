@@ -70,7 +70,7 @@ The Floating IP rule type is the foundation of several load balancer configurati
 In order to function, you configure the Guest OS for the virtual machine to receive all traffic bound for the frontend IP and port of the load balancer. Configuring the VM requires:
 * adding a loopback network interface
 * configuring the loopback with the frontend IP address of the load balancer
-* ensuring the system can send/receive packets on interfaces that don't have the IP address assigned to that interface.Windows systems require setting interfaces to use the "weak host" model. For Linux systems, this model is normally used by default.
+* ensuring the system can send/receive packets on interfaces that don't have the IP address assigned to that interface. Windows systems require setting interfaces to use the "weak host" model. For Linux systems, this model is normally used by default.
 * configuring the host firewall to allow traffic on the frontend IP port.
 
 > [!NOTE]

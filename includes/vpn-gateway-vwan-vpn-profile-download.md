@@ -30,7 +30,7 @@ In the **AzureVPN** folder, navigate to the ***azurevpnconfig.xml*** file and op
 ```
 <audience>          </audience>
 <issuer>            </issuer>
-<tennant>           </tennant>
+<tenant>            </tenant>
 <fqdn>              </fqdn>
 <serversecret>      </serversecret>
 ```

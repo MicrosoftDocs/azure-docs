@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 12/12/2024
+ms.date: 01/10/2025
 ms.custom: generated
 ---
 
@@ -67,10 +67,11 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='disk-pool-operator'></a>[Disk Pool Operator](./built-in-roles/compute.md#disk-pool-operator) | Provide permission to StoragePool Resource Provider to manage disks added to a disk pool. | 60fc6e62-5479-42d4-8bf4-67625fcc2840 |
 > | <a name='disk-restore-operator'></a>[Disk Restore Operator](./built-in-roles/compute.md#disk-restore-operator) | Provides permission to backup vault to perform disk restore. | b50d9833-a0cb-478e-945f-707fcc997c13 |
 > | <a name='disk-snapshot-contributor'></a>[Disk Snapshot Contributor](./built-in-roles/compute.md#disk-snapshot-contributor) | Provides permission to backup vault to manage disk snapshots. | 7efff54f-a5b4-42b5-a1c5-5411624893ce |
+> | <a name='quantum-workspace-data-contributor'></a>[Quantum Workspace Data Contributor](./built-in-roles/compute.md#quantum-workspace-data-contributor) | Create, read, and modify jobs and other Workspace data. This role is in preview and subject to change. | c1410b24-3e69-4857-8f86-4d0a2e603250 |
 > | <a name='virtual-machine-administrator-login'></a>[Virtual Machine Administrator Login](./built-in-roles/compute.md#virtual-machine-administrator-login) | View Virtual Machines in the portal and login as administrator | 1c0163c0-47e6-4577-8991-ea5c82e286e4 |
 > | <a name='virtual-machine-contributor'></a>[Virtual Machine Contributor](./built-in-roles/compute.md#virtual-machine-contributor) | Create and manage virtual machines, manage disks, install and run software, reset password of the root user of the virtual machine using VM extensions, and manage local user accounts using VM extensions. This role does not grant you management access to the virtual network or storage account the virtual machines are connected to. This role does not allow you to assign roles in Azure RBAC. | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
 > | <a name='virtual-machine-data-access-administrator-preview'></a>[Virtual Machine Data Access Administrator (preview)](./built-in-roles/compute.md#virtual-machine-data-access-administrator-preview) | Manage access to Virtual Machines by adding or removing role assignments for the Virtual Machine Administrator Login and Virtual Machine User Login roles. Includes an ABAC condition to constrain role assignments. | 66f75aeb-eabe-4b70-9f1e-c350c4c9ad04 |
-> | <a name='virtual-machine-local-user-login'></a>[Virtual Machine Local User Login](./built-in-roles/compute.md#virtual-machine-local-user-login) | View Virtual Machines in the portal and login as a local user configured on the arc server | 602da2ba-a5c2-41da-b01d-5360126ab525 |
+> | <a name='virtual-machine-local-user-login'></a>[Virtual Machine Local User Login](./built-in-roles/compute.md#virtual-machine-local-user-login) | View Virtual Machines in the portal and login as a local user configured on the Arc server. | 602da2ba-a5c2-41da-b01d-5360126ab525 |
 > | <a name='virtual-machine-user-login'></a>[Virtual Machine User Login](./built-in-roles/compute.md#virtual-machine-user-login) | View Virtual Machines in the portal and login as a regular user. | fb879df8-f326-4884-b1cf-06f3ad86be52 |
 > | <a name='vm-restore-operator'></a>[VM Restore Operator](./built-in-roles/compute.md#vm-restore-operator) | Create and Delete resources during VM Restore. This role is in preview and subject to change. | dfce8971-25e3-42e3-ba33-6055438e3080 |
 > | <a name='windows-365-network-interface-contributor'></a>[Windows 365 Network Interface Contributor](./built-in-roles/compute.md#windows-365-network-interface-contributor) | This role is used by Windows 365 to provision required network resources and join Microsoft-hosted VMs to network interfaces. | 1f135831-5bbe-4924-9016-264044c00788 |
@@ -442,6 +443,9 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | Built-in role | Description | ID |
 > | --- | --- | --- |
+> | <a name='chaos-studio-experiment-contributor'></a>[Chaos Studio Experiment Contributor](./built-in-roles/devops.md#chaos-studio-experiment-contributor) | Can create, run, and see details for experiments, onboard targets, and manage capabilities. | 7c2e40b7-25eb-482a-82cb-78ba06cb46d5 |
+> | <a name='chaos-studio-operator'></a>[Chaos Studio Operator](./built-in-roles/devops.md#chaos-studio-operator) | Can run and see details for experiments but cannot create experiments or manage targets and capabilities. | 1a40e87e-6645-48e0-b27a-0b115d849a20 |
+> | <a name='chaos-studio-reader'></a>[Chaos Studio Reader](./built-in-roles/devops.md#chaos-studio-reader) | Can view targets, capabilities, experiments, and experiment details. | 29e2da8a-229c-4157-8ae8-cc72fc506b74 |
 > | <a name='deployment-environments-reader'></a>[Deployment Environments Reader](./built-in-roles/devops.md#deployment-environments-reader) | Provides read access to environment resources. | eb960402-bf75-4cc3-8d68-35b34f960f72 |
 > | <a name='deployment-environments-user'></a>[Deployment Environments User](./built-in-roles/devops.md#deployment-environments-user) | Provides access to manage environment resources. | 18e40d4e-8d2e-438d-97e1-9528336e149c |
 > | <a name='devcenter-dev-box-user'></a>[DevCenter Dev Box User](./built-in-roles/devops.md#devcenter-dev-box-user) | Provides access to create and manage dev boxes. | 45d50f46-0b78-4001-a660-4198cbe8cd05 |
@@ -492,7 +496,7 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='azure-center-for-sap-solutions-service-role'></a>[Azure Center for SAP solutions service role](./built-in-roles/management-and-governance.md#azure-center-for-sap-solutions-service-role) | Azure Center for SAP solutions service role - This role is intended to be used for providing the permissions to user assigned managed identity. Azure Center for SAP solutions will use this identity to deploy and manage SAP systems. | aabbc5dd-1af0-458b-a942-81af88f9c138 |
 > | <a name='azure-connected-machine-onboarding'></a>[Azure Connected Machine Onboarding](./built-in-roles/management-and-governance.md#azure-connected-machine-onboarding) | Can onboard Azure Connected Machines. | b64e21ea-ac4e-4cdf-9dc9-5b892992bee7 |
 > | <a name='azure-connected-machine-resource-administrator'></a>[Azure Connected Machine Resource Administrator](./built-in-roles/management-and-governance.md#azure-connected-machine-resource-administrator) | Can read, write, delete and re-onboard Azure Connected Machines. | cd570a14-e51a-42ad-bac8-bafd67325302 |
-> | <a name='azure-connected-machine-resource-manager'></a>[Azure Connected Machine Resource Manager](./built-in-roles/management-and-governance.md#azure-connected-machine-resource-manager) | Custom Role for AzureStackHCI RP to manage hybrid compute machines and hybrid connectivity endpoints in a resource group | f5819b54-e033-4d82-ac66-4fec3cbf3f4c |
+> | <a name='azure-connected-machine-resource-manager'></a>[Azure Connected Machine Resource Manager](./built-in-roles/management-and-governance.md#azure-connected-machine-resource-manager) | Custom role for Azure Local resource provider (Microsoft.AzureStackHCI Resource Provider) to manage hybrid compute machines and hybrid connectivity endpoints in a resource group | f5819b54-e033-4d82-ac66-4fec3cbf3f4c |
 > | <a name='azure-customer-lockbox-approver-for-subscription'></a>[Azure Customer Lockbox Approver for Subscription](./built-in-roles/management-and-governance.md#azure-customer-lockbox-approver-for-subscription) | Can approve Microsoft support requests to access specific resources contained within a subscription, or the subscription itself, when Customer Lockbox for Microsoft Azure is enabled on the tenant where the subscription resides. | 4dae6930-7baf-46f5-909e-0383bc931c46 |
 > | <a name='billing-reader'></a>[Billing Reader](./built-in-roles/management-and-governance.md#billing-reader) | Allows read access to billing data | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
 > | <a name='blueprint-contributor'></a>[Blueprint Contributor](./built-in-roles/management-and-governance.md#blueprint-contributor) | Can manage blueprint definitions, but not assign them. | 41077137-e803-4205-871c-5a86e6a753b4 |
@@ -529,13 +533,14 @@ The following table provides a brief description of each built-in role. Click th
 > | Built-in role | Description | ID |
 > | --- | --- | --- |
 > | <a name='azure-resource-bridge-deployment-role'></a>[Azure Resource Bridge Deployment Role](./built-in-roles/hybrid-multicloud.md#azure-resource-bridge-deployment-role) | Azure Resource Bridge Deployment Role | 7b1f81f9-4196-4058-8aae-762e593270df |
-> | <a name='azure-stack-hci-administrator'></a>[Azure Stack HCI Administrator](./built-in-roles/hybrid-multicloud.md#azure-stack-hci-administrator) | Grants full access to the cluster and its resources, including the ability to register Azure Stack HCI and assign others as Azure Arc HCI VM Contributor and/or Azure Arc HCI VM Reader | bda0d508-adf1-4af0-9c28-88919fc3ae06 |
+> | <a name='azure-stack-hci-administrator'></a>[Azure Stack HCI Administrator](./built-in-roles/hybrid-multicloud.md#azure-stack-hci-administrator) | Grants full access to the cluster and its resources, including the ability to register Azure Local and assign others as Azure Stack HCI VM Contributor and/or Azure Stack HCI VM Reader | bda0d508-adf1-4af0-9c28-88919fc3ae06 |
 > | <a name='azure-stack-hci-connected-infravms'></a>[Azure Stack HCI Connected InfraVMs](./built-in-roles/hybrid-multicloud.md#azure-stack-hci-connected-infravms) | Role of Arc Integration for Azure Stack HCI Infrastructure Virtual Machines. | c99c945f-8bd1-4fb1-a903-01460aae6068 |
 > | <a name='azure-stack-hci-device-management-role'></a>[Azure Stack HCI Device Management Role](./built-in-roles/hybrid-multicloud.md#azure-stack-hci-device-management-role) | Microsoft.AzureStackHCI Device Management Role | 865ae368-6a45-4bd1-8fbf-0d5151f56fc1 |
 > | <a name='azure-stack-hci-vm-contributor'></a>[Azure Stack HCI VM Contributor](./built-in-roles/hybrid-multicloud.md#azure-stack-hci-vm-contributor) | Grants permissions to perform all VM actions | 874d1c73-6003-4e60-a13a-cb31ea190a85 |
 > | <a name='azure-stack-hci-vm-reader'></a>[Azure Stack HCI VM Reader](./built-in-roles/hybrid-multicloud.md#azure-stack-hci-vm-reader) | Grants permissions to view VMs | 4b3fe76c-f777-4d24-a2d7-b027b0f7b273 |
 > | <a name='azure-stack-registration-owner'></a>[Azure Stack Registration Owner](./built-in-roles/hybrid-multicloud.md#azure-stack-registration-owner) | Lets you manage Azure Stack registrations. | 6f12a6df-dd06-4f3e-bcb1-ce8be600526a |
 > | <a name='hybrid-server-resource-administrator'></a>[Hybrid Server Resource Administrator](./built-in-roles/hybrid-multicloud.md#hybrid-server-resource-administrator) | Can read, write, delete, and re-onboard Hybrid servers to the Hybrid Resource Provider. | 48b40c6e-82e0-4eb3-90d5-19e40f49b624 |
+
 
 ## Next steps
 
