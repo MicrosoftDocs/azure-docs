@@ -12,6 +12,8 @@ items:
     href: storage-tasks/storage-task-quickstart-portal.md
   - name: ARM
     href: storage-tasks/storage-task-quickstart-arm.md
+  - name: Bicep
+    href: storage-tasks/storage-task-quickstart-bicep.md
   expanded: true
 - name: Concepts
   items: 
