@@ -41,6 +41,8 @@ You should deploy Azure services in a [virtual network](../virtual-network/virtu
 
 We often see customers' on-premises resources getting attacked along with their resources in Azure. If you're connecting an on-premises environment to Azure, we recommend that you minimize exposure of on-premises resources to the public internet. You can use the scale and advanced DDoS protection capabilities of Azure by deploying your well-known public entities in Azure. Because these publicly accessible entities are often a target for DDoS attacks, putting them in Azure reduces the impact on your on-premises resources.
 
+Consider using [JA3 fingerprints](https://github.com/salesforce/ja3) to block malicious traffic. The JA3 fingerprint is a 32-character hash generated from the TLS Client Hello in an incoming request, serving as a unique identifier for the client's TLS configuration. In the case of DDoS attacks, where traffic may originate from multiple IP addresses or when attackers attempt to bypass rate-based rules, requests from the same client or technical stack will typically have the same JA3 fingerprint. While slight variations in the TLS handshake can occasionally result in different fingerprints, leveraging JA3 provides a reliable way to identify and block malicious traffic based on the client's underlying configuration, adding an extra layer of protection against DDoS attacks.
+
 
 
 ## Next steps
