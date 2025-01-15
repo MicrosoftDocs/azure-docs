@@ -13,8 +13,11 @@ ms.date: 01/09/2025
 
 # Create a storage task by using Azure Resource Manager template (ARM template)
 
-This quickstart describes how to use an Azure Resource Manager template (ARM template) to create
-storage task.
+This quickstart describes how to create a storage task by using an Azure Resource Manager template (ARM template).
+
+> [!IMPORTANT]
+> Azure Storage Actions is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
@@ -64,8 +67,13 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 ## Review deployed resources
 
-Provide an example of at least one method to review deployed resources. Use a portal screenshot of
-the resources, Azure CLI commands, or Azure PowerShell commands.
+1. In the Azure portal, search for _Storage Tasks_. Then, under **Services**, select **Storage tasks - Azure Storage Actions**.
+
+2. In the list of storage tasks, search for the name of the storage task that you deployed.
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of the search result of the string storage tasks.](../media/storage-tasks/storage-quickstart-arm/deployed-storage-task-in-azure-portal.png)
+
 
 ## Clean up resources
 
