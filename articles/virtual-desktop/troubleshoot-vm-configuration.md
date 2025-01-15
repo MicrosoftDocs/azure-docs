@@ -7,10 +7,8 @@ ms.date: 05/11/2020
 ms.author: daknappe
 ms.custom: docs_inherited
 ---
-# Session host virtual machine configuration
 
->[!IMPORTANT]
->This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019.md).
+# Troubleshoot session host virtual machine configuration
 
 Use this article to troubleshoot issues you're having when configuring the Azure Virtual Desktop session host virtual machines (VMs).
 
@@ -69,6 +67,18 @@ Follow these instructions if you're having issues joining virtual machines (VMs)
 **Fix 3:** Take one of the following actions to resolve, following the steps in [Change DNS servers].
 - Change the network interface's DNS server settings to **Custom** with the steps from [Change DNS servers](../virtual-network/virtual-network-network-interface.md#change-dns-servers) and specify the private IP addresses of the DNS servers on the virtual network.
 - Change the network interface's DNS server settings to **Inherit from virtual network** with the steps from [Change DNS servers](../virtual-network/virtual-network-network-interface.md#change-dns-servers), then change the virtual network's DNS server settings with the steps from [Change DNS servers](../virtual-network/manage-virtual-network.yml#change-dns-servers).
+
+### Error: Computer account reuse is blocked in an Active Directory domain
+
+**Cause:** You attempt to reuse a computer account (hostname), have applied Windows updates released on and after October 11, 2022, and the user account provided for the domain doesn't have sufficient permissions to reuse computer accounts.
+
+**Fix:** Take one of the following actions to resolve:
+
+- Use the same user account that was used to create the existing computer account object.
+- Use a user account that is a member of the **Domain Administrators** security group
+- Use a user account that is has the Group Policy setting **Domain controller: Allow computer account re-use during domain join** applied. This setting requires the installation of Windows updates released on or after March 14, 2023, on all member computers and domain controllers in the Active Directory domain.
+
+For more information on the permissions changes for computer account reuse, see [KB5020276 - Netjoin: Domain join hardening changes](https://support.microsoft.com/en-us/topic/kb5020276-netjoin-domain-join-hardening-changes-2b65a0f3-1f4c-42ef-ac0f-1caaf421baf8).
 
 ## Azure Virtual Desktop Agent and Azure Virtual Desktop Boot Loader aren't installed
 

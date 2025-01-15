@@ -78,7 +78,7 @@ To learn how to set up service endpoints, see [Establish Azure Functions private
 
 ## Outbound networking features
 
-You can use the features in this section toto manage outbound connections made by your app.
+You can use the features in this section to manage outbound connections made by your app.
 
 ### Virtual network integration
 

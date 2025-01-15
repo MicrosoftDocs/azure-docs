@@ -130,7 +130,7 @@ To use the custom styling options for reference layers, follow these steps:
 
 | Setting name        | Description                                          | Setting values                                                       |
 |---------------------|------------------------------------------------------|----------------------------------------------------------------------|
-| Fill colors         | Fill color of points and polygons.                   | Set colors for different data category or gradient for numeric data. |
+| Fill color          | Fill color of points and polygons.                   | Set colors for different data category or gradient for numeric data. |
 | Border color        | The color of the points, lines, and polygons outline.| Color picker                                                         |
 | Border width        | The width of the border in pixels. Default: 3 px     | Width 1-20 pixels                                                    |
 | Border transparency | The transparency of the borders. Default: 0%         | Transparency 0-100%                                                  |

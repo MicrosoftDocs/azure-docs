@@ -60,12 +60,12 @@
         - name: Windows App
           displayName: what's new, apps, remote desktop, rdp
           href: /windows-app/whats-new?context=/azure/virtual-desktop/context/context
-- name: Tutorials
+- name: Quickstart
   expanded: true
   items:
     - name: Deploy a sample Windows 11 desktop
-      displayName: tutorial
-      href: tutorial-try-deploy-windows-11-desktop.md
+      displayName: deploy, create, get started, tutorial
+      href: quickstart.md
 - name: Plan
   items:
     - name: Internal and external commercial purposes
@@ -115,9 +115,6 @@
     - name: Deploy Azure Virtual Desktop
       displayName: deploy, create, get started, quickstart, host pool, application group, workspace, assign users, azure stack hci, azure local, azure extended zones
       href: deploy-azure-virtual-desktop.md
-    - name: Quickstart
-      displayName: deploy, create, get started, quickstart
-      href: quickstart.md
     - name: Identity and access management
       items:
         - name: Azure RBAC
@@ -136,17 +133,20 @@
             - name: Active Directory Federation Services
               items:
                 - name: Configure single sign-on using AD FS
-                  displayName: identity, sso
+                  displayName: identity, sso, adfs
                   href: configure-adfs-sso.md
-                - name: Use a KDC proxy
-                  displayName: identity, key distribution center
-                  href: key-distribution-center-proxy.md
         - name: Enforce Microsoft Entra multifactor authentication
           displayName: identity, multi-factor authentication, multifactor, multi factor, mfa, two-factor authentication, two factor, 2fa
           href: set-up-mfa.md
+        - name: Configure session lock behavior
+          displayName: identity, sso, lock screen
+          href: configure-session-lock-behavior.md
         - name: Delegated access
           displayName: identity
           href: delegated-access-virtual-desktop.md
+        - name: Use a KDC proxy
+          displayName: identity, key distribution center
+          href: key-distribution-center-proxy.md
     - name: Network connectivity
       items:
         - name: FQDNs and endpoints
@@ -349,7 +349,7 @@
           href: delete-host-pool.md
     - name: Session hosts
       items:
-        - name: Manage session hosts
+        - name: Management
           items:
             - name: Management overview
               displayName: virtual machines, vms, intune, gpo, group policy, configuration manager, configmgr, sccm
@@ -602,9 +602,6 @@
       - name: Host pool creation
         displayName: troubleshooting
         href: troubleshoot-set-up-issues.md
-      - name: Quickstart
-        displayName: troubleshooting
-        href: troubleshoot-quickstart.md
       - name: Session host update
         displayName: troubleshooting, vms
         href: troubleshoot-session-host-update.md
@@ -623,7 +620,7 @@
     - name: Azure Virtual Desktop Agent
       displayName: troubleshooting
       href: troubleshoot-agent.md
-    - name: Remote Desktop service connections
+    - name: Service connections
       displayName: troubleshooting, rdp
       href: troubleshoot-service-connection.md
     - name: Remote Desktop app
@@ -754,4 +751,4 @@
     - name: Azure compliance offerings
       href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
     - name: Azure Virtual Desktop (classic) documentation
-      href: ./virtual-desktop-fall-2019/index.yml
+      href: /previous-versions/azure/virtual-desktop-classic

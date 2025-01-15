@@ -338,9 +338,9 @@ Limitations apply to some replication change scenarios depending on:
 Make sure the region where your storage account is located supports all of the desired replication settings. For example, if you're converting your account to zone-redundant (ZRS, GZRS, or RA-GZRS), make sure your storage account is in a region that supports it. See the lists of supported regions for [Zone-redundant storage](storage-redundancy.md#zone-redundant-storage) and [Geo-zone-redundant storage](storage-redundancy.md#geo-zone-redundant-storage).
 
 > [!IMPORTANT]
-> [Customer-initiated conversion](#customer-initiated-conversion) from LRS to ZRS is available in all public regions that support ZRS except for the following:
+> [Customer-initiated conversion](#customer-initiated-conversion) is available in all public regions that support ZRS except for the following:
 >
-> - (Europe) Mexico Central
+> - (North America) Mexico Central
 >
 > [Customer-initiated conversion](#customer-initiated-conversion) from existing ZRS accounts to LRS is available in all public regions.
 

@@ -99,7 +99,7 @@ For example, separating your VMs ensures that Syslog events that belong to Team 
 
 > [!TIP]
 > - When using an on-premises VM or another cloud VM, such as AWS, as your log forwarder, ensure that it has a resource ID by implementing [Azure Arc](/azure/azure-arc/servers/overview).
-> - To scale your log forwarding VM environment, consider creating a [VM scale set](https://techcommunity.microsoft.com/t5/azure-sentinel/scaling-up-syslog-cef-collection/ba-p/1185854) to collect your CEF and Sylog logs.
+> - To scale your log forwarding VM environment, consider creating a [VM scale set](https://techcommunity.microsoft.com/t5/azure-sentinel/scaling-up-syslog-cef-collection/ba-p/1185854) to collect your CEF and Syslog logs.
 
 
 ### Resource IDs with Logstash collection
@@ -123,7 +123,7 @@ For example, the following code shows a sample Logstash configuration file:
        workspace_id => "4g5tad2b-a4u4-147v-a4r7-23148a5f2c21" # <your workspace id>
        workspace_key => "u/saRtY0JGHJ4Ce93g5WQ3Lk50ZnZ8ugfd74nk78RPLPP/KgfnjU5478Ndh64sNfdrsMni975HJP6lp==" # <your workspace key>
        custom_log_table_name => "tableName"
-       azure_resource_id => "/subscriptions/wvvu95a2-99u4-uanb-hlbg-2vatvgqtyk7b/resourceGroups/contosotest" # <your resource ID>   
+       azure_resource_id => "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/contosotest" # <your resource ID>   
      }
  }
 ```

@@ -4,7 +4,7 @@ description: Learn how to deploy Bastion using the Developer SKU.
 author: cherylmc
 ms.service: azure-bastion
 ms.topic: quickstart
-ms.date: 04/26/2024
+ms.date: 12/09/2024
 ms.author: cherylmc
 ms.custom: references_regions
 ---

@@ -171,7 +171,7 @@ Azure Event Hubs enables you to define resource access policies such as throttli
 For more information, see [Resource governance for client applications with application groups](resource-governance-overview.md). 
 
 ## Apache Kafka support
-[The protocol support for **Apache Kafka** clients](azure-event-hubs-kafka-overview.md)  (versions >=1.0) provides endpoints that enable existing Kafka applications to use Event Hubs. Most existing Kafka applications can be reconfigured to point to an s namespace instead of a Kafka cluster bootstrap server. 
+[The protocol support for **Apache Kafka** clients](azure-event-hubs-apache-kafka-overview.md)  (versions >=1.0) provides endpoints that enable existing Kafka applications to use Event Hubs. Most existing Kafka applications can be reconfigured to point to an s namespace instead of a Kafka cluster bootstrap server. 
 
 From the perspective of cost, operational effort, and reliability, Azure Event Hubs is a great alternative to deploying and operating your own Kafka and Zookeeper clusters and to Kafka-as-a-Service offerings not native to Azure. 
 

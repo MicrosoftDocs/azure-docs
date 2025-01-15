@@ -61,8 +61,6 @@
     items:
     - name: Overview
       href: traffic-analytics.md
-    - name: Supported regions
-      href: supported-region-traffic-analytics.md
     - name: Usage scenarios
       href: traffic-analytics-usage-scenarios.md
     - name: Schema and data aggregation

@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 09/04/2024
+ms.date: 12/06/2024
 ms.author: banders
 # customer intent: As a reservation purchaser, I want learn how to exchange or refund Azure reservations.
 ---
@@ -39,6 +39,8 @@ Not all reservations are eligible for exchange. For example, you can't exchange 
 - Synapse Analytics Pre-purchase plan
 - Red Hat plans
 - SUSE Linux plans
+- Microsoft Defender for Cloud Pre-Purchase Plan
+- Microsoft Sentinel Pre-Purchase Plan
 
 You can also refund reservations, but the sum total of all canceled reservation commitment in your billing scope (such as EA, Microsoft Customer Agreement, and Microsoft Partner Agreement) can't exceed USD 50,000 in a 12 month rolling window.
 
@@ -51,6 +53,8 @@ The following reservations aren't eligible for refunds:
 - Azure VMware solution by CloudSimple
 - Red Hat plans
 - SUSE Linux plans
+- Microsoft Defender for Cloud Pre-Purchase Plan
+- Microsoft Sentinel Pre-Purchase Plan
 
 ## Prerequisites
 

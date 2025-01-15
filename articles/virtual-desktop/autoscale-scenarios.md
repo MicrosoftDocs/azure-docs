@@ -15,7 +15,6 @@ ms.custom: references_regions, docs_inherited
 Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule to optimize deployment costs.
 
 > [!NOTE]
-> - Azure Virtual Desktop (classic) doesn't support autoscale. 
 > - You can't use autoscale and [scale session hosts using Azure Automation](set-up-scaling-script.md) on the same host pool. You must use one or the other.
 > - Power management autoscaling is available in Azure and Azure Government in the same regions you can [create host pools](create-host-pools-azure-marketplace.md) in.
 > - Dynamic autoscaling is only available in Azure and isn't supported in Azure Government.

@@ -3,12 +3,12 @@ title: Imports in Bicep
 description: This article describes how to import shared functionality and namespaces in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 10/23/2024
+ms.date: 12/06/2024
 ---
 
 # Imports in Bicep
 
-This article describes the syntax you use to export and import shared functionality and namespaces for Bicep extensions. Using compile-time imports automatically enables [language version 2.0](../templates/syntax.md#languageversion-20) code generation.
+This article describes the syntax you use to export and import shared functionality and namespaces. Using compile-time imports automatically enables [language version 2.0](../templates/syntax.md#languageversion-20) code generation.
 
 ## Export variables, types, and functions
 
@@ -80,10 +80,7 @@ output greeting string = sayHello('Bicep user')
 output exampleObject myImports.myObjectType = exampleObject
 ```
 
-## Import namespaces and extensions (preview)
-
-> [!NOTE]
-> The experimental feature `extensibility` must be enabled from the [Bicep config file](./bicep-config.md#enable-experimental-features) to use this feature.
+## Import namespaces
 
 The syntax for importing namespaces is:
 
@@ -94,25 +91,10 @@ import 'sys@1.0.0'
 
 Both `az` and `sys` are Bicep built-in namespaces. They're imported by default. For more information about the data types and the functions defined in `az` and `sys`, see [Data types](./data-types.md) and  [Bicep functions](./bicep-functions.md).
 
-The syntax for importing Bicep extensions is:
-
-```bicep
-import '<extension-name>@<extension-version>'
-```
-
-The syntax for importing Bicep extensions, which require configuration is:
-
-```bicep
-import '<extension-name>@<extension-version>' with {
-  <extension-properties>
-}
-```
-
-For an example, see [Bicep Kubernetes extension](./bicep-kubernetes-extension.md).
-
 ## Related content
 
-- To learn about Bicep data types, see [Data types](./data-types.md).
-- To learn about Bicep functions, see [Bicep functions](./bicep-functions.md).
-- To learn how to use the Bicep Kubernetes extension, see [Bicep Kubernetes extension](./bicep-kubernetes-extension.md).
-- To go through a Kubernetes extension tutorial, see [Quickstart: Deploy Azure applications to Azure Kubernetes Services by using the Bicep Kubernetes extension](/azure/aks/learn/quick-kubernetes-deploy-bicep-kubernetes-extension).
+- To learn about the Bicep data types, see [Data types](./data-types.md).
+- To learn about the Bicep functions, see [Bicep functions](./bicep-functions.md).
+- To learn about how to use the Kubernetes extension, see [Bicep Kubernetes extension](./bicep-kubernetes-extension.md).
+- To go through a Kubernetes extension tutorial, see [Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep Kubernetes extension.](/azure/aks/learn/quick-kubernetes-deploy-bicep-kubernetes-extension).
+- To learn about how to use the Microsoft Graph extension, see [Bicep templates for Microsoft Graph](https://aka.ms/graphbicep).

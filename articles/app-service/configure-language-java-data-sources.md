@@ -146,7 +146,7 @@ The following example XSL file adds a new connector node to the Tomcat server.xm
     </xsl:copy>
   </xsl:template>
 
-  <!-- Add the new connector after the last existing Connnector if there's one -->
+  <!-- Add the new connector after the last existing Connector if there's one -->
   <xsl:template match="Connector[last()]" mode="insertConnector">
     <xsl:call-template name="Copy" />
 
@@ -317,7 +317,7 @@ Add an XSL transform file called *configure.ps1* to the *%HOME%_\site* directory
       </xsl:copy>
     </xsl:template>
   
-    <!-- Add the new connector after the last existing Connnector if there's one -->
+    <!-- Add the new connector after the last existing Connector if there's one -->
     <xsl:template match="Connector[last()]" mode="insertConnector">
       <xsl:call-template name="Copy" />
   

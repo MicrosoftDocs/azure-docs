@@ -40,7 +40,7 @@ This procedure describes how to configure authentication parameters for Microsof
 1. Select the authentication methods to use:
 
     - While you can use a different set of methods from the [Azure defaults](notebook-get-started.md#specify-the-azure-cloud-and-azure-authentication-methods), this usage isn't a typical configuration.
-    - Unless you want to use the **env** (environment variable) authentication, leave the **clientId**, **tenantiId**, and **clientSecret** fields empty.
+    - Unless you want to use the **env** (environment variable) authentication, leave the **clientId**, **tenantId**, and **clientSecret** fields empty.
     - While not recommended, MSTICPy also supports using client app IDs and secrets for your authentication. In such cases, define your **clientId**, **tenantId**, and **clientSecret** fields directly in the **Data Providers** tab.
 
 1. Select **Save File** to save your changes.

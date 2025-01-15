@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Connect to a managed Gateway for Spring in Azure Container Apps (preview)"
+title: "Connect to a managed Gateway for Spring in Azure Container Apps (preview)"
 description: Learn how to connect a Gateway for Spring to your container app.
 services: container-apps
 author: wenhaozhang
@@ -10,7 +10,7 @@ ms.date: 11/19/2024
 ms.author: wenhaozhang
 ---
 
-# Tutorial: Connect to a managed Gateway for Spring in Azure Container Apps (preview)
+# Connect to a managed Gateway for Spring in Azure Container Apps (preview)
 
 Gateway for Spring offers an efficient and powerful way to route, manage and handle API requests as part of a microservices architecture. It serves as an API Gateway that routes external requests to different services, adding various capabilities such as filtering, load balancing, and more. In this article, you learn how to create a gateway that directs requests to your container apps.
 
@@ -88,7 +88,7 @@ Execute the following commands to create your resource group and Container Apps 
 
 ## Use the Gateway for Spring Java component
 
-Now that you have a Container Apps environment, you can create your container app use a gateway for spring java compoments to route request to them.
+Now that you have a Container Apps environment, you can create your container app use a gateway for spring java components to route request to them.
 
 1. Create the Gateway for Spring Java component.
 

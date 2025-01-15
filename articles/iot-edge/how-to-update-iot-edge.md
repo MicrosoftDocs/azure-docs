@@ -3,7 +3,7 @@ title: Update IoT Edge version on devices
 description: How to update IoT Edge devices to run the latest versions of the security subsystem and the IoT Edge runtime
 author: PatAltimore
 ms.author: patricka
-ms.date: 06/10/2024
+ms.date: 01/08/2025
 ms.topic: how-to
 ms.service: azure-iot-edge
 services: iot-edge
@@ -14,7 +14,7 @@ services: iot-edge
 **Applies to:** ![IoT Edge 1.5 checkmark](./includes/media/iot-edge-version/yes-icon.png) IoT Edge 1.5 ![IoT Edge 1.4 checkmark](./includes/media/iot-edge-version/yes-icon.png) IoT Edge 1.4
 
 > [!IMPORTANT]
-> IoT Edge 1.5 LTS and IoT Edge 1.4 LTS are [supported releases](support.md#releases). IoT Edge 1.4 LTS is end of life on November 12, 2024.
+> IoT Edge 1.5 LTS is the [supported release](support.md#releases). IoT Edge 1.4 LTS is end of life as of November 12, 2024.
 
 As the IoT Edge service releases new versions, update your IoT Edge devices for the latest features and security improvements. This article provides information about how to update your IoT Edge devices when a new version is available.
 
@@ -87,12 +87,11 @@ apt list -a aziot-edge
 Update IoT Edge:
 
 ```bash
-sudo apt-get install aziot-edge defender-iot-micro-agent-edge
+sudo apt-get install aziot-edge
 ```
 
 Running `apt-get install aziot-edge` upgrades the security subsystem and installs the [identity service](https://azure.github.io/iot-identity-service/), `aziot-identity-service`, as a required dependency.
 
-It's recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](../defender-for-iot/device-builders/overview.md).
 
 <!--Repeated Linux content for RHEL-->
 # [Red Hat Enterprise Linux](#tab/rhel)

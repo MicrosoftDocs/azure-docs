@@ -66,7 +66,7 @@ Depending on the type of virtual switch used, EFLOW VM supports different IP all
     ```
 
     >[!WARNING]
-    > When using static IP, the **three parameters** (`ip4Address`, `ip4GatewayAddres`, `ip4PrefixLength`) must be used. Also, if the IP address is invalid, being used by another device on thee netowrk, or the gateway address is incorrect, EFLOW installation could fail as the EFLOW VM can't get an IP address.
+    > When using static IP, the **three parameters** (`ip4Address`, `ip4GatewayAddress`, `ip4PrefixLength`) must be used. Also, if the IP address is invalid, being used by another device on thee network, or the gateway address is incorrect, EFLOW installation could fail as the EFLOW VM can't get an IP address.
 
 - **DHCP** -  Contrary to static IP, when using DHCP, the EFLOW virtual machine is assigned with a dynamic IP address; which is an address that may change. The network must have a DHCP server configured and operating to assign dynamic IP addresses. The DHCP server assigns a vacant IP address to the EFLOW VM and others connected to the network. Therefore, when deploying EFLOW using DHCP, no IP address, gateway address, or prefix length is needed, as the DHCP server provides all the information. 
     

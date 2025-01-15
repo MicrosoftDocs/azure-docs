@@ -39,10 +39,6 @@ az apic api create  --resource-group myResourceGroup \
     --title "Petstore API" --type "rest"
 ```
 
-> [!NOTE]
-> After creating an API, you can update the API's properties by using the [az apic api update](/cli/azure/apic/api#az_apic_api_update) command.
-
-
 ### Create an API version
 
 Use the [az apic api version create](/cli/azure/apic/api/version#az_apic_api_version_create) command to create a version for your API. 
@@ -117,7 +113,25 @@ az apic api register --resource-group myResourceGroup \
 * By default, the command sets the API's **Lifecycle stage** to *design*.
 * It creates an API version named according to the `version` property in the API definition (or *1-0-0* by default), and an API definition named according to the specification format (for example, *openapi*).
 
+## Update API properties
+
 After registering an API, you can update the API's properties by using the [az apic api update](/cli/azure/apic/api#az_apic_api_update), [az apic api version update](/cli/azure/apic/api/version#az_apic_api_version_update), and [az apic api definition update](/cli/azure/apic/api/definition#az_apic_api_definition_update) commands.
+
+The following example updates the title of the *petstore-api* API to *Petstore API v2*.
+
+```azurecli-interactive
+az apic api update --resource-group myResourceGroup \
+    --service-name myAPICenter --api-id petstore-api \
+    --title "Petstore API v2"
+```
+
+The following example sets the API's Boolean *internal* custom property to *false*.
+
+```azurecli-interactive
+az apic api update --resource-group myResourceGroup \
+    --service-name myAPICenter --api-id petstore-api \
+    --set custom_properties.internal=false
+```
 
 ## Delete API resources
 

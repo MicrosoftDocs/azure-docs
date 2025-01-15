@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Connect to a managed Eureka Server for Spring in Azure Container Apps"
+title: "Connect to a managed Eureka Server for Spring in Azure Container Apps"
 description: Learn how to use a managed Eureka Server for Spring in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
@@ -10,7 +10,7 @@ ms.date: 11/19/2024
 ms.author: cshoe
 ---
 
-# Tutorial: Connect to a managed Eureka Server for Spring in Azure Container Apps
+# Connect to a managed Eureka Server for Spring in Azure Container Apps
 
 Eureka Server for Spring is a service registry that allows microservices to register themselves and discover other services. Eureka Server for Spring is available as an Azure Container Apps component. You can bind your container app to Eureka Server for Spring for automatic registration with the Eureka server.
 
@@ -35,7 +35,7 @@ When you run Eureka Server for Spring in Container Apps, be aware of the followi
 | Item      | Explanation                                                                                                                                                                                                                                                                                                                      |
 |-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Scope     | The Eureka Server for Spring component runs in the same environment as the connected container app.                                                                                                                                                                                                                              |
-| Scaling   | The Eureka Server for Spring conponent can't scale. The scaling properties `minReplicas` and `maxReplicas` are both set to `1`. To achieve high availability, see [Create a highly available Eureka Service in Container Apps](java-eureka-server-highly-available.md).                                                          |
+| Scaling   | The Eureka Server for Spring component can't scale. The scaling properties `minReplicas` and `maxReplicas` are both set to `1`. To achieve high availability, see [Create a highly available Eureka Service in Container Apps](java-eureka-server-highly-available.md).                                                          |
 | Resources | The container resource allocation for Eureka Server for Spring is fixed. The number of the CPU cores is 0.5, and the memory size is 1 Gi.                                                                                                                                                                                        |
 | Pricing   | The Eureka Server for Spring billing falls under consumption-based pricing. Resources consumed by managed Java components are billed at the active/idle rates. You can delete components that are no longer in use to stop billing.                                                                                              |
 | Binding   | Container apps connect to a Eureka Server for Spring component via a binding. The bindings inject configurations into container app environment variables. After a binding is established, the container app can read the configuration values from environment variables and connect to the Eureka Server for Spring component. |
@@ -283,6 +283,9 @@ az containerapp update \
 > [!IMPORTANT]
 > To view the dashboard, you need to have at least the `Microsoft.App/managedEnvironments/write` role assigned to your account on the managed environment resource. You can explicitly assign the `Owner` or `Contributor` role on the resource. You can also follow the steps to create a custom role definition and assign it to your account.
 
+> [!NOTE]
+> The dashboard isn't available in Azure China 21Vianet.
+
 1. Create a custom role definition.
 
    ```azurecli
@@ -472,7 +475,8 @@ Now you have a caller and callee application that communicate with each other us
 
 ## Limitations
 
-The Eureka Server Java component comes with a default configuration, `eureka.server.enable-self-preservation`, set to `false`. This default configuration helps avoid times when instances aren't deleted after self-preservation is enabled. If instances are deleted too early, some requests might be directed to nonexistent instances. If you want to change this setting to `true`, you can overwrite it by setting your own configurations in the Java component.
+- The Eureka Server Java component comes with a default configuration, `eureka.server.enable-self-preservation`, set to `false`. This default configuration helps avoid times when instances aren't deleted after self-preservation is enabled. If instances are deleted too early, some requests might be directed to nonexistent instances. If you want to change this setting to `true`, you can overwrite it by setting your own configurations in the Java component.
+- The Eureka dashboard isn't available in Azure China 21Vianet.
 
 ## Next steps
 
