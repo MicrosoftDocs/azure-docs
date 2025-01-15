@@ -3,7 +3,7 @@ title: Configure active geo-replication for Enterprise Azure Cache for Redis ins
 description: Learn how to replicate your Azure Cache for Redis Enterprise instances across Azure regions.
 ms.custom: devx-track-azurecli, ignite-2024
 ms.topic: conceptual
-ms.date: 01/10/2025
+ms.date: 01/15/2025
 ---
 
 # Configure active geo-replication for Enterprise Azure Cache for Redis instances
