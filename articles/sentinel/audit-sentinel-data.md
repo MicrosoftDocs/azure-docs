@@ -177,7 +177,7 @@ LAQueryLogs
 |summarize arg_max(StatsCPUTimeMs, *) by AADClientId
 | extend User = AADEmail, QueryRunTime = StatsCPUTimeMs
 | project User, QueryRunTime, QueryText
-| order by QueryRunTime desc
+| sort by QueryRunTime desc
 ```
 
 ### Show users who ran the most queries in the past week
@@ -232,6 +232,22 @@ Use Microsoft Sentinel's own features to monitor events and actions that occur w
   For more information, see [Automate incident handling in Microsoft Sentinel with automation rules](automate-incident-handling-with-automation-rules.md).
 
 - **Monitor data connector health** using the [Connector Health Push Notification Solution](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Send-ConnectorHealthStatus) playbook to watch for stalled or stopped ingestion, and send notifications when a connector has stopped collecting data or machines have stopped reporting.
+
+See more information on the following items used in the preceding examples, in the Kusto documentation:
+- [***let*** statement](/kusto/query/let-statement?view=microsoft-sentinel&preserve-view=true)
+- [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+- [***project*** operator](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true)
+- [***count*** operator](/kusto/query/count-operator?view=microsoft-sentinel&preserve-view=true)
+- [***sort*** operator](/kusto/query/sort-operator?view=microsoft-sentinel&preserve-view=true)
+- [***extend*** operator](/kusto/query/extend-operator?view=microsoft-sentinel&preserve-view=true)
+- [***join*** operator](/kusto/query/join-operator?view=microsoft-sentinel&preserve-view=true)
+- [***summarize*** operator](/kusto/query/summarize-operator?view=microsoft-sentinel&preserve-view=true)
+- [***ago()*** function](/kusto/query/ago-function?view=microsoft-sentinel&preserve-view=true)
+- [***ingestion_time()*** function](/kusto/query/ingestion-time-function?view=microsoft-sentinel&preserve-view=true)
+- [***count()*** aggregation function](/kusto/query/count-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+- [***arg_max()*** aggregation function](/kusto/query/arg-max-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+
+[!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
 
 ## Next step
 

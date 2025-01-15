@@ -268,6 +268,10 @@ If there are multiple appliances set up, it's required there's no overlap among 
 
 Agentless replication results in some performance impact on VMware vCenter Server and VMware ESXi hosts. Because agentless replication uses snapshots, it consumes IOPS on storage, so some IOPS storage bandwidth is required. We don't recommend using agentless replication if you've constraints on storage or IOPs in your environment.
 
+### Can powered off VMs be replicated?
+
+Replication of VMware VMs while they are powered off is supported (only in Agentless approach). However, it's crucial to understand that we cannot guarantee the VM will boot successfully, as we cannot verify its operational state prior to replication. Therefore, performing a Test Migration is highly recommended to ensure everything proceeds smoothly during the actual migration. This method can be particularly advantageous in scenarios where the initial replication process is lengthy or for high-churn VMs, such as database servers or other disk-intensive workloads.
+
 ### Can I use Azure Migrate to migrate my web apps to Azure App Service?
 
 You can perform at-scale agentless migration of ASP.NET web apps running on IIS web servers hosted on a Windows OS in a VMware environment. [Learn more.](./tutorial-modernize-asp-net-appservice-code.md)
