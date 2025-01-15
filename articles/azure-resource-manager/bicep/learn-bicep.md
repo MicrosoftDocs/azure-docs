@@ -2,7 +2,7 @@
 title: Learn modules for Bicep
 description: Get started with an overview of Microsoft Learn modules for Bicep.
 ms.topic: conceptual
-ms.date: 01/10/2025
+ms.date: 01/15/2025
 ms.custom: devx-track-bicep
 ---
 
@@ -65,6 +65,16 @@ After that, you might be interested in adding your Bicep code to a deployment pi
 Learn how to use deployment stacks to manage resource lifecycles:
 
 :::row:::
+:::column:::
+  [<img src="media/learn-bicep/introduction-to-deployment-stacks.svg" width="101" height="120" alt="The trophy for the Introduction to deployment stacks." role="presentation"></img>](/training/modules/introduction-to-deployment-stacks/)
+    
+  [Introduction to deployment stacks](/training/modules/introduction-to-deployment-stacks)
+:::column-end:::
+:::column:::
+  [<img src="media/learn-bicep/build-first-deployment-stack.svg" width="101" height="120" alt="The trophy for the Build first deployment stack." role="presentation"></img>](/training/modules/build-first-deployment-stack/)
+    
+  [Build your first deployment stack](/training/modules/build-first-deployment-stack)
+:::column-end:::
 :::column:::
   [<img src="media/learn-bicep/manage-resource-lifecycles-deployment-stacks.svg" width="101" height="120" alt="The trophy for the Manage resource lifecycles with deployment stacks." role="presentation"></img>](/training/modules/manage-resource-lifecycles-deployment-stacks/)
     
