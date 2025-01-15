@@ -11,9 +11,9 @@ ms.author: cherylmc
 
 # Create or modify a custom audience app ID for User VPN Microsoft Entra ID authentication
 
-The steps in this article help you create a Microsoft Entra ID custom App ID (custom audience) for the new Microsoft-registered Azure VPN Client for point-to-site (P2S) connections. You can also update your existing tenant to [change the new Microsoft-registered Azure VPN Client app](#change) from the previous Azure VPN Client app.
+The steps in this article help you create a Microsoft Entra ID custom App ID (custom audience) for the new Microsoft-registered Azure VPN Client for User VPN point-to-site (P2S) connections. You can also update your existing tenant to [change the new Microsoft-registered Azure VPN Client app](#change) from the previous Azure VPN Client app.
 
-When you configure a custom audience app ID, you can use any of the supported values associated with the Azure VPN Client app. We recommend that you associate the Microsoft-registered App ID Azure Public audience value `c632b3df-fb67-4d84-bdcf-b95ad541b5c8` to your custom app when possible. For the full list of supported values, see [P2S VPN - Microsoft Entra ID](point-to-site-about.md#entra-id).
+When you configure a custom audience app ID, you can use any of the supported values associated with the Azure VPN Client app. We recommend that you associate the Microsoft-registered App ID Azure Public audience value `c632b3df-fb67-4d84-bdcf-b95ad541b5c8` to your custom app when possible. For the full list of supported values, see the [Azure VPN Client Audience values table](point-to-site-entra-gateway.md).
 
 This article provides high-level steps. The screenshots to register an application might be slightly different, depending on the way you access the user interface, but the settings are the same. For more information, see [Quickstart: Register an application](/entra/identity-platform/quickstart-register-app).
 
@@ -39,7 +39,7 @@ This article provides high-level steps. The screenshots to register an applicati
 
 [!INCLUDE [Configure custom audience](../../includes/vpn-gateway-custom-audience.md)]
 
-## Configure the VPN gateway
+## Configure the gateway
 
 After you've completed the steps in the previous sections, continue to [Configure Virtual WAN User VPN for Microsoft Entra ID authentication - Microsoft-registered app](point-to-site-entra-gateway.md).
 
@@ -53,4 +53,3 @@ After you've completed the steps in the previous sections, continue to [Configur
 ## Next steps
 
 [Configure Virtual WAN P2S User VPN for Microsoft Entra ID authentication - Microsoft-registered app](point-to-site-entra-gateway.md).
-
