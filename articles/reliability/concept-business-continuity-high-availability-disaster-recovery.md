@@ -273,14 +273,14 @@ The following sections list some common elements of a disaster recovery plan, an
 
 #### Failover and failback
 
-Some disaster recovery plans involve provisioning a secondary deployment in another location. If a disaster affects the primary deployment of the solution, traffic can be *failed over* to the other site. Failover needs careful planning and implementation. Azure provides a variety of services to assist with failover, such as the following:
+Some disaster recovery plans involve provisioning a secondary deployment in another location. If a disaster affects the primary deployment of the solution, traffic can then be *failed over* to the other site. Failover requires careful planning and implementation. Azure provides a variety of services to assist with failover, such as:
 
-- Azure Site Recovery provides automated failover for on-premises environments, and for virtual machine-hosted solutions in Azure in the event of a region failure.
-- Azure Front Door and Azure Traffic Manager each enable automated failover of incoming traffic between different deployments of your solution, such as in different regions.
+- [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) provides automated failover for on-premises environments and virtual machine-hosted solutions in Azure.
+- [Azure Front Door](/azure/frontdoor/front-door-overview) and [Azure Traffic Manager](/azure/reliability/reliability-traffic-manager) support automated failover of incoming traffic between different deployments of your solution, such as in different regions.
 
-It usually takes some time for a failover process to detect the primary instance has failed and to switch to the secondary instance. Ensure that the RTO of the workload is aligned with the failover time.
+It usually takes some time for a failover process to detect that the primary instance has failed and to switch to the secondary instance. Make sure that the RTO of the workload is aligned with the failover time.
 
-It's also important to consider *failback*, which is the process by which you restore operations in the primary region after it's recovered. Failback can be complex to plan and implement. For example, you might have data in the primary region that was written after you failed over to the secondary region, and you need to decide what to do with that data.
+It's also important to consider *failback*, which is the process by which you restore operations in the primary region after it's recovered. Failback can be complex to plan and implement. For example, data in the primary region may have been written *after* failover begins. You'll need to make careful business decisions on how you handle that data.
 
 #### Backups
 
@@ -288,9 +288,9 @@ Backups involve taking a copy of your data and storing it safely for a defined p
 
 Many Azure data and storage services support backups, such as the following:
 
-- Azure Backup provides automated backups for virtual machine disks, storage accounts, AKS, and a variety of other sources.
-- Many Azure database services, including Azure SQL Database and Azure Cosmos DB, have an automated backup capability for your databases.
-- Azure Key Vault provides features to back up your secrets, certificates, and keys.
+- [Azure Backup](/azure/reliability/reliability-backup) provides automated backups for virtual machine disks, storage accounts, AKS, and a variety of other sources.
+- Many Azure database services, including [Azure SQL Database](/azure/azure-sql/database/high-availability-sla-local-zone-redundancy)  and [Azure Cosmos DB](/azure/reliability/reliability-cosmos-db-nosql) , have an automated backup capability for your databases.
+- [Azure Key Vault](/azure/key-vault/general/disaster-recovery-guidance) provides features to back up your secrets, certificates, and keys.
 
 Because backups are typically taken infrequently, restoring a backup can result in some data loss. Ensure that the RPO of the workload is aligned with the backup interval. Also, restoring a backup often takes time. It's important to test your backups and restoration processes so you verify their integrity and understand how long the restoration process takes.
 
