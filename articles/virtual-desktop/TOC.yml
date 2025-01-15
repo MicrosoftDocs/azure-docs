@@ -595,43 +595,93 @@
       href: azure-advisor-recommendations.md
 - name: Troubleshoot
   items:
-  - name: Host pools and session hosts
-    items:
-    - name: Session host statuses and health checks
+    - name: Troubleshooting overview, feedback, and support
+      href: troubleshoot-set-up-overview.md
+    - name: Host pools and session hosts
+      items:
+      - name: Host pool creation
+        displayName: troubleshooting
+        href: troubleshoot-set-up-issues.md
+      - name: Session host update
+        displayName: troubleshooting, vms
+        href: troubleshoot-session-host-update.md
+      - name: Session host virtual machine configuration
+        displayName: troubleshooting, vms
+        href: troubleshoot-vm-configuration.md
+      - name: Session host statuses and health checks
+        displayName: troubleshooting
+        href: troubleshoot-statuses-checks.md
+    - name: Management issues
       displayName: troubleshooting
-      href: troubleshoot-statuses-checks.md
-  - name: Remote Desktop app
-    items:
-    - name: Windows Desktop client basic troubleshooting
-      displayName: troubleshooting, apps, clients, remote desktop, rdp
-      href: troubleshoot-client-windows-basic-shared.md
-    - name: Windows Desktop client
-      displayName: troubleshooting, apps, clients, remote desktop, rdp
-      href: troubleshoot-client-windows.md
-    - name: Azure Virtual Desktop Store app
-      displayName: troubleshooting, apps, clients, remote desktop, rdp
-      href: troubleshoot-client-windows-azure-virtual-desktop-app.md
-    - name: Web client
-      displayName: troubleshooting, apps, clients, remote desktop, rdp
-      href: troubleshoot-client-web.md
-    - name: macOS client
-      displayName: troubleshooting, apps, clients, remote desktop, rdp
-      href: troubleshoot-client-macos.md
-    - name: iOS/iPadOS client
-      displayName: troubleshooting, apps, clients, remote desktop, rdp
-      href: troubleshoot-client-ios-ipados.md
-    - name: Android/Chrome OS client
-      displayName: troubleshooting, apps, clients, remote desktop, rdp
-      href: troubleshoot-client-android-chrome-os.md
-    - name: Remote Desktop app for Windows
-      displayName: troubleshooting, apps, clients, remote desktop, rdp
-      href: troubleshoot-client-microsoft-store.md
-  - name: Diagnosing graphics performance issues
-    displayName: troubleshooting
-    href: remotefx-graphics-performance-counters.md
-  - name: Microsoft Teams
-    displayName: troubleshooting
-    href: troubleshoot-teams.md
+      href: troubleshoot-management-issues.md
+    - name: Azure Virtual Desktop PowerShell
+      displayName: troubleshooting, command line
+      href: troubleshoot-powershell.md
+    - name: Azure Virtual Desktop Agent
+      displayName: troubleshooting
+      href: troubleshoot-agent.md
+    - name: Service connections
+      displayName: troubleshooting, rdp
+      href: troubleshoot-service-connection.md
+    - name: Remote Desktop app
+      items:
+        - name: Windows Desktop client basic troubleshooting
+          displayName: troubleshooting, apps, clients, remote desktop, rdp
+          href: troubleshoot-client-windows-basic-shared.md
+        - name: Windows Desktop client
+          displayName: troubleshooting, apps, clients, remote desktop, rdp
+          href: troubleshoot-client-windows.md
+        - name: Azure Virtual Desktop Store app
+          displayName: troubleshooting, apps, clients, remote desktop, rdp
+          href: troubleshoot-client-windows-azure-virtual-desktop-app.md
+        - name: Web client
+          displayName: troubleshooting, apps, clients, remote desktop, rdp
+          href: troubleshoot-client-web.md
+        - name: macOS client
+          displayName: troubleshooting, apps, clients, remote desktop, rdp
+          href: troubleshoot-client-macos.md
+        - name: iOS/iPadOS client
+          displayName: troubleshooting, apps, clients, remote desktop, rdp
+          href: troubleshoot-client-ios-ipados.md
+        - name: Android/Chrome OS client
+          displayName: troubleshooting, apps, clients, remote desktop, rdp
+          href: troubleshoot-client-android-chrome-os.md
+        - name: Remote Desktop app for Windows
+          displayName: troubleshooting, apps, clients, remote desktop, rdp
+          href: troubleshoot-client-microsoft-store.md
+    - name: Diagnosing graphics performance issues
+      displayName: troubleshooting
+      href: remotefx-graphics-performance-counters.md
+    - name: Connections to Microsoft Entra joined VMs
+      displayName: troubleshooting, identity
+      href: troubleshoot-azure-ad-connections.md
+    - name: Device redirections
+      displayName: troubleshooting, rdp apps, clients
+      href: troubleshoot-device-redirections.md
+    - name: Azure Virtual Desktop Insights
+      displayName: troubleshooting, avd insights, avdi
+      href: troubleshoot-insights.md
+    - name: Azure Files authorization
+      displayName: troubleshooting
+      href: troubleshoot-authorization.md
+    - name: Connection quality issues
+      displayName: troubleshooting, network, monitoring
+      href: troubleshoot-connection-quality.md
+    - name: RDP Shortpath
+      displayName: troubleshooting, network, udp
+      href: troubleshoot-rdp-shortpath.md
+    - name: Multimedia redirection
+      displayName: troubleshooting, mmr
+      href: troubleshoot-multimedia-redirection.md
+    - name: Microsoft Teams
+      displayName: troubleshooting
+      href: troubleshoot-teams.md
+    - name: Custom image templates
+      displayName: troubleshooting, virtual machines, vms, images, vhd, vhdx
+      href: troubleshoot-custom-image-templates.md
+    - name: App attach
+      displayName: troubleshooting, apps, remoteapp
+      href: troubleshoot-app-attach.md
 - name: Reference
   items:
     - name: Azure CLI
