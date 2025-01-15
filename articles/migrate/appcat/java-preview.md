@@ -150,7 +150,6 @@ On Windows, this is `%USERPROFILE%/.appcat` and on Linux/Mac, this is `$HOME/.ap
 Add the `.appcat` folder to your PATH environment variable so you can run the tool from any folder in the terminal.
 
 # [Linux / macOS](#tab/linux)
-
 ```bash
 mv /path/to/extracted/azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview/ $HOME/.appcat
 ```
@@ -243,7 +242,6 @@ AppCAT is designed to analyze a single application per command execution, but if
 To analyze multiple applications, run the following command:
 
 # [Linux / macOS](#tab/linux)
-
 ```bash
 ./appcat analyze --bulk --input=<path/to/source/A> --output=<path/to/output/ABC> --target=<targetname>
 ./appcat analyze --bulk --input=<path/to/source/B> --output=<path/to/output/ABC> --target=<targetname>
@@ -291,7 +289,7 @@ In the **samples** directory, you will find several scripts to run different typ
 Depending on your operating system, run the appropriate script. For example,
 
 # [Linux / macOS](#tab/linux)
-```sh
+```bash
 ./samples/run-assessment
 ```
 
@@ -303,12 +301,12 @@ Depending on your operating system, run the appropriate script. For example,
 The reports will be automatically generated and launched. You can find the reports under:
 
 # [Linux / macOS](#tab/linux)
-```
+```bash
 ../samples/report-*
 ```
 
 # [Windows](#tab/windows)
-```
+```cmd
 ..\samples\report-*
 ```
 
