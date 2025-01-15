@@ -11,9 +11,9 @@ ms.custom: include file
 ms.author: shamkh
 ---
 
-## Setting up
+## Set up environment
 
-To set up an environment for sending messages, take the steps in the following sections.
+To set up an environment for sending messages, complete the steps in the following sections.
 
 [!INCLUDE [Setting up for JavaScript Application](../javascript-application-setup.md)]
 

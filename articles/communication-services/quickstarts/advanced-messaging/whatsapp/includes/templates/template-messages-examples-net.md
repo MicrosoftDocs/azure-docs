@@ -17,17 +17,21 @@ This sample template uses a video in the header and two text parameters in the b
 
 :::image type="content" source="../../media/template-messages/sample-happy-hour-announcement-details-azure-portal.png" lightbox="../../media/template-messages/sample-happy-hour-announcement-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_happy_hour_announcement.":::
 
-Here, the header of the template requires a video:
+The header of the template requires a video:
+
 ```
 {
   "type": "HEADER",
   "format": "VIDEO"
 },
 ```
-The video should be a URL to hosted mp4 video.
-For more information on supported media types and size limits, see [WhatsApp's documentation for message media](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types). 
 
-And the body of the template requires two text parameters:
+The video must be a URL to hosted mp4 video.
+
+For more information about supported media types and size limits, see [WhatsApp's documentation for message media](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types). 
+
+The body of the template requires two text parameters:
+
 ```
 {
   "type": "BODY",
@@ -35,7 +39,8 @@ And the body of the template requires two text parameters:
 },
 ```
 
-Create one `MessageTemplateVideo` and two `MessageTemplateText` variables. Then, assemble your list of `MessageTemplateValue` and your `MessageTemplateWhatsAppBindings` by providing the parameters in the order that the parameters appear in the template content.
+Create one `MessageTemplateVideo` and two `MessageTemplateText` variables. Then assemble your list of `MessageTemplateValue` and your `MessageTemplateWhatsAppBindings` by providing the parameters in the order that the parameters appear in the template content.
+
 ```csharp
 string templateName = "sample_happy_hour_announcement";
 string templateLanguage = "en_us";
@@ -54,7 +59,7 @@ happyHourAnnouncementTemplate.Values.Add(venue);
 happyHourAnnouncementTemplate.Values.Add(time);
 happyHourAnnouncementTemplate.Values.Add(video);
 happyHourAnnouncementTemplate.Bindings = bindings;
-``````
+```
 
 ### Use sample template sample_flight_confirmation
 
@@ -62,17 +67,21 @@ This sample template uses a document in the header and three text parameters in 
 
 :::image type="content" source="../../media/template-messages/sample-flight-confirmation-details-azure-portal.png" lightbox="../../media/template-messages/sample-flight-confirmation-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_flight_confirmation.":::
 
-Here, the header of the template requires a document:
+The header of the template requires a document:
+
 ```
 {
   "type": "HEADER",
   "format": "DOCUMENT"
 },
 ```
-The document should be a URL to hosted pdf document.
-For more information on supported media types and size limits, see [WhatsApp's documentation for message media](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types). 
 
-And the body of the template requires three text parameters:
+The document must be a URL to hosted PDF document.
+
+For more information about supported media types and size limits, see [WhatsApp's documentation for message media](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types). 
+
+The body of the template requires three text parameters:
+
 ```
 {
   "type": "BODY",
@@ -80,7 +89,8 @@ And the body of the template requires three text parameters:
 },
 ```
 
-Create one `MessageTemplateDocument` and three `MessageTemplateText` variables. Then, assemble your list of `MessageTemplateValue` and your `MessageTemplateWhatsAppBindings` by providing the parameters in the order that the parameters appear in the template content.
+Create one `MessageTemplateDocument` and three `MessageTemplateText` variables. Then assemble your list of `MessageTemplateValue` and your `MessageTemplateWhatsAppBindings` by providing the parameters in the order that the parameters appear in the template content.
+
 ```csharp
 string templateName = "sample_flight_confirmation";
 string templateLanguage = "en_us";
@@ -103,4 +113,4 @@ flightConfirmationTemplate.Values.Add(firstName);
 flightConfirmationTemplate.Values.Add(lastName);
 flightConfirmationTemplate.Values.Add(date);
 flightConfirmationTemplate.Bindings = bindings;
-``````
+```

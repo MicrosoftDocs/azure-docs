@@ -26,45 +26,50 @@ ms.author: shamkh
 [!INCLUDE [Setting up for Python Application](../python-application-setup.md)]
 
 ## Object model
+
 The following classes and interfaces handle some of the major features of the Azure Communication Services Messages SDK for Python.
 
-| Name                        | Description                                                                                            |
-|-----------------------------|--------------------------------------------------------------------------------------------------------|
-| NotificationMessagesClient  | This class connects to your Azure Communication Services resource. It sends the messages.              |
-| StickerNotificationContent | This class defines sticker content of the messages|
+| Class Name | Description |
+| --- | --- |
+| `NotificationMessagesClient`  | Connects to your Azure Communication Services resource. It sends the messages.              |
+| `StickerNotificationContent` |  Defines sticker content of the messages. |
 
 > [!NOTE]
-> Please find the SDK reference [here](/python/api/azure-communication-messages/azure.communication.messages).
+> For more information, seer the Azure SDK for Python reference [messages Package](/python/api/azure-communication-messages/azure.communication.messages).
 
 ## Common configuration
-Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
 
-- [Authenticate the client](#authenticate-the-client)
-- [Set channel registration ID](#set-channel-registration-id)
-- [Set recipient list](#set-recipient-list)
+Follow these steps to add required code snippets to the `messages-quickstart.py` python program.
+
+- [Authenticate the client](#authenticate-the-client).
+- [Set channel registration ID](#set-channel-registration-id).
+- [Set recipient list](#set-recipient-list).
 
 [!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting.md)]
 
 ## Code examples
-Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
+
+Follow these steps to add required code snippets to the `messages-quickstart.py` python program.
 
 - [Send a Sticker messages to a WhatsApp user](#send-a-sticker-messages-to-a-whatsapp-user)
 
-### Send a Sticker messages to a WhatsApp user
-Advanced Messages SDK allows Contoso to send sticker WhatsApp messages, which is initiated by WhatsApp users. To send text messages below details are required:
-- [WhatsApp Channel ID](#set-channel-registration-id)
-- [Recipient Phone Number in E16 format](#set-recipient-list)
-- Sticker Message content can be created using given properties:
+### Send a sticker messages to a WhatsApp user
 
-| Action type   | Description |
-|----------|---------------------------|
-| StickerNotificationContent    | This class defines  Sticker messge content.  |
-| Media_Uri    | This property defines the uri to the animated/static sticker.   |
+The Messages SDK enables Contoso to send sticker WhatsApp messages, when initiated by WhatsApp users. To send sticker messages:
+- [WhatsApp Channel ID](#set-channel-registration-id).
+- [Recipient Phone Number in E16 format](#set-recipient-list).
+- Sticker message content can be created using given properties:
+
+   | Action type | Description |
+   | --- | --- |
+   | `StickerNotificationContent`    | This class defines sticker message content.  |
+   | `Media_Uri`    | This property defines the uri to the animated/static sticker.   |
 
 > [!IMPORTANT]
 > To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
-In this example, business sends sticker message to the WhatsApp user"
+In this example, the business sends sticker message to the WhatsApp user:
+
 ```python
    def send_sticker_message(self):
 
@@ -86,14 +91,16 @@ In this example, business sends sticker message to the WhatsApp user"
 
 ```
 
-To run send_sticker_message(), update the [main method](#basic-program-structure)
+To run `send_sticker_message()`, update the [main method](#basic-program-structure):
+
 ```python
     #Calling send_sticker_message()
     messages.send_sticker_message()
 ```
 
 ### Run the code
-To run the code, make sure you are on the directory where your `messages-quickstart.py` file is.
+
+To run the code, make sure you are on the directory where your `messages-quickstart.py` file is located.
 
 ```console
 python reaction-messages-quickstart.py
@@ -104,9 +111,12 @@ Azure Communication Services - Advanced Messages Quickstart
 WhatsApp Sticker Message with message id <<GUID>> was successfully sent to <<ToRecipient>>
 ```
 
-:::image type="content" source="../../media/interactive-reaction-sticker/sticker-message.png" lightbox="../../media/interactive-reaction-sticker/sticker-message.png" alt-text="Screenshot that shows WhatsApp CTA interactive message from Business to User.":::
+:::image type="content" source="../../media/interactive-reaction-sticker/sticker-message.png" lightbox="../../media/interactive-reaction-sticker/sticker-message.png" alt-text="Screenshot that shows WhatsApp call-to-action interactive message from Business to User.":::
 
 ## Full sample code
+
+> [!NOTE]
+> Replace all placeholder variables in the code with your values.
 
 ```python
 import os
@@ -142,9 +152,6 @@ if __name__ == '__main__':
     messages.send_sticker_message()
 ```
 
-> [!NOTE]
-> Please update all placeholder variables in the above code.
-
-### Other Samples
+### Other samples
 
 You can review and download other sample codes for Python Messages SDK on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/messages-quickstart).
