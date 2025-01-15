@@ -61,6 +61,12 @@ Save the following information to test and configure your environment:
 
 To determine the appropriate scope and [billing role](understand-mca-roles.md#subscription-billing-roles-and-tasks) for the application, review the information at [Understand Microsoft Customer Agreement administrative roles in Azure](understand-mca-roles.md).
 
+A user with owner access can assign a role to the application by signing into the Azure portal in the associated tenant. Owner access includes:
+
+- Billing account owner
+- Billing profile owner
+- Invoice section owner
+
 After you determine the scope and role, use the information at [Manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal) to create the role assignment for the application. Search for the application by using the name that you used when you registered the application in the preceding section.
 
 ## Programmatically create a subscription
