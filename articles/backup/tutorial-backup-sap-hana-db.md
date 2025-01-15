@@ -57,7 +57,7 @@ Since the streams primarily deal with disks, you need to understand the disk per
 - If the data/log on Azure NetApp Files – both read from ANF and write to Vault consume VM’s network.
 
 > [!IMPORTANT]
-> In smaller VMs, where the uncached disk throughput is very close to or lesser than 400 MBps, you may be concerned that the entire disk IOPS are consumed by the backup service which may affect SAP HANA's operations related to read/write from the disks. In that case, if you wishes to throttle or limit the backup service consumption to the maximum limit, you can refer to the next section.
+> In smaller VMs, where the uncached disk throughput is very close to or lesser than 400 MBps, you may be concerned that the entire disk IOPSs are consumed by the backup service which may affect SAP HANA's operations related to read/write from the disks. In that case, if you want to throttle or limit the backup service consumption to the maximum limit, you can refer to the next section.
 
 ### Limiting backup throughput performance
 
