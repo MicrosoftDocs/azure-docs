@@ -327,8 +327,6 @@ Depending on your operating system, run the appropriate script, as shown in the 
 
 The reports are automatically generated and launched. You can find the reports under **../samples/report-\*** (Linux/macOS) or **..\samples\report-\*** (Windows).
 
----
-
 ### Summary of the analysis
 
 The landing page of the report lists all the technologies that are used in the application. The dashboard provides a summary of the analysis, including the number of transformation incidents, the incidents categories, or the story points.
