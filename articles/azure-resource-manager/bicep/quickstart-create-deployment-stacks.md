@@ -408,4 +408,4 @@ Remove-AzResourceGroup `
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Deployment stacks](./deployment-stacks.md)
+> Explore [Learn modules for Bicep](learn-bicep.md).
