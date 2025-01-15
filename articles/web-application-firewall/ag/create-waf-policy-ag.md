@@ -86,7 +86,7 @@ If you select **Web Application Firewall** and it shows you an associated policy
 
 If it also shows Policy Settings and Managed Rules, then it's a full Web Application Firewall policy. 
 
-![Screenshot showing WAF policy settings](../media/create-waf-policy-ag/waf-policy-settings.png)
+![Screenshot showing WAF policy settings.](../media/create-waf-policy-ag/waf-policy-settings.png)
 
 ## Upgrade to WAF Policy
 
