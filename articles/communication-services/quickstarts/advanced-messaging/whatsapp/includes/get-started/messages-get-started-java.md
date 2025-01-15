@@ -13,47 +13,48 @@ ms.author: armohamed
 
 ## Prerequisites
 
-- [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md)
-- Active WhatsApp phone number to receive messages
+- [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md).
+- Active WhatsApp phone number to receive messages.
+- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or later.
+- [Apache Maven](https://maven.apache.org/download.cgi).
 
-- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or later
-- [Apache Maven](https://maven.apache.org/download.cgi)
+## Set up environment
 
-## Setting up
-
-To set up an environment for sending messages, take the steps in the following sections.
+To set up an environment for sending messages, complete the steps in the following sections.
 
 [!INCLUDE [Setting up for Java Application](../java-application-setup.md)]
 
 ## Object model
+
 The following classes and interfaces handle some of the major features of the Azure Communication Services Advance Messaging SDK for Java.
 
-| Name                                        | Description                                                                                            |
-| --------------------------------------------|------------------------------------------------------------------------------------------------------  |
-| NotificationMessagesClientBuilder           | This class creates the Notification Messages Client. You provide it with an endpoint and a credential. |
-| NotificationMessagesClient                  | This class is needed to send WhatsApp messages and download media files.                               |
-| NotificationMessagesAsyncClient             | This class is needed to send WhatsApp messages and download media files asynchronously.                |
-| SendMessageResult                           | This class contains the result from the Advance Messaging service for send notification message.       |
-| MessageTemplateClientBuilder                | This class creates the Message Template Client. You provide it with an endpoint and a credential.      |
-| MessageTemplateClient                       | This class is needed to get the list of WhatsApp templates.                                            |
-| MessageTemplateAsyncClient                  | This class is needed to get the list of WhatsApp templates asynchronously.  |
+| Class Name | Description |
+| --- |--- |
+| `NotificationMessagesClientBuilder`           | Creates the Notification Messages Client. You provide it with an endpoint and a credential. |
+| `NotificationMessagesClient`                  | Needed to send WhatsApp messages and download media files.                               |
+| `NotificationMessagesAsyncClient`             | Needed to send WhatsApp messages and download media files asynchronously.                |
+| `SendMessageResult`                           | Contains the result from the Advance Messaging service for send notification message.       |
+| `MessageTemplateClientBuilder`                | Creates the Message Template Client. You provide it with an endpoint and a credential.      |
+| `MessageTemplateClient`                       | Needed to get the list of WhatsApp templates.                                            |
+| `MessageTemplateAsyncClient`                  | Needed to get the list of WhatsApp templates asynchronously.  |
 
 > [!NOTE]
-> Please find the SDK reference [here](/java/api/com.azure.communication.messages)
+> For more information, see the Azure SDK for Java reference [com.azure.communication.messages](/java/api/com.azure.communication.messages)
 
 ## Common configuration
-Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
 
-- [Authenticate the client](#authenticate-the-client)
-- [Set channel registration ID](#set-channel-registration-id)
-- [Set recipient list](#set-recipient-list)
-- [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user)
+Complete these steps to add required code snippets to the `messages-quickstart.py` python program.
+
+- [Authenticate the client](#authenticate-the-client).
+- [Set channel registration ID](#set-channel-registration-id).
+- [Set recipient list](#set-recipient-list).
+- [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
 [!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting.md)]
 
 ## Code examples
 
-Follow these steps to add the necessary code snippets to the main function of your *App.java* file.
+Follow these steps to add required code snippets to the main function of your `App.java` file.
 - [Send a text message to a WhatsApp user](#send-a-text-message-to-a-whatsapp-user)
 - [Send an image media message to a WhatsApp user](#send-an-image-media-message-to-a-whatsapp-user)
 - [Send a document media message to a WhatsApp user](#send-a-document-media-message-to-a-whatsapp-user)
@@ -70,9 +71,10 @@ Messages SDK allows Contoso to send text WhatsApp messages, which initiated What
 - [Recipient Phone Number in E16 format](#set-recipient-list)
 - Message body/text to be sent
 
-In this example, we reply to the WhatsApp user with the text "Thanks for your feedback.\n From Notification Messaging SDK".
+In this example, we reply to the WhatsApp user with the text `"Thanks for your feedback.\n From Notification Messaging SDK."`
 
-Assemble then send the text message:
+Assemble and send the text message:
+
 ```java
 // Assemble text message
 TextNotificationContent textContent = new TextNotificationContent(channelRegistrationId, recipientList, "“Thanks for your feedback.\n From Notification Messaging SDK");
@@ -87,15 +89,17 @@ for (MessageReceipt messageReceipt : textMessageResult.getReceipts()) {
 ```
 
 ### Send an image media message to a WhatsApp user
-Messages SDK allows Contoso to send media (Image, Video, Audio or Document) messages to WhatsApp users. To send an embedded media message, you need:
+
+The Messages SDK enables Contoso to send media (image, video, audio, or document) messages to WhatsApp users. To send an embedded media message, you need:
 - [WhatsApp Channel ID](#set-channel-registration-id)
 - [Recipient Phone Number in E16 format](#set-recipient-list)
 - URL of the Image media
 
 > [!IMPORTANT]
-> As of SDK version 1.1.0, `MediaNotificationContent` is being deprecated for images. We encourage you to use `ImageNotificationContent` for sending images and explore other content-specific classes for other media types like `DocumentNotificationContent`, `VideoNotificationContent`, and `AudioNotificationContent`.
+> As of SDK version 1.1.0, `MediaNotificationContent` is being deprecated for images. We encourage you to use `ImageNotificationContent` to send images. Explore other content-specific classes for other media types like `DocumentNotificationContent`, `VideoNotificationContent`, and `AudioNotificationContent`.
 
-Assemble then send the image message:
+Assemble and send the image message:
+
 ```java
 // Assemble image message
 String imageUrl = "https://example.com/image.jpg";
@@ -111,12 +115,14 @@ for (MessageReceipt messageReceipt : imageMessageResult.getReceipts()) {
 ```
 
 ### Send a video media message to a WhatsApp user
-Messages SDK allows Contoso to send media (Image, Video, Audio or Document) messages to WhatsApp users. To send an embedded media message, you need:
-- [WhatsApp Channel ID](#set-channel-registration-id)
-- [Recipient Phone Number in E16 format](#set-recipient-list)
-- URL of the Video media
 
-Assemble then send the video message:
+The Messages SDK enables Contoso to send media (image, video, audio, or document) messages to WhatsApp users. To send an embedded media message, you need:
+- [WhatsApp Channel ID](#set-channel-registration-id).
+- [Recipient Phone Number in E16 format](#set-recipient-list).
+- URL of the Video media.
+
+Assemble and send the video message:
+
 ```java
 // Assemble video message
 String videoUrl = "https://example.com/video.mp4";
@@ -132,12 +138,14 @@ for (MessageReceipt messageReceipt : videoMessageResult.getReceipts()) {
 ```
 
 ### Send an audio media message to a WhatsApp user
-Messages SDK allows Contoso to send media (Image, Video, Audio or Document) messages to WhatsApp users. To send an embedded media message, you need:
-- [WhatsApp Channel ID](#set-channel-registration-id)
-- [Recipient Phone Number in E16 format](#set-recipient-list)
-- URL of the Audio media
 
-Assemble then send the audio message:
+The Messages SDK enables Contoso to send media (image, video, audio, or document) messages to WhatsApp users. To send an embedded media message, you need:
+- [WhatsApp Channel ID](#set-channel-registration-id).
+- [Recipient Phone Number in E16 format](#set-recipient-list).
+- URL of the Audio media.
+
+Assemble and send the audio message:
+
 ```java
 // Assemble audio message
 String audioUrl = "https://example.com/audio.mp3";
@@ -153,12 +161,14 @@ for (MessageReceipt messageReceipt : audioMessageResult.getReceipts()) {
 ```
 
 ### Send a document media message to a WhatsApp user
-Messages SDK allows Contoso to send media (Image, Video, Audio or Document) messages to WhatsApp users. To send an embedded media message, you need:
-- [WhatsApp Channel ID](#set-channel-registration-id)
-- [Recipient Phone Number in E16 format](#set-recipient-list)
-- URL of the Document media
 
-Assemble then send the document message:
+The Messages SDK enables Contoso to send media (image, video, audio, or document) messages to WhatsApp users. To send an embedded media message, you need:
+- [WhatsApp Channel ID](#set-channel-registration-id).
+- [Recipient Phone Number in E16 format](#set-recipient-list).
+- URL of the Document media.
+
+Assemble and send the document message:
+
 ```java
 // Assemble document message
 String docUrl = "https://example.com/document.pdf";
@@ -175,7 +185,7 @@ for (MessageReceipt messageReceipt : docMessageResult.getReceipts()) {
 
 ### Run the code
 
-1. Navigate to the directory that contains the **pom.xml** file and compile the project by using the `mvn` command.
+1. Open to the directory that contains the `pom.xml` file and compile the project using the `mvn` command.
 
    ```console
    mvn compile
@@ -190,6 +200,3 @@ for (MessageReceipt messageReceipt : docMessageResult.getReceipts()) {
 ## Full sample code
 
 Find the finalized code for this quickstart on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/d668cb44f64d303e71d2ee72a8b0382896aa09d5/sdk/communication/azure-communication-messages/src/samples/java/com/azure/communication/messages).
-
-
-

@@ -26,52 +26,55 @@ ms.author: shamkh
 [!INCLUDE [Setting up for Python Application](../python-application-setup.md)]
 
 ## Object model
+
 The following classes and interfaces handle some of the major features of the Azure Communication Services Messages SDK for Python.
 
-| Name                        | Description                                                                                            |
-|-----------------------------|--------------------------------------------------------------------------------------------------------|
-| NotificationMessagesClient  | This class connects to your Azure Communication Services resource. It sends the messages.              |
-| MessageTemplate             | This class defines which template you use and the content of the template properties for your message. |
-| TemplateNotificationContent | This class defines the "who" and the "what" of the template message you intend to send.                |
-| TextNotificationContent     | This class defines the "who" and the "what" of the text message you intend to send.                    |
-| ImageNotificationContent    | This class defines the "who" and the "what" of the image media message you intend to send.             |
-| DocumentNotificationContent | This class defines the "who" and the "what" of the Document media message you intend to send.             |
-| VideoNotificationContent    | This class defines the "who" and the "what" of the Video media message you intend to send.             |
-| AudioNotificationContent    | This class defines the "who" and the "what" of the Audio media message you intend to send.             |
+| Class Name | Description |
+| --- | --- |
+| `NotificationMessagesClient`  | Connects to your Azure Communication Services resource. It sends the messages.              |
+| `MessageTemplate`             | Defines which template you use and the content of the template properties for your message. |
+| `TemplateNotificationContent` | Defines the "who" and the "what" of the template message you intend to send.                |
+| `TextNotificationContent`     | Defines the "who" and the "what" of the text message you intend to send.                    |
+| `ImageNotificationContent`    | Defines the "who" and the "what" of the image media message you intend to send.             |
+| `DocumentNotificationContent` | Defines the "who" and the "what" of the Document media message you intend to send.             |
+| `VideoNotificationContent`    | Defines the "who" and the "what" of the Video media message you intend to send.             |
+| `AudioNotificationContent`    | Defines the "who" and the "what" of the Audio media message you intend to send.             |
 
 > [!NOTE]
-> Find the SDK reference [here](/python/api/azure-communication-messages/azure.communication.messages).
+> For more information, see the Azure SDK for Python reference [messages Package](/python/api/azure-communication-messages/azure.communication.messages).
 
 ## Common configuration
-Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
 
-- [Authenticate the client](#authenticate-the-client)
-- [Set channel registration ID](#set-channel-registration-id)
-- [Set recipient list](#set-recipient-list)
-- [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user)
+Follow these steps to add required code snippets to the `messages-quickstart.py` python program.
+
+- [Authenticate the client](#authenticate-the-client).
+- [Set channel registration ID](#set-channel-registration-id).
+- [Set recipient list](#set-recipient-list).
+- [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
 [!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting.md)]
 
 ## Code examples
 
-Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
-- [Send a text message to a WhatsApp user](#send-a-text-message-to-a-whatsapp-user)
-- [Send an image media message to a WhatsApp user](#send-an-image-media-message-to-a-whatsapp-user)
-- [Send a document media message to a WhatsApp user](#send-a-document-media-message-to-a-whatsapp-user)
-- [Send an audio media message to a WhatsApp user](#send-an-audio-media-message-to-a-whatsapp-user)
-- [Send a video media message to a WhatsApp user](#send-a-video-media-message-to-a-whatsapp-user)
+Follow these steps to add required code snippets to the messages-quickstart.py python program.
+- [Send a text message to a WhatsApp user](#send-a-text-message-to-a-whatsapp-user).
+- [Send an image media message to a WhatsApp user](#send-an-image-media-message-to-a-whatsapp-user).
+- [Send a document media message to a WhatsApp user](#send-a-document-media-message-to-a-whatsapp-user).
+- [Send an audio media message to a WhatsApp user](#send-an-audio-media-message-to-a-whatsapp-user).
+- [Send a video media message to a WhatsApp user](#send-a-video-media-message-to-a-whatsapp-user).
 
 ### Send a text message to a WhatsApp user
 
-Messages SDK allows Contoso to send text WhatsApp messages, which initiated WhatsApp users initiated. To send text messages below details are required:
-- [WhatsApp Channel ID](#set-channel-registration-id)
-- [Recipient Phone Number in E16 format](#set-recipient-list)
-- Message body/text to be sent
+The Messages SDK enables Contoso to send text WhatsApp messages, when initiated by a WhatsApp user. To send text messages:
+- [WhatsApp Channel ID](#set-channel-registration-id).
+- [Recipient Phone Number in E16 format](#set-recipient-list).
+- Message body/text to be sent.
 
 > [!IMPORTANT]
 > To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
-In this example, we reply to the WhatsApp user with the text "Thanks for your feedback.\n From Notification Messaging SDK."
+In this example, we reply to the WhatsApp user with the text `"Thanks for your feedback.\n From Notification Messaging SDK."`
+
 ```python
     def send_text_message(self):
         from azure.communication.messages import NotificationMessagesClient
@@ -96,7 +99,8 @@ In this example, we reply to the WhatsApp user with the text "Thanks for your fe
             print("Message failed to send")
 ```
 
-To run send_text_message(), update the [main method](#basic-program-structure)
+To run `send_text_message()`, update the [main method](#basic-program-structure):
+
 ```python
     #Calling send_text_message()
     messages.send_text_message()
@@ -104,17 +108,17 @@ To run send_text_message(), update the [main method](#basic-program-structure)
 
 ### Send an image media message to a WhatsApp user
 
-Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
-- [WhatsApp Channel ID](#set-channel-registration-id)
-- [Recipient Phone Number in E16 format](#set-recipient-list)
-- MediaUri of the Image
+The Messages SDK enables Contoso to send image WhatsApp messages to WhatsApp users. To send image embedded messages:
+- [WhatsApp Channel ID](#set-channel-registration-id).
+- [Recipient Phone Number in E16 format](#set-recipient-list).
+- MediaUri of the image.
 
 > [!IMPORTANT]
 > To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
-An example of media_uri used in sending media WhatsApp message.
+An example of `media_uri` used when sending a media WhatsApp message.
 
-input_media_uri: str = "https://aka.ms/acsicon1"
+`input_media_uri: str = "https://aka.ms/acsicon1"`
 
 ```python
     def send_image_message(self):
@@ -141,7 +145,8 @@ input_media_uri: str = "https://aka.ms/acsicon1"
             print("Message failed to send")
 ```
 
-To run send_text_message(), update the [main method](#basic-program-structure)
+To run `send_text_message()`, update the [main method](#basic-program-structure):
+
 ```python
     # Calling send_image_message()
     messages.send_image_message()
@@ -149,17 +154,17 @@ To run send_text_message(), update the [main method](#basic-program-structure)
 
 ### Send a document media message to a WhatsApp user
 
-Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
-- [WhatsApp Channel ID](#set-channel-registration-id)
-- [Recipient Phone Number in E16 format](#set-recipient-list)
-- MediaUri of the document
+The Messages SDK enables Contoso to send document WhatsApp messages to WhatsApp users. To send document embedded messages:
+- [WhatsApp Channel ID](#set-channel-registration-id).
+- [Recipient Phone Number in E16 format](#set-recipient-list).
+- MediaUri of the document.
 
 > [!IMPORTANT]
 > To send a document message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
-An example of media_uri used in sending media WhatsApp message.
+An example of `media_uri` used when sending a media WhatsApp message.
 
-input_media_uri: str = "##DocumentLinkPlaceholder##"
+`input_media_uri: str = "##DocumentLinkPlaceholder##"`
 
 ```python
     def send_document_message(self):
@@ -188,7 +193,8 @@ input_media_uri: str = "##DocumentLinkPlaceholder##"
             print("Message failed to send")
 ```
 
-To run send_text_message(), update the [main method](#basic-program-structure)
+To run `send_text_message()`, update the [main method](#basic-program-structure):
+
 ```python
     # Calling send_image_message()
     messages.send_image_message()
@@ -196,17 +202,18 @@ To run send_text_message(), update the [main method](#basic-program-structure)
 
 ### Send an audio media message to a WhatsApp user
 
-Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
-- [WhatsApp Channel ID](#set-channel-registration-id)
-- [Recipient Phone Number in E16 format](#set-recipient-list)
-- MediaUri of the Audio
+The Messages SDK enables Contoso to send image WhatsApp messages to WhatsApp users. To send audio embedded messages:
+
+- [WhatsApp Channel ID](#set-channel-registration-id).
+- [Recipient Phone Number in E16 format](#set-recipient-list).
+- MediaUri of the audio.
 
 > [!IMPORTANT]
 > To send an audio message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
-An example of media_uri used in sending media WhatsApp message.
+An example of `media_uri` used when sending a media WhatsApp message.
 
-input_media_uri: str = "##AudioLinkPlaceholder##"
+`input_media_uri: str = "##AudioLinkPlaceholder##"`
 
 ```python
     def send_audio_message(self):
@@ -233,7 +240,8 @@ input_media_uri: str = "##AudioLinkPlaceholder##"
             print("Message failed to send")
 ```
 
-To run send_text_message(), update the [main method](#basic-program-structure)
+To run `send_text_message()`, update the [main method](#basic-program-structure):
+
 ```python
     # Calling send_image_message()
     messages.send_image_message()
@@ -241,17 +249,17 @@ To run send_text_message(), update the [main method](#basic-program-structure)
 
 ### Send a video media message to a WhatsApp user
 
-Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
-- [WhatsApp Channel ID](#set-channel-registration-id)
-- [Recipient Phone Number in E16 format](#set-recipient-list)
-- MediaUri of the Video
+The Messages SDK enables Contoso to send video WhatsApp messages to WhatsApp users. To send video embedded messages:
+- [WhatsApp Channel ID](#set-channel-registration-id).
+- [Recipient Phone Number in E16 format](#set-recipient-list).
+- MediaUri of the video.
 
 > [!IMPORTANT]
 > To send a video message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
-An example of media_uri used in sending media WhatsApp message.
+An example of `media_uri` used when sending a media WhatsApp message.
 
-input_media_uri: str = "##VideoLinkPlaceholder##"
+`input_media_uri: str = "##VideoLinkPlaceholder##"`
 
 ```python
     def send_video_message(self):
@@ -278,16 +286,16 @@ input_media_uri: str = "##VideoLinkPlaceholder##"
             print("Message failed to send")
 ```
 
-To run send_text_message(), update the [main method](#basic-program-structure)
+To run `send_text_message()`, update the [main method](#basic-program-structure):
+
 ```python
     # Calling send_image_message()
     messages.send_image_message()
 ```
 
-
 ### Run the code
 
-To run the code, make sure you are on the directory where your `messages-quickstart.py` file is.
+To run the code, make sure you are on the directory where your `messages-quickstart.py` file is located.
 
 ```console
 python messages-quickstart.py
@@ -301,6 +309,9 @@ WhatsApp Image containing Message with message id <<GUID>> was successfully sent
 ```
 
 ## Full sample code
+
+> [!NOTE]
+> Replace all placeholder variables in the sample code with your values.
 
 ```python
 import os
@@ -464,9 +475,6 @@ if __name__ == '__main__':
     messages.send_audio_message()
     messages.send_video_message()
 ```
-
-> [!NOTE]
-> Update all placeholder variables in the sample code.
 
 ### Other Samples
 
