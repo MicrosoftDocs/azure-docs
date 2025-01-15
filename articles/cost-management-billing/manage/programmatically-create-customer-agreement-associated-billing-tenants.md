@@ -11,7 +11,7 @@ ms.author: banders
 #customer intent: Learn how to programmatically create Azure Microsoft Customer Agreement (MCA) subscriptions across associated Microsoft Entra tenants, including necessary steps and considerations.
 ---
 
-# Programmatically create MCA subscriptions across Microsoft Entra tenants
+# Programmatically create MCA subscriptions across associated Microsoft Entra tenants
 
 This article helps you programmatically create a Microsoft Customer Agreement (MCA) subscription across [associated billing tenants](manage-billing-across-tenants.md). In some situations, you might need to create MCA subscriptions across Microsoft Entra tenants but tie them to a single billing account. Examples of such situations include:
 
@@ -101,7 +101,7 @@ With the billing account, profile, and invoice section IDs, you have all the inf
 - `{{billing_profile}}`: ID of the billing profile obtained previously.
 - `{{invoice_section}}`: ID of the invoice section obtained previously.
 - `{{destination_tenant_id}}`: ID of the destination tenant as noted when you previously created the destination tenant application.
-- `{{destination_service_principal_object_id}}`: ID of the destination tenant service principal that you got from the [Get the ID of the destination application service principal](#get-the-id-of-the-destination-application-service-principal) section previously.
+- `{{destination_service_principal_object_id}}`: ID of the destination tenant service principal that you got from the [Get a destination application access token](#get-a-destination-application-access-token) section previously.
 
 ```http
 PUT https://management.azure.com/providers/Microsoft.Subscription/aliases/{{guid}}?api-version=2021-10-01
