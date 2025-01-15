@@ -213,7 +213,7 @@ These generic storage access errors appear when running a query. The issue might
 Check the Microsoft Entra token length by running the following command in PowerShell. The `-ResourceUrl` parameter value will be different for nonpublic clouds. If the token length is close to 11000 or longer, see **Mitigation** section.
 
 ```azurepowershell-interactive
-(Get-AzAccessToken -ResourceUrl https://database.windows.net).Token.Length
+(Get-AzAccessToken -AsSecureString -ResourceUrl https://database.windows.net).Token.Length
 ```
 
 **Workaround**: 
