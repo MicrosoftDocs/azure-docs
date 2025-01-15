@@ -38,7 +38,7 @@ The following environment is required in order to enable programmatic creation o
 - A destination Microsoft Entra tenant separate from the tenant where your MCA belongs. To create a new Microsoft Entra tenant, see [Microsoft Entra tenant setup](../../active-directory/develop/quickstart-create-new-tenant.md).
 - Add the destination Microsoft Entra tenant as associated billing tenant [associated billing tenants](manage-billing-across-tenants.md) within the source Microsoft Entra tenant and assign billing roles to a user from the destination Microsoft Entra tenant.
 
-## Application set-up
+## Application setup
 
 Use the information in the following sections to set up and configure the needed application in the destination tenant.
 
