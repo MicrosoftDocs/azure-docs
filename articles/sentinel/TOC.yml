@@ -117,8 +117,6 @@
     href: sentinel-solutions-delete.md
   - name: Manage solution deprecation lifecycle
     href: sentinel-solution-deprecation.md
-  - name: Partner integrations best practices
-    href: partner-integrations.md
   - name: Solution catalog
     items: 
     - name: All solutions
@@ -1140,8 +1138,10 @@
     href: sentinel-content-centralize.md
   - name: Build and publish Microsoft Sentinel solutions
     items:
-    - name: Sentinel integration guide
+    - name: Overview
       href: sentinel-integration-guide.md
+    - name: Partner integrations best practices
+      href: partner-integrations.md
     - name: Publish solutions
       href: publish-sentinel-solutions.md
     - name: Solution lifecycle post publish
