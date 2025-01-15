@@ -432,7 +432,7 @@ GA (Generally Available) release of Azure Migrate application and code assessmen
 1. Missing descriptions for some rules on the Insights tab. Some tag rules are lacking descriptions, leading to blank titles appearing on the `Insights` tab of the report.
 1. Error in Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 1. This release requires an active internet connection for dependency analysis.
-1. <kbd>Ctrl</kbd>+<kdb>C</kdb> fails to stop ongoing analysis. To work around, manually terminate the process by explicitly killing the process.
+1. <kbd>Ctrl</kbd>+<kbd>C</kbd> fails to stop ongoing analysis. To work around, manually terminate the process by explicitly killing the process.
 1. When the flag `--context-lines` is set to a number 0, it doesn't work as expected. This flag allows the user to limit how much of the source code should appear on the report. Setting to a value 0 might not work as expected.
 
 ## License
