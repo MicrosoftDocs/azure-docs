@@ -73,7 +73,7 @@ For information on saving the service configuration using the REST API, see [Ten
 To clone a repository, in addition to the URL to your repository, you need a username and a password. 
 
 > [!CAUTION]
-> Using username and password credentials with a Git repository can pose security risks. Store your password securely and rotate it regularly. Don't store your credentials in plain text in code or configuration files. Use multi-factor authentication or access token methods if they're supported by your Git hosting platform. 
+> Using username and password credentials with a Git repository can pose security risks. Store your password securely and rotate it regularly. Don't store your credentials in plain text in code or configuration files. 
 
 1. On the **Repository** page, select **Access credentials** near the top of the page.
 
@@ -95,7 +95,7 @@ Open your Git tool in the desired folder and run the following command to clone 
 git clone https://{name}.scm.azure-api.net/
 ```
 
-Provide the username and password when prompted. If you configured an access token in your Git hosting platform instead of a password, provide the access token as the password.
+Provide the username and password when prompted.
 
 If you receive any errors, try modifying your `git clone` command to include the username, as shown in the following example. Provide the password when prompted.
 
