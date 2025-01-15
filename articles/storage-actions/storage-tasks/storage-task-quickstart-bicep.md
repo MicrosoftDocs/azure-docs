@@ -1,41 +1,35 @@
 ---
-title: 'Quickstart: Create a storage task by using an Azure Resource Manager template (ARM template)
+title: 'Quickstart: Create a storage task by using Bicep'
 titleSuffix: Azure Storage Actions Preview
-description: Learn how to create a storage task by using Azure Resource Manager template (ARM template).
+description: Learn how to create a storage task by using Bicep.
 ms.service: azure-storage-actions
 author: normesta
 ms.author: normesta
-ms.topic: quickstart-arm
-ms.custom: subject-armqs
-ms.date: 01/09/2025
+ms.topic: quickstart-bicep
+ms.custom: subject-bicepqs
+ms.date: 01/15/2025
 ---
 
-# Create a storage task by using Azure Resource Manager template (ARM template)
+# Quickstart: Create a storage task with Bicep
 
-This quickstart describes how to create a storage task by using an Azure Resource Manager template (ARM template).
+This quickstart describes how to create a storage task by using Bicep.
 
-> [!IMPORTANT]
-> Azure Storage Actions is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
-
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the
-**Deploy to Azure** button. The template will open in the Azure portal.
-
-:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage.actions%2Fstorage-task%2Fazuredeploy.json":::
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Review the template
+## Review the Bicep file
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/storage-task/).
+The Bicep file used in this quickstart is from
+[Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/storage-task/).
 
-:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.storage.actions/storage-task/azuredeploy.json":::
+:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.storage.actions/storage-task/main.bicep":::
 
-## Deploy the template
+The [Microsoft.StorageActions/storageTasks](/azure/templates/microsoft.storageactions/2023-01-01/storagetasks) Azure resource is defined in the Bicep file. 
+
+## Deploy the Bicep file
 
 The following scripts are designed for and tested in [Azure Cloud Shell](../../cloud-shell/overview.md). Choose **Try It** to open a Cloud Shell instance right in your browser. 
 
@@ -44,7 +38,7 @@ The following scripts are designed for and tested in [Azure Cloud Shell](../../c
 ```azurecli-interactive
 read -p "Enter a resource group name that is used for generating resource names:" resourceGroupName &&
 read -p "Enter the location (like 'eastus' or 'northeurope'):" location &&
-templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage.actions/storage-task/azuredeploy.json" &&
+templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage.actions/storage-task/main.bicep" &&
 az group create --name $resourceGroupName --location "$location" &&
 az deployment group create --resource-group $resourceGroupName --template-uri  $templateUri &&
 echo "Press [ENTER] to continue ..." &&
@@ -55,7 +49,7 @@ read
 ```powershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter a resource group name that is used for generating resource names"
 $location = Read-Host -Prompt "Enter the location (like 'eastus' or 'northeurope')"
-$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage.actions/storage-task/azuredeploy.json"
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage.actions/storage-task/main.bicep"
 
 New-AzResourceGroup -Name $resourceGroupName -Location "$location"
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
@@ -96,8 +90,6 @@ Remove-AzResourceGroup -Name <resource-group-name>
 Replace `<resource-group-name>` with the name of your resource group.
 
 ## Next steps
-
-For a step-by-step tutorial that guides you through the process of creating a template, see:
 
 > [!div class="nextstepaction"]
 > Read more about Azure Storage Actions. See [What is Azure Storage Actions Preview?](../overview.md).
