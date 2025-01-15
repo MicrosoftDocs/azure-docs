@@ -58,7 +58,7 @@ If you choose LightIngest, review these tips and best practices.
 
 - To speed up your migration and reduce costs, increase the size of your ADX cluster to create more available nodes for ingestion. Decrease the size once the migration is over.
 - For more efficient queries after you ingest the data to ADX, ensure that the copied data uses the timestamp for the original events. The data shouldn't use the timestamp from when the data is copied to ADX. You provide the timestamp to LightIngest as the path of file name as part of the [CreationTime property](/azure/data-explorer/lightingest#how-to-ingest-data-using-creationtime). 
-- If your path or file names don't include a timestamp, you can still instruct ADX to organize the data using a [partitioning policy](/azure/data-explorer/kusto/management/partitioningpolicy).
+- If your path or file names don't include a timestamp, you can still instruct ADX to organize the data using a [partitioning policy](/kusto/management/partitioning-policy?view=azure-data-explorer&preserve-view=true).
 
 ### Logstash 
 

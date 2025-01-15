@@ -443,6 +443,9 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | Built-in role | Description | ID |
 > | --- | --- | --- |
+> | <a name='chaos-studio-experiment-contributor'></a>[Chaos Studio Experiment Contributor](./built-in-roles/devops.md#chaos-studio-experiment-contributor) | Can create, run, and see details for experiments, onboard targets, and manage capabilities. | 7c2e40b7-25eb-482a-82cb-78ba06cb46d5 |
+> | <a name='chaos-studio-operator'></a>[Chaos Studio Operator](./built-in-roles/devops.md#chaos-studio-operator) | Can run and see details for experiments but cannot create experiments or manage targets and capabilities. | 1a40e87e-6645-48e0-b27a-0b115d849a20 |
+> | <a name='chaos-studio-reader'></a>[Chaos Studio Reader](./built-in-roles/devops.md#chaos-studio-reader) | Can view targets, capabilities, experiments, and experiment details. | 29e2da8a-229c-4157-8ae8-cc72fc506b74 |
 > | <a name='deployment-environments-reader'></a>[Deployment Environments Reader](./built-in-roles/devops.md#deployment-environments-reader) | Provides read access to environment resources. | eb960402-bf75-4cc3-8d68-35b34f960f72 |
 > | <a name='deployment-environments-user'></a>[Deployment Environments User](./built-in-roles/devops.md#deployment-environments-user) | Provides access to manage environment resources. | 18e40d4e-8d2e-438d-97e1-9528336e149c |
 > | <a name='devcenter-dev-box-user'></a>[DevCenter Dev Box User](./built-in-roles/devops.md#devcenter-dev-box-user) | Provides access to create and manage dev boxes. | 45d50f46-0b78-4001-a660-4198cbe8cd05 |

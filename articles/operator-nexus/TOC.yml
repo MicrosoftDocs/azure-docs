@@ -11,8 +11,13 @@
       href: concepts-resource-types.md
     - name: Compute overview
       href: concepts-compute.md
-    - name: Storage overview
-      href: concepts-storage.md
+    - name: Storage
+      expanded: false
+      items:
+        - name: Storage overview
+          href: concepts-storage.md
+        - name: Storage for Nexus Kubernetes
+          href: concepts-storage-kubernetes.md
     - name: Cluster deployment and upgrades
       expanded: false
       items:
@@ -304,7 +309,7 @@
           href: howto-check-runtime-version.md
         - name: Site decommission checklist
           href: howto-decommission-nexus-instance-checklist.md
-      
+
 - name: Troubleshooting
   expanded: true
   items:

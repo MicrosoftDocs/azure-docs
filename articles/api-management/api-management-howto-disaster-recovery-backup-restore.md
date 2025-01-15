@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 01/06/2025
+ms.date: 09/06/2024
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 ---
@@ -29,8 +29,7 @@ This article shows how to automate backup and restore operations of your API Man
 > Each backup expires after 30 days. If you attempt to restore a backup after the 30-day expiration period has expired, the restore will fail with a `Cannot restore: backup expired` message.
 
 > [!IMPORTANT]
-> * Backup and restore aren't supported in the [v2 service tiers](v2-service-tiers-overview.md) or in API Management instances configured with [workspaces](workspaces-overview.md).
-> * Restore operation doesn't change custom hostname configuration of the target service. We recommend to use the same custom hostname and TLS certificate for both active and standby services, so that, after restore operation completes, the traffic can be re-directed to the standby instance by a simple DNS CNAME change.
+> Restore operation doesn't change custom hostname configuration of the target service. We recommend to use the same custom hostname and TLS certificate for both active and standby services, so that, after restore operation completes, the traffic can be re-directed to the standby instance by a simple DNS CNAME change.
 
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
