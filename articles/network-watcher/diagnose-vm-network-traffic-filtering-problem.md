@@ -79,7 +79,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
     | Public inbound ports | Select **None**. |
 
     > [!NOTE]
-    > Azure will create a default network security group for **myVM** virtual machine (because you selected **Basic** NIC network security group). You will use this default network security group to test network communication to and from the virtual machine in the next section.
+    > Azure will create a default network security group for **myVM** virtual machine (because you selected **Basic** NIC network security group). You'll use this default network security group to test network communication to and from the virtual machine in the next section.
 
 1. Select **Review + create**.
 
@@ -93,7 +93,7 @@ In this section, you use the IP flow verify capability of Network Watcher to tes
 
 1. Under **Network diagnostic tools**, select **IP flow verify**.
 
-1. In the **IP flow verify** page, enter or select the following values:
+1. In the **IP flow verify** page, enter, or select the following values:
 
     | Setting | Value |
     |---------|-------|
@@ -108,7 +108,7 @@ In this section, you use the IP flow verify capability of Network Watcher to tes
     | Remote port | Enter *80* |
 
     > [!NOTE]
-    > If you don't see the virtual machine in the list of virtual machines available to select, make sure that it is running. Stopped virtual machines are not available to select for IP flow verify test.
+    > If you don't see the virtual machine in the list of virtual machines available to select, make sure that it's running. Stopped virtual machines aren't available to select for IP flow verify test.
 
     :::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify.png" alt-text="Screenshot shows the values to input in IP flow verify for first test." lightbox="./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify.png":::
 
