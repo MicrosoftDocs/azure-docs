@@ -25,6 +25,7 @@ Follow these steps to add required code snippets to the `messages-quickstart.py`
 - [Send Template message with location in the header](#send-template-message-with-location-in-the-header).
 - [Send Template message with quick reply buttons](#send-template-message-with-quick-reply-buttons).
 - [Send Template message with call to action buttons with dynamic link](#send-template-message-with-call-to-action-buttons-with-dynamic-link).
+- [Send Template message with call to action buttons with static link](#send-template-message-with-call-to-action-buttons-with-static-link).
 
 ### List WhatsApp templates in Azure portal
 
@@ -436,6 +437,87 @@ purchaseFeedbackTemplate.Values.Add(image);
 purchaseFeedbackTemplate.Values.Add(product);
 purchaseFeedbackTemplate.Values.Add(urlSuffix);
 purchaseFeedbackTemplate.Bindings = bindings;
+```
+
+### Send Template message with call to action buttons with static link
+For static link we need not to include `MessageTemplateQuickAction` model as WhatsApp template has static `CallToAction` link and no input from user is required.
+
+Template definition buttons:
+```json
+{
+  "type": "BUTTONS",
+  "buttons": [
+    {
+      "type": "URL",
+      "text": "Take Survey",
+      "url": "https://www.example.com/{{1}}"
+    }
+  ]
+}
+```
+
+#### Example
+
+`purchase_feedback_static` template:
+
+This sample template adds a button with a static URL link to the message. It also uses an image in the header and a text parameter in the body.
+
+:::image type="content" source="../../media/template-messages/purchase_feedback_static_link_template.png" lightbox="../../media/template-messages/purchase_feedback_static_link_template.png" alt-text="Screenshot that shows editing URL Type in the WhatsApp manager.":::
+
+In this sample, the header of the template requires an image:
+
+```json
+{
+  "type": "HEADER",
+  "format": "IMAGE"
+},
+```
+
+The body of the template requires one text parameter:
+
+```json
+{
+  "type": "BODY",
+  "text": "Hello {{1}}, \nHope you are great day!.\n Please click on given link to explore about our program.."
+},
+```
+
+The template includes a dynamic URL button with one parameter:
+
+```json
+{
+  "type": "BUTTONS",
+  "buttons": [
+    {
+      "type": "URL",
+      "text": "Take Survey",
+      "url": "https://www.example.com/"
+    }
+  ]
+}
+```
+
+Create one `MessageTemplateImage`, one `MessageTemplateText`. Then assemble your list of `MessageTemplateValue` and your `MessageTemplateWhatsAppBindings` by providing the parameters in the order that the parameters appear in the template content. The order also matters when defining your bindings' buttons.
+
+```csharp
+// Send sample template sample_template
+string templateNameWithcta = "purchase_feedback_static";
+var bodyParam1 = new MessageTemplateText(name: "customer", text: "Joe");
+var image = new MessageTemplateImage("image", new Uri("https://aka.ms/acsicon1"));
+
+WhatsAppMessageTemplateBindings cta_bindings = new();
+cta_bindings.Body.Add(new(bodyParam1.Name));
+cta_bindings.Header.Add(new(image.Name));
+
+var messageTemplateWithcta = new MessageTemplate(templateNameWithcta, templateLanguage);
+messageTemplateWithcta.Values.Add(bodyParam1);
+messageTemplateWithcta.Values.Add(image);
+messageTemplateWithcta.Bindings = cta_bindings;
+
+TemplateNotificationContent templateContent4 =
+    new TemplateNotificationContent(channelRegistrationId, recipientList, messageTemplateWithcta);
+Response<SendMessageResult> sendTemplateMessageResult4 =
+    notificationMessagesClient.Send(templateContent4);
 ```
 
 ## Run the code
