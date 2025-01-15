@@ -160,11 +160,11 @@ To achieve HA requirements, a workload can include a number of design elements. 
 
 Many Azure services are designed to be highly available, and can be used to build highly available workloads. Here are some examples:
 
-- [Azure Virtual Machine Scale Sets](/azure/reliability/reliability-virtual-machine-scale-sets) provide high availability for virtual machines (VMs) by automatically creating and managing VM instances, and distributing those VM instances to reduce the impact of infrastructure failures.
+- [Azure Virtual Machine Scale Sets](/azure/reliability/reliability-virtual-machine-scale-sets) provide high availability for virtual machines (VMs) by automatically creating and managing VM instances and distributing those VM instances to reduce the impact of infrastructure failures.
 - [Azure App Service](/azure/reliability/reliability-app-service) provides high availability through a variety of approaches, including automatically moving workers from an unhealthy node to a healthy node, and by providing capabilities for self-healing from many common fault types.
 
 Use each [service reliability guide](./overview-reliability-guidance.md) to understand the capabilities of the service, decide which tiers to use, and determine which capabilities to include in your high availability strategy.
-    
+
 Review the service level agreements (SLAs) for each service to understand the expected levels of availability and the conditions you need to meet. You might need to select or avoid specific tiers of services to achieve certain levels of availability. Some services from Microsoft are offered with the understanding that no SLA is provided, such as development or basic tiers, or that the resource could be reclaimed from your running system, such as spot-based offerings. Also, some tiers have added reliability features, such as support for [availability zones](availability-zones-overview.md).
 
 #### Fault tolerance
@@ -197,7 +197,7 @@ Scalability and elasticity are the abilities of a system to handle increased loa
 
 Many Azure services support scalability. Here are some examples:
 
-- [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview), [Azure API Management](/azure/api-management/api-management-key-concepts), and several other services support [Azure Monitor autoscale](/azure/azure-monitor/autoscale/autoscale-overview), which enables you to specify policies like "when my CPU consistently goes above 80%, add another instance".
+- [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview), [Azure API Management](/azure/api-management/api-management-key-concepts), and several other services support [Azure Monitor autoscale](/azure/azure-monitor/autoscale/autoscale-overview). With Azure Monitor autoscale, you can specify policies like "when my CPU consistently goes above 80%, add another instance".
 - [Azure Functions](/azure/azure-functions/functions-overview) can dynamically provision instances to serve your requests.
 - [Azure Cosmos DB](/azure/cosmos-db/introduction) supports [autoscale throughput](/azure/cosmos-db/how-to-choose-offer), where the service can automatically manage the resources assigned to your databases based on policies you specify.
 
@@ -225,7 +225,7 @@ Azure itself uses zero-downtime deployment approaches for our own services. When
 
 While zero-downtime deployments are often associated with application deployments, they should also be used for configuration changes. Here are some ways you can apply configuration changes safely:
 
-- [Azure Storage](/azure/storage/common/storage-introduction) enables you to change your [storage account access keys](/azure/storage/common/storage-account-keys-manage) in multiple stages, which prevents downtime during key rotation operations.
+- [Azure Storage](/azure/storage/common/storage-introduction) lets you change your [storage account access keys](/azure/storage/common/storage-account-keys-manage) in multiple stages, which prevents downtime during key rotation operations.
 - [Azure App Configuration](/azure/azure-app-configuration/overview) provides [feature flags](/azure/azure-app-configuration/concept-feature-management), [snapshots](/azure/azure-app-configuration/concept-snapshots), and other capabilities to help you to control how configuration changes are applied.
 
 If you decide not to implement zero-downtime deployments, make sure that you define *maintenance windows* so that you can make system changes at a time when your users expect it.
@@ -299,7 +299,7 @@ When using backups as part of a disaster recovery plan it's important to take th
 
 - *Data loss*. Because backups are typically taken infrequently, backup restoration usually involves data loss. For this reason, backup recovery should be used as a last resort and a disaster recovery plan should specify the sequence of steps and recovery attempts that must take place *before* restoring from a backup. It's important to make sure that the workload RPO is aligned with the backup interval.
 
-- *Recovery time*. Because backup restoration often takes time, it's critical to test your backups and restoration processes to verify their integrity and understand how long the restoration process takes. Ensure the workload's RTO accounts for the time it takes to restore your backup.
+- *Recovery time*. Because backup restoration often takes time, it's critical to test your backups and restoration processes to verify their integrity and understand how long the restoration process takes. Make sure that the workload's RTO accounts for the time it takes to restore your backup.
 
 Many Azure data and storage services support backups, such as the following:
 
