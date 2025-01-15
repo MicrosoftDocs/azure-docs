@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/27/2024
+ms.date: 01/15/2025
 ms.custom: engagement-fy23, devx-track-dotnet
 # Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
 ---
@@ -270,7 +270,7 @@ As you progress, you'll complete these high-level tasks:
 
 1. In the Azure window, under **Resources**, select **Sign in to Azure**. When the Visual Studio Code authentication page appears, sign in with your Azure account.
 
-   ![Screenshot shows Azure window and selected link for Azure sign in.](./media/create-single-tenant-workflows-visual-studio-code/sign-in-azure-subscription.png)
+   ![Screenshot shows Azure window with selected link for Azure sign in.](./media/create-single-tenant-workflows-visual-studio-code/sign-in-azure-subscription.png)
 
    After you sign in, the Azure window shows the Azure subscriptions associated with your Azure account. If the expected subscriptions don't appear, or you want the pane to show only specific subscriptions, follow these steps:
 
@@ -280,7 +280,7 @@ As you progress, you'll complete these high-level tasks:
 
       Or, in the Visual Studio Code status bar, select your Azure account.
 
-   1. When another subscriptions list appears, select the subscriptions that you want, and then make sure that you select **OK**.
+   1. When another subscriptions list appears, select the subscriptions that you want, and make sure that you select **OK**.
 
 <a name="create-project"></a>
 
@@ -294,7 +294,7 @@ Before you can create your logic app, create a local project so that you can man
 
 1. In the **Azure** window, on the **Workspace** section toolbar, from the **Azure Logic Apps** menu, select **Create new project**.
 
-   ![Screenshot shows Azure window, Workspace toolbar, and Azure Logic Apps menu with Create New Project selected.](./media/create-single-tenant-workflows-visual-studio-code/create-new-project-folder.png)
+   ![Screenshot shows Azure window, Workspace toolbar, and Azure Logic Apps menu with selected item, Create new project.](./media/create-single-tenant-workflows-visual-studio-code/create-new-project-folder.png)
 
 1. If Windows Defender Firewall prompts you to grant network access for **Code.exe**, which is Visual Studio Code, and for **func.exe**, which is the Azure Functions Core Tools, select **Private networks, such as my home or work network** **>** **Allow access**.
 
