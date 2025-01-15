@@ -21,6 +21,7 @@ This section covers everything independent software developers (ISVs) need to bu
 ## Learn about Microsoft Sentinel Integrations
 
 To get started, learn about what Microsoft Sentinel offers, identify the content you want to build for your product, and find resources to help you learn more about building Microsoft Sentinel solutions. 
+To get started, learn about what Microsoft Sentinel offers, identify the content you want to build for your product, and find resources to help you learn more about building Microsoft Sentinel solutions. 
 ### Learn about Microsoft Sentinel
 Microsoft Sentinel is a scalable, cloud-native security information and event management (SIEM) that delivers an intelligent and comprehensive solution for SIEM and security orchestration, automation, and response (SOAR). Microsoft Sentinel provides cyberthreat detection, investigation, response, and proactive hunting, with a bird's-eye view across your enterprise.
 - [What is Microsoft Sentinel?](/azure/sentinel/overview)
