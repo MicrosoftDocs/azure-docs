@@ -102,8 +102,8 @@ The **state** field is the status reported by the Device Update agent in respons
 |Idle|0|The device is ready to receive an action from the Device Update service. After a successful update, state returns to the `Idle` state.|
 |DeploymentInprogress|6| A deployment is in progress.|
 |Failed|255|A failure occurred during updating.|
-|DownloadSucceeded|2|A successful download occurred. This status is reported only by devices with agent version 0.7.0 or older.|
-|InstallSucceeded|4|A successful install occurred. This status is reported only by devices with agent version 0.7.0 or older.|
+|DownloadSucceeded|2|A successful download occurred. Only devices with agent version 0.7.0 or older report this status.|
+|InstallSucceeded|4|A successful install occurred. Only devices with agent version 0.7.0 or older report this status.|
 
 #### Action
 
