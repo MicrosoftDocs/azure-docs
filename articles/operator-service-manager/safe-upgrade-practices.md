@@ -296,6 +296,46 @@ The NF ARM template is used by operator to submit the roleOverrideValues variabl
 }
 ```
 
+## How to skip NfApps which have no changes
+The SkipUpgrade feature is designed to optimize the time taken for CNF upgrades. By enabling this optional flag in the `RoleOverrideValues` under `UpgradeOptions`, AOSM at the service layer performs certain pre-checks to determine whether an upgrade for a specific `NFApplication` can be skipped. If all pre-check criteria are met, the upgrade is skipped for that application. Otherwise, a traditional full Helm upgrade is executed at the cluster level.
+
+### Pre-Check Criteria
+An upgrade can be skipped if all the following conditions are met:
+1. The `NFApplication` provisioning state is "Succeeded".
+2. There is no change in the Helm chart name or version.
+3. There is no change in the Helm values.
+
+### Enabling or Disabling the SkipUpgrade Feature
+The SkipUpgrade feature is **disabled by default**. If this optional parameter is not specified in `RoleOverrideValues` under `UpgradeOptions`, CNF upgrades proceed in the traditional manner, where the `NFApplications` are upgraded at the cluster level.
+
+#### Enabling SkipUpgrade withing Network Function Resource
+To enable the SkipUpgrade feature via `RoleOverrideValues`, refer to the example below:
+
+```json
+{
+    "location": "eastus2euap",
+    "properties": {
+        "publisherName": "xyAzureArcRunnerPublisher",
+        "publisherScope": "Private",
+        "networkFunctionDefinitionGroupName": "AzureArcRunnerNFDGroup",
+        "networkFunctionDefinitionVersion": "1.0.0",
+        "networkFunctionDefinitionOfferingLocation": "eastus2euap",
+        "nfviType": "AzureArcKubernetes",
+        "nfviId": "/subscriptions/4a0479c0-b795-4d0f-96fd-c7edd2a2928f/resourcegroups/ashutosh_test_rg/providers/microsoft.extendedlocation/customlocations/ashutosh_test_cl",
+        "deploymentValues": "",
+        "roleOverrideValues": [
+            "{\"name\":\"hellotest\",\"deployParametersMappingRuleProfile\":{\"helmMappingRuleProfile\":{\"options\":{\"installOptions\":{\"atomic\":\"true\",\"wait\":\"true\",\"timeout\":\"1\"},\"upgradeOptions\":{\"atomic\":\"true\",\"wait\":\"true\",\"timeout\":\"4\",\"skipUpgrade\":\"true\"}}}}}",
+            "{\"name\":\"runnerTest\",\"deployParametersMappingRuleProfile\":{\"helmMappingRuleProfile\":{\"options\":{\"installOptions\":{\"atomic\":\"true\",\"wait\":\"true\",\"timeout\":\"5\"},\"upgradeOptions\":{\"atomic\":\"true\",\"wait\":\"true\",\"timeout\":\"5\"}}}}}"
+        ]
+    }
+}
+```
+#### Explanation of the Example
+- **NfApplication: `hellotest`**
+  - The `skipUpgrade` flag is enabled. If the upgrade request for `hellotest` meets the pre-check criteria, the upgrade will be skipped at the service level.
+- **NfApplication: `runnerTest`**
+  - The `skipUpgrade` flag is not specified. Therefore, `runnerTest` will always go through a traditional Helm upgrade at the cluster level, even if the pre-check criteria are met.
+
 ## Support for in service upgrades
 Azure Operator Service Manager, where possible, supports in service upgrades, an upgrade method which advances a deployment version without interrupting the service. However, the ability for a given service to be upgraded without interruption is a feature of the service itself. Consult further with the service publisher to understand the in-service upgrade capabilities.
 
