@@ -945,7 +945,10 @@
     items: 
     - name: Overview
       href: incident-investigation.md
-    - name: Investigate incidents
+    - name: Triage and manage your incidents
+      href: incident-navigate-triage.md
+      displayName: close incidents, search incidents, comment on incidents
+    - name: Investigate incidents in depth
       href: investigate-incidents.md
     - name: Tutorial - Investigate with UEBA
       href: investigate-with-ueba.md
