@@ -4,7 +4,7 @@ description: This page provides information about how to secure connectivity to 
 services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/12/2024
 ms.author: duau
 ms.custom: references_regions, ignite-2024

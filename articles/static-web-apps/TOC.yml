@@ -224,6 +224,8 @@
   - name: Overview
     href: monitor.md
     displayName: Application Insights
+  - name: Supported metrics
+    href: metrics.md
 - name: Resources
   items:
   - name: Supported languages and runtimes

@@ -5,7 +5,7 @@ description: This article helps you understand the composite limits around routi
 services: front-door
 author: duongau
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/28/2023
 ms.author: jodowns
 ---

@@ -5,7 +5,7 @@ description: You use Cost Management features to monitor and control Azure spend
 author: bandersmsft
 ms.author: banders
 ms.reviewer: micfaln
-ms.date: 08/07/2023
+ms.date: 01/07/2025
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: cost-management

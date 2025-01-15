@@ -5,7 +5,7 @@ author: timlt
 ms.author: timlt
 ms.service: azure-iot
 ms.topic: troubleshooting
-ms.date: 04/08/2024
+ms.date: 1/10/2025
 ---
 
 # Troubleshooting the Eclipse ThreadX embedded device tutorials
