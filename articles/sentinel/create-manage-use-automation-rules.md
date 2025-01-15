@@ -164,7 +164,7 @@ Use the options in the **Conditions** area to define conditions for your automat
     | - **Tag** (See [individual vs. collection](automate-incident-handling-with-automation-rules.md#tag-property-individual-vs-collection)) | **Any individual tag:**<br>- Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with<br><br>**Collection of all tags:**<br>- Contains/Does not contain |
     | - **Tag** (in addition to above)<br>- **Alerts**<br>- **Comments** | - Added |
     | - **Severity**<br>- **Status** | - Equals/Does not equal<br>- Changed<br>- Changed from<br>- Changed to |
-    | - **Owner** | - Changed |
+    | - **Owner** | - Changed. If an incident's owner is updated via API, you must include the *[userPrincipalName](/rest/api/securityinsights/automation-rules/get?view=rest-securityinsights-2024-09-01&tabs=HTTP)* for the change to be detected by automation rules. |
     | - **Updated by**<br>- **Custom details key** | - Equals/Does not equal |
     | - **Tactics** | - Contains/Does not contain<br>- Added |
     | - **Alert product names**<br>- **Custom details value**<br>- **Analytic rule name** | - Contains/Does not contain |
