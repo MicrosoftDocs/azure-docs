@@ -96,7 +96,7 @@ The script is downloaded and implemented. This will work even if the script isn'
 
 The new feature specifically supports scripts that aren't publicly accessible but don't require a SAS key or token. This provides an additional layer of security for scripts that need to be kept private. 
 
-The conventional script action which is anonymously accessible or if a SAS key is passed along with the script URI, it still works without any changes. For more information, see [Customize Azure HDInsight clusters by using script actions](./hdinsight-hadoop-customize-cluster-linux.md). 
+The conventional script action which is anonymously accessible or if a SAS key is passed along with the script URI, still works without any changes. For more information, see [Customize Azure HDInsight clusters by using script actions](./hdinsight-hadoop-customize-cluster-linux.md). 
 
 ## Configure Azure Blob storage as secondary storage
 
@@ -107,7 +107,7 @@ Use access keys to authenticate Azure blob storage while configuring it as secon
 Learn how to use access keys to authenticate Blob storage while configuring secondary storage during HDInsight cluster creation.  
 
 > [!NOTE]
-> If the primary storage is already choosen as Blob storage , then same authentication mechanism may need to be chosen for secondary storage (i.e. access key in this scenario).
+> If the primary storage is already chosen as Blob storage, then same authentication mechanism may need to be chosen for secondary storage. (i.e. access key in this scenario).
 
 
 1. Select `Additional Azure Storage` in the storage section in portal during HDInsight cluster creation. 
