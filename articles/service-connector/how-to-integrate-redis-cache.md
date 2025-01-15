@@ -40,7 +40,7 @@ All client types, except for Go and Java - Spring Boot, can use any of the authe
 
 ## Default environment variable names or application properties and sample code
 
-Use the following environment variable names and application properties to connect compute services to your Redis server. For each example, replace the placeholders `<redis-server-name>` and `<redis-key>` with your own Redis server name and key. To learn more about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+Use the following environment variable names and application properties to connect compute services to your Redis server. To learn more about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
 ### System-assigned managed identity
 
