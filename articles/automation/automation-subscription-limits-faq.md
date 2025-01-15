@@ -3,7 +3,7 @@ title: Azure Automation subscription limits and quotas
 description: This article provides automation subscription and service limits and includes answers to frequently asked questions.
 services: automation
 ms.topic: faq
-ms.date: 01/03/2025
+ms.date: 01/15/2025
 ms.custom: references_regions
 #Customer intent: As an implementer, I want answers to various questions.
 ---
@@ -19,7 +19,7 @@ Azure Automation offers Limits and Quotas to resources assigned for your Azure s
 > [!NOTE]
 > Quota increases are subject to availability of resources in the selected region. 
 
-## Service and Subscription limits
+## Service and subscription limits
 
 **Resource** | **Limit** | **Notes** |
 |---|--- | --- |
@@ -53,7 +53,7 @@ Azure Automation offers Limits and Quotas to resources assigned for your Azure s
 |Maximum number of characters in the value field of a variable| 1048576 ||
 
 <sup>1</sup>A sandbox is a shared environment that can be used by multiple jobs. Jobs that use the same sandbox are bound by the resource limitations of the sandbox.</br>
-<sup>2</sup>Free subscriptions including [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) and [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) aren't eligible for limit or quota changes. If you have a free subscription, you can [upgrade](../cost-management-billing/manage/upgrade-azure-subscription.md) to Pay-As-You-Go subscription.</br>
+<sup>2</sup>Free subscriptions including [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) and [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) aren't eligible for limit or quota changes. If you have a free subscription, you can [upgrade](../cost-management-billing/manage/upgrade-azure-subscription.md) to pay-as-you-go subscription.</br>
 <sup>3</sup>Limits for Government clouds: 200 concurrent running jobs at the same instance of time per Automation account, no limit on number of Automation accounts per subscription. 
 
 

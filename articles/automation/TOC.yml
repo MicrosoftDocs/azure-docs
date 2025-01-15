@@ -172,7 +172,7 @@
           href: automation-powershell-workflow.md
         - name: Runtime environment scenarios 
           href: manage-runtime-environment.md
-        - name: Manage Automation limits and quotas
+        - name: Manage automation limits and quotas
           href: automation-limits-quotas.md
         - name: Manage runbooks
           href: manage-runbooks.md
