@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.service: azure-iot-hub
 ms.devlang: java
 ms.topic: include
-ms.date: 1/7/2025
+ms.date: 1/15/2025
 ms.custom: mqtt, devx-track-java, devx-track-extended-java
 ---
 
@@ -15,7 +15,7 @@ ms.custom: mqtt, devx-track-java, devx-track-extended-java
 
 ## Overview
 
-This article describes how to use the [Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java) to create backend service application code to schedule job to invoke a direct method or perform a device twin desired property update on one or more devices.
+This article describes how to use the [Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java) to create backend service application code to schedule job to invoke a direct method or perform a device twin update on one or more devices.
 
 ### Service import statements
 
@@ -102,9 +102,9 @@ try {
 
 Use [scheduleUpdateTwin](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient?#com-microsoft-azure-sdk-iot-service-jobs-jobclient-scheduleupdatetwin(java-lang-string-java-lang-string-com-microsoft-azure-sdk-iot-service-devicetwin-devicetwindevice-java-util-date-long)) to schedule a job to run a device twin update on one or multiple devices.
 
-This example method schedules a device twin update job for a specific job Id.
+This example method schedules a device twin update job for a specific job ID.
 
-First, prepare a `DeviceTwinDevice` record for the device twin update. For example:
+First, prepare a [DeviceTwinDevice](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice) record for the device twin update. For example:
 
 ```java
 String deviceId = "Device-1";
@@ -144,7 +144,7 @@ try {
 
 ### Monitor a job
 
-Use [getJob](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient?#com-microsoft-azure-sdk-iot-service-jobs-jobclient-getjob(java-lang-string)) to access a job status.
+Use [getJob](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient?#com-microsoft-azure-sdk-iot-service-jobs-jobclient-getjob(java-lang-string)) to fetch job information based on a specific job ID. `getJob` returns a [JobResult](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobresult) object that contains methods and properties you can use to check job information including running status.
 
 For example:
 

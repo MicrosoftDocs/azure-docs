@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.service: azure-iot-hub
 ms.devlang: python
 ms.topic: include
-ms.date: 1/7/2025
+ms.date: 1/15/2025
 ms.custom: mqtt, devx-track-python, py-fresh-zinc
 ---
 
@@ -106,7 +106,7 @@ new_job_response = iothub_job_manager.create_scheduled_job(job_id, job_request)
 
 ### Schedule a device twin update job
 
-Use [create_scheduled_job](/python/api/azure-iot-hub/azure.iot.hub.iothubjobmanager?#azure-iot-hub-iothubjobmanager-create-scheduled-job) to create a new job to run a device twin update on one or multiple devices.
+Use [create_scheduled_job](/python/api/azure-iot-hub/azure.iot.hub.iothubjobmanager?#azure-iot-hub-iothubjobmanager-create-scheduled-job) to create a new job to run a device twin desired properties update on one or multiple devices.
 
 `create_scheduled_job` parameter notes:
 

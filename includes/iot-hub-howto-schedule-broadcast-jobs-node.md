@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.service: azure-iot-hub
 ms.devlang: nodejs
 ms.topic: include
-ms.date: 1/7/2025
+ms.date: 1/15/2025
 ms.custom: [amqp, mqtt, devx-track-js]
 ---
 
@@ -15,7 +15,7 @@ ms.custom: [amqp, mqtt, devx-track-js]
 
 ## Overview
 
-This article describes how to use the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) to create backend service application code to schedule job to invoke a direct method or perform a device twin desired property update on one or more devices.
+This article describes how to use the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) to create backend service application code to schedule job to invoke a direct method or perform a device twin update on one or more devices.
 
 ### Install service SDK package
 

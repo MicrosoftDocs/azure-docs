@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.service: azure-iot-hub
 ms.devlang: csharp
 ms.topic: include
-ms.date: 1/7/2025
+ms.date: 1/15/2025
 ms.custom: [amqp, mqtt, "Role: Cloud Development", "Role: IoT Device", devx-track-csharp, devx-track-dotnet]
 ---
 
@@ -15,7 +15,7 @@ ms.custom: [amqp, mqtt, "Role: Cloud Development", "Role: IoT Device", devx-trac
 
 ## Overview
 
-This article describes how to use the [Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/readme.md) to create backend service application code to a schedule job to invoke a direct method or perform a device twin desired property update on one or more devices.
+This article describes how to use the [Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/readme.md) to create backend service application code to a schedule job to invoke a direct method or perform a device twin update on one or more devices.
 
 ### Add service NuGet package
 
@@ -60,11 +60,11 @@ jobClient = JobClient.CreateFromConnectionString(connString);
 
 [!INCLUDE [iot-hub-howto-connect-service-iothub-entra-dotnet](iot-hub-howto-connect-service-iothub-entra-dotnet.md)]
 
-### Schedule a direct method update job
+### Schedule a direct method job
 
 Use [ScheduleDeviceMethodAsync](/dotnet/api/microsoft.azure.devices.jobclient.scheduledevicemethodasync) to schedule a job to run a direct method on one or multiple devices.
 
-The [CloudToDeviceMethod](/dotnet/api/microsoft.azure.devices.cloudtodevicemethod.-ctor?#microsoft-azure-devices-cloudtodevicemethod-ctor(system-string-system-timespan-system-timespan)) object to specify the direct method name and device connection timeout values.
+Use the [CloudToDeviceMethod](/dotnet/api/microsoft.azure.devices.cloudtodevicemethod.-ctor?#microsoft-azure-devices-cloudtodevicemethod-ctor(system-string-system-timespan-system-timespan)) object to specify the direct method name and device connection timeout values.
 
 ```csharp
 // The CloudToDeviceMethod record specifies the direct method name and device connection timeout
@@ -73,7 +73,7 @@ new CloudToDeviceMethod("LockDoor", TimeSpan.FromSeconds(5),
 TimeSpan.FromSeconds(5));
 ```
 
-This example schedules a job for a direct method method named "LockDoor" on one device named "Device-1". The device(s) included in the scheduled job are contained second parameter as a query condition.
+This example schedules a job for a direct method named "LockDoor" on one device named "Device-1". The device(s) included in the scheduled job are contained second parameter as a query condition.
 
 ```csharp
 string methodJobId = Guid.NewGuid().ToString();  // a unique job ID
@@ -85,9 +85,9 @@ JobResponse result = await jobClient.ScheduleDeviceMethodAsync(methodJobId,
    (long)TimeSpan.FromMinutes(2).TotalSeconds);
 ```
 
-### Schedule a device desired twin update job
+### Schedule a device twin update job
 
-Use [ScheduleTwinUpdateAsync](/dotnet/api/microsoft.azure.devices.jobclient.scheduledevicemethodasync) to schedule a new desired twin update job to run on one or multiple devices.
+Use [ScheduleTwinUpdateAsync](/dotnet/api/microsoft.azure.devices.jobclient.scheduledevicemethodasync) to schedule a new device twin desired properties and tags update job to run on one or more devices.
 
 First, create and populate a device `Twin` object for the update. For example:
 
