@@ -35,7 +35,7 @@ The [Microsoft.StorageActions/storageTasks](/azure/templates/microsoft.storageac
 
 2. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az group create --name exampleRG --location <region>
@@ -43,15 +43,13 @@ az group create --name exampleRG --location <region>
 az deployment group create --resource-group exampleRG --template-file main.bicep --parameters storageTaskName="<storage-task-name>" description="<description>" 
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup -Name exampleRG -Location <region>
 
 New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -storageTaskName "<storage-task-name>" -description "<description>"
 ```
-
-
 
 ## Review deployed resources
 

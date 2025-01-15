@@ -43,7 +43,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 2. Specify the subscription, resource group, and the storage task name. Then, select **Review + create** to deploy the template.
 
-  You can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
+  You can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Review deployed resources
 
