@@ -14,8 +14,7 @@ ms.author: danlep
         <base />
         <azure-openai-semantic-cache-lookup
             score-threshold="0.05"
-            embeddings-backend-id ="azure-openai-backend"
-            embeddings-backend-auth ="system-assigned" >
+            embeddings-backend-id ="azure-openai-backend" >
             <vary-by>@(context.Subscription.Id)</vary-by>
         </azure-openai-semantic-cache-lookup>
     </inbound>

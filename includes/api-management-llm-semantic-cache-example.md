@@ -14,8 +14,7 @@ ms.author: danlep
         <base />
         <llm-semantic-cache-lookup
             score-threshold="0.05"
-            embeddings-backend-id ="llm-backend"
-            embeddings-backend-auth ="system-assigned" >
+            embeddings-backend-id ="llm-backend" >
             <vary-by>@(context.Subscription.Id)</vary-by>
         </llm-semantic-cache-lookup>
     </inbound>
