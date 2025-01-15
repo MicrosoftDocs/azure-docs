@@ -24,7 +24,7 @@ Follow these steps to add required code snippets to the `messages-quickstart.py`
 - [Send Template message with media parameter in the header](#send-template-message-with-media-parameter-in-the-header).
 - [Send Template message with location in the header](#send-template-message-with-location-in-the-header).
 - [Send Template message with quick reply buttons](#send-template-message-with-quick-reply-buttons).
-- [Send Template message with call to action buttons](#send-template-message-with-call-to-action-buttons).
+- [Send Template message with call to action buttons with dynamic link](#send-template-message-with-call-to-action-buttons-with-dynamic-link).
 
 ### List WhatsApp templates in Azure portal
 
@@ -353,8 +353,7 @@ issueResolutionTemplate.Bindings = bindings;
 ### Send template message with call to action buttons
 
 ### Send Template message with call to action buttons with dynamic link
-Use `MessageTemplateQuickAction` to define the url suffix for call to action buttons and `MessageTemplateQuickAction` object have the following three attributes.
-Use `MessageTemplateQuickAction` to define the URL suffix for call to action buttons and `MessageTemplateQuickAction` object have the following three attributes.
+Use `MessageTemplateQuickAction` to define the URL suffix for call to action buttons and `MessageTemplateQuickAction` object have the following two attributes.
 
 |  Properties   | Description |  Type |
 |----------|---------------------------|-----------|

@@ -36,7 +36,7 @@ Follow these steps to add the necessary code snippets to the `messages-quickstar
 - [Send Template message with media parameter in the header](#send-template-message-with-media-parameter-in-the-header).
 - [Send Template message with location in the header](#send-template-message-with-location-in-the-header).
 - [Send Template message with quick reply buttons](#send-template-message-with-quick-reply-buttons).
-- [Send Template message with call to action buttons](#send-template-message-with-call-to-action-buttons).
+- [Send Template message with call to action buttons with dynamic link](#send-template-message-with-call-to-action-buttons-with-dynamic-link).
 
 ### List WhatsApp templates in Azure portal
 
@@ -335,9 +335,9 @@ Location based message template assembly:
             channel_registration_id=self.channel_id, to=[self.phone_number], template=sample_movie_location)
 ```
 
-### Send template message with call to action buttons
+### Send template message with call to action buttons with dynamic link
 
-Use `MessageTemplateQuickAction` to define the URL suffix for call to action buttons and `MessageTemplateQuickAction` object have the following three attributes.
+Use `MessageTemplateQuickAction` to define the URL suffix for call to action buttons and `MessageTemplateQuickAction` object have the following two attributes.
 
 | Properties | Description | Type |
 | --- | --- | --- |
