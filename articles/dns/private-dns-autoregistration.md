@@ -13,7 +13,7 @@ ms.author: greglin
 
 The Azure DNS private zones autoregistration feature manages DNS records for virtual machines deployed in a virtual network. When you [link a virtual network](./private-dns-virtual-network-links.md) with a private DNS zone with this setting enabled, a DNS record gets created for each virtual machine deployed in the virtual network. 
 
-For each virtual machine, an A record and a PTR record are created. DNS records for newly deployed virtual machines are also automatically created in the linked private DNS zone. When a virtual machine gets deleted, any associated DNS records also get deleted from the private DNS zone.
+For each virtual machine, an A record and a PTR record are created. DNS records for newly deployed virtual machines are also automatically created in the linked private DNS zone. When a virtual machine gets deleted or stopped, any associated DNS records also get deleted from the private DNS zone.
 
 To enable autoregistration, select the checkbox for "Enable auto registration" when you create the virtual network link.
 
