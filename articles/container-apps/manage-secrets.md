@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 12/05/2024
+ms.date: 1/13/2025
 ms.author: cshoe
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, build-2023
 ---
@@ -134,9 +134,11 @@ To grant access to Key Vault secrets, [create an access policy](/azure/key-vault
 
 1. Under the *Settings* section, select **Identity**.
 
-1. In the *System assigned* tab, select **On**.
+1. In the *System assigned* tab, set the *Status* to **On**.
 
-1. Select **Save** to enable system-assigned managed identity.
+1. Select **Save** to enable system assigned managed identity.
+
+1. A popup appears to confirm that you want to enable system assigned managed identity and register your container app with Microsoft Entra ID. Select **Yes**.
 
 1. Under the *Settings* section, select **Secrets**.
 
@@ -146,8 +148,9 @@ To grant access to Key Vault secrets, [create an access policy](/azure/key-vault
 
     - **Name**: The name of the secret.
     - **Type**: Select **Key Vault reference**.
-    - **Key Vault secret URL**: The URI of your secret in Key Vault.
-    - **Identity**: The identity to use to retrieve the secret from Key Vault.
+    - **Key Vault secret URL**: The URI of your secret in Key Vault. This URI has the following form:
+        `https://<YOUR_KEY_VAULT_NAME>.vault.azure.net/secrets/<YOUR_SECRET_NAME>/<32_DIGIT_HEX_ID>`
+    - **Identity**: Select **System assigned**.
 
 1. Select **Add**.
 
@@ -164,7 +167,7 @@ Secrets are defined at the application level in the `resources.properties.config
             "secrets": [
             {
                 "name": "queue-connection-string",
-                "keyVaultUrl": "<KEY-VAULT-SECRET-URI>",
+                "keyVaultUrl": "<KEY_VAULT_SECRET_URI>",
                 "identity": "system"
             }],
         }
@@ -174,7 +177,7 @@ Secrets are defined at the application level in the `resources.properties.config
 
 Here, a connection string to a queue storage account is declared in the `secrets` array. Its value is automatically retrieved from Key Vault using the specified identity. To use a user managed identity, replace `system` with the identity's resource ID.
 
-Replace `<KEY-VAULT-SECRET-URI>` with the URI of your secret in Key Vault.
+Replace `<KEY_VAULT_SECRET_URI>` with the URI of your secret in Key Vault.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -233,23 +236,27 @@ After you've [defined a secret](#defining-secrets) in your container app, you ca
 
 1. Go to your container app in the [Azure portal](https://portal.azure.com).
 
-1. Open the *Revision management* page.
+1. Under the *Application* section, select **Revisions and replicas**.
 
-1. Select **Create new revision**.
+1. In the *Revisions and replicas* page, select **Create new revision**.
 
-1. In the *Create and deploy new revision* page, select a container.
+1. In the *Create and deploy new revision* page, in the *Container* tab, under the *Container image* section, select a container.
 
-1. In the *Environment variables* section, select **Add**.
+1. Select **Edit**.
+
+1. In the *Edit a container* context pane, select the **Environment variables** tab.
+
+1. Select **Add**.
 
 1. Enter the following information:
 
     - **Name**: The name of the environment variable.
     - **Source**: Select **Reference a secret**.
-    - **Value**: Select the secret you want to reference.
+    - **Value**: Select the secret you defined previously.
 
 1. Select **Save**.
 
-1. Select **Create** to create the new revision.
+1. In the *Create and deploy new revision* page, select **Create** to create the new revision.
 
 # [ARM template](#tab/arm-template)
 
@@ -320,21 +327,22 @@ After you've [defined a secret](#defining-secrets) in your container app, you ca
 
 1. Go to your container app in the [Azure portal](https://portal.azure.com).
 
-1. Open the *Revision management* page.
+1. Under the *Application* section, select **Revisions and replicas**.
 
-1. Select **Create new revision**.
+1. In the *Revisions and replicas* page, select **Create new revision**.
 
-1. In the *Create and deploy new revision* page.
+1. In the *Create and deploy new revision* page, in the *Container* tab, under the *Container image* section, select a container.
 
-1. Select a container and select **Edit**.
+1. Select **Edit**.
 
-1. In the *Volume mounts* section, expand the **Secrets** section.
+1. In the *Edit a container* context pane, select the **Volume mounts** tab.
 
 1. Select **Create new volume**.
 
-1. Enter the following information:
+1. In the *Add volume* context pane, enter the following information:
 
-    - **Name**: mysecrets
+    - **Volume type**: Select `Secret`.
+    - **Name**: `mysecrets`
     - **Mount all secrets**: enabled
 
     > [!NOTE]
@@ -342,13 +350,13 @@ After you've [defined a secret](#defining-secrets) in your container app, you ca
 
 1. Select **Add**.
 
-1. Under *Volume name*, select **mysecrets**.
+1. In the *Edit a container* context pane, under *Volume name*, select **mysecrets**.
 
-1. Under *Mount path*, enter **/mnt/secrets**.
+1. Under *Mount path*, enter `/mnt/secrets`.
 
 1. Select **Save**.
 
-1. Select **Create** to create the new revision with the volume mount.
+1. In the *Create and deploy new revision* page, select **Create** to create the new revision with the volume mount.
 
 # [ARM template](#tab/arm-template)
 

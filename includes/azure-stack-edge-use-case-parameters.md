@@ -3,7 +3,7 @@ author: alkohli
 ms.service: azure-databox
 ms.author: alkohli
 ms.topic: include
-ms.date: 10/09/2024
+ms.date: 01/10/2025
 ---
 
 
@@ -19,8 +19,6 @@ Devices are available for customers who utilize Azure Stack Edge as an infrastru
 
 Approved, validated partner workloads:
 
-- [Azure Private MEC / Azure Private 5G Core](https://azure.microsoft.com/products/private-5g-core/#overview>) offers simple, scalable, and secure deployment of private 5G core networks within the Azure private multi-access edge compute solution. There's an additional screening process to be approved as an Azure PMEC customer.
-- [Azure Orbital Cloud Access](https://azure.microsoft.com/solutions/space/#overview) for Azure Government solutions enables connectivity from the cloud wherever businesses and public sector organizations need it. Azure Orbital Cloud Access provides low-latency, one hop access to the cloud from anywhere on the planet, making it easier to bring satellite-based communications into your enterprise cloud operation.
 - **Azure Government** – We continue to facilitate and support Azure Government customers and the Defense Industrial Base.
 
 ### Large scale deployments

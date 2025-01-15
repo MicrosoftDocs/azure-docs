@@ -98,10 +98,10 @@ The real-time resource logs captured by live trace tool contain detailed informa
 | User ID        | User identity                                                                                   |
 | IP             | Client IP address                                                                               |
 | Route Template | The route template of the API                                                                   |
-| Http Method    | The Http method (POST/GET/PUT/DELETE)                                                           |
+| HTTP Method    | The HTTP method (POST/GET/PUT/DELETE)                                                           |
 | URL            | The uniform resource locator                                                                    |
 | Trace ID       | The unique identifier to the invocation                                                         |
-| Status Code    | The Http response code                                                                          |
+| Status Code    | The HTTP response code                                                                          |
 | Duration       | The duration between receiving the request and processing the request                           |
 | Headers        | The additional information passed by the client and the server with an HTTP request or response |
 
@@ -155,10 +155,10 @@ Archive log JSON strings include elements listed in the following tables:
 | message       | Detailed message of log event                                                                   |
 | hub           | User-defined Hub Name                                                                           |
 | routeTemplate | The route template of the API                                                                   |
-| httpMethod    | The Http method (POST/GET/PUT/DELETE)                                                           |
+| httpMethod    | The HTTP method (POST/GET/PUT/DELETE)                                                           |
 | url           | The uniform resource locator                                                                    |
 | traceId       | The unique identifier to the invocation                                                         |
-| statusCode    | The Http response code                                                                          |
+| statusCode    | The HTTP response code                                                                          |
 | duration      | The duration between the request is received and processed                                      |
 | headers       | The additional information passed by the client and the server with an HTTP request or response |
 

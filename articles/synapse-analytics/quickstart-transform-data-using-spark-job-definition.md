@@ -93,7 +93,7 @@ On this panel, you can reference to the Spark job definition to run.
      |Driver size| Number of cores and memory to be used for driver given in the specified Apache Spark pool for the job.|
      |Spark configuration| Specify values for Spark configuration properties listed in the article: Spark Configuration - Application properties. Users can use default configuration and customized configuration. |
 
-     ![spark job definition pipline settings](media/quickstart-transform-data-using-spark-job-definition/spark-job-definition-pipline-settings.png)
+     ![spark job definition pipeline settings](media/quickstart-transform-data-using-spark-job-definition/spark-job-definition-pipline-settings.png)
 
 * You can add dynamic content by clicking the **Add Dynamic Content** button or by pressing the shortcut key <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd>. In the **Add Dynamic Content** page, you can use any combination of expressions, functions, and system variables to add to dynamic content.
 
