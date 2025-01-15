@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a storage task by using an Azure Resource Manager template (ARM template)
+title: 'Quickstart: Create a storage task by using an Azure Resource Manager template (ARM template)'
 titleSuffix: Azure Storage Actions Preview
 description: Learn how to create a storage task by using Azure Resource Manager template (ARM template).
 ms.service: azure-storage-actions
