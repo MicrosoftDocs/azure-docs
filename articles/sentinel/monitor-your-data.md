@@ -92,7 +92,7 @@ Create a workbook from scratch in Microsoft Sentinel.
 
     Select the workbook you want to open:
 
-    :::image type="content" source="media/monitor-your-data/switch-workbooks.png" alt-text="Switch workbooks." lightbox="media/monitor-your-data/switch-workbooks.png":::
+    :::image type="content" source="media/monitor-your-data/switch-workbooks.png" alt-text="Screenshot that shows how to switch workbooks." lightbox="media/monitor-your-data/switch-workbooks.png":::
 
 ## Create new tiles for your workbooks
 
