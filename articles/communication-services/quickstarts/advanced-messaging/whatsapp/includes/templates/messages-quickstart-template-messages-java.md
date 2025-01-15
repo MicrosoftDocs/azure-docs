@@ -11,36 +11,37 @@ ms.custom: include file
 ms.author: armohamed
 ---
 
-## Setting up
+## Set up environment
 
-To set up an environment for sending messages, take the steps in the following sections.
+To set up an environment for sending messages, complete the steps in the following sections.
 
 [!INCLUDE [Setting up for Java Application](../java-application-setup.md)]
 
 ## Code examples
-Follow these steps to add the necessary code snippets to the main function of your *App.java* file.
-- [List WhatsApp templates in the Azure Portal](#list-whatsapp-templates-in-the-azure-portal)
-- [Send Template message with text parameters in the body](#send-template-message-with-text-parameters-in-the-body)
-- [Send Template message with media parameter in the header](#send-template-message-with-media-parameter-in-the-header)
-- [Send Template message with quick reply buttons](#send-template-message-with-quick-reply-buttons)
-- [Send Template message with call to action buttons](#send-template-message-with-call-to-action-buttons)
+Follow these steps to add required code snippets to the main function of your `App.java` file.
+- [List WhatsApp templates in the Azure portal](#list-whatsapp-templates-in-the-azure-portal).
+- [Send Template message with text parameters in the body](#send-template-message-with-text-parameters-in-the-body).
+- [Send Template message with media parameter in the header](#send-template-message-with-media-parameter-in-the-header).
+- [Send Template message with quick reply buttons](#send-template-message-with-quick-reply-buttons).
+- [Send Template message with call to action buttons](#send-template-message-with-call-to-action-buttons).
 
-### List WhatsApp templates in the Azure Portal
+### List WhatsApp templates in the Azure portal
 
-You can view your templates in the Azure portal by going to your Azure Communication Service resource > Advanced Messaging -> Templates.
+To view your templates in the Azure portal, go to your Azure Communication Services resource > **Advanced Messaging** > **Templates**.
 
-:::image type="content" source="../../media/template-messages/list-templates-azure-portal.png" lightbox="../../media/template-messages/list-templates-azure-portal.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Templates' tab.":::
+:::image type="content" source="../../media/template-messages/list-templates-azure-portal.png" lightbox="../../media/template-messages/list-templates-azure-portal.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the advanced messaging templates tab.":::
 
-By selecting a template, you can view the template details.   
-The `content` field of the template details may include parameter bindings. The parameter bindings can be denoted as:
-- A "format" field with a value such as `IMAGE`.
-- Double brackets surrounding a number, such as `{{1}}`. The number, indexed started at 1, indicates the order in which the binding values must be supplied to create the message template.
+Selecting a template to view the template details.
+
+The **Content** field of the template details can include parameter bindings. The parameter bindings can be denoted as:
+- A `"format"` field with a value such as `IMAGE`.
+- Double brackets surrounding a number, such as `{{1}}`. The number, index started at 1, indicates the order in which the binding values must be supplied to create the message template.
 
 :::image type="content" source="../../media/template-messages/sample-movie-ticket-confirmation-azure-portal.png" lightbox="../../media/template-messages/sample-movie-ticket-confirmation-azure-portal.png" alt-text="Screenshot that shows template details.":::
 
-Alternatively, you can view and edit all of your WhatsApp Business Account's templates in the [WhatsApp Manager](https://business.facebook.com/wa/manage/home/) > Account tools > [Message templates](https://business.facebook.com/wa/manage/message-templates/). 
+Alternatively, you can view and edit all of your WhatsApp Business Account templates in the [WhatsApp Manager](https://business.facebook.com/wa/manage/home/) > Account tools > [Message templates](https://business.facebook.com/wa/manage/message-templates/). 
 
-To list out your templates programmatically, you can fetch all templates for your channel ID:
+To list out your templates programmatically, you can fetch all templates for your channel ID using the following code:
 
 ```java
 public static void getMessageTemplateWithConnectionString() {
@@ -64,7 +65,8 @@ public static void getMessageTemplateWithConnectionString() {
 ```
 
 ### Send Template message with text parameters in the body
-If the template takes no parameters, you don't need to supply the values or bindings when creating the `MessageTemplate`.
+
+If the template takes no parameters, you don't need to supply any values or bindings when creating the `MessageTemplate`.
 
 ```java
  /*
@@ -107,9 +109,11 @@ private static void sendTemplateMessage() {
 ```
 
 ### Send Template message with media parameter in the header
+
 Use `MessageTemplateImage`, `MessageTemplateVideo`, or `MessageTemplateDocument` to define the media parameter in a header.
 
-Template definition with image media parameter in header:
+Template definition with image media parameter in the header:
+
 ```json
 {
   "type": "HEADER",
@@ -117,7 +121,7 @@ Template definition with image media parameter in header:
 },
 ```
 
-The "format" can have different media types supported by WhatsApp. In the .NET SDK, each media type uses a corresponding MessageTemplateValue type.
+The `"format"` can be on of four different media types supported by WhatsApp. In the .NET SDK, each media type uses a corresponding `MessageTemplateValue` type.
 
 | Format   | MessageTemplateValue Type | File Type |
 |----------|---------------------------|-----------|
@@ -125,25 +129,30 @@ The "format" can have different media types supported by WhatsApp. In the .NET S
 | VIDEO    | `MessageTemplateVideo`    | mp4       |
 | DOCUMENT | `MessageTemplateDocument` | pdf       |
 
-For more information on supported media types and size limits, see [WhatsApp's documentation for message media](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types). 
+For more information about supported media types and size limits, see [WhatsApp's documentation for message media](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types). 
 
 
 #### Examples
-sample_happy_hour_announcement
+
+`sample_happy_hour_announcement` template:
 
 :::image type="content" source="../../media/template-messages/sample-happy-hour-announcement-details-azure-portal.png" lightbox="../../media/template-messages/sample-happy-hour-announcement-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_happy_hour_announcement.":::
 
 Here, the header of the template requires a video:
+
 ```
 {
   "type": "HEADER",
   "format": "VIDEO"
 },
 ```
-The video should be a URL to hosted mp4 video.
-For more information on supported media types and size limits, see [WhatsApp's documentation for message media](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types). 
 
-And the body of the template requires two text parameters:
+The video must be a URL to a hosted mp4 video.
+
+For more information about supported media types and size limits, see [WhatsApp's documentation for message media](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types). 
+
+The body of the template requires two text parameters:
+
 ```
 {
   "type": "BODY",
@@ -209,15 +218,16 @@ private static void sendTemplateMessageWithVideo() {
 ```
 
 ### Send Template message with quick reply buttons
+
 Use `MessageTemplateQuickAction` to define the payload for quick reply buttons and `MessageTemplateQuickAction` objects have the following three attributes. 
 
 |  Properties   | Description |  Type |
-|----------|---------------------------|-----------|
-| Name  | The `name` is used to look up the value in `MessageTemplateWhatsAppBindings`. | string|
-| Text  | The option quick action 'text'. | string|
-| Payload| The `payload` assigned to a button is available in a message reply if the user selects the button.| string |
+| --- | --- | --- |
+| Name  | The `name` used to look up the value in `MessageTemplateWhatsAppBindings`. | string |
+| Text  | The option quick action `text`. | string |
+| Payload| The `payload` assigned to a button available in a message reply if the user selects the button. | string |
  
-Template definition wth quick reply buttons:
+Template definition with quick reply buttons:
 ```json
 {
   "type": "BUTTONS",
@@ -234,15 +244,18 @@ Template definition wth quick reply buttons:
 }
 ```
 
-The order that the buttons appear in the template definition should match the order in which the buttons are defined when creating the bindings with `MessageTemplateWhatsAppBindings`.
+The order that the buttons appear in the template definition must match the order in which the buttons are defined when creating the bindings with `MessageTemplateWhatsAppBindings`.
 
-For more information on the payload in quick reply responses from the user, see WhatsApp's documentation for [Received Callback from a Quick Reply Button](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/payload-examples#received-callback-from-a-quick-reply-button).
+For more information about the payload in quick reply responses from the user, see WhatsApp's documentation for [Received Callback from a Quick Reply Button](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/payload-examples#received-callback-from-a-quick-reply-button).
 
 #### Example
-sample_issue_resolution template
+
+`sample_issue_resolution` template:
+
 :::image type="content" source="../../media/template-messages/sample-issue-resolution-details-azure-portal.png" lightbox="../../media/template-messages/sample-issue-resolution-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_issue_resolution.":::
 
-Here, the body of the template requires one text parameter:
+The body of the template requires one text parameter:
+
 ```java
 /*
     * This sample shows how to send template message with below details
@@ -307,12 +320,13 @@ private static void sendTextTemplateMessageWithQuickReply() {
 ### Send Template message with call to action buttons
 Use `MessageTemplateQuickAction` to define the url suffix for call to action buttons and `MessageTemplateQuickAction` object have the following three attributes.
 
-|  Properties   | Description |  Type |
-|----------|---------------------------|-----------|
-| Name  | The `name` is used to look up the value in `MessageTemplateWhatsAppBindings`. | string|
-| Text  | The  'text' that is appended to the URL.  | string|
+| Properties | Description | Type |
+| --- | --- | --- |
+| Name  | The `name` used to look up the value in `MessageTemplateWhatsAppBindings`. | string |
+| Text  | The  `text` appended to the URL.  | string |
 
 Template definition buttons:
+
 ```json
 {
   "type": "BUTTONS",
@@ -326,14 +340,18 @@ Template definition buttons:
 }
 ```
 
-The order that the buttons appear in the template definition should match the order in which the buttons are defined when creating the bindings with `MessageTemplateWhatsAppBindings`.
+The order that the buttons appear in the template definition must match the order in which the buttons are defined when creating the bindings with `MessageTemplateWhatsAppBindings`.
 
 #### Example
-sample_purchase_feedback template
+
+`sample_purchase_feedback` template:
+
 This sample template adds a button with a dynamic URL link to the message. It also uses an image in the header and a text parameter in the body.
+
 :::image type="content" source="../../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.png" lightbox="../../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.png" alt-text="Screenshot that shows editing URL Type in the WhatsApp manager.":::
 
 In this sample, the header of the template requires an image:
+
 ```json
 {
   "type": "HEADER",
@@ -341,7 +359,8 @@ In this sample, the header of the template requires an image:
 },
 ```
 
-Here, the body of the template requires one text parameter:
+The body of the template requires one text parameter:
+
 ```json
 {
   "type": "BODY",
@@ -349,7 +368,8 @@ Here, the body of the template requires one text parameter:
 },
 ```
 
-And the template includes a dynamic URL button with one parameter:
+The template includes a dynamic URL button with one parameter:
+
 ```json
 {
   "type": "BUTTONS",
@@ -363,7 +383,7 @@ And the template includes a dynamic URL button with one parameter:
 }
 ```
 
-Create one `MessageTemplateImage`, one `MessageTemplateText`, and one `MessageTemplateQuickAction` variable. Then, assemble your list of `MessageTemplateValue` and your `MessageTemplateWhatsAppBindings` by providing the parameters in the order that the parameters appear in the template content. The order also matters when defining your binding's buttons.
+Create one `MessageTemplateImage`, one `MessageTemplateText`, and one `MessageTemplateQuickAction` variable. Then, assemble your list of `MessageTemplateValue` and your `MessageTemplateWhatsAppBindings` by providing the parameters in the order that the parameters appear in the template content. The order also matters when defining your bindings' buttons.
 
 ```java
 /*
@@ -430,7 +450,7 @@ private static void sendTemplateMessageWithImage() {
 
 ## Run the code
 
-1. Navigate to the directory that contains the **pom.xml** file and compile the project by using the `mvn` command.
+1. Open the directory that contains the `pom.xml` file and compile the project by using the `mvn` command.
 
    ```console
    mvn compile
