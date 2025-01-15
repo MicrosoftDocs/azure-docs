@@ -17,7 +17,7 @@ ms.topic: conceptual
 
 Many development teams increasingly need to build scalable, secure, and efficient automation solutions. Perhaps your team also faces the strategic choice whether to migrate your flows in Microsoft Power Automate to Standard workflows in Azure Logic Apps. Both Power Automate and Azure Logic Apps provide powerful automation platforms and tools. However, for enterprises that run complex, high-volume, and security-sensitive workloads, Azure Logic Apps (Standard) offers many key advantages.
 
-This guide outlines the advantages gained from transitioning to Azure Logic Apps (Standard), especially when you use the migration tool designed to support this process.
+This guide outlines the advantages gained from transitioning to Azure Logic Apps (Standard). <!--, especially when you use the migration tool designed to support this process.-->
 
 ## Migration benefits
 
@@ -30,7 +30,10 @@ Azure Logic Apps (Standard) provides the following benefits by providing capabil
 | Robust business continuity and disaster recovery (BCDR) capabilities | - Geo-redundancy <br>- Automated backups <br>- High availability with built-in redundancy <br><br>For more information, see [Business continuity and disaster recovery](#business-continuity-disaster-recovery). |
 | Flexible integration and development tools | - 1,400+ connectors for Microsoft, Azure, and other services, systems, apps, and data <br><br>- Browser-based development with Azure portal <br><br>- Local development and testing with Visual Studio Code <br><br>For more information, see [Integration and development](#integration-development). |
 | Version control with CI/CD <br>(continuous integration and deployment) | - Seamless integration with Git repositories, which provide change tracking, branching, and team collaboration <br><br>- Automate deployment with CI/CD pipelines and infrastructure as code (ARM templates and Bicep templates) <br><br>For more information, see [Version control with CI/CD](#version-control-ci-cd). |
+
+<!--
 | Migration tool support | - Convert Power Automate flows into Standard workflow configurations for Azure Logic Apps, preserving your flow's logic and functionality. <br><br>- Test and validate converted workflows using functional testing, connector testing, performance testing, and security validation to ensure workflow continuity and performance. <br><br>For more information, see [Migration tool support](#migration-tool). |
+-->
 
 For more detailed capability information and comparisons, see [Compare capability details](#compare-capabilities).
 
@@ -136,6 +139,7 @@ Azure Logic Apps supports robust version control and automated deployment proces
 
   Define and deploy your logic app workflows with Azure Resource Manager (ARM) templates or Bicep templates (infrastructure as code) by using Azure DevOps, which provides scalable, repeatable deployments that align with DevOps practices.
 
+<!--
 <a name="migration-tool"></a>
 
 ## Flow migration tool
@@ -145,6 +149,7 @@ This migration tool converts a Power Automate flow into the equivalent Standard 
 However, due to security constraints, the migration tool can't automatically transfer the connections used by the Power Automate flow. While the tool automates most of the flow conversion, you must manually recreate the connections in the logic app workflow. This manual step is necessary to fully meet the security protocols and compliance standards for Azure Logic Apps.
 
 Despite this requirement, the migration tool offers significant time and resource savings by eliminating the need to manually recreate entire workflows. The tool's automated process drastically reduces any other necessary manual effort and shortens the overall migration timeline. With this automation, your team can focus energy on setting up and optmizing connections, not on rebuilding workflows.
+-->
 
 ### Migration testing and validation
 
