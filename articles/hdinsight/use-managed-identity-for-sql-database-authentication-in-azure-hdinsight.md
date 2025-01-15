@@ -26,6 +26,10 @@ The Managed Identity (MI) option is available for the following Databases:
 > 1. Managed Identity (MI) is currently available only in public regions. It will be rolled out to other regions in future releases.
 > 2. MI option isn't enabled by default. To get it enabled, submit a [support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) with your subscription and region details.
 
+> [!IMPORTANT]
+> 1. It's recomanded not to update the Managed Identity after cluster recreation as it can disrupt cluster operation.
+> 2. When recreating an MSI with the same name, users must recreate the contained user and reassign roles, as the new MSI will have different object and client IDs even if the name remains unchanged.
+
 
 ## Steps to Use Managed Identity during cluster creation in Azure portal
 
