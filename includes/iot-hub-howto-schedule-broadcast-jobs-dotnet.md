@@ -64,16 +64,16 @@ jobClient = JobClient.CreateFromConnectionString(connString);
 
 Use [ScheduleDeviceMethodAsync](/dotnet/api/microsoft.azure.devices.jobclient.scheduledevicemethodasync) to schedule a job to run a direct method on one or multiple devices.
 
-Use the [CloudToDeviceMethod](/dotnet/api/microsoft.azure.devices.cloudtodevicemethod.-ctor?#microsoft-azure-devices-cloudtodevicemethod-ctor(system-string-system-timespan-system-timespan)) object to specify the direct method name and device connection timeout values.
+Use the [CloudToDeviceMethod](/dotnet/api/microsoft.azure.devices.cloudtodevicemethod.-ctor?#microsoft-azure-devices-cloudtodevicemethod-ctor(system-string-system-timespan-system-timespan)) object to specify the direct method name and device connection time-out values.
 
 ```csharp
-// The CloudToDeviceMethod record specifies the direct method name and device connection timeout
+// The CloudToDeviceMethod record specifies the direct method name and device connection time-out
 CloudToDeviceMethod directMethod = 
 new CloudToDeviceMethod("LockDoor", TimeSpan.FromSeconds(5), 
 TimeSpan.FromSeconds(5));
 ```
 
-This example schedules a job for a direct method named "LockDoor" on one device named "Device-1". The device(s) included in the scheduled job are contained second parameter as a query condition.
+This example schedules a job for a direct method named "LockDoor" on one device named "Device-1". One or more devices included in the scheduled job are contained second parameter as a query condition.
 
 ```csharp
 string methodJobId = Guid.NewGuid().ToString();  // a unique job ID

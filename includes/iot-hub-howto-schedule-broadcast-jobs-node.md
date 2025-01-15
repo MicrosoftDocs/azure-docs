@@ -57,17 +57,17 @@ var jobClient = JobClient.fromConnectionString(connectionString);
 
 [!INCLUDE [iot-hub-howto-connect-service-iothub-entra-node](iot-hub-howto-connect-service-iothub-entra-node.md)]
 
-### Create a direct method update job
+### Create a direct method job
 
 Use [scheduleDeviceMethod](/javascript/api/azure-iothub/jobclient?#azure-iothub-jobclient-scheduledevicemethod) to schedule a job to run a direct method on one or multiple devices.
 
-First, create a direct method update variable with method name, payload, and response timeout information. For example:
+First, create a direct method update variable with method name, payload, and response time-out information. For example:
 
 ```javascript
 var methodParams = {
     methodName: 'lockDoor',
     payload: null,
-    responseTimeoutInSeconds: 15 // Timeout after 15 seconds if device is unable to process method
+    responseTimeoutInSeconds: 15 // Time-out after 15 seconds if device is unable to process method
 };
 ```
 
