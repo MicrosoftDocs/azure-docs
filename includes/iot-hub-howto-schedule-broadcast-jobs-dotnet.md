@@ -60,37 +60,36 @@ jobClient = JobClient.CreateFromConnectionString(connString);
 
 [!INCLUDE [iot-hub-howto-connect-service-iothub-entra-dotnet](iot-hub-howto-connect-service-iothub-entra-dotnet.md)]
 
-### Create a direct method update job
+### Schedule a direct method update job
 
-Use [ScheduleDeviceMethodAsync](/dotnet/api/microsoft.azure.devices.jobclient.scheduledevicemethodasync) to create a job to run a direct method on one or multiple devices.
+Use [ScheduleDeviceMethodAsync](/dotnet/api/microsoft.azure.devices.jobclient.scheduledevicemethodasync) to schedule a job to run a direct method on one or multiple devices.
+
+The [CloudToDeviceMethod](/dotnet/api/microsoft.azure.devices.cloudtodevicemethod.-ctor?#microsoft-azure-devices-cloudtodevicemethod-ctor(system-string-system-timespan-system-timespan)) object to specify the direct method name and device connection timeout values.
+
+```csharp
+// The CloudToDeviceMethod record specifies the direct method name and device connection timeout
+CloudToDeviceMethod directMethod = 
+new CloudToDeviceMethod("LockDoor", TimeSpan.FromSeconds(5), 
+TimeSpan.FromSeconds(5));
+```
 
 This example schedules a job for a direct method method named "LockDoor" on one device named "Device-1". The device(s) included in the scheduled job are contained second parameter as a query condition.
 
 ```csharp
 string methodJobId = Guid.NewGuid().ToString();  // a unique job ID
-static string deviceId = "Device-1";             // In this example, there is only one device affected.
-
-// The CloudToDeviceMethod record specifies the direct method name and device connection timeout.
-CloudToDeviceMethod directMethod = 
-new CloudToDeviceMethod("LockDoor", TimeSpan.FromSeconds(5), 
-TimeSpan.FromSeconds(5));
-
+static string deviceId = "Device-1";             // In this example, there is only one device affected
 JobResponse result = await jobClient.ScheduleDeviceMethodAsync(methodJobId,
    $"DeviceId IN ['{deviceId}']",
    directMethod,
    DateTime.UtcNow,
    (long)TimeSpan.FromMinutes(2).TotalSeconds);
-
-Console.WriteLine("Started Method Job");
 ```
 
 ### Schedule a device desired twin update job
 
-Use [ScheduleTwinUpdateAsync](/dotnet/api/microsoft.azure.devices.jobclient.scheduledevicemethodasync) to create a new desired twin update job to run on one or multiple devices.
+Use [ScheduleTwinUpdateAsync](/dotnet/api/microsoft.azure.devices.jobclient.scheduledevicemethodasync) to schedule a new desired twin update job to run on one or multiple devices.
 
-First, create and populate a device `Twin` object for the update.
-
-For example:
+First, create and populate a device `Twin` object for the update. For example:
 
 ```csharp
 static string deviceId = "Device-1";
@@ -103,7 +102,7 @@ twin.ETag = "*";
 twin.Properties.Desired["LocationUpdate"] = DateTime.UtcNow;
 ```
 
-Next, call `ScheduleTwinUpdateAsync`. Specify the devices to be updated in the second parameter.
+Next, call `ScheduleTwinUpdateAsync`. Specify the devices to be updated as a query in the second parameter.
 
 ```csharp
 string twinJobId = Guid.NewGuid().ToString();
@@ -118,9 +117,9 @@ JobResponse createJobResponse = jobClient.ScheduleTwinUpdateAsync(
 
 ### Monitor a job
 
-Use [GetJobAsync](/dotnet/api/microsoft.azure.devices.jobclient.getjobasync?#microsoft-azure-devices-jobclient-getjobasync(system-string)) to monitor a job status.
+Use [GetJobAsync](/dotnet/api/microsoft.azure.devices.jobclient.getjobasync?#microsoft-azure-devices-jobclient-getjobasync(system-string)) to monitor the job status for a specific job ID.
 
-This example checks the job status for a job ID periodically until the job is complete or failed.
+This example checks the job status for a job ID periodically until the job status is complete or failed. For example:
 
 ```csharp
 JobResponse result;

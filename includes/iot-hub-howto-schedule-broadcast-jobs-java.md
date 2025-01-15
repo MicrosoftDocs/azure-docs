@@ -17,9 +17,9 @@ ms.custom: mqtt, devx-track-java, devx-track-extended-java
 
 This article describes how to use the [Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java) to create backend service application code to schedule job to invoke a direct method or perform a device twin desired property update on one or more devices.
 
-The [JobClient](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient) class contains methods that services can use to schedule jobs.
-
 ### Service import statements
+
+The [JobClient](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient) class contains methods that services can use to schedule jobs.
 
 Use the following service import statements to access the Azure IoT SDK for Java.
 
@@ -67,18 +67,18 @@ JobClient jobClient = new JobClient(iotHubConnectionString);
 
 [!INCLUDE [iot-hub-howto-connect-service-iothub-entra-java](iot-hub-howto-connect-service-iothub-entra-java.md)]
 
-### Create a direct method update job
+### Schedule a direct method update job
 
 Use [scheduleDeviceMethod](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient?#com-microsoft-azure-sdk-iot-service-jobs-jobclient-scheduledevicemethod(java-lang-string-java-lang-string-java-lang-string-java-lang-long-java-lang-long-java-lang-object-java-util-date-long)) to run a direct method on one or multiple devices.
 
-This example method schedules a direct method call job for a specific job ID.
+This example method schedules a job for a direct method named "lockDoor" on a device named "Device-1".
 
 ```java
 // Schedule a job now to call the lockDoor direct method
 // against a single device. Response and connection
 // timeouts are set to 5 seconds.
 String deviceId = "Device-1";
-String jobId = "DMCMD" + UUID.randomUUID();
+String jobId = "DMCMD" + UUID.randomUUID();  //Job ID must be unique
 
 // How long the job is permitted to run without
 // completing its work on the set of devices
@@ -100,21 +100,14 @@ try {
 
 ### Schedule a device twin update job
 
-Use [scheduleUpdateTwin](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient?#com-microsoft-azure-sdk-iot-service-jobs-jobclient-scheduleupdatetwin(java-lang-string-java-lang-string-com-microsoft-azure-sdk-iot-service-devicetwin-devicetwindevice-java-util-date-long)) to create a new job to run a device twin update on one or multiple devices.
+Use [scheduleUpdateTwin](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient?#com-microsoft-azure-sdk-iot-service-jobs-jobclient-scheduleupdatetwin(java-lang-string-java-lang-string-com-microsoft-azure-sdk-iot-service-devicetwin-devicetwindevice-java-util-date-long)) to schedule a job to run a device twin update on one or multiple devices.
 
 This example method schedules a device twin update job for a specific job Id.
 
-First, prepare a `DeviceTwinDevice` record.
-
-For example:
+First, prepare a `DeviceTwinDevice` record for the device twin update. For example:
 
 ```java
 String deviceId = "Device-1";
-String jobId = "DPCMD" + UUID.randomUUID();
-
-// How long the job is permitted to run without
-// completing its work on the set of devices
-private static final long maxExecutionTimeInSeconds = 30;
 
 //Create a device twin desired properties update object
 DeviceTwinDevice twin = new DeviceTwinDevice(deviceId);
@@ -126,9 +119,15 @@ twin.setDesiredProperties(desiredProperties);
 twin.setETag("*");
 ```
 
-Next, call `scheduleUpdateTwin` to schedule the update job.
+Then call `scheduleUpdateTwin` to schedule the update job. For example:
 
 ```java
+String jobId = "DPCMD" + UUID.randomUUID();  //Unique job ID
+
+// How long the job is permitted to run without
+// completing its work on the set of devices
+private static final long maxExecutionTimeInSeconds = 30;
+
 // Schedule the update twin job to run now for a single device
 System.out.println("Schedule job " + jobId + " for device " + deviceId);
 try {
@@ -150,33 +149,31 @@ Use [getJob](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient?#com-m
 For example:
 
 ```java
-private static void monitorJob(JobClient jobClient, String jobId) {
-  try {
-    JobResult jobResult = jobClient.getJob(jobId);
-    if(jobResult == null)
-    {
-      System.out.println("No JobResult for: " + jobId);
-      return;
-    }
-    // Check the job result until it's completed
-    while(jobResult.getJobStatus() != JobStatus.completed)
-    {
-      Thread.sleep(100);
-      jobResult = jobClient.getJob(jobId);
-      System.out.println("Status " + jobResult.getJobStatus() + " for job " + jobId);
-    }
-    System.out.println("Final status " + jobResult.getJobStatus() + " for job " + jobId);
-  } catch (Exception e) {
-    System.out.println("Exception monitoring job: " + jobId);
-    System.out.println(e.getMessage());
+try {
+  JobResult jobResult = jobClient.getJob(jobId);
+  if(jobResult == null)
+  {
+    System.out.println("No JobResult for: " + jobId);
     return;
   }
+  // Check the job result until it's completed
+  while(jobResult.getJobStatus() != JobStatus.completed)
+  {
+    Thread.sleep(100);
+    jobResult = jobClient.getJob(jobId);
+    System.out.println("Status " + jobResult.getJobStatus() + " for job " + jobId);
+  }
+  System.out.println("Final status " + jobResult.getJobStatus() + " for job " + jobId);
+} catch (Exception e) {
+  System.out.println("Exception monitoring job: " + jobId);
+  System.out.println(e.getMessage());
+  return;
 }
 ```
 
 ### Query a job status
 
-Use [queryDeviceJob](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient?#com-microsoft-azure-sdk-iot-service-jobs-jobclient-querydevicejob(java-lang-string)) to query a job status.
+Use [queryDeviceJob](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient?#com-microsoft-azure-sdk-iot-service-jobs-jobclient-querydevicejob(java-lang-string)) to query the job status for one or more jobs.
 
 For example:
 

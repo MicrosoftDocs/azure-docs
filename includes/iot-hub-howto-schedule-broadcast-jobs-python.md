@@ -32,6 +32,14 @@ The [IoTHubJobManager](/python/api/azure-iot-hub/azure.iot.hub.iothubjobmanager)
 Add the following `import` statements.
 
 ```python
+import os
+import sys
+import datetime
+import time
+import threading
+import uuid
+import msrest
+
 from azure.iot.hub import IoTHubJobManager
 from azure.iot.hub.models import JobProperties, JobRequest, Twin, TwinProperties, CloudToDeviceMethod
 ```
@@ -64,9 +72,9 @@ iothub_job_manager = IoTHubJobManager.from_connection_string(IoTHubConnectionStr
 
 [!INCLUDE [iot-hub-howto-connect-service-iothub-entra-python](iot-hub-howto-connect-service-iothub-entra-dotnet.md)]
 
-### Create a direct method job
+### Schedule a direct method job
 
-Use [create_scheduled_job](/python/api/azure-iot-hub/azure.iot.hub.iothubjobmanager?#azure-iot-hub-iothubjobmanager-create-scheduled-job) to create a new direct method to run a direct method on one or multiple devices:
+Use [create_scheduled_job](/python/api/azure-iot-hub/azure.iot.hub.iothubjobmanager?#azure-iot-hub-iothubjobmanager-create-scheduled-job) to schedule a new direct method to run a direct method on one or multiple devices:
 
 `create_scheduled_job` parameter notes:
 
@@ -74,7 +82,7 @@ Use [create_scheduled_job](/python/api/azure-iot-hub/azure.iot.hub.iothubjobmana
 * Set `type` to `scheduleDeviceMethod`
 * Use `cloud_to_device_method` to set the direct method name and payload
 * Use `max_execution_time_in_seconds` to specify the execution time in seconds
-* Use `query_condition` to specify a condition for one or more devices that have the direct method call.
+* Use `query_condition` to specify the devices to be included for the direct method call
 
 For example:
 
@@ -82,6 +90,7 @@ For example:
 METHOD_NAME = "lockDoor"
 METHOD_PAYLOAD = "{\"lockTime\":\"10m\"}"
 job_id = uuid.uuid4()
+DEVICE_ID = "Device-1"
 TIMEOUT = 60
 
 job_request = JobRequest()
@@ -105,7 +114,7 @@ Use [create_scheduled_job](/python/api/azure-iot-hub/azure.iot.hub.iothubjobmana
 * Set `type` to `scheduleUpdateTwin`
 * Use `update_twin` to set the direct method name and payload
 * Use `max_execution_time_in_seconds` to specify the execution time in seconds
-* Use `query_condition` to specify a condition for one or more devices that have the direct method call.
+* Use `query_condition` to specify a condition for one or more devices that have the direct method call
 
 For example:
 

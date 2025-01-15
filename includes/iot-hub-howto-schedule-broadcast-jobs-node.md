@@ -59,9 +59,9 @@ var jobClient = JobClient.fromConnectionString(connectionString);
 
 ### Create a direct method update job
 
-Use [scheduleDeviceMethod](/javascript/api/azure-iothub/jobclient?#azure-iothub-jobclient-scheduledevicemethod) to create a new direct method job to run a direct method on one or multiple devices.
+Use [scheduleDeviceMethod](/javascript/api/azure-iothub/jobclient?#azure-iothub-jobclient-scheduledevicemethod) to schedule a job to run a direct method on one or multiple devices.
 
-First, create a direct method update variable.
+First, create a direct method update variable with method name, payload, and response timeout information. For example:
 
 ```javascript
 var methodParams = {
@@ -71,11 +71,13 @@ var methodParams = {
 };
 ```
 
-Call `scheduleDeviceMethod` to schedule the direct method call job:
+Then call `scheduleDeviceMethod` to schedule the direct method call job:
 
 * Each job must have a unique job ID. You can use this job ID to monitor a job as described in the **Monitor a job** section of this article.
 * Specify a `queryCondition` parameter to evaluate which devices to run the job on.
 * Check the `jobResult` callback for the job schedule result. If the job was successfully scheduled, you can monitor the job status as shown in the **Monitor a job** section of this article.
+
+For example:
 
 ```javascript
 var methodJobId = uuid.v4();
@@ -121,11 +123,13 @@ var twinPatch = {
 };
 ```
 
-Call `scheduleTwinUpdate` to schedule the device twin desired property update job:
+Then call `scheduleTwinUpdate` to schedule the device twin desired property update job:
 
 * Each job must have a unique job ID. You can use this job ID to monitor a job as described in the **Monitor a job** section of this article.
 * Specify a `queryCondition` parameter to evaluate which devices to run the job on.
 * Check the `jobResult` callback for the job schedule result. If the job was successfully scheduled, you can monitor the job status as shown in the **Monitor a job** section of this article.
+
+For example:
 
 ```javascript
 var twinJobId = uuid.v4();
@@ -156,7 +160,7 @@ jobClient.scheduleTwinUpdate(twinJobId,
 
 ### Monitor a job
 
-Use [getJob](/javascript/api/azure-iothub/jobclient?#azure-iothub-jobclient-getjob) to monitor a job status for a specific job ID.
+Use [getJob](/javascript/api/azure-iothub/jobclient?#azure-iothub-jobclient-getjob) to monitor the job status for a specific job ID.
 
 This example function checks the job status for a specific job ID periodically until the job is complete or failed.
 
