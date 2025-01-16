@@ -122,7 +122,31 @@ The Azure Backup service creates a job for scheduled backups or if you trigger o
 
    ![Screenshot shows how to select a job to see details.](./media/backup-managed-disks/select-job.png)
 
-## Monitor a restore operation
+## Manage operations using the Azure portal
+
+This section describes several Azure Backup supported management operations that make it easy to manage Azure Kubernetes Service cluster backups.
+
+### Monitor a backup operation
+
+The Azure Backup service creates a job for scheduled backups or if you trigger on-demand backup operation for tracking. To view the backup job status:
+
+1. Go to the **Azure Business Continuity Center** and select **Protected Items** under **Protection Inventory**.
+
+   The **Protected Items** blade shows all the backup instances created across the subscriptions. Use the filters to access the backup instance you would like to take a look at. Select on the protected item and open it.
+
+   :::image type="content" source="./media/backup-managed-disks/jobs-dashboard.png" alt-text="Screenshot shows the jobs dashboard." lightbox="./media/backup-managed-disks/jobs-dashboard.png":::
+
+1. Now select on the **Associated Items** to open up the dashboard for the backup instance. Here you can see the backup jobs for the last seven days. 
+
+1. To view the status of the backup operation, select **View all** to show ongoing and past jobs of this backup instance.
+
+   ![Screenshot shows how to select the view all option.](./media/backup-managed-disks/view-all.png)
+
+1. Review the list of backup and restore jobs and their status. Select a job from the list of jobs to view job details.
+
+   ![Screenshot shows how to select a job to see details.](./media/backup-managed-disks/select-job.png)
+
+### Monitor a restore operation
 
 After you trigger the restore operation, the backup service creates a job for tracking. Azure Backup displays notifications about the job in the portal. To view the restore job progress:
 
@@ -143,7 +167,7 @@ After you trigger the restore operation, the backup service creates a job for tr
     ![Screenshot shows the list of jobs.](./media/restore-managed-disks/list-of-jobs.png)
 
 
-## Monitor AKS backup related jobs with the completed with warnings status
+### Monitor AKS backup related jobs with the completed with warnings status
 
 When a scheduled or an on-demand backup or restore operation is performed, a job is created corresponding to the operation to track its progress. If there is a failure, these jobs allow you to identify error codes and fix issues to run a successful job later. 
 
@@ -160,12 +184,25 @@ To view these warnings, select **View Details** next to **Warning Details**.
 Learn [how to identify and resolve the error](azure-kubernetes-service-backup-troubleshoot.md#aks-backup-extension-installation-error-resolutions). 
 
 
-## Manage operations using the Azure portal
+### Change policy
 
-This section describes several Azure Backup supported management operations that make it easy to manage Azure Kubernetes Service cluster backups.
+You can change the associated policy with a backup instance.
+
+1. Select the **Backup Instance** -> **Change Policy**.
+
+
+   :::image type="content" source="./media/manage-azure-database-postgresql/change-policy.png" alt-text="Screenshot showing the option to change policy.":::
+   
+1. Select the new policy that you wish to apply to the database.
+
+   :::image type="content" source="./media/manage-azure-database-postgresql/reassign-policy.png" alt-text="Screenshot showing the option to reassign policy.":::
+
+> [!NOTE]
+>
+> Changing a backup policy assigned to a backup instance does not affect existing recovery points and their retention duration. The updated retention settings will apply only to new recovery points created after the policy change.
+
 
 ### Stop Protection
-
 
 There are three ways by which you can stop protecting an Azure Disk:
 
@@ -233,7 +270,7 @@ There are three ways by which you can stop protecting an Azure Disk:
 If you have selected the **Stop Protection and Retain data** option, you can resume protection for your clusters.
 
 >[!Note]
->When you start protecting a clusters, the backup policy is applied to the retained data as well. The recovery points that have expired as per the policy will be cleaned up.
+>When you resume protecting a backup instance, the existing backup policy will start applying to new recovery points only. Recovery points that have already expired based on their original retention duration, as defined by the backup policy in effect at the time of their creation, will be cleaned up.
 
 Use the following steps:
 
