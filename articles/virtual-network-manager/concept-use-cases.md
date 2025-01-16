@@ -22,7 +22,7 @@ You can use a connectivity configuration to create various network topologies ba
 
 When you deploy a [mesh topology](concept-connectivity-configuration.md#mesh-network-topology), all virtual networks have direct connectivity with each other. They don't need to go through other hops on the network to communicate. A mesh topology is useful when all the virtual networks need to communicate directly with each other.
 
-One common scenario is to mesh specific spoke virtual networks to boost latency and throughput. You don't have to mesh all the spoke virtual networks. You can also mesh spoke VNets connected to VWAN hubs, which allows for direct communication and better latency while still using the hubs to communicate with other virtual networks.
+One common scenario is to mesh specific spoke virtual networks to boost latency and throughput. You don't have to mesh all the spoke virtual networks. You can also mesh spoke VNets connected to VWAN hubs, which allow for direct communication and better latency while still using the hubs to communicate with other virtual networks.
 
 ### Hub-and-spoke topology
 
