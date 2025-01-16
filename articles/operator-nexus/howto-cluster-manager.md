@@ -71,11 +71,11 @@ The role assignment can be done via the Azure portal:
 
 ## Create a Cluster Manager
 
-### Create the Cluster Manager using Azure CLI:
+Use the below commands to create a Cluster Manager.
 
-Use the `az networkcloud clustermanager create` command to create a Cluster Manager. This command creates a new Cluster Manager or updates the properties of the Cluster Manager if it exists. If you have multiple Azure subscriptions, select the appropriate subscription ID using the [az account set](/cli/azure/account#az-account-set) command.
+### [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az networkcloud clustermanager create \
     --name "$CLUSTER_MANAGER_NAME" \
     --location "$LOCATION" \
@@ -87,34 +87,54 @@ az networkcloud clustermanager create \
     --subscription "$SUB_ID"
 ```
 
-- **Arguments**
-  - **--name -n [Required]** - The name of the Cluster Manager.
-  - **--fabric-controller-id [Required]** - The resource ID of the Network Fabric Controller that is associated with the Cluster Manager.
-  - **--resource-group -g [Required]** - Name of resource group. You can configure the default resource group using `az configure --defaults group=<name>`.
-  - **--analytics-workspace-id** - The resource ID of the Log Analytics Workspace that is used for the logs collection
-  - **--location -l** - Location. Azure region where the Cluster Manager is created. Values from: `az account list -locations`. You can configure the default location using `az configure --defaults location="$LOCATION"`.
-  - **--managed-resource-group-configuration** - The configuration of the managed resource group associated with the resource.
-    - Usage: --managed-resource-group-configuration location=XX name=XX
-    - location: The region of the managed resource group. If not specified, the region of the
-      parent resource is chosen.
-    - name: The name for the managed resource group. If not specified, a unique name is
-      automatically generated.
-  - **wait/--no-wait** - Wait for command to complete or don't wait for the long-running operation to finish.
-  - **--tags** - Space-separated tags: key[=value] [key[=value]...]. Use '' to clear existing tags
-  - **--subscription** - Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
-  - **--mi-system-assigned** - Enable System-assigned managed identity. Once added, the Identity can only be removed via the API call at this time.
-  - **--mi-user-assigned** - Space-separated resource IDs of the User-assigned managed identities to be added. Once added, the Identity can only be removed via the API call at this time.
+Arguments:
+- **--name -n [Required]** - The name of the Cluster Manager.
+- **--fabric-controller-id [Required]** - The resource ID of the Network Fabric Controller that is associated with the Cluster Manager.
+- **--resource-group -g [Required]** - Name of resource group. You can configure the default resource group using `az configure --defaults group=<name>`.
+- **--analytics-workspace-id** - The resource ID of the Log Analytics Workspace that is used for the logs collection
+- **--location -l** - Location. Azure region where the Cluster Manager is created. Values from: `az account list -locations`. You can configure the default location using `az configure --defaults location="$LOCATION"`.
+- **--managed-resource-group-configuration** - The configuration of the managed resource group associated with the resource.
+- Usage: --managed-resource-group-configuration location=XX name=XX
+- location: The region of the managed resource group. If not specified, the region of the
+    parent resource is chosen.
+- name: The name for the managed resource group. If not specified, a unique name is
+    automatically generated.
+- **wait/--no-wait** - Wait for command to complete or don't wait for the long-running operation to finish.
+- **--tags** - Space-separated tags: key[=value] [key[=value]...]. Use '' to clear existing tags
+- **--subscription** - Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
+- **--mi-system-assigned** - Enable System-assigned managed identity.
+- **--mi-user-assigned** - Space-separated resource IDs of the User-assigned managed identities to be added.
+- **--if-match**/**if-none-match** - Specify the last-seen ETag value to prevent accidentally overwriting concurrent changes. The ETag is returned as the resource property once the resource is created and can be used on the update operations.
 
-### Create the Cluster Manager using Azure Resource Manager template editor:
+### [Azure PowerShell](#tab/azure-powershell)
 
-An alternate way to create a Cluster Manager is with the ARM template editor.
+```azurepowershell-interactive
+$tagHash = @{
+  tag1 = "true"
+  tag2 = "false"
+}
 
-In order to create the cluster this way, you need to provide a template file (clusterManager.jsonc) and a parameter file (clusterManager.parameters.jsonc).
+New-AzNetworkCloudClusterManager -Name "$CLUSTER_MANAGER_NAME -Location $LOCATION -ResourceGroupName $CLUSTER_MANAGER_RG -SubscriptionId $SUB_ID -AnalyticsWorkspaceId $LAW_NAME -ManagedResourceGroupConfigurationName $MRG_NAME -ManagedResourceGroupConfigurationLocation $MRG_LOCATION -FabricControllerId $NFC_ID -Tag $tagHash
+```
+
+Parameters:
+- **-Name** - The name of the cluster manager.
+- **-ResourceGroupName** - The name of the resource group.
+- **-SubscriptionId** - The ID of the target subscription.
+- **-FabricControllerId** - The resource ID of the fabric controller that has one to one mapping with the cluster manager.
+- **-Location** - The geo-location where the resource lives.
+- **-AnalyticsWorkspaceId** - The resource ID of the Log Analytics workspace that is used for the logs collection.
+- **-ManagedResourceGroupConfigurationLocation** - The location of the managed resource group. If not specified, the location of the parent resource is chosen.
+- **-ManagedResourceGroupConfigurationName** - The name for the managed resource group. If not specified, the unique name is automatically generated.
+- **-Tag** - Hashtable of Resource tags.
+
+### [ARM Template](#tab/template)
+
+To create a Cluster Manager via ARM Template, you need to provide a template file (clusterManager.jsonc) and a parameter file (clusterManager.parameters.jsonc).
 
 You can find examples of these two files here:
-
-[clusterManager.jsonc](./clusterManager-jsonc-example.md) , 
-[clusterManager.parameters.jsonc](./clusterManager-parameters-jsonc-example.md)
+- [clusterManager.jsonc](./clusterManager-jsonc-example.md) 
+- [clusterManager.parameters.jsonc](./clusterManager-parameters-jsonc-example.md)
 
 >[!NOTE]
 >To get the correct formatting, copy the raw code file. The values within the clusterManager.parameters.jsonc file are customer specific and may not be a complete list. Please update the value fields for your specific environment.
@@ -132,50 +152,66 @@ You can find examples of these two files here:
 1. Make sure all Instance Details are correct.
 1. Click Review + create.
 
+---
 
 ## List/show Cluster Manager(s)
 
 List and show commands are used to get a list of existing Cluster Managers or the properties of a specific Cluster Manager.
 
-### List Cluster Managers in resource group
+### [Azure CLI](#tab/azure-cli)
 
 This command lists the Cluster Managers in the specified Resource group.
 
-```azurecli
+```azurecli-interactive
 az networkcloud clustermanager list --resource-group "$CLUSTER_MANAGER_RG"
 ```
 
-### List Cluster Managers in subscription
-
 This command lists the Cluster Managers in the specified subscription.
 
-```azurecli
+```azurecli-interactive
 az networkcloud clustermanager list  --subscription "$SUB_ID"
 ```
 
-### Show Cluster Manager properties
+This command shows the properties of the specified Cluster Manager.
 
-This command lists the properties of the specified Cluster Manager.
-
-```azurecli
+```azurecli-interactive
 az networkcloud clustermanager show \
     --name "$CLUSTER_MANAGER_NAME" \
     --resource-group "$CLUSTER_MANAGER_RG" \
     --subscription "$SUB_ID"
 ```
 
-### List/show command arguments
+### [Azure PowerShell](#tab/azure-powershell)
 
-- **--name -n** - The name of the Cluster Manager.
-- **--IDs** - One or more resource IDs (space-delimited). It should be a complete resource ID containing all information of 'Resource ID' arguments.
-- **--resource-group -g** - Name of resource group. You can configure the default group using `az configure --defaults group=<name>`.
-- **--subscription** - Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
+This command lists the Cluster Managers in the specified Resource group.
+
+```azurepowershell-interactive
+ Get-AzNetworkCloudClusterManager -ResourceGroupName "$CLUSTER_MANAGER_RG"
+```
+
+This command lists the Cluster Managers in the specified subscription.
+
+```azurepowershell-interactive
+ Get-AzNetworkCloudClusterManager -SubscriptionId "$SUB_ID"
+```
+
+This command shows the properties of the specified Cluster Manager in Json format.
+
+```azurepowershell-interactive
+ Get-AzNetworkCloudClusterManager -Name "$CLUSTER_MANAGER_NAME" -ResourceGroupName "$CLUSTER_MANAGER_RG" -SubscriptionId "$SUB_ID" | ConvertTo-Json
+```
+
+---
 
 ## Update Cluster Manager
 
 This command is used to patch properties of the provided Cluster Manager, or update the tags assigned to the Cluster Manager. Properties and tag updates can be done independently.
 
-```azurecli
+### [Azure CLI](#tab/azure-cli)
+
+This command updates the Cluster Managers in the specified Resource group.
+
+```azurecli-interactive
 az networkcloud clustermanager update \
     --name "$CLUSTER_MANAGER_NAME" \
     --tags $TAG_KEY1="$TAG_VALUE1" $TAG_KEY2="$TAG_VALUE2" \
@@ -183,19 +219,73 @@ az networkcloud clustermanager update \
     --subscription "$SUB_ID"
 ```
 
-- **Arguments**
-  - **--tags** - TSpace-separated tags: key[=value] [key[=value] ...]. Use '' to clear existing tags.
-  - **--name -n** - The name of the Cluster Manager.
-  - **--IDs** - One or more resource IDs (space-delimited). It should be a complete resource ID containing all information of 'Resource ID' arguments.
-  - **--resource-group -g** - Name of resource group. You can configure the default group using `az configure --defaults group=<name>`.
-  - **--subscription** - Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
-  - **--mi-system-assigned** - Enable System-assigned managed identity. Once added, the Identity can only be removed via the API call at this time.
-  - **--mi-user-assigned** - Space-separated resource IDs of the User-assigned managed identities to be added. Once added, the Identity can only be removed via the API call at this time.
+### [Azure PowerShell](#tab/azure-powershell)
 
-### Update Cluster Manager Identities via APIs
+```azurepowershell-interactive
+$tagHash = @{
+  tag1 = "true"
+  tag2 = "false"
+}
 
-Cluster Manager managed identities can be assigned via CLI. The un-assignment of the identities can be done via API calls.
-Note, `<APIVersion>` is the API version 2024-07-01 or newer.
+Update-AzNetworkCloudClusterManager -Name "$CLUSTER_MANAGER_NAME -ResourceGroupName $CLUSTER_MANAGER_RG -SubscriptionId $SUB_ID -Tag $tagHash
+```
+
+### Update Cluster Manager Identities
+
+Cluster Manager identity can be managed via CLI using `az networkcloud clustermanager identity` commands.
+
+### [Azure CLI](#tab/azure-cli)
+
+This command shows the currently assigned identities:
+
+```azurecli-interactive
+az networkcloud clustermanager identity show \
+    --name "$CLUSTER_MANAGER_NAME" \
+    --resource-group "$CLUSTER_MANAGER_RG" \
+    --subscription "$SUB_ID"
+```
+
+This command adds a new user-assigned identity:
+
+```azurecli-interactive
+az networkcloud clustermanager identity assign \
+    --name "$CLUSTER_MANAGER_NAME" \
+    --resource-group "$CLUSTER_MANAGER_RG" \
+    --subscription "$SUB_ID"
+    --mi-user-assigned "$UAI_RESOURCE_ID"
+```
+
+This command add a system-assigned identity:
+
+```azurecli-interactive
+az networkcloud clustermanager identity assign \
+    --name "$CLUSTER_MANAGER_NAME" \
+    --resource-group "$CLUSTER_MANAGER_RG" \
+    --subscription "$SUB_ID"
+    --mi-system-assigned
+```
+
+This command removed the earlier added user-assigned identity:
+
+```azurecli-interactive
+az networkcloud clustermanager identity remove \
+    --name "$CLUSTER_MANAGER_NAME" \
+    --resource-group "$CLUSTER_MANAGER_RG" \
+    --subscription "$SUB_ID"
+    --mi-user-assigned "$UAI_RESOURCE_ID"
+```
+
+This command removes the earlier added system-assigned identity:
+
+```azurecli-interactive
+az networkcloud clustermanager identity remove \
+    --name "$CLUSTER_MANAGER_NAME" \
+    --resource-group "$CLUSTER_MANAGER_RG" \
+    --subscription "$SUB_ID"
+    --mi-system-assigned
+```
+
+### [Azure APIs](#tab/azure-api)
 
 - To remove all managed identities, execute:
 
@@ -257,6 +347,8 @@ Note, `<APIVersion>` is the API version 2024-07-01 or newer.
   }
   ```
 
+---
+
 ## Delete Cluster Manager
 
 This command is used to Delete the provided Cluster Manager.
@@ -264,21 +356,32 @@ This command is used to Delete the provided Cluster Manager.
 > [!Warning]
 > A Cluster Manager that has an existing associated Network Fabric Controller, or any Clusters that reference this Cluster Manager may not be deleted.
 
-```azurecli
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
 az networkcloud clustermanager delete \
     --name "$CLUSTER_MANAGER_NAME" \
     --resource-group "$CLUSTER_MANAGER_RG" \
     --subscription "$SUB_ID"
 ```
 
-- **Arguments**
-  - **--no-wait** - Don't wait for the long-running operation to complete.
-  - **--yes -y** - Don't prompt for confirmation.
-  - **--name -n** - The name of the Cluster Manager.
-  - **--IDs** - One or more resource IDs (space-delimited). It should be a complete resource ID containing all information of 'Resource ID' arguments.
-  - **--resource-group -g** - Name of resource group. You can configure the default group using `az configure --defaults group=<name>`.
-  - **--subscription** - Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+$tagHash = @{
+  tag1 = "true"
+  tag2 = "false"
+}
+
+Remove-AzNetworkCloudClusterManager -Name "$CLUSTER_MANAGER_NAME -ResourceGroupName $CLUSTER_MANAGER_RG -SubscriptionId $SUB_ID
+```
 
 ## Next steps
 
 After you successfully created the Network Fabric Controller and the Cluster Manager, the next step is to create a [Network Fabric](./howto-configure-network-fabric.md).
+
+## Useful links
+
+- [NetworkCloud REST APIs Reference](https://learn.microsoft.com/en-us/rest/api/networkcloud/)
+- [NetworkCloud PowerShell Reference](https://learn.microsoft.com/en-us/powershell/module/az.networkcloud/)
+
