@@ -8,6 +8,8 @@ ms.topic: release-notes
 ms.service: azure-operator-service-manager
 ---
 
+# Release Notes for Azure Operator Service Manager
+
 This articles hosts release information for Azure Operator Service Manager (AOSM).
 
 # Regional Availability of Releases
