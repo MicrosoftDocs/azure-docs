@@ -8,23 +8,26 @@ ms.date: 07/31/2019
 ms.custom: UpdateFrequency3
 author: cephalin
 ms.author: cephalin
+#customer intent
 ---
 
 # Deployment Best Practices
 
 [!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
-Every development team has unique requirements that can make implementing an efficient deployment pipeline difficult on any cloud service. This article introduces the three main components of deploying to App Service: deployment sources, build pipelines, and deployment mechanisms. This article also covers some best practices and tips for specific language stacks.
+Every development team has unique requirements that can make implementing an efficient deployment pipeline difficult on any cloud service. This article introduces the three main components of deploying to Azure App Service: deployment sources, build pipelines, and deployment mechanisms. This article also covers some best practices and tips for specific language stacks.
 
 ## Deployment Components
 
+This section describes the three main components for deploying to App Service.
+
 ### Deployment Source
 
-A deployment source is the location of your application code. For production apps, the deployment source is usually a repository hosted by version control software such as [GitHub, BitBucket, or Azure Repos](deploy-continuous-deployment.md). For development and test scenarios, the deployment source may be [a project on your local machine](deploy-local-git.md). 
+A deployment source is the location of your application code. For production apps, the deployment source is usually a repository hosted by version control software such as [GitHub, BitBucket, or Azure Repos](deploy-continuous-deployment.md). For development and test scenarios, the deployment source might be [a project on your local machine](deploy-local-git.md). 
 
 ### Build Pipeline
 
-Once you decide on a deployment source, your next step is to choose a build pipeline. A build pipeline reads your source code from the deployment source and executes a series of steps (such as compiling code, minifying HTML and JavaScript, running tests, and packaging components) to get the application in a runnable state. The specific commands executed by the build pipeline depend on your language stack. These operations can be executed on a build server such as Azure Pipelines, or executed locally.
+After you decide on a deployment source, your next step is to choose a build pipeline. A build pipeline reads your source code from the deployment source and runs a series of steps to get the application in a runnable state. Steps can include as compiling code, minifying HTML and JavaScript, running tests, and packaging components. The specific commands executed by the build pipeline depend on your language stack. These operations can be executed on a build server such as Azure Pipelines, or executed locally.
 
 ### Deployment Mechanism
 
@@ -41,33 +44,33 @@ Whenever possible, use [deployment slots](deploy-staging-slots.md) when deployin
 
 ### Continuously deploy code
 
-If your project has designated branches for testing, QA, and staging, then each of those branches should be continuously deployed to a staging slot. (This is known as the [Gitflow design](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).) This allows your stakeholders to easily assess and test the deployed branch. 
+If your project has branches designated for testing, QA, and staging, then each of those branches should be continuously deployed to a staging slot. This approach is known as the [Gitflow design](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow). This design allows your stakeholders to easily assess and test the deployed branch. 
 
 Continuous deployment should never be enabled for your production slot. Instead, your production branch (often main) should be deployed onto a nonproduction slot. When you're ready to release the base branch, swap it into the production slot. Swapping into production—instead of deploying to production—prevents downtime and allows you to roll back the changes by swapping again. 
 
-![Diagram that shows the flow between the Dev, Staging, and Main branches and the slots they are deployed to.](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
+:::image type="content" source="media/app-service-deploy-best-practices/slot_flow_code_diagam.png" alt-text="Diagram that shows the flow between the Dev, Staging, and Main branches and the slots they are deployed to.":::
 
 ### Continuously deploy containers
 
 For custom containers from Docker or other container registries, deploy the image into a staging slot and swap into production to prevent downtime. The automation is more complex than code deployment because you must push the image to a container registry and update the image tag on the webapp.
 
-For each branch you want to deploy to a slot, set up automation to do the following on each commit to the branch.
+For each branch you want to deploy to a slot, set up automation to do these tasks on each commit to the branch.
 
-1. **Build and tag the image**. As part of the build pipeline, tag the image with the git commit ID, timestamp, or other identifiable information. It’s best not to use the default “latest” tag. Otherwise, it’s difficult to trace back what code is currently deployed, which makes debugging far more difficult.
+1. **Build and tag the image**. As part of the build pipeline, tag the image with the git commit ID, timestamp, or other identifiable information. It's best not to use the default *latest* tag. Otherwise, it's difficult to trace back what code is currently deployed, which makes debugging far more difficult.
 1. **Push the tagged image**. Once the image is built and tagged, the pipeline pushes the image to our container registry. In the next step, the deployment slot will pull the tagged image from the container registry.
-1. **Update the deployment slot with the new image tag**. When this property is updated, the site will automatically restart and pull the new container image.
+1. **Update the deployment slot with the new image tag**. When this property is updated, the site automatically restarts and pulls the new container image.
 
-![Slot usage visual](media/app-service-deploy-best-practices/slot_flow_container_diagram.png)
+:::image type="content" source="media/app-service-deploy-best-practices/slot_flow_container_diagram.png" alt-text="Diagram shows slot usage visual representing Web App, Container Registry, and repository branches.":::
 
-There are examples below for common automation frameworks.
+This article contains examples for common automation frameworks.
 
 ### Use Azure DevOps
 
-App Service has [built-in continuous delivery](deploy-continuous-deployment.md) for containers through the Deployment Center. Navigate to your app in the [Azure portal](https://portal.azure.com) and select **Deployment Center** under **Deployment**. Follow the instructions to select your repository and branch. This will configure a DevOps build and release pipeline to automatically build, tag, and deploy your container when new commits are pushed to your selected branch.
+App Service has [built-in continuous delivery](deploy-continuous-deployment.md) for containers through the Deployment Center. Navigate to your app in the [Azure portal](https://portal.azure.com) and select **Deployment Center** under **Deployment**. Follow the instructions to select your repository and branch. This approach configures a DevOps build and release pipeline to automatically build, tag, and deploy your container when new commits are pushed to your selected branch.
 
 ### Use GitHub Actions
 
-You can also automate your container deployment [with GitHub Actions](https://github.com/Azure/webapps-deploy).  The workflow file below will build and tag the container with the commit ID, push it to a container registry, and update the specified web app with the new image tag.
+You can also automate your container deployment [with GitHub Actions](https://github.com/Azure/webapps-deploy). The workflow file builds and tags the container with the commit ID, push it to a container registry, and update the specified web app with the new image tag.
 
 ```yaml
 on:
@@ -112,7 +115,7 @@ az ad sp create-for-rbac --name "myServicePrincipal" --role contributor \
    --sdk-auth
 ```
 
-In your script, sign in using `az login --service-principal`, providing the principal’s information. You can then use `az webapp config container set` to set the container name, tag, registry URL, and registry password. Below are some helpful links for you to construct your container CI process.
+In your script, sign in using `az login --service-principal`, providing the principal’s information. You can then use `az webapp config container set` to set the container name, tag, registry URL, and registry password. Here's a link for you to construct your container CI process.
 
 - [How to sign in to the Azure CLI on Circle CI](https://circleci.com/orbs/registry/orb/circleci/azure-cli) 
 
@@ -136,11 +139,11 @@ By default, Kudu executes the build steps for your .NET application (`dotnet bui
 
 Azure App Service content is stored on Azure Storage and is surfaced up in a durable manner as a content share. However, some apps just need a high-performance, read-only content store that they can run with high availability. These apps can benefit from using [local cache](overview-local-cache.md). Local cache isn't recommended for content management sites such as WordPress.
 
-Always use local cache in conjunction with [deployment slots](deploy-staging-slots.md) to prevent downtime. See [this section](overview-local-cache.md#best-practices-for-using-app-service-local-cache) for information on using these features together.
+To prevent downtime, always use local cache with [deployment slots](deploy-staging-slots.md). See [this section](overview-local-cache.md#best-practices-for-using-app-service-local-cache) for information on using these features together.
 
 ### High CPU or Memory
 
-If your App Service Plan is using over 90% of available CPU or memory, the underlying virtual machine may have trouble processing your deployment. When this happens, temporarily scale up your instance count to perform the deployment. Once the deployment has finished, you can return the instance count to its previous value.
+If your App Service Plan is using over 90% of available CPU or memory, the underlying virtual machine might have trouble processing your deployment. When this situation happens, temporarily scale up your instance count to perform the deployment. After the deployment finishes, you can return the instance count to its previous value.
 
 For more information on best practices, visit [App Service Diagnostics](./overview-diagnostics.md) to find out actionable best practices specific to your resource.
 
