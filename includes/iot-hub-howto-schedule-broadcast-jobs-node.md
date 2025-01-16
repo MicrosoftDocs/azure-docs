@@ -74,7 +74,7 @@ var methodParams = {
 Then call `scheduleDeviceMethod` to schedule the direct method call job:
 
 * Each job must have a unique job ID. You can use this job ID to monitor a job as described in the **Monitor a job** section of this article.
-* Specify a `queryCondition` parameter to evaluate which devices to run the job on.
+* Specify a `queryCondition` parameter to evaluate which devices to run the job on. For more information about query conditions, see [IoT Hub query language for device and module twins, jobs, and message routing](/azure/iot-hub/iot-hub-devguide-query-language).
 * Check the `jobResult` callback for the job schedule result. If the job was successfully scheduled, you can monitor the job status as shown in the **Monitor a job** section of this article.
 
 For example:
@@ -126,7 +126,7 @@ var twinPatch = {
 Then call `scheduleTwinUpdate` to schedule the device twin desired property update job:
 
 * Each job must have a unique job ID. You can use this job ID to monitor a job as described in the **Monitor a job** section of this article.
-* Specify a `queryCondition` parameter to evaluate which devices to run the job on.
+* Specify a `queryCondition` parameter to evaluate which devices to run the job on. For more information about query conditions, see [IoT Hub query language for device and module twins, jobs, and message routing](/azure/iot-hub/iot-hub-devguide-query-language).
 * Check the `jobResult` callback for the job schedule result. If the job was successfully scheduled, you can monitor the job status as shown in the **Monitor a job** section of this article.
 
 For example:

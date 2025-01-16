@@ -82,7 +82,7 @@ Use [create_scheduled_job](/python/api/azure-iot-hub/azure.iot.hub.iothubjobmana
 * Set `type` to `scheduleDeviceMethod`
 * Use `cloud_to_device_method` to set the direct method name and payload
 * Use `max_execution_time_in_seconds` to specify the execution time in seconds
-* Use `query_condition` to specify the devices to be included for the direct method call
+* Use `query_condition` to specify the devices to be included for the direct method call. For more information about query conditions, see [IoT Hub query language for device and module twins, jobs, and message routing](/azure/iot-hub/iot-hub-devguide-query-language).
 
 For example:
 
@@ -114,7 +114,7 @@ Use [create_scheduled_job](/python/api/azure-iot-hub/azure.iot.hub.iothubjobmana
 * Set `type` to `scheduleUpdateTwin`
 * Use `update_twin` to set the direct method name and payload
 * Use `max_execution_time_in_seconds` to specify the execution time in seconds
-* Use `query_condition` to specify a condition for one or more devices that have the direct method call
+* Use `query_condition` to specify a condition for one or more devices that have the direct method call. For more information about query conditions, see [IoT Hub query language for device and module twins, jobs, and message routing](/azure/iot-hub/iot-hub-devguide-query-language).
 
 For example:
 

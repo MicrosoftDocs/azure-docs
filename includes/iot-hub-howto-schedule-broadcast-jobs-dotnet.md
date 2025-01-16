@@ -73,7 +73,7 @@ new CloudToDeviceMethod("LockDoor", TimeSpan.FromSeconds(5),
 TimeSpan.FromSeconds(5));
 ```
 
-This example schedules a job for a direct method named "LockDoor" on one device named "Device-1". One or more devices included in the scheduled job are contained second parameter as a query condition.
+This example schedules a job for a direct method named "LockDoor" on one device named "Device-1". One or more devices included in the scheduled job are contained second parameter as a query condition. For more information about query conditions, see [IoT Hub query language for device and module twins, jobs, and message routing](/azure/iot-hub/iot-hub-devguide-query-language).
 
 ```csharp
 string methodJobId = Guid.NewGuid().ToString();  // a unique job ID
@@ -102,7 +102,7 @@ twin.ETag = "*";
 twin.Properties.Desired["LocationUpdate"] = DateTime.UtcNow;
 ```
 
-Next, call `ScheduleTwinUpdateAsync`. Specify the devices to be updated as a query in the second parameter.
+Next, call `ScheduleTwinUpdateAsync`. Specify the devices to be updated as a query in the second parameter. For more information about query conditions, see [IoT Hub query language for device and module twins, jobs, and message routing](/azure/iot-hub/iot-hub-devguide-query-language).
 
 ```csharp
 string twinJobId = Guid.NewGuid().ToString();
