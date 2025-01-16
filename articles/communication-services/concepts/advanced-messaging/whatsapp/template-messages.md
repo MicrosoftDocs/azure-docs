@@ -30,22 +30,24 @@ For further WhatsApp requirements on templates, refer to the WhatsApp Business P
 
 ## Choosing a template
 
-When a WhatsApp Business Account is [created through the Azure portal during embedded signup](../../../quickstarts/advanced-messaging/whatsapp/connect-whatsapp-business-account.md#whatsapp-business-account-sign-up), a set of sample templates may be automatically available for you to try out.   
+When you create a WhatsApp Business Account [through the Azure portal during embedded signup](../../../quickstarts/advanced-messaging/whatsapp/connect-whatsapp-business-account.md#whatsapp-business-account-sign-up), a set of sample templates are available to you. 
 
 ### Create template
 
-To create your own templates, use the Meta WhatsApp Manager. 
+To create your own templates, use the Meta WhatsApp Manager.
+
 Follow the instructions in the Meta Business Help Center at [Create message templates for your WhatsApp Business account](https://www.facebook.com/business/help/2055875911147364?id=2129163877102343).
 
 ### List templates
 
-You can view your templates in the Azure portal by going to your Azure Communication Service resource > Templates.
+You can view your templates in the Azure portal by going to your Azure Communication Service resource > **Templates**.
 
 :::image type="content" source="../../../quickstarts/advanced-messaging/whatsapp/media/template-messages/list-templates-azure-portal.png" lightbox="../../../quickstarts/advanced-messaging/whatsapp/media/template-messages/list-templates-azure-portal.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Templates' tab.":::
 
-By selecting a template, you can view the template details.   
-The `content` field of the template details may include parameter bindings. The parameter bindings can be denoted as:
-- A "format" field with a value such as `IMAGE`.
+Select a template to view the details.
+
+The `content` field of the template details can include parameter bindings. The parameter bindings can be denoted as:
+- A `format` field with a value such as `IMAGE`.
 - Double brackets surrounding a number, such as `{{1}}`. The number, indexed started at 1, indicates the order in which the binding values must be supplied to create the message template.
 
 :::image type="content" source="../../../quickstarts/advanced-messaging/whatsapp/media/template-messages/sample-movie-ticket-confirmation-azure-portal.png" lightbox="../../../quickstarts/advanced-messaging/whatsapp/media/template-messages/sample-movie-ticket-confirmation-azure-portal.png" alt-text="Screenshot that shows template details.":::
@@ -58,7 +60,7 @@ To list out your templates programmatically, you can fetch all templates for you
 
 ## Quick reference
 
-Here is the sample template named `sample_template` takes no parameters.
+The `sample_template` takes no parameters.
 
 :::image type="content" source="../../../quickstarts/advanced-messaging/whatsapp/media/template-messages/sample-template-details-azure-portal.png" lightbox="../../../quickstarts/advanced-messaging/whatsapp/media/template-messages/sample-template-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_template.":::
 
@@ -69,9 +71,9 @@ string templateName = "sample_template";
 string templateLanguage = "en_us"; 
 
 var sampleTemplate = new MessageTemplate(templateName, templateLanguage); 
-``````
+```
 
-For more detailed examples and template supported scenarios by Advanced Messages SDK, please refer quickstart.
+For detailed examples and template supported scenarios by Advanced Messages SDK, see:
 - [WhatsApp Template Quickstart](../../../quickstarts/advanced-messaging/whatsapp/send-template-messages.md)
 
 ## Next steps
