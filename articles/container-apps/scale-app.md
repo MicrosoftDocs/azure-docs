@@ -303,7 +303,7 @@ First, you define the type and metadata of the scale rule.
 
 1. From the KEDA scaler specification, find the `type` value.
 
-    :::code language="yml" source="./code/keda-azure-service-bus-trigger.yml" highlight="2":::
+    :::code language="yml" source="./code/keda-azure-service-bus-trigger.txt" highlight="2":::
 
 1. In the ARM template, enter the scaler `type` value into the `custom.type` property of the scale rule.
 
@@ -311,7 +311,7 @@ First, you define the type and metadata of the scale rule.
 
 1. From the KEDA scaler specification, find the `metadata` values.
 
-    :::code language="yml" source="./code/keda-azure-service-bus-trigger.yml" highlight="4,5,6":::
+    :::code language="yml" source="./code/keda-azure-service-bus-trigger.txt" highlight="4,5,6":::
 
 1. In the ARM template, add all metadata values to the `custom.metadata` section of the scale rule.
 
