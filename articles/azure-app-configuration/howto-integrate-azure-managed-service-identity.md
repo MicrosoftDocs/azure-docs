@@ -160,7 +160,7 @@ The following steps describe how to assign the App Configuration Data Reader rol
 spring.cloud.azure.appconfiguration.stores[0].endpoint=<service_endpoint>
 ```
 
-for User Assigned Identity:
+For User Assigned Identity:
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].endpoint=<service_endpoint>
