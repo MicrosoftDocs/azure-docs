@@ -10,7 +10,7 @@ ms.date: 01/09/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
-# Adding Reservd Custom headers
+# Adding Reserved Custom headers
 
 Custom headers can be sent along with an email request. These headers are defined as a dictionary. There are some pre defined custom headers which can be used to handle some of the email sending scenarios.
 
