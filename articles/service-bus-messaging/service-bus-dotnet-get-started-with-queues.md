@@ -3,7 +3,7 @@ title: Quickstart - Use Azure Service Bus queues from .NET app
 description: This quickstart shows you how to send messages to and receive messages from Azure Service Bus queues using the .NET programming language.
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.date: 12/05/2023
+ms.date: 01/16/2025
 ms.devlang: csharp
 ms.custom: mode-api, passwordless-dotnet, devx-track-dotnet
 ---
@@ -267,7 +267,7 @@ This section shows you how to create a .NET console application to send messages
 
         :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/select-queue.png" alt-text="Image showing the Service Bus Namespace page in the Azure portal with the queue selected." lightbox="./media/service-bus-dotnet-get-started-with-queues/select-queue.png":::
 
-    1. Notice the values in the **Essentials** section.
+    1. Notice the values in the **Settings** section.
 
         :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/sent-messages-essentials.png" alt-text="Image showing the number of messages received and the size of the queue." lightbox="./media/service-bus-dotnet-get-started-with-queues/sent-messages-essentials.png":::
 
