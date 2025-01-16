@@ -41,11 +41,11 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
 
 | Attribute  | Type  | Nullable | Description |
 |:--- |:---:|:---:| --- |
-| channelType  | `string` | ✔️ | Channel type of the channel that the message was sent on. For example: `"whatsapp"`. |
-| messageType  | `string` | ✔️ | Message Type of the message receive event. Such as: `"interactive"`, `"sticker"`, `"reaction"`. |
-| from    | `string` | ✔️ | Sender ID that sent the message.  |
-| to | `string` | ✔️ | The channel ID that received the message, formatted as a GUID.  |
-| receivedTimestamp | `DateTimeOffset`   | ✔️ | Timestamp when the message is received.|
+| channelType  | `string` | ❌ | Channel type of the channel that the message was sent on. For example: `"whatsapp"`. |
+| messageType  | `string` | ❌ | Message Type of the message receive event. Such as: `"interactive"`, `"sticker"`, `"reaction"`. |
+| from    | `string` | ❌ | Sender ID that sent the message.  |
+| to | `string` | ❌ | The channel ID that received the message, formatted as a GUID.  |
+| receivedTimestamp | `DateTimeOffset`   | ❌ | Timestamp when the message is received.|
 | content | `string` | ✔️ | The text content in the message.  |
 | media   | [`MediaContent`](#mediacontent)   | ✔️ | Contains details about the received [media](#mediacontent).  |
 | context | [`MessageContext`](#messagecontext)    | ✔️ | Contains details about the reply [message context](#messagecontext) in case the user replies back to business message. |
@@ -113,7 +113,7 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
 
 | Attribute | Type | Nullable | Description |
 |:--------- |:----:|:--------:| --- |
-| messageId  | `string` | ✔️ | Message ID to which the user replies to. |
+| messageId  | `string` | ❌ | Message ID to which the user replies to. |
 | emoji | `string` | ✔️ | String representing unicode escape sequence of the emoji. |
 
 #### Examples
@@ -349,10 +349,10 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
 
 | Attribute | Type | Nullable | Description |
 |:--------- |:---:|:--------:| --- |
-| channelType | `string` | ✔️ | Channel type of the channel that the message was sent on. |
-| from | `string` | ✔️ | The channel ID that sent the message, formatted as a GUID. |
-| to   | `string` | ✔️ | Recipient ID that the message was sent to. |
-| receivedTimestamp | `DateTimeOffset` | ✔️ | Timestamp of the message. |
+| channelType | `string` | ❌ | Channel type of the channel that the message was sent on. |
+| from | `string` | ❌ | The channel ID that sent the message, formatted as a GUID. |
+| to   | `string` | ❌ | Recipient ID that the message was sent to. |
+| receivedTimestamp | `DateTimeOffset` | ❌ | Timestamp of the message. |
 | messageId | `string` | ✔️ | The ID of the message, formatted as a GUID. |
 | status    | `string` | ✔️ | Status of the message. Possible values include `Sent`, `Delivered`, `Read`, and `Failed`. For more information, see [Status](#status). |
 | error| [`ChannelEventError`](#channeleventerror) | ✔️ | Contains the details of an error. |
