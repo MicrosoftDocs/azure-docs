@@ -117,8 +117,6 @@
     href: sentinel-solutions-delete.md
   - name: Manage solution deprecation lifecycle
     href: sentinel-solution-deprecation.md
-  - name: Partner integrations best practices
-    href: partner-integrations.md
   - name: Solution catalog
     items: 
     - name: All solutions
@@ -910,7 +908,7 @@
   - name: Kusto Query Language
     items:
     - name: Overview
-      href: kusto-overview.md
+      href: /kusto/query/kusto-sentinel-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Query best practices
       href: /kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: SQL to KQL cheat sheet
@@ -1143,6 +1141,10 @@
     href: sentinel-content-centralize.md
   - name: Build and publish Microsoft Sentinel solutions
     items:
+    - name: Overview
+      href: sentinel-integration-guide.md
+    - name: Partner integrations best practices
+      href: partner-integrations.md
     - name: Publish solutions
       href: publish-sentinel-solutions.md
     - name: Solution lifecycle post publish

@@ -7,7 +7,7 @@ ms.service: azure-modeling-simulation-workbench
 ms.topic: how-to
 ms.date: 09/21/2024
 
-#CustomerIntent: As a Workench Owner for Azure Modeling and Simulation Workbench, I want to deploy a connector onto a private virtual network.
+#CustomerIntent: As a Workbench Owner for Azure Modeling and Simulation Workbench, I want to deploy a connector onto a private virtual network.
 ---
 
 # Set up a private networking connector

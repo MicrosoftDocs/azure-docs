@@ -116,83 +116,88 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/operator-5g-core/index.yml",
+      "redirect_url": "https://learn.microsoft.com",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/operator-5g-core/concept-centralized-lifecycle-management.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/concept-centralized-lifecycle-management",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/concept-deployment-order.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/concept-deployment-order",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/concept-observability-analytics.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/concept-observability-analytics",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/concept-security.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/concept-security",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/how-to-configure-network-function.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/how-to-configure-network-function",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/how-to-delete-network-function-cluster.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/how-to-delete-network-function-cluster",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/how-to-deploy-network-functions.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/how-to-deploy-network-functions",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/how-to-deploy-observability.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/how-to-deploy-observability",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/overview-product.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/overview-product",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/quickstart-complete-prerequisites-deploy-azure-kubernetes-service.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/quickstart-complete-prerequisites-deploy-azure-kubernetes-service",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/quickstart-complete-prerequisites-deploy-nexus-azure-kubernetes-service.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/quickstart-complete-prerequisites-deploy-nexus-azure-kubernetes-service",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/quickstart-configure-extension-for-status-monitoring.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/quickstart-configure-extension-for-status-monitoring",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/quickstart-deploy-5g-core.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/quickstart-deploy-5g-core",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/quickstart-monitor-deployment-status.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/quickstart-monitor-deployment-status",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/quickstart-subscription.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/quickstart-subscription",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/tutorial-configure-network-function.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/tutorial-configure-network-function",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
@@ -1513,6 +1518,16 @@
     {
       "source_path_from_root": "/articles/bastion/connect-native-client-windows.md",
       "redirect_url": "/azure/bastion/native-client",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/bastion/diagnostic-logs.md",
+      "redirect_url": "/azure/bastion/monitor-bastion",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/bastion/howto-metrics-monitor-alert.md",
+      "redirect_url": "/azure/bastion/monitor-bastion",
       "redirect_document_id": false
     },
     {
