@@ -14,11 +14,11 @@ content_well_notification:
 
 # Quickstart: Use Terraform to deploy Azure Bastion
 
-In this Quickstart, you learn how to use Terraform to deploy [Azure Bastion](bastion-overview) automatically in the Azure portal. To do this, you create an Azure Bastion host and its corresponding Azure resources, which include a resource group, virtual network, Azure Bastion subnet, and a public IP. This setup ensures a secure, private network environment for your Azure services. The following diagram provides an overview of Azure Bastion deployments:
+In this Quickstart, you learn how to use Terraform to deploy [Azure Bastion](bastion-overview.md) automatically in the Azure portal. To do this, you create an Azure Bastion host and its corresponding Azure resources, which include a resource group, virtual network, Azure Bastion subnet, and a public IP. This setup ensures a secure, private network environment for your Azure services. The following diagram provides an overview of Azure Bastion deployments:
 
 :::image type="content" source="./media/create-host/host-architecture.png" alt-text="Diagram that shows the Azure Bastion architecture." lightbox="./media/create-host/host-architecture.png":::
 
-Deploying Azure Bastion allows you to use RDP and SSH to access to your virtual machines within the Azure portal. This service is provisioned directly in your virtual network and supports all virtual machines there, reducing exposure to public network connections. When you deploy Bastion automatically, Bastion is deployed with the Standard SKU. To deploy with the Developer SKU instead, see [Quickstart: Deploy Azure Bastion - Developer SKU](quickstart-developer-sku.md). See the [Azure Bastion deployment guidance](quickstart-host-portal) for more information about how to customize your Azure Bastion deployment.
+Deploying Azure Bastion allows you to use RDP and SSH to access to your virtual machines within the Azure portal. This service is provisioned directly in your virtual network and supports all virtual machines there, reducing exposure to public network connections. When you deploy Bastion automatically, Bastion is deployed with the Standard SKU. To deploy with the Developer SKU instead, see [Quickstart: Deploy Azure Bastion - Developer SKU](quickstart-developer-sku.md). See the [Azure Bastion deployment guidance](quickstart-host-portal.md) for more information about how to customize your Azure Bastion deployment.
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
@@ -117,7 +117,7 @@ Deploying Azure Bastion allows you to use RDP and SSH to access to your virtual 
     $bastion_host_ip=$(terraform output -raw bastion_host_ip)
     ```
 
-1. Run [`Get-AzBastionHost`](/powershell/module/az.bastion/get-azbationhost) to view the Azure Bastion host.
+1. Run [`Get-AzBastionHost`](/powershell/module/az.network/get-azbastion?view=azps-13.0.0) to view the Azure Bastion host.
 
     ```azurepowershell
     Get-AzBastionHost -ResourceGroupName $resource_group_name -Name $bastion_host_name
