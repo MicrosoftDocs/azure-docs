@@ -27,17 +27,6 @@ This Azure region should be used in the `Location` field of the Cluster Manager 
 ## Limitations
 - **Naming** - Naming rules can be found [here](../azure-resource-manager/management/resource-name-rules.md#microsoftnetworkcloud).
 
-## Global arguments
-
-Some arguments that are available for every Azure CLI command
-
-- **--debug** - prints even more information about CLI operations, used for debugging purposes. If you find a bug, provide output generated with the `--debug` flag on when submitting a bug report.
-- **--help -h** - prints CLI reference information about commands and their arguments and lists available subgroups and commands.
-- **--only-show-errors** - Only show errors, suppressing warnings.
-- **--output -o** - specifies the output format. The available output formats are Json, Jsonc (colorized JSON), tsv (Tab-Separated Values), table (human-readable ASCII tables), and yaml. By default the CLI outputs Json.
-- **--query** - uses the JMESPath query language to filter the output returned from Azure services.
-- **--verbose** - prints information about resources created in Azure during an operation, and other useful information
-
 ## Cluster Manager properties
 
 | Property Name                     | Description                                                                                                                                                                                                                              |
@@ -46,18 +35,18 @@ Some arguments that are available for every Azure CLI command
 | managerExtendedLocation           | The ExtendedLocation associated with the Cluster Manager                                                                                                                                                                                 |
 | managedResourceGroupConfiguration | Information about the Managed Resource Group                                                                                                                                                                                             |
 | fabricControllerId                | The reference to the Network Fabric Controller that is 1:1 with this Cluster Manager                                                                                                                                                               |
-| analyticsWorkspaceId              | The Log Analytics workspace where logs that are relevant to the customer will be relayed.                                                                                                                                                  |
-| clusterVersions[]                 | The list of Cluster versions that the Cluster Manager supports. It is used as an input in the cluster clusterVersion property.                                                                              |
+| analyticsWorkspaceId              | The Log Analytics workspace where logs that are relevant to the customer can be found.                                                                                                                                                  |
+| clusterVersions[]                 | The list of Cluster versions that the Cluster Manager supports. It's used as an input in the cluster clusterVersion property.                                                                              |
 | provisioningState                 | The provisioning status of the latest operation on the Cluster Manager. One of: Succeeded, Failed, Canceled, Provisioning, Accepted, Updating                                                                                                                                                                            |
 | detailedStatus                    | The detailed statuses that provide additional information about the status of the Cluster Manager.                                                                                                                                           |
 | detailedStatusMessage             | The descriptive message about the current detailed status.                                                                                                                                   |
 
 ## Cluster Manager Identity
 
-Starting with the 2024-07-01 API version, a customer can assign managed identity to a Cluster Manager. Both System-assigned and User-Assigned managed identities are supported.
+Starting with the `2024-07-01` API version, a customer can assign managed identity to a Cluster Manager. Both System-assigned and User-Assigned managed identities are supported.
 
 If a Cluster Manager is created with the User-assigned managed identity, a customer is required to provision access to that identity for the Nexus platform.
-Specifically, `Microsoft.ManagedIdentity/userAssignedIdentities/assign/action` permission needs to be added to the User-assigned identity for `AFOI-NC-MGMT-PME-PROD` Microsoft Entra ID. It is a known limitation of the platform that will be addressed in the future.
+Specifically, `Microsoft.ManagedIdentity/userAssignedIdentities/assign/action` permission needs to be added to the User-assigned identity for `AFOI-NC-MGMT-PME-PROD` Microsoft Entra ID. It's a known limitation of the platform that will be addressed in the future.
 
 The role assignment can be done via the Azure portal:
 
@@ -106,6 +95,12 @@ Arguments:
 - **--mi-user-assigned** - Space-separated resource IDs of the User-assigned managed identities to be added.
 - **--if-match**/**if-none-match** - Specify the last-seen ETag value to prevent accidentally overwriting concurrent changes. The ETag is returned as the resource property once the resource is created and can be used on the update operations.
 
+Common arguments that are available for every Azure CLI command:
+
+- **--debug** - prints detailed information about CLI execution that is used for debugging purposes. If you find a bug, provide output generated with the `--debug` flag on when submitting a bug report.
+- **--output -o** - specifies the output format. The available output formats are Json, Jsonc (colorized JSON), tsv (Tab-Separated Values), table (human-readable ASCII tables), and yaml. By default the CLI outputs Json.
+- **--query** - uses the JMESPath query language to filter the output returned from Azure services.
+
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
@@ -137,10 +132,10 @@ You can find examples of these two files here:
 - [clusterManager.parameters.jsonc](./clusterManager-parameters-jsonc-example.md)
 
 >[!NOTE]
->To get the correct formatting, copy the raw code file. The values within the clusterManager.parameters.jsonc file are customer specific and may not be a complete list. Please update the value fields for your specific environment.
+>To get the correct formatting, copy the raw code file. The values within the clusterManager.parameters.jsonc file are customer specific and may not be a complete list. Update the values for your specific environment.
 
-1. In a web browser, go to the [Azure portal](https://portal.azure.com/) and sign in.
-1. From the Azure portal search bar, search for 'Deploy a custom template' and then select it from the available services.
+1. Open a web browser and go to the [Azure portal](https://portal.azure.com/) and sign in.
+1. Use the Azure portal search bar and type 'Deploy a custom template'. Select it from the available services.
 1. Click on Build your own template in the editor.
 1. Click on Load file. Locate your clusterManager.jsonc template file and upload it.
 1. Click Save.
