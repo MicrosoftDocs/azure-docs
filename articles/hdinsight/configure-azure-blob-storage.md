@@ -121,7 +121,7 @@ Learn how to use access keys to authenticate Blob storage while configuring seco
 Use manage identities to authenticate Azure blob storage while configuring it as secondary storage during HDInsight cluster creation. 
 
 > [!NOTE]
-> If the primary storage is chosen as Blob storage , then same authentication mechanism may need to be chosen for secondary storage (i.e. managed identity in this scenario). Only one Managed identity can be used to authenticate both primary and secondary storages and the managed identity need to have sufficient access to secondary storage being selected. 
+> If the primary storage is chosen as Blob storage, then same authentication mechanism may need to be chosen for secondary storage (i.e. managed identity in this scenario). Only one Managed identity can be used to authenticate both primary and secondary storages and the managed identity need to have sufficient access to secondary storage being selected. 
 
 1. Configure Blob as secondary storage using Azure portal. 
 1. Select **Additional Azure Storage** in the storage section in portal during HDInsight cluster creation. 
