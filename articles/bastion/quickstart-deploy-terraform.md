@@ -117,7 +117,7 @@ Deploying Azure Bastion allows you to use RDP and SSH to access to your virtual 
     $bastion_host_ip=$(terraform output -raw bastion_host_ip)
     ```
 
-1. Run [`Get-AzBastionHost`](/powershell/module/az.network/get-azbastion?view=azps-13.0.0) to view the Azure Bastion host.
+1. Run [`Get-AzBastionHost`](/powershell/module/az.network/get-azbastion) to view the Azure Bastion host.
 
     ```azurepowershell
     Get-AzBastionHost -ResourceGroupName $resource_group_name -Name $bastion_host_name
