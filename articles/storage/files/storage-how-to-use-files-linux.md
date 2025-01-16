@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content, devx-track-azurecli
 ms.topic: how-to
-ms.date: 10/23/2024
+ms.date: 01/16/2025
 ms.author: kendownie
 ---
 
@@ -352,11 +352,36 @@ The final step is to restart the `autofs` service.
 sudo systemctl restart autofs
 ```
 
+### Mount options
+
+You can use the following mount options when mounting SMB Azure file shares on Linux.
+
+| **Mount option** | **Recommended value** | **Description** |
+|******************|***********************|*****************|
+| `username=` | Storage account name | Mandatory for NTLMv2 authentication. |
+| `password=` | Storage account primary key | Mandatory for NTLMv2 authentication. |
+| `password2=` | Storage account secondary key | Recommended in case when no-downtime key-rotation is desirable. |
+| `mfsymlinks` | n/a | Recommended. Forces the mount to support symbolic links, allowing applications like git to clone repos with symlinks. |
+| `actimeo=` | 30-60 | Recommended. Specifying `actimeo` sets all of `acregmin`, `acregmax`, `acdirmin`, and `acdirmax` to the same value. Using a value lower than 30 seconds can cause performance degradation because attribute caches for files and directories expire too quickly. We recommend setting `actimeo` between 30 and 60 seconds. |
+| `nosharesock` | n/a | Optional. Forces the client to always make a new connection to the server even if it has an existing connection to the SMB mount. This can enhance performance, as each mount point will use a different TCP socket. In some cases, `nosharesock` can degrade performance due to not caching the same file when opened from two mounts from the same client. |
+| `nobrl` | n/a | Recommended in single-client scenarios when advisory locks are required. This setting prevents sending byte range lock requests to the server. If an application doesn't use `nobrl` and breaks with cifs-style mandatory byte range locks, errors might occur. Like most SMB servers, Azure Files doesn't support advisory locks. |
+| `snapshot=` | time | Mount a specific snapshot of the file share. Time must be a positive integer identifying the snapshot requested (in 100-nanosecond units that have elapsed since January 1, 1601, or alternatively it can be specified in GMT format e.g. @GMT-2024.03.27-20.52.19). |
+| `closetimeo=` | 5 | Configures deferred close timeout (handle cache) in seconds, or disables it by setting to 0. Default is 5 seconds. |
+| `nostrictsync` | n/a | Don't ask the server to flush on fsync(). Some servers perform non-buffered writes by default, in which case flushing is redundant. This option can improve performance for workloads where a client is performing a lot of small write + fsync combinations and where network latency is much higher than the server latency. |
+| `max_channels=` | 4 | Recommended when using SMB Multichannel. Specifies the maximum number of channels (network connections) to the file share. If you're using SMB Multichannel and the number of channels exceeds four, this will result in poor performance. |
+| `multiuser` | n/a | Map user accesses to individual credentials when accessing the server. By default, CIFS mounts only use a single set of user credentials (the mount credentials) when accessing a share. With this option, the client instead creates a new session with the server using the user's credentials whenever a new user accesses the mount. Further accesses by that user will also use those credentials. Because the kernel can't prompt for passwords, multiuser mounts are limited to mounts using `sec=` options that don't require passwords. |
+| `cifsacl` | n/a | This option is used to map CIFS/NTFS ACLs to/from Linux permission bits, map SIDs to/from UIDs and GIDs, and get and set Security Descriptors. Only supported for NTLMv2 authentication. |
+| `idsfromsid,modefromsid` | n/a | Recommended when client needs to do client-enforced authorization. Enables UNIX-style permissions. Only works when UIDs/GIDs are uniform across all the clients. Only supported for NTLMv2 authentication. |
+| `sec=` | krb5 | Required for Kerberos authentication from domain-joined clients. To enable Kerberos security, set `sec=krb5`. You must omit username and password when using this option. |
+| `uid=` | 0 | Optional. Sets the uid that will own all files or directories on the mounted filesystem when the server doesn't provide ownership information. It may be specified as either a username or a numeric uid. When not specified, the default is 0. |
+| `gid=` | 0 | Optional. Sets the gid that will own all files or directories on the mounted filesystem when the server doesn't provide ownership information. It may be specified as either a groupname or a numeric gid. When not specified, the default is 0. |
+| `file_mode=` | n/a | Optional. If the server doesn't support the CIFS Unix extensions, this overrides the default file mode. |
+| `dir_mode=` | n/a | Optional. If the server doesn't support the CIFS Unix extensions, this overrides the default mode for directories. |
+| `handletimeout=` | n/a | Optional. The time (in milliseconds) for which the server should reserve the file handle after a failover waiting for the client to reconnect. |
+
 ## Next steps
 
-See these links for more information about Azure Files:
+For more information about using SMB Azure file shares with Linux, see:
 
-- [Planning for an Azure Files deployment](storage-files-planning.md)
 - [Remove SMB 1 on Linux](files-remove-smb1-linux.md)
 - [Troubleshoot general SMB issues on Linux](/troubleshoot/azure/azure-storage/files-troubleshoot-linux-smb?toc=/azure/storage/files/toc.json)
-- [Troubleshoot general NFS issues on Linux](/troubleshoot/azure/azure-storage/files-troubleshoot-linux-nfs?toc=/azure/storage/files/toc.json)
