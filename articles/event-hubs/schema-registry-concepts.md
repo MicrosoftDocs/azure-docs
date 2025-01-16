@@ -125,10 +125,10 @@ To access a schema registry programmatically, follow these steps:
 
 | Role | Description |
 | ---- | ----------- |
-| Owner | Read, write, and delete schema registry groups and schemas. |
-| Contributor | Read, write, and delete schema registry groups and schemas. |
-| [Schema registry reader](../role-based-access-control/built-in-roles.md#schema-registry-reader-preview) | Read and list schema registry groups and schemas. |
-| [Schema registry contributor](../role-based-access-control/built-in-roles.md#schema-registry-reader-preview) | Read, write, and delete schema registry groups and schemas. |
+| Owner | Read, write, and delete schema registry groups and schemas |
+| Contributor | Read, write, and delete schema registry groups and schemas |
+| [Schema registry reader](../role-based-access-control/built-in-roles.md#schema-registry-reader-preview) | Read and list schema registry groups and schemas |
+| [Schema registry contributor](../role-based-access-control/built-in-roles.md#schema-registry-reader-preview) | Read, write, and delete schema registry groups and schemas |
 
 To learn how to create and register an application using the Azure portal, see [Register an app with Microsoft Entra ID](../active-directory/develop/quickstart-register-app.md). You need the client ID (application ID), tenant ID, and the secret to use in the code.
 

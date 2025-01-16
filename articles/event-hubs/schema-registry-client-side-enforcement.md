@@ -31,7 +31,7 @@ This flow is illustrated as shown:
 
 1. The Kafka consumer application uses `KafkaAvroDeserializer` to deserialize data that it receives from the event hub.
 
-1. The deserializer uses the schema ID (prepended by the producer) to retrieve schema from the schema registry.
+1. The deserializer uses the schema ID (prepended by the producer) to retrieve the schema from the schema registry.
 
 1. The deserializer uses the schema to deserialize event data that it receives from the event hub.
 
