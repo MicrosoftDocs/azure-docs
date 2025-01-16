@@ -1,9 +1,9 @@
 ---
 title: Release notes for Azure Operator Service Manager
-description: Official documentation and tracking for major and minor releases.
+description: Official tracking or AOSM releases and available regions.
 author: msftadam
 ms.author: adamdor
-ms.date: 08/14/2024
+ms.date: 01/15/2025
 ms.topic: release-notes
 ms.service: azure-operator-service-manager
 ---
@@ -12,7 +12,7 @@ ms.service: azure-operator-service-manager
 
 This articles hosts release information for Azure Operator Service Manager (AOSM).
 
-# Regional Availability of Releases
+## Regional Availability of Releases
 
 Releases described herewithin are generally available across the following Azure regions:
 * eastus
@@ -23,26 +23,12 @@ Releases described herewithin are generally available across the following Azure
 
 Use of AOSM in these regions is permitted based on prevailing Azure terms of service. Although AOSM may have supported additional regions in the past, any region not-listed above is no longer supported. If you have been using AOSM in a non-listed region, or if you have a business need to use AOSM in a non-listed region, please open a support ticket and for request consideration.
 
-# Release Notes by Version
+## Release Notes by Version
 
-This section includes details on generally available and supported releases. AOSM users are recommended to watch this page for frequent changes, as new releases maybe added or removed frequently.  No additional notice of release is provided beyond this release notes artilce.
-
-## Overview
-
-The following release notes are generally available (GA):
-
-* Release Notes for Version 2.0.2763-119
-* Release Notes for Version 2.0.2777-132
-* Release Notes for Version 2.0.2783-134
-* Release Notes for Version 2.0.2788-135
-* Release Notes for Version 2.0.2804-137
-* Release Notes for Version 2.0.2810-144
-* Release Notes for Version 2.0.2847-158
-* Release Notes for Version 2.0.2860-160
-* Release Notes for Version 2.0.2875-165
+Releases included in this article are generally available and supported across permitted regions. AOSM users are recommended to watch this page for frequent changes, as releases maybe added, updated or removed at any time. No additional notice of releases is provided, beyond this release notes article.
   
-### Release Attestation
-These releases are produced compliant with Microsoft’s Secure Development Lifecycle. This lifecycle includes processes for authorizing software changes, antimalware scanning, and scanning and mitigating security bugs and vulnerabilities.
+### Release Attestation for All Versions
+All releases are produced compliant with Microsoft’s Secure Development Lifecycle. This lifecycle includes processes for authorizing software changes, antimalware scanning, and scanning and mitigating security bugs and vulnerabilities.
 
 ## Release 2.0.2763-119
 
