@@ -58,7 +58,7 @@ To list out your templates programmatically, you can fetch all templates for you
 
 [!INCLUDE [List templates with Python](./template-messages-list-templates-python.md)]
 
-### Send Template message with no parameters
+### Send template message with no parameters
 
 If the template doesn't require parameters, you don't need to supply the values or bindings when creating the `MessageTemplate`.
 
@@ -118,7 +118,7 @@ template_options = TemplateNotificationContent(
 )
 ```
 
-### Send Template message with media parameter in the header
+### Send template message with media parameter in the header
 
 Use `MessageTemplateImage`, `MessageTemplateVideo`, or `MessageTemplateDocument` to define the media parameter in a header.
 
@@ -191,15 +191,15 @@ template_options = TemplateNotificationContent(
     channel_registration_id=self.channel_id, to=[self.phone_number], template=sample_movie_ticket_confirmation)
 ```
 
-### Send Template message with quick reply buttons
+### Send template message with quick reply buttons
 
 Use `MessageTemplateQuickAction` to define the payload for quick reply buttons and `MessageTemplateQuickAction` objects have the following three attributes. 
 
-|  Properties   | Description |  Type |
+| Properties | Description |  Type |
 | --- | --- | --- |
-| Name  | The `name` to look up the value in `MessageTemplateWhatsAppBindings`. | string |
-| Text  | The option quick action `text`. | string |
-| Payload| The `payload` assigned to a button available in a message reply if the user selects the button. | string |
+| Name | The `name` to look up the value in `MessageTemplateWhatsAppBindings`. | string |
+| Text | The option quick action `text`. | string |
+| Payload | The `payload` assigned to a button available in a message reply if the user selects the button. | string |
  
 Template definition with quick reply buttons:
 
@@ -276,7 +276,7 @@ template_options = TemplateNotificationContent(
 )
 ```
 
-### Send Template message with location in the header
+### Send template message with location in the header
 
 Use `MessageTemplateLocation` to define the location parameter in a header.
 

@@ -381,7 +381,7 @@ The order that the buttons appear in the template definition must match the orde
 
 This sample template adds a button with a dynamic URL link to the message. It also uses an image in the header and a text parameter in the body.
 
-:::image type="content" source="../../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.png" lightbox="../../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.png" alt-text="Screenshot that shows editing URL Type in the WhatsApp manager.":::
+:::image type="content" source="../../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.png" lightbox="../../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.png" alt-text="Screen capture of the WhatsApp manager Buttons editor Call to action panel that shows the URL Type button you can use to choose between Static and Dynamic.":::
 
 In this sample, the header of the template requires an image:
 
@@ -440,7 +440,8 @@ purchaseFeedbackTemplate.Bindings = bindings;
 ```
 
 ### Send Template message with call to action buttons with static link
-For static link we need not to include `MessageTemplateQuickAction` model as WhatsApp template has static `CallToAction` link and no input from user is required.
+
+For static links, you don't need to include `MessageTemplateQuickAction` model because the WhatsApp template has a static `CallToAction` link with no input required from the user.
 
 Template definition buttons:
 ```json
@@ -462,7 +463,7 @@ Template definition buttons:
 
 This sample template adds a button with a static URL link to the message. It also uses an image in the header and a text parameter in the body.
 
-:::image type="content" source="../../media/template-messages/purchase_feedback_static_link_template.png" lightbox="../../media/template-messages/purchase_feedback_static_link_template.png" alt-text="Screenshot that shows editing URL Type in the WhatsApp manager.":::
+:::image type="content" source="../../media/template-messages/purchase_feedback_static_link_template.png" lightbox="../../media/template-messages/purchase_feedback_static_link_template.png" alt-text="Screen capture that shows details for the purchase_feedback_static template.":::
 
 In this sample, the header of the template requires an image:
 

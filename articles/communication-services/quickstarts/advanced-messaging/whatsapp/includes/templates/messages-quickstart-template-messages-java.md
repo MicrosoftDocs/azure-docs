@@ -18,12 +18,13 @@ To set up an environment for sending messages, complete the steps in the followi
 [!INCLUDE [Setting up for Java Application](../java-application-setup.md)]
 
 ## Code examples
+
 Follow these steps to add required code snippets to the main function of your `App.java` file.
 - [List WhatsApp templates in the Azure portal](#list-whatsapp-templates-in-the-azure-portal).
-- [Send Template message with text parameters in the body](#send-template-message-with-text-parameters-in-the-body).
-- [Send Template message with media parameter in the header](#send-template-message-with-media-parameter-in-the-header).
-- [Send Template message with quick reply buttons](#send-template-message-with-quick-reply-buttons).
-- [Send Template message with call to action buttons](#send-template-message-with-call-to-action-buttons).
+- [Send template message with text parameters in the body](#send-template-message-with-text-parameters-in-the-body).
+- [Send template message with media parameter in the header](#send-template-message-with-media-parameter-in-the-header).
+- [Send template message with quick reply buttons](#send-template-message-with-quick-reply-buttons).
+- [Send Template message with call to action buttons and dynamic link](#send-template-message-with-call-to-action-buttons-and-dynamic-link).
 
 ### List WhatsApp templates in the Azure portal
 
@@ -64,7 +65,7 @@ public static void getMessageTemplateWithConnectionString() {
     }
 ```
 
-### Send Template message with text parameters in the body
+### Send template message with text parameters in the body
 
 If the template takes no parameters, you don't need to supply any values or bindings when creating the `MessageTemplate`.
 
@@ -108,7 +109,7 @@ private static void sendTemplateMessage() {
     }
 ```
 
-### Send Template message with media parameter in the header
+### Send template message with media parameter in the header
 
 Use `MessageTemplateImage`, `MessageTemplateVideo`, or `MessageTemplateDocument` to define the media parameter in a header.
 
@@ -132,7 +133,7 @@ The `"format"` can be on of four different media types supported by WhatsApp. In
 For more information about supported media types and size limits, see [WhatsApp's documentation for message media](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types). 
 
 
-#### Examples
+#### Example
 
 `sample_happy_hour_announcement` template:
 
@@ -217,7 +218,7 @@ private static void sendTemplateMessageWithVideo() {
 }
 ```
 
-### Send Template message with quick reply buttons
+### Send template message with quick reply buttons
 
 Use `MessageTemplateQuickAction` to define the payload for quick reply buttons and `MessageTemplateQuickAction` objects have the following three attributes. 
 
@@ -225,7 +226,7 @@ Use `MessageTemplateQuickAction` to define the payload for quick reply buttons a
 | --- | --- | --- |
 | Name  | The `name` used to look up the value in `MessageTemplateWhatsAppBindings`. | string |
 | Text  | The option quick action `text`. | string |
-| Payload| The `payload` assigned to a button available in a message reply if the user selects the button. | string |
+| Payload | The `payload` assigned to a button available in a message reply if the user selects the button. | string |
  
 Template definition with quick reply buttons:
 ```json
@@ -317,8 +318,9 @@ private static void sendTextTemplateMessageWithQuickReply() {
 }
 ```
 
-### Send Template message with call to action buttons with dynamic link
-Use `MessageTemplateQuickAction` to define the url suffix for call to action buttons and `MessageTemplateQuickAction` object have the following two attributes.
+### Send Template message with call to action buttons and dynamic link
+
+Use `MessageTemplateQuickAction` to define the URL suffix for call to action buttons and `MessageTemplateQuickAction` object have the following two attributes.
 
 | Properties | Description | Type |
 | --- | --- | --- |

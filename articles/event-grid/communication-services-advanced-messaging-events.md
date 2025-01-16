@@ -17,18 +17,17 @@ This article provides the properties and schema for Communication Services Advan
 
 Azure Communication Services emits the following Advanced Messaging event types:
 
-| Event type                                                                                                                        | Description                                                                                                                   |
-|-----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| [Microsoft.Communication.AdvancedMessageReceived](#microsoftcommunicationadvancedmessagereceived-event)                           | Published when Communication Services Advanced Messaging receives a message.                                                  |
+| Event type | Description |
+| --- | --- |
+| [Microsoft.Communication.AdvancedMessageReceived](#microsoftcommunicationadvancedmessagereceived-event) | Published when Communication Services Advanced Messaging receives a message. |
 | [Microsoft.Communication.AdvancedMessageDeliveryStatusUpdated](#microsoftcommunicationadvancedmessagedeliverystatusupdated-event) | Published when Communication Services Advanced Messaging receives a status update for a previously sent message notification. |
-| [Microsoft.Communication.AdvancedMessageAnalysisCompleted(Preview)](#microsoftcommunicationadvancedmessageanalysiscompletedpreview-event)             |    Published when Communication Service completes an AI Analysis with a customer message.  |
-
+| [Microsoft.Communication.AdvancedMessageAnalysisCompleted(Preview)](#microsoftcommunicationadvancedmessageanalysiscompletedpreview-event) | Published when Communication Service completes an AI Analysis with a customer message. |
 
 ## Event responses
 
 When an event is triggered, the Event Grid service sends data about that event to subscribing endpoints.
 
-This section contains an example of what that data would look like for each event.
+This section contains an example of what that data looks like for each event.
 
 ### Microsoft.Communication.AdvancedMessageReceived event
 
@@ -40,82 +39,82 @@ Example scenario: A WhatsApp user sends a WhatsApp message to a WhatsApp Busines
 
 Details for the attributes specific to `Microsoft.Communication.AdvancedMessageReceived` events.
 
-| Attribute         | Type                                        | Nullable | Description                                                               |
-|:------------------|:-------------------------------------------:|:--------:|---------------------------------------------------------------------------|
-| channelType       | `string`                                    | ✔️      | Channel type of the channel that the message was sent on. Ex. "whatsapp". |
-| messageType       | `string`                                    | ✔️      | Message Type of the message receive event. Ex. "interactive", "sticker", "reaction". |
-| from              | `string`                                    | ✔️      | Sender ID that sent the message.                                          |
-| to                | `string`                                    | ✔️      | The channel ID that received the message, formatted as a GUID.            |
-| receivedTimestamp | `DateTimeOffset`                            | ✔️      | Timestamp when the message is received.                                   |
-| content           | `string`                                    | ✔️      | The text content in the message.                                          |
-| media             | [`MediaContent`](#mediacontent)             | ✔️      | Contains details about the received [media](#mediacontent).                                |
-| context           | [`MessageContext`](#messagecontext)         | ✔️      | Contains details about the reply [message context](#messagecontext) incase user replies back to business message. |
-| button            | [`ButtonContent`](#buttoncontent)           | ✔️      | Contains details of the reply button content user has selected for template message.  |
-| interactive       | [`InteractiveContent`](#interactivecontent) | ✔️      | Contains details about interactive message response like [buttonReply](#interactivebuttonreplycontent) or [listReply](#interactivelistreplycontent)|
-| reaction          | [`ReactionContent`](#reactioncontent)       | ✔️      | Contains details about the received [reaction](#reactioncontent) over business send message.         |
+| Attribute  | Type  | Nullable | Description |
+|:--- |:---:|:---:| --- |
+| channelType  | `string` | ✔️ | Channel type of the channel that the message was sent on. For example: `"whatsapp"`. |
+| messageType  | `string` | ✔️ | Message Type of the message receive event. Such as: `"interactive"`, `"sticker"`, `"reaction"`. |
+| from    | `string` | ✔️ | Sender ID that sent the message.  |
+| to | `string` | ✔️ | The channel ID that received the message, formatted as a GUID.  |
+| receivedTimestamp | `DateTimeOffset`   | ✔️ | Timestamp when the message is received.|
+| content | `string` | ✔️ | The text content in the message.  |
+| media   | [`MediaContent`](#mediacontent)   | ✔️ | Contains details about the received [media](#mediacontent).  |
+| context | [`MessageContext`](#messagecontext)    | ✔️ | Contains details about the reply [message context](#messagecontext) in case the user replies back to business message. |
+| button  | [`ButtonContent`](#buttoncontent) | ✔️ | Contains details of the reply button content user selected for template message.  |
+| interactive  | [`InteractiveContent`](#interactivecontent) | ✔️ | Contains details about interactive message response like [buttonReply](#interactivebuttonreplycontent) or [listReply](#interactivelistreplycontent) |
+| reaction| [`ReactionContent`](#reactioncontent)  | ✔️ | Contains details about the received [reaction](#reactioncontent) over business send message. |
 
 ##### MediaContent
 
-| Attribute | Type     | Nullable | Description                                                                          |
-|:----------|:--------:|:--------:|--------------------------------------------------------------------------------------|
-| mimeType  | `string` | ❌      | MIME type of the media. Used to determine the correct file type for media downloads. |
-| id        | `string` | ❌      | Media ID. Used to retrieve media for download, formatted as a GUID.                  |
-| fileName  | `string` | ✔️      | The filename of the underlying media file as specified when uploaded.                |
-| caption   | `string` | ✔️      | Caption text for the media object, if supported and provided.                        |
-| animated   | `string` | ✔️      | Set to true if the sticker is animated; false otherwise.                      |
+| Attribute | Type | Nullable | Description |
+|:--------- |:----:|:--------:| --- |
+| mimeType  | `string` | ❌ | MIME type of the media. Used to determine the correct file type for media downloads. |
+| ID   | `string` | ❌ | Media ID. Used to retrieve media for download, formatted as a GUID. |
+| fileName  | `string` | ✔️ | The filename of the underlying media file as specified when uploaded. |
+| caption   | `string` | ✔️ | Caption text for the media object, if supported and provided. |
+| animated  | `string` | ✔️ | Set to true if the sticker is animated; false otherwise. |
 
 
 ##### MessageContext
 
-| Attribute | Type     | Nullable | Description                                                         |
-|:----------|:--------:|:--------:|---------------------------------------------------------------------|
-| from      | `string` | ✔️      | The WhatsApp ID for the customer who replied to an inbound message. |
-| id        | `string` | ✔️      | The message ID for the sent message for an inbound reply.           |
+| Attribute | Type | Nullable | Description |
+|:--------- |:--------:|:--------:| ------- |
+| from | `string` | ✔️ | The WhatsApp ID for the customer who replied to an inbound message. |
+| ID   | `string` | ✔️ | The message ID for the sent message for an inbound reply. |
 
 ##### ButtonContent
 
-| Attribute | Type     | Nullable | Description                                                                |
-|:----------|:--------:|:--------:|----------------------------------------------------------------------------|
-| text      | `string` | ✔️      | The text of the button.                                                    |
-| payload   | `string` | ✔️      | The payload, set up by the business, of the button that the user selected. |
+| Attribute | Type| Nullable | Description |
+|:--------- |:--------:|:--------:| --- |
+| text | `string` | ✔️ | The text of the button.|
+| payload   | `string` | ✔️ | The payload, set up by the business, of the button that the user selected. |
 
 ##### InteractiveContent
 
-| Attribute   | Type                                                              | Nullable | Description                                       |
-|:------------|:-----------------------------------------------------------------:|:--------:|---------------------------------------------------|
-| type        | [`InteractiveReplyType`](#interactivereplytype)                   | ✔️      | Type of the interactive content.                  |
-| buttonReply | [`InteractiveButtonReplyContent`](#interactivebuttonreplycontent) | ✔️      | Sent when a customer selects a button.            |
-| listReply   | [`InteractiveListReplyContent`](#interactivelistreplycontent)     | ✔️      | Sent when a customer selects an item from a list. |
+| Attribute | Type | Nullable | Description |
+|:--------- |:----:|:--------:| --- |
+| type   | [`InteractiveReplyType`](#interactivereplytype)    | ✔️ | Type of the interactive content.   |
+| buttonReply | [`InteractiveButtonReplyContent`](#interactivebuttonreplycontent) | ✔️ | Sent when a customer selects a button.  |
+| listReply   | [`InteractiveListReplyContent`](#interactivelistreplycontent)| ✔️ | Sent when a customer selects an item from a list. |
 
 ##### InteractiveReplyType
 
-| Value       | Description                          |
+| Value  | Description |
 |:------------|--------------------------------------|
 | buttonReply | The interactive content is a button. |
 | listReply   | The interactive content is a list.   |
-| unknown     | The interactive content is unknown.  |
+| unknown| The interactive content is unknown.  |
 
 ##### InteractiveButtonReplyContent
 
-| Attribute | Type     | Nullable | Description          |
+| Attribute | Type| Nullable | Description|
 |:----------|:--------:|:--------:|----------------------|
-| id        | `string` | ✔️      | ID of the button.    |
-| title     | `string` | ✔️      | Title of the button. |
+| ID   | `string` | ✔️ | ID of the button.    |
+| title| `string` | ✔️ | Title of the button. |
 
 ##### InteractiveListReplyContent
 
-| Attribute   | Type     | Nullable | Description                      |
+| Attribute   | Type| Nullable | Description  |
 |:------------|:--------:|:--------:|----------------------------------|
-| id          | `string` | ✔️      | ID of the selected list item.    |
-| title       | `string` | ✔️      | Title of the selected list item. |
-| description | `string` | ✔️      | Description of the selected row. |
+| ID| `string` | ✔️ | ID of the selected list item.    |
+| title  | `string` | ✔️ | Title of the selected list item. |
+| description | `string` | ✔️ | Description of the selected row. |
 
 ##### ReactionContent
 
-| Attribute   | Type                                                              | Nullable | Description                                       |
-|:------------|:-----------------------------------------------------------------:|:--------:|---------------------------------------------------|
-| messageId  | `string`                  | ✔️      | Message id to which user reply to.       |
-| emoji | `string` | ✔️      | String representing unicode escape sequence of the emoji.     |
+| Attribute | Type | Nullable | Description |
+|:--------- |:----:|:--------:| --- |
+| messageId  | `string` | ✔️ | Message ID to which the user replies to. |
+| emoji | `string` | ✔️ | String representing unicode escape sequence of the emoji. |
 
 #### Examples
 
@@ -152,9 +151,9 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
     "channelType": "whatsapp",
     "messageType": "image",
     "media": {
-      "mimeType": "image/jpeg",
-      "id": "00000000-0000-0000-0000-000000000000",
-      "caption": "This is a media caption"
+ "mimeType": "image/jpeg",
+ "id": "00000000-0000-0000-0000-000000000000",
+ "caption": "This is a media caption"
     },
     "from": "{sender@id}",
     "to": "{channel-id}",
@@ -167,7 +166,7 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
 }]
 ```
 
-##### Document Media message received
+##### Document media message received
 
 ```json
 {
@@ -178,9 +177,9 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
     "channelType": "whatsapp",
     "messageType": "document",
     "media": {
-      "mimeType": "application/pdf",
-      "id": "00000000-0000-0000-0000-000000000000",
-      "fileName": "UTSAV Mela 2024  India's Independence Day  Kids Out and About Seattle.pdf"
+ "mimeType": "application/pdf",
+ "id": "00000000-0000-0000-0000-000000000000",
+ "fileName": "UTSAV Mela 2024  India's Independence Day  Kids Out and About Seattle.pdf"
     },
     "from": "14254360097",
     "to": "{channel-id}",
@@ -193,7 +192,7 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
 }
 ```
 
-##### List Reply message received with InteractiveListReplyContent
+##### List reply message received with InteractiveListReplyContent
 
 ```json
 [{
@@ -204,16 +203,16 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
     "channelType": "whatsapp",
     "messageType": "interactive",
     "context": {
-      "from": "{receiverphonenumber@id}",
-      "id": "{reply-message-id}"
+ "from": "{receiverphonenumber@id}",
+ "id": "{reply-message-id}"
     },
     "interactive": {
-      "type": "listReply",
-      "listReply": {
-        "id": "priority_mail",
-        "title": "Priority Mail",
-        "description": "1–3 Days"
-      }
+ "type": "listReply",
+ "listReply": {
+   "id": "priority_mail",
+   "title": "Priority Mail",
+   "description": "1–3 Days"
+ }
     },
     "from": "{sender@id}",
     "to": "{channel-id}",
@@ -226,7 +225,7 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
 }]
 ```
 
-##### Reply Button message received with InteractiveButtonReplyContent
+##### Reply button message received with InteractiveButtonReplyContent
 
 ```json
 [{
@@ -237,15 +236,15 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
     "channelType": "whatsapp",
     "messageType": "interactive",
     "context": {
-      "from": "{receiverphonenumber@id}",
-      "id": "{reply-message-id}"
+ "from": "{receiverphonenumber@id}",
+ "id": "{reply-message-id}"
     },
     "interactive": {
-      "type": "buttonReply",
-      "buttonReply": {
-        "id": "agree",
-        "title": "Agree"
-      }
+ "type": "buttonReply",
+ "buttonReply": {
+   "id": "agree",
+   "title": "Agree"
+ }
     },
     "from": "{sender@id}",
     "to": "{channel-id}",
@@ -258,7 +257,7 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
 }]
 ```
 
-##### Reply Sticker message received
+##### Reply sticker message received
 
 ```json
 [{
@@ -269,9 +268,9 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
     "channelType": "whatsapp",
     "messageType": "sticker",
     "media": {
-      "mimeType": "image/webp",
-      "id": "00000000-0000-0000-0000-000000000000",
-      "animated": false
+ "mimeType": "image/webp",
+ "id": "00000000-0000-0000-0000-000000000000",
+ "animated": false
     },
     "from": "{sender@id}",
     "to": "{channel-id}",
@@ -284,7 +283,7 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
 }]
 ```
 
-##### Reply Reaction message received
+##### Reply reaction message received
 
 ```json
 [{
@@ -295,8 +294,8 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
     "channelType": "whatsapp",
     "messageType": "reaction",
     "reaction": {
-      "messageId": "{reply-message-id}",
-      "emoji": "👍"
+ "messageId": "{reply-message-id}",
+ "emoji": "👍"
     },
     "from": "{sender@id}",
     "to": "{channel-id}",
@@ -320,12 +319,12 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
     "channelType": "whatsapp",
     "messageType": "button",
     "context": {
-      "from": "{receiverphonenumber@id}",
-      "id": "{reply-message-id}"
+ "from": "{receiverphonenumber@id}",
+ "id": "{reply-message-id}"
     },
     "button": {
-      "text": "Yes",
-      "payload": "Kat said yes"
+ "text": "Yes",
+ "payload": "Kat said yes"
     },
     "from": "{sender@id}",
     "to": "{channel-id}",
@@ -348,31 +347,31 @@ Example scenario: Contoso uses an active Advanced Messaging channel connected to
 
 Details for the attributes specific to `Microsoft.Communication.AdvancedMessageReceived` events.
 
-| Attribute         | Type                                      | Nullable | Description                                                                                                                            |
-|:------------------|:-----------------------------------------:|:--------:|----------------------------------------------------------------------------------------------------------------------------------------|
-| channelType       | `string`                                  | ✔️      | Channel type of the channel that the message was sent on.                                                                              |
-| from              | `string`                                  | ✔️      | The channel ID that sent the message, formatted as a GUID.                                                                             |
-| to                | `string`                                  | ✔️      | Recipient ID that the message was sent to.                                                                                             |
-| receivedTimestamp | `DateTimeOffset`                          | ✔️      | Timestamp of the message.                                                                                                              |
-| messageId         | `string`                                  | ✔️      | The ID of the message, formatted as a GUID.                                                                                            |
-| status            | `string`                                  | ✔️      | Status of the message. Possible values include `Sent`, `Delivered`, `Read`, and `Failed`. For more information, see [Status](#status). |
-| error             | [`ChannelEventError`](#channeleventerror) | ✔️      | Contains the details of an error.                                                                                                      |
+| Attribute | Type | Nullable | Description |
+|:--------- |:---:|:--------:| --- |
+| channelType | `string` | ✔️ | Channel type of the channel that the message was sent on. |
+| from | `string` | ✔️ | The channel ID that sent the message, formatted as a GUID. |
+| to   | `string` | ✔️ | Recipient ID that the message was sent to. |
+| receivedTimestamp | `DateTimeOffset` | ✔️ | Timestamp of the message. |
+| messageId | `string` | ✔️ | The ID of the message, formatted as a GUID. |
+| status    | `string` | ✔️ | Status of the message. Possible values include `Sent`, `Delivered`, `Read`, and `Failed`. For more information, see [Status](#status). |
+| error| [`ChannelEventError`](#channeleventerror) | ✔️ | Contains the details of an error. |
 
 ##### ChannelEventError
 
-| Attribute      | Type     | Nullable | Description                                 |
+| Attribute | Type| Nullable | Description   |
 |:---------------|:--------:|:--------:|---------------------------------------------|
-| channelCode    | `string` | ✔️      | The error code received on this channel.    |
-| channelMessage | `string` | ✔️      | The error message received on this channel. |
+| channelCode    | `string` | ✔️ | The error code received on this channel.    |
+| channelMessage | `string` | ✔️ | The error message received on this channel. |
 
 ##### Status
 
-| Value     | Description                                             |
+| Value| Description|
 |:----------|---------------------------------------------------------|
-| Sent      | The messaging service sent the message to the recipient |
-| Delivered | The message recipient received the message              |
-| Read      | The message recipient read the message                  |
-| Failed    | The message failed to send correctly                    |
+| Sent | The messaging service sent the message to the recipient |
+| Delivered | The message recipient received the message    |
+| Read | The message recipient read the message   |
+| Failed    | The message failed to send correctly|
 
 #### Examples
 
@@ -413,8 +412,8 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
     "to": "{receiver@id}",
     "receivedTimestamp": "2023-07-06T18:42:28+00:00",
     "error": {
-      "channelCode": "131026",
-      "channelMessage": "Message Undeliverable."
+ "channelCode": "131026",
+ "channelMessage": "Message Undeliverable."
     }
   },
   "eventType": "Microsoft.Communication.AdvancedMessageDeliveryStatusUpdated",
@@ -429,34 +428,35 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
 
 Published when Communication Service completes an AI Analysis with a customer message.
 
-Example scenario: A WhatsApp user sends a WhatsApp message to a WhatsApp Business Number that is connected to an active Advanced Messaging channel in a Communication Services resource that has opted in for Message Analysis feature. As a result, a Microsoft.Communication.AdvancedMessageAnalysisCompleted with the analysis of the user's WhatsApp message is published.
+Example scenario: A WhatsApp user sends a message to a WhatsApp Business Number connected to an active Advanced Messaging channel in a Communication Services resource that opted in for Message Analysis feature. As a result, the system publishes a `Microsoft.Communication.AdvancedMessageAnalysisCompleted` with the analysis of the user's WhatsApp message.
 
 #### Attribute list
 
 Details for the attributes specific to `Microsoft.Communication.AdvancedMessageAnalysisCompleted` events.
 
-| Attribute         | Type                                      | Nullable | Description                                                                                                                            |
-|:------------------|:-----------------------------------------:|:--------:|----------------------------------------------------------------------------------------------------------------------------------------|
-| channelType       | `string`                                  | ✔️      | Channel type of the channel that the message was sent on.                                                                              |
-| from              | `string`                                  | ✔️      | The channel ID that sent the message, formatted as a GUID.                                                                             |
-| to                | `string`                                  | ✔️      | Recipient ID that the message was sent to.                                                                                             |
-| receivedTimestamp | `DateTimeOffset`                          | ✔️      | Timestamp of the message.                                                                                                              |
-| originalMessage         | `string`                                  | ✔️      | The original user message.                                                                                                   |
-| intentAnalysis            | `string`                                  | ✔️      | The intent analysis of the received user message.                                                                          |
-| languageDetection             | [`LanguageDetection`](#languagedetection) | ✔️      | Contains the language detection of the received user message.                                                          |
-| extractedKeyPhrases             | `List<string>`  | ✔️      | Contains the key phrases of  of the received user message.                                                                                     |
+| Attribute | Type | Nullable | Description |
+|:--------- |:---:|:---:| --- |
+| channelType  | `string` | ✔️ | Channel type of the channel that the message was sent on.   |
+| from    | `string` | ✔️ | The channel ID that sent the message, formatted as a GUID.  |
+| to | `string` | ✔️ | Recipient ID that the message was sent to.   |
+| receivedTimestamp | `DateTimeOffset` | ✔️ | Timestamp of the message. |
+| originalMessage    | `string` | ✔️ | The original user message.    |
+| intentAnalysis  | `string` | ✔️ | The intent analysis of the received user message.    |
+| languageDetection   | [`LanguageDetection`](#languagedetection) | ✔️ | Contains the language detection of the received user message.   |
+| extractedKeyPhrases   | `List<string>` | ✔️ | Contains the key phrases of  of the received user message.|
 
 ##### LanguageDetection
 
-| Attribute      | Type     | Nullable | Description                                 |
-|:---------------|:--------:|:--------:|---------------------------------------------|
-| language    | `string` | ✔️      | The language detected.    |
-| confidenceScore | `float` | ✔️      | The confidence score of the language detected. |
-| translation | `string` | ✔️      | The message translation. |
+| Attribute | Type| Nullable | Description   |
+|:--------- |:---:|:---:| --- |
+| language    | `string` | ✔️ | The language detected.    |
+| confidenceScore | `float` | ✔️ | The confidence score of the language detected. |
+| translation | `string` | ✔️ | The message translation. |
 
 #### Examples
 
-##### Message Analysis Completed
+##### Message analysis completed
+
 ```json
 [{
   "id": "df1c2d92-6155-4ad7-a865-cb8497106c52",
@@ -466,14 +466,14 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageA
     "originalMessage": "Hello, could u help me order some flowers for Mother’s Day?",
     "channelType": "whatsapp",
     "languageDetection": {
-      "language": "English",
-      "confidenceScore": 0.99
+ "language": "English",
+ "confidenceScore": 0.99
     },
     "intentAnalysis": "Order request: The customer is contacting customer service to request assistance with ordering flowers for Mother's Day.",
     "extractedKeyPhrases": [
-      "order",
-      "flowers",
-      "Mother's Day"
+ "order",
+ "flowers",
+ "Mother's Day"
     ],
     "from": "{sender@id}",
     "to": "00000000-0000-0000-0000-000000000000",
@@ -487,4 +487,5 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageA
 ```
 
 ## Quickstart
+
 For a quickstart that shows how to subscribe for Advanced Messaging events using web hooks, see [Quickstart: Handle Advanced Messaging events](../communication-services/quickstarts/advanced-messaging/whatsapp/handle-advanced-messaging-events.md). 

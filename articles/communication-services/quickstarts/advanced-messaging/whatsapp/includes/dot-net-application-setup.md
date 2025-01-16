@@ -32,13 +32,13 @@ dotnet run
 
 #### [.NET CLI](#tab/dotnet-cli)
 
-First, create your project.
+Create your project.
 
 ```console
 dotnet new console -o AdvancedMessagingQuickstart
 ```
 
-Next, navigate to your project directory and build your project.
+Navigate to your project directory and build your project.
 
 ```console
 cd AdvancedMessagingQuickstart

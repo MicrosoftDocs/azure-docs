@@ -17,9 +17,9 @@ ms.author: memontic
 - Active WhatsApp phone number to receive messages.
 - .NET development environment, such as [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/Download), or [.NET CLI](https://dotnet.microsoft.com/download).
 
-## Setting up
+## Set up environment
 
-[!INCLUDE [Setting up for .NET Application](../dot-net-application-setup.md)]
+[!INCLUDE [Set up environment for .NET Application](../dot-net-application-setup.md)]
 
 ## Object model
 
