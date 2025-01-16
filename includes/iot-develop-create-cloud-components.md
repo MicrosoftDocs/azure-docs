@@ -1,11 +1,11 @@
 ---
  title: Include file to create cloud components for IoT Hub connection.
  description: Contains sections to show how to create an IoT Hub, register a device, and get the connection details. 
- author: timlt
+ author: dominicbetts
  ms.service: azure-iot
  ms.topic: include
  ms.date: 1/10/2025
- ms.author: timlt
+ ms.author: dobett
  ms.custom: include file
 ---
 
