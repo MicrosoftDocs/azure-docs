@@ -114,7 +114,7 @@ The following errors are general to the copy activity and could occur with any c
 
 - **Recommendation**: Correct all OAuth2 client credential flow settings of your authorization server.
 
-#### <a name="error-code-<a name="error-code-oauth2accesstokentypenotsupported"></a> Error code: 20152 - OAuth2AccessTokenTypeNotSupported
+#### <a name="error-code-oauth2accesstokentypenotsupported"></a> Error code: 20152 - OAuth2AccessTokenTypeNotSupported
 
 - **Message**: `The token type '%tokenType;' from your authorization server is not supported, supported types: '%tokenTypes;'.`
 
@@ -122,7 +122,7 @@ The following errors are general to the copy activity and could occur with any c
 
 - **Recommendation**: Use an authorization server that can return tokens with supported token types.
 
-#### <a name="error-code-<a name="error-code-oauth2clientidcolonnotallowed"></a> Error code: 20153 - OAuth2ClientIdColonNotAllowed
+#### <a name="error-code-oauth2clientidcolonnotallowed"></a> Error code: 20153 - OAuth2ClientIdColonNotAllowed
 
 - **Message**: `The character colon(:) is not allowed in clientId for OAuth2ClientCredential authentication.`
 
