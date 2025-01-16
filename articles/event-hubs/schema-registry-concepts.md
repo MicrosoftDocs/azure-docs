@@ -11,7 +11,7 @@ ms.author: spelluru
 
 Schema registries in Azure Event Hubs have many benefits. They help maintain data consistency, simplify schema evolution, enhance interoperability, and reduce development effort in loosely coupled and event-streaming workflows. Large distributed organizations that employ a centralized repository for schemas can use schema registries to achieve highly reliable data processing and governance with little operational overhead.
 
-Azure Event Hubs schema registries fulfill many roles in schema-driven, event-streaming scenarios.
+Azure Event Hubs schema registries fulfill many roles in schema-driven, event-streaming scenarios:
 
 * They provide a repository where multiple schemas can be registered, managed, and evolved
 * They manage schema evolution with multiple compatibility rules
@@ -45,7 +45,7 @@ Schema formats are used to determine the manner in which a schema is structured 
 
 ##### Avro schema
 
-[Apache Avro:tm:](https://avro.apache.org/) is a popular data serialization system that uses a compact binary format and provides schema evolution capabilities.
+[Apache Avro™](https://avro.apache.org/) is a popular data serialization system that uses a compact binary format and provides schema evolution capabilities.
 
 To learn more about using Avro schema format with an Event Hubs schema registry, see:
   
@@ -58,7 +58,7 @@ To learn more about using Avro schema format with an Event Hubs schema registry,
 
 To learn more about using the JSON schema format with an Event Hubs schema registry, see:
   
-* [How to use a schema registry with Kafka and JSON Schema](schema-registry-json-schema-kafka.md)
+* [How to use a schema registry with Kafka and JSON schema](schema-registry-json-schema-kafka.md)
 
 ##### Protocol Buffers
 
@@ -84,14 +84,14 @@ Azure Event Hubs schema registries are supported in the following compatibility 
 
 ### Backward compatibility
 
-Backward compatibility mode allows the consumer code to use a new version of a schema and process messages with an old version of the schema. Backward compatibility mode allows the following changes to be made on a schema.
+Backward compatibility mode allows the consumer code to use a new version of a schema and process messages with an old version of the schema. Backward compatibility mode allows the following changes to be made on a schema:
 
 * Delete fields
 * Add optional fields
 
 ### Forward compatibility
 
-Forward compatibility allows the consumer code to use an old schema version and read messages with the new schema. Forward compatibility mode allows the following changes to be made on a schema.
+Forward compatibility allows the consumer code to use an old schema version and read messages with the new schema. Forward compatibility mode allows the following changes to be made on a schema:
 
 * Add fields
 * Delete optional fields
@@ -102,7 +102,7 @@ When the ``None`` compatibility mode is used, the schema registry doesn't do any
 
 ## Client SDKs
 
-You can use one of the following libraries to include an Avro serializer. You can use Avro serializers to serialize and deserialize payloads containing schema registry schema identifiers and Avro-encoded data.
+You can use one of the following libraries to include an Avro serializer. You can use Avro serializers to serialize and deserialize payloads containing schema registry schema identifiers and Avro-encoded data:
 
 * **.NET**: [Microsoft.Azure.Data.SchemaRegistry.ApacheAvro](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro)
 * **Java**: [azure-data-schemaregistry-avro](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/schemaregistry/azure-data-schemaregistry-apacheavro)
@@ -130,7 +130,7 @@ To access a schema registry programmatically, follow these steps:
 | [Schema registry reader](../role-based-access-control/built-in-roles.md#schema-registry-reader-preview) | Read and list schema registry groups and schemas |
 | [Schema registry contributor](../role-based-access-control/built-in-roles.md#schema-registry-reader-preview) | Read, write, and delete schema registry groups and schemas |
 
-To learn how to create and register an application using the Azure portal, see [Register an app with Microsoft Entra ID](../active-directory/develop/quickstart-register-app.md). You need the client ID (application ID), tenant ID, and the secret to use in the code.
+To learn how to create and register an application using the Azure portal, see [Register an application with Microsoft Entra ID](../active-directory/develop/quickstart-register-app.md). You need the client ID (application ID), tenant ID, and the secret to use in the code.
 
 ## Next steps
 

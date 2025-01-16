@@ -13,7 +13,7 @@ Client-side schema enforcement ensures that data is validated on the client side
 
 This flow is illustrated as shown:
 
-:::image type="content" source="./media/schema-registry-overview/information-flow.svg" alt-text="An image shows the schema registry information flow." border="false":::
+:::image type="content" source="./media/schema-registry-overview/information-flow.svg" alt-text="A diagram outlines the schema registry information flow." border="false":::
 
 > [!NOTE]
 > The diagram showcases the information flow when event producers and consumers use a schema registry with the Kafka protocol and Avro schema. Other protocols and schema formats work in a similar way.
@@ -23,7 +23,7 @@ This flow is illustrated as shown:
 
 1. The Kafka producer application uses `KafkaAvroSerializer` to serialize event data by using the specified schema. The producer application provides details of the schema registry endpoint and other optional parameters that are required for schema validation.
 
-1. The serializer looks for the schema in the schema registry to serialize event data. If it finds the schema, then the corresponding schema ID is returned. You can configure the producer application to auto register the schema with the schema registry if it doesn't exist.
+1. The serializer looks for the schema in the schema registry to serialize event data. If it finds the schema, then the corresponding schema ID is returned. You can configure the producer application to automatically register the schema with the schema registry if it doesn't exist.
 
 1. The serializer prepends the schema ID to the serialized data that is published to the Event Hubs.
 
