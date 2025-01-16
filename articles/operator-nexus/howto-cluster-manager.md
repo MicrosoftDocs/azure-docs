@@ -31,9 +31,9 @@ This Azure region should be used in the `Location` field of the Cluster Manager 
 
 | Property Name                     | Description                                                                                                                                                                                                                              |
 | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name, ID, location, tags, type    | Name: User friendly name <br> ID: < Resource ID > <br> Location: Azure region where the Cluster Manager is created. Values from: `az account list -locations`.<br> Tags: Resource tags <br> Type: Microsoft.NetworkCloud/clusterManagers |
+| Name, ID, location, tags, type    | The Name: User friendly name <br> ID: The Resource ID <br> Location: The Azure region where the Cluster Manager is created. Values from: `az account list -locations`.<br> Tags: The resource tags <br> Type: Microsoft.NetworkCloud/clusterManagers |
 | managerExtendedLocation           | The ExtendedLocation associated with the Cluster Manager                                                                                                                                                                                 |
-| managedResourceGroupConfiguration | Information about the Managed Resource Group                                                                                                                                                                                             |
+| managedResourceGroupConfiguration | The details of Managed Resource Group that is created for the Cluster Manager to host its internally used resources.                                                                                                                                                                                             |
 | fabricControllerId                | The reference to the Network Fabric Controller that is 1:1 with this Cluster Manager                                                                                                                                                               |
 | analyticsWorkspaceId              | The Log Analytics workspace where logs that are relevant to the customer can be found.                                                                                                                                                  |
 | clusterVersions[]                 | The list of Cluster versions that the Cluster Manager supports. It's used as an input in the cluster clusterVersion property.                                                                              |
@@ -43,7 +43,7 @@ This Azure region should be used in the `Location` field of the Cluster Manager 
 
 ## Cluster Manager Identity
 
-Starting with the `2024-07-01` API version, a customer can assign managed identity to a Cluster Manager. Both System-assigned and User-Assigned managed identities are supported.
+A customer can assign managed identity to a Cluster Manager. Both System-assigned and User-Assigned managed identities are supported starting with the `2024-07-01` API version.
 
 If a Cluster Manager is created with the User-assigned managed identity, a customer is required to provision access to that identity for the Nexus platform.
 Specifically, `Microsoft.ManagedIdentity/userAssignedIdentities/assign/action` permission needs to be added to the User-assigned identity for `AFOI-NC-MGMT-PME-PROD` Microsoft Entra ID. It's a known limitation of the platform that will be addressed in the future.
@@ -62,7 +62,7 @@ The role assignment can be done via the Azure portal:
 
 Use the below commands to create a Cluster Manager.
 
-### [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az networkcloud clustermanager create \
@@ -101,7 +101,7 @@ Common arguments that are available for every Azure CLI command:
 - `--output` or `-o` - specifies the output format. The available output formats are Json, Jsonc (colorized JSON), tsv (Tab-Separated Values), table (human-readable ASCII tables), and yaml. By default the CLI outputs Json.
 - `--query` - uses the JMESPath query language to filter the output returned from Azure services.
 
-### [Azure PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 $tagHash = @{
@@ -153,7 +153,7 @@ You can find examples of these two files here:
 
 List and show commands are used to get a list of existing Cluster Managers or the properties of a specific Cluster Manager.
 
-### [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 This command lists the Cluster Managers in the specified Resource group.
 
@@ -176,7 +176,7 @@ az networkcloud clustermanager show \
     --subscription "$SUB_ID"
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 This command lists the Cluster Managers in the specified Resource group.
 
@@ -202,7 +202,7 @@ This command shows the properties of the specified Cluster Manager in Json forma
 
 This command is used to patch properties of the provided Cluster Manager, or update the tags assigned to the Cluster Manager. Properties and tag updates can be done independently.
 
-### [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 This command updates the Cluster Managers in the specified Resource group.
 
@@ -214,7 +214,7 @@ az networkcloud clustermanager update \
     --subscription "$SUB_ID"
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 $tagHash = @{
@@ -229,7 +229,7 @@ Update-AzNetworkCloudClusterManager -Name "$CLUSTER_MANAGER_NAME -ResourceGroupN
 
 Cluster Manager identity can be managed via CLI using `az networkcloud clustermanager identity` commands.
 
-### [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 This command shows the currently assigned identities:
 
@@ -280,7 +280,7 @@ az networkcloud clustermanager identity remove \
     --mi-system-assigned
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 Currently not supported.
 
@@ -357,7 +357,7 @@ This command is used to Delete the provided Cluster Manager.
 > [!Warning]
 > A Cluster Manager that has an existing associated Network Fabric Controller, or any Clusters that reference this Cluster Manager may not be deleted.
 
-### [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az networkcloud clustermanager delete \
@@ -366,7 +366,7 @@ az networkcloud clustermanager delete \
     --subscription "$SUB_ID"
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 $tagHash = @{
