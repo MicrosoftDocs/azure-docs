@@ -77,29 +77,29 @@ az networkcloud clustermanager create \
 ```
 
 Arguments:
-- **--name -n [Required]** - The name of the Cluster Manager.
-- **--fabric-controller-id [Required]** - The resource ID of the Network Fabric Controller that is associated with the Cluster Manager.
-- **--resource-group -g [Required]** - Name of resource group. You can configure the default resource group using `az configure --defaults group=<name>`.
-- **--analytics-workspace-id** - The resource ID of the Log Analytics Workspace that is used for the logs collection
-- **--location -l** - Location. Azure region where the Cluster Manager is created. Values from: `az account list -locations`. You can configure the default location using `az configure --defaults location="$LOCATION"`.
-- **--managed-resource-group-configuration** - The configuration of the managed resource group associated with the resource.
-- Usage: --managed-resource-group-configuration location=XX name=XX
-- location: The region of the managed resource group. If not specified, the region of the
+- `--name` or `-n` [Required] - The name of the Cluster Manager.
+- `--resource-group` or `-g` [Required] - The name of resource group. You can configure the default resource group using `az configure --defaults group=<name>`.
+- `--fabric-controller-id` [Required] - The resource ID of the Network Fabric Controller that is associated with the Cluster Manager.
+- `--analytics-workspace-id` - The resource ID of the Log Analytics Workspace that is used for the logs collection
+- `--location` or `-l` - The Azure region where the Cluster Manager is created. Values from: `az account list -locations`. You can configure the default location using `az configure --defaults location="$LOCATION"`.
+- `--managed-resource-group-configuration` - The configuration of the managed resource group associated with the resource.
+  - Usage: `--managed-resource-group-configuration location=XX name=XX`
+  - location: The region of the managed resource group. If not specified, the region of the
     parent resource is chosen.
-- name: The name for the managed resource group. If not specified, a unique name is
+  - name: The name for the managed resource group. If not specified, a unique name is
     automatically generated.
-- **wait/--no-wait** - Wait for command to complete or don't wait for the long-running operation to finish.
-- **--tags** - Space-separated tags: key[=value] [key[=value]...]. Use '' to clear existing tags
-- **--subscription** - Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
-- **--mi-system-assigned** - Enable System-assigned managed identity.
-- **--mi-user-assigned** - Space-separated resource IDs of the User-assigned managed identities to be added.
-- **--if-match**/**if-none-match** - Specify the last-seen ETag value to prevent accidentally overwriting concurrent changes. The ETag is returned as the resource property once the resource is created and can be used on the update operations.
+- `wait`/`--no-wait` - Wait for command to complete or don't wait for the long-running operation to finish.
+- `--tags` - Space-separated tags: key[=value] [key[=value]...]. Use '' to clear existing tags
+- `--subscription` - Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
+- `--mi-system-assigned` - Enable System-assigned managed identity.
+- `--mi-user-assigned` - Space-separated resource IDs of the User-assigned managed identities to be added.
+- `--if-match`/`if-none-match` - Specify the last-seen ETag value to prevent accidentally overwriting concurrent changes. The ETag is returned as the resource property once the resource is created and can be used on the update operations.
 
 Common arguments that are available for every Azure CLI command:
 
-- **--debug** - prints detailed information about CLI execution that is used for debugging purposes. If you find a bug, provide output generated with the `--debug` flag on when submitting a bug report.
-- **--output -o** - specifies the output format. The available output formats are Json, Jsonc (colorized JSON), tsv (Tab-Separated Values), table (human-readable ASCII tables), and yaml. By default the CLI outputs Json.
-- **--query** - uses the JMESPath query language to filter the output returned from Azure services.
+- `--debug` - prints detailed information about CLI execution that is used for debugging purposes. If you find a bug, provide output generated with the `--debug` flag on when submitting a bug report.
+- `--output` or `-o` - specifies the output format. The available output formats are Json, Jsonc (colorized JSON), tsv (Tab-Separated Values), table (human-readable ASCII tables), and yaml. By default the CLI outputs Json.
+- `--query` - uses the JMESPath query language to filter the output returned from Azure services.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
@@ -113,15 +113,15 @@ New-AzNetworkCloudClusterManager -Name "$CLUSTER_MANAGER_NAME -Location $LOCATIO
 ```
 
 Parameters:
-- **-Name** - The name of the cluster manager.
-- **-ResourceGroupName** - The name of the resource group.
-- **-SubscriptionId** - The ID of the target subscription.
-- **-FabricControllerId** - The resource ID of the fabric controller that has one to one mapping with the cluster manager.
-- **-Location** - The geo-location where the resource lives.
-- **-AnalyticsWorkspaceId** - The resource ID of the Log Analytics workspace that is used for the logs collection.
-- **-ManagedResourceGroupConfigurationLocation** - The location of the managed resource group. If not specified, the location of the parent resource is chosen.
-- **-ManagedResourceGroupConfigurationName** - The name for the managed resource group. If not specified, the unique name is automatically generated.
-- **-Tag** - Hashtable of Resource tags.
+- `-Name` - The name of the cluster manager.
+- `-ResourceGroupName` - The name of the resource group.
+- `-SubscriptionId` - The ID of the target subscription.
+- `-FabricControllerId` - The resource ID of the fabric controller that has one to one mapping with the cluster manager.
+- `-Location` - The geo-location where the resource lives.
+- `-AnalyticsWorkspaceId` - The resource ID of the Log Analytics workspace that is used for the logs collection.
+- `-ManagedResourceGroupConfigurationLocation` - The location of the managed resource group. If not specified, the location of the parent resource is chosen.
+- `-ManagedResourceGroupConfigurationName` - The name for the managed resource group. If not specified, the unique name is automatically generated.
+- `-Tag` - Hashtable of Resource tags.
 
 ### [ARM Template](#tab/template)
 
@@ -140,10 +140,10 @@ You can find examples of these two files here:
 1. Click on Load file. Locate your clusterManager.jsonc template file and upload it.
 1. Click Save.
 1. Click Edit parameters.
-1. Click Load file.  Locate your clusterManager.parameters.jsonc parameters file and upload it.
+1. Click Load file. Locate your clusterManager.parameters.jsonc parameters file and upload it.
 1. Click Save.
 1. Select the correct Subscription.
-1. Search for the Resource group if it already exists or create new.
+1. Search for the Resource group if it already exists, or create new.
 1. Make sure all Instance Details are correct.
 1. Click Review + create.
 
@@ -250,7 +250,7 @@ az networkcloud clustermanager identity assign \
     --mi-user-assigned "$UAI_RESOURCE_ID"
 ```
 
-This command add a system-assigned identity:
+This command adds a system-assigned identity:
 
 ```azurecli-interactive
 az networkcloud clustermanager identity assign \
@@ -260,7 +260,7 @@ az networkcloud clustermanager identity assign \
     --mi-system-assigned
 ```
 
-This command removed the earlier added user-assigned identity:
+This command removes the existing user-assigned identity:
 
 ```azurecli-interactive
 az networkcloud clustermanager identity remove \
@@ -270,7 +270,7 @@ az networkcloud clustermanager identity remove \
     --mi-user-assigned "$UAI_RESOURCE_ID"
 ```
 
-This command removes the earlier added system-assigned identity:
+This command removes the existing system-assigned identity:
 
 ```azurecli-interactive
 az networkcloud clustermanager identity remove \
