@@ -1,6 +1,6 @@
 ---
 title: Azure Device Update for IoT Hub network security
-description: Understand how Azure Device Update for IoT Hub uses service tags and private endpoints for network security and managing updates.
+description: Understand how Azure Device Update for IoT Hub uses service tags and private endpoints for network security when managing updates.
 author: darkoa-msft
 ms.author: darkoa
 ms.date: 01/15/2025
@@ -11,7 +11,7 @@ ms.subservice: device-update
 
 # Azure Device Update for IoT Hub network security
 
-This article describes how Azure Device Update for IoT Hub uses the following network security features:
+This article describes how Azure Device Update for IoT Hub uses the following network security features to manage updates:
 
 - Service tags in network security groups and Azure Firewall
 - Private endpoints in Azure Virtual Network
@@ -65,11 +65,11 @@ You can use private endpoints for your Device Update resources to:
 
 Creating a private endpoint for a Device Update account in your virtual network sends a consent request for approval to the resource owner. If the user requesting the creation of the private endpoint also owns the account, this consent request is automatically approved. Otherwise, the connection is in **Pending** state until approved.
 
-Applications in the virtual network can connect to the Device Update service over the private endpoint seamlessly, using the same hostname and authorization mechanisms as usual. Account owners can manage consent requests and private endpoints through the **Private endpoints** page in the Azure portal.
+Applications in the virtual network can connect to the Device Update service over the private endpoint seamlessly, using the usual hostname and authorization mechanisms. Account owners can manage consent requests and private endpoints in the Azure portal through **Private endpoints** or the **Private access** tab in the **Networking** page for the resource.
 
 ### Connect to private endpoints
 
-Clients on a virtual network that uses the private endpoint should use the same account hostname and authorization mechanisms as clients connecting to the public endpoint. DNS resolution automatically routes connections from the virtual network to the account over a private link.
+Clients on a virtual network that uses the private endpoint should use the same account hostname and authorization mechanisms as clients connecting to the public endpoint. Domain Name System (DNS) resolution automatically routes connections from the virtual network to the account over a private link.
 
 By default, Device Update creates a [private DNS zone](/azure/dns/private-dns-overview) attached to the virtual network with the necessary update for the private endpoints. If you use your own DNS server, you might need to make changes to your DNS configuration.
 
@@ -106,7 +106,7 @@ This section applies only to Device Update accounts that have public network acc
 | Pending            | No                             |
 | Disconnected       | No                             |
 
-For update management to be successful, the private endpoint connection state must be **Approved**. If a connection is rejected, it can't be approved using the Azure portal. You must delete the connection and create a new one instead.
+For update management to be successful, the private endpoint connection state must be **Approved**. If a connection is rejected, it can't be approved using the Azure portal. You must delete the connection and create a new one.
 
 ## Related content
 

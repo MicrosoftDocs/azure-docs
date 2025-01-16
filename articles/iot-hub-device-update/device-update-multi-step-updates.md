@@ -1,6 +1,6 @@
 ---
-title: Multistep ordered execution for Azure Device Update for IoT Hub
-description: Learn about using multiple steps to run preinstall and postinstall tasks when you deploy an over-the-air update for Updates with Device Update for Azure IoT Hub
+title: Azure Device Update for IoT Hub multistep ordered execution
+description: Learn about using multiple steps to execute preinstall and postinstall tasks when you deploy over-the-air updates with Device Update for Azure IoT Hub.
 author: kgremban
 ms.author: kgremban
 ms.date: 01/15/2025
@@ -13,17 +13,17 @@ ms.subservice: device-update
 
 Multistep ordered execution in Azure Device Update for IoT Hub lets you run preinstall and postinstall tasks when you deploy an over-the-air update. This capability is part of the Device Update update manifest schema version 4. For more information, see [Device Update update manifest](update-manifest.md).
 
-Multistep ordered execution can have two types of steps, *inline steps* and *reference steps*. An inline step is the default type and is an instruction that executes code. A reference step is a step that contains an update identifier for another update.
+Multistep ordered execution can have two types of steps, *inline steps* and *reference steps*. An inline step is an instruction that executes code and is the default type. A reference step is a step that contains an identifier for another update.
 
 ## Parent updates and child updates
 
-When an update manifest references another manifest, the top-level manifest is called the *parent update*, and the manifest specified in a reference step is called a *child update*. A child update can't contain any reference steps, only inline steps. Device Update validates this restriction at import time and fails the update if it isn't met.
+When an update manifest references another update manifest, the top-level manifest is called the *parent update*, and the manifest specified in the reference step is called a *child update*. A child update can't contain any reference steps, only inline steps. Device Update validates this restriction at import time and fails the update if it isn't met.
 
 ### Inline steps in a parent update
 
-The Device Update agent applies inline steps specified in a parent update to the host device. The `ADUC_WorkflowData` object that passes to the step handler, also called an update content handler, doesn't contain any `Selected Components` data. The handler for this type of step shouldn't be a `Component-Aware` handler.
+The Device Update agent applies inline steps specified in a parent update to the host device. The ADUC_WorkflowData object that passes to the step handler, also called an update content handler, doesn't contain any Selected Components data. The handler for this type of step shouldn't be a Component-Aware handler.
 
-The step content handler applies `IsInstalled` validation logic for each step. The Device Update agent's step handler checks to see if that update is already installed by checking whether `IsInstalled()` returns result code `900` or true, and uses this result to determine whether to perform the step. To avoid reinstalling an update that's already on the device, the Device Update agent skips future steps if an update is already installed.
+The Device Update agent's step content handler applies `IsInstalled` validation logic for each step. The step handler checks to see if the update is already installed by checking whether `IsInstalled()` returns result code `900`, or true, and uses this result to determine whether to perform the step. To avoid reinstalling an update that's already on the device, the Device Update agent skips future steps if an update is already installed.
 
 To report an update result, write the result of a step handler execution to the `ADUC_Result` struct in a desired result file as specified in the `--result-file` option. Based on results of the execution, for success return `0`and for fatal errors return `-1` or `0xFF`.
 
