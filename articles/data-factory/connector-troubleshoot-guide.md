@@ -63,7 +63,7 @@ The following errors are general to the copy activity and could occur with any c
 
 - **Recommendation**:  Check your integration runtime environment, see [Use Self-hosted Integration Runtime](./format-parquet.md#using-self-hosted-integration-runtime).
 
-#### Error code: 20002
+#### <a name="error-code-jniexception"></a> Error code: 20002 - JniException
 
 - **Message**: `An error occurred when invoking Java Native Interface.`
 
@@ -98,7 +98,7 @@ The following errors are general to the copy activity and could occur with any c
 
     3. Save the file, and then restart the Self-hosted IR machine.
 
-#### <a name="error-code-jniexception"></a> Error code: 20150 - JniException
+#### <a name="error-code-getoauth2accesstokenerrorresponse"></a> Error code: 20150 - GetOAuth2AccessTokenErrorResponse
 
 - **Message**: `Failed to get access token from your token endpoint. Error returned from your authorization server: %errorResponse;.`
 
@@ -258,7 +258,7 @@ The following errors are general to the copy activity and could occur with any c
 
 - **Recommendation**: Verify your query is valid and can return data/schemas. Use [Script activity](transform-data-using-script.md) if you want to execute nonquery scripts and your data store is supported. Alternatively, consider to use stored procedure that returns a dummy result to execute your nonquery scripts.
 
-#### <a name="error-code-failtoresolveparametersinexploratorycontroller"></a> Error code: 11775 - FailToResolveParametersInExploratoryController
+#### Error code: 11775
 
 - **Message**: `Failed to connect to your instance of Azure Database for PostgreSQL flexible server. '%'`
  

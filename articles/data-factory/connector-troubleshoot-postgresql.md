@@ -16,13 +16,13 @@ ms.custom: has-adal-ref, synapse
 
 This article provides suggestions to troubleshoot common problems with the Azure Database for PostgreSQL connector in Azure Data Factory and Azure Synapse.
 
-## <a name="error-code-azurepostgresqlnpgsqldatatypenotsupported"></a> Error code: 23704 - AzurePostgreSqlNpgsqlDataTypeNotSupported
+## <a name="error-code-azurepostgresqlnpgsqlpartitioncolumnnamenotprovided"></a> Error code: 23704 - AzurePostgreSqlNpgsqlPartitionColumnNameNotProvided
 
 - **Message**: `Partition column name must be specified.`
 
 - **Cause**: No partition column name is provided, and it couldn't be decided automatically.
 
-## <a name="error-code-azurepostgresqlnpgsqlpartitioncolumnnamenotprovided"></a> Error code: 23705 - AzurePostgreSqlNpgsqlPartitionColumnNameNotProvided
+## Error code: 23705
 
 - **Message**: `The data type of the chosen Partition Column, '%partitionColumn;', is '%dataType;' and this data type is not supported for partitioning.`
 
