@@ -20,7 +20,9 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
 * Python 3.8 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
 * Follow the [Use variant feature flags](./use-variant-feature-flags.md) tutorial and create the variant feature flag named *Greeting*.
 
-## Create a Python web app
+## Set up a Python Flask web app
+
+If you already have a Python Flask web app, you can skip [Use the variant feature flag](#use-the-variant-feature-flag) section.
 
 1. Create a new project folder named *QuoteOfTheDay*.
 
@@ -43,19 +45,13 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     pip install flask-login
     pip install flask_sqlalchemy
     pip install flask_bcrypt
-    pip install azure-appconfiguration-provider
-    pip install azure-identity featuremanagement[AzureMonitor]
     ```
+
+## Create the Quote of the Day app
 
 1. Create a new file named *app.py* in the *QuoteOfTheDay* folder. 
 
-   You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
-
     ```python
-    import os
-    from azure.appconfiguration.provider import load
-    from featuremanagement import FeatureManager
-    from azure.identity import DefaultAzureCredential
     from flask_bcrypt import Bcrypt
     
     from flask_sqlalchemy import SQLAlchemy
@@ -65,22 +61,6 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     
     app = Flask(__name__, template_folder="../templates", static_folder="../static")
     bcrypt = Bcrypt(app)
-    
-    ENDPOINT = os.getenv("AzureAppConfigurationEndpoint")
-    
-    def callback():
-        app.config.update(azure_app_config)
-    
-    global azure_app_config
-    azure_app_config = load(
-        endpoint=ENDPOINT,
-        credential=DefaultAzureCredential(),
-        on_refresh_success=callback,
-        feature_flag_enabled=True,
-        feature_flag_refresh_enabled=True,
-    )
-    app.config.update(azure_app_config)
-    feature_manager = FeatureManager(azure_app_config)
     
     db = SQLAlchemy()
     db.init_app(app)
@@ -133,19 +113,15 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     ```python
     import random
     
-    from featuremanagement.azuremonitor import track_event
     from flask import Blueprint, render_template, request, flash, redirect, url_for
     from flask_login import current_user, login_user, logout_user
-    from . import azure_app_config, feature_manager, db, bcrypt
+    from . import db, bcrypt
     from .model import Quote, Users
     
     bp = Blueprint("pages", __name__)
     
     @bp.route("/", methods=["GET", "POST"])
     def index():
-        global azure_app_config
-        # Refresh the configuration from App Configuration service.
-        azure_app_config.refresh()
         context = {}
         user = ""
         if current_user.is_authenticated:
@@ -154,17 +130,13 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
         else:
             context["user"] = "Guest"
         if request.method == "POST":
-            track_event("Liked", user)
             return redirect(url_for("pages.index"))
     
         quotes = [
             Quote("You cannot change what you are, only what you do.", "Philip Pullman"),
         ]
     
-        greeting = feature_manager.get_variant("Greeting", user)
-        greeting_message = ""
-        if greeting:
-            greeting_message = greeting.configuration
+        greeting_message = "Hi"
     
         context["model"] = {}
         context["model"]["greeting_message"] = greeting_message
@@ -440,7 +412,68 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     }
     ```
 
-### Build and run the app
+## Use the variant feature flag
+
+1. Install the latest versions of the following packages.
+
+    ```bash
+    pip install azure-identity 
+    pip install azure-appconfiguration-provider
+    pip install featuremanagement[AzureMonitor]
+    ```
+
+1. Open `app.py` to connect to App Configuration and set up feature management.
+
+   You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
+
+    ```python
+    import os
+    from azure.appconfiguration.provider import load
+    from featuremanagement import FeatureManager
+    from azure.identity import DefaultAzureCredential
+
+    ENDPOINT = os.getenv("AzureAppConfigurationEndpoint")
+
+    # Updates the flask app configuration with the Azure App Configuration settings whenever a refresh happens
+    def callback():
+        app.config.update(azure_app_config)
+
+    # Connect to App Configuration
+    global azure_app_config
+    azure_app_config = load(
+        endpoint=ENDPOINT,
+        credential=DefaultAzureCredential(),
+        on_refresh_success=callback,
+        feature_flag_enabled=True,
+        feature_flag_refresh_enabled=True,
+    )
+    app.config.update(azure_app_config)
+
+    # Create a FeatureManager
+    feature_manager = FeatureManager(azure_app_config)
+    ```
+
+1. Open `routes.py` to refresh configuration and get the feature variant.
+
+    ```python
+    from featuremanagement.azuremonitor import track_event
+    from . import azure_app_config, feature_manager
+
+    ...
+    # Update the post request to track liked events
+    if request.method == "POST":
+        track_event("Liked", user)
+        return redirect(url_for("pages.index"))
+
+    ...
+    # Update greeting_message to variant
+    greeting = feature_manager.get_variant("Greeting", user)
+    greeting_message = ""
+    if greeting:
+        greeting_message = greeting.configuration
+    ```
+
+## Build and run the app
 
 1. Set an environment variable. Set the environment variable named **AzureAppConfigurationEndpoint** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
 
