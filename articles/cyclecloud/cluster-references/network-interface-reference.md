@@ -11,13 +11,51 @@ ms.custom: compute-evergreen
 
 Network Interface objects are rank 3, and subordinate to `node` or `nodearray`. `network-interface` represents an Azure Network Interface.
 
-Multiple network interfaces may be attached to a single node for multi-homed VMs.   Refer to the [VM Sizes](/azure/virtual-machines/linux/sizes) documentation to find the maxinum number of NICs for the selected VM SKU.
+Multiple network interfaces may be attached to a single node for multi-homed VMs.   Refer to the [VM Sizes](/azure/virtual-machines/linux/sizes) documentation to find the maximum number of NICs for the selected VM SKU.
 
 ### Example
 
-Adding a `[[[network-interface]]]` section to a node adds controls to the default NIC. You can also add additional NICs and attach them to a VM.
+Nodes will get a single network interface by default. Adding a `[[[network-interface]]]` section to a node lets the defaults be overridden. You can also add additional NICs and attach them to a VM.
 
-This example attaches an existing NIC to a VM:
+This example creates a node with two network interfaces, and places the second nic in a different subnet with two application security groups:
+
+``` ini
+[cluster my-cluster]
+  [[node my-node]]
+    Credentials = $Credentials
+    SubnetId = my-rg/my-vnet/subnet2
+    MachineType = $MachineType
+    ImageName = $ImageName
+
+    [[[network-interface nic1]]]
+      NetworkInterfaceId = /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/my-rg/providers/Microsoft.Network/networkInterfaces/my-nic
+
+    [[[network-interface nic2]]]
+      SubnetId = my-rg/my-vnet2/subnet
+      ApplicationSecurityGroups = /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/my-rg/providers/Microsoft.Network/applicationSecurityGroups/asg1, /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/my-rg/providers/Microsoft.Network/applicationSecurityGroups/asg2
+```
+
+Attribute values that begin with `$` are referencing parameters.
+
+## Attribute Reference
+
+The `[[[network-interface]]]` block is most commonly used for single nodes and the attributes that reference singular properties (such as a private IP address) do not apply to node arrays. However, the block may be used to apply an existing Network Security Group or one or more Application Security Groups to nodes in an array.
+
+Attribute | Type | Definition
+--------- | ---- | ----------
+AssociatePublicIpAddress | Boolean | Associate a public IP address with the NIC
+EnableIpForwarding | Boolean | If true, allow IP forwarding
+SecurityGroup | String | Specify an existing Network Security Group Resource ID (overrides the default NSG created when a public IP is specified). This overrides the `NetworkSecurityGroupId` [node attribute](node-nodearray-reference.md), if any.
+ApplicationSecurityGroups | String (list) | List of Application Security Groups by Resource ID
+SubnetId | String | Subnet definition in the form `${rg}/${vnet}/${subnet}`. This overrides the `SubnetId` [node attribute](node-nodearray-reference.md).
+Primary | Boolean | If set, marks this NIC as "primary" for the operating system.
+PrivateIp | String | Assign a specific private IP address (node only)
+NetworkInterfaceId | String | Specify an existing NIC by resource ID (node only)
+StaticPublicIpAddress | Boolean | If true, the IP address will be persisted between node restarts (node only)
+
+### Existing network interfaces
+
+For head nodes, you can create a NIC separately and attach it to a node:
 
 ``` ini
 [cluster my-cluster]
@@ -31,20 +69,4 @@ This example attaches an existing NIC to a VM:
       NetworkInterfaceId = /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/my-rg/providers/Microsoft.Network/networkInterfaces/my-nic
 ```
 
-Attribute values that begin with `$` are referencing parameters.
-
-## Attribute Reference
-
-Attribute | Type | Definition
------- | ----- | ----------
-AssociatePublicIpAddress | Boolean | Associate a public IP address with the NIC (node only)
-StaticPublicIpAddress | Boolean | If true, the IP address will be persisted between node restarts (node only)
-EnableIpForwarding | Boolean | If true, allow IP forwarding (node only)
-PrivateIp | String | Assign a specific private IP address (node only)
-NetworkInterfaceId | String | Specify an existing NIC by resource ID (node only)
-SecurityGroup | String | Specify an existing Network Security Group Resouce ID (overrides the default NSG created when a public IP is specified)
-ApplicationSecurityGroups | String (list) | List of Application Security Groups by Resource ID and separated by comma
-
-### Nodearray Network Interface Attributes
-
-The `[[[network-interface]]]` block is most commonly used for single nodes/VMs and most of the attributes do not apply to nodearrays.   However, the block may be used to apply an existing Network Security Group or one or more Application Security Groups to all nodes/VMs in the nodearray.
+This network interface will not be modified or deleted by CycleCloud.
