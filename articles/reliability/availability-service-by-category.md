@@ -100,6 +100,7 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Azure SignalR Service                                |
 > | Azure Spring Apps                                    |
 > | Azure Storage: Archive Storage                       |
+> | Azure Storage: Azure File Sync                       |
 > | Azure Synapse Analytics                              |
 > | Azure Ultra Disk Storage                             |
 > | Azure VMware Solution                                |
