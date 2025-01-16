@@ -151,7 +151,6 @@ The following table lists the currently supported releases. IoT Edge release ass
 | Release notes and assets | Type | Release Date | End of Support Date |
 | ------------------------ | ---- | ------------ | ------------------- |
 | [1.5](https://github.com/Azure/azure-iotedge/releases/tag/1.5.0) | Long-term support (LTS) | April 2024 | November 10, 2026 |
-| [1.4](https://github.com/Azure/azure-iotedge/releases/tag/1.4.0) | Long-term support (LTS) | August 2022 | November 12, 2024 |
 
 For more information on IoT Edge version history, see, [Version history](version-history.md#version-history).
 

@@ -1,6 +1,111 @@
 {
   "redirections": [
     {
+      "source_path": "articles/defender-for-iot/organizations/appliance-catalog/virtual-management-hyper-v.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/appliance-catalog/virtual-management-hyper-v",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/appliance-catalog/virtual-management-vmware.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/appliance-catalog/virtual-management-vmware",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/api/management-alert-apis.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/api/management-alert-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/api/management-inventory-apis.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/api/management-inventory-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/api/management-appliances-apis.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/api/management-appliances-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/api/management-auth-apis.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/api/management-auth-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/api/management-integration-apis.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/api/management-integration-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/back-up-sensors-from-management.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/back-up-sensors-from-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/back-up-restore-management.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/back-up-restore-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-set-up-high-availability.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-set-up-high-availability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-manage-the-on-premises-management-console.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-manage-the-on-premises-management-console",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-troubleshoot-on-premises-management-console.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-troubleshoot-on-premises-management-console",
+       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/legacy-air-gapped-deploy.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/legacy-air-gapped-deploy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/prepare-management-appliance.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/prepare-management-appliance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/install-software-on-premises-management-console.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/install-software-on-premises-management-console",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/activate-deploy-management.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/activate-deploy-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/connect-sensors-to-management.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/connect-sensors-to-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/sites-and-zones-on-premises.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/sites-and-zones-on-premises",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/legacy-central-management/how-to-work-with-alerts-on-premises-management-console.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/legacy-central-management/how-to-work-with-alerts-on-premises-management-console",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cdn/akamai-retirement-faq.md",
       "redirect_url": "/previous-versions/azure/cdn/akamai-retirement-faq",
       "redirect_document_id": false
@@ -11,83 +116,89 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/operator-5g-core/index.yml",
+      "redirect_url": "https://learn.microsoft.com",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/operator-5g-core/concept-centralized-lifecycle-management.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/concept-centralized-lifecycle-management",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/concept-deployment-order.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/concept-deployment-order",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/concept-observability-analytics.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/concept-observability-analytics",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/concept-security.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/concept-security",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/how-to-configure-network-function.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/how-to-configure-network-function",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/how-to-delete-network-function-cluster.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/how-to-delete-network-function-cluster",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/how-to-deploy-network-functions.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/how-to-deploy-network-functions",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/how-to-deploy-observability.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/how-to-deploy-observability",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/overview-product.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/overview-product",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/quickstart-complete-prerequisites-deploy-azure-kubernetes-service.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/quickstart-complete-prerequisites-deploy-azure-kubernetes-service",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/quickstart-complete-prerequisites-deploy-nexus-azure-kubernetes-service.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/quickstart-complete-prerequisites-deploy-nexus-azure-kubernetes-service",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/quickstart-configure-extension-for-status-monitoring.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/quickstart-configure-extension-for-status-monitoring",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/quickstart-deploy-5g-core.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/quickstart-deploy-5g-core",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/quickstart-monitor-deployment-status.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/quickstart-monitor-deployment-status",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/quickstart-subscription.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/quickstart-subscription",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/tutorial-configure-network-function.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/tutorial-configure-network-function",
+      "redirect_url": "https://learn.microsoft.com",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-call-protection/deployment-overview.md",
@@ -112,6 +223,7 @@
     {
       "source_path": "articles/operator-call-protection/set-up-operator-call-protection.md",
       "redirect_url": "/previous-versions/azure/operator-call-protection/set-up-operator-call-protection",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/private-multi-access-edge-compute-mec/overview.md",
@@ -121,6 +233,7 @@
     {
       "source_path": "articles/private-multi-access-edge-compute-mec/partner-programs.md",
       "redirect_url": "/previous-versions/azure/private-multi-access-edge-compute-mec/partner-programs",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/time-series-insights/breaking-changes-long-data-type.md",
@@ -745,6 +858,21 @@
     {
       "source_path_from_root": "/articles/api-management/self-hosted-gateway-migration-guide.md",
       "redirect_url": "/previous-versions/azure/api-management/self-hosted-gateway-migration-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/api-management/howto-use-analytics.md",
+      "redirect_url": "/azure/api-management/monitor-api-management",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/api-management/visualize-using-managed-grafana-dashboard.md",
+      "redirect_url": "/azure/api-management/monitor-api-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/api-management/developer-portal-enable-usage-logs.md",
+      "redirect_url": "/azure/api-management/monitor-api-management",
       "redirect_document_id": false
     },
     {
@@ -4493,6 +4621,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/logic-apps/business-continuity-disaster-recovery-guidance.md",
+      "redirect_url": "/azure/logic-apps/multi-region-disaster-recovery",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/virtual-network/tutorial-connect-virtual-networks-portal.md",
       "redirect_url": "/azure/virtual-network/tutorial-connect-virtual-networks",
       "redirect_document_id": false
@@ -4605,6 +4738,46 @@
     {
       "source_path_from_root": "/articles/sentinel/data-connectors/threat-intelligence-upload-indicators-api.md",
       "redirect_url": "/azure/sentinel/data-connectors/threat-intelligence-upload-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/how-to-add-components.md",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/how-to-manage-components.md",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/index.yml",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/overview.md",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/quickstart-deploy-starter-app.md",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/quickstart-deploy-your-app.md",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/create-vm-accelerated-networking-cli.md",
+      "redirect_url": "/azure/virtual-network/create-virtual-machine-accelerated-networking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/create-vm-accelerated-networking-powershell.md",
+      "redirect_url": "/azure/virtual-network/create-virtual-machine-accelerated-networking",
       "redirect_document_id": false
     }
   ]

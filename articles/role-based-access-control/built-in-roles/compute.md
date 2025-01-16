@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 12/12/2024
+ms.date: 01/10/2025
 ms.custom: generated
 ---
 
@@ -1544,6 +1544,61 @@ Provides permission to backup vault to manage disk snapshots.
 }
 ```
 
+## Quantum Workspace Data Contributor
+
+Create, read, and modify jobs and other Workspace data. This role is in preview and subject to change.
+
+[Learn more](/azure/quantum/manage-workspace-access)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Quantum](../permissions/compute.md#microsoftquantum)/Workspaces/read | Read Workspace |
+> | [Microsoft.Quantum](../permissions/compute.md#microsoftquantum)/locations/offerings/read | Read providers supported |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Quantum](../permissions/compute.md#microsoftquantum)/Workspaces/jobs/read | Read jobs and other data |
+> | [Microsoft.Quantum](../permissions/compute.md#microsoftquantum)/Workspaces/jobs/write | Write jobs and other data |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Create, read, and modify jobs and other Workspace data. This role is in preview and subject to change.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/c1410b24-3e69-4857-8f86-4d0a2e603250",
+  "name": "c1410b24-3e69-4857-8f86-4d0a2e603250",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Quantum/Workspaces/read",
+        "Microsoft.Quantum/locations/offerings/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Quantum/Workspaces/jobs/read",
+        "Microsoft.Quantum/Workspaces/jobs/write"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Quantum Workspace Data Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Virtual Machine Administrator Login
 
 View Virtual Machines in the portal and login as administrator
@@ -2186,10 +2241,10 @@ Let's you manage the OS of your resource via Windows Admin Center as an administ
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/galleries/images/read | Gets the properties of Gallery Image |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/images/read | Get the properties of the Image |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Clusters/Read | Gets clusters |
-> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Clusters/ArcSettings/Read | Gets arc resource of HCI cluster |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Clusters/ArcSettings/Read | Gets Arc resource of Azure Local cluster |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Clusters/ArcSettings/Extensions/Read | Gets extension resource of HCI cluster |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Clusters/ArcSettings/Extensions/Write | Create or update extension resource of HCI cluster |
-> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Clusters/ArcSettings/Extensions/Delete | Delete extension resources of HCI cluster |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Clusters/ArcSettings/Extensions/Delete | Delete extension resources of Azure Local cluster |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Operations/Read | Gets operations |
 > | [Microsoft.ConnectedVMwarevSphere](../permissions/compute.md#microsoftconnectedvmwarevsphere)/VirtualMachines/Read | Read virtualmachines |
 > | [Microsoft.ConnectedVMwarevSphere](../permissions/compute.md#microsoftconnectedvmwarevsphere)/VirtualMachines/Extensions/Write | Write extension resource |
@@ -2199,7 +2254,7 @@ Let's you manage the OS of your resource via Windows Admin Center as an administ
 > | **DataActions** |  |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/WACLoginAsAdmin/action | Lets you manage the OS of your resource via Windows Admin Center as an administrator. |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/WACloginAsAdmin/action | Lets you manage the OS of your resource via Windows Admin Center as an administrator |
-> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Clusters/WACloginAsAdmin/Action | Manage OS of HCI resource via Windows Admin Center as an administrator |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Clusters/WACloginAsAdmin/Action | Manage OS of Azure Local resource via Windows Admin Center as an administrator |
 > | [Microsoft.ConnectedVMwarevSphere](../permissions/compute.md#microsoftconnectedvmwarevsphere)/virtualmachines/WACloginAsAdmin/action | Lets you manage the OS of your resource via Windows Admin Center as an administrator. |
 > | **NotDataActions** |  |
 > | *none* |  |

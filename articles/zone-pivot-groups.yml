@@ -1295,15 +1295,6 @@ groups:
     title: .NET
   - id: framework-spring
     title: Spring Framework
-# Owner: zhiyuanliang
-- id: feature-management
-  title: Library version pivots
-  prompt: Choose a release
-  pivots:
-  - id: stable-version
-    title: Stable release
-  - id: preview-version
-    title: Preview release
 # Owner: avanigupta
 - id: appconfig-data-plane-api-version
   title: API version pivots
@@ -1799,3 +1790,33 @@ groups:
     title: Data connector agent
   - id: connection-agentless
     title: Agentless data connector (limited preview)
+# Owner: jodowns
+- id: logic-app-hosting-types
+  title: Azure Logic Apps hosting model
+  prompt: Choose an Azure Logic Apps hosting model
+  pivots:
+  - id: consumption
+    title: Consumption
+  - id: standard-workflow-service-plan
+    title: Standard (Workflow Service Plan)
+  - id: standard-app-service-environment
+    title: Standard (App Service Environment v3)
+#owner: dariagrigoriu
+- id: acs-azcli-js-csharp-java-python-portal-nocode
+  title: Platforms
+  prompt: Choose a platform
+  pivots:
+  - id: platform-azcli
+    title: Azure CLI
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+  - id: platform-azportal
+    title: Azure portal
+  - id: platform-nocode
+    title: Power Platform

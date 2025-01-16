@@ -569,6 +569,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Project Hosts](https://www.projecthosts.com)|
 |[Quiet Professionals, LLC](https://quietprofessionalsllc.com)|
 |[R3, LLC](https://www.r3-it.com/)|
+|[Rackspace Technology](https://www.rackspace.com)|
 |[Red River](https://www.redriver.com)|
 |[RSM US, LLP](https://rsmus.com)|
 |[SAIC](https://www.saic.com)|
