@@ -24,7 +24,7 @@ If you have an existing P2S gateway that you want to update to use a new Audienc
 
 * [!INCLUDE [Supported versions](vpn-gateway-azure-vpn-client-linux-supported-releases.md)]
 
-* The Azure VPN Clients for macOS and Windows are backward compatible with P2S gateways configured to use the older Audience values that align with the manually registered app. These clients also support Custom Audience values.
+* The latest versions of the Azure VPN Clients for macOS and Windows are backward compatible with P2S gateways configured to use the older Audience values that align with the manually registered app. These clients also support Custom Audience values.
 
 **Azure VPN Client Audience values**
 
