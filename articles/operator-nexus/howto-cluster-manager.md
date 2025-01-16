@@ -225,7 +225,7 @@ $tagHash = @{
 Update-AzNetworkCloudClusterManager -Name "$CLUSTER_MANAGER_NAME -ResourceGroupName $CLUSTER_MANAGER_RG -SubscriptionId $SUB_ID -Tag $tagHash
 ```
 
-### Update Cluster Manager Identities
+## Update Cluster Manager Identities
 
 Cluster Manager identity can be managed via CLI using `az networkcloud clustermanager identity` commands.
 
@@ -280,7 +280,13 @@ az networkcloud clustermanager identity remove \
     --mi-system-assigned
 ```
 
-### [Azure APIs](#tab/azure-api)
+### [Azure PowerShell](#tab/azure-powershell)
+
+Currently not supported.
+
+---
+
+Alternatively, you can update Cluster Manager Identities Azure APIs.
 
 - To remove all managed identities, execute:
 
@@ -379,6 +385,6 @@ After you successfully created the Network Fabric Controller and the Cluster Man
 
 ## Useful links
 
-- [NetworkCloud REST APIs Reference](https://learn.microsoft.com/rest/api/networkcloud/)
-- [NetworkCloud PowerShell Reference](https://learn.microsoft.com/powershell/module/az.networkcloud/)
+- [NetworkCloud REST APIs Reference](/rest/api/networkcloud/)
+- [NetworkCloud PowerShell Reference](/powershell/module/az.networkcloud/)
 
