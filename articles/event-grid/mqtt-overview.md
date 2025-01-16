@@ -1,8 +1,8 @@
 ---
-title: 'Overview of MQTT broker feature in Azure Event Grid'
-description: Describes how Azure Event Grid enables MQTT clients to communicate with each other and with Azure services, to support your Internet of Things (IoT) solutions.
+title: 'Overview of MQTT broker in Azure Event Grid'
+description: MQTT borker feature in Azure Event Grid enables MQTT clients to communicate with each other and with Azure services, to support IoT solutions.
 ms.topic: concept-article
-ms.date: 12/12/2024
+ms.date: 01/15/2024
 author: george-guirguis
 ms.author: geguirgu
 ms.subservice: mqtt
@@ -22,8 +22,6 @@ Azure Event Grid enables your MQTT clients to communicate with each other and wi
 The MQTT broker is ideal for the implementation of automotive and mobility scenarios, among others. See [the reference architecture](mqtt-automotive-connectivity-and-data-solution.md) to learn how to build secure and scalable solutions for connecting millions of vehicles to the cloud, using Azure’s messaging and data analytics services.
 
 :::image type="content" source="media/overview/mqtt-messaging-high-res.png" alt-text="High-level diagram of Event Grid that shows bidirectional MQTT communication with publisher and subscriber clients." border="false":::
-
-
 
 ## Key concepts
 The following are a list of key concepts involved in Azure Event Grid’s MQTT broker feature.
@@ -109,6 +107,7 @@ Custom domain names support allows users to assign their own domain names to Eve
 
 
 ## Concepts
+See the following articles for concepts of MQTT broker in Azure Event Grid: 
 
 - [Terminology](mqtt-event-grid-namespace-terminology.md)
 - [Client authentication](mqtt-client-authentication.md) 
