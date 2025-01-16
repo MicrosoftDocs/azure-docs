@@ -38,7 +38,7 @@ It's important to understand and communicate the business expectations, and the 
 
 To control or completely avoid a negative impact on business continuity, it's important to proactively create a *business continuity plan*. A business continuity plan is based on risk assessment and developing methods of controlling those risks through various approaches. The specific risks and approaches to mitigate vary for each organization and workload.
 
-A business continuity plan doesn't only take into consideration the resiliency features of the cloud platform itself, or even the features of the application. A robust business continuity plan incorporates all aspects of support in the business including people, business-related manual or automated processes, and other technologies.
+A business continuity plan doesn't only take into consideration the resiliency features of the cloud platform itself but also the features of the application. A robust business continuity plan incorporates all aspects of support in the business including people, business-related manual or automated processes, and other technologies.
 
 Business continuity planning should consist of the following steps, in order:
 
@@ -93,7 +93,7 @@ Business continuity plans must address both common and uncommon risks.
 
 High availability and disaster recovery are interrelated, and so it's important to plan strategies for both of them together.
 
-It's important to understand that risk classification depends on workload architecture and the business requirements, and some risks can be classified as HA for one workload and DR for another workload. For example, a full Azure region outage would generally be considered a DR risk to workloads in that region.  But for workloads that use multiple Azure regions in an active-active configuration with full replication, redundancy, and automatic region failover, a region outage is classified as an HA risk.
+It's important to understand that risk classification depends on workload architecture and the business requirements, and some risks can be classified as HA for one workload and DR for another workload. For example, a full Azure region outage would generally be considered a DR risk to workloads in that region. But for workloads that use multiple Azure regions in an active-active configuration with full replication, redundancy, and automatic region failover, a region outage is classified as an HA risk.
 
 #### Risk mitigation
 
@@ -137,7 +137,7 @@ Because human-based risk controls are often slower than technology-based control
 
 High availability is the state in which a specific workload can maintain its necessary level of uptime on a day-to-day basis, even during transient faults and intermittent failures. Because these events happen regularly, it's important that each workload is designed and configured for high availability in accordance with the requirements of the specific application and customer expectations. The HA of each workload contributes to your business continuity plan.
 
-Because HA can vary with each workload, it's important to understand the requirements and customer expectations when determining high availability. For example, an application that's used within your organization might require a relatively low level of uptime, while a critical financial application might require a much higher uptime. Even within a workload, different *flows* might have different requirements. For example, in an eCommerce application, flows that support customers browsing and placing orders might be more important than order fulfillment and back-office processing flows. To learn more about flows, see [Recommendations for identifying and rating flows](/azure/well-architected/reliability/identify-flows).
+Because HA can vary with each workload, it's important to understand the requirements and customer expectations when determining high availability. For example, a stationary ordering application that's used within your organization might require a relatively low level of uptime, while a critical financial application might require a much higher uptime. Even within a workload, different *flows* might have different requirements. For example, in an eCommerce application, flows that support customers browsing and placing orders might be more important than order fulfillment and back-office processing flows. To learn more about flows, see [Recommendations for identifying and rating flows](/azure/well-architected/reliability/identify-flows).
 
 Commonly, uptime is measured based on the number of "nines" in the uptime percentage. The uptime percentage relates to how much downtime you're allowing for over a given period of time. Here are some examples:
 
@@ -213,7 +213,7 @@ Zero-downtime deployment techniques can include:
 
 - Updating a subset of your resources at a time.
 - Controlling the amount of traffic that reaches the new deployment.
-- Monitoring for any impact to your users.
+- Monitoring for any impact to your users or system.
 - Rapidly remediating the issue, such as by rolling back to a previous known-good deployment.
 
 To learn more about zero-downtime deployment techniques, see [Safe deployment practices](/devops/operate/safe-deployment-practices).
