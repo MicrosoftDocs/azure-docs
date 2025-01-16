@@ -4,7 +4,7 @@ description: Learn to automate and simplifying routing behaviors using user-defi
 author: mbender-ms
 ms.author: mbender
 ms.topic: overview 
-ms.date: 11/07/2024
+ms.date: 01/16/2025
 ms.service: azure-virtual-network-manager
 ms.custom: references_regions
 # Customer Intent: As a network engineer, I want learn how I can automate and simplify routing within my Azure Network using User-defined routes.
@@ -124,7 +124,7 @@ The following are impacts of UDR management with Azure Virtual Network Manager o
 - When a route table with existing UDRs is present, Azure Virtual Network Manager will create a new managed route table that includes both the existing routes and new routes based on the deployed routing configuration.
 - Any additional UDRs added to a managed route table will remain unaffected and will not be deleted when the routing configuration is removed. Only routes created by Azure Virtual Network Manager will be removed.
 - If an Azure Virtual Network Manager managed UDR is manually edited in the route table, that route will be deleted when the configuration is removed from the region.
-- Existing Azure services in the Hub virtual network maintain their existing limitations with respect to Route Table and UDRs.
+- Azure Virtual Network Manager won't interfere with your existing UDRs. It just adds the new UDRs to the current ones, ensuring your routing continues to work as it does now. This also means UDRs for specific Azure services will still function along your network manager's UDRs. You won't encounter any new limitations.
 - Azure Virtual Network Manager requires a managed resource group to store the route table. If an Azure Policy enforces specific tags or properties on resource groups, those policies must be disabled or adjusted for the managed resource group to prevent deployment issues. Furthermore, if you need to delete this managed resource group, ensure that deletion occurs prior to initiating any new deployments for resources within the same subscription.
 - UDR management allows users to create up to 1000 UDRs per route table.
 
