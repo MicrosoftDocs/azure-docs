@@ -123,7 +123,7 @@ Parameters:
 - `-ManagedResourceGroupConfigurationName` - The name for the managed resource group. If not specified, the unique name is automatically generated.
 - `-Tag` - Hashtable of Resource tags.
 
-### Create a Cluster Manager via ARM Template
+### [ARM Template](#tab/template)
 
 To create a Cluster Manager via ARM Template, you need to provide a template file (clusterManager.jsonc) and a parameter file (clusterManager.parameters.jsonc).
 
@@ -196,6 +196,10 @@ This command shows the properties of the specified Cluster Manager in Json forma
  Get-AzNetworkCloudClusterManager -Name "$CLUSTER_MANAGER_NAME" -ResourceGroupName "$CLUSTER_MANAGER_RG" -SubscriptionId "$SUB_ID" | ConvertTo-Json
 ```
 
+### [ARM Template](#tab/template)
+
+Use one of the existing interfaces, Portal, CLI, or PowerShell, to delete the Cluster Manager.
+
 ---
 
 ## Update Cluster Manager
@@ -214,22 +218,7 @@ az networkcloud clustermanager update \
     --subscription "$SUB_ID"
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell-interactive
-$tagHash = @{
-  tag1 = "true"
-  tag2 = "false"
-}
-
-Update-AzNetworkCloudClusterManager -Name "$CLUSTER_MANAGER_NAME -ResourceGroupName $CLUSTER_MANAGER_RG -SubscriptionId $SUB_ID -Tag $tagHash
-```
-
-## Update Cluster Manager Identities
-
-Cluster Manager identity can be managed via CLI using `az networkcloud clustermanager identity` commands.
-
-### [Azure CLI](#tab/azure-cli)
+Cluster Manager identity can be managed via CLI using `az networkcloud clustermanager identity` sub commands.
 
 This command shows the currently assigned identities:
 
@@ -282,71 +271,18 @@ az networkcloud clustermanager identity remove \
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-Currently not supported.
+```azurepowershell-interactive
+$tagHash = @{
+  tag1 = "true"
+  tag2 = "false"
+}
 
----
+Update-AzNetworkCloudClusterManager -Name "$CLUSTER_MANAGER_NAME -ResourceGroupName $CLUSTER_MANAGER_RG -SubscriptionId $SUB_ID -Tag $tagHash
+```
 
-Alternatively, you can update Cluster Manager Identities Azure APIs.
+### [ARM Template](#tab/template)
 
-- To remove all managed identities, execute:
-
-  ```azurecli
-  az rest --method PATCH --url /subscriptions/$SUB_ID/resourceGroups/$CLUSTER_MANAGER_RG/providers/Microsoft.NetworkCloud/clusterManagers/$CLUSTER_MANAGER_NAME?api-version=<APIVersion> --body "{\"identity\":{\"type\":\"None\"}}"
-  ```
-
-- If both User-assigned and System-assigned managed identities were added, the User-assigned can be removed by updating the `type` to `SystemAssigned`:
-
-  ```azurecli
-  az rest --method PATCH --url /subscriptions/$SUB_ID/resourceGroups/$CLUSTER_MANAGER_RG/providers/Microsoft.NetworkCloud/clusterManagers/$CLUSTER_MANAGER_NAME?api-version=<APIVersion> --body @~/uai-body.json
-  ```
-
-  The request body (uai-body.json) example:
-  
-  ```azurecli
-  {
-	"identity": {
-        "type": "SystemAssigned"
-	}
-  }
-  ```
-
-- If both User-assigned and System-assigned managed identities were added, the System-assigned can be removed by updating the `type` to `UserAssigned`:
-
-  ```azurecli
-  az rest --method PATCH --url /subscriptions/$SUB_ID/resourceGroups/$CLUSTER_MANAGER_RG/providers/Microsoft.NetworkCloud/clusterManagers/$CLUSTER_MANAGER_NAME?api-version=<APIVersion> --body @~/uai-body.json
-  ```
-
-  The request body (uai-body.json) example:
-  
-  ```azurecli
-  {
-	"identity": {
-        "type": "UserAssigned",
-		"userAssignedIdentities": {
-			"/subscriptions/$SUB_ID/resourceGroups/$UAI_RESOURCE_GROUP/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$UAI_NAME": {}
-		}
-	}
-  }
-  ```
-
-- If multiple User-assigned managed identities were added, one of them can be removed by executing:
-
-  ```azurecli
-  az rest --method PATCH --url /subscriptions/$SUB_ID/resourceGroups/$CLUSTER_MANAGER_RG/providers/Microsoft.NetworkCloud/clusterManagers/$CLUSTER_MANAGER_NAME?api-version=<APIVersion> --body @~/uai-body.json
-  ```
-  
-  The request body (uai-body.json) example:
-  
-  ```azurecli
-  {
-	"identity": {
-        "type": "UserAssigned",
-		"userAssignedIdentities": {
-			"/subscriptions/$SUB_ID/resourceGroups/$UAI_RESOURCE_GROUP/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$UAI_NAME": null
-		}
-	}
-  }
-  ```
+The template used for creation can also be used to update the Cluster Manager.
 
 ---
 
@@ -376,6 +312,10 @@ $tagHash = @{
 
 Remove-AzNetworkCloudClusterManager -Name "$CLUSTER_MANAGER_NAME -ResourceGroupName $CLUSTER_MANAGER_RG -SubscriptionId $SUB_ID
 ```
+
+### [ARM Template](#tab/template)
+
+Use one of the existing interfaces, Portal, CLI, or PowerShell, to delete the Cluster Manager.
 
 ---
 
