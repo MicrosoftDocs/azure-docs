@@ -203,7 +203,7 @@ You can log on to the **Azure Databricks workspace**, go to **Job Runs** and you
 
 You can select the **Job name** and navigate to see further details. On successful run, you can validate the parameters passed and the output of the Python notebook.
 
-## Related content
+## Summary
 
 The pipeline in this sample triggers a Databricks Notebook activity and passes a parameter to it. You learned how to:
 
