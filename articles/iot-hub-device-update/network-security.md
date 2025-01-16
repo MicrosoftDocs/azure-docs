@@ -65,7 +65,7 @@ You can use private endpoints for your Device Update resources to:
 
 Creating a private endpoint for a Device Update account in your virtual network sends a consent request for approval to the resource owner. If the user requesting the creation of the private endpoint also owns the account, this consent request is automatically approved. Otherwise, the connection is in **Pending** state until approved.
 
-Applications in the virtual network can connect to the Device Update service over the private endpoint seamlessly, using the usual hostname and authorization mechanisms. Account owners can manage consent requests and private endpoints in the Azure portal on the **Private access** tab in the **Networking** page for the resource.
+Applications in the virtual network can connect to the Device Update service over the private endpoint seamlessly, using their usual hostname and authorization mechanisms. Account owners can manage consent requests and private endpoints in the Azure portal on the **Private access** tab in the **Networking** page for the resource.
 
 ### Connect to private endpoints
 
@@ -110,5 +110,5 @@ For update management to be successful, the private endpoint connection state mu
 
 ## Related content
 
-- [Configure private endpoints](configure-private-endpoints.md).
+- [Configure private endpoints](configure-private-endpoints.md)
 - [Device Update security model](device-update-security.md)
