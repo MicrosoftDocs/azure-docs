@@ -21,17 +21,17 @@ When an update manifest references another update manifest, the top-level manife
 
 ### Inline steps in a parent update
 
-The Device Update agent applies inline steps specified in a parent update to the host device. The ADUC_WorkflowData object that passes to the step handler, also called an update content handler, doesn't contain any Selected Components data. The handler for this type of step shouldn't be a Component-Aware handler.
+The Device Update agent applies inline steps specified in a parent update to the host device. The `ADUC_WorkflowData` object that passes to the step handler, also called an update content handler, doesn't contain any `Selected Components` data. The handler for this type of step shouldn't be a `Component-Aware` handler.
 
 The Device Update agent's step content handler applies `IsInstalled` validation logic for each step. The step handler checks to see if the update is already installed by checking whether `IsInstalled()` returns result code `900`, or true, and uses this result to determine whether to perform the step. To avoid reinstalling an update that's already on the device, the Device Update agent skips future steps if an update is already installed.
 
-To report an update result, write the result of a step handler execution to the `ADUC_Result` struct in a desired result file as specified in the `--result-file` option. Based on results of the execution, for success return `0`and for fatal errors return `-1` or `0xFF`.
+To report an update result, write the result of a step handler execution to the `ADUC_Result` struct in a desired result file as specified in the `--result-file` option. Based on results of the execution, return `0` for success and return `-1` or `0xFF` for fatal errors.
 
 For more information, see [Step handlers](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/step_handlers) and [How to implement a custom component-aware content handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md).
 
 ### Reference steps in a parent update
 
-The Device Update agent applies reference steps specified in a parent update to components on, or connected to, the host device. When it processes a reference step, the step handler downloads a detached update manifest file specified in the step and validates the file integrity.
+The Device Update agent applies reference steps specified in a parent update to components on, or connected to, the host device. When it processes a reference step, the step handler downloads a detached update manifest file specified in the step, and validates the file integrity.
 
 The step handler then parses the child update manifest and creates an `ADUC_Workflow` object, also called child workflow data, by combining the data from the child update manifest and file URL information from the parent update manifest. This child workflow data has a `level` property set to `1`.
 

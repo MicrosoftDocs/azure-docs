@@ -52,7 +52,7 @@ The following IP prefixes are unlikely to change, but you should review the list
 
 ## Private endpoints
 
-[Private endpoints](/azure/private-link/private-endpoint-overview) allow secure traffic from your virtual network to your Device Update accounts over a [private link](/azure/private-link/private-link-overview), without going through the public internet. A private endpoint is a special network interface for an Azure service in your virtual network.
+A [private endpoint](/azure/private-link/private-endpoint-overview) is a special network interface for an Azure service in your virtual network. A private endpoint allows secure traffic from your virtual network to your Device Update accounts over a [private link](/azure/private-link/private-link-overview), without going through the public internet.
 
 A private endpoint for your Device Update account provides secure connectivity between clients on your virtual network and your Device Update account. The private endpoint is assigned an IP address from the IP address range of your virtual network. The connection between the private endpoint and Device Update services uses a secure private link.
 
@@ -65,7 +65,7 @@ You can use private endpoints for your Device Update resources to:
 
 Creating a private endpoint for a Device Update account in your virtual network sends a consent request for approval to the resource owner. If the user requesting the creation of the private endpoint also owns the account, this consent request is automatically approved. Otherwise, the connection is in **Pending** state until approved.
 
-Applications in the virtual network can connect to the Device Update service over the private endpoint seamlessly, using the usual hostname and authorization mechanisms. Account owners can manage consent requests and private endpoints in the Azure portal through **Private endpoints** or the **Private access** tab in the **Networking** page for the resource.
+Applications in the virtual network can connect to the Device Update service over the private endpoint seamlessly, using the usual hostname and authorization mechanisms. Account owners can manage consent requests and private endpoints in the Azure portal on the **Private access** tab in the **Networking** page for the resource.
 
 ### Connect to private endpoints
 
@@ -82,7 +82,7 @@ When the account endpoint URL with the private endpoint is accessed from outside
 | Resource record                                          | Type      | Resolved value                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `contoso.api.adu.microsoft.com`             | CNAME     | `contoso.api.privatelink.adu.microsoft.com` |
-| `contoso.api.privatelink.adu.microsoft.com` | CNAME     | `<Azure traffic manager profile>` |
+| `contoso.api.privatelink.adu.microsoft.com` | CNAME     | [Azure Traffic Manager profile](/azure/traffic-manager/traffic-manager-overview) |
 
 When accessed from within the virtual network hosting the private endpoint, the account endpoint URL resolves to the private endpoint's IP address. The DNS resource records for the account `contoso`, when resolved from inside the virtual network hosting the private endpoint, are as follows:
 
@@ -106,7 +106,7 @@ This section applies only to Device Update accounts that have public network acc
 | Pending            | No                             |
 | Disconnected       | No                             |
 
-For update management to be successful, the private endpoint connection state must be **Approved**. If a connection is rejected, it can't be approved using the Azure portal. You must delete the connection and create a new one.
+For update management to be successful, the private endpoint connection state must be **Approved**. If a connection is rejected, it can't then be approved using the Azure portal. You must delete the connection and create a new one.
 
 ## Related content
 
