@@ -9,7 +9,7 @@ ms.author: spelluru
 
 # Client-side schema enforcement
 
-Client-side schema enforcement ensures that data is validated on the client side. The data is sent by the producer application and received by the consumer application. That data is validated against schemas defined in the schema registry on the client side rather than the broker/server side.
+Client-side schema enforcement ensures that data is validated on the client side. The producer application sends the data and the consumer application receives it. That data is validated against schemas defined in the schema registry on the client side rather than the broker/server side.
 
 This flow is illustrated as shown:
 
