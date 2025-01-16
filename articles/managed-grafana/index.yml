@@ -1,16 +1,16 @@
 ### YamlMime:Landing
 
 title: Azure Managed Grafana documentation
-summary: Learn how to use Azure Managed Grafana. Access quickstarts, how-to guides and tutorials to learn how to create, configure and manage Azure Managed Grafana instances.
+summary: This Azure Managed Grafa documentation page links to resources to learn how to use Azure Managed Grafana. On this page, access quickstarts, how-to guides and tutorials to create, configure and manage Azure Managed Grafana workspaces, Grafana in Azure.
 
 metadata:
-  title: Azure Managed Grafana
+  title: Azure Managed Grafana documentation
   description: Learn about Azure Managed Grafana
   ms.service: azure-managed-grafana
   ms.topic: landing-page
   author: maud-lv
   ms.author: malev
-  ms.date: 12/15/2024
+  ms.date: 01/15/2024
 
 landingContent:
   - title: About Azure Managed Grafana
@@ -20,7 +20,7 @@ landingContent:
           - text: What is Azure Managed Grafana?
             url: overview.md
   
-  - title: Get started
+  - title: Get started documentation
     linkLists:
       - linkListType: get-started
         links:
@@ -121,5 +121,7 @@ landingContent:
             url: https://aka.ms/managed-grafana/docs/http-api
           - text: Grafana UI
             url: grafana-app-ui.md
-          - text: Support
+          - text: Create a support request
             url: find-help-open-support-ticket.md
+          - text: Azure Managed Grafana product page
+            url: https://azure.microsoft.com/products/managed-grafana
