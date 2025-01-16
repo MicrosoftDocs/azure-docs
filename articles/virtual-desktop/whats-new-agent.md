@@ -13,7 +13,7 @@ The Azure Virtual Desktop agent links your session hosts with the Azure Virtual 
 
 The Azure Virtual Desktop Agent is updated regularly. New versions of the Azure Virtual Desktop Agent are installed automatically. When new versions are released, they're rolled out progressively to session hosts. This process is called *flighting* and it enables Microsoft to monitor the rollout in [validation environments](create-validation-host-pool.md) first.
 
-The agent rollout process can take several weeks to complete across all environments. Note that not all validation versions released will reach production.  Instead, updates will be repacked and assigned a new version number before being deployed to production. Consequently, multiple versions of the agent may be encountered in both validation and production environments. Validation updates are released more frequently than production updates. 
+The agent rollout process can take several weeks to complete across all environments. Not all validation versions released will reach production.  Instead, updates are repacked and assigned a new version number before being deployed to production. Consequently, multiple versions of the agent may be encountered in both validation and production environments. Validation updates are released more frequently than production updates. 
 
 This article is where you'll find out about:
 
@@ -40,7 +40,7 @@ Here's information about the Azure Virtual Desktop Agent.
 
 *Published: January 2025*
 
-In this update, we've made the following changes:
+In this update, we made the following changes:
 
 - Perform RDAgent monitoring cleanup, 15 minutes after RDAgent starts. 
 - Increase timeout for Intune Provisioning.  
@@ -52,7 +52,7 @@ In this update, we've made the following changes:
 
 *Published: December 2024*
 
-In this update, we've made the following changes:
+In this update, we made the following changes:
 
 - This version supports Windows 365 Frontline Shared scenarios. 
 - General improvements and bug fixes.
@@ -61,7 +61,7 @@ In this update, we've made the following changes:
 
 *Published: November 2024*
 
-In this update, we've made the following changes:
+In this update, we made the following changes:
 
 - General improvements and bug fixes.
 
@@ -69,7 +69,7 @@ In this update, we've made the following changes:
 
 *Published: November 2024*
 
-In this update, we've made the following changes:
+In this update, we made the following changes:
 
 - General improvements and bug fixes.
 
@@ -77,7 +77,7 @@ In this update, we've made the following changes:
 
 *Published: November 2024*
 
-In this update, we've made the following changes:
+In this update, we made the following changes:
 
 - General improvements and bug fixes. 
 
@@ -85,7 +85,7 @@ In this update, we've made the following changes:
 
 *Published: October 2024*
 
-In this update, we've made the following changes:
+In this update, we made the following changes:
 
 - Fixed an issue relating to app attach expansion from the portal.
 - General improvements and bug fixes. 
@@ -94,7 +94,7 @@ In this update, we've made the following changes:
 
 *Published: June 2024* 
 
-In this update, we've made the following changes:
+In this update, we made the following changes:
 
 - General improvements and bug fixes.
 
@@ -102,7 +102,7 @@ In this update, we've made the following changes:
 
 *Published: June 2024* 
 
-In this update, we've made the following changes:
+In this update, we made the following changes:
 
 - General improvements and bug fixes.
 
@@ -110,7 +110,7 @@ In this update, we've made the following changes:
 
 *Published: June 2024* 
 
-In this update, we've made the following changes:
+In this update, we made the following changes:
 
 - General improvements and bug fixes.
 
@@ -118,7 +118,7 @@ In this update, we've made the following changes:
 
 *Published: June 2024*
 
-In this update, we've made the following changes:
+In this update, we made the following changes:
 
 - General improvements and bug fixes. 
 
@@ -126,7 +126,7 @@ In this update, we've made the following changes:
 
 *Published: June 2024*  
 
-In this update, we've made the following changes:
+In this update, we made the following changes:
 
 - General improvements and bug fixes.
 
@@ -134,7 +134,7 @@ In this update, we've made the following changes:
 
 *Published: May 2024*
 
-In this update, we've made the following changes:
+In this update, we made the following changes:
 
 - General improvements and bug fixes.
 
@@ -142,7 +142,7 @@ In this update, we've made the following changes:
 
 *Published: April 2024*
 
-In this update, we've made the following changes: 
+In this update, we made the following changes: 
 
 - Fixed the logic to display deprecated client message.  
 
@@ -154,7 +154,7 @@ In this update, we've made the following changes:
 
 *Published: April 2024*
 
-In this update, we've made the following changes:
+In this update, we made the following changes:
 
 - Fixed an issue with App Attach diagnostics that caused the agent to always report timeout exceptions. Now the agent only reports timeout exceptions to diagnostics when app attach registration is unsuccessful.
 
@@ -164,7 +164,7 @@ In this update, we've made the following changes:
 
 *Published: March 2024*
 
-In this update, we've made the following changes: 
+In this update, we made the following changes: 
 
 - General improvements and bug fixes.
 
@@ -172,7 +172,7 @@ In this update, we've made the following changes:
 
 *Published: February 2024*
 
-In this update, we've made the following changes: 
+In this update, we made the following changes: 
 
 - General improvements and bug fixes. 
 
@@ -180,7 +180,7 @@ In this update, we've made the following changes:
 
 *Published: January 2024*
 
-In this update, we've made the following changes:
+In this update, we made the following changes:
 
 - General improvements and bug fixes. 
 
@@ -188,7 +188,7 @@ In this update, we've made the following changes:
 
 *Published: December 2023*
 
-In this update, we've made the following changes: 
+In this update, we made the following changes: 
 
 - Windows 7 session hosts no longer receive side-by-side stack updates.
 
@@ -198,7 +198,7 @@ In this update, we've made the following changes:
 
 *Published: November 2023*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - General improvements and bug fixes. 
 
@@ -206,7 +206,7 @@ In this release, we've made the following change:
 
 *Published: November 2023*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - General improvements and bug fixes. 
 
@@ -214,7 +214,7 @@ In this release, we've made the following change:
 
 *Published: September 2023*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Security improvements and bug fixes. 
 
@@ -222,7 +222,7 @@ In this release, we've made the following change:
 
 *Published: September 2023*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Security improvements and bug fixes. 
 
@@ -230,7 +230,7 @@ In this release, we've made the following change:
 
 *Published: September 2023*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Security improvements and bug fixes.
 
@@ -238,7 +238,7 @@ In this release, we've made the following change:
 
 *Published: August 2023*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Security improvements and bug fixes.
 
@@ -246,7 +246,7 @@ In this release, we've made the following change:
 
 *Published: July 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed an issue that would disable the Traversal Using Relay NAT (TURN) health check when a user disabled the Unified Datagram Protocol (UDP). 
 - Security improvements and bug fixes. 
@@ -255,7 +255,7 @@ In this release, we've made the following changes:
 
 *Published: July 2023*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Security improvements and bug fixes. 
 
@@ -263,7 +263,7 @@ In this release, we've made the following change:
 
 *Published: July 2023*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Security improvements and bug fixes.
 
@@ -271,7 +271,7 @@ In this release, we've made the following change:
 
 *Published: July 2023*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - General improvements and bug fixes.
 
@@ -279,7 +279,7 @@ In this release, we've made the following change:
 
 *Published: June 2023*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - General improvements and bug fixes.
 
@@ -287,7 +287,7 @@ In this release, we've made the following change:
 
 *Published: May 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed an issue that made the Remote Desktop Agent incorrectly report Hybrid Azure Active Directory (AD) Join virtual machines (VMs) as domain-joined.
 - General improvements and bug fixes.
@@ -296,7 +296,7 @@ In this release, we've made the following changes:
 
 *Published: May 2023*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - General improvements and bug fixes.
 
@@ -304,7 +304,7 @@ In this release, we've made the following change:
 
 *Published: April 2023*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - General improvements and bug fixes.
 
@@ -312,7 +312,7 @@ In this release, we've made the following change:
 
 *Published: March 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Health check reliability improved.
 - Reliability issues in agent upgrade fixed.
@@ -322,7 +322,7 @@ In this release, we've made the following changes:
 
 *Published: March 2023*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - General improvements and bug fixes.
 
@@ -330,7 +330,7 @@ In this release, we've made the following change:
 
 *Published: February 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Domain Trust health check is now enabled. When virtual machines fail the Domain Trust health check, they're now given the *Unavailable* status.
 - General improvements and bug fixes.
@@ -344,7 +344,7 @@ In this release, we've made the following changes:
 >
 >Normally, all environments receive the same version. However, for this release, we had to adjust certain parameters unrelated to the Agent to allow this version to roll out to non-validation environments, which is why the non-validation version number is higher than the validation version number. Besides those changes, both versions are the same.
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added the RDGateway URL to URL Access Check.
 - Introduced RD Agent provisioning state for new installations.
@@ -360,7 +360,7 @@ This release didn't include any major changes to the agent.
 
 *Published: November 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Increased sensitivity of AppAttachRegister monitor for improved results.
 - Fixed an error that slowed down Geneva Agent installation.
@@ -371,7 +371,7 @@ In this release, we've made the following changes:
 
 *Published: August 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed a bug that prevented the Agent MSI from downloading on the first try.
 - Modified app attach on-demand registration.
@@ -383,7 +383,7 @@ In this release, we've made the following changes:
 
 *Published: August 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Agent first-party extensions architecture completed.
 - Fixed Teams error related to Azure Virtual Desktop telemetry.
@@ -395,7 +395,7 @@ In this release, we've made the following changes:
 
 *Published: July 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Report session load to Log Analytics for admins to get information on when MaxSessionLimit is reached.
 - Adding AADTenant ID claim to the registration token.
@@ -405,7 +405,7 @@ In this release, we've made the following changes:
 
 *Published: June 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed broker URL cache to address Agent Telemetry calls.
 - Fixed some network-related issues. 
@@ -416,7 +416,7 @@ In this release, we've made the following changes:
 
 *Published: March 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixes an issue with the agent health check result being empty for the first agent heart beat.
 - Added Azure VM ID to the WVDAgentHealthStatus Log Analytics table.
@@ -426,7 +426,7 @@ In this release, we've made the following changes:
 
 *Published: February 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixes an issue with arithmetic overflow casting exceptions.
 - Updated the agent to now start the Azure Instance Metadata Service (IMDS) when the agent starts.
@@ -437,7 +437,7 @@ In this release, we've made the following changes:
 
 *Published: January 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added logging to better capture agent update telemetry.
 - Updated the agent's Azure Instance Metadata Service health check to be Azure Stack HCI-friendly.
@@ -446,7 +446,7 @@ In this release, we've made the following changes:
 
 *Published: December 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixes an issue that caused an unhandled exception.
 - This version now supports Azure Stack HCI by retrieving VM metadata from the Azure Arc service.
@@ -457,7 +457,7 @@ In this release, we've made the following changes:
 
 *Published: November 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Updated agent error messages.
 - Fixes an issue with the agent restarting every time the side-by-side stack was updated.
@@ -467,7 +467,7 @@ In this release, we've made the following changes:
 
 *Published: October 2021*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Fixed an issue where upgrading from Windows 10 to Windows 11 disabled the side-by-side stack.
 
@@ -475,7 +475,7 @@ In this release, we've made the following change:
 
 *Published: September 2021*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Fixed an issue with package deregistration getting stuck when using MSIX App Attach.
 
@@ -483,7 +483,7 @@ In this release, we've made the following change:
 
 *Published: September 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - General agent improvements.
 - Fixes issues with restarting the agent on Windows 7 VMs.
@@ -493,7 +493,7 @@ In this release, we've made the following changes:
 
 *Published: July 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - General improvements and bug fixes.
 - Fixes an issue with getting the host pool path for Intune registration.
@@ -504,7 +504,7 @@ In this release, we've made the following changes:
 
 *Published: July 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Updated internal monitors for agent health.
 - Updated retry logic for stack health.
@@ -513,7 +513,7 @@ In this release, we've made the following changes:
 
 *Published: April 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Updated agent error messages.
 - Added an exception that prevents you from installing non-Windows 7 agents on Windows 7 VMs.
@@ -523,7 +523,7 @@ In this release, we've made the following changes:
 
 *Published: April 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Placed links to the Azure Virtual Desktop Agent troubleshooting guide in the event viewer logs for agent errors.
 - Added an additional exception for better error handling.
@@ -533,7 +533,7 @@ In this release, we've made the following changes:
 
 *Published: March 2021*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Fixed an issue with the stack health check.
 
@@ -541,7 +541,7 @@ In this release, we've made the following change:
 
 *Published: March 2021*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - General improvements and bug fixes.
 
@@ -549,7 +549,7 @@ In this release, we've made the following change:
 
 *Published: March 2021*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Fixed a reverse connection issue.
 
@@ -557,6 +557,6 @@ In this release, we've made the following change:
 
 *Published: February 2021*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Fixed an access denied orchestration issue.
