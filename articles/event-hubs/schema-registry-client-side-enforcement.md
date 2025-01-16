@@ -9,14 +9,14 @@ ms.author: spelluru
 
 # Client-side schema enforcement
 
-Client-side schema enforcement ensures that the data sent by the producer application and received by the consumer application is validated against the schemas defined in the schema registry on the client side (versus the broker/server side).
+Client-side schema enforcement ensures that data is validated on the client side. That means that the data (sent by the producer application and received by the consumer application) is validated against schemas defined in the schema registry on the client side rather than the broker/server side.
 
 This flow is illustrated as shown:
 
 :::image type="content" source="./media/schema-registry-overview/information-flow.svg" alt-text="An image shows the schema registry information flow." border="false":::
 
 > [!NOTE]
-> The diagram showcases the information flow when event producers and consumers use a schema registry with the Kafka protocol and Avro schema, but the same generally applies when other protocols and schema formats are used.
+> The diagram showcases the information flow when event producers and consumers use a schema registry with the Kafka protocol and Avro schema. Other protocols and schema formats work in a similar way.
 >
 
 ### Producer

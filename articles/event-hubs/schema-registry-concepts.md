@@ -41,7 +41,7 @@ Schemas define the contract between producers and consumers. A schema defined in
 
 #### Schema formats
 
-Schema formats are used to determine the manner in which a schema is structured and defined. Each format outlines specific guidelines and syntax for defining the structure of the events that will be used for event streaming.
+Schema formats are used to determine the manner in which a schema is structured and defined. Each format outlines specific guidelines and syntax for defining the structure of the events that are used for event streaming.
 
 ##### Avro schema
 
@@ -72,11 +72,11 @@ Schema groups are logical groups of similar schemas that are organized according
 * Multiple versions of a specific schema
 * Metadata regarding the schema type and compatibility for all schemas in the group
 
-You can think of a schema group as a subset of the schema registry that's aligned with a particular application or organizational unit, with a separate authorization model. This extra security boundary ensures that metadata and trade secrets aren't leaked in the shared services model. It also allows application owners to manage schemas independent of other applications that share the same namespace.
+You can think of a schema group as a subset of the schema registry that aligns with a particular application or organizational unit, with a separate authorization model. This extra security boundary ensures that metadata and trade secrets aren't leaked in the shared services model. It also allows application owners to manage schemas independent of other applications that share the same namespace.
 
 ## Schema evolution
 
-Schemas need to evolve with the business requirement of producers and consumers. Azure schema registries support schema evolution by introducing compatibility modes at the schema group level. When you create a schema group, you can specify the compatibility mode of the schemas that you include in that schema group. When you update a schema, the change should comply with the assigned compatibility mode. Only then will it create a new version of the schema.
+Schemas need to evolve with the business requirement of producers and consumers. Azure schema registries support schema evolution by introducing compatibility modes at the schema group level. When you create a schema group, you can specify the compatibility mode of the schemas that you include in that schema group. When you update a schema, the change needs to comply with the assigned compatibility mode in order for it to create a new version of the schema.
 
 Schema evolution is only supported for Avro schema format only.
 
@@ -102,7 +102,7 @@ When the ``None`` compatibility mode is used, the schema registry doesn't do any
 
 ## Client SDKs
 
-You can use one of the following libraries to include an Avro serializer, which you can use to serialize and deserialize payloads containing schema registry schema identifiers and Avro-encoded data.
+You can use one of the following libraries to include an Avro serializer. You can use Avro serializers to serialize and deserialize payloads containing schema registry schema identifiers and Avro-encoded data.
 
 * **.NET**: [Microsoft.Azure.Data.SchemaRegistry.ApacheAvro](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro)
 * **Java**: [azure-data-schemaregistry-avro](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/schemaregistry/azure-data-schemaregistry-apacheavro)
@@ -130,7 +130,7 @@ To access a schema registry programmatically, follow these steps:
 | [Schema registry reader](../role-based-access-control/built-in-roles.md#schema-registry-reader-preview) | Read and list schema registry groups and schemas. |
 | [Schema registry contributor](../role-based-access-control/built-in-roles.md#schema-registry-reader-preview) | Read, write, and delete schema registry groups and schemas. |
 
-To learn how to create and register an application using the Azure portal, see [Register an app with Microsoft Entra ID](../active-directory/develop/quickstart-register-app.md). Take note of the client ID (application ID), tenant ID, and the secret to use in the code.
+To learn how to create and register an application using the Azure portal, see [Register an app with Microsoft Entra ID](../active-directory/develop/quickstart-register-app.md). You'll need the client ID (application ID), tenant ID, and the secret to use in the code.
 
 ## Next steps
 
