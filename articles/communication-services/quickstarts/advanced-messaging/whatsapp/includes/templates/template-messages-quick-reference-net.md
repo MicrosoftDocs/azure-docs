@@ -29,11 +29,11 @@ Follow these steps to add required code snippets to the `messages-quickstart.py`
 
 ### List WhatsApp templates in Azure portal
 
-You can view your templates in the Azure portal by going to your Azure Communication Service resource > Advanced Messaging -> Templates.
+You can view your templates in the Azure portal by going to your Azure Communication Service resource > **Advanced Messaging** > **Templates**.
 
-:::image type="content" source="../../media/template-messages/list-templates-azure-portal.png" lightbox="../../media/template-messages/list-templates-azure-portal.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Templates' tab.":::
+:::image type="content" source="../../media/template-messages/list-templates-azure-portal.png" lightbox="../../media/template-messages/list-templates-azure-portal.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the Advanced Messaging > Templates tab.":::
 
-Selecting a template to view the details.
+Select a template to view the details.
 
 The `content` field of the template details can include parameter bindings. The parameter bindings can be denoted as:
 - A `format` field with a value such as `IMAGE`.

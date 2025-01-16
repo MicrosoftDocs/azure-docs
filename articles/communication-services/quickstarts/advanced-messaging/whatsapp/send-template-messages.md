@@ -1,7 +1,7 @@
 ---
-title: Send WhatsApp Template Messages
+title: Send WhatsApp template messages
 titleSuffix: An Azure Communication Services Advanced Messaging concept
-description: In this concept, you learn the various ways to send WhatsApp template messages with Advanced Messaging.
+description: This article describes how to send WhatsApp template messages with Advanced Messaging.
 author: Shamkh
 manager: camilo.ramirez
 services: azure-communication-services
@@ -14,9 +14,9 @@ ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python
 ---
 
-# Quickstart: Send WhatsApp template messages using Advanced Messages
+# Send WhatsApp template messages using Advanced Messages
 
-This document provides guidance to send WhatsApp Template messages using Advanced Communication Messages SDK.   
+This article describes how to send WhatsApp template messages using Advanced Communication Messages SDK.   
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ The following classes and interfaces handle some of the major features of the Az
 | `TemplateNotificationContent` | Defines the "who" and the "what" of the template message you intend to send. |
 
 > [!NOTE]
-> For more information, see the Azure SDK for Python reference [here](/python/api/azure-communication-messages/azure.communication.messages).
+> For more information, see the Azure SDK for Python reference [messages Package](/python/api/azure-communication-messages/azure.communication.messages).
 
 ### Supported WhatsApp template types
 

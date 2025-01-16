@@ -1,7 +1,7 @@
 ---
-title: Send Interactive Messages
+title: Send interactive WhatsApp messages
 titleSuffix: An Azure Communication Services Advanced Messages quickstart
-description: In this quickstart, you learn to send WhatsApp interactive messages using Azure Communication Services Advanced Messages sdk.
+description: This article describes how to send WhatsApp interactive messages using Azure Communication Services Advanced Messages SDK.
 author: shamkh
 manager: camilo.ramirez
 services: azure-communication-services
@@ -14,7 +14,7 @@ ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python
 ---
 
-# Quickstart: Send Interactive WhatsApp messages using Advanced Messages
+# Send interactive WhatsApp messages using Advanced Messages
 
 Azure Communication Services enables you to send and receive WhatsApp messages. In this quickstart, get started integrating your app with Azure Communication Advanced Messages SDK and start sending/receiving WhatsApp interactive messages. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -36,8 +36,8 @@ Azure Communication Services enables you to send and receive WhatsApp messages. 
 
 ## Next steps
 
-Next you might also want to see the following articles:
+For more information, see:
 
-- [Handle Advanced Messaging events](./handle-advanced-messaging-events.md)
-- [Send WhatsApp template messages](../../../quickstarts/advanced-messaging/whatsapp/send-template-messages.md)
-- [Send WhatsApp Media messages](../../../quickstarts/advanced-messaging/whatsapp/get-started.md)
+- [Handle Advanced Messaging events](./handle-advanced-messaging-events.md).
+- [Send WhatsApp template messages](../../../quickstarts/advanced-messaging/whatsapp/send-template-messages.md).
+- [Send WhatsApp media messages](../../../quickstarts/advanced-messaging/whatsapp/get-started.md).

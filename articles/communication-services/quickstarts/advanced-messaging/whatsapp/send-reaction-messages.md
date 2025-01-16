@@ -1,7 +1,7 @@
 ---
-title: Send Reaction Messages
+title: Send reaction WhatsApp messages
 titleSuffix: An Azure Communication Services Advanced Messages quickstart
-description: In this quickstart, you learn to send WhatsApp reaction messages using Azure Communication Services Advanced Messages sdk.
+description: This article describes how to send WhatsApp reaction messages using Azure Communication Services Advanced Messages SDK.
 author: shamkh
 manager: camilo.ramirez
 services: azure-communication-services
@@ -14,9 +14,9 @@ ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python
 ---
 
-# Quickstart: Send Reaction WhatsApp messages using Advanced Messages
+# Send reaction WhatsApp messages using Advanced Messages
 
-Azure Communication Services enables you to send and receive WhatsApp messages. In this quickstart, get started integrating your app with Azure Communication Advanced Messages SDK and start sending/receiving WhatsApp reaction messages. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+Azure Communication Services enables you to send and receive WhatsApp messages. This article describes how to integrate your app with Azure Communication Advanced Messages SDK to start sending and receiving WhatsApp reaction messages. Completing this article incurs a small cost of a few USD cents or less in your Azure account.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Send WhatsApp Messages with .NET](./includes/reactions/messages-quickstart-reaction-messages-net.md)]
@@ -36,8 +36,8 @@ Azure Communication Services enables you to send and receive WhatsApp messages. 
 
 ## Next steps
 
-Next you might also want to see the following articles:
+For more information, see:
 
-- [Handle Advanced Messaging events](./handle-advanced-messaging-events.md)
-- [Send WhatsApp template messages](../../../quickstarts/advanced-messaging/whatsapp/send-template-messages.md)
-- [Send WhatsApp Media messages](../../../quickstarts/advanced-messaging/whatsapp/get-started.md)
+- [Handle Advanced Messaging events](./handle-advanced-messaging-events.md).
+- [Send WhatsApp template messages](../../../quickstarts/advanced-messaging/whatsapp/send-template-messages.md).
+- [Send WhatsApp media messages](../../../quickstarts/advanced-messaging/whatsapp/get-started.md).
