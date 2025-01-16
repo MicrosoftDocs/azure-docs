@@ -13,18 +13,16 @@ ms.custom: ['Role: Cloud Development', 'Role: IoT Device', 'Role: System Archite
 
 # Authenticate identities with X.509 certificates
 
-IoT Hub uses X.509 certificates to authenticate devices. X.509 authentication allows authentication of an IoT device as part of the Transport Layer Security (TLS) standard connection establishment. 
+IoT Hub uses X.509 certificates to authenticate devices. X.509 authentication allows authentication of an IoT device as part of the Transport Layer Security (TLS) standard connection establishment.
 
-An X.509 CA certificate is a digital certificate that can sign other certificates. A digital certificate is considered an X.509 certificate if it conforms to the certificate formatting standard prescribed by IETF's RFC 5280 standard. A certificate authority (CA) means that its holder can sign other certificates.
+An X.509 certificate authority (CA) certificate is a digital certificate that can sign other certificates. A digital certificate is considered an X.509 certificate if it conforms to the certificate formatting standard prescribed by IETF's RFC 5280 standard.
 
-This article describes how to use X.509 certificate authority (CA) certificates to authenticate devices connecting to IoT Hub, which includes the following steps:
+This article describes how to use X.509 CA certificates to authenticate devices connecting to IoT Hub, which includes the following steps:
 
 * How to get an X.509 CA certificate
 * How to register the X.509 CA certificate to IoT Hub
 * How to sign devices using X.509 CA certificates
 * How devices signed with X.509 CA are authenticated
-
-[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 The X.509 CA feature enables device authentication to IoT Hub using a certificate authority (CA). It simplifies the initial device enrollment process and supply chain logistics during device manufacturing.
 
@@ -32,9 +30,21 @@ The X.509 CA feature enables device authentication to IoT Hub using a certificat
 
 *Authentication* is the process of proving that you are who you say you are. Authentication verifies the identity of a user or device to IoT Hub. It's sometimes shortened to *AuthN*. *Authorization* is the process of confirming permissions for an authenticated user or device on IoT Hub. It specifies what resources and commands you're allowed to access, and what you can do with those resources and commands. Authorization is sometimes shortened to *AuthZ*.
 
-This article describes authentication using **X.509 certificates**. You can use any X.509 certificate to authenticate a device with IoT Hub by uploading either a certificate thumbprint or a certificate authority (CA) to Azure IoT Hub. 
+X.509 certificates are only used for authentication in IoT Hub, not authorization. Unlike with Microsoft Entra ID and shared access signatures, you can't customize permissions with X.509 certificates.
 
-X.509 certificates are used for authentication in IoT Hub, not authorization. Unlike with Microsoft Entra ID and shared access signatures, you can't customize permissions with X.509 certificates.
+## Types of certificate authentication
+
+You can use any X.509 certificate to authenticate a device with IoT Hub by uploading either a certificate thumbprint or a certificate authority (CA) to IoT Hub.
+
+* **X.509 CA signed** - *This option is recommended for production scenarios and is the focus of this article.*
+
+  If your device has a CA-signed X.509 certificate, then you upload a root or intermediate CA certificate in the signing chain to IoT Hub before you register the device. The device has an X.509 certificate with the verified X.509 CA in its certificate chain of trust. When the device connects, it presents its full certificate chain and the IoT hub can validate it because it knows the X.509 CA. Multiple devices can authenticate against the same verified X.509 CA.
+
+* **X.509 self-signed**
+
+  If your device has a self-signed X.509 certificate, then you give IoT Hub a version of the certificate for authentication. When you register a device, you upload a certificate *thumbprint*, which is a hash of the device's X.509 certificate. When the device connects, it presents its certificate and the IoT hub can validate it against the hash it knows.
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 ## Enforce X.509 authentication
 
@@ -46,11 +56,9 @@ az resource update -n <iothubName> -g <resourceGroupName> --resource-type Micros
 
 ## Benefits of X.509 CA certificate authentication
 
-X.509 certificate authority (CA) authentication is an approach for authenticating devices to IoT Hub using a method that dramatically simplifies device identity creation and life-cycle management in the supply chain.
+X.509 CA authentication simplifies device identity creation and lifecycle management because of the one-to-many relationship between a CA certificate and its downstream devices. This relationship enables registration of any number of devices into IoT Hub by registering an X.509 CA certificate once. Otherwise, unique certificates would have to be pre-registered for every device before a device can connect.
 
-A distinguishing attribute of X.509 CA authentication is the one-to-many relationship that a CA certificate has with its downstream devices. This relationship enables registration of any number of devices into IoT Hub by registering an X.509 CA certificate once. Otherwise, unique certificates would have to be pre-registered for every device before a device can connect. This one-to-many relationship also simplifies device certificates lifecycle management operations.
-
-Another important attribute of X.509 CA authentication is simplification of supply chain logistics. Secure authentication of devices requires that each device holds a unique secret like a key as the basis for trust. In certificate-based authentication, this secret is a private key. A typical device manufacturing flow involves multiple steps and custodians. Securely managing device private keys across multiple custodians and maintaining trust is difficult and expensive. Using certificate authorities solves this problem by signing each custodian into a cryptographic chain of trust rather than entrusting them with device private keys. Each custodian signs devices at their respective step of the manufacturing flow. The overall result is an optimal supply chain with built-in accountability through use of the cryptographic chain of trust.
+X.509 CA authentication also simplifies supply chain logistics. Secure authentication of devices requires that each device holds a unique secret as the basis for trust. In certificate-based authentication, this secret is a private key. A typical device manufacturing flow involves multiple steps and custodians. Securely managing device private keys across multiple custodians and maintaining trust is difficult and expensive. Using certificate authorities solves this problem by signing each custodian into a cryptographic chain of trust rather than entrusting them with device private keys. Each custodian signs devices at their respective step of the manufacturing flow. The overall result is an optimal supply chain with built-in accountability through use of the cryptographic chain of trust.
 
 This process yields the most security when devices protect their unique private keys. To this end, we recommend using Hardware Secure Modules (HSM) capable of internally generating private keys.
 
@@ -58,24 +66,24 @@ The Azure IoT Hub Device Provisioning Service (DPS) makes it easy to provision g
 
 ## Get an X.509 CA certificate
 
-The X.509 CA certificate is the top of the chain of certificates for each of your devices.  You may purchase or create one depending on how you intend to use it.
+The X.509 CA certificate is the top of the chain of certificates for each of your devices. You can purchase or create one depending on how you intend to use it.
 
 For production environments, we recommend that you purchase an X.509 CA certificate from a professional certificate services provider. Purchasing a CA certificate has the benefit of the root CA acting as a trusted third party to vouch for the legitimacy of your devices. Consider this option if your devices are part of an open IoT network where they interact with third-party products or services.
 
-You may also create a self-signed X.509 CA certificate for testing purposes. For more information about creating certificates for testing, see [Create and upload certificates for testing](tutorial-x509-test-certs.md).
+You can also create a self-signed X.509 CA certificate for testing purposes. For more information about creating certificates for testing, see [Create and upload certificates for testing](tutorial-x509-test-certs.md).
 
 >[!NOTE]
->We do not recommend the use of self-signed certificates for production environments.
+>We do not recommend self-signed certificates for production environments.
 
-Regardless of how you obtain your X.509 CA certificate, make sure to keep its corresponding private key secret and protected always. This precaution is necessary for building trust in the X.509 CA authentication.
+Regardless of how you obtain your X.509 CA certificate, make sure to keep its corresponding private key secret and protected always.
 
 ## Sign devices into the certificate chain of trust
 
-The owner of an X.509 CA certificate can cryptographically sign an intermediate CA that can in turn sign another intermediate CA, and so on, until the last intermediate CA terminates this process by signing a device certificate. The result is a cascaded chain of certificates known as a *certificate chain of trust*. This delegation of trust is important because it establishes a cryptographically variable chain of custody and avoids sharing of signing keys.
+The owner of an X.509 CA certificate can cryptographically sign an intermediate CA that can in turn sign another intermediate CA, and so on, until the last intermediate CA signs a device certificate. The result is a cascaded chain of certificates known as a *certificate chain of trust*. This delegation of trust is important because it establishes a cryptographically variable chain of custody and avoids sharing of signing keys.
 
 ![Diagram that shows the certificates in a chain of trust.](./media/generic-cert-chain-of-trust.png)
 
-The device certificate (also called a leaf certificate) must have its common name (CN) set to the **device ID** (`CN=deviceId`) that was used when registering the IoT device in Azure IoT Hub. This setting is required for authentication.
+The device certificate (also called a leaf certificate) must have its common name (CN) set to the **device ID** (`CN=deviceId`) that is used when registering the IoT device in Azure IoT Hub. This setting is required for authentication.
 
 For modules using X.509 authentication, the module's certificate must have its common name (CN) formatted like `CN=deviceId/moduleId`.
 
