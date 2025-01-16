@@ -4,7 +4,7 @@ description: Understand business continuity, high availability, and disaster rec
 author: anaharris-ms
 ms.service: azure
 ms.topic: conceptual
-ms.date: 01/16/2025
+ms.date: 01/17/2025
 ms.author: anaharris
 ms.custom: subject-reliability
 ms.subservice: azure-reliability
@@ -38,15 +38,15 @@ It's important to understand and communicate the business expectations, and the 
 
 To control or completely avoid a negative impact on business continuity, it's important to proactively create a *business continuity plan*. A business continuity plan is based on risk assessment and developing methods of controlling those risks through various approaches. The specific risks and approaches to mitigate vary for each organization and workload.
 
-A business continuity plan doesn't only take into consideration the resiliency features of the cloud platform itself but also the features of the application. A robust business continuity plan incorporates all aspects of support in the business including people, business-related manual or automated processes, and other technologies.
+A business continuity plan doesn't only take into consideration the resiliency features of the cloud platform itself but also the features of the application. A robust business continuity plan also incorporates all aspects of support in the business including people, business-related manual or automated processes, and other technologies.
 
-Business continuity planning should consist of the following steps, in order:
+Business continuity planning should include the following sequential steps:
 
-1. **Risk identification**. Identify risks to a workload's availability or functionality. Possible risks could be network issues, hardware failures, human error, region outage, etc.
+1. **Risk identification**. Identify risks to a workload's availability or functionality. Possible risks could be network issues, hardware failures, human error, region outage, etc. Understand the impact of each risk.
  
-2. **Risk classification**. Classify each risk as either a common risk, which should be factored into plans for HA, or an uncommon risk, which should be part of DR planning.
+1. **Risk classification**. Classify each risk as either a common risk, which should be factored into plans for HA, or an uncommon risk, which should be part of DR planning.
  
-3. **Risk mitigation**. Design mitigation strategies for HA or DR to minimize or mitigate risks such as by using redundancy, replication, failover, and backups. Also, consider nontechnical and process-based mitigations and controls.
+1. **Risk mitigation**. Design mitigation strategies for HA or DR to minimize or mitigate risks such as by using redundancy, replication, failover, and backups. Also, consider nontechnical and process-based mitigations and controls.
 
 Business continuity planning is a process, not a one-time event. Any business continuity plan that is created should be reviewed and updated regularly to ensure that it remains relevant and effective, and that it supports current business needs.
 
@@ -64,7 +64,7 @@ The following table is a non-exhaustive list of risks, ordered by decreasing lik
 | Datacenter outage | An outage that affects most or all of a datacenter, such as a power failure, network connectivity problem, or issues with heating and cooling. | Unusual |
 | Region outage | An outage that affects an entire metropolitan area or wider area, such as a major natural disaster. | Very unusual |
 
-Business continuity planning isn't just about the cloud platform and infrastructure. It's important to consider the risk of human errors. Furthermore, some risks that might traditionally be considered security or operational risks should also be considered reliability risks because they affect the solution's availability. 
+Business continuity planning isn't just about the cloud platform and infrastructure. It's important to consider the risk of human errors. Furthermore, some risks that might traditionally be considered security, performance, or operational risks should also be considered reliability risks because they affect the solution's availability. 
 
 Here are some examples:
 
@@ -130,14 +130,14 @@ Human-based risk mitigation uses risk controls that are based on business proces
 Because human-based risk controls are often slower than technology-based controls, and more prone to human error, a good business continuity plan should include a formal change control process for anything that would alter the state of the running system. For example, consider implementing the following processes:
 	
 - Rigorously test your workloads in accordance with workload criticality. To prevent change-related issues, make sure to test any changes that are made to the workload.
-- Introduce strategic quality gates as part of your workload's safe deployment practices.
+- Introduce strategic quality gates as part of your workload's safe deployment practices. To learn more, see [Recommendations for safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments).
 - Formalize procedures for ad-hoc production access and data manipulation. These activities, no matter how minor, can present a high risk of causing reliability incidents. Procedures might include pairing with another engineer, using checklists, and getting peer reviews before executing scripts or applying changes.
 
 ## High availability
 
 High availability is the state in which a specific workload can maintain its necessary level of uptime on a day-to-day basis, even during transient faults and intermittent failures. Because these events happen regularly, it's important that each workload is designed and configured for high availability in accordance with the requirements of the specific application and customer expectations. The HA of each workload contributes to your business continuity plan.
 
-Because HA can vary with each workload, it's important to understand the requirements and customer expectations when determining high availability. For example, a stationary ordering application that's used within your organization might require a relatively low level of uptime, while a critical financial application might require a much higher uptime. Even within a workload, different *flows* might have different requirements. For example, in an eCommerce application, flows that support customers browsing and placing orders might be more important than order fulfillment and back-office processing flows. To learn more about flows, see [Recommendations for identifying and rating flows](/azure/well-architected/reliability/identify-flows).
+Because HA can vary with each workload, it's important to understand the requirements and customer expectations when determining high availability. For example, an application that your organization uses to order office supplies might require a relatively low level of uptime, while a critical financial application might require a much higher uptime. Even within a workload, different *flows* might have different requirements. For example, in an eCommerce application, flows that support customers browsing and placing orders might be more important than order fulfillment and back-office processing flows. To learn more about flows, see [Recommendations for identifying and rating flows](/azure/well-architected/reliability/identify-flows).
 
 Commonly, uptime is measured based on the number of "nines" in the uptime percentage. The uptime percentage relates to how much downtime you're allowing for over a given period of time. Here are some examples:
 
@@ -185,7 +185,7 @@ Redundancy can be achieved by distributing replicas or redundant instances in on
 
 Here are some of examples of how some Azure services provide redundancy options:
 
--[ Azure App Service](/azure/reliability/reliability-app-service) enables you to run multiple instances of your application, to ensure that the application remains available even if one instance fails. If you enable zone redundancy, those instances are spread across multiple availability zones in the Azure region you use.
+- [Azure App Service](/azure/reliability/reliability-app-service) enables you to run multiple instances of your application, to ensure that the application remains available even if one instance fails. If you enable zone redundancy, those instances are spread across multiple availability zones in the Azure region you use.
 - [Azure Storage](/azure/storage/common/storage-disaster-recovery-guidance) provides high availability by automatically replicating data at least three times. You can distribute those replicas across availability zones by enabling zone-redundant storage (ZRS), and in many regions you can also replicate your storage data across regions by using geo-redundant storage (GRS).
 - [Azure SQL Database](/azure/azure-sql/database/high-availability-sla-local-zone-redundancy) has multiple replicas to ensure that the data remains available even if one replica fails.
 
@@ -240,7 +240,12 @@ To learn more, see [Recommendations for designing a reliability testing strategy
 
 Monitoring lets you know the health of your system, even when automated mitigations take place. Monitoring is critical for understanding how your solution is behaving, and to watch for early signals of failures like increased error rates or high resource consumption. With alerts, you can proactively receive important changes in your environment.
 
-Use [Azure Service Health](/azure/service-health/overview), [Azure Resource Health](/azure/service-health/resource-health-overview), and [Azure Monitor](/azure/azure-monitor/overview), as well as [Scheduled Events](/azure/virtual-machines/windows/scheduled-event-service) for virtual machines.
+Azure provides a variety of monitoring and alerting capabilities, including the following:
+
+- [Azure Monitor](/azure/azure-monitor/overview) collects logs and metrics from Azure resources and applications, and it can send alerts and display data in dashboards.
+- [Azure Monitor Application Insights](/azure/azure-monitor/app/app-insights-overview) provides detailed monitoring of your applications.
+- [Azure Service Health](/azure/service-health/overview) and [Azure Resource Health](/azure/service-health/resource-health-overview) monitor the health of the Azure platform and your resources.
+- [Scheduled Events](/azure/virtual-machines/windows/scheduled-event-service) advise when maintenance is planned for virtual machines.
 
 For more information, see [Recommendations for designing a reliable monitoring and alerting strategy](/azure/well-architected/reliability/monitoring-alerting-strategy).
 
@@ -297,9 +302,11 @@ Backups involve taking a copy of your data and storing it safely for a defined p
 
 When using backups as part of a disaster recovery plan it's important to take the following into consideration:
 
+- *Storage location.* When you use backups as part of a disaster recovery plan, they should be stored separately to the main data. Typically backups are stored in another Azure region.
+
 - *Data loss*. Because backups are typically taken infrequently, backup restoration usually involves data loss. For this reason, backup recovery should be used as a last resort and a disaster recovery plan should specify the sequence of steps and recovery attempts that must take place *before* restoring from a backup. It's important to make sure that the workload RPO is aligned with the backup interval.
 
-- *Recovery time*. Because backup restoration often takes time, it's critical to test your backups and restoration processes to verify their integrity and understand how long the restoration process takes. Make sure that the workload's RTO accounts for the time it takes to restore your backup.
+- *Recovery time*. Backup restoration often takes time, so it's critical to test your backups and restoration processes to verify their integrity and understand how long the restoration process takes. Make sure that the workload's RTO accounts for the time it takes to restore your backup.
 
 Many Azure data and storage services support backups, such as the following:
 
@@ -313,9 +320,9 @@ To rapidly deploy and configure required resources in the event of a disaster, u
 
 #### Testing and drills
 
-It's critical to routinely validate and test your DR plans, as well as your wider reliability strategy. If you haven't tested your recovery processes in a disaster simulation, you're more likely to face major problems when using them in an actual disaster.
+It's critical to routinely validate and test your DR plans, as well as your wider reliability strategy. Include all of the human processes in your drills, and don't just focus on the technical processes.
 
-Also, by testing your DR plans and required processes, you can validate the feasibility of your RTO.
+If you haven't tested your recovery processes in a disaster simulation, you're more likely to face major problems when using them in an actual disaster. Also, by testing your DR plans and required processes, you can validate the feasibility of your RTO.
 
 To learn more, see [Recommendations for designing a reliability testing strategy](/azure/well-architected/reliability/testing-strategy).
 
