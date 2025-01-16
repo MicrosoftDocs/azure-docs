@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to use Terraform to create Azure 
 ms.topic: quickstart
 ms.date: 01/17/2025
 ms.custom: devx-track-terraform
-ms.service: bastion
+ms.service: azure-bastion
 author: cherylmc
 ms.author: cherylmc
 #customer intent: As a Terraform user, I want to learn how to use Terraform to create Azure resources that set up Azure Bastion host. The Azure resources in an Azure Bastion deployment include an Azure resource group, a virtual network, an Azure Bastion subnet, a public IP, and an Azure Bastion host.
