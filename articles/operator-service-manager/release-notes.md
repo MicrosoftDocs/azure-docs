@@ -8,9 +8,22 @@ ms.topic: release-notes
 ms.service: azure-operator-service-manager
 ---
 
-# Release Notes
+This articles hosts release information for Azure Operator Service Manager (AOSM).
 
-This pages hosts release notes for Azure Operator Service Manager (AOSM).
+# Regional Availability of Releases
+
+Releases described herewithin are generally available across the following Azure regions:
+* eastus
+* southcentralus
+* westus3
+* uksouth
+* westeurope
+
+Use of AOSM in these regions is permitted based on prevailing Azure terms of service. Although AOSM may have supported additional regions in the past, any region not-listed above is no longer supported. If you have been using AOSM in a non-listed region, or if you have a business need to use AOSM in a non-listed region, please open a support ticket and for request consideration.
+
+# Release Notes by Version
+
+This section includes details on generally available and supported releases. AOSM users are recommended to watch this page for frequent changes, as new releases maybe added or removed frequently.  No additional notice of release is provided beyond this release notes artilce.
 
 ## Overview
 
