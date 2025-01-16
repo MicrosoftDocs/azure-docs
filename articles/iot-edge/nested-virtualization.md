@@ -3,7 +3,7 @@ title: Nested virtualization - Azure IoT Edge for Linux on Windows
 description: Learn about how to use nested virtualization in Azure IoT Edge for Linux on Windows and the different deployment options available.
 author: PatAltimore
 ms.author: patricka
-ms.date: 06/06/2024
+ms.date: 01/16/2025
 ms.topic: conceptual
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
@@ -23,7 +23,7 @@ There are three forms of nested virtualization compatible with Azure IoT Edge fo
 
 This is the baseline approach for any Windows VM that hosts Azure IoT Edge for Linux on Windows. For this case, nested virtualization needs to be enabled before starting the deployment. Read [Run Hyper-V in a Virtual Machine with Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) for more information on how to configure this scenario.
 
-If you're using Windows Server or Azure Stack HCI, make sure you [install the Hyper-V role](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+If you're using Windows Server or Azure Local, make sure you [install the Hyper-V role](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
 
 ## Deployment on Windows VM on VMware ESXi
 Intel-based VMware ESXi [6.7](https://docs.vmware.com/en/VMware-vSphere/6.7/rn/vsphere-esxi-vcenter-server-67-release-notes.html) and [7.0](https://docs.vmware.com/en/VMware-vSphere/7.0/rn/vsphere-esxi-vcenter-server-70-release-notes.html) versions can host Azure IoT Edge for Linux on Windows on top of a Windows virtual machine. Read [VMware KB2009916](https://kb.vmware.com/s/article/2009916) for more information on VMware ESXi nested virtualization support. 
