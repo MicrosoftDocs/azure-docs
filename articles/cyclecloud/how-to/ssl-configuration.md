@@ -84,13 +84,22 @@ If you want to import a PFX file, you can do it with the following command in Cy
 ./cycle_server keystore import_pfx server.pfx --pass PASSWORD
 ```
 
-Note the PFX file can only contain one entry.
+Note the PFX file can only contain one entry. Furthermore, the -pass argument is required, even if there is no password (use `--pass ''` in that case).
 
 Finally, if you make changes to the keystore outside of these commands, you can reload the keystore immediately in CycleCloud 7.9.7 or later:
 
 ```bash
 ./cycle_server keystore reconfig
 ```
+
+> [!NOTE]
+> If you get the following error, it indicates that Java does not have any trusted certificates available to it:
+>```
+>   the trustAnchors parameter must be non-empty
+>```
+>
+> Make sure that your OS certificates are installed in the correct place (for example, `/etc/ssl/certs` for Ubuntu-based distributions). In addition, if you have defined a trust store with the `-Djavax.net.ssl.trustStorePassword` setting (not recommended), make sure it contains at least one certificate.
+
 
 ### Keystore Implementation Details
 
