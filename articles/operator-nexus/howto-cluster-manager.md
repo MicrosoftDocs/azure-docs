@@ -104,12 +104,12 @@ Common arguments that are available for every Azure CLI command:
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-$tagHash = @{
+$TAGS_HASH = @{
   tag1 = "true"
   tag2 = "false"
 }
 
-New-AzNetworkCloudClusterManager -Name "$CLUSTER_MANAGER_NAME -Location $LOCATION -ResourceGroupName $CLUSTER_MANAGER_RG -SubscriptionId $SUB_ID -AnalyticsWorkspaceId $LAW_NAME -ManagedResourceGroupConfigurationName $MRG_NAME -ManagedResourceGroupConfigurationLocation $MRG_LOCATION -FabricControllerId $NFC_ID -Tag $tagHash
+New-AzNetworkCloudClusterManager -Name "$CLUSTER_MANAGER_NAME -Location $LOCATION -ResourceGroupName $CLUSTER_MANAGER_RG -SubscriptionId $SUB_ID -AnalyticsWorkspaceId $LAW_NAME -ManagedResourceGroupConfigurationName $MRG_NAME -ManagedResourceGroupConfigurationLocation $MRG_LOCATION -FabricControllerId $NFC_ID -Tag $TAGS_HASH
 ```
 
 Parameters:
@@ -272,12 +272,12 @@ az networkcloud clustermanager identity remove \
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-$tagHash = @{
+$TAGS_HASH = @{
   tag1 = "true"
   tag2 = "false"
 }
 
-Update-AzNetworkCloudClusterManager -Name "$CLUSTER_MANAGER_NAME -ResourceGroupName $CLUSTER_MANAGER_RG -SubscriptionId $SUB_ID -Tag $tagHash
+Update-AzNetworkCloudClusterManager -Name "$CLUSTER_MANAGER_NAME -ResourceGroupName $CLUSTER_MANAGER_RG -SubscriptionId $SUB_ID -Tag $TAGS_HASH
 ```
 
 ### [ARM Template](#tab/template)
@@ -305,11 +305,6 @@ az networkcloud clustermanager delete \
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-$tagHash = @{
-  tag1 = "true"
-  tag2 = "false"
-}
-
 Remove-AzNetworkCloudClusterManager -Name "$CLUSTER_MANAGER_NAME -ResourceGroupName $CLUSTER_MANAGER_RG -SubscriptionId $SUB_ID
 ```
 
