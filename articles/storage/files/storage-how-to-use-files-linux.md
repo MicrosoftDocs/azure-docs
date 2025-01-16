@@ -155,7 +155,7 @@ fi
 sudo chmod 600 $SMB_CREDENTIAL_FILE
 ```
 
-Now you can mount the file share using the `mount` command using the credential file. In the following example, the `$SMB_PATH` command is populated using the fully qualified domain name for the storage account's file endpoint.
+Now you can mount the file share with the `mount` command using the credential file. In the following example, the `$SMB_PATH` command is populated using the fully qualified domain name for the storage account's file endpoint. See [mount options](#mount-options) for a list of SMB mount options.
 
 # [SMB 3.1.1](#tab/smb311)
 > [!NOTE]
@@ -213,7 +213,9 @@ sudo mount -t cifs $SMB_PATH $MNT_PATH -o vers=2.1,credentials=$SMB_CREDENTIAL_F
 
 ---
 
-You can also mount the same Azure file share to multiple mount points if desired. When you're done using the Azure file share, use `sudo umount $mntPath` to unmount the share.
+You can also mount the same Azure file share to multiple mount points if desired. 
+
+When you're done using the Azure file share, use `sudo umount $mntPath` to unmount the share.
 
 ## Automatically mount file shares
 
@@ -271,7 +273,7 @@ MNT_PATH="$MNT_ROOT/$STORAGE_ACCOUNT_NAME/$FILE_SHARE_NAME"
 sudo mkdir -p $MNT_PATH
 ```
 
-Finally, create a record in the `/etc/fstab` file for your Azure file share. In the command below, the default 0755 Linux file and folder permissions are used, which means read, write, and execute for the owner (based on the file/directory Linux owner), read and execute for users in owner group, and read and execute for others on the system. You might wish to set alternate `uid` and `gid` or `dir_mode` and `file_mode` permissions on mount as desired. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation).
+Finally, create a record in the `/etc/fstab` file for your Azure file share. In the command below, the default 0755 Linux file and folder permissions are used, which means read, write, and execute for the owner (based on the file/directory Linux owner), read and execute for users in owner group, and read and execute for others on the system. You might wish to set alternate `uid` and `gid` or `dir_mode` and `file_mode` permissions on mount as desired. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation). See [mount options](#mount-options) for a list of SMB mount options.
 
 > [!TIP]
 > If you want Docker containers running .NET Core applications to be able to write to the Azure file share, include **nobrl** in the SMB mount options to avoid sending byte range lock requests to the server.
@@ -330,7 +332,7 @@ sudo zypper install autofs
 ```
 ---
 
-Next, update the `autofs` configuration files. 
+Next, update the `autofs` configuration files. See [mount options](#mount-options) for a list of SMB mount options.
 
 ```bash
 FILE_SHARE_NAME="<file-share-name>"
