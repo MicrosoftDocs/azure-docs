@@ -354,7 +354,7 @@ By default, Visual Studio Code creates a logic app project that is extension bun
 >
 > This action is a one-way operation that you can't undo.
 
-1. In the Explorer pane, at your project's root, move your mouse pointer over any blank area below all the other files and folders, open the shortcut menu, and select **Convert to NuGet-based Logic App project**.
+1. In the Explorer pane, at your project's root, move your mouse pointer over any blank area below all the other files and folders, open the shortcut menu, and select **Convert to NuGet-based logic app project**.
 
    ![Screenshot shows Explorer pane with project shortcut menu opened from blank area in project window.](./media/create-single-tenant-workflows-visual-studio-code/convert-logic-app-project.png)
 
@@ -474,7 +474,7 @@ If you created your logic app project when assemblies support wasn't available f
    > When Visual Studio Code starts the workflow design-time API, you might get a message 
    > that startup might take a few seconds. You can ignore this message or select **OK**.
    >
-   > If the designer won't open, review the troubleshooting section, [Designer fails to open](#designer-fails-to-open).
+   > If the designer won't open, see the troubleshooting section, [Designer fails to open](#designer-fails-to-open).
 
    After the designer appears, the **Add a trigger** prompt appears on the designer.
 
@@ -917,7 +917,7 @@ To find the fully qualified domain names (FQDNs) for these connections, follow t
 
 From Visual Studio Code, you can directly publish your project to Azure to deploy your Standard logic app resource. You can publish your logic app as a new resource, which automatically creates any necessary resources, such as an [Azure Storage account, similar to function app requirements](../azure-functions/storage-considerations.md). Or, you can publish your logic app to a previously deployed Standard logic app resource, which overwrites that logic app.
 
-Deployment for the Standard logic app resource requires a hosting plan and pricing tier, which you select during deployment. For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing).
+Deployment for the Standard logic app resource requires a hosting plan and pricing tier, which you select during deployment. For more information, see [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing).
 
 <a name="publish-new-logic-app"></a>
 
@@ -925,9 +925,9 @@ Deployment for the Standard logic app resource requires a hosting plan and prici
 
 1. On the Visual Studio Code Activity Bar, select the Azure icon to open the Azure window.
 
-1. In the **Azure** window, on the **Workspace** section toolbar, from the **Azure Logic Apps** menu, select **Deploy to Logic App**.
+1. In the **Azure** window, on the **Workspace** section toolbar, from the **Azure Logic Apps** menu, select **Deploy to logic app**.
 
-   ![Screenshot shows Azure window with Workspace toolbar and Azure Logic Apps shortcut menu with Deploy to Logic App selected.](./media/create-single-tenant-workflows-visual-studio-code/deploy-to-logic-app.png)
+   ![Screenshot shows Azure window, Workspace toolbar, Azure Logic Apps shortcut menu, and selected option for Deploy to logic app.](./media/create-single-tenant-workflows-visual-studio-code/deploy-logic-app.png)
 
 1. If prompted, select the Azure subscription to use for your logic app deployment.
 
@@ -953,7 +953,7 @@ Deployment for the Standard logic app resource requires a hosting plan and prici
 
    1. Provide a name for your hosting plan, and then select a pricing tier for your selected plan.
 
-      For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing).
+      For more information, see [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing).
 
    1. For optimal performance, select the same resource group as your project for the deployment.
 
@@ -1115,7 +1115,7 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
 
    > [!NOTE]
    > The stop logic app and delete logic app operations affect workflow instances in different ways. 
-   > For more information, review [Considerations for stopping logic apps](#considerations-stop-logic-apps) and 
+   > For more information, see [Considerations for stopping logic apps](#considerations-stop-logic-apps) and 
    > [Considerations for deleting logic apps](#considerations-delete-logic-apps).
 
    ![Screenshot shows Visual Studio Code with Resources section and deployed logic app resource.](./media/create-single-tenant-workflows-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
@@ -1313,7 +1313,7 @@ To enable Application Insights on a deployed logic app or to review Application 
 
    If Application Insights is enabled, on the **Application Insights** pane, select **View Application Insights data**.
 
-After Application Insights opens, you can review various metrics for your logic app. For more information, review these topics:
+After Application Insights opens, you can review various metrics for your logic app. For more information, see these articles:
 
 * [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 1](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849)
 * [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 2](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/2003332)
