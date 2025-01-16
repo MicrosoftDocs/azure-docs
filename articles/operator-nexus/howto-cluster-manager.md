@@ -198,7 +198,7 @@ This command shows the properties of the specified Cluster Manager in Json forma
 
 ### [ARM Template](#tab/template)
 
-Use one of the existing interfaces, Portal, CLI, or PowerShell, to delete the Cluster Manager.
+To view Cluster Managers, use Portal, CLI, or PowerShell.
 
 ---
 
@@ -315,7 +315,7 @@ Remove-AzNetworkCloudClusterManager -Name "$CLUSTER_MANAGER_NAME -ResourceGroupN
 
 ### [ARM Template](#tab/template)
 
-Use one of the existing interfaces, Portal, CLI, or PowerShell, to delete the Cluster Manager.
+To delete the Cluster Manager, use Portal, CLI, or PowerShell.
 
 ---
 
