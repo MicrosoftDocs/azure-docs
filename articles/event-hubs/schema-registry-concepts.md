@@ -50,7 +50,7 @@ Schema formats are used to determine the manner in which a schema is structured 
 To learn more about using Avro schema format with an Event Hubs schema registry, see:
   
 * [How to use a schema registry with Kafka and Avro](schema-registry-kafka-java-send-receive-quickstart.md)
-* [How to use a schema registry with Event Hubs, .NET, SDK (AMQP), and Avro.](schema-registry-dotnet-send-receive-quickstart.md)
+* [How to use a schema registry with Event Hubs, .NET, an SDK (Advanced Message Queuing Protocol or AMQP), and Avro.](schema-registry-dotnet-send-receive-quickstart.md)
 
 ##### JSON schema
 
@@ -130,7 +130,7 @@ To access a schema registry programmatically, follow these steps:
 | [Schema registry reader](../role-based-access-control/built-in-roles.md#schema-registry-reader-preview) | Read and list schema registry groups and schemas. |
 | [Schema registry contributor](../role-based-access-control/built-in-roles.md#schema-registry-reader-preview) | Read, write, and delete schema registry groups and schemas. |
 
-To learn how to create and register an application using the Azure portal, see [Register an app with Microsoft Entra ID](../active-directory/develop/quickstart-register-app.md). You'll need the client ID (application ID), tenant ID, and the secret to use in the code.
+To learn how to create and register an application using the Azure portal, see [Register an app with Microsoft Entra ID](../active-directory/develop/quickstart-register-app.md). You need the client ID (application ID), tenant ID, and the secret to use in the code.
 
 ## Next steps
 
