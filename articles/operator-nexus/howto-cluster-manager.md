@@ -123,7 +123,7 @@ Parameters:
 - `-ManagedResourceGroupConfigurationName` - The name for the managed resource group. If not specified, the unique name is automatically generated.
 - `-Tag` - Hashtable of Resource tags.
 
-### [ARM Template](#tab/template)
+### Create a Cluster Manager via ARM Template
 
 To create a Cluster Manager via ARM Template, you need to provide a template file (clusterManager.jsonc) and a parameter file (clusterManager.parameters.jsonc).
 
@@ -379,6 +379,6 @@ After you successfully created the Network Fabric Controller and the Cluster Man
 
 ## Useful links
 
-- [NetworkCloud REST APIs Reference](https://learn.microsoft.com/en-us/rest/api/networkcloud/)
-- [NetworkCloud PowerShell Reference](https://learn.microsoft.com/en-us/powershell/module/az.networkcloud/)
+- [NetworkCloud REST APIs Reference](https://learn.microsoft.com/rest/api/networkcloud/)
+- [NetworkCloud PowerShell Reference](https://learn.microsoft.com/powershell/module/az.networkcloud/)
 
