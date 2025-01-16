@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Front Door
 description: Learn how to monitor Azure Front Door using Azure Monitor, including data collection, analysis, and alerting.
-ms.date: mm/dd/yyyy
+ms.date: 01/21/2025
 ms.custom: horz-monitor
 ms.topic: conceptual
 author: duongau
@@ -33,10 +33,9 @@ Your service should have the following two articles:
 
 # Monitor Azure Front Door
 
-<!-- Intro -->
 [!INCLUDE [azmon-horz-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-intro.md)]
- 
-## Collect data with Azure Monitor 
+
+## Collect data with Azure Monitor
 
 This table describes how you can collect data to monitor your service, and what you can do with the data once collected:
 

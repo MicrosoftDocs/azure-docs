@@ -1,35 +1,14 @@
 ---
 title: Monitoring data reference for Azure Front Door
 description: This article contains important reference material you need when you monitor Azure Front Door by using Azure Monitor.
-ms.date: 12/12/2024
+ms.date: 01/21/2025
 ms.custom: horz-monitor
 ms.topic: reference
 author: duongau
 ms.author: duau
 ms.service: azure-frontdoor
+zone_pivot_groups: front-door-tiers
 ---
-
-<!-- 
-IMPORTANT 
-According to the Content Pattern guidelines all comments must be removed before publication!!!
-To make this template easier to use, first:
-1. Search and replace [TODO-replace-with-service-name] with the official name of your service.
-2. Search and replace [TODO-replace-with-service-filename] with the service name to use in GitHub filenames.-->
-
-<!-- VERSION 3.0 2024_01_01
-For background about this template, see https://review.learn.microsoft.com/en-us/help/contribute/contribute-monitoring?branch=main -->
-
-<!-- All sections are required unless otherwise noted. Add service-specific information after the includes.
-Your service should have the following two articles:
-1. The primary monitoring article (based on the template monitor-service-template.md)
-   - Title: "Monitor [TODO-replace-with-service-name]"
-   - TOC title: "Monitor [TODO-replace-with-service-name]"
-   - Filename: "monitor-[TODO-replace-with-service-filename].md"
-2. A reference article that lists all the metrics and logs for your service (based on this template).
-   - Title: "[TODO-replace-with-service-name] monitoring data reference"
-   - TOC title: "Monitoring data reference"
-   - Filename: "monitor-[TODO-replace-with-service-filename]-reference.md".
--->
 
 # Azure Front Door monitoring data reference
 
@@ -39,6 +18,20 @@ See [Monitor Azure Front Door](monitor-front-door.md) for details on the data yo
 
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
+::: zone pivot="front-door-classic"
+
+### Supported metrics for Microsoft.Network/frontdoors
+
+The following table lists the metrics available for the Microsoft.Network/frontdoors resource type.
+
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+
+[!INCLUDE [Microsoft.Network/frontdoors](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-frontdoors-metrics-include.md)]
+
+::: zone-end
+
+::: zone pivot="front-door-standard-premium"
+
 ### Supported metrics for Microsoft.Cdn/profiles
 
 The following table lists the metrics available for the Microsoft.Cdn/profiles resource type.
@@ -47,9 +40,27 @@ The following table lists the metrics available for the Microsoft.Cdn/profiles r
 
 [!INCLUDE [Microsoft.Cdn/profiles](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-cdn-profiles-metrics-include.md)]
 
+::: zone-end
+
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
+
+::: zone pivot="front-door-classic"
+
+- Action
+- Backend
+- BackendPool
+- ClientCountry
+- ClientRegion
+- HttpStatus
+- HttpStatusGroup
+- PolicyName
+- RuleName
+
+::: zone-end
+
+::: zone pivot="front-door-standard-premium"
 
 - Action
 - ClientCountry
@@ -62,28 +73,70 @@ The following table lists the metrics available for the Microsoft.Cdn/profiles r
 - PolicyName
 - RuleName
 
-<!-- ## Resource logs -->
+::: zone-end
+
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
-<!-- Repeat the following section for each resource type/namespace in your service. 
-<!-- Find the table(s) for the resource type in the Log Categories column at https://review.learn.microsoft.com/en-us/azure/azure-monitor/reference/supported-metrics/metrics-index?branch=main#supported-metrics-and-log-categories-by-resource-type.
--->
-### Supported resource logs for \<ResourceType/namespace>
-<!-- Uncomment the following line. Replace the <ResourceType/namespace> and <resourcetype> placeholders with the namespace name or address. -->
-<!-- [!INCLUDE [<ResourceType/namespace>](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/<resourcetype>-logs-include.md)]
+::: zone pivot="front-door-classic"
+
+### Supported resource logs for Microsoft.Network/frontdoors
+
+[!INCLUDE [Microsoft.Network/frontdoors](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-network-frontdoors-logs-include.md)]
+
+::: zone-end
+
+::: zone pivot="front-door-standard-premium"
+
+### Supported resource logs for Microsoft.Cdn/profiles
+
+[!INCLUDE [Microsoft.Cdn/profiles](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-cdn-profiles-logs-include.md)]
+
+### Supported resource logs for Microsoft.Cdn/profiles/endpoints
+
+[!INCLUDE [Microsoft.Cdn/profiles/endpoints](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-cdn-profiles-endpoints-logs-include.md)]
+
+::: zone-end
+
 <!-- ## Log tables -->
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
 <!-- Repeat the following section for each resource type/namespace in your service. Find the table(s) for your service at https://learn.microsoft.com/azure/azure-monitor/reference/tables-index. 
 Replace the <ResourceType/namespace> and tablename placeholders with the namespace name. -->
 
-### Azure Front Door <ResourceType/namespace>
-- [TableName](/azure/azure-monitor/reference/tables/tablename#columns)
+::: zone pivot="front-door-classic"
 
-<!-- ## Activity log
+### Azure Front Door Microsoft.Network/frontdoors
+
+- [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity#columns)
+- [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics#columns)
+- [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics#columns)
+
+::: zone-end
+
+::: zone pivot="front-door-standard-premium"
+
+### Azure Front Door Microsoft.Cdn/profiles
+
+- [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity#columns)
+- [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics#columns)
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+## Activity log
+
 [!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
-Refer to https://learn.microsoft.com/azure/role-based-access-control/resource-provider-operations and add the operations for your service. Repeat the link for each resource type/namespace in your service. Replace the <Namespace> and namespace placeholders with the namespace name or link. -->
-- [<Namespace> resource provider operations](/azure/role-based-access-control/resource-provider-operations#namespace)
+
+- [Microsoft.Network resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftnetwork)
+
+::: zone-end
+
+::: zone pivot="front-door-standard-premium"
+
+- [Microsoft.Cdn resource provider operations](/azure/role-based-access-control/resource-provider-operations#networking)
+
+::: zone-end
 
 ## Related content
 

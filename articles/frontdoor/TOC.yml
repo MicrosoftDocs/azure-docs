@@ -234,6 +234,8 @@
       items:
       - name: HTTP/2
         href: front-door-http2.md
+    - name: Monitor Front Door
+      href: monitor-front-door.md    
     - name: FAQ
       href: front-door-faq.yml
   - name: CDN
@@ -616,6 +618,8 @@
     items:
     - name: HTTP headers protocol support
       href: front-door-http-headers-protocol.md
+    - name: Front Door monitoring data reference
+      href: monitor-front-door-reference.md  
     - name: Azure Front Door POP locations
       items:
       - name: POP locations by region
