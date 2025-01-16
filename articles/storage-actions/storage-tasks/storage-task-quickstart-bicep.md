@@ -51,6 +51,8 @@ New-AzResourceGroup -Name exampleRG -Location <region>
 New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -storageTaskName "<storage-task-name>" -description "<description>"
 ```
 
+---
+
 ## Review deployed resources
 
 1. In the Azure portal, search for _Storage Tasks_. Then, under **Services**, select **Storage tasks - Azure Storage Actions**.
