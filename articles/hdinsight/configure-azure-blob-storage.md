@@ -96,7 +96,7 @@ The script is downloaded and implemented. This will work even if the script isn'
 
 The new feature specifically supports scripts that aren't publicly accessible but don't require a SAS key or token. This provides an additional layer of security for scripts that need to be kept private. 
 
-The conventional script action which is anonymously accessible or if a SAS key is passed along with the script URI, still works without any changes. For more information, see [Customize Azure HDInsight clusters by using script actions](./hdinsight-hadoop-customize-cluster-linux.md). 
+The traditional script action, whether accessed anonymously or with a SAS key included in the script URI, continues to function without any modifications. For more information, see [Customize Azure HDInsight clusters by using script actions](./hdinsight-hadoop-customize-cluster-linux.md). 
 
 ## Configure Azure Blob storage as secondary storage
 
