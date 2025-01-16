@@ -106,6 +106,7 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Microsoft Azure Attestation                          |
 > | Microsoft Purview                                    |
 > | SQL Server Stretch Database                          |
+> | Virtual Machines: Bsv2-series                        |
 > | Virtual Machines: Dasv5 and Dadsv5-series            |
 > | Virtual Machines: DAv4 and DASv4-series              |
 > | Virtual Machines: DCsv2-series                       |
