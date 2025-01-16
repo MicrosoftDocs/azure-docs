@@ -156,6 +156,39 @@ def get_blob_service_client(self, account_name):
     return blob_service_client
 ```
 
+## [Go](#tab/go)
+
+Add the following `import` statements:
+
+```go
+import (
+    "context"
+    "fmt"
+
+    "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	"github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
+)
+```
+
+Add the following code to create the client object:
+
+```go
+func getClient(accountName string) *azblob.Client {
+    accountURL := fmt.Printf("https://%s.blob.core.windows.net", accountName)
+
+	// Create a new service client with token credential
+	credential, err := azidentity.NewDefaultAzureCredential(nil)
+	handleError(err)
+
+	client, err := azblob.NewClient(accountURL, credential, nil)
+	handleError(err)
+
+	return client
+}
+```
+
+Instances of `azblob.Client` provide methods for manipulating blob containers and blobs within a storage account. The storage account endpoint is specified when constructing the client object.
+
 ---
 
 ### Create a BlobContainerClient object
@@ -203,6 +236,18 @@ def get_blob_container_client(self, blob_service_client: BlobServiceClient, cont
     container_client = blob_service_client.get_container_client(container=container_name)
     return container_client
 ```
+
+## [Go](#tab/go)
+
+```go
+func getBlobContainerClient(client *azblob.Client, containerName string) *azblob.ContainerClient {
+    // Create the container client using the azblob client object
+    containerClient := client.ServiceClient().NewContainerClient(containerName)
+    return containerClient
+}
+```
+
+Instances of `azblob.Client` provide methods for working with blob containers and blobs within a storage account. For most operations, you can use the `azblob.Client` instance rather than creating a separate `ContainerClient` instance.
 
 ---
 
@@ -273,6 +318,17 @@ def get_blob_container_client(self, account_name, container_name):
     return container_client
 ```
 
+## [Go](#tab/go)
+
+```go
+func getBlobContainerClient(accountName string, containerName string) *azblob.ContainerClient {
+    // Append the container name to the end of the URI
+    containerURL := fmt.Printf("https://%s.blob.core.windows.net/%s", accountName, containerName)
+    containerClient := azblob.NewClient(containerURL, nil)
+    return containerClient
+}
+```
+
 ---
 
 ### Create a BlobClient object
@@ -324,6 +380,18 @@ def get_blob_client(self, blob_service_client: BlobServiceClient, container_name
     blob_client = blob_service_client.get_blob_client(container=container_name, blob=blob_name)
     return blob_client
 ```
+
+## [Go](#tab/go)
+
+```go
+func getBlobClient(client *azblob.Client, containerName string, blobName string) *azblob.BlobClient {
+    // Create the container client using the azblob client object
+    blobClient := client.ServiceClient().NewContainerClient(containerName).NewBlobClient(blobName)
+    return blobClient
+}
+```
+
+Instances of `azblob.Client` provide methods for working with blob containers and blobs within a storage account. For most operations, you can use the `azblob.Client` instance rather than creating a separate `BlobClient` instance.
 
 ---
 
