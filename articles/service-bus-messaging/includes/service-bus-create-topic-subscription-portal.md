@@ -1,6 +1,6 @@
 ---
- title: include file
- description: include file
+ title: Create an Azure Service Bus topic
+ description: Shows you how to create an Azure Service Bus topic in the Azure portal. 
  author: spelluru
  ms.service: azure-service-bus
  ms.topic: include
@@ -15,7 +15,7 @@
 4. Enter a **name** for the topic. Leave the other options with their default values.
 5. Select **Create**.
 
-    :::image type="content" source="./media/service-bus-create-topics-subscriptions-portal/create-topic.png" alt-text="Screenshot tthat shows the Create topic page in the Azure portal.":::
+    :::image type="content" source="./media/service-bus-create-topics-subscriptions-portal/create-topic.png" alt-text="Screenshot that shows the Create topic page in the Azure portal.":::
 
 ## Create a subscription to the topic
 1. Select the **topic** that you created in the previous section. 
