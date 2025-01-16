@@ -1521,6 +1521,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/bastion/diagnostic-logs.md",
+      "redirect_url": "/azure/bastion/monitor-bastion",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/bastion/howto-metrics-monitor-alert.md",
+      "redirect_url": "/azure/bastion/monitor-bastion",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/bastion/tutorial-protect-bastion-host-ddos.md",
       "redirect_url": "/azure/bastion/tutorial-create-host-portal",
       "redirect_document_id": false
