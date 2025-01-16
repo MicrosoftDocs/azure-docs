@@ -341,7 +341,7 @@ Before you can create your logic app, create a local project so that you can man
    > must be **workflowApp**. However, in some scenarios, this app setting might be missing,
    > for example, due to automation using Azure Resource Manager templates or other scenarios
    > where the setting isn't included. If certain actions don't work, such as the **Execute JavaScript Code**
-   > action, or if the workflow stops working, check that the **APP_KIND** app setting exists and is set to to **workflowApp**.
+   > action, or if the workflow stops working, check that the **APP_KIND** app setting exists and is set to **workflowApp**.
    > For more information, see the [**APP_KIND** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
 
 <a name="convert-project-nuget"></a>
@@ -793,7 +793,7 @@ To test your logic app workflow, follow these steps to start a debugging session
    | **Skipped** | The action was skipped because the immediately preceding action failed. An action has a `runAfter` condition that requires that the preceding action finishes successfully before the current action can run. |
    | **Succeeded** | The action succeeded. |
    | **Succeeded with retries** | The action succeeded but only after one or more retries. To review the retry history, in the run history details view, select that action so that you can view the inputs and outputs. |
-   | **Timed out** | The action stopped due to the timeout limit specified by that action's settings. |
+   | **Timed out** | The action stopped due to the time-out limit specified by that action's settings. |
    | **Waiting** | Applies to a webhook action that's waiting for an inbound request from a caller. |
 
    [aborted-icon]: ./media/create-single-tenant-workflows-visual-studio-code/aborted.png
