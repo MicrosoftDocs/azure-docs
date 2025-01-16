@@ -220,7 +220,7 @@ az networkcloud clustermanager update \
 
 Cluster Manager identity can be managed via CLI using `az networkcloud clustermanager identity` sub commands.
 
-This command shows the currently assigned identities:
+This command shows the currently assigned identities.
 
 ```azurecli-interactive
 az networkcloud clustermanager identity show \
@@ -229,7 +229,7 @@ az networkcloud clustermanager identity show \
     --subscription "$SUB_ID"
 ```
 
-This command adds a new user-assigned identity:
+This command adds a new user-assigned identity.
 
 ```azurecli-interactive
 az networkcloud clustermanager identity assign \
@@ -239,7 +239,7 @@ az networkcloud clustermanager identity assign \
     --mi-user-assigned "$UAI_RESOURCE_ID"
 ```
 
-This command adds a system-assigned identity:
+This command adds a system-assigned identity.
 
 ```azurecli-interactive
 az networkcloud clustermanager identity assign \
@@ -249,7 +249,7 @@ az networkcloud clustermanager identity assign \
     --mi-system-assigned
 ```
 
-This command removes the existing user-assigned identity:
+This command removes the existing user-assigned identity.
 
 ```azurecli-interactive
 az networkcloud clustermanager identity remove \
@@ -259,7 +259,7 @@ az networkcloud clustermanager identity remove \
     --mi-user-assigned "$UAI_RESOURCE_ID"
 ```
 
-This command removes the existing system-assigned identity:
+This command removes the existing system-assigned identity.
 
 ```azurecli-interactive
 az networkcloud clustermanager identity remove \
