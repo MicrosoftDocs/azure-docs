@@ -2,10 +2,10 @@
 title: Scaling and Zone-redundant Application Gateway for Containers
 description: This article defines Application Gateway for Containers Autoscaling and Zone-redundant features.
 services: application-gateway
-author: greglin
+author: greg-lindsay
 ms.custom: references_regions
 ms.service: azure-appgw-for-containers
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 5/9/2024
 ms.author: greglin
 ---

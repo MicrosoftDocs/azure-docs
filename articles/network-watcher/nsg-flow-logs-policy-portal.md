@@ -92,7 +92,7 @@ To assign the *deployIfNotExists* policy:
     | Setting | Value |
     | --- | --- |
     | **NSG Region** | Select the region of your network security group that you're targeting with the policy. |
-    | **Storage id** | Enter the full resource ID of the storage account. The storage account must be in the same region as the network security group. The format of storage resource ID is `/subscriptions/<SubscriptionID>/resourceGroups/<ResouceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>`. |
+    | **Storage id** | Enter the full resource ID of the storage account. The storage account must be in the same region as the network security group. The format of storage resource ID is `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>`. |
     | **Network Watchers RG** | Select the resource group of your Azure Network Watcher instance. |
     | **Network Watcher name** | Enter the name of your Network Watcher instance. |
 

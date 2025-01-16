@@ -93,7 +93,7 @@ ms.author: wchi
     import javax.net.ssl.*;
     import java.net.InetSocketAddress;
     import com.azure.identity.*;
-    import com.azure.core.credentital.*;
+    import com.azure.core.credential.*;
     import java.net.http.*;
     import java.net.URI;
 
@@ -213,7 +213,7 @@ The authentication type is not supported for Spring Boot.
     
     endpoint = os.Getenv("AZURE_COSMOS_RESOURCEENDPOINT")
     listConnectionStringUrl = os.Getenv("AZURE_COSMOS_LISTCONNECTIONSTRINGURL")
-    scope = os.Getenv("AZUE_COSMOS_SCOPE")
+    scope = os.Getenv("AZURE_COSMOS_SCOPE")
 
     // Uncomment the following lines corresponding to the authentication type you want to use.
     // For system-assigned identity.

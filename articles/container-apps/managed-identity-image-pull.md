@@ -174,9 +174,12 @@ Follow these steps to create a container app with the default quickstart image.
     | **Subscription** | Select your Azure subscription. |
     | **Resource group** | Select an existing resource group or create a new one. |
     | **Container app name** | Enter a container app name. |
-    | **Location** | Select a location. |
-    | **Create Container App Environment** | Create a new or select an existing environment. |
+    | **Deployment source** | Leave this set to **Container image**. |
+    | **Region** | Select a region. |
+    | **Container Apps Environment** | Select an existing environment or select **Create new**. For more information see [Azure Container Apps environments](environment.md) |
 
+1. Select **Next : Container >**.
+1. In the **Container** tab, enable **Use quickstart image**. Leave **Quickstart image** set to **Simple hello world container**.
 1. Select the **Review + Create** button at the bottom of the **Create Container App** page.
 1. Select the **Create** button at the bottom of the **Create Container App** page.
 
@@ -186,23 +189,21 @@ Allow a few minutes for the container app deployment to finish. When deployment 
 
 Edit the container to use the image from your private Azure Container Registry, and configure the authentication to use system-assigned identity.
 
-1. The **Containers** from the side menu on the left.
-1. Select **Edit and deploy**.
+1. In **Application**, select **Containers**.
+1. In the *Containers* page, select **Edit and deploy**.
 1. Select the *simple-hello-world-container* container from the list.
+1. In the *Edit a container* page, do the following actions.
 
     | Setting | Action |
     |---|---|
     |**Name**| Enter the container app name. |
     |**Image source**| Select **Azure Container Registry**. |
-    |**Authentication**| Select **Managed identity**. |
-    |**Identity**| Select **System assigned**. |
-    |**Registry**| Enter the Registry name. |
+    |**Subscription** | Select your Azure subscription. |
+    |**Registry**| Select your container registry. |
     |**Image**| Enter the image name. |
-    |**Image tag**| Enter the tag. |
-
-    :::image type="content" source="media/managed-identity/screenshot-edit-a-container-system-assigned-identity.png" alt-text="Screen shot Edit a container with system-assigned managed identity.":::
-    >[!NOTE]
-    > If the administrative credentials are not enabled on your Azure Container Registry registry, you will see a warning message displayed and you will need to enter the image name and tag information manually.
+    |**Image tag**| Enter the image tag. |
+    |**Authentication type**| Select **Managed identity**. |
+    |**Managed identity**| Select **System assigned**. |
 
 1. Select **Save** at the bottom of the page.
 1. Select **Create** at the bottom of the **Create and deploy new revision** page
@@ -381,13 +382,14 @@ New-AzUserAssignedIdentity -Name $IdentityName -ResourceGroupName $ResourceGroup
 
 # [Bash](#tab/bash)
 
-Get identity's resource ID.
+Get the identity's resource ID.
 
 ```azurecli
 IDENTITY_ID=$(az identity show \
   --name $IDENTITY \
   --resource-group $RESOURCE_GROUP \
-  --query id)
+  --query id \
+  --output tsv)
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -457,8 +459,7 @@ $AppArgs = @{
     ResourceGroupName = $ResourceGroupName
     ManagedEnvironmentId = $EnvId
     ConfigurationRegistry = $CredentialObject
-    IdentityType = 'UserAssigned'
-    IdentityUserAssignedIdentity = @{ $IdentityId = @{ } }
+    UserAssignedIdentity = @($IdentityId)
     TemplateContainer = $TemplateObj
     IngressTargetPort = 80
     IngressExternal = $true

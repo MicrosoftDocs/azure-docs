@@ -134,7 +134,7 @@ items:
       items:
       - name: Create public IP address
         href: routing-preference-portal.md
-    - name: Move across regions
+    - name: Move across regions 
       items:
       - name: Public IPs
         href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/virtual-network/ip-services/toc.json

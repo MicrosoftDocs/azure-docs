@@ -30,7 +30,7 @@ To understand the scope of an incident, follow these steps:
 1. If you have issues accessing the Azure portal, go to [Azure status](https://azure.status.microsoft/).
 
     > [!NOTE]
-    > Azure status only shows widespread issues that meet certain criteria.  Because the Azure Status page doesn't know which subscriptions and tenants you manage, it cannot provide an accurate view of smaller issues that may be impacting your services.
+    > [Azure status](https://azure.status.microsoft/) only shows widespread issues that [meet certain criteria](https://aka.ms/StatusPageCriteria).  Because the Azure Status page doesn't know which subscriptions and tenants you manage, it cannot provide an accurate view of smaller issues that may be impacting your services.
 
 1. If there are issues with the status page, check for posts from [@AzureSupport](https://x.com/azuresupport) on the social platform X.
 

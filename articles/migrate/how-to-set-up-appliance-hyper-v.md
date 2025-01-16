@@ -37,7 +37,7 @@ To set up the appliance using a VHD template:
 
 ### Generate the project key
 
-1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2. In **Discover servers** > **Are your servers virtualized?**, select **Yes, with Hyper-V**.
 3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you will set up for discovery of servers on Hyper-V. The name should be alphanumeric with 14 characters or fewer.
 1. Select **Generate key** to start the creation of the required Azure resources. Do not close the Discover servers page during the creation of resources.
@@ -68,7 +68,7 @@ Import the downloaded file, and create an appliance.
 1. Extract the zipped VHD file to a folder on the Hyper-V host that will host the appliance. Three folders are extracted.
 2. Open Hyper-V Manager. In **Actions**, select **Import Virtual Machine**.
 
-    ![Screenshot of preocedure to Deploy VHD.](./media/how-to-set-up-appliance-hyper-v/deploy-vhd.png)
+    ![Screenshot of procedure to Deploy VHD.](./media/how-to-set-up-appliance-hyper-v/deploy-vhd.png)
 
 2. In the Import Virtual Machine Wizard > **Before you begin**, select **Next**.
 3. In **Locate Folder**, specify the folder containing the extracted VHD. Select **Next**.

@@ -39,7 +39,7 @@ A good example of the shared responsibility model is the deployment of virtual m
 
 Customer-enabled disaster recovery services all have public-facing documentation to guide you. For an example of public-facing documentation for customer-enabled disaster recovery, see [Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-disaster-recovery.md).
 
-For more information on the shared responsibility model, see [Microsoft Trust Center](../security/fundamentals/shared-responsibility.md).
+For more information, see [Shared responsibility for resiliency](./concept-shared-responsibility.md).
 
 ## Business continuity compliance: Service-level responsibility
 

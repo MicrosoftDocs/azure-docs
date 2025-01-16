@@ -1,17 +1,17 @@
 ---
-title: Use a private endpoint with an Azure Container Apps environment
+title: Use a private endpoint with an Azure Container Apps environment (preview)
 description: Learn how to use a private endpoint with an Azure Container Apps environment.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2024
 ms.topic:  how-to
-ms.date: 11/6/2024
+ms.date: 1/14/2025
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
 
-# Use a private endpoint with an Azure Container Apps environment
+# Use a private endpoint with an Azure Container Apps environment (preview)
 
 In this article, you learn how to use a private endpoint to securely access your Azure Container App without exposing it to the public Internet.
 
@@ -127,8 +127,8 @@ RESOURCE_GROUP="my-container-apps"
 LOCATION="centralus"
 ENVIRONMENT_NAME="my-environment"
 CONTAINERAPP_NAME="my-container-app"
-VNET_NAME="my-custom-vnet"
-SUBNET_NAME="my-custom-subnet"
+VNET_NAME="my-vnet"
+SUBNET_NAME="my-subnet"
 PRIVATE_ENDPOINT="my-private-endpoint"
 PRIVATE_ENDPOINT_CONNECTION="my-private-endpoint-connection"
 PRIVATE_DNS_ZONE="privatelink.${LOCATION}.azurecontainerapps.io"
@@ -147,10 +147,7 @@ az group create \
 
 ## Create a virtual network
 
-An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
-
-1. Create an Azure virtual network (VNet) to associate with the Container Apps environment. The VNet must have a subnet available for the environment deployment.
-    You can use an existing VNet, but private endpoints are only supported by workload profiles environments, which require a subnet with a minimum CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
+1. Create an Azure virtual network (VNet). You can use an existing VNet, but private endpoints are only supported by workload profiles environments, which require a subnet with a minimum CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
 
     ```azurecli
     az network vnet create \
@@ -183,7 +180,7 @@ An environment in Azure Container Apps creates a secure boundary around a group 
 
 ## Create an environment
 
-1. Create the Container Apps environment using the VNet deployed in the preceding steps. Private endpoints are only supported by workload profiles environments, which is the default type for new environments.
+1. Create the Container Apps environment. Private endpoints are only supported by workload profiles environments, which is the default type for new environments.
 
     ```azurecli
     az containerapp env create \
@@ -417,7 +414,7 @@ The administrator password has the following requirements:
 
 ## Clean up resources
 
-If you're not going to continue to use this application, you can remove the **my-container-apps** resource group. This deletes the Azure Container Apps instance and all associated services. It also deletes the resource group that the Container Apps service automatically created and which contains the custom network components.
+If you're not going to continue to use this application, you can remove the **my-container-apps** resource group. This deletes the Azure Container Apps instance and all associated services.
 
 ::: zone pivot="azure-cli"
 

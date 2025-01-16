@@ -39,20 +39,19 @@ You can unsubscribe from the event with the following code:
 ```js
 callTranscriptionFeature.off('isTranscriptionActiveChanged', isTranscriptionActiveChangedHandler);
 ```
-[!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include-document.md)]
 
 ## Explicit Consent
-When your Teams meeting or call is configured to require explicit consent for recording or transcription, you are required to gather explicit consent from your users to allow users to be transcribed or recorded. You can provide consent proactively when joining the meeting or reactively when the recording or transcription starts. Until explicit consent is given, participants' audio, video, and screen sharing will be disabled during transcription.
+When your Teams meeting or call is configured to require explicit consent for recording or transcription, you're required to gather explicit consent from your users to allow users to be transcribed or recorded. You can provide consent proactively when joining the meeting or reactively when the recording or transcription starts. Until explicit consent is given, participants' audio, video, and screen sharing will be disabled during transcription.
 
-You can check if the meeting transcription requires explicit consent by property `isConsentRequired`. If the value is set to `true`, then explicit consent is required for the `call`.
-
-```js
-const isTranscriptionConsentRequired = callTranscriptionFeature.isConsentRequired;
-```
-
-If you have already obtained the user's consent for transcription, you can call the `consentToBeingRecordedAndTranscribed()` method to indicate explicit consent to the service. Note that this consent is valid for one `call` session only and users will need to provide consent again if they rejoin the meeting.
+You can check if the meeting transcription requires explicit consent by property `isTeamsConsentRequired`. If the value is set to `true`, then explicit consent is required for the `call`.
 
 ```js
-callTranscriptionFeature.consentToBeingRecordedAndTranscribed();
+const isTranscriptionConsentRequired = callTranscriptionFeature.isTeamsConsentRequired;
 ```
-Attempts to enable audio, video or screen sharing will fail when transcription is active, explicit consent is required but is not yet given. You can recognize this situation by checking property `reason` of class `ParticipantCapabilities` for [capabilities](../../capabilities.md) `turnVideoOn`, `unmuteMic` and `shareScreen`. You can find those [capabilities](../../capabilities.md) in the feature `call.feature(Features.Capabilities)`. Those [capabilities](../../capabilities.md) would return reason `ExplicitConsentRequired` as users need to provide explicit consent.
+
+If you have already obtained the user's consent for transcription, you can call the `grantTeamsConsent()` method to indicate explicit consent to the service. This consent is valid for one `call` session only and users need to provide consent again if they rejoin the meeting.
+
+```js
+callTranscriptionFeature.grantTeamsConsent();
+```
+Attempts to enable audio, video, or screen sharing fail when transcription is active, explicit consent is required but isn't yet given. You can recognize this situation by checking property `reason` of class `ParticipantCapabilities` for [capabilities](../../capabilities.md) `turnVideoOn`, `unmuteMic` and `shareScreen`. You can find those [capabilities](../../capabilities.md) in the feature `call.feature(Features.Capabilities)`. Those [capabilities](../../capabilities.md) would return reason `ExplicitConsentRequired` as users need to provide explicit consent.

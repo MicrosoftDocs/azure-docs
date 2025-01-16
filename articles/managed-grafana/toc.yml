@@ -5,6 +5,8 @@ items:
   items:
     - name: About Azure Managed Grafana
       href: overview.md
+    - name: Service limits
+      href: known-limitations.md
 - name: Quickstarts
   expanded: true
   items:
@@ -64,6 +66,8 @@ items:
       href: how-to-create-dashboard.md
     - name: Share a dashboard
       href: how-to-share-dashboard.md
+    - name: Use reporting and image rendering
+      href: how-to-use-reporting-and-image-rendering.md
   - name: Alerts and notifications
     expanded: false
     items:
@@ -71,8 +75,6 @@ items:
       href: how-to-use-azure-monitor-alerts.md
     - name: Configure SMTP settings
       href: how-to-smtp-settings.md
-    - name: Use reporting and image rendering
-      href: how-to-use-reporting-and-image-rendering.md
   - name: Networking
     expanded: false
     items:
@@ -92,16 +94,12 @@ items:
     items:
     - name: Use service accounts
       href: how-to-service-accounts.md
-    - name: Create and manage API keys (Deprecated)
-      href: how-to-create-api-keys.md
     - name: Monitor Azure Managed Grafana
       href: how-to-monitor-managed-grafana-workspace.md
   - name: Migrate to Azure Managed Grafana
     href: how-to-migrate.md
   - name: Troubleshoot common issues
     href: troubleshoot-managed-grafana.md
-  - name: Known limitations
-    href: known-limitations.md
 - name: Reference
   items:
   - name: Azure CLI

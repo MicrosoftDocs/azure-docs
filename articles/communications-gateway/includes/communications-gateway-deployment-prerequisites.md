@@ -23,7 +23,6 @@ Service | Numbers for integration testing | Service verification numbers |
 |Teams Phone Mobile | 1 (minimum) | - Production deployments: 6<br/> - Lab deployments: 3 |
 |Microsoft Teams Direct Routing | 1 (minimum) |  None (not applicable) |
 |Zoom Phone Cloud Peering | 1 (minimum) | - US and Canada: 6<br/>- Rest of world: 2 |
-|Azure Operator Call Protection Preview | 1 (minimum) | None (not applicable) |
 
 > [!IMPORTANT]
 > Service verification numbers must be usable throughout the lifetime of your deployment.

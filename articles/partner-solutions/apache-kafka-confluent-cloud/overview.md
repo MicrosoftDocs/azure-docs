@@ -1,8 +1,7 @@
 ---
 title: Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service overview
 description: Learn about using Apache Kafka & Apache Flink on Confluent Cloud in the Azure Marketplace.
-# customerIntent: As a developer I want to understand what is Apache Kafka & Apache Flink on Confluent Cloud available in the Azure Marketplace
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 1/31/2024
 ---
 

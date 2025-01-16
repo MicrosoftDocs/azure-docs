@@ -60,7 +60,7 @@ The table below provides guidance on the usage of parameters when creating ACLs:
 | matchConditions        | Conditions required to be matched                          |                                 |
 | ttlValues              | TTL [Time To Live]                                         | 0-255                           |
 | dscpMarking            | DSCP Markings that need to be matched                      | 0-63                            |
-| fargments              | Specify the IP fragment packets                        | Range: 1-8191<br> Example: [1, 5, 1250-1300, 8000-8191]          |
+| fragments              | Specify the IP fragment packets                        | Range: 1-8191<br> Example: [1, 5, 1250-1300, 8000-8191]          |
 | portCondition          | Port condition that needs to be matched                    |                                 |
 | portType               | Port type that needs to be matched                         | Example: SourcePort             |
 | ports                  | Port number that needs to be matched                       | Range: 0-65535<br> Example: [1, 10, 500, 1025-1050, 64000-65535]                       |

@@ -76,7 +76,7 @@ Each item in **value** represents a details regarding the use of a service:
 |**subscriptionGuid** | Globally unique ID for the subscription. |
 |**startDate** | Date the use started. |
 |**endDate** | Date the use ended. |
-|**useageQuantity** | Quantity used. |
+|**usageQuantity** | Quantity used. |
 |**billableQuantity** | Quantity actually billed. |
 |**pretaxCost** | Cost invoiced, before applicable taxes. |
 |**meterDetails** | Detailed information about the use. |

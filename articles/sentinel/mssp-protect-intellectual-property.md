@@ -69,7 +69,7 @@ To do this, you need a workspace in your own tenant with Microsoft Sentinel enab
 
 To create an analytic rule or hunting query in the MSSP tenant that references data in the customer tenant, you must use the `workspace` statement as follows:
 
-```kql
+```kusto
 workspace('<customer-workspace>').SecurityEvent
 | where EventID == ‘4625’
 ```

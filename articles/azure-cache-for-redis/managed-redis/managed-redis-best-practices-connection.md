@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 11/15/2024
 ---
 
-# Connection resilience with Azure Managed Redis(preview)
+# Connection resilience with Azure Managed Redis (preview)
 
 ## Retry commands
 

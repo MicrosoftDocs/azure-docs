@@ -95,6 +95,8 @@
     items:
     - name: Security baseline
       href: /security/benchmark/azure/baselines/expressroute-security-baseline?toc=/azure/expressroute/TOC.json
+    - name: Roles and permissions
+      href: roles-permissions.md
   - name: BFD over ExpressRoute
     href: expressroute-bfd.md
   - name: QoS requirements

@@ -4,7 +4,6 @@ description: Learn how to access and view Edgio Core Reports via the Manage port
 services: cdn
 author: zhangmanling
 manager: erikre
-ms.assetid: 5a0d9018-8bdb-48ff-84df-23648ebcf763
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024

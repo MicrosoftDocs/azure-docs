@@ -66,7 +66,7 @@ After restarting Airflow, find and run example_trino DAG. Results of the sample 
 :::image type="content" source="./media/trino-airflow/print-result-log.png" alt-text="Screenshot showing how to check results for Airflow Trino DAG." lightbox="./media/trino-airflow/print-result-log.png":::
 
 > [!NOTE]
-> For production scenarios, you should choose to handle connection and secrets diffirently, using Airflow secrets management.
+> For production scenarios, you should choose to handle connection and secrets differently, using Airflow secrets management.
 
 ## Next steps
 This example demonstrates basic steps required to connect Airflow to Trino with HDInsight on AKS. Main steps are obtaining access token and running query.

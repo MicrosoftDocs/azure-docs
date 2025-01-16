@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 * An HDInsight cluster. See [Create Apache Hadoop clusters using the Azure portal](./hdinsight-hadoop-create-linux-clusters-portal.md).
 
 > [!NOTE]
-> Users can no logner set passwords for their SendGrid account, so we need use apikey to send email.
+> Users can no longer set passwords for their SendGrid account, so we need use apikey to send email.
 
 ## Obtain SendGrid apikey
 
