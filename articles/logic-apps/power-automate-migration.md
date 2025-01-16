@@ -25,7 +25,7 @@ Azure Logic Apps (Standard) provides the following benefits by providing capabil
 
 | Benefits | Capabilities |
 |----------|--------------|
-| Enhanced security and compliance | - Virtual network (VNET) integration <br>- Private endpoints <br>- Microsoft Entra ID <br>- Managed identity authentication <br>- Role-based access control (RBAC) <br><br>For more information, see [Security and compliance first](#security-compliance). |
+| Enhanced security and compliance | - Virtual network integration <br>- Private endpoints <br>- Microsoft Entra ID <br>- Managed identity authentication <br>- Role-based access control (RBAC) <br><br>For more information, see [Security and compliance first](#security-compliance). |
 | Improved performance and scalability | - Dedicated compute resources <br>- Elastic scaling <br>- Parallel processing <br>- Low latency <br><br>For more information, see [Performance and scalability](#performance-scalability). |
 | Robust business continuity and disaster recovery (BCDR) capabilities | - Geo-redundancy <br>- Automated backups <br>- High availability with built-in redundancy <br><br>For more information, see [Business continuity and disaster recovery](#business-continuity-disaster-recovery). |
 | Flexible integration and development tools | - 1,400+ connectors for Microsoft, Azure, and other services, systems, apps, and data <br><br>- Browser-based development with Azure portal <br><br>- Local development and testing with Visual Studio Code <br><br>For more information, see [Integration and development](#integration-development). |
@@ -41,7 +41,7 @@ For more detailed capability information and comparisons, see [Compare capabilit
 
 #### Security and compliance first
 
-Enterprises consider security a top priority, so Azure Logic Apps (Standard) provides advanced security features beyond those available in Power Automate, for example:
+Enterprises consider security a top priority, so Azure Logic Apps (Standard) provides security features beyond the capabilities in Power Automate, for example:
 
 - Virtual network integration and private endpoints
 
@@ -79,7 +79,7 @@ Azure Logic Apps (Standard) is designed and built for high performance and scala
 
 - Optimized workflow execution
 
-  By default, workflow instances run in parallel or concurrently, which reduces processing time for complex tasks. Performance optimizations for the Azure Logic Apps platform provides lower latency and faster response times.
+  By default, workflow instances run in parallel or concurrently, which reduces processing time for complex tasks. Performance optimizations for the Azure Logic Apps platform provide lower latency and faster response times.
 
 - High throughput
 
@@ -107,15 +107,15 @@ To make sure that workflow operations run without interruption, Azure Logic Apps
 
 #### Integration and development
 
-Azure Logic Apps excels at helping you integrate your workflows with a expansive range of services, systems, apps, and data and by supporting tools that help speed your development process.
+Azure Logic Apps excels at helping you integrate your workflows with an expansive range of services, systems, apps, and data and by supporting tools that help speed your development process.
 
 - Extensive connector library
 
-  Choose from over 1,400 Azure-hosted connectors to access cloud services, on-premises systems, apps, and other data sources. Connect even more securely to key services such as SQL Server and Azure Key Vault in a more scalable way by using built-in operations, powered by the Azure Logic Apps runtime.
+  Choose from over 1,400 Azure-hosted connectors to access cloud services, on-premises systems, apps, and other data sources. Connect even more securely to key services such as SQL Server and Azure Key Vault and in more scalable ways by using built-in operations powered by the Azure Logic Apps runtime.
 
 - Workflow templates gallery
 
-  Create workflows even faster by starting with prebuilt templates for commonly used workload patterns, including those for AI data processing and chat completion scenarios.
+  Create workflows even faster by starting with prebuilt templates for commonly used workload patterns, including ones that support AI data processing and chat completion scenarios.
 
 - Development tools and reusability 
 
@@ -135,7 +135,7 @@ Azure Logic Apps supports robust version control and automated deployment proces
 
 - CI/CD pipelines for safe deployment practices
 
-  Azure Logic Apps supports automated deployments and integrates with CI/CD tools such as Azure DevOps, which faciliate consistent and less error-prone deployments across environments.
+  Azure Logic Apps supports automated deployments and integrates with CI/CD tools such as Azure DevOps, which facilitate consistent and less error-prone deployments across environments.
 
   Define and deploy your logic app workflows with Azure Resource Manager (ARM) templates or Bicep templates (infrastructure as code) by using Azure DevOps, which provides scalable, repeatable deployments that align with DevOps practices.
 
