@@ -17,7 +17,7 @@ ms.author: cherylmc
 This article helps you configure point-to-site User VPN connection to Virtual WAN that uses Microsoft Entra ID authentication and the new Microsoft-registered Azure VPN Client App ID.
 
 > [!NOTE]
-> The steps in this article apply to Microsoft Entra ID authentication using the new Microsoft-registered Azure VPN Client App ID and associated Audience values. This article doesn't apply to the older, manually registered Azure VPN Client app for your tenant. For the manually registered Azure VPN Client steps, see [Configure P2S using manually registered VPN client](virtual-wan-point-to-site-azure-ad.md).
+> The steps in this article apply to Microsoft Entra ID authentication using the new Microsoft-registered Azure VPN Client App ID and associated Audience values. This article doesn't apply to the older, manually registered Azure VPN Client app for your tenant. For the manually registered Azure VPN Client steps, see [Configure P2S User VPN using manually registered VPN client](virtual-wan-point-to-site-azure-ad.md).
 
 [!INCLUDE [About Microsoft-registered app](../../includes/virtual-wan-entra-app-id-descriptions.md)]
 
@@ -47,6 +47,8 @@ Verify that you've met the following criteria before beginning your configuratio
 * Obtain an IP address range for your hub region. The hub is a virtual network that is created and used by Virtual WAN. The address range that you specify for the hub can't overlap with any of your existing virtual networks that you connect to. It also can't overlap with your address ranges that you connect to on premises. If you're unfamiliar with the IP address ranges located in your on-premises network configuration, coordinate with someone who can provide those details for you.
 
 * You need a Microsoft Entra ID tenant for this configuration. If you don't have one, you can create one by following the instructions in [Create a new tenant](/entra/fundamentals/create-new-tenant).
+
+* If you want to use a custom audience value, see [Create or modify custom audience app ID](point-to-site-entra-register-custom-app.md).
 
 ## <a name="wan"></a>Create a virtual WAN
 
