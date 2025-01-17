@@ -36,7 +36,6 @@ You can set the following ingress template properties:
 
 If your container app has HTTP ingress enabled and you have not set a target port, Azure Container Apps will automatically detect the target port by scanning all listening ports on your container. If there is only one port detected, that port will be set as the target port for your container app. If there is more than 1 port detected, the container app will not automatically set the target port, and you will need to set the target port manually. 
  
-Health probes by default are configured to use the same target port as your container. If the application has health endpoints configured to listen on a secondary port on your app, this may lead to issues with the automatic port detection. Sidecars such as Dapr which expose additional ports may also interfere with automatic port detection.
     - Automatic port detection only works for HTTP traffic, not TCP traffic.
     - If you have HTTP health probes listening on ports 80 or 443, this can interfere with automatic port detection. The default ingress configuration uses TCP health probes. For more information see [health probes](health-probes.md).
 
