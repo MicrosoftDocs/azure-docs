@@ -23,6 +23,7 @@ You can create and manage the Dynatrace resources using the Azure portal through
 
 > [!NOTE]
 > Azure Native Dynatrace Service stores and processes customer data only in the region where the service was deployed. No data is stored outside of that region.
+
 ## Capabilities
 
 Azure Native Dynatrace Service provides the following capabilities:
