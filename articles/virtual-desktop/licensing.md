@@ -4,7 +4,7 @@ description: An overview of licensing Azure Virtual Desktop for internal and ext
 ms.topic: overview
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 01/08/2024
+ms.date: 01/17/2025
 ---
 
 # Licensing Azure Virtual Desktop

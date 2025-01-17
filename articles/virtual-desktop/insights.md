@@ -3,7 +3,7 @@ title: Enable Insights to monitor Azure Virtual Desktop
 description: Learn how to enable Insights to monitor Azure Virtual Desktop and send diagnostic data to a Log Analytics workspace.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 09/12/2023
+ms.date: 01/17/2025
 ms.author: daknappe
 ms.custom: docs_inherited
 ---
@@ -11,9 +11,6 @@ ms.custom: docs_inherited
 # Enable Insights to monitor Azure Virtual Desktop
 
 Azure Virtual Desktop Insights is a dashboard built on Azure Monitor Workbooks that helps IT professionals understand their Azure Virtual Desktop environments. This topic will walk you through how to set up Azure Virtual Desktop Insights to monitor your Azure Virtual Desktop environments.
-
->[!IMPORTANT]
->[The Log Analytics Agent is currently being deprecated](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you use the Log Analytics Agent, you'll eventually need to migrate to the [Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview) by August 31, 2024.
 
 ## Prerequisites
 
@@ -110,9 +107,7 @@ To set up workspace diagnostics using the resource diagnostic settings section i
 
 ### Session host data settings
 
-You can use either the Azure Monitor Agent or the Log Analytics agent to collect information on your Azure Virtual Desktop session hosts. We recommend you use the Azure Monitor Agent as the Log Analytics Agent will be deprecated on August 31st, 2024. Select the relevant tab for your scenario.
-
-# [Azure Monitor Agent](#tab/monitor)
+You use the Azure Monitor Agent to collect information on your Azure Virtual Desktop session hosts.
 
 To collect information on your Azure Virtual Desktop session hosts, you must configure a [Data Collection Rule (DCR)](/azure/azure-monitor/essentials/data-collection-rule-overview) to collect performance data and Windows Event Logs, associate the session hosts with the DCR, install the Azure Monitor Agent on all session hosts in host pools you're collecting data from, and ensure the session hosts are sending data to a Log Analytics workspace. 
 
@@ -154,38 +149,6 @@ To set up your remaining session hosts using the configuration workbook:
 >[!NOTE]
 >For larger host pools (over 1,000 session hosts) or if you encounter deployment issues, we recommend you [install the Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-manage#installation-options) when you create a session host by using an Azure Resource Manager template.
 
-# [Log Analytics agent](#tab/analytics)
-
-To collect information on your Azure Virtual Desktop session hosts, you'll need to install the Log Analytics agent on all session hosts in the host pool, make sure the session hosts are sending to a Log Analytics workspace, and configure your Log Analytics agent settings to collect performance data and Windows Event Logs.
-
-The Log Analytics workspace you send session host data to doesn't have to be the same one you send diagnostic data to. If you have Azure session hosts outside of your Azure Virtual Desktop environment, we recommend having a designated Log Analytics workspace for the Azure Virtual Desktop session hosts. 
-
-To set the Log Analytics workspace where you want to collect session host data: 
-
-1. From the Azure Virtual Desktop overview page, select **Host pools**, then select the pooled host pool you want to monitor.
-
-1. From the host pool overview page, select **Insights (Legacy)**, then select **Open Configuration Workbook**.
-
-1. Select the **Session host data settings** tab in the configuration workbook. 
-
-1. Select the **Log Analytics workspace** you want to send session host data to.
-
-#### Session hosts
-
-You'll need to install the Log Analytics agent on all session hosts in the host pool and send data from those hosts to your selected Log Analytics workspace. If Log Analytics isn't configured for all the session hosts in the host pool, you'll see a **Session hosts** section at the top of **Session host data settings** with the message "Some hosts in the host pool are not sending data to the selected Log Analytics workspace."
-
->[!NOTE]
-> If you don't see the **Session hosts** section or error message, all session hosts are set up correctly. Skip ahead to set up instructions for [Workspace performance counters](#workspace-performance-counters). Currently, automated deployment is limited to 1000 session hosts or fewer.
-
-To set up your remaining session hosts using the configuration workbook:
-
-1. Select **Add hosts to workspace** to deploy the Log Analytics Agent to all the session hosts in the host pool.
-
-1. Once the agent has installed, refresh the configuration workbook.
-
->[!NOTE]
->For larger host pools (> 1000 session hosts), or if there are deployment issues, we recommend you install the Log Analytics agent [when you create the session host](/azure/virtual-machines/extensions/oms-windows#extension-schema) using an Azure Resource Manager template.
-
 #### Workspace performance counters
 
 You'll need to enable specific performance counters to collect performance information from your session hosts and send it to the Log Analytics workspace.
@@ -216,8 +179,6 @@ To set up Windows Event Logs using the configuration workbook:
 
 >[!NOTE]
 >If automatic event deployment fails, select **Open agent configuration** in the configuration workbook to manually add any missing Windows Event Logs.
-
----
 
 ## Optional: configure alerts
 
