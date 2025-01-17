@@ -22,13 +22,13 @@ Existing implementations relied on SMTP Auth and elevated trust relationship bec
 Follow our standard [guide](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365) to understand the general configuration of a "device" that wants to send email via Microsoft 365.
 
 > [!WARNING]
-> SMTP Auth (Basic Auth for Client submission) will be permanently retired by September 2025. We strongly encourage customers to move away from using Basic authentication with SMTP AUTH as soon as possible. See the latest [post](https://techcommunity.microsoft.com/blog/exchange/exchange-online-to-retire-basic-auth-for-client-submission-smtp-auth/4114750) by our Exchange Online team on the matter.
+> SMTP Auth (Basic Auth for Client submission) will be permanently **disabled by September 2025**. We strongly encourage customers to move away from using Basic authentication with SMTP AUTH as soon as possible. See the latest [post](https://techcommunity.microsoft.com/blog/exchange/exchange-online-to-retire-basic-auth-for-client-submission-smtp-auth/4114750) by our Exchange Online team on the matter.
 
 ## Setup considerations
 
 Currently, there are four different options supported by SAP NetWeaver that we want to describe. The first three correlate with the scenarios described in the [Exchange Online documentation](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365).
 
-1.  SMTP Authentication Client Submission (retiring soon!)
+1.  SMTP Authentication Client Submission (**retiring soon!**)
 1.  SMTP Direct Send
 1.  Using Exchange Online SMTP relay connector
 1.  Using SMTP relay server as intermediary to Exchange Online
@@ -40,7 +40,7 @@ We will update this guide when additional SAP-supported options become available
 ## Option 1: SMTP Authentication Client Submission (retiring soon!)
 
 > [!IMPORTANT]
-> We strongly recommend **not** using this option. **SMTP Auth is being retired** and will be disabled by September 2025. Choose any other option below.
+> We strongly recommend **not** using this option. **SMTP Auth is being retired** and will be **disabled by September 2025**. Choose any other option below.
 
 Choose this option when you want to send mail to **people inside and outside** your organization.
 
