@@ -8,6 +8,7 @@ author: duongau
 ms.author: duau
 ms.service: azure-frontdoor
 zone_pivot_groups: front-door-tiers
+#customer intent: As the engineer responsible for my team's Azure Front Door configuration, I want to find the elements of Azure Monitor for the service, including metrics and logs.
 ---
 
 # Azure Front Door monitoring data reference
@@ -62,7 +63,7 @@ The following table provides more detailed descriptions for the metrics.
 | Request Count | The number of client requests served through Azure Front Door, including requests served entirely from the cache. |
 | Request Size | The number of bytes sent in requests from clients to Azure Front Door. |
 | Response Size | The number of bytes sent as responses from Front Door to clients. |
-| Total Latency | Azure Front Door receives the client request and sends the last response byte to the client. This is the total time taken. For WebSocket, this metric refers to the time it takes to establish the WebSocket connection. |
+| Total Latency | Azure Front Door receives the client request and sends the last response byte to the client. This value is the total time taken. For WebSocket, this metric refers to the time it takes to establish the WebSocket connection. |
 | Web Application Firewall Request Count | The number of requests processed by the Azure Front Door web application firewall. |
 
 > [!NOTE]
