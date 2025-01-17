@@ -151,7 +151,7 @@
           - name: Container create
             href: troubleshoot-container-create-failures.md
           - name: Open Container Initiative (OCI)
-            href: troubleshoot-open-container-initiative-failures.md
+            href: troubleshoot-open-container-initiative-errors.md
           - name: Health probe
             href: troubleshoot-health-probe-failures.md
           - name: Image pull
