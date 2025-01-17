@@ -134,11 +134,11 @@ MSIX app attach doesn't limit the number of applications users can use. You shou
 ## Application state
 
 ::: zone pivot="app-attach"
-Application packages are set as **active** or **inactive**. Packages set to active makes the application available to users. Azure Virtual Desktop ignores packages set to **inactive** and aren't added when a user signs-in.
+Application packages are set as **active** or **inactive**. Packages set to active makes the application available to users. Azure Virtual Desktop ignores packages set to **inactive** and aren't added when a user signs in.
 ::: zone-end
 
 ::: zone pivot="msix-app-attach"
-An MSIX package is set as **active** or **inactive**. MSIX packages set to active makes the application available to users. Azure Virtual Desktop ignores packages set to **inactive** and aren't added when a user signs-in.
+An MSIX package is set as **active** or **inactive**. MSIX packages set to active makes the application available to users. Azure Virtual Desktop ignores packages set to **inactive** and aren't added when a user signs in.
 ::: zone-end
 
 ::: zone pivot="app-attach"
