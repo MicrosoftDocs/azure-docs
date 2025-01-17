@@ -12,9 +12,11 @@ ms.reviewer: whhender
 
 # Use file metadata in serverless SQL pool queries
 
-In this article, you learn how to use metadata information about file and folder names in queries. Serverless SQL pool can address multiple files and folders. For more information, see [Query folders and multiple files](query-folders-multiple-csv-files.md).
+In this article, you learn how to query specific files or folders by using metadata. Serverless SQL pool can address multiple files and folders. For more information, see [Query folders and multiple files](query-folders-multiple-csv-files.md).
 
-Sometimes, you might need to know which file or folder source correlates to a specific row in a result set. You can use functions `filepath` and `filename` to return file names and/or the path in the result set, or you can use them to filter data based on the file name and/or folder path. These functions are described in the syntax section [filename function](query-data-storage.md#filename-function) and [filepath function](query-data-storage.md#filepath-function). The following sections provide short descriptions and code samples.
+Sometimes, you might need to know which file or folder source correlates to a specific row in a result set. You can use the functions `filepath` and `filename` to return file names and/or the path in the result set, or you can use them to filter data based on the file name or folder path. These functions are described in [filename function](query-data-storage.md#filename-function) and [filepath function](query-data-storage.md#filepath-function).
+
+The following sections provide short descriptions and code samples.
 
 ## Prerequisites
 

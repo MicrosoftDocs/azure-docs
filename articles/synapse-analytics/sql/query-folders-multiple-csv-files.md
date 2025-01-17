@@ -80,7 +80,7 @@ ORDER BY payment_type;
 
 ### Read subset of files in folder using multiple file paths
 
-The following example reads the 2017 NYC Yellow Taxi data files from the *csv/taxi* folder using two file paths. The first uses the full path to the file containing data from the month of January, and the second uses a wildcard to read the months *November* and *December*. For each path, the total fare amount per payment type is returned.
+The following example reads the 2017 NYC Yellow Taxi data files from the *csv/taxi* folder using two file paths. The first uses the full path to the file containing data from the month of January, and the second uses a wildcard to read the months *October*, *November*, and *December*. For each path, the total fare amount per payment type is returned.
 
 ```sql
 SELECT 
