@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article describes the fields in the usage data files.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/08/2024
+ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -147,7 +147,7 @@ Microsoft Customer Agreement (MCA) customers can use the following information t
 
 1. Manually calculate the `CostInPricingCurrency` by: `(EffectivePrice)` * `(Quantity)`
 
-1. Convert the calculated `CostInPricingCurrency` to the `CostInBillingCurrency` by: `(CalculatedCostinPricingCurrency)` * `(ExchangeRatePricingToBilling)`
+1. Convert the calculated `CostInPricingCurrency` to the `CostInBillingCurrency` by: `(CalculatedCostInPricingCurrency)` * `(ExchangeRatePricingToBilling)`
 
 1. Summarize the values that you calculated for `CostInBillingCurrency` and compare them to the invoice.
 

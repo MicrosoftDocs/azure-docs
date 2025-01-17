@@ -98,15 +98,16 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Azure Red Hat OpenShift                              |
 > | Azure Remote Rendering                               |
 > | Azure SignalR Service                                |
-> | Azure Spatial Anchors                                |
 > | Azure Spring Apps                                    |
 > | Azure Storage: Archive Storage                       |
+> | Azure Storage: Azure File Sync                       |
 > | Azure Synapse Analytics                              |
 > | Azure Ultra Disk Storage                             |
 > | Azure VMware Solution                                |
 > | Microsoft Azure Attestation                          |
 > | Microsoft Purview                                    |
 > | SQL Server Stretch Database                          |
+> | Virtual Machines: Bsv2-series                        |
 > | Virtual Machines: Dasv5 and Dadsv5-series            |
 > | Virtual Machines: DAv4 and DASv4-series              |
 > | Virtual Machines: DCsv2-series                       |

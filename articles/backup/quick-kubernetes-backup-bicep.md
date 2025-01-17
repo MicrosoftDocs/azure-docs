@@ -4,7 +4,7 @@ description: Learn how to quickly configure backup for a Kubernetes cluster usin
 ms.service: azure-backup
 ms.topic: quickstart
 ms.date: 05/31/2024
-ms.custom: devx-track-terraform, devx-track-extended-azdevcli
+ms.custom: devx-track-terraform, devx-track-extended-azdevcli, ignite-2024
 ms.reviewer: rajats
 ms.author: v-abhmallick
 author: AbhishekMallick-MS
@@ -13,6 +13,7 @@ author: AbhishekMallick-MS
 # Quickstart: Configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using Azure Bicep
 
 This quickstart describes how to configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using Azure Bicep.
+
 
 Azure Backup for AKS is a cloud-native, enterprise-ready, application-centric backup service that lets you quickly configure backup for AKS clusters.[Azure Backup](backup-azure-mysql-flexible-server-about.md) allows you to back up your AKS clusters using multiple options - such as Azure portal, PowerShell, CLI, Azure Resource Manager, Bicep, and so on. This quickstart describes how to back up an AKS clusters with a Bicep template and Azure PowerShell. For more information on developing Bicep templates, see the [Bicep documentation](../azure-resource-manager/bicep/deploy-cli.md).
 

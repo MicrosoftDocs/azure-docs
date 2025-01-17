@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article shows you how to use VMware Tanzu Service Registry with the Azure Spring Apps Enterprise plan.
 
@@ -493,4 +493,4 @@ az spring service-registry delete \
 
 ## Next steps
 
-- [Create Roles and Permissions](./how-to-permissions.md)
+- [Create Roles and Permissions](../basic-standard/how-to-permissions.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)

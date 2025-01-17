@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: This article describes how to use the pie chart layer in an Azure Maps Power BI visual.
 author: deniseatmicrosoft
 ms.author: limingchen
-ms.date: 07/17/2023
+ms.date: 01/17/2025
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: power-bi-visual

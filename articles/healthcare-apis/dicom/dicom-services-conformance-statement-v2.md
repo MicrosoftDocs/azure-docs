@@ -46,7 +46,7 @@ This version of the conformance statement corresponds to the `v2` version of the
 
 For more information on how to specify the version when making requests, see the [API Versioning Documentation](api-versioning-dicom-service.md).
 
-You can find example requests for supported transactions in the [Postman collection](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json).
+You can find example requests for supported transactions in the Postman collection.
 
 ## Preamble Sanitization
 
@@ -124,7 +124,7 @@ If an attribute is padded with nulls, the attribute is indexed when searchable a
 | `500 (Internal Server Error)`  | The server encountered an unknown internal error. Try again later.                                                                                                                                                 |
 | `503 (Service Unavailable)`    | The service is unavailable or busy. Try again later.                                                                                                                                                               |
 
-### Store response paylo
+### Store response payload
 
 The response payload populates a DICOM dataset with the following elements:
 

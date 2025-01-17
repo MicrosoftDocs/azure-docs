@@ -10,7 +10,7 @@ ms.author: cherylmc
 
 ---
 
-# Configure Bastion session recording (Preview)
+# Configure Bastion session recording
 
 This article helps you configure Bastion session recording. [!INCLUDE [Session recording](../../includes/bastion-session-recording-description.md)]
 
@@ -22,8 +22,11 @@ The following sections outline considerations, limitations, and prerequisites fo
 
 * The Premium SKU is required for this feature.
 * Session recording isn't available via native client at this time.
+* Immutabale storage policies must not be present
 * Session recording supports one container/storage account at a time.
-* When session recording is enabled on a bastion host, Bastion records ALL sessions that go through the recording-enabled bastion host.
+* Changing storage containers while a session is active may cause disruptions to the session.
+* Blob versioning on the recordings must not be present
+* When session recording is enabled on a Bastion deployment, Bastion records ALL sessions that go through the recording-enabled bastion host.
 
 **Prerequisites**
 

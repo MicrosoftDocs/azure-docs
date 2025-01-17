@@ -62,7 +62,7 @@ When adding a **service principal** use `app:appid@tenantid`.
 
 To add roles and users to a deployed model database, you must be connected to the server as a Server administrator or already in a database role with administrator permissions.
 
-1. In Object Exporer, right-click **Roles** > **New Role**.
+1. In Object Explorer, right-click **Roles** > **New Role**.
 
 2. In **Create Role**, enter a role name and description.
 

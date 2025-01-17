@@ -89,8 +89,6 @@ In this step, you create two virtual networks to become members of a network gro
     | **Starting address** | Enter **10.0.1.0**. |
     | **Size** | Enter **/24 (256 addresses)**. |
 
-    :::image type="content" source="media/how-to-deploy-user-defined-routes/edit-subnet.png" alt-text="Screenshot of subnet settings in Azure portal.":::
-
 1. Select **Save** then **Review + create > Create**.
 
 1. Return to home and repeat the preceding steps to create another virtual network with the following information:
@@ -148,9 +146,6 @@ In this step, you create a network group containing your virtual networks using 
     :::image type="content" source="media/how-to-deploy-user-defined-routes/create-azure-policy.png" alt-text="Screenshot of create Azure Policy window defining a conditional statement for network group membership.":::
         ```
 1. Select **Preview Resources** to see the resources included in the network group, and select **Close**.
-   
-   :::image type="content" source="media/how-to-deploy-user-defined-routes/azure-policy-preview-resources.png" alt-text="Screenshot of preview screen for Azure Policy resources based on conditional statement.":::
-
 1. Select **Save** to create the policy.
    
 ## Create a routing configuration and rule collection
@@ -181,8 +176,6 @@ In this step, you define the UDRs for the network group by creating a routing co
     | **Enable BGP route propagation** | Leave **unchecked**. |
     | **Target network groups** | select **network-group**. |
 
-    :::image type="content" source="media/how-to-deploy-user-defined-routes/add-rule-collection.png" alt-text="Screenshot of Add a rule collection window with target network group selected.":::
-
 1. Under **Routing rules**, select **+ add**.
 
 1. In **Add a routing rule**, enter, or select the following information:
@@ -196,8 +189,6 @@ In this step, you define the UDRs for the network group by creating a routing co
     | **Next hop** | |
     | **Next hop type** | Select **Virtual network**. |
 
-    :::image type="content" source="media/how-to-deploy-user-defined-routes/add-routing-rule-virtual-network.png" alt-text="Screenshot of Add a routing rule window with selections for virtual network next hop.":::
-
 1. Select **Add** and **Add to save the routing rule collection.
 
 1. Select **Review + create** and then **Create** to create the routing configuration.
@@ -207,9 +198,6 @@ In this step, you define the UDRs for the network group by creating a routing co
 In this step, you deploy the routing configuration to create the UDRs for the network group.
 
 1. On the **Configurations** page, select the checkbox for **routing-configuration** and choose **Deploy** from the taskbar.
-   
-   :::image type="content" source="media/how-to-deploy-user-defined-routes/deploy-routing-configuration.png" alt-text="Screenshot of routing configurations with configuration selected and deploy link.":::
-
 1. In **Deploy a configuration** , select, or enter the **routing-configuration**
    
    | Setting | Value |

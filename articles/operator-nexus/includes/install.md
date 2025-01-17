@@ -208,7 +208,7 @@ spec:
                       az_logout(logger)
 
                   logger.info(
-                      f'Connected machine "{hostname}" extenstion "{extension_name}" provisioningState is "{provisioning_state}"'
+                      f'Connected machine "{hostname}" extension "{extension_name}" provisioningState is "{provisioning_state}"'
                   )
 
                   return provisioning_state
@@ -322,7 +322,7 @@ spec:
 
 
               def ama_installation(logger, ama_config):
-                  logger.info("Executing AMA extenstion installation...")
+                  logger.info("Executing AMA extension installation...")
                   telemetry_common.az_cli_cm_ext_install(logger, ama_config)
 
                   # Get connected machine properties

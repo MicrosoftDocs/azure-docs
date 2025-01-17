@@ -59,7 +59,7 @@ CriblUIAccess_CL
 
 Installation and setup instructions for Cribl Stream for Microsoft Sentinel
 
-Use the documentation from this Github repository and configure Cribl Stream using 
+Use the documentation from this GitHub repository and configure Cribl Stream using 
 
 https://docs.cribl.io/stream/usecase-azure-workspace/
 

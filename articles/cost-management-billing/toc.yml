@@ -19,6 +19,8 @@
     href: understand/review-partner-agreement-bill.md
 - name: Concepts
   items:
+  - name: What is a cloud subscription
+    href: manage/cloud-subscription.md
   - name: Individual subscription usage terms
     href: understand/understand-usage.md
   - name: Individual subscription invoice terms
@@ -171,6 +173,8 @@
         href: manage/programmatically-create-subscription-enterprise-agreement.md
       - name: Create MCA subscriptions programmatically
         href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
+      - name: Create MCA subscriptions programmatically across associated tenants
+        href: manage/programmatically-create-customer-agreement-associated-billing-tenants.md
       - name: Create MCA subscriptions programmatically across tenants
         href: manage/programmatically-create-subscription-microsoft-customer-agreement-across-tenants.md
       - name: Create MPA subscriptions programmatically

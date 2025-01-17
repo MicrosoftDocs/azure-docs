@@ -4,7 +4,7 @@ metadata:
   description: "Get answers to common questions about Azure VMware Solution."
   ms.topic: faq
   ms.service: azure-vmware
-  ms.date:  8/20/2024
+  ms.date:  1/16/2025
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
 
@@ -134,13 +134,13 @@ sections:
       - question: Is VMware NSX required in on-premises environments or networks that connect to a private cloud?
         answer: No, you aren't required to use VMware NSX on-premises. VMware HCX provides the necessary connectivity between on-premises vSphere and Azure VMware Solution.
 
-      - question: Is NSX Identity Firewall and distributed IDS/IPS supported with Azure VMware Solution?
-        answer: Yes with an add-on license. Azure VMware Solution supports distributed IDFW and distributed IDS/IPS with add-on firewall license. This add-on license needs to be bought from VMware and Microsoft will apply that license to the Azure VMware Solution private cloud with a support request.
+      - question: Does Azure VMware Solution support VMware vDefend with Advanced Threat Protection (ATP)?
+        answer: Azure VMware Solution will support VMware vDefend Firewall with the Advanced Threat Prevention (ATP) add-on via a BYOL model. Customers must purchase the Advanced Threat Protection (ATP) license from Broadcom. Microsoft will apply the license to the Azure VMware Solution private cloud with a support request. On Azure VMware Solution, this license only supports NSX Distributed IDS/IPS functionality and does not cover other features listed by Broadcom. 
 
-      - question: Is NSX Service Insertion supported with Azure VMware Solution?
+      - question: Is VMware NSX Service Insertion supported with Azure VMware Solution?
         answer: No.
         
-      - question: Is VMware Horizon 8 2012 compatible with Azure VMware Solution?
+      - question: Is Omnissa Horizon 8 2012 compatible with Azure VMware Solution?
         answer: Yes.
 
 
@@ -275,8 +275,8 @@ sections:
   - name: Hosts, clusters, and private clouds
     questions:
 
-      - question: Is there more than one type of host available?
-        answer:  No. There's only one type available.
+      - question: Is there more than one type of host available per private cloud? Is it possible to combine different host types in a cluster or private cloud?
+        answer:  With the exception of AV64 cluster requiring a separate 3-node cluster minimum of AV36, AV36P, or AV52, you cannot combine different host types in a private cloud. In all scenarios, clusters require the same host type. Multiple clusters can be deployed within a single private cloud. All hosts must be the same type within a private cloud. If different host types are required to meet use case needs, additional private clouds must be deployed.
 
       - question: Do I use the same tools that I use now to manage private cloud resources?
         answer: Yes. The Azure portal is used for deployment and several management operations. vCenter Server and NSX Manager are used to manage vSphere and NSX resources.
