@@ -162,8 +162,6 @@
         href: billing.md
       - name: Price comparison between tiers
         href: understanding-pricing.md
-      - name: Logs and metrics
-        href: front-door-diagnostics.md?pivots=front-door-standard-premium
       - name: Best practices
         href: best-practices.md
       - name: Scenarios
@@ -336,8 +334,6 @@
         items:
         - name: Configure diagnostic logs
           href: standard-premium/how-to-logs.md
-        - name: Access metrics and create alerts
-          href: standard-premium/how-to-monitor-metrics.md
         - name: View Front Door reports
           href: standard-premium/how-to-reports.md
       - name: Integrations
@@ -374,8 +370,6 @@
         href: front-door-tutorial-rules-engine.md
       - name: Configure HTTP to HTTPS redirect
         href: front-door-how-to-redirect-https.md
-      - name: Configure classic diagnostics
-        href: front-door-diagnostics.md
     - name: Secure with Web Application Firewall
       items:
       - name: Configure a security policy

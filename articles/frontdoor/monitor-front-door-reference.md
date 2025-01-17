@@ -20,6 +20,12 @@ See [Monitor Azure Front Door](monitor-front-door.md) for details on the data yo
 
 ::: zone pivot="front-door-classic"
 
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
 ### Supported metrics for Microsoft.Network/frontdoors
 
 The following table lists the metrics available for the Microsoft.Network/frontdoors resource type.
@@ -39,6 +45,28 @@ The following table lists the metrics available for the Microsoft.Cdn/profiles r
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 
 [!INCLUDE [Microsoft.Cdn/profiles](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-cdn-profiles-metrics-include.md)]
+
+> [!NOTE]
+> The metrics are recorded and stored free of charge for a limited period of time. For an extra cost, you can store for a longer period of time.
+
+The following table provides more detailed descriptions for the metrics. 
+
+| Metrics | Description |
+|:--|:--|
+| Byte Hit Ratio | The percentage of traffic that was served from the Azure Front Door cache, computed against the total egress traffic. The byte hit ratio is  low if most of the traffic is forwarded to the origin rather than served from the cache. <br/><br/> **Byte Hit Ratio** = (egress from edge - egress from origin)/egress from edge. <br/><br/> Scenarios excluded from bytes hit ratio calculations:<ul><li>You explicitly disable caching, either through the Rules Engine or query string caching behavior.</li><li>You explicitly configure a `Cache-Control` directive with the `no-store` or `private` cache directives.</li></ul> |
+| Origin Health Percentage | The percentage of successful health probes sent from Azure Front Door to origins. |
+| Origin Latency | Azure Front Door calculates the time from sending the request to the origin to receiving the last response byte from the origin. WebSocket is excluded from the origin latency.|
+| Origin Request Count | The number of requests sent from Azure Front Door to origins. |
+| Percentage of 4XX | The percentage of all the client requests for which the response status code is 4XX. |
+| Percentage of 5XX | The percentage of all the client requests for which the response status code is 5XX. |
+| Request Count | The number of client requests served through Azure Front Door, including requests served entirely from the cache. |
+| Request Size | The number of bytes sent in requests from clients to Azure Front Door. |
+| Response Size | The number of bytes sent as responses from Front Door to clients. |
+| Total Latency | Azure Front Door receives the client request and sends the last response byte to the client. This is the total time taken. For WebSocket, this metric refers to the time it takes to establish the WebSocket connection. |
+| Web Application Firewall Request Count | The number of requests processed by the Azure Front Door web application firewall. |
+
+> [!NOTE]
+> If a request to the origin times out, the value of the *Http Status* dimension is **0**.
 
 ::: zone-end
 
