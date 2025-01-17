@@ -22,7 +22,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Cause**: No partition column name is provided, and it couldn't be decided automatically.
 
-## Error code: 23705
+## <a name="error-code-azurepostgresqlnpgsqldatatypenotsupported"></a> Error code: 23705 - AzurePostgreSqlNpgsqlDataTypeNotSupported
 
 - **Message**: `The data type of the chosen Partition Column, '%partitionColumn;', is '%dataType;' and this data type is not supported for partitioning.`
 
