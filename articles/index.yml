@@ -1158,13 +1158,6 @@ productDirectory:
         - mobile
       url: /appcenter/
     # Card
-    - title: Xamarin
-      summary: Create cloud-powered mobile apps faster
-      imageSrc: /media/logos/logo_xamarin.svg
-      azureCategories:
-        - mobile
-      url: /xamarin/
-    # Card
     - title: Application Gateway
       summary: Build secure, scalable, and highly available web front ends in Azure
       imageSrc: ./media/index/application-gateways.svg
