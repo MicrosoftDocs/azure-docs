@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot bare metal machine issues using the `az networkcloud baremetalmachine run-read-command` for Operator Nexus
 description: Step by step guide on using the `az networkcloud baremetalmachine run-read-command` to run diagnostic commands on a BMM.
-author: matternst7258
-ms.author: matthewernst
+author: eak13
+ms.author: ekarandjeff
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 10/24/2024
+ms.date: 1/17/2025
 ms.custom: template-how-to
 ---
 
@@ -22,23 +22,7 @@ The command produces an output file containing the results of the run-read comma
 1. Ensure that the target BMM must have its `poweredState` set to `On` and have its `readyState` set to `True`
 1. Get the Managed Resource group name (cluster_MRG) that you created for `Cluster` resource
 
-## Verify access to the Cluster Manager storage account
-
-> [!NOTE]
-> The Cluster Manager storage account output method will be deprecated in the future once Cluster on-boarding to Trusted Services is complete and the user managed storage option is fully supported.
-
-If using the Cluster Manager storage method, verify you have access to the Cluster Manager's storage account:
-
-1. From Azure portal, navigate to Cluster Manager's Storage account.
-1. In the Storage account details, select **Storage browser** from the navigation menu on the left side.
-1. In the Storage browser details, select on **Blob containers**.
-1. If you encounter a `403 This request is not authorized to perform this operation.` while accessing the storage account, storage account’s firewall settings need to be updated to include the public IP address.
-1. Request access by creating a support ticket via Portal on the Cluster Manager resource. Provide the public IP address that requires access.
-
-## **PREVIEW:** Send command output to a user specified storage account
-
-> [!IMPORTANT]
-> Please note that this method of specifying a user storage account for command output is in preview. **This method should only be used with user storage accounts that do not have firewall enabled.** If your environment requires the storage account firewall be enabled, use the existing Cluster Manager output method.
+## Send command output to a user specified storage account
 
 ### Create and configure storage resources
 
@@ -156,6 +140,19 @@ User-assigned identity example:
     },
 ```
 
+## DEPRECATED METHOD: Verify access to the Cluster Manager storage account
+
+> [!IMPORTANT]
+> The Cluster Manager storage account is targeted for removal in April 2025 at the latest. If you're using this method today for command output, consider converting to using a user provided storage account.
+
+If using the Cluster Manager storage method, verify you have access to the Cluster Manager's storage account:
+
+1. From Azure portal, navigate to Cluster Manager's Storage account.
+1. In the Storage account details, select **Storage browser** from the navigation menu on the left side.
+1. In the Storage browser details, select on **Blob containers**.
+1. If you encounter a `403 This request is not authorized to perform this operation.` while accessing the storage account, storage account’s firewall settings need to be updated to include the public IP address.
+1. Request access by creating a support ticket via Portal on the Cluster Manager resource. Provide the public IP address that requires access.
+
 ## Execute a run-read command
 
 The run-read command lets you run a command on the BMM that doesn't change anything. Some commands have more
@@ -174,7 +171,7 @@ An example of run-read commands that require specific arguments is the allowed M
 which requires the `query` argument be provided to enforce read-only.
 
 > [!WARNING]
-> Microsoft does not provide or support any Operator Nexus API calls that expect plaintext username and/or password to be supplied. Please note any values sent will be logged and are considered exposed secrets, which should be rotated and revoked. The Microsoft documented method for securely using secrets is to store them in an Azure Key Vault, if you have specific questions or concerns please submit a request via the Azure Portal.
+> Microsoft doesn't provide or support any Operator Nexus API calls that expect plaintext username and/or password to be supplied. Note any values sent are logged and are considered exposed secrets, which should be rotated and revoked. The Microsoft documented method for securely using secrets is to store them in an Azure Key Vault. If you have specific questions or concerns, submit a request via the Azure portal.
 
 This list shows the commands you can use. Commands in `*italics*` can't have `arguments`; the rest can.
 
@@ -363,7 +360,7 @@ This command runs synchronously. If you wish to skip waiting for the command to 
 When an optional argument `--output-directory` is provided, the output result is downloaded and extracted to the local directory.
 
 > [!WARNING]
-> Using the `--output-directory` argument will overwrite any files in the local directory that have the same name as the new files being created.
+> Using the `--output-directory` argument overwrites any files in the local directory that have the same name as the new files being created.
 
 ### This example executes a 'kubectl get pods'
 
