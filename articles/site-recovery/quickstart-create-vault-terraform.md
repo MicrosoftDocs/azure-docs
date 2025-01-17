@@ -43,16 +43,16 @@ An Azure Recovery Services vault is a storage entity in Azure that houses data s
 1. Create a directory in which to test and run the sample Terraform code, and make it the current directory.
 
 1. Create a file named `main.tf`, and insert the following code:
-:::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-recovery-services/main.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-recovery-services/main.tf":::
 
 1. Create a file named `outputs.tf`, and insert the following code:
-:::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-recovery-services/outputs.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-recovery-services/outputs.tf":::
 
 1. Create a file named `providers.tf`, and insert the following code:
-:::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-recovery-services/providers.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-recovery-services/providers.tf":::
 
 1. Create a file named `variables.tf`, and insert the following code:
-:::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-recovery-services/variables.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-recovery-services/variables.tf":::
 
 ## Initialize Terraform
 
