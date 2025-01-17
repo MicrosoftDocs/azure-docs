@@ -529,20 +529,20 @@ For more information about SNC, see [Getting started with SAP SNC for RFC integr
 
 1. Add an SAP managed connector operation or edit the connection for an existing operation.
 
-1. In the SAP connection information box, provide the [required information](/connectors/sap/#default-connection), based on the **Authentication Type** that you select.
+1. In the SAP connection information box, provide the [required information](/connectors/sap/#creating-a-connection).
 
    > [!NOTE]
    >
+   > For **Authentication Type**, **Basic** is currently the only available option. 
    > The **SAP Username** and **SAP Password** fields are optional. If you don't provide a username 
    > and password, the connector uses the client certificate provided in a later step for authentication.
 
    :::image type="content" source="media/sap/sap-connection.png" alt-text="Screenshot shows SAP connection parameters in Consumption workflows.":::
 
-1. To enable SNC, in the SAP connection information box, provide the following required information instead:
+1. To enable SNC, in the SAP connection information box, select **Use SNC**, and provide the corresponding [required information](/connectors/sap/#creating-a-connection):
 
    | Parameter | Description |
    |-----------|-------------|
-   | **Use SNC** | Select this option. |
    | **SNC Library** | Enter one of the following values: <br><br>- The name for your SNC library, for example, **sapsnc.dll** <br>- The relative path to the NCo installation location, for example, **.\security\sapsnc.dll** <br>- The absolute path to the NCo installation location, for example, **c:\security\sapsnc.dll** |
    | **SNC SSO** | Select either **Logon using the SNC identity** or **Logon with the username/password provided on RFC level**. <br><br>Typically, the SNC identity is used to authenticate the caller. You can choose to authenticate with a username and password instead, but this parameter value is still encrypted. |
    | **SNC My Name** | In most cases, you can omit this value. The installed SNC solution usually knows its own SNC name. In the case where your solution supports multiple identities, you might have to specify the identity to use for this particular destination or server. |
