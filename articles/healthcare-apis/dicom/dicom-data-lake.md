@@ -61,7 +61,7 @@ Using the data lake, users can manage their storage costs efficiently by moving 
 
 Users can add a lifecycle policy that automatically moves files to the Cool or Cold tier after a certain number of days. If a file is accessed after being moved, the policy can bring it back to the Hot tier. To implement this policy, users need to enable access tracking, which allows the Azure to monitor and respond to file access patterns.
 
-:::image type="content" source="media/data-lake-storage-tier.png" alt-text="Efficiently manage data lake storage using Life cycle management policies." lightbox="media/data-lake-storage-tier.png":::
+:::image type="content" source="media/data-lake-storage-tier.png" alt-text="Screenshot showing how to efficiently manage data lake storage using Life cycle management policies." lightbox="media/data-lake-storage-tier.png":::
 
 To learn more about access tiers, including cost tradeoffs and best practices, see [Azure Storage access tiers](/azure/storage/blobs/access-tiers-overview)
 
