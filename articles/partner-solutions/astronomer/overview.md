@@ -24,16 +24,11 @@ Here are the key capabilities provided by the Astro integration:
 - **Single-Sign on to Astro** - No separate sign-up needed from the Astronomer portal.
 - **Manage all Astro resources** from the Azure portal, and track them in the **All resources** page with your other Azure resources.
 
-## Prerequisites for Apache Airflow on Astro
+## Subscribe to New Relic
 
-- An Azure account. If you don't have an active Azure subscription, [create a free account](https://azure.microsoft.com/free/).
-- Only users with _Owner_ or _Contributor_ access on the Azure subscription can set up the Azure integration. Ensure you have the appropriate access before starting the setup for this integration.
+[!INCLUDE [subscribe](../includes/subscribe.md)] *Apache Airflow on Astro*.
 
-## Find Apache Airflow on Astro
-
-From [Azure Marketplace](https://azuremarketplace.microsoft.com/), search for *Apache Airflow on Astro - An Azure Native ISV Service*. Once you subscribe, you're directed to the [Create a Neon Serverless Postgres resource](create.md#create-a-neon-serverless-postgres-resource) pane.
-
-You can also find Astro in the [Azure portal](https://portal.azure.com/).
+[!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
 
 ## Next steps
 
