@@ -14,11 +14,11 @@ ms.subservice: power-bi-visual
 
 The **Bubble layer** renders location data as scaled circles on the map.
 
-:::image type="content" source="./media/power-bi-visual/bubble-layer-no-legend.png" lightbox="./media/power-bi-visual/bubble-layer-no-legend.png"alt-text="A map displaying point data using the bubble layer":::
+:::image type="content" source="./media/power-bi-visual/bubble-layer-no-legend.png" lightbox="./media/power-bi-visual/bubble-layer-no-legend.png"alt-text="A map displaying point data using the bubble layer, all bubbles are blue.":::
 
 Initially all bubbles have the same fill color. If a field is passed into the **Legend** bucket of the **Fields** pane, the bubbles are colored based on their categorization.
 
-:::image type="content" source="./media/power-bi-visual/bubble-layer-with-legend-color.png" lightbox="./media/power-bi-visual/bubble-layer-with-legend-color.png"alt-text="A map displaying point data using the bubble layer":::
+:::image type="content" source="./media/power-bi-visual/bubble-layer-with-legend-color.png" lightbox="./media/power-bi-visual/bubble-layer-with-legend-color.png"alt-text="A map displaying point data using the bubble layer, the bubbles are colored based on their categorization with a legend showing what color is associated with which business.":::
 
 The outline of the bubbles is white be default but can be changed to a new color or by enabling the high-contrast outline option. The **High-contrast outline** option dynamically assigns an outline color that is a high-contrast variant of the fill color. This helps to ensure the bubbles are clearly visible regardless of the style of the map. The following are the primary settings in the **Format** pane that are available in the **Bubble layer** section.
 
