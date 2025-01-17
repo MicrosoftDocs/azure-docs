@@ -33,7 +33,7 @@ This Azure Database for PostgreSQL connector is supported for the following capa
 The three activities work on Azure Database for PostgreSQL  [Single Server](/azure/postgresql/single-server/) and [Flexible Server](/azure/postgresql/flexible-server/), as well as [Azure Cosmos DB for PostgreSQL](/azure/postgresql/hyperscale/).
 
 >[!NOTE]
->When utilizing Azure Database for PostgreSQL flexible Server or Azure Cosmos DB for PostgreSQL, please ensure to apply [driver version 2.0](#driver-version-20) in the connector. If you are currently using driver version 1.0, please [upgrade the connector](#upgrade-the-azure-database-for-postgresql-connector).
+>When utilizing Azure Database for PostgreSQL Flexible Server or Azure Cosmos DB for PostgreSQL, please ensure to apply [version 2.0](#version-20) in the connector. If you are currently using driver version 1.0, please [upgrade the connector](#upgrade-the-azure-database-for-postgresql-connector).
 
 ## Getting started
 
@@ -69,12 +69,12 @@ The following sections offer details about properties that are used to define Da
 
 The Azure Database for PostgreSQL connector driver version **2.0** supports TLS 1.3. Refer to this [section](#upgrade-the-azure-database-for-postgresql-connector) to upgrade your Azure SQL Database connector version from driver version 1.0. For the property details, see the corresponding sections.
 
-- [Driver version 2.0](#driver-version-20)
-- [Driver version 1.0](#driver-version-10)
+- [Version 2.0](#driver-version-20)
+- [Version 1.0](#driver-version-10)
 
-### Driver version 2.0
+### Version 2.0
 
-The following properties are supported for the Azure Database for PostgreSQL linked service when you apply driver version 2.0:
+The following properties are supported for the Azure Database for PostgreSQL linked service when you apply version 2.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -460,7 +460,7 @@ For more information about the properties, see [Lookup activity](control-flow-lo
 
 ## Upgrade the Azure Database for PostgreSQL connector
 
-In **Edit linked service** page, select **2.0** under **Driver version** and configure the linked service by referring to [Linked service properties driver version 2.0](#driver-version-20).
+In **Edit linked service** page, select **2.0** under **Version** and configure the linked service by referring to [Linked service properties version 2.0](#version-20).
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
