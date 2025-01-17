@@ -24,7 +24,7 @@ Here are the key capabilities provided by the Astro integration:
 - **Single-Sign on to Astro** - No separate sign-up needed from the Astronomer portal.
 - **Manage all Astro resources** from the Azure portal, and track them in the **All resources** page with your other Azure resources.
 
-## Subscribe to New Relic
+## Subscribe to Apache Airflow on Astro
 
 [!INCLUDE [subscribe](../includes/subscribe.md)] *Apache Airflow on Astro*.
 
