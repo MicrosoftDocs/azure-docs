@@ -143,7 +143,23 @@
         - name: With a job
           href: tutorial-event-driven-jobs.md
     - name: Troubleshooting
-      href: troubleshooting.md
+      items:
+        - name: Overview
+          href: troubleshooting.md
+        - name: Errors and failures
+          items:
+          - name: Container create failures
+            href: troubleshoot-container-create-failures.md
+          - name: Container start failures
+            href: troubleshoot-container-start-failures.md
+          - name: Health probe failures
+            href: troubleshoot-health-probe-failures.md
+          - name: Image pull
+            href: troubleshoot-image-pull-failures.md
+          - name: Storage mount
+            href: troubleshoot-storage-mount-failures.md
+          - name: Target port
+            href: troubleshoot-target-port-failures.md
     - name: Reliability in Azure Container Apps
       href: ../reliability/reliability-azure-container-apps.md?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
 - name: Observability
