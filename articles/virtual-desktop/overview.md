@@ -53,7 +53,7 @@ With Azure Virtual Desktop, you can set up a scalable and flexible environment:
 
 You can deploy and manage virtual desktops and applications:
 
-- Use the Azure portal, Azure CLI, PowerShell and REST API to create and configure host pools, application groups, workspaces, assign users, and publish resources.
+- Use the Azure portal, Azure CLI, Azure PowerShell, and REST API to create and configure host pools, application groups, workspaces, assign users, and publish resources.
 
 - Publish a full desktop or individual applications from a single host pool, create individual application groups for different sets of users, or even assign users to multiple application groups to reduce the number of images.
 
