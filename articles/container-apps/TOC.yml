@@ -294,12 +294,8 @@
   items:
     - name: Architecture overview
       href: networking.md
-    - name: Environments
-      items:
-        - name: Deploy with an external environment
-          href: vnet-custom.md
-        - name: Deploy with an internal environment
-          href: vnet-custom-internal.md
+    - name: Use a custom virtual network
+      href: vnet-custom.md
     - name: Ingress
       items:
         - name: Overview
@@ -333,8 +329,6 @@
           href: how-to-use-private-endpoint.md
         - name: Integrate with Azure Front Door
           href: how-to-integrate-with-azure-front-door.md
-    - name: Use a custom VNET
-      href: vnet-custom.md
 - name: Languages and runtimes
   items:
     - name: .NET
@@ -372,6 +366,9 @@
       - name: Metrics
         href: java-metrics.md
         displayName: java
+      - name: Scale with Java metrics
+        href: java-metrics-scale-with-keda.md
+        displayName: java
       - name: Connect to Eureka Server for Spring
         href: java-eureka-server.md
         displayName: java
@@ -399,6 +396,9 @@
             href: java-application-performance-management-config.md
           - name: Create a highly available Eureka server component cluster
             href: java-eureka-server-highly-available.md
+            displayName: java
+          - name: Build a Java metrics dashboard with Azure Managed Grafana
+            href: java-metrics-with-grafana.md
             displayName: java
 - name: Billing & quotas
   items:

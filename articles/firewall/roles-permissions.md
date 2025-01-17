@@ -4,7 +4,7 @@ titleSuffix: Azure Firewall
 description: Learn about roles and permissions for Azure Firewall.
 author: raboilla
 ms.service: azure-firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/9/2024
 ms.author: victorh
 
@@ -38,12 +38,13 @@ Depending on whether you're creating new resources or using existing ones, add t
 | Subnet | Use existing| Microsoft.Network/virtualNetworks/subnets/read<br>Microsoft.Network/virtualNetworks/subnets/join/action |
 | IP addresses| Create new| Microsoft.Network/publicIPAddresses/write<br>Microsoft.Network/publicIPAddresses/join/action |
 | IP addresses  | Use existing| Microsoft.Network/publicIPAddresses/read<br>Microsoft.Network/publicIPAddresses/join/action |
+| Azure Firewall | Create new/Update existing| Microsoft.Network/virtualNetworks/subnets/join/action<br>Microsoft.Network/publicIPAddresses/join/action<br>Microsoft.Network/virtualHubs/read |
 
 If you are creating an Azure Firewall in Azure Virtual WAN, add the following permission:
 
 |Resource | Resource status | Required Azure permissions |
 |---|---|---|
-| virtualHubs | Create new | Microsoft.Network/virtualHubs/read
+| virtualHubs | Create new/Update existing | Microsoft.Network/virtualHubs/read
 
 For more information, see [Azure permissions for Networking](../role-based-access-control/permissions/networking.md) and [Virtual network permissions](../virtual-network/virtual-network-manage-subnet.md#permissions).
 
@@ -55,6 +56,22 @@ These scopes are structured in a parent-child relationship, with each level of h
 
 For example, a role assigned at the subscription level can cascade down to all resources within that subscription, while a role assigned at the resource group level will only apply to resources within that specific group. Learn more about scope level
 For more information, see [Scope levels](../role-based-access-control/scope-overview.md#scope-levels).
+
+## Additional services
+
+To view roles and permissions for other services, see the following links:
+
+- [Azure Application Gateway](../application-gateway/configuration-infrastructure.md)
+
+- [Azure ExpressRoute](../expressroute/roles-permissions.md) 
+
+- [Azure Route Server](../route-server/roles-permissions.md)
+
+- [Azure Virtual WAN](../virtual-wan/roles-permissions.md)
+
+- [Managed NVA](../virtual-wan/roles-permissions.md#nva-resources)
+
+- [Azure VPN Gateway](../vpn-gateway/roles-permissions.md)
 
 > [!NOTE]
 > Allow sufficient time for [Azure Resource Manager cache](../role-based-access-control/troubleshooting.md) to refresh after role assignment changes.

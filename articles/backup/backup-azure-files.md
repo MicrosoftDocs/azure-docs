@@ -2,7 +2,7 @@
 title: Back up Azure File shares in the Azure portal
 description: Learn how to use the Azure portal to back up Azure File shares in the Recovery Services vault
 ms.topic: how-to
-ms.date: 12/20/2024
+ms.date: 01/06/2025
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
@@ -25,6 +25,8 @@ Azure File share backup is a native, cloud based backup solution that protects y
 * Ensure the file share is present in one of the supported storage account types. Review the [support matrix](azure-file-share-support-matrix.md).
 * Identify or create a [Recovery Services vault](#create-a-recovery-services-vault) in the same region and subscription as the storage account that hosts the file share.
 * In case you have restricted access to your storage account, check the firewall settings of the account to ensure that the exception "Allow Azure services on the trusted services list to access this storage account" is granted. You can refer to [this](../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) link for the steps to grant an exception.
+* Ensure that you allow the **Storage account key access** in the required storage account.
+
 >[!Important]
 >To perform [Cross Subscription Backup (CSB)  for protecting Azure File share (preview)](azure-file-share-backup-overview.md#how-cross-subscription-backup-for-azure-file-share-preview-works) in another subscription, ensure you register `Microsoft.RecoveryServices` in the **subscription of the file share** in addition to the above prerequisites. Learn about the [supported regions for Cross Subscription Backup (preview)](azure-file-share-support-matrix.md#supported-regions-for-cross-subscription-backup-preview).
 
@@ -193,7 +195,7 @@ To run an on-demand backup, follow these steps:
 
 1. In the **Backup Item** menu, select **Backup now**. Because this backup job is on demand, there's no retention policy associated with the recovery point.
 
-   :::image type="content" source="./media/backup-afs/azure-file-share-backup-now-inline.png" alt-text="Screenshot showing to select Backup now." lightbox="./media/backup-afs/azure-file-share-backup-now-expanded.png":::
+   :::image type="content" source="./media/backup-afs/azure-file-share-backup-now.png" alt-text="Screenshot showing to select Backup now." lightbox="./media/backup-afs/azure-file-share-backup-now.png":::
 
 1. The **Backup Now** blade opens. Specify the last day you want to retain the recovery point. You can have a maximum retention of 10 years for an on-demand backup.
 
@@ -232,7 +234,7 @@ To run an on-demand backup, follow these steps:
 
 * Don't delete snapshots created by Azure Backup. Deleting snapshots can result in loss of recovery points and/or restore failures.
 
-* Don't remove the lock taken on the storage account by Azure Backup. Deletion of the lock can make your storage account prone to accidental deletion.
+* Don't remove the lock taken on the storage account by Azure Backup. Deletion of the lock can make your storage account prone to accidental deletion. Learn more [about protect your resources with lock](/azure/azure-resource-manager/management/lock-resources).
 
 ## Next steps
 

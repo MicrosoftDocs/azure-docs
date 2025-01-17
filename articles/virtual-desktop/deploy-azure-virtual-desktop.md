@@ -248,7 +248,7 @@ Here's how to create a host pool with a session host configuration using the Azu
    | Custom configuration script URL | If you want to run a PowerShell script during deployment you can enter the URL here. |
 
    > [!TIP]
-   > Once you complete this tab, you can continue to optionally register the default desktop application group with a new or pre-existing workspace from this host pool, and enable diagnostics settings by selecting **Next: Workspace**. Alternatively, if you want to create and configure these separately, select **Next: Review + create** and go to step 9.
+   > Once you complete this tab, you can continue to optionally register the default desktop application group with a new or preexisting workspace from this host pool, and enable diagnostics settings by selecting **Next: Workspace**. Alternatively, if you want to create and configure these separately, select **Next: Review + create** and go to step 9.
 
 1. *Optional*: On the **Workspace** tab, if you want to create a workspace and register the default desktop application group from this host pool, complete the following information:
 
@@ -464,8 +464,8 @@ Here's how to create a host pool by using the Azure portal:
       | **Domain to join** |  |
       | **Select which directory you would like to join** | Select from **Microsoft Entra ID** or **Active Directory**, and complete the relevant parameters for the selected option.  |
       | **Virtual Machine Administrator account** |  |
-      | **Username** | Enter a name to use as the local administrator account for the new session hosts. |
-      | **Password** | Enter a password for the local administrator account. |
+      | **Username** | Enter a name to use as the local administrator account for the new session hosts. For more information, see [What are the username requirements when creating a VM?](/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm-) |
+      | **Password** | Enter a password for the local administrator account. For more information, see [What are the password requirements when creating a VM?](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-) |
       | **Confirm password** | Reenter the password. |
       | **Custom configuration** |  |
       | **Custom configuration script URL** | If you want to run a PowerShell script during deployment, you can enter the URL here. |
@@ -497,8 +497,8 @@ Here's how to create a host pool by using the Azure portal:
       | **Password** | Enter the password for the Active Directory user. |
       | **Specify domain or unit** | Select **yes** if you want to join session hosts to a specific domain or be placed in a specific organizational unit (OU). If you select **no**, the suffix of the UPN is used as the domain. |
       | **Virtual Machine Administrator account** |  |
-      | **Username** | Enter a name to use as the local administrator account for the new session hosts. |
-      | **Password** | Enter a password for the local administrator account. |
+      | **Username** | Enter a name to use as the local administrator account for the new session hosts. For more information, see [What are the username requirements when creating a VM?](/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm-) |
+      | **Password** | Enter a password for the local administrator account. For more information, see [What are the password requirements when creating a VM?](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-) |
       | **Confirm password** | Reenter the password. |
 
    </details>
@@ -547,7 +547,7 @@ Here's how to create a host pool by using the Azure portal:
 
 1. Select **Create** to create the host pool.
 
-1. Select **Go to resource** to go to the overview of your new host pool, and then select **Properties** to view its properties.
+1. Once the deployment has completed successfully, select **Go to resource** to go to the overview of your new host pool, and then select **Properties** to view its properties.
 
 ### Post-deployment tasks
 

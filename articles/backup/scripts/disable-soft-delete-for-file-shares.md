@@ -2,7 +2,8 @@
 title: Script Sample - Disable Soft delete for File Share
 description: Learn how to use a script to disable soft delete for file shares in a storage account.
 ms.topic: sample
-ms.date: 02/02/2020
+ms.date: 10/20/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

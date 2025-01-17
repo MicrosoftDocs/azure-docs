@@ -48,9 +48,14 @@ Here's an example image:
 :::image type="content" source="./media/manage-consumption-commitment/consumption-commitment-uri.png" border="true" alt-text="Screenshot showing the MACC properties page URI." lightbox="./media/manage-consumption-commitment/consumption-commitment-uri.png" :::
 
 
-## Delete MACC 
-
-You can't delete an active MACC resource. The MACC must be **Expired**, **Failed**, or **Canceled** before you can delete it.
+## Rename MACC
+The MACC’s resource name is a part of its Uniform Resource Identifier (URI) and cannot be changed. However, you can use [tags](../../azure-resource-manager/management/tag-resources.md) to help identify the MACC resource based on a nomenclature relevant to your organization.
+ 
+## Delete MACC
+A MACC resource may only be deleted if its status is _failed_ or _canceled_. Deletion of a MACC resource is a permanent action and cannot be undone.  
+ 
+## Cancel MACC
+Please contact your Microsoft account team if you have questions about cancelling your MACC.
 
 ## Related content
 

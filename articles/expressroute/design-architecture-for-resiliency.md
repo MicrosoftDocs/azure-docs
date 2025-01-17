@@ -4,7 +4,7 @@ description: Learn how to design and architect Azure ExpressRoute for resiliency
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/16/2024
 ms.author: duau
 ms.custom: ai-usage
