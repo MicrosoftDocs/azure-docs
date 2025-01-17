@@ -37,7 +37,7 @@ Follow below steps to set up a linked service to the external Hive Metastore in 
 
 1. Open Synapse Studio, go to **Manage > Linked services** at left, click **New** to create a new linked service.
 
-   :::image type="content" source="./media/use-external-metastore/set-up-hive-metastore-linked-service.png" alt-text="Set up Hive Metastore linked service" border="true":::
+   :::image type="content" source="./media/use-external-metastore/set-up-hive-metastore-linked-service.png" alt-text="Screenshot of set up Hive Metastore linked service." border="true":::
 
 2. Choose **Azure SQL Database**, click **Continue**.
 
