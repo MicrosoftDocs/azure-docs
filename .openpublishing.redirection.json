@@ -2882,7 +2882,7 @@
     },
     {
       "source_path_from_root": "/articles/media-services/media-services-manage-with-powershell.md",
-      "redirect_url": "/powershell/module/azurerm.media/?view=azurermps-4.2.0",
+      "redirect_url": "/powershell/module/az.media/",
       "redirect_document_id": false
     },
     {
