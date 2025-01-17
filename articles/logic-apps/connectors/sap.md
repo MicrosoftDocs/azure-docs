@@ -7,7 +7,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/24/2024
+ms.date: 01/16/2025
 ---
 
 # Connect to SAP from workflows in Azure Logic Apps
@@ -69,9 +69,9 @@ The SAP built-in connector significantly differs from the SAP managed connector 
 
   The **Call BAPI** action includes up to two responses with the returned JSON, the XML response from the called BAPI, and the BAPI commit or BAPI rollback response as well and if you use auto-commit. This capability addresses the problem with the SAP managed connector where the outcome from the auto-commit is silent and observable only through logs.
 
-* Longer timeout at 5 minutes compared to managed connector.
+* Longer time-out at 5 minutes compared to managed connector.
 
-  The SAP built-in connector doesn't use the shared or global connector infrastructure, which means timeouts are longer at 5 minutes compared to the SAP managed connector (two minutes). Long-running requests work without you having to implement the long-running webhook-based request action pattern.
+  The SAP built-in connector doesn't use the shared or global connector infrastructure, which means time-outs are longer at 5 minutes compared to the SAP managed connector (two minutes). Long-running requests work without you having to implement the long-running webhook-based request action pattern.
 
 * By default, the SAP built-in connector operations are *stateless*. However, you can [enable stateful mode (affinity) for these operations](../../connectors/enable-stateful-affinity-built-in-connectors.md).
 
@@ -208,7 +208,7 @@ SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way th
 
 * For scenarios where you want to send IDocs from your logic app workflow to SAP, change your SAP processing mode from the default **Trigger immediately** setting to **Trigger by background program** so that your workflow doesn't time out.
 
-  If your SAP system is under load, for example, when your workflow sends a batch of IDocs all at one time to SAP, the queued IDoc calls time out. The default processing mode causes your SAP system to block the inbound call for IDoc transmission until an IDoc finishes processing. In Azure Logic Apps, workflow actions have a 2-minute timeout, by default.
+  If your SAP system is under load, for example, when your workflow sends a batch of IDocs all at one time to SAP, the queued IDoc calls time out. The default processing mode causes your SAP system to block the inbound call for IDoc transmission until an IDoc finishes processing. In Azure Logic Apps, workflow actions have a 2-minute time-out, by default.
 
   To change your SAP system's processing mode, follow these steps:
 
@@ -595,7 +595,7 @@ Follow these steps for the SAP *built-in* connector. To create a connection with
 
    :::image type="content" source="media/sap/sap-connection.png" alt-text="Screenshot shows SAP built-in connection parameters in Standard workflows.":::
 
-1. To enable SNC, in the SAP connection information box, from the **Authentication Type** list, select **Logon Using SNC**, and provide the relevant [required information](/azure/logic-apps/connectors/built-in/reference/sap/#authentication):
+1. To enable SNC, in the SAP connection information box, open the **Authentication Type** list, and select **Logon Using SNC**. Provide the [required information](/azure/logic-apps/connectors/built-in/reference/sap/#authentication):
 
    | Parameter | Description |
    |-----------| ------------|
