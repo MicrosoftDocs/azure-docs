@@ -122,11 +122,9 @@ Replace the <ResourceType/namespace> and tablename placeholders with the namespa
 
 ::: zone-end
 
-::: zone pivot="front-door-classic"
-
-## Activity log
-
 [!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
+
+::: zone pivot="front-door-classic"
 
 - [Microsoft.Network resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftnetwork)
 
