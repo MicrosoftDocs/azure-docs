@@ -51,7 +51,7 @@ Set-OBMachineSetting -NoThrottle
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force
 Set-OBMachineSetting -EncryptionPassPhrase $PassPhrase -SecurityPin "<generatedPIN>" #NOTE: You must generate a security pin by selecting Generate, under Settings > Properties > Security PIN in the Recovery Services vault section of the Azure portal. 
 # See: https://learn.microsoft.com/rest/api/backup/securitypins/get 
-# See: https://learn.microsoft.com/powershell/module/azurerm.keyvault/Add-AzureKeyVaultKey?view=azurermps-6.13.0 
+# See: https://learn.microsoft.com/powershell/module/az.keyvault/get-azkeyvaultkey 
 
 # Back up files and folders
 $NewPolicy = New-OBPolicy

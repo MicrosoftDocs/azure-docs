@@ -172,7 +172,7 @@ The following table shows user limits and permissions associated with each admin
 |View Accounts in the enrollment |✔|✔|✔|✔⁵|✔⁵|✘|✔|
 |Add Accounts to the enrollment and change Account Owner|✔|✘|✘|✔⁵|✘|✘|✘|
 |Purchase reservations/savings plans|✔|✘⁶|✔|✘|✘|✘|✘|
-|Create and manage subscriptions and subscription permissions|✔|✘|✘|✘|✘|✔|✘|
+|Create and manage subscriptions |✔|✘|✘|✘|✘|✔|✘|
 
 - ⁴ Notification contacts are sent email communications about the Azure Enterprise Agreement.
 - ⁵ Task is limited to accounts in your department.

@@ -609,8 +609,6 @@
   items:
   - name: Azure PowerShell
     href: /powershell/module/az.recoveryservices
-  - name: AzureRM PowerShell
-    href: /powershell/module/AzureRM.RecoveryServices
   - name: Resource Manager template
     href: /azure/templates/microsoft.recoveryservices/allversions
   - name: REST
