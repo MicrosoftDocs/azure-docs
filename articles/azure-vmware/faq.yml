@@ -134,13 +134,13 @@ sections:
       - question: Is VMware NSX required in on-premises environments or networks that connect to a private cloud?
         answer: No, you aren't required to use VMware NSX on-premises. VMware HCX provides the necessary connectivity between on-premises vSphere and Azure VMware Solution.
 
-      - question: Does Azure VMware Solution support VMware vDefend with Advanced Threat Protection?
+      - question: Does Azure VMware Solution support VMware vDefend with Advanced Threat Protection (ATP)?
         answer: Azure VMware Solution will support VMware vDefend Firewall with the Advanced Threat Prevention (ATP) add-on via a BYOL model. Customers must purchase the Advanced Threat Protection (ATP) license from Broadcom. Microsoft will apply the license to the Azure VMware Solution private cloud with a support request. On Azure VMware Solution, this license only supports NSX Distributed IDS/IPS functionality and does not cover other features listed by Broadcom. 
 
-      - question: Is NSX Service Insertion supported with Azure VMware Solution?
+      - question: Is VMware NSX Service Insertion supported with Azure VMware Solution?
         answer: No.
         
-      - question: Is VMware Horizon 8 2012 compatible with Azure VMware Solution?
+      - question: Is Omnissa Horizon 8 2012 compatible with Azure VMware Solution?
         answer: Yes.
 
 
