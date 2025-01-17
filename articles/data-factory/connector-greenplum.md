@@ -177,6 +177,7 @@ The Greenplum linked service supports the following properties when apply versio
 ```
 
 **Example: store password in Azure Key Vault**
+
 ```json
 {
     "name": "GreenplumLinkedService",
@@ -184,14 +185,14 @@ The Greenplum linked service supports the following properties when apply versio
         "type": "Greenplum",
         "typeProperties": {
             "connectionString": "HOST=<server>;PORT=<port>;DB=<database>;UID=<user name>;",
-            "pwd": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
-            }        
+            "pwd": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
