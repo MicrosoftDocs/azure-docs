@@ -102,8 +102,6 @@ try {
 
 Use [scheduleUpdateTwin](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient?#com-microsoft-azure-sdk-iot-service-jobs-jobclient-scheduleupdatetwin(java-lang-string-java-lang-string-com-microsoft-azure-sdk-iot-service-devicetwin-devicetwindevice-java-util-date-long)) to schedule a job to run a device twin update on one or multiple devices.
 
-This example method schedules a device twin update job for a specific job ID.
-
 First, prepare a [DeviceTwinDevice](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice) record for the device twin update. For example:
 
 ```java

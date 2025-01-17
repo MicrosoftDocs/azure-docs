@@ -16,7 +16,7 @@ zone_pivot_groups: iot-hub-howto-c2d-1
 
 This article shows you how to create back-end app code to schedule and broadcast jobs.
 
-Use Azure IoT Hub to schedule and track jobs that update up to millions of devices for the following operations:
+Use Azure IoT Hub to schedule and track jobs that update up to millions of devices for these operations:
 
 * Invoke direct methods
 * Updated device twins

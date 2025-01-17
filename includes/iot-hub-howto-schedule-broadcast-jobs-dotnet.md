@@ -66,6 +66,8 @@ Use [ScheduleDeviceMethodAsync](/dotnet/api/microsoft.azure.devices.jobclient.sc
 
 Use the [CloudToDeviceMethod](/dotnet/api/microsoft.azure.devices.cloudtodevicemethod.-ctor?#microsoft-azure-devices-cloudtodevicemethod-ctor(system-string-system-timespan-system-timespan)) object to specify the direct method name and device connection time-out values.
 
+For example:
+
 ```csharp
 // The CloudToDeviceMethod record specifies the direct method name and device connection time-out
 CloudToDeviceMethod directMethod = 
@@ -73,7 +75,7 @@ new CloudToDeviceMethod("LockDoor", TimeSpan.FromSeconds(5),
 TimeSpan.FromSeconds(5));
 ```
 
-This example schedules a job for a direct method named "LockDoor" on one device named "Device-1". One or more devices included in the scheduled job are contained second parameter as a query condition. For more information about query conditions, see [IoT Hub query language for device and module twins, jobs, and message routing](/azure/iot-hub/iot-hub-devguide-query-language).
+This example schedules a job for a direct method named "LockDoor" on one device named "Device-1". The devices included in the scheduled job are contained second parameter as a query condition. For more information about query conditions, see [IoT Hub query language for device and module twins, jobs, and message routing](/azure/iot-hub/iot-hub-devguide-query-language).
 
 ```csharp
 string methodJobId = Guid.NewGuid().ToString();  // a unique job ID
@@ -87,9 +89,9 @@ JobResponse result = await jobClient.ScheduleDeviceMethodAsync(methodJobId,
 
 ### Schedule a device twin update job
 
-Use [ScheduleTwinUpdateAsync](/dotnet/api/microsoft.azure.devices.jobclient.scheduledevicemethodasync) to schedule a new device twin desired properties and tags update job to run on one or more devices.
+Use [ScheduleTwinUpdateAsync](/dotnet/api/microsoft.azure.devices.jobclient.scheduletwinupdateasync) to schedule a new device twin desired properties and tags update job to run on one or more devices.
 
-First, create and populate a device `Twin` object for the update. For example:
+First, create and populate a device [Twin](/dotnet/api/microsoft.azure.devices.shared.twin) object for the update. For example:
 
 ```csharp
 static string deviceId = "Device-1";
