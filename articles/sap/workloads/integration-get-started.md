@@ -136,13 +136,11 @@ Also see the following SAP resources:
 
 For more information about integrations with Microsoft Entra ID and Microsoft Entra ID Governance, see the following Microsoft Entra documentation:
 
+- [SAP Scenarios Hub](https://aka.ms/EntraSAPHub)
+- [Provision users from SAP SuccessFactors to Active Directory](/entra/identity/saas-apps/sap-successfactors-inbound-provisioning-tutorial)
 - [Manage access to your SAP applications](/entra/id-governance/sap)
 - [Secure access with SAP Cloud Identity Services and Microsoft Entra ID](/entra/fundamentals/scenario-azure-first-sap-identity-integration)
 - [SAP workload security - Microsoft Azure Well-Architected Framework](/azure/architecture/framework/sap/security)
-- [Provision users from SAP SuccessFactors to Active Directory](/entra/identity/saas-apps/sap-successfactors-inbound-provisioning-tutorial)
-- [Provision users from SAP SuccessFactors to Microsoft Entra ID](/entra/identity/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial)
-- [Write-back users from Microsoft Entra ID to SAP SuccessFactors](/entra/identity/saas-apps/sap-successfactors-writeback-tutorial)
-- [Provision users to SAP Cloud Identity Services - Identity Authentication](/entra/identity/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial)
 
 For how to configure single sign-on, see the following Microsoft Entra documentation and tutorials:
 - [SAP Cloud Identity Services - Identity Authentication](/entra/identity/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial)

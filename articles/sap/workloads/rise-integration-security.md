@@ -41,7 +41,7 @@ For more information about SNC, see [Getting started with SAP SNC for RFC integr
 
 [Microsoft Entra ID Governance](/entra/id-governance/identity-governance-overview) and built-in integrations with SAP Cloud Identity Service are an ideal fit to handle SAP user lifecycle and their authorizations across both eco-systems.
 
-Learn more from this [Microsoft Learn article](/entra/id-governance/scenarios/migrate-from-sap-idm) and [this blog post series](https://community.sap.com/t5/technology-blogs-by-members/identity-and-access-management-with-microsoft-entra-part-i-managing-access/ba-p/13873276).
+Learn more from this [Microsoft Learn article](/entra/id-governance/scenarios/migrate-from-sap-idm) and [our SAP scenarios hub](https://aka.ms/EntraSAPHub).
 
 ## Copilot for Security with SAP RISE
 
