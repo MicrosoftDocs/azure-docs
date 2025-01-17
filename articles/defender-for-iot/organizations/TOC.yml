@@ -299,10 +299,6 @@
           href: how-to-work-with-threat-intelligence-packages.md
         - name: Troubleshoot OT sensors
           href: how-to-troubleshoot-sensor.md
-      - name: Legacy on-premises management
-        items:
-        - name: Deploy air-gapped OT sensor management
-        - name: System maintenance with an on-premises management console
     - name: Maintain IoT on-premises resources
       items:
       - name: Extra deployment steps and samples
@@ -411,7 +407,6 @@
         href: api/sensor-alert-apis.md
       - name: Vulnerability management
         href: api/sensor-vulnerability-apis.md
-    - name: General management API reference
 - name: Resources
   items:
   - name: Frequently asked questions
