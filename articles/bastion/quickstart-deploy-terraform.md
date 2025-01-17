@@ -46,16 +46,16 @@ Deploying Azure Bastion allows you to use RDP and SSH to access to your virtual 
 1. Create a directory in which to test and run the sample Terraform code, and make it the current directory.
 
 1. Create a file named `main.tf`, and insert the following code:
-:::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-bastion-host/main.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-bastion-host/main.tf":::
 
 1. Create a file named `outputs.tf`, and insert the following code:
-:::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-bastion-host/outputs.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-bastion-host/outputs.tf":::
 
 1. Create a file named `providers.tf`, and insert the following code:
-:::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-bastion-host/providers.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-bastion-host/providers.tf":::
 
 1. Create a file named `variables.tf`, and insert the following code:
-:::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-bastion-host/variables.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-bastion-host/variables.tf":::
 
 ## Initialize Terraform
 
