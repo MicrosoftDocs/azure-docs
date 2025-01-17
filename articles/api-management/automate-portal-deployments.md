@@ -23,6 +23,9 @@ You can use the API to automate migration of content between two API Management 
 > The script removes contents of the developer portal in your destination API Management service. If you're concerned about it, make sure you perform a backup.
 
 > [!NOTE]
+> You can't use the migration scripts to migrate developer portal content between an API Management instance in a classic tier (for example, Standard) to an instance in a v2 tier (for example, Standard v2). 
+
+> [!NOTE]
 > If you're using a self-hosted portal with an explicitly defined custom storage account to host media files (i.e., you define the `blobStorageUrl` setting in the `config.design.json` configuration file), you need to use the original `scripts/migrate.js` [script](https://github.com/Azure/api-management-developer-portal/blob/master/scripts.v2/migrate.js). The original script doesn't work for managed or self-hosted portals with the media storage account managed by API Management. In that case, use the script from the `/scripts.v3` folder instead.
 
 The script performs the following steps:
