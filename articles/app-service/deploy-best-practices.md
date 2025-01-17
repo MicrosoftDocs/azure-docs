@@ -27,11 +27,15 @@ A *deployment source* is the location of your application code. For production a
 
 ### Build pipeline
 
-After you decide on a deployment source, your next step is to choose a *build pipeline*. A build pipeline reads your source code from the deployment source and runs a series of steps to get the application in a runnable state. Steps can include as compiling code, minifying HTML and JavaScript, running tests, and packaging components. The specific commands run by the build pipeline depend on your language stack. You can run these operations on a build server, such as Azure Pipelines, or locally.
+After you decide on a deployment source, your next step is to choose a *build pipeline*. A build pipeline reads your source code from the deployment source and runs a series of steps to get the application in a runnable state.
+
+Steps can include compiling code, minifying HTML and JavaScript, running tests, and packaging components. The specific commands run by the build pipeline depend on your language stack. You can run these operations on a build server, such as Azure Pipelines, or locally.
 
 ### Deployment mechanism
 
-The *deployment mechanism* is the action used to put your built application into the */home/site/wwwroot* directory of your web app. The */wwwroot* directory is a mounted storage location shared by all instances of your web app. When the deployment mechanism puts your application in this directory, your instances receive a notification to sync the new files. App Service supports the following deployment mechanisms:
+The *deployment mechanism* is the action used to put your built application into the */home/site/wwwroot* directory of your web app. The */wwwroot* directory is a mounted storage location shared by all instances of your web app. When the deployment mechanism puts your application in this directory, your instances receive a notification to sync the new files.
+
+App Service supports the following deployment mechanisms:
 
 - Kudu endpoints: [Kudu](https://github.com/projectkudu/kudu/wiki) is the open-source developer productivity tool that runs as a separate process in Windows App Service. It runs as a second container in Linux App Service. Kudu handles continuous deployments and provides HTTP endpoints for deployment, such as [zipdeploy/](deploy-zip.md).
 - FTP and WebDeploy: Using your [site or user credentials](deploy-configure-credentials.md), you can upload files [via FTP](deploy-ftp.md) or WebDeploy. These mechanisms don't go through Kudu.  
@@ -40,7 +44,7 @@ Deployment tools such as Azure Pipelines, Jenkins, and editor plugins use one of
 
 ## Use deployment slots
 
-Whenever possible, use [deployment slots](deploy-staging-slots.md) when you deploy a new production build. When using a Standard App Service Plan tier or better, you can deploy your app to a staging environment, validate your changes, and do smoke tests. When you're ready, swap your staging and production slots. The swap operation warms up the necessary worker instances to match your production scale, which eliminates downtime.
+Whenever possible, when you deploy a new production build, use [deployment slots](deploy-staging-slots.md). With a Standard App Service Plan tier or better, you can deploy your app to a staging environment, validate your changes, and do smoke tests. When you're ready, swap your staging and production slots. The swap operation warms up the necessary worker instances to match your production scale, which eliminates downtime.
 
 ### Continuously deploy code
 
@@ -52,7 +56,7 @@ Continuous deployment should never be enabled for your production slot. Instead,
 
 ### Continuously deploy containers
 
-For custom containers from Docker or other container registries, deploy the image into a staging slot and swap into production to prevent downtime. The automation is more complex than code deployment because you must push the image to a container registry and update the image tag on the webapp.
+For custom containers from Docker or other container registries, deploy the image into a staging slot and swap into production to prevent downtime. The automation is more complex than code deployment. You must push the image to a container registry and update the image tag on the webapp.
 
 For each branch you want to deploy to a slot, set up automation to do these tasks on each commit to the branch.
 
@@ -66,7 +70,7 @@ This article contains examples for common automation frameworks.
 
 ### Use Azure DevOps
 
-App Service has [built-in continuous delivery](deploy-continuous-deployment.md) for containers through the Deployment Center. Navigate to your app in the [Azure portal](https://portal.azure.com) and select **Deployment Center** under **Deployment**. Follow the instructions to select your repository and branch. This approach configures a DevOps build and release pipeline to automatically build, tag, and deploy your container when new commits are pushed to your selected branch.
+App Service has [built-in continuous delivery](deploy-continuous-deployment.md) for containers through the Deployment Center. Navigate to your app in the [Azure portal](https://portal.azure.com). Under **Deployment**, select **Deployment Center**. Follow the instructions to select your repository and branch. This approach configures a DevOps build-and-release pipeline to automatically build, tag, and deploy your container when new commits are pushed to your selected branch.
 
 ### Use GitHub Actions
 
@@ -123,7 +127,7 @@ Keep in mind the following considerations for Java, Node, and .NET implementatio
 
 ### Java
 
-Use the Kudu [zipdeploy/](deploy-zip.md) API for deploying JAR applications. Use [wardeploy/](deploy-zip.md#deploy-warjarear-packages) for WAR apps. If you're using Jenkins, you can use those APIs directly in your deployment phase. For more information, see [Deploy to Azure App Service with Jenkins](/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli).
+Use the Kudu [zipdeploy](deploy-zip.md) API for deploying JAR applications. Use [wardeploy](deploy-zip.md#deploy-warjarear-packages) for WAR apps. If you're using Jenkins, you can use those APIs directly in your deployment phase. For more information, see [Deploy to Azure App Service with Jenkins](/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli).
 
 ### Node
 
