@@ -30,7 +30,7 @@ uname -r
 ```
 
 > [!NOTE]
-> All mounting scripts in this article will mount SMB file shares using the default 0755 Linux file and folder permissions. This means read, write, and execute for the file/directory owner, read and execute for users in the owner group, and read and execute for other users. Depending on your organization's security policies, you might want to set alternate `uid`/`gid` or `dir_mode` and `file_mode` permissions in the mount options. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation).
+> All mounting scripts in this article will mount SMB file shares using the default 0755 Linux file and folder permissions. This means read, write, and execute for the file/directory owner, read and execute for users in the owner group, and read and execute for other users. Depending on your organization's security policies, you might want to set alternate `uid`/`gid` or `dir_mode` and `file_mode` permissions in the mount options. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation). See [mount options](#mount-options) for a list of SMB mount options.
 
 ## Applies to
 
@@ -45,7 +45,7 @@ uname -r
 <a id="smb-client-reqs"></a>
 
 * <a id="install-cifs-utils"></a>**Ensure the cifs-utils package is installed.**
-    Install the cifs-utils package using the package manager on the Linux distribution of your choice.
+    Install the latest version of the cifs-utils package using the package manager on the Linux distribution of your choice.
 
 
 # [Ubuntu](#tab/Ubuntu)
@@ -367,7 +367,7 @@ You can use the following mount options when mounting SMB Azure file shares on L
 | `actimeo=` | 30-60 | Recommended. Specifying `actimeo` sets all of `acregmin`, `acregmax`, `acdirmin`, and `acdirmax` to the same value. Using a value lower than 30 seconds can cause performance degradation because attribute caches for files and directories expire too quickly. We recommend setting `actimeo` between 30 and 60 seconds. |
 | `nosharesock` | n/a | Optional. Forces the client to always make a new connection to the server even if it has an existing connection to the SMB mount. This can enhance performance, as each mount point will use a different TCP socket. In some cases, `nosharesock` can degrade performance due to not caching the same file when opened from two mounts from the same client. |
 | `max_channels=` | 4 | Recommended when using SMB Multichannel. Specifies the maximum number of channels (network connections) to the file share. If you're using SMB Multichannel and the number of channels exceeds four, this will result in poor performance. |
-| `remount` | n/a | Remounts the file share. Use with the `password2` option in cases where you want to specify an alternative password before mount, or where you want to fix an expired password after the original mount. |
+| `remount` | n/a | Remounts the file share and changes mount options if specified. Use with the `password2` option in cases where you want to specify an alternative password to fix an expired password after the original mount. |
 | `nobrl` | n/a | Recommended in single-client scenarios when advisory locks are required. Azure Files doesn't support advisory locks, and this setting prevents sending byte range lock requests to the server. |
 | `snapshot=` | time | Mount a specific snapshot of the file share. Time must be a positive integer identifying the snapshot requested (in 100-nanosecond units that have elapsed since January 1, 1601, or alternatively it can be specified in GMT format e.g. @GMT-2024.03.27-20.52.19). |
 | `closetimeo=` | 5 | Configures deferred close timeout (handle cache) in seconds, or disables it by setting to 0. Default is 5 seconds. |
