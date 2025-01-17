@@ -23,6 +23,15 @@ Azure Files has multiple pricing models including provisioned and pay-as-you-go 
     
 - **Pay-as-you-go billing model**: In a pay-as-you-go model, the cost of the file share is based on how much you use the share, in the form of used storage, transaction, and data transfer costs. The pay-as-you-go model for Azure Files is only available for HDD file shares. We recommend using the provisioned v2 model for new HDD file share deployments.
     
+:::row:::
+    :::column:::
+        > [!VIDEO https://www.youtube-nocookie.com/embed/dyqQkheaHYg]
+    :::column-end:::
+    :::column:::
+        This video covers the Azure Files billing models including pay-as-you-go, provisioned v1, and provisioned v2.
+   :::column-end:::
+:::row-end:::
+
 This article explains the billing models for Azure Files work to help you understand your monthly Azure Files bill. For Azure Files pricing information, see [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## Applies to

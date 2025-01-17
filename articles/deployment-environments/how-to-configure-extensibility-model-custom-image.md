@@ -148,7 +148,7 @@ RUN mv terraform /usr/bin/terraform
 
 Within the standard images, operations are determined and executed based on the operation name. Currently, the two operation names supported are *deploy* and *delete*.
 
-To set up your custom image to utilize this structure, specify a folder at the level of your Dockerfile named *scripts*, and specify two files, *deploy.sh*, and *delete.sh*. The deploy shell script runs when your environment is created or redeployed, and the delete shell script runs when your environment is deleted. You can see examples of shell scripts in the repository under the [Runner-Images folder for the ARM-Bicep](https://github.com/Azure/deployment-environments/tree/main/Runner-Images/ARM-Bicep) image.
+To set up your custom image to utilize this structure, specify a folder at the level of your Dockerfile named *scripts*, and specify two files, *deploy.sh*, and *delete.sh*. The deploy shell script runs when your environment is created or redeployed, and the delete shell script runs when your environment is deleted. You can see examples of shell scripts in the repository in the [scripts folder for Terraform](https://github.com/Azure/ade-extensibility-model-terraform/tree/main/scripts).
 
 To ensure these shell scripts are executable, add the following lines to your Dockerfile:
 
@@ -167,6 +167,7 @@ There are three steps to deploy infrastructure via Terraform:
 
 During the core image's entrypoint, any existing state files are pulled into the container and the directory saved under the environment variable ```$ADE_STORAGE```. Additionally, any parameters set for the current environment stored under the variable ```$ADE_OPERATION_PARAMETERS```. In order to access the existing state file, and set your variables within a *.tfvars.json* file, run the following commands:
 ```bash
+set -e #set script to exit on error
 EnvironmentState="$ADE_STORAGE/environment.tfstate"
 EnvironmentPlan="/environment.tfplan"
 EnvironmentVars="/environment.tfvars.json"
