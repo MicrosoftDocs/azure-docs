@@ -57,4 +57,5 @@ Service Bus supports standard [Advanced Message Queuing Protocol (AMQP) 1.0](ser
 For protection against unwanted traffic, Service Bus provides [security features](network-security.md) such as IP firewall and integration with virtual networks. 
 
 ## Related content
+
 See [Service Bus messaging samples](service-bus-samples.md) that show how to use these Service Bus features.
