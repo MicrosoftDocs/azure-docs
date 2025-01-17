@@ -34,7 +34,7 @@ Datadog provides the following capabilities:
 - **Metrics collection** - Automatically send all Azure resource metrics to Datadog.
 - **Datadog agent deployment** - Provides a unified management experience of Datadog agents. Install and uninstall Datadog agents as extensions on Virtual Machines and Azure App Services.
 
-## Subscribe to Apache Datadog
+## Subscribe to Datadog
 
 [!INCLUDE [subscribe](../includes/subscribe.md)] *Datadog*.
 
