@@ -21,21 +21,26 @@ Existing implementations relied on SMTP Auth and elevated trust relationship bec
 
 Follow our standard [guide](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365) to understand the general configuration of a "device" that wants to send email via Microsoft 365.
 
-> [!IMPORTANT]
-> SMTP Auth was exempted from the [Basic Auth feature sunset process](https://devblogs.microsoft.com/microsoft365dev/deferred-end-of-support-date-for-basic-authentication-in-exchange-online/) for continued support. However, this is a security risk for your estate. See the latest [post](https://techcommunity.microsoft.com/t5/exchange-team-blog/basic-authentication-and-exchange-online-september-2021-update/ba-p/2772210) by our Exchange Online team on the matter.
+> [!WARNING]
+> SMTP Auth (Basic Auth for Client submission) will be permanently retired by September 2025. We strongly encourage customers to move away from using Basic authentication with SMTP AUTH as soon as possible. See the latest [post](https://techcommunity.microsoft.com/blog/exchange/exchange-online-to-retire-basic-auth-for-client-submission-smtp-auth/4114750) by our Exchange Online team on the matter.
 
 ## Setup considerations
 
-Given the sunset-exception of SMTP Auth there are four different options supported by SAP NetWeaver that we want to describe. The first three correlate with the scenarios described in the [Exchange Online documentation](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365).
+Currently, there are four different options supported by SAP NetWeaver that we want to describe. The first three correlate with the scenarios described in the [Exchange Online documentation](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365).
 
-1.  SMTP Authentication Client Submission
-2.  SMTP Direct Send
-3.  Using Exchange Online SMTP relay connector
-4.  Using SMTP relay server as intermediary to Exchange Online
+1.  SMTP Authentication Client Submission (retiring soon!)
+1.  SMTP Direct Send
+1.  Using Exchange Online SMTP relay connector
+1.  Using SMTP relay server as intermediary to Exchange Online
 
 For brevity we'll refer to the [**SAP Connect administration tool**](https://wiki.scn.sap.com/wiki/display/SI/SCOT+-+SAPconnect+Administration) used for the mail server setup only by its transaction code SCOT.
 
-## Option 1: SMTP Authentication Client Submission
+We will update this guide when additional SAP-supported options become available.
+
+## Option 1: SMTP Authentication Client Submission (retiring soon!)
+
+> [!IMPORTANT]
+> We strongly recommend **not** using this option. **SMTP Auth is being retired** and will be disabled by September 2025. Choose any other option below.
 
 Choose this option when you want to send mail to **people inside and outside** your organization.
 
@@ -260,3 +265,5 @@ The example architecture shown illustrates multiple SAP application servers with
 [Understand mass-mailing with Azure Twilio - SendGrid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021)
 
 [Understand Exchange Online Service limitations (e.g., attachment size, message limits, throttling etc.)](/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits)
+
+[Verify your ABAP SDK for Azure configuration for Exchange Online integrations](https://github.com/microsoft/ABAP-SDK-for-Azure)
