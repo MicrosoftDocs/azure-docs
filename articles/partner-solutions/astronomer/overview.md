@@ -33,11 +33,5 @@ Here are the key capabilities provided by the Astro integration:
 ## Next steps
 
 ## Next steps
-> [!div class="nextstepaction"]
-> [QuickStart: Get started with Astro](create.md)
 
-> [!div class="nextstepaction"]
-> [Manage your Astro integration through the portal](manage.md)
-
-> [!div class="nextstepaction"]
-> [Astro developer resources and tools](tools.md)
+- [QuickStart: Get started with Apache Airflow on Astro – An Azure Native ISV Service](create.md)
