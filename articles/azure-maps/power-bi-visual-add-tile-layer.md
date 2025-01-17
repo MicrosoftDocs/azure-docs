@@ -16,7 +16,7 @@ The tile layer feature, like the reference layer feature, allows other data to b
 
 :::image type="content" source="./media/power-bi-visual/tile-layer.png" lightbox="./media/power-bi-visual/tile-layer.png" alt-text="A map displaying an open street map tile layer in an Azure Maps Power BI Visual.":::
 
-A tile layer loads in tiles from a server. These images can either be prerendered or dynamically rendered. prerendered images are stored like any other image on a server using a naming convention that the tile layer understands. Dynamically rendered images use a service to load the images close to real time. Tile layers are a great way to visualize large datasets on the map. Not only can a tile layer be generated from an image, vector data can also be rendered as a tile layer too.
+A tile layer loads in tiles from a server. These images can either be prerendered or dynamically rendered. Prerendered images are stored like any other image on a server using a naming convention that the tile layer understands. Dynamically rendered images use a service to load the images close to real time. Tile layers are a great way to visualize large datasets on the map. Not only can a tile layer be generated from an image, vector data can also be rendered as a tile layer too.
 
 The bounding box and zoom range of where a tile service is available can be passed as settings to limit where tiles are requested, a performance enhancement for both the visual and the tile service. The following table gives an overview of all settings available in the **Format** pane available in the **Tile layer** section.
 
