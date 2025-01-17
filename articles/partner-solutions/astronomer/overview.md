@@ -32,6 +32,4 @@ Here are the key capabilities provided by the Astro integration:
 
 ## Next steps
 
-## Next steps
-
 - [QuickStart: Get started with Apache Airflow on Astro – An Azure Native ISV Service](create.md)
