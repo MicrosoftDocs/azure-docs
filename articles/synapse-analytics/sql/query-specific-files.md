@@ -5,7 +5,7 @@ author: azaricstefan
 ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 01/16/2025
+ms.date: 01/17/2025
 ms.author: stefanazaric
 ms.reviewer: whhender 
 ---
@@ -18,13 +18,13 @@ Sometimes, you might need to know which file or folder source correlates to a sp
 
 ## Prerequisites
 
-Your first step is to *create a database* with a data source that references a storage account. Then initialize the objects by executing a [setup script](https://github.com/Azure-Samples/Synapse/blob/main/SQL/Samples/LdwSample/SampleDB.sql) on that database. This setup script creates the data sources, database scoped credentials, and external file formats that are used in these samples.
+Your first step is to *create a database* with a data source that references a storage account. Then, initialize the objects by executing a [setup script](https://github.com/Azure-Samples/Synapse/blob/main/SQL/Samples/LdwSample/SampleDB.sql) on that database. This setup script creates the data sources, database scoped credentials, and external file formats that are used in these samples.
 
 ## Functions
 
 ### Filename
 
-This function returns the file name where the row originates from.
+The `filename` function returns the file name where the row originates from.
 
 The following sample reads the NYC Yellow Taxi data files for *September 2017* and returns the number of rides per file. The `OPENROWSET` part of the query specifies which files are read.
 
@@ -66,7 +66,7 @@ ORDER BY
 
 ### Filepath
 
-The filepath function returns a full or partial path:
+The `filepath` function returns a full or partial path:
 
 - When called without a parameter, it returns the full file path where the row originates from. When `DATA_SOURCE` is used in `OPENROWSET`, it returns the path relative to `DATA_SOURCE`.
 - When called with a parameter, it returns part of the path that matches the wildcard on the position specified in the parameter. For example, parameter value *1* returns part of the path that matches the first wildcard.
