@@ -1,11 +1,11 @@
---- 
-title: Overview of Confidence ratings in Azure Migrate assessments
-description: Learn about confidence ratings
-author: v-sreedevank
-ms.author: v-sreedevank
-ms.service: azure-migrate 
-ms.topic: conceptual 
-ms.date: 10/24/2024 
+---
+title: Confidence ratings
+description: Describes how confidence ratings are calculated in an assessment.
+author: ankitsurkar06
+ms.author: ankitsurkar
+ms.service: azure-migrate
+ms.topic: conceptual
+ms.date: 11/05/2024
 ---
 
 # Confidence ratings (performance-based) 

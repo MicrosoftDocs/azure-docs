@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 11/18/2024
+ms.date: 01/10/2025
 ms.author: duau 
 ---
 
@@ -77,6 +77,9 @@ The following table compares the two peerings:
 You may enable one or more routing domains as part of your ExpressRoute circuit. You can choose to have all routing domains on the same VPN or separate them into different routing domains. The recommended configuration is to connect private peering directly to the core network, and public and Microsoft peering links to your DMZ.
 
 Each peering requires separate BGP sessions (one pair for each peering type). The BGP session pairs provide a highly available link. If you're connecting through layer 2 connectivity providers, you're responsible for configuring and managing routing. Learn more by reviewing the [workflows](expressroute-workflows.md) for setting up ExpressRoute.
+
+> [!NOTE]
+> The default behavior when BGP session prefix limits are exceeded is to terminate the session. If you choose to advertise prefixes received over Microsoft Peering to Private Peering, there is a risk of exceeding these limits, as Microsoft prefixes are updated monthly and can increase significantly. Implement appropriate monitoring to detect prefix changes and consider upgrading the SKU or summarizing routes to manage the number of prefixes advertised from on-premises.
 
 ## <a name="health"></a>ExpressRoute health
 

@@ -601,7 +601,6 @@
         "articles/operator-nexus/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/operator-service-manager/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/oracle/**/*": "https://learn.microsoft.com/answers/tags/94/azure-virtual-machines/",
-        "articles/orbital/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/partner-solutions/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/peering-service/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/playwright-testing/**/*": "https://aka.ms/mpt/feedback",

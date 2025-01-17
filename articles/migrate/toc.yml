@@ -74,6 +74,7 @@ items:
     - name: Tags 
       items:
         - name: Overview
+          href: resource-tagging.md
         - name: System tags and reserved tags
         - name: Apply custom tags
     - name: Best practices
@@ -113,6 +114,7 @@ items:
     - name: Application assessment
       items:
         - name: Create assessment
+          href: create-application-assessment.md
         - name: Customize assessment settings
           href: assessment-properties.md
         - name: Review assessment report
@@ -121,6 +123,7 @@ items:
             href: assessment-report.md
           - name: Migration preference # talk about what each preference is and how that will identify recommended strategy
           - name: Compare assessment strategies
+            href: review-application-assessment.md
     - name: Workload specific assessments
       items:
       - name: Azure VM assessment
@@ -369,6 +372,8 @@ items:
     items:
     - name: Troubleshoot Azure Migrate projects
       href: troubleshoot-project.md
+    - name: Action Center
+      href: centralized-issue-tracking.md
   - name: Appliance configuration
     items:
     - name: Troubleshoot Azure Migrate appliance

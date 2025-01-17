@@ -2,7 +2,7 @@
 title: Cert-manager and Let's Encrypt with Application Gateway for Containers - Gateway API
 description: Learn how to configure Application Gateway for Containers with certificates managed by CNCF project cert-manager.
 services: application-gateway
-author: greglin
+author: greg-lindsay
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 11/18/2024

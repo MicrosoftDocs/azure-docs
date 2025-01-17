@@ -8,7 +8,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: conceptual
-ms.date: 11/17/2023
+ms.date: 01/07/2025
 ---
 
 # Azure saving plan cancellation policies
