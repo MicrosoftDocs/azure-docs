@@ -35,7 +35,7 @@ To avoid loss of data or missed messages, it's important to practice good error 
 | **Design for idempotency** | The occurrence of errors when you're processing data can be a problem for your functions, especially when you're processing messages. It's important to consider what happens when the error occurs and how to avoid duplicate processing. To learn more, see [Designing Azure Functions for identical input](functions-idempotent.md). |
 
 >[!TIP]  
->When using output bindings, you aren't able to handle errors that occur when accessing the remote service. Because of this, you should validate data all passed to your output bindings to avoid raising any known exceptions. If you must be able to handle such exceptions in you function code, you should access the remote service using the client SDK instead of relying on output bindings.
+> When using output bindings, you aren't able to handle errors that occur when accessing the remote service. Because of this, you should validate all data passed to your output bindings to avoid raising any known exceptions. If you must be able to handle such exceptions in your function code, you should access the remote service by using the client SDK instead of relying on output bindings.
 
 ## Retries
 
