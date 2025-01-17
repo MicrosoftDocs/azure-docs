@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 11/30/2024
+  ms.date: 01/22/2025
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
 
@@ -20,7 +20,7 @@ sections:
         answer: |
           When you create a VM, you can enable backup for VMs running [supported operating systems](backup-support-matrix-iaas.md#supported-backup-actions).
 
-      - question: Why is the Initial backup taking a lot of time to complete?
+      - question: Why is the Initial backup taking longer time to complete?
         answer: |
           Initial backup is always a full backup and its duration will depend on the size of the data and when the backup is processed.
 
@@ -129,7 +129,7 @@ sections:
 
       - question: Will a new disk added to VM be backed up automatically?
         answer: |
-          Yes, a new disk added to a VM will be backed up automatically during the next backup, unless selective disk backup is configured on the VM. A newly added disks to the VM will have a Full snapshot (Initial Replica) taken on the first backup, the existing disks will continue the Incremental logic chain.
+          Yes, a new disk added to a VM will be backed up automatically during the next backup, unless selective disk backup is configured on the VM. A newly added disk to the VM will have a Full snapshot (Initial Replica) taken on the first backup, the existing disks will continue the Incremental logic chain.
           
       
       - question: Can I restore the files and folders from an encrypted VM backup?
@@ -300,6 +300,10 @@ sections:
         answer: |
           After you unmount disks from the Azure portal, run the Python script with `clean` parameter (`python scriptName.py clean`) to clear the session and remove the mount paths of the recovery point from the machine.     
 
+      - question: Why Azure Backup can't restore VMs with Offer, SKU, or Publisher?
+        answer: |
+          These details appear only when a VM is created from a Marketplace image. Offer, publisher, and sku are read only information that come from the VM Image in the Marketplace since the VM's `createoption` is `from image`. When a VM is created from disks (restored, uploaded, created from snapshots, and so on), the VM's `createoption` is `Attach`.
+
   - name: Manage VM backups
     questions:
       - question: What happens if I modify a backup policy?
@@ -432,9 +436,9 @@ sections:
 
           Storage spaces in a single VM not supported for application consistent VM backup. For application consistent VM backup, VSS freezes the I/O and ensures that disk snapshots are consistent. Storage Spaces can still perform writes in the background, breaking the application consistent guarantee. This can result in a small probability that the backup taken is not application consistent. Today, backup and recovery of VM with storage spaces is not blocked in the product.
 
-      - question: If I remove one of the disks from VM and increase the size of existing disk,what happens to the backups and if next backup create Full Backup for all disk?
+      - question: If I remove one of the disks from VM and increase the size of existing disk, what happens to the backups and if next backup creates Full Backup for all disk?
         answer: |
-          Removing a disk, will simply not run any snapshot or data transfer for the removed disk. Number of disks included in the restore point will differ depending on the VM state at the time of the backup.
+          If you remove a disk, the snapshot or data transfer operation won't run for the removed disk. Number of disks included in the restore point will differ depending on the VM state at the time of the backup.
 
           Resizing a disk will continue with incremental backups unless the underlying storage account of the disk changes, which results in a full backup.
 
