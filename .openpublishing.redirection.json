@@ -2,202 +2,202 @@
   "redirections": [
     {
       "source_path": "articles/modeling-simulation-workbench/best-practices.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/best-practices",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/concept-chamber.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/concept-chamber",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/concept-connector.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/concept-connector",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/concept-data-pipeline.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/concept-data-pipeline",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/concept-license-service.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/concept-license-service",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/concept-network.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/concept-network",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/concept-storage.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/concept-storage",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/concept-user-personas.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/concept-user-personas",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/concept-vm-offerings.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/concept-vm-offerings",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/concept-workbench.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/concept-workbench",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/disaster-recovery.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/disaster-recovery",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/get-started-modeling-simulation-workbench.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/get-started-modeling-simulation-workbench",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/how-to-guide-add-redirect-uris.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/how-to-guide-add-redirect-uris",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/how-to-guide-chamber-idle.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/how-to-guide-chamber-idle",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/how-to-guide-chamber-vm.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/how-to-guide-chamber-vm",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/how-to-guide-chamber.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/how-to-guide-chamber",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/how-to-guide-configure-firewall-red-hat.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/how-to-guide-configure-firewall-red-hat",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/how-to-guide-download-data.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/how-to-guide-download-data",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/how-to-guide-enable-copy-paste.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/how-to-guide-enable-copy-paste",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/how-to-guide-licenses.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/how-to-guide-licenses",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/how-to-guide-manage-chamber-storage.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/how-to-guide-manage-chamber-storage",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/how-to-guide-manage-shared-storage.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/how-to-guide-manage-shared-storage",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/how-to-guide-manage-users.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/how-to-guide-manage-users",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/how-to-guide-private-network.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/how-to-guide-private-network",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/how-to-guide-public-network.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/how-to-guide-public-network",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/how-to-guide-register-resource-provider.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/how-to-guide-register-resource-provider",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/how-to-guide-set-up-networking.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/how-to-guide-set-up-networking",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/how-to-guide-start-stop-restart.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/how-to-guide-start-stop-restart",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/how-to-guide-upload-data.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/how-to-guide-upload-data",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/limits-quotas.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/limits-quotas",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/modeling-simulation-workbench-overview.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/modeling-simulation-workbench-overview",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/quickstart-add-users.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/quickstart-add-users",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/quickstart-connect-desktop.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/quickstart-connect-desktop",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/quickstart-import-data.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/quickstart-import-data",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/refresh-remote-connection-keys.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/refresh-remote-connection-keys",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/resources-get-support.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/resources-get-support",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/resources-troubleshoot.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/resources-troubleshoot",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/shared-storage.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/shared-storage",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/troubleshoot-known-issues.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/troubleshoot-known-issues",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/modeling-simulation-workbench/tutorial-install-slurm.md",
-      "redirect_url": "/previous-versions/azure/modeling-simulation-workbench/tutorial-install-slurm",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
