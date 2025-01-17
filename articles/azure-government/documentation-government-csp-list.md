@@ -539,7 +539,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[ECS Federal, LLC](https://ecstech.com/)|
 |[eTrepid Inc.](https://www.etrepid.com/)|
 |[Executech Utah Inc.](https://www.executech.com)|
-|[F1 Soluitions Inc](https://www.f1networks.com)|
+|[F1 Solutions Inc](https://www.f1networks.com)|
 |[FCN Inc. ](https://fcnit.com)|
 |[Four Points Technolgy, LLC](https://www.4points.com)|
 |[G2 Ops, Inc.](https://g2-ops.com)|
