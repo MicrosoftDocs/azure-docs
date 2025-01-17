@@ -114,7 +114,7 @@ An Azure Recovery Services vault is a storage entity in Azure that houses data s
     $backup_policy_file_share_name=$(terraform output -raw backup_policy_file_share_name)
     ```
 
-1. Run [`Get-AzRecoveryServicesVault`](/powershell/module/az.recoveryservieces/get-azrecoveryservicesvault) to view the Azure Recovery Services vault.
+1. Run [`Get-AzRecoveryServicesVault`](/powershell/module/az.recoveryservices/get-azrecoveryservicesvault) to view the Azure Recovery Services vault.
 
     ```azurepowershell
     Get-AzRecoveryServicesVault -ResourceGroupName $resource_group_name -Name $recovery_services_vault_name
