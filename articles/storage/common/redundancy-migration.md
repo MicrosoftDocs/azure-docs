@@ -135,8 +135,8 @@ You can also add or remove zone redundancy to your storage account. To change be
 
 ```azurecli-interactive
 az storage account migration start \
-    -- account-name <string> \
-    -- g <string> \
+    --account-name <string> \
+    --g <string> \
     --sku <string> \
     --no-wait
 ```
