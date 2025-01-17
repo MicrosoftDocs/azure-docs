@@ -187,7 +187,7 @@ func getClient(accountName string) *azblob.Client {
 }
 ```
 
-Instances of `azblob.Client` provide methods for manipulating blob containers and blobs within a storage account. The storage account endpoint is specified when constructing the client object.
+Instances of `azblob.Client` provide methods for working with containers and blobs within a storage account. The storage account endpoint is specified when constructing the client object.
 
 ---
 
@@ -247,7 +247,7 @@ func getBlobContainerClient(client *azblob.Client, containerName string) *azblob
 }
 ```
 
-Instances of `azblob.Client` provide methods for working with blob containers and blobs within a storage account. For most operations, you can use the `azblob.Client` instance rather than creating a separate `ContainerClient` instance.
+Instances of `azblob.Client` provide methods for working with containers and blobs within a storage account. For most operations, you can use the `azblob.Client` instance rather than creating a separate `ContainerClient` instance.
 
 ---
 
@@ -391,7 +391,7 @@ func getBlobClient(client *azblob.Client, containerName string, blobName string)
 }
 ```
 
-Instances of `azblob.Client` provide methods for working with blob containers and blobs within a storage account. For most operations, you can use the `azblob.Client` instance rather than creating a separate `BlobClient` instance.
+Instances of `azblob.Client` provide methods for working with containers and blobs within a storage account. For most operations, you can use the `azblob.Client` instance rather than creating a separate `BlobClient` instance.
 
 ---
 
