@@ -209,6 +209,7 @@ For Azure services, use the recommended zone names as described in the following
 >| Azure Search (Microsoft.Search/searchServices) | searchService | privatelink.search.windows.net | search.windows.net |
 >| Azure Relay (Microsoft.Relay/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
 >| Azure Web Apps - Azure Function Apps (Microsoft.Web/sites) | sites | privatelink.azurewebsites.net </br> scm.privatelink.azurewebsites.net<sup>2</sup> | azurewebsites.net </br> scm.azurewebsites.net |
+>| Azure Web Apps - Deployment Slots (Microsoft.Web/sites/slots) | sites-{slotName} | privatelink.azurewebsites.net </br> scm.privatelink.azurewebsites.net<sup>2</sup> | azurewebsites.net </br> scm.azurewebsites.net |
 >| SignalR (Microsoft.SignalRService/SignalR) | signalr | privatelink.service.signalr.net | service.signalr.net |
 >| Azure Static Web Apps (Microsoft.Web/staticSites) | staticSites | privatelink.azurestaticapps.net </br> privatelink.{partitionId}.azurestaticapps.net | azurestaticapps.net </br> {partitionId}.azurestaticapps.net |
 >| Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
@@ -225,6 +226,8 @@ For Azure services, use the recommended zone names as described in the following
 > - [Geo Code list in XML](/azure/backup/scripts/geo-code-list)
 >
 > **`{regionName}`** refers to the full region name (for example, **eastus** for East US and **northeurope** for North Europe). To retrieve a current list of Azure regions and their names and display names, use **`az account list-locations -o table`**.
+>
+> **`{slotName}`** refers to the name of the Azure Web Apps deployment slot.
 
 ## Government
 
@@ -357,6 +360,7 @@ For Azure services, use the recommended zone names as described in the following
 >| Azure Search (Microsoft.Search/searchServices) | searchService | privatelink.search.azure.us | search.azure.us |
 >| Azure Relay (Microsoft.Relay/namespaces) | namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net |
 >| Azure Web Apps (Microsoft.Web/sites) | sites | privatelink.azurewebsites.us </br> scm.privatelink.azurewebsites.us<sup>2</sup> | azurewebsites.us </br> scm.azurewebsites.us |
+>| Azure Web Apps - Deployment Slots (Microsoft.Web/sites/slots) | sites-{slotName} | privatelink.azurewebsites.us </br> scm.privatelink.azurewebsites.us<sup>2</sup> | azurewebsites.us </br> scm.azurewebsites.us |
 >| Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net | 
 
 <sup>2</sup>In scenarios where the Kudu console or Kudu REST API is used, you must create two DNS records pointing to the private endpoint IP in your Azure DNS private zone or custom DNS server. The first record is for your app, and the second record is for the SCM (Source Control Management) of your app.
@@ -367,6 +371,8 @@ For Azure services, use the recommended zone names as described in the following
 >- [Geo Code list in XML](/azure/backup/scripts/geo-code-list)
 >
 > **`{regionName}`** refers to the full region name (for example, **eastus** for East US and **northeurope** for North Europe). To retrieve a current list of Azure regions and their names and display names, use **`az account list-locations -o table`**.
+>
+> **`{slotName}`** refers to the name of the Azure Web Apps deployment slot.
 
 ## China
 
