@@ -842,4 +842,4 @@ The command provides a link (if using cluster manager storage) or another comman
 > Using the `--output-directory` argument overwrites any files in the local directory that have the same name as the new files being created.
 
 > [!NOTE]
-> Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer to the [cluster manager storage](#verify-access-to-the-cluster-manager-storage-account) or the [user managed storage](#create-and-configure-storage-resources) sections for procedures to verify access.
+> Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer to the [cluster manager storage](#deprecated-method-verify-access-to-the-cluster-manager-storage-account) or the [user managed storage](#create-and-configure-storage-resources) sections for procedures to verify access.
