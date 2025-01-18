@@ -50,21 +50,21 @@ For instructions, see: [Create a custom container image manually](https://aka.ms
 
 **Create a custom image using a script**
 
-To make the process of building a custom image and pushing it to a container registry easier, Microsoft provides a script that builds and pushes the image to a registry that you specify. 
+To make the process of building a Terraform specific image and pushing it to a container registry easier, Microsoft provides a script that builds and pushes the image to a registry that you specify. 
 
 For instructions, see: [Create a custom container image by using a script](https://aka.ms/ade/terraform-custom-script).
 
 **Create a custom image using a GitHub workflow**
 
-To make the process of building a Terraform-based image and pushing it to a container registry easier, you can use a published workflow that builds and pushes the image to a registry that you specify. 
+To make the process of building a Terraform specific image and pushing it to a container registry easier, you can use a published workflow that builds and pushes the image to a registry that you specify. 
 
-For instructions, see: [Create a custom container image by using a script](https://aka.ms/ade/terraform-workflow).
+For instructions, see: [Create a custom container image by using a GitHub workflow](https://aka.ms/ade/terraform-workflow).
 
 **Create a Terraform specific container image manually**
 
-You can use a GitHub workflow to create a custom Terraform image that includes the software, settings, and other customizations you need for your Terraform specific image. You can then upload the new image to a container registry and use it by referencing it in the environment.yaml file.
+You can use a GitHub workflow to create a Terraform specific image that includes the software, settings, and other customizations you need for your Terraform specific image. You can then upload the new image to a container registry and use it by referencing it in the environment.yaml file.
 
-For instructions, see: [Create a container image using a GitHub workflow](https://aka.ms/ade/terraform-workflow-custom-manual).
+For instructions, see: [Create a custom container image manually](https://aka.ms/ade/terraform-workflow-custom-manual).
 
 ### Pulumi
 
