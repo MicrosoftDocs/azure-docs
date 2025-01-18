@@ -127,7 +127,7 @@ You can take one of the following approaches to use container images with ADE:
 
 ### [Create a container image using a script](#tab/terraform-script/)
 
-### Create a container image using a script
+## Create a container image using a script
 
 Creating a custom container image allows you to customize your deployments to fit your requirements. You can build an image based on the ADE standard image and push it to your container registry by using a quick start script provided by Microsoft. You can find the script in the [Deployment Environments with Terraform repo](https://aka.ms/ade/terraform-repo-script). To use the quick start script, fork the repo and then run the script locally.
 
@@ -168,7 +168,10 @@ Run the workflow by navigating to the Actions tab in your forked repository and 
 
 To use the image in your environment deployments, you need to add the location of the image to your manifest file [Connect the image to your environment definition](#connect-the-image-to-your-environment-definition) and you might need to configure permissions for the ACR to [make the custom image available to ADE](#make-the-custom-image-available-to-ade).
 
-### Create a container image manually
+
+### [Create a container image using a script](#tab/terraform-manual/)
+
+## Create a container image manually
 
 Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the ADE standard images.
 
