@@ -120,14 +120,14 @@ After you complete the image customization, you can build the image and push it 
 
 You can take one of the following approaches to use container images with ADE:
 - **Create a custom container image by using a script:** Use the published script to create a Terraform specific image.
-- **Create a container image leveraging a GitHub workflow:** Use the published GitHub workflow from the Leveraging ADE's Extensibility Model With Terraform repository.
+- **Create a custom container image leveraging a GitHub workflow:** Use the published GitHub workflow from the Leveraging ADE's Extensibility Model With Terraform repository.
 - **Create a custom container image manually:** Create a customized Terraform specific image manually
 
 ## Create a custom container image
 
-### [Create a container image using a script](#tab/terraform-script/)
+### [Create an image using a script](#tab/terraform-script/)
 
-## Create a container image using a script
+## Create a custom container image by using a script
 
 Creating a custom container image allows you to customize your deployments to fit your requirements. You can build an image based on the ADE standard image and push it to your container registry by using a quick start script provided by Microsoft. You can find the script in the [Deployment Environments with Terraform repo](https://aka.ms/ade/terraform-repo-script). To use the quick start script, fork the repo and then run the script locally.
 
@@ -151,9 +151,9 @@ Additionally, if you would like to push to a specific repository and tag name, y
 
 To use the image in your environment deployments, you need to add the location of the image to your manifest file [Connect the image to your environment definition](#connect-the-image-to-your-environment-definition) and you might need to configure permissions for the ACR to [make the custom image available to ADE](#make-the-custom-image-available-to-ade).
 
-### [Create a container image using a GitHub workflow](#tab/github-workflow/)
+### [Create an image using a GitHub workflow](#tab/github-workflow/)
 
-## Create a container image by by using a GitHub workflow
+## Create a custom container image by using a GitHub workflow
 
 To start with, you can use the published GitHub workflow from the Leveraging ADE's Extensibility Model With Terraform repository.
 
@@ -168,10 +168,9 @@ Run the workflow by navigating to the Actions tab in your forked repository and 
 
 To use the image in your environment deployments, you need to add the location of the image to your manifest file [Connect the image to your environment definition](#connect-the-image-to-your-environment-definition) and you might need to configure permissions for the ACR to [make the custom image available to ADE](#make-the-custom-image-available-to-ade).
 
+### [Create an image using a script](#tab/terraform-manual/)
 
-### [Create a container image using a script](#tab/terraform-manual/)
-
-## Create a container image manually
+## Create a custom container image manually
 
 Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the ADE standard images.
 
