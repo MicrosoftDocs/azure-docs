@@ -6,7 +6,7 @@ ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli, devx-track-bicep
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 01/10/2025
+ms.date: 01/17/2025
 ms.topic: how-to
 zone_pivot_groups: ade-extensibility-iac-framework
 
@@ -168,7 +168,7 @@ Run the workflow by navigating to the Actions tab in your forked repository and 
 
 To use the image in your environment deployments, you need to add the location of the image to your manifest file [Connect the image to your environment definition](#connect-the-image-to-your-environment-definition) and you might need to configure permissions for the ACR to [make the custom image available to ADE](#make-the-custom-image-available-to-ade).
 
-### [Create an image using a script](#tab/terraform-manual/)
+### [Create an image manually](#tab/terraform-manual/)
 
 ## Create a custom container image manually
 
