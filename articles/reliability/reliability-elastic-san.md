@@ -39,7 +39,7 @@ If you deployed an LRS Elastic SAN, you may need to deploy a new SAN using snaps
 
 ### Low-latency design
 
-Deploying a ZRS Elastic SAN provides more reliability than an LRS Elastic SAN, but adds more write latency. Benchmark your Elastic SAN and simulate the workload of your application to compare the latency between LRS and ZRS, to see if it effects your workload.
+Deploying a ZRS Elastic SAN provides more reliability than an LRS Elastic SAN, but adds more write latency. Benchmark your Elastic SAN and simulate the workload of your application to compare the latency between LRS and ZRS, to see if it affects your workload.
 
 ### Availability zone migration
 
