@@ -56,7 +56,7 @@ All Azure services benefit from these core platform reliability capabilities, an
 
 Azure provides many different resilience-enhancing capabilities. Although Microsoft is responsible for providing these capabilities, you are entirely responsible for selecting and using the appropriate ones for your needs. Some examples of these capabilities include:
 
-- **Regions.** Azure has over 60 regions, and you can use multiple regions in a single solution to achieve geo-redundancy, meet your data residency needs, and enable low-latency communication to users globally.
+- **Regions.** Azure has over 60 regions, and you can use multiple regions in a single solution to achieve geo-redundancy, meet your data residency needs, and enable low-latency communication to users globally. To learn more about regions, see [What are Azure regions?](./regions-overview.md).
 
 - **Availability zones.** Many Azure regions support availability zones, which enable you to distribute your workloads across multiple independent sets of datacenters. Azure services support availability zones in a way that suits their intended purpose, usually by supporting zonal deployments (pinned to a single zone) and/or zone-redundant deployments (spread across multiple zones). To learn more about availability zones, see [What are availability zones?](./availability-zones-overview.md).
 

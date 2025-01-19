@@ -59,7 +59,7 @@ You can find outage declarations in [Service Health - Microsoft Azure](https://p
 
 ### Capacity and proactive disaster recovery resiliency
 
-Microsoft and its customers operate under the [Shared Responsibility Model](./availability-zones-overview.md#shared-responsibility-model). Shared responsibility means that for customer-enabled DR (customer-responsible services), you must address DR for any service you deploy and control. Pre-validate any service you deploy works with Elastic SAN. To ensure that recovery is proactive, pre-deploy secondaries to make sure there's no capacity issues if your environments are impacted.
+Microsoft and its customers operate under the [Shared Responsibility Model](./concept-shared-responsibility.md). Shared responsibility means that for customer-enabled DR (customer-responsible services), you must address DR for any service you deploy and control. Pre-validate any service you deploy works with Elastic SAN. To ensure that recovery is proactive, pre-deploy secondaries to make sure there's no capacity issues if your environments are impacted.
 
 ## Next steps
 
