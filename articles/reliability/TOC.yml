@@ -10,7 +10,15 @@
     href: concept-shared-responsibility.md
   - name: Azure service incident response
     href: incident-response.md
-- name: Availability zone support
+- name: Azure regions
+  items:
+  - name: What are Azure regions?
+    href: regions-overview.md
+  - name: Paired and nonpaired regions
+    href: regions-paired.md
+  - name: Multi-region solutions in nonpaired regions
+    href: cross-region-replication-azure-no-pair.md
+- name: Availability zones
   items:
   - name: What are Azure availability zones?
     href: availability-zones-overview.md
