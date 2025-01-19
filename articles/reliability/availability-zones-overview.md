@@ -74,7 +74,7 @@ Many regions also have a [*paired region*](./cross-region-replication-azure.md#a
 
 ## Shared responsibility model
 
-The [shared responsibility model](/azure/security/fundamentals/shared-responsibility) describes how responsibilities are divided between the cloud provider (Microsoft) and you. Depending on the type of services you use, you might take on more or less responsibility for operating the service.
+The [shared responsibility model](./concept-shared-responsibility.md) describes how responsibilities are divided between the cloud provider (Microsoft) and you. Depending on the type of services you use, you might take on more or less responsibility for operating the service.
 
 Microsoft provides availability zones and regions to give you flexibility in how you design your solution to meet your requirements. When you use managed services, Microsoft takes on more of the management responsibilities for your resources, which might even include data replication, failover, failback, and other tasks related to operating a distributed system.
 

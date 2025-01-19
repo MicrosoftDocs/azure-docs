@@ -58,7 +58,7 @@ Here's how to assign an Azure RBAC role to an Azure Virtual Desktop service prin
 
 1. Under properties, make a note of the **name** and the **object ID**. The object ID correlates to the application ID, and is unique to your tenant.
 
-1. In the search box, enter *Subscriptions* and select the matching service entry.
+1. Go back to the search box, enter *Subscriptions* and select the matching service entry.
 
 1. Select the subscription you want to add the role assignment to.
 

@@ -5,7 +5,7 @@ description: Learn how Azure routes virtual network traffic and how you can cust
 services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/30/2024
 ms.author: allensu
 ---

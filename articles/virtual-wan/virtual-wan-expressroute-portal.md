@@ -4,7 +4,7 @@ description: In this tutorial, learn how to use Azure Virtual WAN to create Expr
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: tutorial
-ms.date: 04/28/2023
+ms.date: 12/12/2024
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
 ---
@@ -141,7 +141,7 @@ By default, VNet to Virtual WAN traffic is disabled over ExpressRoute. You can e
 
 :::image type="content" source="./media/virtual-wan-expressroute-portal/allow-non-virtual-wan-traffic.png" alt-text="Azure portal Screenshot of Virtual Hub Edit with ExpressRoute toggle for allowing traffic from non Virtual WAN networks." lightbox="./media/virtual-wan-expressroute-portal/allow-non-virtual-wan-traffic.png":::
 
-It is recommended to keep these toggles disabled and instead create a Virtual Network connection between the standalone virtual network and Virtual WAN hub. This offers better performance and lower latency, as conveyed in our [FAQ.](virtual-wan-faq.md#when-theres-an-expressroute-circuit-connected-as-a-bow-tie-to-a-virtual-wan-hub-and-a-standalone-vnet-what-is-the-path-for-the-standalone-vnet-to-reach-the-virtual-wan-hub)
+We recommend that you keep these toggles disabled and instead create a Virtual Network connection between the standalone virtual network and Virtual WAN hub. This offers better performance and lower latency, as conveyed in our [FAQ.](virtual-wan-faq.md#when-theres-an-expressroute-circuit-connected-as-a-bow-tie-to-a-virtual-wan-hub-and-a-standalone-vnet-what-is-the-path-for-the-standalone-vnet-to-reach-the-virtual-wan-hub)
 
 ## <a name="cleanup"></a>Clean up resources
 

@@ -2,7 +2,7 @@
 title: "Tutorial: Work with well data records by using Well Delivery DDMS APIs"
 description: Learn how to work with well data records in your Azure Data Manager for Energy instance by using Well Delivery Domain Data Management Services (DDMS) APIs in Postman.
 author: dprakash-sivakumar
-ms.author: disivakumar
+ms.author: prasivakumar
 ms.service: azure-data-manager-energy
 ms.topic: tutorial
 ms.date: 07/28/2022
@@ -38,10 +38,10 @@ The first step is to get the following information from your [Azure Data Manager
 
 | Parameter          | Value             | Example                               |
 | ------------------ | ------------------------ |-------------------------------------- |
-| `CLIENT_ID`          | Application (client) ID  | `3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx`  |
+| `CLIENT_ID`          | Application (client) ID  | `00001111-aaaa-2222-bbbb-3333cccc4444`  |
 | `CLIENT_SECRET`      | Client secrets           |  `_fl******************`                |
 | `TENANT_ID`          | Directory (tenant) ID    | `72f988bf-86f1-41af-91ab-xxxxxxxxxxxx`  |
-| `SCOPE`              | Application (client) ID  | `3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx`  |
+| `SCOPE`              | Application (client) ID  | `00001111-aaaa-2222-bbbb-3333cccc4444`  |
 | `base_uri`           | URI                      | `<instance>.energy.azure.com`           |
 | `data-partition-id`  | Data partitions        | `<instance>-<data-partition-name>`                    |
 

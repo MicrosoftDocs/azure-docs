@@ -257,7 +257,7 @@ $policySettingURI = New-AzApplicationGatewayFirewallPolicySetting `
   -MaxFileUploadInMb 5
 
 $wafPolicyURI = New-AzApplicationGatewayFirewallPolicy `
-  -Name wafpolicySite `
+  -Name wafPolicyURI `
   -ResourceGroup myResourceGroupAG `
   -Location eastus `
   -PolicySetting $PolicySettingURI `

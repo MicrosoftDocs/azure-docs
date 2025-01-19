@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: tutorial
-ms.date: 11/25/2024
+ms.date: 01/08/2025
 
 #CustomerIntent: As an operator, I want to understand how to create a bi-directional MQTT bridge to Azure Event Grid so that I can send and receive messages between devices and services.
 ---
@@ -171,8 +171,8 @@ Write-Output $PRINCIPAL_ID
 
 Take note of the output value for `identity.principalId`, which is a GUID value with the following format:
 
-```output
-d84481ae-9181-xxxx-xxxx-xxxxxxxxxxxx
+```Output
+aaaaaaaa-bbbb-cccc-1111-222222222222
 ```
 
 Then, use Azure CLI to assign publisher and subscriber roles to Azure IoT Operations MQTT for the topic space you created.
@@ -366,7 +366,26 @@ resource dataflow_1 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflow
         operationType: 'Source'
         sourceSettings: {
           endpointRef: 'default'
+          serializationFormat: 'Json'
           dataSources: array('tutorial/local')
+        }
+      }
+      {
+        operationType: 'BuiltInTransformation'
+
+        builtInTransformationSettings: {
+        serializationFormat: 'Json'
+        datasets: []
+        filter: []
+        map: [
+          {
+            type: 'PassThrough'
+            inputs: [
+              '*'
+            ]
+            output: '*'
+          }
+        ]
         }
       }
       {
@@ -393,7 +412,26 @@ resource dataflow_2 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflow
         operationType: 'Source'
         sourceSettings: {
           endpointRef: 'eventgrid'
+          serializationFormat: 'Json'
           dataSources: array('telemetry/#')
+        }
+      }
+      {
+        operationType: 'BuiltInTransformation'
+
+        builtInTransformationSettings: {
+        serializationFormat: 'Json'
+        datasets: []
+        filter: []
+        map: [
+          {
+            type: 'PassThrough'
+            inputs: [
+              '*'
+            ]
+            output: '*'
+          }
+        ]
         }
       }
       {
@@ -405,7 +443,7 @@ resource dataflow_2 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflow
       }
     ]
   }
-} 
+}
 ```
 
 Like the dataflow endpoint, execute the following command in your terminal:
@@ -474,62 +512,26 @@ When you publish to the `tutorial/local` topic on the local Azure IoT Operations
 
 ## Deploy MQTT client
 
-To verify the MQTT bridge is working, deploy an MQTT client to the same namespace as Azure IoT Operations. In a new file named `client.yaml`, specify the client deployment:
-
-<!-- TODO: put this in the explore-iot-operations repo? -->
+To verify the MQTT bridge is working, deploy an MQTT client to the same namespace as Azure IoT Operations. 
 
 # [Bicep](#tab/bicep)
 
-Currently, bicep doesn't apply to deploy MQTT client.
+Currently, Bicep doesn't apply to deploy MQTT client.
 
 # [Kubernetes (preview)](#tab/kubernetes)
 
-```yaml
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: mqtt-client
-  namespace: azure-iot-operations
----
-apiVersion: v1
-kind: Pod
-metadata:
-  name: mqtt-client
-  # Namespace must match MQTT broker BrokerListener's namespace
-  # Otherwise use the long hostname: aio-broker.azure-iot-operations.svc.cluster.local
-  namespace: azure-iot-operations
-spec:
-  # Use the "mqtt-client" service account from above
-  # Otherwise create it with `kubectl create serviceaccount mqtt-client -n azure-iot-operations`
-  serviceAccountName: mqtt-client
-  containers:
-    # Mosquitto and mqttui on Alpine
-  - image: alpine
-    name: mqtt-client
-    command: ["sh", "-c"]
-    args: ["apk add mosquitto-clients mqttui && sleep infinity"]
-    volumeMounts:
-    - name: broker-sat
-      mountPath: /var/run/secrets/tokens
-    - name: trust-bundle
-      mountPath: /var/run/certs
-  volumes:
-  - name: broker-sat
-    projected:
-      sources:
-      - serviceAccountToken:
-          path: broker-sat
-          audience: aio-internal # Must match audience in BrokerAuthentication
-          expirationSeconds: 86400
-  - name: trust-bundle
-    configMap:
-      name: azure-iot-operations-aio-ca-trust-bundle # Default root CA cert
-```
+Download `mqtt-client.yaml` deployment from the GitHub sample repository.
 
+> [!IMPORTANT]
+> Don't use the MQTT client in production. The client is for testing purposes only.
+
+```bash
+wget https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/mqtt-client.yaml -O mqtt-client.yaml
+```
 Apply the deployment file with kubectl.
 
 ```bash
-kubectl apply -f client.yaml
+kubectl apply -f mqtt-client.yaml
 ```
 
 ```output
@@ -582,7 +584,27 @@ mosquitto_pub -h aio-broker -p 18883 \
 
 In the subscriber shell, you see the messages you published.
 
-<!-- TODO: add actual mosquitto output -->
+```Output
+Client null sending CONNECT
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received CONNACK (0)
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 sending SUBSCRIBE (Mid: 1, Topic: tutorial/#, QoS: 0, Options: 0x00)
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received SUBACK
+Subscribed (mid: 1): 0
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 sending PINGREQ
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received PINGRESP
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received PUBLISH (d0, q0, r0, m0, 'tutorial/local', ... (52 bytes))
+This message goes all the way to the cloud and back!
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received PUBLISH (d0, q0, r0, m0, 'tutorial/local', ... (52 bytes))
+This message goes all the way to the cloud and back!
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received PUBLISH (d0, q0, r0, m0, 'tutorial/local', ... (52 bytes))
+This message goes all the way to the cloud and back!
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received PUBLISH (d0, q0, r0, m0, 'tutorial/local', ... (52 bytes))
+This message goes all the way to the cloud and back!
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received PUBLISH (d0, q0, r0, m0, 'tutorial/local', ... (52 bytes))
+This message goes all the way to the cloud and back!
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 sending PINGREQ
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received PINGRESP
+```
 
 Here, you see the messages are published to the local Azure IoT Operations broker to the `tutorial/local` topic, bridged to Event Grid MQTT broker, and then bridged back to the local Azure IoT Operations broker again on the `tutorial/cloud` topic. The messages are then delivered to the subscriber. In this example, the round trip time is about 80 ms.
 

@@ -4,8 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: yelevin
 ms.author: yelevin
 ms.topic: concept-article
-ms.date: 12/02/2024
-
+ms.date: 01/14/2025
 
 #Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
 
@@ -13,19 +12,98 @@ ms.date: 12/02/2024
 
 # What's new in Microsoft Sentinel
 
-This article lists recent features added for Microsoft Sentinel, and new features in related services that provide an enhanced user experience in Microsoft Sentinel.
+This article lists recent features added for Microsoft Sentinel, and new features in related services that provide an enhanced user experience in Microsoft Sentinel. For new features in Microsoft's unified security operations (SecOps) platform, see the [unified SecOps platform documentation](/unified-secops-platform/whats-new).
 
 The listed features were released in the last three months. For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
- Get notified when this page is updated by copying and pasting the following URL into your feed reader:
+Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://aka.ms/sentinel/rss`
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## January 2025
+
+- [Bicep template support for repositories (Preview)](#bicep-template-support-for-repositories-preview)
+- [View granular solution content in the Microsoft Sentinel content hub](#view-granular-solution-content-in-the-microsoft-sentinel-content-hub)
+
+### Bicep template support for repositories (Preview)
+Use Bicep templates alongside or as a replacement of ARM JSON templates in Microsoft Sentinel repositories. Bicep provides an intuitive way to create templates of Azure resources and Microsoft Sentinel content items. Not only is it easier to develop new content items, Bicep makes reviewing and updating content easier for anyone that's a part of the continuous integration and delivery of your Microsoft Sentinel content.
+
+For more information, see [Plan your repository content](ci-cd-custom-content.md#plan-your-repository-content).
+
+### View granular solution content in the Microsoft Sentinel content hub
+
+Now you can view the individual content available in a specific solution directly from the **Content hub**, even before you've installed the solution. This new visibility helps you understand the content available to you, and more easily identify, plan, and install the specific solutions you need.
+
+Expand each solution in the Content hub to view included security content. For example:
+
+:::image type="content" source="media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of showing granular content.":::
+
+The granular solution content updates also include a generative AI-based search engine that helps you run more robust searches, diving deep into the solution content and returning results for similar terms.
+
+For more information, see [Discover content](sentinel-solutions-deploy.md#discover-content).
+
 ## December 2024
 
+- [New SOC optimization recommendation based on similar organizations (Preview)](#new-soc-optimization-recommendation-based-on-similar-organizations-preview)
+- [Agentless deployment for SAP applications (Limited preview)](#agentless-deployment-for-sap-applications-limited-preview)
+- [Microsoft Sentinel workbooks now available to view directly in the Microsoft Defender portal](#microsoft-sentinel-workbooks-now-available-to-view-directly-in-the-microsoft-defender-portal)
+- [Unified Microsoft Sentinel solution for Microsoft Business Apps](#unified-microsoft-sentinel-solution-for-microsoft-business-apps)
 - [New documentation library for Microsoft's unified security operations platform](#new-documentation-library-for-microsofts-unified-security-operations-platform)
 - [New S3-based data connector for Amazon Web Services WAF logs (Preview)](#new-s3-based-data-connector-for-amazon-web-services-waf-logs-preview)
+
+### New SOC optimization recommendation based on similar organizations (Preview)
+
+SOC optimization now includes new recommendations for adding data sources to your workspace based on the security posture of other customers in similar industries and sectors as you, and with similar data ingestion patterns. Add the recommended data sources to improve security coverage for your organization.
+
+For more information, see [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md).
+
+### Agentless deployment for SAP applications (Limited preview)
+
+The Microsoft Sentinel solution for SAP applications now supports an agentless deployment, using SAP's own cloud platform features to provide simplified, agentless deployment and connectivity. Instead of deploying a virtual machine and containerized agent, use the SAP Cloud Connector and its existing connections to back-end ABAP systems to connect your SAP system to Microsoft Sentinel.
+
+The **Agentless solution** uses the SAP Cloud Connector and SAP Integration Suite, which are already familiar to most SAP customers. This significantly reduces deployment times, especially for those less familiar with Docker, Kubernetes, and Linux administration. By using the SAP Cloud Connector, the solution profits from already existing setups and established integration processes. This means you don't have to tackle network challenges again, as the people running your SAP Cloud Connector have already gone through that process.
+
+The **Agentless solution** is compatible with SAP S/4HANA Cloud, Private Edition RISE with SAP, SAP S/4HANA on-premises, and SAP ERP Central Component (ECC), ensuring continued functionality of existing security content, including detections, workbooks, and playbooks.
+
+> [!IMPORTANT]
+> Microsoft Sentinel's **Agentless solution** is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here. Access to the **Agentless solution** also requires registration and is only available to approved customers and partners during the preview period. 
+
+For more information, see:
+
+- [Microsoft Sentinel for SAP goes agentless ](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/microsoft-sentinel-for-sap-goes-agentless/ba-p/13960238)
+- [Sign up for the limited preview](https://aka.ms/SentinelSAPAgentlessSignUp)
+- [Microsoft Sentinel solution for SAP applications: Deployment overview](sap/deployment-overview.md)
+
+### Microsoft Sentinel workbooks now available to view directly in the Microsoft Defender portal
+
+Microsoft Sentinel workbooks are now available for viewing directly in the Microsoft Defender portal with Microsoft's unified security operations (SecOps) platform. Now, in the Defender portal, when you select **Microsoft Sentinel > Threat management> Workbooks**, you remain in the Defender portal instead of a new tab being opened for workbooks in the Azure portal. Continue tabbing out to the Azure portal only when you need to edit your workbooks.
+
+Microsoft Sentinel workbooks are based on Azure Monitor workbooks, and help you visualize and monitor the data ingested to Microsoft Sentinel. Workbooks add tables and charts with analytics for your logs and queries to the tools already available.
+
+For more information, see [Visualize and monitor your data by using workbooks in Microsoft Sentinel](monitor-your-data.md) and [Connect Microsoft Sentinel to Microsoft Defender XDR](/defender-xdr/microsoft-sentinel-onboard).
+
+### Unified Microsoft Sentinel solution for Microsoft Business Apps
+
+Microsoft Sentinel now provides a unified solution for Microsoft Power Platform, Microsoft Dynamics 365 Customer Engagement, and Microsoft Dynamics 365 Finance and Operations. The solution includes data connectors and security content for all platforms.
+
+The updated solution removes the **Dynamics 365 CE Apps** and the **Dynamics 365 Finance and Operations** solutions from the Microsoft Sentinel **Content hub**. Existing customers will see that these solutions are renamed to the **Microsoft Business Applications** solution.
+
+The updated solution also removes the Power Platform Inventory data connector. While the Power Platform Inventory data connector continues to be supported on workspaces where it's already deployed, it isn't available for new deployments in other workspaces.
+
+For more information, see:
+
+- [What is the Microsoft Sentinel solution for Microsoft Business Apps?](business-applications/solution-overview.md)
+
+- Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement:
+
+    - [Connect Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement to Microsoft Sentinel](business-applications/deploy-power-platform-solution.md)
+    - [Security content reference for Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement](business-applications/power-platform-solution-security-content.md)
+
+- Microsoft Dynamics 365 Finance and Operations:
+
+    - [Deploy Microsoft Sentinel solution for Dynamics 365 Finance and Operations](dynamics-365/deploy-dynamics-365-finance-operations-solution.md)
+    - [Security content reference for Dynamics 365 Finance and Operations](dynamics-365/dynamics-365-finance-operations-security-content.md)
 
 ### New documentation library for Microsoft's unified security operations platform
 
@@ -39,6 +117,8 @@ For more details and setup instructions, see [Connect Microsoft Sentinel to Amaz
 
 ## November 2024
 
+- [Microsoft Sentinel availability in Microsoft Defender portal](#microsoft-sentinel-availability-in-microsoft-defender-portal)
+
 ### Microsoft Sentinel availability in Microsoft Defender portal
 
 We previously announced Microsoft Sentinel is generally available within Microsoft's unified security operations platform in the Microsoft Defender portal.
@@ -47,6 +127,21 @@ Now, **in preview**, Microsoft Sentinel is available in the Defender portal even
 
  - [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
  - [Connect Microsoft Sentinel to the Microsoft Defender portal](/defender-xdr/microsoft-sentinel-onboard)
+
+## October 2024
+
+- [Updates for the Microsoft Sentinel solution for Microsoft Power Platform](#updates-for-the-microsoft-sentinel-solution-for-microsoft-power-platform)
+
+### Updates for the Microsoft Sentinel solution for Microsoft Power Platform
+
+Starting on October 17, 2024, audit logging data for Power Apps, Power Platform DLP, and Power Platform Connectors is routed to the `PowerPlatformAdminActivity` table instead of the `PowerAppsActivity`, `PowerPlatformDlpActivity` and `PowerPlatformConnectorActivity` tables.
+
+Security content in the Microsoft Sentinel solution for Microsoft Power Platform is updated with the new table and schemas for the Power Apps, Power Platform DLP, and Power Platform Connectors. We recommend that you update the Power Platform solution in your workspace to the latest version and apply the updated analytics rule templates to benefit from the changes. For more information, see [Install or update content](sentinel-solutions-deploy.md#install-or-update-content).
+
+Customers using deprecated data connectors for Power Apps, Power Platform DLP, and Power Platform Connectors can safely disconnect and remove these connectors from their Microsoft Sentinel workspace. All associated data flows are ingested using Power Platform Admin Activity connector.
+
+For more information, see [Message center](https://portal.office.com/adminportal/home?#/MessageCenter/:/messages/MC912045).
+- [Microsoft Sentinel availability in Microsoft Defender portal](#microsoft-sentinel-availability-in-microsoft-defender-portal)
 
 ## September 2024
 

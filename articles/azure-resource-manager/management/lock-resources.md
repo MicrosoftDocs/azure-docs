@@ -101,7 +101,7 @@ Applying locks can lead to unexpected results. Some operations, which don't seem
 
 - A cannot-delete lock on a **Virtual Machine** that is protected by **Site Recovery** prevents certain resource links related to Site Recovery from being removed properly when you remove the protection or disable replication. If you plan to protect the VM again later, you need to remove the lock before disabling protection. If you don't remove the lock, you need to follow certain steps to clean up the stale links before you can protect the VM. For more information, see [Troubleshoot Azure VM replication](../../site-recovery/azure-to-azure-troubleshoot-errors.md#replication-not-enabled-on-vm-with-stale-resources-error-code-150226).
 
-- For **Postgresql**, the virtual network shouldn't have any resource locks set at the virtual network or subnet level, as locks may interfere with network and DNS operations. Before creating the server in a virtual network, ensure you remove any delete or read-only locks from your virtual network and all subnets. You can reapply the locks after the server is created.
+- For **PostgreSQL**, the virtual network shouldn't have any resource locks set at the virtual network or subnet level, as locks may interfere with network and DNS operations. Before creating the server in a virtual network, ensure you remove any delete or read-only locks from your virtual network and all subnets. You can reapply the locks after the server is created.
 
 ## Who can create or delete locks
 

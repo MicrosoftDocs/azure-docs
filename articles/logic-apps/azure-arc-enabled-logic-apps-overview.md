@@ -94,7 +94,7 @@ This table provides a high-level comparison between the capabilities in the curr
       Local development
    :::column-end:::
    :::column:::
-      Visual Studio Code, Visual Studio
+      Visual Studio Code
    :::column-end:::
    :::column:::
       Visual Studio Code, including run history and overview with breakpoint debugging

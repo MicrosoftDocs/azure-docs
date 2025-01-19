@@ -3,7 +3,7 @@ title: Azure Automation Change Tracking and Inventory overview using Azure Monit
 description: This article describes the Change Tracking and Inventory feature using Azure monitoring agent, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 11/15/2024
+ms.date: 12/09/2024
 ms.topic: overview
 ms.service: azure-automation
 ---
@@ -17,9 +17,23 @@ ms.service: azure-automation
 This article explains on the latest version of change tracking support using Azure Monitoring Agent as a singular agent for data collection. 
 
 > [!NOTE]
-> File Integrity Monitoring (FIM) using [Microsoft Defender for Endpoint (MDE)](https://learn.microsoft.com/azure/defender-for-cloud/file-integrity-monitoring-enable-defender-endpoint) is now currently available. If you have FIM configured with either AMA or LA, follow the guidance to migrate from:
-> - [FIM with Change Tracking and Inventory using AMA](https://learn.microsoft.com/azure/defender-for-cloud/migrate-file-integrity-monitoring#migrate-from-fim-over-ama).
-> - [FIM with Change Tracking and Inventory using MMA](https://learn.microsoft.com/azure/defender-for-cloud/migrate-file-integrity-monitoring#migrate-from-fim-over-mma).
+> File Integrity Monitoring (FIM) using [Microsoft Defender for Endpoint (MDE)](/azure/defender-for-cloud/file-integrity-monitoring-enable-defender-endpoint) is now currently available. If you have FIM configured with either AMA or LA, follow the guidance to migrate from:
+> - [FIM with Change Tracking and Inventory using AMA](/azure/defender-for-cloud/migrate-file-integrity-monitoring#migrate-from-fim-over-ama).
+> - [FIM with Change Tracking and Inventory using MMA](/azure/defender-for-cloud/migrate-file-integrity-monitoring#migrate-from-fim-over-mma).
+
+## What is Change Tracking & Inventory
+
+Azure Change Tracking & Inventory service enhances the auditing and governance for in-guest operations by monitoring changes and providing detailed inventory logs for servers across Azure, on-premises, and other cloud environments.
+
+1. **Change Tracking**
+
+    a. Monitors changes, including modifications to files, registry keys, software installations, and Windows services or Linux daemons.</br>
+    b. Provides detailed logs of what and when the changes were made, who made them, enabling you to quickly detect configuration drifts or unauthorized changes.
+    
+1. **Inventory**
+
+    a. Collects and maintains an updated list of installed software, operating system details, and other server configurations in linked LA workspace </br>
+    b. Helps create an overview of system assets, which is useful for compliance, audits, and proactive maintenance.
 
 ## Support matrix
 

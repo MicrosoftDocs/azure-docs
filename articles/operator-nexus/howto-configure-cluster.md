@@ -147,15 +147,16 @@ You can find examples for an 8-Rack 2M16C SKU cluster using these two files:
 
 ### Cluster validation
 
-A successful Operator Nexus Cluster creation results in the creation of a Azure resource
+A successful Operator Nexus Cluster creation results in the creation of an Azure resource
 inside your subscription. The cluster ID, cluster provisioning state, and
 deployment state are returned as a result of a successful `cluster create`.
 
 View the status of the Cluster:
 
 ```azurecli
-az networkcloud cluster show --resource-group "$CLUSTER_RG" \
-  --cluster-name "$CLUSTER_RESOURCE_NAME"
+az networkcloud cluster show --cluster-name "<clusterName>" /
+--resource-group "<resourceGroupName>" /
+--subscription <subscriptionID>
 ```
 
 The Cluster creation is complete when the `provisioningState` of the resource
@@ -167,6 +168,126 @@ Cluster create Logs can be viewed in the following locations:
 
 1. Azure portal Resource/ResourceGroup Activity logs.
 2. Azure CLI with `--debug` flag passed on command-line.
+
+### Set deployment thresholds
+
+There are two types of deployment thresholds that can be set on a cluster prior to cluster deployment.  They are `compute-deployment-threshold` and `update-strategy`.
+
+**--compute-deployment-threshold - The validation threshold indicating the allowable failures of compute nodes during environment hardware validation.**
+
+If `compute-deployment-threshold` is not set, the defaults are as follows:
+```
+      "strategyType": "Rack",
+      "thresholdType": "PercentSuccess",
+      "thresholdValue": 80,
+      "waitTimeMinutes": 1
+```
+
+If the customer requests a `compute-deployment-threshold` that it is different from the default of 80%, you can run the following cluster update command.
+
+The example below is for a customer requesting type "PercentSuccess" with a success rate of 97%.
+
+```azurecli
+az networkcloud cluster update --name "<clusterName>" /
+--resource-group "<resourceGroup>" /
+--compute-deployment-threshold type="PercentSuccess" grouping="PerCluster" value=97 /
+--subscription <subscriptionID>
+```
+
+### Validate update
+
+```
+az networkcloud cluster show --resource-group "<resourceGroup>" --name "<clusterName>" | grep -a3 computeDeploymentThreshold
+
+  "clusterType": "MultiRack",
+  "clusterVersion": "<CLUSTER_VERSION>",
+  "computeDeploymentThreshold": {
+    "grouping": "PerCluster",
+    "type": "PercentSuccess",
+    "value": 97
+```
+    
+In this example, if less than 97% of the compute nodes being deployed pass hardware validation, the cluster deployment will fail.  **NOTE:  All kubernetes control plane (KCP) and nexus management plane (NMP) must pass hardware validation.**  If 97% or more of the compute nodes being deployed pass hardware validation, the cluster deployment will continue to the bootstrap provisioning phase.  During compute bootstrap provisioning, the `update-strategy` (below) is used for compute nodes.
+
+
+**--update-strategy - The strategy for updating the cluster indicating the allowable compute node failures during bootstrap provisioning.**
+
+If the customer requests an `update-strategy` threshold that it is different from the default of 80%, you can run the following cluster update command.
+
+```azurecli
+az networkcloud cluster update --name "<clusterName>" /
+--resource-group "<resourceGroup>" /
+--update-strategy strategy-type="Rack" threshold-type="PercentSuccess" /
+threshold-value="<thresholdValue>" wait-time-minutes=<waitTimeBetweenRacks> /
+--subscription <subscriptionID>
+```
+
+The strategy-type can be "Rack" (Rack by Rack) OR "PauseAfterRack" (Wait for customer response to continue).
+
+The threshold-type can be "PercentSuccess" OR "CountSuccess".
+
+If updateStrategy is not set, the defaults are as follows:
+
+```
+      "strategyType": "Rack",
+      "thresholdType": "PercentSuccess",
+      "thresholdValue": 80,
+      "waitTimeMinutes": 1
+```
+
+The example below is for a customer using Rack by Rack strategy with a Percent Success of 60% and a 1 minute pause.
+
+```azurecli
+az networkcloud cluster update --name "<clusterName>" /
+--resource-group "<resourceGroup>" /
+--update-strategy strategy-type="Rack" threshold-type="PercentSuccess" /
+threshold-value=60 wait-time-minutes=1 /
+--subscription <subscriptionID>
+```
+
+Verify update:
+
+```
+az networkcloud cluster show --resource-group "<resourceGroup>" /
+--name "<clusterName>" /
+--subscription <subscriptionID>| grep -a5 updateStrategy
+
+      "strategyType": "Rack",
+      "thresholdType": "PercentSuccess",
+      "thresholdValue": 60,
+      "waitTimeMinutes": 1
+```
+
+In this example, if less than 60% of the compute nodes being provisioned in a rack fail to provision (on a rack by rack basis), the cluster deployment will fail.  If 60% or more of the compute nodes are successfully provisioned, cluster deployment moves on to the next rack of compute nodes.
+
+The example below is for a customer using Rack by Rack strategy with a threshold type CountSuccess of 10 nodes per rack and a 1 minute pause.
+
+```azurecli
+az networkcloud cluster update --name "<clusterName>" /
+--resource-group "<resourceGroup>" /
+--update-strategy strategy-type="Rack" threshold-type="CountSuccess" /
+threshold-value=10 wait-time-minutes=1 /
+--subscription <subscriptionID>
+```
+
+Verify update:
+
+```
+az networkcloud cluster show --resource-group "<resourceGroup>" /
+--name "<clusterName>" /
+--subscription <subscriptionID>| grep -a5 updateStrategy
+
+      "strategyType": "Rack",
+      "thresholdType": "CountSuccess",
+      "thresholdValue": 10,
+      "waitTimeMinutes": 1
+```
+
+In this example, if less than 10 compute nodes being provisioned in a rack fail to provision (on a rack by rack basis), the cluster deployment will fail.  If 10 or more of the compute nodes are successfully provisioned, cluster deployment moves on to the next rack of compute nodes.
+
+>[!NOTE]
+>Deployment thresholds cannot be changed after cluster deployment has started.
+
 
 ## Deploy Cluster
 
@@ -246,7 +367,7 @@ The operation status URL can be found by examining the debug output looking for 
 The headers can provide the `OPERATION_ID` field used in the HTTP API call.
 
 ```azurecli
-OPERATION_ID="12312312-1231-1231-1231-123123123123*99399E995..."
+OPERATION_ID="aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e*99399E995..."
 az rest -m GET -u "https://management.azure.com/subscriptions/${SUBSCRIPTION_ID}/providers/Microsoft.NetworkCloud/locations/${LOCATION}/operationStatuses/${OPERATION_ID}?api-version=2022-12-12-preview"
 ```
 
@@ -262,8 +383,8 @@ metal machines that failed the hardware validation (for example, `COMP0_SVR0_SER
     "code": "HardwareValidationThresholdFailed",
     "message": "HardwareValidationThresholdFailed error hardware validation threshold for cluster layout plan is not met for cluster $CLUSTER_NAME in namespace nc-system with listed failed devices $COMP0_SVR0_SERVER_NAME, $COMP1_SVR1_SERVER_NAME"
   },
-  "id": "/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.NetworkCloud/locations/$LOCATION/operationStatuses/12312312-1231-1231-1231-123123123123*99399E995...",
-  "name": "12312312-1231-1231-1231-123123123123*99399E995...",
+  "id": "/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.NetworkCloud/locations/$LOCATION/operationStatuses/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e*99399E995...",
+  "name": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e*99399E995...",
   "resourceId": "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$CLUSTER_RESOURCE_GROUP/providers/Microsoft.NetworkCloud/clusters/$CLUSTER_NAME",
   "startTime": "2023-03-24T14:56:26.6442125Z",
   "status": "Failed"

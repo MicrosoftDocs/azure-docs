@@ -115,7 +115,7 @@
     - name: Azure NetApp Files
       href: /azure/azure-netapp-files/reservations?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure OpenAI
-      href: azure-openai.md#buy-a-microsoft-azure-openai-reservation
+      href: azure-openai.md#buy-a-microsoft-azure-openai-service-reservation
     - name: Azure VMware Solution
       href: /azure/azure-vmware/reserved-instance?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Cosmos DB

@@ -39,11 +39,11 @@ If you're using the **[Microsoft Sentinel in the Defender portal](https://go.mic
 
 # [Azure portal](#tab/azure-portal)
 
-:::image type="content" source="./media/entity-pages/entity-page-sentinel.png" alt-text="Screenshot of an example of an entity page in the Azure portal.":::
+:::image type="content" source="./media/entity-pages/entity-page-sentinel.png" alt-text="Screenshot of an example of an entity page in the Azure portal." lightbox="./media/entity-pages/entity-page-sentinel.png":::
 
 # [Defender portal](#tab/defender-portal)
 
-:::image type="content" source="./media/entity-pages/entity-pages-timeline-defender.png" alt-text="Screenshot of an example of an entity page in the Defender portal.":::
+:::image type="content" source="./media/entity-pages/entity-pages-timeline-defender.png" alt-text="Screenshot of an example of an entity page in the Defender portal." lightbox="./media/entity-pages/entity-pages-timeline-defender.png":::
 
 ---
 
@@ -65,7 +65,7 @@ The following types of items are included in the timeline.
 
 - **Activities**: aggregation of notable events relating to the entity. A wide range of activities are collected automatically, and you can now [customize this section by adding activities](customize-entity-activities.md) of your own choosing.
 
-:::image type="content" source="./media/entity-pages/entity-pages-timeline-sentinel.png" alt-text="Screenshot of an example of a timeline on an entity page in the Azure portal.":::
+:::image type="content" source="./media/entity-pages/entity-pages-timeline-sentinel.png" alt-text="Screenshot of an example of a timeline on an entity page in the Azure portal." lightbox="./media/entity-pages/entity-pages-timeline-sentinel.png":::
 
 # [Defender portal](#tab/defender-portal)
 
@@ -83,9 +83,9 @@ The following types of items are included in the timeline.
 
 - **Activities**: aggregation of notable events relating to the entity. A wide range of activities are collected automatically, and you can now [customize this section by adding activities](customize-entity-activities.md) of your own choosing.
 
-    As of December 2024, activity events for the device entity are visible on the main [*Timeline* tab](/defender-xdr/entity-page-device#timeline-tab) of the [device entity page](/defender-xdr/entity-page-device).
+    As of January 2025, activity events for the device entity are visible on the main [*Timeline* tab](/defender-xdr/entity-page-device#timeline-tab) of the [device entity page](/defender-xdr/entity-page-device).
 
-:::image type="content" source="./media/entity-pages/entity-pages-timeline-defender.png" alt-text="Screenshot of an example of a timeline on an entity page in the Defender portal.":::
+:::image type="content" source="./media/entity-pages/entity-pages-timeline-defender.png" alt-text="Screenshot of an example of a timeline on an entity page in the Defender portal." lightbox="./media/entity-pages/entity-pages-timeline-defender.png":::
 
 This timeline displays information from the past 24 hours. This period is not currently adjustable.
 

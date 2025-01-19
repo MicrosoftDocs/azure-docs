@@ -266,7 +266,7 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageA
 
 | Attribute      | Type     | Nullable | Description                                 |
 |:---------------|:--------:|:--------:|---------------------------------------------|
-| language    | `string` | ✔️      | The languege detected.    |
+| language    | `string` | ✔️      | The language detected.    |
 | confidenceScore | `float` | ✔️      | The confidence score of the language detected. |
 | translation | `string` | ✔️      | The message translation. |
 

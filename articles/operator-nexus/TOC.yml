@@ -11,8 +11,13 @@
       href: concepts-resource-types.md
     - name: Compute overview
       href: concepts-compute.md
-    - name: Storage overview
-      href: concepts-storage.md
+    - name: Storage
+      expanded: false
+      items:
+        - name: Storage overview
+          href: concepts-storage.md
+        - name: Storage for Nexus Kubernetes
+          href: concepts-storage-kubernetes.md
     - name: Cluster deployment and upgrades
       expanded: false
       items:
@@ -136,29 +141,30 @@
         - name: On-Premises Operator Nexus Instance
           expanded: false
           items:
-            - name: Operator Nexus Instance Lifecycle Management
-              expanded: false
-              items:
-                - name: Before you start Operator Nexus platform deployment
-                  href: howto-platform-prerequisites.md
-                - name: Network Fabric
-                  href: howto-configure-network-fabric.md
-                - name: Cluster
-                  href: howto-configure-cluster.md
-                - name: Cluster Template JSON Example
-                  href: cluster-jsonc-example.md
-                - name: Cluster Parameters JSON Example
-                  href: cluster-parameters-jsonc-example.md
-                - name: Instance Readiness Testing
-                  href: howto-run-instance-readiness-testing.md
-                - name: Cluster Upgrades
-                  href: howto-cluster-runtime-upgrade.md
-                - name: Cluster Upgrades With PauseRack Startegy
-                  href: howto-cluster-runtime-upgrade-with-pauserack-strategy.md
-                - name: Credential Rotation
-                  href: howto-credential-rotation.md
-                - name: Credential Manager Key Vault
-                  href: how-to-credential-manager-key-vault.md
+              - name: Before you start Operator Nexus platform deployment
+                href: howto-platform-prerequisites.md
+              - name: Network Fabric
+                href: howto-configure-network-fabric.md
+              - name: Cluster
+                href: howto-configure-cluster.md
+              - name: Cluster Template JSON Example
+                href: cluster-jsonc-example.md
+              - name: Cluster Parameters JSON Example
+                href: cluster-parameters-jsonc-example.md
+              - name: Instance Readiness Testing
+                href: howto-run-instance-readiness-testing.md
+              - name: Cluster Upgrades
+                href: howto-cluster-runtime-upgrade.md
+              - name: Cluster Upgrades With PauseRack Startegy
+                href: howto-cluster-runtime-upgrade-with-pauserack-strategy.md
+              - name: Network Fabric Upgrades
+                href: howto-upgrade-nexus-fabric.md
+              - name: Credential Rotation
+                href: howto-credential-rotation.md
+              - name: Credential Manager Key Vault
+                href: how-to-credential-manager-key-vault.md
+              - name: Updating ExpressRoute Gateway Authorization Key in Azure Operator Nexus
+                href: howto-update-expressroute-authorization-key.md
     - name: Network Fabric
       expanded: false
       items:
@@ -182,8 +188,7 @@
           href: howto-update-access-control-list-for-network-to-network-interconnects.md
         - name: Delete ACLs associated with Network-to-Network Interconnects (NNI)
           href: howto-delete-access-control-list-network-to-network-interconnect.md
-        - name: How to Configure Diagnostic Settings and Monitor Configuration Differences
-            in Nexus Network Fabric
+        - name: How to Configure Diagnostic Settings and Monitor Configuration Differences in Nexus Network Fabric
           href: howto-configure-diagnostic-settings-monitor-configuration-differences.md
         - name: How to Delete L3 Isolation Domains in Azure Nexus Network Fabric
           href: howto-delete-layer-3-isolation-domains.md
@@ -197,8 +202,12 @@
           href: howto-replace-network-devices.md
         - name: How to put a device into maintenance mode
           href: howto-put-device-in-maintenance-mode.md
-        - name: How to upgrade Network Fabric
-          href: howto-upgrade-nexus-fabric.md
+        - name: How to set up break glass access
+          href: howto-set-up-break-glass-access.md
+        - name: How to use-break-glass-access
+          href: howto-use-break-glass-access.md
+        - name: How to enable-Micro-BFD on CE and PE devices.md
+          href: howto-enable-micro-bfd.md
     - name: Cluster
       expanded: false
       items:
@@ -259,6 +268,8 @@
           href: howto-use-vm-console-service.md
         - name: Virtual machine placement hints
           href: howto-virtual-machine-placement-hints.md
+        - name: Gather VM Console Data
+          href: howto-gather-vm-console-data.md
     - name: Observability
       expanded: false
       items:
@@ -291,6 +302,14 @@
               href: howto-service-principal-rotation.md
     - name: Install CLI Extension
       href: howto-install-cli-extensions.md
+    - name: General
+      expanded: false
+      items:
+        - name: Check runtime version
+          href: howto-check-runtime-version.md
+        - name: Site decommission checklist
+          href: howto-decommission-nexus-instance-checklist.md
+
 - name: Troubleshooting
   expanded: true
   items:
@@ -316,9 +335,12 @@
           href: troubleshoot-memory-limits.md
         - name: Troubleshoot LACP Bonding
           href: troubleshoot-lacp-bonding.md
-    - name: Storage Array
-      expanded: false
-      items: null
+        - name: Troubleshoot DNS Issues
+          href: troubleshoot-dns-issues.md
+        - name: Troubleshoot NAKS Cluster Node Packet Loss
+          href: troubleshoot-packet-loss.md
+        - name: Troubleshoot TWAMP (UDP) not working
+          href: troubleshoot-twamp-udp-not-working.md
     - name: Tenant Workload
       expanded: false
       items:
@@ -335,9 +357,12 @@
           href: troubleshoot-internet-host-virtual-machine.md
         - name: Troubleshoot VM errors after BMM restart
           href: troubleshoot-vm-error-after-reboot.md
-        - name: Troubleshooting dual-stack configuration issues for Nexus Kubernetes
+        - name:
+            Troubleshooting dual-stack configuration issues for Nexus Kubernetes
             cluster
           href: troubleshoot-kubernetes-cluster-dual-stack-configuration.md
+        - name: Troubleshoot Neighbor Group Creation Error
+          href: troubleshoot-neighbor-group-creation-error.md
 - name: FAQ
   href: azure-operator-nexus-faq.md
 - name: Reference

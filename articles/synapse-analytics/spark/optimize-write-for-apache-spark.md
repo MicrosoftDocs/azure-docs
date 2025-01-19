@@ -110,7 +110,7 @@ Using the [DeltaTableBuilder API](https://docs.delta.io/latest/delta-apidoc.html
 ```scala
 val table = DeltaTable.create()
   .tableName("<table_name>")
-  .addColumnn("<colName>", <dataType>)
+  .addColumn("<colName>", <dataType>)
   .location("<table_location>")
   .property("delta.autoOptimize.optimizeWrite", "true") 
   .execute()

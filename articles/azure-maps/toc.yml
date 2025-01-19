@@ -515,8 +515,6 @@ items:
     href: /shows/
   - name: Open source projects
     href: open-source-projects.md
-  - name: Azure Maps case studies
-    href: https://aka.ms/AzureMapsCaseStudies
   - name: Azure Maps glossary
     href: glossary.md
   - name: Service updates

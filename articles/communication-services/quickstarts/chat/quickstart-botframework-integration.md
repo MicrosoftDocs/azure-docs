@@ -457,3 +457,12 @@ Verify that the bot's Microsoft app ID and password are saved correctly in the b
 ### Bot can't be added as a participant
 
 Verify that the bot's Communication Services ID is used correctly when a request is sent to add a bot to a chat thread.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Get started with chat](../chat/get-started.md)
+
+You may also want to:
+- Familiarize yourself with [chat concepts](../../concepts/chat/concepts.md)
+- Understand how [pricing](../../concepts/pricing.md#chat) works for chat
