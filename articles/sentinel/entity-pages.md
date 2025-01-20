@@ -69,7 +69,7 @@ The following types of items are included in the timeline.
 
 # [Defender portal](#tab/defender-portal)
 
-The timeline on the **Sentinel events** tab adds a major part of the entity page's contribution to behavior analytics in the Defender portal. It presents a story about entity-related events, helping you understand the entity's activity within a specific time frame.
+The timeline on the [**Sentinel events** tab](/defender-xdr/entity-page-device#sentinel-events-tab) adds a major part of the entity page's contribution to behavior analytics in the Defender portal. It presents a story about entity-related events, helping you understand the entity's activity within a specific time frame.
 
 In particular, you'll see on the Sentinel events timeline alerts and events from third-party sources collected only by Microsoft Sentinel, such as syslog/CEF and custom logs ingested through the Azure Monitor Agent or custom connectors.
 
@@ -83,7 +83,9 @@ The following types of items are included in the timeline.
 
 - **Activities**: aggregation of notable events relating to the entity. A wide range of activities are collected automatically, and you can now [customize this section by adding activities](customize-entity-activities.md) of your own choosing.
 
-    As of January 2025, activity events for the device entity are visible on the main [*Timeline* tab](/defender-xdr/entity-page-device#timeline-tab) of the [device entity page](/defender-xdr/entity-page-device).
+    For device entities, a new activity type was added in January 2025. This activity includes dropped, blocked, or denied network traffic originating from a given device, based on data collected from industry-leading network device logs. These logs provide your security teams with critical information to quickly identify and address potential threats.
+
+As of January 2025, **activities** for the device entity are visible on the main [*Timeline* tab](/defender-xdr/entity-page-device#timeline-tab) of the [device entity page](/defender-xdr/entity-page-device), as well as remaining visible on the Sentinel events tab as before. For more information, see [Unified timeline (Preview)](/defender-xdr/entity-page-device#unified-timeline-preview).
 
 :::image type="content" source="./media/entity-pages/entity-pages-timeline-defender.png" alt-text="Screenshot of an example of a timeline on an entity page in the Defender portal." lightbox="./media/entity-pages/entity-pages-timeline-defender.png":::
 
