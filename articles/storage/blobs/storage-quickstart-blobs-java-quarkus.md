@@ -227,7 +227,7 @@ These operations are similar to the [Quickstart: Azure Blob Storage client libra
 
 - [Create a container](storage-quickstart-blobs-java.md#create-a-container)
 - [Upload blobs to a container](storage-quickstart-blobs-java.md#upload-blobs-to-a-container)
-- [List blobs in a container](storage-quickstart-blobs-java.md#list-blobs-in-a-container)
+- [List the blobs in a container](storage-quickstart-blobs-java.md#list-the-blobs-in-a-container)
 - [Download blobs](storage-quickstart-blobs-java.md#download-blobs)
 - [Delete a container](storage-quickstart-blobs-java.md#delete-a-container)
 
