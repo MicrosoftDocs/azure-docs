@@ -7,7 +7,7 @@ ms.custom:
   - devx-track-azurecli
   - ignite-2023
   - ignite-2024
-ms.date: 02/28/2024
+ms.date: 01/16/2025
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -309,6 +309,6 @@ To delete an AKS cluster backup instance, follow these steps:
 
 ## Next steps
 
-- [Back up Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-backup.md)
+- Back up Azure Kubernetes Service cluster using [Azure portal]](azure-kubernetes-service-cluster-backup.md), [Azure PowerShell](azure-kubernetes-service-cluster-backup-using-powershell.md)
 - [Restore Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-restore.md)
 - [Supported scenarios for backing up Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-backup-support-matrix.md)

@@ -7,7 +7,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/24/2024
+ms.date: 01/16/2025
 ---
 
 # Connect to SAP from workflows in Azure Logic Apps
@@ -69,9 +69,9 @@ The SAP built-in connector significantly differs from the SAP managed connector 
 
   The **Call BAPI** action includes up to two responses with the returned JSON, the XML response from the called BAPI, and the BAPI commit or BAPI rollback response as well and if you use auto-commit. This capability addresses the problem with the SAP managed connector where the outcome from the auto-commit is silent and observable only through logs.
 
-* Longer timeout at 5 minutes compared to managed connector.
+* Longer time-out at 5 minutes compared to managed connector.
 
-  The SAP built-in connector doesn't use the shared or global connector infrastructure, which means timeouts are longer at 5 minutes compared to the SAP managed connector (two minutes). Long-running requests work without you having to implement the long-running webhook-based request action pattern.
+  The SAP built-in connector doesn't use the shared or global connector infrastructure, which means time-outs are longer at 5 minutes compared to the SAP managed connector (two minutes). Long-running requests work without you having to implement the long-running webhook-based request action pattern.
 
 * By default, the SAP built-in connector operations are *stateless*. However, you can [enable stateful mode (affinity) for these operations](../../connectors/enable-stateful-affinity-built-in-connectors.md).
 
@@ -208,7 +208,7 @@ SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way th
 
 * For scenarios where you want to send IDocs from your logic app workflow to SAP, change your SAP processing mode from the default **Trigger immediately** setting to **Trigger by background program** so that your workflow doesn't time out.
 
-  If your SAP system is under load, for example, when your workflow sends a batch of IDocs all at one time to SAP, the queued IDoc calls time out. The default processing mode causes your SAP system to block the inbound call for IDoc transmission until an IDoc finishes processing. In Azure Logic Apps, workflow actions have a 2-minute timeout, by default.
+  If your SAP system is under load, for example, when your workflow sends a batch of IDocs all at one time to SAP, the queued IDoc calls time out. The default processing mode causes your SAP system to block the inbound call for IDoc transmission until an IDoc finishes processing. In Azure Logic Apps, workflow actions have a 2-minute time-out, by default.
 
   To change your SAP system's processing mode, follow these steps:
 
@@ -527,43 +527,41 @@ For more information about SNC, see [Getting started with SAP SNC for RFC integr
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and workflow in the designer.
 
-1. Add or edit an SAP managed connector operation.
+1. Add an SAP managed connector operation or edit the connection for an existing operation.
 
-1. In the SAP connection information box, provide the following [required information](/connectors/sap/#default-connection). The **Authentication Type** that you select changes the available options.
-
-   ![Screenshot showing SAP connection settings for Consumption.](./media/sap/sap-connection-consumption.png)
+1. In the SAP connection information box, provide the [required information](/connectors/sap/#creating-a-connection).
 
    > [!NOTE]
    >
+   > For **Authentication Type**, **Basic** is currently the only available option. 
    > The **SAP Username** and **SAP Password** fields are optional. If you don't provide a username 
    > and password, the connector uses the client certificate provided in a later step for authentication.
 
-1. To enable SNC, in the SAP connection information box, provide the following required information instead:
+   :::image type="content" source="media/sap/sap-connection.png" alt-text="Screenshot shows SAP connection parameters in Consumption workflows.":::
 
-   ![Screenshot showing SAP connection settings for SNC enabled for Consumption.](./media/sap/sap-connection-snc-consumption.png)
+1. To enable SNC, in the SAP connection information box, select **Use SNC**, and provide the corresponding [required information](/connectors/sap/#creating-a-connection):
 
    | Parameter | Description |
    |-----------|-------------|
-   | **Use SNC** | Select the checkbox. |
    | **SNC Library** | Enter one of the following values: <br><br>- The name for your SNC library, for example, **sapsnc.dll** <br>- The relative path to the NCo installation location, for example, **.\security\sapsnc.dll** <br>- The absolute path to the NCo installation location, for example, **c:\security\sapsnc.dll** |
    | **SNC SSO** | Select either **Logon using the SNC identity** or **Logon with the username/password provided on RFC level**. <br><br>Typically, the SNC identity is used to authenticate the caller. You can choose to authenticate with a username and password instead, but this parameter value is still encrypted. |
    | **SNC My Name** | In most cases, you can omit this value. The installed SNC solution usually knows its own SNC name. In the case where your solution supports multiple identities, you might have to specify the identity to use for this particular destination or server. |
    | **SNC Partner Name** | Enter the name for the backend SNC, for example, **p:CN=DV3, OU=LA, O=MS, C=US**. |
    | **SNC Quality of Protection** | Select the quality of service to use for SNC communication with this particular destination or server. The default value is defined by the backend system. The maximum value is defined by the security product used for SNC. |
    | **SNC Certificate** | Enter the base64-encoded *public* key for the certificate to use for identifying your client to SAP. <br><br>**Note**: - Don't include the PEM header or footer. <br><br>- Don't enter the private key for the client certificate here. Your Personal Security Environment (PSE) must contain the matching private key for this certificate and might contain other private certificates. For more information, review the next parameter. |
-   | **PSE** | Enter your SNC Personal Security Environment (PSE) as a base64-encoded binary. <br><br>- Your PSE must contain the private key for the client certificate where the thumbprint matches the public key for the client certificate in the **SNC Certificate** parameter. <br><br>- Although your PSE might contain multiple client certificates, to use different client certificates, create separate workflows instead. <br><br>- If you're using more than one SNC client certificate for your Standard logic app resource, you must provide the same PSE for all connections. Your PSE must contain the matching private key for the client certificate for each and all the connections. You must set the **SNC Certificate** parameter to match the specific private certificate for each connection. |
+   | **PSE** | Enter your SNC Personal Security Environment (PSE) as a base64-encoded binary. <br><br>- Your PSE must contain the private key for the client certificate where the thumbprint matches the public key for the client certificate in the **SNC Certificate** parameter. <br><br>- Although your PSE might contain multiple client certificates, to use different client certificates, create separate workflows instead. |
 
-1. To finish creating your connection, select **Create**.
+   ![Screenshot shows SAP connection parameters with SNC enabled for Consumption workflow.](./media/sap/sap-connection-snc-consumption.png)
+
+1. To finish creating your connection, select **Create new**.
 
    If the parameters are correct, the connection is created. If there's a problem with the parameters, the connection creation dialog displays an error message. To troubleshoot connection parameter issues, you can use the on-premises data gateway installation and the gateway's local logs.
 
-
-
 ### [Standard](#tab/standard)
 
-For a Standard workflow that runs in single-tenant Azure Logic Apps, you can enable SNC for authentication. Before you start, make sure that you met all the necessary [prerequisites](sap.md?tabs=single-tenant#prerequisites) and [SNC prerequisites for single-tenant](sap.md?tabs=single-tenant#snc-prerequisites).
+For a Standard workflow that runs in single-tenant Azure Logic Apps, you can enable SNC for authentication. Before you start, make sure that you met all the necessary [prerequisites](sap.md?tabs=single-tenant#prerequisites) and [SNC prerequisites for single-tenant](sap.md?tabs=single-tenant#snc-prerequisites). For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
 
-For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
+#### Set up your SNC personal security environment and password
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -575,30 +573,44 @@ For more information about SNC, see [Getting started with SAP SNC for RFC integr
 
       | Name | Value | Description |
       |------|-------|-------------|
-      | **SAP_PSE** | <*PSE-value*> | Enter your SNC Personal Security Environment (PSE) as a base64-encoded binary. <br><br>- Your PSE must contain the private key for the client certificate where the thumbprint matches the public key for the client certificate in the **SNC Certificate** parameter. <br><br>- Although your PSE might contain multiple client certificates, to use different client certificates, create separate workflows instead. <br><br>- The PSE must have no PIN. If necessary, set the PIN to empty using the SAPGENPSE utility. |
+      | **SAP_PSE** | <*PSE-value*> | Enter your SNC Personal Security Environment (PSE) as a base64-encoded binary. <br><br>- Your PSE must contain the private key for the client certificate where the thumbprint matches the public key for the client certificate in the SAP connection's **SNC Certificate** parameter that is available when you create the connection. <br><br>- Although your PSE might contain multiple client certificates, to use different client certificates, create separate workflows instead. <br><br>- The PSE must have no PIN. If necessary, set the PIN to empty using the SAPGENPSE utility. |
       | **SAP_PSE_PASSWORD** | <*PSE-password*> | The password, also known as PIN, for your PSE |
 
-1. Now, either create or open the workflow you want to use in the designer. On your logic app resource menu, under **Workflows**, select **Workflows**.
+#### Create a connection with the SAP built-in connector
 
-1. In the designer, add or edit an SAP *built-in* connector operation.
+Follow these steps for the SAP *built-in* connector. To create a connection with the SAP managed connector, see the [steps to enable SNC for an SAP connection in a Consumption workflow](sap.md?tabs=consumption#enable-secure-network-communications).
 
-1. In the SAP connection information box, provide the following [required information](/azure/logic-apps/connectors/built-in/reference/sap/#authentication). The **Authentication Type** that you select changes the available options.
+1. On your logic app resource menu, under **Workflows**, select **Workflows**.
 
-   ![Screenshot showing SAP built-in connection settings for Standard workflow with Basic authentication.](./media/sap/sap-connection-standard.png)
+1. Add a new empty Standard workflow or open an existing workflow.
 
-1. To enable SNC, in the SAP connection information box, provide the [required information instead](/azure/logic-apps/connectors/built-in/reference/sap/#authentication).
+1. In the workflow designer, add an SAP built-in connector operation or edit the connection for an existing operation.
 
-   ![Screenshot showing SAP built-in connection settings for Standard workflow with SNC enabled.](./media/sap/sap-connection-snc-standard.png)
+1. In the SAP connection information box, provide the [required information](/azure/logic-apps/connectors/built-in/reference/sap/#authentication), based on the **Authentication Type** that you select.
+
+   > [!NOTE]
+   >
+   > If you plan to enable SNC, continue to the next step 
+   > after you provide the connection name and SAP client ID.
+
+   :::image type="content" source="media/sap/sap-connection.png" alt-text="Screenshot shows SAP built-in connection parameters in Standard workflows.":::
+
+1. To enable SNC, in the SAP connection information box, open the **Authentication Type** list, and select **Logon Using SNC**. Provide the [required information](/azure/logic-apps/connectors/built-in/reference/sap/#authentication):
 
    | Parameter | Description |
    |-----------| ------------|
-   | **Authentication Type** | Select **Logon Using SNC**. |
+   | **SNC My Name** | In most cases, you can omit this value. The installed SNC solution usually knows its own SNC name. In the case where your solution supports multiple identities, you might have to specify the identity to use for this particular destination or server. |
    | **SNC Partner Name** | Enter the name for the backend SNC, for example, **p:CN=DV3, OU=LA, O=MS, C=US**. |
    | **SNC Quality of Protection** | Select the quality of service to use for SNC communication with this particular destination or server. The default value is defined by the backend system. The maximum value is defined by the security product used for SNC. |
    | **SNC Type** | Select the SNC authentication to use. |
-   | **SNC Certificate** | Enter your SNC client's public certificate in base64-encoded format. <br><br>**Note**: - Don't include the PEM header or footer. <br><br>- Don't enter the private certificate here because the PSE might contain multiple private certificates. However, this **SNC Certificate** parameter identifies the certificates that this connection must use. |
+   | **Certificate User** | Enter the user to connect when you have a certificate that's assigned to multiple users. |
+   | **SNC Certificate** | Enter your SNC client's public certificate in base64-encoded format. This parameter specifies the certificates that this connection must use. <br><br>**Note**: - Don't include the PEM header or footer. <br><br>- Don't enter the private certificate here because the Personal Security Environment (PSE) might contain multiple private certificates. You specify this PSE using the **SAP_PSE** app setting for your Standard logic app resource. <br><br>- If you're using more than one SNC client certificate for your logic app resource, you must provide the same PSE for all connections. |
 
-1. To finish creating your connection, select **Create**.
+   :::image type="content" source="media/sap/sap-connection-snc-standard.png" alt-text="Screenshot shows SAP built-in connection parameters with SNC enabled for Standard workflows.":::
+
+1. To finish creating your connection, select **Create new**.
+
+   If the parameters are correct, the connection is created. If there's a problem with the parameters, the connection creation dialog displays an error message.
 
 ---
 

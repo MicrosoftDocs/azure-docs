@@ -23,7 +23,7 @@ ms.author: wchi
     
 #### [Java](#tab/java)
 
-1. Add the following dependency in your *pom.xml* file:
+1. Add the following dependency in your `pom.xml` file:
     ```xml
     <dependency>
       <groupId>redis.clients</groupId>
@@ -47,9 +47,9 @@ ms.author: wchi
     Jedis jedis = new Jedis(shardInfo);
     ```
 
-#### [SpringBoot](#tab/springBoot)
+#### [Spring Boot](#tab/springBoot)
 
-Refer to [Use Azure Redis Cache in Spring](/azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache) to set up your Spring application. The configuration properties are added to Spring Apps by Service Connector.
+To set up your Spring application, refer to [Use Azure Redis Cache in Spring](/azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache). Service Connector adds the configuration properties to Spring Apps.
 
 #### [Python](#tab/python)
 
@@ -91,7 +91,7 @@ Refer to [Use Azure Redis Cache in Spring](/azure/developer/java/spring-framewor
     client := redis.NewClient(opt)
     ```
 
-#### [NodeJS](#tab/nodejs)
+#### [Node.js](#tab/nodejs)
 
 1. Install dependencies.
     ```bash
@@ -109,5 +109,5 @@ Refer to [Use Azure Redis Cache in Spring](/azure/developer/java/spring-framewor
     await cacheConnection.connect();
     ```
 
-### [Other](#tab/none)
+#### [Other](#tab/other)
 For other languages, you can use the connection information that Service Connector sets to the environment variables to connect to Azure Cache for Redis.

@@ -780,7 +780,7 @@
     href: threat-intelligence-integration.md
   - name: Enable MDTI data connector
     href: connect-mdti-data-connector.md
-  - name: Connect threat intelligence upload API
+  - name: Connect threat intelligence STIX objects API
     href: connect-threat-intelligence-upload-api.md
   - name: Connect threat intelligence platforms
     href: connect-threat-intelligence-tip.md
@@ -908,7 +908,7 @@
   - name: Kusto Query Language
     items:
     - name: Overview
-      href: kusto-overview.md
+      href: /kusto/query/kusto-sentinel-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Query best practices
       href: /kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: SQL to KQL cheat sheet
@@ -1253,7 +1253,9 @@
       href: hunting-with-rest-api.md
     - name: Enrich entities with geolocation data with REST-API
       href: geolocation-data-api.md
-    - name: Upload indicator API reference
+    - name: STIX objects API reference
+      href: stix-objects-api.md
+    - name: Legacy upload indicator API reference
       href: upload-indicators-api.md
   - name: Compare playbooks, workbooks, and notebooks
     href: resources.md

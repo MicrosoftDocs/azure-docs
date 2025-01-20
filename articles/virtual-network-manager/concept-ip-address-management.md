@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 10/08/2024
+ms.date: 1/16/2024
 ms.custom:  references_regions
 #customer intent: As a network administrator, I want to learn about IP address management in Azure Virtual Network Manager so that I can manage IP addresses in my virtual networks.
 ---
@@ -71,13 +71,6 @@ When creating CIDR-supporting resources like virtual networks, CIDRs are automat
 When using IPAM, the **IPAM Pool User** role alone is sufficient for delegation. During the public preview, you also need to grant **Network Manager Read** access to ensure full discoverability of IP address pools and virtual networks across the Network Manager's scope. Without this role, users with only the **IPAM Pool User** role won't see available pools and virtual networks.
 
 Learn more about [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
-
-## Known issues
-
-- When virtual networks are associated with an IP address management pool, peering sync can show as out of sync, even though peering is functioning correctly.
-- When a virtual network is moved to a different subscription, the references in IPAM aren't updated, leading to inconsistent management status.
-- When multiple requests for the same virtual network are made, it can result in duplicate allocations entries.
-- When entering an IP address space, the address space entered must be a valid address range (valid starting address and valid size), else a failure is encountered when sending a request. Currently, the portal doesn't validate CIDR input prior to sending requests.
 
 ## Next steps
 

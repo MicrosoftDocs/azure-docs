@@ -46,7 +46,7 @@ Before you do anything else, you should design and build a query in Kusto Query 
 
 For some helpful tips for building Kusto queries, see [Best practices for analytics rule queries](scheduled-rules-overview.md#best-practices-for-analytics-rule-queries).
 
-For more help building Kusto queries, see [Kusto Query Language in Microsoft Sentinel](kusto-overview.md) and [Best practices for Kusto Query Language queries](/kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true) (from the Kusto documentation).
+For more help building Kusto queries, see [Kusto Query Language in Microsoft Sentinel](/kusto/query/kusto-sentinel-overview) and [Best practices for Kusto Query Language queries](/kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true) (from the Kusto documentation).
 
 ## Create your analytics rule
 
