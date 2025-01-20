@@ -130,6 +130,107 @@ mvn package -Dnative -Dquarkus.native.container-build
 
 Next, you walk through the sample code to understand how it works.
 
+### Inject a client object with authorized access
+
+Working with any Azure resource using the SDK begins with creating a client object. The Quarkus extension for Azure Blob Storage automatically injects a client object with authorized access using `DefaultAzureCredential`.
+
+To successfully inject a client object, first you need to add the extension `quarkus-azure-storage-blob` to your `pom.xml` file as a dependency:
+
+```xml
+<dependency>
+    <groupId>io.quarkiverse.azureservices</groupId>
+    <artifactId>quarkus-azure-storage-blob</artifactId>
+    <version>${quarkus-azure-storage-blob.version}</version>
+</dependency>
+```
+
+Next, you can inject the client object into your application code using the `@Inject` annotation:
+
+```java
+@Inject
+BlobServiceClient blobServiceClient;
+```
+
+This is all you need to code to get a client object using the Quarkus extension for Azure Blob Storage. To make sure the client object is authorized to access your storage account at runtime, you need to follow steps in the previous section [Authenticate to Azure and authorize access to blob data](#authenticate-to-azure-and-authorize-access-to-blob-data) before running the application.
+
+### Manage blobs and containers
+
+The following code snippet shows how to create a container, upload a blob, list blobs in a container, and download a blob:
+
+```java
+// Create a unique name for the container
+String containerName = "quickstartblobs" + java.util.UUID.randomUUID();
+
+// Create the container and return a container client object
+BlobContainerClient blobContainerClient = blobServiceClient.createBlobContainer(containerName);
+
+// Create the ./data/ directory and a file for uploading and downloading
+String localPath = "./data/";
+new File(localPath).mkdirs();
+String fileName = "quickstart" + java.util.UUID.randomUUID() + ".txt";
+
+// Get a reference to a blob
+BlobClient blobClient = blobContainerClient.getBlobClient(fileName);
+
+// Write text to the file
+FileWriter writer = null;
+try
+{
+    writer = new FileWriter(localPath + fileName, true);
+    writer.write("Hello, World!");
+    writer.close();
+}
+catch (IOException ex)
+{
+    System.out.println(ex.getMessage());
+}
+
+System.out.println("\nUploading to Blob storage as blob:\n\t" + blobClient.getBlobUrl());
+
+// Upload the blob
+blobClient.uploadFromFile(localPath + fileName);
+
+System.out.println("\nListing blobs...");
+
+// List the blob(s) in the container.
+for (BlobItem blobItem : blobContainerClient.listBlobs()) {
+    System.out.println("\t" + blobItem.getName());
+}
+
+// Download the blob to a local file
+
+// Append the string "DOWNLOAD" before the .txt extension for comparison purposes
+String downloadFileName = fileName.replace(".txt", "DOWNLOAD.txt");
+
+System.out.println("\nDownloading blob to\n\t " + localPath + downloadFileName);
+
+blobClient.downloadToFile(localPath + downloadFileName);
+
+File downloadedFile = new File(localPath + downloadFileName);
+File localFile = new File(localPath + fileName);
+
+// Clean up resources
+System.out.println("\nPress the Enter key to begin clean up");
+System.console().readLine();
+
+System.out.println("Deleting blob container...");
+blobContainerClient.delete();
+
+System.out.println("Deleting the local source and downloaded files...");
+localFile.delete();
+downloadedFile.delete();
+
+System.out.println("Done");
+```
+
+These operations are similar to the [Quickstart: Azure Blob Storage client library for Java](storage-quickstart-blobs-java.md). For more detailed code explanations, see the following sections in that quickstart:
+
+- [Create a container](storage-quickstart-blobs-java.md#create-a-container)
+- [Upload blobs to a container](storage-quickstart-blobs-java.md#upload-blobs-to-a-container)
+- [List blobs in a container](storage-quickstart-blobs-java.md#list-blobs-in-a-container)
+- [Download blobs](storage-quickstart-blobs-java.md#download-blobs)
+- [Delete a container](storage-quickstart-blobs-java.md#delete-a-container)
+
 ## Next step
 
 > [!div class="nextstepaction"]
