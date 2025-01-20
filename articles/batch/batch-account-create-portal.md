@@ -98,7 +98,7 @@ Get-AzMarketplaceTerms -Publisher 'microsoft-azure-batch' -Product 'ubuntu-serve
 <a name="allow-azure-batch-to-access-the-subscription-one-time-operation"></a>
 ### Allow Batch to access the subscription
 
-When you create the first user subscription mode Batch account in an Azure subscription, you must register your subscription with Batch. You need to do this registration only once per subscription.
+When you create the first user subscription mode Batch account in an Azure subscription, you must register your subscription with Batch and assign **Azure Batch Service Orchestration Role** to Batch. You need to do this registration only once per subscription.
 
 > [!IMPORTANT]
 > You need **Owner** permissions in the subscription to take this action.
@@ -112,9 +112,9 @@ When you create the first user subscription mode Batch account in an Azure subsc
 
 1. Return to the **Subscription** page and select **Access control (IAM)** from the left navigation.
 1. At the top of the **Access control (IAM)** page, select **Add** > **Add role assignment**.
-1. On the **Add role assignment** screen, under **Assignment type**, select **Privileged administrator role**, and then select **Next**.
-1. On the **Role** tab, select either the **Contributor** or **Owner** role for the Batch account, and then select **Next**.
-1. On the **Members** tab, select **Select members**. On the **Select members** screen, search for and select **Microsoft Azure Batch**, and then select **Select**.
+1. On the **Role** tab, search for and select **Azure Batch Service Orchestration Role**, and then select **Next**.
+1. On the **Members** tab, select **Select members**. On the **Select members** screen, search for and select **Microsoft Azure Batch**, and then select **Select**. 
+1. Select **Review + assign** to go to **Review + assign** tab, and select **Review + create** again to apply role assignment changes. 
 
 For detailed steps, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
@@ -157,21 +157,20 @@ To create a Batch account with authentication mode settings:
 
 ### Grant access to the key vault manually
 
-You can also grant access to the key vault manually in [Azure portal](https://portal.azure.com).
+To grant access to the key vault manually in [Azure portal](https://portal.azure.com), you need to assign **Key Vault Secrets Officer** role for Batch:
 
-#### If the Key Vault permission model is **Azure role-based access control**:
 1. Select **Access control (IAM)** from the left navigation of the key vault page.
 1. At the top of the **Access control (IAM)** page, select **Add** > **Add role assignment**.
-1. On the **Add role assignment** screen, under **Role** tab, under **Job function roles** sub tab, select either **Key Vault Secrets Officer** or **Key Vault Administrator** role for the Batch account, and then select **Next**.
+1. On the **Add role assignment** screen, under **Role** tab, under **Job function roles** sub tab, search and select **Key Vault Secrets Officer** role for the Batch account, and then select **Next**.
 1. On the **Members** tab, select **Select members**. On the **Select members** screen, search for and select **Microsoft Azure Batch**, and then select **Select**.
 1. Click the **Review + create** button on the bottom to go to **Review + assign** tab, and click the **Review + create** button on the bottom again.
 
 For detailed steps, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
-#### If the Key Vault permission model is **Vault access policy**:
+If the Key Vault permission model is **Vault access policy**, you need to also configure the **Access policies**:
 1. Select **Access policies** from the left navigation of the key vault page.
 1. On the **Access policies** page, select **Create**.
-1. On the **Create an access policy** screen, select a minimum of **Get**, **List**, **Set**, and **Delete** permissions under **Secret permissions**. For [key vaults with soft-delete enabled](/azure/key-vault/general/soft-delete-overview), also select **Recover**.
+1. On the **Create an access policy** screen, select a minimum of **Get**, **List**, **Set**, **Delete** and **Recover** permissions under **Secret permissions**.
 
    :::image type="content" source="media/batch-account-create-portal/secret-permissions.png" alt-text="Screenshot of the Secret permissions selections for Azure Batch":::
 
