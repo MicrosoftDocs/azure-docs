@@ -39,6 +39,8 @@ Add the following key-value to your Azure App Configuration store. For more info
 The following examples show how to use refreshable configuration values in console applications.
 Choose the following instructions based on how your application consumes configuration data loaded from App Configuration, either as a `Map` or a configuration object.
 
+### Load data from App Configuration
+
 You can connect to App Configuration using either Microsoft Entra ID (recommended) or a connection string. The following code snippet demonstrates using Microsoft Entra ID. You use the DefaultAzureCredential to authenticate to your App Configuration store. While completing the quickstart listed in the prerequisites, you already [assigned your credential the App Configuration Data Reader role](./concept-enable-rbac.md#authentication-with-token-credentials).
 
 1. Open the file *app.js* and update the `load` function. Add a `refreshOptions` parameter to enable the refresh and configure refresh options. The loaded configuration will be updated when a change is detected on the server. By default, a refresh interval of 30 seconds is used, but you can override it with the `refreshIntervalInMs` property.
@@ -181,6 +183,8 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
 
     ---
 
+### Run the application
+
 1. Run your script:
 
     ```console
@@ -207,13 +211,13 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
     Hello World - Updated!
     ```
 
-## Web applications
+## Server application
 
 The following example shows how to update an existing http server to use refreshable configuration values.
 
 1. Create a new javascript file named `server.js` and add the following code:
 
-    ``` javascript
+    ```javascript
     const http = require('http');
 
     function startServer() {
@@ -235,7 +239,7 @@ The following example shows how to update an existing http server to use refresh
 
 1. Run your script:
 
-    ``` console
+    ```console
     node server.js
     ```
     
@@ -244,19 +248,21 @@ The following example shows how to update an existing http server to use refresh
     > [!div class="mx-imgBorder"]
     > ![Screenshot of browser with a message.](./media/dynamic-refresh-javascript/http-server.png)
 
+### Load data from App Configuration
+
 1. Update the `server.js` to use App Configuration and enable dynamic refresh:
 
-    ``` javascript
-    const http = require('http');
+    ```javascript
+    const http = require("http");
 
     const { load } = require("@azure/app-configuration-provider");
     const { DefaultAzureCredential } = require("@azure/identity");
     const endpoint = process.env.AZURE_APPCONFIG_ENDPOINT;
     const credential = new DefaultAzureCredential(); // For more information, see https://learn.microsoft.com/azure/developer/javascript/sdk/credential-chains#use-defaultazurecredential-for-flexibility
 
-    let settings;
+    let appConfig;
     async function initializeConfig() {
-        settings = await load(endpoint, credential, {
+        appConfig = await load(endpoint, credential, {
             refreshOptions: {
                 enabled: true,
                 watchedSettings: [{ key: "sentinel" }], // Watch for changes to the key "sentinel" and refreshes the configuration when it changes
@@ -267,11 +273,11 @@ The following example shows how to update an existing http server to use refresh
 
     function startServer() {
         const server = http.createServer((req, res) => {
-            // refresh the configuration setting whenever a request comes in
-            settings.refresh();
+            // refresh the configuration asynchronously when there is any incoming request
+            appConfig.refresh();
             res.statusCode = 200;
             res.setHeader('Content-Type', 'text/plain');
-            res.end(settings.get("message"));
+            res.end(appConfig.get("message"));
         });
 
         const hostname = "localhost";
@@ -286,9 +292,21 @@ The following example shows how to update an existing http server to use refresh
         .then(() => startServer());
     ```
 
+### Request-driven configuration refresh
+
+In most cases, the refresh operation of the App Configuration provider can be treated as a no-op. It will only send requests to check the value in App Configuration when the refresh interval time you set has passed.
+
+We recommend to implement request-driven configuration refresh for your web application. The configuration refresh is triggered by the incoming requests to your web app. No refresh will occur if your app is idle, when there is no request incoming. When your app is active, you can use a middleware or similar mechanism to trigger the `appConfig.refresh()` call upon every incoming request to your application.
+
+- If a request to App Configuration for change detection fails, your app will continue to use the cached configuration. New attempts to check for changes will be made periodically while there are new incoming requests to your app.
+
+- The configuration refresh happens asynchronously to the processing of your app's incoming requests. It will not block or slow down the incoming request that triggered the refresh. The request that triggered the refresh may not get the updated configuration values, but later requests will get new configuration values.
+
+### Run the application
+
 1. Relaunch your http server:
 
-    ``` console
+    ```console
     node server.js
     ```
 
@@ -302,7 +320,7 @@ The following example shows how to update an existing http server to use refresh
     | Key            | Value                     | Label       | Content type       |
     |----------------|---------------------------|-------------|--------------------|
     | *message*      | *Hello World - Updated!*  | Leave empty | Leave empty        |
-    | *sentinel*     | *2*                       | Leave empty | Leave empty        |
+    | *sentinel*     | *3*                       | Leave empty | Leave empty        |
 
 1. After about 15 seconds, refresh the page and the message should be updated.
 
