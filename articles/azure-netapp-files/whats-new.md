@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 12/20/2024
+ms.date: 01/20/2025
 ms.author: anfdocs
 ---
 
@@ -14,6 +14,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* The ability to [transition a volume to customer-managed keys](configure-customer-managed-keys.md#transition) is now generally available (GA)
+
+    You can now transition existing volumes from platform-managed keys to customer-managed keys seamlessly. This provides you flexibility of encryption key lifecycle (renewals, rotations) and additional security for regulated industry requirements. 
+    
 ## December 2024
 
 * [Volume enhancement: Azure NetApp Files 50 GiB minimum volume sizes](azure-netapp-files-create-volumes.md) is now generally available (GA)

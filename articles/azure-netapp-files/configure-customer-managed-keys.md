@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.date: 09/05/2024
+ms.date: 01/20/2025
 ms.author: anfdocs
 ---
 
@@ -360,29 +360,9 @@ You can use an Azure Key Vault that is configured to use Azure role-based access
     * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)
     * [Create a dual-protocol volume](create-volumes-dual-protocol.md)
 
-## <a name="transition"></a> Transition an Azure NetApp Files volume to customer-managed keys (preview)
+## <a name="transition"></a> Transition an Azure NetApp Files volume to customer-managed keys
 
 Azure NetApp Files supports the ability to move existing volumes using platform-managed keys to customer-managed keys. Once you complete the migration, you can't revert to platform-managed keys.
-
-### Register the feature
-
-Encryption key transition for Azure NetApp Files is currently in preview. Before using this feature for the first time, you need to register it. 
-
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMigratePmkToCmk 
-    ```
-
-2. Check the status of the feature registration: 
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMigratePmkToCmk
-    ```
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
-
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ### Transition volumes
 
