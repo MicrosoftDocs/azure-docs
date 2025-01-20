@@ -1248,7 +1248,7 @@ We've made the following improvements to the Azure portal experience:
 
 ### Azure Virtual Desktop Agent troubleshooting
 
-We recently set up the [Azure Virtual Desktop Agent troubleshooting guide](troubleshoot-agent.md) to help customers who have encountered common issues.
+We recently set up the [Azure Virtual Desktop Agent troubleshooting guide](/troubleshoot/azure/virtual-desktop/troubleshoot-agent) to help customers who have encountered common issues.
 
 ### Microsoft Defender for Endpoint integration
 
