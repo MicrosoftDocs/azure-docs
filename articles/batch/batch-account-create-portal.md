@@ -185,7 +185,7 @@ If the Key Vault permission model is **Vault access policy**, you also need to c
 
 ### Configure subscription quotas
 
-For user subscription Batch accounts, [core quotas](batch-quota-limit.md) must be set manually. Standard Batch core quotas don't apply to accounts in user subscription mode. The [quotas in your subscription](/azure/azure-resource-manager/management/azure-subscription-service-limits) for regional compute cores, per-series compute cores, and other resources are used to and enforced.
+For user subscription Batch accounts, [core quotas](batch-quota-limit.md) must be set manually. Standard Batch core quotas don't apply to accounts in user subscription mode. The [quotas in your subscription](/azure/azure-resource-manager/management/azure-subscription-service-limits) for regional compute cores, per-series compute cores, and other resources are used and enforced.
 
 To view and configure the core quotas associated with your Batch account:
 
