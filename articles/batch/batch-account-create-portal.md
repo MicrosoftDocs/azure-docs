@@ -113,7 +113,7 @@ When you create the first user subscription mode Batch account in an Azure subsc
 1. Return to the **Subscription** page and select **Access control (IAM)** from the left navigation.
 1. At the top of the **Access control (IAM)** page, select **Add** > **Add role assignment**.
 1. On the **Role** tab, search for and select **Azure Batch Service Orchestration Role**, and then select **Next**.
-1. On the **Members** tab, select **Select members**. On the **Select members** screen, search for and select **Microsoft Azure Batch**, and then select **Select**. 
+1. On the **Members** tab, select **Select members**. On the **Select members** screen, search for and select **Microsoft Azure Batch**, and then select **Select**.
 1. Select **Review + assign** to go to **Review + assign** tab, and select **Review + create** again to apply role assignment changes. 
 
 For detailed steps, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
