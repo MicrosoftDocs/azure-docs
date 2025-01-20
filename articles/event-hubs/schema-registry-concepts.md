@@ -100,7 +100,7 @@ When the ``None`` compatibility mode is used, the schema registry doesn't do any
 
 ## Client SDKs
 
-You can use one of the following libraries to include an Avro serializer. You can use Avro serializers to serialize and deserialize payloads that contain schema registry schema identifiers and Avro-encoded data:
+You can use one of the following libraries to include an Avro serializer. You can use Avro serializers to serialize and deserialize payloads that contain schema identifiers for the schema registry and Avro-encoded data:
 
 * **.NET**: [Microsoft.Azure.Data.SchemaRegistry.ApacheAvro](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro)
 * **Java**: [azure-data-schemaregistry-avro](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/schemaregistry/azure-data-schemaregistry-apacheavro)
@@ -119,7 +119,7 @@ For limits (like the number of schemas you can use in a namespace) of Event Hubs
 To access a schema registry programmatically, follow these steps:
 
 1. [Register your application in Microsoft Entra ID](../active-directory/develop/quickstart-register-app.md).
-1. Add the security principal of the application to one of the following Azure role-based access control (RBAC) roles at the **namespace** level.
+1. Add the security principal of the application to one of the following Azure role-based access control (RBAC) roles at the namespace level.
 
 | Role | Description |
 | ---- | ----------- |
