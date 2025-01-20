@@ -90,14 +90,6 @@
         href: migrate-vm.md
       - name: Workload - Azure Kubernetes and MySQL
         href: migrate-workload-aks-mysql.md
-- name: Disaster recovery
-  items:
-  - name: Cross-region replication
-    items:
-    - name: Cross-region replication overview
-      href: cross-region-replication-azure.md
-    - name: Solutions for non-paired regions
-      href: cross-region-replication-azure-no-pair.md
 - name: Reliability guides by service
   items:
   - name: Overview
