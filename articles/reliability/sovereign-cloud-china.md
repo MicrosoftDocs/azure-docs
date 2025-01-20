@@ -141,7 +141,7 @@ The table below lists ways to connect to your Azure account in Azure Global vs. 
 
 The table below lists API endpoints in Azure Global vs. Azure in China for accessing and managing some of the more common services. 
 
-For IP rangers for Azure in China, download [Azure Datacenter IP Ranges in China](https://www.microsoft.com/download/confirmation.aspx?id=57062).
+For IP rangers for Azure in China, download [Azure Datacenter IP Ranges in China](https://www.microsoft.com/en-us/download/details.aspx?id=57062).
 
 | Service category | Azure Global | Azure in China |
 |-|-|-|
