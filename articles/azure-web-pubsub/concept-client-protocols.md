@@ -63,7 +63,6 @@ Simple WebSocket client has two modes: `sendEvent` and `sendToGroup`. The mode i
 
 `sendEvent` is the default mode for the simple WebSocket client. In `sendEvent` mode, every WebSocket frame the client sent is considered as a `message` event. Users can configure [event handlers](./concept-service-internals.md#event-handler) or [event listeners](./concept-service-internals.md#event-listener) to handle these `message` events. 
 
-You can also customize the event name by using `event` query parameter.
 ```javascript
 // Every data frame is considered as a `message` event
 var client3 = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1');
