@@ -147,7 +147,7 @@ The last step in the integration process is to enable the TIP data connector in 
 
 1. Find and select the **Threat Intelligence Platforms - BEING DEPRECATED** data connector, and then select **Open connector page**.
 
-    :::image type="content" source="media/connect-threat-intelligence-tip/threat-intelligence-platforms-data-connector.png" alt-text="Screenshot that shows the Data connectors page with the Threat Intelligence Platforms data connector listed." lightbox="media/connect-threat-intelligence-tip/threat-intelligence-platforms-data-connector.pn":::
+    :::image type="content" source="media/connect-threat-intelligence-tip/threat-intelligence-platforms-data-connector.png" alt-text="Screenshot that shows the Data connectors page with the Threat Intelligence Platforms data connector listed." lightbox="media/connect-threat-intelligence-tip/threat-intelligence-platforms-data-connector.png":::
 
 1. Because you already finished the app registration and configured your TIP or custom solution to send threat indicators, the only step left is to select **Connect**.
 
