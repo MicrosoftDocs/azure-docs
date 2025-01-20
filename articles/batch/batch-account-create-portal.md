@@ -160,33 +160,27 @@ To create a Batch account with authentication mode settings:
 To grant access to the key vault manually in [Azure portal](https://portal.azure.com), you need to assign **Key Vault Secrets Officer** role for Batch:
 
 1. Select **Access control (IAM)** from the left navigation of the key vault page.
-1. At the top of the **Access control (IAM)** page, select **Add** > **Add role assignment**.
-1. On the **Add role assignment** screen, under **Role** tab, under **Job function roles** sub tab, search and select **Key Vault Secrets Officer** role for the Batch account, and then select **Next**.
-1. On the **Members** tab, select **Select members**. On the **Select members** screen, search for and select **Microsoft Azure Batch**, and then select **Select**.
-1. Click the **Review + create** button on the bottom to go to **Review + assign** tab, and click the **Review + create** button on the bottom again.
+2. At the top of the **Access control (IAM)** page, select **Add** > **Add role assignment**.
+3. On the **Add role assignment** screen, under **Role** tab, under **Job function roles** sub tab, search and select **Key Vault Secrets Officer** role for the Batch account, and then select **Next**.
+4. On the **Members** tab, select **Select members**. On the **Select members** screen, search for and select **Microsoft Azure Batch**, and then select **Select**.
+5. Select the **Review + create** button on the bottom to go to **Review + assign** tab, and select the **Review + create** button on the bottom again.
+
+> [!NOTE]
+> If the RBAC role is not assigned for Batch in the key vault, you will get **KeyVaultNotFound** error when creating Batch account with that key vault.
 
 For detailed steps, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 If the Key Vault permission model is **Vault access policy**, you need to also configure the **Access policies**:
+
 1. Select **Access policies** from the left navigation of the key vault page.
 1. On the **Access policies** page, select **Create**.
-1. On the **Create an access policy** screen, select a minimum of **Get**, **List**, **Set**, **Delete** and **Recover** permissions under **Secret permissions**.
+1. On the **Create an access policy** screen, select a minimum of **Get**, **List**, **Set**, **Delete**, and **Recover** permissions under **Secret permissions**.
 
    :::image type="content" source="media/batch-account-create-portal/secret-permissions.png" alt-text="Screenshot of the Secret permissions selections for Azure Batch":::
 
 1. Select **Next**.
 1. On the **Principal** tab, search for and select **Microsoft Azure Batch**.
 1. Select the **Review + create** tab, and then select **Create**.
-
-<!--can't find this link or screen
-
-Select **Add**, then ensure that the **Azure Virtual Machines for deployment** and **Azure Resource Manager for template deployment** check boxes are selected for the linked **Key Vault** resource. Select **Save** to commit your changes.
-
-:::image type="content" source="media/batch-account-create-portal/key-vault-access-policy.png" alt-text="Screenshot of the Access policy screen.":::
-
--->
-> [!NOTE]
-> Currently, the Batch account name supports only access policies. When creating a Batch account, ensure that the key vault uses the associated access policy instead of the EntraID RBAC permissions. For more information on how to add an access policy to your Azure key vault instance, see [Configure your Azure Key Vault instance](batch-customer-managed-key.md).
 
 ### Configure subscription quotas
 
