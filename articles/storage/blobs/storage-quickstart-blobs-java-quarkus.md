@@ -87,8 +87,9 @@ The code example performs the following actions:
 - Lists the blobs in the container
 - Downloads the blob data to the local file system
 - Deletes the blob and container resources created by the app
+- Deleting the local source and downloaded files
 
-Run the application using the following command:
+Run the application in JVM mode using the following command:
 
 ```bash
 mvn package
@@ -115,6 +116,15 @@ Done
 ```
 
 Before you begin the cleanup process, check your data folder for the two files. You can compare them and observe that they're identical.
+
+Optionally, you can run the sample in native mode. To do this, you need to have GraalVM installed, or use a builder image to build the native executable. For more information, see the [Building a Native Executable](https://quarkus.io/guides/building-native-image). This quickstart uses Docker as container runtime to build a Linux native executable. If you haven't installed Docker, you can download it from the [Docker website](https://www.docker.com/products/docker-desktop).
+
+Run the following command to build and execute the native executable in a Linux environment:
+
+```bash
+mvn package -Dnative -Dquarkus.native.container-build
+./target/storage-blob-1.0.0-SNAPSHOT-runner
+```
 
 ## Understand the sample code
 
