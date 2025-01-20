@@ -29,14 +29,14 @@ This section walks you through preparing a project to work with the Quarkus exte
 
 ### Download the sample application
 
-The [sample application](https://github.com/Azure-Samples/quarkus-azure/tree/2025-01-16/storage-blob-quarkus) used in this quickstart is a basic Quarkus application.
+The [sample application](https://github.com/Azure-Samples/quarkus-azure/tree/2025-01-20/storage-blob-quarkus) used in this quickstart is a basic Quarkus application.
 
 Use [git](https://git-scm.com/) to download a copy of the application to your development environment, and navigate to the `storage-blob-quarkus` directory.
 
 ```bash
 git clone https://github.com/Azure-Samples/quarkus-azure.git
 cd quarkus-azure
-git checkout 2025-01-16
+git checkout 2025-01-20
 cd storage-blob-quarkus
 ```
 
@@ -134,15 +134,46 @@ Next, you walk through the sample code to understand how it works.
 
 Working with any Azure resource using the SDK begins with creating a client object. The Quarkus extension for Azure Blob Storage automatically injects a client object with authorized access using `DefaultAzureCredential`.
 
-To successfully inject a client object, first you need to add the extension `quarkus-azure-storage-blob` to your `pom.xml` file as a dependency:
+To successfully inject a client object, first you need to add the extensions `quarkus-arc` and `quarkus-azure-storage-blob` to your `pom.xml` file as a dependencies:
 
 ```xml
-<dependency>
-    <groupId>io.quarkiverse.azureservices</groupId>
-    <artifactId>quarkus-azure-storage-blob</artifactId>
-    <version>${quarkus-azure-storage-blob.version}</version>
-</dependency>
+<properties>
+    <quarkus.platform.version>3.17.7</quarkus.platform.version>
+    <quarkus.azure.services.version>1.1.1</quarkus.azure.services.version>
+</properties>
+
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>io.quarkus.platform</groupId>
+            <artifactId>quarkus-bom</artifactId>
+            <version>${quarkus.platform.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkiverse.azureservices</groupId>
+            <artifactId>quarkus-azure-services-bom</artifactId>
+            <version>${quarkus.azure.services.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+
+<dependencies>
+    <dependency>
+        <groupId>io.quarkus</groupId>
+        <artifactId>quarkus-arc</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>io.quarkiverse.azureservices</groupId>
+        <artifactId>quarkus-azure-storage-blob</artifactId>
+    </dependency>
+</dependencies>
 ```
+
+The `quarkus-arc` extension is required to use the `@Inject` annotation to inject the client object into your application code. The `quarkus-bom` and `quarkus-azure-services-bom` dependencies are used to manage the versions of the Quarkus platform and the Quarkus extension for Azure services.
 
 Next, you can inject the client object into your application code using the `@Inject` annotation:
 
