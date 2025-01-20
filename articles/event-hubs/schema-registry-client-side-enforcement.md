@@ -1,5 +1,5 @@
 ---
-title: Client-side Schema Enforcement - Schema Registry
+title: Client-Side Schema Enforcement - Schema Registry
 description: This article provides information on using schemas in a schema registry when publishing or consuming events from Azure Event Hubs. 
 ms.topic: conceptual
 ms.date: 04/26/2023
@@ -11,9 +11,9 @@ ms.author: spelluru
 
 Client-side schema enforcement ensures that data is validated on the client side. The producer application sends the data and the consumer application receives it. That data is validated against schemas defined in the schema registry on the client side rather than the broker/server side.
 
-This flow is illustrated as shown:
+This diagram illustrates the flow:
 
-:::image type="content" source="./media/schema-registry-overview/information-flow.svg" alt-text="A diagram outlines the schema registry information flow." border="false":::
+:::image type="content" source="./media/schema-registry-overview/information-flow.svg" alt-text="Diagram that shows the schema registry information flow." border="false":::
 
 > [!NOTE]
 > The diagram showcases the information flow when event producers and consumers use a schema registry with the Kafka protocol and Avro schema. Other protocols and schema formats work in a similar way.
@@ -25,7 +25,7 @@ This flow is illustrated as shown:
 
 1. The serializer looks for the schema in the schema registry to serialize event data. If it finds the schema, then the corresponding schema ID is returned. You can configure the producer application to automatically register the schema with the schema registry if it doesn't exist.
 
-1. The serializer prepends the schema ID to the serialized data that is published to the Event Hubs.
+1. The serializer prepends the schema ID to the serialized data that's published to the event hub.
 
 ### Consumer
 
