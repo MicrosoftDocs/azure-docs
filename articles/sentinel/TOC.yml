@@ -765,7 +765,7 @@
     href: threat-intelligence-integration.md
   - name: Enable MDTI data connector
     href: connect-mdti-data-connector.md
-  - name: Connect threat intelligence upload API
+  - name: Connect threat intelligence STIX objects API
     href: connect-threat-intelligence-upload-api.md
   - name: Connect threat intelligence platforms
     href: connect-threat-intelligence-tip.md
