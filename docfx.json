@@ -698,6 +698,9 @@
         "articles/virtual-desktop/**/*.md": "eliotgra",
         "articles/virtual-desktop/**/*.yml": "eliotgra"
       },
+      "monikerRange": {
+        "articles/migrate/**/*.md": "=azure-migrate"
+      },
       "ms.author": {
         "articles/advisor/*.md": "ikhapova",
         "articles/ansible/**/*.md": "tarcher",
@@ -1285,15 +1288,15 @@
           "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md"
         ]
       }
-    }
-  }
-},
-"template": [],
+    },
+    "template": [],
     "markdownEngineName": "markdig",
     "groups": {
       "migrate": {
         "dest": "migrate",
-        "moniker_range": ">= migrate <= migrate-classic"
+        "moniker_range": "azure-migrate || >= migrate-classic <= migrate"
       }
-    }
- 
+    },
+    "dest": "azure"
+  }
+}
