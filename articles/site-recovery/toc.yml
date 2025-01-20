@@ -6,6 +6,8 @@
     href: site-recovery-overview.md
   - name: Site Recovery - FAQ
     href: site-recovery-faq.yml
+  - name: Site Recovery - costs
+    href: site-recovery-cost.md
 - name: What's New
   items:
   - name: Release notes
