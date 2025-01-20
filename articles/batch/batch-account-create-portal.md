@@ -98,7 +98,7 @@ Get-AzMarketplaceTerms -Publisher 'microsoft-azure-batch' -Product 'ubuntu-serve
 <a name="allow-azure-batch-to-access-the-subscription-one-time-operation"></a>
 ### Allow Batch to access the subscription
 
-When you create the first user subscription mode Batch account in an Azure subscription, you must register your subscription with Batch and assign **Azure Batch Service Orchestration Role** to Batch. You need to do this registration only once per subscription.
+When you create the first user subscription mode Batch account in an Azure subscription, you must register your subscription with Batch resource provider, and assign **Azure Batch Service Orchestration Role** to Microsoft Azure Batch service principle. You need to do this configuration only once per subscription.
 
 > [!IMPORTANT]
 > You need **Owner** permissions in the subscription to take this action.
@@ -160,17 +160,18 @@ To create a Batch account with authentication mode settings:
 To grant access to the key vault manually in [Azure portal](https://portal.azure.com), you need to assign **Key Vault Secrets Officer** role for Batch:
 
 1. Select **Access control (IAM)** from the left navigation of the key vault page.
-2. At the top of the **Access control (IAM)** page, select **Add** > **Add role assignment**.
-3. On the **Add role assignment** screen, under **Role** tab, under **Job function roles** sub tab, search and select **Key Vault Secrets Officer** role for the Batch account, and then select **Next**.
-4. On the **Members** tab, select **Select members**. On the **Select members** screen, search for and select **Microsoft Azure Batch**, and then select **Select**.
-5. Select the **Review + create** button on the bottom to go to **Review + assign** tab, and select the **Review + create** button on the bottom again.
-
-> [!NOTE]
-> If the RBAC role is not assigned for Batch in the key vault, you will get **KeyVaultNotFound** error when creating Batch account with that key vault.
+1. At the top of the **Access control (IAM)** page, select **Add** > **Add role assignment**.
+1. On the **Add role assignment** screen, under **Role** tab, under **Job function roles** sub tab, search and select **Key Vault Secrets Officer** role for the Batch account, and then select **Next**.
+1. On the **Members** tab, select **Select members**. On the **Select members** screen, search for and select **Microsoft Azure Batch**, and then select **Select**.
+1. Select the **Review + create** button on the bottom to go to **Review + assign** tab, and select the **Review + create** button on the bottom again.
 
 For detailed steps, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
-If the Key Vault permission model is **Vault access policy**, you need to also configure the **Access policies**:
+> [!NOTE]
+> **KeyVaultNotFound** error returns for Batch account creation if the RBAC role isn't assigned for Batch in the referenced key vault.
+
+
+If the Key Vault permission model is **Vault access policy**, you also need to configure the **Access policies**:
 
 1. Select **Access policies** from the left navigation of the key vault page.
 1. On the **Access policies** page, select **Create**.
@@ -184,7 +185,7 @@ If the Key Vault permission model is **Vault access policy**, you need to also c
 
 ### Configure subscription quotas
 
-For user subscription Batch accounts, [core quotas](batch-quota-limit.md) must be set manually. Standard Batch core quotas don't apply to accounts in user subscription mode. The [quotas in your subscription](/azure/azure-resource-manager/management/azure-subscription-service-limits) for regional compute cores, per-series compute cores, and other resources are used and enforced.
+For user subscription Batch accounts, [core quotas](batch-quota-limit.md) must be set manually. Standard Batch core quotas don't apply to accounts in user subscription mode. The [quotas in your subscription](/azure/azure-resource-manager/management/azure-subscription-service-limits) for regional compute cores, per-series compute cores, and other resources are used to and enforced.
 
 To view and configure the core quotas associated with your Batch account:
 
