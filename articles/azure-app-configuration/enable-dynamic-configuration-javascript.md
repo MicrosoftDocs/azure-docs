@@ -7,7 +7,7 @@ author: zhiyuanliang-ms
 ms.service: azure-app-configuration
 ms.devlang: javascript
 ms.topic: tutorial
-ms.date: 03/27/2024
+ms.date: 01/20/2025
 ms.custom: devx-track-js
 ms.author: zhiyuanliang
 #Customer intent: As a JavaScript developer, I want to dynamically update my app to use the latest configuration data in Azure App Configuration.
@@ -31,8 +31,10 @@ Add the following key-value to your Azure App Configuration store. For more info
 | *message*      | *Hello World!*    | Leave empty | Leave empty        |
 | *sentinel*     | *1*               | Leave empty | Leave empty        |
 
+A *sentinel key* is a key that you update after you complete the change of all other keys. Your app monitors the sentinel key. When a change is detected, your app refreshes all configuration values. This approach helps to ensure the consistency of configuration in your app and reduces the overall number of requests made to your Azure App Configuration store, compared to monitoring all keys for changes.
+
 > [!NOTE]
-> A *sentinel key* is a key that you update after you complete the change of all other keys. Your app monitors the sentinel key. When a change is detected, your app refreshes all configuration values. This approach helps to ensure the consistency of configuration in your app and reduces the overall number of requests made to your Azure App Configuration store, compared to monitoring all keys for changes.
+> If you use version **2.0.0-preview.2** or later of [@azure/app-configuration-provider](https://www.npmjs.com/package/@azure/app-configuration-provider), the App Configuration provider will by default refresh based on monitoring the key-value collection. Sentinel key is not needed for refresh. For more information, please go to [Monitor key-value collection for refresh](#monitor-key-value-collection-for-refresh)
 
 ## Console applications
 
@@ -49,7 +51,7 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
 
     ```javascript
     // Connecting to Azure App Configuration using endpoint and token credential
-    const settings = await load(endpoint, credential, {
+    const appConfig = await load(endpoint, credential, {
         // Setting up to refresh when the sentinel key is changed
         refreshOptions: {
             enabled: true,
@@ -65,7 +67,7 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
 
     ```javascript
     // Connecting to Azure App Configuration using endpoint and token credential
-    const settings = await load(endpoint, credential, {
+    const appConfig = await load(endpoint, credential, {
         // Setting up to refresh when the sentinel key is changed
         refreshOptions: {
             enabled: true,
@@ -74,11 +76,11 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
     });
 
     // Constructing configuration object
-    let config = settings.constructConfigurationObject();
+    let config = appConfig.constructConfigurationObject();
 
     // Setting up callback to ensure `config` object is updated once configuration is changed.
-    settings.onRefresh(() => {
-        config = settings.constructConfigurationObject();
+    appConfig.onRefresh(() => {
+        config = appConfig.constructConfigurationObject();
     });
 
     ```
@@ -94,8 +96,8 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
     // Polling for configuration changes every 5 seconds
     while (true) {
         await sleepInMs(5000); // Waiting before the next refresh
-        await settings.refresh(); // Refreshing the configuration setting
-        console.log(settings.get("message")); // Consume current value of message from a Map
+        await appConfig.refresh(); // Refreshing the configuration setting
+        console.log(appConfig.get("message")); // Consume current value of message from a Map
     }
     ```
 
@@ -105,7 +107,7 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
     // Polling for configuration changes every 5 seconds
     while (true) {
         await sleepInMs(5000); // Waiting before the next refresh
-        await settings.refresh(); // Refreshing the configuration setting
+        await appConfig.refresh(); // Refreshing the configuration setting
         console.log(config.message); // Consume current value of message from an object
     }
     ```
@@ -125,7 +127,7 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
 
     async function run() {
         // Connecting to Azure App Configuration using endpoint and token credential
-        const settings = await load(endpoint, credential, {
+        const appConfig = await load(endpoint, credential, {
             // Setting up to refresh when the sentinel key is changed
             refreshOptions: {
                 enabled: true,
@@ -136,8 +138,8 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
         // Polling for configuration changes every 5 seconds
         while (true) {
             await sleepInMs(5000); // Waiting before the next refresh
-            await settings.refresh(); // Refreshing the configuration setting
-            console.log(settings.get("message")); // Consume current value of message from a Map
+            await appConfig.refresh(); // Refreshing the configuration setting
+            console.log(appConfig.get("message")); // Consume current value of message from a Map
         }
     }
 
@@ -154,7 +156,7 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
 
     async function run() {
         // Connecting to Azure App Configuration using endpoint and token credential
-        const settings = await load(endpoint, credential, {
+        const appConfig = await load(endpoint, credential, {
             // Setting up to refresh when the sentinel key is changed
             refreshOptions: {
                 enabled: true,
@@ -163,17 +165,17 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
         });
 
         // Constructing configuration object
-        let config = settings.constructConfigurationObject();
+        let config = appConfig.constructConfigurationObject();
 
         // Setting up callback to ensure `config` object is updated once configuration is changed.
-        settings.onRefresh(() => {
-            config = settings.constructConfigurationObject();
+        appConfig.onRefresh(() => {
+            config = appConfig.constructConfigurationObject();
         });
 
         // Polling for configuration changes every 5 seconds
         while (true) {
             await sleepInMs(5000); // Waiting before the next refresh
-            await settings.refresh(); // Refreshing the configuration setting
+            await appConfig.refresh(); // Refreshing the configuration setting
             console.log(config.message); // Consume current value of message from an object
         }
     }
@@ -210,6 +212,23 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
     ```console
     Hello World - Updated!
     ```
+
+## Monitor key-value collection for refresh
+
+Instead of monitoring any sentinel key, the App Configuration provider supports for monitoring all selected key-values. Configuration will be refreshed if any of key-values are updated. Watching the sentinel key for refresh helps ensure data integrity of configuration changes, but it is now optional. This behavior is activated when you enable the refresh but do not specify any watched keys in `AzureAppConfigurationOptions.refreshOptions`
+
+```javascript
+const appConfig = await load(endpoint, credential, {
+    refreshOptions: {
+        enabled: true,
+        // watchedSettings: []
+    }
+});
+
+appConfig.refresh(); // Configuration will be refreshed if any of key-values are updated.
+```
+
+This feature is available for version **2.0.0-preview.2** or later of [@azure/app-configuration-provider](https://www.npmjs.com/package/@azure/app-configuration-provider).
 
 ## Server application
 
@@ -265,7 +284,7 @@ The following example shows how to update an existing http server to use refresh
         appConfig = await load(endpoint, credential, {
             refreshOptions: {
                 enabled: true,
-                watchedSettings: [{ key: "sentinel" }], // Watch for changes to the key "sentinel" and refreshes the configuration when it changes
+                // without registering any watched setting/sentinel key, the provider will monitor the key-value collection for refresh
                 refreshIntervalInMs: 15_000 // Set the refresh interval
             }
         });
@@ -315,12 +334,11 @@ We recommend to implement request-driven configuration refresh for your web appl
     > [!div class="mx-imgBorder"]
     > ![Screenshot of browser with a message from App Configuration.](./media/dynamic-refresh-javascript/http-server.png)
 
-1. Update the following key-values to the Azure App Configuration store. Update value of the key `message` first and then `sentinel`.
+1. Update the following key-values to the Azure App Configuration store. Update value of the key `message`.
 
     | Key            | Value                     | Label       | Content type       |
     |----------------|---------------------------|-------------|--------------------|
     | *message*      | *Hello World - Updated!*  | Leave empty | Leave empty        |
-    | *sentinel*     | *3*                       | Leave empty | Leave empty        |
 
 1. After about 15 seconds, refresh the page and the message should be updated.
 
