@@ -215,7 +215,7 @@ Here are the highlights of documentation changes in September 2023:
 - Updated articles for custom images templates general availability:
   - [Custom image templates](custom-image-templates.md).
   - [Use Custom image templates to create custom images](create-custom-image-templates.md).
-  - [Troubleshoot Custom image templates](troubleshoot-custom-image-templates.md).
+  - [Troubleshoot Custom image templates](/troubleshoot/azure/virtual-desktop/troubleshoot-custom-image-templates).
 
 - Updated [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md?tabs=monitor) for the general availability of using the Azure Monitor Agent with Azure Virtual Desktop Insights.
 
@@ -264,7 +264,7 @@ Here are the highlights of documentation changes in May 2023:
 - New articles for the custom images templates preview:
   - [Custom image templates](custom-image-templates.md).
   - [Use Custom image templates to create custom images](create-custom-image-templates.md).
-  - [Troubleshoot Custom image templates](troubleshoot-custom-image-templates.md).
+  - [Troubleshoot Custom image templates](/troubleshoot/azure/virtual-desktop/troubleshoot-custom-image-templates).
 
 - Added how to steps for the Azure portal to configure automatic or direct assignment type in [Configure personal desktop assignment](configure-host-pool-personal-desktop-assignment-type.md).
 

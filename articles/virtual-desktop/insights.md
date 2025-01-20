@@ -201,5 +201,5 @@ Now that you configured Azure Virtual Desktop Insights for your Azure Virtual De
 
 - Check out our [glossary](insights-glossary.md) to learn more about terms and concepts related to Azure Virtual Desktop Insights.
 - To estimate, measure, and manage your data storage costs, see [Estimate Azure Virtual Desktop Insights costs](insights-costs.md).
-- If you encounter a problem, check out our [troubleshooting guide](troubleshoot-insights.md) for help and known issues.
+- If you encounter a problem, check out our [troubleshooting guide](/troubleshoot/azure/virtual-desktop/troubleshoot-insights) for help and known issues.
 - To see what's new in each version update, see [What's new in Azure Virtual Desktop Insights](whats-new-insights.md).
