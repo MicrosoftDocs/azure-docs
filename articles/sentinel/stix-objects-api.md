@@ -42,7 +42,7 @@ A call to the STIX objects API has five components:
 
 ## Register your client application with Microsoft Entra ID
 
-In order to authenticate to Microsoft Sentinel, the request to the STIX objects API requires a valid Microsoft Entra access token. For more information on application registration, see [Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app) or see the basic steps as part of the [STIX objects API data connector](connect-threat-intelligence-upload-api.md#register-an-azure-ad-application) setup.
+In order to authenticate to Microsoft Sentinel, the request to the STIX objects API requires a valid Microsoft Entra access token. For more information on application registration, see [Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app) or see the basic steps as part of the [Connect threat intelligence with STIX objects API](connect-threat-intelligence-upload-api.md#register-an-azure-ad-application) setup.
 
 This API requires the calling Microsoft Entra application to be granted the Microsoft Sentinel contributor role at the workspace level.
 
