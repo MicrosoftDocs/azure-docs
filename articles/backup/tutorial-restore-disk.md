@@ -277,23 +277,12 @@ So, the template name from the above example will be ```azuredeploy1fc2d55d-f0dc
 Now get the SAS token for this container and template as detailed [here](../azure-resource-manager/templates/secure-template-with-sas-token.md?tabs=azure-cli#provide-sas-token-during-deployment)
 
 ```azurecli-interactive
-expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
-connection=$(az storage account show-connection-string \
-    --resource-group mystorageaccountRG \
-    --name mystorageaccount \
-    --query connectionString)
-token=$(az storage blob generate-sas \
-    --container-name myVM-daa1931199fd4a22ae601f46d8812276 \
-    --name azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json \
-    --expiry $expiretime \
-    --permissions r \
-    --output tsv \
-    --connection-string $connection)
-url=$(az storage blob url \
-   --container-name myVM-daa1931199fd4a22ae601f46d8812276 \
-    --name azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json \
-    --output tsv \
-    --connection-string $connection)
+$expiryDate=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
+$sasToken=$(az storage blob generate-sas --account-name 
+$storageAccountName --container-name 
+$containerName --name 
+$templateName --permissions r --expiry 
+$expiryDate --auth-mode login --as-user --https-only --output tsv)
 ```
 
 ### Deploy the template to create the VM
