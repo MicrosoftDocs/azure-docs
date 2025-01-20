@@ -9,7 +9,7 @@ ms.service: azure-app-configuration
 ms.devlang: javascript
 ms.custom: devx-track-javascript
 ms.topic: tutorial
-ms.date: 10/15/2024
+ms.date: 01/20/2025
 zone_pivot_groups: feature-management
 #Customer intent: I want to control feature availability in my app by using the Feature Management library.
 ---
@@ -55,7 +55,7 @@ In JavaScript, developers commonly use objects or maps as the primary data struc
 
 ### [Use map configuration](#tab/map-configuration)
 
-``` javascript
+```typescript
 const config = new Map([
     ["feature_management", {
         "feature_flags": [
@@ -79,7 +79,7 @@ const featureManager = new FeatureManager(featureProvider);
 
 ### [Use object configuration](#tab/object-configuration)
 
-``` javascript
+```typescript
 const config = {
     "feature_management": {
         "feature_flags": [
@@ -103,7 +103,7 @@ const featureManager = new FeatureManager(featureProvider);
 
 The object can also be parsed from a JSON file:
 
-``` javascript
+```typescript
 const config = JSON.parse(await fs.readFile("path/to/config.json"));
 const featureProvider = new ConfigurationObjectFeatureFlagProvider(config);
 const featureManager = new FeatureManager(featureProvider);
@@ -119,7 +119,7 @@ The Azure App Configuration service also delivers the feature flags to your appl
 
 The App Configuration JavaScript provider provides feature flags in a `Map` object. The built-in `ConfigurationMapFeatureFlagProvider` helps to load feature flags in this case.
 
-``` javascript
+```typescript
 import { DefaultAzureCredential } from "@azure/identity";
 import { load } from "@azure/app-configuration-provider";
 import { ConfigurationMapFeatureFlagProvider, FeatureManager } from "@microsoft/feature-management";
@@ -137,7 +137,7 @@ const featureManager = new FeatureManager(featureProvider);
 
 The following example shows the format used to set up feature flags in a JSON file.
 
-``` json
+```json
 {
     "feature_management": {
         "feature_flags": [
@@ -184,7 +184,7 @@ The `requirement_type` property of a feature flag is used to determine if the fi
 
 A `requirement_type` of `All` changes the traversal. First, if there are no filters, the feature is disabled. Then, the feature filters are traversed until one of the filters decides that the feature should be disabled. If no filter indicates that the feature should be disabled, it's considered enabled.
 
-``` json
+```json
 {
     "feature_management": {
         "feature_flags": [
@@ -223,7 +223,7 @@ The basic form of feature management is checking if a feature flag is enabled an
 
 ### [Use map configuration](#tab/map-configuration)
 
-``` javascript
+```typescript
 import { ConfigurationMapFeatureFlagProvider, FeatureManager } from "@microsoft/feature-management";
 const featureProvider = new ConfigurationMapFeatureFlagProvider(config);
 const featureManager = new FeatureManager(featureProvider);
@@ -236,7 +236,7 @@ if (isBetaEnabled) {
 
 ### [Use object configuration](#tab/object-configuration)
 
-``` javascript
+```typescript
 import { ConfigurationObjectFeatureFlagProvider, FeatureManager } from "@microsoft/feature-management";
 const featureProvider = new ConfigurationObjectFeatureFlagProvider(config);
 const featureManager = new FeatureManager(featureProvider);
@@ -253,7 +253,7 @@ if (isBetaEnabled) {
 
 Creating a feature filter provides a way to enable features based on criteria that you define. To implement a feature filter, the `IFeatureFilter` interface must be implemented. `IFeatureFilter` has a `name` property and a method named `evaluate`. The `name` should be used in configuration to reference the feature filter within a feature flag. When a feature specifies that it can be enabled for a feature filter, the `evaluate` method is called. If `evaluate` returns `true`, it means the feature should be enabled.
 
-``` typescript
+```typescript
 interface IFeatureFilter {
     name: string;
     evaluate(context: IFeatureFilterEvaluationContext, appContext?: unknown): boolean | Promise<boolean>;
@@ -262,7 +262,7 @@ interface IFeatureFilter {
 
 The following snippet demonstrates how to implement a customized feature filter with name `MyCriteria`.
 
-``` javascript
+```typescript
     class MyCriteriaFilter {
         name = "MyCriteria";
         evaluate(context, appContext) {
@@ -278,7 +278,7 @@ The following snippet demonstrates how to implement a customized feature filter 
 
 You need to register the custom filter when creating the `FeatureManager`.
 
-``` javascript
+```typescript
 const featureManager = new FeatureManager(ffProvider, {customFilters: [new MyCriteriaFilter()]});
 ```
 
@@ -286,7 +286,7 @@ const featureManager = new FeatureManager(ffProvider, {customFilters: [new MyCri
 
 Some feature filters require parameters to decide whether a feature should be turned on or not. For example, a browser feature filter may turn on a feature for a certain set of browsers. It may be desired that Edge and Chrome browsers enable a feature, while Firefox does not. To do this, a feature filter can be designed to expect parameters. These parameters would be specified in the feature configuration, and in code would be accessible via the `IFeatureFilterEvaluationContext` parameter of `IFeatureFilter.Evaluate`.
 
-``` typescript
+```typescript
 interface IFeatureFilterEvaluationContext {
     featureName: string;
     parameters?: unknown;
@@ -299,7 +299,7 @@ interface IFeatureFilterEvaluationContext {
 
 A feature filter may need runtime application context to evaluate a feature flag. You can pass in the context as a parameter when calling `isEnabled`.
 
-``` javascript
+```typescript
 featureManager.isEnabled("Beta", { userId : "Sam" })
 ```
 
@@ -331,7 +331,7 @@ This filter provides the capability to enable a feature based on a time window. 
 
 This filter provides the capability to enable a feature for a target audience. An in-depth explanation of targeting is explained in the [targeting](#targeting) section below. The filter parameters include an `Audience` object that describes users, groups, excluded users/groups, and a default percentage of the user base that should have access to the feature. Each group object that is listed in the `Groups` section must also specify what percentage of the group's members should have access. If a user is specified in the `Exclusion` section, either directly or if the user is in an excluded group, the feature is disabled. Otherwise, if a user is specified in the `Users` section directly, or if the user is in the included percentage of any of the group rollouts, or if the user falls into the default rollout percentage then that user will have the feature enabled.
 
-``` JavaScript
+```typescript
 "client_filters": [
     {
         "name": "Microsoft.Targeting",
@@ -385,7 +385,7 @@ This strategy for rolling out a feature is built into the library through the in
 
 The targeting filter relies on a targeting context to evaluate whether a feature should be turned on. This targeting context contains information such as what user is currently being evaluated, and what groups the user is in. The targeting context must be passed directly when `isEnabled` is called.
 
-``` javascript
+```typescript
 featureManager.isEnabled("Beta", { userId: "Aiden", groups: ["Ring1"] })
 ```
 
@@ -393,7 +393,7 @@ featureManager.isEnabled("Beta", { userId: "Aiden", groups: ["Ring1"] })
 
 When defining an audience, users and groups can be excluded from the audience. Exclusions are useful for when a feature is being rolled out to a group of users, but a few users or groups need to be excluded from the rollout. Exclusion is defined by adding a list of users and groups to the `Exclusion` property of the audience.
 
-``` json
+```json
 "Audience": {
     "Users": [
         "Jeff",
@@ -416,11 +416,6 @@ When defining an audience, users and groups can be excluded from the audience. E
 
 In the above example, the feature is enabled for users named `Jeff` and `Alicia`. It's also enabled for users in the group named `Ring0`. However, if the user is named `Mark`, the feature is disabled, regardless of if they are in the group `Ring0` or not. Exclusions take priority over the rest of the targeting filter.
 
-:::zone target="docs" pivot="stable-version"
-:::zone-end
-
-:::zone target="docs" pivot="preview-version"
-
 ## Variants
 
 When new features are added to an application, there may come a time when a feature has multiple different proposed design options. A common solution for deciding on a design is some form of A/B testing, which involves providing a different version of the feature to different segments of the user base and choosing a version based on user interaction. In this library, this functionality is enabled by representing different configurations of a feature with variants.
@@ -431,7 +426,7 @@ Variants enable a feature flag to become more than a simple on/off flag. A varia
 
 For each feature, a variant can be retrieved using the `FeatureManager`'s `getVariant` method. The variant assignment is dependent on the user currently being evaluated, and that information is obtained from the targeting context you passed in.
 
-``` javascript
+```typescript
 const variant = await featureManager.getVariant("MyVariantFeatureFlag", { userId: "Sam" });
 
 const variantName = variant.name;
@@ -440,12 +435,11 @@ const variantConfiguration = variant.configuration;
 // Do something with the resulting variant and its configuration
 ```
 
-
 ### Variant feature flag declaration
 
 Compared to normal feature flags, variant feature flags have two more properties: `variants` and `allocation`. The `variants` property is an array that contains the variants defined for this feature. The `allocation` property defines how these variants should be allocated for the feature. Just like declaring normal feature flags, you can set up variant feature flags in a JSON file. Here's an example of a variant feature flag.
 
-``` json
+```json
 {
     "feature_management": {
         "feature_flags": [
@@ -483,7 +477,7 @@ Each variant has two properties: a name and a configuration. The name is used to
 
 A list of all possible variants is defined for each feature under the `variants` property.
 
-``` json
+```json
 {
     "feature_management": {
         "feature_flags": [
@@ -513,7 +507,7 @@ A list of all possible variants is defined for each feature under the `variants`
 
 The process of allocating a feature's variants is determined by the `allocation` property of the feature.
 
-``` json
+```json
 "allocation": { 
     "default_when_enabled": "Small", 
     "default_when_disabled": "Small",  
@@ -570,7 +564,6 @@ If the feature isn't enabled, the feature manager assigns the variant marked as 
 If the feature is enabled, the feature manager checks the `user`, `group`, and `percentile` allocations in that order to assign a variant. For this particular example, if the user being evaluated is named `Marsha`, in the group named `Ring1`, or the user happens to fall between the 0 and 10th percentile, then the specified variant is assigned to the user. In this case, all of the assigned users would return the `Big` variant. If none of these allocations match, the user is assigned the `default_when_enabled` variant, which is `Small`.
 
 Allocation logic is similar to the [Microsoft.Targeting](#microsofttargeting) feature filter, but there are some parameters that are present in targeting that aren't in allocation, and vice versa. The outcomes of targeting and allocation aren't related.
-
 
 ### Overriding enabled state with a variant
 
@@ -655,7 +648,7 @@ You can register an `onFeatureEvaluated` callback function when creating `Featur
 
 The following example shows how to implement a custom callback function to send telemetry with the information extracted from the feature evaluation result and register it to the feature manager.
 
-``` javascript
+```typescript
 const sendTelemetry = (evaluationResult) => {
     const featureId = evaluationResult.feature.id;
     const featureEnabled = evaluationResult.enabled;
@@ -678,7 +671,7 @@ The Application Insights offers different sdks for [web](https://www.npmjs.com/p
 
 If your application runs in the browser, install the [`"@microsoft/feature-management-applicationinsights-browser"`](https://www.npmjs.com/package/@microsoft/feature-management-applicationinsights-browser) package. The following example shows how you can create a built-in Application Insights telemetry publisher and register it to the feature manager.
 
-``` javascript
+```typescript
 import { ApplicationInsights } from "@microsoft/applicationinsights-web"
 import { createTelemetryPublisher, trackEvent } from "@microsoft/feature-management-applicationinsights-browser"
 
@@ -700,7 +693,7 @@ trackEvent(appInsights, TARGETING_ID, {name: "TestEvent"}, {"Tag": "Some Value"}
 
 If your application runs in the Node.js, install the [`"@microsoft/feature-management-applicationinsights-node"`](https://www.npmjs.com/package/@microsoft/feature-management-applicationinsights-node) package. The following example shows how you can create a built-in Application Insights telemetry publisher and register it to the feature manager.
 
-``` javascript
+```typescript
 import appInsights from "applicationinsights"
 import { createTelemetryPublisher, trackEvent } from "@microsoft/feature-management-applicationinsights-node"
 
@@ -718,8 +711,6 @@ trackEvent(appInsights.defaultClient, TARGETING_ID, {name: "TestEvent"});
 ---
 
 The telemetry publisher sends `FeatureEvaluation` custom events to the Application Insights when a feature flag enabled with telemetry is evaluated. The custom event follows the [FeatureEvaluationEvent](https://github.com/microsoft/FeatureManagement/tree/main/Schema/FeatureEvaluationEvent) schema.
-
-:::zone-end
 
 ## Next steps
 
