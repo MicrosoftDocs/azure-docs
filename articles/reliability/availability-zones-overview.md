@@ -29,9 +29,9 @@ When you deploy into an Azure region that contains availability zones, you can u
 
 There are two ways that Azure services use availability zones:
 
-- **Zonal** resources are pinned to a specific availability zone. You can combine multiple zonal deployments across different zones to meet high reliability requirements. You're responsible for managing data replication and distributing requests across zones. If an outage occurs in a single availability zone, you're responsible for failover to another availability zone.
-
 - **Zone-redundant** resources are spread across multiple availability zones. Microsoft manages spreading requests across zones and the replication of data across zones. If an outage occurs in a single availability zone, Microsoft manages failover automatically.
+
+- **Zonal** resources are pinned to a specific availability zone. You can combine multiple zonal deployments across different zones to meet high reliability requirements. You're responsible for managing data replication and distributing requests across zones. If an outage occurs in a single availability zone, you're responsible for failover to another availability zone.
 
 Azure services support one or both of these approaches. Platform as a service (PaaS) services typically support zone-redundant deployments. Infrastructure as a service (IaaS) services typically support zonal deployments. For more information about how Azure services work with availability zones, see [Azure regions with availability zone support](availability-zones-region-support.md).
 
@@ -69,6 +69,15 @@ $locations = ($response.Content | ConvertFrom-Json).value
 
 For each region, Microsoft aims to deploy updates to Azure services within a single availability zone at a time. This approach reduces the impact that updates might have on an active workload, because the workload can continue to run in other zones while the update is in process. You need to run your workload across multiple zones to take advantage of this benefit. For more information about how Azure deploys updates, see [Advancing safe deployment practices](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/).
 
+## Inter-zone latency
+
+Within each region, availability zones are connected through a high-performance network. Microsoft strives for inter-zone communication to have a round-trip latency of less than approximately 2 milliseconds. Such a low latency allows for high-performance communication within a region, and for synchronous replication of data across multiple availability zones.
+
+> [!NOTE]
+> The target latency refers to the latency of the network links. Depending on the communication protocol you use and the network hops required for any specific network flow, the latency you observe might be different.
+
+In most workloads, you can distribute components of your solution across availability zones without a noticeable effect on your performance. If you have a workload with a high degree of sensitivity to inter-zone latency, it's important to test the latency between your selected availability zones, using your actual protocols and configuration. You can use [zonal deployments](#zonal-and-zone-redundant-services) to reduce inter-zone traffic, but you should plan your reliability strategy to use multiple availability zones.
+
 ## Availability zone architectural guidance
 
 To achieve more reliable workloads:
@@ -77,7 +86,6 @@ To achieve more reliable workloads:
 - For mission-critical workloads, you should consider a solution that is *both* multi-region and multi-zone.
 
 For more detailed information on how to use regions and availability zones in a solution architecture, see [Recommendations for using availability zones and regions](/azure/well-architected/resiliency/regions-availability-zones).
-
 
 ## Next steps
 
