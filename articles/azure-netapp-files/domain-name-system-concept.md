@@ -381,13 +381,13 @@ Ensure you meet the following DNS configuration requirements:
 - If you're using standalone DNS servers:
     - Ensure the DNS servers have network connectivity to the Azure NetApp Files delegated subnet hosting the Azure NetApp Files volumes.
     - Ensure the network ports UDP 53 and TCP 53 are not blocked by firewalls or network security groups.
-- Ensure that the SRV records registered by the AD DS Net Logon service have been created on the DNS servers, as well as the service records listed in [Types of DNS records in Azure NetApp Files](#types-of-dns-records-in-azure-netapp-files).
+- Ensure [the SRV records registered by the AD DS Net Logon service](https://social.technet.microsoft.com/wiki/contents/articles/7608.srv-records-registered-by-net-logon.aspx) have been created on the DNS servers, as well as the service records listed in [Types of DNS records in Azure NetApp Files](#types-of-dns-records-in-azure-netapp-files).
 - Ensure the PTR records for the AD DS domain controllers used by Azure NetApp Files have been created on the DNS servers in the same domain as your Azure NetApp Files configuration.
 - Azure NetApp Files supports standard and secure dynamic DNS updates. If you require secure dynamic DNS updates, ensure that secure updates are configured on the DNS servers.
 - Ensure a reverse lookup zone has been created for the Azure NetApp Files subnet to allow dynamic DNS to create PTR records in addition to A/AAAA record.
 - If a DNS alias is required, use a CNAME record. Point the CNAME record to the A/AAAA records for Azure NetApp Files.
 - If you're not using dynamic DNS updates, you must manually create an A record and a PTR record for the AD DS computer accounts created in the AD DS Organizational Unit (specified in the Azure NetApp Files AD connection) to support Azure NetApp Files LDAP Signing, LDAP over TLS, SMB, dual-protocol, or Kerberos NFSv4.1 volumes.
-- For complex or large AD DS topologies, DNS Policies or DNS subnet prioritization might be required to support LDAP enabled NFS volumes.
+- For complex or large AD DS topologies, [DNS Policies or DNS subnet prioritization might be required to support LDAP enabled NFS volumes](understand-guidelines-active-directory-domain-service-site#ad-ds-ldap-discover.md).
 - If DNS scavenging is enabled (where stale DNS entries are automatically pruned based on timestamp/age) and dynamic DNS was used to create the DNS records for the Azure NetApp Files volume, the scavenger process might inadvertently prune the records for the volume. This pruning can lead to a service outage for name-based queries. Until this issue is resolved, manually create DNS A/AAAA and PTR entries for the Azure NetApp Files volume if DNS scavenging is enabled.
 
 
