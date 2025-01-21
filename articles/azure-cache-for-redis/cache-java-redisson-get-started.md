@@ -164,7 +164,7 @@ This quickstart uses the Maven archetype feature to generate the scaffolding for
            // Connect to the Azure Cache for Redis over the TLS/SSL port using the key
            Config redissonconfig = new Config();
            redissonconfig.useSingleServer()
-                   .setAddress(String.format("rediss://%s:6380", System.getenv("REDIS_CACHE_HOSTNAME")))
+                   .setAddress(String.format("rediss://%s:%s", System.getenv("REDIS_CACHE_HOSTNAME"),  System.getenv("REDIS_CACHE_PORT")))
                    .setUsername(System.getenv("USER_NAME")) // (Required) Username is Object ID of your managed identity or service principal
                    .setPassword(token); // Microsoft Entra access token as password is required.
            return redissonconfig;
@@ -228,7 +228,7 @@ This quickstart uses the Maven archetype feature to generate the scaffolding for
            // Connect to the Azure Cache for Redis over the TLS/SSL port using the key
            Config redissonconfig = new Config();
            redissonconfig.useSingleServer().setPassword(System.getenv("REDIS_CACHE_KEY"))
-                   .setAddress(String.format("rediss://%s:6380", System.getenv("REDIS_CACHE_HOSTNAME")));
+                   .setAddress(String.format("rediss://%s:%s", System.getenv("REDIS_CACHE_HOSTNAME"), System.getenv("REDIS_CACHE_PORT")));
            return redissonconfig;
        }
    }

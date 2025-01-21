@@ -127,9 +127,10 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 
             String cacheHostname = System.getenv("REDIS_CACHE_HOSTNAME");
             String username = System.getenv("USER_NAME");
+            int port = Integer.parseInt(System.getenv().getOrDefault("REDIS_CACHE_PORT", "6380"));
 
             // Connect to the Azure Cache for Redis over the TLS/SSL port using the key.
-            Jedis jedis = new Jedis(cacheHostname, 6380, DefaultJedisClientConfig.builder()
+            Jedis jedis = new Jedis(cacheHostname, port, DefaultJedisClientConfig.builder()
                     .password(token) // Microsoft Entra access token as password is required.
                     .user(username) // Username is Required
                     .ssl(useSsl) // SSL Connection is Required
@@ -180,9 +181,10 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
             boolean useSsl = true;
             String cacheHostname = System.getenv("REDIS_CACHE_HOSTNAME");
             String cachekey = System.getenv("REDIS_CACHE_KEY");
+            int port = Integer.parseInt(System.getenv().getOrDefault("REDIS_CACHE_PORT", "6380"));
 
             // Connect to the Azure Cache for Redis over the TLS/SSL port using the key.
-            Jedis jedis = new Jedis(cacheHostname, 6380, DefaultJedisClientConfig.builder()
+            Jedis jedis = new Jedis(cacheHostname, port, DefaultJedisClientConfig.builder()
                 .password(cachekey)
                 .ssl(useSsl)
                 .build());
