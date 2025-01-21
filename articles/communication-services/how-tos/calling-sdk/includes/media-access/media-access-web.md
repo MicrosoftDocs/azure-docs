@@ -47,7 +47,8 @@ mediaAccessFeature.forbidVideo(participants);
 ```
 
 ### List media access state for all remote participants
-You can use the `getAllOthersMediaAccess` API to get information about all remote participants media access state on current call.
+
+Use the `getAllOthersMediaAccess` API to get information about all remote participant media access states for current call.
 Here's an example of how to use the `getAllOthersMediaAccess` API:
 ```js
 let remoteParticipantsMediaAccess = mediaAccessHandFeature.getAllOthersMediaAccess()
