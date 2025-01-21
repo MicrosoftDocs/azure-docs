@@ -92,15 +92,6 @@ Finally, if you make changes to the keystore outside of these commands, you can 
 ./cycle_server keystore reconfig
 ```
 
-> [!NOTE]
-> If you get the following error, it indicates that Java does not have any trusted certificates available to it:
->```
->   the trustAnchors parameter must be non-empty
->```
->
-> Make sure that your OS certificates are installed in the correct place (for example, `/etc/ssl/certs` for Ubuntu-based distributions). In addition, if you have defined a trust store with the `-Djavax.net.ssl.trustStorePassword` setting (not recommended), make sure it contains at least one certificate.
-
-
 ### Keystore Implementation Details
 
 Certificates for CycleCloud are stored in `/opt/cycle_server/config/private/keystore`, in addition to other certificates needed for operation. The following is a non-exhaustive list of the items stored in the keystore:
