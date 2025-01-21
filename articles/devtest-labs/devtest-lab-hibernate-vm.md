@@ -8,7 +8,7 @@ ms.date: 01/20/2025
 ms.custom: UpdateFrequency2
 ---
 
-# Hibernate VMs in DevTest Labs
+# Hibernate VMs in Azure DevTest Labs
 
 As an Azure DevTest Labs lab owner and user, you can Hibernate the virtual machines (VMs) in your lab. Hibernation allows applications and processes that were previously running in your VM resume from the state prior to hibernation. When you hibernate a machine, Azure stores the memory contents of the VM in the OS disk and then deallocates the VM. When the VM is started again from its hibernation state, the memory contents are transferred from the OS disk back into memory. Once a VM is placed in a hibernated state, you aren't charged for the compute cost of the VM, just like how you aren't charged for it in a stopped (deallocated) state. You're only charged for the storage (OS disk, data disks) and networking resources (IPs, etc.) attached to the VM.
 
