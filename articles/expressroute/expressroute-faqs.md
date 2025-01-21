@@ -269,8 +269,8 @@ Yes. You can link a single virtual network with up to four ExpressRoute circuits
 ### Service Endpoint Policy on the Gateway Subnet?
 
 Configuring a Service Endpoint Policy (SEP) on the Gateway Subnet is not advisable due to potential issues, including:
-* Failures in gateway service deployment.
-* Challenges with scaling and service healing.
+* Failures in gateway service deployment
+* Challenges with scaling and service healing
 
 
 ### Do virtual networks connected to ExpressRoute circuits have Internet connectivity?
