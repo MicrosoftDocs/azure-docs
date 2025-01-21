@@ -90,3 +90,7 @@ The following tables show support for the media access feature in individual Azu
 - [Learn how to manage video](./manage-video.md)
 - [Learn how to record calls](./record-calls.md)
 - [Learn how to transcribe calls](./call-transcription.md)
+
+## Related articles
+
+For more information about using the media access feature, see [Manage attendee audio and video permissions in Microsoft Teams meetings](/office/manage-attendee-audio-and-video-permissions-in-microsoft-teams-meetings).
