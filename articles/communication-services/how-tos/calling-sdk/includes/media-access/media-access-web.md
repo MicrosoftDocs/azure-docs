@@ -22,7 +22,8 @@ const mediaAccessFeature = call.feature(Features.MediaAccess);
 ```
 
 ### Control access to send audio or video of individual attendees
-You can use method `permitAudio()` to allow selected attendees to unmute or method `permitVideo()` to allow selected attendees to turn on video. These actions don't automatically unmute or turn on video. They only allow attendees to perform these actions. 
+
+Use the `permitAudio()` method to enable selected attendees to unmute. Use the `permitVideo()` method to enable selected attendees to turn on video. These actions don't automatically unmute or turn on video. They only enable attendees to perform these actions. 
 
 Use method `forbidAudio()` to mute selected attendees and deny them to unmute or method `forbidVideo()` to turn of video for selected attendees and deny them to turn video on.
 
