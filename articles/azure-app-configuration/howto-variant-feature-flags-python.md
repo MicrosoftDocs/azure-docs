@@ -13,12 +13,12 @@ ms.date: 12/02/2024
 
 # Use variant feature flags in a Python application
 
-In this tutorial, you use a variant feature flag to manage experiences for different user segments in an example application, *Quote of the Day*. You utilize the variant feature flag created in [Use variant feature flags](./use-variant-feature-flags.md). Before proceeding, ensure you create the variant feature flag named *Greeting* in your App Configuration store.
+In this tutorial, you use a variant feature flag to manage experiences for different user segments in an example application, *Quote of the Day*. You utilize the variant feature flag created in [How to variant feature flags](./howto-variant-feature-flags.md). Before proceeding, ensure you create the variant feature flag named *Greeting* in your App Configuration store.
 
 ## Prerequisites
 
 * Python 3.8 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
-* Follow the [Use variant feature flags](./use-variant-feature-flags.md) tutorial and create the variant feature flag named *Greeting*.
+* Follow the [How to variant feature flags](./howto-variant-feature-flags.md) tutorial and create the variant feature flag named *Greeting*.
 
 ## Set up a Python Flask web app
 
