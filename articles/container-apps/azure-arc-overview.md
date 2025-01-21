@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 01/15/2025
+ms.date: 01/21/2025
 ms.author: cshoe
 ---
 
@@ -44,7 +44,7 @@ The following public preview limitations apply to Azure Container Apps on Azure 
 | Logs | Log Analytics must be configured with cluster extension; not per-application |
 
 > [!IMPORTANT]
-> If deploying onto **AKS-HCI** ensure that you have [setup HAProxy as your load balancer](/azure/aks/hybrid/configure-load-balancer)  before attempting to install the extension.
+> If deploying onto **AKS-Azure Local** ensure that you have [setup HAProxy as your load balancer](/azure/aks/hybrid/configure-load-balancer)  before attempting to install the extension.
 
 ## Resources created by the Container Apps extension
 
