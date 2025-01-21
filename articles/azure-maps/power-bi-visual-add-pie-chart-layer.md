@@ -18,9 +18,6 @@ A pie chart is a visual representation of data in the form of a circular chart o
 
 :::image type="content" source="./media/power-bi-visual/pie-chart-layer.png" alt-text="A Power B I visual showing the pie chart layer." lightbox="./media/power-bi-visual/pie-chart-layer.png":::
 
-> [!NOTE]
-> The data used in this article comes from the [Power BI Sales and Marketing Sample].
-
 ## Prerequisites
 
 - [Get started with Azure Maps Power BI visual].

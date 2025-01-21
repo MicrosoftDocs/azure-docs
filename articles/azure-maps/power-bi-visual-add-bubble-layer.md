@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: In this article, you learn how to use the bubble layer in an Azure Maps Power BI visual.
 author: deniseatmicrosoft
 ms.author: limingchen
-ms.date: 12/04/2023
+ms.date: 01/17/2025
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: power-bi-visual
@@ -14,9 +14,13 @@ ms.subservice: power-bi-visual
 
 The **Bubble layer** renders location data as scaled circles on the map.
 
-:::image type="content" source="./media/power-bi-visual/bubble-layer-with-legend-color.png" alt-text="A map displaying point data using the bubble layer":::
+:::image type="content" source="./media/power-bi-visual/bubble-layer-no-legend.png" lightbox="./media/power-bi-visual/bubble-layer-no-legend.png"alt-text="A map displaying point data using the bubble layer, all bubbles are blue.":::
 
-Initially all bubbles have the same fill color. If a field is passed into the **Legend** bucket of the **Fields** pane, the bubbles are colored based on their categorization. The outline of the bubbles is white be default but can be changed to a new color or by enabling the high-contrast outline option. The **High-contrast outline** option dynamically assigns an outline color that is a high-contrast variant of the fill color. This helps to ensure the bubbles are clearly visible regardless of the style of the map. The following are the primary settings in the **Format** pane that are available in the **Bubble layer** section.
+Initially all bubbles have the same fill color. If a field is passed into the **Legend** bucket of the **Fields** pane, the bubbles are colored based on their categorization.
+
+:::image type="content" source="./media/power-bi-visual/bubble-layer-with-legend-color.png" lightbox="./media/power-bi-visual/bubble-layer-with-legend-color.png"alt-text="A map displaying point data using the bubble layer, the bubbles are colored based on their categorization with a legend showing what color is associated with which business.":::
+
+The outline of the bubbles is white be default but can be changed to a new color or by enabling the high-contrast outline option. The **High-contrast outline** option dynamically assigns an outline color that is a high-contrast variant of the fill color. This helps to ensure the bubbles are clearly visible regardless of the style of the map. The following are the primary settings in the **Format** pane that are available in the **Bubble layer** section.
 
 | Setting        | Description    |
 |----------------|----------------|
@@ -40,8 +44,6 @@ If a field is passed into the **Size** bucket of the **Fields** pane, the bubble
 ## Category labels
 
 When the **bubble layer** displays on a map, the **Category labels** settings become active in the **Format visual** pane.
-
-:::image type="content" source="./media/power-bi-visual/category-labels.png" alt-text="A screenshot showing the category labels settings in the format visual section of Power BI." lightbox="./media/power-bi-visual/category-labels.png":::
 
 The **Category labels** settings enable you to customize font setting such as font type, size and color as well as the category labels background color and transparency.
 

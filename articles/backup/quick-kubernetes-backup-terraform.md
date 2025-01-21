@@ -6,8 +6,8 @@ ms.topic: quickstart
 ms.date: 01/21/2025
 ms.custom: devx-track-terraform, devx-track-extended-azdevcli
 ms.reviewer: rajats
-ms.author: v-abhmallick
-author: AbhishekMallick-MS
+ms.author: jsuri
+author: jyothisuri
 content_well_notification: 
  - AI-contribution
 #Customer intent: As a developer or backup operator, I want to quickly configure backup for an Azure Kubernetes Cluster using Azure Backup for AKS.

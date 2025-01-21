@@ -6,8 +6,8 @@ ms.date: 01/21/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Quickstart: Configure backup for an AKS cluster
