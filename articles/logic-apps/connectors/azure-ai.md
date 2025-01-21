@@ -7,7 +7,7 @@ ms.suite: integration
 ms.collection: ce-skilling-ai-copilot
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 12/18/2024
+ms.date: 01/21/2025
 ---
 
 # Connect to Azure AI services from workflows in Azure Logic Apps
@@ -89,7 +89,7 @@ The **Azure AI Search** connector has different versions, based on [logic app ty
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multitenant Azure Logic Apps | Managed, Azure-hosted connector, which appears in the connector gallery under **Runtime** > **Shared**.  <br><br>For more information, see [Azure AI Search managed connector reference](/connectors/azureaisearch). <br><br>**Note**: The action named **Search vectors** isn't ready for preview until January 2025. |
+| **Consumption** | Multitenant Azure Logic Apps | Managed, Azure-hosted connector, which appears in the connector gallery under **Runtime** > **Shared**.  <br><br>For more information, see [Azure AI Search managed connector reference](/connectors/azureaisearch). |
 | **Standard** | Single-tenant Azure Logic Apps, App Service Environment v3 (Windows plans only), or hybrid deployment, which is your own infrastructure. | Built-in connector, which appears in the connector gallery under **Runtime** > **In-app** and is [service provider-based](/azure/logic-apps/custom-connector-overview#service-provider-interface-implementation). The built-in connector has the following capabilities among others: <br><br>- Multiple [authentication type support](#authentication) <br><br>- Direct access to resources in Azure virtual networks and endpoints for Azure OpenAI behind firewalls. <br><br>For more information, see [Azure AI Search built-in connector reference](/azure/logic-apps/connectors/built-in/reference/azureaisearch). |
 
 ### Authentication
