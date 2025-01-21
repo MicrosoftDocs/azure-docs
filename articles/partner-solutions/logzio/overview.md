@@ -40,5 +40,4 @@ The following key capabilities are provided by the Azure Logz.io integration:
 
 ## Next steps
 
-- To create a Logz.io integration, see [Quickstart: Create a Logz.io resource in Azure portal](create.md).
-- Single sign-on is optional. For more information, see [Set up Logz.io single sign-on](setup-sso.md).
+- [Quickstart: Create a Logz.io resource in Azure portal](create.md)
