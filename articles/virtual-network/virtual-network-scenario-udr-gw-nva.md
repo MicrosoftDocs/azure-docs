@@ -4,8 +4,7 @@ description: Learn how to deploy virtual appliances and route tables to create a
 services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
-ms.custom:
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/22/2023
 ms.author: allensu
 ---

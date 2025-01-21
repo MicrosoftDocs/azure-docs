@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 12/10/2024
 ms.custom: devx-track-azurepowershell
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up an Azure file share by using PowerShell

@@ -4,8 +4,8 @@ description: Learn about different monitoring and reporting solutions provided b
 ms.topic: overview
 ms.date: 12/30/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Monitoring and Reporting solutions for Azure Backup

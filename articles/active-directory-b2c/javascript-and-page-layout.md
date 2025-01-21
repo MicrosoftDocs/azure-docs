@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: how-to
-ms.date: 10/17/2023
+ms.date: 10/17/2024
 ms.custom: devx-track-js
 ms.author: godonnell
 ms.subservice: b2c

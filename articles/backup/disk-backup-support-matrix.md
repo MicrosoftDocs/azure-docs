@@ -5,8 +5,8 @@ ms.topic: reference
 ms.date: 09/11/2024
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Azure Disk Backup support matrix

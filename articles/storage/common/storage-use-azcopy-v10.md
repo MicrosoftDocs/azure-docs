@@ -172,6 +172,7 @@ As an alternative to installing a package, you can download the AzCopy V10 execu
 
 - [Windows 64-bit](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Windows 32-bit](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
+- [Windows ARM64 Preview](https://aka.ms/downloadazcopy-v10-windows-arm64) (zip)
 - [Linux x86-64](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [Linux ARM64](https://aka.ms/downloadazcopy-v10-linux-arm64) (tar)
 - [macOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
@@ -283,6 +284,9 @@ Over time, the AzCopy [download link](#download-and-install-azcopy) will point t
 
 To avoid these issues, obtain a static (unchanging) link to the current version of AzCopy. That way, your script downloads the same exact version of AzCopy each time that it runs.
 
+> [!NOTE]
+> The static link to AzCopy binaries is subject to change over time due to our content delivery infrastructure. If you must use a specific version of AzCopy for any reason, we recommend using AzCopy with an operating system that leverages a [published package](#install-azcopy-on-linux-by-using-a-package-manager). This method ensures that you can reliably install and maintain the desired version of AzCopy.
+
 To obtain the link, run this command:
 
 | Operating system  | Command |
@@ -302,7 +306,7 @@ wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azc
 ```
 **Windows PowerShell** 
 ```PowerShell
-Invoke-WebRequest -Uri 'https://azcopyvnext.azureedge.net/release20220315/azcopy_windows_amd64_10.14.1.zip' -OutFile 'azcopyv10.zip'
+Invoke-WebRequest -Uri <URL from the previous command> -OutFile 'azcopyv10.zip'
 Expand-archive -Path '.\azcopyv10.zip' -Destinationpath '.\'
 $AzCopy = (Get-ChildItem -path '.\' -Recurse -File -Filter 'azcopy.exe').FullName
 # Invoke AzCopy 
@@ -310,7 +314,7 @@ $AzCopy = (Get-ChildItem -path '.\' -Recurse -File -Filter 'azcopy.exe').FullNam
 ```
 **PowerShell 6.1+**
 ```PowerShell
-Invoke-WebRequest -Uri 'https://azcopyvnext.azureedge.net/release20220315/azcopy_windows_amd64_10.14.1.zip' -OutFile 'azcopyv10.zip'
+Invoke-WebRequest -Uri <URL from the previous command> -OutFile 'azcopyv10.zip'
 $AzCopy = (Expand-archive -Path '.\azcopyv10.zip' -Destinationpath '.\' -PassThru | where-object {$_.Name -eq 'azcopy.exe'}).FullName
 # Invoke AzCopy
 & $AzCopy

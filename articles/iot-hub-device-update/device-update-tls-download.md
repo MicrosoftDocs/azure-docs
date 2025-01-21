@@ -56,6 +56,8 @@ Finally, you may also need to make changes to your own implementation, such as c
 
 The certificate used to enable the TLS connection is issued by: **Microsoft Azure RSA TLS Issuing CA 03**. Devices that download content over TLS from the Device Update service will need to be provisioned with one or more certificates that have Microsoft Azure RSA TLS Issuing CA 03 as their root.
 
+RSA certificates are supported, but the client needs to specify cipher TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 on TLS1.2. If possible, using an ECC certificate backed by DigiCert Global Root G3 is recommended instead.
+
 ## Next steps
 
 [Troubleshoot common issues](troubleshoot-device-update.md)
