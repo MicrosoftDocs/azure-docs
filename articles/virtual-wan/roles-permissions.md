@@ -29,7 +29,7 @@ For more information, see [Steps to create a custom role](../role-based-access-c
 To ensure proper functionality, check your custom role permissions to confirm user service principals, and managed identities interacting with Virtual WAN have the necessary permissions.
 To add any missing permissions listed here, see [Update a custom role](../role-based-access-control/custom-roles-portal.md#update-a-custom-role).
 
-The following custom roles are a few example roles you can create in your tenant if you don't want to leverage more generic built-in roles such as Network Contributor or Contributor. 
+The following custom roles are a few example roles you can create in your tenant if you don't want to leverage more generic built-in roles such as Network Contributor or Contributor. You can download and save the  sample roles asJSON files and upload the JSON file to Azure Portal when creating custom roles in your tenant. Ensure the assignable scopes for the custom roles are set properly for your networking resource subscription(s). 
 
 ### Virtual WAN Administrator
 
@@ -37,28 +37,31 @@ The Virtual WAN Administrator role has the ability to perform all operations rel
 
 ```
 {
-  "Name": "Virtual WAN Administrator",
-  "IsCustom": true,
-  "Description": "Can perform all operations related to the Virtual WAN, including managing connections to Virtual WAN and configuring routing in each hub.",
-  "Actions": [
-    "Microsoft.Network/virtualWans/*",
-    "Microsoft.Network/virtualHubs/*",
-    "Microsoft.Network/azureFirewalls/read",
-    "Microsoft.Network/networkVirtualAppliances/*/read",
-    "Microsoft.Network/securityPartnerProviders/*/read",
-    "Microsoft.Network/expressRouteGateways/*",
-    "Microsoft.Network/vpnGateways/*",
-    "Microsoft.Network/p2sVpnGateways/*",
-    "Microsoft.Network/virtualNetworks/peer/action"
-
-  ],
-  "NotActions": [],
-  "DataActions": [],
-  "NotDataActions": [],
-  "AssignableScopes": [
-    "/subscriptions/{subscriptionId1}",
-    "/subscriptions/{subscriptionId2}"
-  ]
+    "properties": {
+        "roleName": "Virtual WAN Administrator",
+        "description": "Can perform all operations related to the Virtual WAN, including managing connections to Virtual WAN and configuring routing in each hub.",
+        "assignableScopes": [
+            "/subscriptions/<>"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.Network/virtualWans/*",
+                    "Microsoft.Network/virtualHubs/*",
+                    "Microsoft.Network/azureFirewalls/read",
+                    "Microsoft.Network/networkVirtualAppliances/*/read",
+                    "Microsoft.Network/securityPartnerProviders/*/read",
+                    "Microsoft.Network/expressRouteGateways/*",
+                    "Microsoft.Network/vpnGateways/*",
+                    "Microsoft.Network/p2sVpnGateways/*",
+                    "Microsoft.Network/virtualNetworks/peer/action"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
 }
 ```
 
@@ -68,26 +71,34 @@ The Virtual WAN reader role has the ability to view and monitor all Virtual WAN-
 
 ```
 {
-  "Name": "Virtual WAN Reader",
-  "IsCustom": true,
-  "Description": "Can read and monitor all Virtual WAN resources, but cannot modify Virtual WAN resources.",
-  "Actions": [
-    "Microsoft.Network/virtualWans/*/read",
-    "Microsoft.Network/virtualHubs/*/read",
-    "Microsoft.Network/expressRouteGateways/*/read",
-    "Microsoft.Network/vpnGateways/*/read",
-    "Microsoft.Network/p2sVpnGateways/*/read"
-    "Microsoft.Network/networkVirtualAppliances/*/read
-  ],
-  "NotActions": [],
-  "DataActions": [],
-  "NotDataActions": [],
-  "AssignableScopes": [
-    "/subscriptions/{subscriptionId1}",
-    "/subscriptions/{subscriptionId2}"
-  ]
+    "properties": {
+        "roleName": "Virtual WAN reader",
+        "description": "Can perform all operations related to the Virtual WAN, including managing connections to Virtual WAN and configuring routing in each hub.",
+        "assignableScopes": [
+            "/subscriptions/<>"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.Network/virtualWans/*",
+                    "Microsoft.Network/virtualHubs/*",
+                    "Microsoft.Network/azureFirewalls/read",
+                    "Microsoft.Network/networkVirtualAppliances/*/read",
+                    "Microsoft.Network/securityPartnerProviders/*/read",
+                    "Microsoft.Network/expressRouteGateways/*",
+                    "Microsoft.Network/vpnGateways/*",
+                    "Microsoft.Network/p2sVpnGateways/*",
+                    "Microsoft.Network/virtualNetworks/peer/action"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
 }
 ```
+
 ## Required Permissions
 
 Creating or updating Virtual WAN resources requires you to have the proper permission(s) to create that Virtual WAN resource type. In some scenarios, having permissions to create or update that resource type is sufficient. However, in many scenarios, updating a Virtual WAN resource that has a **reference** to another Azure resource requires you to have permissions over both the created resource **and** any referenced resources.
