@@ -4,8 +4,8 @@ description: Learn how to back up blobs in a storage account with an ARM templat
 ms.topic: quickstart
 ms.custom: devx-track-arm-template
 ms.date: 07/24/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Quickstart: Back up a storage account with Blob data using an ARM template
