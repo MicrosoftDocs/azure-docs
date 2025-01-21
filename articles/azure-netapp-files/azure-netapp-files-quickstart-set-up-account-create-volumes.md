@@ -405,7 +405,7 @@ The following code snippets show how to set up a VNet and create an Azure NetApp
 
 The following code snippets show how to set up a VNet and create an Azure NetApp Files volume using [Terraform](/azure/developer/terraform). The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-netapp-files). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-netapp-files/TestRecord.md).
 
-:::code language="terraform" source="~/terraform_samples/quickstart/101-azure-netapp-files/main.tf" range="20-45,64-83":::
+:::code language="terraform" source="~/terraform_samples/quickstart/101-azure-netapp-files/main.tf" range="20-46,64-83":::
 
 ---
 
