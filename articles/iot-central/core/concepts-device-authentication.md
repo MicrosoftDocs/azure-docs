@@ -17,7 +17,7 @@ ms.custom:  [amqp, mqtt, device-developer]
 
 This article describes how devices authenticate to an IoT Central application. To learn more about the overall connection process, see [Connect a device](overview-iot-central-developer.md#how-devices-connect).
 
-Devices authenticate with the IoT Central application by using either a _shared access signature (SAS) token_ or an _X.509 certificate_. X.509 certificates are recommended in production environments.
+Devices authenticate with the IoT Central application by using either a _shared access signature (SAS) token_ or an _X.509 certificate_. SAS tokens are recommended in production environments.
 
 You use _enrollment groups_ to manage the device authentication options in your IoT Central application.
 
