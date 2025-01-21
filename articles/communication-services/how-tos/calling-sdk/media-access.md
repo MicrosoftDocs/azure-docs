@@ -68,7 +68,7 @@ The following table shows support for individual APIs in the Calling SDK related
 | Get notification that media access changed          | ✔️           |✔️                        ||
 | Get notification that Teams meeting's media access changed    | ✔️[2]           |    ✔️[2]                      ||
 
-[1] Only user with role organizer, coorganizer, or presenter.
+[1] Only user with role organizer, co-organizer, or presenter.
 
 [2] This operation is only supported in Microsoft Teams meeting.
 
