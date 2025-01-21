@@ -32,7 +32,7 @@ The following image displays the hardware elements on the HPE ProLiant DL360 Gen
 |**Storage**| 6 HPE 2.4TB SAS 12G Mission Critical 10K SFF BC 3-year Warranty 512e Multi Vendor HDD |
 |**Network controller**| On-board: 8 x 1 Gb |
 |**Management**     | HPE iLO Advanced         |
-|**Power**            |HPE 800W Flex Slot Titanium Hot Plug Low Halogen Power Supply Kit |
+|**Power**            |HPE 1000W flex slot power supply with 96% efficiency, 100-240 VAC input, 80 Plus Titanium certified |
 |**Rack support**     | HPE 1U Rail 3 kit        |
 
 ## HPE DL360 Gen 11 Plus (NHP 4SFF) - Bill of materials
