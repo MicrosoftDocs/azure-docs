@@ -246,6 +246,10 @@ The following code snippet shows how to create a capacity pool in an Azure Resou
 
 <!-- LN 185, block begins with  "type": "Microsoft.NetApp/netAppAccounts/capacityPools", -->
 
+# [Terraform](#tab/terraform)
+
+abc
+
 ---
 
 ## Create an NFS volume for Azure NetApp Files
