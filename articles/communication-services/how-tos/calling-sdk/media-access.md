@@ -84,7 +84,6 @@ The following tables show support for the media access feature in individual Azu
 [!INCLUDE [Media Access Client-side JavaScript](./includes/media-access/media-access-web.md)]
 ::: zone-end
 
-Other resources
 
 ## Next steps
 - [Learn how to manage calls](./manage-calls.md)
