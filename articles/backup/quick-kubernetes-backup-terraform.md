@@ -408,7 +408,7 @@ Learn more about:
 
 > [!div class="nextstepaction"]
 > [Overview of AKS backup](azure-kubernetes-service-backup-overview.md).
-> Restore AKS Cluster using [Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md)
+> [Restore AKS Cluster using Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md).
 > [How to use Azure Backup for AKS.][aks-home]
 
 <!-- LINKS - internal -->

@@ -84,5 +84,8 @@ Before you configure vaulted backup for AKS cluster, ensure the following prereq
 
 ## Next step
 
+Restore a backup for an AKS cluster using:
+
 > [!div class="nextstepaction"]
-> Restore a backup for an AKS cluster using [Azure portal](./azure-kubernetes-service-cluster-restore.md), [Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md)
+>- [Azure portal](./azure-kubernetes-service-cluster-restore.md)
+>- [Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md)
