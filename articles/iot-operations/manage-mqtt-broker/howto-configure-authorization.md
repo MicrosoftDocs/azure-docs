@@ -17,22 +17,22 @@ ms.service: azure-iot-operations
 
 [!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
-Authorization policies determine what actions the clients can perform on the broker, such as connecting, publishing, or subscribing to topics. Configure MQTT broker to use one or multiple authorization policies with the *BrokerAuthorization* resource. Each *BrokerAuthorization* resource contains a list of rules that specify the principals and resources for the authorization policies.
+Authorization policies determine what actions the clients can perform on the broker, such as connecting, publishing, or subscribing to topics. Configure the MQTT broker to use one or multiple authorization policies with the BrokerAuthorization resource. Each BrokerAuthorization resource contains a list of rules that specify the principals and resources for the authorization policies.
 
 ## Link BrokerAuthorization to BrokerListener
 
-To link a *BrokerListener* to a *BrokerAuthorization* resource, specify the `authorizationRef` field in the `ports` setting of the *BrokerListener* resource. Similar to BrokerAuthentication, the *BrokerAuthorization* resource can be linked to multiple *BrokerListener* ports. The authorization policies apply to all linked listener ports. There's one key difference compared with BrokerAuthentication:
+To link a BrokerListener resource to a BrokerAuthorization resource, specify the `authorizationRef` field in the `ports` setting of the BrokerListener resource. Similar to BrokerAuthentication, the BrokerAuthorization resource can be linked to multiple BrokerListener ports. The authorization policies apply to all linked listener ports. There's one key difference compared with BrokerAuthentication:
 
 > [!IMPORTANT]
-> To have the *BrokerAuthorization* configuration apply to a listener port, at least one BrokerAuthentication must also be linked to that listener port.
+> To have the BrokerAuthorization configuration apply to a listener port, at least one BrokerAuthentication resource must also be linked to that listener port.
 
-To learn more about *BrokerListener*, see [BrokerListener resource](howto-configure-brokerlistener.md).
+To learn more about BrokerListener, see [BrokerListener resource](howto-configure-brokerlistener.md).
 
 ## Authorization rules
 
-To configure authorization, create a *BrokerAuthorization* resource in your Kubernetes cluster. The following sections provide examples of how to configure authorization for clients that use usernames, attributes, X.509 certificates, and Kubernetes service account tokens (SATs). For a list of the available settings, see the [Broker Authorization](/rest/api/iotoperations/broker-authorization) API reference.
+To configure authorization, create a BrokerAuthorization resource in your Kubernetes cluster. The following sections provide examples of how to configure authorization for clients that use usernames, attributes, X.509 certificates, and Kubernetes service account tokens (SATs). For a list of the available settings, see the [Broker Authorization](/rest/api/iotoperations/broker-authorization) API reference.
 
-The following example shows how to create a *BrokerAuthorization* resource by using both usernames and attributes.
+The following example shows how to create a BrokerAuthorization resource by using both usernames and attributes.
 
 # [Portal](#tab/portal)
 
@@ -151,7 +151,7 @@ spec:
               - "/commands/{principal.attributes.organization}"
 ```
 
-To create this *BrokerAuthorization* resource, apply the YAML manifest to your Kubernetes cluster.
+To create this BrokerAuthorization resource, apply the YAML manifest to your Kubernetes cluster.
 
 ---
 
@@ -323,7 +323,7 @@ You can authorize clients that use [X.509 certificates for authentication](./how
 
 ### Use attributes
 
-To create rules based on properties from a client's certificate, its root CA, or intermediate CA, define the X.509 attributes in the *BrokerAuthorization* resource. For more information, see [Certificate attributes](howto-configure-authentication.md#optional-certificate-attributes-for-authorization).
+To create rules based on properties from a client's certificate, its root CA, or intermediate CA, define the X.509 attributes in the BrokerAuthorization resource. For more information, see [Certificate attributes](howto-configure-authentication.md#optional-certificate-attributes-for-authorization).
 
 ### With client certificate subject common name as username
 
@@ -341,7 +341,7 @@ kubectl annotate serviceaccount mqtt-client aio-broker-auth/group=authz-sat
 
 Attribute annotations must begin with `aio-broker-auth/` to distinguish them from other annotations.
 
-As the application has an authorization attribute called `authz-sat`, there's no need to provide a `clientId` or `username` value. The corresponding *BrokerAuthorization* resource uses this attribute as a principal, for example:
+As the application has an authorization attribute called `authz-sat`, there's no need to provide a `clientId` or `username` value. The corresponding BrokerAuthorization resource uses this attribute as a principal, for example:
 
 # [Portal](#tab/portal)
 
@@ -484,7 +484,7 @@ To learn more with an example, see [Set up Authorization Policy with Dapr Client
 
 ## State store
 
-MQTT broker provides a [state store](../create-edge-apps/concept-about-state-store-protocol.md) that clients can use to store state. The state store can also be configured to be highly available.
+The MQTT broker provides a [state store](../create-edge-apps/concept-about-state-store-protocol.md) that clients can use to store state. You can also configure the state store to be highly available.
 
 To set up authorization for clients that use the state store, provide the following permissions:
 
@@ -493,7 +493,7 @@ To set up authorization for clients that use the state store, provide the follow
 
 ### State store keys
 
-The state store is accessed over MQTT broker on the topic `statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke`.
+The state store is accessed over the MQTT broker on the topic `statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke`.
 Because clients have access to the topic, you can specify keys and access levels under the `stateStoreResources` section of the MQTT broker `brokerResources` configuration.
 
 The `stateStoreResources` section format consists of access level, a pattern indicator, and the pattern.
@@ -776,11 +776,11 @@ kubectl edit brokerauthorization my-authz-policies
 
 # [Bicep](#tab/bicep)
 
-To disable authorization, omit `authorizationRef` in the `ports` setting of your *BrokerListener* resource.
+To disable authorization, omit `authorizationRef` in the `ports` setting of your BrokerListener resource.
 
 # [Kubernetes (preview)](#tab/kubernetes)
 
-To disable authorization, omit `authorizationRef` in the `ports` setting of your *BrokerListener* resource.
+To disable authorization, omit `authorizationRef` in the `ports` setting of your BrokerListener resource.
 
 ---
 
