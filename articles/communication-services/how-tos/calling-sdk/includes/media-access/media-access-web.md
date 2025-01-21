@@ -59,7 +59,8 @@ remoteParticipantsMediaAccess.forEach((mediaAccess) => {
 ```
 
 ### Get notification that media access changed
-You can subscribe to the `mediaAccessChanged` events from `MediaAccess` API to receive array of `MediaAccess` instances that allow you to learn all remote participants' media access if they're now allowed or denied sending audio or video. By default all participants with role different than attendees are allowed audio and video. This event is triggered when a participant with an appropriate role changes media access for selected or all attendees. 
+
+Subscribe to the `mediaAccessChanged` events from `MediaAccess` API to receive array of `MediaAccess` instances. Use the array to see the media access state for all remote participants if they're currently enabled or denied the ability to send audio or video. By default, all participants other than the attendee role can send audio and video. The `mediaAccessChanged` events are triggered when a participant with an appropriate role changes media access for selected attendees or all attendees. 
 
 ```js
 const mediaAccessChangedHandler = (event) => {
