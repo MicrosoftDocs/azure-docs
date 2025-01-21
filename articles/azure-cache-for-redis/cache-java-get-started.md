@@ -27,6 +27,8 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 
 ## Create an Azure Managed Redis (preview) instance
 
+[!INCLUDE [managed-redis-create](includes/managed-redis-create.md)]
+
 ::: zone-end
 
 ::: zone pivot="azure-cache-redis"
@@ -34,6 +36,8 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 ## Create an Azure Cache for Redis instance
 
 [!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
+
+[!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
 ::: zone-end
 
