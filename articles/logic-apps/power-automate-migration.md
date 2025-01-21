@@ -7,7 +7,7 @@ services: logic-apps
 author: kewear
 ms.author: kewear
 ms.reviewer: estfan, azla
-ms.date: 01/14/2025
+ms.date: 01/21/2025
 ms.topic: conceptual
 ---
 
@@ -41,15 +41,11 @@ For more detailed capability information and comparisons, see [Compare capabilit
 
 #### Security and compliance first
 
-Enterprises consider security a top priority, so Azure Logic Apps (Standard) provides security features beyond the capabilities in Power Automate, for example:
+Enterprises consider security a top priority, so Azure Logic Apps (Standard) provides security features that differ from the capabilities in Power Automate, for example:
 
 - Virtual network integration and private endpoints
 
   Run Standard workflows inside secure Azure virtual networks, which reduce exposure to the public internet through private endpoints and enhance data security.
-
-- Microsoft Entra ID integration
-
-  Restrict workflow access only to users and services authorized by Microsoft Entra ID.
 
 - Managed identity authentication
 
@@ -57,7 +53,13 @@ Enterprises consider security a top priority, so Azure Logic Apps (Standard) pro
 
 - Role-based access control (RBAC)
 
-  Minimize the risks from unauthorized access or changes by assigning granular permissions to your logic app workflows with precisely defined role-based access controls. With the logging and auditing capabilities in Azure Logic Apps, you can use audit trails to track changes and ensure compliance with security standards.
+  Minimize the risks from unauthorized access or changes by assigning granular permissions to your logic app workflows with precisely defined role-based access controls. In Azure Logic Apps, RBAC works at the resource level where you assign role-based access to a specific resource. So, if the workflow creator leaves, you don't lose access to their workflows. For more information, see [Secure access and data for workflows](/azure/logic-apps/logic-apps-securing-a-logic-app#access-to-logic-app-operations) and [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview).
+
+  In Power Automate, RBAC works at the user level. For more information, see [Manage security for Power Automate](/power-automate/desktop-flows/desktop-flows-security#power-automate-specific-security-roles).
+
+- Logging and auditing capabilities
+
+  In Azure Logic Apps, you can use audit trails to track changes and ensure compliance with security standards.
 
 <a name="performance-scalability"></a>
 
@@ -117,6 +119,14 @@ Azure Logic Apps excels at helping you integrate your workflows with an expansiv
 
   Create workflows even faster by starting with prebuilt templates for commonly used workload patterns, including ones that support AI data processing and chat completion scenarios.
 
+- Add and run your own code snippets
+
+  Write and run .NET code, C# scripts, or PowerShell scripts from Standard workflows. For more information, see the following resources:
+
+  - [Create and run .NET code from Standard workflows](/azure/logic-apps/create-run-custom-code-functions)
+  - [Add and run C# scripts inline with Standard workflows](azure/logic-apps/add-run-csharp-scripts)
+  - [Add and run PowerShell scripts in Standard workflows](/azure/logic-apps/add-run-powershell-scripts)
+
 - Development tools and reusability 
 
   Locally create, debug, run, and manage workflows within Visual Studio Code when you use the Azure Logic Apps (Standard) extension.
@@ -138,6 +148,12 @@ Azure Logic Apps supports robust version control and automated deployment proces
   Azure Logic Apps supports automated deployments and integrates with CI/CD tools such as Azure DevOps, which facilitate consistent and less error-prone deployments across environments.
 
   Define and deploy your logic app workflows with Azure Resource Manager (ARM) templates or Bicep templates (infrastructure as code) by using Azure DevOps, which provides scalable, repeatable deployments that align with DevOps practices.
+
+<a name="zero-downtime-deployments"></a>
+
+#### Zero downtime deployments
+
+For mission-critical logic apps that require continous availability and responsiveness, Azure Logic Apps supports zero downtime deployment when you [set up deployment slots](/azure/logic-apps/set-up-deployment-slots).
 
 <!--
 <a name="migration-tool"></a>
