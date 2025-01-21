@@ -5,8 +5,8 @@ author: b-hchen
 ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.topic: quickstart
-ms.date: 04/24/2024
-ms.custom: devx-track-azurecli, subject-armqs, mode-ui, devx-track-azurepowershell
+ms.date: 01/21/2025
+ms.custom: devx-track-azurecli, subject-armqs, mode-ui, devx-track-azurepowershell, devx-track-terraform
 #Customer intent: As an IT admin new to Azure NetApp Files, I want to quickly set up Azure NetApp Files and create a volume.
 ---
 
@@ -67,9 +67,9 @@ Use the Azure portal, PowerShell, or the Azure CLI to [register for NetApp Resou
 
 # [Terraform](#tab/terraform)
 
-None.
+[!INCLUDE [Terraform abstract](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
-Use the Azure portal, PowerShell, or the Azure CLI to [register for NetApp Resource Provider](azure-netapp-files-register.md).
+Use the Azure portal, Azure PowerShell, or the Azure CLI to [register for NetApp Resource Provider](azure-netapp-files-register.md).
 
 ---
 
@@ -166,9 +166,7 @@ The following code snippet shows how to create a NetApp account in an Azure Reso
 
 # [Terraform](#tab/terraform)
 
-[!INCLUDE [Terraform abstract](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
-
-The following code snippet shows how to create a NetApp account using Terraform. The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-netapp-files). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-netapp-files/TestRecord.md).
+The following code snippet shows how to create a NetApp account using [Terraform](/azure/developer/terraform). The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-netapp-files). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-netapp-files/TestRecord.md).
 
 :::code language="terraform" source="~/terraform_samples/quickstart/101-azure-netapp-files/main.tf" range="47-52":::
 
@@ -248,7 +246,9 @@ The following code snippet shows how to create a capacity pool in an Azure Resou
 
 # [Terraform](#tab/terraform)
 
-abc
+The following code snippet shows how to create a NetApp capacity pool using [Terraform](/azure/developer/terraform). The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-netapp-files). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-netapp-files/TestRecord.md).
+
+:::code language="terraform" source="~/terraform_samples/quickstart/101-azure-netapp-files/main.tf" range="54-62":::
 
 ---
 
@@ -400,6 +400,12 @@ The following code snippets show how to set up a VNet and create an Azure NetApp
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.netapp/anf-nfs-volume/azuredeploy.json" range="197-229":::
 
 <!-- Block begins with  "type": "Microsoft.NetApp/netAppAccounts/capacityPools/volumes", -->
+
+#[Terraform](#tab/terraform)
+
+The following code snippets show how to set up a VNet and create an Azure NetApp Files volume using [Terraform](/azure/developer/terraform). The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-netapp-files). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-netapp-files/TestRecord.md).
+
+:::code language="terraform" source="~/terraform_samples/quickstart/101-azure-netapp-files/main.tf" range="20-45,64-83":::
 
 ---
 
