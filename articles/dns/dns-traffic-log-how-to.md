@@ -239,7 +239,8 @@ Set up a local PowerShell repository and install the Az.DnsResolver PowerShell m
     $domainListName = "domainlist-$($nameSuffix)"
     $securityRuleName = "securityrule-$($nameSuffix)"
     $resolverPolicyLinkName = "dnsresolverpolicylink"
-    $storageAccountName = "stor-$($name)" # Customize this, taking care that the name is not too long
+    $storageAccountName = "stor$($name.ToLower())"  # Customize this, taking care that the name is not too long
+    $storageAccountName = $storageAccountName.Substring(0, [Math]::Min(24, $storageAccountName.Length)) # Storage account names must be 3-24 characters long
     $diagnosticSettingName = "diagnosticsetting-$($nameSuffix)"
     $vnetId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Network/virtualNetworks/$virtualNetworkName"
 

@@ -5,8 +5,8 @@ ms.date: 02/06/2024
 ms.topic: sample
 ms.service: azure-backup
 ms.custom: subject-policy-compliancecontrols
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Azure Policy Regulatory Compliance controls for Azure Backup
 

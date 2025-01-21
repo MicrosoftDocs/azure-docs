@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: faq
-ms.date: 07/18/2024
+ms.date: 01/10/2025
 ms.author: duau
 
 ---
@@ -299,9 +299,12 @@ The public IP address is used for internal management only, and doesn't constitu
 
 Yes. ExpressRoute accepts up to 4000 prefixes for private peering and 200 prefixes for Microsoft peering. You can increase the limit to 10,000 routes for private peering when using ExpressRoute premium.
 
+> [!NOTE]
+> Advertising prefixes received over Microsoft Peering to Private Peering carries the risk of exceeding prefix limits, as Microsoft prefixes are updated monthly and can grow significantly. To manage this, configure Service Health to review prefix updates, implement monitoring to detect changes, and consider upgrading the SKU or summarizing routes to control the number of prefixes advertised from on-premises.
+
 ### Are there restrictions on IP ranges I can advertise over the BGP session?
 
-We don't accept private prefixes (RFC1918) for the Microsoft peering BGP session. We accept any prefix size up to /32 prefix on both the Microsoft and the private peering.
+We don't accept private prefixes (RFC1918) for the Microsoft peering BGP session. We accept any prefix size up to /32 prefix on both the Microsoft and the private peering. 
 
 ### What happens if the BGP route limit gets exceeded?
 
