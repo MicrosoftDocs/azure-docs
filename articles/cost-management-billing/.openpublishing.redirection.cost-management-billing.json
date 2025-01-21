@@ -106,7 +106,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/understand-vm-software-reservation-discount.md",
+            "source_path_from_root": "/articles/cost-management-billing/reservations/understand-vm-software-reservation-discount.md",
             "redirect_url": "/azure/cost-management-billing/reservations/buy-vm-software-reservation",
             "redirect_document_id": true
         },
