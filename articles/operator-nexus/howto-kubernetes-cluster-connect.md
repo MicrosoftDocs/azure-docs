@@ -120,6 +120,16 @@ Establish direct access to the cluster's CNI (Container Network Interface) from 
 
 Reach out to your network administrator to set up this direct connection to the cluster's CNI network.
 
+### Retrieve the Subject Alternative Name (SAN) for the cluster
+
+Run the following commands to retrieve the Subject Alternative Name (SAN) to be used in your SSL/TLS certificates. First, identify the Control plane node by listing all nodes as described in step 1 [here](### Access to cluster nodes via Azure Arc for Kubernetes). Set up a privileged pod to run on the cluster's control plane node and connect to it as described in [step 2](### Access to cluster nodes via Azure Arc for Kubernetes). This gives you access to the API server and its corresponding cert. You can now retrieve the cert using the following command:
+
+    ```bash
+    openssl x509 -in /etc/kubernetes/pki/apiserver.crt -text -noout
+    ```
+
+You can now retrieve the the SAN from the X509v3 Subject Alternative Name parameter of the output.
+
 ## IP address of the cluster nodes
 
 Before you can connect to the cluster nodes, you need to find the IP address of the nodes. The IP address of the nodes can be found using the Azure portal or the Azure CLI.
