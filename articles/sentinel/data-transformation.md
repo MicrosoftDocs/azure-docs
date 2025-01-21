@@ -26,32 +26,17 @@ These two tools will be explained in more detail below.
 
 ## Use cases and sample scenarios
 
-### Filtering
+[Sample transformations in Azure Monitor](/azure/azure-monitor/essentials/data-collection-transformations-samples) provides description and sample queries for common scenarios using ingestion-time transformations in Sentinel and Azure Monitor.
 
-Ingestion-time transformation provides you with the ability to filter out irrelevant data even before it's first stored in your workspace.
+Scenarios that are particularly useful for Microsoft Sentinel include:
 
-You can filter at the record (row) level, by specifying criteria for which records to include, or at the field (column) level, by removing the content for specific fields. Filtering out irrelevant data can:
+- [Reduce data costs.](/azure/azure-monitor/essentials/data-collection-transformations-samples#reduce-data-costs) Filter collection of data by either rows or columns to reduce ingestion and storage costs.
 
-- Help to reduce costs, as you reduce storage requirements
-- Improve performance, as fewer query-time adjustments are needed
+- [Normalization](/azure/azure-monitor/essentials/data-collection-transformations-samples#normalize-data). Normalize logs with the [Advanced Security Information Model (ASIM)](normalization.md) to improve the performance of normalized queries. For more information, see [Ingest-time normalization](normalization-ingest-time.md).
 
-Ingestion-time data transformation supports [multiple-workspace scenarios](extend-sentinel-across-workspaces-tenants.md).
+- [Enrich data](/azure/azure-monitor/essentials/data-collection-transformations-samples#enrich-data).Ingestion-time transformations let you improve analytics by enriching your data with extra columns added to the configured KQL transformation. Extra columns might include parsed or calculated data from existing columns.
 
-### Normalization
-
-Ingest-time transformation also allows you to normalize logs when they're ingested into built-in or customer-normalized tables with [Advanced Security Information Model (ASIM)](normalization.md). Using ingest-time normalization improves the performance of normalized queries.
-
-For more information, see [Ingest-time normalization](normalization-ingest-time.md).
-
-### Enrichment and tagging
-
-Ingestion-time transformation also lets you improve analytics by enriching your data with extra columns added to the configured KQL transformation. Extra columns might include parsed or calculated data from existing columns, or data taken from data structures created on-the-fly.
-
-For example, you could add extra information such as external HR data, an expanded event description, or classifications that depend on the user, location, or activity type.
-
-### Masking
-
-Ingestion-time transformations can also be used to mask or remove personal information. For example, you might use data transformation to mask all but the last digits of a social security number or credit card number, or you could replace other types of personal data with nonsense, standard text, or dummy data. Mask your personal information at ingestion time to increase security across your network.
+- [Remove sensitive data](/azure/azure-monitor/essentials/data-collection-transformations-samples#remove-sensitive-data). Ingestion-time transformations can be used to mask or remove personal information such as masking all but the last digits of a social security number or credit card number.
 
 ## Data ingestion flow in Microsoft Sentinel
 
