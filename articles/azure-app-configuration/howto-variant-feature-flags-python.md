@@ -22,7 +22,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
 
 ## Set up a Python Flask web app
 
-If you already have a Python Flask web app, you can skip [Use the variant feature flag](#use-the-variant-feature-flag) section.
+If you already have a Python Flask web app, you can skip to the [Use the variant feature flag](#use-the-variant-feature-flag) section.
 
 1. Create a new project folder named *QuoteOfTheDay*.
 
