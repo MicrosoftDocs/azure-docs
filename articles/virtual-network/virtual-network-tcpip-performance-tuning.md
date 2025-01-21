@@ -47,7 +47,7 @@ By default, Azure will drop out of order fragments, that is, fragmented packets 
 
 #### Tune the MTU
 
-We don't recommend customers increase the MTU on VM NICs. If the VM needs to communicate with destinations that are not in the Virtual Network that have a similar MTU set, fragmentation will likely occur which will decrease performance.
+You may be able to increase intra Virtual Network throughput performance by increasing MTU for your VM's traffic. If the VM needs to communicate with destinations that are not in the Virtual Network that have a similar MTU set, fragmentation will likely occur which will decrease performance. See [Configure Maximum Transmission Unit (MTU) for virtual machines in Azure](./how-to-virtual-machine-mtu.md) for more information about MTU tuning in Azure. 
 
 #### Large send offload
 

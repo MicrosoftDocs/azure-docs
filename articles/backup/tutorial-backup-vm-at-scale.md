@@ -5,8 +5,8 @@ ms.date: 04/23/2024
 ms.topic: tutorial
 ms.custom: mvc, engagement-fy24
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Tutorial: Back up multiple virtual machines by using the Azure portal 
