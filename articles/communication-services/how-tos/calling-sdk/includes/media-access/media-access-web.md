@@ -168,3 +168,4 @@ The following table shows the minimum version of SDKs that support individual AP
 |Forbid video | v1.31.2,<br>1.32.1-beta.1|X|X|X|X|X|X|
 |Permit others video| v1.31.2,<br>1.32.1-beta.1|X|X|X|X|X|X|
 |Forbid others video| v1.31.2,<br>1.32.1-beta.1|X|X|X|X|X|X|
+
