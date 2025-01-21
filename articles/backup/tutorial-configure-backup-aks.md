@@ -6,8 +6,8 @@ ms.date: 10/01/2024
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Tutorial: Configure item-level backup for an Azure Kubernetes Service cluster

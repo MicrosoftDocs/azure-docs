@@ -6,8 +6,8 @@ ms.service: azure-backup
 ms.custom:
   - ignite-2023
 ms.date: 09/09/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Prerequisites for Azure Kubernetes Service backup using Azure Backup
