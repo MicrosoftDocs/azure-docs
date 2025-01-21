@@ -64,7 +64,7 @@ During VM deployment, you can select the **Notifications** icon at the top of th
 
 When the deployment is complete, if you kept yourself as VM owner, the VM appears under **My virtual machines** on the lab **Overview** page. To connect to the VM, select it from the list, and then select **Connect** on the VM's **Overview** page. If the VM is stopped, select **Start** first to start the VM.
 
-To learn more about how to create Azure virtual machines (VMs) in Azure DevTest Labs in general, please visit [Create lab virtual machines in Azure DevTest Labs](devtest-lab-create-lab.md)
+To learn more about how to create virtual machines (VMs) in Azure DevTest Labs in general, please visit [Create and add virtual machines to a lab in Azure DevTest Labs](devtest-lab-add-vm.md)
 
 ## Hibernating a running VM in Azure DevTest Labs
 
