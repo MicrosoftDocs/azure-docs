@@ -2,7 +2,7 @@
 title: Restore Azure Database for PostgreSQL -Flexible server backups
 description: Learn about how to restore Azure Database for PostgreSQL -Flexible backups.
 ms.topic: how-to
-ms.date: 06/14/2024
+ms.date: 02/17/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
@@ -10,7 +10,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Restore Azure Database for PostgreSQL Flexible backups (preview)
+# Restore Azure Database for PostgreSQL Flexible backups
 
 This article explains how to restore an Azure PostgreSQL -flex server backed up by Azure Backup.
 

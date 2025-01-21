@@ -2,14 +2,14 @@
 title: Azure Database for PostgreSQL- Flexible server support matrix
 description: Provides a summary of support settings and limitations of Azure Database for PostgreSQL- Flexible server backup.
 ms.topic: reference
-ms.date: 12/17/2024
+ms.date: 02/17/2025
 ms.custom: references_regions, ignite-2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Support matrix for Azure Database for PostgreSQL- Flexible server (preview)
+# Support matrix for Azure Database for PostgreSQL- Flexible server
 
 You can use [Azure Backup](./backup-overview.md) to protect Azure Database for PostgreSQL- Flexible server. This article summarizes supported regions, scenarios, and the limitations.
 

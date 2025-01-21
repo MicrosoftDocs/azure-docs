@@ -2,14 +2,14 @@
 title: Restore Azure Database for PostgreSQL - flexible server via Azure CLI
 description: Learn how to restore Azure Database for PostgreSQL - flexible server using Azure CLI.
 ms.topic: how-to
-ms.date: 10/01/2024
+ms.date: 02/17/2025
 ms.service: azure-backup
 ms.custom: devx-track-azurecli, ignite-2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Restore Azure Database for PostgreSQL - flexible servers using Azure CLI (preview)
+# Restore Azure Database for PostgreSQL - flexible servers using Azure CLI
 
 This article explains how to restore **Azure Database for PostgreSQL - flexible server** to an Azure Database for PostgreSQL - flexible server backed-up by Azure Backup.
 
