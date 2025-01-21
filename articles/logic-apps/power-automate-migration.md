@@ -124,7 +124,7 @@ Azure Logic Apps excels at helping you integrate your workflows with an expansiv
   Write and run .NET code, C# scripts, or PowerShell scripts from Standard workflows. For more information, see the following resources:
 
   - [Create and run .NET code from Standard workflows](/azure/logic-apps/create-run-custom-code-functions)
-  - [Add and run C# scripts inline with Standard workflows](azure/logic-apps/add-run-csharp-scripts)
+  - [Add and run C# scripts inline with Standard workflows](/azure/logic-apps/add-run-csharp-scripts)
   - [Add and run PowerShell scripts in Standard workflows](/azure/logic-apps/add-run-powershell-scripts)
 
 - Development tools and reusability 
