@@ -26,7 +26,7 @@ Azure Cosmos DB is a multitenant service that manages all details of individual 
 
 Azure Cosmos DB offers:
 
-**Individual node outage resiliency.** Azure Cosmos DB automatically mitigates [replica](/azure/cosmos-db/distribute-data-globally) outages by guaranteeing at least three replicas of your data in each Azure region for your account within a four-replica quorum. This guarantee results in an RTO of 0 and an RPO of 0 for individual node outages, without requiring application changes or configurations. 
+**Individual node outage resiliency.** Azure Cosmos DB automatically mitigates [replica](/azure/cosmos-db/distribute-data-globally) outages by guaranteeing at least three replicas of your data in each Azure region for your account within a four-replica quorum. This guarantee results in an RTO of 0 and an RPO of 0 for individual node outages, without requiring application changes or configurations. When you enable zone redundancy, those replicas are distributed across multiple availability zones, providing resiliency to datacenter problems and outages.
 
 **Zone outage resiliency.** When you deploy an Azure Cosmos DB account by using [availability zones](availability-zones-overview.md), Azure Cosmos DB provides an RTO of 0 and an RPO of 0, even in a zone outage. For information on RTO, see [What are business continuity, high availability, and disaster recovery?](./concept-business-continuity-high-availability-disaster-recovery.md#disaster-recovery).
 

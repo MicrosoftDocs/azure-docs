@@ -5,8 +5,8 @@ ms.topic: troubleshooting
 ms.date: 09/16/2024
 ms.service: azure-backup
 ms.reviewer: geg
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 
