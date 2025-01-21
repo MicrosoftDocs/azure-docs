@@ -1,6 +1,6 @@
 ---
-title: Build and register APIs - VS Code extension
-description: API developers can use the Azure API Center extension for Visual Studio Code to build and register APIs in their organization's API center.
+title: Generate OpenAI spec with GitHub Copilot for Azure - API Center plugin
+description: API developers can use the Azure API Center plugin for GitHub Copilot for Azure to generate an OpenAPI spec with AI assistance starting from natural language prompts.
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
@@ -8,7 +8,7 @@ ms.date: 01/21/2025
 ms.author: danlep 
 ms.collection: ce-skilling-ai-copilot
 ms.custom: 
-# Customer intent: As an API developer, I want to use my Visual Studio Code environment to register APIs in my organization's API center as part of my development workflow.
+# Customer intent: As an API developer, I want to use my Visual Studio Code environment and GitHub Copilot for Azure to generate Open API specs from natural language prompts.
 ---
 
 # Generate OpenAPI spec using natural language prompts
