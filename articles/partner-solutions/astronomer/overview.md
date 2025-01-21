@@ -1,11 +1,11 @@
 ---
-title: What is Apache Airflow on Astro - An Azure Native ISV Service?
+title: What is Apache Airflow on Astro?
 description: Learn about Apache Airflow on Astro, which allows you to deploy a fully managed and seamless Apache Airflow on Astro on Azure, in Azure Marketplace.
 ms.topic: overview
 ms.date: 01/17/2025
 ---
 
-# What is Apache Airflow on Astro – An Azure Native ISV Service?
+# What is Apache Airflow on Astro?
 
 [!INCLUDE [what-is](../includes/what-is.md)]
 
@@ -32,4 +32,4 @@ Here are the key capabilities provided by the Astro integration:
 
 ## Next steps
 
-- [QuickStart: Get started with Apache Airflow on Astro – An Azure Native ISV Service](create.md)
+- [QuickStart: Get started with Apache Airflow on Astro](create.md)

@@ -1,19 +1,19 @@
 ---
 title: What is Informatica Intelligent Data Management Cloud?
-description: Learn about using the Informatica Intelligent Data Management Cloud - Azure Native ISV Service.
+description: Learn about using the Informatica Intelligent Data Management Cloud.
 ms.topic: overview
 ms.date: 01/17/2024
 ---
 
-# What is Informatica Intelligent Data Management Cloud- Azure Native ISV Service?
+# What is Informatica Intelligent Data Management Cloud?
 
-Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. 
+[!INCLUDE [what-is](../includes/what-is.md)]
 
 Microsoft and [Informatica](https://www.informatica.com/) developed this service and manage it together.
 
-You can find Informatica Intelligent Data Management Cloud - Azure Native ISV Service in the [Azure portal](https://portal.azure.com/) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/).
+You can find Informatica Intelligent Data Management Cloud in the [Azure portal](https://portal.azure.com/) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/).
 
-Use this offering to manage your Informatica organization as an Azure Native ISV Service. You can easily run and manage Informatica Organizations and advanced serverless environments as you need and get started through Azure Clients.
+Use this offering to manage your Informatica organization as an Azure Native Service. You can easily run and manage Informatica Organizations and advanced serverless environments as you need and get started through Azure Clients.
 
 You can set up the Informatica organization through a resource provider named `Informatica.DataManagement`. You create and manage the billing, resource creation, and authorization of Informatica resources through the Azure Clients. Informatica owns and runs the Software as a Service (SaaS) application including the Informatica organizations created.
 
@@ -39,5 +39,5 @@ Here are the key capabilities provided by the Informatica integration:
 
 ## Next steps
 
-- [QuickStart: Get started with Informatica – An Azure Native ISV Service](create.md)
+- [QuickStart: Get started with Informatica](create.md)
 
