@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.devlang: java
 ms.custom: mvc, seo-java-january2024, seo-java-february2024, mode-api, devx-track-java, devx-track-extended-java, devx-track-javaee, ignite-2024
 #Customer intent: As a Java developer, new to Azure Cache for Redis, I want to create a new Java app that uses Azure Cache for Redis and Redisson as Redis client.
+zone_pivot_groups: redis-type
 ---
 
 # Quickstart: Use Azure Cache for Redis in Java with Redisson Redis client
@@ -24,9 +25,19 @@ This quickstart uses the Maven archetype feature to generate the scaffolding for
 - [Use Microsoft Entra ID for cache authentication](cache-azure-active-directory-for-authentication.md)
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
-## Create an Azure Cache for Redis
+::: zone pivot="azure-managed-redis"
+
+## Create an Azure Managed Redis (preview) instance
+
+::: zone-end
+
+::: zone pivot="azure-cache-redis"
+
+## Create an Azure Cache for Redis instance
 
 [!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
+
+::: zone-end
 
 ## Set up the working environment
 
