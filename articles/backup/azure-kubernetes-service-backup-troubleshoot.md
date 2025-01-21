@@ -6,8 +6,8 @@ ms.date: 02/29/2024
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Troubleshoot Azure Kubernetes Service backup and restore

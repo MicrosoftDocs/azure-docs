@@ -39,7 +39,7 @@ If you deployed an LRS Elastic SAN, you may need to deploy a new SAN using snaps
 
 ### Low-latency design
 
-Deploying a ZRS Elastic SAN provides more reliability than an LRS Elastic SAN, but adds more write latency. Benchmark your Elastic SAN and simulate the workload of your application to compare the latency between LRS and ZRS, to see if it effects your workload.
+Deploying a ZRS Elastic SAN provides more reliability than an LRS Elastic SAN, but adds more write latency. Benchmark your Elastic SAN and simulate the workload of your application to compare the latency between LRS and ZRS, to see if it affects your workload.
 
 ### Availability zone migration
 
@@ -59,7 +59,7 @@ You can find outage declarations in [Service Health - Microsoft Azure](https://p
 
 ### Capacity and proactive disaster recovery resiliency
 
-Microsoft and its customers operate under the [Shared Responsibility Model](./availability-zones-overview.md#shared-responsibility-model). Shared responsibility means that for customer-enabled DR (customer-responsible services), you must address DR for any service you deploy and control. Pre-validate any service you deploy works with Elastic SAN. To ensure that recovery is proactive, pre-deploy secondaries to make sure there's no capacity issues if your environments are impacted.
+Microsoft and its customers operate under the [Shared Responsibility Model](./concept-shared-responsibility.md). Shared responsibility means that for customer-enabled DR (customer-responsible services), you must address DR for any service you deploy and control. Pre-validate any service you deploy works with Elastic SAN. To ensure that recovery is proactive, pre-deploy secondaries to make sure there's no capacity issues if your environments are impacted.
 
 ## Next steps
 

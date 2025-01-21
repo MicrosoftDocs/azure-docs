@@ -88,7 +88,7 @@ The table below illustrates Microsoft's suggested storage account configurations
 |Backup and archive |General purpose v2 |Standard |ZRS, RA-GRS |No |Cool<sup>3</sup> |Yes |
 |Machine learning and artificial intelligence |General purpose v2 |Standard |ZRS, RA-GRS |Yes |Hot |No |
 
-<sup>1</sup> Zone Redundant Storage (ZRS) is a good default for analytics workloads because ZRS offers additional redundancy compared to Locally Redundant Storage (LRS), protecting against zonal failures while remaining fully compatible with analytics frameworks. Customers that require additional redundancy can also leverage Geo-redundant Storage (GRS/RA-GRS) if additional redundancy is required for an Analytics workload.
+<sup>1</sup> Zone Redundant Storage (ZRS) is a good default for analytics workloads because ZRS offers additional redundancy compared to Locally Redundant Storage (LRS), protecting against zonal failures while remaining fully compatible with analytics frameworks. Customers that require additional redundancy can also leverage Geo-redundant Storage (GRS/RA-GRS) if additional redundancy is required for an analytics workload.
 <br/><br/><sup>2</sup> As a core capability of Azure Data Lake Storage (ADLS), the [hierarchical namespace](../blobs/data-lake-storage-namespace.md) enhances data organization and access efficiency for large amounts of data, making it ideal for analytics workloads.
 <br/><br/><sup>3</sup> The cool access tier offers a cost-effective solution for storing infrequently accessed data, which is typical for a backup and archive workload. Customers can also consider the cold access tier after evaluating costs.
 
