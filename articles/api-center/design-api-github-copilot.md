@@ -13,7 +13,7 @@ ms.custom:
 
 # Generate OpenAPI spec using natural language prompts
 
-The API Center plugin for [GitHub Copilot for Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot) (preview) accelerates design of new APIs starting from natural language prompts. With AI assistance, quickly generate an OpenAPI spec for API development that complies with your organization's standards. After you generate a compliant spec, you can register the API with your API center.
+The API Center plugin for [GitHub Copilot for Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot) (preview) accelerates design of new APIs starting from natural language prompts. With AI assistance, quickly generate an OpenAPI spec for API development that complies with your organization's standards. After you generate a compliant spec, you can register the API with your [API center](overview.md).
 
 > [!NOTE]
 > This feature is available in the pre-release version of the API Center extension.
