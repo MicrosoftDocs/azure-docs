@@ -1,5 +1,5 @@
 ---
-title: How to Troubleshoot with Azure Web PubSub Service Resource Logs
+title: Troubleshoot with Azure Web PubSub Service Resource Logs
 description: Learn what resource logs are and how to use them to troubleshoot common problems.
 author: wanlwanl
 ms.author: wanl
@@ -16,9 +16,9 @@ This how-to guide provides an overview of Azure Web PubSub resource logs and tip
 
 There are three types of resource logs:
 
-- **Connectivity** logs provide detailed information for Azure Web PubSub hub connections. They might include basic information like user ID and connection ID, or event information like connect and disconnect.
-- **Messaging** logs provide tracing information for hub messages that are sent or received via the Azure Web PubSub service, like the tracing ID or message type.
-- **HTTP request** logs provide tracing information for HTTP requests to the Azure Web PubSub service, like HTTP method or status code. Typically, an HTTP request is recorded when it arrives at or leaves from the service.
+- *Connectivity* logs provide detailed information for Azure Web PubSub hub connections. They might include basic information like user ID and connection ID, or event information like connect and disconnect.
+- *Messaging* logs provide tracing information for hub messages that are sent or received via the Azure Web PubSub service, like the tracing ID or message type.
+- *HTTP request* logs provide tracing information for HTTP requests to the Azure Web PubSub service, like HTTP method or status code. Typically, an HTTP request is recorded when it arrives at or leaves from the service.
 
 ## Capture resource logs by using the live trace tool
 
@@ -30,37 +30,51 @@ You should consider the following factors when using the live trace tool:
 - The Free tier instance of the Azure Web PubSub service has a daily limit of 20,000 messages (outbound traffic). You can unexpectedly reach the daily limit by using live trace.
 - The live trace tool doesn't currently support Microsoft Entra authorization. You must enable access keys to use live trace. Under **Settings**, select **Keys**, and then enable **Access Key**.
 
-## Launch the live trace tool
+## Open the live trace tool
 
 When you enable an access key, you use the access token to authenticate the live trace tool. Otherwise, you use Microsoft Entra ID to authenticate the live trace tool. You can find out if the access key is enabled by going to the **Keys** pane in your Azure SignalR Service instance in the Azure portal.
 
-### Launch the live trace when the access key is enabled
+### Open the live trace when the access key is enabled
 
 1. Go to the Azure portal and your SignalR Service pane.
+
 1. On the service menu, under **Monitoring**, select **Live trace settings**.
+
 1. Select **Enable Live Trace**.
+
 1. Select the **Save** button. It takes a moment for the changes to take effect.
+
 1. When updating is complete, select **Open Live Trace Tool**.
 
     :::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-logs-with-live-trace-tool.png" alt-text="Screenshot of opening the live trace tool.":::
 
-### Launch the live trace tool when the access key is disabled
+### Open the live trace tool when the access key is disabled
 
 #### Assign live trace tool API permission to yourself
 
 1. Go to the Azure portal and your SignalR Service pane.
+
 1. Select **Access control (IAM)**.
+
 1. Select **+Add** and then select **Role assignment**.
+
 1. On the **Job function roles** tab, select the **SignalR Service Owner** role, and then select **Next**.
+
 1. On the **Members** pane, click **+Select members**.
+
 1. Search and select members, and then click **Select**.
+
 1. Select **Review + assign** and wait for the completion notification.
 
 #### Enable the live trace tool
 1. Go to the Azure portal and your SignalR Service pane.
+
 1. From the service menu, under **Monitoring**, select **Live trace settings**.
+
 1. Select **Enable Live Trace**.
+
 1. Select the **Save** button. It takes a moment for the changes to take effect.
+
 1. When updating is complete, select **Open Live Trace Tool**.
 
     :::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-logs-with-live-trace-tool.png" alt-text="Screenshot of opening the live trace tool.":::
@@ -68,6 +82,7 @@ When you enable an access key, you use the access token to authenticate the live
 #### Sign in with your Microsoft account
 
 1. The live trace tool causes a Microsoft sign-in window to open. If no window opens, allow pop-up windows in your browser settings.
+
 1. Wait for **Ready** to appear on the status bar.
 
 ### Capture the resource logs
@@ -83,24 +98,24 @@ The live trace tool can help you capture the resource logs for troubleshooting.
 
 The real-time resource logs captured by the live trace tool contain detailed information for troubleshooting.
 
-| Name           | Description                                                                                     |
-| -------------- | ----------------------------------------------------------------------------------------------- |
-| Time           | Log event time                                                                                  |
-| Log Level      | Log event level (`Trace`, `Debug`, `Informational`, `Warning` or `Error`)                   |
-| Event Name     | Operation name of the event                                                                     |
-| Message        | Detailed message for the event                                                                  |
-| Exception      | Runtime exception of the Azure Web PubSub service                                              |
-| Hub            | User-defined hub name                                                                           |
-| Connection ID  | Identity of the connection                                                                      |
-| User ID        | User identity                                                                                   |
-| IP             | Client IP address                                                                               |
-| Route Template | Route template of the API                                                                   |
-| HTTP Method    | HTTP method (`POST`, `GET`, `PUT` or `DELETE`)                                                           |
-| URL            | Uniform resource locator                                                                    |
-| Trace ID       | Unique identifier to the invocation                                                         |
-| Status Code    | HTTP response code                                                                          |
-| Duration       | Duration between receiving the request and processing the request                           |
-| Headers        | Additional information passed by the client and the server with an HTTP request or response |
+| Name               | Description                                                                                     |
+| ------------------ | ----------------------------------------------------------------------------------------------- |
+| **Time**           | Log event time                                                                                  |
+| **Log Level**      | Log event level (`Trace`, `Debug`, `Informational`, `Warning` or `Error`)                   |
+| **Event Name**     | Operation name of the event                                                                     |
+| **Message**        | Detailed message for the event                                                                  |
+| **Exception**      | Runtime exception of the Azure Web PubSub service                                              |
+| **Hub**            | User-defined hub name                                                                           |
+| **Connection ID**  | Identity of the connection                                                                      |
+| **User ID**        | User identity                                                                                   |
+| **IP**             | Client IP address                                                                               |
+| **Route Template** | Route template of the API                                                                   |
+| **HTTP Method**    | HTTP method (`POST`, `GET`, `PUT` or `DELETE`)                                                           |
+| **URL**            | Uniform resource locator                                                                    |
+| **Trace ID**       | Unique identifier to the invocation                                                         |
+| **Status Code**    | HTTP response code                                                                          |
+| **Duration**       | Duration between receiving the request and processing the request                           |
+| **Headers**        | Additional information passed by the client and the server with an HTTP request or response |
 
 ## Capture resource logs with Azure Monitor
 
@@ -109,15 +124,21 @@ The real-time resource logs captured by the live trace tool contain detailed inf
 Currently, Azure Web PubSub supports integration with [Azure Storage](/azure/azure-monitor/essentials/resource-logs#send-to-azure-storage).
 
 1. Go to the Azure portal.
+
 1. On the **Diagnostic settings** pane of your Azure Web PubSub service instance, select **+ Add diagnostic setting**.
+
    :::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-settings-list.png" alt-text="Screenshot of viewing diagnostic settings and creating a new one.":::
+
 1. In **Diagnostic setting name**, enter the setting name.
+
 1. In **Category details**, select any log category you need.
+
 1. In **Destination details**, select **Archive to a storage account**.
 
    :::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-settings-details.png" alt-text="Screenshot of configuring the diagnostic setting.":::
 
 1. Select **Save** to save the diagnostic setting.
+
    > [!NOTE]
    > The storage account should be in the same region as the Azure Web PubSub service.
 
@@ -184,7 +205,9 @@ The following code is an example of a JSON string in an archive log:
 To send logs to a Log Analytics workspace:
 
 1. On the **Diagnostic setting** pane, under **Destination details**, select **Send to Log Analytics workspace**.
+
 1. For **Subscription**, select the subscription that you want to use.
+
 1. For the destination for the logs, select **Log Analytics workspace**.
 
 To view the resource logs, follow these steps:
@@ -199,10 +222,14 @@ To view the resource logs, follow these steps:
 
 To use a sample query for SignalR service, follow these steps:
 
-1. Select **Logs** in your target Log Analytics.
+1. Select **Logs** in your target Log Analytics workspace.
+
 1. Select **Queries** to open the query explorer.
+
 1. Select **Resource type** to group sample queries by resource type.
+
 1. Select **Run** to run the script.
+
    :::image type="content" alt-text="Screenshot of a sample query in Log Analytics." source="./media/howto-troubleshoot-diagnostic-logs/log-analytics-sample-query.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/log-analytics-sample-query.png":::
 
 Archive log columns include elements listed in the following table.
@@ -249,4 +276,6 @@ If you get **401 Unauthorized** returned for client requests, check your resourc
 
 ### Throttling
 
-If you find that you can't establish client connections to the Azure Web PubSub service, check your resource logs. If you see `Connection count reaches limit` in the resource log, you established too many connections to the Azure Web PubSub service and reached the connection count limit. Consider scaling up your Azure Web PubSub service instance. If you see `Message count reaches limit` in the resource log and you're using the Free tier, it means you used up the quota of messages. If you want to send more messages, consider changing your Azure Web PubSub service instance to Standard tier. For more information, see [Azure Web PubSub pricing](https://azure.microsoft.com/pricing/details/web-pubsub/).
+If you find that you can't establish client connections to the Azure Web PubSub service, check your resource logs. If you see `Connection count reaches limit` in the resource log, you established too many connections to the Azure Web PubSub service and reached the connection count limit. Consider scaling up your Azure Web PubSub service instance.
+
+If you see `Message count reaches limit` in the resource log and you're using the Free tier, it means you used up the quota of messages. If you want to send more messages, consider changing your Azure Web PubSub service instance to Standard tier. For more information, see [Azure Web PubSub pricing](https://azure.microsoft.com/pricing/details/web-pubsub/).
