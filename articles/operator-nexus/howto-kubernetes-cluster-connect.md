@@ -5,7 +5,7 @@ author: dramasamy
 ms.author: dramasamy
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 08/17/2023 
+ms.date: 01/21/2025 
 ms.custom: template-how-to-pattern, devx-track-azurecli
 ---
 
@@ -122,7 +122,7 @@ Reach out to your network administrator to set up this direct connection to the 
 
 ### Retrieve the Subject Alternative Name (SAN) for the cluster
 
-Run the following commands to retrieve the Subject Alternative Name (SAN) to be used in your SSL/TLS certificates. First, identify the Control plane node by listing all nodes as described in step 1 [here](### Access to cluster nodes via Azure Arc for Kubernetes). Set up a privileged pod to run on the cluster's control plane node and connect to it as described in [step 2](### Access to cluster nodes via Azure Arc for Kubernetes). This gives you access to the API server and its corresponding cert. You can now retrieve the cert using the following command:
+Run the following commands to retrieve the Subject Alternative Name (SAN) to be used in your SSL/TLS certificates. First, identify the Control plane node by listing all nodes as described in step 1 [here](#access-to-cluster-nodes-via-azure-arc-for-kubernetes). Set up a privileged pod to run on the cluster's control plane node and connect to it as described in [step 2](#access-to-cluster-nodes-via-azure-arc-for-kubernetes). This gives you access to the API server and its corresponding cert. You can now retrieve the cert using the following command:
 
     ```bash
     openssl x509 -in /etc/kubernetes/pki/apiserver.crt -text -noout
