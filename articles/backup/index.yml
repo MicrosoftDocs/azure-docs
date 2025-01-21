@@ -63,6 +63,8 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Azure Database for PostgreSQL - Flexible server backup support
+            url: backup-azure-database-postgresql-flex-overview.md
           - text: Secure by default with Vault soft delete (preview)
             url: secure-by-default.md
           - text: WORM enabled Immutable Storage for Recovery Services vaults
