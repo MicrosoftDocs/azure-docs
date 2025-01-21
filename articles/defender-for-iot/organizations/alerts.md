@@ -5,7 +5,7 @@ ms.date: 08/06/2023
 ms.topic: how-to
 ms.custom: enterprise-iot
 ---
-
+<!-- should we reassess the order of this article, does it make sesne? Could the flow be better? -->
 # Microsoft Defender for IoT alerts
 
 Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. Alerts are triggered when OT network sensors detect changes or suspicious activity in network traffic that needs your attention.
@@ -49,11 +49,22 @@ For more information, see:
 
 Alert options also differ depending on your location and user role. For more information, see [Azure user roles and permissions](roles-azure.md) and [On-premises users and roles](roles-on-premises.md).
 
+## Aggregating alert violations
+
+Alert fatigue caused by a high number of identical alerts could lead to your team failing to see or remediate vital alerts. Each alert listed in the Alerts page is a result of a network violation, for example the *Unpermitted Usage of Modbus Function Code*. Aggregating violations with the same parameters and remediation requirements into one single alert listing, reduces the number of alerts displayed on the Alerts page. The matching parameters differ depending on the alert type. For example, the *Unpermitted Usage of Modbus Function Code* alert needs to have the same source and destination IP addresses to produce an aggregated alert violation. The aggregated alert could include alerts with different violation codes, such as read and write codes.
+
+You download the aggregated alert violation data, that lists each alert with the relevant parameters and functions, as a CSV file in the **Violations** tab of the alert details. This data can help teams to identify patterns, assess impact and prioritize responses more effectively based on the remediation suggestions in the **Take action** tab. Only alerts that have the same remediation process are aggregated into a single alert. However, individual violation events can still be viewed separately within their respective devices, providing additional clarity.
+
+The alerts that can be aggregated are listed in the [Alert reference](alert-engine-messages.md#policy-engine-alerts) policy engine alerts tables under the **Aggregarted** heading.
+
+Alert grouping appears in both the OT sensor console and the Azure portal. For more information, see [remediate aggregated alerts in Sensor console](how-to-view-alerts.md#remediate-aggregated-alert-violations) and [remediate aggregated alerts in Azure portal](how-to-manage-cloud-alerts.md#remediate-aggregated-alert-violations).
+
 ## Focused alerts in OT/IT environments
 
 Organizations where sensors are deployed between OT and IT networks deal with many alerts, related to both OT and IT traffic. The amount of alerts, some of which are irrelevant, can cause alert fatigue and affect overall performance. To address these challenges, Defender for IoT's detection policy steers its different [alert engines](alert-engine-messages.md#supported-alert-types) to focus on alerts with business impact and relevance to an OT network, and reduce low-value IT related alerts. For example, the **Unauthorized internet connectivity** alert is highly relevant in an OT network, but has relatively low value in an IT network.
 
 To focus the alerts triggered in these environments, all alert engines, except for the *Malware* engine, trigger alerts only if they detect a related OT subnet or protocol. 
+
 However, to maintain triggering of alerts that indicate critical scenarios:
 
 - The *Malware* engine triggers malware alerts regardless of whether the alerts are related to OT or IT devices.
