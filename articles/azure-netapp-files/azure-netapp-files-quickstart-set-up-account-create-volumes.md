@@ -170,7 +170,7 @@ The following code snippet shows how to create a NetApp account in an Azure Reso
 
 The following code snippet shows how to create a NetApp account using Terraform. The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-netapp-files). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-netapp-files/TestRecord.md).
 
-:::code language="terraform" "~/terraform_samples/quickstart/101-azure-netapp-files/main.tf" range="47-52":::
+:::code language="terraform" source="~/terraform_samples/quickstart/101-azure-netapp-files/main.tf" range="47-52":::
 
 ---
 
