@@ -29,7 +29,7 @@ For more information, see [Steps to create a custom role](../role-based-access-c
 To ensure proper functionality, check your custom role permissions to confirm user service principals, and managed identities interacting with Virtual WAN have the necessary permissions.
 To add any missing permissions listed here, see [Update a custom role](../role-based-access-control/custom-roles-portal.md#update-a-custom-role).
 
-The following custom roles are a few example roles you can create in your tenant if you don't want to leverage more generic built-in roles such as Network Contributor or Contributor. You can download and save the  sample roles asJSON files and upload the JSON file to Azure Portal when creating custom roles in your tenant. Ensure the assignable scopes for the custom roles are set properly for your networking resource subscription(s). 
+The following custom roles are a few example roles you can create in your tenant if you don't want to leverage more generic built-in roles such as Network Contributor or Contributor. You can download and save the sample roles as JSON files and upload the JSON file to Azure Portal when creating custom roles in your tenant. Ensure the assignable scopes for the custom roles are set properly for your networking resource subscription(s).
 
 ### Virtual WAN Administrator
 
