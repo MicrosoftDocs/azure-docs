@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-center
 ms.topic: include
-ms.date: 01/08/2025
+ms.date: 01/21/2025
 ms.author: danlep
 ms.custom: Include file
 ---
@@ -28,7 +28,7 @@ You can delete an integration using the portal or the Azure CLI.
 
 #### [Azure CLI](#tab/cli)
 
-Run the `az apic integration delete` command to delete an integration. Provide the names of the resource group, API center, and integration.
+Run the [az apic integration delete](/cli/azure/apic/integration#az-apic-integration-delete) (preview) command to delete an integration. Provide the names of the resource group, API center, and integration.
 
 ```azurecli
 az apic integration delete \

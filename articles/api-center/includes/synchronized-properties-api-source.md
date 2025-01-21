@@ -12,7 +12,7 @@ ms.custom: Include file
 ---
 You can add or update metadata properties and documentation to the synchronized APIs in your API center to help stakeholders discover, understand, and consume the APIs. Learn more about Azure API Center's [built-in and custom metadata properties](../add-metadata-properties.md).
 
-The following table shows entity properties that can be modified in Azure API Center and properties that are set based on their values in an integrated API source. 
+The following table shows entity properties that can be modified in Azure API Center and properties that are set based on their values in the API source. 
 
 | Entity       | Properties configurable in API Center                     | Properties determined in integrated API source                                           |
 |--------------|-----------------------------------------|-----------------|
