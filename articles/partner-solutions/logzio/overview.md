@@ -32,7 +32,7 @@ The following key capabilities are provided by the Azure Logz.io integration:
 - **Management experience** - Provides a single location to monitor how Azure services shipping logs are sent to Logz.io.
 - **Logz.io Agent Deployment** - Set up Logz.io agents on virtual machine (VM) hosts with a single step.
 
-## Subscribe to Informatica
+## Subscribe to Logz.io
 
 [!INCLUDE [subscribe](../includes/subscribe.md)] *Logz.io*.
 
