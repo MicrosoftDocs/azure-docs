@@ -5,8 +5,8 @@ ms.service: azure-backup
 ms.topic: tutorial
 ms.date: 04/19/2024
 ms.custom: mvc, engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Tutorial: Recover files from Azure to a Windows Server
 

@@ -4,8 +4,8 @@ description: Learn how to use Azure CLI to back up Azure file shares in the Reco
 ms.topic: how-to
 ms.custom: devx-track-azurecli, engagement-fy24
 ms.date: 03/20/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up Azure file shares with Azure CLI

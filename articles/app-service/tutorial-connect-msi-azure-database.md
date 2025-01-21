@@ -172,7 +172,7 @@ The following Azure CLI command uses a `--client-type` parameter.
 
 1. Grant permission to pre-created tables
 
-[!INCLUDE [Postgresql grant permission](../service-connector/includes/postgres-grant-permission.md)]
+[!INCLUDE [PostgreSQL grant permission](../service-connector/includes/postgres-grant-permission.md)]
 
 -----
 
