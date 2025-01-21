@@ -165,6 +165,9 @@ To run the Service Bus emulator locally on Linux or macOS:
 
 2.To spin up containers for Service Bus emulator, save the following .yaml file as _docker-compose.yaml_
 
+  > [!NOTE]
+  > Service Bus Emulator uses the port 5672 by default. If you customized the configuration to use a different port, update the ports setting in the YAML file. 
+
 ```
 name: microsoft-azure-servicebus-emulator
 services:
