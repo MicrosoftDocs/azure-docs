@@ -14,7 +14,7 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 #Customer intent: As a developer, I want to learn how to send and receive Media access state using SDK.
 ---
 
-# Control participants' access to media
+# Control participant access to media
 ::: zone pivot="platform-android"
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 ::: zone-end
