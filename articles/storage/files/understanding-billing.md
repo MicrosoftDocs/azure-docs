@@ -22,7 +22,9 @@ Azure Files has multiple pricing models including provisioned and pay-as-you-go 
     - **Provisioned v1**: In the provisioned v1 model, you provision the amount of storage you need for the share while IOPS and throughput are determined based on how much storage you provision. The provisioned v1 model for Azure Files is only available for SSD (premium) file shares.
     
 - **Pay-as-you-go billing model**: In a pay-as-you-go model, the cost of the file share is based on how much you use the share, in the form of used storage, transaction, and data transfer costs. The pay-as-you-go model for Azure Files is only available for HDD file shares. We recommend using the provisioned v2 model for new HDD file share deployments.
-    
+
+This article explains the billing models for Azure Files work to help you understand your monthly Azure Files bill. For Azure Files pricing information, see [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
+
 :::row:::
     :::column:::
         > [!VIDEO https://www.youtube-nocookie.com/embed/dyqQkheaHYg]
@@ -31,8 +33,6 @@ Azure Files has multiple pricing models including provisioned and pay-as-you-go 
         This video covers the Azure Files billing models including pay-as-you-go, provisioned v1, and provisioned v2.
    :::column-end:::
 :::row-end:::
-
-This article explains the billing models for Azure Files work to help you understand your monthly Azure Files bill. For Azure Files pricing information, see [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## Applies to
 | Management model | Billing model | Media tier | Redundancy | SMB | NFS |
