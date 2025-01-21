@@ -48,10 +48,25 @@ Replace the placeholders with the following values:
 
 ### [Access key authentication](#tab/accesskey)
 
+::: zone pivot="azure-managed-redis"
+
 ```bash
 export REDIS_CACHE_HOSTNAME=<your-host-name>.redis.cache.windows.net
 export REDIS_CACHE_KEY=<your-primary-access-key>
+export REDIS_CACHE_PORT=10000
 ```
+
+::: zone-end
+
+::: zone pivot="azure-cache-redis"
+
+```bash
+export REDIS_CACHE_HOSTNAME=<your-host-name>.redis.cache.windows.net
+export REDIS_CACHE_KEY=<your-primary-access-key>
+export REDIS_CACHE_PORT=6380
+```
+
+::: zone-end
 
 Replace the placeholders with the following values:
 
