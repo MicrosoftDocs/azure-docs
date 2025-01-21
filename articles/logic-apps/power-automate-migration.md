@@ -153,7 +153,7 @@ Azure Logic Apps supports robust version control and automated deployment proces
 
 #### Zero downtime deployments
 
-For mission-critical logic apps that require continous availability and responsiveness, Azure Logic Apps supports zero downtime deployment when you [set up deployment slots](/azure/logic-apps/set-up-deployment-slots).
+For mission-critical logic apps that require continues availability and responsiveness, Azure Logic Apps supports zero downtime deployment when you [set up deployment slots](/azure/logic-apps/set-up-deployment-slots).
 
 <!--
 <a name="migration-tool"></a>
