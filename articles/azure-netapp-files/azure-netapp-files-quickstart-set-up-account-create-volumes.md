@@ -65,6 +65,12 @@ None.
 
 Use the Azure portal, PowerShell, or the Azure CLI to [register for NetApp Resource Provider](azure-netapp-files-register.md).
 
+# [Terraform](#tab/terraform)
+
+None.
+
+Use the Azure portal, PowerShell, or the Azure CLI to [register for NetApp Resource Provider](azure-netapp-files-register.md).
+
 ---
 
 ## Create a NetApp account
@@ -157,6 +163,14 @@ The following code snippet shows how to create a NetApp account in an Azure Reso
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.netapp/anf-nfs-volume/azuredeploy.json" range="177-183":::
 
 <!-- Block begins with "type": "Microsoft.NetApp/netAppAccounts", -->
+
+# [Terraform](#tab/terraform)
+
+[!INCLUDE [Terraform abstract](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
+
+The following code snippet shows how to create a NetApp account using Terraform. The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-netapp-files). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-netapp-files/TestRecord.md).
+
+:::code language="Terraform" "~/terraform_samples/quickstart/101-azure-netapp-files/main.tf" range="47-52":::
 
 ---
 
