@@ -42,7 +42,7 @@ The following tables define support for media access in Azure Communication Serv
 
 ### Identities and call types
 
-The following table shows support of media access for specific call type and identity. 
+The following table shows media access support for specific call types and identities. 
 
 |Identities                   | Teams meeting | Room | 1:1 call | Group call | 1:1 Teams interop call | Group Teams interop call |
 |-----------------------------|---------------|------|----------|------------|------------------------|--------------------------|
