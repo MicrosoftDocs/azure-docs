@@ -41,7 +41,6 @@ Azure Logic Apps offers a low code approach and simplifies backend management by
 For more information, see the following resources:
 
 - [Introduction to large language models](/training/modules/introduction-large-language-models/)
-- [Guide to working with large language models](/ai/playbook/technology-guidance/generative-ai/working-with-llms/)
 - [What is a vector database](/azure/cosmos-db/vector-database#what-is-a-vector-database)
 
 ## Prerequisites
@@ -104,7 +103,7 @@ The following table describes the built-in connector authentication options, all
 | **Active Directory OAuth** (Microsoft Entra ID) | Provide information such as your Entra tenant, client ID, and password to authenticate as an Entra user. |
 | **Managed identity** | After you set up managed identity authentication on your AI service resource and your logic app resource, you can use that identity to authenticate access for the connector. |
 
-[!INCLUDE [highest-security-level-guidance](../includes/hightest-security-level-guidance.md)]
+[!INCLUDE [highest-security-level-guidance](../includes/highest-security-level-guidance.md)]
 
 For more information, see the following resources:
 
