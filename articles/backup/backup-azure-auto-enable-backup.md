@@ -4,8 +4,8 @@ description: 'An article describing how to use Azure Policy to auto-enable backu
 ms.topic: how-to
 ms.date: 06/29/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 

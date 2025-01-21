@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.service: azure-backup
 ms.date: 04/24/2024
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Restore Azure Virtual machines using REST API

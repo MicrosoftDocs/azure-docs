@@ -7,8 +7,8 @@ ms.custom:
   - ignite-2023
   - ignite-2024
 ms.date: 01/16/2025
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # What is Azure Kubernetes Service backup?
