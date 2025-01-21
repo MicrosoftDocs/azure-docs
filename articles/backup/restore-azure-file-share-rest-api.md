@@ -3,8 +3,8 @@ title: Restore Azure file shares with REST API
 description: Learn how to use REST API to restore Azure file shares or specific files from a restore point created by Azure Backup 
 ms.topic: how-to
 ms.date: 09/11/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Restore Azure File Shares using REST API
