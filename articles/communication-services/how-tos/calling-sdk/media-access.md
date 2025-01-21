@@ -38,7 +38,7 @@ This article describes how you can enable organizers, co-organizers, or presente
 
 ## Support
 
-The following tables define support of media access in Azure Communication Services.
+The following tables define support for media access in Azure Communication Services.
 
 ### Identities and call types
 
