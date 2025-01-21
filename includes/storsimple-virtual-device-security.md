@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ---
-<!--v-sharos 10/13/2105 virtual device security-->
+<!--v-sharos 10/13/2015 virtual device security-->
 
 Keep the following security considerations in mind when you use the StorSimple virtual device:
 
