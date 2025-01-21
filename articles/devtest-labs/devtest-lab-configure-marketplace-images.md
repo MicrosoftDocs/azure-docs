@@ -41,8 +41,7 @@ Following these steps to specify which Azure Marketplace images are allowed when
 If you aren't able to find a specific image to enable for the lab, follow these steps: 
 
 - Check to see if you can view the image while creating a compute VM.
-- The image may not be available in the type of the subscription you use. Check with the subscription administrator for the type of the subscription (for example: MSDN, free, pay-as-you-go, and so on.). 
-- Support for Gen 2 images in DevTest Labs is limited. If both Gen 1 and Gen 2 versions are available for an image, DevTest Labs shows only the Gen 1 version of the image when creating a VM. Workaround is to create a custom Gen 2 image outside the lab and use it to create a VM. If there's only Gen 2 version of the image available, it's supported and shown in the list by DevTest Labs. 
+- The image may not be available in the type of the subscription you use. Check with the subscription administrator for the type of the subscription (for example: MSDN, free, pay-as-you-go, and so on.).
       
 
 
