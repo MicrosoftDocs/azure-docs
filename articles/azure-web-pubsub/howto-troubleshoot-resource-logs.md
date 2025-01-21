@@ -30,7 +30,7 @@ You should consider the following factors when using the live trace tool:
 - The Free tier instance of the Azure Web PubSub service has a daily limit of 20,000 messages (outbound traffic). You can unexpectedly reach the daily limit by using live trace.
 - The live trace tool doesn't currently support Microsoft Entra authorization. You must enable access keys to use live trace. Under **Settings**, select **Keys**, and then enable **Access Key**.
 
-## Open the live trace tool
+## Launch the live trace tool
 
 When you enable an access key, you use the access token to authenticate the live trace tool. Otherwise, you use Microsoft Entra ID to authenticate the live trace tool. You can find out if the access key is enabled by going to the **Keys** pane in your Azure SignalR Service instance in the Azure portal.
 
