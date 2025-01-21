@@ -27,7 +27,7 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 ::: zone-end
 
-In this article, you learn how organizers, co-organizers, or presenters can prevent attendees from unmuting themselves or turning on their video during Microsoft Teams meetings or group calls. This feature allows selected roles to control the ability of other attendees to send audio and video. You can't control media access for other roles. Additionally, you learn how to determine if your audio or video is enabled or disabled. You also learn how to check the media access status of other participants.
+This article describes how you can enable organizers, co-organizers, or presenters to prevent attendees from unmuting themselves or turning on their video during Microsoft Teams meetings or group calls. Implement this feature to enable selected roles to control the ability of other attendees to send audio and video. You can't control media access for other roles. This article also describes how to determine if your audio or video is enabled or disabled. This includes providing attendees with the ability to check the media access status of other participants.
 
 ## Prerequisites
 
