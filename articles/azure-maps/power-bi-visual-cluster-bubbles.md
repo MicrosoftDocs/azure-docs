@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: In this article, you learn how to use the cluster bubble layer in an Azure Maps Power BI visual.
 author: deniseatmicrosoft
 ms.author: limingchen
-ms.date: 02/27/2024
+ms.date: 01/17/2025
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: power-bi-visual

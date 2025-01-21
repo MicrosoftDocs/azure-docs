@@ -6,7 +6,7 @@ ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: how-to
-ms.date: 12/13/2024
+ms.date: 01/13/2025
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ---
@@ -27,10 +27,10 @@ Enable semantic caching of responses to Azure OpenAI API requests to reduce band
     * Chat Completion API (or Completion API) - Deployment used for API consumer calls 
     * Embeddings API - Deployment used for semantic caching
 * The API Management instance must be configured to use managed identity authentication to the Azure OpenAI APIs. For more information, see [Authenticate and authorize access to Azure OpenAI APIs using Azure API Management ](api-management-authenticate-authorize-azure-openai.md#authenticate-with-managed-identity).
-* [Azure Cache for Redis Enterprise](../azure-cache-for-redis/quickstart-create-redis-enterprise.md). The **RediSearch** module must be enabled on the Redis Enterprise cache.
+* An [Azure Cache for Redis Enterprise](../azure-cache-for-redis/quickstart-create-redis-enterprise.md) or [Azure Managed Redis](../azure-cache-for-redis/quickstart-create-managed-redis.md) instance. The **RediSearch** module must be enabled on the Redis cache.
     > [!NOTE]
-    > You can only enable the **RediSearch** module when creating a new Redis Enterprise cache. You can't add a module to an existing cache. [Learn more](../azure-cache-for-redis/cache-redis-modules.md)
-* External cache configured in the Azure API Management instance. For steps, see [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md).
+    > You can only enable the **RediSearch** module when creating a new Azure Redis Enterprise or Azure Managed Redis cache. You can't add a module to an existing cache. [Learn more](../azure-cache-for-redis/cache-redis-modules.md)
+* External cache configured in the Azure API Management instance. For steps, see [Use an external Redis-compatible cache in Azure API Management](api-management-howto-cache-external.md).
 
 
 ## Test Chat API deployment

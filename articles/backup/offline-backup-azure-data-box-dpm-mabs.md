@@ -4,8 +4,8 @@ description: You can use Azure Data Box to seed initial Backup data offline from
 ms.topic: how-to
 ms.date: 09/11/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Offline seeding using Azure Data Box for DPM and MABS
 
