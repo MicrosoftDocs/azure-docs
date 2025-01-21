@@ -2244,6 +2244,20 @@
       "source_path_from_root": "/articles/ddos-protection/telemetry-monitoring-alerting.md",
       "redirect_url": "/azure/ddos-protection/telemetry",
       "redirect_document_id": false
+    },    {
+      "source_path_from_root": "/articles/ddos-protection/telemetry.md",
+      "redirect_url": "/azure/ddos-protection/monitor-ddos-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ddos-protection/ddos-configure-log-analytics-workspace.md",
+      "redirect_url": "/azure/azure-monitor/logs/quick-create-workspace",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ddos-protection/diagnostic-logging.md",
+      "redirect_url": "/azure/azure-monitor/essentials/tutorial-resource-logs",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/defender-for-iot/concept-pricing.md",
