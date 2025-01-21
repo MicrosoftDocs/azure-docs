@@ -640,4 +640,4 @@ To enable call redirection for all sites:
 
 ## Next step
 
-To troubleshoot issues or view known issues, see [our troubleshooting article](troubleshoot-multimedia-redirection.md).
+To troubleshoot issues or view known issues, see [our troubleshooting article](/troubleshoot/azure/virtual-desktop/troubleshoot-multimedia-redirection).

@@ -4,7 +4,7 @@ description: Learn which Azure services offer availability zone support.
 ms.service: azure
 ms.subservice: azure-availability-zones
 ms.topic: conceptual
-ms.date: 12/10/2024
+ms.date: 01/16/2025
 ms.author: anaharris
 author: anaharris-ms
 ms.custom: references_regions, subject-reliability
@@ -18,14 +18,13 @@ For more information on availability zones and regions, see [What are Azure regi
 
 Azure is continually expanding the number of services that support availability zones, including zonal and zone-redundant offerings.
 
-
 ## Types of availability zone support
 
-Azure services can provide two types of availability zone support: *zonal* and *zone-redundant*. Each service might support one or both types. When designing your reliability strategy, make sure that you understand which availability zone types are supported in each service of your workload. 
+Azure services can provide two types of availability zone support: *zone-redundant* and *zonal*. Each service might support one or both types. When designing your reliability strategy, make sure that you understand which availability zone types are supported in each service of your workload. 
 
-- **Zonal services**: A resource can be deployed to a specific, self-selected availability zone to achieve more stringent latency or performance requirements. Resiliency is self-architected by replicating applications and data to one or more zones within the region. Resources are aligned to a selected zone. For example, virtual machines, managed disks, or standard IP addresses can be aligned to a same zone, which allows for increased resiliency by having multiple instances of resources deployed to different zones.
+- **Zone-redundant services**: Zone-redundant resources are replicated or distributed across multiple availability zones automatically. For example, zone-redundant data services replicate the data across multiple zones so that a failure in one zone doesn't affect the high availability of the data. For some services you can select the set of zones that your resource uses, while in other services Microsoft selects the zones.
 
-- **Zone-redundant services**: Resources are replicated or distributed across zones automatically. For example, zone-redundant services replicate the data across multiple zones so that a failure in one zone doesn't affect the high availability of the data. 
+- **Zonal services**: A resource can be deployed to a single, self-selected availability zone to achieve more stringent latency or performance requirements. For example, virtual machines, managed disks, and standard IP addresses can be deployed zonally to the same zone. To achieve resiliency with zonal services, you need to design an architecture with separate resources in multiple availability zones within the region, but Microsoft doesn't manage the process for you.
 
 Some services don't use availability zones until you configure them to do so. If you don't explicitly configure a service for availability zone support, it's called a *non-zonal* or *regional* deployment. Resources configured in this way might be placed in any availability zone in the region, and might be moved. If any availability zone in the region experiences an outage, non-zonal resources might be in the affected zone and could experience downtime.
 
