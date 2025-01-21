@@ -638,7 +638,7 @@ The following table lists services that can access your storage account data if 
 | Microsoft Cost Management | `Microsoft.CostManagementExports` | Enables export to storage accounts behind a firewall. [Learn more](../../cost-management-billing/costs/tutorial-export-acm-data.md).|
 | Azure Databricks                | `Microsoft.Databricks/accessConnectors` | Enables access to storage accounts. |
 | Azure Data Factory              | `Microsoft.DataFactory/factories`       | Enables access to storage accounts through the Data Factory runtime. |
-| Azure Data Explorer           | `Microsoft.Kusto/Clusters`          | Read data for ingestion and external tables, and write data to external tables. [Learn more](../../data-explorer/data-explorer-overview.md). |
+| Azure Data Explorer           | `Microsoft.Kusto/Clusters`          | Read data for ingestion and external tables, and write data to external tables. [Learn more](/azure/data-explorer/data-explorer/data-explorer-overview). |
 | Azure Backup Vault              | `Microsoft.DataProtection/BackupVaults` | Enables access to storage accounts. |
 | Azure Data Share                | `Microsoft.DataShare/accounts`          | Enables access to storage accounts. |
 | Azure Database for PostgreSQL   | `Microsoft.DBForPostgreSQL`             | Enables access to storage accounts. |
