@@ -471,6 +471,10 @@ None.
 
 Use the Azure portal, PowerShell, or the Azure CLI to delete the resource group.
 
+# [Template](#tab/template)
+
+Use the Azure portal, Azure PowerShell, or the Azure CLI to delete the resource group.
+
 ---
 
 ## Next steps
