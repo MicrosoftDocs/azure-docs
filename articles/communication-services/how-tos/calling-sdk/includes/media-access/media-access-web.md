@@ -157,7 +157,8 @@ Class `MeetingMediaAccess` has the following properties:
 ## SDK compatibility
 
 The following table shows the minimum version of SDKs that support individual APIs.
-|Operations | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows | 
+
+| Operations | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows | 
 |-------------|-----|--------|-----|--------|---------|------------|---------|
 |Permit audio | v1.31.2,<br>1.32.1-beta.1|X|X|X|X|X|X|
 |Forbid audio | v1.31.2,<br>1.32.1-beta.1|X|X|X|X|X|X|
