@@ -12,11 +12,11 @@ ms.service: azure-communication-services
 ms.custom: include files
 ---
 
-# Get started with Azure PowerShell to automate the creation of Azure Communication Services(ACS), Email Communication Services(ECS), manage custom domains, configure DNS records, verify domains and domain linking to communication resource.
+# Get started with Azure PowerShell to automate the creation of Azure Communication Services (ACS), Email Communication Services (ECS), manage custom domains, configure DNS records, verify domains and domain linking to communication resource.
 
 In this sample, we'll cover off what this sample does and what you need as pre-requisites before we run this sample locally on your machine. 
 
-This documentation provides a detailed guide on using Azure PowerShell to automate the creation of Azure Communication Services(ACS) and Email Communication Services(ECS). It also covers the process of managing custom domains, configuring DNS records (such as Domain, SPF, DKIM, DKIM2), verifying domains and domain linking to communication resource.
+This documentation provides a detailed guide on using Azure PowerShell to automate the creation of Azure Communication Services (ACS) and Email Communication Services (ECS). It also covers the process of managing custom domains, configuring DNS records (such as Domain, SPF, DKIM, DKIM2), verifying domains and domain linking to communication resource.
 
 ## Prerequisites
 
@@ -33,13 +33,31 @@ This documentation provides a detailed guide on using Azure PowerShell to automa
 Before proceeding, define the variables needed for setting up the ACS, ECS and domains, along with DNS configuration for the domains. Modify these variables based on your environment:
 
 ```azurepowershell-interactive
+# Parameters for configuration
+
+# Define the name of the Azure resource group where resources will be created
 $resourceGroup = "ContosoResourceProvider1"
-$dataLocation = "United States" # Specify your region
-$commServiceName = "ContosoAcsResource1" # Replace with commServiceName
-$emailServiceName = "ContosoEcsResource1" # Replace with emailServiceName
-$baseDomain = "contoso"
-$dnsZoneName = "testing.contoso.net" # Replace with DNS zone name
-$domainCount = 10 # Specify the number of domains to create
+
+# Specify the region where the resources will be created
+$dataLocation = "United States"
+
+# Define the name of the Azure Communication Service resource
+$commServiceName = "ContosoAcsResource1"
+
+# Define the name of the Email Communication Service resource
+$emailServiceName = "ContosoEcsResource1"
+
+# Define the DNS zone name where the domains will be managed (replace with actual DNS zone)
+$dnsZoneName = "contoso.net"
+
+# Define the list of domains to be created and managed (replace with your own list of domains)
+$domains = @(
+    "sales.contoso.net",
+    "marketing.contoso.net",
+    "support.contoso.net",
+    "technical.contoso.net",
+    "info.contoso.net"
+)
 ```
 
 ## Connect to Azure Account
@@ -47,42 +65,63 @@ $domainCount = 10 # Specify the number of domains to create
 Before performing any actions with Azure resources, authenticate using the `Connect-AzAccount` cmdlet. This allows you to login and authenticate your Azure account for further tasks:
 
 ```azurepowershell-interactive
+# Attempt to authenticate the Azure session using the Connect-AzAccount cmdlet
 try {
+    # Output message to indicate the authentication process is starting
     Write-Host "Authenticating to Azure"
+
+    # The Connect-AzAccount cmdlet is used to authenticate the Azure account
     Connect-AzAccount
 }
 catch {
+    # If there is an error during authentication, display the error message
     Write-Host "Error authenticating to Azure"
+
+    # Exit the script with an error code (1) if authentication fails
     exit 1
 }
 ```
 
-## Create an Azure Communication Service (ACS)
+## Create an Azure Communication Service (ACS) resource
 
 This part of the script creates an Azure Communication Service resource:
 
 ```azurepowershell-interactive
+# Attempt to create the Communication Service resource in the specified resource group
 try {
+    # Output message to indicate the creation of the Communication Service resource is starting
     Write-Host "Creating Communication resource - $commServiceName"
+
+    # The New-AzCommunicationService cmdlet is used to create a new Communication Service resource
     New-AzCommunicationService -ResourceGroupName $resourceGroup -Name $commServiceName -Location "Global" -DataLocation $dataLocation
 }
 catch {
+    # If there is an error during the creation of the Communication Service resource, display the error message
     Write-Host "Error creating Communication resource"
+
+    # Exit the script with an error code (1) if the creation of the Communication Service resource fails
     exit 1
 }
 ```
 
-## Create Email Communication Service (ECS)
+## Create Email Communication Service (ECS) resource
 
 This part of the script creates an Email Communication Service resource:
 
 ```azurepowershell-interactive
+# Attempt to create the Email Communication Service resource in the specified resource group
 try {
+    # Output message to indicate the creation of the Email Communication Service resource is starting
     Write-Host "Creating Email Communication resource - $emailServiceName"
+
+    # The New-AzEmailService cmdlet is used to create a new Email Communication Service resource
     New-AzEmailService -ResourceGroupName $resourceGroup -Name $emailServiceName -DataLocation $dataLocation
 }
 catch {
+    # If there is an error during the creation of the Email Communication Service resource, display the error message
     Write-Host "Error creating Email Communication resource: $_"
+
+    # Exit the script with an error code (1) if the creation of the Email Communication Service resource fails
     exit 1
 }
 ```
@@ -94,162 +133,56 @@ Automate domain creation, configuration, and DNS record setup (including Domain,
 > [!NOTE]
 > The maximum limit for domain creation is 800 per Email Communication Service.
 
+> [!NOTE]
+> We are working with five predefined domains, for which DNS records will be added and configured.
+
 ```azurepowershell-interactive
-for ($i = 1; $i -le $domainCount; $i++) {
-    $currentBaseDomain = "d$i.$baseDomain"
-    $domainName = "$currentBaseDomain.$dnsZoneName"
+# Loop through each domain in the predefined list of domains to create and configure them
+foreach ($domainName in $domains){
+    # Extract the base domain name from the full domain name (e.g., "sales" from "sales.contoso.net")
+    $baseDomain = $domainName.split('.')[0]
+
+    # Output the domain name that is being created
     Write-Host "Creating domain: $domainName"
     try {
+        # Attempt to create the domain in the Email Communication Service resource
+        # The "CustomerManaged" option means that the domain management will be done by the customer
         New-AzEmailServiceDomain -ResourceGroupName $resourceGroup -EmailServiceName $emailServiceName -Name $domainName -DomainManagement "CustomerManaged"
     }
     catch {
+        # If domain creation fails, display an error message and continue with the next domain
         Write-Host "Error creating domain $domainName"
         continue
     }
 
+    # Wait for 30 seconds before proceeding to allow time for the domain creation to be processed
     Start-Sleep -Seconds 30
+
+    # Retrieve the domain details after creation
     $domainDetailsJson = Get-AzEmailServiceDomain -ResourceGroupName $resourceGroup -EmailServiceName $emailServiceName -Name $domainName
     $domainDetails = $domainDetailsJson | ConvertFrom-Json
-    Add-RecordSetToDNS -baseDomain $currentBaseDomain -domainName $domainName -dnsZoneName $dnsZoneName -resourceGroup $resourceGroup -emailServiceName $emailServiceName -domainDetails $domainDetails    
+    
+    # Add DNS records for the domain
+    Add-RecordSetToDNS -baseDomain $baseDomain -domainName $domainName -dnsZoneName $dnsZoneName -resourceGroup $resourceGroup -emailServiceName $emailServiceName -domainDetails $domainDetails    
+    
+    # Check if domain details were successfully retrieved
     if ($domainDetails) {
+        # Initiate domain verification process (Domain, SPF, DKIM, DKIM2)
         $result = Verify-Domain -domainName $domainName -resourceGroup $resourceGroup -emailServiceName $emailServiceName
         if ($result) {
+            # If the domain is successfully verified, add it to the list of linked domains
             $linkedDomainIds += $($domainDetails.Id)
         }
         else {
+            # If domain verification fails, display an error message
             Write-Host "Domain $domainName verification failed."
         }
     }
     else {
+        # If domain details were not retrieved, display an error message
         Write-Host "Failed to add DNS records for domain $domainName."
     }
 }
-
-# Add Record Set to DNS
-function Add-RecordSetToDNS {
-    param (
-        [string]$baseDomain,
-        [string]$domainName,
-        [string]$dnsZoneName,
-        [string]$resourceGroup,
-        [string]$emailServiceName,
-        [PSObject]$domainDetails
-    )
-    try {
-        Write-Host "Adding DNS records for domain: $domainName"
-        if ($domainDetails) {
-            $recordSetDomain = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name $baseDomain -recordtype txt -ErrorAction SilentlyContinue
-            if ($recordSetDomain.Count -eq 0) {
-                New-AzDnsRecordSet -Name $baseDomain -RecordType "TXT" -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -Ttl 3600
-                $recordSetDomain = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name $baseDomain -recordtype txt
-            }
-            Add-AzDnsRecordConfig -RecordSet $recordSetDomain -Value $($domainDetails.properties.VerificationRecords.Domain.Value)
-            Set-AzDnsRecordSet -RecordSet $recordSetDomain
-
-            $existingSpfRecord = $recordSetDomain.Records | Where-Object { $_.Value -eq $domainDetails.properties.VerificationRecords.SPF.Value }
-            if (-not $existingSpfRecord) {
-                $RecordSetSPF = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name $baseDomain -recordtype txt
-                Add-AzDnsRecordConfig -RecordSet $RecordSetSPF -Value $($domainDetails.properties.VerificationRecords.SPF.Value)
-                Set-AzDnsRecordSet -RecordSet $RecordSetSPF                    
-            }
-            else {
-                Write-Host "SPF record already exists for domain: $domainName"
-            }
-
-            $recordSetDKIM = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name "$($domainDetails.properties.VerificationRecords.DKIM.Name).$baseDomain" -RecordType CNAME -ErrorAction SilentlyContinue
-            if ($recordSetDKIM.Count -eq 0) {
-                New-AzDnsRecordSet -Name "$($domainDetails.properties.VerificationRecords.DKIM.Name).$baseDomain" -RecordType CNAME -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -Ttl 3600
-                $recordSetDKIM = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name "$($domainDetails.properties.VerificationRecords.DKIM.Name).$baseDomain" -RecordType CNAME
-                Add-AzDnsRecordConfig -RecordSet $recordSetDKIM -Cname $($domainDetails.properties.VerificationRecords.DKIM.Value)
-                Set-AzDnsRecordSet -RecordSet $recordSetDKIM
-            }
-            else {
-                Write-Host "DKIM record already exists for domain: $domainName"
-            }
-
-            $recordSetDKIM2 = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name "$($domainDetails.properties.VerificationRecords.DKIM2.Name).$baseDomain" -RecordType CNAME -ErrorAction SilentlyContinue
-            if ($recordSetDKIM2.Count -eq 0) {
-                New-AzDnsRecordSet -Name "$($domainDetails.properties.VerificationRecords.DKIM2.Name).$baseDomain" -RecordType "CNAME" -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -Ttl 3600
-                $recordSetDKIM2 = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name "$($domainDetails.properties.VerificationRecords.DKIM2.Name).$baseDomain" -RecordType CNAME
-                Add-AzDnsRecordConfig -RecordSet $recordSetDKIM2 -Cname $($domainDetails.properties.VerificationRecords.DKIM2.Value)
-                Set-AzDnsRecordSet -RecordSet $recordSetDKIM2
-            }
-            else {
-                Write-Host "DKIM2 record already exists for domain: $domainName"
-            }                
-        }
-        else {
-            Write-Host "No domain details found for $domainName"
-        }
-    }
-    catch {        
-        Write-Host "Error adding DNS records for domain $domainName"
-    }
-}
-```
-
-## Verification of domains
-
-Initiates the domain verification process for the domains, including Domain, SPF, DKIM, and DKIM2 verifications.
-
-```azurepowershell-interactive
-function Verify-Domain {
-    param (
-        [string]$domainName,
-        [string]$resourceGroup,
-        [string]$emailServiceName
-    )
-    try {
-        Write-Host "Initiating domain verification for $domainName"
-        $verificationTypes = @('Domain', 'SPF', 'DKIM', 'DKIM2')
-
-        foreach ($verificationType in $verificationTypes) {
-            Invoke-AzEmailServiceInitiateDomainVerification -ResourceGroupName $resourceGroup -EmailServiceName $emailServiceName -DomainName $domainName -VerificationType $verificationType
-        }
-
-        return Poll-ForDomainVerification -domainName $domainName -resourceGroup $resourceGroup -emailServiceName $emailServiceName
-    }
-    catch {
-        Write-Host "Error during domain verification for $domainName"
-        return $false
-    }
-}
-```
-
-## Link domains to the communication service
-
-Once the domains are verified and DNS records are configured, you can link the domains to the Azure Communication Service:
-
-> [!NOTE]
-> The maximum limit for domain linking is 1000 per Azure Communication Service.
-
-```azurepowershell-interactive
-if ($linkedDomainIds.Count -gt 0) {
-    try {
-        Write-Host "Linking domains to communication service."
-        Update-AzCommunicationService -ResourceGroupName $resourceGroup -Name $commServiceName -LinkedDomain $linkedDomainIds
-        Write-Host "Domains linked successfully."
-    }
-    catch {
-        Write-Host "Error linking domains"
-    }
-}
-else {
-    Write-Host "No domains linked."
-}
-```
-
-### Complete PowerShell Script for Automating end to end resource creation
-
-```azurepowershell-interactive
-# Parameters
-$resourceGroup = "ContosoResourceProvider1"
-$dataLocation = "United States" # Specify your region
-$commServiceName = "ContosoAcsResource1" # Replace with commServiceName
-$emailServiceName = "ContosoEcsResource1" # Replace with emailServiceName
-$baseDomain = "contoso"
-$dnsZoneName = "testing.contoso.net" # Replace with DNS zone name
-$domainCount = 10 # Specify the number of domains to create
 
 # Function to add DNS records (Domain, SPF, DKIM, DKIM2) for the domain
 function Add-RecordSetToDNS {
@@ -262,58 +195,86 @@ function Add-RecordSetToDNS {
         [PSObject]$domainDetails
     )
     try {
+        # Output message indicating that DNS records are being added for the domain
         Write-Host "Adding DNS records for domain: $domainName"
+
+        # Check if domain details are available
         if ($domainDetails) {
+            # Retrieve the TXT record set for the domain
             $recordSetDomain = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name $baseDomain -recordtype txt -ErrorAction SilentlyContinue
+
+            # If the TXT record set does not exist, create a new one
             if ($recordSetDomain.Count -eq 0) {
                 New-AzDnsRecordSet -Name $baseDomain -RecordType "TXT" -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -Ttl 3600
                 $recordSetDomain = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name $baseDomain -recordtype txt
             }
+
+            # Add the Domain verification record to the TXT record set
             Add-AzDnsRecordConfig -RecordSet $recordSetDomain -Value $($domainDetails.properties.VerificationRecords.Domain.Value)
             Set-AzDnsRecordSet -RecordSet $recordSetDomain
 
+            # Check if the SPF record already added; if not, create and add it
             $existingSpfRecord = $recordSetDomain.Records | Where-Object { $_.Value -eq $domainDetails.properties.VerificationRecords.SPF.Value }
             if (-not $existingSpfRecord) {
+                # Create and add the SPF record
                 $RecordSetSPF = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name $baseDomain -recordtype txt
                 Add-AzDnsRecordConfig -RecordSet $RecordSetSPF -Value $($domainDetails.properties.VerificationRecords.SPF.Value)
                 Set-AzDnsRecordSet -RecordSet $RecordSetSPF                    
             }
             else {
+                # If SPF record already exists, notify the user
                 Write-Host "SPF record already exists for domain: $domainName"
             }
 
+            # Retrieve the DKIM record set for the domain
             $recordSetDKIM = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name "$($domainDetails.properties.VerificationRecords.DKIM.Name).$baseDomain" -RecordType CNAME -ErrorAction SilentlyContinue
+
+            # If the DKIM record set does not exist, create a new one
             if ($recordSetDKIM.Count -eq 0) {
+                # Create and add the DKIM record
                 New-AzDnsRecordSet -Name "$($domainDetails.properties.VerificationRecords.DKIM.Name).$baseDomain" -RecordType CNAME -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -Ttl 3600
                 $recordSetDKIM = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name "$($domainDetails.properties.VerificationRecords.DKIM.Name).$baseDomain" -RecordType CNAME
                 Add-AzDnsRecordConfig -RecordSet $recordSetDKIM -Cname $($domainDetails.properties.VerificationRecords.DKIM.Value)
                 Set-AzDnsRecordSet -RecordSet $recordSetDKIM
             }
             else {
+                # If DKIM record already exists, notify the user
                 Write-Host "DKIM record already exists for domain: $domainName"
             }
 
+            # If the DKIM2 record set does not exist, create a new one
             $recordSetDKIM2 = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name "$($domainDetails.properties.VerificationRecords.DKIM2.Name).$baseDomain" -RecordType CNAME -ErrorAction SilentlyContinue
             if ($recordSetDKIM2.Count -eq 0) {
+                # Create and add the DKIM2 record
                 New-AzDnsRecordSet -Name "$($domainDetails.properties.VerificationRecords.DKIM2.Name).$baseDomain" -RecordType "CNAME" -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -Ttl 3600
                 $recordSetDKIM2 = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name "$($domainDetails.properties.VerificationRecords.DKIM2.Name).$baseDomain" -RecordType CNAME
                 Add-AzDnsRecordConfig -RecordSet $recordSetDKIM2 -Cname $($domainDetails.properties.VerificationRecords.DKIM2.Value)
                 Set-AzDnsRecordSet -RecordSet $recordSetDKIM2
             }
             else {
+                # If DKIM2 record already exists, notify the user
                 Write-Host "DKIM2 record already exists for domain: $domainName"
             }                
         }
         else {
+            # If domain details are not found, output an error message
             Write-Host "No domain details found for $domainName"
         }
     }
-    catch {        
+    catch {     
+        # If an error occurs during the DNS record setup, output an error message
         Write-Host "Error adding DNS records for domain $domainName"
     }
 }
+```
 
-# Function to verify domain
+## Verification of domains
+
+Initiates the domain verification process for the domains, including Domain, SPF, DKIM, and DKIM2 verifications.
+
+```azurepowershell-interactive
+# This function initiates the domain verification process for the specified domain.
+# It checks verification for four types: Domain, SPF, DKIM, and DKIM2.
 function Verify-Domain {
     param (
         [string]$domainName,
@@ -322,82 +283,298 @@ function Verify-Domain {
     )
     try {
         Write-Host "Initiating domain verification for $domainName"
+
+        # Define the verification types: Domain, SPF, DKIM, and DKIM2
         $verificationTypes = @('Domain', 'SPF', 'DKIM', 'DKIM2')
 
+        # Loop through each verification type and initiate the verification process
         foreach ($verificationType in $verificationTypes) {
             Invoke-AzEmailServiceInitiateDomainVerification -ResourceGroupName $resourceGroup -EmailServiceName $emailServiceName -DomainName $domainName -VerificationType $verificationType
         }
 
+        # After initiating the verification, call the Poll function to check the verification status
         return Poll-ForDomainVerification -domainName $domainName -resourceGroup $resourceGroup -emailServiceName $emailServiceName
     }
     catch {
-        Write-Host "Error during domain verification for $domainName"
-        return $false
+        Write-Host "Error during domain verification for $domainName" # Handle any error during the process
+        return $false # Return false if verification fails
+    }
+}
+```
+
+## Link domains to the communication service
+
+Once the domains are verified and DNS records are configured, you can link the domains to the Azure Communication Service:
+
+> [!NOTE]
+> The maximum limit for domain linking is 1000 per Azure Communication Service.
+
+```azurepowershell-interactive
+# Link domains to the communication service
+
+# Once the domains have been verified and the necessary DNS records are configured, 
+# this section of the script links those domains to the Azure Communication Service.
+# Ensure that domain verification and DNS setup are completed before linking.
+
+# Check if there are any domains that need to be linked (i.e., domains that were successfully verified)
+if ($linkedDomainIds.Count -gt 0) {
+    try {
+        # Output message indicating that the domains are being linked to the communication service
+        Write-Host "Linking domains to communication service."
+
+        # Link the verified domains to the Azure Communication Service
+        Update-AzCommunicationService -ResourceGroupName $resourceGroup -Name $commServiceName -LinkedDomain $linkedDomainIds
+
+        # Output message indicating that the domains have been successfully linked
+        Write-Host "Domains linked successfully."
+    }
+    catch {
+        # If there is an error during the domain linking process, display an error message
+        Write-Host "Error linking domains"
+    }
+}
+else {
+    # If there are no domains to link, output a message indicating that no domains are linked
+    Write-Host "No domains linked."
+}
+```
+
+### Complete PowerShell Script for Automating end to end resource creation
+
+```azurepowershell-interactive
+# Parameters for configuration
+
+# Define the name of the Azure resource group where resources will be created
+$resourceGroup = "ContosoResourceProvider1"
+
+# Specify the region where the resources will be created
+$dataLocation = "United States"
+
+# Define the name of the Azure Communication Service resource
+$commServiceName = "ContosoAcsResource1"
+
+# Define the name of the Email Communication Service resource
+$emailServiceName = "ContosoEcsResource1"
+
+# Define the DNS zone name where the domains will be managed (replace with actual DNS zone)
+$dnsZoneName = "contoso.net"
+
+# Define the list of domains to be created and managed (replace with your own list of domains)
+$domains = @(
+    "sales.contoso.net",
+    "marketing.contoso.net",
+    "support.contoso.net",
+    "technical.contoso.net",
+    "info.contoso.net"
+)
+
+# Function to add DNS records (Domain, SPF, DKIM, DKIM2) for the domain
+function Add-RecordSetToDNS {
+    param (
+        [string]$baseDomain,
+        [string]$domainName,
+        [string]$dnsZoneName,
+        [string]$resourceGroup,
+        [string]$emailServiceName,
+        [PSObject]$domainDetails
+    )
+    try {
+        # Output message indicating that DNS records are being added for the domain
+        Write-Host "Adding DNS records for domain: $domainName"
+
+        # Check if domain details are available
+        if ($domainDetails) {
+            # Retrieve the TXT record set for the domain
+            $recordSetDomain = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name $baseDomain -recordtype txt -ErrorAction SilentlyContinue
+
+            # If the TXT record set does not exist, create a new one
+            if ($recordSetDomain.Count -eq 0) {
+                New-AzDnsRecordSet -Name $baseDomain -RecordType "TXT" -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -Ttl 3600
+                $recordSetDomain = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name $baseDomain -recordtype txt
+            }
+
+            # Add the Domain verification record to the TXT record set
+            Add-AzDnsRecordConfig -RecordSet $recordSetDomain -Value $($domainDetails.properties.VerificationRecords.Domain.Value)
+            Set-AzDnsRecordSet -RecordSet $recordSetDomain
+
+            # Check if the SPF record already added; if not, create and add it
+            $existingSpfRecord = $recordSetDomain.Records | Where-Object { $_.Value -eq $domainDetails.properties.VerificationRecords.SPF.Value }
+            if (-not $existingSpfRecord) {
+                # Create and add the SPF record
+                $RecordSetSPF = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name $baseDomain -recordtype txt
+                Add-AzDnsRecordConfig -RecordSet $RecordSetSPF -Value $($domainDetails.properties.VerificationRecords.SPF.Value)
+                Set-AzDnsRecordSet -RecordSet $RecordSetSPF                    
+            }
+            else {
+                # If SPF record already exists, notify the user
+                Write-Host "SPF record already exists for domain: $domainName"
+            }
+
+            # Retrieve the DKIM record set for the domain
+            $recordSetDKIM = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name "$($domainDetails.properties.VerificationRecords.DKIM.Name).$baseDomain" -RecordType CNAME -ErrorAction SilentlyContinue
+
+            # If the DKIM record set does not exist, create a new one
+            if ($recordSetDKIM.Count -eq 0) {
+                # Create and add the DKIM record
+                New-AzDnsRecordSet -Name "$($domainDetails.properties.VerificationRecords.DKIM.Name).$baseDomain" -RecordType CNAME -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -Ttl 3600
+                $recordSetDKIM = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name "$($domainDetails.properties.VerificationRecords.DKIM.Name).$baseDomain" -RecordType CNAME
+                Add-AzDnsRecordConfig -RecordSet $recordSetDKIM -Cname $($domainDetails.properties.VerificationRecords.DKIM.Value)
+                Set-AzDnsRecordSet -RecordSet $recordSetDKIM
+            }
+            else {
+                # If DKIM record already exists, notify the user
+                Write-Host "DKIM record already exists for domain: $domainName"
+            }
+
+            # If the DKIM2 record set does not exist, create a new one
+            $recordSetDKIM2 = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name "$($domainDetails.properties.VerificationRecords.DKIM2.Name).$baseDomain" -RecordType CNAME -ErrorAction SilentlyContinue
+            if ($recordSetDKIM2.Count -eq 0) {
+                # Create and add the DKIM2 record
+                New-AzDnsRecordSet -Name "$($domainDetails.properties.VerificationRecords.DKIM2.Name).$baseDomain" -RecordType "CNAME" -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -Ttl 3600
+                $recordSetDKIM2 = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name "$($domainDetails.properties.VerificationRecords.DKIM2.Name).$baseDomain" -RecordType CNAME
+                Add-AzDnsRecordConfig -RecordSet $recordSetDKIM2 -Cname $($domainDetails.properties.VerificationRecords.DKIM2.Value)
+                Set-AzDnsRecordSet -RecordSet $recordSetDKIM2
+            }
+            else {
+                # If DKIM2 record already exists, notify the user
+                Write-Host "DKIM2 record already exists for domain: $domainName"
+            }                
+        }
+        else {
+            # If domain details are not found, output an error message
+            Write-Host "No domain details found for $domainName"
+        }
+    }
+    catch {     
+        # If an error occurs during the DNS record setup, output an error message
+        Write-Host "Error adding DNS records for domain $domainName"
+    }
+}
+
+# Verification of domains
+# This function initiates the domain verification process for the specified domain.
+# It checks verification for four types: Domain, SPF, DKIM, and DKIM2.
+function Verify-Domain {
+    param (
+        [string]$domainName,
+        [string]$resourceGroup,
+        [string]$emailServiceName
+    )
+    try {
+        Write-Host "Initiating domain verification for $domainName"
+
+        # Define the verification types: Domain, SPF, DKIM, and DKIM2
+        $verificationTypes = @('Domain', 'SPF', 'DKIM', 'DKIM2')
+
+        # Loop through each verification type and initiate the verification process
+        foreach ($verificationType in $verificationTypes) {
+            Invoke-AzEmailServiceInitiateDomainVerification -ResourceGroupName $resourceGroup -EmailServiceName $emailServiceName -DomainName $domainName -VerificationType $verificationType
+        }
+
+        # After initiating the verification, call the Poll function to check the verification status
+        return Poll-ForDomainVerification -domainName $domainName -resourceGroup $resourceGroup -emailServiceName $emailServiceName
+    }
+    catch {
+        Write-Host "Error during domain verification for $domainName" # Handle any error during the process
+        return $false # Return false if verification fails
     }
 }
 
 # Function to poll for domain verification
+
+# This function checks the verification status of a domain, including Domain, SPF, DKIM, and DKIM2.
+# It will keep checking the verification status at regular intervals (defined by $delayBetweenAttempts)
+# until the domain is verified or the maximum number of attempts ($maxAttempts) is reached.
 function Poll-ForDomainVerification {
     param (
         [string]$domainName,
         [string]$resourceGroup,
         [string]$emailServiceName,
-        [int]$maxAttempts = 10,
-        [int]$delayBetweenAttempts = 10000
+        [int]$maxAttempts = 10, # Maximum number of attempts to check the domain verification status (default: 10)
+        [int]$delayBetweenAttempts = 10000 # Delay between attempts in milliseconds (default: 10 seconds)
     )
 
     try {
+        # Loop through the attempts to check the domain verification status
         for ($attempt = 1; $attempt -le $maxAttempts; $attempt++) {
+			# Fetch domain details to check the verification status
             $domainDetailsJson = Get-AzEmailServiceDomain -ResourceGroupName $resourceGroup -EmailServiceName $emailServiceName -Name $domainName
             $domainDetails = $domainDetailsJson | ConvertFrom-Json
+			
             if ($domainDetails) {
+				# Check if all verification states (Domain, SPF, DKIM, DKIM2) are 'Verified'
                 if ($($domainDetails.properties.verificationStates.Domain.Status) -eq 'Verified' -and
                     $($domainDetails.properties.verificationStates.SPF.status) -eq 'Verified' -and
                     $($domainDetails.properties.verificationStates.DKIM.status) -eq 'Verified' -and
                     $($domainDetails.properties.verificationStates.DKIM2.status) -eq 'Verified') {
                     Write-Host "Domain verified successfully."
-                    return $true
+                    return $true # Return true if all verification states are 'Verified'
                 }
             }
-
+			
+            # Wait for the specified delay before checking again
             Start-Sleep -Milliseconds $delayBetweenAttempts
         }
+		
+        # If the maximum attempts are reached and domain is still not verified, return false
         Write-Host "Domain verification failed or timed out."
         return $false
     }
     catch {
+        # Catch any errors during the polling process and return false
         Write-Host "Error polling for domain verification"
         return $false
     }
 }
 
-# Authenticate to Azure
+# Connect to Azure
+# Attempt to authenticate the Azure session using the Connect-AzAccount cmdlet
 try {
+    # Output message to indicate the authentication process is starting
     Write-Host "Authenticating to Azure"
+
+    # The Connect-AzAccount cmdlet is used to authenticate the Azure account
     Connect-AzAccount
 }
 catch {
+    # If there is an error during authentication, display the error message
     Write-Host "Error authenticating to Azure"
+
+    # Exit the script with an error code (1) if authentication fails
     exit 1
 }
 
 # Create Communication resource
+# Attempt to create the Communication Service resource in the specified resource group
 try {
+    # Output message to indicate the creation of the Communication Service resource is starting
     Write-Host "Creating Communication resource - $commServiceName"
+
+    # The New-AzCommunicationService cmdlet is used to create a new Communication Service resource
     New-AzCommunicationService -ResourceGroupName $resourceGroup -Name $commServiceName -Location "Global" -DataLocation $dataLocation
 }
 catch {
+    # If there is an error during the creation of the Communication Service resource, display the error message
     Write-Host "Error creating Communication resource"
+
+    # Exit the script with an error code (1) if the creation of the Communication Service resource fails
     exit 1
 }
 
 # Create Email Communication resource
+# Attempt to create the Email Communication Service resource in the specified resource group
 try {
+    # Output message to indicate the creation of the Email Communication Service resource is starting
     Write-Host "Creating Email Communication resource - $emailServiceName"
+
+    # The New-AzEmailService cmdlet is used to create a new Email Communication Service resource
     New-AzEmailService -ResourceGroupName $resourceGroup -Name $emailServiceName -DataLocation $dataLocation
 }
 catch {
+    # If there is an error during the creation of the Email Communication Service resource, display the error message
     Write-Host "Error creating Email Communication resource: $_"
+
+    # Exit the script with an error code (1) if the creation of the Email Communication Service resource fails
     exit 1
 }
 
@@ -405,48 +582,77 @@ catch {
 $linkedDomainIds = @()
 
 # Create domains and DNS records
-for ($i = 1; $i -le $domainCount; $i++) {
-    $currentBaseDomain = "d$i.$baseDomain"
-    $domainName = "$currentBaseDomain.$dnsZoneName"
+# Loop through each domain in the predefined list of domains to create and configure them
+foreach ($domainName in $domains){
+    # Extract the base domain name from the full domain name (e.g., "sales" from "sales.contoso.net")
+    $baseDomain = $domainName.split('.')[0]
+
+    # Output the domain name that is being created
     Write-Host "Creating domain: $domainName"
     try {
+        # Attempt to create the domain in the Email Communication Service resource
+        # The "CustomerManaged" option means that the domain management will be done by the customer
         New-AzEmailServiceDomain -ResourceGroupName $resourceGroup -EmailServiceName $emailServiceName -Name $domainName -DomainManagement "CustomerManaged"
     }
     catch {
+        # If domain creation fails, display an error message and continue with the next domain
         Write-Host "Error creating domain $domainName"
         continue
     }
 
+    # Wait for 30 seconds before proceeding to allow time for the domain creation to be processed
     Start-Sleep -Seconds 30
+
+    # Retrieve the domain details after creation
     $domainDetailsJson = Get-AzEmailServiceDomain -ResourceGroupName $resourceGroup -EmailServiceName $emailServiceName -Name $domainName
     $domainDetails = $domainDetailsJson | ConvertFrom-Json
-    Add-RecordSetToDNS -baseDomain $currentBaseDomain -domainName $domainName -dnsZoneName $dnsZoneName -resourceGroup $resourceGroup -emailServiceName $emailServiceName -domainDetails $domainDetails    
+    
+    # Add DNS records for the domain
+    Add-RecordSetToDNS -baseDomain $baseDomain -domainName $domainName -dnsZoneName $dnsZoneName -resourceGroup $resourceGroup -emailServiceName $emailServiceName -domainDetails $domainDetails    
+    
+    # Check if domain details were successfully retrieved
     if ($domainDetails) {
+        # Initiate domain verification process (Domain, SPF, DKIM, DKIM2)
         $result = Verify-Domain -domainName $domainName -resourceGroup $resourceGroup -emailServiceName $emailServiceName
         if ($result) {
+            # If the domain is successfully verified, add it to the list of linked domains
             $linkedDomainIds += $($domainDetails.Id)
         }
         else {
+            # If domain verification fails, display an error message
             Write-Host "Domain $domainName verification failed."
         }
     }
     else {
+        # If domain details were not retrieved, display an error message
         Write-Host "Failed to add DNS records for domain $domainName."
     }
 }
 
 # Link domains to the communication service
+# Once the domains have been verified and the necessary DNS records are configured, 
+# this section of the script links those domains to the Azure Communication Service.
+# Ensure that domain verification and DNS setup are completed before linking.
+
+# Check if there are any domains that need to be linked (i.e., domains that were successfully verified)
 if ($linkedDomainIds.Count -gt 0) {
     try {
+        # Output message indicating that the domains are being linked to the communication service
         Write-Host "Linking domains to communication service."
+
+        # Link the verified domains to the Azure Communication Service
         Update-AzCommunicationService -ResourceGroupName $resourceGroup -Name $commServiceName -LinkedDomain $linkedDomainIds
+
+        # Output message indicating that the domains have been successfully linked
         Write-Host "Domains linked successfully."
     }
     catch {
+        # If there is an error during the domain linking process, display an error message
         Write-Host "Error linking domains"
     }
 }
 else {
+    # If there are no domains to link, output a message indicating that no domains are linked
     Write-Host "No domains linked."
 }
 ```
