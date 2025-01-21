@@ -320,7 +320,7 @@ If you already have a Python Flask web app, you can skip [Use the variant featur
     {% endblock %}
     ```
 
-1. Create a new folder named *static* in the *QuoteOfTheDay* folder and add a new file named *site.css* in it..
+1. Create a new folder named *static* in the *QuoteOfTheDay* folder and add a new file named *site.css* in it.
 
     ```css
     html {
