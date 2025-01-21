@@ -76,7 +76,7 @@ To prepare an Azure Arc-enabled Kubernetes cluster, you need:
 
 ---
 
-## Create an Arc-enable a cluster
+## Create and Arc-enable a cluster
 
 This section provides steps to create clusters in validated environments on Linux and Windows.
 

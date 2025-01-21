@@ -383,9 +383,6 @@ items:
         href: tutorials/add-video-augmented-reality-tutorial.md
     - name: Diagnostics
       items:
-      - name: Diagnose your network
-        href: concepts/developer-tools/network-diagnostic.md
-        displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Diagnose client issues
         href: concepts/voice-video-calling/user-facing-diagnostics.md
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
@@ -1058,6 +1055,8 @@ items:
       href: concepts/email/email-smtp-overview.md
     - name: Allowed attachment types
       href: concepts/email/email-attachment-allowed-mime-types.md
+    - name: Reserved Custom Headers
+      href: concepts/email/email-headers.md
     - name: Inline attachments
       href: concepts/email/email-attachment-inline.md
     - name: Managing Opt-outs
