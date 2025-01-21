@@ -11,7 +11,7 @@ ms.custom:
 
 # What is Datadog?
 
-Easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure with Azure Native integrations. 
+[!INCLUDE [what-is](../includes/what-is.md)]
 
 Microsoft and [Datadog](https://www.datadoghq.com/) developed this service and manage it together.
 
