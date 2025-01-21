@@ -84,7 +84,7 @@ The following tables show support of recording in individual Azure Communication
 
 ## Troubleshooting
 
-The following table show the minimum version of the APIs availability accross the SDKs.
+The following table shows the minimum version of SDKs that support individual APIs.
 |Operations | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows | 
 |-------------|-----|--------|-----|--------|---------|------------|---------|
 |Get notification that recording started or stopped| 1.0.0, <br> 1.25.3-beta.1|1.0.0, <br> 1.15.0-beta.1|2.0.0, <br> 2.1.0-beta.1|1.0.0, <br> 1.15.0-beta.1|2.0.0, <br> 1.2.0-beta.1|1.0.0, <br> 1.15.0-beta.1|1.0.0 <br> 1.0.0-beta.31|
