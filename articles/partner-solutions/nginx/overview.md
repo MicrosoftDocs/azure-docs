@@ -2,12 +2,12 @@
 title: What is NGINXaaS
 description: Learn about using the NGINXaaS Cloud-Native Observability Platform in the Azure Marketplace.
 ms.topic: overview
-ms.date: 01/18/2023
+ms.date: 01/21/2025
 ---
 
 # What is NGINXaaS – An Azure Native ISV Service?
 
-Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. 
+[!INCLUDE [what-is](../includes/what-is.md)]
 
 Microsoft and F5 developed this service and manage it together.
 

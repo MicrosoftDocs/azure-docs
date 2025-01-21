@@ -9,7 +9,7 @@ ms.date: 01/21/2025
 
 # What is Logz.io integration with Azure?
 
-Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. 
+[!INCLUDE [what-is](../includes/what-is.md)]
 
 Microsoft and Logz.io developed this service and manage it together.
 
