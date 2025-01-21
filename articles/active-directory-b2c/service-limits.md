@@ -208,19 +208,19 @@ As a protection for our customers, Microsoft places some restrictions on telepho
 | 998 | Uzbekistan | 10 | 30 
 | 223 | Mali | 20 | 100 
 | 52 | Mexico | 100 | 500 
-| Malaysia | 60 | 50 | 200
-| Senegal | 221 | 10 | 30
-| Tunisia | 216 | 20 | 100
-| El Salvador | 503 | 10 | 30
-| Nigeria | 234 | 20 | 100
-| Slovenia | 386 | 10 | 50
-| Bolivia | 591 | 10 | 30
-| Zimbabwe | 263 | 10 | 30
-| Madagascar | 261 | 10 | 30
-| Georgia | 995 | 10 | 30
-| Turkmenistan | 993 | 10 | 30
-| Uganda | 256 | 20 | 100
-| Moroccoa | 212 | 20 | 100
+| 60 | Malaysia | 50 | 200 |
+| 221 | Senegal | 10 | 30 |
+| 216 | Tunisia | 20 | 100 |
+| 503 | El Salvador | 10 | 30 |
+| 234 | Nigeria | 20 | 100 |
+| 386 | Slovenia | 10 | 50 |
+| 591 | Bolivia | 10 | 30 |
+| 263 | Zimbabwe | 10 | 30 |
+| 261 | Madagascar | 10 | 30 |
+| 995 | Georgia | 10 | 30 |
+| 993 | Turkmenistan | 10 | 30 |
+| 256 | Uganda | 20 | 100 |
+| 212 | Moroccoa | 20 | 100 |
 
 ## Next steps
 
