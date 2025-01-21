@@ -153,3 +153,17 @@ Class `MeetingMediaAccess` has the following properties:
 |412 | 46505| ExpectedError | Failed to change media access. | Use media access APIs only when your instance of `Call` has property `state` set to `connected`. |
 |412| 46506 | UnexpectedClientError | Media access change failed as meeting capabilities are empty. | Gather browser console logs and contact Azure Communication Services support. |
 |412| 46507 | ExpectedError | Azure Communication Services currently disabled this feature.  | Try the APIs in a couple of days. |
+
+## SDK compatibility
+
+The following table shows the minimum version of SDKs that support individual APIs.
+|Operations | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows | 
+|-------------|-----|--------|-----|--------|---------|------------|---------|
+|permit audio | v1.31.2,<br>1.32.1-beta.1|X|X|X|X|X|X|
+|forbid audio | v1.31.2,<br>1.32.1-beta.1|X|X|X|X|X|X|
+|Permit others audio| v1.31.2,<br>1.32.1-beta.1|X|X|X|X|X|X|
+|Forbid others audio| v1.31.2,<br>1.32.1-beta.1|X|X|X|X|X|X|
+|permit video | v1.31.2,<br>1.32.1-beta.1|X|X|X|X|X|X|
+|forbid video | v1.31.2,<br>1.32.1-beta.1|X|X|X|X|X|X|
+|Permit others video| v1.31.2,<br>1.32.1-beta.1|X|X|X|X|X|X|
+|Forbid others video| v1.31.2,<br>1.32.1-beta.1|X|X|X|X|X|X|
