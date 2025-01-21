@@ -12,13 +12,7 @@ ms.custom: mvc, engagement-fy25
 
 # Azure Migrate Overview
 
-::: moniker range="migrate"
 Azure Migrate is a service that helps you decide, plan, and execute your migration to Azure. Azure Migrate helps you find the best migration path, assess for Azure readiness and cost of hosting workloads on Azure, and perform the migration with minimal downtime and risk. Azure Migrate provides support for servers, databases, web apps, virtual desktops, and large-scale offline migration using databox.  
-::: moniker-end
-
-::: moniker range="migrate-classic"
-Azure Migrate is a service that helps you decide, plan, and execute your migration to Azure. Azure Migrate helps you find the best migration path, assess for Azure readiness and cost of hosting workloads on Azure, and perform the migration with minimal downtime and risk.
-::: moniker-end
 
 ## What is Azure Migrate? 
 
