@@ -67,6 +67,7 @@ When you enable an access key, you use the access token to authenticate the live
 1. Select **Review + assign** and wait for the completion notification.
 
 #### Enable the live trace tool
+
 1. Go to the Azure portal and your SignalR Service pane.
 
 1. From the service menu, under **Monitoring**, select **Live trace settings**.
