@@ -151,7 +151,7 @@ For optimal designer responsiveness and performance, review and follow these gui
    > be **workflowApp**. However, in some scenarios, this app setting might be missing, for example,
    > due to automation using Azure Resource Manager templates or other scenarios where the setting
    > isn't included. If certain actions don't work, such as the **Execute JavaScript Code** action,
-   > or if the workflow stops working, check that the **APP_KIND** app setting exists and is set to to **workflowApp**.
+   > or if the workflow stops working, check that the **APP_KIND** app setting exists and is set to **workflowApp**.
    > For more information, see the [**APP_KIND** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
 
 1. When you finish, select **Next: Storage**.
