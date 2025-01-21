@@ -49,7 +49,7 @@ There are two ways to purchase a virtual machine software reservation:
 2. Select the desired Virtual machine software offer that you want to buy. Then select the desired plan.  
     Any virtual machine software reservation that matches the attributes of what you buy gets a discount. The actual number of deployments that get the discount depend on the scope and quantity selected.
 3. Select a subscription. It's used to pay for the plan.  
-    The subscription payment method is charged the upfront costs for the reservation. To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription that's of type Enterprise (MS-AZR-0017P or MS-AZR-0148P) or Pay-As-You-Go (MS-AZR-0003P or MS-AZR-0023P) or Microsoft Customer Agreement.
+    The subscription payment method is charged the upfront costs for the reservation. To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription that's of type Enterprise (MS-AZR-0017P or MS-AZR-0148P) or pay-as-you-go (MS-AZR-0003P or MS-AZR-0023P) or Microsoft Customer Agreement.
     - For an enterprise subscription, these reservation purchase charges aren't deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance. The charges are billed to the subscription's credit card or invoice payment method.
     - For an individual subscription with pay-as-you-go pricing, the charges are billed to the subscription's credit card or invoice payment method.
 4. Select a scope. The scope can cover one subscription or multiple subscriptions (using a shared scope).
