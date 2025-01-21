@@ -17,7 +17,7 @@ In the page below, find out how you can get technical information about Azure Ma
 Before creating a support ticket, check out the following resources for answers and information.
 
 * [Technical documentation for Azure Managed Grafana](./index.yml): find content such as how-to guides, tutorials and the [troubleshooting guide](troubleshoot-managed-grafana.md) for Azure Managed Grafana.
-* [Microsoft Q&A](search/?terms=grafana&category=QnA): browse existing questions and answers, and ask your questions around Azure Managed Grafana.
+* [Microsoft Q&A](/search/?terms=grafana&category=QnA): browse existing questions and answers, and ask your questions around Azure Managed Grafana.
 * [Microsoft Technical Community](https://techcommunity.microsoft.com/) is the place for IT professionals and customers to collaborate, share, and learn. The website contains [Grafana-related content](https://techcommunity.microsoft.com/tag/Azure%20Managed%20Grafana?nodeId=board%3AAzureObservabilityBlog)
 
 ## Open a support ticket
@@ -27,7 +27,7 @@ If you're unable to find answers using the above self-help resources, open an on
 ### How to open a support ticket for Azure Managed Grafana in the Azure portal
 
 1. Open your Azure Managed Grafana workspace.
-1. In the left menu, under **Support + troubleshooting**, select **Support + Troubleshooting**.
+1. In the left menu, under **Help**, select **Support + Troubleshooting**.
     :::image type="content" source="media/support/open-ticket.png" alt-text="Screenshot of how to find help and submit support ticket part 1.":::
 1. Briefly describe your issue in the search bar and select **Go**.
 1. Provide additional details about the issue by selecting the appropriate options and then select **Next**.
