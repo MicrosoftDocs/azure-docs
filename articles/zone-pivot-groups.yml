@@ -529,12 +529,6 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
-- id: acs-ps
-  title: Programming languages
-  prompt: Choose a programming language
-  pivots:
-  - id: platform-powershell
-    title: Azure PowerShell
 - id: acs-js-csharp-java-python-portal-rest
   title: Programming languages
   prompt: Choose a programming language

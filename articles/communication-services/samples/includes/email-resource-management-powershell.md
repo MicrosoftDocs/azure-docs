@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 ms.custom: include files
 ---
 
-# Get started with Azure PowerShell to automate the creation of Azure Communication Services (ACS), Email Communication Services (ECS), manage custom domains, configure DNS records, verify domains and domain linking to communication resource.
+Get started with Azure PowerShell to automate the creation of Azure Communication Services (ACS), Email Communication Services (ECS), manage custom domains, configure DNS records, verify domains and domain linking to communication resource.
 
 In this sample, we'll cover off what this sample does and what you need as pre-requisites before we run this sample locally on your machine. 
 

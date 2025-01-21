@@ -3,22 +3,17 @@ title: Email Resource Management - Automating the creation and management of Com
 titleSuffix: An Azure Communication Services Automation Sample
 description: Learn how to automate the creation of Communication Services, Email Communication Services, custom domain management, DNS record configuration, and domain verification.
 author: v-deepikal
-manager: Komivi Agbakpem
+manager: komivi.agbakpem
 services: azure-communication-services
 
-ms.author: Komivi Agbakpem
+ms.author: v-deepikal
 ms.date: 01/16/2025
 ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: email
-zone_pivot_groups: acs-ps
 ---
 
 # Email Resource Management: Automating end to end resource creation
-
-::: zone pivot="platform-powershell"
-[!INCLUDE [Email Resource Managemnt with Azure PowerShell ](./includes/email-resource-management-powershell.md)]
-::: zone-end
 
 ## Clean up resources
 
