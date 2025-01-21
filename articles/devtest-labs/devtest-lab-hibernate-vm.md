@@ -17,7 +17,7 @@ Hibernate is an effective cost management feature for:
 - Scenarios where you don’t want to lose the state of the applications and processes on your VM when it is deallocated.
 - Systems with long boot times due to memory intensive applications. These applications can be initialized on VMs and hibernated. These “prewarmed” VMs can then be quickly started when needed, with the applications already up and running in the desired state.
 
-Azure DevTest Labs currently only supports enabling Hibernation on VM creation. To enable hibrnation during VM creation, you can use the Azure portal and API. Hibernation can only be triggered from the API and Azure Portal and not directly from the VM.
+Azure DevTest Labs currently only supports enabling Hibernation on VM creation. To enable hibernation during VM creation, you can use the Azure portal and API. Hibernation can only be triggered from the API and the Azure portal and not directly from the VM.
 
 > [!NOTE]
 > Please note that Hibernation support is limited to certain VM sizes and OS versions. Make sure you have a supported configuration before using hibernation. To learn more about Hibernation in general, its supported configurations in Azure, and other limitations, please visit [Hibernation for Azure Virtual Machines](https://learn.microsoft.com/azure/virtual-machines/hibernate-resume)
@@ -40,7 +40,7 @@ You need at least [user](devtest-lab-add-devtest-user.md#devtest-labs-user) acce
 
 1. On the lab **Overview** page, select **Add**.
 
-   :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-add-vm.png" alt-text="Lab overview page showing add button.":::
+   :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-add-vm.png" alt-text="Screenshot of lab overview page showing add button.":::
 
 1. On the **Choose a base** page, select an image for the VM. You can choose Marketplace images, custom images, or formulas that the lab owner made available. The following instructions use Windows 11 Pro. Some bases might have different settings.
 
@@ -56,7 +56,7 @@ You need at least [user](devtest-lab-add-devtest-user.md#devtest-labs-user) acce
    - **OS disk type**: Keep the default value for the base, or select a different option from the dropdown list.
    - **Artifacts**: This field shows the number of artifacts already configured for this VM base. Optionally, select **Add or Remove Artifacts** to select and configure artifacts to add to the VM.
 
-   :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-vm-basic-settings.png" alt-text="Virtual machine basic settings page.":::
+   :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-vm-basic-settings.png" alt-text="Screenshot showing virtual machine basic settings page.":::
 
 1. After you configure all settings, on the **Basic Settings** tab of the **Create lab resource** screen, select **Create** to deploy the VM with Hibernation enabled.
 
@@ -72,15 +72,15 @@ To learn more about how to create virtual machines (VMs) in Azure DevTest Labs i
 
 1. In the search bar, search for and select **DevTest Labs**. 
 
-    :::image type="content" source="./media/connect-windows-virtual-machine/search-select.png" alt-text="Search for and select DevTest Labs":::    
+    :::image type="content" source="./media/connect-windows-virtual-machine/search-select.png" alt-text="Screenshot showing search for and select DevTest Labs.":::    
 1. From the list of labs, select your **lab**.
 
-    :::image type="content" source="./media/connect-windows-virtual-machine/select-lab.png" alt-text="Select your lab":::            
+    :::image type="content" source="./media/connect-windows-virtual-machine/select-lab.png" alt-text="Screenshot showing select your lab.":::            
 1. On the home page for your lab, select the VM from the **My virtual machines** list for which you had enabled Hibernation on VM creation.
 
-    :::image type="content" source="./media/connect-windows-virtual-machine/select-windows-vm.png" alt-text="Select your Windows VM":::                
+    :::image type="content" source="./media/connect-windows-virtual-machine/select-windows-vm.png" alt-text="Screenshot showing select your Windows VM.":::                
 1. On the **Virtual machine** page for your VM, select **Hibernate** on the toolbar. The VM status should be in a running state for Hibernate option to be enabled.
 
-    :::image type="content" source="./media/devtest-lab-hibernate/devtest-lab-hibernate-vm.png" alt-text="Select connect on the toolbar":::
+    :::image type="content" source="./media/devtest-lab-hibernate/devtest-lab-hibernate-vm.png" alt-text="Screenshot showing select connect on the toolbar.":::
 
 Once you select Hibernate, it will trigger the Hibernation process. Once the Hibernation process is completed, the status will be updated to Hibernated (deallocated).
