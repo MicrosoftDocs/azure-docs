@@ -2,7 +2,7 @@
 title: Create a Batch account in the Azure portal
 description: Learn how to use the Azure portal to create and manage an Azure Batch account for running large-scale parallel workloads in the cloud.
 ms.topic: how-to
-ms.date: 04/16/2024
+ms.date: 01/21/2025
 ms.custom: subject-rbac-steps, linux-related-content
 ---
 
@@ -147,7 +147,7 @@ To create a Batch account with authentication mode settings:
 1. You can select either of the 3 **"Microsoft Entra ID**, **Shared Key**, **Task Authentication Token** authentication mode for the Batch account to support or leave the settings at default values. 
 
    :::image type="content" source="media/batch-account-create-portal/authentication-mode-property.png" alt-text="Screenshot of the Authentication Mode options when creating a Batch account.":::
-   
+
 1. Leave the remaining settings at default values, select **Review + create**, and then select **Create**.
 
 > [!TIP]
