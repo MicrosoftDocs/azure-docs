@@ -11,7 +11,7 @@ ms.author: danlep
 ms.custom: Include file
 ---
 
-## Setup
+## Extension setup
 
 1. Install the Azure API Center extension for Visual Studio Code from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center). Install other extensions as needed.
 
