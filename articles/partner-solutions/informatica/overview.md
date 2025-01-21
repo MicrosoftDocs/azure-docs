@@ -28,7 +28,7 @@ Here are the key capabilities provided by the Informatica integration:
 
 [!INCLUDE [subscribe](../includes/subscribe.md)] *Informatica*.
 
-[!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]## Next steps
+[!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
 
 ## Informatica resources
 

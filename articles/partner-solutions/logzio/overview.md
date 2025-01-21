@@ -2,12 +2,18 @@
 title: Logz.io overview
 description: Learn about Azure integration using Logz.io in Azure Marketplace.
 ms.topic: conceptual
-ms.date: 10/25/2021
+ms.date: 01/21/2025
 
 
 ---
 
 # What is Logz.io integration with Azure?
+
+Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. 
+
+Microsoft and Logz.io developed this service and manage it together.
+
+You can find Logz.io in the [Azure portal](https://portal.azure.com/) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/).
 
 Logz.io's Cloud-Native Observability Platform centralizes log, metric, and tracing analytics in one place, so you can monitor the health and performance of your Azure environment. You manage your solution through the Azure portal.
 
@@ -25,6 +31,12 @@ The following key capabilities are provided by the Azure Logz.io integration:
 - **Log forwarder** - Enables forwarding of subscription activity and resource logs to Logz.io.
 - **Management experience** - Provides a single location to monitor how Azure services shipping logs are sent to Logz.io.
 - **Logz.io Agent Deployment** - Set up Logz.io agents on virtual machine (VM) hosts with a single step.
+
+## Subscribe to Informatica
+
+[!INCLUDE [subscribe](../includes/subscribe.md)] *Logz.io*.
+
+[!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
 
 ## Next steps
 
