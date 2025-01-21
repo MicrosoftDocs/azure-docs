@@ -51,7 +51,7 @@ The following table shows media access support for specific call types and ident
 
 ### Operations
 
-The following table shows support for individual APIs in the calling SDK related to individual identity types. All operations are only supported in Teams meeting.
+The following table shows support for individual APIs in the Calling SDK related to individual identity types. The media access feature only supports these operations in Teams meetings.
 
 |Operations                     | Communication Services user | Microsoft 365 user | Equivalent Teams UI action|
 |-----------------------------|---------------|--------------------------|--------------------------|
