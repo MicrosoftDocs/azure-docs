@@ -1,5 +1,5 @@
 ---
-title: Control participants' access to media
+title: Control participant access to media
 titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services SDKs to control access to media for individual participants.
 author: fuyan
