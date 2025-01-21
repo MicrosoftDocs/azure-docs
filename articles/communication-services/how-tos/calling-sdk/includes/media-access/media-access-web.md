@@ -25,7 +25,7 @@ const mediaAccessFeature = call.feature(Features.MediaAccess);
 
 Use the `permitAudio()` method to enable selected attendees to unmute. Use the `permitVideo()` method to enable selected attendees to turn on video. These actions don't automatically unmute or turn on video. They only enable attendees to perform these actions. 
 
-Use method `forbidAudio()` to mute selected attendees and deny them to unmute or method `forbidVideo()` to turn of video for selected attendees and deny them to turn video on.
+Use the `forbidAudio()` method to enable organizers to mute selected attendees and deny them the ability to unmute. Use the `forbidVideo()` method to enable organizers to turn off video for selected attendees and deny them the ability to turn on video.
 
 ```js
 // Define list of attendees
