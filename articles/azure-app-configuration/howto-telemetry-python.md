@@ -25,7 +25,7 @@ In this tutorial, you:
 - A variant feature flag with telemetry enabled. If you don't have a feature flag, see [Enable telemetry for feature flags](./howto-telemetry.md).
 - An Application Insights resource. If you don't have an Application Insights resource, see [Create an Application Insights resource](/azure/azure-monitor/app/create-workspace-resource).
 
-## Adding telemetry to your python application
+## Add telemetry to your python application
 
 1. Install the `azure-appconfiguration-provider` and the `featuremanagement` packages using pip:
 
