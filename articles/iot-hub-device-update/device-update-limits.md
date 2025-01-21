@@ -3,7 +3,7 @@ title: Azure Device Update for IoT Hub limits | Microsoft Docs
 description: Understand key limits for Azure Device Update for IoT Hub.
 author: vimeht
 ms.author: vimeht
-ms.date: 01/13/2025
+ms.date: 01/21/2025
 ms.topic: conceptual
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -11,7 +11,7 @@ ms.subservice: device-update
 
 # Azure Device Update for IoT Hub limits
 
-This article provides an overview of the various limits imposed on the Azure Device Update for IoT Hub resource and its associated operations. The article also indicates whether the Standard SKU limits are adjustable by contacting Microsoft Support, and the maximum values for adjustable limits.
+This article provides an overview of the various limits imposed on the Azure Device Update for IoT Hub resource and its associated operations. The article also indicates whether the Standard SKU limits are adjustable by contacting Microsoft Support.
 
 ## General availability limits
 

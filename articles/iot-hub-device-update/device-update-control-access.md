@@ -3,7 +3,7 @@ title: Azure role-based access control (RBAC) and Azure Device Update for IoT Hu
 description: Understand how Azure Device Update for IoT Hub uses Azure role-based access control (RBAC) to provide authentication and authorization for users and service APIs.
 author: vimeht
 ms.author: vimeht
-ms.date: 01/13/2025
+ms.date: 01/21/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub
 ms.subservice: device-update

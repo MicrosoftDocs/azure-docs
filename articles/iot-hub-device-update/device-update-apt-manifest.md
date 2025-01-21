@@ -3,7 +3,7 @@ title: Azure Device Update for IoT Hub apt manifest
 description: Understand how Azure Device Update for IoT Hub uses the apt manifest for a package-based update.
 author: vimeht
 ms.author: vimeht
-ms.date: 01/13/2025
+ms.date: 01/21/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -73,7 +73,7 @@ For example, `"name":"iotedge"` and `"version":"1.0.8-2"` is equivalent to insta
 If version is omitted, Device Update installs the latest available version of the specified package. For more information about how Debian packages are versioned, see the [Debian policy manual](https://www.debian.org/doc/debian-policy/ch-controlfields.html#s-f-version).
 
 > [!NOTE]
-> Unless explicit versions of dependent packages are given, the apt package manager installs the latest versions, even if the package itself specifies a strict requirement (`=`) on a given version. The package manager ignores the package versioning requirements when automatically resolving the dependent packages to install. This automatic resolution can lead to errors regarding unmet dependencies.
+> The apt package manager ignores versioning requirements given by a package when the dependent packages to install are being automatically resolved. Unless explicit versions of dependent packages are given they use the latest, even though the package itself may specify a strict requirement (=) on a given version. This automatic resolution can lead to errors regarding an unmet dependency.
 > 
 > Therefore, when you install a specific version of a package, it's best to also include the explicit versions of the dependent packages to install. For more information, see [apt-get not properly resolving a dependency on a fixed version in a Debian/Ubuntu package](https://unix.stackexchange.com/questions/350192/apt-get-not-properly-resolving-a-dependency-on-a-fixed-version-in-a-debian-ubunt).
 

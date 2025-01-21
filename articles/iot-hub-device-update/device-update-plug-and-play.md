@@ -3,7 +3,7 @@ title: Azure Device Update for IoT Hub and IoT Plug and Play
 description: Understand how Azure Device Update for IoT Hub uses IoT Plug and Play interfaces to discover and manage devices that are over-the-air update capable.
 author: eshashah-msft
 ms.author: eshashah
-ms.date: 01/14/2025
+ms.date: 01/21/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -40,7 +40,7 @@ The Device Update agent uses the following agent metadata fields to send informa
 |stepResults|map|device to cloud|The result reported by the agent, containing result code, extended result code, and result details for step updates. <br>Example: "step_1": { "resultCode": 0,"extendedResultCode": 0, "resultDetails": ""}|
 |state|integer|device to cloud| An integer that indicates the current state of the Device Update agent. See [State](#state) for details. |
 |workflow|complex|device to cloud| A set of values that indicate the deployment the agent is currently working on, the ID of the currently installed deployment, and acknowledgment of any retry request sent from service to agent. The `workflow` ID reports a `"nodeployment"` value once a deployment is canceled. <br>Example: "workflow": {"action": 3,"ID": "11b6a7c3-6956-4b33-b5a9-87fdd79d2f01","retryTimestamp": "2022-01-26T11:33:29.9680598Z"}|
-|installedUpdateId|string|device to cloud|An ID of the currently installed Device Update deployment. This value captures the update ID JSON, or `null` for a device that never had an update through Device Update. <br>Example: "installedUpdateID" {"provider":"contoso","name":"image-update","version":"1.0.0"}"|
+|installedUpdateId|string|device to cloud|An ID of the currently installed Device Update deployment. This value captures the update ID JSON, or `null` for a device that never had an update through Device Update. <br>Example: "installedUpdateID": "{\\"provider\\":\\"contoso\\",\\"name\\":\\"image-update\\",\\"version\\":\\"1.0.0\\"}"|
 
 IoT Hub device twin example:
 
@@ -73,7 +73,7 @@ IoT Hub device twin example:
                         "id": "11b6a7c3-6956-4b33-b5a9-87fdd79d2f01",
                         "retryTimestamp": "2022-01-26T11:33:29.9680598Z"
                     },
-                    "installedUpdateId": "{"provider":"Contoso","name":"Virtual-Vacuum","version":"5.0"}"
+                    "installedUpdateId": "{\"provider\":\"Contoso\",\"name\":\"Virtual-Vacuum\",\"version\":\"5.0\"}"
                 },
 ```
 
@@ -90,7 +90,7 @@ The **deviceProperties** field contains the manufacturer and model information f
 |model|string|device to cloud|The device model of the device, reported through `deviceProperties`. The `DeviceUpdateCore` interface first attempts to read the `aduc_model` value from the [configuration file](device-update-configuration-file.md). If the value isn't populated in the configuration file, the interface defaults to reporting the compile-time definition for `ADUC_DEVICEPROPERTIES_MODEL`. This property is reported only at boot time. <br> Default value: 'Video'|
 |contractModelId|string|device to cloud|Property the service uses to identify the base model version the Device Update agent is using to manage and communicate with the agent.<br>Value: `dtmi:azure:iot:deviceUpdateContractModel;3` for devices using Device Update agent version 1.1.0. <br>**Note:** Agents using `dtmi:azure:iot:deviceUpdateModel;2` must report the `contractModelId` as `dtmi:azure:iot:deviceUpdateContractModel;3`, because `deviceUpdateModel;3` is extended from `deviceUpdateContractModel;3`.|
 |aduVer|string|device to cloud|Version of the Device Update agent running on the device. This value is read from the build only if `ENABLE_ADU_TELEMETRY_REPORTING` is set to `1` (true) during compile time. You can choose to opt out of version reporting by setting the value to `0` (false). For more information, see [How To Build the Device Update Agent](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md).|
-|doVer|string|device to cloud|Version of the Delivery Optimization agent running on the device. The value is read from the build only if `ENABLE_ADU_TELEMETRY_REPORTING` is set to `1` (true) during compile time. You can choose to opt out of version reporting by setting the value to `0` (false).|
+|doVer|string|device to cloud|Version of the Delivery Optimization agent running on the device. The value is read from the build only if `ENABLE_ADU_TELEMETRY_REPORTING` is set to `1` (true) during compile time. You can choose to opt out of version reporting by setting the value to `0` (false). For more information, see [How To Build the Device Update Agent](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md).|
 |Custom compatibility properties|User-defined|device to cloud|Other user-defined device properties to use for the compatibility check when targeting the update deployment.|
 
 #### State
@@ -113,7 +113,7 @@ The **action** field represents the action the Device Update agent should take a
 |---------|-----|-----------|
 |applyDeployment|3|Apply the deployed update.|
 |cancel|255|Stop processing the current action and go back to `Idle`, or tell an agent in the `Failed` state to go back to `Idle`.|
-|download|0|Download published content or update and any other content needed. This action is sent only to devices with agent version 0.7.0 or older.|
+|download|0|Download published content or update, and any other content needed. This action is sent only to devices with agent version 0.7.0 or older.|
 |install|1|Install the content or update, typically to call the installer for the content or update. Device Update sends this action only to devices with agent version 0.7.0 or older.|
 |apply|2|Finalize the update by rebooting if necessary. Device Update sends this action only to devices with agent version 0.7.0 or older.|
 
