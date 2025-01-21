@@ -89,7 +89,7 @@ Microsoft Teams meetings support APIs that enable organizers, co-organizers, and
 
 You can use the `permitOthersAudio()` method to set meeting option **Allow mic for attendees** to `true` and enable all attendees to unmute. You can also use the `permitOthersVideo()` method to set meeting option **Allow camera for attendees** to `true` and enable all attendees to turn on video. These actions don't automatically unmute or turn on video. They only enable attendees to perform these actions. 
 
-Use method `forbidOthersAudio()` to set meeting option `Allow mic for attendees` to `false` that will mute all attendees and deny them to unmute. You can also use method `forbidOthersVideo()` to set meeting option `Allow mic for attendees` to `false` that will turn of video for all attendees and deny them to turn on video.
+Use the `forbidOthersAudio()` method to set meeting option **Allow mic for attendees** to `false`, which organizers can use to mute all attendees and deny them the ability to unmute. You can also use the `forbidOthersVideo()` method to set meeting option **Allow mic for attendees** to `false`, which organizers can use to turn of video for all attendees and deny them the ability to turn on video.
 
 Participants with appropriate roles can override methods `permitOthersAudio` ,`permitOthersVideo`, `forbidOthersAudio` ,`forbidOthersVideo` with methods `forbidAudio` and `forbidVideo` or `permitAudio` and `permitVideo`. Change of media access for all attendees triggers `mediaAccessChanged` event for all participants that are impacted. 
 
