@@ -7,7 +7,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.collection: ce-skilling-ai-copilot
 ms.topic: how-to
-ms.date: 10/26/2024
+ms.date: 01/21/2025
 # Customer intent: As a developer, I want to create my first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
 ---
 
@@ -91,9 +91,7 @@ For optimal designer responsiveness and performance, review and follow these gui
 
 - Consider splitting business logic into multiple workflows where necessary.
 
-- Have no more than 10-15 workflows per logic app resource.
-
-More workflows in your logic app raise the risk of longer load times, which negatively affect performance. If you have mission-critical logic apps that require zero downtime deployments, consider [setting up deployment slots](set-up-deployment-slots.md).
+- When you add more workflows to your logic app resource, you increase cold start times and the risk for longer load times, which negatively affect performance. To reduce these risks or if you have mission-critical logic apps that require zero downtime deployments, [set up deployment slots](set-up-deployment-slots.md).
 
 <a name="create-logic-app-resource"></a>
 
