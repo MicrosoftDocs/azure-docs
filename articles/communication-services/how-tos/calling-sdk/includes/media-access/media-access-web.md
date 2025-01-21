@@ -7,7 +7,7 @@ ms.author: fuyan
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
-## Implement Media Access
+## Implement media access
 
 `MediaAccess` is a `feature` of the class `Call`. You first need to import package `Features` from the Calling SDK:
 
