@@ -126,11 +126,7 @@ The following table provides more detailed descriptions for the metrics.
 
 ::: zone-end
 
-<!-- ## Log tables -->
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
-
-<!-- Repeat the following section for each resource type/namespace in your service. Find the table(s) for your service at https://learn.microsoft.com/azure/azure-monitor/reference/tables-index. 
-Replace the <ResourceType/namespace> and tablename placeholders with the namespace name. -->
 
 ::: zone pivot="front-door-classic"
 

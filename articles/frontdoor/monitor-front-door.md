@@ -35,7 +35,7 @@ This table describes how you can collect data to monitor your service, and what 
 
 [!INCLUDE [azmon-horz-supported-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-supported-data.md)]
 
-## Built in monitoring for Azure Front Door
+## Built-in monitoring for Azure Front Door
 
 ::: zone pivot="front-door-standard-premium"
 
@@ -147,11 +147,11 @@ The following example JSON snippet shows a health probe log entry for a failed h
 
 For more information on the Front Door web application firewall (WAF) logs, see [Azure Web Application Firewall monitoring and logging](../web-application-firewall/afds/waf-front-door-monitor.md).
 
-
-
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
+
+For classic Azure Front Door, built-in monitoring includes diagnostic logs.
 
 ## <a name="diagnostic-logging"></a>Diagnostic logs
 
@@ -205,10 +205,10 @@ Raw logs include logs generated from both CDN edge (child POP) and origin shield
 
 For every request that goes to an origin shield, there are two log entries:
 
-* One for edge nodes
-* One for origin shield. 
+- One for edge nodes
+- One for origin shield
 
-To differentiate the egress or responses from the edge nodes vs. origin shield, you can use the field **isReceivedFromClient** to get the correct data. 
+To differentiate the egress or responses from the edge nodes vs. origin shield, you can use the field **isReceivedFromClient** to get the correct data.
 
 If the value is false, then it means the request is responded from origin shield to edge nodes. This approach is effective to compare raw logs with billing data. Charges aren't incurred for egress from origin shield to the edge nodes. Charges are incurred for egress from the edge nodes to clients. 
 
@@ -239,46 +239,19 @@ After the chunk arrives at the Azure Front Door edge, it's cached and immediatel
 
 ::: zone-end
 
-
-<!-- Add any monitoring mechanisms build in to your service here. -->
-
-<!--## Use Azure Monitor tools to analyze the data-->
 [!INCLUDE [azmon-horz-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-tools.md)]
 
-<!--## Export Azure Monitor data -->
 [!INCLUDE [azmon-horz-export-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-export-data.md)]
 
-<!--## Use Kusto queries to analyze log data -->
 [!INCLUDE [azmon-horz-kusto](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-kusto.md)]
 
-### Recommended Kusto queries for Azure Front Door
-
-<!-- Add any recommended Kusto queries here. -->
-
-<!-- Add any links to community resources with sample Kusto queries here. -->
-
-<!-- ## Use Azure Monitor alerts to notify you of issues -->
 [!INCLUDE [azmon-horz-alerts-part-one](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-alerts-part-one.md)]
-
-<!-- Add any recommended alert rules here. -->
-### Recommended Azure Monitor alert rules for Azure Front Door
-
-The following table lists common and recommended alert rules for Azure Front Door.
-
-| Alert type | Condition | Examples  |
-|:---|:---|:---|
-| Metric | |  |
-| Log search |  | |
-| Activity Log | | |
-| Service Health | | |
-| Resource Health | | |
 
 [!INCLUDE [azmon-horz-alerts-part-two](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-alerts-part-two.md)]
 
-<!-- ## Get personalized recommendations using Azure Advisor -->
 [!INCLUDE [azmon-horz-advisor](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-advisor.md)]
 
 ## Related content
 
-- [Azure Front Door monitoring data reference](monitor-front-door-reference.md) 
+- [Azure Front Door monitoring data reference](monitor-front-door-reference.md)
 - [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource)
