@@ -89,31 +89,8 @@ Take note of the **Secret identifier** of each secret, a URI similar to `https:/
 
 ## Integrate an Amazon API Gateway 
 
-You can integrate an Amazon API Gateway to your API center using the Azure CLI.
-
-<!--
-#### [Portal](#tab/portal)
-
-1. In the [portal](https://portal.azure.com), navigate to your API center.
-1. Under **Assets**, select **Environments**.
-1. Select **Integrations (preview)** > **+ New integration** > **From Amazon API Gateway**.
-1. In the **Integrate your Amazon API Gateway service** page:
-    1. Under **Configure AWS credentials using Azure Key Vault**, enter or select the Key Vault secret identifiers for the **AWS access key** and **AWS secret access key** you stored previously. Also, select the **AWS region** where the Amazon API Gateway is deployed.
-    1. In **Integration details**, enter an identifier.
-    1. In **Environment details**, enter an **Environment title** (name), **Environment type**, and optional **Description**.
-    1. In **API Details**:
-        1. Select a **Lifecycle** for the synchronized APIs. (You can update this value for the APIs after they're added to your API center.) 
-        1. Optionally, select whether to include API definitions.
-1. Select **Create**.
-
-Add image of integrating AWS g/w in portal
-
-
-#### [Azure CLI](#tab/cli)
-
---->
-
-Run the `az apic integration create aws` command to integrate an Amazon API Gateway to your API center. 
+ 
+Run the [az apic integration create aws](/cli/azure/apic/integration/create#az-apic-integration-create-aws) (preview) command command to integrate an Amazon API Gateway to your API center. 
 
 * Provide the names of the resource group, API center, and integration. 
 
@@ -128,12 +105,24 @@ az apic integration create aws \
     --aws-secret-access-key-reference <secret-access-key-uri> 
     --aws-region-name <aws-region>
 ``` 
-
+---
 
 The environment is added in your API center. The Amazon API Gateway APIs are imported to the API center inventory.
 
+## Delete an integration
 
-[!INCLUDE [delete-api-integration](includes/delete-api-integration.md)]
+While an API source is integrated, you can't delete synchronized APIs from your API center. If you need to, you can delete the integration. When you delete an integration:
+
+* The synchronized APIs in your API center inventory are deleted
+* The environment and deployments associated with the API source are deleted
+
+To delete an integration using the Azure CLI, run the [az apic integration delete](/cli/azure/apic/integration#az-apic-integration-delete) (preview) command. Provide the names of the resource group, API center, and integration.
+
+```azurecli
+az apic integration delete \
+    --resource-group <resource-group-name> \
+    --service-name <api-center-name> \
+    --integration-name <integration-name> \
 
 ## Related content
  
