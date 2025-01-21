@@ -55,7 +55,7 @@ The table below lists Azure region pairs:
 | **France** | France Central | France South\* |
 | **Germany** | Germany West Central | Germany North\* |
 | **India** | Central India | South India |
-| |Central India | West India |
+| |South India | Central India |
 | | West India | South India |
 | **Japan** | Japan East | Japan West |
 | **Korea** | Korea Central | Korea South\* |
