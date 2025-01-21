@@ -19,6 +19,8 @@ This overview introduces the key concepts around developing assets and devices t
 
 The following diagram shows a high-level view of the components in a typical edge-based IoT solution. This article focuses on the assets and connectors shown in the diagram:
 
+<!-- Art Library Source# ConceptArt-0-000-025 -->
+
 :::image type="content" source="media/iot-overview-device-development/iot-edge-device-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting asset connectivity areas." border="false":::
 
 Assets typically have built-in firmware that implements standard protocols. For example, a robotic arm might be an OPC UA client and a security video camera might implement ONVIF. Azure IoT Operations includes various connectors that can use these protocols to communicate with assets and translate messages from the assets into MQTT messages. Some assets can receive messages enabling you to perform operations on them such as:
@@ -32,6 +34,8 @@ You can create your own, custom connectors to connect to assets that use protoco
 # [Cloud-based solution](#tab/cloud)
 
 The following diagram shows a high-level view of the components in a typical cloud-based IoT solution. This article focuses on the devices and gateway shown in the diagram:
+
+<!-- Art Library Source# ConceptArt-0-000-025 -->
 
 :::image type="content" source="media/iot-overview-device-development/iot-cloud-device-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting device connectivity areas." border="false":::
 
