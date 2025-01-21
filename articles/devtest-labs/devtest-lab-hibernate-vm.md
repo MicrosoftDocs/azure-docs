@@ -33,7 +33,8 @@ This article describes how to create Azure virtual machines (VMs) with Hibernati
 You need at least [user](devtest-lab-add-devtest-user.md#devtest-labs-user) access to a lab in DevTest Labs. For more information about creating labs, see [Create a lab in the Azure portal](devtest-lab-create-lab.md).
 
 <a name="create-and-add-virtual-machines"></a>
-## Configure basic settings
+
+### Configure basic settings
 
 1. In the [Azure portal](https://portal.azure.com), go to the **Overview** page for the lab.
 
