@@ -35,19 +35,17 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: C# 
-            url: functions-create-your-first-function-visual-studio.md
+            url: create-first-function-azure-developer-cli.md?pivots=programming-language-csharp
           - text: Java
-            url: create-first-function-cli-java.md
+            url: create-first-function-azure-developer-cli.md?pivots=programming-language-java
           - text: JavaScript
-            url: create-first-function-vs-code-node.md
+            url: create-first-function-azure-developer-cli.md?pivots=programming-language-javascript
           - text: PowerShell
-            url: create-first-function-vs-code-powershell.md
+            url: create-first-function-azure-developer-cli.md?pivots=programming-language-powershell
           - text: Python
-            url: create-first-function-vs-code-python.md
-          - text: Rust/Go
-            url: create-first-function-vs-code-other.md
+            url: create-first-function-azure-developer-cli.md?pivots=programming-language-python
           - text: TypeScript
-            url: create-first-function-vs-code-typescript.md
+            url: create-first-function-azure-developer-cli.md?pivots=programming-language-typescript
   - title: Develop functions
     linkLists:
       - linkListType: concept
@@ -76,3 +74,37 @@ landingContent:
             url: create-first-function-vs-code-python.md
           - text: Create serverless APIs using Visual Studio
             url: openapi-apim-integrate-visual-studio.md
+  - title: Languages
+      linkLists:
+        - linkListType: how-to-guide
+          links:
+            - text: C#
+              url: dotnet-isolated-process-guide.md
+            - text: Java
+              url: functions-reference-java.md
+            - text: JavaScript
+              url: functions-reference-node.md?tabs=javascript
+            - text: PowerShell
+              url: functions-reference-powershell.md
+            - text: Python
+              url: functions-reference-python.md
+            - text: Rust/Go
+              url: create-first-function-vs-code-other.md
+            - text: TypeScript
+              url: functions-reference-node.md?tabs=typescript
+  - title: Deployment
+        linkLists:
+          - linkListType: how-to-guide
+            links:
+              - text: Azure Developer CLI (azd)
+                url: create-first-function-azure-developer-cli.md
+              - text: Azure Pipelines
+                url: functions-how-to-azure-devops.md
+              - text: Containers
+                url: container-concepts.md
+              - text: Continuous deployment
+                url: functions-continuous-deployment.md
+              - text: GitHub Actions
+                url: functions-how-to-github-actions.md
+              - text: Infrastructure as Code (IaC)
+                url: functions-infrastructure-as-code.md
