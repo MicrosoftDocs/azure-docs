@@ -72,13 +72,13 @@ This quickstart uses the Maven archetype feature to generate the scaffolding for
    <dependency>
        <groupId>com.azure</groupId>
        <artifactId>azure-identity</artifactId>
-       <version>1.11.2</version> <!-- {x-version-update;com.azure:azure-identity;dependency} -->
+       <version>1.15.0</version> <!-- {x-version-update;com.azure:azure-identity;dependency} -->
    </dependency>
 
    <dependency>
        <groupId>org.redisson</groupId>
        <artifactId>redisson</artifactId>
-       <version>3.27.0</version> <!-- {x-version-update;org.redisson:redisson;external_dependency} -->
+       <version>3.36.0</version> <!-- {x-version-update;org.redisson:redisson;external_dependency} -->
    </dependency>
    ```
 
@@ -90,7 +90,7 @@ This quickstart uses the Maven archetype feature to generate the scaffolding for
    <dependency>
        <groupId>org.redisson</groupId>
        <artifactId>redisson</artifactId>
-       <version>3.27.0</version> <!-- {x-version-update;org.redisson:redisson;external_dependency} -->
+       <version>3.36.0</version> <!-- {x-version-update;org.redisson:redisson;external_dependency} -->
    </dependency>
    ```
 

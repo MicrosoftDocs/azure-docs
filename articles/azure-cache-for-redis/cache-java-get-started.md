@@ -69,13 +69,13 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-identity</artifactId>
-        <version>1.11.2</version> <!-- {x-version-update;com.azure:azure-identity;dependency} -->
+        <version>1.15.0</version> <!-- {x-version-update;com.azure:azure-identity;dependency} -->
     </dependency>
 
     <dependency>
         <groupId>redis.clients</groupId>
         <artifactId>jedis</artifactId>
-        <version>5.1.0</version>  <!-- {x-version-update;redis.clients:jedis;external_dependency} -->
+        <version>5.2.0</version> <!-- {x-version-update;redis.clients:jedis;external_dependency} -->
     </dependency>
     ```
 
@@ -87,7 +87,7 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
     <dependency>
         <groupId>redis.clients</groupId>
         <artifactId>jedis</artifactId>
-        <version>5.1.0</version>  <!-- {x-version-update;redis.clients:jedis;external_dependency} -->
+        <version>5.2.0</version> <!-- {x-version-update;redis.clients:jedis;external_dependency} -->
     </dependency>
     ```
 
