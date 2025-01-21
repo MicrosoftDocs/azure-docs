@@ -8,7 +8,7 @@ ms.topic: concept-article
 ms.date: 01/21/2025
 ms.author: abell
 ---
-# Types of attacks Azure DDoS Protection mitigates
+# Types of attacks Azure DDoS Protection mitigate
 
 Azure DDoS Protection can mitigate the following types of attacks:
 
@@ -31,7 +31,7 @@ Azure DDoS Protection can mitigate the following types of attacks:
     | **Ping of Death**              | Sends malformed or oversized packets to crash or destabilize the target system. |
     | **Smurf Attack**               | Uses ICMP echo requests to flood the target with traffic by exploiting network devices. |
 
-- **Resource (application) layer attacks**: These attacks target web application packets, to disrupt the transmission of data between hosts. They include HTTP protocol violations, SQL injection, cross-site scripting, and other layer 7 attacks. Use a Web Application Firewall, such as the Azure [Application Gateway web application firewall](../web-application-firewall/ag/ag-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), as well as DDoS Protection to provide defense against these attacks. There are also third-party web application firewall offerings available in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall). Common attacks types are listed in the following table.
+- **Resource (application) layer attacks**: These attacks target web application packets, to disrupt the transmission of data between hosts. They include HTTP protocol violations, SQL injection, cross-site scripting, and other layer 7 attacks. Use a Web Application Firewall, such as the Azure [Application Gateway web application firewall](../web-application-firewall/ag/ag-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), and DDoS Protection to provide defense against these attacks. There are also third-party web application firewall offerings available in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall). Common attacks types are listed in the following table.
 
 
     | **Attack Type**                | **Description**                                                                 |
@@ -39,9 +39,9 @@ Azure DDoS Protection can mitigate the following types of attacks:
     | **BGP Hijacking**              | Involves taking control of a group of IP addresses by corrupting Internet routing tables. |
     | **Slowloris**                  | Keeps many connections to the target web server open and holds them open as long as possible. |
     | **Slow Post**                  | Sends HTTP POST headers that are incomplete, causing the server to wait for the rest of the data. |
-    | **Slow Read**                  | Reads responses from the server very slowly, causing the server to keep the connection open. |
+    | **Slow Read**                  | Reads responses from the server slowly, causing the server to keep the connection open. |
     | **HTTP(/s) Flooding**          | Floods the target with HTTP requests, overwhelming the server's ability to respond. |
-    | **Low and Slow attack**        | Uses a small number of connections to slowly send or request data, evading detection. |
+    | **Low and Slow attack**        | Uses a few connections to slowly send or request data, evading detection. |
     | **Large Payload POST**         | Sends large payloads in HTTP POST requests to exhaust server resources. |
 
 
