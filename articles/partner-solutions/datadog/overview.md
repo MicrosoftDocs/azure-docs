@@ -2,7 +2,7 @@
 title: Datadog overview
 description: Discover Datadog, a monitoring and analytics platform for large-scale applications integrated with Azure for streamlined management and enhanced performance.
 ms.topic: overview
-ms.date: 12/11/2024
+ms.date: 01/17/2025
 ms.custom:
   - ai-gen-docs-bap
   - ai-gen-desc
@@ -11,7 +11,9 @@ ms.custom:
 
 # What is Datadog?
 
-Azure Native Integrations enable you to easily create, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Microsoft and Datadog developed and manage this service.
+[!INCLUDE [what-is](../includes/what-is.md)]
+
+Microsoft and [Datadog](https://www.datadoghq.com/) developed this service and manage it together.
 
 You can find Datadog in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview).
 
@@ -32,6 +34,12 @@ Datadog provides the following capabilities:
 - **Metrics collection** - Automatically send all Azure resource metrics to Datadog.
 - **Datadog agent deployment** - Provides a unified management experience of Datadog agents. Install and uninstall Datadog agents as extensions on Virtual Machines and Azure App Services.
 
+## Subscribe to Datadog
+
+[!INCLUDE [subscribe](../includes/subscribe.md)] *Datadog*.
+
+[!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
+
 ## Datadog links
 
 For more help using the Datadog, see the following links to the [Datadog website](https://www.datadoghq.com/):
@@ -42,11 +50,4 @@ For more help using the Datadog, see the following links to the [Datadog website
 
 ## Next steps
 
-- To create an instance of Datadog, see [QuickStart: Get started with Datadog](create.md).
-- Get started with Datadog on
-
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors)
-
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview)
+- [QuickStart: Get started with Datadog](create.md)

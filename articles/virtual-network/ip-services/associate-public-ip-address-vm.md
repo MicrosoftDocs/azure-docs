@@ -226,10 +226,14 @@ Before you can connect to a public IP address from the internet, you must open t
 
 You can view the effective security rules for a network interface and its subnet for the [Azure portal](../../virtual-network/diagnose-network-traffic-filter-problem.md#diagnose-using-azure-portal), the [Azure CLI](../../virtual-network/diagnose-network-traffic-filter-problem.md#diagnose-using-azure-cli), or [Azure PowerShell](../../virtual-network/diagnose-network-traffic-filter-problem.md#diagnose-using-powershell).
 
+## Limits
+* If a new public IP address is added to the VM and traffic needs to switch over to the new IP address, the VM needs to be restarted as this will reset all existing flows. 
+
 ## Next steps
 
 In this article, you learned how to associate a public IP address to a VM using the Azure portal, Azure CLI, or Azure PowerShell.
 
 - Use a [network security group](../../virtual-network/network-security-groups-overview.md) to allow inbound internet traffic to your VM.
+- 
 
 - Learn how to [create a network security group](../../virtual-network/manage-network-security-group.md#work-with-network-security-groups).
