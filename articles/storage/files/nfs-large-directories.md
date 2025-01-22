@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 05/09/2024
+ms.date: 01/22/2025
 ms.author: kendownie
 ---
 
@@ -67,6 +67,57 @@ For example, if you're directly calling the `ls` binary in Ubuntu, you would run
 The following chart compares the time it takes to output results using unaliased, unsorted `ls` versus sorted `ls`.
 
 :::image type="content" source="media/nfs-large-directories/sorted-versus-unsorted-ls.png" alt-text="Graph comparing the total time in seconds to complete a sorted ls operation versus unsorted." border="false":::
+
+### Increase the number of hash buckets
+
+The total amount of RAM present on the system doing the enumeration influences the internal working of filesystem protocols like NFS. Even if users aren't experiencing high memory usage, the amount of memory available influences the amount of hash buckets the system has, which impacts/improves enumeration performance for large directories. You can modify the amount of hash buckets the system has to reduce the hash collisions that can occur during large enumeration workloads.
+
+To do this, you'll need to modify your boot configuration settings by providing an additional kernel command that takes effect during boot to increase the number of hash buckets. Follow these steps.
+
+1. Edit the /etc/default/grub file.
+
+```bash
+sudo vim /etc/default/grub
+```
+
+1. Add the following text to the file. This command will set apart 128MB as the hash table size, increasing system memory consumption by a maximum of 128MB.
+
+```bash
+GRUB_CMDLINE_LINUX="ihash_entries=16777216"
+```
+
+If `GRUB_CMDLINE_LINUX` already exists, add `ihash_entries=16777216` separated by a space, like this:
+
+```bash
+GRUB_CMDLINE_LINUX="<previous commands> ihash_entries=16777216"
+```
+
+1. To apply the changes, run:
+
+```bash
+sudo update-grub2
+```
+
+1. Restart the system:
+
+```bash
+sudo reboot
+```
+
+1. To verify that the changes have taken effect, once the system reboots, check the kernel cmdline commands:
+
+```bash
+cat /proc/cmdline
+```
+
+If `ihash_entries` is visible, the system has applied the setting, and enumeration performance should improve exponentially.
+
+You can also check the dmesg output to see if the kernel cmdline was applied:
+
+```bash
+dmesg | grep "Inode-cache hash table"
+Inode-cache hash table entries: 16777216 (order: 15, 134217728 bytes, linear)
+```
 
 ## File copy and backup operations
 
