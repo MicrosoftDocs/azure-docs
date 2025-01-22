@@ -12,7 +12,7 @@ ms.author: anfdocs
 ms.custom: references_regions
 ---
 
-# Manage file access logs in Azure NetApp Files
+# Manage file access logs in Azure NetApp Files (preview)
 
 File access logs provide file access logging for individual volumes, capturing file system operations on selected volumes. The logs capture [standard file operation](#recognized-events). File access logs are provided on top of the platform logging captured in the [Azure Activity Log](/azure/azure-monitor/essentials/activity-log). This article describes how to manage file access logs using Azure NetApp Files. 
 
@@ -21,7 +21,7 @@ File access logs provide file access logging for individual volumes, capturing f
 ## Considerations
 
 >[!IMPORTANT]
->File access logs is only supported on volumes using SMB3, NFSv4.1, and dual protocols. It's not supported on NFSv3 volumes. 
+>SMB3, NFSv4.1, and dual protocols are the only supported protocols for file access logs. It's not supported on NFSv3 volumes. 
 
 * Once file access logs are enabled on a volume, they can take up to 75 minutes to become visible. 
 * Each log entry consumes approximately 1 KB of space.
@@ -35,13 +35,11 @@ File access logs provide file access logging for individual volumes, capturing f
 * All file access log file access events have a performance impact.
     * Events such as file/folder creation/deletion are key events to log. 
     * System access control list (SACL) settings for logging should be used sparingly. Frequent operations (for example, READ or GET) can have significant performance impact, but have limited logging value. It's recommended that SACL setting shouldn't log these frequent operations to conserve performance. 
-    * SACL settings are subject to change – certain settings may have to be disabled to minimize performance impacts to the region. Examples would be disabling of the “List Folder/read data” and “Read permissions” to minimize performance/resource impacts during Private Preview. 
+    * SACL settings are subject to change – certain settings may have to be disabled to minimize performance impacts to the region. Examples would be disabling of the "List Folder/read data" and "Read permissions" to minimize performance/resource impacts during Private Preview. 
     * SACL policy additions aren't currently supported with file access logs. 
-* Clubbing of events such as READ/WRITE only handful of operation per file read or write will be captured to reduce event logging rate.  
+* When clubbing events such as READ/WRITE, only a handful of operation per file read or write are captured to reduce event logging rate.  
 * You can monitor activity logs to find out if the rate of events is more and events are getting dropped by FAL service.  <!-- ? -->
-
-* If the rate of file access event generation exceeds the internal limit <!-- what is the internal limit -->, disable non-critical auditing ACLs to reduce the rate. Leaving non-critical auditing ACLs can result in access events being dropped from the logs. 
-
+* If the rate of file access event generation exceeds the internal limit, <!-- what is the internal limit --> disable noncritical auditing ACLs to reduce the rate. Leaving noncritical auditing ACLs can result in access events being dropped from the logs. 
 * If the rate of event generation is greater than 128 MiB/minute for your subscription, logging events might be delayed and eventually dropped. 
 * During migration or robocopy operations, disable file access logs to reduce log generation. 
 * Volumes with file access logs enabled should be grouped separately from volumes without file access logs. Contact your account specialists for assistance. 
@@ -92,7 +90,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Supported regions
 
-While in preview, file access logs is supported in:
+While in preview, availability for file access log is limited to the following regions: 
 
 * East US 2
 * Japan East
@@ -150,7 +148,7 @@ For NFSv4.1, both discretionary and system ACEs are stored in the same ACL, not 
 
 1. In the **Volumes** menu, select the volume on which you want to disable file access logs.
 2. Select the **Diagnostic setting** menu from the left-hand pane. 
-3. In the **Diagnostic settings** page, deselect **Audit**. This will automatically deselect **ANFFileAccess**.
+3. In the **Diagnostic settings** page, deselect **Audit**. This automatically deselects **ANFFileAccess**.
 4. Select **Save**. 
 
 >[!NOTE]
