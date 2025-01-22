@@ -3,7 +3,7 @@ title: Troubleshoot Azure VM file recovery
 description: Troubleshoot issues when recovering files and folders from an Azure VM backup.
 ms.topic: troubleshooting
 ms.custom: linux-related-content
-ms.date: 07/12/2020
+ms.date: 01/31/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -173,6 +173,19 @@ If the protected Linux VM uses LVM or RAID Arrays, follow the steps in [Recover 
 The copy might fail with the error "0x80070780: The file cannot be accessed by the system."
 
 Check if the source server has disk deduplication enabled. If it does, ensure the restore server also has deduplication enabled on the drives. You can leave deduplication unconfigured so that you don't deduplicate the drives on the restore server.
+
+### Unmount stuck disks on Windows
+
+To resolve this issue, follow these steps:
+
+1. Open **ISCSI initiator Properties** window on Azure VM where mounted disks are present.
+2. On the **ISCSI initiator Properties** window, select **Devices** and check the **Name** of the disk that you want to unmount.
+
+
+
+
+3. Go back to **ISCSI initiator Properties** window, select **Disconnect** > **Yes**.
+4. Check if the  target **Name** shows **Status : Inactive**.
 
 ## Next steps
 
