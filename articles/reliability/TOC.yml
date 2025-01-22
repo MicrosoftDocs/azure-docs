@@ -4,6 +4,8 @@
   href: overview.md
 - name: Reliability fundamentals
   items:
+  - name: Business continuity, high availability, and disaster recovery
+    href: concept-business-continuity-high-availability-disaster-recovery.md
   - name: Shared responsibility for resiliency
     href: concept-shared-responsibility.md
   - name: Azure service incident response
@@ -88,12 +90,6 @@
         href: migrate-vm.md
       - name: Workload - Azure Kubernetes and MySQL
         href: migrate-workload-aks-mysql.md
-- name: Disaster recovery
-  items:
-  - name: What is disaster recovery?
-    href: disaster-recovery-overview.md
-  - name: Business continuity management program
-    href: business-continuity-management-program.md
 - name: Reliability guides by service
   items:
   - name: Overview
