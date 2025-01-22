@@ -1,8 +1,9 @@
 ---
-title: Create, view, and manage system topics in Azure Event Grid (portal)
+title: Manage system topics in Azure Event Grid (portal)
 description: This article shows how view existing system topic, create Azure Event Grid system topics using the Azure portal. 
 ms.topic: how-to
 ms.date: 01/21/2025
+# Customer intent: I want to know how to create, manage, and delete Azure Event Grid system topics in the Azure portal. 
 ---
 
 # Create, view, and manage Event Grid system topics in the Azure portal
@@ -57,5 +58,5 @@ Follow these steps to view all existing Event Grid system topics.
 3. On the confirmation page, select **OK** to confirm the deletion. It deletes the system topic and also all the event subscriptions for the system topic.  
 
 
-## Next steps
+## Related content
 See the [System topics in Azure Event Grid](system-topics.md) section to learn more about system topics and topic types supported by Azure Event Grid. 

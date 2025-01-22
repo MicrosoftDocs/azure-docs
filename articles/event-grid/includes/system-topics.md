@@ -1,11 +1,11 @@
 ---
- title: include file
- description: include file
+ title: View all Azure Event Grid system topics
+ description: Provides instructions to view all Azure Event Grid system topics. 
  services: event-grid
  author: spelluru
  ms.service: event-grid
  ms.topic: include
- ms.date: 11/30/2023
+ ms.date: 01/21/2025
  ms.author: spelluru
  ms.custom: include file
 ---
@@ -23,7 +23,7 @@
 
     This page shows you details about the system topic such as the following information: 
     - Source. Name of the resource on which the system topic was created.
-    - Source type. Type of the resource. For example: `Microsoft.Storage.StorageAccounts`, `Microsoft.EventHub.Namespaces`, `Microsoft.Resources.ResourceGroups` and so on.
+    - Source type. Type of the resource. For example: `Microsoft.Storage.StorageAccounts`, `Microsoft.EventHub.Namespaces`, `Microsoft.Resources.ResourceGroups`, and so on.
     - Any subscriptions created for the system topic.
 
     This page allows operations such as the following ones:
