@@ -2,9 +2,9 @@
 title: Manage Azure Backup for Azure PostgreSQL - Flexible servers
 description: Learn about managing backup for the Azure PostgreSQL - Flexible servers from the Azure portal.
 ms.topic: how-to
-ms.date: 02/17/2025
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 02/22/2025
+author: jyothisuri
+ms.author: jsuri
 ms.service: azure-backup
 ms.custom: engagement-fy24, ignite-2024
 ---

@@ -7,8 +7,8 @@ ms.custom:
 ms.topic: quickstart
 ms.date: 02/17/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 #  Back up an Azure PostgreSQL - Flexible servers with an Azure Resource Manager template

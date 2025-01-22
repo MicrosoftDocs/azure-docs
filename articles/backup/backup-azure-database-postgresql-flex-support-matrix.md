@@ -5,8 +5,8 @@ ms.topic: reference
 ms.date: 02/17/2025
 ms.custom: references_regions, ignite-2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Support matrix for Azure Database for PostgreSQL- Flexible server

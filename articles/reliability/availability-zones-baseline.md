@@ -1,7 +1,7 @@
 ---
 title: Azure availability zone migration baseline
 description: Learn how to assess the availability-zone readiness of your application for the purposes of migrating from non-availability zone to availability zone support.
-author: sonmitt
+author: anaharris-ms
 ms.service: azure
 ms.subservice: azure-availability-zones
 ms.topic: conceptual
@@ -66,7 +66,7 @@ Below are three important questions that will help you choose the correct availa
 
 #### Does your application include latency sensitive components?
 
-Azure availability zones within the same Azure region are connected by a high-performance network [with a round-trip latency of less than approximately 1.2 ms](/azure/reliability/availability-zones-overview#availability-zones).
+Azure availability zones within the same Azure region are connected by a high-performance network [with a low round-trip latency time](/azure/reliability/availability-zones-overview).
 
 The recommended approach to achieving high availability, if low latency isn't a strict requirement, is to configure your workload with a zone redundant deployment.
 

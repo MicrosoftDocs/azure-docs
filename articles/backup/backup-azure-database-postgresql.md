@@ -4,8 +4,8 @@ description: Learn about Azure Database for PostgreSQL backup with long-term ret
 ms.topic: how-to
 ms.date: 06/19/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Azure Database for PostgreSQL backup with long-term retention

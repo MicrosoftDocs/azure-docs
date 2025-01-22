@@ -7,7 +7,7 @@ manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 09/22/2024
+ms.date: 01/21/2025
 ms.author: mbaldwin
 
 ---
@@ -168,6 +168,16 @@ A [Network Security Group (NSG)](../../virtual-network/virtual-network-vnet-plan
 [Azure Firewall](../../firewall/overview.md) is a cloud-native and intelligent network firewall security service that provides threat protection for your cloud workloads running in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. It provides both east-west and north-south traffic inspection.
 
 Azure Firewall is offered in two SKUs: Standard and Premium. [Azure Firewall Standard](../../firewall/features.md) provides L3-L7 filtering and threat intelligence feeds directly from Microsoft Cyber Security. [Azure Firewall Premium](../../firewall/premium-features.md) provides advanced capabilities include signature-based IDPS to allow rapid detection of attacks by looking for specific patterns.
+
+#### Azure DDoS Protection
+
+[Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md), combined with application design best practices, offers enhanced features to defend against DDoS attacks. It is automatically tuned to protect your specific Azure resources in a virtual network. Enabling protection is simple on any new or existing virtual network and requires no changes to your applications or resources.
+
+Azure DDoS Protection offers two tiers: DDoS Network Protection and DDoS IP Protection.
+
+* DDoS Network Protection  provides enhanced features to defend against Distributed Denial of Service (DDoS) attacks. It operates at network layers 3 and 4 and includes advanced features such as DDoS rapid response support, cost protection, and discounts on Web Application Firewall (WAF).
+
+* DDoS IP Protection follows a pay-per-protected IP model. It includes the same core engineering features as DDoS Network Protection but does not offer the additional services like DDoS rapid response support, cost protection, and WAF discounts. 
 
 #### Route Control and Forced Tunneling
 
