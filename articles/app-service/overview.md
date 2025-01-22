@@ -24,7 +24,7 @@ With App Service, you pay for the Azure compute resources you use. The compute r
 
 Azure App Service is a fully managed platform as a service (PaaS) offering for developers. Here are some key features of App Service:
 
-* **Multiple languages and frameworks** - App Service has first-class support for ASP.NET, ASP.NET Core, Java, Node.js, PHP, and Python. You can also run [PowerShell and other scripts or executables](webjobs-create.md) as background services.
+* **Multiple languages and frameworks** - App Service has first-class support for ASP.NET, ASP.NET Core, Java, Node.js, Python, and PHP. You can also run [PowerShell and other scripts or executables](webjobs-create.md) as background services.
 * **Managed production environment** - App Service automatically [patches and maintains the OS and language frameworks](overview-patch-os-runtime.md) for you. Spend time writing great apps and let Azure worry about the platform.
 * **Containerization and Docker** - Dockerize your app and host a custom Windows or Linux container in App Service. Run sidecar containers of your choice. Migrate your Docker skills directly to App Service.
 * **DevOps optimization** - Set up [continuous integration and deployment](deploy-continuous-deployment.md) with Azure DevOps, GitHub, BitBucket, Docker Hub, or Azure Container Registry. Promote updates through [test and staging environments](deploy-staging-slots.md). Manage your apps in App Service by using [Azure PowerShell](/powershell/azure/) or the [cross-platform command-line interface (CLI)](/cli/azure/install-azure-cli).
