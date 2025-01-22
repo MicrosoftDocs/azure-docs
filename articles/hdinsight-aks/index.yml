@@ -9,6 +9,7 @@ metadata:
   ms.topic: landing-page # Required
   author: yeturis
   ms.author: sairamyeturi
+  ROBOTS: NOINDEX
   ms.date: 08/29/2023 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new

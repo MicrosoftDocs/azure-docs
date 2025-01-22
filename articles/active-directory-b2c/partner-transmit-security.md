@@ -444,5 +444,5 @@ Using the directory with your Azure AD B2C tenant, test your custom policy:
 
 ## Next steps
 
-* Ask questions on [Stackoverflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
+* Ask questions on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 * Check out the [Azure AD B2C custom policy overview](custom-policy-overview.md)
