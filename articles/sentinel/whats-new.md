@@ -23,8 +23,29 @@ Get notified when this page is updated by copying and pasting the following URL 
 
 ## January 2025
 
+- [Threat intelligence upload API now supports more STIX objects](#microsoft-sentinel-threat-intelligence-supports-more-stix-objects-than-just-indicators)
+- [Microsoft Defender Threat Intelligence data connectors now generally available (GA)](#)
 - [Bicep template support for repositories (Preview)](#bicep-template-support-for-repositories-preview)
 - [View granular solution content in the Microsoft Sentinel content hub](#view-granular-solution-content-in-the-microsoft-sentinel-content-hub)
+
+### Threat intelligence upload API now supports more STIX objects
+
+Make the most of your threat intelligence platforms when you connect them to Microsoft Sentinel with the upload API. Now you can ingest more objects than just indicators, reflecting the varied threat intelligence available. The upload API supports the following:
+
+- `indicator`
+- `attack-pattern`
+- `identity`
+- `threat-actor`
+- `relationship`
+
+For more information, see [Connect your threat intelligence platform with the STIX objects API](connect-threat-intelligence-upload-api.md) and [Import threat intelligence to Microsoft Sentinel with the STIX objects API (Preview)](stix-objects-api.md).
+
+### Microsoft Defender Threat Intelligence data connectors now generally available (GA)
+
+Both the premium and standard Microsoft Defender Threat Intelligence data connectors are now generally available (GA) in content hub. For more information, see the following articles:
+
+- [Explore Defender Threat Intelligence licenses](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-threat-intelligence#areaheading-oc8e7d)
+- [Enable the Microsoft Defender Threat Intelligence data connector](connect-mdti-data-connector.md)
 
 ### Bicep template support for repositories (Preview)
 Use Bicep templates alongside or as a replacement of ARM JSON templates in Microsoft Sentinel repositories. Bicep provides an intuitive way to create templates of Azure resources and Microsoft Sentinel content items. Not only is it easier to develop new content items, Bicep makes reviewing and updating content easier for anyone that's a part of the continuous integration and delivery of your Microsoft Sentinel content.

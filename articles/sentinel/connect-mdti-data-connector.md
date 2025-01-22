@@ -31,7 +31,7 @@ For more information about the benefits of the standard and premium Defender Thr
 - To configure these data connectors, you must have read and write permissions to the Microsoft Sentinel workspace.
 - To access threat intelligence from the premium version of the Defender Threat Intelligence data connector, contact sales to purchase the **MDTI API Access** SKU. 
 
-For more information on how to get a premium license and explore all the differences between the standard and premium versions, see [Explore Defender Threat Intelligence licenses](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-threat-intelligence#sku-cards-oc08ed).
+For more information on how to get a premium license and explore all the differences between the standard and premium versions, see [Explore Defender Threat Intelligence licenses](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-threat-intelligence#areaheading-oc8e7d).
 
 ## Install the threat intelligence solution in Microsoft Sentinel
 
