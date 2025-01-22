@@ -4,8 +4,8 @@ description: In this article, discover solutions for issues that you might encou
 ms.topic: troubleshooting
 ms.date: 10/21/2022
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Troubleshoot System Center Data Protection Manager

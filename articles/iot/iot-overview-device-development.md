@@ -6,7 +6,7 @@ services: iot
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 02/28/2024
+ms.date: 01/20/2025
 ms.custom: template-overview
 # Customer intent: As a solution builder or asset/device developer I want a high-level overview of the issues around asset and device development so that I can easily find relevant content.
 ---
@@ -18,6 +18,8 @@ This overview introduces the key concepts around developing assets and devices t
 # [Edge-based solution](#tab/edge)
 
 The following diagram shows a high-level view of the components in a typical edge-based IoT solution. This article focuses on the assets and connectors shown in the diagram:
+
+<!-- Art Library Source# ConceptArt-0-000-025 -->
 
 :::image type="content" source="media/iot-overview-device-development/iot-edge-device-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting asset connectivity areas." border="false":::
 
@@ -32,6 +34,8 @@ You can create your own, custom connectors to connect to assets that use protoco
 # [Cloud-based solution](#tab/cloud)
 
 The following diagram shows a high-level view of the components in a typical cloud-based IoT solution. This article focuses on the devices and gateway shown in the diagram:
+
+<!-- Art Library Source# ConceptArt-0-000-025 -->
 
 :::image type="content" source="media/iot-overview-device-development/iot-cloud-device-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting device connectivity areas." border="false":::
 

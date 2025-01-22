@@ -5,8 +5,8 @@ ms.topic: overview
 ms.date: 11/21/2024
 ms.service: azure-backup
 ms.custom: engagement-fy23
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Long-term retention for Azure Database for MySQL - Flexible Server by using Azure Backup (preview)
