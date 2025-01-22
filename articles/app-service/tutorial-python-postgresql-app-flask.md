@@ -115,7 +115,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 2. Create App Service and PostgreSQL
 
-In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Database for PostgreSQL. For the creation process, you'll specify:
+In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Database for PostgreSQL. For the creation process, you specify:
 
 * The **Name** for the web app. It's used as part of the DNS name for your app in the form of `https://<app-name>-<hash>.<region>.azurewebsites.net`.
 * The **Region** to run the app physically in the world. It's also used as part of the DNS name for your app.
@@ -677,7 +677,7 @@ If you can't connect to the SSH session, then the app itself has failed to start
 
 #### I get an error when running database migrations
 
-If you encounter any errors related to connecting to the database, check if the app settings (`AZURE_POSTGRESQL_USER`, `AZURE_POSTGRESQL_PASSWORD`, `AZURE_POSTGRESQL_HOST`, and `AZURE_POSTGRESQL_NAME`) have been changed. Without that connection string, the migrate command can't communicate with the database. 
+If you encounter any errors related to connecting to the database, check if the app settings (`AZURE_POSTGRESQL_USER`, `AZURE_POSTGRESQL_PASSWORD`, `AZURE_POSTGRESQL_HOST`, and `AZURE_POSTGRESQL_NAME`) were changed or deleted. Without that connection string, the migrate command can't communicate with the database. 
 
 ## Frequently asked questions
 
