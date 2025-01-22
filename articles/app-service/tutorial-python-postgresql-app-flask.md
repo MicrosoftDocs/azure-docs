@@ -83,7 +83,7 @@ First, you set up a sample data-driven app as a starting point. For your conveni
         **Step 2:** In the GitHub fork:
         1. Select **main** > **starter-no-infra** for the starter branch. This branch contains just the sample project and no Azure-related files or configuration.
         1. Select **Code** > **Create codespace on starter-no-infra**.
-        The codespace takes a few minutes to set up.
+        The codespace takes a few minutes to set up, and it runs `pip install -r requirements.txt` for your repository at the end.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app-flask/azure-portal-run-sample-application-2.png" alt-text="A screenshot showing how to create a codespace in GitHub." lightbox="./media/tutorial-python-postgresql-app-flask/azure-portal-run-sample-application-2.png":::
@@ -143,7 +143,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Region*: Any Azure region near you.
         1. *Name*: **msdocs-python-postgres-XYZ**.
         1. *Runtime stack*: **Python 3.12**.
-        1. *Database* &rarr;  **PostgreSQL - Flexible Server** is selected by default as the database engine. The server name and database name are also set by default to appropriate values.
+        1. *Database*: **PostgreSQL - Flexible Server** is selected by default as the database engine. The server name and database name are also set by default to appropriate values.
         1. *Add Azure Cache for Redis?*: **No**.
         1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier.
         1. Select **Review + create**.
@@ -318,7 +318,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
         **Step 4 (Option 1: with GitHub Copilot):**  
         1. Start a new chat session by selecting the **Chat** view, then selecting **+**.
         1. Ask, "*@workspace How does the app connect to the database?*" Copilot might give you some explanation about `SQLAlchemy` how it's connection URI is configured in *azureproject/development.py* and *azureproject/production.py*. 
-        1. Ask, "@workspace In production mode, my app is running in an App Service web app, which uses Azure Service Connector to connect to a PostgreSQL flexible server using the Django client type. What are the environment variable names i need to use?*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *azureproject/production.py* file. 
+        1. Ask, "@workspace In production mode, my app is running in an App Service web app, which uses Azure Service Connector to connect to a PostgreSQL flexible server using the Django client type. What are the environment variable names I need to use?*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *azureproject/production.py* file. 
         1. Open *azureproject/production.py* in the explorer and add the code suggestion.
         GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
     :::column-end:::
@@ -532,6 +532,11 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     - **Log Analytics workspace**: Acts as the target container for your app to ship its logs, where you can also query the logs.
     - **Azure Cache for Redis**: Accessible only from behind its private endpoint.
     - **Key vault**: Accessible only from behind its private endpoint. Used to manage secrets for the App Service app.
+
+Once the command finishes creating resources and deploying the application code the first time, the deployed sample app doesn't work yet because you must make small changes to make it connect to the database in Azure.
+
+Having issues? Check the [Troubleshooting section](#troubleshooting).
+
 ## 3. Use the database connection string
 
 The AZD template you use generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings) and outputs the them to the terminal for your convenience. App settings are one way to keep connection secrets out of your code repository.
@@ -539,20 +544,43 @@ The AZD template you use generated the connectivity variables for you already as
 1. In the AZD output, find the app settings and find the settings `AZURE_POSTGRESQL_USER`, `AZURE_POSTGRESQL_PASSWORD`, `AZURE_POSTGRESQL_HOST`, and `AZURE_POSTGRESQL_NAME`. To keep secrets safe, only the setting names are displayed. They look like this in the azd output:
 
     <pre>
-    App Service app has the following settings:
+App Service app has the following connection settings:
+        - AZURE_POSTGRESQL_NAME
+        - AZURE_POSTGRESQL_HOST
         - AZURE_POSTGRESQL_USER
         - AZURE_POSTGRESQL_PASSWORD
-        - AZURE_POSTGRESQL_HOST
-        - AZURE_POSTGRESQL_NAME
         - AZURE_REDIS_CONNECTIONSTRING
         - AZURE_KEYVAULT_RESOURCEENDPOINT
         - AZURE_KEYVAULT_SCOPE
-        - FLASK_DEBUG
-        - SCM_DO_BUILD_DURING_DEPLOYMENT
-        - SECRET_KEY
     </pre>
 
-1. You need to use the four app settings for connectivity in App service. Open *azureproject/production.py*, uncomment the following lines, and save the file:
+1. For your convenience, the AZD template shows you the direct link to the app's app settings page. Find the link and open it in a new browser tab.
+
+Having issues? Check the [Troubleshooting section](#troubleshooting).
+
+## 4. Modify sample code and redeploy
+
+# [With GitHub Copilot](#tab/copilot)
+
+1. In the GitHub codespace, start a new chat session by selecting the **Chat** view, then selecting **+**. 
+
+1. Ask, "*@workspace How does the app connect to the database?*" Copilot might give you some explanation about `SQLAlchemy` how it's connection URI is configured in *azureproject/development.py* and *azureproject/production.py*. 
+
+1. Ask, "@workspace In production mode, my app is running in an App Service web app, which uses Azure Service Connector to connect to a PostgreSQL flexible server using the Django client type. What are the environment variable names I need to use?*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *azureproject/production.py* file. 
+
+1. Open *azureproject/production.py* in the explorer and add the code suggestion.
+
+    GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
+
+1. In the terminal, run `azd deploy`.
+ 
+    ```bash
+    azd deploy
+    ```
+
+# [Without GitHub Copilot](#tab/nocopilot)
+
+1. You need to use the four app settings for connectivity in App service. Open *azureproject/production.py*, uncomment the following lines (lines 3-8), and save the file:
 
     ```python
     DATABASE_URI = 'postgresql+psycopg2://{dbuser}:{dbpass}@{dbhost}/{dbname}'.format(
@@ -565,13 +593,18 @@ The AZD template you use generated the connectivity variables for you already as
     
     Your application code is now configured to connect to the PostgreSQL database in Azure. If you want, open `app.py` and see how the `DATABASE_URI` environment variable is used.
 
-Having issues? Check the [Troubleshooting section](#troubleshooting).
-
 1. In the terminal, run `azd deploy`.
  
     ```bash
     azd deploy
     ```
+
+> [!NOTE]
+> If you run `azd up`, it combines `azd package`, `azd provision`, and `azd deploy`. The reason you didn't do it at the beginning was because you didn't have the PostgreSQL connection settings for to modify your code with yet. If you ran `azd up` then, the deploy stage would stall because the Gunicorn server wouldn't be able to start the app without valid connection settings.
+
+-----
+
+Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 5. Generate database schema
 
@@ -654,6 +687,9 @@ If you encounter any errors related to connecting to the database, check if the 
 - [How much does this setup cost?](#how-much-does-this-setup-cost)
 - [How do I connect to the PostgreSQL server that's secured behind the virtual network with other tools?](#how-do-i-connect-to-the-postgresql-server-thats-secured-behind-the-virtual-network-with-other-tools)
 - [How does local app development work with GitHub Actions?](#how-does-local-app-development-work-with-github-actions)
+- [How do I debug errors during the GitHub Actions deployment?](#how-do-i-debug-errors-during-the-github-actions-deployment)
+- [I don't have permissions to create a user-assigned identity](#i-dont-have-permissions-to-create-a-user-assigned-identity)
+- [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
 
 #### How much does this setup cost?
 
@@ -680,15 +716,15 @@ git commit -m "<some-message>"
 git push origin main
 ```
 
-### How do I debug errors during the GitHub Actions deployment?
+#### How do I debug errors during the GitHub Actions deployment?
 
-If a step fails in the autogenerated GitHub workflow file, try modifying the failed command to generate more verbose output. For example, you can get more output from any of the `dotnet` commands by adding the `-v` option. Commit and push your changes to trigger another deployment to App Service.
+If a step fails in the autogenerated GitHub workflow file, try modifying the failed command to generate more verbose output. For example, you can get more output from the `python` command by adding the `-d` option. Commit and push your changes to trigger another deployment to App Service.
 
-### I don't have permissions to create a user-assigned identity
+#### I don't have permissions to create a user-assigned identity
 
 See [Set up GitHub Actions deployment from the Deployment Center](deploy-github-actions.md#set-up-github-actions-deployment-from-the-deployment-center).
 
-### What can I do with GitHub Copilot in my codespace?
+#### What can I do with GitHub Copilot in my codespace?
 
 You might have noticed that the GitHub Copilot chat view was already there for you when you created the codespace. For your convenience, we include the GitHub Copilot chat extension in the container definition (see *.devcontainer/devcontainer.json*). However, you need a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor) (30-day free trial available). 
 
