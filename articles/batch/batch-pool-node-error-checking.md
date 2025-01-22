@@ -1,7 +1,7 @@
 ---
 title: Pool and node errors
 description: Learn about background operations, errors to check for, and how to avoid errors when you create Azure Batch pools and nodes.
-ms.date: 06/27/2024
+ms.date: 01/22/2025
 ms.topic: how-to
 ---
 
