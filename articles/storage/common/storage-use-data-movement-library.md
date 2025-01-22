@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 01/31/2025
+ms.date: 02/11/2025
 ms.author: pauljewell
 ms.subservice: storage-common-concepts
 ms.devlang: csharp
@@ -18,7 +18,9 @@ ms.custom: devx-track-csharp, devx-track-dotnet
 
 The Azure Storage Data Movement library is a cross-platform open source library that is designed for high performance uploading, downloading, and copying of blobs and files. The Data Movement library provides convenient methods that aren't available in the Azure Storage client library for .NET. These methods allow you to set the number of parallel operations, track transfer progress, resume a canceled transfer, and more.
 
-The Data Movement library is only available for .NET, and only supports Azure Blob Storage and Azure Files.
+The Data Movement library is only available for .NET, and only supports Azure Blob Storage and Azure Files. You should consider these limitations and other [known issues](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.DataMovement/KnownIssues.md#known-issues) when deciding whether to use the Data Movement library.
+
+If you're migrating code from the older **Microsoft.Azure.Storage.DataMovement** library (version 2.X.X) to the current **Azure.Storage.DataMovement** library (version 12.X.X), see the [Migration guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.DataMovement/MigrationGuide.md#migration-guide-from-microsoftazurestoragedatamovement-to-azurestoragedatamovement).
 
 [API reference docs](/dotnet/api/azure.storage.datamovement) | [Source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.DataMovement) | Samples: [Blobs](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement.Blobs/samples) / [Files](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement.Files.Shares/samples)
 
@@ -34,7 +36,7 @@ If you don't have an existing project, this section shows you how to set up a pr
 
 #### Install packages
 
-From your project directory, install packages for the Azure Storage Data Movement client library and the Azure Identity client library using the `dotnet add package` command. The Azure.Identity package is needed for passwordless connections to Azure services.
+From your project directory, install packages for the Azure Storage Data Movement client library and the Azure Identity client library using the `dotnet add package` command. The **Azure.Identity** package is needed for passwordless connections to Azure services.
 
 ```dotnetcli
 dotnet add package Azure.Storage.DataMovement
@@ -243,7 +245,7 @@ To resume a transfer, call the following method:
 
 - [TransferManager.ResumeTransferAsync](/dotnet/api/azure.storage.datamovement.transfermanager.resumetransferasync)
 
-Provide the transfer ID of the transfer that you want to resume. The transfer ID is a unique identifier for the transfer that's returned as part of the `TransferOperation` object when the transfer is started. If you don't know the transfer ID value, you can call [TransferManager.GetTransfersAsync](/dotnet/api/azure.storage.datamovement.transfermanager.gettransfersasync) to find the transfer and it's corresponding ID.
+Provide the transfer ID of the transfer that you want to resume. The transfer ID is a unique identifier for the transfer that's returned as part of the `TransferOperation` object when the transfer is started. If you don't know the transfer ID value, you can call [TransferManager.GetTransfersAsync](/dotnet/api/azure.storage.datamovement.transfermanager.gettransfersasync) to find the transfer and its corresponding ID.
 
 The following code example shows how to resume a transfer:
 
@@ -279,7 +281,7 @@ The `TransferStatus` property returns a [TransferStatus](/dotnet/api/azure.stora
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `HasCompletedSuccessfully` | Boolean | Represents if the transfer has completed successfully without any failure or skipped items. |
+| `HasCompletedSuccessfully` | Boolean | Represents if the transfer completes successfully without any failure or skipped items. |
 | `HasFailedItems` | Boolean | Represents if transfer has any failure items. If set to `true`, the transfer has at least one failure item. If set to `false`, the transfer currently has no failures. |
 | `HasSkippedItems` | Boolean | Represents if transfer has any skipped items. If set to `true`, the transfer has at least one skipped item. If set to `false`, the transfer currently has no skipped items. It's possible to never have any items skipped if `SkipIfExists` isn't enabled in [TransferOptions.CreationPreference](/dotnet/api/azure.storage.datamovement.transferoptions.creationpreference). |
 | `State` | [TransferState](/dotnet/api/azure.storage.datamovement.transferstate) | Defines the types of the state a transfer can have. See [TransferState](/dotnet/api/azure.storage.datamovement.transferstate) for details. |
@@ -329,18 +331,18 @@ BlobServiceClient client = new BlobServiceClient(
 BlobContainerClient containerClient = client.GetBlobContainerClient("sample-container");
 ```
 
-The following code example shows how to upload local directory contents to `sample-container` using `StartUploadDirectoryAsync`:
+The following code example shows how to upload local directory contents to `sample-container` using `UploadDirectoryAsync`:
 
 ```csharp
-TransferOperation transfer = await containerClient.StartUploadDirectoryAsync("local/directory/path");
+TransferOperation transfer = await containerClient.UploadDirectoryAsync("local/directory/path");
 
 await transfer.WaitForCompletionAsync();
 ```
 
-The following code example shows how to download the contents of `sample-container` to a local directory using `StartDownloadDirectoryAsync`:
+The following code example shows how to download the contents of `sample-container` to a local directory using `DownloadDirectoryAsync`:
 
 ```csharp
-TransferOperation transfer = await containerClient.StartDownloadToDirectoryAsync("local/directory/path");
+TransferOperation transfer = await containerClient.DownloadToDirectoryAsync("local/directory/path");
 
 await transfer.WaitForCompletionAsync();
 ```
