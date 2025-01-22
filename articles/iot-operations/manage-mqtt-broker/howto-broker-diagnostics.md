@@ -20,7 +20,7 @@ By using diagnostic settings, you can configure metrics, logs, and self-check fo
 
 ## Metrics
 
-Metrics provide information about the current and past health and status of the MQTT broker. These metrics are emitted in OpenTelemetry Protocol format (OTLP). You can convert them to Prometheus format by using an OpenTelemetry Collector and route them to Azure Managed Grafana dashboards by using Azure Monitor managed service for Prometheus. To learn more, see [Configure observability and monitoring](../configure-observability-monitoring/howto-configure-observability.md).
+Metrics provide information about the current and past health and status of the MQTT broker. These metrics are emitted in OpenTelemetry Protocol (OTLP) format. You can convert them to Prometheus format by using an OpenTelemetry Collector and route them to Azure Managed Grafana dashboards by using Azure Monitor managed service for Prometheus. To learn more, see [Configure observability and monitoring](../configure-observability-monitoring/howto-configure-observability.md).
 
 For the full list of metrics available, see [MQTT broker metrics](../reference/observability-metrics-mqtt-broker.md).
 

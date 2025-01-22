@@ -157,7 +157,7 @@ For example, to use a persistent volume with a capacity of 1 gigabyte, specify t
 
 An [emptyDir volume](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) is the least preferred option after persistent volume.
 
-Only use an `emptyDir` volume when you use a cluster with filesystem quotas. For more information, see details on the [Filesystem project quota tab](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-emphemeralstorage-consumption). If the feature isn't enabled, the cluster does periodic scanning that doesn't enforce any limit and allows the host node to fill disk space and mark the whole host node as unhealthy.
+Use an `emptyDir` volume only when you use a cluster with filesystem quotas. For more information, see the [Filesystem project quota tab](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-emphemeralstorage-consumption). If the feature isn't enabled, the cluster does periodic scanning that doesn't enforce any limit and allows the host node to fill disk space and mark the whole host node as unhealthy.
 
 For example, to use an `emptyDir` volume with a capacity of 1 gigabyte, specify the following parameters in your Broker resource:
 

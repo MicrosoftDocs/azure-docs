@@ -26,7 +26,7 @@ For a list of the available settings, see the [Broker](/rest/api/iotoperations/b
 > [!IMPORTANT]
 > This setting requires that you modify the Broker resource. It's configured only at initial deployment by using the Azure CLI or the Azure portal. A new deployment is required if Broker configuration changes are needed. To learn more, see [Customize default Broker](./overview-broker.md#customize-default-broker).
 
-To configure the scaling settings of an MQTT broker, specify the **cardinality** fields in the specification of the Broker resource during Azure IoT Operations deployment.
+To configure the scaling settings of the MQTT broker, specify the **cardinality** fields in the specification of the Broker resource during Azure IoT Operations deployment.
 
 ### Automatic deployment cardinality
 
@@ -60,7 +60,7 @@ To learn more, see [Azure CLI support for advanced MQTT broker configuration](ht
 
 The MQTT broker operator automatically deploys the appropriate number of pods based on the number of available nodes at the time of the deployment. This capability is useful for nonproduction scenarios where you don't need high availability or scale.
 
-However, this capability is *not* autoscaling. The operator doesn't automatically scale the number of pods based on the load. The operator only determines the initial number of pods to deploy based on the cluster hardware. As noted previously, cardinality is set only at initial deployment time. A new deployment is required if the cardinality settings need to be changed.
+This capability is *not* autoscaling. The operator doesn't automatically scale the number of pods based on the load. The operator determines the initial number of pods to deploy only based on the cluster hardware. As noted previously, cardinality is set only at initial deployment time. A new deployment is required if the cardinality settings need to be changed.
 
 ### Configure cardinality directly
 
@@ -131,7 +131,7 @@ The backend chain subfield defines the settings for the backend partitions. The 
 
 #### Considerations
 
-When you increase the cardinality values, the broker's capacity to handle more connections and messages generally improves, and it enhances high availability if there are pod or node failures. However, this increased capacity also leads to higher resource consumption. So, when you adjust cardinality values, consider the [memory profile settings](#configure-memory-profile) and broker's [CPU resource requests](#cardinality-and-kubernetes-resource-limits). Increasing the number of workers per frontend replica can help increase CPU core utilization if you discover that frontend CPU utilization is a bottleneck. Increasing the number of backend workers can help with the message throughput if backend CPU utilization is a bottleneck.
+When you increase the cardinality values, the broker's capacity to handle more connections and messages generally improves, and it enhances high availability if there are pod or node failures. This increased capacity also leads to higher resource consumption. So when you adjust cardinality values, consider the [memory profile settings](#configure-memory-profile) and broker's [CPU resource requests](#cardinality-and-kubernetes-resource-limits). Increasing the number of workers per frontend replica can help increase CPU core utilization if you discover that frontend CPU utilization is a bottleneck. Increasing the number of backend workers can help with the message throughput if backend CPU utilization is a bottleneck.
 
 For example, if your cluster has three nodes, each with eight CPU cores, then set the number of frontend replicas to match the number of nodes (3) and set the number of workers to 1. Set the number of backend partitions to match the number of nodes (3) and set the backend workers to 1. Set the redundancy factor as desired (2 or 3). Increase the number of frontend workers if you discover that frontend CPU utilization is a bottleneck. Remember that backend and frontend workers might compete for CPU resources with each other and other pods.
 
@@ -140,7 +140,7 @@ For example, if your cluster has three nodes, each with eight CPU cores, then se
 > [!IMPORTANT]
 > This setting requires you to modify the Broker resource. It's configured only at initial deployment by using the Azure CLI or the Azure portal. A new deployment is required if Broker configuration changes are needed. To learn more, see [Customize default Broker](./overview-broker.md#customize-default-broker).
 
-To configure the memory profile settings of an MQTT broker, specify the memory profile fields in the specification of the Broker resource during IoT Operations deployment.
+To configure the memory profile settings of the MQTT broker, specify the memory profile fields in the specification of the Broker resource during IoT Operations deployment.
 
 # [Portal](#tab/portal)
 
