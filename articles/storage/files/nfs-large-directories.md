@@ -74,50 +74,50 @@ The total amount of RAM present on the system doing the enumeration influences t
 
 To do this, you'll need to modify your boot configuration settings by providing an additional kernel command that takes effect during boot to increase the number of hash buckets. Follow these steps.
 
-1. Edit the /etc/default/grub file.
+1. Edit the `/etc/default/grub` file.
 
-```bash
-sudo vim /etc/default/grub
-```
+   ```bash
+   sudo vim /etc/default/grub
+   ```
 
-1. Add the following text to the file. This command will set apart 128MB as the hash table size, increasing system memory consumption by a maximum of 128MB.
+2. Add the following text to the file. This command will set apart 128MB as the hash table size, increasing system memory consumption by a maximum of 128MB.
 
-```bash
-GRUB_CMDLINE_LINUX="ihash_entries=16777216"
-```
+   ```bash
+   GRUB_CMDLINE_LINUX="ihash_entries=16777216"
+   ```
 
-If `GRUB_CMDLINE_LINUX` already exists, add `ihash_entries=16777216` separated by a space, like this:
+   If `GRUB_CMDLINE_LINUX` already exists, add `ihash_entries=16777216` separated by a space, like this:
 
-```bash
-GRUB_CMDLINE_LINUX="<previous commands> ihash_entries=16777216"
-```
+   ```bash
+   GRUB_CMDLINE_LINUX="<previous commands> ihash_entries=16777216"
+   ```
 
-1. To apply the changes, run:
+3. To apply the changes, run:
 
-```bash
-sudo update-grub2
-```
+   ```bash
+   sudo update-grub2
+   ```
 
-1. Restart the system:
+4. Restart the system:
 
-```bash
-sudo reboot
-```
+   ```bash
+   sudo reboot
+   ```
 
-1. To verify that the changes have taken effect, once the system reboots, check the kernel cmdline commands:
+5. To verify that the changes have taken effect, once the system reboots, check the kernel cmdline commands:
 
-```bash
-cat /proc/cmdline
-```
+   ```bash
+   cat /proc/cmdline
+   ```
 
-If `ihash_entries` is visible, the system has applied the setting, and enumeration performance should improve exponentially.
+   If `ihash_entries` is visible, the system has applied the setting, and enumeration performance should improve exponentially.
 
-You can also check the dmesg output to see if the kernel cmdline was applied:
+   You can also check the dmesg output to see if the kernel cmdline was applied:
 
-```bash
-dmesg | grep "Inode-cache hash table"
-Inode-cache hash table entries: 16777216 (order: 15, 134217728 bytes, linear)
-```
+   ```bash
+   dmesg | grep "Inode-cache hash table"
+   Inode-cache hash table entries: 16777216 (order: 15, 134217728 bytes, linear)
+   ```
 
 ## File copy and backup operations
 
