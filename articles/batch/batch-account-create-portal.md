@@ -2,7 +2,7 @@
 title: Create a Batch account in the Azure portal
 description: Learn how to use the Azure portal to create and manage an Azure Batch account for running large-scale parallel workloads in the cloud.
 ms.topic: how-to
-ms.date: 01/21/2025
+ms.date: 01/22/2025
 ms.custom: subject-rbac-steps, linux-related-content
 ---
 
@@ -98,7 +98,7 @@ Get-AzMarketplaceTerms -Publisher 'microsoft-azure-batch' -Product 'ubuntu-serve
 <a name="allow-azure-batch-to-access-the-subscription-one-time-operation"></a>
 ### Allow Batch to access the subscription
 
-When you create the first user subscription mode Batch account in an Azure subscription, you must register your subscription with Batch resource provider, and assign **Azure Batch Service Orchestration Role** to Microsoft Azure Batch service principle. You need to do this configuration only once per subscription.
+When you create the first user subscription mode Batch account in an Azure subscription, you must register your subscription with Batch resource provider, and assign **Azure Batch Service Orchestration Role** to Microsoft Azure Batch service principal. You need to do this configuration only once per subscription.
 
 > [!IMPORTANT]
 > You need **Owner** permissions in the subscription to take this action.
