@@ -1145,6 +1145,8 @@
       href: sentinel-integration-guide.md
     - name: Partner integrations best practices
       href: partner-integrations.md
+    - name: Creating Workbooks
+      href: sentinel-workbook-creation.md
     - name: Publish solutions
       href: publish-sentinel-solutions.md
     - name: Solution lifecycle post publish

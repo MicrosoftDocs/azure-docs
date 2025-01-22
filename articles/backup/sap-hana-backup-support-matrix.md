@@ -5,8 +5,8 @@ ms.topic: reference
 ms.date: 10/30/2024
 ms.custom: references_regions 
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Support matrix for backup of SAP HANA databases on Azure VMs

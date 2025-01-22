@@ -8,8 +8,8 @@ ms.custom:
   - ignite-2023
   - ignite-2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Azure Kubernetes Service backup support matrix
