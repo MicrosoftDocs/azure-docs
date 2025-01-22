@@ -36,7 +36,7 @@ To reduce alert fatigue, multiple versions of the same alert violation and with 
 
 The "Unauthorized Internet Connectivity Detected" alert details now includes the URL from which the suspicious connection initiated, helping SOC analysts assess and respond to incidents more effectively.
 
-:::image type="content" source="media/whats-new/url-parameters.png" alt-text="Screenshot of the sensor console login screen with SSO." lightbox="media/whats-new/url-parameters.png":::
+:::image type="content" source="media/whats-new/url-parameters.png" alt-text="Screenshot of URL information in alert details." lightbox="media/whats-new/url-parameters.png":::
 
 ## December 2024
 
