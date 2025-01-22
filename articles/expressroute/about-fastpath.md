@@ -6,7 +6,7 @@ author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 01/21/2025
-ms.author: derekolo
+ms.author: derekol
 ms.custom: template-concept, references_regions, engagement-fy23
 ---
 # About ExpressRoute FastPath
@@ -48,7 +48,7 @@ While FastPath supports many configurations, it doesn't support the following fe
 
 * DNS Private Resolver: Azure ExpressRoute FastPath doesn't support connectivity to [DNS Private Resolver](../dns/dns-private-resolver-overview.md).
 
-* For Azure NetApp Files, customers should upgrade their volumes from Basic to Standard for FastPath to work. [Supported Network Topologies](https://learn.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-network-topologies).
+* For Azure NetApp Files, customers should upgrade their volumes from Basic to Standard for FastPath to work. [Supported Network Topologies](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-network-topologies).
 
 ### IP address limits
 
