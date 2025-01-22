@@ -29,3 +29,9 @@ Partition Size Error Handling: When a partition exceeds 20GB, a `PreconditionFai
 Transaction Failure Exception: A new FHIR-specific exception type has been introduced to handle Cosmos DB transaction failures, replacing the generic `InvalidOperationExceptions`.
 
 CMK Error Handling: Improved error handling for operations dependent on customer-managed keys. Users will now see a more specific error message and a link to [Microsoft's troubleshooting guide](../fhir/configure-customer-managed-keys.md) if issues occur related to CMK.
+
+## Related content
+
+[Release notes pre-2025](release-notes.md)
+
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

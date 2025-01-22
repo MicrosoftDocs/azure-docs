@@ -25,3 +25,17 @@ HTTP Method Validation for Transaction Bundle Requests:
 Added validation to ensure the HTTP method in the Request component of the transaction bundle is a valid HTTPVerb enum value. If the HTTP method is invalid or null, a `RequestNotValidException` is thrown with a `400 Bad Request` status, providing a clearer error message to users.
 
 CMK Error Handling: Improved error handling for operations dependent on customer-managed keys. Users will now see a more specific error message and a link to [Microsoft's troubleshooting guide](fhir/configure-customer-managed-keys.md) if issues occur related to CMK.
+
+## Related content
+
+[Release notes 2021](release-notes-2021.md)
+
+[Release notes 2022](release-notes-2022.md)
+
+[Release notes 2023](release-notes-2023.md)
+
+[Release notes 2024](release-notes-2024.md)
+
+[Known issues](known-issues.md)
+
+[!INCLUDE [FHIR and DICOM trademark statement](includes/healthcare-apis-fhir-dicom-trademark.md)]
