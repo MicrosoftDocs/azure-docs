@@ -134,10 +134,10 @@ For NFSv4.1, both discretionary and system ACEs are stored in the same ACL, not 
 1. In the **Volumes** menu, select the volume you want to enable file access logs for. 
 1. Select **Diagnostic settings** from the left-hand pane.
 1. Select **+ Add diagnostic setting**.
-:::image type="content" source="../media/manage-file-access-logs/logs-diagnostic-settings-add.png" alt-text="Screenshot of Azure Diagnostic settings menu.":::
+:::image type="content" source="./media/manage-file-access-logs/logs-diagnostic-settings-add.png" alt-text="Screenshot of Azure Diagnostic settings menu.":::
 1. In the **Diagnostic setting** page, provide a diagnostic setting name.
     Under **Logs > Categories**, select **ANFFileAccess** then set the retention period of the logs. 
-:::image type="content" source="../media/manage-file-access-logs/logs-diagnostic-settings-enable.png" alt-text="Screenshot of Azure Diagnostic settings menu with file access diagnostic setting.":::
+:::image type="content" source="./media/manage-file-access-logs/logs-diagnostic-settings-enable.png" alt-text="Screenshot of Azure Diagnostic settings menu with file access diagnostic setting.":::
 <!-- check these steps -->
 1. Select one of the destination options for the logs:
     * Archive to a storage account
