@@ -82,22 +82,22 @@ Create your first web app.
 > [Getting started](getting-started.md)
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core (on Windows or Linux)](quickstart-dotnetcore.md)
-
-> [!div class="nextstepaction"]
 > [ASP.NET (on Windows)](./quickstart-dotnetcore.md?tabs=netframework48)
 
 > [!div class="nextstepaction"]
-> [PHP (on Windows or Linux)](quickstart-php.md)
-
-> [!div class="nextstepaction"]
-> [Node.js (on Windows or Linux)](quickstart-nodejs.md)
+> [ASP.NET Core (on Windows or Linux)](quickstart-dotnetcore.md)
 
 > [!div class="nextstepaction"]
 > [Java (on Windows or Linux)](quickstart-java.md)
 
 > [!div class="nextstepaction"]
+> [Node.js (on Windows or Linux)](quickstart-nodejs.md)
+
+> [!div class="nextstepaction"]
 > [Python (on Linux)](quickstart-python.md)
+
+> [!div class="nextstepaction"]
+> [PHP (on Windows or Linux)](quickstart-php.md)
 
 > [!div class="nextstepaction"]
 > [HTML](quickstart-html.md)
