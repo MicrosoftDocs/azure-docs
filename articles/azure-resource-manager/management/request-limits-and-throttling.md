@@ -1,8 +1,8 @@
 ---
-title: Request limits and throttling
-description: Describes how to use throttling with Azure Resource Manager requests when subscription limits are reached.
+title: Understand how Azure Resource Manager throttles requests
+description: Learn how Azure Resource Manager throttles requests when subscription limits are reached and how to respond.
 ms.topic: conceptual
-ms.date: 11/13/2024
+ms.date: 01/24/2025
 ms.custom: devx-track-arm-template
 ---
 
@@ -199,7 +199,7 @@ Pragma                        : no-cache
 x-ms-ratelimit-remaining-subscription-writes: 1199
 ```
 
-In **Azure CLI**, you retrieve the header value by using the more verbose option.
+In **Azure CLI**, you use the more verbose option to retrieve the header value:
 
 ```azurecli
 az group list --verbose --debug
