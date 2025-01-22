@@ -11,7 +11,7 @@ ms.author: kesheth
 ms.custom: references_regions
 ---
 
-# Release notes: Azure Health Data Services 2025
+# Release notes 2025: Azure Health Data Services
 
 This article describes features, enhancements, and bug fixes released in 2025 for the FHIR&reg; service, Azure API for FHIR, DICOM&reg; service, and MedTech service in Azure Health Data Services.
 

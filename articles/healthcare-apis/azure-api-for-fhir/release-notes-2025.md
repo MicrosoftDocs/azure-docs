@@ -11,7 +11,7 @@ ms.custom: references_regions
 ms.author: kesheth
 ---
 
-# 2025 Release notes: Azure API for FHIR
+# Release notes 2025: Azure API for FHIR
 
 [!INCLUDE[retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
