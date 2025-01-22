@@ -49,7 +49,7 @@ Once parsed, you can validate certificates and use them according to the needs o
 
 ## Example
 
-In Java applications, you can use [Reactive X.509 authentication filter](https://docs.spring.io/spring-security/reference/reactive/authentication/x509.html) to map the user information from certificates to the security context. For a complete example of a Java application with mTLS in Azure Container Apps, see [mTLS Server Application on Azure Container Apps](https://github.com/Azure-Samples/azure-container-apps-java-samples/tree/main/azure-container-apps-mtls-certificate-filter).
+In Java applications, you can use the [Reactive X.509 authentication filter](https://docs.spring.io/spring-security/reference/reactive/authentication/x509.html) to map the user information from certificates to the security context. For a complete example of a Java application with mTLS in Azure Container Apps, see [mTLS Server Application on Azure Container Apps](https://github.com/Azure-Samples/azure-container-apps-java-samples/tree/main/azure-container-apps-mtls-certificate-filter).
 
 ## Related content
 
