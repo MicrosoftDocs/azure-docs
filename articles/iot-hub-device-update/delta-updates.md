@@ -50,7 +50,7 @@ sudo ldconfig
 
 After the delta update file downloads to a device, it compares against a valid `<source_archive>` previously cached on the device. This process enables the delta update to recreate the full target image.
 
-The simplest way to populate this cached image is to [import](import-update.md) and [deploy](deploy-update.md) processes) a full image update to the device via the Device Update service. If the device is configured with Device Update agent version 1.0 or later and the delta processor, the agent caches the installed SWU file automatically for later delta update use.
+The simplest way to populate this cached image is to [import](import-update.md) and [deploy](deploy-update.md) a full image update to the device via the Device Update service. If the device is configured with Device Update agent version 1.0 or later and the delta processor, the agent caches the installed SWU file automatically for later delta update use.
 
 If you want to directly prepopulate the source image on your device instead, the path where the image is expected is `<BASE_SOURCE_DOWNLOAD_CACHE_PATH>/sha256-<ENCODED HASH>`. By default, `<BASE_SOURCE_DOWNLOAD_CACHE_PATH>` is the path */var/lib/adu/sdc/\<provider>*. The `provider` value is the `provider` part of the [updateId](import-concepts.md#update-identity) for the source SWU file.
 
