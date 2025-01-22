@@ -1,8 +1,9 @@
 ---
  title: include file
  description: include file
+ services: event-grid
  author: spelluru
- ms.service: azure-event-grid
+ ms.service: event-grid
  ms.topic: include
  ms.date: 11/30/2023
  ms.author: spelluru
@@ -18,7 +19,7 @@
     :::image type="content" source="./media/system-topics/list-system-topics.png" alt-text="Screenshot that shows the list of system topics." lightbox="./media/system-topics/list-system-topics.png":::
 4. Select a **system topic** from the list to see details about it. 
 
-    :::image type="content" source="./media/system-topics/system-topic-details.png" alt-text="Screenshot that shows the topic page in the Azure portal.":::
+    :::image type="content" source="../media/create-view-manage-system-topics/system-topic-page.png" alt-text="Screenshot that shows the System Topic home page." lightbox="../media/create-view-manage-system-topics/system-topic-page.png":::    
 
     This page shows you details about the system topic such as the following information: 
     - Source. Name of the resource on which the system topic was created.
