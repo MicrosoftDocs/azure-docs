@@ -186,7 +186,7 @@ If you have an existing GCM registration, update the registration to **FcmV1Regi
 </entry>
 ```
 
-#### Option 2: Create FCM c1 installation or update GCM installation to FCM v1
+#### Option 2: Create FCM V1 installation or update GCM installation to FCM v1
 
 See [Create or overwrite an installation](/rest/api/notificationhubs/create-overwrite-installation) and set `platform` to `FCMV1`.
 
