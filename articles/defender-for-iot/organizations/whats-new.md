@@ -26,13 +26,15 @@ The legacy on-premises management console won't be available for download after 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - ["Unauthorized Internet Connectivity Detected" alert now include URL information](#unauthorized-internet-connectivity-detected-alert-now-includes-url-information) |
+| **OT networks** | - [Aggregating multiple alerts violations with the same parameters](#aggregating-multiple-alerts-violations-with-the-same-parameters)<br>- ["Unauthorized Internet Connectivity Detected" alert now include URL information](#unauthorized-internet-connectivity-detected-alert-now-includes-url-information) |
 
 ### "Unauthorized Internet Connectivity Detected" alert now includes URL information
 
 The "Unauthorized Internet Connectivity Detected" alert details now includes the URL from which the suspicious connection initiated, helping SOC analysts assess and respond to incidents more effectively.
 
-:::image type="content" source="media/whats-new/url-parameters.png" alt-text="Screenshot of the "Unauthorized Internet Connectivity Detected" alert with URL information.":::
+### Aggregating multiple alerts violations with the same parameters
+
+To reduce alert fatigue, multiple versions of the same alert violation and with the same parameters are grouped together and listed in the alerts table as one item. The alert details pane lists each of the identical alert violations in the **Violations** tab and the appropriate remediation actions are listed in the **Take action** tab. For more information, see [aggregating alerts with the same parameters](alerts.md#aggregating-alert-violations).
 
 ## December 2024
 
@@ -43,6 +45,7 @@ The "Unauthorized Internet Connectivity Detected" alert details now includes the
 ### Support Multiple Source Devices in DDoS Attack Alerts
 
 Alert details now display up to 10 source devices involved in DDoS attack.
+
 
 ## October 2024
 
