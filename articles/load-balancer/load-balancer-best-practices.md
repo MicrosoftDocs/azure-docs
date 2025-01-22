@@ -25,10 +25,16 @@ For each best practice, this article explains:
 
 These best practices are based on a consensus opinion, and Azure platform capability and features sets, as they exist at the time this article was written. 
 
-<!-- Comment: Let's rethink the headers. The current draft goes a bit deep (level 4). I think we can get away with 2 levels. Since all of the items under Architectural Guidance are under Reliability Best Practices, do we need Reliability Best Practices? -->
-## Architectural Guidance
+## Architectural best practices
+
+The following architectural guidance helps ensure the reliability of your Azure Load Balancer deployment. It includes best practices for deploying with zone-redundancy, redundancy in your backend pool, and deploying a global load balancer. Along with reliability for Gateway Load Balancer, which is recommended when using NVAs instead of a dual load balancer set-up.
+
 ### Reliability Best Practices
-#### Deploy with zone-redundancy 
+
+The following best practices are recommended to ensure the reliability of your Azure Load Balancer deployment.
+
+#### Deploy with zone-redundancy
+
 Zone-redundancy provides the best resiliency by protecting the data path from zone failure. The load balancer's availability zone selection is synonymous with its frontend IP's zone selection. For public load balancers, if the public IP in the load balancer's frontend is zone redundant then the load balancer is also zone-redundant.
 - Deploy load balancer in a region that supports availability zones and enable Zone-redundant when creating a new Public IP address used for the Frontend IP configuration.
 - Public IP addresses can't be changed to zone redundant but we're updating all non-zonal Standard Public IPs to be zone redundant by default. For more information, visit the following Microsoft Azure Blog [Azure Public IPs are now zone-redundant by default | Microsoft Azure Blog](https://azure.microsoft.com/blog/azure-public-ips-are-now-zone-redundant-by-default/?msockid=028aa4446a5a601f37ecb0076b7761c7). To see the most updated list of regions that support zone redundant Standard Public IPs by default, see [Public IP addresses in Azure](../virtual-network/ip-services/public-ip-addresses.md)
@@ -46,7 +52,8 @@ Standard Load Balancer supports cross-region load balancing enabling regional re
 
 For more information, see [Azure Load Balancer Reliability documentation](../reliability/reliability-load-balancer.md).
 
-#### Reliability with Gateway Load Balancer
+### Reliability with Gateway Load Balancer
+
 Chain your Gateway Load Balancer to a Standard Public Load Balancer to get high availability and redundancy on both the NVA and application layer. 
 
 #### Use a Gateway load balancer when using NVAs instead of a dual load balancer set-up.
@@ -55,14 +62,17 @@ We recommend using a Gateway load balancer in north-south traffic scenarios with
 
 ## Configuration Guidance
 
+The following configuration guidance are best practices for configuring your Azure Load Balancer deployments. 
+
 #### Create Network Security Groups (NSGs)
 
-To explicitly permit allowed inbound traffic, you should create Network Security Groups (NSGs). NSGs must be created on the subnet or network interface card (NIC) of your VM, otherwise there will be no inbound connectivity to your Standard external load balancers. For more information, see [Create, change, or delete an Azure network security group](../virtual-network/manage-network-security-group.md). 
+To explicitly permit allowed inbound traffic, you should create Network Security Groups (NSGs). NSGs must be created on the subnet or network interface card (NIC) of your VM, otherwise there will be no inbound connectivity to your Standard external load balancers. For more information, see [Create, change, or delete an Azure network security group](../virtual-network/manage-network-security-group.md).
+
 #### Unblock 168.63.129.16 IP address
 
 Ensure 168.63.129.16 IP address isn't blocked by any Azure network security groups and local firewall policies. This IP address enables health probes from Azure Load Balancer to determine the health state of the VM. If it isn't allowed, the health probe fails as it is unable to reach your instance and it marks your instance as down. For more information, see [Azure Load Balancer health probe](load-balancer-custom-probe-overview.md) and [What is IP address 168.63.129.16?](../virtual-network/what-is-ip-address-168-63-129-16.md)s.
 
-#### Use outbound rules with manual port allocation.
+#### Use outbound rules with manual port allocation
 
 Use outbound rules with manual port allocation instead of default port allocation to prevent SNAT exhaustion or connection failures. Default port allocation automatically assigns a conservative number of ports which can cause a higher risk of SNAT port exhaustion. Manual port allocation can help maximize the number of SNAT ports made available for each of the instances in your backend pool which can help prevent your connections from being impacted due to port reallocation. 
 There are two options for manual port allocation, “ports per instance” or “maximum number of backend instances”. To understand the considerations of both, see [Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md).
