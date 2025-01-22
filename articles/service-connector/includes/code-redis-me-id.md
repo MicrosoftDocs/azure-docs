@@ -10,12 +10,13 @@ ms.author: xiaofanzhou
 #### [.NET](#tab/dotnet)
 
 1. Install dependencies.
+
     ```bash
     dotnet add package Microsoft.Azure.StackExchangeRedis --version 3.2.0
     ```
+
 1. Add the authentication logic with environment variables set by Service Connector. For more information, see [Microsoft.Azure.StackExchangeRedis Extension](https://github.com/Azure/Microsoft.Azure.StackExchangeRedis).
-    
-    
+
     ```csharp
     using StackExchange.Redis;
     var cacheHostName = Environment.GetEnvironmentVariable("AZURE_REDIS_HOST");
@@ -29,7 +30,7 @@ ms.author: xiaofanzhou
     // var managedIdentityClientId = Environment.GetEnvironmentVariable("AZURE_REDIS_CLIENTID");
     // await configurationOptions.ConfigureForAzureWithUserAssignedManagedIdentityAsync(managedIdentityClientId);
 
-    // Service principal secret
+    // Service principal secret.
     // var clientId = Environment.GetEnvironmentVariable("AZURE_REDIS_CLIENTID");
     // var tenantId = Environment.GetEnvironmentVariable("AZURE_REDIS_TENANTID");
     // var secret = Environment.GetEnvironmentVariable("AZURE_REDIS_CLIENTSECRET");
@@ -38,10 +39,11 @@ ms.author: xiaofanzhou
 
     var connectionMultiplexer = await ConnectionMultiplexer.ConnectAsync(configurationOptions);
     ```
-    
+
 #### [Java](#tab/java)
 
-1. Add the following dependency in your *pom.xml* file:
+1. Add the following dependency in your `pom.xml` file:
+
     ```xml
     <dependency>
         <groupId>com.azure</groupId>
@@ -55,7 +57,9 @@ ms.author: xiaofanzhou
         <version>5.1.0</version>  <!-- {x-version-update;redis.clients:jedis;external_dependency} -->
     </dependency>
     ```
+
 1. Add the authentication logic with environment variables set by Service Connector. For more information, see [Azure-AAD-Authentication-With-Jedis](https://aka.ms/redis/aad/sample-code/java-jedis).
+
     ```java
     import redis.clients.jedis.DefaultJedisClientConfig;
     import redis.clients.jedis.Jedis;
@@ -70,7 +74,7 @@ ms.author: xiaofanzhou
     // String clientId = System.getenv("AZURE_REDIS_CLIENTID");
     // DefaultAzureCredential defaultAzureCredential = new DefaultAzureCredentialBuilder().managedIdentityClientId(clientId).build();
 
-    // For AKS workload identity identity.
+    // For AKS workload identity.
     // String clientId = System.getenv("AZURE_REDIS_CLIENTID");
     // DefaultAzureCredential defaultAzureCredential = new DefaultAzureCredentialBuilder().workloadIdentityClientId(clientId).build();
 
@@ -90,8 +94,8 @@ ms.author: xiaofanzhou
     String username = extractUsernameFromToken(token);
     String cacheHostname = System.getenv("AZURE_REDIS_HOST");
 
-    // Create Jedis client and connect to the Azure Cache for Redis over the TLS/SSL port using the access token as password.
-    // Note, Redis Cache Host Name and Port are required below
+    // Create Jedis client and connect to Azure Cache for Redis over the TLS/SSL port using the access token as password.
+    // Note, Redis Cache host name and port are required below.
     Jedis jedis = new Jedis(cacheHostname, 6380, DefaultJedisClientConfig.builder()
         .password(token) // Microsoft Entra access token as password is required.
         .user(username) // Username is Required
@@ -105,14 +109,19 @@ ms.author: xiaofanzhou
     // Close the Jedis Client
     jedis.close();
     ```
+#### [Spring Boot](#tab/springBoot)
+Not supported yet.
 
 #### [Python](#tab/python)
 
 1. Install dependencies.
+
     ```bash
     pip install redis azure-identity
     ```
+
 1. Add the authentication logic with environment variables set by Service Connector. For more information, see [azure-aad-auth-with-redis-py](https://aka.ms/redis/aad/sample-code/python).
+
     ```python
     import os
     import time
@@ -203,14 +212,19 @@ ms.author: xiaofanzhou
         re_authentication()
     ```
 
-#### [NodeJS](#tab/nodejs)
+#### [Go](#tab/go)
+Not supported yet.
+
+#### [Node.js](#tab/nodejs)
 
 1. Install dependencies.
+
     ```bash
     npm install redis @azure/identity
     ```
-1. Add the authentication logic with environment variables set by Service Connector. For more information, see (Azure Cache for Redis: Microsoft Entra ID with node-redis client library)[https://aka.ms/redis/aad/sample-code/js-noderedis].
-    
+
+1. Add the authentication logic with environment variables set by Service Connector. For more information, see [Azure Cache for Redis: Microsoft Entra ID with node-redis client library](https://aka.ms/redis/aad/sample-code/js-noderedis).
+
     ```javascript
     import { createClient } from "redis";
     import { DefaultAzureCredential } from "@azure/identity";
@@ -246,7 +260,7 @@ ms.author: xiaofanzhou
         console.log("access Token", accessToken);
         const host = process.env.AZURE_REDIS_HOST;
 
-        // Create redis client and connect to the Azure Cache for Redis over the TLS port using the access token as password.
+        // Create redis client and connect to Azure Cache for Redis over the TLS port using the access token as password.
         const client = createClient({
             username: extractUsernameFromToken(accessToken),
             password: accessToken.token,
@@ -260,9 +274,9 @@ ms.author: xiaofanzhou
 
         client.on("error", (err) => console.log("Redis Client Error", err));
         await client.connect();
-        // Set a value against your key in the Azure Redis Cache.
+        // Set a value against your key in Azure Redis Cache.
         await client.set("Az:key", "value1312");
-        // Get value of your key in the Azure Redis Cache.
+        // Get value of your key in Azure Redis Cache.
         console.log("value-", await client.get("Az:key"));
     }
 
@@ -273,6 +287,6 @@ ms.author: xiaofanzhou
     });
     ```
 
-### [Other](#tab/none)
+### [Other](#tab/other)
 
-For other languages, you can use the Azure Identity client library and connection information that Service Connector sets to the environment variables to connect to Azure Cache for Redis.
+For other languages, you can use the Azure Identity client library (and connection information that Service Connector sets to the environment variables) to connect to Azure Cache for Redis.

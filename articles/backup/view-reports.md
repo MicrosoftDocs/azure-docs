@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 11/30/2024
 ms.custom: references_regions, devx-track-azurepowershell
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # View out-of-box reports for Azure Backup
 

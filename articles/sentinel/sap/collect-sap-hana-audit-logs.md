@@ -84,6 +84,16 @@ TimeGenerated = column_ifexists('TimeGenerated', '1000-01-01T00:00:00Z')
 T_Syslog | union isfuzzy= true (D_Syslog | where TimeGenerated != '1000-01-01T00:00:00Z')
 ```
 
+See more information on the following items used in the preceding examples, in the Kusto documentation:
+- [***let*** statement](/kusto/query/let-statement?view=microsoft-sentinel&preserve-view=true)
+- [***datatable*** operator](/kusto/query/datatable-operator?view=microsoft-sentinel&preserve-view=true)
+- [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+- [***project*** operator](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true)
+- [***union*** operator](/kusto/query/union-operator?view=microsoft-sentinel&preserve-view=true)
+- [***column_ifexists()*** function](/kusto/query/column-ifexists-function?view=microsoft-sentinel&preserve-view=true)
+
+[!INCLUDE [kusto-reference-general-no-alert](../includes/kusto-reference-general-no-alert.md)]
+
 ### SAP HANA
 
 In your SAP HANA database, check your configured audit policies. For more information on the required SQL statements, see [SAP Note 3016478](https://me.sap.com/notes/3016478/E).
