@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 
 # Move Azure resources to a new resource group or subscription
 
-This article explains how to move Azure resources between resource groups within the same subscription or across different subscriptions. If the move involves different subscriptions, both subscriptions must be part of the same Microsoft Entra ID tenant. You can use tools like the [Azure portal](#use-the-portal), [Azure PowerShell](#use-azure-powershell), [Azure CLI](#use-the-azure-cli), the [REST API](#use-rest-api), or [Python](#use-python) to move the resources.
+This article explains how to move Azure resources between resource groups within the same subscription or across different subscriptions. If the move involves different subscriptions, both subscriptions must be part of the same Microsoft Entra ID tenant. You can use tools like the [Azure portal](#use-the-azure-portal), [Azure PowerShell](#use-azure-powershell), [Azure CLI](#use-the-azure-cli), the [REST API](#use-rest-api), or [Python](#use-python) to move the resources.
 
 During the move operation, both the source and target resource groups are locked, meaning that you can't create, delete, or update resources within these resource groups while the move is in progress. However, existing resources remain fully operational. For example, if you move a virtual machine from one resource group to another, it can't be deleted and its properties (such as its size) can't be modified during the move. Despite this, the virtual machine continues to operate normally, and services relying on it don't experience any additional downtime. The lock can last up to four hours, most moves are completed faster, and the lock is removed accordingly.
 
