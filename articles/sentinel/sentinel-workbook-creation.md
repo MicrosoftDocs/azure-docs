@@ -50,11 +50,11 @@ In a Security Operations Center (SOC), Microsoft Sentinel Workbooks are used to 
  "styleSettings": {},
  "fromTemplateId": "sentinel-MyNewWorkbook",
  "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json"
-
-1. Save the JSON file and upload it to the **Workbooks** folder under your solution repositoryn in GitHub. If the Workbooks folder does not exist, create it.
-1. Capture two screenshots of your workbook - one each in dark and light themes> These will be used as preview images for your workbook. Please be consistent with the filename conventions - the dark theme filename should contain the word "black" and the light theme image should contain the word "white". Upload these images to https://github.com/Azure/Azure-Sentinel/tree/master/Workbooks/Images/Preview 
-1. You can optionally add a logo that would be displayed in the Workbook. Upload the logo to https://github.com/Azure/Azure-Sentinel/tree/master/Workbooks/Images/Logos folder in GitHub. The logo should be in SVG format. If a logo is not provided, the default Microsoft Sentinel logo will be displayed.
-1. Add the below section for your workbook in the https://github.com/Azure/Azure-Sentinel/blob/master/Workbooks/WorkbooksMetadata.json file. This file contains metadata for all the workbooks in the Azure Sentinel gallery. For more details, you can look at the existing entries in the file.
+```
+ 3. Save the JSON file and upload it to the **Workbooks** folder under your solution repositoryn in GitHub. If the Workbooks folder does not exist, create it.
+ 1. Capture two screenshots of your workbook - one each in dark and light themes> These will be used as preview images for your workbook. Please be consistent with the filename conventions - the dark theme filename should contain the word "black" and the light theme image should contain the word "white". Upload these images to https://github.com/Azure/Azure-Sentinel/tree/master/Workbooks/Images/Preview 
+ 1. You can optionally add a logo that would be displayed in the Workbook. Upload the logo to https://github.com/Azure/Azure-Sentinel/tree/master/Workbooks/Images/Logos folder in GitHub. The logo should be in SVG format. If a logo is not provided, the default Microsoft Sentinel logo will be displayed.
+ 1. Add the below section for your workbook in the https://github.com/Azure/Azure-Sentinel/blob/master/Workbooks/WorkbooksMetadata.json file. This file contains metadata for all the workbooks in the Azure Sentinel gallery. For more details, you can look at the existing entries in the file.
 
 ```json
 {
@@ -80,3 +80,7 @@ In a Security Operations Center (SOC), Microsoft Sentinel Workbooks are used to 
  
  "provider": "Your company name" //Name of the company/author who owns the workbook and is responsible for providing support
  }
+```
+## Related content
+
+[Pubish Microsoft Sentinel solutions](/azure/sentinel/publish-sentinel-solutions)    
