@@ -76,7 +76,7 @@ The resource/scope value is the audience of the token. This API only accepts the
 ### Assemble the request message
 
 #### Request URI 
-API versioning: `api-version=2023-12-01-preview`<br>
+API versioning: `api-version=2024-02-01-preview`<br>
 Endpoint: `https://api.ti.sentinel.azure.com/workspaces/{workspaceId}/threat-intelligence-stix-objects:upload?api-version={apiVersion}`<br>
 Method: `POST`<br>
 
