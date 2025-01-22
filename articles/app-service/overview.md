@@ -52,7 +52,11 @@ App Service can also host web apps natively on Linux for supported application s
 
 ### Built-in languages and frameworks
 
-App Service on Linux supports a number of language-specific built-in images. Just deploy your code. Supported languages include: Node.js, Java (Tomcat, JBoss, or with an embedded web server), PHP, Python, and .NET Core. Run [`az webapp list-runtimes --os linux`](/cli/azure/webapp#az-webapp-list-runtimes) to view the latest languages and supported versions. If the runtime your application requires isn't supported in the built-in images, you can deploy it with a custom container.
+App Service on Linux supports a number of language-specific built-in images. Just deploy your code. 
+Supported languages include: .NET Core, Java (Tomcat, JBoss EAP, or Java SE with an embedded web server), 
+Node.js, Python, and PHP. Run [`az webapp list-runtimes --os linux`](/cli/azure/webapp#az-webapp-list-runtimes) 
+to view the latest languages and supported versions. If the runtime your application requires isn't supported 
+in the built-in images, you can deploy it with a custom container.
 
 Outdated runtimes are periodically removed from the Web Apps Create and Configuration blades in the portal. These runtimes are hidden from the portal when they're deprecated by the maintaining organization or found to have significant vulnerabilities. These options are hidden to guide customers to the latest runtimes, where they'll be the most successful.
 
