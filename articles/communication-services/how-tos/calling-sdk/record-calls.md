@@ -82,7 +82,7 @@ The following tables show support of recording in individual Azure Communication
 [!INCLUDE [Record calls client-side Windows](./includes/record-calls/record-calls-windows.md)]
 ::: zone-end
 
-## Troubleshooting
+## ## SDK compatibility
 
 The following table shows the minimum version of SDKs that support individual APIs.
 | Operations | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows | 
