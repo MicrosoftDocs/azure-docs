@@ -59,7 +59,7 @@ If you want to use NSX to host your DHCP server, create a DHCP server and a rela
    > [!NOTE]
    > An IP address isn't required so if none is entered, NSX Manager sets one.
 
-   :::image type="content" source="./media/manage-dhcp/dhcp-server-settings.png" alt-text="Screenshot showing how to add a DHCP Profile in NSX Manager." border="true" ="./media/manage-dhcp/dhcp-server-settings.png":::
+   :::image type="content" source="./media/manage-dhcp/dhcp-server-settings.png" alt-text="Screenshot showing how to add a DHCP Profile in NSX Manager." border="true" lightbox="./media/manage-dhcp/dhcp-server-settings.png":::
 
 1. Under **Networking** > **Tier-1 Gateways**, select the gateway where the segments are connected that DHCP is required. Edit the Tier-1 Gateway by clicking on the three ellipses and choose **Edit**.
 
