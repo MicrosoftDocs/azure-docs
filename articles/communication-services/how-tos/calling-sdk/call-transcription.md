@@ -75,6 +75,7 @@ The following tables show support of transcription in individual Azure Communica
 ## SDK compatibility
 
 The following table shows the minimum version of SDKs that support individual APIs.
+
 | Operations | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows | 
 |------------|-----|--------|-----|--------|---------|------------|---------|
 | Get event that transcription has started | 1.0.0, 1.25.3-beta.1 | 1.0.0, 1.0.0-beta.8 | 2.1.0, 2.1.0-beta.1 | 1.0.0, 1.0.0-beta.8 | 1.1.0, 1.2.0-beta.1 | 1.0.0, 1.0.0-beta.8 | 1.0.0, 1.0.0-beta.31 |
