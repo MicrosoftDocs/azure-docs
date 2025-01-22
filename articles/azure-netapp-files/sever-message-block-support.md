@@ -75,27 +75,35 @@ This FSCTL is used by Hyper-V for space efficiency. For example, if file deletes
 | Windows administrators mapped to root UNIX user | Users in Active Directory that are listed as Administrators (or users specified as Administrators in Active Directory connections) map as the UNIX user root in dual protocol environments. | Enabled |
 | Idle timeout before SMB session disconnects | SMB sessions remain connected for 900 seconds if left idle.	| 900 seconds |
 | [Dynamic Access Control (DAC)](/windows-server/identity/solution-guides/dynamic-access-control-overview) | DAC isn't supported with Azure NetApp Files volumes.	| Disabled |
-| File system sector size | Azure NetApp Files will report sector sizes of 4096 bytes to clients. In rare cases, Windows applications require 512 bytes, which is not supported in Azure NetApp Files. Consult with your application vendor if there are concerns over sector size requirements. | 4096b (4KiB)
-Fake open support	“Fake open” is one way that Azure NetApp Files optimizes open and close requests when querying for attribute information on files and directories for better performance. In some cases, this functionality can cause pending file deletion messages not to be passed on to clients who are attempting access to a file that is in the process of being deleted.	Enabled
-UNIX extensions	Enabling UNIX extensions allows the SMB server to transmit POSIX/UNIX security information over SMB to the UNIX-based client, which then translates the security information into POSIX/UNIX security. This option is only needed when leveraging SMB over Linux-based clients (such as MacOS).	Disabled
-Search short names	“Short names” in SMB limit file names to a maximum of 8 characters for the name and 3 for the extension. (8.3)
-
-Names exceeding that limit will truncate and use a ~ in place of the remaining characters. For instance, a file named “not-a-short-name.txt” truncates to “not-a-sh~.txt.”
-
-A search of short names (where an SMB find will look for short and long names) does not take place in Azure NetApp Files.	Disabled
-Guest user access	Guest user access is disallowed in Azure NetApp Files.	Disabled
-Null user access	NULL user access is disallowed in Azure NetApp Files.	Disabled
-Hide “dot” files	Hide files with a “.” preceding the name. 
-For instance, .ssh.	Disabled
-SMB multichannel
-SMB feature that provides support for multiple TCP connections over the same SMB share mount point. This provides increased performance for some workloads.	Enabled
-Maximum connections per multichannel session	Maximum simultaneous allowed TCP connections using multi-channel. In general, 4 is enough to see significant performance gains.
-32
-Large MTU	Unrelated to network MTU size. Instead, this is the maximum size allowed by the SMB protocol for transfers. This is similar to wsize/rsize in NFS. Azure NetApp Files supports up to 1MB transfer sizes in SMB.	Enabled
-NetBIOS over TCP port 139	Keeps TCP port 139 open for NetBIOS traffic.	Enabled
-NBNS over UDP port 137	UDP port 137 is closed to NBNS service.	Disabled
-SMB max credits	SMB credits determine the number of outstanding simultaneous requests that the client can have on a particular connection. Azure NetApp Files allows up to 128 per connection, while Windows clients can potentially send more simultaneous requests to Azure NetApp Files than is allowed. In these cases, requests will wait until new credits are available. See Tuning parameters for SMB file servers for more information.
-128
+| File system sector size | Azure NetApp Files will report sector sizes of 4,096 bytes to clients. In rare cases, Windows applications require 512 bytes, which isn't supported in Azure NetApp Files. Consult with your application vendor if there are concerns over sector size requirements. | 4,096b (4 KiB)
+| Fake open support | "Fake open" is one way that Azure NetApp Files optimizes open and close requests when querying for attribute information on files and directories for better performance. In some cases, this functionality can cause pending file deletion messages not to be passed on to clients who are attempting access to a file that is in the process of being deleted. | Enabled |
+| UNIX extensions | Enabling UNIX extensions allows the SMB server to transmit POSIX/UNIX security information over SMB to the UNIX-based client, which then translates the security information into POSIX/UNIX security. This option is only needed when leveraging SMB over Linux-based clients (such as MacOS). | Disabled |
+| Search short names | []"Short names"](/openspecs/windows_protocols/ms-fscc/18e63b13-ba43-4f5f-a5b7-11e871b71f14) in SMB limit file names to a maximum of 8 characters for the name and 3 for the extension (8.3). <br></br> Names exceeding that limit are truncated and use a tilde (~) in place of the remaining characters. For example, a file given the name "not-a-short-name.txt” is shortened to "not-a-sh~.txt." <br></br> A search of short names (where an SMB find looks for short and long names) doesn't take place in Azure NetApp Files. | Disabled |
+| Guest user access | Guest user access is disallowed in Azure NetApp Files. | Disabled |
+| Null user access | NULL user access is disallowed in Azure NetApp Files.	| Disabled |
+| Hide "dot" files | Hide files with a "." preceding the name, such as .ssh. | Disabled |
+| [SMB multichannel](azure-netapp-files-smb-performance.md#smb-multichannel) | This SMB feature  provides support for multiple TCP connections over the same SMB share mount point, providing increased performance for some workloads. | Enabled |
+| Maximum connections per multichannel session	| Maximum simultaneous allowed TCP connections using multi-channel. In general, [four is enough to see significant performance gains](azure-netapp-files-smb-performance.md#performance-for-smb-multichannel). | 32 |
+| Large MTU | Unrelated to network MTU size. Instead, large MTU is the maximum size allowed by the SMB protocol for transfers. Large MTU  is similar to wsize/rsize in NFS. Azure NetApp Files supports up to 1-MB transfer sizes in SMB. | Enabled |
+| NetBIOS over TCP port 139 | Keeps TCP port 139 open for NetBIOS traffic. | Enabled |
+| NBNS over UDP port 137 | UDP port 137 is closed to NBNS service.	| Disabled |
+| SMB max credits | SMB credits determine the number of outstanding simultaneous requests that the client can have on a particular connection. Azure NetApp Files allows up to 128 per connection, while Windows clients can potentially send more simultaneous requests to Azure NetApp Files than is allowed. In these cases, requests wait until new credits are available. For more information, see [Tuning parameters for SMB file servers](/windows-server/administration/performance-tuning/role/file-server/smb-file-server#tuning-parameters-for-smb-file-servers). | 128 |
 
  
 ## Unsupported SMB features in Azure NetApp Files
+
+- Encrypted File System (EFS)
+- Logging of NT File System (NTFS) events in the change journal
+- Microsoft File Replication Service (FRS)
+- Microsoft Windows Indexing Service
+- Remote storage through Hierarchical Storage Management (HSM)
+- Quota management from Windows clients
+- Windows quota semantics
+- The LMHOSTS file
+- NTFS native compression
+
+## SMB share property support information in Azure NetApp Files
+
+| Share property | Definition/Considerations | Default |
+| --- | ------ | - | 
+
