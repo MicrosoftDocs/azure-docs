@@ -120,15 +120,6 @@ Establish direct access to the cluster's CNI (Container Network Interface) from 
 
 Reach out to your network administrator to set up this direct connection to the cluster's CNI network.
 
-### Retrieve the Subject Alternative Name (SAN) for the cluster
-
-Run the following commands to retrieve the Subject Alternative Name (SAN) to be used in your SSL/TLS certificates. First, identify the Control plane node by listing all nodes as described in step 1 [here](#access-to-cluster-nodes-via-azure-arc-for-kubernetes). Set up a privileged pod to run on the cluster's control plane node and connect to it as described in [step 2](#access-to-cluster-nodes-via-azure-arc-for-kubernetes). This gives you access to the API server and its corresponding cert. You can now retrieve the cert using the following command:
-
-    ```bash
-    openssl x509 -in /etc/kubernetes/pki/apiserver.crt -text -noout
-    ```
-
-You can now retrieve the the SAN from the X509v3 Subject Alternative Name parameter of the output.
 
 ## IP address of the cluster nodes
 
@@ -192,6 +183,17 @@ To find the IP address of the VM for SSH, follow these steps:
 7. Check the 'Attached Networks' tab to find the IP address of the node's 'Layer 3 Network' that used as CNI network.
 
 :::image type="content" source="media/nexus-kubernetes/control-plane-network-attachment.png" lightbox="media/nexus-kubernetes/control-plane-network-attachment.png" alt-text="Screenshot of browsing Nexus Kubernetes cluster node networks.":::
+
+## Retrieve the Subject Alternative Name (SAN) for the cluster
+
+Run the following commands to retrieve the list of Subject Alternative Names (SAN) accepted by the Kubernetes API server certificate. First, access the control plane node either [using Azure Arc for servers](#access-to-cluster-nodes-via-azure-arc-for-servers) or using the [interactive shell using IP address](#create-an-interactive-shell-connection-to-a-node-using-the-ip-address).  This gives you access to the certificate used by the API server. You can inspect the content of the certificate using the following command with sudo privileges:
+
+    ```bash
+    sudo openssl x509 -in /etc/kubernetes/pki/apiserver.crt -text -noout
+    ```
+ 
+Each of the SANs is identified by the prefix "DNS:". Please only choose the SANs that follow the specified naming convention "<clusterName>-<resourceGroup>", as this is unique compared to other SANs like "kubernetes.default.svc.cluster.local".
+
 
 ## Next steps
 
