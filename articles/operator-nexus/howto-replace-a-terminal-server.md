@@ -1,0 +1,68 @@
+---
+title: How to replace a terminal server within within Nexus Network Fabric
+description: Process of replacing a terminal server
+author: sushantjrao 
+ms.author: sushrao
+ms.service: azure-operator-nexus
+ms.topic: how-to
+ms.date: 05/17/2024
+ms.custom: template-how-to, devx-track-azurecli
+---
+
+# Replacing a terminal server
+
+This guide provides a step-by-step process for replacing a Terminal Server (TS) within a network environment. The procedure includes cleaning up the existing TS, removing the device, installing a new TS, and configuring it through customer actions and Microsoft engineering support.
+
+## Pre-Replacement Cleanup (Customer Action)
+
+Before initiating the Return Merchandise Authorization (RMA) for the existing Terminal Server, ensure a thorough cleanup of the device. This step is crucial if the TS is still accessible.
+
+### Manual Cleanup Tasks:
+
+1. Verify TS Password in KeyVault
+
+    Confirm that the current Terminal Server password is stored in the customer NFC KeyVault secrets.
+
+2. Stop Active Services
+
+    On the Terminal Server, navigate to the directory under /mnt/nvram/ that begins with the name “opengear” (ensure you select the directory for the latest version, if multiple directories are present).
+
+3. Run the following command to stop the relevant services:
+    
+    ```bash
+    sudo bash stop.sh   
+    ```
+
+4. Remove Configuration and Certificate Files
+
+    Access the /mnt/nvram/ directory to ensure all configuration files, certificates, and the Open Gear file are deleted, leaving no traces of previous configurations.
+
+### Device Removal (Customer Action)
+
+Once the cleanup is complete, proceed with physically removing the existing Terminal Server from the rack.
+
+### Installation of New Device (Customer Action)
+
+After the old TS is removed, install the new Terminal Server in the rack. Follow the guidelines provided in the public documentation for [Terminal Server setup](howto-platform-prerequisites.md)
+
+Validate the connectivity of both Net1 and Net2 interfaces to ensure proper network functionality.
+
+Set up the terminal server device with the same password and username as before. This password can be obtained from the customer NFC KeyVault secrets. The username can be obtained by doing an ARM GET on the network fabric resource.
+
+### Microsoft Engineering Support
+
+After the new Terminal Server is installed and configured, open a support ticket with Microsoft to complete the setup. Microsoft engineers will trigger a lockbox action for *Reprovisioning Terminal Server Device*.
+
+>[!Note:]
+>The user is expected to setup the terminal server with the same username and password as stored in customer NFC key vault.
+
+Wait for the operation to complete.
+
+[!Note:] The lockbox operation will execute the following tasks:
+> •	Configure essential services, including httpd and dhcpd.
+> •	Set up the Net3 interface.
+> •	Copy necessary OS, dhcpd configuration, device configurations, and certificate files to the appropriate directories.
+> •	Transfer the configuration files and certificates to the /mnt/nvram/conf directory.
+> •	Restart the DHCPD service.
+> •	Ensure that configuration files are accessible via the HTTP service for further validation.
+
