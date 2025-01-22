@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 11/06/2024
 ---
 
-# Tutorial: Feature flag telemetry reference
+# Document: Feature flag telemetry reference
 
 Having telemetry data on your feature flags can be a powerful tool for understanding how your feature flags are used. Telemetry allows you to make informed decisions about your feature management strategy.
 
-In this tutorial, you:
+In this document, you:
 
 > [!div class="checklist"]
 > - Learn which telemetry data is viewable using the Azure App Configuration provider libraries
@@ -55,4 +55,4 @@ The full schema can be found [here](https://github.com/microsoft/FeatureManageme
 
 ## Next steps
 
-In this tutorial, you learned about how to enable telemetry for feature flags in Azure App Configuration. To learn about how to use the telemetry data in your applications, continue to the following tutorial for your language or platform.
+In this document, you learned about how to enable telemetry for feature flags in Azure App Configuration. To learn about how to use the telemetry data in your applications, continue to the following document for your language or platform.
