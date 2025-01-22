@@ -229,6 +229,8 @@ items:
     href: configure-vsan.md
   - name: Configure customer-managed key encryption at rest
     href: configure-customer-managed-keys.md
+  - name: Extend Azure VMware Solution with external storage
+    href: ecosystem-external-storage-solutions.md
   - name: Configure Azure Elastic SAN
     href: configure-azure-elastic-san.md
   - name: Manage and protect VMs on Azure NetApp Files
@@ -247,12 +249,8 @@ items:
       href: restore-azure-netapp-files-vms.md
     - name: Restore guest files and folders
       href: restore-guest-files-folders.md  
-  - name: External storage solutions
-    items:
-    - name: Storage solution overview
-      href: ecosystem-external-storage-solutions.md
-    - name: Pure Cloud Block Store
-      href: configure-pure-cloud-block-store.md
+  - name: Pure Cloud Block Store
+    href: configure-pure-cloud-block-store.md
 - name: Backup and recovery
   items:
   - name: Backup solutions for VMs
