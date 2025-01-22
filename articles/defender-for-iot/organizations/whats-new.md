@@ -28,13 +28,15 @@ The legacy on-premises management console won't be available for download after 
 |---------|---------|
 | **OT networks** | - [Aggregating multiple alerts violations with the same parameters](#aggregating-multiple-alerts-violations-with-the-same-parameters)<br>- ["Unauthorized Internet Connectivity Detected" alert now include URL information](#unauthorized-internet-connectivity-detected-alert-now-includes-url-information) |
 
+### Aggregating multiple alerts violations with the same parameters
+
+To reduce alert fatigue, multiple versions of the same alert violation and with the same parameters are grouped together and listed in the alerts table as one item. The alert details pane lists each of the identical alert violations in the **Violations** tab and the appropriate remediation actions are listed in the **Take action** tab. For more information, see [aggregating alerts with the same parameters](alerts.md#aggregating-alert-violations).
+
 ### "Unauthorized Internet Connectivity Detected" alert now includes URL information
 
 The "Unauthorized Internet Connectivity Detected" alert details now includes the URL from which the suspicious connection initiated, helping SOC analysts assess and respond to incidents more effectively.
 
-### Aggregating multiple alerts violations with the same parameters
-
-To reduce alert fatigue, multiple versions of the same alert violation and with the same parameters are grouped together and listed in the alerts table as one item. The alert details pane lists each of the identical alert violations in the **Violations** tab and the appropriate remediation actions are listed in the **Take action** tab. For more information, see [aggregating alerts with the same parameters](alerts.md#aggregating-alert-violations).
+:::image type="content" source="media/whats-new/url-parameters.png" alt-text="Screenshot of the sensor console login screen with SSO.":::
 
 ## December 2024
 
