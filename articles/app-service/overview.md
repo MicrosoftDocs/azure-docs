@@ -36,9 +36,15 @@ Azure App Service is a fully managed platform as a service (PaaS) offering for d
 * **Visual Studio and Visual Studio Code integration** - Dedicated tools in Visual Studio and Visual Studio Code streamline the work of creating, deploying, and debugging.
 * **Java tools integration** - Develop and deploy to Azure without leaving your favorite development tools, such as Maven, Gradle, Visual Studio Code, IntelliJ, and Eclipse.
 * **API and mobile features** - App Service provides turn-key CORS support for RESTful API scenarios and simplifies mobile app scenarios by enabling authentication, offline data sync, push notifications, and more.
-* **Serverless code** - Run a code snippet or script on-demand without having to explicitly provision or manage infrastructure, and pay only for the compute time your code actually uses. (See [Azure Functions](../azure-functions/index.yml).)
+* **Serverless code** - Run a code snippet or script on-demand without having to explicitly provision or manage infrastructure, and pay only for the compute time your code actually uses (see [Azure Functions](../azure-functions/index.yml)).
 
-Besides App Service, Azure offers other services that can be used for hosting websites and web applications. For most scenarios, App Service is the best choice. For a microservice architecture, consider [Azure Spring Apps](../spring-apps/index.yml) or [Service Fabric](/azure/service-fabric/). If you need more control over the VMs on which your code runs, consider [Azure Virtual Machines](/azure/virtual-machines/). For more information about how to choose among these Azure services, see [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](/azure/architecture/guide/technology-choices/compute-decision-tree).
+Besides App Service, Azure offers other services that can be used for hosting websites and web applications. 
+For most scenarios, App Service is the best choice. For a microservice architecture, 
+consider [Azure Kubernetes Service](/azure/aks/) or [Service Fabric](/azure/service-fabric/). 
+If you need more control over the VMs on which your code runs, consider 
+[Azure Virtual Machines](/azure/virtual-machines/). For more information about how to choose among these 
+Azure services, see [Azure App Service, Azure Kubernetes Service, Virtual Machines, and other cloud services 
+comparison](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ## App Service on Linux
 
