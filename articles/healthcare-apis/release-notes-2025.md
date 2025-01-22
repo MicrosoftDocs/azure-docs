@@ -6,7 +6,7 @@ author: KendalBond007
 ms.service: azure-health-data-services
 ms.subservice: workspace
 ms.topic: reference
-ms.date: 07/29/2024
+ms.date: 01/22/2025
 ms.author: kesheth
 ms.custom: references_regions
 ---
@@ -16,8 +16,6 @@ ms.custom: references_regions
 This article describes features, enhancements, and bug fixes released in 2025 for the FHIR&reg; service, Azure API for FHIR, DICOM&reg; service, and MedTech service in Azure Health Data Services.
 
 ## January 2025
-
-### Azure Health Data Services
 
 ### FHIR service
 
