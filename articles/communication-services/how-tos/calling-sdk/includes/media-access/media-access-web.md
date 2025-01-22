@@ -160,12 +160,12 @@ The following table shows the minimum version of SDKs that support individual AP
 
 | Operations | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows | 
 |-------------|-----|--------|-----|--------|---------|------------|---------|
-|Permit audio | 1.31.2,<br>1.32.1-beta.1|❌|❌|❌|❌|❌|❌|
-|Forbid audio | 1.31.2,<br>1.32.1-beta.1|❌|❌|❌|❌|❌|❌|
-|Permit others audio| 1.31.2,<br>1.32.1-beta.1|❌|❌|❌|❌|❌|❌|
-|Forbid others audio| 1.31.2,<br>1.32.1-beta.1|❌|❌|❌|❌|❌|❌|
-|Permit video | 1.31.2,<br>1.32.1-beta.1|❌|❌|❌|❌|❌|❌|
-|Forbid video | 1.31.2,<br>1.32.1-beta.1|❌|❌|❌|❌|❌|❌|
-|Permit others video| 1.31.2,<br>1.32.1-beta.1|❌|❌|❌|❌|❌|❌|
-|Forbid others video| 1.31.2,<br>1.32.1-beta.1|❌|❌|❌|❌|❌|❌|
+|Permit audio |1.31.2,<br>1.32.1-beta.1|❌|❌|❌|❌|❌|❌|
+|Forbid audio |1.31.2,<br>1.32.1-beta.1|❌|❌|❌|❌|❌|❌|
+|Permit others audio|1.31.2,<br>1.32.1-beta.1|❌|❌|❌|❌|❌|❌|
+|Forbid others audio|1.31.2,<br>1.32.1-beta.1|❌|❌|❌|❌|❌|❌|
+|Permit video |1.31.2,<br>1.32.1-beta.1|❌|❌|❌|❌|❌|❌|
+|Forbid video |1.31.2,<br>1.32.1-beta.1|❌|❌|❌|❌|❌|❌|
+|Permit others video|1.31.2,<br>1.32.1-beta.1|❌|❌|❌|❌|❌|❌|
+|Forbid others video|1.31.2,<br>1.32.1-beta.1|❌|❌|❌|❌|❌|❌|
 
