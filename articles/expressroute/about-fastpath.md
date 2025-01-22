@@ -5,8 +5,8 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 11/7/2024
-ms.author: duau
+ms.date: 01/21/2025
+ms.author: derekol
 ms.custom: template-concept, references_regions, engagement-fy23
 ---
 # About ExpressRoute FastPath
@@ -47,6 +47,8 @@ While FastPath supports many configurations, it doesn't support the following fe
 * Private Link: FastPath Connectivity to a private endpoint or Private Link service over an ExpressRoute Direct circuit is supported for limited scenarios. For more information, see [enable FastPath and Private Link for 100-Gbps ExpressRoute Direct](expressroute-howto-linkvnet-arm.md#fastpath-virtual-network-peering-user-defined-routes-udrs-and-private-link-support-for-expressroute-direct-connections). FastPath connectivity to a Private endpoint/Private Link service isn't supported for ExpressRoute partner provider circuits.
 
 * DNS Private Resolver: Azure ExpressRoute FastPath doesn't support connectivity to [DNS Private Resolver](../dns/dns-private-resolver-overview.md).
+
+* For Azure NetApp Files, customers should upgrade their volumes from Basic to Standard for FastPath to work. [Supported Network Topologies](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-network-topologies).
 
 ### IP address limits
 
