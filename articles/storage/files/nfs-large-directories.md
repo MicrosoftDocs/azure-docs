@@ -74,13 +74,13 @@ The total amount of RAM present on the system doing the enumeration influences t
 
 To do this, you'll need to modify your boot configuration settings by providing an additional kernel command that takes effect during boot to increase the number of hash buckets. Follow these steps.
 
-1. Edit the `/etc/default/grub` file.
+1. Using a text editor, edit the `/etc/default/grub` file.
 
    ```bash
    sudo vim /etc/default/grub
    ```
 
-2. Add the following text to the file. This command will set apart 128MB as the hash table size, increasing system memory consumption by a maximum of 128MB.
+2. Add the following text to the `/etc/default/grub` file. This command will set apart 128MB as the hash table size, increasing system memory consumption by a maximum of 128MB.
 
    ```bash
    GRUB_CMDLINE_LINUX="ihash_entries=16777216"
