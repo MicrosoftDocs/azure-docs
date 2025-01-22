@@ -41,6 +41,12 @@ Specifically, this Teradata connector supports:
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
+### For version 2.0
+
+If you use the self-hosted integration runtime for the connector version 2.0, you need to [install .NET Data Provider](https://downloads.teradata.com/download/connectivity/net-data-provider-teradata) with version 20.00.03.00 or above on your self-hosted integration runtime. 
+
+### For version 1.0
+
 If you use Self-hosted Integration Runtime, note it provides a built-in Teradata driver starting from version 3.18. You don't need to manually install any driver. The driver requires "Visual C++ Redistributable 2012 Update 4" on the self-hosted integration runtime machine. If you don't yet have it installed, download it from [here](https://www.microsoft.com/en-sg/download/details.aspx?id=30679).
 
 ## Getting started
@@ -101,17 +107,9 @@ More connection properties you can set in connection string per your case:
 | sslMode | The SSL mode for connections to the database. Valid values including `Disable`, `Allow`, `Prefer`, `Require`, `Verify-CA`, `Verify-Full`.  | `Verify-Full` |
 | portNumber  |The port numbers when connecting to server through non-HTTPS/TLS connections.  | 1025|
 | httpsPortNumber |The port numbers when connecting to server through HTTPS/TLS connections. |443 |
-| UseDataEncryption | Specifies whether to encrypt all communication with the Teradata database. Allowed values are 0 or 1.<br><br/>- **0 (disabled, default)**: Encrypts authentication information only.<br/>- **1 (enabled)**: Encrypts all data that is passed between the driver and the database. This setting is ignored for HTTPS/TLS connections.| `1` |
+| UseDataEncryption | Specifies whether to encrypt all communication with the Teradata database. Allowed values are 0 or 1.<br><br/>- **0 (disabled)**: Encrypts authentication information only.<br/>- **1 (enabled, default)**: Encrypts all data that is passed between the driver and the database. This setting is ignored for HTTPS/TLS connections.| `1` |
 | CharacterSet | The character set to use for the session. For example, `CharacterSet=UTF16`.<br><br/>This value can be a user-defined character set, or one of the following predefined character sets: <br/>- ASCII<br/>- ARABIC1256_6A0<br/>- CYRILLIC1251_2A0<br/>- HANGUL949_7R0<br/>- HEBREW1255_5A0<br/>- KANJI932_1S0<br/>- KANJISJIS_0S<br/>- LATIN1250_1A0<br/>- LATIN1252_3A0<br/>- LATIN1254_7A0<br/>- LATIN1258_8A0<br/>- SCHINESE936_6R0<br/>- TCHINESE950_8R0<br/>- THAI874_4A0<br/>- UTF8<br/>- UTF16  | `ASCII` |
 | MaxRespSize |The maximum size of the response buffer for SQL requests, in bytes. For example, `MaxRespSize=10485760`.<br/><br/>Range of permissible values are from `4096` to `16775168`. The default value is `524288`.  | `524288`  |
-| sslCrc |Controls the behavior of the connection depending on the result of the certificate revocation check. This setting is ignored when sslMode is not `Verify-Full`. Valid values including **Allow** and **Require**.<br/>- **Allow**: The connection is established if the certificate revocation status is not Revoked. The connection is not terminated if the revocation status cannot be determined or is anything other than Revoked.<br/>- **Require**: The connection is established only if the revocation status is Good, otherwise it is terminated.   | `Allow` |
-| sslCRCTimeout  |Sets the maximum amount of time to be spent during the retrieval of OCSP response or certificate revocation list (CRL). A value of zero means no limits. This setting is ignored when sslMode is not `Verify-Full`.   | `10` |
-| commandTimeout  |The amount of time in seconds that the Data Provider waits for a response from Teradata. If the request is not processed within the specified commandTimeout, the request is aborted and the transaction is rolled back. A zero value indicates that the Data Provider should wait indefinitely for the SQL statement to execute.   | `30` |
-| connectionTimeout  |Represents the time to wait for establishment of a connection before terminating the attempt and generating an error.   | `60` |
-| queryBand   |This property is used to define Query Bands at the connection level. It should be in below format: `key1=value1; key2=value2; keyn=valuen;`. For more information, see this [article](https://teradata-docs.s3.amazonaws.com/doc/connectivity/tdnetdp/20.00/help/QueryBandReserved.html).  | N/A |
-| dataBase   |The database selected as the default database when a Teradata connection is opened.   | N/A |
-| restrictToDefaultDatabase    |Indicates whether schema queries should be restricted to the default database. Allowed values are 0 or 1. 0 for false, and 1 for true.    | `0` |
-| useXViews     |Whether all schema queries return only user owned data.   |N/A |
 
 **Example**
 
