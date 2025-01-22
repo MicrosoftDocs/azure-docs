@@ -78,8 +78,6 @@ There are multiple ways to turn off default outbound access. The following secti
  
 #### Add the Private subnet feature
  
-#### Enable the Private subnet feature on existing subnets
-
 * From the Azure portal, select the subnet and select the checkbox to enable Private subnet as shown below:
 
 :::image type="content" source="./media/default-outbound-access/private-subnet-portal.png"  alt-text="Screenshot of Azure portal showing Private subnet option.":::
@@ -87,8 +85,8 @@ There are multiple ways to turn off default outbound access. The following secti
 * Using Powershell, the following script takes the names of the Resource Group and Virtual Network and loops through each subnet to enable private subnet.
 
 ```
-$resourceGroupName = "rgname"
-$vnetName = "vnetname"
+$resourceGroupName = ""
+$vnetName = ""
  
 $vnet = Get-AzVirtualNetwork -ResourceGroupName $resourceGroupName -Name $vnetName
  
