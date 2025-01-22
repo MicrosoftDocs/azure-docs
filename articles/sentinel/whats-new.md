@@ -23,7 +23,7 @@ Get notified when this page is updated by copying and pasting the following URL 
 
 ## January 2025
 
-- [Threat intelligence upload API now supports more STIX objects](#microsoft-sentinel-threat-intelligence-supports-more-stix-objects-than-just-indicators)
+- [Threat intelligence upload API now supports more STIX objects](#threat-intelligence-upload-api-now-supports-more-stix-objects)
 - [Microsoft Defender Threat Intelligence data connectors now generally available (GA)](#)
 - [Bicep template support for repositories (Preview)](#bicep-template-support-for-repositories-preview)
 - [View granular solution content in the Microsoft Sentinel content hub](#view-granular-solution-content-in-the-microsoft-sentinel-content-hub)
