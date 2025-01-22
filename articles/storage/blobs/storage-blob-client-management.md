@@ -321,12 +321,31 @@ def get_blob_container_client(self, account_name, container_name):
 
 ## [Go](#tab/go)
 
+Add the following `import` statements:
+
 ```go
-func getBlobContainerClient(accountName string, containerName string) *azblob.ContainerClient {
-    // Append the container name to the end of the URI
-    containerURL := fmt.Printf("https://%s.blob.core.windows.net/%s", accountName, containerName)
-    containerClient := azblob.NewClient(containerURL, nil)
-    return containerClient
+import (
+    "context"
+    "fmt"
+
+    "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/container"
+)
+```
+
+Add the following code to create the client object:
+
+```go
+func getBlobContainerClient(accountName string, containerName string) *container.Client {
+	// Create a new container client with token credential
+	credential, err := azidentity.NewDefaultAzureCredential(nil)
+	handleError(err)
+
+	containerURL := fmt.Sprintf("https://%s.blob.core.windows.net/%s", accountName, containerName)
+	containerClient, err := container.NewClient(containerURL, credential, nil)
+	handleError(err)
+
+	return containerClient
 }
 ```
 
@@ -386,10 +405,8 @@ def get_blob_client(self, blob_service_client: BlobServiceClient, container_name
 
 ```go
 func getBlobClient(client *azblob.Client, containerName string, blobName string) *azblob.BlobClient {
-    // Create the container client using the azblob client object
-    blobClient := client.ServiceClient()
-                        .NewContainerClient(containerName)
-                        .NewBlobClient(blobName)
+    // Create the blob client using the azblob client object
+    blobClient := client.ServiceClient().NewContainerClient(containerName).NewBlobClient(blobName)
     return blobClient
 }
 ```
