@@ -18,10 +18,11 @@ Get started with the Quarkus extension for Azure Blob Storage to manage blobs an
 
 ## Prerequisites
 
-- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Azure CLI - [Install the Azure CLI](/cli/azure/install-azure-cli) 2.62.0 or above to run Azure CLI commands.
 - Azure Storage account - [create a storage account](../common/storage-account-create.md).
-- [Java Development Kit (JDK)](/java/azure/jdk/) version 17 or above
-- [Apache Maven](https://maven.apache.org/download.cgi)
+- [Java Development Kit (JDK)](/java/azure/jdk/) version 17 or above.
+- [Apache Maven](https://maven.apache.org/download.cgi).
 
 ## Setting up
 
@@ -81,13 +82,13 @@ You can authorize access to data in your storage account using the following ste
 
 The code example performs the following actions:
 
-- Injects a client object that is already authorized for data access via `DefaultAzureCredential` using the Quarkus extension for Azure Blob Storage
-- Creates a container in a storage account
-- Uploads a blob to the container
-- Lists the blobs in the container
-- Downloads the blob data to the local file system
-- Deletes the blob and container resources created by the app
-- Deleting the local source and downloaded files
+- Injects a client object that is already authorized for data access via `DefaultAzureCredential` using the Quarkus extension for Azure Blob Storage.
+- Creates a container in a storage account.
+- Uploads a blob to the container.
+- Lists the blobs in the container.
+- Downloads the blob data to the local file system.
+- Deletes the blob and container resources created by the app.
+- Deleting the local source and downloaded files.
 
 Run the application in JVM mode using the following command:
 
@@ -186,7 +187,10 @@ This is all you need to code to get a client object using the Quarkus extension 
 
 ### Manage blobs and containers
 
-The following code snippet shows how to create a container, upload a blob, list blobs in a container, and download a blob:
+The following code snippet shows how to create a container, upload a blob, list blobs in a container, and download a blob.
+
+> [!NOTE]
+> Writing to the local filesystem is considered a bad practice in cloud native applications. However, the sample uses the local filesystem to illustrate the use of blob storage in a way that is easy to for the user to verify. If taking an application to production, review your storage options and choose the best option for your needs. See [Review your storage options](/azure/architecture/guide/technology-choices/storage-options).
 
 ```java
 // Create a unique name for the container
@@ -262,7 +266,13 @@ These operations are similar to the [Quickstart: Azure Blob Storage client libra
 - [Download blobs](storage-quickstart-blobs-java.md#download-blobs)
 - [Delete a container](storage-quickstart-blobs-java.md#delete-a-container)
 
-## Next step
+## Clean up
+
+You can choose to follow the links in the **Next steps** section to deploy the Quarkus application to Azure. Or you can clean up the storage account by deleting the resource group. For more information, see [Azure Resource Manager resource group and resource deletion](/azure/azure-resource-manager/management/delete-resource-group).
+
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Azure Storage samples and developer guides for Java](../common/storage-samples-java.md?toc=/azure/storage/blobs/toc.json)
+> [Deploy a Java application with Quarkus on an Azure Kubernetes Service cluster](/azure/aks/howto-deploy-java-quarkus-app)
+> [Deploy a Java application with Quarkus on Azure Container Apps](https://learn.microsoft.com/en-us/azure/developer/java/ee/deploy-java-quarkus-app)
