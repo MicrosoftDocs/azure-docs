@@ -2,7 +2,7 @@
 title: 'Quickstart: Use Terraform to deploy Azure Bastion'
 description: In this quickstart, you learn how to use Terraform to create Azure resources for an Azure Bastion deployment.'
 ms.topic: quickstart
-ms.date: 01/17/2025
+ms.date: 01/22/2025
 ms.custom: devx-track-terraform
 ms.service: azure-bastion
 author: cherylmc
