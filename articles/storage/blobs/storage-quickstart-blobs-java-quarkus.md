@@ -275,4 +275,4 @@ You can choose to follow the links in the **Next steps** section to deploy the Q
 > [!div class="nextstepaction"]
 > [Azure Storage samples and developer guides for Java](../common/storage-samples-java.md?toc=/azure/storage/blobs/toc.json)
 > [Deploy a Java application with Quarkus on an Azure Kubernetes Service cluster](/azure/aks/howto-deploy-java-quarkus-app)
-> [Deploy a Java application with Quarkus on Azure Container Apps](https://learn.microsoft.com/en-us/azure/developer/java/ee/deploy-java-quarkus-app)
+> [Deploy a Java application with Quarkus on Azure Container Apps](/azure/developer/java/ee/deploy-java-quarkus-app)

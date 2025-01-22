@@ -613,5 +613,5 @@ You'll be prompted to confirm the deletion of the resources. Enter `y` to confir
 > [!div class="nextstepaction"]
 > [Azure Storage samples and developer guides for Java](../common/storage-samples-java.md?toc=/azure/storage/blobs/toc.json)
 > [Azure Storage samples and developer guides for Java](../common/storage-samples-java.md?toc=/azure/storage/blobs/toc.json)
-> [Quickstart: Quarkus extension for Azure Blob Storage](storage-quickstart-blobs-java-quarkus)
+> [Quickstart: Quarkus extension for Azure Blob Storage](storage-quickstart-blobs-java-quarkus.md)
 > [Use Spring Boot to upload a file to Azure Blob Storage](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage?toc=/azure/storage/blobs/toc.json)
