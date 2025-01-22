@@ -341,12 +341,12 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
     :::column span="2":::
         **Step 5:**
         1. Select the **Source Control** extension.
-        1. In the textbox, type a commit message like `Configure Azure database and cache connections`. Or, select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: and let GitHub Copilot generate a commit message for you.
+        1. In the textbox, type a commit message like `Configure Azure database connecton`. Or, select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: and let GitHub Copilot generate a commit message for you.
         1. Select **Commit**, then confirm with **Yes**.
         1. Select **Sync changes 1**, then confirm with **OK**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-flask/azure-portal-deploy-sample-code-flask-6.png" alt-text="A screenshot showing the changes being committed and pushed to GitHub." lightbox="./media/tutorial-python-postgresql-app-flask/azure-portal-deploy-sample-code-flask-6.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-flask/azure-portal-deploy-sample-code-flask-6.png" alt-text="A screenshot showing the changes being committed and pushed to GitHub." lightbox="./media/tutorial-python-postgresql-app-flask/azure-portal-deploy-sample-code-flask-5.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -357,7 +357,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
         1. In the log item for the deployment run, select the **Build/Deploy Logs** entry with the latest timestamp.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-flask/azure-portal-deploy-sample-code-flask-7.png" alt-text="A screenshot showing how to open deployment logs in the deployment center." lightbox="./media/tutorial-python-postgresql-app-flask/azure-portal-deploy-sample-code-flask-7.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-flask/azure-portal-deploy-sample-code-flask-6.png" alt-text="A screenshot showing how to open deployment logs in the deployment center." lightbox="./media/tutorial-python-postgresql-app-flask/azure-portal-deploy-sample-code-flask-6.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -365,7 +365,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
         **Step 7:** You're taken to your GitHub repository and see that the GitHub action is running. The workflow file defines two separate stages, build and deploy. Wait for the GitHub run to show a status of **Success**. It takes about 5 minutes.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-flask/azure-portal-deploy-sample-code-flask-8.png" alt-text="A screenshot showing a GitHub run in progress." lightbox="./media/tutorial-python-postgresql-app-flask/azure-portal-deploy-sample-code-flask-8.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-flask/azure-portal-deploy-sample-code-flask-7.png" alt-text="A screenshot showing a GitHub run in progress." lightbox="./media/tutorial-python-postgresql-app-flask/azure-portal-deploy-sample-code-flask-7.png":::
     :::column-end:::
 :::row-end:::
 
