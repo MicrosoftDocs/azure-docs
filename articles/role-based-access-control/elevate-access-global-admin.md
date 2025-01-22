@@ -411,6 +411,7 @@ This section describes different ways that you can view the elevate access log e
 1. To view details when access was elevated or removed, select these audit log entries.
 
     `User has elevated their access to User Access Administrator for their Azure Resources`
+
     `The role assignment of User Access Administrator has been removed from the user`
 
     :::image type="content" source="./media/elevate-access-global-admin/entra-id-audit-logs-elevated-details.png" alt-text="Screenshot of directory audit logs that shows audit log details when access is elevated." lightbox="./media/elevate-access-global-admin/entra-id-audit-logs-elevated-details.png":::
