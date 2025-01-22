@@ -786,7 +786,7 @@
     href: connect-threat-intelligence-tip.md
   - name: Connect to STIX/TAXII feeds
     href: connect-threat-intelligence-taxii.md
-  - name: Add indicators in bulk by file
+  - name: Add threat intelligence in bulk by file
     href: indicators-bulk-file-import.md
   - name: Work with threat indicators
     href: work-with-threat-indicators.md
