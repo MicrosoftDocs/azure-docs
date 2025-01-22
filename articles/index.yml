@@ -947,13 +947,6 @@ productDirectory:
         - iot
       url: /azure-sphere/
     # Card
-    - title: Azure Time Series Insights
-      summary: Explore and analyze time-series data from IoT devices
-      imageSrc: ./media/index/time-series-insights-environments.svg
-      azureCategories:
-        - iot
-      url: time-series-insights/index.yml
-    # Card
     - title: Notification Hubs
       summary: Send push notifications to any platform from any back end
       imageSrc: ./media/index/notification-hubs.svg
