@@ -173,9 +173,6 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 The creation wizard generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You'll move your secrets to a key vault and change your app setting to [Key Vault references](app-service-key-vault-references.md) with the help of Service Connectors.
 
-> [!TIP]
-> To use passwordless authentication, see [How do I change the PostgreSQL connection to use a managed identity instead?](#how-do-i-change-the-postgresql-connection-to-use-a-managed-identity-instead)
-
 :::row:::
     :::column span="2":::
         **Step 1: Retrieve the existing connection string** 
