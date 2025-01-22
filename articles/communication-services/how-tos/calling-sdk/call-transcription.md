@@ -75,12 +75,12 @@ The following tables show support of transcription in individual Azure Communica
 ## SDK compatibility
 
 The following table shows the minimum version of SDKs that support individual APIs.
-|Operations | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows | 
-|-------------|-----|--------|-----|--------|---------|------------|---------|
-|Get event that transcription has started| v1.0.0, <br> v1.25.3-beta.1|v1.0.0, <br> v1.0.0-beta.8|v2.1.0, <br> v2.1.0-beta.1|v1.0.0, <br> v1.0.0-beta.8|v1.1.0, <br> v1.2.0-beta.1|v1.0.0, <br> v1.0.0-beta.8|v1.0.0 <br> v1.0.0-beta.31|
-|Get transcription state | v1.0.0, <br> v1.25.3-beta.1|v1.0.0, <br> v1.0.0-beta.8|v2.1.0, <br> v2.1.0-beta.1|v1.0.0, <br> v1.0.0-beta.8|v1.1.0, <br> v1.2.0-beta.1|v1.0.0, <br> v1.0.0-beta.8|v1.0.0 <br> v1.0.0-beta.31|
-|Learn whether explicit consent is required| v1.31.2,<br>v1.32.1-beta.1|❌|❌|❌|❌|❌|❌|
-|Give explicit consent for being recorded| v1.31.2,<br>v1.32.1-beta.1|❌|❌|❌|❌|❌|❌|
+| Operations | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows | 
+|------------|-----|--------|-----|--------|---------|------------|---------|
+| Get event that transcription has started | 1.0.0, 1.25.3-beta.1 | 1.0.0, 1.0.0-beta.8 | 2.1.0, 2.1.0-beta.1 | 1.0.0, 1.0.0-beta.8 | 1.1.0, 1.2.0-beta.1 | 1.0.0, 1.0.0-beta.8 | 1.0.0, 1.0.0-beta.31 |
+| Get transcription state | 1.0.0, 1.25.3-beta.1 | 1.0.0, 1.0.0-beta.8 | 2.1.0, 2.1.0-beta.1 | 1.0.0, 1.0.0-beta.8 | 1.1.0, 1.2.0-beta.1 | 1.0.0, 1.0.0-beta.8 | 1.0.0, 1.0.0-beta.31 |
+| Learn whether explicit consent is required | 1.31.2, 1.32.1-beta.1 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Give explicit consent for being recorded | 1.31.2, 1.32.1-beta.1 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 
 ## Next steps
 - [Learn how to manage video](./manage-video.md)
