@@ -11,7 +11,7 @@ ms.author: ananyagarg
 
 # Secure Key Release with Confidential containers on Azure Container Instance (ACI)
 
-Secure Key Release (SKR) flow with Azure Key Vault (AKV) with confidential container offerings can implement in couple of ways. Confidential containers run a guest enlightened exposting AMD SEV-SNP device through a Linux Kernel that uses an in guest firmware with necessary Hyper-V related patches that we refer as Direct Linux Boot (DLB). This platform doesn't use vTPM and HCL based that Confidential VMs with AMD SEV-SNP support. This concept document assumes you plan to run the containers in [Azure Container Support choosing a confidential computing SKU](/azure/container-instances/container-instances-tutorial-deploy-confidential-containers-cce-arm)
+Secure Key Release (SKR) flow with Azure Key Vault (AKV) with confidential container offerings can implement in couple of ways. Confidential containers run a guest enlightened exposing AMD SEV-SNP device through a Linux Kernel that uses an in guest firmware with necessary Hyper-V related patches that we refer as Direct Linux Boot (DLB). This platform doesn't use vTPM and HCL based that Confidential VMs with AMD SEV-SNP support. This concept document assumes you plan to run the containers in [Azure Container Support choosing a confidential computing SKU](/azure/container-instances/container-instances-tutorial-deploy-confidential-containers-cce-arm)
 
 - Side-Car Helper Container provided by Azure
 - Custom implementation with your container application

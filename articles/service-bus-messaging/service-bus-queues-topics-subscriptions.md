@@ -3,7 +3,7 @@ title: Azure Service Bus messaging - queues, topics, and subscriptions
 description: This article provides an overview of Azure Service Bus messaging entities (queue, topics, and subscriptions).
 ms.topic: conceptual
 ms.custom: devx-track-extended-java
-ms.date: 11/15/2023
+ms.date: 12/05/2024
 ---
 
 # Service Bus queues, topics, and subscriptions
@@ -63,10 +63,11 @@ A queue allows processing of a message by a single consumer. In contrast to queu
 
 :::image type="content" source="./media/service-bus-messaging-overview/about-service-bus-topic.png" alt-text="Image showing a Service Bus topic with three subscriptions.":::
 
-The subscriptions can use more filters to restrict the messages that they want to receive. Publishers send messages to a topic in the same way that they send messages to a queue. But, consumers don't receive messages directly from the topic. Instead, consumers receive messages from subscriptions of the topic. A topic subscription resembles a virtual queue that receives copies of the messages that are sent to the topic. Consumers receive messages from a subscription identically to the way they receive messages from a queue.
+Publishers send messages to a topic in the same way that they send messages to a queue. But, consumers don't receive messages directly from the topic. Instead, consumers receive messages from subscriptions of the topic. A topic subscription resembles a virtual queue that receives copies of the messages that are sent to the topic. Consumers receive messages from a subscription identically to the way they receive messages from a queue. The message-sending functionality of a queue maps directly to a topic and its message-receiving functionality maps to a subscription. Among other things, this feature means that subscriptions support the same patterns described earlier in this section regarding queues: competing consumer, temporal decoupling, load leveling, and load balancing.
 
-The message-sending functionality of a queue maps directly to a topic and its message-receiving functionality maps to a subscription. Among other things, this feature means that subscriptions support the same patterns described earlier in this section regarding queues: competing consumer, temporal decoupling, load leveling, and load balancing.
+Subscriptions can define which messages they want to receive from a topic. These messages are specified in the form of one or more named subscription rules. Each rule consists of a **filter condition** that selects particular messages, and **optionally** contain an **action** that annotates the selected message. By default, a subscription to a topic receives all messages sent to the topic. The subscription has an initial default rule with a true filter that enables all messages to be selected into the subscription. The default rule has no associated action. You can define filters with rules and actions on a subscription so that the subscription receives only a subset of messages sent to the topic. 
 
+For more details about filters, [Filters and actions](topic-filters.md).
 
 ### Create topics and subscriptions
 
@@ -110,7 +111,8 @@ Express entities were created for high throughput and reduced latency scenarios.
  
 In regular entities, any runtime operation (like Send, Complete, Abandon, Deadletter) is persisted to the store first, and only after this is acknowledged to the client as successful. In express entities, a runtime operation is acknowledged to the client as successful first, and only later lazily persisted to the store. As a result, in case of a machine reboot or when a hardware issue occurs, some acknowledged runtime operations may not be persisted at all. This means the client gets lower latency and higher throughput with express entities, at the expense of potential data loss and/or redelivery of messages.
  
-Additionally, over time many optimizations have been done within Service Bus, meaning that the throughput and latency advantages of express entities are currently minimal. Moreover, the Premium tier of Service Bus does not support [Express entities](service-bus-premium-messaging.md#express-entities). Due to this, it is currently not recommended to use this feature.
+> [!IMPORTANT]
+> Over time many optimizations have been done within Service Bus, meaning that the throughput and latency advantages of express entities are currently minimal. Moreover, the Premium tier of Service Bus does not support [Express entities](service-bus-premium-messaging.md#express-entities). Due to this, it is currently not recommended to use this feature.
 
 ## Next steps
 

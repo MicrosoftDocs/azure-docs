@@ -3,18 +3,13 @@ title: IoT Edge supported platforms
 description: Azure IoT Edge supported operating systems, runtimes, and container engines.
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/04/2024
+ms.date: 12/10/2024
 ms.topic: conceptual
 ms.service: azure-iot-edge
 services: iot-edge
 ---
 
 # Azure IoT Edge supported platforms
-
-::: moniker range="=iotedge-1.4"
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
-::: moniker-end
 
 [!INCLUDE [iot-edge-version-1.4-or-1.5](includes/iot-edge-version-1-4-or-1-5.md)]
 
@@ -111,7 +106,7 @@ The systems listed in the following table are considered compatible with Azure I
 
 | Operating System | AMD64 | ARM32v7 | ARM64 | End of OS provider standard support |
 | ---------------- | ----- | ------- | ----- | -------------- |
-| [CentOS-7](https://docs.centos.org/en-US/docs/) | ![CentOS + AMD64](./media/support/green-check.png) | ![CentOS + ARM32v7](./media/support/green-check.png) | ![CentOS + ARM64](./media/support/green-check.png) | [June 2024](https://www.redhat.com/en/topics/linux/centos-linux-eol) |
+| [CentOS-7](https://docs.centos.org/) | ![CentOS + AMD64](./media/support/green-check.png) | ![CentOS + ARM32v7](./media/support/green-check.png) | ![CentOS + ARM64](./media/support/green-check.png) | [June 2024](https://www.redhat.com/en/topics/linux/centos-linux-eol). For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life). |
 | [Debian 10 <sup>1</sup>](https://www.debian.org/releases/buster/) | ![Debian 10 + AMD64](./media/support/green-check.png) | ![Debian 10 + ARM32v7](./media/support/green-check.png) | ![Debian 10 + ARM64](./media/support/green-check.png) | [June 2024](https://wiki.debian.org/LTS) |
 | [Debian 11](https://www.debian.org/releases/bullseye/) | ![Debian 11 + AMD64](./media/support/green-check.png) |  | ![Debian 11 + ARM64](./media/support/green-check.png) | [June 2026](https://wiki.debian.org/LTS) |
 | [Mentor Embedded Linux Flex OS](https://www.mentor.com/embedded-software/linux/mel-flex-os/) | ![Mentor Embedded Linux Flex OS + AMD64](./media/support/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM32v7](./media/support/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM64](./media/support/green-check.png) |  |
@@ -156,7 +151,6 @@ The following table lists the currently supported releases. IoT Edge release ass
 | Release notes and assets | Type | Release Date | End of Support Date |
 | ------------------------ | ---- | ------------ | ------------------- |
 | [1.5](https://github.com/Azure/azure-iotedge/releases/tag/1.5.0) | Long-term support (LTS) | April 2024 | November 10, 2026 |
-| [1.4](https://github.com/Azure/azure-iotedge/releases/tag/1.4.0) | Long-term support (LTS) | August 2022 | November 12, 2024 |
 
 For more information on IoT Edge version history, see, [Version history](version-history.md#version-history).
 

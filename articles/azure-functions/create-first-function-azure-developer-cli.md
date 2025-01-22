@@ -3,6 +3,8 @@ title: Create functions in Azure using the Azure Developer CLI
 description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy the local project to a Flex Consumption plan on Azure."
 ms.date: 10/19/2024
 ms.topic: quickstart
+ms.custom:
+  - ignite-2024
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As a developer, I need to know how to use the Azure Developer CLI to create and deploy my function code securely to a new function app in the Flex Consumption plan in Azure by using azd templates and the azd up command.
 ---
@@ -12,8 +14,6 @@ zone_pivot_groups: programming-languages-set-functions
 In this Quickstart, you use Azure Developer command-line tools to create functions that respond to HTTP requests. After testing the code locally, you deploy it to a new serverless function app you create running in a Flex Consumption plan in Azure Functions. 
 
 The project source uses the Azure Developer CLI (azd) to simplify deploying your code to Azure. This deployment follows current best practices for secure and scalable Azure Functions deployments.
-
-[!INCLUDE [functions-flex-preview-note](../../includes/functions-flex-preview-note.md)]
 
 By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing model, which means to complete this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 

@@ -8,7 +8,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 08/01/2024
+ms.date: 11/19/2024
 ms.devlang: csharp
 ms.custom: template-how-to, devguide-csharp, devx-track-dotnet
 ---
@@ -128,3 +128,4 @@ The following guide shows you how to manage resources and perform specific actio
 | Guide | Description |
 | --- | --- |
 | [Manage a storage account](storage-srp-manage-account-dotnet.md) | Learn how to create and manage a storage account, manage storage account keys, and configure client options to create a custom retry policy. |
+

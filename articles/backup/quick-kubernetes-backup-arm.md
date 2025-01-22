@@ -3,20 +3,27 @@ title: Quickstart - Configure vaulted backup for an Azure Kubernetes Service (AK
 description: Learn how to quickly configure backup for a Kubernetes cluster using Azure Resource Manager.
 ms.service: azure-backup
 ms.topic: quickstart
-ms.date: 05/31/2024
-ms.custom: devx-track-terraform, devx-track-extended-azdevcli
+ms.date: 01/21/2025
+ms.custom: devx-track-terraform, devx-track-extended-azdevcli, ignite-2024
 ms.reviewer: rajats
-ms.author: v-abhmallick
-author: AbhishekMallick-MS
+ms.author: jsuri
+author: jyothisuri
 ---
 
-# Quickstart: Configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using Azure Resource Manager
+# Quickstart: Configure backup for an Azure Kubernetes Service (AKS) cluster using Azure Resource Manager
 
-This quickstart describes how to configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using Azure Resource Manager.
+This quickstart describes how to configure backup for an Azure Kubernetes Service (AKS) cluster using Azure Resource Manager.
 
 Azure Backup for AKS is a cloud-native, enterprise-ready, application-centric backup service that lets you quickly configure backup for AKS clusters.[Azure Backup](backup-azure-mysql-flexible-server-about.md) allows you to back up your AKS clusters using multiple options - such as Azure portal, PowerShell, CLI, Azure Resource Manager, Bicep, and so on. This quickstart describes how to back up an AKS clusters with an Azure Resource Manager template and Azure PowerShell. For more information on developing ARM templates, see the [Azure Resource Manager documentation](../azure-resource-manager/index.yml) 
 
-An Azure Resource Manager (ARM) template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. You describe your intended deployment without writing the sequence of programming commands to create the deployment.
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
+
+## Prerequisites
+
+To set up your environment for Bicep development, see [Install Bicep tools](../azure-resource-manager/bicep/install.md).
+
+>[!Note]
+>Install the latest [Azure PowerShell module](/powershell/azure/new-azureps-module-az) and the Bicep CLI as detailed in article.
 
 ## Review the template
 
@@ -108,7 +115,8 @@ This template enables you to configure backup for an AKS cluster. In this templa
       "apiVersion": "2023-01-01",
       "name": "[concat(parameters('backupVaultName'), '/', parameters('backupPolicyName'))]",
       "properties": {
-        "repeatingTimeIntervals": ["R/2024-04-14T06:33:16+00:00/PT4H"],
+        "backupRepeatingTimeIntervals": ["R/2024-04-14T06:33:16+00:00/PT4H"],
+
         "defaultRetentionRule": {
           "lifeCycle": {
             "duration": "P7D",
@@ -193,6 +201,6 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## Next steps
 
-- [Restore Azure Kubernetes Service cluster using PowerShell](azure-kubernetes-service-cluster-restore-using-powershell.md)
+- Restore Azure Kubernetes Service cluster using [Azure PowerShell](azure-kubernetes-service-cluster-restore-using-powershell.md), [Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md)
 - [Manage Azure Kubernetes Service cluster backups](azure-kubernetes-service-cluster-manage-backups.md)
 - [About Azure Kubernetes Service cluster backup](azure-kubernetes-service-cluster-backup-concept.md)

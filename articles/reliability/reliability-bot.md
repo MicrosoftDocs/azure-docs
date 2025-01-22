@@ -45,4 +45,4 @@ Azure Bot Service runs in active-active mode for both global and regional servic
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Reliability in Azure](/azure/availability-zones/overview)
+> [Reliability in Azure](/azure/reliability/overview)

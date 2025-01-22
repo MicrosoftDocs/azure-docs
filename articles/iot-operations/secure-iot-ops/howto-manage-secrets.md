@@ -4,14 +4,12 @@ description: Create, update, and manage secrets that are required to give your A
 author: asergaz
 ms.author: sergaz
 ms.topic: how-to
-ms.date: 09/24/2024
+ms.date: 10/22/2024
 
 #CustomerIntent: As an IT professional, I want to manage secrets in Azure IoT Operations, by leveraging Key Vault and Azure Secrete Store to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets.
 ---
 
-# Manage secrets for your Azure IoT Operations Preview deployment
-
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+# Manage secrets for your Azure IoT Operations deployment
 
 Azure IoT Operations uses Azure Key Vault as the managed vault solution on the cloud, and uses [Azure Key Vault Secret Store extension for Kubernetes](/azure/azure-arc/kubernetes/secret-store-extension) to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets.
 
@@ -28,7 +26,7 @@ Secrets management for Azure IoT Operations uses Secret Store extension to sync 
 > [!NOTE]
 > Azure IoT Operations instances work with only one Azure Key Vault, multiple key vaults per instance isn't supported.
 
-Once the setup secrets management steps are completed, you can start adding secrets to Azure Key Vault, and sync them to the edge to be used in **Asset Endpoints** or **Dataflow Endpoints** using the [operations experience](https://iotoperations.azure.com) web UI.
+Once the [set up secrets management](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-secrets-management) steps are completed, you can start adding secrets to Azure Key Vault, and sync them to the edge to be used in **Asset Endpoints** or **Dataflow Endpoints** using the [operations experience](https://iotoperations.azure.com) web UI.
 
 Secrets are used in asset endpoints and dataflow endpoints for authentication. In this section, we use asset endpoints as an example, the same can be applied to dataflow endpoints. You have the option to directly create the secret in Azure Key Vault and have it automatically synchronized down to the edge, or use an existing secret reference from the key vault:
 

@@ -188,6 +188,9 @@ CRS 3.1 includes 14 rule groups, as shown in the following table. Each group con
 
 CRS 3.0 includes 13 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled. The ruleset is based off OWASP CRS 3.0.0 version.
 
+> [!NOTE]
+> CRS 3.0 and lower ruleset versions are no longer supported for new WAF policies. We recommend you upgrade to the latest CRS 3.2/DRS 2.1 and greater versions.  
+
 |Rule group name|Description|
 |---|---|
 |**[General](#general-30)**|General group|

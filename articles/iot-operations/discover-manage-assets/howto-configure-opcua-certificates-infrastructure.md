@@ -6,15 +6,13 @@ ms.author: dobett
 ms.subservice: azure-opcua-connector
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 09/27/2024
+ms.date: 10/22/2024
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to to understand how to manage the OPC UA Certificates in the context of the connector for OPC UA.
 ms.service: azure-iot-operations
 ---
 
 # Configure OPC UA certificates infrastructure for the connector for OPC UA
-
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 In this article, you learn how to configure the OPC UA certificates infrastructure for the connector for OPC UA. This configuration lets you determine which OPC UA servers you trust to securely establish a session with.
 
@@ -24,9 +22,9 @@ To learn more, see [OPC UA certificates infrastructure for the connector for OPC
 
 ## Prerequisites
 
-- A deployed instance of Azure IoT Operations Preview. To deploy Azure IoT Operations for demonstration and exploration purposes, see [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
+- A deployed instance of Azure IoT Operations. To deploy Azure IoT Operations for demonstration and exploration purposes, see [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
 
-- [Enable secure settings in Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-enable-secure-settings.md)
+- [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md)
 
 ## Configure a self-signed application instance certificate
 
@@ -49,14 +47,14 @@ To connect to an asset, first you need to establish the application authenticati
 
     ```azurecli
     # Append my-server.der OPC UA server certificate to the trusted certificate list secret as a new entry
-    az iot ops connector opcua trust add --instance $INSTANCE_NAME --resource-group $RESOURCE_GROUP --certificate-file "./my-server.der"
+    az iot ops connector opcua trust add --instance <your instance name> --resource-group <your resource group> --certificate-file "./my-server.der"
     ```
 
     For a PEM encoded certificate in a file such as *./my-server.crt*, run the following command:
 
     ```azurecli
     # Append my-server.crt OPC UA server certificate to the trusted certificate list secret as a new entry
-    az iot ops connector opcua trust add --instance $INSTANCE_NAME --resource-group $RESOURCE_GROUP --certificate-file "./my-server.crt"
+    az iot ops connector opcua trust add --instance <your instance name> --resource-group <your resource group> --certificate-file "./my-server.crt"
     ```
 
 If your OPC UA server uses a certificate issued by a certificate authority (CA), you can trust the CA by adding its public key certificate to the connector for OPC UA trusted certificates list. The connector for OPC UA now automatically trusts all the servers that use a valid certificate issued by the CA. Therefore, you don't need to explicitly add the OPC UA server's certificate to the connector for OPC UA trusted certificates list.
@@ -73,7 +71,7 @@ To trust a CA, complete the following steps:
 
     ```bash
     # Append CA certificate to the trusted certificate list secret as a new entry
-    az iot ops connector opcua trust add --instance $INSTANCE_NAME --resource-group $RESOURCE_GROUP --certificate-file "./my-server-ca.der"
+    az iot ops connector opcua trust add --instance <your instance name> --resource-group <your resource group> --certificate-file "./my-server-ca.der"
 
     # Append the CRL to the trusted certificate list secret as a new entry
     data=$(kubectl create secret generic temp --from-file= my-server-ca.crl=./ my-server-ca.crl --dry-run=client -o jsonpath='{.data}')
@@ -84,7 +82,7 @@ To trust a CA, complete the following steps:
 
     ```bash
     # Append CA certificate to the trusted certificate list secret as a new entry
-    az iot ops connector opcua trust add --instance $INSTANCE_NAME --resource-group $RESOURCE_GROUP --certificate-file "./my-server-ca.crt"
+    az iot ops connector opcua trust add --instance <your instance name> --resource-group <your resource group> --certificate-file "./my-server-ca.crt"
 
     # Append the CRL to the trusted certificates list secret as a new entry
     data=$(kubectl create secret generic temp --from-file=my-server-ca.crl=./my-server-ca.crl --dry-run=client -o jsonpath='{.data}')
@@ -97,7 +95,7 @@ To trust a CA, complete the following steps:
 
     ```powershell
     # Append CA certificate to the trusted certificate list secret as a new entry
-    az iot ops connector opcua trust add --instance $INSTANCE_NAME --resource-group $RESOURCE_GROUP --certificate-file "./my-server-ca.der"
+    az iot ops connector opcua trust add --instance <your instance name> --resource-group <your resource group> --certificate-file "./my-server-ca.der"
 
     # Append the CRL to the trusted certificate list secret as a new entry
     $data = kubectl create secret generic temp --from-file=my-server-ca.crl=./my-server-ca.crl --dry-run=client -o jsonpath='{.data}'
@@ -108,7 +106,7 @@ To trust a CA, complete the following steps:
 
     ```powershell
     # Append CA certificate to the trusted certificate list secret as a new entry
-    az iot ops connector opcua trust add --instance $INSTANCE_NAME --resource-group $RESOURCE_GROUP --certificate-file "./my-server-ca.crt"
+    az iot ops connector opcua trust add --instance <your instance name> --resource-group <your resource group> --certificate-file "./my-server-ca.crt"
 
     # Append the CRL to the trusted certificate list secret as a new entry
     $data = kubectl create secret generic temp --from-file=my-server-ca.crl=./my-server-ca.crl --dry-run=client -o jsonpath='{.data}'
@@ -129,20 +127,20 @@ If your OPC UA server uses a certificate issued by a CA, but you don't want to t
 
         ```azurecli
         # Append CA certificate to the issuer list secret as a new entry
-        az iot ops connector opcua issuer add --instance $INSTANCE_NAME --resource-group $RESOURCE_GROUP --certificate-file "./my-server-ca.der"
+        az iot ops connector opcua issuer add --instance <your instance name> --resource-group <your resource group> --certificate-file "./my-server-ca.der"
 
         # Append the CRL to the issuer list secret as a new entry
-        az iot ops connector opcua issuer add --instance $INSTANCE_NAME --resource-group $RESOURCE_GROUP --certificate-file "./my-server-ca.crl"
+        az iot ops connector opcua issuer add --instance <your instance name> --resource-group <your resource group> --certificate-file "./my-server-ca.crl"
         ```
 
         For a PEM encoded certificate in a file such as *./my-server-ca.crt*, run the following commands:
 
         ```azurecli
         # Append CA certificate to the issuer list secret as a new entry
-        az iot ops connector opcua issuer add --instance $INSTANCE_NAME --resource-group $RESOURCE_GROUP --certificate-file "./my-server-ca.crt"
+        az iot ops connector opcua issuer add --instance <your instance name> --resource-group <your resource group> --certificate-file "./my-server-ca.crt"
 
         # Append the CRL to the issuer list secret as a new entry
-        az iot ops connector opcua issuer add --instance $INSTANCE_NAME --resource-group $RESOURCE_GROUP --certificate-file "./my-server-ca.crl"
+        az iot ops connector opcua issuer add --instance <your instance name> --resource-group <your resource group> --certificate-file "./my-server-ca.crl"
         ```
 
 ## Configure your OPC UA server
@@ -199,8 +197,8 @@ Like the previous examples, you use a dedicated Kubernetes secret to store the c
     # Upload OPC UA public key certificate as an entry to the secret
     # Upload OPC UA private key certificate as an entry to the secret
     az iot ops connector opcua client add \
-        --instance $INSTANCE_NAME \
-        -g $RESOURCE_GROUP \
+        --instance <your instance name> \
+        -g <your resource group> \
         --public-key-file "./opcuabroker-certificate.der" \
         --private-key-file "./opcuabroker-certificate.pem" \
         --subject-name <subject name from the public key cert> \
@@ -214,8 +212,8 @@ Like the previous examples, you use a dedicated Kubernetes secret to store the c
     # Upload OPC UA public key certificate as an entry to the secret
     # Upload OPC UA private key certificate as an entry to the secret
     az iot ops connector opcua client add `
-        --instance $INSTANCE_NAME `
-        -g $RESOURCE_GROUP `
+        --instance <your instance name> `
+        -g <your resource group> `
         --public-key-file "./opcuabroker-certificate.der" `
         --private-key-file "./opcuabroker-certificate.pem" `
         --subject-name <subject name from the public key cert> `
@@ -228,10 +226,10 @@ Like the previous examples, you use a dedicated Kubernetes secret to store the c
 
     ```azurecli
     # Append CA certificate to the issuer list secret as a new entry
-    az iot ops connector opcua issuer add --instance $INSTANCE_NAME --resource-group $RESOURCE_GROUP --certificate-file "./enterprise-grade-ca-1.der"
+    az iot ops connector opcua issuer add --instance <your instance name> --resource-group <your resource group> --certificate-file "./enterprise-grade-ca-1.der"
 
     # Append the CRL to the issuer list secret as a new entry
-    az iot ops connector opcua issuer add --instance $INSTANCE_NAME --resource-group $RESOURCE_GROUP --certificate-file "./enterprise-grade-ca-1.crl"
+    az iot ops connector opcua issuer add --instance <your instance name> --resource-group <your resource group> --certificate-file "./enterprise-grade-ca-1.crl"
     ```
 
 Now that the connector for OPC UA uses the enterprise certificate, don't forget to add the new certificate's public key to the trusted certificate lists of all OPC UA servers it needs to connect to.

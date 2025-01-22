@@ -2,10 +2,10 @@
 title: Overview of Azure Blobs backup
 description: Learn about Azure Blobs backup.
 ms.topic: overview
-ms.date: 07/24/2024
+ms.date: 12/30/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 
@@ -19,7 +19,7 @@ This article gives you an understanding about configuring the following types of
 
 - **Periodic backups**: You can configure vaulted backup, a managed offsite data protection solution, to get protection against any accidental or malicious deletion of blobs or storage account. The backup data using vaulted backups is copied and stored in the Backup vault as per the schedule and frequency you define via the backup policy and retained as per the retention configured in the policy.
 
-You can choose to configure vaulted backups, operational backups, or both on your storage accounts using a single backup policy. The integration with [Backup center](backup-center-overview.md) enables you to govern, monitor, operate, and analyze backups at scale.
+You can choose to configure vaulted backups, operational backups, or both on your storage accounts using a single backup policy. The integration with [Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md) enables you to govern, monitor, operate, and analyze backups at scale.
 
 ## How the Azure Blobs backup works?
 
@@ -80,7 +80,7 @@ You can enable operational backup and vaulted backup (or both) of blobs on a sto
 
 Once you have enabled backup on a storage account, a Backup Instance is created corresponding to the storage account in the Backup vault. You can perform any Backup-related operations for a storage account like initiating restores, monitoring, stopping protection, and so on, through its corresponding Backup Instance.
 
-Both operational and vaulted backups integrate directly with Backup Center to help you manage the protection of all your storage accounts centrally, along with all other Backup supported workloads. Backup Center is your single blade of glass for all your Backup requirements like monitoring jobs and state of backups and restores, ensuring compliance and governance, analyzing backup usage, and performing operations pertaining to back up and restore of data.
+Both operational and vaulted backups integrate directly with Azure Business Continuity Center to help you manage the protection of all your storage accounts centrally, along with all other Backup supported workloads. Azure Business Continuity Center is your single blade of glass for all your Backup requirements like monitoring jobs and state of backups and restores, ensuring compliance and governance, analyzing backup usage, and performing operations pertaining to back up and restore of data.
 
 ---
 
@@ -104,7 +104,14 @@ You won't incur any management charges or instance fee when using operational ba
 
 # [Vaulted backup](#tab/vaulted-backup)
 
-You will incur backup storage charges or instance fees, and the source side cost ([associated with Object replication](../storage/blobs/object-replication-overview.md#billing)) on the backed-up source account.
+Azure Blobs protected with Azure Backup incur charges as per the [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) that includes:
+
+- **Protected instance fee**: Azure Backup for Blobs charges a protected instance fee per month. The size of data in the protected storage account determines the pricing for each instance. For specific pricing details, go to the [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) and select **Azure Blobs** as the workload type.
+- **Transactions fee**: The transaction fee is calculated based on the **write operations** performed by the Azure Backup service to back up data to the backup storage account. This charge depends on the frequency of writes to the protected storage account.
+- **Backup Storage fee**: This fee is charged based on the restore points stored in the Vault Tier (as per the total data stored in GBs and redundancy type enable on the Backup Vault). Backup storage redundancy is the redundancy you set for the vault used for protecting Azure Blob.
+
+For generating the estimate for your scenario see the [Azure Backup pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=backup).
+
 
 ---
 

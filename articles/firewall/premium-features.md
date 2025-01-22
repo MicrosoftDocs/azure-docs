@@ -4,7 +4,7 @@ description: Azure Firewall Premium is a managed, cloud-based network security s
 author: vhorne
 ms.service: azure-firewall
 services: firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/14/2023
 ms.author: victorh
 ms.custom: references_regions

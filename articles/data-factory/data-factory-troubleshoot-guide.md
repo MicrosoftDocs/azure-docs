@@ -1122,7 +1122,7 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 ### Error Code: 2403
 
-- **Message**: `Get access token from MSI failed for Datafactory <DF mname>, region <region code>. Please verify resource url is valid and retry.`
+- **Message**: `Get access token from MSI failed for Datafactory <DF name>, region <region code>. Please verify resource url is valid and retry.`
 
 - **Cause**: Unable to acquire an access token from the resource URL provided.
 

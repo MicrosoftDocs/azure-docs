@@ -5,7 +5,7 @@ description: This article helps you understand how Azure Front Door monitors the
 services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/12/2024
 ms.author: duau
 ---

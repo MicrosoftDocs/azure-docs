@@ -9,23 +9,11 @@ ms.service: azure-app-configuration
 ms.devlang: python
 ms.custom: devx-track-python
 ms.topic: tutorial
-ms.date: 09/10/2024
-zone_pivot_groups: feature-management
+ms.date: 11/15/2024
 #Customer intent: I want to control feature availability in my app by using the Feature Management library.
 ---
 
 # Python feature management
-
-:::zone target="docs" pivot="stable-version"
-
-[![Feature Management](https://img.shields.io/pypi/v/FeatureManagement?color=blue)](https://pypi.org/project/FeatureManagement/)<br>
-:::zone-end
-
-:::zone target="docs" pivot="preview-version"
-
-[![Feature Management](https://img.shields.io/pypi/v/FeatureManagement/2.0.0b2?color=blue)](https://pypi.org/project/FeatureManagement/2.0.0b2/)<br>
-
-:::zone-end
 
 Python feature management library provides a way to develop and expose application functionality based on feature flags. Once a new feature is developed, many applications have special requirements, such as when the feature should be enabled and under what conditions. This library provides a way to define these relationships, and also integrates into common Python code patterns to make exposing these features possible.
 
@@ -276,7 +264,7 @@ This strategy for rolling out a feature is built in to the library through the i
 
 ### Targeting a user
 
-Either a user can be specified directly in the `is_enabled` call or a `TargetingContxt` can be used to specify the user and optional group.
+Either a user can be specified directly in the `is_enabled` call or a `TargetingContext` can be used to specify the user and optional group.
 
 ```python
 # Directly specifying the user
@@ -312,8 +300,6 @@ When defining an audience, users and groups can be excluded from the audience. E
 ```
 
 In the above example, the feature is enabled for users named `Jeff` and `Alicia`. It's also enabled for users in the group named `Ring0`. However, if the user is named `Mark`, the feature is disabled, regardless of if they are in the group `Ring0` or not. Exclusions take priority over the rest of the targeting filter.
-
-:::zone target="docs" pivot="preview-version"
 
 ## Variants
 
@@ -602,8 +588,6 @@ When a feature flag is evaluated and telemetry is enabled, the feature manager c
 | `Variant` | The assigned variant. |
 | `VariantAssignmentReason` | The reason why the variant is assigned. |
 
-:::zone-end
-
 ## Next steps
 
 To learn how to use feature flags in your applications, continue to the following quickstarts.
@@ -621,8 +605,3 @@ To learn how to use feature filters, continue to the following tutorials.
 
 > [!div class="nextstepaction"]
 > [Roll out features to targeted audiences](./howto-targetingfilter.md)
-
-To learn how to run experiments with variant feature flags, continue to the following tutorial.
-
-> [!div class="nextstepaction"]
-> [Run experiments with variant feature flags](./howto-feature-filters.md)

@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: quickstart
-ms.date: 08/24/2023
+ms.date: 01/14/2025
 ms.custom: template-quickstart, mode-ui, engagement-fy23
 ---
 
@@ -32,24 +32,29 @@ Create three virtual networks by using the portal. Each virtual network has a `n
 
 1. On the **Basics** tab, enter or select the following information.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/create-vnet-basic.png" alt-text="Screenshot of basic information for creating a virtual network.":::
-
     | Setting | Value |
     | ------- | ----- |
     | **Subscription** | Select the subscription where you want to deploy this virtual network. |
-    | **Resource group** | Select **rg-learn-eastus-001**.
-    | **Virtual network name** | Enter **vnet-learn-prod-eastus-001**. |
-    | **Region** | Select **(US) East US**. |
+    | **Resource group** | Select **resource-group**. |
+    | **Virtual network name** | Enter **vnet-000**. |
+    | **Region** | Select **(US) West 2**. |
 
-1. Select **Next** or the **IP addresses** tab, configure the following network address spaces, and then select **Review + create**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/create-vnet-ip.png" alt-text="Screenshot of IP address information for creating a virtual network.":::
+1. Select the **IP addresses** tab.
+1. On the **IP addresses** tab, configure the following network address spaces.
 
     | Setting | Value |
     | -------- | ----- |
     | **IPv4 address space** | 10.0.0.0/16 |
     | **Subnet name** | default |
     | **Subnet address space** | 10.0.0.0/24 |
+
+1. Select the **Tags** tab. Enter the following tag information and select **Review + Create**.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | NetworkType |
+    | Value | Production |
+    | Resource | Select **Virtual network**. |
 
 1. After your configuration passes validation, select **Create** to deploy the virtual network.
 
@@ -58,11 +63,13 @@ Create three virtual networks by using the portal. Each virtual network has a `n
     | Setting | Value |
     | ------- | ----- |
     | **Subscription** | Select the same subscription that you selected in step 2. |
-    | **Resource group** | Select **rg-learn-eastus-001**. |
-    | **Name** | Enter **vnet-learn-prod-eastus-002** and **vnet-learn-test-eastus-003** for the other virtual networks. |
-    | **Region** | Select **(US) East US**. |
-    | **vnet-learn-prod-eastus-002 IP addresses** | IPv4 address space: **10.1.0.0/16** </br> Subnet name: **default** </br> Subnet address space: **10.1.0.0/24**|
-    | **vnet-learn-test-eastus-003 IP addresses** | IPv4 address space: **10.2.0.0/16** </br> Subnet name: **default** </br> Subnet address space: **10.2.0.0/24**|
+    | **Resource group** | Select **resource-group**. |
+    | **Name** | Enter **vnet-01** and **vnet-02** for the other virtual networks. |
+    | **Region** | Select **(US) West 2**. |
+    | **vnet-01 IP addresses** | IPv4 address space: **10.1.0.0/16** </br> Subnet name: **default** </br> Subnet address space: **10.1.0.0/24**|
+    | **vnet-01 Tags** | Name: **NetworkType** </br> Value: **Production** </br> Resource: **Virtual network**. |
+    | **vnet-02 IP addresses** | IPv4 address space: **10.2.0.0/16** </br> Subnet name: **default** </br> Subnet address space: **10.2.0.0/24**|
+    | **vnet-02 Tags** | Name: **NetworkType** </br> Value: **Production** </br> Resource: **Virtual network**. |
 
 ## Create a network group
 
@@ -80,49 +87,41 @@ After you create your network group, you add virtual networks as members. Choose
 
 In this task, you manually add two virtual networks for your mesh configuration to your network group:
 
-1. From the list of network groups, select **ng-learn-prod-eastus-001**. On the **ng-learn-prod-eastus-001** pane, under **Manually add members**, select **Add virtual networks**.
+1. From the list of network groups, select **network-group**. On the **network-group** pane, under **Manually add members**, select **Add virtual networks**.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/add-static-member.png" alt-text="Screenshot of add a virtual network f.":::
+1. On the **Manually add members** pane, select **vnet-00** and **vnet-01**, and then select **Add**.
 
-1. On the **Manually add members** pane, select **vnet-learn-prod-eastus-001** and **vnet-learn-prod-eastus-002**, and then select **Add**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/add-virtual-networks.png" alt-text="Screenshot of selecting virtual networks on the pane for manually adding members.":::
-
-1. On the **Network Group** pane, under **Settings**, select **Group Members**. Confirm the membership of the group that you manually selected.
-
-    :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list.png" alt-text="Screenshot that shows a list of group members." lightbox="media/create-virtual-network-manager-portal/group-members-list.png":::
+1. On the **Network Group** pane, select **View group members**. Confirm **vnet-00** and **vnet-01** are listed with a **Source** of *Manually added*. If no virtual networks are listed, select **Refresh**.
 
 # [Azure Policy](#tab/azurepolicy)
 
 ### Create a policy definition for dynamic membership
 
-By using [Azure Policy](concept-azure-policy-integration.md), you define a condition to dynamically add two virtual networks to your network group when the name of the virtual network includes *prod*:
+By using [Azure Policy](concept-azure-policy-integration.md), you define a condition to dynamically add two virtual networks to your network group when the virtual network has a tag with the name `NetworkType` and the value `Production`.
 
-1. From the list of network groups, select **ng-learn-prod-eastus-001**. Under **Create policy to dynamically add members**, select **Create Azure policy**.
-
-    :::image type="content" source="media/create-virtual-network-manager-portal/define-dynamic-membership.png" alt-text="Screenshot of the button for creating an Azure policy.":::
+1. From the list of network groups, select **network-group**. Under **Create policy to dynamically add members**, select **Create Azure policy**.
 
 1. On the **Create Azure policy** pane, select or enter the following information, and then select **Preview resources**.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/network-group-conditional.png" alt-text="Screenshot of the pane for creating an Azure policy, including criteria for definitions.":::
-
     | Setting | Value |
     | ------- | ----- |
-    | **Policy name** | Enter **azpol-learn-prod-eastus-001**. |
+    | **Policy name** | Enter **azure-policy**. |
     | **Scope** | Choose **Select scopes** and then select your current subscription. |
     | **Parameter** | Select **Name** from the dropdown list.|
-    | **Operator** | Select **Contains** from the dropdown list.|
-    | **Condition** | Enter **-prod**. |
+    | **Operator** | Select **Key value pair** from the dropdown list.|
+    | **Condition** | Enter name of **NetworkType**.</br> Enter value of **Production**. |
 
-2. The **Effective virtual networks** pane shows the virtual networks for addition to the network group based on the defined conditions in Azure Policy. When you're ready, select **Close**.
+    :::image type="content" source="./media/create-virtual-network-manager-portal/network-group-conditional-thumb.png" alt-text="Screenshot of the pane for creating an Azure policy, including criteria for definitions." lightbox="media/create-virtual-network-manager-portal/network-group-conditional.png":::
 
-    :::image type="content" source="media/create-virtual-network-manager-portal/effective-virtual-networks.png" alt-text="Screenshot of the pane for effective virtual networks.":::
+2. The **Preview resources** pane shows the virtual networks for addition to the network group based on the defined conditions in Azure Policy. When you're ready, select **Close**.
 
-3. Select **Save** to deploy the group membership. It can take up to one minute for the policy to take effect and be added to your network group.
+    :::image type="content" source="media/create-virtual-network-manager-portal/preview-virtual-networks.png" alt-text="Screenshot of the pane for previewing the virtual networks.":::
 
-4. On the **Network Group** pane, under **Settings**, select **Group members** to view the membership of the group based on the conditions that you defined in Azure Policy. Confirm that **Source** is listed as **azpol-learn-prod-eastus-001 - subscriptions/subscription_id**.
+3. Select **Save** to deploy the Azure Policy. It can take up to one minute for the policy to take effect and be added to your network group.
 
-    :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list.png" alt-text="Screenshot of listed group members with a configured source." lightbox="media/create-virtual-network-manager-portal/group-members-list.png":::
+4. On the **Network Group** pane, under **Settings**, select **Group members** to view the membership of the group based on the conditions that you defined in Azure Policy. Confirm that **Source** is listed as **azure-policy - subscriptions/subscription_id**.
+
+    :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list.png" alt-text="Screenshot of listed group members with a configured source.":::
 
 ---
 
@@ -134,32 +133,23 @@ Now that you created the network group and updated its membership with virtual n
 
 1. Select **Connectivity configuration** from the dropdown menu to begin creating a connectivity configuration.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/connectivity-configuration-dropdown.png" alt-text="Screenshot of the configuration dropdown menu.":::
-
 1. On the **Basics** tab, enter the following information, and then select **Next: Topology**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/connectivity-configuration.png" alt-text="Screenshot of the pane for adding a connectivity configuration.":::
 
     | Setting | Value |
     | ------- | ----- |
-    | **Name** | Enter **cc-learn-prod-eastus-001**. |
+    | **Name** | Enter **connectivity-configuration**. |
     | **Description** | *(Optional)* Provide a description about this connectivity configuration. |
 
-1. On the **Topology** tab, select the **Mesh** topology, and leave the **Enable mesh connectivity across regions** checkbox cleared. Cross-region connectivity isn't required for this setup, because all the virtual networks are in the same region. When you're ready, select **Add** > **Add network group**.
+1. On the **Topology** tab, select the **Mesh** topology, and leave the **Enable mesh connectivity across regions** checkbox unselected. Cross-region connectivity isn't required for this setup, because all the virtual networks are in the same region. 
 
-     :::image type="content" source="./media/create-virtual-network-manager-portal/topology-configuration.png" alt-text="Screenshot of topology selection for network group connectivity configuration.":::
-
-1. Under **Network groups**, select **ng-learn-prod-eastus-001**. Then choose **Select** to add the network group to the configuration.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/add-network-group-configuration.png" alt-text="Screenshot of adding a network group to a connectivity configuration.":::
+1. Under **Network groups**, select **Add** > **Add network group**.
+1. On the **Add network groups** window, select **network-group**, and then choose **Select** to add the network group to the configuration.
 
 1. Select the **Visualization** tab to view the topology of the configuration. This tab shows a visual representation of the network group that you added to the configuration.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/preview-topology.png" alt-text="Screenshot of previewing a topology for network group connectivity configuration.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/preview-topology-thumb.png" alt-text="Screenshot of previewing a topology for network group connectivity configuration." lightbox="media/create-virtual-network-manager-portal/preview-topology.png":::
 
 1. Select **Next: Review + Create** > **Create** to create the configuration.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/create-connectivity-configuration.png" alt-text="Screenshot of the tab for reviewing and creating a connectivity configuration.":::
 
 1. After the deployment finishes, select **Refresh**. The new connectivity configuration appears on the **Configurations** pane.
 
@@ -167,96 +157,42 @@ Now that you created the network group and updated its membership with virtual n
 
 ## Deploy the connectivity configuration
 
-To apply your configurations to your environment, you need to commit the configuration by deployment. Deploy the configuration to the East US region where the virtual networks are deployed:
+To apply your configurations to your environment, you need to commit the configuration by deployment. Deploy the configuration to the (US) West 2 region where the virtual networks are deployed:
 
-1. Under **Settings**, select **Deployments**. Then select **Deploy configurations**.
+1. Under **Settings**, select **Deployments**. Then select **Deploy configurations** and **Connectivity configuration** from the dropdown.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/deployments.png" alt-text="Screenshot of the pane for deployments in Virtual Network Manager.":::
-
-1. Select the following settings, and then select **Next**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/deploy-configuration.png" alt-text="Screenshot of the tab for configuring a goal state for network resources.":::
+1. On the **Deploy a configuration** window, select the following settings, and then select **Next**.
 
     | Setting | Value |
     | ------- | ----- |
-    | **Configurations** | Select **Include connectivity configurations in your goal state**. |
-    | **Connectivity configurations** | Select **cc-learn-prod-eastus-001**. |
-    | **Target regions** | Select **East US** as the deployment region. |
+    | **Connectivity configurations** | Select **connectivity-configuration** under **Connectivity - Mesh** in the dropdown menu. |
+    | **Target regions** | Select **(US) West 2** as the deployment region. |
 
-1. Select **Deploy** to complete the deployment.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/deployment-confirmation.png" alt-text="Screenshot of the tab for reviewing a deployment.":::
+1. Select **Next** and **Deploy** to complete the deployment.
 
 1. Confirm that the deployment appears in the list for the selected region. The deployment of the configuration can take a few minutes to finish.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/deployment-in-progress.png" alt-text="Screenshot of a configuration deployment that shows a status of succeeded.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/deployment-in-progress-thumb.png" alt-text="Screenshot of a configuration deployment that shows a status of succeeded." lightbox="media/create-virtual-network-manager-portal/deployment-in-progress.png":::
 
 ## Verify configuration deployment
 
 Use the **Network Manager** section for each virtual network to verify that you deployed your configuration:
 
-1. Go to the **vnet-learn-prod-eastus-001** virtual network.
+1. Go to the **vnet-00** virtual network.
 1. Under **Settings**, select **Network Manager**.
-1. On the **Connectivity Configurations** tab, verify that **cc-learn-prod-eastus-001** appears in the list.
+1. On the **Connectivity Configurations** tab, verify that **connectivity-configuration** appears in the list.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/vnet-configuration-association.png" alt-text="Screenshot of a connectivity configuration listed for a virtual network." lightbox="./media/create-virtual-network-manager-portal/vnet-configuration-association.png":::
 
-1. Repeat the previous steps on **vnet-learn-prod-eastus-002**.
+1. Repeat the previous steps on **vnet-01**.
 
 ## Clean up resources
 
-If you no longer need Azure Virtual Network Manager, you can remove it after you remove all configurations, deployments, and network groups:
+If you no longer need Azure Virtual Network Manager and the resources in this quickstart, you can remove them by following these steps:
 
-1. To remove all configurations from a region, start in Virtual Network Manager and select **Deploy configurations**. Select the following settings, and then select **Next**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/none-configuration.png" alt-text="Screenshot of the tab for configuring a goal state for network resources, with the option for removing existing connectivity configurations selected.":::
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Configurations** | Select **Include connectivity configurations in your goal state**. |
-    | **Connectivity configurations** | Select **None - Remove existing connectivity configurations**. |
-    | **Target regions** | Select **East US** as the deployed region. |
-
-1. Select **Deploy** to complete the deployment removal.
-
-1. To delete a configuration, go to the left pane of Virtual Network Manager. Under **Settings**, select **Configurations**. Select the checkbox next to the configuration that you want to remove, and then select **Delete** at the top of the resource pane.
-
-1. On the **Delete a configuration** pane, select the following options, and then select **Delete**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/configuration-delete-options.png" alt-text="Screenshot of the pane for deleting a configuration.":::
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Delete option** | Select **Force delete the resource and all dependent resources**. |
-    | **Confirm deletion** | Enter the name of the configuration. In this example, it's **cc-learn-prod-eastus-001**. |
-
-1. To delete a network group, go to the left pane of Virtual Network Manager. Under **Settings**, select **Network groups**. Select the checkbox next to the network group that you want to remove, and then select **Delete** at the top of the resource pane.
-
-1. On the **Delete a network group** pane, select the following options, and then select **Delete**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/network-group-delete-options.png" alt-text="Screenshot of Network group to be deleted option selection." lightbox="./media/create-virtual-network-manager-portal/network-group-delete-options.png":::
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Delete option** | Select **Force delete the resource and all dependent resources**. |
-    | **Confirm deletion** | Enter the name of the network group. In this example, it's **ng-learn-prod-eastus-001**. |
-
-1. Select **Yes** to confirm the network group deletion.
-
-1. After you remove all network groups, go to the left pane of Virtual Network Manager. Select **Overview**, and then select **Delete**.
-
-1. On the **Delete a network manager** pane, select the following options, and then select **Delete**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/network-manager-delete.png" alt-text="Screenshot of the pane for deleting a network manager.":::
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Delete option** | Select **Force delete the resource and all dependent resources**. |
-    | **Confirm deletion** | Enter the name of the Virtual Network Manager instance. In this example, it's **vnm-learn-eastus-001**. |
-
-1. Select **Yes** to confirm the deletion.
-
-1. To delete the resource group and virtual networks, locate **rg-learn-eastus-001** and select **Delete resource group**. Confirm that you want to delete by entering **rg-learn-eastus-001** in the text box, and then select **Delete**.
+1. To delete the resource group and all the resources it contains, select **resource-group** in the Azure portal and select **Delete resource group**. Confirm that you want to delete by entering **resource-group** in the text box, and then select **Delete**.
+1. To delete the Azure Policy assignment, go to the **Policy** section in the Azure portal, select **Assignments**, and then select **azure-policy**. Select **Delete** to remove the policy definition.
+1. In the **Policy** section, select **Definitions** and then select **azure-policy**. Select **Delete** to remove the policy definition.
 
 ## Next steps
 

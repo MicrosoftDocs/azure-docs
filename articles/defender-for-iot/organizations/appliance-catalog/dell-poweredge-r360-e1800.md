@@ -8,7 +8,6 @@ ms.topic: reference
 # Dell PowerEdge R360
 
 This article describes the Dell PowerEdge R360 appliance, supported for operational technology (OT) sensors in an enterprise deployment.
-The Dell PowerEdge R360 is also available for the on-premises management console.
 
 |Appliance characteristic  | Description|
 |---------|---------|
@@ -95,4 +94,3 @@ Continue learning about the system requirements for physical or virtual applianc
 Then, use any of the following procedures to continue:
 
 - [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
-- [Download software files for an on-premises management console](../legacy-central-management/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

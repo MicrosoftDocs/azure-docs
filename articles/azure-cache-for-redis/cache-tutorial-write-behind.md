@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis'
-description: In this tutorial, you learn how to use Azure Functions and Azure Cache for Redis to create a write-behind cache.
+title: 'Tutorial: Create a write-behind cache by using Azure Functions and Azure Redis'
+description: In this tutorial, you learn how to use Azure Functions and Azure Redis to create a write-behind cache.
 
 
 
 
 ms.topic: tutorial
+ms.custom:
+  - ignite-2024
 ms.date: 04/12/2024
 #CustomerIntent: As a developer, I want a practical example of using Azure Cache for Redis triggers with Azure Functions so that I can write applications that tie together a Redis cache and a database like Azure SQL.
-
 ---
 
-# Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis
+# Tutorial: Create a write-behind cache by using Azure Functions and Azure Redis
 
-The objective of this tutorial is to use an Azure Cache for Redis instance as a [write-behind cache](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-caching/#types-of-caching). The write-behind pattern in this tutorial shows how writes to the cache trigger corresponding writes to a SQL database (an instance of the Azure SQL Database service).
+The objective of this tutorial is to use an Azure Managed Redis (preview) or Azure Cache for Redis instance as a [write-behind cache](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-caching/#types-of-caching). The write-behind pattern in this tutorial shows how writes to the cache trigger corresponding writes to a SQL database (an instance of the Azure SQL Database service).
 
-You use the [Redis trigger for Azure Functions](cache-how-to-functions.md) to implement this functionality. In this scenario, you see how to use Azure Cache for Redis to store inventory and pricing information, while backing up that information in a SQL database.
+You use the [Redis trigger for Azure Functions](cache-how-to-functions.md) to implement this functionality. In this scenario, you see how to use Redis to store inventory and pricing information, while backing up that information in a SQL database.
 
 Every new item or new price written to the cache is then reflected in a SQL table in the database.
 
@@ -30,8 +31,8 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Completion of the previous tutorial, [Get started with Azure Functions triggers in Azure Cache for Redis](cache-tutorial-functions-getting-started.md), with these resources provisioned:
-  - Azure Cache for Redis instance
+- Completion of the previous tutorial, [Get started with Azure Functions triggers in Azure Redis](cache-tutorial-functions-getting-started.md), with these resources provisioned:
+  - An Azure Managed Redis (preview) or Azure Cache for Redis instance
   - Azure Functions instance
   - A working knowledge of using Azure SQL
   - Visual Studio Code (VS Code) environment set up with NuGet packages installed
@@ -198,7 +199,7 @@ You need to update the _local.settings.json_ file to include the connection stri
 }
 ```
 
-To find the Redis connection string, go to the resource menu in the Azure Cache for Redis resource. Locate the string is in the **Access Keys** area on the Resource menu.
+To find the Redis connection string, go to the resource menu in the Azure Managed Redis or Azure Cache for Redis resource. Locate the string is in the **Access Keys** area on the Resource menu.
 
 To find the SQL database connection string, go to the resource menu in the SQL database resource. Under **Settings**, select **Connection strings**, and then select the **ADO.NET** tab.
 The string is in the **ADO.NET (SQL authentication)** area.
@@ -206,18 +207,22 @@ The string is in the **ADO.NET (SQL authentication)** area.
 You need to manually enter the password for your SQL database connection string, because the password isn't pasted automatically.
 
 > [!IMPORTANT]
-> This example is simplified for the tutorial. For production use, we recommend that you use [Azure Key Vault](/azure/service-connector/tutorial-portal-key-vault) to store connection string information or [use Azure EntraID for SQL authentication](/azure/azure-sql/database/authentication-aad-configure).
+> This example is simplified for the tutorial. For production use, we recommend that you use [Azure Key Vault](/azure/service-connector/tutorial-portal-key-vault) to store connection string information or [use Azure Microsoft Entra ID for SQL authentication](/azure/azure-sql/database/authentication-aad-configure).
 >
 
 ## Build and run the project
 
 1. In VS Code, go to the **Run and debug tab** and run the project.
 
-1. Go back to your Azure Cache for Redis instance in the Azure portal, and select the **Console** button to enter the Redis console. Try using some `SET` commands:
+1. Go back to your Redis instance in the Azure portal, and select the **Console** button to enter the Redis console. Try using some `SET` commands:
 
    - `SET apple 5.25`
    - `SET bread 2.25`
    - `SET apple 4.50`
+
+ >[!IMPORTANT]
+ >The console tool is not yet available for Azure Managed Redis. Instead, consider using the [redis-cli](managed-redis/managed-redis-how-to-redis-cli-tool.md) or a tool like [Redis Insight](https://redis.io/insight/) to run commands directly on the Redis instance.
+ >
 
 1. Back in VS Code, the triggers are being registered. To validate that the triggers are working:
 
@@ -229,7 +234,7 @@ You need to manually enter the password for your SQL database connection string,
       SELECT TOP (100) * FROM [dbo].[inventory]
       ```
 
-      Confirm that the items written to your Azure Cache for Redis instance appear here.
+      Confirm that the items written to your Redis instance appear here.
 
    :::image type="content" source="media/cache-tutorial-write-behind/cache-sql-query-result.png" alt-text="Screenshot showing the information has been copied to SQL from the cache instance.":::
 
@@ -257,7 +262,7 @@ This tutorial builds on the previous tutorial. For more information on the `redi
 
 ## Verify deployment
 
-After the deployment finishes, go back to your Azure Cache for Redis instance and use `SET` commands to write more values. Confirm that they also appear in your SQL database.
+After the deployment finishes, go back to your Redis instance and use `SET` commands to write more values. Confirm that they also appear in your SQL database.
 
 If you want to confirm that your function app is working properly, go to the app in the portal and select **Log stream** from the resource menu. You should see the triggers running there, and the corresponding updates being made to your SQL database.
 
@@ -271,9 +276,9 @@ TRUNCATE TABLE [dbo].[inventory]
 
 ## Summary
 
-This tutorial and [Get started with Azure Functions triggers in Azure Cache for Redis](cache-tutorial-functions-getting-started.md) show how to use Azure Cache for Redis to trigger Azure function apps. They also show how to use Azure Cache for Redis as a write-behind cache with Azure SQL Database. Using Azure Cache for Redis with Azure Functions is a powerful combination that can solve many integration and performance problems.
+This tutorial and [Get started with Azure Functions triggers in Azure Redis](cache-tutorial-functions-getting-started.md) show how to use Redis triggers and bindings in Azure function apps. They also show how to use Redis as a write-behind cache with Azure SQL Database. Using Azure Managed Redis or Azure Cache for Redis with Azure Functions is a powerful combination that can solve many integration and performance problems.
 
 ## Related content
 
-- [Overview of Azure functions for Azure Cache for Redis](/azure/azure-functions/functions-bindings-cache?tabs=in-process&pivots=programming-language-csharp)
-- [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](cache-tutorial-functions-getting-started.md)
+- [Overview of Redis triggers and bindings for Azure functions](/azure/azure-functions/functions-bindings-cache?tabs=in-process&pivots=programming-language-csharp)
+- [Tutorial: Get started with Azure Functions triggers in Azure Redis](cache-tutorial-functions-getting-started.md)

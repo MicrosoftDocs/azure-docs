@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli
 
 # Synchronize APIs from an API Management instance
 
-This article shows how to create a link (preview) to an API Management instance so that the instances's APIs are continuously kept up to date in your [API center](overview.md) inventory. 
+This article shows how to create a link to an API Management instance so that the instances's APIs are continuously kept up to date in your [API center](overview.md) inventory. 
 
 ## About linking an API Management instance
 
@@ -28,7 +28,7 @@ API Management APIs automatically synchronize to the API center whenever existin
 
 > [!NOTE]
 > * There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#api-center-limits) for the number of linked API Management instances (API sources).
-> * API updates in API Management can take a few minutes to up to 24 hours to synchronize to your API center.
+> * API updates in API Management typically synchronize to your API center within minutes but synchronization can take up to 24 hours.
 
 ### Entities synchronized from API Management
 

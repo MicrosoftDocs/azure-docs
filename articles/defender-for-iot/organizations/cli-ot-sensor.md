@@ -124,7 +124,7 @@ Use the following commands to turn on synchronization for the appliance time wit
 To use these commands, make sure that:
 
 - The NTP server can be reached from the appliance management port
-- You use the same NTP server to synchronize all sensor appliances and the on-premises management console
+- You use the same NTP server to synchronize all sensor appliances
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
@@ -293,12 +293,13 @@ Use the following command to rerun the OT monitoring software configuration wiza
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
-|**admin**   |   `sudo dpkg-reconfigure iot-sensor`      |   No attributes     |
+|**admin**   |   `network reconfigure`      |   No attributes     |
+|**cyberx**   |   `python3 -m cyberx.config.configure`      |   No attributes     |
 
 For example, with the **admin** user:
 
 ```bash
-shell> sudo dpkg-reconfigure iot-sensor
+shell> network reconfigure
 ```
 
 The configuration wizard starts automatically after you run this command.
@@ -409,7 +410,7 @@ The basic use case for capture filters uses the same filter for all Defender for
 > [!NOTE]
 > - Capture filters don't apply to [Defender for IoT malware alerts](../alert-engine-messages.md#malware-engine-alerts), which are triggered on all detected network traffic.
 >
-> - The capture filter command has a character length limit that's based on the complexity of the capture filter definition and the available network interface card capabilities. If your requested filter commmand fails, try grouping subnets into larger scopes and using a shorter capture filter command.
+> - The capture filter command has a character length limit that's based on the complexity of the capture filter definition and the available network interface card capabilities. If your requested filter command fails, try grouping subnets into larger scopes and using a shorter capture filter command.
 
 ### Create a basic filter for all components
 

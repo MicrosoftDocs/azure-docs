@@ -32,10 +32,11 @@ Organizations use CTI to provide essential context to unusual activity so that s
 - Threat intelligence-sharing communities.
 - Commercial intelligence feeds.
 - Local intelligence gathered in the course of security investigations within an organization.
+- **Import threat intelligence** into Microsoft Sentinel by enabling **data connectors** or using the STIX objects API to connect various TI [platforms](connect-threat-intelligence-tip.md) and [feeds](connect-threat-intelligence-taxii.md).
 
 For SIEM solutions like Microsoft Sentinel, the most common forms of CTI are threat indicators, which are also known as indicators of compromise (IOCs) or indicators of attack. Threat indicators are data that associate observed artifacts such as URLs, file hashes, or IP addresses with known threat activity such as phishing, botnets, or malware. This form of threat intelligence is often called *tactical threat intelligence*. It's applied to security products and automation in large scale to detect potential threats to an organization and protect against them.
 
-Use threat indicators in Microsoft Sentinel to detect malicious activity observed in your environment and provide context to security investigators to inform response decisions.
+Use threat intelligence in Microsoft Sentinel to detect malicious activity observed in your environment and provide context to security investigators to inform response decisions.
 
 You can integrate threat intelligence into Microsoft Sentinel through the following activities:
 
@@ -52,15 +53,14 @@ Threat intelligence also provides useful context within other Microsoft Sentinel
 
 ## Import threat intelligence with data connectors
 
-Threat indicators are imported by using data connectors, just like all the other event data in Microsoft Sentinel. Here are the data connectors in Microsoft Sentinel provided specifically for threat indicators:
+Most threat intelligence is imported using data connectors or an API. Here are the solutions available for Microsoft Sentinel.
 
-- **Microsoft Defender Threat Intelligence data connector**: Used to ingest Microsoft threat indicators.
-- **Premium Defender Threat Intelligence data connector**: Used to ingest the Defender Threat Intelligence premium intelligence feed.
-- **Threat Intelligence - TAXII**: Used for industry-standard STIX/TAXII feeds.
-- **Threat Intelligence Upload Indicators API**: Used for integrated and curated threat intelligence feeds by using a REST API to connect.
-- **Threat Intelligence Platform (TIP) data connector**: Used to connect threat intelligence feeds by using a REST API, but it's on the path for deprecation.
-
-Use any of these data connectors in any combination together, depending on where your organization sources threat indicators. All three of these connectors are available in the **Content hub** as part of the Threat Intelligence solution. For more information about this solution, see the Azure Marketplace entry [Threat Intelligence](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-threatintelligence-taxii?tab=Overview).
+- **Microsoft Defender Threat Intelligence data connector** to ingest Microsoft's threat indicators 
+- **Threat Intelligence - TAXII** for industry-standard STIX/TAXII feeds
+- **Threat Intelligence STIX objects API** for integrated and curated TI feeds using a REST API to connect 
+- **Threat Intelligence Platform data connector** also connects TI feeds using a REST API, but is on the path for deprecation
+ 
+Use any of these solutions in any combination together, depending on where your organization sources threat intelligence. All three of these are available in **Content hub** as part of the **Threat Intelligence** solution. For more information about this solution, see the Azure Marketplace entry [Threat Intelligence](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-threatintelligence-taxii?tab=Overview).
 
 Also, see [this catalog of threat intelligence integrations](threat-intelligence-integration.md) that are available with Microsoft Sentinel.
 
@@ -84,9 +84,9 @@ For more information, see the following articles:
 - To learn how to enable the Defender Threat Intelligence and the premium Defender Threat Intelligence data connectors, see [Enable the Defender Threat Intelligence data connector](connect-mdti-data-connector.md).
 - To learn about matching analytics, see [Use matching analytics to detect threats](use-matching-analytics-to-detect-threats.md).
 
-### Add threat indicators to Microsoft Sentinel with the Threat Intelligence Upload Indicators API data connector
+### Add threat intelligence to Microsoft Sentinel with the STIX objects API
 
-Many organizations use threat intelligence platform (TIP) solutions to aggregate threat indicator feeds from various sources. From the aggregated feed, the data is curated to apply to security solutions such as network devices, EDR/XDR solutions, or SIEMs such as Microsoft Sentinel. By using the Threat Intelligence Upload Indicators API data connector, you can use these solutions to import threat indicators into Microsoft Sentinel.
+Many organizations use threat intelligence platform (TIP) solutions to aggregate threat indicator feeds from various sources. From the aggregated feed, the data is curated to apply to security solutions such as network devices, EDR/XDR solutions, or SIEMs such as Microsoft Sentinel. The **STIX objects API** allows you to use these solutions to import threat intelligence into Microsoft Sentinel. 
 
 :::image type="content" source="media/understand-threat-intelligence/threat-intel-upload-api.png" alt-text="Diagram that shows the Upload Indicators API import path.":::
 
@@ -96,13 +96,16 @@ This data connector uses a new API and offers the following improvements:
 - The Microsoft Entra application only requires the Microsoft Sentinel Contributor role.
 - The API request endpoint is scoped at the workspace level. The required Microsoft Entra application permissions allow granular assignment at the workspace level.
 
-For more information, see [Connect your threat intelligence platform using the Upload Indicators API](connect-threat-intelligence-upload-api.md).
+For more information, see [Connect your threat intelligence platform using STIX objects API](connect-threat-intelligence-upload-api.md) 
 
 ### Add threat indicators to Microsoft Sentinel with the Threat Intelligence Platform data connector
 
-Much like the existing Upload Indicators API data connector, the Threat Intelligence Platform data connector uses an API that allows your TIP or custom solution to send indicators into Microsoft Sentinel. However, this data connector is now on a path for deprecation. We recommend that you take advantage of the optimizations that the Upload Indicators API offers.
+> [!NOTE]
+> This data connector is now on a path for deprecation. 
 
-The TIP data connector works with the [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator). You can also use it with any custom TIP that communicates with the tiIndicators API to send indicators to Microsoft Sentinel (and to other Microsoft security solutions like Defender XDR).
+Much like the existing STIX objects API, the Threat Intelligence Platform data connector uses an API that allows your TIP or custom solution to send indicators into Microsoft Sentinel. However, this data connector is now on a path for deprecation. We recommend that you take advantage of the optimizations the STIX objects API has to offer.
+
+The TIP data connector works with the [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator). Use it with any custom TIP that communicates with the tiIndicators API to send indicators to Microsoft Sentinel (and to other Microsoft security solutions like Defender XDR).
 
 :::image type="content" source="media/understand-threat-intelligence/threat-intel-import-path.png" alt-text="Screenshot that shows a threat intelligence import path.":::
 
@@ -150,7 +153,7 @@ Microsoft enriches IP and domain indicators with extra `GeoLocation` and `WhoIs`
 
 View `GeoLocation` and `WhoIs` data on the **Threat Intelligence** pane for those types of threat indicators imported into Microsoft Sentinel.
 
-For example, use `GeoLocation` data to find information like the organization or country for an IP indicator. Use `WhoIs` data to find data like registrar and record creation data from a domain indicator.
+For example, use `GeoLocation` data to find information like the organization or country/region for an IP indicator. Use `WhoIs` data to find data like registrar and record creation data from a domain indicator.
 
 ## Detect threats with threat indicator analytics
 
