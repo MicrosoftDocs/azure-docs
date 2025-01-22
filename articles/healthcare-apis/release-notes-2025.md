@@ -25,16 +25,3 @@ HTTP Method Validation for Transaction Bundle Requests:
 Added validation to ensure the HTTP method in the Request component of the transaction bundle is a valid HTTPVerb enum value. If the HTTP method is invalid or null, a `RequestNotValidException` is thrown with a `400 Bad Request` status, providing a clearer error message to users.
 
 CMK Error Handling: Improved error handling for operations dependent on customer-managed keys. Users will now see a more specific error message and a link to [Microsoft's troubleshooting guide](fhir/configure-customer-managed-keys.md) if issues occur related to CMK.
-
-### Azure API for FHIR
-
-#### Enhancement: Improved error handling and validation
-
-HTTP Method Validation for Transaction Bundle Requests:
-Added validation to ensure the HTTP method in the Request component of the transaction bundle is a valid HTTPVerb enum value. If the HTTP method is invalid or null, a `RequestNotValidException` is thrown with a `400 Bad Request` status, providing a clearer error message to users.
-
-Partition Size Error Handling: When a partition exceeds 20GB, a `PreconditionFailedException` is raised, replacing the previous HTTP 500 errors with HTTP 400 errors. This indicates to customers that the failure is due to an issue on their end (partition size).
-
-Transaction Failure Exception: A new FHIR-specific exception type has been introduced to handle Cosmos DB transaction failures, replacing the generic `InvalidOperationExceptions`.
-
-CMK Error Handling: Improved error handling for operations dependent on customer-managed keys. Users will now see a more specific error message and a link to [Microsoft's troubleshooting guide](fhir/configure-customer-managed-keys.md) if issues occur related to CMK.
