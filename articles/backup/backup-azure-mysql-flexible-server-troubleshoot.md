@@ -4,8 +4,8 @@ description: Get troubleshooting information for backing up Azure Database for M
 ms.topic: troubleshooting
 ms.date: 11/21/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Troubleshoot Azure Database for MySQL - Flexible Server backup (preview)

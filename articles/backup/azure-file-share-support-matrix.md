@@ -5,8 +5,8 @@ ms.topic: reference
 ms.date: 01/20/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Support matrix for Azure file share backup
