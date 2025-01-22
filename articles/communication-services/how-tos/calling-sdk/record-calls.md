@@ -84,7 +84,7 @@ The following tables show support of recording in individual Azure Communication
 
 ## SDK compatibility
 
-The following table shows the minimum version of SDKs that support individual APIs..
+The following table shows the minimum version of SDKs that support individual APIs.
 
 | Operations | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows | 
 |------------|-----|--------|-----|--------|---------|------------|---------|
