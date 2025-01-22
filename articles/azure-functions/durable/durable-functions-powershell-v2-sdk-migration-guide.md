@@ -119,7 +119,7 @@ Then you simply need to specify an entry for the DF SDK in your `requirements.ps
 
 #### Installation option 2: Use custom modules
 
-To install the standalone DF SDK as a custom module, you need to follow the [guidance regarding creating an app-level modules folder](./../functions-reference-powershell.md#function-app-level-modules-folder). Make sure to review the aforementioned docs for details.
+To install the standalone DF SDK as a custom module, you need to follow the [guidance regarding including modules in app content](./../functions-reference-powershell.md#including-modules-in-app-content). Make sure to review the aforementioned docs for details.
 In summary, you'll need to place the SDK package inside a `".\Modules"` directory located at the root of your app.
 
 For example, from within your application's root, and after creating a `".\Modules"` directory, you may download the standalone SDK into the modules directory as such:
