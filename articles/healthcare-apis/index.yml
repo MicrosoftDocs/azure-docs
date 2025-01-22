@@ -20,7 +20,7 @@ highlightedContent:
          url: ./healthcare-apis-overview.md
        - title: Release notes
          itemType: whats-new
-         url: ./release-notes-2025.md          
+         url: release-notes-2025.md
        - title: Get an access token
          itemType: how-to-guide
          url: ./get-access-token.md
