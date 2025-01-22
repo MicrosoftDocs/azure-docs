@@ -29,7 +29,7 @@ For information about networking options in API Management, see [Use a virtual n
 
 ### Dedicated subnet
 
-* The subnet used for virtual network integration can only be used by a single API Management workspace. It can't be shared with another Azure resource.
+* The subnet used for virtual network integration can only be used by a single workspace gateway. It can't be shared with another Azure resource.
 
 ## Subnet size 
 
