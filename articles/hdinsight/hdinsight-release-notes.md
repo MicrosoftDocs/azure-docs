@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 01/14/2025
+ms.date: 01/22/2025
 ---
 
 # Azure HDInsight release notes
@@ -20,7 +20,7 @@ To subscribe, click the **watch** button in the banner and watch out for [HDInsi
 
 ## Release Information
 
-### Release date: Mon dd, 2025
+### Release date: Jan 23, 2025
 
 Azure HDInsight periodically releases maintenance updates for delivering bug fixes, performance enhancements, and security patches ensuring you stay up to date with these updates guarantees optimal performance and reliability.
 
@@ -32,7 +32,7 @@ This release note applies to
 
 :::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 4.0 version. 
 
-HDInsight release will be available to all regions over several days. This release note is applicable for image number **2412110641**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+HDInsight release will be available to all regions over several days. This release note is applicable for image number **2501080039**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
 HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
 
@@ -53,9 +53,7 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
   
     HDInsight now offers Managed Identity for secure authentication with SQL databases in its clusters offerings. This enhancement provides a more secure mechanism for authentication.
 
-    Learn more about how to Use Managed Identity for SQL Database authentication in Azure HDInsight.
- 
-    To use Managed Identity with SQL databases, follow these steps: 
+   To use Managed Identity with SQL databases, follow these steps: 
 
     * This feature isn't enabled by default. To enable it, submit a [support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) with your subscription and region details.
 
