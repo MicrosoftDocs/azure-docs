@@ -90,7 +90,7 @@ Take note of the **Secret identifier** of each secret, a URI similar to `https:/
 ## Integrate an Amazon API Gateway 
 
  
-Run the [az apic integration create aws](/cli/azure/apic/integration/create#az-apic-integration-create-aws) (preview) command command to integrate an Amazon API Gateway to your API center. 
+Run the [az apic integration create aws](/cli/azure/apic/integration/create#az-apic-integration-create-aws) (preview) command to integrate an Amazon API Gateway to your API center. 
 
 * Provide the names of the resource group, API center, and integration. 
 
