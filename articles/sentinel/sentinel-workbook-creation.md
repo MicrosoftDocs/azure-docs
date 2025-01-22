@@ -10,7 +10,7 @@ ms.date: 1/22/2025
 #CustomerIntent: As a ISV partner, I want to create and publish workbooks to my Microsoft Sentinel solution so that I can provide insights to my customers.
 ---
 
-# Creating and publishing Workbooks for Microsoft Sentinel solutions
+# Creating and publishing workbooks for Microsoft Sentinel solutions
 
 Microsoft Sentinel Workbooks are an integral feature of Microsoft Sentinel, a cloud-native security information and event management (SIEM) solution. These workbooks are designed to provide users with interactive, customizable dashboards that aggregate and visualize data from various sources, enabling organizations to gain deeper insights into their security posture and streamline their threat detection and response efforts. By integrating data from various sources and facilitating collaboration among security teams, Microsoft Sentinel Workbooks play a pivotal role in strengthening an organization's overall security posture.
 
