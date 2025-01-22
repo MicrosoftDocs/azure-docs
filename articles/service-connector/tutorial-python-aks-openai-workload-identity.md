@@ -9,7 +9,7 @@ ms.service: service-connector
 ms.custom: devx-track-python, build-2024, devx-track-azurecli
 ms.collection: ce-skilling-ai-copilot
 ms.topic: tutorial
-ms.date: 05/07/2024
+ms.date: 01/22/2025
 ---
 
 # Tutorial: Connect to Azure OpenAI Service in AKS using Workload Identity (preview)
@@ -148,17 +148,23 @@ Once the connection has been created, you can view its details in the **Service 
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the Azure CLI command to create a service connection to the Azure OpenAI service, providing the following information:
-
-* **Source compute service resource group name:** the resource group name of the AKS cluster.
-* **AKS cluster name:** the name of your AKS cluster that connects to the target service.
-* **Target service resource group name:** the resource group name of the Azure OpenAI service.
-* **OpenAI service name:** the Azure OpenAI service that is connected.
-* **User-assigned identity resource ID:** the resource ID of the user-assigned identity used to create the workload identity.
+Create a service connection in AKS using the Azure CLI. 
 
 ```azurecli
 az aks connection create cognitiveservices \
    --workload-identity <user-identity-resource-id>
+```
+
+When using the [az aks connection create](/cli/azure/aks/connection/create#az-aks-connection-create-cognitiveservices) command, Service Connector prompts you to specify the AKS resource group, AKS cluster name, target service resource group, cognitive service account name, and user-assigned identity resource ID step by step.
+Alternatively, you can provide the complete command directly:
+
+```azurecli
+az aks connection create cognitiveservices \
+   --workload-identity <user-identity-resource-id> \
+   --resource-group <aks-cluster-resource-group> \
+   --name <aks-cluster-name> \
+   --target-resource-group <target-cognitive-services-resource-group> \
+   --account <target-cognitive-services-account>
 ```
 
 ---
