@@ -10,7 +10,8 @@ author: ankitaduttaMSFT
 
 # Azure Site Recovery for Managed Disks and associated costs
 
-Azure Site Recovery (ASR) is a robust disaster recovery solution offering seamless replication and failover capabilities for virtual and physical machines. It is important to understand the cost components associated with using Site Recovery to manage expenses effectively. Following is a detailed breakdown of the charges you may incur when using this service.
+Azure Site Recovery (ASR) is a robust disaster recovery solution offering seamless replication and failover capabilities for virtual and physical machines. It is important to understand the cost components associated with using Site Recovery to manage expenses effectively. Following is a detailed breakdown of the charges you may incur when using this service to move from 
+Azure to Azure.
 
 
 ## Protected Instance License fee
