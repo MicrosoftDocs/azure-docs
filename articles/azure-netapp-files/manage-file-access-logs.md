@@ -7,24 +7,45 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 01/03/2025
+ms.date: 01/22/2025
 ms.author: anfdocs
 ms.custom: references_regions
 ---
 
 # Manage file access logs in Azure NetApp Files
 
-File access logs provide file access logging for individual volumes, capturing file system operations on selected volumes. The logs capture [standard file operation](#recognized-events). File access logs are provided on top of the platform logging captured in the [Azure Activity Log](../azure-monitor/essentials/activity-log.md). This article describes how to manage file access logs using Azure NetApp Files. 
+File access logs provide file access logging for individual volumes, capturing file system operations on selected volumes. The logs capture [standard file operation](#recognized-events). File access logs are provided on top of the platform logging captured in the [Azure Activity Log](/azure/azure-monitor/essentials/activity-log). This article describes how to manage file access logs using Azure NetApp Files. 
 
-**File access logs supports SMB3, NFSv4.1, and dual protocols.**
+
 
 ## Considerations
 
-* Once file access logs are enabled on a volume, they can take up to five minutes to become visible. 
+>[!IMPORTANT]
+>File access logs is only supported on volumes using SMB3, NFSv4.1, and dual protocols. It's not supported on NFSv3 volumes. 
+
+* Once file access logs are enabled on a volume, they can take up to 75 minutes to become visible. 
+* Each log entry consumes approximately 1 KB of space.
 * File access logs occasionally create duplicate logs that must be manually filtered. 
-* If you delete any diagnostic settings configured for `ANFFileAccess`, it will disable file access logs for any volumes with that setting. 
-* Before enabling file access logs on a volume, either [ACLs](configure-access-control-lists.md) or Audit ACEs need to be set on a file or directory. You must set ACLs or Audit ACEs after mounting a volume.  
+* Deleting any diagnostic settings configured for `ANFFileAccess` causes any file access logs for any volume with that setting to become disabled. 
+* Before enabling file access logs on a volume, either [access control lists (ACLs)](configure-access-control-lists.md) or Audit access control entries (ACEs) need to be set on a file or directory. You must set ACLs or Audit ACEs after mounting a volume.  
 * File access logs provide no explicit or implicit expectations or guarantees around logging for auditing and compliance purposes. 
+
+### Performance considerations 
+
+* All file access log file access events have a performance impact.
+    * Events such as file/folder creation/deletion are key events to log. 
+    * System access control list (SACL) settings for logging should be used sparingly. Frequent operations (for example, READ or GET) can have significant performance impact, but have limited logging value. It's recommended that SACL setting shouldn't log these frequent operations to conserve performance. 
+    * SACL settings are subject to change – certain settings may have to be disabled to minimize performance impacts to the region. Examples would be disabling of the “List Folder/read data” and “Read permissions” to minimize performance/resource impacts during Private Preview. 
+    * SACL policy additions aren't currently supported with file access logs. 
+* Clubbing of events such as READ/WRITE only handful of operation per file read or write will be captured to reduce event logging rate.  
+* You can monitor activity logs to find out if the rate of events is more and events are getting dropped by FAL service.  <!-- ? -->
+
+* If the rate of file access event generation exceeds the internal limit <!-- what is the internal limit -->, disable non-critical auditing ACLs to reduce the rate. Leaving non-critical auditing ACLs can result in access events being dropped from the logs. 
+
+* If the rate of event generation is greater than 128 MiB/minute for your subscription, logging events might be delayed and eventually dropped. 
+* During migration or robocopy operations, disable file access logs to reduce log generation. 
+* Volumes with file access logs enabled should be grouped separately from volumes without file access logs. Contact your account specialists for assistance. 
+* It's recommended you avoid enable file access logs on files with more than 450 ACEs to avoid potential performance issues. 
 
 ## Recognized events
 
@@ -79,19 +100,11 @@ While in preview, file access logs is supported in:
 <!-- 9 may 2023 -->
 ## Set SACLs or Audit ACEs on files and directories  
 
-You must set system access control lists (SACLs) for SMB shares or Audit ACEs (for NFSv4.1 shares) for auditing. 
-
-After mounting the volume, SACLs (for an SMB/CIFS share) or Audit ACEs (for an NFSv4.1 mount) needs to be set on files/directories for auditing of file operations to happen on the volume. 
+You must set SACLs for SMB shares or Audit ACEs for NFSv4.1 shares for auditing. 
 
 ### [Set SACLs for SMB shares](#tab/sacls-smb)
 
-There are three ways to set SACLs for access logs. 
-
 If you're logging access events on all files and directories within a volume, set SACLs by applying Storage-Level Access Guard security. 
-
-If you're logging access events on individual files and directories, setting of SACLs with:
-* The Windows Explorer GUI
-* The `fsecurity` command 
 
 >[!NOTE]
 > Select only the events you need to log. Selecting too many log options may impact system performance. 
@@ -107,15 +120,13 @@ To enable logging access on individual files and directories, complete the follo
 1. Select the **Security** tab then **Advanced**.
 1. Select the **Auditing** tab. Add, edit, or remove the auditing options you want. 
 
-### [Set Audit ACEs for NFSv4.1 shares](#tab/sacls-nfs)
 
-Configure logging for UNIX security style files and directories by adding audit ACEs to NFSv4.1 ACLs to monitoring of certain NFS file and directory access events for security purposes. 
+### [Set Audit ACEs for NFSv4.1 shares](#tab/sacls-nfs)
 
 For NFSv4.1, both discretionary and system ACEs are stored in the same ACL, not separate DACLs and SACLs. Exercise caution when adding audit ACEs to an existing ACL to avoid overwriting and losing an existing ACL. The order in which you add audit ACEs to an existing ACL doesn't matter. 
 
-For steps, see [Configure access control lists on NFSv4.1 volumes](configure-access-control-lists.md).
+**For steps**, see [Configure access control lists on NFSv4.1 volumes](configure-access-control-lists.md).
 
-<!-- end -->
 ---
 
 ## Enable file access logs
@@ -123,10 +134,10 @@ For steps, see [Configure access control lists on NFSv4.1 volumes](configure-acc
 1. In the **Volumes** menu, select the volume you want to enable file access logs for. 
 1. Select **Diagnostic settings** from the left-hand pane.
 1. Select **+ Add diagnostic setting**.
-:::image type="content" source="../media/azure-netapp-files/logs-diagnostic-settings-add.png" alt-text="Screenshot of Azure Diagnostic settings menu.":::
+:::image type="content" source="../media/manage-file-access-logs/logs-diagnostic-settings-add.png" alt-text="Screenshot of Azure Diagnostic settings menu.":::
 1. In the **Diagnostic setting** page, provide a diagnostic setting name.
-    Under **Logs > Categories**, select **ANFFileAccess** and then set the retention period of the logs. 
-:::image type="content" source="../media/azure-netapp-files/logs-diagnostic-settings-enable.png" alt-text="Screenshot of Azure Diagnostic settings menu with file access diagnostic setting.":::
+    Under **Logs > Categories**, select **ANFFileAccess** then set the retention period of the logs. 
+:::image type="content" source="../media/manage-file-access-logs/logs-diagnostic-settings-enable.png" alt-text="Screenshot of Azure Diagnostic settings menu with file access diagnostic setting.":::
 <!-- check these steps -->
 1. Select one of the destination options for the logs:
     * Archive to a storage account
@@ -139,8 +150,8 @@ For steps, see [Configure access control lists on NFSv4.1 volumes](configure-acc
 
 1. In the **Volumes** menu, select the volume on which you want to disable file access logs.
 2. Select the **Diagnostic setting** menu from the left-hand pane. 
-3. In the **Diagnostic settings** page, deselect **ANFFileAccess**.
-4. Save the settings.
+3. In the **Diagnostic settings** page, deselect **Audit**. This will automatically deselect **ANFFileAccess**.
+4. Select **Save**. 
 
 >[!NOTE]
 >After disabling file access logs, you must wait at least ten minutes before attempting to enable or re-enable file access logs on any volume.
@@ -148,4 +159,4 @@ For steps, see [Configure access control lists on NFSv4.1 volumes](configure-acc
 ## Next Steps
 
 * [Security FAQs](faq-security.md) 
-* [Azure resource logs](..\azure-monitor\essentials\resource-logs.md)
+* [Azure resource logs](/azure/azure-monitor/essentials/resource-logs)

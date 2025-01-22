@@ -53,7 +53,7 @@ The `--save` option lists the library as a dependency in your **package.json** f
 
 ## Set up the app framework
 
-This quickstart uses Webpack to bundle the application assets. Run the following command to install the Webpack, webpack-cli and webpack-dev-server npm packages and list them as development dependencies in your **package.json**:
+This quickstart uses webpack to bundle the application assets. Run the following command to install the webpack, webpack-cli and webpack-dev-server npm packages and list them as development dependencies in your **package.json**:
 
 ```console
 npm install webpack@5.89.0 webpack-cli@5.1.4 webpack-dev-server@4.15.1 --save-dev
@@ -339,7 +339,7 @@ var displayName = call.remoteParticipants.find(p => p.identifier.communicationUs
 
 ## Run the code
 
-Webpack users can use the `webpack-dev-server` to build and run your app. Run the following command to bundle your application host on a local webserver:
+Use the `webpack-dev-server` to build and run your app. Run the following command to bundle your application host on a local webserver:
 
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map

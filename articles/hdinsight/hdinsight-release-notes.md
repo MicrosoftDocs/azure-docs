@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 12/20/2024
+ms.date: 01/14/2025
 ---
 
 # Azure HDInsight release notes
@@ -57,17 +57,14 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 
   * Azure HDInsight now supports OAuth-based authentication for accessing Azure Blob storage by leveraging Azure Active Directory (AAD) and managed identities (MSI). With this enhancement, HDInsight uses user-assigned managed identities to access Azure blob storage. For more information, see [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
-* HDInsight service is transitioning to use standard load balancers for all its cluster configurations because of [deprecation announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer#main) of Azure basic load balancer.
-  * This change will be rolled out in a phased manner for different regions.
+
+* HDInsight service transitioned to use standard load balancers for all its cluster configurations due to [deprecation announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer#main) of Azure basic load balancer.
+
   > [!NOTE]
-  > Standard LB changes in HDInsight are available in all public regions except US East, US East2, US West, US West2, US South Central, US Gov Regions, and China regions.
-  >
-  > This change will be available in these pending regions effective January 9, 2025. 
-  >
-  > For any assistance, contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+  > This change is available in all regions. Recreate your cluster to consume this change. For any assistance, contact [support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
 
   > [!IMPORTANT]
-  > When using your own Virtual Network (custom VNet) during cluster creation, please be advised that the cluster creation will not succeed once this change is enabled. We recommend referring to the [migration guide to recreate the cluster](./load-balancer-migration-guidelines.md).
+  > When using your own Virtual Network (custom VNet) during cluster creation, be advised that the cluster creation won't succeed once this change is enabled. We recommend referring to the [migration guide to recreate the cluster](./load-balancer-migration-guidelines.md).
   > For any assistance, contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
@@ -85,7 +82,7 @@ You can always ask us about HDInsight on [Azure HDInsight - Microsoft Q&A](/answ
 We're listening: You’re welcome to add more ideas and other topics here and vote for them - [HDInsight Ideas](https://feedback.azure.com/d365community/search/?q=HDInsight) and follow us for more updates on [AzureHDInsight Community](https://www.linkedin.com/groups/14313521/).
 
 > [!NOTE]
-> We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates and security fixes. For more information, see [Best practices](./hdinsight-overview-before-you-start.md).
+> We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates, and security fixes. For more information, see, [Best practices](./hdinsight-overview-before-you-start.md).
 
 ### Next steps
 * [Azure HDInsight: Frequently asked questions](./hdinsight-faq.yml)

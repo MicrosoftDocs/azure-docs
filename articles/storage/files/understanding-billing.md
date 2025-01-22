@@ -19,11 +19,20 @@ Azure Files has multiple pricing models including provisioned and pay-as-you-go 
 
 - **Provisioned billing models**: In a provisioned billing model, the primary costs of the file share are based on the amount of storage, IOPS (input and output operations per second), and throughput you provision when you create or update your file share, regardless of how much you use. Azure Files has two different provisioned models *provisioned v2* and *provisioned v1*.
     - **Provisioned v2**: In the provisioned v2 model, you have the ability to separately provision storage, IOPS, and throughput, although we provide a recommendation for you to help you with first time provisioning.
-    - **Provisioned v1**: In the provisioned v1 model, you provision the amount of storage you need for the share while IOPS and throughput are determined based on how much storage you provision. The provisioned v1 model for Azure Files is only available for SSD file shares.
+    - **Provisioned v1**: In the provisioned v1 model, you provision the amount of storage you need for the share while IOPS and throughput are determined based on how much storage you provision. The provisioned v1 model for Azure Files is only available for SSD (premium) file shares.
     
 - **Pay-as-you-go billing model**: In a pay-as-you-go model, the cost of the file share is based on how much you use the share, in the form of used storage, transaction, and data transfer costs. The pay-as-you-go model for Azure Files is only available for HDD file shares. We recommend using the provisioned v2 model for new HDD file share deployments.
-    
+
 This article explains the billing models for Azure Files work to help you understand your monthly Azure Files bill. For Azure Files pricing information, see [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
+
+:::row:::
+    :::column:::
+        > [!VIDEO https://www.youtube-nocookie.com/embed/dyqQkheaHYg]
+    :::column-end:::
+    :::column:::
+        This video covers the Azure Files billing models including pay-as-you-go, provisioned v1, and provisioned v2.
+   :::column-end:::
+:::row-end:::
 
 ## Applies to
 | Management model | Billing model | Media tier | Redundancy | SMB | NFS |
@@ -355,7 +364,7 @@ The following table illustrates the cost breakdown of moving access tiers:
 | **Hot (source)** | <ul><li>1 hot read transaction per file.</li><ul> | -- | <ul><li>1 cool write transaction per file.</li></ul> |
 | **Cool (source)** | <ul><li>1 cool read transaction per file.</li><li>Data retrieval per total used GiB.</li></ul> | <ul><li>1 cool read transaction per file.</li><li>Data retrieval per total used GiB.</li></ul> | -- |
 
-Although there's no formal limit on how often you can change the access tier of your file share, your share will take time to transition based on the amount of data in your share. You can't change the access tier of the share while the file share is transitioning between access tiers. Changing the access tier of the file share doesn't impact regular file share access.
+You can change a file share's access tier up to 5 times within a 30 day window. The first day of the 30 day window begins when the first tier change happens. Changes between access tiers happen instantly, however, once you have changed the access tier of a share, you cannot change it again within 24 hours, even if you have changed the access tier property fewer than 5 times within the last 30 days.
 
 ### Choosing an access tier
 Regardless of how you migrate existing data into Azure Files, we recommend initially creating the file share in transaction optimized access tier due to the large number of transactions incurred during migration. After your migration is complete and you've operated for a few days or weeks with regular usage, you can plug your transaction counts into the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to figure out which access tier is best suited for your workload.
