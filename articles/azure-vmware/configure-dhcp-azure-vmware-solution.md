@@ -30,7 +30,7 @@ In this article, learn how to use NSX Manager to configure DHCP for Azure VMware
 >
 >DHCP does not work for virtual machines (VMs) on the VMware HCX L2 stretch network when the DHCP server is in the on-premises datacenter.  NSX, by default, blocks all DHCP requests from traversing the L2 stretch. For the solution, see the [Configure DHCP on L2 stretched VMware HCX networks](configure-l2-stretched-vmware-hcx-networks.md) procedure.
 
-## Use the Azure portal to create a DHCP server or DHCP relay
+## Use the Azure portal to create a DHCP server or relay
 
 You can create a DHCP server or relay directly from Azure VMware Solution in the Azure portal. The DHCP server or relay connects to the Tier-1 gateway created when you deployed Azure VMware Solution. All the segments where you gave DHCP ranges are part of this DHCP. After you create a DHCP server or DHCP relay, you must define a subnet or range on segment level to consume it.
 
