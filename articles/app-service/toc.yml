@@ -401,7 +401,7 @@
       href: overview-wordpress.md
     - name: WordPress architecture
       displayName: WordPress on App Service architecture
-      href: /azure/architecture/example-scenario/infrastructure/wordpress-app-service
+      href: /azure/architecture/example-scenario/infrastructure/wordpress-app-service?toc=%2Fazure%2Fapp-service%2Ftoc.json&bc=%2Fazure%2Fapp-service%2Fbreadcrumb%2Ftoc.json
     - name: Deploy WordPress
       displayName: Create a WordPress site
       href: quickstart-wordpress.md
@@ -413,7 +413,7 @@
       href: reference-app-settings.md#wordpress
     - name: Customize API Management developer portal
       displayName: API Management and WordPress
-      href: /azure/api-management/developer-portal-wordpress-plugin
+      href: /azure/api-management/developer-portal-wordpress-plugin?toc=%2Fazure%2Fapp-service%2Ftoc.json&bc=%2Fazure%2Fapp-service%2Fbreadcrumb%2Ftoc.json
     - name: WordPress FAQ
       displayName: WordPress frequently asked questions
       href: wordpress-faq.md
