@@ -52,7 +52,7 @@ To learn more, see [Azure CLI support for advanced MQTT broker configuration](ht
 
 ## Subscriber queue limit
 
-The MQTT broker keeps a queue for each subscriber with QoS 1 messages waiting to be delivered. Messages are added to this queue when they're received from the publisher. They're removed after they're delivered and acknowledged by the subscriber with a `PUBACK`. If messages arrive faster than the subscriber can acknowledge them, or if the subscriber is offline with a persistent session, the queue can grow large.
+The MQTT broker keeps a queue for each subscriber with QoS 1 messages waiting to be delivered. Messages are added to this queue when they're received from the publisher. They're removed after they're delivered and acknowledged by the subscriber with a PUBACK message. If messages arrive faster than the subscriber can acknowledge them, or if the subscriber is offline with a persistent session, the queue can grow large.
 
 The MQTT broker can [buffer these messages to disk](./howto-disk-backed-message-buffer.md) to save memory, but this tactic might not always be enough. The disk buffer might not be set up, or it could be full because of other subscribers. Therefore, the subscriber queue limit helps prevent the broker from using too much memory for a single subscriber.
 

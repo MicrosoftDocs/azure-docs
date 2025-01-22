@@ -27,11 +27,11 @@ By default, an MQTT broker:
 > [!CAUTION]
 > For production scenarios, use TLS and service accounts authentication to secure your IoT solution. For more information, see:
 >
-> - [Configure TLS with automatic certificate management to secure MQTT communication in MQTT broker](./howto-configure-tls-auto.md).
-> - [Configure authentication in MQTT broker](./howto-configure-authentication.md).
+> - [Configure TLS with automatic certificate management to secure MQTT communication in the MQTT broker](./howto-configure-tls-auto.md).
+> - [Configure authentication in the MQTT broker](./howto-configure-authentication.md).
 > - [Expose Kubernetes services to external devices](/azure/aks/hybrid/aks-edge-howto-expose-service) by using port forwarding or a virtual switch with Azure Kubernetes Services (AKS) Edge Essentials.
 
-Before you begin, [install or configure Azure IoT Operations](../get-started-end-to-end-sample/quickstart-deploy.md). Use the following options to test connectivity to an MQTT broker with MQTT clients in a nonproduction environment.
+Before you begin, [install or configure Azure IoT Operations](../get-started-end-to-end-sample/quickstart-deploy.md). Use the following options to test connectivity to the MQTT broker with MQTT clients in a nonproduction environment.
 
 ## Connect to the default listener inside the cluster
 
@@ -82,7 +82,7 @@ Client (null) sending DISCONNECT
 The mosquitto client uses the service account token mounted at `/var/run/secrets/tokens/broker-sat` to authenticate with the broker. The token is valid for 24 hours. The client also uses the default root CA certificate mounted at `/var/run/certs/ca.crt` to verify the broker's TLS certificate chain.
 
 > [!TIP]
-> You can use `kubectl` to download the default root CA certificate to use with other clients. For example, to download the default root CA certificate to a file named `ca.crt`:
+> You can use kubectl to download the default root CA certificate to use with other clients. For example, to download the default root CA certificate to a file named `ca.crt`:
 > 
 > ```bash
 > kubectl get configmap azure-iot-operations-aio-ca-trust-bundle -n azure-iot-operations -o jsonpath='{.data.ca\.crt}' > ca.crt
@@ -221,7 +221,7 @@ spec:
         # Omitting section turns off TLS for testing only
 ```
 
-Then, use `kubectl` to deploy the configuration:
+Then, use kubectl to deploy the configuration:
 
 ```bash
 kubectl apply -f broker-nodeport.yaml
@@ -381,7 +381,7 @@ spec:
         # Omitting section turns off TLS for testing only
 ```
 
-Use `kubectl` to deploy the configuration:
+Use kubectl to deploy the configuration:
 
 ```bash
 kubectl apply -f broker-loadbalancer.yaml
@@ -462,7 +462,7 @@ For more information about port forwarding, see [Expose Kubernetes services to e
 
 #### Access through localhost
 
-Some Kubernetes distributions can [expose](https://k3d.io/v5.1.0/usage/exposing_services/) MQTT broker to a port on the host system (`localhost`) as part of cluster configuration. Use this approach to make it easier for clients on the same host to access the MQTT broker.
+Some Kubernetes distributions can [expose](https://k3d.io/v5.1.0/usage/exposing_services/) the MQTT broker to a port on the host system (`localhost`) as part of cluster configuration. Use this approach to make it easier for clients on the same host to access the MQTT broker.
 
 For example, to create a k3d cluster that maps the MQTT broker's default MQTT port 1883 to `localhost:1883`:
 
@@ -484,7 +484,7 @@ mosquitto_pub --host localhost --port 1883 --message "hello" --topic "world" --d
 
 ## Only turn off TLS and authentication for testing
 
-The reason that an MQTT broker uses TLS and service accounts authentication by default is to provide a secure-by-default experience that minimizes inadvertent exposure of your IoT solution to attackers. You shouldn't turn off TLS and authentication in production. Exposing an MQTT broker to the internet without authentication and TLS can lead to unauthorized access and even distributed denial-of-service attacks.
+The reason that the MQTT broker uses TLS and service accounts authentication by default is to provide a secure-by-default experience that minimizes inadvertent exposure of your IoT solution to attackers. You shouldn't turn off TLS and authentication in production. Exposing the MQTT broker to the internet without authentication and TLS can lead to unauthorized access and even distributed denial-of-service attacks.
 
 > [!WARNING]
 > If you understand the risks and need to use an insecure port in a well-controlled environment, you can turn off TLS and authentication for testing purposes by removing the `tls` and `authenticationRef` settings from the listener configuration.
