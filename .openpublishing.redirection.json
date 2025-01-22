@@ -5098,6 +5098,16 @@
       "source_path": "articles/virtual-desktop/troubleshoot-vm-configuration.md",
       "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-vm-configuration",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/reliability/business-continuity-management-program.md",
+      "redirect_url": "/azure/reliability/concept-business-continuity-high-availability-disaster-recovery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/reliability/disaster-recovery-overview.md",
+      "redirect_url": "/azure/reliability/concept-business-continuity-high-availability-disaster-recovery",
+      "redirect_document_id": false
     }
   ]
 }
