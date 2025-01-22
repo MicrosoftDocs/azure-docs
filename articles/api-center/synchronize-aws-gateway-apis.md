@@ -122,7 +122,8 @@ To delete an integration using the Azure CLI, run the [az apic integration delet
 az apic integration delete \
     --resource-group <resource-group-name> \
     --service-name <api-center-name> \
-    --integration-name <integration-name> \
+    --integration-name <integration-name> 
+```
 
 ## Related content
  
