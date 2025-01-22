@@ -37,22 +37,20 @@ An update handler integrates with the Device Update agent to perform the actual 
 
 ### Delta processor
 
-The delta processor recreates the original SWU image file on your device after the delta file downloads, so your update handler can install the SWU file. The delta processor is available in the [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta) GitHub repo.
+The delta processor at [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta) creates the original SWU image file on your device after the delta file downloads, so your update handler can install the SWU file. To add the delta processor component to your device image and configure it for use, you can download a Debian package for Ubuntu 20.04 and later from [https://github.com/Azure/iot-hub-device-update-delta/tree/main/preview/2.0.0](https://github.com/Azure/iot-hub-device-update-delta/tree/main/preview/2.0.0).
 
-To add the delta processor component to your device image and configure it for use, you can download a Debian package from [https://github.com/Azure/iot-hub-device-update-delta/tree/main/preview/2.0.0](https://github.com/Azure/iot-hub-device-update-delta/tree/main/preview/2.0.0) that's supported on Ubuntu 20.04 and later.
-
-If you're using another distro, follow the *README.md* instructions to use CMAKE to build the delta processor from source instead. From there, install the shared object *libadudiffapi.so* directly by copying it to the */usr/lib* directory, as follows:
+If you use another distro, follow the *README.md* instructions to use CMAKE to build the delta processor from source instead. From there, install the shared object *libadudiffapi.so* directly by copying it to the */usr/lib* directory, as follows:
 
 ```bash
 sudo cp <path to libadudiffapi.so> /usr/lib/libadudiffapi.so
 sudo ldconfig
 ```
 
-## Add a source SWU image file to your device
+### Source SWU image file on the device
 
-After the delta update file downloads to a device, it's compared against a valid `<source_archive>` previously cached on the device. This process enables the delta update to recreate the full target image.
+After the delta update file downloads to a device, it compares against a valid `<source_archive>` previously cached on the device. This process enables the delta update to recreate the full target image.
 
-The simplest way to populate this cached image is to [import](import-update.md) and [deploy](deploy-update.md) processes) a full image update to the device via the Device Update service. As long as the device is configured with Device Update agent version 1.0 or later and the delta processor, the Device Update agent caches the installed SWU file automatically for later delta update use.
+The simplest way to populate this cached image is to [import](import-update.md) and [deploy](deploy-update.md) processes) a full image update to the device via the Device Update service. If the device is configured with Device Update agent version 1.0 or later and the delta processor, the agent caches the installed SWU file automatically for later delta update use.
 
 If you want to directly prepopulate the source image on your device instead, the path where the image is expected is `<BASE_SOURCE_DOWNLOAD_CACHE_PATH>/sha256-<ENCODED HASH>`. By default, `<BASE_SOURCE_DOWNLOAD_CACHE_PATH>` is the path */var/lib/adu/sdc/\<provider>*. The `provider` value is the `provider` part of the [updateId](import-concepts.md#update-identity) for the source SWU file.
 
@@ -121,7 +119,7 @@ sudo ./DiffGenTool
 /mnt/o/temp/<recompressed target file to create>.swu
 ```  
 
-If you also use the signing parameter, which you need if your SWU file is signed, you can use the sample *sign_file.sh* script from the [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta/tree/main/src/scripts/signing_samples/openssl_wrapper) GitHub repo. Open the script, edit it to add the path to your private key file, save the script, and then run DiffGen as follows.
+If you also use the signing parameter, which you must if your SWU file is signed, you can use the sample *sign_file.sh* script from the [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta/tree/main/src/scripts/signing_samples/openssl_wrapper) GitHub repo. Open the script, edit it to add the path to your private key file, save the script, and then run DiffGen as follows.
 
 The following code creates a diff between the input source file and a recompressed and re-signed target file:
 
@@ -138,7 +136,7 @@ sudo ./DiffGenTool
 
 ## Import for generated delta updates
 
-The process of import a delta update to the Device Update service is the same as for any other update. If you haven't already, be sure to review [How to prepare an update to be imported into Azure Device Update for IoT Hub](create-update.md).
+The process of importing a delta update to the Device Update service is the same as for any other update. If you haven't already, be sure to review [How to prepare an update to be imported into Azure Device Update for IoT Hub](create-update.md).
 
 ### Generate the import manifest
 
@@ -170,7 +168,7 @@ Use the `downloadHandler` object to specify how the Device Update agent orchestr
 }
 ```
 
-You can use the Azure CLI [az iot du update init v5](/cli/azure/iot/du/update/init?view=azure-cli-latest#az-iot-du-update-init-v5) command to generate an import manifest for your delta update. For more information, see [Create a basic import manifest](create-update.md#create-a-basic-device-update-import-manifest).
+You can use the Azure CLI [`az iot du update init v5`](/cli/azure/iot/du/update/init#az-iot-du-update-init-v5) command to generate an import manifest for your delta update. For more information, see [Create a basic import manifest](create-update.md#create-a-basic-device-update-import-manifest).
 
 ```azurecli
 az iot du update init v5
