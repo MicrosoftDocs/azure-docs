@@ -5,8 +5,8 @@ ms.topic: overview
 ms.service: azure-backup
 ms.custom: references_regions, engagement-fy24, ignite-2024
 ms.date: 12/09/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Immutable vault for Azure Backup

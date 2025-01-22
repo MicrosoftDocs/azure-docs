@@ -6,8 +6,8 @@ ms.date: 07/24/2024
 ms.assetid: 472d6a4f-7914-454b-b8e4-062e8b556de3
 ms.service: azure-backup
 ms.custom: engagement-fy23
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Create Azure Data Protection backup policies for blobs using REST API

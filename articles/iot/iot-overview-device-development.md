@@ -6,7 +6,7 @@ services: iot
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 02/28/2024
+ms.date: 01/20/2025
 ms.custom: template-overview
 # Customer intent: As a solution builder or asset/device developer I want a high-level overview of the issues around asset and device development so that I can easily find relevant content.
 ---
