@@ -2,7 +2,7 @@
 title: 'Quickstart: Configure an Azure virtual network gateway with Terraform'
 description: In this quickstart, you create a resource group, a virtual network, a subnet for the gateway, a public IP for the gateway, an Azure ExpressRoute gateway, an ExpressRoute circuit, and an ExpressRoute circuit peering in Azure.
 ms.topic: quickstart
-ms.date: 12/17/2024
+ms.date: 01/24/2025
 ms.custom: devx-track-terraform
 ms.service: azure-virtual-network
 author: duongau
@@ -23,8 +23,7 @@ In this quickstart, you use Terraform to create an Azure ExpressRoute circuit wi
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Create a resource group with a unique name.
-> * Generate a random string for unique naming of the Azure resources.
+> * Create an Azure resource group with a unique name.
 > * Create a virtual network with a subnet for the gateway.
 > * Create a public IP for the gateway.
 > * Create an ExpressRoute circuit and configure private peering.
