@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 01/17/2025
+ms.date: 01/22/2025
 ms.author: cshoe
 ---
 
@@ -22,7 +22,7 @@ To build an mTLS application in Azure Container Apps, you need to:
 
 This article describes how to handle peer mTLS handshake certificates by extracting the `X.509` certificate from the client.
 
-## Configure Azure Container Apps to require client certificates
+## Require client certificates
 
 Use the following steps to configure your container app to require client certificates:
 
@@ -45,11 +45,11 @@ Here's the procedure you want to follow to extract and parse the certificate in 
 1. Parse the header value to extract the certificate details.
 1. Put the parsed certificates to the standard certificate attribute for further validation or usage.
 
-Once parsed, you can validate certificates and use them according to the needs of your application. For example, in Java applications you can use [Spring security](https://docs.spring.io/spring-security/reference/index.html) to map the user information from certificates to the security context.
+Once parsed, you can validate certificates and use them according to the needs of your application.
 
-## Sample
+## Example
 
-For a complete example of a Java application with mTLS in Azure Container Apps, see [mTLS Server Application on Azure Container Apps](./samples.md).
+In Java applications, you can use [Reactive X.509 authentication filter](https://docs.spring.io/spring-security/reference/reactive/authentication/x509.html) to map the user information from certificates to the security context. For a complete example of a Java application with mTLS in Azure Container Apps, see [mTLS Server Application on Azure Container Apps](https://github.com/Azure-Samples/azure-container-apps-java-samples/tree/main/azure-container-apps-mtls-certificate-filter).
 
 ## Related content
 
