@@ -85,8 +85,8 @@ This article applies to cost and usage details file schema for Microsoft Partner
 |65|reservationName|Name of the purchased reservation instance.|
 |66|pricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, and `Spot`)|
 |67|unitPrice|The price per unit for the charge.|
-|68|benefitId|  |
-|69|benefitName|  |
+|68|benefitId| Unique identifier for the purchased savings plan instance. |
+|69|benefitName| Unique identifier for the purchased savings plan instance. |
 |70|provider|Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS.|
 
 ## Version 2021-10-01
@@ -160,8 +160,8 @@ This article applies to cost and usage details file schema for Microsoft Partner
 |65|reservationName|Name of the purchased reservation instance.|
 |66|pricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, and `Spot`)|
 |67|unitPrice|The price per unit for the charge.|
-|68|benefitId|  |
-|69|benefitName|  |
+|68|benefitId| Unique identifier for the purchased savings plan instance. |
+|69|benefitName| Unique identifier for the purchased savings plan instance. |
 |70|provider|Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS.|
 
 ## Version 2021-01-01

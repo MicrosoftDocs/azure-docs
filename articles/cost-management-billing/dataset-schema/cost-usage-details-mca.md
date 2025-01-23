@@ -82,8 +82,8 @@ The following information lists the cost and usage details (formerly known as us
 | 60 |pricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, and `Spot`)|
 | 61 |unitPrice|The price per unit for the charge.|
 | 62 |costAllocationRuleName|Name of the Cost Allocation rule that's applicable to the record.|
-| 63 |benefitId|  |
-| 64 |benefitName|  |
+| 63 |benefitId| Unique identifier for the purchased savings plan instance. |
+| 64 |benefitName| Unique identifier for the purchased savings plan instance. |
 | 65 |provider|Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS.|
 
 ## Version 2021-10-01
@@ -152,8 +152,8 @@ The following information lists the cost and usage details (formerly known as us
 | 60 |pricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, and `Spot`)|
 | 61 |unitPrice|The price per unit for the charge.|
 | 62 |costAllocationRuleName|Name of the Cost Allocation rule that's applicable to the record.|
-| 63 |benefitId|  |
-| 64 |benefitName|  |
+| 63 |benefitId| Unique identifier for the purchased savings plan instance. |
+| 64 |benefitName|Unique identifier for the purchased savings plan instance.  |
 | 65 |provider|Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS.|
 
 ## Version 2021-01-01

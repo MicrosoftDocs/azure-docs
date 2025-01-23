@@ -58,7 +58,7 @@ The following information lists the cost and usage details (formerly known as us
 | 36 |ChargeType|Indicates whether the charge represents usage (Usage), a purchase (Purchase), or a refund (Refund).|
 | 37 |Frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
 | 38 |PricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, and `Spot`)|
-| 39 |AvailabilityZone|  .|
+| 39 |AvailabilityZone| Valid only for cost data obtained from the cross-cloud connector. The field displays the availability zone in which the AWS service is deployed.|
 | 40 |BillingAccountId|Unique identifier for the root billing account.|
 | 41 |BillingAccountName|Name of the billing account.|
 | 42 |BillingCurrencyCode|Currency associated with the billing account.|
@@ -73,8 +73,8 @@ The following information lists the cost and usage details (formerly known as us
 | 51 |PlanName|Marketplace plan name.|
 | 52 |ServiceFamily|Service family that the service belongs to.|
 | 53 |CostAllocationRuleName|Name of the Cost Allocation rule that's applicable to the record.|
-| 54 |benefitId|  .|
-| 55 |benefitName|  .|
+| 54 |benefitId|  Unique identifier for the purchased savings plan instance.|
+| 55 |benefitName| Unique identifier for the purchased savings plan instance.|
 |56|AccountId|Unique identifier for the EA enrollment account.|
 |57|ResourceLocationNormalized|Standardized format of the datacenter location where the resource is running.|
 
@@ -120,7 +120,7 @@ The following information lists the cost and usage details (formerly known as us
 | 36 |ChargeType|Indicates whether the charge represents usage (Usage), a purchase (Purchase), or a refund (Refund).|
 | 37 |Frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
 | 38 |PricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, and `Spot`)|
-| 39 |AvailabilityZone|  .|
+| 39 |AvailabilityZone|  Valid only for cost data obtained from the cross-cloud connector. The field displays the availability zone in which the AWS service is deployed.|
 | 40 |BillingAccountId|Unique identifier for the root billing account.|
 | 41 |BillingAccountName|Name of the billing account.|
 | 42 |BillingCurrencyCode|Currency associated with the billing account.|
@@ -135,8 +135,8 @@ The following information lists the cost and usage details (formerly known as us
 | 51 |PlanName|Marketplace plan name.|
 | 52 |ServiceFamily|Service family that the service belongs to.|
 | 53 |CostAllocationRuleName|Name of the Cost Allocation rule that's applicable to the record.|
-| 54 |benefitId|  .|
-| 55 |benefitName|  .|
+| 54 |benefitId|  Unique identifier for the purchased savings plan instance.|
+| 55 |benefitName| Unique identifier for the purchased savings plan instance.|
 
 ## Version 2021-10-01
 
@@ -192,11 +192,11 @@ The following information lists the cost and usage details (formerly known as us
 | 48 |PricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, and `Spot`)|
 | 49 |BillingPeriodStartDate|The start date of the billing period.|
 | 50 |BillingPeriodEndDate|The end date of the billing period.|
-| 51 |AvailabilityZone|  .|
+| 51 |AvailabilityZone|  Valid only for cost data obtained from the cross-cloud connector. The field displays the availability zone in which the AWS service is deployed.|
 | 52 |InvoiceSectionId|Unique identifier for the EA department or MCA invoice section.|
 | 53 |CostAllocationRuleName|Name of the Cost Allocation rule that's applicable to the record.|
-| 54 |benefitId|  .|
-| 55 |benefitName|  .|
+| 54 |benefitId| Unique identifier for the purchased savings plan instance.|
+| 55 |benefitName| Unique identifier for the purchased savings plan instance.|
 
 ## Version 2021-01-01
 
@@ -219,7 +219,7 @@ The following information lists the cost and usage details (formerly known as us
 | 15 |UnitOfMeasure|The unit of measure for billing for the service. For example, compute services are billed per hour.|
 | 16 |Quantity|The number of units purchased or consumed.|
 | 17 |EffectivePrice|Blended unit price for the period. Blended prices average out any fluctuations in the unit price, like graduated tiering, which lowers the price as quantity increases over time.|
-| 18 |CostInBillingCurrency|  .|
+| 18 |CostInBillingCurrency|  Cost of the charge in the billing currency before credits or taxes.|
 | 19 |CostCenter|The cost center defined for the subscription for tracking costs (only available in open billing periods for MCA accounts).|
 | 20 |ConsumedService|Name of the service the charge is associated with.|
 | 21 |ResourceId|Unique identifier of the Azure Resource Manager resource.|
@@ -240,10 +240,10 @@ The following information lists the cost and usage details (formerly known as us
 | 36 |ChargeType|Indicates whether the charge represents usage (Usage), a purchase (Purchase), or a refund (Refund).|
 | 37 |Frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
 | 38 |PricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, and `Spot`)|
-| 39 |AvailabilityZone|  .|
+| 39 |AvailabilityZone| Valid only for cost data obtained from the cross-cloud connector. The field displays the availability zone in which the AWS service is deployed.|
 | 40 |BillingAccountId|Unique identifier for the root billing account.|
 | 41 |BillingAccountName|Name of the billing account.|
-| 42 |BillingCurrencyCode|  .|
+| 42 |BillingCurrencyCode| Currency associated with the billing account.|
 | 43 |BillingPeriodStartDate|The start date of the billing period.|
 | 44 |BillingPeriodEndDate|The end date of the billing period.|
 | 45 |BillingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
@@ -277,7 +277,7 @@ The following information lists the cost and usage details (formerly known as us
 | 15 |UnitOfMeasure|The unit of measure for billing for the service. For example, compute services are billed per hour.|
 | 16 |Quantity|The number of units purchased or consumed.|
 | 17 |EffectivePrice|Blended unit price for the period. Blended prices average out any fluctuations in the unit price, like graduated tiering, which lowers the price as quantity increases over time.|
-| 18 |CostInBillingCurrency|  .|
+| 18 |CostInBillingCurrency|  Cost of the charge in the billing currency before credits or taxes.|
 | 19 |CostCenter|The cost center defined for the subscription for tracking costs (only available in open billing periods for MCA accounts).|
 | 20 |ConsumedService|Name of the service the charge is associated with.|
 | 21 |ResourceId|Unique identifier of the Azure Resource Manager resource.|
@@ -298,10 +298,10 @@ The following information lists the cost and usage details (formerly known as us
 | 36 |ChargeType|Indicates whether the charge represents usage (Usage), a purchase (Purchase), or a refund (Refund).|
 | 37 |Frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
 | 38 |PricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, and `Spot`)|
-| 39 |AvailabilityZone|  .|
+| 39 |AvailabilityZone| Valid only for cost data obtained from the cross-cloud connector. The field displays the availability zone in which the AWS service is deployed.|
 | 40 |BillingAccountId|Unique identifier for the root billing account.|
 | 41 |BillingAccountName|Name of the billing account.|
-| 42 |BillingCurrencyCode|  .|
+| 42 |BillingCurrencyCode| Currency associated with the billing account.|
 | 43 |BillingPeriodStartDate|The start date of the billing period.|
 | 44 |BillingPeriodEndDate|The end date of the billing period.|
 | 45 |BillingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|

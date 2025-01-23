@@ -22,8 +22,8 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |2|partnerName|    |
 |3|resellerName|The name of the reseller associated with the subscription.|
 |4|resellerMpnId|ID for the reseller associated with the subscription.|
-|5|customerTenantId|    |
-|6|customerName|    |
+|5|customerTenantId|  Identifier of the Microsoft Entra tenant of the customer's subscription.  |
+|6|customerName| Name of the Microsoft Entra tenant for the customer's subscription.   |
 |7|costCenter|The cost center defined for the subscription for tracking costs (only available in open billing periods for MCA accounts).|
 |8|billingPeriodEndDate|The end date of the billing period.|
 |9|billingPeriodStartDate|The start date of the billing period.|
@@ -71,8 +71,8 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |51|reservationName|Name of the purchased reservation instance.|
 |52|pricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, and `Spot`)|
 |53|unitPrice|The price per unit for the charge.|
-|54|benefitId|  |
-|55|benefitName|  |
+|54|benefitId| Unique identifier for the purchased savings plan instance. |
+|55|benefitName| Unique identifier for the purchased savings plan instance. |
 |56|provider|Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS.|
 
 ## Version 2021-10-01
@@ -83,8 +83,8 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |2|partnerName|    |
 |3|resellerName|The name of the reseller associated with the subscription.|
 |4|resellerMpnId|ID for the reseller associated with the subscription.|
-|5|customerTenantId|    |
-|6|customerName|    |
+|5|customerTenantId| Identifier of the Microsoft Entra tenant of the customer's subscription.   |
+|6|customerName| Name of the Microsoft Entra tenant for the customer's subscription.   |
 |7|costCenter|The cost center defined for the subscription for tracking costs (only available in open billing periods for MCA accounts).|
 |8|billingPeriodEndDate|The end date of the billing period.|
 |9|billingPeriodStartDate|The start date of the billing period.|
@@ -132,8 +132,8 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |51|reservationName|Name of the purchased reservation instance.|
 |52|pricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, and `Spot`)|
 |53|unitPrice|The price per unit for the charge.|
-|54|benefitId|  |
-|55|benefitName|  |
+|54|benefitId| Unique identifier for the purchased savings plan instance. |
+|55|benefitName| Unique identifier for the purchased savings plan instance. |
 |56|provider|Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS.|
 
 ## Version 2021-01-01
@@ -144,8 +144,8 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |2|partnerName|    |
 |3|resellerName|The name of the reseller associated with the subscription.|
 |4|resellerMpnId|ID for the reseller associated with the subscription.|
-|5|customerTenantId|    |
-|6|customerName|    |
+|5|customerTenantId| Identifier of the Microsoft Entra tenant of the customer's subscription.   |
+|6|customerName| Name of the Microsoft Entra tenant for the customer's subscription.   |
 |7|costCenter|The cost center defined for the subscription for tracking costs (only available in open billing periods for MCA accounts).|
 |8|billingPeriodEndDate|The end date of the billing period.|
 |9|billingPeriodStartDate|The start date of the billing period.|
@@ -202,8 +202,8 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |2|partnerName|    |
 |3|resellerName|The name of the reseller associated with the subscription.|
 |4|resellerMpnId|ID for the reseller associated with the subscription.|
-|5|customerTenantId|    |
-|6|customerName|    |
+|5|customerTenantId|  Identifier of the Microsoft Entra tenant of the customer's subscription.  |
+|6|customerName|  Name of the Microsoft Entra tenant for the customer's subscription.  |
 |7|costCenter|The cost center defined for the subscription for tracking costs (only available in open billing periods for MCA accounts).|
 |8|billingPeriodEndDate|The end date of the billing period.|
 |9|billingPeriodStartDate|The start date of the billing period.|
