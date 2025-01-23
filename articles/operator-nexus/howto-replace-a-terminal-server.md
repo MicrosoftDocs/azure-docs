@@ -1,17 +1,17 @@
 ---
 title: How to replace a terminal server within Nexus Network Fabric
-description: Process of replacing a terminal server
+description: Process of replacing a terminal server within Nexus Network Fabric
 author: sushantjrao 
 ms.author: sushrao
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 05/17/2024
+ms.date: 01/24/2024
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Replacing a terminal server
 
-This guide provides a step-by-step process for replacing a Terminal Server (TS) within a network environment. The procedure includes cleaning up the existing TS, removing the TS, installing a new TS, and configuring the Terminal Server.
+This guide provides a step-by-step process for replacing a Terminal Server (TS) within nexus network fabric. The procedure includes cleaning up the existing TS, removing the TS, installing a new TS, and configuring the Terminal Server.
 
 ## Pre-Replacement Cleanup (Customer Action)
 
