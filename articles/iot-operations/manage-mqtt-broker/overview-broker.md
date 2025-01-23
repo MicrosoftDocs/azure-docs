@@ -99,8 +99,8 @@ In a full deployment, you could have multiple BrokerListeners, each with multipl
 
 For example, starting from the default setup, you add:
 
-- A LoadBalancer BrokerListener named *example-lb-listener*, with two ports 1883 and 8883.
-- A NodePort BrokerListener named *example-nodeport-listener*, with a single port 1884 (`nodePort` 31884).
+- A LoadBalancer BrokerListener named *example-lb-listener*, with the two ports 1883 and 8883.
+- A NodePort BrokerListener named *example-nodeport-listener*, with the single port 1884 (`nodePort` 31884).
 - A BrokerAuthentication resource named *example-authn*, with a custom authentication method.
 - A BrokerAuthorization resource named *example-authz*, with your custom authorization settings.
 
@@ -185,7 +185,7 @@ Customizing the default Broker resource isn't required for most setups. The sett
 - [Advanced MQTT client options](./howto-broker-mqtt-client-options.md): Configuration for advanced MQTT client options like session expiry, message expiry, and keep-alive settings.
 - [Encryption of internal traffic](./howto-encrypt-internal-traffic.md): Configuration for encrypting internal traffic between broker frontend and backend pods.
 
-Customizing the default broker must be done during initial deployment time by using the Azure CLI or the Azure portal. A new deployment is required if different Broker configuration settings are needed.
+You can customize the default broker only during initial deployment time, by using the Azure CLI or the Azure portal. A new deployment is required if you need different Broker configuration settings.
 
 To customize the default Broker during deployment:
 
