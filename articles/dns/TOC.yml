@@ -75,8 +75,6 @@
     items:
     - name: DNS security policy
       href: dns-security-policy.md
-    - name: Monitor Azure DNS
-      href: monitor-dns.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-dns-security-baseline?toc=/azure/dns/TOC.json
   - name: Public DNS
@@ -197,6 +195,10 @@
     items:
     - name: Resolve Azure and on-premises domains
       href: private-resolver-hybrid-dns.md
+  - name: Monitor Azure DNS
+    href: monitor-dns.md
+  - name: Azure DNS Monitoring data reference
+    href: monitor-dns-reference.md
   - name: Troubleshoot
     items:
     - name: Troubleshooting guide
@@ -263,8 +265,6 @@
         href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_resolver_outbound_endpoint
       - name: Manages a private DNS resolver DNS forwarding ruleset
         href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_resolver_dns_forwarding_ruleset
-  - name: Azure DNS Monitoring data reference
-    href: monitor-dns-reference.md
 - name: Resources
   items:
   - name: Azure Roadmap
