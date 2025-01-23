@@ -13,24 +13,22 @@ ms.custom: template-how-to, devx-track-azurecli
 
 This document provides a step-by-step guide to upgrade the operating system (OS) of a Terminal Server. The outlined procedure is manual and includes essential checks, a backup process, and actions for post-upgrade validation.
 
----
-
 ## **Prerequisites**
 
 - **Root account password** for the Terminal Server.
 
 - An **on-premises machine** with access to the Terminal Server for file transfers.
 
-- **Latest firmware download**: [Opengear Firmware](https://ftp.opengear.com/download/opengear_appliances/OM/current/). 
+- Dow**Latest firmware download**: [Opengear Firmware](https://ftp.opengear.com/download/opengear_appliances/OM/current/). 
 
 >[!Note:]
-> Terminal server upgrade was validated with the opengear version is 24.07.1.
+> This guide has been validated with Opengear firmware version 24.07.1.
 
 ## **Stage 1: Pre-Upgrade Checks (Terminal Server)**
 
 ### Check current version of Terminal Server
 
-Execute following command on the terminal server to get the current OS version.
+Run the following command on the Terminal Server to check the existing OS version.
 
 ```bash
 cat /etc/version
@@ -40,11 +38,11 @@ cat /etc/version
 22.06.0
 ```
 > [!Note:]
-> Current OS version running on the terminal server should be lesser than the one your upgrading to.
+> Ensure the current OS version is lower than the version you are upgrading to.
 
 ### LLDP service check and enable
 
-Execute following on the terminal server to check and enable the LLDP service. 
+Run the following command on the Terminal Server to check and enable the LLDP service. 
 
 ```bash
 ogcli update services/lldp enabled=true
@@ -60,7 +58,7 @@ platform=""
 
 ### LLDP neighbor check
 
-Execute following command on the terminal server to check the LLDP neighbor.
+Run the following command on the Terminal Server to check the LLDP neighbor.
 
 ```bash
 lldpctl
@@ -72,7 +70,7 @@ Mgmt Switch, PE2, PE1
 
 ### Ping connectivity check
 
-Execute following command on the terminal server to perform a ping connectivity check.
+Run the following command on the Terminal Server to perform a ping connectivity check.
 
 ```bash
 default_routes=$(ip route show default | awk '{print $3}')
@@ -105,8 +103,7 @@ PING 10.103.0.6 (10.103.0.6) 56(84) bytes of data.
 rtt min/avg/max/mdev = 0.305/0.328/0.344/0.015 ms
 ```
 
-
-### Create backup of the current Terminal Server configuration
+### Backup current configuration
 
 Execute following command on terminal server to create a backup of the current configuration.
 
@@ -114,11 +111,11 @@ Execute following command on terminal server to create a backup of the current c
 ogcli export ogcli_export_<date>
 ```
 
-## **Stage 2: Backup Files (On-Premises Machine)**
+## **Stage 2: Backup Files (on-premises machine)**
 
-### Transfer Backup Files to On-Premises Machine
+### Transfer Backup Files to on-nremises machine
 
-Execute following command on the on premise machine to create a backup of terminal server configration and to transfer it to the on premise machine. 
+Run following command on the on-premises machine to copy the Terminal Server configuration and related files to the on-premises machine. 
 
 ```bash
 mkdir ~/ts_backup
@@ -149,20 +146,20 @@ scp -r -o MACs=umac-128-etm@openssh.com ./operations_manager-24.07.1-production-
 
 ### Install Firmware
 
-Execute following command on the terminal server to install the firmware.
+Run the following command on the Terminal Server to initiate the firmware installation:.
 
 ```bash
 puginstall --reboot-after /tmp/operations_manager-24.07.1-production-signed.raucb
 ```
 > {!Note:]
-> The installation takes 5-10 minutes, and the Terminal Server will reboot automatically.
+The upgrade process takes 5–10 minutes, during which the Terminal Server will reboot automatically.
 
 
 ## **Stage 4: Cleanup (On-Premises Machine)**
 
 ### Remove Backup and Firmware
 
-Execute following command on the on-premise machine to clean up the downloaded firmware and back up files. 
+After confirming the successful upgrade, delete temporary files from the on-premises machine. 
 
 ```bash
 rm -rf ~/ts_backup
@@ -170,17 +167,16 @@ rm -rf ./operations_manager-24.07.1-production-signed.raucb
 ```
 
 >[!Note:]
-> Perform this action once the terminal server has been upgraded successfully.
+> Perform this action only once the terminal server has been upgraded successfully.
 
-## **Appendix**
 
 ### Firmware Upgrade Failure
 
-If the firmware upgrade fails:
+If the firmware upgrade fails, follow these steps:
 
 1. Perform a **factory reset**:
 
-Execute following command on the terminal server to perform a factory reset.
+    Run the following command on the terminal server to perform a factory reset.
 
    ```bash
    factory_reset
@@ -190,9 +186,12 @@ Execute following command on the terminal server to perform a factory reset.
 
 2. Reinstall the latest firmware.
 
+    Repeat the firmware installation process.
+
 3. Reconfigure or restore the device from backup:
 
-Execute following command on the terminal server to reconfigure or restore the device from backup
+    Run the following command on the terminal server to reconfigure or restore the device from backup
+
    ```bash
    ogcli restore <file_path>
    ```
