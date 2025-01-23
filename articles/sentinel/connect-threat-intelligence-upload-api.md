@@ -1,5 +1,5 @@
 ---
-title: Connect your TIP with the upload API
+title: Connect your TIP with the upload API (Preview)
 titleSuffix: Microsoft Sentinel
 
 description: Learn how to connect your threat intelligence platform (TIP) or custom feed using the upload API to Microsoft Sentinel.
@@ -14,7 +14,7 @@ ms.collection: usx-security
 #Customer intent: As a security admin, I want to connect my threat intelligence platform with Microsoft Sentinel using the appropriate API so that I can centralize and enhance threat detection and response capabilities.
 ---
 
-# Connect your threat intelligence platform to Microsoft Sentinel with the upload API
+# Connect your threat intelligence platform to Microsoft Sentinel with the upload API (Preview)
 
 Many organizations use threat intelligence platform (TIP) solutions to aggregate threat intelligence feeds from various sources. From the aggregated feed, the data is curated to apply to security solutions such as network devices, EDR/XDR solutions, or security information and event management (SIEM) solutions such as Microsoft Sentinel. The industry standard for describing cyberthreat information is called, "Structured Threat Information Expression" or STIX. By using the upload API which supports STIX objects, you use a more expressive way to import threat intelligence into Microsoft Sentinel.
 

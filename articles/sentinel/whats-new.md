@@ -40,12 +40,12 @@ Make the most of your threat intelligence platforms when you connect them to Mic
 
 For more information, see the following articles:
 
-- [Connect your threat intelligence platform with the upload API](connect-threat-intelligence-upload-api.md)
+- [Connect your threat intelligence platform with the upload API (Preview)](connect-threat-intelligence-upload-api.md)
 - [Import threat intelligence to Microsoft Sentinel with the upload API (Preview)](stix-objects-api.md)
 
 ### Microsoft Defender Threat Intelligence data connectors now generally available (GA)
 
-Both the premium and standard Microsoft Defender Threat Intelligence data connectors are now generally available (GA) in content hub. For more information, see the following articles:
+Both premium and standard Microsoft Defender Threat Intelligence data connectors are now generally available (GA) in content hub. For more information, see the following articles:
 
 - [Explore Defender Threat Intelligence licenses](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-threat-intelligence#areaheading-oc8e7d)
 - [Enable the Microsoft Defender Threat Intelligence data connector](connect-mdti-data-connector.md)
