@@ -1,16 +1,18 @@
 ---
-title: Azure reliability documentation
-description: Azure reliability documentation for availability zones, cross-regional disaster recovery, availability of services for sovereign clouds, regions, and category.
+title: What is Azure reliability documentation?
+description: Overview of Azure reliability documentation, including reliability principles, requirements, regions and availability zones.
 author: anaharris-ms
 ms.topic: overview
-ms.date: 08/21/2023
+ms.date: 01/23/2025
 ms.author: anaharris
 ms.service: azure
-ms.subservice: azure-availability-zones
 ms.custom: subject-reliability, ai-video-concept
+CustomerIntent: As a cloud architect/engineer, I want to learn about what Azure reliability documentation.
 ---
 
-# Azure reliability documentation
+# What is Azure reliability documentation?
+
+Azure reliability documentation contains information about 
 
 
 Reliability consists of two principles: resiliency and availability. The goal of resiliency is to avoid failures and, if they still occur, to return your application to a fully functioning state. The goal of availability is to provide consistent access to your application or workload. It's important to plan for proactive reliability based on your application requirements.

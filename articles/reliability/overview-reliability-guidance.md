@@ -4,7 +4,7 @@ description: Reliability guides for Microsoft Azure products and services. View 
 author: anaharris-ms
 ms.service: azure
 ms.topic: reliability-article
-ms.date: 12/03/2024
+ms.date: 01/01/2025
 ms.author: anaharris
 ms.custom: subject-reliability
 ms.subservice: azure-reliability
@@ -12,7 +12,29 @@ ms.subservice: azure-reliability
 
 # Azure service reliability guides
 
-Below is a list of Azure service reliability guides, organized by service category.
+While Azure provides a set of reliability features, the resiliency of your workload is a [shared responsibility between you and Microsoft]((./concept-shared-responsibility.md)) and depends on how you have designed your business continuity plan to define your expectations for reliability. For this reason, it's important that you understand the reliability features of each service you use, and how to best implement them in your workload. This document provides links to the reliability guidance for each Azure service, detailing how each services supports or does not support specific reliability features. 
+
+Each service guide generally contains information on how the service supports:
+
+- *Availability zones* such as zonal or zone-redundant options, traffic routing and data replication between zones, zone-down experience, capacity planning, failback, and how to configure for availability zone support.
+- *Multi-region support* such as how to configure multi-region or geo-disaster support, traffic routing and data replication between regions, region-down experience, failover and failback support, alternative multi-region support.
+- *Backup support* such as who controls backups, where they are stored,how they can be recovered, and whether they are accessible only within a region or across regions.
+
+There are two types of Azure services in Azure: *non-regional* and *regional*:
+
+- **Non-regional services** are services that are deployed to two or more regions. If there's a regional failure, the instance of the service in a healthy region continues servicing customers. Certain non-regional services enable customers to specify the region where the underlying virtual machine (VM) on which service runs will be deployed. For example, [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) enables customers to specify the region location where the VM resides. All Azure services that store customer data allow the customer to specify the specific regions in which their data will be stored. The exception is [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/), which has geo placement (such as Europe or North America). For more information about data storage residency, see the [Data residency map](https://azure.microsoft.com/global-infrastructure/data-residency/).
+
+
+    >[!NOTE]
+    >If you need to understand dependencies between Azure services to help better architect your applications and services, you can request the **Azure service dependency documentation** by contacting your Microsoft sales or customer representative. This document lists the dependencies for Azure services, including dependencies on any common major internal services such as control plane services. To obtain this documentation, you must be a Microsoft customer and have the appropriate non-disclosure agreement (NDA) with Microsoft.
+
+- **Regional services** are services that are deployed in a specific region. Many regional services provide resiliency support through availability zones and multi-region support.  The reliability of regional services is determined by the service's architecture and the design of your workload, and so is a [shared responsibility between you and Microsoft](./concept-shared-responsibility.md).  For example, if you deploy a regional service in a region that has availability zones, you can design your workload to be resilient to zone failures by deploying across multiple zones. If you deploy a regional service in a region that doesn't have availability zones, you can design your workload to be resilient to region failures by deploying across multiple regions.
+
+
+This document provides links to the reliability guidance for each Azure service, detailing how each services supports or does not support specific reliability features. The guidance includes information about the service's architecture, availability, and disaster recovery options.
+
+
+
 
 >[!NOTE]
 >Some service documents are in the process of, or are not yet updated into a single reliability guide format. These may contain more than one document that references reliability guidance.

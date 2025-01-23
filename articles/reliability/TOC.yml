@@ -1,7 +1,9 @@
 - name: Azure reliability documentation
   href: index.yml
-- name: What is reliability?
-  href: overview.md
+- name: Overview
+  items:
+  - name: Introduction to Azure Reliability
+    href: concept-reliability.md
 - name: Reliability fundamentals
   items:
   - name: Business continuity, high availability, and disaster recovery
@@ -18,7 +20,7 @@
     href: regions-paired.md
   - name: Multi-region solutions in nonpaired regions
     href: cross-region-replication-azure-no-pair.md
-- name: Availability zones
+- name: Azure availability zones
   items:
   - name: What are Azure availability zones?
     href: availability-zones-overview.md
