@@ -10,7 +10,7 @@ ms.custom: subject-reliability
 CustomerIntent: As a cloud architect/engineer, I want to learn about Azure Reliability.
 ---
 
-# Overview of reliability
+# What is Reliability?
 
 Reliability is a key concept in cloud computing, and refers to the ability of a workload to perform at expectation and in accordance with business continuity requirements. In Azure, reliability is achieved through a combination of factors, including the the design of the platform itself,  its services, the architecture of applications, and the implementation of best practices. 
 
