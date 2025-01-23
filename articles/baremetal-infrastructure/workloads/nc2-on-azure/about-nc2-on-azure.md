@@ -79,7 +79,7 @@ Under the Azure Hybrid Benefit terms NC2 on Azure should be considered a Dedicat
 - [Windows Server Product Terms](https://www.microsoft.com/licensing/terms/productoffering/WindowsServerStandardDatacenterEssentials/EAEAS) 
 - [Azure Product Terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS)
 
-Also note, there is no current product integration where you can choose Azure Hybrid Benefit for VMs in NC2 on Azure. 
+There's no current product integration where you can choose Azure Hybrid Benefit for VMs in NC2 on Azure. 
 
 For any additional questions on Azure Hybrid Benefit, contact your Microsoft Account Executive. 
 
