@@ -66,7 +66,7 @@ Python v1 programming model:
 + [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-configuration)
 + [Terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-configuration)
 
-You can also create Python v1 functions in the Azure portal.
+You can also create Python functions in the Azure portal.
 
 > [!TIP]
 > Although you can develop your Python-based Azure functions locally on Windows, Python is supported only on a Linux-based hosting plan when it's running in Azure. For more information, see the [list of supported operating system/runtime combinations](functions-scale.md#operating-systemruntime).
