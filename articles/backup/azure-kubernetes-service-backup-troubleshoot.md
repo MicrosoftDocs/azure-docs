@@ -6,8 +6,8 @@ ms.date: 02/29/2024
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Troubleshoot Azure Kubernetes Service backup and restore
@@ -82,7 +82,7 @@ This error appears due to absence of these FQDN rules because of which configura
 
 **Resolution**: To resolve the issue, you need to create a *CoreDNS-custom override* for the *DP* endpoint to pass through the public network.
 
-1. Get Existing CoreDNS-custom YAML in your cluster (save it on your local for reference later)::
+1. Get Existing CoreDNS-custom YAML in your cluster (save it on your local for reference later):
 
    ```azurecli-interactive
    kubectl get configmap coredns-custom -n kube-system -o yaml

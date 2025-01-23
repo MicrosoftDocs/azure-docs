@@ -2,10 +2,10 @@
 title: Overview of Azure Blobs backup
 description: Learn about Azure Blobs backup.
 ms.topic: overview
-ms.date: 11/26/2024
+ms.date: 01/22/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 
@@ -19,7 +19,7 @@ This article gives you an understanding about configuring the following types of
 
 - **Periodic backups**: You can configure vaulted backup, a managed offsite data protection solution, to get protection against any accidental or malicious deletion of blobs or storage account. The backup data using vaulted backups is copied and stored in the Backup vault as per the schedule and frequency you define via the backup policy and retained as per the retention configured in the policy.
 
-You can choose to configure vaulted backups, operational backups, or both on your storage accounts using a single backup policy. The integration with [Backup center](backup-center-overview.md) enables you to govern, monitor, operate, and analyze backups at scale.
+You can choose to configure vaulted backups, operational backups, or both on your storage accounts using a single backup policy. The integration with [Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md) enables you to govern, monitor, operate, and analyze backups at scale.
 
 ## How the Azure Blobs backup works?
 
@@ -55,7 +55,7 @@ Operational backup is configured and managed at the **storage account** level, a
 
 When you configure backup for a storage account and assign a backup policy with a retention of ‘n’ days, the underlying properties are set as described below. You can view these properties in the **Data protection** tab of the blob service in your storage account.
 
-- **Point-in-time restore**: Set to ‘n’ days, as defined in the backup policy. If the storage account already had point-in-time enabled with a retention of, say ‘x’ days, before configuring backup, the point-in-time restore duration will be set to the greater of the two values that is max(n,x). If you had already enabled point-in-time restore and specified the retention to be greater than that in the backup policy, it will remain unchanged.
+- **Point-in-time restore**: Set to ‘n’ days, as defined in the backup policy. If the storage account already had point-in-time enabled with a retention of, say ‘x’ days, before configuring backup, the point-in-time restore duration will be set to the greater of the two values that are max(n,x). If you had already enabled point-in-time restore and specified the retention to be greater than that in the backup policy, it will remain unchanged.
 
 - **Soft delete**: Set to ‘n+5’ days, that is, five days in addition to the duration specified in the backup policy. If the storage account that is being configured for operational backup already had soft delete enabled with a retention of, say ‘y’ days, then the soft delete retention will be set to the maximum of the two values, that is, maximum (n+5, y). If you had already enabled soft delete and specified the retention to be greater than that according to the backup policy, it will remain unchanged.
 
@@ -66,7 +66,8 @@ When you configure backup for a storage account and assign a backup policy with 
 To allow Backup to enable these properties on the storage accounts to be protected, the Backup vault must be granted the **Storage Account Backup Contributor** role on the respective storage accounts.
 
 >[!NOTE]
->Operational backup supports operations on block blobs only and operations on containers can’t be restored. If you delete a container from the storage account by calling the **Delete Container** operation, that container can’t be restored with a restore operation. It’s suggested you enable soft delete to enhance data protection and recovery.
+>- The Operational backup can only be enabled along with vaulted backup. 
+>- Operational backup supports operations on block blobs only and operations on containers can’t be restored. If you delete a container from the storage account by calling the **Delete Container** operation, that container can’t be restored with a restore operation. It’s suggested you enable soft delete to enhance data protection and recovery.
 
 # [Vaulted backup](#tab/vaulted-backup)
 
@@ -80,7 +81,7 @@ You can enable operational backup and vaulted backup (or both) of blobs on a sto
 
 Once you have enabled backup on a storage account, a Backup Instance is created corresponding to the storage account in the Backup vault. You can perform any Backup-related operations for a storage account like initiating restores, monitoring, stopping protection, and so on, through its corresponding Backup Instance.
 
-Both operational and vaulted backups integrate directly with Backup Center to help you manage the protection of all your storage accounts centrally, along with all other Backup supported workloads. Backup Center is your single blade of glass for all your Backup requirements like monitoring jobs and state of backups and restores, ensuring compliance and governance, analyzing backup usage, and performing operations pertaining to back up and restore of data.
+Both operational and vaulted backups integrate directly with Azure Business Continuity Center to help you manage the protection of all your storage accounts centrally, along with all other Backup supported workloads. Azure Business Continuity Center is your single blade of glass for all your Backup requirements like monitoring jobs and state of backups and restores, ensuring compliance and governance, analyzing backup usage, and performing operations pertaining to back up and restore of data.
 
 ---
 

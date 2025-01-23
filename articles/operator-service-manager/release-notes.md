@@ -1,32 +1,34 @@
 ---
 title: Release notes for Azure Operator Service Manager
-description: Official documentation and tracking for major and minor releases.
+description: Official tracking or AOSM releases and available regions.
 author: msftadam
 ms.author: adamdor
-ms.date: 08/14/2024
+ms.date: 01/15/2025
 ms.topic: release-notes
 ms.service: azure-operator-service-manager
 ---
 
-# Release Notes
+# Release Notes for Azure Operator Service Manager
 
-This pages hosts release notes for Azure Operator Service Manager (AOSM).
+This article hosts release information for Azure Operator Service Manager (AOSM).
 
-## Overview
+## Regional Availability of Releases
 
-The following release notes are generally available (GA):
+Releases described herewithin are generally available across the following Azure regions:
+* eastus
+* southcentralus
+* westus3
+* uksouth
+* westeurope
 
-* Release Notes for Version 2.0.2763-119
-* Release Notes for Version 2.0.2777-132
-* Release Notes for Version 2.0.2783-134
-* Release Notes for Version 2.0.2788-135
-* Release Notes for Version 2.0.2804-137
-* Release Notes for Version 2.0.2810-144
-* Release Notes for Version 2.0.2847-158
-* Release Notes for Version 2.0.2860-160
+Use of AOSM in these regions is permitted, based on prevailing Azure terms of service. Although AOSM may have supported additional regions in the past, any region not-listed is no longer supported. If you have been using AOSM in a not-listed region, or if you have a business need to use AOSM in a not-listed region, please open a support ticket to submit request consideration.
+
+## Release Notes by Version
+
+Releases included in this article are generally available and supported across permitted regions. AOSM users are recommended to watch this page for frequent changes, as releases maybe added, updated or removed at any time. No additional notice of releases is provided, beyond this release notes article.
   
-### Release Attestation
-These releases are produced compliant with Microsoft’s Secure Development Lifecycle. This lifecycle includes processes for authorizing software changes, antimalware scanning, and scanning and mitigating security bugs and vulnerabilities.
+### Release Attestation for All Versions
+All releases are produced compliant with Microsoft’s Secure Development Lifecycle. This lifecycle includes processes for authorizing software changes, antimalware scanning, and scanning and mitigating security bugs and vulnerabilities.
 
 ## Release 2.0.2763-119
 
@@ -302,3 +304,26 @@ None
 #### Security Related Updates
 
 None
+
+## Release 2.0.2875-165
+
+Document Revision 1.0
+
+### Release Summary
+Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This November 15, 2024 Azure Operator Service Manager release includes updating the NFO version to 2.0.2875-165, the details of which are further outlined in the remainder of this document.
+
+### Release Details
+* Release Version: Version 2.0.2875-165
+* Release Date: November 15, 2024
+* Is NFO update required: YES, Update only
+* Dependency Versions: Go/1.22.4 - Helm/3.15.2
+
+#### Bugfix Related Updates
+The following bug fixes, or other defect resolutions, are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
+
+* NFO	- Fixes image pull issues by enumerating to find the valid secret to use when pulling the image from remote artifact store resource.
+* NFO - Fixes issue resulting from enabling cluster registry after first NFO extension installation.
+* NFO - Improved Cluster Registry error handling and logging.
+
+#### Security Related Updates
+* CVE	- A total of 2 CVEs are addressed in this release.

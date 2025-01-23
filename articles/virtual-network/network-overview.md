@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Learn about networking as it relates to virtual machines in Azure.
 author: asudbring
 ms.service: azure-virtual-network
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/16/2023
 ms.author: allensu
 ---

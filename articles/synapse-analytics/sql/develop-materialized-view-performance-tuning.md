@@ -125,7 +125,7 @@ SELECT C, SUM(D)
 FROM T
 GROUP BY C
 
--- You could create a single mateiralized view of this form
+-- You could create a single materialized view of this form
 SELECT A, C, SUM(B), SUM(D)
 FROM T
 GROUP BY A, C

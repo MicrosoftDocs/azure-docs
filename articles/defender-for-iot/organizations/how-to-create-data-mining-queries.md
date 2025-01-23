@@ -50,7 +50,6 @@ Create your own custom data mining report if you have reporting needs not covere
     | Name | Description |
     |---------|---------|
     | **Name** / **Description** | Enter a meaningful name for your report and an optional description. |
-    | **Send to CM** | Select to send your report to the on-premises management console. |
     | **Choose category** | Select the categories to include in your report. <br><br> For example, select **Internet Domain Allowlist** under **DNS** to create a report of the allowed internet domains and their resolved IP addresses. |
     | **Order by** | Select to sort your data by category or by activity. |
     | **Filter by** | Define a filter for your report using any of the following parameters: <br><br> - **Results within the last**: Enter a number and then select **Minutes**, **Hours**, or **Days** <br> - **IP address / MAC address / Port**: Enter one or more IP addresses, MAC addresses, and ports to filter into your report. Enter a value and then select + to add it to the list.<br> - **Device group**: Select one or mode device groups to filter into your report. |
@@ -73,20 +72,6 @@ Each data mining report on an OT sensor has the following options for managing y
 | :::image type="icon" source="media/how-to-generate-reports/edit-icon.png" border="false"::: **Edit mode** | Select to remove specific results from the saved report. |
 
 For example, select **Manage report** to update the data your report includes by using the same fields.
-
-## View data mining reports for multiple sensors
-
-Sign into an on-premises management console to view [out-of-the-box data mining reports](#view-an-ot-sensor-predefined-data-mining-report) for any connected sensor, and any custom data mining reports that were [sent to the CM](#create-an-ot-sensor-custom-data-mining-report).
-
-**To view a data mining report from an on-premises management console**:
-
-1. Sign into your on-premises management console and select **Reports** on the left.
-
-1. From the **Sensors** drop-down list, select the sensor for which you want to generate the report.
-
-1. From the **Select Report** drop-down list, select the report that you want to generate.
-
-The page lists the current report data. Select :::image type="icon" source="media/how-to-generate-reports/pdf-report-icon.png" border="false"::: to export the data to a PDF file.
 
 ## Next steps
 

@@ -344,8 +344,8 @@ You can use parameterized session configuration to replace values in the `%%conf
 
 ```
 {
-      "activityParameterName": "paramterNameInPipelineNotebookActivity",
-      "defaultValue": "defaultValueIfNoParamterFromPipelineNotebookActivity"
+      "activityParameterName": "parameterNameInPipelineNotebookActivity",
+      "defaultValue": "defaultValueIfNoParameterFromPipelineNotebookActivity"
 } 
 ```
 

@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 10/13/2024
+ms.date: 12/12/2024
 ms.custom: generated
 ---
 
@@ -1057,6 +1057,10 @@ Grants read/write access to Kubernetes resources within a namespace in the fleet
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/secrets/* |  |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/serviceaccounts/* |  |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/services/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/cluster.kubernetes-fleet.io/internalmemberclusters/read | Read fleet internalmembercluster resource |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/placement.kubernetes-fleet.io/resourceoverrides/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/placement.kubernetes-fleet.io/resourceoverridesnapshots/read | Read fleet resourceoverridesnapshot resource |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/placement.kubernetes-fleet.io/works/read | Read fleet work resource |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -1109,7 +1113,11 @@ Grants read/write access to Kubernetes resources within a namespace in the fleet
         "Microsoft.ContainerService/fleets/resourcequotas/read",
         "Microsoft.ContainerService/fleets/secrets/*",
         "Microsoft.ContainerService/fleets/serviceaccounts/*",
-        "Microsoft.ContainerService/fleets/services/*"
+        "Microsoft.ContainerService/fleets/services/*",
+        "Microsoft.ContainerService/fleets/cluster.kubernetes-fleet.io/internalmemberclusters/read",
+        "Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/resourceoverrides/*",
+        "Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/resourceoverridesnapshots/read",
+        "Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/works/read"
       ],
       "notDataActions": []
     }
@@ -1217,6 +1225,10 @@ Grants read-only access to most Kubernetes resources within a namespace in the f
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/resourcequotas/read | Reads resourcequotas |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/serviceaccounts/read | Reads serviceaccounts |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/services/read | Reads services |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/cluster.kubernetes-fleet.io/internalmemberclusters/read | Read fleet internalmembercluster resource |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/placement.kubernetes-fleet.io/resourceoverrides/read | Read fleet resourceoverride resource |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/placement.kubernetes-fleet.io/resourceoverridesnapshots/read | Read fleet resourceoverridesnapshot resource |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/placement.kubernetes-fleet.io/works/read | Read fleet work resource |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -1265,7 +1277,11 @@ Grants read-only access to most Kubernetes resources within a namespace in the f
         "Microsoft.ContainerService/fleets/replicationcontrollers/read",
         "Microsoft.ContainerService/fleets/resourcequotas/read",
         "Microsoft.ContainerService/fleets/serviceaccounts/read",
-        "Microsoft.ContainerService/fleets/services/read"
+        "Microsoft.ContainerService/fleets/services/read",
+        "Microsoft.ContainerService/fleets/cluster.kubernetes-fleet.io/internalmemberclusters/read",
+        "Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/resourceoverrides/read",
+        "Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/resourceoverridesnapshots/read",
+        "Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/works/read"
       ],
       "notDataActions": []
     }
@@ -1295,32 +1311,56 @@ Grants read/write access to most Kubernetes resources within a namespace in the 
 > | *none* |  |
 > | **DataActions** |  |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/apps/controllerrevisions/read | Reads controllerrevisions |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/apps/daemonsets/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/apps/deployments/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/apps/statefulsets/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/autoscaling/horizontalpodautoscalers/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/batch/cronjobs/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/batch/jobs/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/configmaps/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/endpoints/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/apps/daemonsets/read | Reads daemonsets |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/apps/daemonsets/write | Writes daemonsets |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/apps/deployments/read | Reads deployments |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/apps/deployments/write | Writes deployments |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/apps/statefulsets/read | Reads statefulsets |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/apps/statefulsets/write | Writes statefulsets |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/autoscaling/horizontalpodautoscalers/read | Reads horizontalpodautoscalers |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/autoscaling/horizontalpodautoscalers/write | Writes horizontalpodautoscalers |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/batch/cronjobs/read | Reads cronjobs |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/batch/cronjobs/write | Writes cronjobs |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/batch/jobs/read | Reads jobs |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/batch/jobs/write | Writes jobs |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/configmaps/read | Reads configmaps |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/configmaps/write | Writes configmaps |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/endpoints/read | Reads endpoints |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/endpoints/write | Writes endpoints |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/events.k8s.io/events/read | Reads events |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/events/read | Reads events |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/extensions/daemonsets/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/extensions/deployments/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/extensions/ingresses/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/extensions/networkpolicies/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/extensions/daemonsets/read | Reads daemonsets |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/extensions/daemonsets/write | Writes daemonsets |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/extensions/deployments/read | Reads deployments |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/extensions/deployments/write | Writes deployments |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/extensions/ingresses/read | Reads ingresses |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/extensions/ingresses/write | Writes ingresses |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/extensions/networkpolicies/read | Reads networkpolicies |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/extensions/networkpolicies/write | Writes networkpolicies |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/limitranges/read | Reads limitranges |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/namespaces/read | Reads namespaces |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/networking.k8s.io/ingresses/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/networking.k8s.io/networkpolicies/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/persistentvolumeclaims/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/policy/poddisruptionbudgets/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/replicationcontrollers/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/replicationcontrollers/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/networking.k8s.io/ingresses/read | Reads ingresses |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/networking.k8s.io/ingresses/write | Writes ingresses |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/networking.k8s.io/networkpolicies/read | Reads networkpolicies |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/networking.k8s.io/networkpolicies/write | Writes networkpolicies |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/persistentvolumeclaims/read | Reads persistentvolumeclaims |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/persistentvolumeclaims/write | Writes persistentvolumeclaims |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/policy/poddisruptionbudgets/read | Reads poddisruptionbudgets |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/policy/poddisruptionbudgets/write | Writes poddisruptionbudgets |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/replicationcontrollers/read | Reads replicationcontrollers |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/replicationcontrollers/write | Writes replicationcontrollers |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/resourcequotas/read | Reads resourcequotas |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/secrets/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/serviceaccounts/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/services/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/secrets/read | Reads secrets |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/secrets/write | Writes secrets |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/serviceaccounts/read | Reads serviceaccounts |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/serviceaccounts/write | Writes serviceaccounts |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/services/read | Reads services |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/services/write | Writes services |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/cluster.kubernetes-fleet.io/internalmemberclusters/read | Read fleet internalmembercluster resource |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/placement.kubernetes-fleet.io/resourceoverrides/read | Read fleet resourceoverride resource |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/placement.kubernetes-fleet.io/resourceoverrides/write | Write fleet resourceoverride resource |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/placement.kubernetes-fleet.io/resourceoverridesnapshots/read | Read fleet resourceoverridesnapshot resource |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/placement.kubernetes-fleet.io/works/read | Read fleet work resource |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -1345,32 +1385,56 @@ Grants read/write access to most Kubernetes resources within a namespace in the 
       "notActions": [],
       "dataActions": [
         "Microsoft.ContainerService/fleets/apps/controllerrevisions/read",
-        "Microsoft.ContainerService/fleets/apps/daemonsets/*",
-        "Microsoft.ContainerService/fleets/apps/deployments/*",
-        "Microsoft.ContainerService/fleets/apps/statefulsets/*",
-        "Microsoft.ContainerService/fleets/autoscaling/horizontalpodautoscalers/*",
-        "Microsoft.ContainerService/fleets/batch/cronjobs/*",
-        "Microsoft.ContainerService/fleets/batch/jobs/*",
-        "Microsoft.ContainerService/fleets/configmaps/*",
-        "Microsoft.ContainerService/fleets/endpoints/*",
+        "Microsoft.ContainerService/fleets/apps/daemonsets/read",
+        "Microsoft.ContainerService/fleets/apps/daemonsets/write",
+        "Microsoft.ContainerService/fleets/apps/deployments/read",
+        "Microsoft.ContainerService/fleets/apps/deployments/write",
+        "Microsoft.ContainerService/fleets/apps/statefulsets/read",
+        "Microsoft.ContainerService/fleets/apps/statefulsets/write",
+        "Microsoft.ContainerService/fleets/autoscaling/horizontalpodautoscalers/read",
+        "Microsoft.ContainerService/fleets/autoscaling/horizontalpodautoscalers/write",
+        "Microsoft.ContainerService/fleets/batch/cronjobs/read",
+        "Microsoft.ContainerService/fleets/batch/cronjobs/write",
+        "Microsoft.ContainerService/fleets/batch/jobs/read",
+        "Microsoft.ContainerService/fleets/batch/jobs/write",
+        "Microsoft.ContainerService/fleets/configmaps/read",
+        "Microsoft.ContainerService/fleets/configmaps/write",
+        "Microsoft.ContainerService/fleets/endpoints/read",
+        "Microsoft.ContainerService/fleets/endpoints/write",
         "Microsoft.ContainerService/fleets/events.k8s.io/events/read",
         "Microsoft.ContainerService/fleets/events/read",
-        "Microsoft.ContainerService/fleets/extensions/daemonsets/*",
-        "Microsoft.ContainerService/fleets/extensions/deployments/*",
-        "Microsoft.ContainerService/fleets/extensions/ingresses/*",
-        "Microsoft.ContainerService/fleets/extensions/networkpolicies/*",
+        "Microsoft.ContainerService/fleets/extensions/daemonsets/read",
+        "Microsoft.ContainerService/fleets/extensions/daemonsets/write",
+        "Microsoft.ContainerService/fleets/extensions/deployments/read",
+        "Microsoft.ContainerService/fleets/extensions/deployments/write",
+        "Microsoft.ContainerService/fleets/extensions/ingresses/read",
+        "Microsoft.ContainerService/fleets/extensions/ingresses/write",
+        "Microsoft.ContainerService/fleets/extensions/networkpolicies/read",
+        "Microsoft.ContainerService/fleets/extensions/networkpolicies/write",
         "Microsoft.ContainerService/fleets/limitranges/read",
         "Microsoft.ContainerService/fleets/namespaces/read",
-        "Microsoft.ContainerService/fleets/networking.k8s.io/ingresses/*",
-        "Microsoft.ContainerService/fleets/networking.k8s.io/networkpolicies/*",
-        "Microsoft.ContainerService/fleets/persistentvolumeclaims/*",
-        "Microsoft.ContainerService/fleets/policy/poddisruptionbudgets/*",
-        "Microsoft.ContainerService/fleets/replicationcontrollers/*",
-        "Microsoft.ContainerService/fleets/replicationcontrollers/*",
+        "Microsoft.ContainerService/fleets/networking.k8s.io/ingresses/read",
+        "Microsoft.ContainerService/fleets/networking.k8s.io/ingresses/write",
+        "Microsoft.ContainerService/fleets/networking.k8s.io/networkpolicies/read",
+        "Microsoft.ContainerService/fleets/networking.k8s.io/networkpolicies/write",
+        "Microsoft.ContainerService/fleets/persistentvolumeclaims/read",
+        "Microsoft.ContainerService/fleets/persistentvolumeclaims/write",
+        "Microsoft.ContainerService/fleets/policy/poddisruptionbudgets/read",
+        "Microsoft.ContainerService/fleets/policy/poddisruptionbudgets/write",
+        "Microsoft.ContainerService/fleets/replicationcontrollers/read",
+        "Microsoft.ContainerService/fleets/replicationcontrollers/write",
         "Microsoft.ContainerService/fleets/resourcequotas/read",
-        "Microsoft.ContainerService/fleets/secrets/*",
-        "Microsoft.ContainerService/fleets/serviceaccounts/*",
-        "Microsoft.ContainerService/fleets/services/*"
+        "Microsoft.ContainerService/fleets/secrets/read",
+        "Microsoft.ContainerService/fleets/secrets/write",
+        "Microsoft.ContainerService/fleets/serviceaccounts/read",
+        "Microsoft.ContainerService/fleets/serviceaccounts/write",
+        "Microsoft.ContainerService/fleets/services/read",
+        "Microsoft.ContainerService/fleets/services/write",
+        "Microsoft.ContainerService/fleets/cluster.kubernetes-fleet.io/internalmemberclusters/read",
+        "Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/resourceoverrides/read",
+        "Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/resourceoverrides/write",
+        "Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/resourceoverridesnapshots/read",
+        "Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/works/read"
       ],
       "notDataActions": []
     }
@@ -2195,6 +2259,10 @@ Role definition to authorize any user/service to create connectedClusters resour
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/Write | Writes connectedClusters |
 > | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/read | Read connectedClusters |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/write | Creates or updates extension resource. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/read | Gets extension instance resource. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/delete | Deletes extension instance resource. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/operations/read | Gets Async Operation status. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
@@ -2222,6 +2290,10 @@ Role definition to authorize any user/service to create connectedClusters resour
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Kubernetes/connectedClusters/Write",
         "Microsoft.Kubernetes/connectedClusters/read",
+        "Microsoft.KubernetesConfiguration/extensions/write",
+        "Microsoft.KubernetesConfiguration/extensions/read",
+        "Microsoft.KubernetesConfiguration/extensions/delete",
+        "Microsoft.KubernetesConfiguration/extensions/operations/read",
         "Microsoft.Support/*"
       ],
       "notActions": [],

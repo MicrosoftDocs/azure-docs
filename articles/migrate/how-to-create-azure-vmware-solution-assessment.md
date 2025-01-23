@@ -47,10 +47,9 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 **Performance-based** | For RVTools and CSV file-based assessments and performance-based assessments, the assessment considers the **In Use MiB** and **Storage In Use** respectively for storage configuration of each VM. For appliance-based assessments and performance-based assessments, the assessment considers the collected CPU & memory performance data of on-premises servers. | **Recommended Node size**: Based on CPU and memory utilization data along with node type, storage type, and FTT setting that you select for the assessment.
 **As on-premises** | Assessments based on on-premises sizing. | **Recommended Node size**: Based on the on-premises server size along with the node type, storage type, and FTT setting that you select for the assessment.
 
-
 ## Run an Azure VMware Solution (AVS) assessment
 
-1.  On the **Overview** page > **Servers, databases and web apps**, select **Assess and migrate servers**.
+1. In **Servers, databases and web apps**, select **Assess and migrate servers**.
 
 1. In **Azure Migrate: Discovery and assessment**, select **Assess**.
 

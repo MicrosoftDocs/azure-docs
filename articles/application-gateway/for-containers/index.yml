@@ -9,7 +9,7 @@ metadata:
   services: application-gateway
   ms.service: azure-appgw-for-containers
   ms.topic: landing-page
-  author: greglin
+  author: greg-lindsay
   ms.author: greglin
   ms.date: 02/27/2024
 

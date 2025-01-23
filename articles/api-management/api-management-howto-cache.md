@@ -89,7 +89,7 @@ To see the caching in action, call an operation from the portal.
 ## Related content
 * For more information about caching policies, see [Caching policies][Caching policies] in the [API Management policy reference][API Management policy reference].
 * For information on caching items by key using policy expressions, see [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
-* For more information about using external Azure Cache for Redis, see [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md).
+* For more information about using external Azure Cache for Redis or Azure Managed Redis, see [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png

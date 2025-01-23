@@ -218,15 +218,14 @@
       items:
       - name: Accelerated Networking overview
         href: accelerated-networking-overview.md
-      - name: Creating an AccelNet VM with PowerShell
-        href: create-vm-accelerated-networking-powershell.md
-      - name: Creating an AccelNet VM with Azure CLI
-        href: create-vm-accelerated-networking-cli.md
-        items:
-        - name: How Accelerated Networking works
-          href: accelerated-networking-how-it-works.md
-        - name: Setup DPDK
-          href: setup-dpdk.md
+      - name: Create a virtual machine with accelerated networking
+        href: create-virtual-machine-accelerated-networking.md
+      - name: Manage accelerated networking
+        href: manage-accelerated-networking.md
+      - name: How Accelerated Networking works
+        href: accelerated-networking-how-it-works.md
+      - name: Setup DPDK
+        href: setup-dpdk.md
       - name: Microsoft Azure Network Adapter (MANA)
         items:
         - name: Microsoft Azure Network Adapter (MANA) overview
@@ -287,8 +286,6 @@
     href: monitor-virtual-network.md
   - name: Classic deployment
     href: /previous-versions/azure/virtual-network/create-virtual-network-classic
-  - name: Migrate from classic to Resource Manager
-    href: migrate-classic-vnet-powershell.md
 - name: Reference
   items:
   - name: Monitor data reference

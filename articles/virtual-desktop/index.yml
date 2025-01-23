@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page
   author: dknappettmsft
   ms.author: daknappe
-  ms.date: 02/28/2022
+  ms.date: 01/17/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -31,10 +31,10 @@ landingContent:
   # Card
   - title: Get started with Azure Virtual Desktop
     linkLists:
-      - linkListType: tutorial
+      - linkListType: quickstart
         links:
-          - text: Create and connect to a Windows 11 desktop with Azure Virtual Desktop
-            url: tutorial-create-connect-personal-desktop.md
+          - text: Deploy a sample Windows 11 desktop with Azure Virtual Desktop
+            url: quickstart.md
       - linkListType: get-started
         links:
           - text: Prerequisites
@@ -49,7 +49,7 @@ landingContent:
             url: manage-app-groups.md
 
   # Card
-  - title: Azure Virtual Desktop for users
+  - title: Connect to Azure Virtual Desktop
     linkLists:
       - linkListType: overview
         links:
