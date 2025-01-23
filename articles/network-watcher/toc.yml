@@ -205,10 +205,6 @@
       href: network-watcher-delete-nsg-flow-log-blobs.md
     - name: Enable traffic analytics using Azure policy
       href: traffic-analytics-policy-portal.md
-    - name: Perform compliance and audit your network
-      href: network-watcher-nsg-auditing-powershell.md
-  - name: Determine relative latency between a location and Azure region
-    href: view-relative-latencies.md
 - name: Reference
   items:
   - name: Azure CLI
