@@ -28,7 +28,7 @@ Synchronization is one-way from Amazon API Gateway to your Azure API center, mea
 
 > [!NOTE]
 > * Integration of Amazon API Gateway is currently in preview.
-> * There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#api-center-limits) for the number of integrated API sources.
+> * There are [limits](../azure-resource-manager/management/azure-subscription-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#api-center-limits) for the number of integrated API sources.
 > * APIs in Amazon API Gateway synchronize to your API center once per hour. Only REST APIs are synchronized.
 > * API definitions also synchronize to the API center if you select the option to include them during integration. Only definitions from deployed APIs are synchronized.
 
