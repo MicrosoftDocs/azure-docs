@@ -17,7 +17,7 @@
   - name: Paired and nonpaired regions
     href: regions-paired.md
   - name: Multi-region solutions in nonpaired regions
-    href: cross-region-replication-azure-no-pair.md
+    href: regions-multi-region-nonpaired.md
 - name: Azure availability zones
   items:
   - name: What are Azure availability zones?
@@ -26,12 +26,12 @@
     href: availability-zones-service-support.md
   - name: Regions with availability zone support
     href: availability-zones-region-support.md
+  - name: Azure availability zone migration baseline
+    href: availability-zones-baseline.md
   - name: Migrate to availability zone support
     items:
     - name: Overview
       href: availability-zones-migration-overview.md
-    - name: Azure availability zone migration baseline
-      href: availability-zones-baseline.md
     - name: Migration guides by service
       items:
       - name: Azure API Management
