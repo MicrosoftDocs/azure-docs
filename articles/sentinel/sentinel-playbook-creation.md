@@ -58,9 +58,9 @@ In the Code view tab of the Azure Logic Apps editor, you can access the JSON ARM
 
 6. Update "Microsoft.Web/connections" resources 
  
-:::image type="content" source="media/sentinel-playbook-creation/sentinel-playbook-webconnections.png" alt-text="Screenshot of playbook metadata that needs to be updated"  lightbox="media/sentinel-playbook-creation/sentinel-playbook-webconnections.png" :::   
+:::image type="content" source="media/sentinel-playbook-creation/sentinel-playbook-webconnections.png" alt-text="Screenshot of playbook web connections metadata"  lightbox="media/sentinel-playbook-creation/sentinel-playbook-webconnections.png" :::   
 
-Refer to this file for more details https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/ThreatXCloud/Playbooks/ThreatXPlaybooks/ThreatX-BlockIP-URL/azuredeploy.json
+For more information, see https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/ThreatXCloud/Playbooks/ThreatXPlaybooks/ThreatX-BlockIP-URL/azuredeploy.json
 
 ### Scenario 2: Playbook using custom connectors
 
@@ -82,23 +82,23 @@ Once the custom connector is created, you can use it to build a Playbook using A
 1. Search for **Logic Apps Custom Connector** 
 1. Open the connector and then select on Export template under Automation link.
 
-:::image type="content" source="media/sentinel-playbook-creation/sentinel-playbook-export-template.png" alt-text="Screenshot of offer ID and offer name configuration."  Lightbox="media/sentinel-playbook-creation/sentinel-playbook-export-template.png" :::   
+:::image type="content" source="media/sentinel-playbook-creation/sentinel-playbook-export-template.png" alt-text="Screenshot to export template."  Lightbox="media/sentinel-playbook-creation/sentinel-playbook-export-template.png" :::   
 
 4. Select "Copy template" and save contents in a JSON file on your local computer
 1. From the JSON created in step 4, remove the runtimeUrls, apiDefinitions, and wsdlDefinition fields
 1. Download the file containing swagger attributes. Select on the Overview link and then on the Download link. This downloads the swagger file
 
-:::image type="content" source="media/sentinel-playbook-creation/sentinel-playbook-download-swagger.png" alt-text="Screenshot of offer ID and offer name configuration."  Lightbox="media/sentinel-playbook-creation/sentinel-playbook-download-swagger.png" :::   
+:::image type="content" source="media/sentinel-playbook-creation/sentinel-playbook-download-swagger.png" alt-text="Screenshot to download swagger file."  Lightbox="media/sentinel-playbook-creation/sentinel-playbook-download-swagger.png" :::   
 
 
 7. Updated the JSON file created in step 4 with the swagger and backendService values obtained from the swagger file created in step 6.
 1. Validate the host, basepath, and scheme parameters in the swagger file and update as needed.
 
-:::image type="content" source="media/sentinel-playbook-creation/sentinel-playbookswagger-fields.png" alt-text="Screenshot of offer ID and offer name configuration."  Lightbox="media/sentinel-playbook-creation/sentinel-playbookswagger-fields.png" :::   
+:::image type="content" source="media/sentinel-playbook-creation/sentinel-playbookswagger-fields.png" alt-text="Screenshot showing swagger fields."  Lightbox="media/sentinel-playbook-creation/sentinel-playbookswagger-fields.png" :::   
 
 9. Finally, update the Parameter section of the ARM template files for the custom connector as shown.
 
-:::image type="content" source="media/sentinel-playbook-creation/playbook-update-parameters.png" alt-text="Screenshot of offer ID and offer name configuration."  Lightbox="media/sentinel-playbook-creation/playbook-update-parameters.png" :::   
+:::image type="content" source="media/sentinel-playbook-creation/playbook-update-parameters.png" alt-text="Screenshot showing update parameters."  Lightbox="media/sentinel-playbook-creation/playbook-update-parameters.png" :::   
 
 Refer to the link for reference or comparison to determine which other fields need to be modified within the ARM template.
 [Azure-Sentinel/Solutions/Minemeld/Playbooks/CustomConnector/MinemeldCustomConnector/azuredeploy.json at master · Azure/Azure-Sentinel](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Minemeld/Playbooks/CustomConnector/MinemeldCustomConnector/azuredeploy.json)
@@ -111,4 +111,4 @@ For Readme.md file guidelines, refer to the links -
 - Custom connector Readme.md file guidelines: [Custom connector Readme.md file guidelines | Microsoft Learn](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Minemeld/Playbooks/CustomConnector/MinemeldCustomConnector)
 - Playbook Readme.md file guidelines: [Playbook Readme.md file guidelines | Microsoft Learn](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Minemeld/Playbooks/MinemeldPlaybooks/Minemeld-CreateIndicator)
 
-:::image type="content" source="media/sentinel-playbook-creation/playbook-folder-structure.png" alt-text="Screenshot of offer ID and offer name configuration."  Lightbox="media/sentinel-playbook-creation/playbook-folder-structure.png" :::   
+:::image type="content" source="media/sentinel-playbook-creation/playbook-folder-structure.png" alt-text="Screenshot of playbook folder structure in GitHub."  Lightbox="media/sentinel-playbook-creation/playbook-folder-structure.png" :::   
