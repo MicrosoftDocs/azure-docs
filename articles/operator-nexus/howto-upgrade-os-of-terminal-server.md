@@ -198,4 +198,4 @@ If the firmware upgrade fails, follow these steps:
 
 ### Next Steps
 
-[Reconfigure Device Post-Reset](howto-platform-prerequisites)
+[Reconfigure Device Post-Reset](howto-platform-prerequisites.md)
