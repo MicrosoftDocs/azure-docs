@@ -472,7 +472,7 @@ The prior example stores the CA certificate in a Kubernetes secret called `test-
 kubectl get secret test-ca -n azure-iot-operations -o json | jq -r '.data["tls.crt"]' | base64 -d > ca.crt
 ```
 
-This certificate must be distributed and trusted by all clients. For example, use the `--cafile` flag for a mosquitto client.
+This certificate must be distributed and trusted by all clients. For example, use the `--cafile` flag for a Mosquitto client.
 
 #### Create issuer based on CA certificate
 
@@ -666,13 +666,13 @@ aio-broker-loadbalancer-tls    LoadBalancer   10.X.X.X        172.X.X.X     8884
 
 #### Connect to the broker with TLS
 
-After the server certificate is configured, TLS is enabled. To test with mosquitto:
+After the server certificate is configured, TLS is enabled. To test with Mosquitto:
 
 ```bash
 mosquitto_pub -h $HOST -p 8884 -V mqttv5 -i "test" -t "test" -m "test" --cafile ca.crt
 ```
 
-The `--cafile` argument enables TLS on the mosquitto client and specifies that the client should trust all server certificates issued by the specific file. You must specify a file that contains the issuer of the configured TLS server certificate.
+The `--cafile` argument enables TLS on the Mosquitto client and specifies that the client should trust all server certificates issued by the specific file. You must specify a file that contains the issuer of the configured TLS server certificate.
 
 Replace `$HOST` with the appropriate host:
 
@@ -854,7 +854,7 @@ After the BrokerListener resource is created, the operator automatically creates
 
 ### Connect to the broker with TLS
 
-To test the TLS connection with mosquitto client, publish a message and pass the root CA certificate in the parameter `--cafile`.
+To test the TLS connection with Mosquitto client, publish a message and pass the root CA certificate in the parameter `--cafile`.
 
 ```bash
 mosquitto_pub -d -h localhost -p 8885 -i "my-client" -t "test-topic" -m "Hello" --cafile root_ca.crt
