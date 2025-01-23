@@ -1,7 +1,7 @@
 ---
-title: Import threat intelligence with the STIX objects API
+title: Import threat intelligence with the upload API
 titleSuffix: Microsoft Sentinel
-description: This article is a reference for the upload STIX objects API with example requests and responses.
+description: This article is a reference for the upload upload API with example requests and responses.
 author: austinmccollum
 ms.topic: reference
 ms.date: 05/30/2024
@@ -10,15 +10,16 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
 ---
 
-# Import threat intelligence to Microsoft Sentinel with the STIX objects API (Preview)
+# Import threat intelligence to Microsoft Sentinel with the upload API (Preview)
 
-Import threat intelligence to use in Microsoft Sentinel with the STIX objects API. Whether you're using a threat intelligence platform or a custom application, use this document as a supplemental reference to the instructions in the [Microsoft Sentinel STIX objects API data connector](connect-threat-intelligence-upload-api.md). Installing the data connector isn't required to connect to the API. The threat intelligence you can import includes indicators of compromise and other STIX domain objects.
+Import threat intelligence to use in Microsoft Sentinel with the upload API. Whether you're using a threat intelligence platform or a custom application, use this document as a supplemental reference to the instructions in [Connect your TIP with the upload API](connect-threat-intelligence-upload-api.md). Installing the data connector isn't required to connect to the API. The threat intelligence you can import includes indicators of compromise and other STIX domain objects.
 
 > [!IMPORTANT]
 > This API is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-Structured Threat Information Expression (STIX) is a language for expressing cyber threat and observable information. Enhanced support for the following domain objects is included with the STIX objects API:
+Structured Threat Information Expression (STIX) is a language for expressing cyber threat and observable information. Enhanced support for the following domain objects is included with the upload API:
+
 - indicator
 - attack pattern
 - threat actor
@@ -28,11 +29,11 @@ Structured Threat Information Expression (STIX) is a language for expressing cyb
 For more information, see [Introduction to STIX](https://oasis-open.github.io/cti-documentation/stix/intro.html). 
 
 > [!NOTE]
-> The previous upload indicators API is now legacy. If you need to reference that API while transitioning to the new STIX objects API, see [Legacy upload indicators API](upload-indicators-api.md).
+> The previous upload indicators API is now legacy. If you need to reference that API while transitioning to this new upload API, see [Legacy upload indicators API](upload-indicators-api.md).
 
 ## Call the API
 
-A call to the STIX objects API has five components:
+A call to the upload API has five components:
 
 1. The request URI
 1. HTTP request message header
@@ -42,7 +43,7 @@ A call to the STIX objects API has five components:
 
 ## Register your client application with Microsoft Entra ID
 
-In order to authenticate to Microsoft Sentinel, the request to the STIX objects API requires a valid Microsoft Entra access token. For more information on application registration, see [Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app) or see the basic steps as part of the [Connect threat intelligence with STIX objects API](connect-threat-intelligence-upload-api.md#register-an-azure-ad-application) setup.
+In order to authenticate to Microsoft Sentinel, the request to the upload API requires a valid Microsoft Entra access token. For more information on application registration, see [Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app) or see the basic steps as part of the [Connect threat intelligence with upload API](connect-threat-intelligence-upload-api.md#register-an-azure-ad-application) setup.
 
 This API requires the calling Microsoft Entra application to be granted the Microsoft Sentinel contributor role at the workspace level.
 
@@ -76,7 +77,7 @@ The resource/scope value is the audience of the token. This API only accepts the
 ### Assemble the request message
 
 #### Request URI 
-API versioning: `api-version=2023-12-01-preview`<br>
+API versioning: `api-version=2024-02-01-preview`<br>
 Endpoint: `https://api.ti.sentinel.azure.com/workspaces/{workspaceId}/threat-intelligence-stix-objects:upload?api-version={apiVersion}`<br>
 Method: `POST`<br>
 
@@ -96,7 +97,7 @@ Create the array of STIX objects using the STIX format specification. Some of th
 
 #### Common properties
 
-All the objects you import with the STIX objects API share these common properties.
+All the objects you import with the upload API share these common properties.
 
 |Property Name	|Type |	Description |
 |----|----|----|
