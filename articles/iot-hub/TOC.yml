@@ -58,14 +58,24 @@
   items:
     - name: IoT Hub concepts overview
       href: iot-hub-devguide.md
+    - name: Device-to-cloud feature guide
+      displayName: device twin, messages, D2C
+      href: iot-hub-devguide-d2c-guidance.md
+    - name: Cloud-to-device feature guide
+      displayName: C2D, direct methods
+      href: iot-hub-devguide-c2d-guidance.md
+    - name: Manage
+      items:
+      - name: Choose the right IoT Hub tier
+        displayName: basic, standard, partitions, message throughput
+        href: iot-hub-scaling.md
+      - name: Quotas and throttling
+        displayName: operations, traffic, connections, latency
+        href: iot-hub-devguide-quotas-throttling.md
+      - name: Pricing examples
+        href: iot-hub-devguide-pricing.md
     - name: Develop
       items:
-      - name: Device-to-cloud feature guide
-        displayName: device twin, messages, D2C
-        href: iot-hub-devguide-d2c-guidance.md
-      - name: Cloud-to-device feature guide
-        displayName: C2D, direct methods
-        href: iot-hub-devguide-c2d-guidance.md
       - name: Understand device twins
         displayName: desired properties, reported properties, device identity, tags
         href: iot-hub-devguide-device-twins.md
@@ -98,16 +108,6 @@
       - name: Overview of IoT Hub device streams (preview)
         displayName: TLS, private network
         href: iot-hub-device-streams-overview.md
-    - name: Manage
-      items:
-      - name: Choose the right IoT Hub tier
-        displayName: basic, standard, partitions, message throughput
-        href: iot-hub-scaling.md
-      - name: Quotas and throttling
-        displayName: operations, traffic, connections, latency
-        href: iot-hub-devguide-quotas-throttling.md
-      - name: Pricing examples
-        href: iot-hub-devguide-pricing.md
     - name: Messaging
       items:
       - name: Send and receive messages
@@ -299,19 +299,8 @@
           displayName: device management, status updates, device maintenance windows
           href: how-to-device-management.md
         - name: Schedule and broadcast jobs
-          items:
-            - name: .NET
-              displayName: jobs, csharp, C#
-              href: schedule-jobs-dotnet.md
-            - name: Python
-              displayName: jobs
-              href: schedule-jobs-python.md
-            - name: Node.js
-              displayName: jobs
-              href: schedule-jobs-node.md
-            - name: Java
-              displayName: jobs
-              href: schedule-jobs-java.md
+          displayName: schedule jobs
+          href: how-to-schedule-broadcast-jobs.md
         - name: Query Avro data from a hub route
           displayName: Azure Data Lake, U-SQL
           href: iot-hub-query-avro-data.md

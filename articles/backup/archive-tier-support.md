@@ -5,8 +5,8 @@ ms.topic: overview
 ms.date: 04/25/2024
 ms.custom: references_regions
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Overview of Archive tier in Azure Backup

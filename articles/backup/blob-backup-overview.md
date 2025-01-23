@@ -2,10 +2,10 @@
 title: Overview of Azure Blobs backup
 description: Learn about Azure Blobs backup.
 ms.topic: overview
-ms.date: 12/30/2024
+ms.date: 01/22/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 
@@ -55,7 +55,7 @@ Operational backup is configured and managed at the **storage account** level, a
 
 When you configure backup for a storage account and assign a backup policy with a retention of ‘n’ days, the underlying properties are set as described below. You can view these properties in the **Data protection** tab of the blob service in your storage account.
 
-- **Point-in-time restore**: Set to ‘n’ days, as defined in the backup policy. If the storage account already had point-in-time enabled with a retention of, say ‘x’ days, before configuring backup, the point-in-time restore duration will be set to the greater of the two values that is max(n,x). If you had already enabled point-in-time restore and specified the retention to be greater than that in the backup policy, it will remain unchanged.
+- **Point-in-time restore**: Set to ‘n’ days, as defined in the backup policy. If the storage account already had point-in-time enabled with a retention of, say ‘x’ days, before configuring backup, the point-in-time restore duration will be set to the greater of the two values that are max(n,x). If you had already enabled point-in-time restore and specified the retention to be greater than that in the backup policy, it will remain unchanged.
 
 - **Soft delete**: Set to ‘n+5’ days, that is, five days in addition to the duration specified in the backup policy. If the storage account that is being configured for operational backup already had soft delete enabled with a retention of, say ‘y’ days, then the soft delete retention will be set to the maximum of the two values, that is, maximum (n+5, y). If you had already enabled soft delete and specified the retention to be greater than that according to the backup policy, it will remain unchanged.
 
@@ -66,7 +66,8 @@ When you configure backup for a storage account and assign a backup policy with 
 To allow Backup to enable these properties on the storage accounts to be protected, the Backup vault must be granted the **Storage Account Backup Contributor** role on the respective storage accounts.
 
 >[!NOTE]
->Operational backup supports operations on block blobs only and operations on containers can’t be restored. If you delete a container from the storage account by calling the **Delete Container** operation, that container can’t be restored with a restore operation. It’s suggested you enable soft delete to enhance data protection and recovery.
+>- The Operational backup can only be enabled along with vaulted backup. 
+>- Operational backup supports operations on block blobs only and operations on containers can’t be restored. If you delete a container from the storage account by calling the **Delete Container** operation, that container can’t be restored with a restore operation. It’s suggested you enable soft delete to enhance data protection and recovery.
 
 # [Vaulted backup](#tab/vaulted-backup)
 

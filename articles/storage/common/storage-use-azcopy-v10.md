@@ -284,6 +284,9 @@ Over time, the AzCopy [download link](#download-and-install-azcopy) will point t
 
 To avoid these issues, obtain a static (unchanging) link to the current version of AzCopy. That way, your script downloads the same exact version of AzCopy each time that it runs.
 
+> [!NOTE]
+> The static link to AzCopy binaries is subject to change over time due to our content delivery infrastructure. If you must use a specific version of AzCopy for any reason, we recommend using AzCopy with an operating system that leverages a [published package](#install-azcopy-on-linux-by-using-a-package-manager). This method ensures that you can reliably install and maintain the desired version of AzCopy.
+
 To obtain the link, run this command:
 
 | Operating system  | Command |
