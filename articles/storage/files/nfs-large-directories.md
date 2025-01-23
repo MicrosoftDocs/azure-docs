@@ -37,42 +37,13 @@ The following graph compares the total time it takes to finish different operati
 
 ### nconnect
 
-`Nconnect` is a client-side mount option that allows you to use multiple TCP connections between the client and the Azure Premium Files service for NFSv4.1. We recommend the optimal setting of `nconnect=4` to reduce latency and improve performance. `Nconnect` can be especially useful for workloads that use asynchronous or synchronous I/O from multiple threads. [Learn more](nfs-performance.md#nconnect).
+`Nconnect` is a client-side mount option for NFS file shares that allows you to use multiple TCP connections between the client and the Azure Premium Files service for NFSv4.1. We recommend the optimal setting of `nconnect=4` to reduce latency and improve performance. `Nconnect` can be especially useful for workloads that use asynchronous or synchronous I/O from multiple threads. [Learn more](nfs-performance.md#nconnect).
 
-## Commands and operations
+## Increase the number of hash buckets
 
-The way commands and operations are specified can also affect performance. Listing all the files in a large directory using the `ls` command is a good example.
+The total amount of RAM present on the system doing the enumeration influences the internal working of filesystem protocols like NFS and SMB. Even if users aren't experiencing high memory usage, the amount of memory available influences the number of inode hash buckets the system has, which impacts/improves enumeration performance for large directories. You can modify the number of inode hash buckets the system has to reduce the hash collisions that can occur during large enumeration workloads.
 
-> [!NOTE]
-> Some operations such as recursive `ls`, `find`, and `du` need both file names and file attributes, so they combine directory enumerations (to get the entries) with a stat on each entry (to get the attributes). We suggest using a higher value for [actimeo](#actimeo) on mount points where you're likely to run such commands.
-
-### Use unaliased ls
-
-In some Linux distributions, the shell automatically sets default options for the `ls` command such as `ls --color=auto`. This changes how `ls` works over the wire and adds more operations to the `ls` execution. To avoid performance degradation, we recommended using unaliased ls. You can do this one of three ways:
-
-- Remove the alias by using the command `unalias ls`. This is only a temporary solution for the current session.
-
-- For a permanent change, you can edit the `ls` alias in the user's `bashrc/bash_aliases` file. In Ubuntu, edit `~/.bashrc` to remove the alias for `ls`.
-
-- Instead of calling `ls`, you can directly call the `ls` binary, for example `/usr/bin/ls`. This allows you to use `ls` without any options that might be in the alias. You can find the location of the binary by running the command `which ls`.
-
-### Prevent ls from sorting its output
-
-When using `ls` with other commands, you can improve performance by preventing `ls` from sorting its output in situations where you don't care about the order that `ls` returns the files. Sorting the output adds significant overhead.
-
-Instead of running `ls -l | wc -l` to get the total number of files, you can use the `-f` or `-U` options with `ls` to prevent the output from being sorted. The difference is that `-f` will also show hidden files, and `-U` won't.
-
-For example, if you're directly calling the `ls` binary in Ubuntu, you would run `/usr/bin/ls -1f | wc -l` or `/usr/bin/ls -1U | wc -l`.
-
-The following chart compares the time it takes to output results using unaliased, unsorted `ls` versus sorted `ls`.
-
-:::image type="content" source="media/nfs-large-directories/sorted-versus-unsorted-ls.png" alt-text="Graph comparing the total time in seconds to complete a sorted ls operation versus unsorted." border="false":::
-
-### Increase the number of hash buckets
-
-The total amount of RAM present on the system doing the enumeration influences the internal working of filesystem protocols like NFS and SMB. Even if users aren't experiencing high memory usage, the amount of memory available influences the amount of hash buckets the system has, which impacts/improves enumeration performance for large directories. You can modify the amount of hash buckets the system has to reduce the hash collisions that can occur during large enumeration workloads.
-
-To do this, you'll need to modify your boot configuration settings by providing an additional kernel command that takes effect during boot to increase the number of hash buckets. Follow these steps.
+To do this, you'll need to modify your boot configuration settings by providing an additional kernel command that takes effect during boot to increase the number of inode hash buckets. Follow these steps.
 
 1. Using a text editor, edit the `/etc/default/grub` file.
 
@@ -80,7 +51,7 @@ To do this, you'll need to modify your boot configuration settings by providing 
    sudo vim /etc/default/grub
    ```
 
-2. Add the following text to the `/etc/default/grub` file. This command will set apart 128MB as the hash table size, increasing system memory consumption by a maximum of 128MB.
+2. Add the following text to the `/etc/default/grub` file. This command will set apart 128MB as the inode hash table size, increasing system memory consumption by a maximum of 128MB.
 
    ```bash
    GRUB_CMDLINE_LINUX="ihash_entries=16777216"
@@ -118,6 +89,35 @@ To do this, you'll need to modify your boot configuration settings by providing 
    dmesg | grep "Inode-cache hash table"
    Inode-cache hash table entries: 16777216 (order: 15, 134217728 bytes, linear)
    ```
+
+## Commands and operations
+
+The way commands and operations are specified can also affect performance. Listing all the files in a large directory using the `ls` command is a good example.
+
+> [!NOTE]
+> Some operations such as recursive `ls`, `find`, and `du` need both file names and file attributes, so they combine directory enumerations (to get the entries) with a stat on each entry (to get the attributes). We suggest using a higher value for [actimeo](#actimeo) on mount points where you're likely to run such commands.
+
+### Use unaliased ls
+
+In some Linux distributions, the shell automatically sets default options for the `ls` command such as `ls --color=auto`. This changes how `ls` works over the wire and adds more operations to the `ls` execution. To avoid performance degradation, we recommended using unaliased ls. You can do this one of three ways:
+
+- Remove the alias by using the command `unalias ls`. This is only a temporary solution for the current session.
+
+- For a permanent change, you can edit the `ls` alias in the user's `bashrc/bash_aliases` file. In Ubuntu, edit `~/.bashrc` to remove the alias for `ls`.
+
+- Instead of calling `ls`, you can directly call the `ls` binary, for example `/usr/bin/ls`. This allows you to use `ls` without any options that might be in the alias. You can find the location of the binary by running the command `which ls`.
+
+### Prevent ls from sorting its output
+
+When using `ls` with other commands, you can improve performance by preventing `ls` from sorting its output in situations where you don't care about the order that `ls` returns the files. Sorting the output adds significant overhead.
+
+Instead of running `ls -l | wc -l` to get the total number of files, you can use the `-f` or `-U` options with `ls` to prevent the output from being sorted. The difference is that `-f` will also show hidden files, and `-U` won't.
+
+For example, if you're directly calling the `ls` binary in Ubuntu, you would run `/usr/bin/ls -1f | wc -l` or `/usr/bin/ls -1U | wc -l`.
+
+The following chart compares the time it takes to output results using unaliased, unsorted `ls` versus sorted `ls`.
+
+:::image type="content" source="media/nfs-large-directories/sorted-versus-unsorted-ls.png" alt-text="Graph comparing the total time in seconds to complete a sorted ls operation versus unsorted." border="false":::
 
 ## File copy and backup operations
 
