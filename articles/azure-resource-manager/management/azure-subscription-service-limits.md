@@ -2,7 +2,7 @@
 title: Azure subscription and service limits, quotas, and constraints
 description: Understand common Azure subscription and service limits, quotas, and constraints. This article includes information about how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 01/24/2025
+ms.date: 01/23/2025
 ms.custom: ignite-2024
 ---
 

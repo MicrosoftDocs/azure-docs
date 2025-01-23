@@ -16,9 +16,9 @@ Learn how to use the [Azure portal](https://portal.azure.com) with [Azure Resour
 
 A resource group is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution or only those resources that you want to manage as a group. You decide how to allocate resources to resource groups based on what makes the most sense for your organization. Generally, add resources sharing the same lifecycle to the same resource group so you can easily deploy, update, and delete them as a group.
 
-The Azure portal uses resource group scope to create views that span across multiple resources. For example:
+The Azure portal uses the resource group scope to create views that span across multiple resources. For example:
 
-- **Metrics blade** provides metrics information (CPU, resources) to users. 
+- **Metrics blade** provides metrics information (CPU, resources) to users.
 - **Deployments blade** shows the history of ARM template or Bicep deployments targeted to that resource group (which includes portal deployments).
 - **Policy blade** provides information related to the policies enforced on the resource group.
 - **Diagnostics settings blade** provides errors and warnings to review.

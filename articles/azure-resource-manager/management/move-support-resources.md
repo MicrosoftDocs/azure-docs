@@ -2,7 +2,7 @@
 title: Azure resource types for move operations
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 01/24/2025
+ms.date: 01/23/2025
 ms.custom: tbd
 ---
 
