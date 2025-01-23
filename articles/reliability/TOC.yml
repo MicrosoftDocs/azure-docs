@@ -1,9 +1,7 @@
 - name: Azure reliability documentation
   href: index.yml
 - name: Overview
-  items:
-  - name: Introduction to Azure Reliability
-    href: concept-reliability.md
+  href: concept-reliability.md
 - name: Reliability fundamentals
   items:
   - name: Business continuity, high availability, and disaster recovery

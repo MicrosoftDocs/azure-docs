@@ -1,6 +1,6 @@
 ---
-title: Overview of Azure reliability
-description: Get an overvview of Azure reliability concepts such as availability zones, regions.
+title: Overview of reliability
+description: Get an overvview of reliability concepts such as availability zones, regions.
 author: anaharris-ms
 ms.topic: overview
 ms.date: 01/23/2025
@@ -10,16 +10,29 @@ ms.custom: subject-reliability
 CustomerIntent: As a cloud architect/engineer, I want to learn about Azure Reliability.
 ---
 
-# Overview of Azure reliability
+# Overview of reliability
 
+Reliability is a key concept in cloud computing, and refers to the ability of a workload to perform at expectation and in accordance with business continuity requirements. In Azure, reliability is achieved through a combination of factors, including the the design of the platform itself,  its services, the architecture of applications, and the implementation of best practices. 
 
-Reliability is the state in which a workload is able to perform and function in accordance with what is outlined and expected in a business continuity plan. 
+Primarily, the reliability of a workload is defined by its *resiliency*, which is a workload's ability to recover from possible faults or outages and still "just work". Azure offers a number of resiliency features such as availability zones, multi-region support, data replication, and backup and restore capabilities. These features must be considered when designing a workload to meet its business continuity requirements.
+
+While resiliency is the primary way you can ensure a reliable workload, you also can consider other aspects of workflow design such as:
+
+- Operational Excellence, 
+
+- Security,
+
+- Performance Efficiency, 
+
+- Cost Optimization, 
 
 
 
 ## Business continuity, high availability, and disaster recovery
 
-Your reliable workload is only as reliable as your business continuity plan. Your plan should include a strategy for business continuity, high availability, and disaster recovery that is reflected in the configuration and deployment methods of your workload:
+Business continuity planning can be understood as the ongoing process of risk management through high availability and disaster recovery design. 
+
+When considering business continuity, it's important to understand the following terms:
 
 - *Business continuity* is the state in which a business can continue operations during failures, outages, or disasters. Business continuity requires proactive planning, preparation, and the implementation of resilient systems and processes.
 
@@ -55,7 +68,7 @@ Many Azure regions provide availability zones, which are separated groups of dat
 - To view which regions support availability zones, see [Azure regions with availability zone support](./availability-zones-region-support.md).
 - To learn how to approach a migration to availability zone support, see [Azure availability zone migration baseline](availability-zones-baseline.md).
 
-## Azure reliability service guidance
+## Azure reliability guides by service
 
 Azure provides a set of service specific reliability guidance that can help you design and implement a reliable workload. Each service has its own unique characteristics, and the guidance can help you understand how to best use the service to meet your business needs. Each guide may contain the following sections, depending on which reliability features it supports:
 
@@ -65,7 +78,7 @@ Each reliability service guide generally contains information on how the service
 - *Multi-region support* such as how to configure multi-region or geo-disaster support, traffic routing and data replication between regions, region-down experience, failover and failback support, alternative multi-region support.
 - *Backup support* such as who controls backups, where they are stored,how they can be recovered, and whether they are accessible only within a region or across regions.
 
-For more information and a list of reliability service guides, see [Reliability service guidance](./reliability-guidance-overview.md).
+For more information and a list of reliability service guides, see [Reliability guides by service](./reliability-guidance-overview.md).
 
 
 ## Related content

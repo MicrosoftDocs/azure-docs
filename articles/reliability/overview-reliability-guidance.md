@@ -4,13 +4,13 @@ description: Reliability guides for Microsoft Azure products and services. View 
 author: anaharris-ms
 ms.service: azure
 ms.topic: reliability-article
-ms.date: 01/01/2025
+ms.date: 01/23/2025
 ms.author: anaharris
 ms.custom: subject-reliability
 ms.subservice: azure-reliability
 ---
 
-# Azure service reliability guides
+# Reliability guides by service
 
 While Azure provides a set of reliability features, the resiliency of your workload is a [shared responsibility between you and Microsoft]((./concept-shared-responsibility.md)) and depends on how you have designed your business continuity plan to define your expectations for reliability. For this reason, it's important that you understand the reliability features of each service you use, and how to best implement them in your workload. This document provides links to the reliability guidance for each Azure service, detailing how each services supports or does not support specific reliability features. 
 
