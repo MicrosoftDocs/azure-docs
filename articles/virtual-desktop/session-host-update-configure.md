@@ -27,7 +27,7 @@ Before you update session hosts using session host update, you need:
 - The new image must be [supported for Azure Virtual Desktop](prerequisites.md#operating-systems-and-licenses) and match the [generation of virtual machine](/azure/virtual-machines/generation-2). If you're using [Trusted launch virtual machines](security-guide.md#trusted-launch) or [Confidential virtual machines](security-guide.md#azure-confidential-computing-virtual-machines), your image must be for generation 2 VMs. It can be from:
 
    - Azure Marketplace.
-   - An existing Azure Compute Gallery shared image. We recommend having at least two replicas of the image you use.
+   - An existing Azure Compute Gallery shared image. We recommend having at least two replicas of the image you use. Using a shared image located in a different subscription from the host pool is not supported at this time.
    - An existing managed image.
 
 - Remove any resource locks on session hosts or the resource group they're in.
@@ -86,9 +86,8 @@ When you schedule an update, the session host configuration for the host pool is
 To schedule an update for your session hosts, select the relevant tab for your scenario and follow the steps.
 
 > [!IMPORTANT]
-> - During an update, the number of available session hosts for user sessions is reduced and any logged on users will be asked to log off. We recommend you schedule an update during less busy periods to minimize disruption to end users.
->
-> - If you use a custom network security group (NSG) for the session hosts you want to update, there's a known issue where you can't start an update using the Azure portal. To work around this issue, use Azure PowerShell to start the update.
+> During an update, the number of available session hosts for user sessions is reduced and any logged on users will be asked to log off. We recommend you schedule an update during less busy periods to minimize disruption to end users.
+
 
 # [Azure portal](#tab/portal)
 
