@@ -113,7 +113,7 @@ ogcli export ogcli_export_<date>
 
 ## **Stage 2: Backup Files (on-premises machine)**
 
-### Transfer Backup Files to on-nremises machine
+### Transfer Backup Files to on-premises machine
 
 Run following command on the on-premises machine to copy the Terminal Server configuration and related files to the on-premises machine. 
 
@@ -130,9 +130,9 @@ scp -r -o MACs=umac-128-etm@openssh.com root@<ts_ip>:/mnt/nvram/opengear_provisi
 >[!Note:]
 > Replace <ts_ip> with the terminal server IP.
 
-## **Stage 3: Install Firmware (Terminal Server)**
+## **Stage 3: Install firmware (Terminal Server)**
 
-### Upload Firmware
+### Upload firmware
 
 Upload the latest downloaded firmware from on premise machine to the terminal server.
 
@@ -144,7 +144,7 @@ scp -r -o MACs=umac-128-etm@openssh.com ./operations_manager-24.07.1-production-
 > Replace <ts_ip> with the terminal server IP.<br>
 > Ensure the file name corresponds to the specific firmware version being used. For example, <operations_manager-24.07.1-production-signed.raucb> is the file name for Opengear OS version 24.07.1. Adjust the file name accordingly for your firmware version.
 
-### Initaite installation of firmware
+### Initiate installation of firmware
 
 Run the following command on the Terminal Server.
 
