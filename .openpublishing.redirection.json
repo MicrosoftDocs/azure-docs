@@ -5113,6 +5113,11 @@
       "source_path_from_root": "/articles/reliability/disaster-recovery-overview.md",
       "redirect_url": "/azure/reliability/concept-business-continuity-high-availability-disaster-recovery",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/reliability/overview.md",
+      "redirect_url": "/azure/reliability/concept-reliability",
+      "redirect_document_id": false
     }
   ]
 }
