@@ -40,8 +40,8 @@ In the Code view tab of the Azure Logic Apps editor, you can access the JSON ARM
 1. Download the PowerShell script from https://aka.ms/Playbook-ARM-Template-Generator 
 1. Extract the folder and open "Playbook_ARM_Template_Generator.ps1" in Visual Studio Code, Windows PowerShell, or PowerShell Core.
 
-> [!NOTE]
-> Run the script from your machine. Allow PowerShell script execution by running the command in PowerShell: Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass  
+    > [!NOTE]
+    > Run the script from your machine. Allow PowerShell script execution by running the command in PowerShell: Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass  
 
 1. Enter your Azure Tenant ID when prompted.
 1. Authenticate with your credentials, then choose:
@@ -50,15 +50,15 @@ In the Code view tab of the Azure Logic Apps editor, you can access the JSON ARM
 1. Select a location on your local drive to save the sanitized ARM Template as azuredeploy.json. The tool converts Microsoft Sentinel connections to Microsoft Software Installer (MSI) during export. For more information, see this demonstration video [Export your SOAR Playbooks with ease | Microsoft Sentinel in the Field #7 - YouTube](https://www.youtube.com/watch?v=scTtVHVzrQw)
 1. Update the metadata section of the azuredeploy.json file with your playbook's specific details
 
-:::image type="content" source="media/sentinel-playbook-creation/playbook-update-metadata.png" alt-text="Screenshot of playbook metadata that needs to be updated"  lightbox="media/sentinel-playbook-creation/playbook-update-metadata.png" :::   
+:::image type="content" source="media/sentinel-playbook-creation/playbook-update-metadata.png" alt-text="Screenshot of playbook metadata that needs to be updated."  lightbox="media/sentinel-playbook-creation/playbook-update-metadata.png" :::   
 
 5. It's recommended to use managed service identity rather than user-assigned identity for connecting Azure services (such as Microsoft Sentinel, Key Vault, and Storage Account) with playbooks. Update the authentication type under connectionProperties to "ManagedServiceIdentity".
 
-:::image type="content" source="media/sentinel-playbook-creation/sentinel-playbook-identity.png" alt-text="Screenshot of playbook identity updates"  lightbox="media/sentinel-playbook-creation/sentinel-playbook-identity.png" :::   
+:::image type="content" source="media/sentinel-playbook-creation/sentinel-playbook-identity.png" alt-text="Screenshot of playbook identity updates."  lightbox="media/sentinel-playbook-creation/sentinel-playbook-identity.png" :::   
 
 6. Update "Microsoft.Web/connections" resources 
  
-:::image type="content" source="media/sentinel-playbook-creation/sentinel-playbook-webconnections.png" alt-text="Screenshot of playbook web connections metadata"  lightbox="media/sentinel-playbook-creation/sentinel-playbook-webconnections.png" :::   
+:::image type="content" source="media/sentinel-playbook-creation/sentinel-playbook-web-connections.png" alt-text="Screenshot of playbook web connections metadata."  lightbox="media/sentinel-playbook-creation/sentinel-playbook-web-connections.png" :::   
 
 For more information, see https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/ThreatXCloud/Playbooks/ThreatXPlaybooks/ThreatX-BlockIP-URL/azuredeploy.json
 
@@ -94,7 +94,7 @@ Once the custom connector is created, you can use it to build a Playbook using A
 7. Updated the JSON file created in step 4 with the swagger and backendService values obtained from the swagger file created in step 6.
 1. Validate the host, basepath, and scheme parameters in the swagger file and update as needed.
 
-:::image type="content" source="media/sentinel-playbook-creation/sentinel-playbookswagger-fields.png" alt-text="Screenshot showing swagger fields."  Lightbox="media/sentinel-playbook-creation/sentinel-playbookswagger-fields.png" :::   
+:::image type="content" source="media/sentinel-playbook-creation/sentinel-playbook-swagger-fields.png" alt-text="Screenshot showing swagger fields."  Lightbox="media/sentinel-playbook-creation/sentinel-playbook-swagger-fields.png" :::   
 
 9. Finally, update the Parameter section of the ARM template files for the custom connector as shown.
 
@@ -108,7 +108,7 @@ Refer to the link for reference or comparison to determine which other fields ne
 Before making a pull request to the Microsoft Sentinel GitHub repo, follow the proper directory structure. The ARM template file must be named “azuredeploy.json.” Additionally, include a Readme.md file for all custom connectors and playbooks, detailing configuration steps during and after deployment.
 
 For Readme.md file guidelines, refer to the links - 
-- Custom connector Readme.md file guidelines: [Custom connector Readme.md file guidelines | Microsoft Learn](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Minemeld/Playbooks/CustomConnector/MinemeldCustomConnector)
-- Playbook Readme.md file guidelines: [Playbook Readme.md file guidelines | Microsoft Learn](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Minemeld/Playbooks/MinemeldPlaybooks/Minemeld-CreateIndicator)
+- [Custom connector Readme.md file guidelines](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Minemeld/Playbooks/CustomConnector/MinemeldCustomConnector)
+- [Playbook Readme.md file guidelines](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Minemeld/Playbooks/MinemeldPlaybooks/Minemeld-CreateIndicator)
 
 :::image type="content" source="media/sentinel-playbook-creation/playbook-folder-structure.png" alt-text="Screenshot of playbook folder structure in GitHub."  Lightbox="media/sentinel-playbook-creation/playbook-folder-structure.png" :::   
