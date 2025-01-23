@@ -1,19 +1,21 @@
 ---
 title: AI playbook, examples, and samples
-description: Learn about examples, samples, and other resources for integrating AI with Standard workflows in Azure Logic Apps.
+description: Learn about AI integration examples, samples, and other resources using Standard workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: conceptual
-ms.date: 11/11/2024
-#CustomerIntent: I want examples, samples, and other resources to help me learn how to integrate Ai into logic app workflows.
+ms.date: 01/23/2025
+#CustomerIntent: I want examples, samples, and other resources to help me learn how to integrate AI using Standard logic app workflows.
 ---
 
 # AI playbook, examples, and other resources for Standard workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-This guide provides examples, samples, and other resources to help you learn how you can integrate Azure AI services, such as Azure OpenAI and Azure AI Search, with Standard workflows in Azure Logic Apps.
+AI capabilities are playing a quickly increasing role in building not only applications and other software, but also integration workloads across services, systems, apps, and data in enterprises and organizations.
+
+To help with your AI journey, this guide provides building blocks, examples, samples, and other resources so you can learn about ways to integrate AI services, such as Azure OpenAI and Azure AI Search, with other cloud services, on-premises systems, apps, and data in your software ecosystem by using Standard workflows in Azure Logic Apps.
 
 ## Building blocks for AI solutions
 
@@ -65,7 +67,7 @@ For more information, see the following resources:
 
 The following sections describe ways that you can set up near-real time chat capabilities for your data using Azure Logic Apps and various AI services.
 
-#### Build Azure OpenAI Assistants with Azure Logic apps
+#### Build Azure OpenAI Assistants with Azure Logic Apps
 
 With Azure OpenAI, you can easily build agent-like features into your applications by using the Assistants API. Although the capability to build agents previously existed, the process often required significant engineering, external libraries, and multiple integrations. However, now with Assistants, you can rapidly create customized stateful copilots that are trained on their enterprise data and can handle diverse tasks by using the latest GPT models, tools, and knowledge. The current release includes features such as File Search and Browse tools, enhanced data security features, improved controls, new models, expanded region support, and various enhancements that make it easy to go from prototyping to production.
 
