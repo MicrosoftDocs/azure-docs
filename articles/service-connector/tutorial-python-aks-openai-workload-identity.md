@@ -148,14 +148,15 @@ Once the connection has been created, you can view its details in the **Service 
 
 ### [Azure CLI](#tab/azure-cli)
 
-Create a service connection in AKS using the Azure CLI. 
+Create a service connection in AKS by running the [az aks connection create](/cli/azure/aks/connection/create#az-aks-connection-create-cognitiveservices) command in the Azure CLI. 
 
 ```azurecli
 az aks connection create cognitiveservices \
    --workload-identity <user-identity-resource-id>
 ```
 
-When using the [az aks connection create](/cli/azure/aks/connection/create#az-aks-connection-create-cognitiveservices) command, Service Connector prompts you to specify the AKS resource group, AKS cluster name, target service resource group, cognitive service account name, and user-assigned identity resource ID step by step.
+When using the above command, Service Connector prompts you to specify the AKS resource group, AKS cluster name, target service resource group, cognitive service account name, and user-assigned identity resource ID step by step.
+
 Alternatively, you can provide the complete command directly:
 
 ```azurecli
