@@ -41,7 +41,7 @@ When you deploy Azure IoT Operations, the deployment creates a BrokerListener re
 
 - It exposes a [ClusterIp service](https://kubernetes.io/docs/concepts/services-networking/service/#type-clusterip) on port 18883.
 - It requires clients to use [Kubernetes service account authentication](./howto-configure-authentication.md#default-brokerauthentication-resource).
-- It has an [automatically managed](#configure-tls-with-automatic-certificate-management) TLS certificate
+- It has an [automatically managed](#configure-tls-with-automatic-certificate-management) TLS certificate.
 - It doesn't configure any client authorization policies.
 
 > [!CAUTION]
@@ -548,7 +548,7 @@ The following example is a BrokerListener resource that enables TLS on port 8884
     | Setting        | Description                                                                                   |
     | -------------- | --------------------------------------------------------------------------------------------- |
     | Name           | Name of the BrokerListener resource. Enter `aio-broker-loadbalancer-tls`.                     |
-    | Port           | Port number on which the BrokerListener listens for MQTT connections. Enter 8884.             |
+    | Port           | Port number on which the BrokerListener listens for MQTT connections. Enter **8884**.             |
     | Authentication | The [authentication resource reference](howto-configure-authentication.md).                   |
     | Authorization  | The [authorization resource reference](howto-configure-authorization.md).                     |
     | TLS            | Select the **Add** button.                                                                      |
