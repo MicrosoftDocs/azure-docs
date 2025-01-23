@@ -100,11 +100,64 @@ As the read-write I/OP mix increases towards write-heavy, the total I/OPS decrea
 
 :::image type="content" source="./media/performance-benchmarks-linux/8K-random-iops-no-cache.png" alt-text="Diagram of benchmark tests with 8 KiB, random, client caching excluded." lightbox="./media/performance-benchmarks-linux/8K-random-iops-no-cache.png":::
 
+
+<!-- 
 ## Side-by-side comparisons 
 
 To illustrate how caching can influence the performance benchmark tests, the following graph shows total I/OPS for 4-KiB tests with and without caching mechanisms in place. As shown, caching provides a slight performance boost for I/OPS fairly consistent trending. 
 
 :::image type="content" source="./media/performance-benchmarks-linux/4K-side-by-side.png" alt-text="Diagram comparing 4 KiB benchmark tests." lightbox="./media/performance-benchmarks-linux/4K-side-by-side.png":::
+
+
+
+-->
+
+
+
+Results: 256 KiB sequential I/O, baseline without caching
+
+ 
+
+In the following two baseline benchmarks, FIO was used to measure the amount of sequential IO (read and write) a single regular volume in Azure NetApp Files can deliver. In order to produce a baseline that reflects the true bandwidth that a fully uncached read workload can achieve, FIO was configured to run with the parameter randrepeat=0 for data set generation. In addition, each test iteration was offset by reading a completely separate large data set that was not part of the benchmark in order to clear any caching that might have occurred with the benchmark dataset. 
+
+ 
+
+In the graph below, testing shows that an Azure NetApp Files regular volume can handle between approximately 3,500MiB/s pure sequential 256-KiB reads and approximately 2,500MiB/s pure sequential 256-KiB writes. During the tests, a 50/50 mix showed total throughput peaked higher than a pure sequential read workload.
+
+[keep graph]
+
+ 
+
+Results: 64KiB sequential I/O, reads vs. write, baseline without caching
+
+ 
+
+In this next baseline benchmark, testing demonstrates that an Azure NetApp Files regular volume can handle between approximately 3,600MiB/s pure sequential 64-KiB reads and approximately 2,400MiB/s pure sequential 64-KiB writes. During the tests, a 50/50 mix showed total throughput on par with a pure sequential read workload.
+
+ 
+
+With respect to pure read, the 64 KiB baseline performed slightly better than the 256 KiB baseline. However, when it comes to pure write and all mixed read/write workloads 256 KiB baseline outperformed 64 KiB, indicating a larger block size of 256 KiB is more effective overall for high throughput workloads. 
+
+
+The read-write mix for the workload was adjusted by 25% for each run.
+
+[keep graph]
+
+ 
+
+### Results: 64-KiB sequential I/O, read throughput cache comparison
+
+ 
+
+To demonstrate how caching influences performance results, FIO was used in the following micro benchmark comparison to measure the amount of sequential IO (read and write) a single regular volume in Azure NetApp Files can deliver. This is contrasted below with the benefits a partially cacheable workload may provide.
+
+ 
+
+On the right, testing was designed to mitigate any caching taking place as described in the baseline benchmarks above.
+On the left, FIO was used against Azure NetApp Files regular volumes without the use of the randrepeat=0 parameter and using looping test iteration logic that slowly populated the cache over time. The combination of which produced an indeterminate amount of caching boosting the overall throughput. This resulted in slightly better overall read performance numbers than tests run without caching.
+ 
+
+ The graph below displays the side by side comparison of read performance with and without the caching influence, where caching produced up to ~4500MiB/s read throughput, while no caching achieved around ~3600MiB/s.
 
 ## Specific offset, streaming random read/write workloads: scale-up tests using parallel network connections (`nconnect`)
 
