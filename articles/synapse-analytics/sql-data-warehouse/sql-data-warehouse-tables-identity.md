@@ -93,7 +93,7 @@ If any one of these conditions is true, the column is created `NOT NULL` instead
 
 `CREATE TABLE AS SELECT` (CTAS) follows the same SQL Server behavior that's documented for `SELECT..INTO`. However, you can't specify an `IDENTITY` property in the column definition of the `CREATE TABLE` part of the statement. You also can't use the `IDENTITY` function in the `SELECT` part of the CTAS. To populate a table, you need to use `CREATE TABLE` to define the table followed by `INSERT..SELECT` to populate it.
 
-## Insert values into an IDENTITY column
+## Insert explicit values into an IDENTITY column
 
 Dedicated SQL pool supports `SET IDENTITY_INSERT <your table> ON|OFF` syntax. You can use this syntax to explicitly insert values into the `IDENTITY` column.
 

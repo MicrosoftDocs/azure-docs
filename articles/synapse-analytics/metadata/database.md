@@ -16,8 +16,8 @@ ms.custom: devx-track-csharp
 
 The Azure Synapse Analytics workspace lets you create two types of databases on top of a Spark data lake:
 
-- **Lake databases** where you can define tables on top of lake data using Apache Spark notebooks, database templates, or Microsoft Dataverse (previously Common Data Service). These tables are available for querying using T-SQL (Transact-SQL) language using the serverless SQL pool.
-- **SQL databases** where you can define your own databases and tables directly using the serverless SQL pools. You can use T-SQL `CREATE DATABASE`, `CREATE EXTERNAL TABLE` to define the objects and add additional SQL views, procedures, and inline-table-value functions on top of the tables.
+- **Lake databases** where you can define tables on top of lake data using Apache Spark notebooks, database templates, or Microsoft Dataverse (previously Common Data Service). These tables can be queried using T-SQL (Transact-SQL) language using the serverless SQL pool.
+- **SQL databases** where you can define your own databases and tables directly using the serverless SQL pool. You can use T-SQL CREATE DATABASE, CREATE EXTERNAL TABLE to define the objects and add additional SQL views, procedures, and inline-table-value functions on top of the tables.
 
 :::image type="content" source="../media/metadata/shared-databases.png" alt-text="Diagram that shows Lake and SQL databases that are created on top of Data Lake files.":::
 
@@ -47,8 +47,8 @@ The lake databases and tables are secured at two levels:
 - The underlying storage layer by assigning to Microsoft Entra users one of the following:
     - Azure role-based access control (Azure RBAC)
     - Azure attribute-based access control (Azure ABAC) role
-    - ACL permissions
-- The SQL layer where you can define a Microsoft Entra user and grant SQL permissions to SELECT data from tables referencing the lake data.
+    - Access control list (ACL) permissions
+- The SQL layer where you can define a Microsoft Entra user and grant SQL permissions to `SELECT` data from tables referencing the lake data.
 
 ## Lake security model
 
@@ -64,7 +64,7 @@ For example, in `https://<storage-name>.dfs.core.windows.net/<fs>/synapse/worksp
 - `execute (X)` permissions on all the folders starting at the `<fs>` to the `myparquettable`.
 - `read (R)` permissions on `myparquettable` and files inside that folder, to be able to read a table in a database (synchronized or original one).
 
-If a security principal requires the ability to create objects or drop objects in a database, additional `write (W)` permissions are required on the folders and files in the `warehouse` folder. Modifying objects in a database isn't possible from serverless SQL pool, only from Spark pools or the [database designer](../database-designer/modify-lake-database.md).
+If a security principal requires the ability to create objects or drop objects in a database, additional `write (W)` permissions are required on the folders and files in the *warehouse* folder. Modifying objects in a database isn't possible from serverless SQL pool, only from Spark pools or the [database designer](../database-designer/modify-lake-database.md).
 
 ### SQL security model
 
