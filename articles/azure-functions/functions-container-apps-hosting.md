@@ -65,13 +65,13 @@ For the best security, you should connect to remote services using Microsoft Ent
 + [Default storage account (`AzureWebJobsStorage`)](./functions-reference.md#connections) 
 + [Azure Container Registry](functions-deploy-container-apps.md?tabs=acr#create-and-configure-a-function-app-on-azure-with-the-image)
 
-Currently, only these binding extensions support managed identities when running in Container Apps:
+When running in Container Apps, you can use Microsoft Entra ID with managed identities for all binding extensions that support managed identities. Currently, only these binding extensions support event-driven scaling when using managed identity authentication:
 
 + Azure Event Hubs
 + Azure Queue Storage
 + Azure Service Bus
 
-For more information, see the [Functions developer guide](./functions-reference.md#connections).
+For other bindings, use fixed replicas when using managed identity authentication. For more information, see the [Functions developer guide](./functions-reference.md#connections).
 
 ## Virtual network integration
 
@@ -117,7 +117,7 @@ If you run into any issues with these managed resource groups, you should contac
 
 You can monitor your containerized function app hosted in Container Apps using Azure Monitor Application Insights in the same way you do with apps hosted by Azure Functions. For more information, see [Monitor Azure Functions](./monitor-functions.md). 
 
-For bindings that support event-driven scaling, scale events are also logged by Application Insights to your workspace. For more information, see [Scale controller logs](functions-monitoring.md#scale-controller-logs). 
+For bindings that support event-driven scaling, scale events are logged as `FunctionsScalerInfo` and `FunctionsScalerError` events in your Log Analytics workspace. For more information, see [Application Logging in Azure Container Apps](../container-apps/logging.md). 
 
 ## Considerations for Container Apps hosting
 
@@ -132,6 +132,7 @@ Keep in mind the following considerations when deploying your function app conta
     + [Triggers and bindings](functions-reference.md#configure-an-identity-based-connection)
     + [Required host storage connection](functions-identity-based-connections-tutorial.md) 
 + By default, a containerized function app monitors port 80 for incoming requests. If your app must use a different port, use the [`WEBSITES_PORT` application setting](../app-service/reference-app-settings.md#custom-containers) to change this default port.  
++ You aren't currently able to use built-in continuous deployment features when hosting on Container Apps. You must instead deploy from source code using either [Azure Pipelines](functions-how-to-azure-devops.mdpivots=v1#deploy-a-container) or [GitHub Actions](https://github.com/Azure/azure-functions-on-container-apps/tree/main/samples/GitHubActions).
 + You currently can't move a Container Apps hosted function app deployment between resource groups or between subscriptions. Instead, you would have to recreate the existing containerized app deployment in a new resource group, subscription, or region. 
 + When using Container Apps, you don't have direct access to the lower-level Kubernetes APIs. 
 + The `containerapp` extension conflicts with the `appservice-kube` extension in Azure CLI. If you have previously published apps to Azure Arc, run `az extension list` and make sure that `appservice-kube` isn't installed. If it is, you can remove it by running `az extension remove -n appservice-kube`.  
