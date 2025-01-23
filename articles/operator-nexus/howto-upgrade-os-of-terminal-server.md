@@ -28,7 +28,7 @@ This document provides a step-by-step guide to upgrade the operating system (OS)
 
 ### Check current version of Terminal Server
 
-Run the following command on the Terminal Server to check the existing OS version.
+Run the following command on the Terminal Server.
 
 ```bash
 cat /etc/version
@@ -40,9 +40,9 @@ cat /etc/version
 > [!Note:]
 > Ensure the current OS version is lower than the version you are upgrading to.
 
-### LLDP service check and enable
+### LLDP Service check and enable
 
-Run the following command on the Terminal Server to check and enable the LLDP service. 
+Run the following command on the Terminal Server. 
 
 ```bash
 ogcli update services/lldp enabled=true
@@ -58,7 +58,7 @@ platform=""
 
 ### LLDP neighbor check
 
-Run the following command on the Terminal Server to check the LLDP neighbor.
+Run the following command on the Terminal Server.
 
 ```bash
 lldpctl
@@ -70,7 +70,7 @@ Mgmt Switch, PE2, PE1
 
 ### Ping connectivity check
 
-Run the following command on the Terminal Server to perform a ping connectivity check.
+Run the following command on the Terminal Server.
 
 ```bash
 default_routes=$(ip route show default | awk '{print $3}')
@@ -103,9 +103,9 @@ PING 10.103.0.6 (10.103.0.6) 56(84) bytes of data.
 rtt min/avg/max/mdev = 0.305/0.328/0.344/0.015 ms
 ```
 
-### Backup current configuration
+### Create a backup of current configuration
 
-Execute following command on terminal server to create a backup of the current configuration.
+Run the following command on terminal server.
 
 ```bash
 ogcli export ogcli_export_<date>
@@ -142,11 +142,11 @@ scp -r -o MACs=umac-128-etm@openssh.com ./operations_manager-24.07.1-production-
 
 >[!Note:]
 > Replace <ts_ip> with the terminal server IP.<br>
-> Make sure to update the file name while executing above command as `<operations_manager-24.07.1-production-signed.raucb>` is the file name of opengear OS version `24.07.1`. 
+> Ensure the file name corresponds to the specific firmware version being used. For example, <operations_manager-24.07.1-production-signed.raucb> is the file name for Opengear OS version 24.07.1. Adjust the file name accordingly for your firmware version.
 
-### Install Firmware
+### Initaite installation of firmware
 
-Run the following command on the Terminal Server to initiate the firmware installation:.
+Run the following command on the Terminal Server.
 
 ```bash
 puginstall --reboot-after /tmp/operations_manager-24.07.1-production-signed.raucb
@@ -157,7 +157,7 @@ The upgrade process takes 5–10 minutes, during which the Terminal Server will 
 
 ## **Stage 4: Cleanup (On-Premises Machine)**
 
-### Remove Backup and Firmware
+### Remove backup and firmware
 
 After confirming the successful upgrade, delete temporary files from the on-premises machine. 
 
@@ -176,7 +176,7 @@ If the firmware upgrade fails, follow these steps:
 
 1. Perform a **factory reset**:
 
-    Run the following command on the terminal server to perform a factory reset.
+    Run the following command on the terminal server.
 
    ```bash
    factory_reset
@@ -190,7 +190,7 @@ If the firmware upgrade fails, follow these steps:
 
 3. Reconfigure or restore the device from backup:
 
-    Run the following command on the terminal server to reconfigure or restore the device from backup
+    Run the following command on the terminal server.
 
    ```bash
    ogcli restore <file_path>
