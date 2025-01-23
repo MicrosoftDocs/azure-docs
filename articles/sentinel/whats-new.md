@@ -24,13 +24,13 @@ Get notified when this page is updated by copying and pasting the following URL 
 ## January 2025
 
 - [Threat intelligence upload API now supports more STIX objects](#threat-intelligence-upload-api-now-supports-more-stix-objects)
-- [Microsoft Defender Threat Intelligence data connectors now generally available (GA)](#)
+- [Microsoft Defender Threat Intelligence data connectors now generally available (GA)](#microsoft-defender-threat-intelligence-data-connectors-now-generally-available-ga)
 - [Bicep template support for repositories (Preview)](#bicep-template-support-for-repositories-preview)
 - [View granular solution content in the Microsoft Sentinel content hub](#view-granular-solution-content-in-the-microsoft-sentinel-content-hub)
 
 ### Threat intelligence upload API now supports more STIX objects
 
-Make the most of your threat intelligence platforms when you connect them to Microsoft Sentinel with the upload API. Now you can ingest more objects than just indicators, reflecting the varied threat intelligence available. The upload API supports the following:
+Make the most of your threat intelligence platforms when you connect them to Microsoft Sentinel with the upload API. Now you can ingest more objects than just indicators, reflecting the varied threat intelligence available. The upload API supports the following STIX objects:
 
 - `indicator`
 - `attack-pattern`
@@ -38,7 +38,10 @@ Make the most of your threat intelligence platforms when you connect them to Mic
 - `threat-actor`
 - `relationship`
 
-For more information, see [Connect your threat intelligence platform with the STIX objects API](connect-threat-intelligence-upload-api.md) and [Import threat intelligence to Microsoft Sentinel with the STIX objects API (Preview)](stix-objects-api.md).
+For more information, see the following articles:
+
+- [Connect your threat intelligence platform with the upload API](connect-threat-intelligence-upload-api.md)
+- [Import threat intelligence to Microsoft Sentinel with the upload API (Preview)](stix-objects-api.md)
 
 ### Microsoft Defender Threat Intelligence data connectors now generally available (GA)
 

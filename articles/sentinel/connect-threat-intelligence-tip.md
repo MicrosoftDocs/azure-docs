@@ -20,7 +20,7 @@ ms.collection: usx-security
 
 > [!NOTE]
 > This data connector is on a path for deprecation. More information will be published on the precise timeline. Use the new Threat Intelligence Upload Indicators API data connector for new solutions going forward.
-> For more information, see [Connect your threat intelligence platform to Microsoft Sentinel with the STIX objects API](connect-threat-intelligence-upload-api.md).
+> For more information, see [Connect your threat intelligence platform to Microsoft Sentinel with the upload API](connect-threat-intelligence-upload-api.md).
 
 Many organizations use threat intelligence platform (TIP) solutions to aggregate threat indicator feeds from various sources. From the aggregated feed, the data is curated to apply to security solutions such as network devices, EDR/XDR solutions, or security information and event management (SIEM) solutions such as Microsoft Sentinel. By using the TIP data connector, you can use these solutions to import threat indicators into Microsoft Sentinel. 
 
@@ -155,7 +155,7 @@ Within a few minutes, threat indicators should begin flowing into this Microsoft
 
 ## Related content
 
-In this article, you learned how to connect your TIP to Microsoft Sentinel using a method on path for deprecation. To connect your TIP using the recommended method, see [Connect your TIP with STIX objects API](connect-threat-intelligence-upload-api.md).
+In this article, you learned how to connect your TIP to Microsoft Sentinel using a method on path for deprecation. To connect your TIP using the recommended method, see [Connect your TIP with the upload API](connect-threat-intelligence-upload-api.md).
 
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
 - Get started [detecting threats with Microsoft Sentinel](./detect-threats-built-in.md).

@@ -54,7 +54,7 @@ Add multiple threat intelligence objects with a specially crafted CSV or JSON fi
     
     > [!NOTE]
     > The CSV template only supports indicators. The JSON template supports indicators and other STIX objects like threat actors, attack patterns, identities and relationships. 
-    > For more information about crafting supported STIX objects in JSON, see [STIX objects API reference](stix-objects-api.md).
+    > For more information about crafting supported STIX objects in JSON, see [Upload API reference](stix-objects-api.md).
  
 
 1. After you choose a bulk upload template, select the **Download template** link.
