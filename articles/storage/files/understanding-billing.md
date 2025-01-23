@@ -4,12 +4,13 @@ description: Learn how to interpret the provisioned and pay-as-you-go billing mo
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 10/08/2024
+ms.date: 01/22/2025
 ms.author: kendownie
 ms.custom: references_regions
 ---
 
 # Understand Azure Files billing models
+
 Azure Files supports two different media tiers of storage, SSD and HDD, which allow you to tailor your file shares to the performance and price requirements of your scenario:
 
 - **SSD (premium)**: file shares hosted on solid-state drives (SSDs) provide consistent high performance and low latency, within single-digit milliseconds for most IO operations.
@@ -23,7 +24,7 @@ Azure Files has multiple pricing models including provisioned and pay-as-you-go 
     
 - **Pay-as-you-go billing model**: In a pay-as-you-go model, the cost of the file share is based on how much you use the share, in the form of used storage, transaction, and data transfer costs. The pay-as-you-go model for Azure Files is only available for HDD file shares. We recommend using the provisioned v2 model for new HDD file share deployments.
 
-This article explains the billing models for Azure Files work to help you understand your monthly Azure Files bill. For Azure Files pricing information, see [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
+This article explains how the billing models for Azure Files work to help you understand your monthly Azure Files bill. For Azure Files pricing information, see [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
 
 :::row:::
     :::column:::
@@ -202,8 +203,11 @@ Consumption against the provisioned v2 billing meters are emitted hourly in term
     - 30 day month: 737,280 units against the **Provisioned Storage** meter.
     - 31 day month: 761,856 units against the **Provisioned Storage** meter.
 
+### Provisioned v2 migrations
+Migrating your SMB Azure file shares from a pay-as-you-go model to the provisioned v2 billing model is similar to migrating file shares between storage accounts. We recommend [using Robocopy](storage-files-migration-robocopy.md).
+
 ## Provisioned v1 model
-The provisioned v1 method provides storage, IOPS and throughput in a fixed ratio to each other, similar to how storage is purchased in an on-premises storage solution. When you create a new provisioned v1 file share, you specify how much storage your share needs, and IOPS and throughput are computed values. The provisioned v1 model for Azure Files is only available for SSD file shares. 
+The provisioned v1 method provides storage, IOPS, and throughput in a fixed ratio to each other, similar to how storage is purchased in an on-premises storage solution. When you create a new provisioned v1 file share, you specify how much storage your share needs, and IOPS and throughput are computed values. The provisioned v1 model for Azure Files is only available for SSD file shares. 
 
 The amount of storage you provision determines the guaranteed storage, IOPS, and throughput limits of your file share's usage. For example, if you provision a 2 TiB share and upload 2 TiB of data to your share, your share will be full and you will not be able to add more data unless you increase the size of your share, or delete some of the data. Credit-based IOPS bursting provides added flexibility around usage, on a best-effort basis, while credits remain.
 
@@ -364,7 +368,7 @@ The following table illustrates the cost breakdown of moving access tiers:
 | **Hot (source)** | <ul><li>1 hot read transaction per file.</li><ul> | -- | <ul><li>1 cool write transaction per file.</li></ul> |
 | **Cool (source)** | <ul><li>1 cool read transaction per file.</li><li>Data retrieval per total used GiB.</li></ul> | <ul><li>1 cool read transaction per file.</li><li>Data retrieval per total used GiB.</li></ul> | -- |
 
-You can change a file share's access tier up to 5 times within a 30 day window. The first day of the 30 day window begins when the first tier change happens. Changes between access tiers happen instantly, however, once you have changed the access tier of a share, you cannot change it again within 24 hours, even if you have changed the access tier property fewer than 5 times within the last 30 days.
+You can change a file share's access tier up to 5 times within a 30 day window. The first day of the 30 day window begins when the first tier change happens. Changes between access tiers happen instantly, however, once you've changed the access tier of a share, you can't change it again within 24 hours, even if you've changed the access tier property fewer than 5 times within the last 30 days.
 
 ### Choosing an access tier
 Regardless of how you migrate existing data into Azure Files, we recommend initially creating the file share in transaction optimized access tier due to the large number of transactions incurred during migration. After your migration is complete and you've operated for a few days or weeks with regular usage, you can plug your transaction counts into the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to figure out which access tier is best suited for your workload.

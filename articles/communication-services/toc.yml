@@ -1055,6 +1055,8 @@ items:
       href: concepts/email/email-smtp-overview.md
     - name: Allowed attachment types
       href: concepts/email/email-attachment-allowed-mime-types.md
+    - name: Reserved Custom Headers
+      href: concepts/email/email-headers.md
     - name: Inline attachments
       href: concepts/email/email-attachment-inline.md
     - name: Managing Opt-outs
