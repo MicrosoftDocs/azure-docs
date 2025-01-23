@@ -26,7 +26,7 @@ When you're using [templates or automation tools](/azure/hdinsight/hdinsight-had
 | Hbase | 2.1| -|2.4|
 | InteractiveHive |3.1 |3.1|3.1|
 
-This value enables you to successfully create HDInsight clusters. The below snippet shows how to add the component version in the template:
+This value enables you to successfully create HDInsight clusters. The following snippet shows how to add the component version in the template:
 
  `"clusterDefinition": {
                     "kind": "[parameters('clusterKind')]",
