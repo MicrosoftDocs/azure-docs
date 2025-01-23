@@ -25,10 +25,10 @@ Just like a real conversation, many things happen simultaneously in a call that 
 
 ## Enable Call Diagnostics
 
-Azure Communication Services collects call data in the form of metrics and events. For Call Diagnostics to analyze new call data, you must enable a diagnostic setting in Azure Monitor. Azure Monitor then sends this data to a Log Analytics workspace.
+Azure Communication Services generates call data in the form of metrics and events as you make calls. You must store these data in a Log Analytics workspace that is in the same resource group as your calling resource in order to Call Diagnostics to work. For Call Diagnostics to analyze new call data, you must enable a diagnostic setting in Azure Monitor that directs these call data to be stored in your Log Analytics workspace as they are created. These call data are not retroactively available from Azure Communication Services, but once you setup your diagnostic setting you control the data retention periods for your Log Analytics resource.  
 
 > [!IMPORTANT]
-> Call Diagnostics can query only data sent to a Log Analytics workspace. Diagnostic settings begin collecting data by a single Azure Communications Services resource ID after you enable the diagnostic setting.
+> To enable Call Diagnostics in your calling resource you must collect log data for Call Diagnostics to display. Call Diagnostics can only query data sent to a Log Analytics workspace. Diagnostic settings begin collecting data by a single Azure Communications Services resource ID after you enable the diagnostic setting. 
 
 Because Call Diagnostics is an application layer on top of data for your Azure Communications Services resource, you can query the call data and [build workbook reports on top of your data](/azure/azure-monitor/logs/data-platform-logs#built-in-insights-and-custom-dashboards-workbooks-and-reports).
 
