@@ -3,40 +3,22 @@ title: Create Apache Kafka & Apache Flink on Confluent Cloud through Azure porta
 description: This article describes how to use the Azure portal to create an instance of Apache Kafka & Apache Flink on Confluent Cloud.
 # customerIntent: As a developer I want create a new instance of Apache Kafka & Apache Flink on Confluent Cloud using the Azure portal.
 ms.topic: quickstart
-ms.date: 1/31/2024
+ms.date: 01/23/2024
 
 ---
 
 # QuickStart: Get started with Apache Kafka & Apache Flink on Confluent Cloud - Azure portal
 
-In this quickstart, you'll use the Azure portal to create an instance of Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service.
+In this quickstart, you'll use the Azure portal to create an instance of Apache Kafka® & Apache Flink® on Confluent Cloud™.
 
 ## Prerequisites
 
-- An Azure account. If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free/).
-- You must have the _Owner_ or _Contributor_ role for your Azure subscription. The integration between Azure and Confluent can only be set up by users with _Owner_ or _Contributor_ access. Before getting started, [confirm that you have the appropriate access](../../role-based-access-control/check-access.md).
+- [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
+- You must [subscribe to New Relic](overview.md#subscribe-to-new-relic).
 
-## Find offer
+## Create a New Relic resource
 
-Use the Azure portal to find the Apache Kafka & Apache Flink on Confluent Cloud application.
-
-1. In a web browser, go to the [Azure portal](https://portal.azure.com/) and sign in.
-
-1. If you've visited the **Marketplace** in a recent session, select the icon from the available options. Otherwise, search for _Marketplace_.
-
-1. From the **Marketplace** page, you have two options based on the type of plan you want. You can sign up for a pay-as-you-go plan or commitment plan. Pay-as-you-go is publicly available. The commitment plan is available to customers who have been approved for a private offer.
-
-   - For **pay-as-you-go** customers, search for _Apache Kafka® & Apache Flink® on Confluent Cloud™_ and select the corresponding offer.
-
-     :::image type="content" source="media/search-pay-as-you-go.png" alt-text="search Azure Marketplace offer.":::
-
-   - For **commitment** customers, select the link to **View Private plans**. The commitment requires you to sign up for a minimum spend amount. Use this option only when you know you need the service for an extended time.
-
-     :::image type="content" source="media/view-private-offers.png" alt-text="view private offers.":::
-
-     Look for _Apache Kafka® & Apache Flink® on Confluent Cloud™_.
-
-     :::image type="content" source="media/select-from-private-offers.png" alt-text="select private offer.":::
+[!INCLUDE [create-resource](../includes/create-resource.md)]
 
 ## Create resource
 
@@ -52,6 +34,8 @@ After you've selected the offer for Apache Kafka & Apache Flink on Confluent Clo
    Pick the plan to use, and select **Subscribe**.
 
     :::image type="content" source="media/create/setup-subscribe.png" alt-text="Set up and subscribe.":::
+
+## Basics tab
 
 1. On the **Create a Confluent organization** basics page, provide the following values. When you've finished, select **Next: Tags**.
 
@@ -69,26 +53,14 @@ After you've selected the offer for Apache Kafka & Apache Flink on Confluent Clo
     | **Price + Payment options** | Prefilled based on the selected Confluent plan. |
     | **Subtotal** | Prefilled based on the selected Confluent plan. |
 
-1. On **Tags**, provide the **name** and **value** pairs for tags you want to apply to resource. After you enter the tags, select **Review + Create**.
+### Tags tab (optional)
 
-    :::image type="content" source="media/create/setup-tags.png" alt-text="Add project tags.":::
+[!INCLUDE [tags](../includes/tags.md)]
 
-1. Review the settings you provided. When ready, select **Create**.
+### Review + create tab
 
-1. It takes a few minutes to create the resource. You can view the deployment status in **Notifications**. After the deployment is finished, select the resource to view the **Overview** page.
-
-    :::image type="content" source="media/create/deployment-status.png" alt-text="Deployment status.":::
-
-   If you get an error, see [Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).
+[!INCLUDE [review-create](../includes/review-create.md)]
 
 ## Next steps
 
-- [Manage the Confluent organization](manage.md)
-
-- Get started with Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service on
-
-   > [!div class="nextstepaction"]
-   > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)
-
-   > [!div class="nextstepaction"]
-   > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview)
+- [Manage the Confluent Cloud resource](manage.md)
