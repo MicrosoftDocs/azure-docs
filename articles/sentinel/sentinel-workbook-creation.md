@@ -41,7 +41,7 @@ In a Security Operations Center (SOC), Microsoft Sentinel Workbooks are used to 
 1. Navigate to your workbook, select on edit and then advanced editor.
 1. Select the **Gallery Template** tab.
 
-:::image type="content" source="media/sentinel-workbook-creation/sentinel-workbook-edit-mode.png" alt-text="Screenshot showing the edit mode of workbooks in Microsoft Sentinel" lightbox="media/sentinel-workbook-creation/sentinel-workbook-edit-mode.png":::   
+:::image type="content" source="media/sentinel-workbook-creation/sentinel-workbook-edit-mode.png" alt-text="Screenshot showing the edit mode of workbooks in Microsoft Sentinel." lightbox="media/sentinel-workbook-creation/sentinel-workbook-edit-mode.png":::   
 
 1. Copy the gallery template and save it as JSON file on your machine.
 1. Add the below properties to your gallery template. These properties allow us to identify the specific Microsoft Sentinel workbook that was opened. Use the format `sentinel-"workbookName"` for consistency.
