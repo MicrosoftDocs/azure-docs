@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-network/migrate-classic-vnet-powershell.md",
+      "redirect_url": "/previous-versions/azure/virtual-network/migrate-classic-vnet-powershell",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/modeling-simulation-workbench/index.yml",
       "redirect_url": "/azure",
       "redirect_document_id": false
