@@ -56,7 +56,7 @@ Azure provides over 60 regions globally, that are located across many different 
 
 - For more information on Azure regions, see [What are Azure regions](./regions-overview.md).
 - To learn about paired and nonpaired regions, including lists of region pairs and nonpaired regions, see [Azure region pairs and nonpaired regions](./regions-paired.md). 
-- To see the list of services that are deployed to Azure regions, see [Product Availability by Region](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/table) 
+- To see the list of services that are deployed to Azure regions, see [Product Availability by Region](/explore/global-infrastructure/products-by-region/table) 
 
 
 ## Azure availability zones
