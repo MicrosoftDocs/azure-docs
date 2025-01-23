@@ -38,19 +38,12 @@
       displayName: Resource Manager
       href: manage-ddos-ip-protection-template.md           
       expanded: true
-
 - name: Tutorials
   items:
-  - name: View and configure DDoS telemetry
-    href: telemetry.md
   - name: Configure Monitoring and Logging
     items:
-      - name: Configure Log Analytics workspace 
-        href: ddos-configure-log-analytics-workspace.md
       - name: Configure metric alerts through portal
         href: alerts.md  
-      - name: Configure diagnostic logging
-        href: diagnostic-logging.md   
       - name: Configure diagnostic logging alerts
         href: ddos-diagnostic-alert-templates.md 
   - name: Test with simulation partners
@@ -79,8 +72,8 @@
     href: ddos-pricing-guide.md
   - name: Reference architectures
     href: ddos-protection-reference-architectures.md
-  - name: Monitoring Azure DDoS Protection 
-    href: monitor-ddos-protection-reference.md
+  - name: Monitor Azure DDoS Protection 
+    href: monitor-ddos-protection.md
   - name: Reliability
     href: ../reliability/reliability-ddos.md?toc=/azure/ddos-protection/TOC.json
   - name: Fundamental best practices
@@ -127,6 +120,8 @@
     href: /rest/api/virtualnetwork/ddosprotectionplans
   - name: Azure Resource Manager
     href: ../azure-resource-manager/management/overview.md
+  - name: Monitoring data reference
+    href: monitor-ddos-protection-reference.md
 - name: Resources
   items:
   - name: FAQ
