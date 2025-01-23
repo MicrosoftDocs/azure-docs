@@ -1,21 +1,27 @@
 ---
 title: AI playbook, examples, and samples
-description: Learn about AI integration examples, samples, and other resources using Standard workflows in Azure Logic Apps.
+description: Learn about AI integration examples, samples, and other resources using Standard and Consumption workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: conceptual
 ms.date: 01/23/2025
-#CustomerIntent: I want examples, samples, and other resources to help me learn how to integrate AI using Standard logic app workflows.
+#CustomerIntent: I want a guide that introduces starting points, building blocks, examples, samples, and other resources to help me learn about using AI in my integration solutions using Standard and Consumption workflows in Azure Logic Apps.
 ---
 
-# AI playbook, examples, and other resources for Standard workflows in Azure Logic Apps
+# AI playbook, examples, and other resources for workflows in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-AI capabilities are playing a quickly increasing role in building not only applications and other software, but also integration workloads across services, systems, apps, and data in enterprises and organizations.
+AI capabilities play a fast and growing role in applications and other software by performing useful and time-saving tasks. These capabilities also help you build integration workloads across services, systems, apps, and data in your enterprise or organization.
 
-To help with your AI journey, this guide provides building blocks, examples, samples, and other resources so you can learn about ways to integrate AI services, such as Azure OpenAI and Azure AI Search, with other cloud services, on-premises systems, apps, and data in your software ecosystem by using Standard workflows in Azure Logic Apps.
+This guide provides building blocks, examples, samples, and other resources that help you learn how to use AI services, such as Azure OpenAI and Azure AI Search, along with other services, systems, apps, and data in your integration solutions built with automated workflows in Azure Logic Apps.
+
+> [!NOTE]
+>
+> AI building blocks, such as built-in operations and connectors, are available for both Consumption and 
+> Standard workflows. However, the examples, samples, and resources use Standard workflows as examples. 
+> Stay tuned as this article evolves over time with more guidance.
 
 ## Building blocks for AI solutions
 
@@ -127,7 +133,6 @@ The following examples show ways that apply or implement the RAG pattern using S
 ##### Create an end-to-end RAG-based AI application with Azure Logic Apps
 
 [Build an end-to-end RAG-based AI application with Azure Logic Apps (Standard)](https://youtu.be/6QO4hKBmTR0)
-
 
 ##### Chat with insurance data
 
