@@ -72,7 +72,7 @@ You can edit the network features option of existing volumes from *Basic* to *St
 
 * You should only use the edit network features option for an [application volume group for SAP HANA](application-volume-group-introduction.md) if you have enrolled in the [extension one preview](application-volume-group-introduction.md#extension-1-features), which adds support for Standard network features. 
 * If you enabled both the `ANFStdToBasicNetworkFeaturesRevert` and `ANFBasicToStdNetworkFeaturesUpgrade` AFECs and are using 1 or 2-TiB capacity pools, see [Resize a capacity pool or a volume](azure-netapp-files-resize-capacity-pools-or-volumes.md) for information about sizing your capacity pools. 
-* <a name="no-downtime"></a> Azure NetApp Files supports a non-disruptive upgrade to Standard network features and a revert to Basic network features. This operation is expected to take at least 15 minutes. You can't create a regular or data protection volume or application volume group in the targeted network sibling set while the operation completes. This feature is currently in **preview** in the Australia East, Central India, East Asia, North Central US, and Switzerland North regions. In all other regions, updating network features causes a disruption to connectivity on the volumes for up to 5 minutes. 
+* <a name="no-downtime"></a> Azure NetApp Files supports non-disruptive upgrade to Standard network features and reversion to Basic network features. This operation is expected to take at least 15 minutes. You can't create a regular or data protection volume or application volume group in the targeted network sibling set while the operation completes. This feature is currently in **preview**.
 
 > [!NOTE]
 > You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files standard networking features (edit volumes) Request Form](https://aka.ms/anfeditnetworkfeaturespreview)**. The feature can take approximately one week to be enabled after you submit the waitlist request. You can check the status of feature registration by using the following command: 
@@ -86,7 +86,7 @@ You can edit the network features option of existing volumes from *Basic* to *St
 > ```
 
 > [!NOTE]
-> You can also revert the option from *Standard* back to *Basic* network features. Before performing the revert operation, you must submit a waitlist request through the **[Azure NetApp Files standard networking features (edit volumes) Request Form](https://aka.ms/anfeditnetworkfeatures)**. The revert capability can take approximately one week to be enabled after you submit the waitlist request. You can check the status of the registration by using the following command: 
+> You can revert the option from *Standard* back to *Basic* network features. Before performing the revert operation, you must submit a waitlist request through the **[Azure NetApp Files standard networking features (edit volumes) Request Form](https://aka.ms/anfeditnetworkfeatures)**. The revert capability can take approximately one week to be enabled after you submit the waitlist request. You can check the status of the registration by using the following command: 
 >
 > ```azurepowershell-interactive
 > Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFStdToBasicNetworkFeaturesRevert                                                      
