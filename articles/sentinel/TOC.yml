@@ -402,6 +402,8 @@
       href: data-connectors/dynatrace-problems.md
     - name: Dynatrace Runtime Vulnerabilities
       href: data-connectors/dynatrace-runtime-vulnerabilities.md
+    - name: ESET Protect Platform (using Azure Functions)
+      href: data-connectors/eset-protect-platform.md
     - name: Elastic Agent (Standalone)
       href: data-connectors/elastic-agent-standalone.md
     - name: Exchange Security Insights On-Premises Collector
