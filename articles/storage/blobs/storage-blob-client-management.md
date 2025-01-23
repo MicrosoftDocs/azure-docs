@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/05/2024
+ms.date: 01/24/2024
 ms.author: pauljewell
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
@@ -38,10 +38,9 @@ The following table lists the different client classes for each language:
 | Java | [com.azure.storage.blob](/java/api/com.azure.storage.blob)<br>[com.azure.storage.blob.models](/java/api/com.azure.storage.blob.models)<br>[com.azure.storage.blob.specialized](/java/api/com.azure.storage.blob.specialized) | [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient)<br>[BlobServiceAsyncClient](/java/api/com.azure.storage.blob.blobserviceasyncclient)<br>[BlobServiceClientBuilder](/java/api/com.azure.storage.blob.blobserviceclientbuilder) | [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient)<br>[BlobContainerAsyncClient](/java/api/com.azure.storage.blob.blobcontainerasyncclient)<br>[BlobContainerClientBuilder](/java/api/com.azure.storage.blob.blobcontainerclientbuilder) | [BlobClient](/java/api/com.azure.storage.blob.blobclient)<br>[BlobAsyncClient](/java/api/com.azure.storage.blob.blobasyncclient)<br>[BlobClientBuilder](/java/api/com.azure.storage.blob.blobclientbuilder)<br>[BlockBlobClient](/java/api/com.azure.storage.blob.specialized.blockblobclient)<br>[AppendBlobClient](/java/api/com.azure.storage.blob.specialized.appendblobclient)<br>[PageBlobClient](/java/api/com.azure.storage.blob.specialized.pageblobclient) |
 | JavaScript | [@azure/storage-blob](/javascript/api/overview/azure/storage-blob-readme) | [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) | [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) | [BlobClient](/javascript/api/@azure/storage-blob/blobclient)<br>[BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient)<br>[AppendBlobClient](/javascript/api/@azure/storage-blob/appendblobclient)<br>[PageBlobClient](/javascript/api/@azure/storage-blob/pageblobclient) |
 | Python | [azure.storage.blob](/python/api/azure-storage-blob/azure.storage.blob) | [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) | [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) | [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient)<sup>1</sup> |
-| Go | [azblob](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob) | [azblob.Client](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client)<sup>2</sup> | [container.Client](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/container#Client) | [blob.Client](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob#Client)<br>[blockblob.Client](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blockblob#Client)<br>[appendblob.Client](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/appendblob#Client)<br>[pageblob.Client](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/pageblob#Client) |
+| Go | [azblob](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob) | [azblob.Client](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client) | [container.Client](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/container#Client) | [blob.Client](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob#Client)<br>[blockblob.Client](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blockblob#Client)<br>[appendblob.Client](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/appendblob#Client)<br>[pageblob.Client](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/pageblob#Client) |
 
 <sup>1</sup> For Python, `BlobClient` includes methods for specialized blob types.
-<sup>2</sup> For Go, `azblob.Client` provides methods for working with containers and blobs within a storage account. Specialized clients are available in subpackages within `azblob`.
 
 Each client type can be instantiated by calling a simple constructor, or an overload that takes various configuration options. For Java, each client type has a separate class which provides a builder API to help with configuration and instantiation. Depending on the language SDK, these client configuration options are passed to the constructor in different ways. See the class reference from the table for details.
 
@@ -188,7 +187,7 @@ func getClient(accountName string) *azblob.Client {
 }
 ```
 
-Instances of `azblob.Client` provide methods for working with containers and blobs within a storage account. The storage account endpoint is specified when constructing the client object.
+Instances of `azblob.Client` provide methods for working with containers and blobs within a storage account. Specify the storage account endpoint when constructing the client object.
 
 ---
 
@@ -240,15 +239,30 @@ def get_blob_container_client(self, blob_service_client: BlobServiceClient, cont
 
 ## [Go](#tab/go)
 
+Add the following `import` statements:
+
 ```go
-func getBlobContainerClient(client *azblob.Client, containerName string) *azblob.ContainerClient {
-    // Create the container client using the azblob client object
-    containerClient := client.ServiceClient().NewContainerClient(containerName)
-    return containerClient
+import (
+    "context"
+    "fmt"
+
+    "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	"github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
+    "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/container"
+)
+```
+
+Add the following code to create the container client object:
+
+```go
+func getBlobContainerClient(client *azblob.Client, containerName string) *container.Client {
+	// Create the container client using the azblob client object
+	containerClient := client.ServiceClient().NewContainerClient(containerName)
+	return containerClient
 }
 ```
 
-Instances of `azblob.Client` provide methods for working with containers and blobs within a storage account. For most operations, you can use the `azblob.Client` instance rather than creating a separate `ContainerClient` instance.
+Instances of `azblob.Client` provide methods for working with containers and blobs within a storage account. For most operations, you can use the `azblob.Client` instance rather than creating a separate `container.Client` instance.
 
 ---
 
@@ -333,7 +347,7 @@ import (
 )
 ```
 
-Add the following code to create the client object:
+Add the following code to create the container client object:
 
 ```go
 func getBlobContainerClient(accountName string, containerName string) *container.Client {
@@ -403,15 +417,29 @@ def get_blob_client(self, blob_service_client: BlobServiceClient, container_name
 
 ## [Go](#tab/go)
 
+Add the following `import` statements:
+
 ```go
-func getBlobClient(client *azblob.Client, containerName string, blobName string) *azblob.BlobClient {
-    // Create the blob client using the azblob client object
-    blobClient := client.ServiceClient().NewContainerClient(containerName).NewBlobClient(blobName)
-    return blobClient
+import (
+    "context"
+    "fmt"
+
+    "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob"
+)
+```
+
+Add the following code to create the blob client object:
+
+```go
+func getBlobClient(client *azblob.Client, containerName string, blobName string) *blob.Client {
+	// Create the blob client using the azblob client object
+	blobClient := client.ServiceClient().NewContainerClient(containerName).NewBlobClient(blobName)
+	return blobClient
 }
 ```
 
-Instances of `azblob.Client` provide methods for working with containers and blobs within a storage account. For most operations, you can use the `azblob.Client` instance rather than creating a separate `BlobClient` instance.
+Instances of `azblob.Client` provide methods for working with containers and blobs within a storage account. For most operations, you can use the `azblob.Client` instance rather than creating a separate `blob.Client` instance.
 
 ---
 
