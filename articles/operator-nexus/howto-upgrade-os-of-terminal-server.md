@@ -3,7 +3,7 @@ title: How to Upgrade the operating system of a Terminal Server
 description: Learn the process for upgrading the operating system of a Terminal Server
 author: sushantjrao 
 ms.author: sushrao
-ms.date: 23/01/2024
+ms.date: 01/23/2024
 ms.topic: how-to
 ms.service: azure-operator-nexus
 ms.custom: template-how-to, devx-track-azurecli
