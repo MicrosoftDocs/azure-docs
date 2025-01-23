@@ -4,7 +4,7 @@ description: This article describes management of a Confluent Cloud on the Azure
 # customerIntent: As a developer I want to learn how to manage Apache Kafka & Apache Flink on Confluent Cloud, so that I can enable single sign-on, delete a Confluent organization, and get support. 
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 1/31/2024
+ms.date: 01/23/2025
 
 ---
 
@@ -35,20 +35,13 @@ To enable SSO, follow these steps:
 
 For information about setting up your cluster, see [Create a Cluster in Confluent Cloud - Confluent Documentation](https://docs.confluent.io/cloud/current/clusters/create-cluster.html).
 
-## Delete Confluent organization
+## Delete a Confluent resource
 
 When you no longer need your Confluent Cloud resource, delete the resource in Azure and Confluent Cloud.
 
 ### [Portal](#tab/azure-portal)
 
-To delete the resources in Azure:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select **All Resources** and **Filter by the name** of the Confluent Cloud resource or the **Resource Type** _Confluent organization_. Or in the Azure portal, search for the resource name.
-1. In the resource's **Overview** select **Delete**.
-1. To confirm the deletion, type the resource name and select **Delete**.
-
-    :::image type="content" source="media/delete-resources-prompt.png" alt-text="Prompt to confirm resource deletion.":::
+[!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
 ### [Azure CLI](#tab/azure-cli)
 
