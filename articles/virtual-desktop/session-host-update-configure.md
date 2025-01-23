@@ -86,9 +86,7 @@ When you schedule an update, the session host configuration for the host pool is
 To schedule an update for your session hosts, select the relevant tab for your scenario and follow the steps.
 
 > [!IMPORTANT]
-> - During an update, the number of available session hosts for user sessions is reduced and any logged on users will be asked to log off. We recommend you schedule an update during less busy periods to minimize disruption to end users.
->
-> - If you use a custom network security group (NSG) for the session hosts you want to update, there's a known issue where you can't start an update using the Azure portal. To work around this issue, use Azure PowerShell to start the update.
+> During an update, the number of available session hosts for user sessions is reduced and any logged on users will be asked to log off. We recommend you schedule an update during less busy periods to minimize disruption to end users.
 
 # [Azure portal](#tab/portal)
 
