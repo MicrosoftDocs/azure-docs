@@ -5,7 +5,7 @@ summary: Azure Functions is a managed platform-as-a-service (PaaS) provider that
 
 metadata:
   title: Azure Functions documentation
-  description: Azure Functions is a managed platform-as-a-service (PaaS) provider that provides event-driven and scheduled compute resources for Azure cloud services. You can focus on the code that matters most to you and Functions handles the rest. Functions can provide scalable and serverless hosting for your code projects written in the most productive language for you. You can use Functions to build web APIs, respond to database changes, process IoT streams, manage message queues, and more. 
+  description: Azure Functions is a managed platform-as-a-service (PaaS) provider that provides event-driven and scheduled compute resources for Azure cloud services. You can focus on the code that matters most to you and Functions handles the rest. Functions can provide scalable and serverless hosting for your code projects written in the most productive language for you. You can use Functions to build web APIs, respond to database changes, process IoT streams, manage message queues, and more.
   ms.service: azure-functions
   ms.topic: landing-page
   author: ggailey777
@@ -72,6 +72,24 @@ landingContent:
             url: create-first-function-vs-code-python.md
           - text: Create serverless APIs using Visual Studio
             url: openapi-apim-integrate-visual-studio.md
+  - title: Languages
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: C#
+            url: dotnet-isolated-process-guide.md
+          - text: Java
+            url: functions-reference-java.md
+          - text: JavaScript
+            url: functions-reference-node.md?tabs=javascript
+          - text: PowerShell
+            url: functions-reference-powershell.md
+          - text: Python
+            url: functions-reference-python.md
+          - text: Rust/Go
+            url: create-first-function-vs-code-other.md
+          - text: TypeScript
+            url: functions-reference-node.md?tabs=typescript
   - title: Durable Functions
     linkLists:
       - linkListType: concept
@@ -92,24 +110,6 @@ landingContent:
         links:
           - text: Create a long-running serverless workflow 
             url: /training/modules/create-long-running-serverless-workflow-with-durable-functions/
-  - title: Languages
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: C#
-            url: dotnet-isolated-process-guide.md
-          - text: Java
-            url: functions-reference-java.md
-          - text: JavaScript
-            url: functions-reference-node.md?tabs=javascript
-          - text: PowerShell
-            url: functions-reference-powershell.md
-          - text: Python
-            url: functions-reference-python.md
-          - text: Rust/Go
-            url: create-first-function-vs-code-other.md
-          - text: TypeScript
-            url: functions-reference-node.md?tabs=typescript
   - title: Deployment
     linkLists:
       - linkListType: how-to-guide
