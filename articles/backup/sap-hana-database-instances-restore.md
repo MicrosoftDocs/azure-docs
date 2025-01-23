@@ -4,8 +4,8 @@ description: In this article, you'll learn how to restore SAP HANA database inst
 ms.topic: how-to
 ms.date: 09/11/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Restore SAP HANA database instance snapshots on Azure VMs
