@@ -48,7 +48,7 @@ Resiliency defines a workload's ability to be highly available by being able to 
 
 In the Azure public cloud platform, resiliency is a shared responsibility between Microsoft and you. Because there are different levels of resiliency in each workload that you design and deploy, it's important that you understand who has primary responsibility for each one of those levels from a resiliency perspective. To better understand how shared responsibility works, especially when confronting an outage or disaster, see [Shared responsibility for resiliency](concept-shared-responsibility.md).
 
-:::image type="content" source="media/shared-responsbility/shared-responsibility-model.jpg" alt-text="Diagram showing the shared responsibility model for Azure business continuity.":::
+:::image type="content" source="media/shared-responsibility/shared-responsibility-model.jpg" alt-text="Diagram showing the shared responsibility model for Azure business continuity.":::
 
 ## Azure regions
 
