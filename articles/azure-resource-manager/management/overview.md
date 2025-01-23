@@ -2,7 +2,7 @@
 title: Azure Resource Manager overview
 description: Describes how to use Azure Resource Manager for deployment, management, and access control of resources on Azure.
 ms.topic: overview
-ms.date: 05/31/2024
+ms.date: 01/23/2025
 ms.custom: devx-track-arm-template
 ---
 
@@ -27,17 +27,17 @@ The following image shows the role Azure Resource Manager plays in handling Azur
 All capabilities that are available in the portal are also available through PowerShell, Azure CLI, REST APIs, and client SDKs. Functionality initially released through APIs are represented in the portal within 180 days of initial release.
 
 > [!IMPORTANT]
-> Azure Resource Manager will only support Transport Layer Security (TLS) 1.2 or later by Fall 2023. For more information, see [Migrating to TLS 1.2 for Azure Resource Manager](tls-support.md).
+> Starting in the third quarter of 2023, Azure Resource Manager supports only Transport Layer Security (TLS) 1.2 or later. For more information, see [Migrating to TLS 1.2 for Azure Resource Manager](tls-support.md).
 
 ## Terminology
 
-If you're new to Azure Resource Manager, there are some terms you might not be familiar with.
+If you're new to Azure Resource Manager, you might not be familiar with some terms.
 
-* **resource** - A manageable item that is available through Azure. Virtual machines, storage accounts, web apps, databases, and virtual networks are examples of resources. Resource groups, subscriptions, management groups, and tags are also examples of resources.
+* **resource** - A manageable item that's available through Azure. Examples of resources include virtual machines, storage accounts, web apps, databases, and virtual networks. Resource groups, subscriptions, management groups, and tags are also resources.
 * **resource group** - A container that holds related resources for an Azure solution. The resource group includes those resources that you want to manage as a group. You decide which resources belong in a resource group based on what makes the most sense for your organization. See [What is a resource group?](#resource-groups).
 * **resource provider** - A service that supplies Azure resources. For example, a common resource provider is `Microsoft.Compute`, which supplies the virtual machine resource. `Microsoft.Storage` is another common resource provider. See [Resource providers and types](resource-providers-and-types.md).
 * **declarative syntax** - Syntax that lets you state "Here's what I intend to create" without having to write the sequence of programming commands to create it. ARM templates and Bicep files are examples of declarative syntax. In those files, you define the properties for the infrastructure to deploy to Azure.
-* **ARM template** - A JavaScript Object Notation (JSON) file that defines one or more resources to deploy to a resource group, subscription, management group, or tenant. The template can be used to deploy the resources consistently and repeatedly. See [Template deployment overview](../templates/overview.md).
+* **ARM template** - A JavaScript Object Notation (JSON) file that defines one or more resources to deploy to a resource group, subscription, management group, or tenant. Use the template to deploy the resources consistently and repeatedly. See [Template deployment overview](../templates/overview.md).
 * **Bicep file** - A file for declaratively deploying Azure resources. Bicep is a language that was designed to provide the best authoring experience for infrastructure as code solutions in Azure. See [Bicep overview](../bicep/overview.md).
 * **extension resource** - A resource that adds to another resource's capabilities. For example, a role assignment is an extension resource. You apply a role assignment to any other resource to specify access. See [Extension resources](./extension-resource-types.md).
 
@@ -75,11 +75,11 @@ You can deploy templates to tenants, management groups, subscriptions, or resour
 
 ## <a name="resource-groups"></a>What is a resource group?
 
-A resource group is a container that enables you to manage related resources for an Azure solution. By using the resource group, you can coordinate changes to the related resources. For example, you can deploy an update to the resource group and have confidence that the resources are updated in a coordinated operation. Or, when you're finished with the solution, you can delete the resource group and know that all of the resources are deleted.
+A resource group is a container that you use to manage related resources for an Azure solution. By using the resource group, you can coordinate changes to the related resources. For example, you can deploy an update to the resource group and have confidence that the resources are updated in a coordinated operation. Or, when you're finished with the solution, you can delete the resource group and know that all of the resources are deleted.
 
 There are some important factors to consider when defining your resource group:
 
-* All the resources in your resource group should share the same lifecycle. You deploy, update, and delete them together. If one resource, such as a server, needs to exist on a different deployment cycle it should be in another resource group.
+* All the resources in your resource group should share the same lifecycle. You deploy, update, and delete them together. If one resource, such as a server, needs to exist on a different deployment cycle, it should be in another resource group.
 
 * Each resource can exist in only one resource group.
 
@@ -101,21 +101,21 @@ There are some important factors to consider when defining your resource group:
 
 * Some resources can exist outside of a resource group. These resources are deployed to the [subscription](../templates/deploy-to-subscription.md), [management group](../templates/deploy-to-management-group.md), or [tenant](../templates/deploy-to-tenant.md). Only specific resource types are supported at these scopes.
 
-* To create a resource group, you can use the [portal](manage-resource-groups-portal.md#create-resource-groups), [PowerShell](manage-resource-groups-powershell.md#create-resource-groups), [Azure CLI](manage-resource-groups-cli.md#create-resource-groups), or an [ARM template](../templates/deploy-to-subscription.md#resource-groups).
+* To create a resource group, use the [portal](manage-resource-groups-portal.md#create-resource-groups), [PowerShell](manage-resource-groups-powershell.md#create-resource-groups), [Azure CLI](manage-resource-groups-cli.md#create-resource-groups), or an [ARM template](../templates/deploy-to-subscription.md#resource-groups).
 
 ## What location should I use for my resource group?
 
 When you create a resource group, you need to provide a location for that resource group.
 
-You may be wondering, "Why does a resource group need a location? And, if the resources can have different locations than the resource group, why does the resource group location matter at all?"
+You might wonder, "Why does a resource group need a location? And, if the resources can have different locations than the resource group, why does the resource group location matter at all?"
 
-The resource group stores metadata about the resources. When you specify a location for the resource group, you're specifying where that metadata is stored. For compliance reasons, you may need to ensure that your data is stored in a particular region.
+The resource group stores metadata about the resources. When you specify a location for the resource group, you're specifying where that metadata is stored. For compliance reasons, you might need to ensure that your data is stored in a particular region.
 
-To ensure state consistency for the resource group, all [control plane operations](./control-plane-and-data-plane.md) are routed through the resource group's location. When selecting a resource group location, we recommend that you select a location close to where your control operations originate. Typically, this location is the one closest to your current location. This routing requirement only applies to control plane operations for the resource group. It doesn't affect requests that are sent to your applications.
-  
-If a resource group's region is temporarily unavailable, you may not be able to update resources in the resource group because the metadata is unavailable. The resources in other regions still function as expected, but you may not be able to update them. This condition may also apply to global resources like Azure DNS, Azure DNS Private Zones, Azure Traffic Manager, and Azure Front Door. You can view which types have their metadata managed by Azure Resource Manager via the [list of types for the Azure Resource Graph resources table](../../governance/resource-graph/reference/supported-tables-resources.md#resources).
+To ensure state consistency for the resource group, all [control plane operations](./control-plane-and-data-plane.md) are routed through the resource group's location. When selecting a resource group location, we recommend that you select a location close to where your control operations originate. Typically, this location is the one closest to you. This routing requirement only applies to control plane operations for the resource group. It doesn't affect requests that are sent to your applications.
 
-To reduce the impact of regional outages, we recommend that you locate resources in the same region as the resource group. When the resource group's region is unavailable, Azure Resource Manager is unable to update your resource's metadata and blocks your write calls. By colocating your resource and resource group region, you reduce the risk of region unavailability because your resources and metadata exist in one region instead of multiple regions.
+If a resource group's region is temporarily unavailable, you might not be able to update resources in the resource group because the metadata is unavailable. The resources in other regions still function as expected, but you might not be able to update them. This condition might also apply to global resources like Azure DNS, Azure DNS Private Zones, Azure Traffic Manager, and Azure Front Door. You can view which types have their metadata managed by Azure Resource Manager in the [list of types for the Azure Resource Graph resources table](../../governance/resource-graph/reference/supported-tables-resources.md#resources).
+
+To reduce the impact of regional outages, we recommend that you locate resources in the same region as the resource group. When the resource group's region is unavailable, Azure Resource Manager can't update your resource's metadata and blocks your write calls. By colocating your resource and resource group region, you reduce the risk of region unavailability because your resources and metadata exist in one region instead of multiple regions.
 
 For more information about building reliable applications, see [Designing reliable Azure applications](/azure/architecture/checklist/resiliency-per-service).
 
@@ -123,9 +123,9 @@ For more information about building reliable applications, see [Designing reliab
 
 The Azure Resource Manager service is designed for resiliency and continuous availability. Resource Manager and control plane operations (requests sent to `management.azure.com`) in the REST API are:
 
-* Distributed across regions. Azure Resource Manager has a separate instance in each region of Azure, meaning that a failure of the Azure Resource Manager instance in one region doesn't affect the availability of Azure Resource Manager or other Azure services in another region. Although Azure Resource Manager is distributed across regions, some services are regional. This distinction means that while the initial handling of the control plane operation is resilient, the request may be susceptible to regional outages when forwarded to the service.
+* Distributed across regions. Azure Resource Manager has a separate instance in each region of Azure, meaning that a failure of the Azure Resource Manager instance in one region doesn't affect the availability of Azure Resource Manager or other Azure services in another region. Although Azure Resource Manager is distributed across regions, some services are regional. This distinction means that while the initial handling of the control plane operation is resilient, the request might be susceptible to regional outages when forwarded to the service.
 
-* Distributed across Availability Zones (and regions) in locations that have multiple Availability Zones. This distribution ensures that when a region loses one or more zones, Azure Resource Manager can either fail over to another zone or to another region to continue to provide control plane capability for the resources.
+* Distributed across availability zones (and regions) in locations that have multiple availability zones. This distribution ensures that when a region loses one or more zones, Azure Resource Manager can fail over to another zone or region. It continues to provide control plane capability for the resources.
 
 * Not dependent on a single logical data center.
 
