@@ -11,7 +11,7 @@ ms.custom: template-how-to, devx-track-azurecli
 
 # Replacing a terminal server
 
-This guide provides a step-by-step process for replacing a Terminal Server (TS) within a network environment. The procedure includes cleaning up the existing TS, removing the device, installing a new TS, and configuring it through customer actions and Microsoft engineering support.
+This guide provides a step-by-step process for replacing a Terminal Server (TS) within a network environment. The procedure includes cleaning up the existing TS, removing the TS, installing a new TS, and configuring the Terminal Server.
 
 ## Pre-Replacement Cleanup (Customer Action)
 
@@ -47,7 +47,7 @@ After the old TS is removed, install the new Terminal Server in the rack. Follow
 
 Validate the connectivity of both Net1 and Net2 interfaces to ensure proper network functionality.
 
-Set up the terminal server device with the same password and username as before. This password can be obtained from the customer NFC KeyVault secrets. The username can be obtained by doing an ARM GET on the network fabric resource.
+Set up the terminal server device with the same password and username as before. This password can be obtained from the customer Network Fabric Controller (NFC) KeyVault secrets. The username can be obtained by doing an ARM GET on the network fabric resource.
 
 ### Microsoft Engineering Support
 
@@ -59,10 +59,10 @@ After the new Terminal Server is installed and configured, open a support ticket
 Wait for the operation to complete.
 
 [!Note:] The lockbox operation will execute the following tasks:
-> •	Configure essential services, including httpd and dhcpd.
-> •	Set up the Net3 interface.
-> •	Copy necessary OS, dhcpd configuration, device configurations, and certificate files to the appropriate directories.
-> •	Transfer the configuration files and certificates to the /mnt/nvram/conf directory.
-> •	Restart the DHCPD service.
-> •	Ensure that configuration files are accessible via the HTTP service for further validation.
+> •	Configure's essential services, including httpd and dhcpd.
+> •	Set's up the Net3 interface.
+> •	Copies necessary OS, dhcpd configuration, device configurations, and certificate files to the appropriate directories.
+> •	Transfers the configuration files and certificates to the /mnt/nvram/conf directory.
+> •	Restarts the DHCPD service.
+> •	Ensures that configuration files are accessible via the HTTP service for further validation.
 
