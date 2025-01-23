@@ -277,7 +277,7 @@ RESOURCE_GROUP=<your-resource-group>
 SERVICE_NAME=<your-api-management-service-name>
 
 az rest --method patch \
-    --uri "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.ApiManagement/service/SERVICE_NAME?api-version=2024-05-01" \
+    --uri "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.ApiManagement/service/$SERVICE_NAME?api-version=2024-05-01" \
     --body "{ \"properties\": { \"publicNetworkAccess\": \"Disabled\" } }"
 ```
 ---
