@@ -136,7 +136,7 @@ The queues, tables, and blobs used by Durable Functions are created in a configu
 Keep in mind these considerations when choosing the storage account used by your Durable function app: 
 
 + When not specified, the default `AzureWebJobsStorage` storage account is used. 
-+ When possible, you should use Microsoft Entra authentication with managed identities to secure your storage account connection. For more information, see [Connections](../functions-reference.md#connections).
++ When possible, you should use Microsoft Entra authentication with managed identities to secure your storage account connection. For more information, see [configure Durable Functions with managed identity](./durable-functions-configure-managed-identity.md).
 + For performance-sensitive workloads, you should configure a storage account other than the default account (`AzureWebJobsStorage`). Durable Functions uses Azure Storage heavily, and using a dedicated storage account isolates Durable Functions storage usage from the internal usage by the Azure Functions host.
 + Standard general purpose Azure Storage accounts are required when using the Azure Storage provider. All other storage account types aren't currently supported. 
 + We highly recommend using legacy v1 general purpose storage accounts for Durable Functions. The newer v2 storage accounts can be significantly more expensive for Durable Functions workloads. For more information on Azure Storage account types, see the [Storage account overview](../../storage/common/storage-account-overview.md) documentation.
