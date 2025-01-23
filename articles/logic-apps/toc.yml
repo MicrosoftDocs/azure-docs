@@ -70,6 +70,8 @@ items:
     href: logic-apps-serverless-overview.md
   - name: Business rules engine integration
     href: rules-engine/rules-engine-overview.md
+  - name: AI playbook and solution development
+    href: ai-resources.md
   - name: B2B integration & EDI processing
     href: logic-apps-enterprise-integration-overview.md
   - name: Mainframe modernization
@@ -123,8 +125,6 @@ items:
       href: create-publish-workflow-templates.md
     - name: Secure traffic between Standard workflows and virtual networks
       href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
-    - name: AI playbook and development resources
-      href: ai-resources.md
     - name: Develop for rules engine integration
       items:
       - name: Overview for rules engine integration
