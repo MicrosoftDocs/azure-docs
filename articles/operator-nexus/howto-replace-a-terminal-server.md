@@ -5,7 +5,7 @@ author: sushantjrao
 ms.author: sushrao
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 01/24/2024
+ms.date: 01/24/2025
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
