@@ -22,7 +22,7 @@ Existing implementations relied on SMTP Auth and elevated trust relationship bec
 Follow our standard [guide](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365) to understand the general configuration of a "device" that wants to send email via Microsoft 365.
 
 > [!WARNING]
-> SMTP Auth (Basic Auth for Client submission) will be permanently **disabled by September 2025**. We strongly encourage customers to move away from using Basic authentication with SMTP AUTH as soon as possible. See the latest [post](https://techcommunity.microsoft.com/blog/exchange/exchange-online-to-retire-basic-auth-for-client-submission-smtp-auth/4114750) by our Exchange Online team on the matter.
+> SMTP Auth (Basic Auth for Client submission) will be permanently **disabled**. Find exact timelines [here](https://techcommunity.microsoft.com/blog/exchange/exchange-online-to-retire-basic-auth-for-client-submission-smtp-auth/4114750). We strongly encourage customers to move away from using Basic authentication with SMTP AUTH as soon as possible. We recommend adopting option 3 instead.
 
 ## Setup considerations
 
@@ -30,7 +30,7 @@ Currently, there are four different options supported by SAP NetWeaver that we w
 
 1.  SMTP Authentication Client Submission (**retiring soon!**)
 1.  SMTP Direct Send
-1.  Using Exchange Online SMTP relay connector
+1.  Using Exchange Online SMTP relay connector (**recommended**)
 1.  Using SMTP relay server as intermediary to Exchange Online
 
 For brevity we'll refer to the [**SAP Connect administration tool**](https://wiki.scn.sap.com/wiki/display/SI/SCOT+-+SAPconnect+Administration) used for the mail server setup only by its transaction code SCOT.
