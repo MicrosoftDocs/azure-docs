@@ -1,6 +1,6 @@
 ---
-title: How to restrict serial port access and set timeout on terminal server
-description: Process of configuring serial port access restrictions and timeout settings on terminal server
+title: How to restrict serial port access and set time-out on terminal server
+description: Process of configuring serial port access restrictions and time-out settings on terminal server
 author: sushantjrao 
 ms.author: sushrao
 ms.service: azure-operator-nexus
@@ -9,19 +9,19 @@ ms.date: 01/24/2024
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
-# How to restrict serial port access to a single session and set a 15-Minute timeout on a Terminal Server
+# How to restrict serial port access to a single session and set a 15-Minute hout on a Terminal Server
 
-This guide explains how to configure a Terminal Server to restrict serial port access to a single session and set the default timeout to 15 minutes.
+This guide explains how to configure a Terminal Server to restrict serial port access to a single session and set the default time-out to 15 minutes.
 
 ## Prerequisites
 
-- **Terminal Server requirements**: Ensure the Terminal Server is running OS version `24.07.1` or above.  
-  For upgrade instructions, refer to [How to Upgrade Terminal Server OS](howto-upgrade-os-of-terminal-server.md).
+The Terminal Server must run OS version 24.07.1 or a later version.<br>  
+For upgrade instructions, refer to [How to Upgrade Terminal Server OS](howto-upgrade-os-of-terminal-server.md).
 
 
-## Step 1: Set timeout for sessions
+## Step 1: Set time-out for sessions
 
-Configure the session timeouts for CLI, WebUI, and Serial Port access using the following commands:
+Configure the session time-outs for CLI, WebUI, and Serial Port access using the following commands:
 
 ```bash
 ogcli update system/cli_session_timeout timeout=15
@@ -29,9 +29,9 @@ ogcli update system/webui_session_timeout timeout=15
 ogcli update system/session_timeout serial_port_timeout=15
 ```
 
-## Step 2: Verify timeout settings
+## Step 2: Verify time-out settings
 
-Confirm the new timeout settings by running:
+Confirm the new time-out settings by running:
 
 ```bash
 ogcli get system/session_timeout
