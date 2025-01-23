@@ -52,7 +52,7 @@ Access logs and WAF logs include a *tracking reference*, which is also propagate
 
 Access logs, health probe logs, and WAF logs aren't enabled by default. To enable and store your diagnostic logs, see [Configure Azure Front Door logs](./standard-premium/how-to-logs.md). Activity log entries are collected by default, and you can view them in the Azure portal.
 
-## <a name="access-log"></a>Access log
+### <a name="access-log"></a>Access log
 
 Information about every request is logged into the access log. Each access log entry contains the information listed in the following table.
 
@@ -89,7 +89,7 @@ Information about every request is logged into the access log. Each access log e
 | Result | `SSLMismatchedSNI` is a status code that signifies a successful request with a mismatch warning between the SNI and the host header. This status code implies domain fronting, a technique that violates Azure Front Door’s terms of service. Requests with `SSLMismatchedSNI` will be rejected after January 22, 2024.|
 | Sni | This field specifies the Server Name Indication (SNI) that is sent during the TLS/SSL handshake. It can be used to identify the exact SNI value if there was a `SSLMismatchedSNI` status code. Additionally, it can be compared with the host value in the `requestUri` field to detect and resolve the mismatch issue. | 
 
-## Health probe log
+### Health probe log
 
 Azure Front Door logs every failed health probe request. These logs can help you to diagnose problems with an origin. The logs provide you with information that you can use to investigate the failure reason and then bring the origin back to a healthy status.
 
@@ -143,7 +143,7 @@ The following example JSON snippet shows a health probe log entry for a failed h
 }
 ```
 
-## Web application firewall log
+### Web application firewall log
 
 For more information on the Front Door web application firewall (WAF) logs, see [Azure Web Application Firewall monitoring and logging](../web-application-firewall/afds/waf-front-door-monitor.md).
 
@@ -153,7 +153,7 @@ For more information on the Front Door web application firewall (WAF) logs, see 
 
 For classic Azure Front Door, built-in monitoring includes diagnostic logs.
 
-## <a name="diagnostic-logging"></a>Diagnostic logs
+### <a name="diagnostic-logging"></a>Diagnostic logs
 
 Diagnostic logs provide rich information about operations and errors that are important for auditing and troubleshooting. Diagnostic logs differ from activity logs.
 
@@ -197,7 +197,7 @@ Front Door currently provides diagnostic logs. Diagnostic logs provide individua
 | Result | `SSLMismatchedSNI` is a status code that signifies a successful request with a mismatch warning between the SNI and the host header. This status code implies domain fronting, a technique that violates Azure Front Door’s terms of service. Requests with `SSLMismatchedSNI` will be rejected after January 22, 2024.|
 | Sni | This field specifies the Server Name Indication (SNI) that is sent during the TLS/SSL handshake. It can be used to identify the exact SNI value if there was a `SSLMismatchedSNI` status code. Additionally, it can be compared with the host value in the `requestUri` field to detect and resolve the mismatch issue. |
 
-### Sent to origin shield deprecation
+#### Sent to origin shield deprecation
 
 The raw log property **isSentToOriginShield** is deprecated and replaced by a new field **isReceivedFromClient**. Use the new field if you're already using the deprecated field. 
 
