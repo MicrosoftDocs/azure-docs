@@ -58,6 +58,8 @@ Azure Functions currently supports the following methods of deploying a containe
 + [GitHub Actions](https://github.com/Azure/azure-functions-on-container-apps/tree/main/samples/GitHubActions)
 + [Visual Studio Code](https://github.com/Azure/azure-functions-on-container-apps/tree/main/samples/VSCode%20Sample)
 
+You can continuously deploy your containerized apps from source code using either [Azure Pipelines](functions-how-to-azure-devops.mdpivots=v1#deploy-a-container) or [GitHub Actions](https://github.com/Azure/azure-functions-on-container-apps/tree/main/samples/GitHubActions). The continuous deployment feature of Functions isn't currently supported when deploying to Container Apps. 
+
 ## Managed identity authorization
 
 For the best security, you should connect to remote services using Microsoft Entra authentication and managed identity authorization. You can use managed identities for these connections:
