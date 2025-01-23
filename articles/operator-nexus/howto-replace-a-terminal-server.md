@@ -1,5 +1,5 @@
 ---
-title: How to replace a terminal server within within Nexus Network Fabric
+title: How to replace a terminal server within Nexus Network Fabric
 description: Process of replacing a terminal server
 author: sushantjrao 
 ms.author: sushrao
@@ -25,7 +25,7 @@ Before initiating the Return Merchandise Authorization (RMA) for the existing Te
 
 2. Stop Active Services
 
-    On the Terminal Server, navigate to the directory under /mnt/nvram/ that begins with the name “opengear” (ensure you select the directory for the latest version, if multiple directories are present).
+    On the Terminal Server, navigate to the directory under /mnt/nvram/ that begins with the name `opengear` (ensure you select the directory for the latest version, if multiple directories are present).
 
 3. Run the following command to stop the relevant services:
     

@@ -19,7 +19,7 @@ This document provides a step-by-step guide to upgrade the operating system (OS)
 
 - An **on-premises machine** with access to the Terminal Server for file transfers.
 
-- Dow**Latest firmware download**: [Opengear Firmware](https://ftp.opengear.com/download/opengear_appliances/OM/current/). 
+- Download **Latest firmware download**: [Opengear Firmware](https://ftp.opengear.com/download/opengear_appliances/OM/current/). 
 
 >[!Note:]
 > This guide has been validated with Opengear firmware version 24.07.1.
