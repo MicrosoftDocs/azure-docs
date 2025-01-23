@@ -27,7 +27,7 @@ The following image shows the role Azure Resource Manager plays in handling Azur
 All capabilities that are available in the portal are also available through PowerShell, Azure CLI, REST APIs, and client SDKs. Functionality initially released through APIs are represented in the portal within 180 days of initial release.
 
 > [!IMPORTANT]
-> Starting in the third quarter of 2023, Azure Resource Manager supports only Transport Layer Security (TLS) 1.2 or later. For more information, see [Migrating to TLS 1.2 for Azure Resource Manager](tls-support.md).
+> Azure Resource Manager will stop supporting protocols older than TLS 1.2 on March 1, 2025. For more information, see [Migrating to TLS 1.2 for Azure Resource Manager](tls-support.md).
 
 ## Terminology
 
