@@ -115,7 +115,7 @@ If the request is successful, the response includes a vector representation of t
 
 ## Configure semantic caching policies
 
-Configure the following policies to enable semantic caching for Azure OpenAI APIs in Azure API Management:
+To enable semantic caching for Azure OpenAI APIs in Azure API Management, apply the following policies: one to check the cache before sending requests (lookup) and another to store responses for future reuse (store):
 * In the **Inbound processing** section for the API, add the [azure-openai-semantic-cache-lookup](azure-openai-semantic-cache-lookup-policy.md) policy. In the `embeddings-backend-id` attribute, specify the Embeddings API backend you created.
 
     > [!NOTE]
