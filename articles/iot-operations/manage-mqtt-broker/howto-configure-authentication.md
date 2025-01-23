@@ -368,13 +368,13 @@ These commands create a CA certificate, `ca.pem`, and a private key, `ca-key.pem
 
 ### Import a trusted CA certificate
 
-To get started with X.509 authentication, import the trusted CA certificate into a config map in the `azure-iot-operations` namespace. To import a trusted CA certificate `ca.pem` into a config map named `client-ca`, run:
+To get started with X.509 authentication, import the trusted CA certificate into a ConfigMap in the `azure-iot-operations` namespace. To import a trusted CA certificate `ca.pem` into a ConfigMap named `client-ca`, run:
 
 ```bash
 kubectl create configmap client-ca --from-file=ca.pem -n azure-iot-operations
 ```
 
-In this example, the CA certificate is imported under the key `ca.pem`. The MQTT broker trusts all CA certificates in the config map, so you can use anything for the name of the key.
+In this example, the CA certificate is imported under the key `ca.pem`. The MQTT broker trusts all CA certificates in the ConfigMap, so you can use anything for the name of the key.
 
 To check that the root CA certificate is properly imported, run `kubectl describe configmap`. The result shows the same Base64 encoding of the PEM certificate file.
 
@@ -412,7 +412,7 @@ After the trusted CA certificate is imported, enable X.509 client authentication
 1. Choose an existing authentication policy or create a new one.
 1. Add a new method by selecting **Add method**.
 1. Choose the method type **X.509** from the dropdown list. Then select **Add details** to configure the method.
-1. On the **X.509 authentication details** pane, specify the trusted CA certificate config map name by using JSON format.
+1. On the **X.509 authentication details** pane, specify the trusted CA certificate ConfigMap name by using JSON format.
 
    ```json
    {
@@ -420,7 +420,7 @@ After the trusted CA certificate is imported, enable X.509 client authentication
    }
    ```
    
-   Replace `<TRUSTED_CA_CONFIGMAP>` with the name of the config map that contains the trusted CA certificate. For example, use `"trustedClientCaCert": "client-ca"`.
+   Replace `<TRUSTED_CA_CONFIGMAP>` with the name of the ConfigMap that contains the trusted CA certificate. For example, use `"trustedClientCaCert": "client-ca"`.
 
    :::image type="content" source="media/howto-configure-authentication/x509-method.png" alt-text="Screenshot that shows using the Azure portal to set the MQTT broker X.509 authentication method." lightbox="media/howto-configure-authentication/x509-method.png":::
 
@@ -473,7 +473,7 @@ resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authe
 
 ```
 
-Replace `<TRUSTED_CA_CONFIGMAP>` with the name of the config map that contains the trusted CA certificate. For example, use `client-ca`.
+Replace `<TRUSTED_CA_CONFIGMAP>` with the name of the ConfigMap that contains the trusted CA certificate. For example, use `client-ca`.
 
 Deploy the Bicep file by using the Azure CLI:
 
@@ -494,7 +494,7 @@ spec:
           ## See the next section for more information
 ```
 
-Replace `<TRUSTED_CA_CONFIGMAP>` with the name of the config map that contains the trusted CA certificate. For example, use `client-ca`.
+Replace `<TRUSTED_CA_CONFIGMAP>` with the name of the ConfigMap that contains the trusted CA certificate. For example, use `client-ca`.
 
 ---
 

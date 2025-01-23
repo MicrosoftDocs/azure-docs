@@ -162,7 +162,7 @@ This broker authorization allows clients with the client IDs `temperature-sensor
   - `temperature-sensor` can publish to `/telemetry/temperature-sensor` and `/telemetry/contoso`.
   - `humidity-sensor` can publish to `/telemetry/humidity-sensor` and `/telemetry/contoso`.
   - `some-other-username` can publish to `/telemetry/contoso`.
-- Subscribe to command topics scoped with their organization. For example:
+- Subscribe to `/commands/` topics scoped with their organization. For example:
   - `temperature-sensor` can subscribe to `/commands/contoso`.
   - `some-other-username` can subscribe to `/commands/contoso`.
 
@@ -560,13 +560,13 @@ The `method` field specifies the access level:
 
 The `keyType` field specifies the type of key matching:
 
-- `pattern`: Used for *Glob* style pattern matching.
+- `pattern`: Used for glob-style pattern matching.
 - `string`: Used to do exact match, for example, when a key contains characters that might be otherwise matched as a pattern (`*`, `?`, `[0-9]`).
 - `binary`: Used to match a binary key.
 
-The `keys` field specifies the keys to match. You can specify the keys as *Glob* style patterns, token substitutions, or exact strings.
+The `keys` field specifies the keys to match. You can specify the keys as glob-style patterns, token substitutions, or exact strings.
 
-- *Glob* style examples:
+- Glob style examples:
 
     - `colors/*`: All keys under the "colors/" prefix
     - `number[0-9]`: Any key from "number0" to "number9"
