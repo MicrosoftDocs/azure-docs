@@ -181,8 +181,8 @@ Snapshots are always differential from the live share and from each other. In th
 
 Some value-added services for Azure Files use snapshots as part of their value proposition. See [value-added services for Azure Files](#value-added-services) for more information.
 
-### Provisioned v2 soft-delete
-Deleted file shares in storage accounts with soft-delete enabled are billed based on the used storage capacity of the deleted share for the duration of the soft-delete period. To ensure that a deleted file share can always be restored, the provisioned storage, IOPS, and throughput of the share count against the storage account's limits until the file share is purged, however are not billed. For more information on soft-delete, see [How to enable soft delete on Azure file shares](storage-files-enable-soft-delete.md).
+### Provisioned v2 soft delete
+Deleted file shares in storage accounts with soft-delete enabled are billed based on the used storage capacity of the deleted share for the duration of the soft delete period. To ensure that a deleted file share can always be restored, the provisioned storage, IOPS, and throughput of the share count against the storage account's limits until the file share is purged, however are not billed. For more information on soft delete, see [How to enable soft delete on Azure file shares](storage-files-enable-soft-delete.md).
 
 ### Provisioned v2 billing meters
 File shares provisioned using the provisioned v2 billing model are billed against the following five billing meters:
@@ -204,7 +204,7 @@ Consumption against the provisioned v2 billing meters are emitted hourly in term
     - 31 day month: 761,856 units against the **Provisioned Storage** meter.
 
 ### Provisioned v2 migrations
-Migrating your SMB Azure file shares from a pay-as-you-go model to the provisioned v2 billing model is similar to migrating file shares between storage accounts. We recommend [using Robocopy](storage-files-migration-robocopy.md).
+Migrating your SMB Azure file shares from a pay-as-you-go model to the provisioned v2 billing model involves the same process as migrating file shares from any other SMB source. See [Migrate to SMB Azure file shares](storage-files-migration-overview.md). We recommend using [Robocopy](storage-files-migration-robocopy.md) or [Azure Storage Mover](migrate-files-storage-mover.md).
 
 ## Provisioned v1 model
 The provisioned v1 method provides storage, IOPS, and throughput in a fixed ratio to each other, similar to how storage is purchased in an on-premises storage solution. When you create a new provisioned v1 file share, you specify how much storage your share needs, and IOPS and throughput are computed values. The provisioned v1 model for Azure Files is only available for SSD file shares. 
@@ -282,8 +282,8 @@ Azure Files supports snapshots, which are similar to volume shadow copies (VSS) 
 
 Snapshots are always differential from the live share and from each other. In the provisioned v1 billing model, the total differential size is billed against a usage meter, regardless of how much provisioned storage is unused. The used snapshot storage meter has a reduced price over the provisioned storage price.
 
-### Provisioned v1 soft-delete
-Deleted file shares in storage accounts with soft-delete enabled are billed based on the used storage capacity of the deleted share for the duration of the soft-delete period. The soft-deleted usage storage capacity is emitted against the used snapshot storage meter. For more information on soft-delete, see [How to enable soft delete on Azure file shares](storage-files-enable-soft-delete.md).
+### Provisioned v1 soft delete
+Deleted file shares in storage accounts with soft-delete enabled are billed based on the used storage capacity of the deleted share for the duration of the soft delete period. The soft-deleted usage storage capacity is emitted against the used snapshot storage meter. For more information on soft delete, see [How to enable soft delete on Azure file shares](storage-files-enable-soft-delete.md).
 
 ### Provisioned v1 billing meters
 File shares provisioned using the provisioned v1 billing model are billed against the following two meters:
