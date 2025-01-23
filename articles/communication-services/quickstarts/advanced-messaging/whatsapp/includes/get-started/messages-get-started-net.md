@@ -30,8 +30,11 @@ The following classes and interfaces handle some of the major features of the Az
 | `NotificationMessagesClient`  | Connects to your Azure Communication Services resource. It sends the messages.              |
 | `MessageTemplate`             | Defines which template you use and the content of the template properties for your message. |
 | `TemplateNotificationContent` | Defines the "who" and the "what" of the template message you intend to send.                |
-| `TextNotificationContent`     | Defines the "who" and the "what" of the text message you intend to send.                    |
-| `MediaNotificationContent`    | Defines the "who" and the "what" of the media message you intend to send.                   |
+| `TextNotificationContent`     | Defines the "who" and the "what" of the text message you intend to send.                      |
+| `ImageNotificationContent`    | Defines the "who" and the "what" of the image media message you intend to send.             |
+| `DocumentNotificationContent` | Defines the "who" and the "what" of the Document media message you intend to send.             |
+| `VideoNotificationContent`    | Defines the "who" and the "what" of the Video media message you intend to send.             |
+| `AudioNotificationContent`    | Defines the "who" and the "what" of the Audio media message you intend to send.             |               |
 
 > [!NOTE]
 > For more information, see the Azure SDK for .NET reference [Azure.Communication.Messages Namespace](/dotnet/api/azure.communication.messages).
@@ -57,7 +60,7 @@ Follow these steps to add required code snippets to the Main function of your `P
 - [Send a video media message to a WhatsApp user](#send-a-video-media-message-to-a-whatsapp-user).
 
 > [!IMPORTANT]
-> To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+> To send a text or media message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
 ### Send a text message to a WhatsApp user
 
