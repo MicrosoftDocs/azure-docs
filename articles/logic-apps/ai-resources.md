@@ -13,9 +13,9 @@ ms.date: 01/23/2025
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-AI capabilities play a fast and growing role in applications and other software by performing useful and time-saving tasks. These capabilities also help you build integration workloads across services, systems, apps, and data in your enterprise or organization.
+AI capabilities play a fast and growing role in applications and other software by performing useful, time-saving, or novel tasks, such as chat interactions. These capabilities also help you build integration workloads across services, systems, apps, and data in your enterprise or organization.
 
-This guide provides building blocks, examples, samples, and other resources that help you learn how to use AI services, such as Azure OpenAI and Azure AI Search, along with other services, systems, apps, and data in your integration solutions built with automated workflows in Azure Logic Apps.
+This guide provides building blocks, examples, samples, and other resources that help show how to use AI services, such as Azure OpenAI and Azure AI Search, alongside other services, systems, apps, and data that work together in integration solutions built as automated workflows in Azure Logic Apps.
 
 > [!NOTE]
 >
