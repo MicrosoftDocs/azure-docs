@@ -4,7 +4,7 @@ description: Integrate an Amazon API Gateway to Azure API Center for automatic s
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 01/21/2025
+ms.date: 01/23/2025
 ms.author: danlep 
 ms.custom: devx-track-azurecli
 # Customer intent: As an API program manager, I want to integrate my Azure API Management instance with my API center and synchronize API Management APIs to my inventory.
