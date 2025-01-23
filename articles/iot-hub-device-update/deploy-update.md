@@ -3,7 +3,7 @@ title: Deploy an update by using Azure Device Update for IoT Hub | Microsoft Doc
 description: Learn how to deploy an update to IoT devices by using Azure Device Update for IoT Hub in the Azure portal or with Azure CLI.
 author: vimeht
 ms.author: vimeht
-ms.date: 01/10/2025
+ms.date: 01/23/2025
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.custom: devx-track-azurecli
@@ -32,9 +32,9 @@ This section describes how to deploy the update by using the Azure portal or Azu
 
    :::image type="content" source="media/deploy-update/device-update-iot-hub.png" alt-text="Screenshot that shows the Get started with the Device Update for IoT Hub page." lightbox="media/deploy-update/device-update-iot-hub.png":::
 
-1. On the **Updates** page, select the **Groups and Deployments** tab and view the [update compliance chart](device-update-compliance.md) and [device group list](device-update-groups.md). You might need to refresh the view to see the new imported update available for your device group.
+1. On the **Updates** page, select the **Groups and Deployments** tab and view the [update compliance chart](device-update-compliance.md) and [device group list](device-update-groups.md). You might need to refresh the view to see recently imported updates available for your device group.
 
-   Under **Status** in the group list, select **Deploy** next to **One or more new updates are available for this group**.
+1. Under **Status** in the group list, select **Deploy** next to **One or more new updates are available for this group**.
 
    :::image type="content" source="media/deploy-update/updated-view.png" alt-text="Screenshot that shows the Groups and Deployments tab." lightbox="media/deploy-update/updated-view.png":::
 
@@ -188,7 +188,7 @@ az iot du device deployment create \
 
    :::image type="content" source="media/deploy-update/deployment-details.png" alt-text="Screenshot that shows deployment details." lightbox="media/deploy-update/deployment-details.png":::
 
-Go to the **Group basics** tab of the **Group details** page to search the status for a particular device, or filter to view devices that failed the deployment.
+Go to the **Group basics** tab of the **Group details** page to search for the status of a particular device, or filter to view devices that failed the deployment.
 
 # [Azure CLI](#tab/cli)
 

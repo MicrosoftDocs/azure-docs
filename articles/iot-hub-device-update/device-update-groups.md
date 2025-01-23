@@ -3,7 +3,7 @@ title: Azure Device Update for IoT Hub device groups
 description: Understand Azure Device Update for IoT Hub user-assigned and default device groups and subgroups based on device classes.
 author: aysancag
 ms.author: aysancag
-ms.date: 01/10/2025
+ms.date: 01/23/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -27,7 +27,7 @@ You define device groups by using *tags*. Device Update creates user-defined gro
 
 ## Default device groups
 
-Devices that have the Device Update agent installed and provisioned but don't have an `ADUGroup` tag in their device or module twins are automatically added to a `default` group based on their device class. Devices with the same device class are grouped together in the default group, also called a *system-assigned group*.
+Devices that have the Device Update agent installed and provisioned but don't have an `ADUGroup` tag in their device or module twins are automatically added to a `default` group based on their device class. Devices with the same device class are grouped together in a default group, also called a *system-assigned group*.
 
 Users can't delete or recreate default groups, change their definitions, or add or remove devices from default groups manually. Default group names have the format `Default-<deviceClassID>`, and are reserved within an IoT solution.
 

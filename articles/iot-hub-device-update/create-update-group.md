@@ -3,7 +3,7 @@ title: Manage device groups for Azure Device Update for IoT Hub | Microsoft Docs
 description: Learn how to configure Azure Device Update for IoT Hub device groups by using tags in the Azure portal or with Azure CLI.
 author: vimeht
 ms.author: vimeht
-ms.date: 01/10/2025
+ms.date: 01/23/2025
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -19,10 +19,31 @@ This article describes how to use the Azure portal or Azure CLI to create and ma
 
 ## Prerequisites
 
+# [Azure portal](#tab/portal)
+
 - A Standard (S1) or higher instance of [Azure IoT Hub](/azure/iot-hub/create-hub?tabs=portal) with [Device Update for IoT Hub enabled](create-device-update-account.md).
 - An IoT device or simulator [provisioned for Device Update](device-update-agent-provisioning.md) within the IoT hub.
 - The Device Update agent installed and started on the device either as a module- or device-level identity.
 - An [imported update for the provisioned device](import-update.md).
+
+# [Azure CLI](#tab/cli)
+
+- A Standard (S1) or higher instance of [Azure IoT Hub](/azure/iot-hub/create-hub?tabs=portal) with [Device Update for IoT Hub enabled](create-device-update-account.md).
+- An IoT device or simulator [provisioned for Device Update](device-update-agent-provisioning.md) within the IoT hub.
+- The Device Update agent installed and started on the device either as a module- or device-level identity.
+- An [imported update for the provisioned device](import-update.md).
+- The Bash environment in [Azure Cloud Shell](/azure/cloud-shell/quickstart) to run the Azure CLI commands. Select **Launch Cloud Shell** to open Cloud Shell, or select the Cloud Shell icon in the top toolbar of the Azure portal.
+
+  :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
+
+  >[!NOTE]
+  >If you prefer, you can run the Azure CLI commands locally:
+  >
+  >1. [Install Azure CLI](/cli/azure/install-azure-cli). Run [az version](/cli/azure/reference-index#az-version) to see the installed Azure CLI version and dependent libraries, and run [az upgrade](/cli/azure/reference-index#az-upgrade) to install the latest version.
+  >1. Sign in to Azure by running [az login](/cli/azure/reference-index#az-login).
+  >1. Install the `azure-iot` extension when prompted on first use. To make sure you're using the latest version of the extension, run `az extension update --name azure-iot`.
+
+---
 
 ## Add tags to your devices
 
@@ -87,17 +108,6 @@ You can also add or update the `ADUGroup` tag directly in the device or module t
 
 # [Azure CLI](#tab/cli)
 
-You can use the Bash environment in [Azure Cloud Shell](/azure/cloud-shell/quickstart) to run the following Azure CLI commands. Select **Launch Cloud Shell** to open Cloud Shell, or select the Cloud Shell icon in the top toolbar of the Azure portal.
-
-:::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
-
->[!NOTE]
->If you prefer, you can run the Azure CLI commands locally:
->
->1. [Install Azure CLI](/cli/azure/install-azure-cli). Run [az version](/cli/azure/reference-index#az-version) to see the installed Azure CLI version and dependent libraries, and run [az upgrade](/cli/azure/reference-index#az-upgrade) to install the latest version.
->1. Sign in to Azure by running [az login](/cli/azure/reference-index#az-login).
->1. Install the `azure-iot` extension when prompted on first use. To make sure you're using the latest version of the extension, run `az extension update --name azure-iot`.
-
 Use [az iot hub device-twin update](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-update) or [az iot hub module-twin update](/cli/azure/iot/hub/module-twin#az-iot-hub-module-twin-update) to add the `ADUGroup` tag to the device or module twin with an appropriate value. For both `update` commands, the `--tags` argument accepts either inline JSON or a path to a JSON file.
 
 For example:
@@ -122,7 +132,7 @@ az iot hub module-twin update \
 
    :::image type="content" source="media/create-update-group/ungrouped-devices.png" alt-text="Screenshot of ungrouped devices." lightbox="media/create-update-group/ungrouped-devices.png":::
 
-Once you create a group, the compliance chart and group list update. The Device Update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. For more information, see [Device Update compliance.](device-update-compliance.md).
+Once you create a group, the compliance chart and group list update. The Device Update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. For more information, see [Device Update compliance](device-update-compliance.md).
 
 Existing Device Update groups and any available updates for the devices in those groups appear in the group list. Any devices that don't meet the device class requirements of the group appear in a corresponding invalid group. You can deploy the best available update to a group from this view by selecting **Deploy** next to the group.
 
@@ -190,12 +200,12 @@ This action deletes the group tag from the device twin and removes the device fr
 
 ## Delete a device group
 
-Device Update automatically creates device groups, but it retains device groups, device classes, and deployments for historical records or other user needs, and doesn't automatically clean them up. You can delete device groups through the Azure portal by individually selecting and deleting the groups, or by calling the [`az iot du device group delete`](/cli/azure/iot/du/device/group#az-iot-du-device-group-delete) API on the group.
+Device Update automatically creates device groups, and it retains device groups, device classes, and deployments for historical records or other user needs, rather than automatically cleaning them up. You can delete device groups through the Azure portal by individually selecting and deleting the groups, or by calling the [`az iot du device group delete`](/cli/azure/iot/du/device/group#az-iot-du-device-group-delete) Azure CLI command on the group.
 
 To be deleted, a group must meet the following requirements:
 
 - Must not be a `default` group.
-- Must have no member devices. That is, no device provisioned in the Device Update instance can have a `ADUGroup` tag with a value matching the group's name.
+- Must have no member devices. That is, no device provisioned in the Device Update instance can have an `ADUGroup` tag with a value matching the group's name.
 - Must have no associated active or canceled deployments.
 
 >[!NOTE]
