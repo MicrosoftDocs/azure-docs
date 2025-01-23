@@ -28,8 +28,8 @@ VMs with persistent OS disks are migrated to a suitable BMM when their host BMM 
 
 Azure Operator Nexus supports the following persistent data disk features.
 
+| Feature                                            | Persistent data disk support                         |
 | -------------------------------------------------- | ---------------------------------------------------- |
-| Feature                                            | Persistent data disk support
 | Disk lifecycle through Azure Resource Manager      | Supported using the Volume (Operator Nexus) resource. Disk lifecycle is independent of VM lifecycle, with one exception. Attached disks can't be deleted. |
 | Dynamic data disks (thin provisioning)             | Supported                                            |
 | Static data disks (thick provisioning)             | Not supported                                        |
@@ -40,7 +40,7 @@ Azure Operator Nexus supports the following persistent data disk features.
 | Migration of data disks from an unexpected BMM hardware failure | Not supported                                     |
 | Live VM migration                                  | Not supported                                        |
 
-# Disk Migration on BMM shutdown
+## Disk Migration on BMM shutdown
 
 Azure Operator Nexus supports migration of a VM with persistent disks from a stopped BMM to a suitable alternative BMM. However, there are some restrictions and limitations to this functionality.
 
