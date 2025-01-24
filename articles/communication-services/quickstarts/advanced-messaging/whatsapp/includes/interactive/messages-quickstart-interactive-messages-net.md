@@ -51,7 +51,7 @@ Follow these steps to add required code snippets to your .NET program.
 - [Set channel registration ID](#set-channel-registration-id)
 - [Set recipient list](#set-recipient-list)
 
-[!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting.md)]
+[!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting-net.md)]
 
 ## Code examples
 

@@ -64,9 +64,9 @@ For more information about WhatsApp requirements for templates, see the WhatsApp
 - [Send Template Messages](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates).
 - Businesses must also adhere to [opt-in requirements](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in) before sending messages to WhatsApp users.
 
-[!INCLUDE [Common setting for using Advanced Messages SDK](./includes/common-setting.md)]
-
 ::: zone pivot="programming-language-csharp"
+[!INCLUDE [Common setting for using Advanced Messages SDK](./includes/common-setting-net.md)]
+
 [!INCLUDE [Template usage quick reference with .NET](./includes/templates/template-messages-quick-reference-net.md)]
 ::: zone-end
 
