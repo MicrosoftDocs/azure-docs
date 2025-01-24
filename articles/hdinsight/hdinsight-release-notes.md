@@ -59,6 +59,9 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 
     * After the capability has been enabled, proceed to recreate the cluster.
 
+    > [!NOTE]
+    > Managed Identity is currently available only in public regions. It will be rolled out to other regions (Federal and China regions) in future releases. 
+
 ## New Regions 
 
 * New Zealand North.
