@@ -136,7 +136,7 @@ At any point of the swap operation, all work of initializing the swapped apps ha
 
 [!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
 
-To configure an app setting or connection string to stick to a specific slot, which isn't swapped, go to the **Settings** > **Environment Variable** page for that slot. Add or edit a setting, and then select **Deployment slot setting**. Selecting this check box tells App Service that the setting isn't swappable.
+To configure an app setting or connection string to stick to a specific slot, which isn't swapped, go to the **Settings** > **Environment Variable** page for that slot. Add or edit a setting, and then select **Deployment slot setting**. Selecting this option tells App Service that the setting isn't swappable.
 
 :::image type="content" source="media/web-sites-staged-publishing/set-slot-app-setting.png" alt-text="Screenshot that shows how to configure an app setting as a slot setting in the Azure portal.":::
 
