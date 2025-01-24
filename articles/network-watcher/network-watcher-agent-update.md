@@ -64,7 +64,7 @@ param(
     [Parameter(Mandatory=$false)] 
     [Switch] $NoUpdate = $false, 
     [Parameter(Mandatory=$false)] 
-    [string] $MinVersion = "1.4.2573.1" 
+    [string] $MinVersion = "1.4.2.1" 
 )  
 function NeedsUpdate($version) 
 { 
