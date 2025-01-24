@@ -3,7 +3,7 @@ title: Durable Functions storage providers - Azure
 description: Learn about the different storage providers for Durable Functions and how they compare
 author: cgillum
 ms.topic: conceptual
-ms.date: 07/18/2022
+ms.date: 01/24/2025
 ms.author: azfuncdf
 #Customer intent: As a developer, I want to understand what storage providers are available Durable Functions and which one I should choose.
 ---
@@ -66,6 +66,10 @@ The key benefits of the MSSQL storage provider include:
 * Integrates with existing database applications via built-in stored procedures.
 
 You can learn more about the technical details of the MSSQL storage provider, including how to get started using it, in the [Microsoft SQL provider documentation](https://microsoft.github.io/durabletask-mssql). The source code for the MSSQL storage provider can be found in the [microsoft/durabletask-mssql](https://github.com/microsoft/durabletask-mssql) GitHub repo.
+
+## Durable Task Scheduler
+
+TODO
 
 ## Configuring alternate storage providers
 
