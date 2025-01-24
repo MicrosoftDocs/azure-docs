@@ -2,7 +2,7 @@
 title: Tag resources, resource groups, and subscriptions for logical organization
 description: Describes the conditions and limitations for using tags with Azure resources.
 ms.topic: conceptual
-ms.date: 09/26/2024
+ms.date: 01/22/2025
 ---
 
 # Use tags to organize your Azure resources and management hierarchy
@@ -30,10 +30,10 @@ Resource tags support all cost-accruing services. To ensure that cost-accruing s
 > Tags are stored as plain text. Never add sensitive values to tags. Sensitive values could be exposed through many methods, including cost reports, commands that return existing tag definitions, deployment histories, exported templates, and monitoring logs.
 
 > [!WARNING]
-> Please be careful while using non-English language in your tags. It can cause decoding progress failure while loading your VM's metadata from IMDS (Instance Metadata Service).
+> Be careful when using non-English language in your tags. It can cause decoding progress failure while loading your VM's metadata from IMDS (Instance Metadata Service).
 
 > [!IMPORTANT]
-> Tag names are case-insensitive for operations. A tag with a tag name, regardless of the casing, is updated or retrieved. However, the resource provider might keep the casing you provide for the tag name. You'll see that casing in cost reports.
+> Tag names are case-insensitive for operations. An operation updates or retrieves a tag with a tag name, regardless of the casing. However, the resource provider might keep the casing you provide for the tag name. You see that casing in cost reports.
 >
 > Tag values are case-sensitive.
 
@@ -51,38 +51,38 @@ There are two ways to get the required access to tag resources.
 
 Resources don't inherit the tags you apply to a resource group or a subscription. To apply tags from a subscription or resource group to the resources, see [Azure Policies - tags](tag-policies.md).
 
-You can group costs for an Azure resource by using the **cm-resource-parent** tag. This tag lets you review tagged costs in Microsoft Cost Management without having to use filters. The key for this tag is cm-resource-parent and its value is the resource ID of the Azure resource you want to group costs by. For example, to group costs by an Azure Virtual Desktop host pool, provide the resource ID of the host pool. For more information, see [Group related resources in the cost analysis](../../cost-management-billing/costs/group-filter.md#group-related-resources-in-the-resources-view).
+You can group costs for an Azure resource by using the **cm-resource-parent** tag. This tag lets you review tagged costs in Microsoft Cost Management without having to use filters. The key for this tag is `cm-resource-parent` and its value is the resource ID of the Azure resource you want to group costs by. For example, to group costs by an Azure Virtual Desktop host pool, provide the resource ID of the host pool. For more information, see [Group related resources in the cost analysis](../../cost-management-billing/costs/group-filter.md#group-related-resources-in-the-resources-view).
 
 ## Tags and billing
 
-You can use tags to group your billing data. If you're running multiple VMs for different organizations, for example, use the tags to group usage by cost center. You can also use tags to categorize costs by runtime environment, such as the billing usage for VMs running in the production environment.
+Use tags to group your billing data. For example, if you're running multiple VMs for different organizations, use the tags to group usage by cost center. You can also use tags to categorize costs by runtime environment, such as the billing usage for VMs running in the production environment.
 
-You can retrieve information about tags by downloading the usage file available from the Azure portal. For more information, see [Download or view your Azure billing invoice and daily usage data](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). For services that support tags with billing, the tags appear in the **Tags** column.
+To retrieve information about tags, download the usage file from the Azure portal. For more information, see [Download or view your Azure billing invoice and daily usage data](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). For services that support tags with billing, the tags appear in the **Tags** column.
 
 For REST API operations, see [Azure Billing REST API Reference](/rest/api/billing/).
 
 ## Unique tags pagination
 
-When calling the [Unique Tags API](/rest/api/resources/tags/list) there's a limit to the size of each API response page that is returned. A tag that has a large set of unique values will require the API to fetch the next page to retrieve the remaining set of values. When this happens the tag key is shown again to indicate that the values are still under this key.  
+When you call the [Unique Tags API](/rest/api/resources/tags/list), there's a limit to the size of each API response page. A tag that has a large set of unique values requires the API to fetch the next page to retrieve the remaining set of values. When the results are divided over multiple pages, the API response shows the tag key again to indicate that the values are still under this key.  
 
-This can result in some tools, like the Azure portal, to show the tag key twice.  
+This behavior can result in some tools, like the Azure portal, showing the tag key twice.
 
 ## Limitations
 
 The following limitations apply to tags:
 
 * Not all resource types support tags. To determine if you can apply a tag to a resource type, see [Tag support for Azure resources](tag-support.md).
-* Each resource type might have specific requirements when working with tags. For example, tags on virtual machine (VM) extensions can only be updated when the VM is running. If you receive an error message while trying to update a tag, follow the instructions in the message.
+* Each resource type might have specific requirements when working with tags. For example, you can only update tags on virtual machine (VM) extensions when the VM is running. If you receive an error message while trying to update a tag, follow the instructions in the message.
 * Each resource, resource group, and subscription can have a maximum of 50 tag name-value pairs. If you need to apply more tags than the maximum allowed number, use a JSON string for the tag value. The JSON string can contain many of the values that you apply to a single tag name. A resource group or subscription can contain many resources that each have 50 tag name-value pairs.
 * The tag name has a limit of 512 characters and the tag value has a limit of 256 characters. For storage accounts, the tag name has a limit of 128 characters and the tag value has a limit of 256 characters.
 * Classic resources such as Cloud Services don't support tags.
-* Azure IP Groups and Azure Firewall Policies don't support PATCH operations. PATCH API method operations, therefore, can't update tags through the portal. Instead, you can use the update commands for those resources. You can update tags for an IP group, for example, with the [az network ip-group update](/cli/azure/network/ip-group#az-network-ip-group-update) command.
+* Azure IP Groups and Azure Firewall Policies don't support PATCH operations. PATCH API method operations, therefore, can't update tags through the portal. Instead, use the update commands for those resources. For example, you can update tags for an IP group with the [az network ip-group update](/cli/azure/network/ip-group#az-network-ip-group-update) command.
 * Tag names can't contain these characters: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
    > [!NOTE]
-   > * Azure Domain Name System (DNS) zones don't support the use of spaces or parentheses in the tag or a tag that starts with a number. Azure DNS tag names don't support special and unicode characters. The value can contain all characters.
+   > * Azure Domain Name System (DNS) zones don't support the use of spaces or parentheses in the tag or a tag that starts with a number. Azure DNS tag names don't support special and Unicode characters. The value can contain all characters.
    >
-   > * Traffic Manager doesn't support the use of spaces, `#` or `:` in the tag name. The tag name can't start with a number.
+   > * Traffic Manager doesn't support the use of spaces, `#`, or `:` in the tag name. The tag name can't start with a number.
    >
    > * Azure Front Door doesn't support the use of `#` or `:` in the tag name.
    >
