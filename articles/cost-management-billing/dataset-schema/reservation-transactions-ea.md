@@ -6,7 +6,7 @@ ms.reviewer: jojo
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 01/23/2025
+ms.date: 01/24/2025
 ms.author: banders
 ---
 
