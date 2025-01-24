@@ -79,7 +79,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
    It may take up to 10 minutes for the endpoint registration to propagate and become available for use.
 
-    If you attempt to use the content delivery network domain name before the endpoint configuration has propagated to the point of presence (POP) servers, you might receive an HTTP 404 response status. If it has been several hours since you created your endpoint and you're still receiving a 404 response status, see [Troubleshooting Azure Content Delivery Network endpoints that return a 404 status code](cdn-troubleshoot-endpoint.md).
+   If you attempt to use the content delivery network domain name before the endpoint configuration has propagated to the point of presence (POP) servers, you might receive an HTTP 404 response status. If it has been several hours since you created your endpoint and you're still receiving a 404 response status, see [Troubleshooting Azure Content Delivery Network endpoints that return a 404 status code](cdn-troubleshoot-endpoint.md).
 
 ## Clean up resources
 
