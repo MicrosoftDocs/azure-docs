@@ -126,7 +126,7 @@ Service metadata contains fields that the Device Update service uses to communic
 |action|integer|cloud to device| An integer that corresponds to an action the agent should perform. See [Action](#action) for details. |
 |updateManifest|string|cloud to device|Describes the content of an update. Generated from the [Import manifest](create-update.md).|
 |updateManifestSignature|JSON Object|cloud to device|A JSON Web Signature (JWS) with JSON web keys to use for source verification.|
-|fileUrls|Map|cloud to device|Map of `FileID` to `DownloadUrl`. Tells the agent which files to download and the hash to use to verify that the files downloaded correctly.|
+|fileUrls|Map|cloud to device|Map of `FileID` to `DownloadUrl`. Tells the agent which files to download and the hash to use to verify that the files downloaded correctly. ADU service patches the twin for a map contains only new file URL. IoT hub uses null to indicate that the file URL is removed from the map. The agent ignores null file URL if file URLs are not persisted and the agent deletes old file URL if file URL is persisted|
 
 ## Device information interface
 
