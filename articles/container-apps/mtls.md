@@ -1,6 +1,6 @@
 ---
 title: Use mTLS in Azure Container Apps
-description: Learn to use mTLS in Azure Container Apps
+description: Learn to use mTLS in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
