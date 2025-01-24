@@ -30,7 +30,7 @@ az dataprotection backup-vault create -g testBkpVaultRG --vault-name TestBkpVaul
   "eTag": null,
   "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/testBkpVaultRG/providers/Microsoft.DataProtection/BackupVaults/TestBkpVault",
   "identity": {
-    "principalId": "2ca1d5f7-38b3-4b61-aa45-8147d7e0edbc",
+    "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
     "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
     "type": "SystemAssigned"
   },
