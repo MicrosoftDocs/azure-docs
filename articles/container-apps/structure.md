@@ -5,13 +5,13 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 12/13/2024
+ms.date: 01/24/2025
 ms.author: cshoe
 ---
 
 # Compute and billing structures in Azure Container Apps
 
-In Azure Container Apps, the environment and plan type you use determines the available functionality and billing methods associated with your application. This article explains the relationship between plans, workload profiles, and why to consider selecting one over another.
+In Azure Container Apps, the environment and plan type you use determines the  functionality and billing methods associated with your application. This article explains the relationship between plans, workload profiles, and why to consider selecting one over another.
 
 ## Environment types
 
@@ -36,14 +36,14 @@ To better understand these relationships, start by considering the differences b
 
 ## Workload profiles
 
-Each *Workload profiles (v2)* environment automatically comes with a consumption profile. The consumption profile is where you run applications that you want to allow to scale to zero, and where you only want to pay for usage. Ultimately you decide whether or not to use the consumption profile since you only incur costs as you use apps running in the profile.
+Each *Workload profiles (v2)* environment automatically comes with a consumption profile. The consumption profile allows you to run applications which scale to zero, and where you only want to pay for usage. Ultimately, you decide whether or not to use the consumption profile since you only incur costs as when apps are running in the consumption workload profile.
 
-By default, apps run on the consumption workload profile, but you can choose to select a profile that is best tailored for your application's needs. The consumption profile is well suited if you need:
+Depending on the needs of your app, you can opt to use a specialized workload profile that is best tailored for your application's needs. The consumption profile is well suited if:
 
-- Need up to 4 vCPUs with 8 GB of memory
-- Don't need access to a GPU
+- You need up to 4 vCPUs with 8 GB of memory
+- You don't need access to GPUs
 
-If your application requires any capability outside these parameters, then run your apps on dedicated workload profile.
+If your application requires capabilities outside these parameters, then run your apps on dedicated workload profile.
 
 When you choose to use a dedicated workload profile, you can select the allocated amount of memory and compute resources available to your apps. Further, you can add as many dedicated workload profiles to your environment as necessary.
 
@@ -82,7 +82,7 @@ Use this table to further help you determine which profile type is best in your 
 | If you need... | Workload profile type |
 |---|---|
 | Pay-as-you-go pricing | Consumption |
-| Scale in to zero capability | Consumption |
+| Scale to zero capability | Consumption |
 | Zero cold start | Dedicated |
 | Access to GPU processing | Dedicated |
 | TODO |  |
@@ -96,7 +96,7 @@ No. Every workload profiles environment comes with a single consumption profile 
 
 ### Can I remove the consumption profile from workload profiles environment?
 
-No. If you don't need the consumption profile, just don't use it. As typical with pay-as-you-go scenarios, you aren't charged for the consumption profile if you don't use it.
+No. If you don't need the consumption profile, just don't use it. As typical with pay-as-you-go scenarios, you aren't charged for the consumption profile if you don't use the profile.
 
 ### Does the consumption plan work the same way in a Workload profiles (v2) environment vs. a Consumption-only (v1) environment?
 
