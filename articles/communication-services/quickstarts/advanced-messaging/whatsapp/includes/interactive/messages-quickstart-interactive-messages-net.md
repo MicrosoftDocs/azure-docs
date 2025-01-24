@@ -119,7 +119,7 @@ public async Task SendWhatsAppListMessage()
         interactionMessage
     );
 
-    var response = await notificationMessagesClient.SendAsync(interactiveMessageContent);
+    SendMessageResult response = await notificationMessagesClient.SendAsync(interactiveMessageContent);
     Console.WriteLine($"Message with ID {response.Receipts[0].MessageId} was successfully sent.");
 }
 ```
@@ -163,7 +163,7 @@ public async Task SendWhatsAppReplyButtonMessage()
         interactionMessage
     );
 
-    var response = await notificationMessagesClient.SendAsync(interactiveMessageContent);
+    SendMessageResult response = await notificationMessagesClient.SendAsync(interactiveMessageContent);
     Console.WriteLine($"Message with ID {response.Receipts[0].MessageId} was successfully sent.");
 }
 ```
@@ -200,7 +200,7 @@ public async Task SendWhatsAppClickToActionMessage()
         interactionMessage
     );
 
-    var response = await notificationMessagesClient.SendAsync(interactiveMessageContent);
+    SendMessageResult response = await notificationMessagesClient.SendAsync(interactiveMessageContent);
     Console.WriteLine($"WhatsApp CTA Message with ID {response.Receipts[0].MessageId} was successfully sent.");
 }
 ```
@@ -289,7 +289,7 @@ namespace InteractiveMessagesQuickstart
                 interactionMessage
             );
 
-            var response = await notificationMessagesClient.SendAsync(interactiveMessageContent);
+            SendMessageResult response = await notificationMessagesClient.SendAsync(interactiveMessageContent);
             Console.WriteLine($"Message with ID {response.Receipts[0].MessageId} was successfully sent.");
         }
 
@@ -316,7 +316,7 @@ namespace InteractiveMessagesQuickstart
                 interactionMessage
             );
 
-            var response = await notificationMessagesClient.SendAsync(interactiveMessageContent);
+            SendMessageResult response = await notificationMessagesClient.SendAsync(interactiveMessageContent);
             Console.WriteLine($"Message with ID {response.Receipts[0].MessageId} was successfully sent.");
         }
 
@@ -337,7 +337,7 @@ namespace InteractiveMessagesQuickstart
                 interactionMessage
             );
 
-            var response = await notificationMessagesClient.SendAsync(interactiveMessageContent);
+            SendMessageResult response = await notificationMessagesClient.SendAsync(interactiveMessageContent);
             Console.WriteLine($"WhatsApp CTA Message with ID {response.Receipts[0].MessageId} was successfully sent.");
         }
     }
