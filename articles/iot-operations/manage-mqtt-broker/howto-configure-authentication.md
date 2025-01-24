@@ -603,20 +603,20 @@ To get a TLS-enabled listener port, see [Enable TLS manual certificate managemen
 > Enabling TLS on a broker listener port means that the broker uses a server certificate for TLS encryption. When clients connect to this port, they must trust the server certificate by having the CA certificate that signed it in their trust store. This process is known as *trust distribution* or *trust bundling*. It's important to understand the difference between client validation and server validation:
 > 
 > - **Client validation**: The MQTT broker (server) checks the client certificate against the trusted CA certificate specified in the `trustedClientCaCert` field for X.509 client authentication.
-> - **Server validation**: Clients (like mosquitto or MQTTX) check the MQTT broker's server certificate against the trusted CA certificate in their trust store. For mosquitto clients, use the `--cafile` parameter to specify the CA certificate file. For MQTTX, add the CA certificate to the trust store in the settings.
+> - **Server validation**: Clients (like Mosquitto or MQTTX) check the MQTT broker's server certificate against the trusted CA certificate in their trust store. For Mosquitto clients, use the `--cafile` parameter to specify the CA certificate file. For MQTTX, add the CA certificate to the trust store in the settings.
 >
 > After you enable X.509 authentication, ensure that clients trust the broker's server certificate by having the *server-side* CA certificate in their trust store. Don't confuse trusting the *server-side* CA certificate with the *client-side* CA certificate used for client authentication that's specified in the `trustedClientCaCert` field.
 >
 > For a full example, see [Tutorial: TLS, X.509 client authentication, and attribute-based access control (ABAC) authorization](./tutorial-tls-x509.md).
 
-### Connect mosquitto client to MQTT broker with X.509 client certificate
+### Connect Mosquitto client to MQTT broker with X.509 client certificate
 
-A client like mosquitto needs two files to be able to connect to the MQTT broker with TLS and X.509 client authentication:
+A client like Mosquitto needs two files to be able to connect to the MQTT broker with TLS and X.509 client authentication:
 
 - The `--cert` parameter specifies the client certificate PEM file. This file should also include any intermediate certificates to help the MQTT broker build the complete certificate chain.
 - The `--key` parameter specifies the client private key PEM file.
 
-In cases where the MQTT broker is using a self-signed CA certificate to issue its TLS server certificate, the `--cafile` parameter is needed. This file contains the CA certificate (also known as *trust bundle*), which the mosquitto client uses to validate the broker's server certificate when it connects over TLS. If the issuer of the MQTT broker's server certificate is part of the system root store (such as well-known public CAs), the `--cafile` parameter can be omitted.
+In cases where the MQTT broker is using a self-signed CA certificate to issue its TLS server certificate, the `--cafile` parameter is needed. This file contains the CA certificate (also known as *trust bundle*), which the Mosquitto client uses to validate the broker's server certificate when it connects over TLS. If the issuer of the MQTT broker's server certificate is part of the system root store (such as well-known public CAs), the `--cafile` parameter can be omitted.
 
 For example:
 
@@ -777,7 +777,7 @@ Apply your changes with `kubectl apply`. It might take a few minutes for the cha
 
 SAT authentication uses the MQTT v5 enhanced authentication fields. A client must set the enhanced authentication method to `K8S-SAT` and the enhanced authentication data to the token.
 
-For example, use mosquitto (some fields omitted for brevity):
+For example, use Mosquitto (some fields omitted for brevity):
 
 ```bash
 mosquitto_pub ... -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data <TOKEN>
