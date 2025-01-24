@@ -18,7 +18,7 @@
     - name: Terminology
       href: api-management-terminology.md
     - name: Service limits
-      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json#api-management-limits
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json#azure-api-management-limits
   - name: Create an instance
     items:
     - name: Create an instance - CLI
