@@ -87,10 +87,10 @@ With the peek functionality, you can use the Service Bus Explorer to view the to
     :::image type="content" source="./media/service-bus-explorer/peek-message-from-queue-2.png" alt-text="Screenshot with overview of peeked messages and message properties shown for peeked messages." lightbox="./media/service-bus-explorer/peek-message-from-queue-2.png":::
 
     > [!NOTE]
-    > Since peek is not a destructive operation the message **won't** be removed from the entity.
+    > Since peek isn't a destructive operation the message **won't** be removed from the entity.
 
     > [!NOTE]
-    > For performance reasons, when peeking messages from a queue or subscription which has it's maximum message size set over 1 MB, the message body is not retrieved by default. Instead, you can load the message body for a specific message by clicking on the **Load message body** button. If the message body is over 1 MB it's not truncated before being displayed.
+    > For performance reasons, when peeking messages from a queue or subscription which has it's maximum message size set over 1 MB, the message body isn't retrieved by default. Instead, you can load the message body for a specific message by clicking on the **Load message body** button. If the message body is over 1 MB it's not truncated before being displayed.
     > :::image type="content" source="./media/service-bus-explorer/peek-message-from-queue-with-large-message-support.png" alt-text="Screenshot with overview of peeked messages and button to load message body shown." lightbox="./media/service-bus-explorer/peek-message-from-queue-with-large-message-support.png":::
 
 ### Peek a message with advanced options
@@ -118,7 +118,7 @@ The peek with options functionality allows you to use the Service Bus Explorer t
     :::image type="content" source="./media/service-bus-explorer/peek-message-from-queue-4.png" alt-text="Screenshot with overview of peeked messages and message properties shown for peek with advanced options." lightbox="./media/service-bus-explorer/peek-message-from-queue-4.png":::
 
     > [!NOTE]
-    > Since peek is not a destructive operation the message **won't** be removed from the queue.
+    > Since peek isn't a destructive operation the message **won't** be removed from the queue.
 
 ## Receive a message
 
@@ -137,7 +137,7 @@ The receive function on the Service Bus Explorer permits receiving messages from
     :::image type="content" source="./media/service-bus-explorer/receive-message-from-queue.png" alt-text="Screenshot indicating the Receive button, and a page where the options can be set." lightbox="./media/service-bus-explorer/receive-message-from-queue.png":::
 
     > [!IMPORTANT]
-    > Note that the ReceiveAndDelete mode is a ***destructive receive***, i.e. the message is removed from the queue when it is displayed on the Service Bus Explorer tool.
+    > Note that the ReceiveAndDelete mode is a ***destructive receive***, i.e. the message is removed from the queue when it's displayed on the Service Bus Explorer tool.
     >
     > To browse messages without removing them from the queue, consider using the **Peek** functionality, or using the **PeekLock** receive mode.
 
@@ -148,7 +148,7 @@ The receive function on the Service Bus Explorer permits receiving messages from
     :::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-3.png" alt-text="Screenshot with overview of received messages and message properties shown." lightbox="./media/service-bus-explorer/receive-message-from-queue-3.png":::
 
     > [!NOTE]
-    > For performance reasons, when receiving messages from a queue or subscription which has it's maximum message size set over 1 MB, only one message is received at a time. If the message body is over 1 MB it is truncated before being displayed.
+    > For performance reasons, when receiving messages from a queue or subscription which has it's maximum message size set over 1 MB, only one message is received at a time. If the message body is over 1 MB, it's truncated before being displayed.
 
 After a message is received in **PeekLock** mode, there are various actions you can take on it.
 
@@ -188,7 +188,7 @@ After the lock is abandoned, the message is available for receive operations aga
 
     :::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-dead-letter.png" alt-text="Screenshot indicating the Dead-letter button." lightbox="./media/service-bus-explorer/receive-message-from-queue-dead-letter.png":::
 
-After a message is dead-lettered, it is available from the **Dead-letter** subqueue.
+After a message is dead-lettered, it's available from the **Dead-letter** subqueue.
 
 ### Purge messages
 
