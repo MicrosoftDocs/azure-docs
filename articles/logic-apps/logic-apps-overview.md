@@ -51,7 +51,7 @@ For more information, visit [Azure Logic Apps on the Azure website](https://azur
 
 ## Why use Azure Logic Apps
 
-The Azure Logic Apps platform provides [1,400+ prebuilt connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use to connect and integrate services, systems, apps, and data. This constantly expanding connector ecosystem helps you reduce the effort around getting access to your resources. Instead, you can focus more on designing and developing the necessary business logic and functionality that your solutions need to meet your business needs.
+The Azure Logic Apps platform provides [1,400+ prebuilt connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use to connect and integrate services, systems, apps, and data. This constantly expanding connector ecosystem helps you reduce the effort around getting access to your resources. Instead, you can focus more on designing and developing the business logic and functionality required for your solutions to meet your company's business needs.
 
 To communicate with any service endpoint, run your own code, control your workflow structure, manipulate data, or connect to commonly used services with increased capacity, throughput, and speed, you can use [built-in connector operations](#logic-app-concepts). These operations natively run on the Azure Logic Apps runtime for better performance.
 
@@ -69,7 +69,7 @@ For more information, see the following documentation:
 * [Built-in connectors](../connectors/built-in.md)
 * [Managed connectors](../connectors/managed.md)
 
-When you build workflows with Azure Logic Apps, you usually don't have to write any code. However, if you do need to write and run some code, Azure Logic Apps supports this capability. For example, in workflows that run in multitenant Azure Logic Apps, you can write and run JavaScript code snippets directly within your workflow. For more complex and structured code, you can create functions by using Azure Functions. For workflows that run in single-tenant Azure Logic Apps, App Service Environment (ASE) v3, or partially connected environments, you can write and run JavaScript code snippets, .NET code, C# scripts, and PowerShell scripts directly within your workflow.
+When you build workflows with Azure Logic Apps, you usually don't have to write any code. However, if you have to create and run your own code, Azure Logic Apps supports this capability. For example, in workflows that run in multitenant Azure Logic Apps, you can write and run JavaScript code snippets directly within your workflow. For more complex and structured code, you can create and call functions from your workflows when you use the Azure Functions platform. For workflows that run in single-tenant Azure Logic Apps, App Service Environment (ASE) v3, or partially connected environments, you can write and run JavaScript code snippets, .NET code, C# scripts, and PowerShell scripts directly within your workflow.
 
 If your workflow needs to interact with events from other Azure services, custom apps, or other solutions, you can monitor, route, and publish events by using [Azure Event Grid](../event-grid/overview.md) or [Azure Event Hubs](../event-hubs/event-hubs-about.md).
 
