@@ -11,7 +11,7 @@ ms.custom: template-how-to, devx-track-bicep
 
 # Deploy a data disk on Azure Operator Nexus
 
-In this document you will learn how to use BICEP to deploy a data disk on Azure Operator Nexus. Data disks are a form of additional persistent storage for virtual machines (VMs). A Nexus virtual machine (VM) with data disks can store application data that persists if the bare metal machine (BMM) hosting the VM suffers a hardware failure.
+In this document, you'll learn how to use BICEP to deploy a data disk on Azure Operator Nexus. Data disks are a form of persistent storage for virtual machines (VMs). A Nexus virtual machine (VM) with data disks can store application data that persists if the bare metal machine (BMM) hosting the VM suffers a hardware failure.
 
 ## Review the BICEP file
 
@@ -52,7 +52,7 @@ az networkcloud volume show --name myDataDisk --resource-group myResourceGroup
 You can delete the data disk using the Azure CLI.
 
 > [!IMPORTANT]
-> Deleting a data disk will remove the backing volume from the storage appliance. Any data stored on that volume will be lost unless you have a backup. You cannot delete a data disk which is attached to a VM. If your disk has previously been attached to a VM, don't delete it unless you are certain you don't need the data!
+> Deleting a data disk removes the backing volume from the storage appliance. Any data stored on that volume is lost unless you have a backup. You can't delete a data disk which is attached to a VM. If your disk has previously been attached to a VM, don't delete it unless you're certain you don't need the data!
 
 ### [Azure CLI](#tab/azure-cli)
 

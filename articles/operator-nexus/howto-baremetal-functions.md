@@ -14,7 +14,7 @@ ms.custom: template-how-to, devx-track-azurecli
 This article describes how to perform lifecycle management operations on bare metal machines (BMM). These steps should be used for troubleshooting purposes to recover from failures or when taking maintenance actions. The commands to manage the lifecycle of the BMM include:
 
 > [!CAUTION]
-> Do not perform any action against management servers without first consulting with Microsoft support personnel. Doing so could affect the integrity of the Operator Nexus Cluster.
+> Don't perform any action against management servers without first consulting with Microsoft support personnel. Doing so could affect the integrity of the Operator Nexus Cluster.
 
 - **Power off a BMM**
 - Start a BMM
@@ -26,9 +26,9 @@ This article describes how to perform lifecycle management operations on bare me
 - **Replace a BMM**
 
 > [!IMPORTANT]
-> Disruptive command requests against a Kubernetes Control Plane (KCP) node are rejected if there is another disruptive action command already running against another KCP node or if the full KCP is not available. This check is done to maintain the integrity of the Nexus instance and ensure multiple KCP nodes don't become non-operational at once due to simultaneous disruptive actions. If multiple nodes become non-operational, it will break the healthy quorum threshold of the Kubernetes Control Plane.
+> Disruptive command requests against a Kubernetes Control Plane (KCP) node are rejected if there's another disruptive action command already running against another KCP node or if the full KCP isn't available. This check is done to maintain the integrity of the Nexus instance and ensure multiple KCP nodes don't become nonoperational at once due to simultaneous disruptive actions. If multiple nodes become nonoperational, it will break the healthy quorum threshold of the Kubernetes Control Plane.
 >
-> The bolded actions in the above list are considered disruptive (Power off, Restart, Reimage, Replace). Cordon without evacuate is not considered disruptive. Cordon with evacuate is considered disruptive.
+> The bolded actions in the above list are considered disruptive (Power off, Restart, Reimage, Replace). Cordon without evacuate isn't considered disruptive. Cordon with evacuate is considered disruptive.
 >
 > As noted in the cautionary statement, running actions against management servers, especially KCP nodes, should only be done in consultation with Microsoft support personnel.
 
@@ -102,7 +102,7 @@ On the execution of the `cordon` command,
 Operator Nexus workloads aren't scheduled on the BMM when cordon is set; any attempt to create a workload on a `cordoned`
 BMM results in the workload being set to `pending` state. Existing workloads continue to run.
 The cordon command supports an `evacuate` parameter with the default `False` value.
-It is a best practice to set this to `True`.  On executing the `cordon` command, with the value `True` for the `evacuate`
+It's a best practice to set this to `True`.  On executing the `cordon` command, with the value `True` for the `evacuate`
 parameter, the workloads that are running on the BMM are `stopped` and the BMM is set to `pending` state.
 
 ```azurecli
@@ -129,7 +129,7 @@ az networkcloud baremetalmachine uncordon \
 
 ## Reimage a BMM
 
-You can restore the runtime version on a BMM by executing `reimage` command. This process **redeploys** the runtime image on the target BMM and executes the steps to rejoin the cluster with the same identifiers. This action doesn't impact the tenant workload files on this BMM. In the event of a write or edit action being performed on the node via BMM access, this 'reimage' action is required to restore Microsoft support and the changes will be lost, restoring the node to it's expected state.
+You can restore the runtime version on a BMM by executing `reimage` command. This process **redeploys** the runtime image on the target BMM and executes the steps to rejoin the cluster with the same identifiers. This action doesn't impact the tenant workload files on this BMM. If a write or edit action being performed on the node via BMM access, this 'reimage' action is required to restore Microsoft support and the changes will be lost, restoring the node to it's expected state.
 As a best practice, make sure the BMM's workloads are drained using the [`cordon`](#make-a-bmm-unschedulable-cordon)
 command, with `evacuate "True"`, before executing the `reimage` command.
 
