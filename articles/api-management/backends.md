@@ -20,7 +20,7 @@ A *backend* (or *API backend*) in API Management is an HTTP service that impleme
 When importing certain APIs, API Management configures the API backend automatically. For example, API Management configures the backend web service when importing:
 * An [OpenAPI specification](import-api-from-oas.md).
 * A [SOAP API](import-soap-api.md).
-* Azure resources, such as An [Azure OpenAI API](azure-openai-api-from-specification.md), an HTTP-triggered [Azure Function App](import-function-app-as-api.md),  or [Logic App](import-logic-app-as-api.md).
+* Azure resources, such as an [Azure OpenAI API](azure-openai-api-from-specification.md), an HTTP-triggered [Azure Function App](import-function-app-as-api.md), or a [Logic App](import-logic-app-as-api.md).
 
 API Management also supports using other Azure resources as an API backend, such as:
 * A [Service Fabric cluster](how-to-configure-service-fabric-backend.yml).
