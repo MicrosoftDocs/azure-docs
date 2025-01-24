@@ -11,7 +11,7 @@ ms.date: 01/23/2025
 #CustomerIntent: As an administrator, I want to capture IP packets to and from a virtual machine (VM) so I can review and analyze the data to help diagnose and solve network problems.
 ---
 
-# Manage packet captures for virtual machines with Azure Network Watcher
+# Manage packet captures with Azure Network Watcher
 
 In this article, you learn how to use the Azure Network Watcher [packet capture](packet-capture-overview.md) feature to remotely configure, start, stop, download, and delete virtual machine packet captures.
 
@@ -21,17 +21,23 @@ In this article, you learn how to use the Azure Network Watcher [packet capture]
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
-
-- A virtual machine (VM) with outbound TCP connectivity to: `169.254.169.254` over port `80` and `168.63.129.16` over port `8037`. The Network Watcher agent VM extension uses these IP addresses to communicate with the Azure platform.
+- A virtual machine (VM) or virtual machine scale set with outbound TCP connectivity to: `169.254.169.254` over port `80` and `168.63.129.16` over port `8037`. The Network Watcher agent VM extension uses these IP addresses to communicate with the Azure platform.
 
 - Network Watcher Agent VM extension installed on the target virtual machine. Whenever you use Network Watcher packet capture in the Azure portal, the agent is automatically installed on the target VM or scale set if it wasn't previously installed. To update an already installed agent, see [Update Azure Network Watcher extension to the latest version](network-watcher-agent-update.md).
 
-- An Azure storage account with VM outbound TCP connectivity to it over port `443`. If you don't have a storage account, see [Create a storage account using the Azure portal](../storage/common/storage-account-create.md?tabs=azure-portal&toc=/azure/network-watcher/toc.json).
+- An Azure storage account with VM outbound TCP connectivity to it over port `443`. If you don't have a storage account, see [Create a storage account using the Azure portal](../storage/common/storage-account-create.md?tabs=azure-portal&toc=/azure/network-watcher/toc.json). The storage account must be accessible from the subnet of the target virtual machine or scale set. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security?tabs=azure-portal&toc=/azure/network-watcher/toc.json).
+
+- Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 # [**PowerShell**](#tab/powershell)
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- A virtual machine (VM) with outbound TCP connectivity to: `169.254.169.254` over port `80` and `168.63.129.16` over port `8037`. The Network Watcher agent VM extension uses these IP addresses to communicate with the Azure platform.
+
+- Network Watcher Agent VM extension installed on the target virtual machine. For more information, see [Manage Network Watcher Agent VM extension for Windows](network-watcher-agent-windows.md?tabs=powershell) or [Manage Network Watcher Agent VM extension for Linux](network-watcher-agent-linux.md?tabs=powershell).
+
+- An Azure storage account with VM outbound TCP connectivity to it over port `443`. If you don't have a storage account, see [Create a storage account using PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell&toc=/azure/network-watcher/toc.json). The storage account must be accessible from the subnet of the target virtual machine or scale set. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security?tabs=azure-powershell&toc=/azure/network-watcher/toc.json).
 
 - Azure Cloud Shell or Azure PowerShell.
 
@@ -39,27 +45,21 @@ In this article, you learn how to use the Azure Network Watcher [packet capture]
 
     You can also install Azure PowerShell locally to run the cmdlets. This article requires the Az PowerShell module. For more information, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell). If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
-- A virtual machine (VM) with outbound TCP connectivity to: `169.254.169.254` over port `80` and `168.63.129.16` over port `8037`. The Network Watcher agent VM extension uses these IP addresses to communicate with the Azure platform.
-
-- Network Watcher Agent VM extension installed on the target virtual machine. For more information, see [Manage Network Watcher Agent VM extension for Windows](network-watcher-agent-windows.md?tabs=powershell) or [Manage Network Watcher Agent VM extension for Linux](network-watcher-agent-linux.md?tabs=powershell).
-
-- An Azure storage account with VM outbound TCP connectivity to it over port `443`. If you don't have a storage account, see [Create a storage account using PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell&toc=/azure/network-watcher/toc.json).
-
 # [**Azure CLI**](#tab/cli)
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- A virtual machine (VM) with outbound TCP connectivity to: `169.254.169.254` over port `80` and `168.63.129.16` over port `8037`. The Network Watcher agent VM extension uses these IP addresses to communicate with the Azure platform.
+
+- Network Watcher Agent VM extension installed on the target virtual machine. For more information, see [Manage Network Watcher Agent VM extension for Windows](network-watcher-agent-windows.md?tabs=cli) or [Manage Network Watcher Agent VM extension for Linux](network-watcher-agent-linux.md?tabs=cli).
+
+- An Azure storage account with VM outbound TCP connectivity to it over port `443`. If you don't have a storage account, see [Create a storage account using PowerShell](../storage/common/storage-account-create.md?tabs=azure-cli&toc=/azure/network-watcher/toc.json). The storage account must be accessible from the subnet of the target virtual machine or scale set. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security?tabs=azure-cli&toc=/azure/network-watcher/toc.json).
 
 - Azure Cloud Shell or Azure CLI.
 
     The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
     You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
-
-- A virtual machine (VM) with outbound TCP connectivity to: `169.254.169.254` over port `80` and `168.63.129.16` over port `8037`. The Network Watcher agent VM extension uses these IP addresses to communicate with the Azure platform.
-
-- Network Watcher Agent VM extension installed on the target virtual machine. For more information, see [Manage Network Watcher Agent VM extension for Windows](network-watcher-agent-windows.md?tabs=cli) or [Manage Network Watcher Agent VM extension for Linux](network-watcher-agent-linux.md?tabs=cli).
-
-- An Azure storage account with VM outbound TCP connectivity to it over port `443`. If you don't have a storage account, see [Create a storage account using PowerShell](../storage/common/storage-account-create.md?tabs=azure-cli&toc=/azure/network-watcher/toc.json).
 
 ---
 
@@ -76,24 +76,25 @@ If a network security group is associated to the network interface, or subnet th
 
     :::image type="content" source="./media/network-watcher-portal-search.png" alt-text="Screenshot shows how to search for Network Watcher in the Azure portal." lightbox="./media/network-watcher-portal-search.png":::
 
-1. Select **Packet capture** under **Network diagnostic tools**. Any existing packet captures are listed, regardless of their status.
+1. Select **Packet capture** under **Network diagnostic tools**, then select **+ Add** to create a packet capture.
 
     :::image type="content" source="./media/packet-capture-manage/packet-capture.png" alt-text="Screenshot that shows Network Watcher packet capture in the Azure portal." lightbox="./media/packet-capture-manage/packet-capture.png":::
 
-1. Select **+ Add** to create a packet capture. In **Add packet capture**, enter or select values for the following settings:
+1. In **Add packet capture**, enter or select values for the following settings:
 
     | Setting | Value |
     | --- | --- |
     | **Basic Details** |  |
     | Subscription | Select the Azure subscription of the virtual machine. |
     | Resource group | Select the resource group of the virtual machine. |
-    | Target type | Select **Virtual machine**. |
-    | Target instance | Select the virtual machine. |
+    | Target type | Select **Virtual machine** or . **Virtual machine scale set**. |
+    | Target virtual machine scale set | Select the virtual machine scale set. This option is available if you select Virtual machine scale set as the target type. |
+    | Target instance | Select the virtual machine or scale set instance. |
     | Packet capture name | Enter a name or leave the default name. |
     | **Packet capture configuration** |  |
-    | Capture location | Select **Storage account**, **File**, or **Both**. |
-    | Storage account | Select your **Standard** storage account<sup>1</sup>. <br> This option is available if you selected **Storage account** or **Both** as a capture location. |
-    | Local file path | Enter a valid local file path where you want the capture to be saved in the target virtual machine. If you're using a Linux machine, the path must start with */var/captures*. <br> This option is available if you selected **File** or **Both** as a capture location. |
+    | Capture location | Select **Storage account** (default option), **File**, or **Both**. |
+    | Storage account | Select your **Standard** storage account<sup>1</sup>. <br> This option is available if you select **Storage account** or **Both** as a capture location. <br> The storage account must be in the same region as the target instance. |
+    | Local file path | Enter a valid local file path where you want the capture to be saved in the target virtual machine. <br>If you're using a Linux machine, the path can start with `/var/captures`. <br>If you're using a Windows machine, the path can start with `C:\Captures`. <br> This option is available if you select **File** or **Both** as a capture location. |
     | Maximum bytes per packet | Enter the maximum number of bytes to be captured per each packet. All bytes are captured if left blank or 0 entered. |
     | Maximum bytes per session | Enter the total number of bytes that are captured. Once the value is reached the packet capture stops. Up to 1 GB is captured if left blank. |
     | Time limit (seconds) | Enter the time limit of the packet capture session in seconds. Once the value is reached the packet capture stops. Up to 5 hours (18,000 seconds) is captured if left blank. |
@@ -334,7 +335,7 @@ az storage blob download --container-name 'network-watcher-logs' --blob-url '/su
 Use [Remove-AzNetworkWatcherPacketCapture](/powershell/module/az.network/remove-aznetworkwatcherpacketcapture) to delete a packet capture resource.
 
 ```azurepowershell-interactive
-# Remove a packet capture resource.
+# Delete a packet capture resource.
 Remove-AzNetworkWatcherPacketCapture -Location 'eastus' -PacketCaptureName 'myVM_1'
 ```
 # [**Azure CLI**](#tab/cli)
@@ -342,13 +343,14 @@ Remove-AzNetworkWatcherPacketCapture -Location 'eastus' -PacketCaptureName 'myVM
 Use [az network watcher packet-capture delete](/cli/azure/network/watcher/packet-capture#az-network-watcher-packet-capture-delete) to delete a packet capture resource.
 
 ```azurecli-interactive
+# Delete a packet capture resource.
 az network watcher packet-capture delete --location 'eastus' --name 'myVM_1'
 ```
 
 ---
 
 > [!IMPORTANT]
-> Deleting a packet capture in Network Watcher doesn't delete the capture file from the storage account or the virtual machine. If you don't need the capture file anymore, you must manually delete it from the storage account to avoid incurring storage costs.
+> Deleting the packet capture resource in Network Watcher doesn't delete the capture file from the storage account or the virtual machine. If you don't need the capture file anymore, you must manually delete it from the storage account or virtual machine.
 
 ## Related content
 
