@@ -692,14 +692,6 @@ productDirectory:
         - developer-tools
       url: https://code.visualstudio.com/docs
     # Card
-    - title: Application Insights
-      summary: Full observability into your applications, infrastructure, and network
-      imageSrc: ./media/index/application-insights.svg
-      azureCategories:
-        - devops
-        - management-and-governance
-      url: /azure/azure-monitor/
-    # Card
     - title: Azure Artifacts
       summary: Create, host, and share packages with your team
       imageSrc: ./media/index/artifacts.svg
@@ -817,13 +809,6 @@ productDirectory:
         - hybrid
         - security
       url: sentinel/index.yml
-    # Card
-    - title: Azure Stack
-      summary: Build and run innovative hybrid applications across cloud boundaries
-      imageSrc: ./media/index/stack.svg
-      azureCategories:
-        - hybrid
-      url: /azure-stack/
     # Card
     - title: Azure Local
       summary: Operate infrastructure across distributed locations enabled by Azure Arc
@@ -946,13 +931,6 @@ productDirectory:
       azureCategories:
         - iot
       url: /azure-sphere/
-    # Card
-    - title: Azure Time Series Insights
-      summary: Explore and analyze time-series data from IoT devices
-      imageSrc: ./media/index/time-series-insights-environments.svg
-      azureCategories:
-        - iot
-      url: time-series-insights/index.yml
     # Card
     - title: Notification Hubs
       summary: Send push notifications to any platform from any back end
