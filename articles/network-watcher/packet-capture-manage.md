@@ -192,10 +192,9 @@ Use [az network watcher packet-capture stop](/cli/azure/network/watcher/packet-c
 az network watcher packet-capture stop --location 'eastus' --name 'myVM_1'
 ```
 
----
-
 > [!NOTE]
-> The cmdlet doesn't return a response whether ran on a currently running capture session or a session that has already stopped.
+> The command doesn't return a response whether ran on a currently running capture session or a session that has already stopped.
+
 ---
 
 ## View packet capture status
