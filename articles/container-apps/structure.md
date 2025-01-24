@@ -43,7 +43,7 @@ Depending on the needs of your app, you can opt to use a specialized workload pr
 - You need up to 4 vCPUs with 8 GB of memory
 - You don't need access to GPUs
 
-If your application requires capabilities outside these parameters, then run your apps on dedicated workload profile.
+If your application requires capabilities outside these parameters, then run your apps on dedicated workload profiles.
 
 When you choose to use a dedicated workload profile, you can select the allocated amount of memory and compute resources available to your apps. Further, you can add as many dedicated workload profiles to your environment as necessary.
 
