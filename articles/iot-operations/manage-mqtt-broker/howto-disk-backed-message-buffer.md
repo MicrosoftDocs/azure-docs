@@ -28,13 +28,13 @@ By default, the disk-backed message buffer feature is disabled. In this case, me
 Configuring the disk-backed message buffer is essential for maintaining a robust and reliable message queuing system, especially in scenarios where message processing speed and connectivity are critical.
 
 > [!NOTE]
-> The MQTT broker writes data to disk exactly as received from clients, without added encryption. Securing the disk is essential to protect the data stored by the broker.
+> The MQTT broker writes data to disk exactly as received from clients, without added encryption. Securing the disk is essential to protect the data that the broker stores.
 
 ## Configuration options
 
 To configure the disk-backed message buffer, edit the `diskBackedMessageBuffer` section in the Broker resource. Currently, this configuration is supported only by using the `--broker-config-file` flag when you deploy Azure IoT Operations by using the `az iot ops create` command.
 
-To get started, prepare a Broker configuration file following the [DiskBackedMessageBuffer](/rest/api/iotoperations/broker/create-or-update#diskbackedmessagebuffer) API reference.
+To get started, prepare a Broker configuration file by following the [DiskBackedMessageBuffer](/rest/api/iotoperations/broker/create-or-update#diskbackedmessagebuffer) API reference.
 
 For example, the simplest configuration involves only specifying the maximum size. In this case, [an `emptyDir` volume](#emptydir-volume) is mounted. The `maxSize` value is used as the size limit of the `emptyDir` volume. But this option is the least preferred option because of the limitations of the `emptyDir` volume.
 
@@ -97,7 +97,7 @@ Both persistent and ephemeral volumes are generally provided by the same storage
 
 ### Deploy IoT Operations with disk-backed message buffer
 
-To use a disk-backed message buffer, deploy IoT Operations by using the `az iot ops create` command with the `--broker-config-file` flag. See the following command (other parameters are omitted for brevity):
+To use a disk-backed message buffer, deploy IoT Operations by using the `az iot ops create` command with the `--broker-config-file` flag. See the following command. (Other parameters are omitted for brevity.)
 
 ```azurecli
 az iot ops create ... --broker-config-file <FILE>.json
@@ -111,7 +111,7 @@ This setting can't be changed after deployment. To change the disk-backed messag
 
 For ephemeral volume, follow the advice in the [Considerations for storage providers](#considerations-for-storage-providers) section.
 
-The value of the `ephemeralVolumeClaimSpec` property is used as the `ephemeral.volumeClaimTemplate.spec` property of the volume in the `StatefulSet` specs of the backend chains.
+The value of the `ephemeralVolumeClaimSpec` property is used as the `ephemeral.volumeClaimTemplate.spec` property of the volume in the `StatefulSet` specifications of the backend chains.
 
 For example, to use an ephemeral volume with a capacity of 1 gigabyte, specify the following parameters in your Broker resource:
 
@@ -135,7 +135,7 @@ For example, to use an ephemeral volume with a capacity of 1 gigabyte, specify t
 
 For persistent volume, follow the advice in the [Considerations for storage providers](#considerations-for-storage-providers) section.
 
-The value of the `persistentVolumeClaimSpec` property is used as the `volumeClaimTemplates.spec` property of the `StatefulSet` specs of the backend chains.
+The value of the `persistentVolumeClaimSpec` property is used as the `volumeClaimTemplates.spec` property of the `StatefulSet` specifications of the backend chains.
 
 For example, to use a persistent volume with a capacity of 1 gigabyte, specify the following parameters in your Broker resource:
 
