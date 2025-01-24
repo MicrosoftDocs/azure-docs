@@ -188,9 +188,9 @@ To find the IP address of the VM for SSH, follow these steps:
 
 Run the following commands to retrieve the list of Subject Alternative Names (SAN) accepted by the Kubernetes API server certificate. First, access the control plane node either [using Azure Arc for servers](#access-to-cluster-nodes-via-azure-arc-for-servers) or using the [interactive shell using IP address](#create-an-interactive-shell-connection-to-a-node-using-the-ip-address). This gives you access to the certificate used by the API server. You can inspect the content of the certificate using the following command with sudo privileges:
 
-    ```bash
+```bash
     sudo openssl x509 -in /etc/kubernetes/pki/apiserver.crt -text -noout
-    ```
+```
  
 Each of the SANs is identified by the prefix "DNS:". Only choose the SANs that follow the specified naming convention "\<clusterName\>-\<resourceGroup\>", as this is unique compared to other SANs like "kubernetes.default.svc.cluster.local".
 
