@@ -336,7 +336,7 @@ For more information about how to enable secure settings by configuring an Azure
 
 With X.509 authentication, the MQTT broker uses a *trusted Certificate Authority (CA) certificate* to validate client certificates. This trusted CA can be a root or intermediate CA. The broker checks the client certificate chain against the trusted CA certificate. If the chain is valid, the client is authenticated.
 
-To use X.509 authentication with a trusted CA certificate, the following requirements must be met:
+To use X.509 authentication with a trusted CA certificate, you must meet the following requirements:
 
 - **Transport Layer Security (TLS) protocol**: Because X.509 relies on TLS client certificates, [TLS must be enabled for ports by using X.509 authentication](./howto-configure-brokerlistener.md).
 - **Key algorithms**: Both EC and RSA keys are supported, but all certificates in the chain must use the same key algorithm.
@@ -587,7 +587,7 @@ x509Settings:
 
 ---
 
-In this example, every client that has a certificate issued by the root CA with distinguished name `CN = Contoso Root CA Cert, OU = Engineering, C = US` or the intermediate CA with distinguished name `CN = Contoso Intermediate CA` receives the attributes listed. In addition, the smart fan client certificate receives attributes specific to it.
+In this example, every client that has a certificate issued by the root CA with distinguished name `CN = Contoso Root CA Cert, OU = Engineering, C = US` or the intermediate CA with distinguished name `CN = Contoso Intermediate CA` receives the attributes listed. In addition, the smart-fan client certificate receives attributes specific to it.
 
 The matching for attributes always starts from the leaf client certificate and then goes along the chain. The attribute assignment stops after the first match. In the previous example, even if `smart-fan` has the intermediate certificate `CN = Contoso Intermediate CA`, it doesn't get the associated attributes.
 
