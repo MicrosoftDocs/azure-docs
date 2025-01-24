@@ -1,5 +1,5 @@
 ---
-title: Add a simple data layer
+title: Add a Simple Data Layer
 titleSuffix: Microsoft Azure Maps
 description: Learn how to add a simple data layer using the Spatial IO module, provided by Azure Maps Web SDK.
 author: sinnypan
@@ -8,20 +8,22 @@ ms.date: 06/19/2023
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: web-sdk
-#Customer intent: As an Azure Maps web sdk user, I want to add simple data layer so that I can render styled features on the map.
+#Customer intent: As an Azure Maps Web SDK user, I want to add a simple data layer so that I can render styled features on the map.
 ---
 
 # Add a simple data layer
 
-The spatial IO module provides a `SimpleDataLayer` class. This class makes it easy to render styled features on the map. It can even render data sets that have style properties and data sets that contain mixed geometry types. The simple data layer achieves this functionality by wrapping multiple rendering layers and using style expressions. The style expressions search for common style properties of the features inside these wrapped layers. The `atlas.io.read` function and the `atlas.io.write` function use these properties to read and write styles into a supported file format. After adding the properties to a supported file format, the file can be used for various purposes. For example, the file can be used to display the styled features on the map.
+The spatial IO module provides a `SimpleDataLayer` class. This class makes it easy to render styled features on a map. It can even render data sets that have style properties and data sets that contain mixed geometry types.
 
-In addition to styling features, the `SimpleDataLayer` provides a built-in popup feature with a popup template. The popup displays when a feature is selected. The default popup feature can be disabled, if desired. This layer also supports clustered data. When a cluster is clicked, the map zooms into the cluster and expands it into individual points and subclusters.
+The simple data layer achieves this functionality by wrapping multiple rendering layers and by using style expressions. The style expressions search wrapped layers for common style properties. The `atlas.io.read` and `atlas.io.write` functions use these properties to read and write styles into a supported file format. After the properties are added to a supported file format, the file can be used for purposes like displaying styled features on a map.
 
-The `SimpleDataLayer` class is intended to be used on large data sets with many geometry types and many styles applied on the features. When used, this class adds an overhead of six layers containing style expressions. So, there are cases when it's more efficient to use the core rendering layers. For example, use a core layer to render a couple of geometry types and a few styles on a feature
+The `SimpleDataLayer` class also provides a built-in popup feature with a popup template (which can be disabled if not needed). The popup appears when a feature is selected. This layer also supports clustered data. When a cluster is selected, the map zooms in to the cluster and expands it into individual points and subclusters.
+
+The `SimpleDataLayer` class is intended to be used on large data sets that contain features that have many applied geometry types and styles. When used, this class adds an overhead of six layers containing style expressions. So, there are cases when it's more efficient to use the core rendering layers. For example, you can use a core layer to render a small number of geometry types and styles on a feature.
 
 ## Use a simple data layer
 
-The `SimpleDataLayer` class is used like the other rendering layers are used. The following code shows how to use a simple data layer in a map:
+The `SimpleDataLayer` class is used like the other rendering layers. The following code shows how to use a simple data layer in a map:
 
 ```javascript
 //Create a data source and add it to the map.
@@ -33,7 +35,7 @@ var layer = new atlas.layer.SimpleDataLayer(datasource);
 map.layers.add(layer);
 ```
 
-The following code snippet demonstrates using a simple data layer, referencing the data from an online source.
+The following code snippet demonstrates how to use a simple data layer that references data from an online source.
 
 ```javascript
 <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.min.js"></script>
@@ -100,58 +102,58 @@ The following code snippet demonstrates using a simple data layer, referencing t
 </script>
 ```
 
-Once you add features to the data source, the simple data layer figures out how best to render them. Styles for individual features can be set as properties on the feature.
+When you add features to the data source, the simple data layer renders them in the most appropriate way. You can set styles for individual features as properties on the feature.
 
-The above sample code shows a GeoJSON point feature with a `color` property set to `red`.
+The preceding sample code shows a GeoJSON point feature with a `color` property set to `red`.
 
-This sample code renders the point feature using the simple data layer, and appears as follows:
+The sample code renders the point feature using the simple data layer, and appears as follows.
 
-:::image type="content" source="./media/spatial-io-add-simple-data-layer/simple-data-layer.png"alt-text="A screenshot of map with coordinates of 0, 0 that shows a red dot over blue water, the red dot was added using the symbol layer.":::
+:::image type="content" source="./media/spatial-io-add-simple-data-layer/simple-data-layer.png"alt-text="A screenshot of a map with coordinates of 0, 0 that shows a red dot over blue water; the red dot was added using the symbol layer.":::
 
 > [!NOTE]
-> Notice that the coordinates set when the map was initialized:
+> The coordinates that you set when the map is initialized:
 >
 > &emsp; center: [-73.967605, 40.780452]
 >
-> Are overwritten by the value from the datasource:
+> Are overwritten by the value from the data source:
 >
 > &emsp; "coordinates": [0, 0]
 
-The real power of the simple data layer comes when:
+The simple data layer is a powerful tool for the following scenarios:
 
-- There are several different types of features in a data source; or
-- Features in the data set have several style properties individually set on them; or
-- You're not sure what the data set exactly contains.
+- There are several feature types in a data source.
+- Features in the data set have several style properties that are individually set.
+- You're not sure what the data set contains.
 
-For example when parsing XML data feeds, you may not know the exact styles and geometry types of the features. The [Simple data layer options] sample shows the power of the simple data layer by rendering the features of a KML file. It also demonstrates various options that the simple data layer class provides. For the source code for this sample, see [Simple data layer options.html] in the Azure Maps code samples in GitHub.
+For example, when parsing XML data feeds, you might not know the features' exact style and geometry types. The [Simple data layer options] sample shows how the simple data layer renders the features of a KML file. You can also see the options provided by the `SimpleDataLayer` class. For the source code for this sample, see [Simple data layer options.html] in the Azure Maps code samples in GitHub.
 
-:::image type="content" source="./media/spatial-io-add-simple-data-layer/simple-data-layer-options.png"alt-text="A screenshot of map with a panel on the left showing the different simple data layer options.":::
+:::image type="content" source="./media/spatial-io-add-simple-data-layer/simple-data-layer-options.png"alt-text="A screenshot of map with a panel on the left showing simple data layer options.":::
 
 <!------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result]
 ------------------------------------>
 
 > [!NOTE]
-> This simple data layer uses the [popup template] class to display KML balloons or feature properties as a table. By default, all content rendered in the popup will be sandboxed inside of an iframe as a security feature. However, there are limitations:
+> This simple data layer uses the [popup template] class to display KML balloons or feature properties as a table. By default, all content rendered in the popup will be sandboxed inside of an iFrame as a security feature. However, there are limitations:
 >
-> - All scripts, forms, pointer lock and top navigation functionality is disabled. Links are allowed to open up in a new tab when selected.
-> - Older browsers that don't support the `srcdoc` parameter on iframes will be limited to rendering a small amount of content.
+> - All scripts, forms, pointer lock, and top navigation functionality is disabled. Links can open in a new tab when selected.
+> - Older browsers that don't support the `srcdoc` parameter on iFrames will only be able to render a small amount of content.
 >
-> If you trust the data being loaded into the popups and potentially want these scripts loaded into popups be able to access your application, you can disable this by setting the popup templates `sandboxContent` option to false.
+> If you trust the data that's loaded into the pop-ups, and want popup scripts to be able to access your application, you can disable this feature. Just set the popup templates' `sandboxContent` option to false.
 
 ## Default supported style properties
 
-As mentioned earlier, the simple data layer wraps several of the core rendering layers: bubble, symbol, line, polygon, and extruded polygon. It then uses expressions to search for valid style properties on individual features.
+The simple data layer wraps several of the core rendering layers: bubble, symbol, line, polygon, and extruded polygon. It uses expressions to search for valid style properties on individual features.
 
-Azure Maps and GitHub style properties are the two main sets of supported property names. Most property names of the different Azure maps layer options are supported as style properties of features in the simple data layer. Expressions have been added to some layer options to support style property names that are commonly used by GitHub. [GitHub's GeoJSON map support] defines these property names, and they're used to style GeoJSON files that are stored and rendered within the platform. All GitHub's styling properties are supported in the simple data layer, except the `marker-symbol` styling properties.
+The two main sets of supported property names are Azure Maps and GitHub. Most property names of Azure maps layer options are supported in the simple data layer as style properties of features. Expressions have been added to some layer options to support style property names that are commonly used by GitHub. [GitHub's GeoJSON map support] defines these property names, and they're used to style GeoJSON files that are stored and rendered within the platform. Most of GitHub's styling properties are supported in the simple data layer, with the exception of the `marker-symbol` styling properties.
 
-If the reader comes across a less common style property, it converts it to the closest Azure Maps style property. Additionally, the default style expressions can be overridden by using the `getLayers` function of the simple data layer and updating the options on any of the layers.
+If the reader comes across a less common style property, it converts it to the most similar Azure Maps style property. Additionally, you can override the default style expressions by using the `getLayers` function of the simple data layer and updating the options on any of the layers.
 
-The following sections provide details on the default style properties supported by the simple data layer. The order of the supported property name is also the priority of the property. If two style properties are defined for the same layer option, then the first one in the list has higher precedence. Colors can be any CSS3 color value; HEX, RGB, RGBA, HSL, HSLA, or named color value.
+The following sections provide details on the default style properties that are supported by the simple data layer. The order of the supported property name is also the priority of the property. If two style properties are defined for the same layer option, the first one in the list has higher precedence. Any CSS3 color value including HEX, RGB, RGBA, HSL, HSLA, or named color value can be used.
 
 ### Bubble layer style properties
 
-If a feature is a `Point` or a `MultiPoint`, and the feature doesn't have an `image` property that would be used as a custom icon to render the point as a symbol, then the feature is rendered with a `BubbleLayer`.
+If a feature is a `Point` or a `MultiPoint`, and the feature doesn't have an `image` property to use as a custom icon to render the point as a symbol, the feature is rendered with a `BubbleLayer`.
 
 | Layer option | Supported property name(s) | Default value |
 |--------------|----------------------------|---------------|
@@ -161,7 +163,7 @@ If a feature is a `Point` or a `MultiPoint`, and the feature doesn't have an `im
 
 \[1\] The `size` and `scale` values are considered scalar values, and are multiplied by `8`
 
-\[2\] If the GitHub `marker-size` option is specified, then the following values are used for the radius.
+\[2\] If the GitHub `marker-size` option is specified, the following values are used for the radius:
 
 | Marker size | Radius |
 |-------------|--------|
@@ -169,9 +171,9 @@ If a feature is a `Point` or a `MultiPoint`, and the feature doesn't have an `im
 | `medium`    | `8`    |
 | `large`     | `12`   |
 
-Clusters are also rendered using the bubble layer. By default the radius of a cluster is set to `16`. The color of the cluster varies depending on the number of points in the cluster, as defined in the following table:
+Clusters are also rendered using the bubble layer. By default, the radius of a cluster is set to `16`. The color of the cluster varies depending on the number of points in the cluster, as defined in the following table:
 
-| # of points | Color    |
+| Number of points | Color    |
 |-------------|----------|
 | &gt;= 100   | `red`    |
 | &gt;= 10    | `yellow` |
@@ -179,7 +181,7 @@ Clusters are also rendered using the bubble layer. By default the radius of a cl
 
 ### Symbol style properties
 
-If a feature is a `Point` or a `MultiPoint`, and the feature and has an `image` property that would be used as a custom icon to render the point as a symbol, then the feature is rendered with a `SymbolLayer`.
+If a feature is a `Point` or `MultiPoint`, and the feature has an `image` property that would be used as a custom icon to render the point as a symbol, the feature is rendered with a `SymbolLayer`.
 
 | Layer option | Supported property name(s) | Default value |
 |--------------|----------------------------|---------------|
@@ -189,7 +191,7 @@ If a feature is a `Point` or a `MultiPoint`, and the feature and has an `image` 
 | `offset`     | `offset`                   | `[0, 0]`      |
 | `anchor`     | `anchor`                   | `'bottom'`    |
 
-\[1\] If the GitHub `marker-size` option is specified, then the following values are used for the icon size option.
+\[1\] If the GitHub `marker-size` option is specified, the following values are used for the icon size option.
 
 | Marker size | Symbol size |
 |-------------|-------------|
@@ -201,7 +203,7 @@ If the point feature is a cluster, the `point_count_abbreviated` property is ren
 
 ### Line style properties
 
-If the feature is a `LineString`, `MultiLineString`, `Polygon`, or `MultiPolygon`, then the feature is rendered with a `LineLayer`.
+If the feature is a `LineString`, `MultiLineString`, `Polygon`, or `MultiPolygon`, the feature is rendered with a `LineLayer`.
 
 | Layer option    | Supported property name(s) | Default value |
 |-----------------|----------------------------|---------------|
@@ -211,7 +213,7 @@ If the feature is a `LineString`, `MultiLineString`, `Polygon`, or `MultiPolygon
 
 ### Polygon style properties
 
-If the feature is a `Polygon` or a `MultiPolygon`, and the feature either doesn't have a `height` property or the `height` property is zero, then the feature is rendered with a `PolygonLayer`.
+If the feature is a `Polygon` or a `MultiPolygon`, and the feature either doesn't have a `height` property or the `height` property is zero, the feature is rendered with a `PolygonLayer`.
 
 | Layer option | Supported property name(s) | Default value |
 |--------------|----------------------------|---------------|
@@ -228,32 +230,20 @@ If the feature is a `Polygon` or a `MultiPolygon`, and has a `height` property w
 | `fillColor`  | `fillColor`, `fill`        | `'#1E90FF'`   |
 | `height`     | `height`                   | `0`           |
 
-## Next steps
+## Related content
 
 Learn more about the classes and methods used in this article:
 
-> [!div class="nextstepaction"]
-> [SimpleDataLayer]
-
-> [!div class="nextstepaction"]
-> [SimpleDataLayerOptions]
+- [SimpleDataLayer]
+- [SimpleDataLayerOptions]
 
 See the following articles for more code samples to add to your maps:
 
-> [!div class="nextstepaction"]
-> [Read and write spatial data]
-
-> [!div class="nextstepaction"]
-> [Add an OGC map layer]
-
-> [!div class="nextstepaction"]
-> [Connect to a WFS service]
-
-> [!div class="nextstepaction"]
-> [Leverage core operations]
-
-> [!div class="nextstepaction"]
-> [Supported data format details]
+- [Read and write spatial data]
+- [Add an OGC map layer]
+- [Connect to a WFS service]
+- [Leverage core operations]
+- [Supported data format details]
 
 [Add an OGC map layer]: spatial-io-add-ogc-map-layer.md
 [Connect to a WFS service]: spatial-io-connect-wfs-service.md
