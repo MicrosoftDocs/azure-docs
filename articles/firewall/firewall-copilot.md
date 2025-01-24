@@ -5,7 +5,7 @@ keywords: security copilot, copilot for security, threat intelligence, IDPS, int
 author: abhinavsriram
 ms.author: asriram
 ms.date: 11/19/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-firewall
 ms.localizationpriority: high
 ms.custom:

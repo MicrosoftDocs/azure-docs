@@ -105,4 +105,4 @@ For frequently asked questions about VPN gateway, see the [VPN Gateway FAQ](vpn-
 * [Tutorial: Create and manage a VPN Gateway](tutorial-create-gateway-portal.md).
 * [Learn module: Introduction to Azure VPN Gateway](/training/modules/intro-to-azure-vpn-gateway).
 * [Learn module: Connect your on-premises network to Azure with VPN Gateway](/training/modules/connect-on-premises-network-with-vpn-gateway/).
-* [Subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#vpn-gateway-limits).
+* [Subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-vpn-gateway-limits).

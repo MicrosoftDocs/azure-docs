@@ -20,8 +20,11 @@ Azure Front Door is a modern application delivery network platform providing a s
 
 This article shows how to:
 
-* Set up an Azure Front Door Standard/Premium profile in front of a publicly accessible Azure API Management instance: either non-networked, or injected in a virtual network in [external mode](api-management-using-with-vnet.md). 
+* Set up an Azure Front Door Standard/Premium profile in front of a publicly accessible Azure API Management instance: either non-networked, or a Developer or Premium instance injected in a virtual network in [external mode](api-management-using-with-vnet.md). 
 * Restrict API Management to accept API traffic only from Azure Front Door. 
+
+> [!TIP]
+> You can also configure Azure Front Door Premium to route traffic to an API Management gateway using a [private endpoint](../frontdoor/standard-premium/how-to-enable-private-link-apim.md).
 
 ## Prerequisites
 

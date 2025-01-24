@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/28/2024
+ms.date: 12/17/2024
 ms.author: jianleishen
 ---
 
@@ -89,6 +89,14 @@ If you use the recommended driver version，the following properties are support
 | sslMode | This option specifies whether the driver uses TLS encryption and verification when connecting to MySQL. E.g., `SSLMode=<0/1/2/3/4>`.<br/>Options: DISABLED (0) / PREFERRED (1) **(Default)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Yes |
 | useSystemTrustStore | This option specifies whether to use a CA certificate from the system trust store, or from a specified PEM file. E.g. `UseSystemTrustStore=<0/1>`;<br/>Options: Enabled (1) / Disabled (0) **(Default)** | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
+| ***Additional connection properties*** | | |
+| allowZeroDateTime | Specifying this property value to `true` allows the special "zero" date value of `0000-00-00` to be retrieved from the database. If set to `false` (the default), date columns are returned as DateTime values, which means `0000-00-00` cannot be retrieved. <br><br> MySQL permits you to store a "zero" value of `0000-00-00` as a "dummy date". In some cases, this feature is more convenient than using NULL values, and uses less data and index space. To disallow `0000-00-00` in MySQL, enable the [NO_ZERO_DATE](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_no_zero_date) mode. For more information, see this [article](https://dev.mysql.com/doc/refman/8.4/en/date-and-time-types.html).| No |
+| connectionTimeout | The length of time (in seconds) to wait for a connection to the server before terminating the attempt and generating an error. | No |
+| convertZeroDateTime | Set it to `true` to return DateTime.MinValue for date or datetime columns that have disallowed values. | No |
+| guidFormat| Determines which column type (if any) should be read as a GUID. Go to this [article](https://mysqlconnector.net/connection-options/) for the description of each column type by searching this property. <br><br> The recommended version treats Char(36) as GUID type by default for better performance. The connector treats Char(36) fields as GUIDs for easier database handling. This treatment simplifies operations such as inserting, updating, and retrieving GUID values, ensuring they are consistently managed as GUID objects in the application code instead of plain strings. This behavior is particularly useful in scenarios where GUIDs are used as primary keys or unique identifiers and provides better performance. If you don't need this default setting, you can configure `guidFormat=none` in connection property. |No|
+| sslCert | The path to the client's SSL certificate file in PEM format. SslKey must also be specified. |No|
+| sslKey | The path to the client's SSL private key in PEM format. SslCert must also be specified.| No |
+| treatTinyAsBoolean | When set to true, tinyint(1) values are returned as Boolean. Setting this property to false causes tinyint(1) to be returned as SByte/Byte. <br><br>The recommended version treats tinyint(1) as Boolean type by default. For more information, see this [article](https://dev.mysql.com/doc/refman/8.0/en/numeric-type-syntax.html). To let the connector return tiny as numeric, set `treatTinyAsBoolean=false` in the connection properties.| No | 
 
 **Example:**
 

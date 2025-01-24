@@ -4,8 +4,8 @@ description: Learn how to back up Azure Managed Disks from the Azure portal.
 ms.topic: how-to
 ms.date: 09/11/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up Azure Managed Disks

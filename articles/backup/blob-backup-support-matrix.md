@@ -2,11 +2,11 @@
 title: Support matrix for Azure Blobs backup
 description: Provides a summary of support settings and limitations when backing up Azure Blobs.
 ms.topic: reference
-ms.date: 12/03/2024
+ms.date: 01/24/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Support matrix for Azure Blobs backup
@@ -56,7 +56,8 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 
 - You can back up only block blobs in a *standard general-purpose v2 storage account* using the vaulted backup solution for blobs.
 - HNS-enabled storage accounts are currently not supported. This includes *ADLS Gen2 accounts*, *accounts using NFS 3.0*, and *SFTP protocols* for blobs.
-- You can back up storage accounts with *up to 100 containers*. You can also select a subset of containers to back up (up to 100 containers).
+- You can take up to five backups per storage account in a day.
+- You can back up storage accounts with *up to 100 containers*, there is no limit on the number of blobs within those containers. You can also select a subset of containers to back up (up to 100 containers).
   - If your storage account contains more than 100 containers, you need to select *up to 100 containers* to back up.
   - To back up any new containers that get created after backup configuration for the storage account, modify the protection of the storage account. These containers aren't backed up automatically.
 - The storage accounts to be backed up must contain *a minimum of one container*. If the storage account doesn't contain any containers or if no containers are selected, an error may appear when you configure backup.
@@ -67,9 +68,14 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 - When you delete and recreate a storage account with the same name, **Object Replication** doesn't recognize the change. As a result, future Recovery Points continue to include the older blobs and their versions.
 - Similarly, if you delete and recreate a container with the same name, **Object Replication** doesn't track the change, and future Recovery Points still include the previous blobs and versions.
 - If you suspend and resume protection or delete the **Object Replication policy** on the **source storage account**, the policy triggers a full backup.
+- Backup vaults with User-Assigned Managed Identity (UAMI) aren't compatible with Azure Blob Vaulted backups. Only System-Assigned Managed Identity (SAMI) works, because the vault needs to access the storage account where the blobs are stored. The vault uses its system-assigned managed identity for this access.
 
+- Enabling backups isn't supported for the blob container that are configured with native replication using data factory.
+- The protection of  a container that is part of any object replication isn't supported, either as a source or destination. Attempting to back up such a container will result in backup failure.
+ 
 
 ---
+
 ## Next steps
 
 [Overview of Azure Blobs backup for Azure Blobs](blob-backup-overview.md)

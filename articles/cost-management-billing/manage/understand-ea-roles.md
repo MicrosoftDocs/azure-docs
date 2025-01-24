@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: concept-article
-ms.date: 10/18/2024
+ms.date: 01/22/2025
 ms.author: banders
 #customer intent: As an enterprise administrator, I want learn about the administrative roles available to manage Azure Enterprise Agreements so that manage my enterprise agreement.
 ---
@@ -69,7 +69,7 @@ Use Cost Management in the [Azure portal](https://portal.azure.com) so you can m
 
 Direct EA customers can complete all administrative tasks in the Azure portal. You can use the [Azure portal](https://portal.azure.com) to manage billing, costs, and Azure services.
 
-User roles are associated with a user account. To validate user authenticity, each user must have a valid work, school, or Microsoft account. Ensure that each account is associated with an email address to actively monitor it. Enrollment notifications are sent to the email address.
+EA Billing roles can only be assigned to individual user accounts. Assigning these roles to Distribution Groups (DGs) and Security Groups (SGs) is not supported. To validate user authenticity, each user must have a valid work, school, or Microsoft account. Ensure that each account is associated with an email address to actively monitor it. Enrollment notifications are sent to the email address.
 
 > [!NOTE]
 > The Account Owner role is often assigned to a service account that doesn't have an actively monitored email.
@@ -172,7 +172,7 @@ The following table shows user limits and permissions associated with each admin
 |View Accounts in the enrollment |✔|✔|✔|✔⁵|✔⁵|✘|✔|
 |Add Accounts to the enrollment and change Account Owner|✔|✘|✘|✔⁵|✘|✘|✘|
 |Purchase reservations/savings plans|✔|✘⁶|✔|✘|✘|✘|✘|
-|Create and manage subscriptions and subscription permissions|✔|✘|✘|✘|✘|✔|✘|
+|Create and manage subscriptions |✔|✘|✘|✘|✘|✔|✘|
 
 - ⁴ Notification contacts are sent email communications about the Azure Enterprise Agreement.
 - ⁵ Task is limited to accounts in your department.

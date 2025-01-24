@@ -5,7 +5,7 @@ description: This article is about how Front Door manager can help you manage yo
 services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/13/2024
 ms.author: duau
 ---
