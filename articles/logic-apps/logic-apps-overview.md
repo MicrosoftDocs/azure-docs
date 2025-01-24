@@ -105,7 +105,7 @@ All these services help you connect and bring together disparate systems. Each s
 
 ## How does Azure Logic Apps differ from Azure Automation Runbooks?
 
-[Azure Automation Runbooks](/azure/automation/automation-runbook-types) provide a lightweight and cost-effective solution for straightforward remediations, such as restarting virtual machines. In contrast, Azure Logic Apps are ideal for workflows and orchestrations between multiple services, systems, apps, and data. including workloads that run custom code or require complex logic that uses control structures such as loops, branching, conditions, and more.
+[Azure Automation Runbooks](/azure/automation/automation-runbook-types) provide a lightweight and cost-effective solution for straightforward remediations, such as restarting virtual machines. In contrast, the Azure Logic Apps platform is ideal for automated workflows or orchestrations that involve multiple services, systems, apps, and data. These scenarios also include workloads that run custom code or that require complex logic that uses control structures such as loops, branching, conditions, and more.
 
 ## How quickly can I ramp up my solutions with Azure Logic Apps?
 
