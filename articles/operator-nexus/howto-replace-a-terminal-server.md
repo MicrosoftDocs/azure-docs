@@ -19,11 +19,11 @@ Before initiating the Return Merchandise Authorization (RMA) for the existing Te
 
 ### Manual cleanup tasks
 
-1. Verify TS Password in KeyVault
+1. Verify TS password in KeyVault
 
     Confirm that the current Terminal Server password is stored in the customer NFC KeyVault secrets.
 
-2. Stop Active Services
+2. Stop active services
 
     On the Terminal Server, navigate to the directory under /mnt/nvram/ that begins with the name `opengear` (ensure you select the directory for the latest version, if multiple directories are present).
 
@@ -33,7 +33,7 @@ Before initiating the Return Merchandise Authorization (RMA) for the existing Te
     sudo bash stop.sh   
     ```
 
-4. Remove Configuration and Certificate Files
+4. Remove configuration and certificate files
 
     Access the /mnt/nvram/ directory to ensure all configuration files, certificates, and the Open Gear file are deleted, leaving no traces of previous configurations.
 
