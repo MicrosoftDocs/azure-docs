@@ -1,5 +1,6 @@
 ---
 title: How to Upgrade the operating system of a Terminal Server
+titleSuffix: Azure Operator Nexus
 description: Learn the process for upgrading the operating system of a Terminal Server
 author: sushantjrao 
 ms.author: sushrao
@@ -21,10 +22,10 @@ This document provides a step-by-step guide to upgrade the operating system (OS)
 
 - Download **Latest firmware download**: [Opengear Firmware](https://ftp.opengear.com/download/opengear_appliances/OM/current/). 
 
->[!Note:]
+>[!Note]
 > This guide has been validated with Opengear firmware version 24.07.1.
 
-## **Stage 1: Pre-Upgrade Checks (Terminal Server)**
+## **Stage 1: Pre-upgrade checks (Terminal Server)**
 
 ### Check current version of Terminal Server
 
@@ -37,7 +38,7 @@ cat /etc/version
 ```Example output
 22.06.0
 ```
-> [!Note:]
+> [!Note]
 > Ensure the current OS version is lower than the version you are upgrading to.
 
 ### LLDP Service check and enable
@@ -105,15 +106,15 @@ rtt min/avg/max/mdev = 0.305/0.328/0.344/0.015 ms
 
 ### Create a backup of current configuration
 
-Run the following command on terminal server.
+Run the following command on Terminal Server.
 
 ```bash
 ogcli export ogcli_export_<date>
 ```
 
-## **Stage 2: Backup Files (on-premises machine)**
+## **Stage 2: Backup files (on-premises machine)**
 
-### Transfer Backup Files to on-premises machine
+### Transfer Backup files to on-premises machine
 
 Run following command on the on-premises machine to copy the Terminal Server configuration and related files to the on-premises machine. 
 
@@ -127,21 +128,21 @@ scp -r -o MACs=umac-128-etm@openssh.com root@<ts_ip>:/mnt/nvram/nexus ./
 scp -r -o MACs=umac-128-etm@openssh.com root@<ts_ip>:/mnt/nvram/opengear_provisioning_rev5 ./
 ```
 
->[!Note:]
-> Replace <ts_ip> with the terminal server IP.
+>[!Note]
+> Replace <ts_ip> with the Terminal Server IP.
 
 ## **Stage 3: Install firmware (Terminal Server)**
 
 ### Upload firmware
 
-Upload the latest downloaded firmware from on premise machine to the terminal server.
+Upload the latest downloaded firmware from on premise machine to the Terminal Server.
 
 ```bash
 scp -r -o MACs=umac-128-etm@openssh.com ./operations_manager-24.07.1-production-signed.raucb root@<ts_ip>:/tmp/
 ```
 
->[!Note:]
-> Replace <ts_ip> with the terminal server IP.<br>
+>[!Note]
+> Replace <ts_ip> with the Terminal Server IP.<br>
 > Ensure the file name corresponds to the specific firmware version being used. For example, <operations_manager-24.07.1-production-signed.raucb> is the file name for Opengear OS version 24.07.1. Adjust the file name accordingly for your firmware version.
 
 ### Initiate installation of firmware
@@ -151,11 +152,11 @@ Run the following command on the Terminal Server.
 ```bash
 puginstall --reboot-after /tmp/operations_manager-24.07.1-production-signed.raucb
 ```
-> {!Note:]
+> [!Note]
 The upgrade process takes 5–10 minutes, during which the Terminal Server will reboot automatically.
 
 
-## **Stage 4: Cleanup (On-Premises Machine)**
+## **Stage 4: Cleanup (On-premises machine)**
 
 ### Remove backup and firmware
 
@@ -166,17 +167,17 @@ rm -rf ~/ts_backup
 rm -rf ./operations_manager-24.07.1-production-signed.raucb
 ```
 
->[!Note:]
-> Perform this action only once the terminal server has been upgraded successfully.
+>[!Note]
+> Perform this action only once the Terminal Server has been upgraded successfully.
 
 
-### Firmware Upgrade Failure
+### Firmware upgrade failure
 
 If the firmware upgrade fails, follow these steps:
 
 1. Perform a **factory reset**:
 
-    Run the following command on the terminal server.
+    Run the following command on the Terminal Server.
 
    ```bash
    factory_reset
@@ -190,12 +191,12 @@ If the firmware upgrade fails, follow these steps:
 
 3. Reconfigure or restore the device from backup:
 
-    Run the following command on the terminal server.
+    Run the following command on the Terminal Server.
 
    ```bash
    ogcli restore <file_path>
    ```
 
-### Next Steps
+### Next steps
 
 [Reconfigure Device Post-Reset](howto-platform-prerequisites.md)
