@@ -77,6 +77,8 @@ For more information about WhatsApp requirements for templates, see the WhatsApp
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
+[!INCLUDE [Common setting for using Advanced Messages SDK](./includes/common-setting-javascript.md)]
+
 [!INCLUDE [Send WhatsApp Messages JavaScript SDK](./includes/templates/messages-quickstart-template-messages-javascript.md)]
 ::: zone-end
 
