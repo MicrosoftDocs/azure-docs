@@ -9,7 +9,7 @@ ms.date: 01/24/2025
 
 Let's begin working with Durable Functions using the new Durable Task Scheduler backend provider.
 
-In this quickstart, the [provided sample](https://github.com/Azure/Azure-Functions-Durable-Task-Scheduler-Private-Preview/tree/main/quickstarts/HelloCities) uses the [official Durable Functions "hello cities" quickstart](../durable/durable-functions-isolated-create-first-csharp?pivots=code-editor-vscode). The sample schedules orchestrations that include three activities via an HTTP trigger.
+In this quickstart, the [provided sample](https://github.com/Azure/Azure-Functions-Durable-Task-Scheduler-Private-Preview/tree/main/quickstarts/HelloCities) uses the [official Durable Functions "hello cities" quickstart](../durable-functions-isolated-create-first-csharp.md). The sample schedules orchestrations that include three activities via an HTTP trigger.
 
 This quickstart showcases the necessary configuration for using Durable Task Scheduler as the backend provider for your Durable Function app.
 
@@ -200,7 +200,6 @@ az durabletask taskhub list -s "SCHEDULER-NAME" -g "RESOURCE-GROUP"
 
 ## Demo
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8Ot13RgT2oI?si=UBMZo2ZsQiRCEY7H" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Next steps
 
