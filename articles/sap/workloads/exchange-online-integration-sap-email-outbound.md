@@ -28,10 +28,10 @@ Follow our standard [guide](/exchange/mail-flow-best-practices/how-to-set-up-a-m
 
 Currently, there are four different options supported by SAP NetWeaver that we want to describe. The first three correlate with the scenarios described in the [Exchange Online documentation](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365).
 
-1.  SMTP Authentication Client Submission (**retiring soon!**)
-1.  SMTP Direct Send
-1.  Using Exchange Online SMTP relay connector (**recommended**)
-1.  Using SMTP relay server as intermediary to Exchange Online
+1.  [SMTP Authentication Client Submission](#option-1-smtp-authentication-client-submission-retiring-soon) (**retiring soon!**)
+1.  [SMTP Direct Send](#option-2-smtp-direct-send)
+1.  [Using Exchange Online SMTP relay connector](#option-3-using-microsoft-365-smtp-relay-connector-recommended) (**recommended**)
+1.  [Using SMTP relay server as intermediary to Exchange Online](#option-4-using-smtp-relay-server-as-intermediary-to-exchange-online)
 
 For brevity we'll refer to the [**SAP Connect administration tool**](https://wiki.scn.sap.com/wiki/display/SI/SCOT+-+SAPconnect+Administration) used for the mail server setup only by its transaction code SCOT.
 
@@ -152,7 +152,7 @@ This will enable SMTP AUTH for that individual user in Exchange Online that you 
 
 Microsoft 365 offers the ability to configure [direct send](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365#option-2-send-mail-directly-from-your-printer-or-application-to-microsoft-365-or-office-365-direct-send) from the SAP application server. This option is limited in that it only permits mail to be routed to addresses in your own Microsoft 365 organization with a valid e-mail address therefore cannot be used for external recipients (e.g., vendors or customers).
 
-## Option 3: Using Microsoft 365 SMTP Relay Connector
+## Option 3: Using Microsoft 365 SMTP Relay Connector (recommended)
 
 Only choose this option when:
 
