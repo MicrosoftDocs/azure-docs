@@ -75,7 +75,7 @@ User-assigned identity example:
 ### Create and configure Log Analytics Workspace and System Assigned Managed Identity
 
 > [!NOTE]
-> The system-assigned managed identity that is created during cluster creation does not exist until the cluster is created.  This system-assigned managed identity will need to have persmissions over the scope of the Log Analytics Workspace with the role of Log Analytics Contributor before we can update the cluster to utilize this identity.
+> The system-assigned managed identity that is created during cluster creation does not exist until the cluster is created.  This system-assigned managed identity will need to have permissions over the scope of the Log Analytics Workspace with the role of Log Analytics Contributor before we can update the cluster to utilize this identity. This update must occur before the Cluster can be deployed.
 
 ```azurecli-interactive
 az networkcloud cluster update --name "<cluster-name>" \
