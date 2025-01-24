@@ -21,13 +21,11 @@ Azure Database for PostgreSQL - Flexible server backup is now available in all p
 
 - PostgreSQL Flexible Server backup data can be recovered in user specified storage containers that can be used to rebuild the PostgreSQL flexible server. You can restore this data as a new PostgreSQL - flexible server with the database native tools.
 
-- Only weekly backups are supported with option to opt for one day in the week on which backup is initiated.
+- Only weekly backups are supported with option to opt for only one day in the week on which backup is initiated.
 
 - Both Cross Region and Cross Subscription backups are supported.
 
-- Recommended limit for the maximum server size is 4 TB.
-
-- Recommended backup frequency for backing up a server is Weekly. In case you opt for Daily backup and observe failures, we recommend decreasing the frequency while relying on automated backup solution to achieve required RPO.  
+- Recommended limit for the maximum server size is 4 TB.  
 
 - PostgreSQL - Flexible servers encrypted by Customer Managed Key are supported.
 
