@@ -84,7 +84,7 @@ First, you set up a sample data-driven app as a starting point. For your conveni
         **Step 2:** In the GitHub fork:
         1. Select **main** > **starter-no-infra** for the starter branch. This branch contains just the sample project and no Azure-related files or configuration.
         1. Select **Code** > **Create codespace on starter-no-infra**.
-        The codespace takes a few minutes to set up, and it runs `pip install -r requirements.txt` for your repository at the end.
+        The codespace takes a few minutes to set up, and it runs `pip install -r requirements.txt` for your repository at the end. Also, the provided *.env* file already contains a dummy [`SECRET_KEY` variable that Django needs to run locally](https://docs.djangoproject.com/en/5.1/ref/settings/#secret-key). 
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-run-sample-application-2.png" alt-text="A screenshot showing how to create a codespace in GitHub." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-run-sample-application-2.png":::
@@ -93,8 +93,6 @@ First, you set up a sample data-driven app as a starting point. For your conveni
 :::row:::
     :::column span="2":::
         **Step 3:** In the codespace terminal:
-        1. Create a SECRET_KEY value for your app by running the following command at a terminal prompt: `python -c 'import secrets; print(secrets.token_hex())'`.
-        1. Set the returned value as the value of `SECRET_KEY` in the .env file.
         1. Run database migrations with `python manage.py migrate`.
         1. Run the app with `python manage.py runserver`.
         1. When you see the notification `Your application running on port 8000 is available.`, select **Open in Browser**.
@@ -141,7 +139,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 :::row:::
     :::column span="2":::
         **Step 2:** In the **Create Web App + Database** page, fill out the form as follows.
-        1. *Resource Group*: Select **Create new** and use a name of **msdocs-python-postgres-tutorial**.
+        1. *Resource Group*: Select **Create new** and use a name of **msdocs-django-postgres-tutorial**.
         1. *Region*: Any Azure region near you.
         1. *Name*: **msdocs-python-postgres-XYZ**.
         1. *Runtime stack*: **Python 3.12**.
@@ -152,7 +150,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. After validation completes, select **Create**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-create-app-postgres-2-django.png" alt-text="A screenshot showing how to configure a new app and database in the Web App + Database wizard (Django)." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-create-app-postgres-2-django.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-create-app-postgres-2.png" alt-text="A screenshot showing how to configure a new app and database in the Web App + Database wizard (Django)." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-create-app-postgres-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -172,7 +170,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
     :::column-end:::
 :::row-end:::
 
-## 3. Secure connection secrets
+## 3. Secure connection secrets and add SECRET_KEY
 
 The creation wizard generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You'll move your secrets to a key vault and change your app setting to [Key Vault references](app-service-key-vault-references.md) with the help of Service Connectors.
 
@@ -183,7 +181,7 @@ The creation wizard generated the connectivity variables for you already as [app
         1. Select **AZURE_POSTGRESQL_CONNECTIONSTRING**. 
         1. In **Add/Edit application setting**, in the **Value** field, find the *password=* part at the end of the string.
         1. Copy the password string after *Password=* for use later.
-        This app setting lets you connect to the Postgres database secured behind a private endpoint. However, the secret is saved directly in the App Service app, which isn't the best. You'll change this. Note also the `SECRET_KEY` variable, which is used by your application code to generate a secret key.
+        This app setting lets you connect to the Postgres database and the Redis cache secured behind private endpoints. However, the secrets are saved directly in the App Service app, which isn't the best. You'll change this. In addition, you will add a `SECRET_KEY` setting, which is required by your Django app.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-1.png" alt-text="A screenshot showing how to see the value of an app setting." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-1.png":::
@@ -221,7 +219,7 @@ The creation wizard generated the connectivity variables for you already as [app
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4: Configure the Service Connector**
+        **Step 4: Configure the PostgreSQL connector**
         1. In the top search bar, type *msdocs-python-postgres*, then select the App Service resource called **msdocs-python-postgres-XYZ**.
         1. In the App Service page, in the left menu, select **Settings > Service Connector**. There's already a connector, which the app creation wizard created for you.
         1. Select checkbox next to the PostgreSQL connector, then select **Edit**.
@@ -249,7 +247,7 @@ The creation wizard generated the connectivity variables for you already as [app
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 6: Finalize the Service Connector configuration** 
+        **Step 6: Finalize the PostgreSQL connector settings** 
         1. You're back in the edit dialog for **defaultConnector**. In the **Authentication** tab, wait for the key vault connector to be created. When it's finished, the **Key Vault Connection** dropdown automatically selects it.
         1. Select **Next: Networking**.
         1. Select **Save**. Wait until the **Update succeeded** notification appears.
@@ -260,16 +258,52 @@ The creation wizard generated the connectivity variables for you already as [app
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7: Verify the Key Vault integration**
-        1. From the left menu, select **Settings > Environment variables** again.
-        1. Next to **AZURE_POSTGRESQL_PASSWORD**, select **Show value**. The value should be `@Microsoft.KeyVault(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
+        **Step 7: Configure the Redis connector to use Key Vault secrets** 
+        1. In the Service Connectors page, select the checkbox next to the Cache for Redis connector, then select **Edit**.
+        1. Select the **Authentication** tab.
+        1. Select **Store Secret in Key Vault**.
+        1. Under **Key Vault Connection**, select the key vault you created. 
+        1. Select **Next: Networking**.
+        1. Select **Configure firewall rules to enable access to target service**. The app creation wizard already secured the SQL database with a private endpoint.
+        1. Select **Save**. Wait until the **Update succeeded** notification appears.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-7.png" alt-text="A screenshot showing how to see the value of PostgreSQL password in Azure." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-7.png":::
+        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-7.png" alt-text="A screenshot showing how to edit the Cache for Redis service connector with a key vault connection." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-7.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 8: Verify the Key Vault integration**
+        1. From the left menu, select **Settings > Environment variables** again.
+        1. Next to **AZURE_POSTGRESQL_PASSWORD**, select **Show value**. The value should be `@Microsoft.KeyVault(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
+        1. To verify the Redis connection string, select **Show value** next to **AZURE_REDIS_CONNECTIONSTRING**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-8.png" alt-text="A screenshot showing how to see the value of PostgreSQL password in Azure." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-8.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 9:** The sample application reads the SECRET_KEY environment variable to set the [required SECRET_KEY setting](https://docs.djangoproject.com/en/5.1/ref/settings/#std-setting-SECRET_KEY). You create it as an app setting in this step.
+        1. In the **App settings** tab, select **Add**.
+        1. Set **Name** to *SECRET_KEY*.
+        1. Set **Value** to a long random string.
+        1. Click **Apply**, then **Apply** again, then **Confirm**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-9.png" alt-text="A screenshot showing the Add/Edit application setting dialog." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-9.png":::
     :::column-end:::
 :::row-end:::
 
-To summarize, the process involved retrieving the PostgreSQL connection string from the App Service's environment variables, creating an Azure Key Vault for secure secret management with private access, and updating the service connector to store the password in the key vault. A secure connection between the App Service app and key vault was established using a system-assigned managed identity, and the setup was verified by confirming the connection string uses a Key Vault reference.
+To summarize, the process for securing your connection secrets involved:
+
+- Retrieving the connection secrets from the App Service app's environment variables.
+- Creating a key vault.
+- Creating a Key Vault connection with the system-assigned managed identity.
+- Updating the service connectors to store the secrets in the key vault.
+
+> [!NOTE]
+> Ideally, the `SECRET_KEY` app setting should be configured as a key vault reference too, which is a multi-step process. For more information, see [How do I change the SECRET_KEY app setting to a Key Vault reference?](#how-do-i-change-the-secret_key-app-setting-to-a-key-vault-reference) 
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -317,21 +351,23 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
     :::column span="2":::
         **Step 4 (Option 1: with GitHub Copilot):**  
         1. Start a new chat session by selecting the **Chat** view, then selecting **+**.
-        1. Ask, "*@workspace How does the app connect to the database?*" Copilot might give you some explanation about `SQLAlchemy` how it's connection URI is configured in *azureproject/development.py* and *azureproject/production.py*. 
+        1. Ask, "*@workspace How does the app connect to the database and redis?*" Copilot might give you some explanation about `SQLAlchemy` how it's connection URI is configured in *azureproject/development.py* and *azureproject/production.py*. 
         1. Ask, "@workspace In production mode, my app is running in an App Service web app, which uses Azure Service Connector to connect to a PostgreSQL flexible server using the Django client type. What are the environment variable names I need to use?*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *azureproject/production.py* file. 
         1. Open *azureproject/production.py* in the explorer and add the code suggestion.
+        1. Ask, "@workspace My App Service app also uses Azure Service Connector to connect to a Cache for Redis using the Django client type. What are the environment variable names I need to use?*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *azureproject/production.py* file. 
+        1. Add the code suggestion.
         GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/tutorial-python-postgresql-app-django/github-copilot-1.png" alt-text="A screenshot showing how to ask a question in a new GitHub Copilot chat session." lightbox="media/tutorial-python-postgresql-app-django/github-copilot-1.png":::
+        :::image type="content" source="media/tutorial-python-postgresql-app-flask/github-copilot-1.png" alt-text="A screenshot showing how to ask a question in a new GitHub Copilot chat session." lightbox="media/tutorial-python-postgresql-app-django/github-flask-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
         **Step 4 (Option 2: without GitHub Copilot):**  
         1. Open *Program.cs* in the explorer.
-        1. Find the commented code (lines 3-8) and uncomment it. 
-        This creates a connection string for SQLAlchemy by using `AZURE_POSTGRESQL_USER`, `AZURE_POSTGRESQL_PASSWORD`, `AZURE_POSTGRESQL_HOST`, and `AZURE_POSTGRESQL_NAME`.
+        1. Find the commented code (lines 29-48) and uncomment it. 
+        This creates PostgreSQL and Redis connections by using `AZURE_POSTGRESQL_USER`, `AZURE_POSTGRESQL_PASSWORD`, `AZURE_POSTGRESQL_HOST`, `AZURE_POSTGRESQL_NAME`, and `AZURE_REDIS_CONNECTIONSTRING`.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-4.png" alt-text="A screenshot showing a GitHub codespace and azureproject/production.py opened." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-4.png":::
@@ -341,7 +377,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
     :::column span="2":::
         **Step 5:**
         1. Select the **Source Control** extension.
-        1. In the textbox, type a commit message like `Configure Azure database connecton`. Or, select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: and let GitHub Copilot generate a commit message for you.
+        1. In the textbox, type a commit message like `Configure Azure database and cache connectons`. Or, select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: and let GitHub Copilot generate a commit message for you.
         1. Select **Commit**, then confirm with **Yes**.
         1. Select **Sync changes 1**, then confirm with **OK**.
     :::column-end:::
@@ -695,6 +731,21 @@ If you encounter any errors related to connecting to the database, check if the 
 
 ## Frequently asked questions
 
+::: zone pivot="azure-portal"
+
+- [How much does this setup cost?](#how-much-does-this-setup-cost)
+- [How do I connect to the PostgreSQL server that's secured behind the virtual network with other tools?](#how-do-i-connect-to-the-postgresql-server-thats-secured-behind-the-virtual-network-with-other-tools)
+- [How does local app development work with GitHub Actions?](#how-does-local-app-development-work-with-github-actions)
+- [How is the Django sample configured to run on Azure App Service?](#how-is-the-django-sample-configured-to-run-on-azure-app-service)
+- [How do I change the SECRET_KEY app setting to a Key Vault reference?](#how-do-i-change-the-secret_key-app-setting-to-a-key-vault-reference)
+- [How do I debug errors during the GitHub Actions deployment?](#how-do-i-debug-errors-during-the-github-actions-deployment)
+- [I don't have permissions to create a user-assigned identity](#i-dont-have-permissions-to-create-a-user-assigned-identity)
+- [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
+
+::: zone-end
+
+::: zone pivot="azure-developer-cli"
+
 - [How much does this setup cost?](#how-much-does-this-setup-cost)
 - [How do I connect to the PostgreSQL server that's secured behind the virtual network with other tools?](#how-do-i-connect-to-the-postgresql-server-thats-secured-behind-the-virtual-network-with-other-tools)
 - [How does local app development work with GitHub Actions?](#how-does-local-app-development-work-with-github-actions)
@@ -702,6 +753,8 @@ If you encounter any errors related to connecting to the database, check if the 
 - [How do I debug errors during the GitHub Actions deployment?](#how-do-i-debug-errors-during-the-github-actions-deployment)
 - [I don't have permissions to create a user-assigned identity](#i-dont-have-permissions-to-create-a-user-assigned-identity)
 - [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
+
+::: zone-end
 
 #### How much does this setup cost?
 
@@ -745,7 +798,52 @@ The [Django sample application](https://github.com/Azure-Samples/msdocs-django-p
     :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="25-26":::
 
 For more information, see [Production settings for Django apps](configure-language-python.md#production-settings-for-django-apps).
-  
+
+::: zone pivot="azure-portal"
+
+#### How do I change the SECRET_KEY app setting to a Key Vault reference?
+
+From the portal steps above, you can change `SECRET_KEY` to a Key Vault reference by running the following Azure CLI commands in the [cloud shell](https://shell.azure.com):
+
+```azurecli-interactive
+# Change the following variables to match your environment
+SUBSCRIPTION_ID=<subscription-id>
+RESOURCE_GROUP=<resource-group-name>
+KEY_VAULT_NAME=<key-vault-name>
+APP_SERVICE_NAME=<app-name>
+SECRET_NAME=djangoSecretKey
+
+# Set the subscription ID
+az account set --subscription $SUBSCRIPTION_ID
+
+# Assign 'Key Vault Secrets Officer' role to your user at the scope of the key vault
+az role assignment create \
+  --assignee $(az ad signed-in-user show --query id -o tsv) \
+  --role $(az role definition list --name "Key Vault Secrets Officer" --query "[].id" -o tsv) \
+  --scope $(az keyvault show --name $KEY_VAULT_NAME --resource-group $RESOURCE_GROUP --query id --output tsv)
+
+# Add the secret to the key vault
+az keyvault secret set \
+  --vault-name $KEY_VAULT_NAME \
+  --name $SECRET_NAME \
+  --value $(python -c 'import secrets; print(secrets.token_hex())')
+
+# Add Key Vault reference to the App Service configuration
+az webapp config appsettings set \
+  --resource-group $RESOURCE_GROUP \
+  --name $APP_SERVICE_NAME \
+  --settings "SECRET_KEY=@Microsoft.KeyVault(SecretUri=https://$KEY_VAULT_NAME.vault.azure.net/secrets/$SECRET_NAME)"
+```
+
+You can also do the same thing in the portal. For more information, see:
+
+1. [Key Vault scope role assignment](/azure/key-vault/general/rbac-guide?tabs=azure-portal)
+1. [Add a secret to Key Vault](/azure/key-vault/secrets/quick-create-portal)
+1. [Retrieve a secret from Key Vault](/azure/key-vault/secrets/quick-create-portal)
+1. [Configure app settings](configure-common.md?tabs=portal#configure-app-settings)
+
+::: zone-end
+
 #### How do I debug errors during the GitHub Actions deployment?
 
 If a step fails in the autogenerated GitHub workflow file, try modifying the failed command to generate more verbose output. For example, you can get more output from the `python` command by adding the `-d` option. Commit and push your changes to trigger another deployment to App Service.

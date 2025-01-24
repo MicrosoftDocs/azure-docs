@@ -269,7 +269,12 @@ The creation wizard generated the connectivity variables for you already as [app
     :::column-end:::
 :::row-end:::
 
-To summarize, the process involved retrieving the PostgreSQL connection string from the App Service's environment variables, creating an Azure Key Vault for secure secret management with private access, and updating the service connector to store the password in the key vault. A secure connection between the App Service app and key vault was established using a system-assigned managed identity, and the setup was verified by confirming the connection string uses a Key Vault reference.
+To summarize, the process for securing your connection secrets involved:
+
+- Retrieving the connection secrets from the App Service app's environment variables.
+- Creating a key vault.
+- Creating a Key Vault connection with the system-assigned managed identity.
+- Updating the service connectors to store the secrets in the key vault.
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
