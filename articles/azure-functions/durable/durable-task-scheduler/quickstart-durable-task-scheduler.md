@@ -1,11 +1,11 @@
 ---
-title: "Quickstart: Use the Durable Task Scheduler (preview) backend provider for your Durable Function app"
+title: "Quickstart: Set a Durable Functions app to use the Durable Task Scheduler (preview) storage provider"
 description: Learn how to debug and manage your orchestrations using the Durable Task Scheduler.
 ms.topic: quickstart
 ms.date: 01/24/2025
 ---
 
-# Quickstart: Use the Durable Task Scheduler (preview) backend provider for your Durable Function app
+# Quickstart: Quickstart: Set a Durable Functions app to use the Durable Task Scheduler (preview) storage provider
 
 Let's begin working with Durable Functions using the new Durable Task Scheduler backend provider.
 
