@@ -59,9 +59,6 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 
     * After the capability has been enabled, proceed to recreate the cluster.
 
-> [!NOTE]
-> Managed Identity is currently available only in public regions. It will be rolled out to other regions (Federal and China regions) in future releases.
-
 ## New Regions 
 
 * New Zealand North.
@@ -92,7 +89,6 @@ You can always ask us about HDInsight on [Azure HDInsight - Microsoft Q&A](/answ
 We're listening: You’re welcome to add more ideas and other topics here and vote for them - [HDInsight Ideas](https://feedback.azure.com/d365community/search/?q=HDInsight) and follow us for more updates on [AzureHDInsight Community](https://www.linkedin.com/groups/14313521/).
 
 > [!NOTE]
-
 > We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates, and security fixes. For more information, see, [Best practices](./hdinsight-overview-before-you-start.md).
 
 ### Next steps
