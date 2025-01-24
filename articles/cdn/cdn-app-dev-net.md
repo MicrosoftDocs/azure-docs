@@ -298,8 +298,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 ```
 
 > [!NOTE]
-> In the example previously, the string `/*` denotes that I want to purge everything in the root of the endpoint path. This is equivalent to checking **Purge All** in the Azure portal's "purge" dialog. In the `CreateCdnProfile` method, I created our profile as an **Azure CDN from Edgio** profile using the code `Sku = new Sku(SkuName.StandardVerizon)`, so this will be successful.
->
+> In the example previously, the string `/*` denotes that I want to purge everything in the root of the endpoint path. This is equivalent to checking **Purge All** in the Azure portal's "purge" dialog.
 >
 
 ## Delete CDN profiles and endpoints
