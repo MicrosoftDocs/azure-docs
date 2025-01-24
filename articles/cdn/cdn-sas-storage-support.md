@@ -65,7 +65,7 @@ This option is the simplest and uses a single SAS token, which is passed from Az
 
 ## SAS parameter considerations
 
-Because SAS parameters aren't visible to Azure Content Delivery Network, Azure Content Delivery Network can't change its delivery behavior based on them. The defined parameter restrictions apply only on requests that Azure Content Delivery Network makes to the origin server, not for requests from the client to Azure Content Delivery Network. This distinction is important to consider when you set SAS parameters. If these advanced capabilities are required and you're using [Option 2](#option-2-using-cdn-security-token-authentication-with-a-rewrite-rule), set the appropriate restrictions on the Azure Content Delivery Network security token.
+Because SAS parameters aren't visible to Azure Content Delivery Network, Azure Content Delivery Network can't change its delivery behavior based on them. The defined parameter restrictions apply only on requests that Azure Content Delivery Network makes to the origin server, not for requests from the client to Azure Content Delivery Network. This distinction is important to consider when you set SAS parameters.
 
 | SAS parameter name | Description |
 | --- | --- |
