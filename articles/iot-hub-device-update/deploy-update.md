@@ -59,18 +59,18 @@ An Azure CLI environment:
 
 1. Select the **Groups and Deployments** tab at the top of the page. For more information, see [Device groups](device-update-groups.md).
 
-   :::image type="content" source="media/deploy-update/updated-view.png" alt-text="Screenshot that shows the Groups and Deployments tab." lightbox="media/deploy-update/updated-view.png":::
-
+   ![Screenshot of the compliance view for Groups and Deployments.](media/deploy-update/compliance-1.png)
+   
+   
+   
 1. View the update compliance chart and group list. You should see a new update available for your tag based or default group. You might need to refresh once. For more information, see [Device Update compliance](device-update-compliance.md).
 
-1. Select Deploy next to the **one or more updates available**, and confirm that the descriptive label you added when importing is present and looks correct.
+1. Select Deploy next to the **one or more updates available** status.
 
-1. Confirm that the correct group is selected as the target group and select **Deploy**.
+1. From the list on the right, select the desired update to deploy.
 
-1. To start the deployment, go to the **Current deployment** tab. Select the **Deploy** link next to the desired update from the **Available updates** section. The best available update for a given group is denoted with a **Best** highlight.
-
-   :::image type="content" source="media/deploy-update/select-update.png" alt-text="Screenshot that shows Best highlighted." lightbox="media/deploy-update/select-update.png":::
-
+   ![Screenshot of the deployment view for selecting updates.](media/deploy-update/deploy-3.png)
+   
 1. Schedule your deployment to start immediately or in the future.
 
    > [!TIP]
@@ -80,17 +80,13 @@ An Azure CLI environment:
 
 1. Create an automatic rollback policy if needed. Then select **Create**.
 
-1. In the deployment details, **Status** turns to **Active**. The deployed update is marked with **(deploying)**.
+1. In the Current Updates tab, you can view the status of your deployment.
 
-   :::image type="content" source="media/deploy-update/deployment-active.png" alt-text="Screenshot that shows deployment as Active." lightbox="media/deploy-update/deployment-active.png":::
-
-1. View the compliance chart to see that the update is now in progress.
-
-   :::image type="content" source="media/deploy-update/update-in-progress.png" alt-text="Screenshot that shows Updates in progress." lightbox="media/deploy-update/update-in-progress.png":::
+   ![A screenshot of the Current Updates view.](media/deploy-update/current-updates-4.png)
+   
+1. In the Groups Basics view, the compliance chart shows that the update is now in progress.
 
 1. After your device is successfully updated, you see that your compliance chart and deployment details updated to reflect the same.
-
-   :::image type="content" source="media/deploy-update/update-succeeded.png" alt-text="Screenshot that shows the update succeeded." lightbox="media/deploy-update/update-succeeded.png":::
 
 # [Azure CLI](#tab/cli)
 
