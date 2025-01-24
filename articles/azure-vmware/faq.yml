@@ -271,8 +271,8 @@ sections:
       - question: What is the RAID configuration of the disk groups?
         answer: The disk groups aren't RAID configured. Instead, they're just a bunch of disks (JBOD) and are [directly controlled by vSAN](https://core.vmware.com/vsan-learn-and-evaluate).
 
-      - question: Why does a storage vMotion take an extended period of time from Azure NetApp Files to another datastore? 
-        answer: When performing a storage vMotion from an external file based datastore such as Azure Netapp Files to another datastore the task may run for an extended period of time.  This is due to the use of the Software Datamover in the ESXi kernel.  This datamover requires that all the blocks in the vmdk being read and transferred to the ESXi host regardless of content.  This causes the entire size of the vmdk to be transferred from the external array through the ESXi host in and then to the destination datastore.  The entire disk must be read in order to create a complete replica at the destination.  The destination format and consumed space depends on the destination datastore capabilities, protocol and format. Since all blocks must be read from the source datastore the time to complete this operation may be longer than expected.
+      - question: Why does a vSphere Storage vMotion from Azure NetApp Files (ANF) to another datastore take an extended period of time?
+        answer: This is due to the use of the Data Mover agent in the ESXi kernel. The Data Mover agent requires that all the blocks in the VMDK (Virtual Machine Disk) file be read and transferred to the ESXi host regardless of content. This results in the entire size of the VMDK to be transferred from the external array through the ESXi host to the destination datastore. The entire disk must be read in order to create a complete replica at the destination. The destination format and consumed space depends upon the destination datastore capabilities, protocol and format. Since all blocks must be read from the source datastore, the time to complete this operation may be longer than expected.
 
 
   - name: Hosts, clusters, and private clouds
