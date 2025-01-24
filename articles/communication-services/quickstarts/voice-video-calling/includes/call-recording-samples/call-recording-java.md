@@ -68,9 +68,9 @@ Response<RecordingStateResult> response = callAutomationClient.getCallRecording(
 
 ```
 
-### 2.1. Start Recording  - Bring Your Own Azure Blob Store
+### 2.1. Start Recording - Bring Your Own Azure Blob Store
 
-To store the recording file when recording is complete, start the recording session with your own Azure Blob Storage.
+Start recording using your designated Azure Blob Storage to store the recorded file once recording is complete.
 
 ```java
         StartRecordingOptions recordingOptions = new StartRecordingOptions(callLocator)
@@ -203,13 +203,12 @@ The following code is an example of the event schema.
 }
 ```
 
-Use `downloadToWithResponse` method of `CallRecording` class for downloading the recorded media. Following are the supported parameters for `downloadToWithResponse` method:
+Use `downloadToWithResponse` method of `CallRecording` class to download the recorded media. Following are the supported parameters for `downloadToWithResponse` method:
 - `contentLocation`: Azure Communication Services URL where the content is located.
 - `destinationPath` : File location.
 - `parallelDownloadOptions`: An optional `ParallelDownloadOptions` object to modify how the parallel download works.
 - `overwrite`: True to overwrite the file if it exists.
 - `context`: A Context representing the request context.
-
 
 ```java
 Boolean overwrite = true;
