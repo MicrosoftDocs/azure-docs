@@ -49,6 +49,8 @@ To view the details of the ```myNexusVirtualMachine``` VM in the ```myResourceGr
 az networkcloud volume show --name myNexusVirtualMachine --resource-group myResourceGroup
 ```
 
+---
+
 ## Delete the deployed resources
 
 You can delete the virtual machine using the Azure CLI.

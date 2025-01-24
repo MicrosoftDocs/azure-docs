@@ -45,6 +45,8 @@ To view the details of the ```myDataDisk``` volume in the ```myResourceGroup``` 
 az networkcloud volume show --name myDataDisk --resource-group myResourceGroup
 ```
 
+---
+
 ## Delete the deployed resources
 
 You can delete the data disk using the Azure CLI.
