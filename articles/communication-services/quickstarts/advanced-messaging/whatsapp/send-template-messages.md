@@ -71,6 +71,8 @@ For more information about WhatsApp requirements for templates, see the WhatsApp
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
+[!INCLUDE [Common setting for using Advanced Messages SDK](./includes/common-setting-java.md)]
+
 [!INCLUDE [Send WhatsApp Messages with Java](./includes/templates/messages-quickstart-template-messages-java.md)]
 ::: zone-end
 

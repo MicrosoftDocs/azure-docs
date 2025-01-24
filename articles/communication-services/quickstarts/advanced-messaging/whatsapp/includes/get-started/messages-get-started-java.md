@@ -50,7 +50,7 @@ Complete these steps to add required code snippets to the `messages-quickstart.p
 - [Set recipient list](#set-recipient-list).
 - [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
-[!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting.md)]
+[!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting-java.md)]
 
 ## Code examples
 
