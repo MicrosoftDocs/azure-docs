@@ -257,7 +257,7 @@ The following example is the output from the `az network watcher packet-capture 
 
 # [**Portal**](#tab/portal)
 
-After concluding your packet capture session, the resulting capture file is saved to Azure storage, a local file on the target virtual machine or both. The storage destination for the packet capture is specified during its creation. For more information, see [Start a packet capture](#start-a-packet-capture?tabs=portal).
+After concluding your packet capture session, the resulting capture file is saved to Azure storage, a local file on the target virtual machine or both. The storage destination for the packet capture is specified during its creation. For more information, see [Start a packet capture](#start-a-packet-capture).
 
 To download a packet capture file saved to Azure storage, follow these steps:
 
@@ -280,7 +280,7 @@ To download a packet capture file saved to the virtual machine (VM), connect to 
 
 # [**PowerShell**](#tab/powershell)
 
-After concluding your packet capture session, the resulting capture file is saved to Azure storage, a local file on the target virtual machine or both. The storage destination for the packet capture is specified during its creation. For more information, see [Start a packet capture](#start-a-packet-capture?tabs=powershell).
+After concluding your packet capture session, the resulting capture file is saved to Azure storage, a local file on the target virtual machine or both. The storage destination for the packet capture is specified during its creation. For more information, see [Start a packet capture](#start-a-packet-capture).
 
 If a storage account is specified, capture files are saved to the storage account at the following path:
 
@@ -300,7 +300,7 @@ Get-AzStorageBlobContent -Container 'network-watcher-logs' -Blob '/subscriptions
 
 # [**Azure CLI**](#tab/cli)
 
-After concluding your packet capture session, the resulting capture file is saved to Azure storage, a local file on the target virtual machine or both. The storage destination for the packet capture is specified during its creation. For more information, see [Start a packet capture](#start-a-packet-capture?tabs=cli).
+After concluding your packet capture session, the resulting capture file is saved to Azure storage, a local file on the target virtual machine or both. The storage destination for the packet capture is specified during its creation. For more information, see [Start a packet capture](#start-a-packet-capture).
 
 If a storage account is specified, capture files are saved to the storage account at the following path:
 
