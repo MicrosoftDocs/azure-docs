@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 01/17/2025
+ms.date: 01/24/2025
 ms.author: cshoe
 ms.custom:
 ---
@@ -44,4 +44,4 @@ The Container Apps diagnostics features an intelligent and interactive experienc
 
     To view the container exit events per revision in the last 24 hours, select the required revision from the dropdown. You can also look at the exit code the container app reported as it terminated.  
 
-    To see the number of container exit events per revision, by select **Click to show**.  
+    To see the number of container exit events per revision, select **Click to show**.  

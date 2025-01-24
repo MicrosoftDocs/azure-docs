@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 01/17/2025
+ms.date: 01/24/2025
 ms.author: cshoe
 ms.custom:
 ---
@@ -14,7 +14,7 @@ ms.custom:
 
 Azure Container Apps allow containers to interact with external storage systems, such as Azure Files, Azure Blob Storage, or Azure Managed Disks, for persisting data. These storage resources are mounted to the container's file system during container startup.
 
-Storage mount failures occur when your app's the container is unable to successfully mount or access required storage resources, such as volumes or file systems.
+Storage mount failures occur when your app's container is unable to successfully mount or access required storage resources, such as volumes or file systems.
 
 ## Causes
 

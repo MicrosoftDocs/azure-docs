@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 01/17/2025
+ms.date: 01/24/2025
 ms.author: cshoe
 ms.custom:
 ---
@@ -14,9 +14,11 @@ ms.custom:
 
 Health probe failures for in Azure Container Apps indicates that the container app doesn't pass the required health checks and could be considered unhealthy or unready.
 
+Health Probes are a great way to determine application health. Specifically, health probes help work around performance issues related to timeouts during container startup, deadlocks when running the container, and serving traffic when the container is not ready to accept traffic.
+
 ## Causes
 
-Factors related to the container configuration and environment can lead to a health probe failure, including:
+Factors related to the container configuration and environments that can lead to a health probe failures include::
 
 - **Incorrect health probe configuration**: Configuration errors surrounding protocols, endpoint addresses, paths, ports, and response codes result in probe failures and mark the container as unhealthy.
 
@@ -38,10 +40,10 @@ The Container Apps diagnostics features an intelligent and interactive experienc
 
     This report provides details on the issue, possible causes, and recommended resolutions.
 
-    You can review at health probe failure events by revision by selecting the required revision of your container app.  
+    You can review health probe failure events by revision by selecting the required revision of your container app.  
 
     From this page you can view health probe failure events per revision by health probe type, inside a time frame, and by failure type.
 
-    You can also review at the health probe configuration per revision for your container app by selecting the required revision from the dropdown.  
+    You can also review the health probe configuration per revision for your container app by selecting the required revision from the dropdown.
 
     To view the number of storage mount failures per revision, select **Click to show**.
