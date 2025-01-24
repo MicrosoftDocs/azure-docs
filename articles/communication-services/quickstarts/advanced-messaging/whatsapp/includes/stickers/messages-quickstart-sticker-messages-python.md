@@ -45,7 +45,7 @@ Follow these steps to add required code snippets to the `messages-quickstart.py`
 - [Set channel registration ID](#set-channel-registration-id).
 - [Set recipient list](#set-recipient-list).
 
-[!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting.md)]
+[!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting-python.md)]
 
 ## Code examples
 

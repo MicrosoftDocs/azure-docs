@@ -79,6 +79,8 @@ For more information about WhatsApp requirements for templates, see the WhatsApp
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+[!INCLUDE [Common setting for using Advanced Messages SDK](./includes/common-setting-python.md)]
+
 [!INCLUDE [Send WhatsApp Messages Python SDK](./includes/templates/messages-quickstart-template-messages-python.md)]
 ::: zone-end
 

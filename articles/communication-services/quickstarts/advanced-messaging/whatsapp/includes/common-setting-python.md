@@ -9,6 +9,8 @@ ms.date: 07/15/2024
 ms.topic: include
 ms.custom: include file
 ms.author: shamkh
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+zone_pivot_groups: acs-js-csharp-java-python
 ---  
 
 ### Authenticate the client 
