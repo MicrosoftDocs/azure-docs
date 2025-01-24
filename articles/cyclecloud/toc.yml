@@ -82,7 +82,7 @@
       href: ./how-to/slurm-cloud-bursting-setup.md
   - name: CycleCloud Workspace for Slurm
     items:
-    - name: Plan you CycleCloud Workspace for Slurm Deployment
+    - name: Plan your CycleCloud Workspace for Slurm Deployment
       href: ./how-to/ccws/plan-your-deployment.md
     - name: How to deploy using the CLI
       href: ./how-to/ccws/deploy-with-cli.md
@@ -214,6 +214,8 @@
       href: gridengine.md
     - name: Slurm
       href: slurm.md
+    - name: Slurm 3.0 Scheduler Integration
+      href: slurm-3.md
     - name: HT Condor
       href: htcondor.md
     - name: IBM Spectrum LSF
