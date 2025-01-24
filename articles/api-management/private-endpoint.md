@@ -256,6 +256,8 @@ To optionally limit incoming traffic to the API Management instance only to priv
 > [!NOTE] 
 > Public network access can only be disabled in API Management instances configured with a private endpoint, not with other networking configurations.
 
+#### [Classic](#tab/classic)
+
 To disable the public network access property using the Azure CLI, run the following [az apim update](/cli/azure/apim#az-apim-update) command, substituting the names of your API Management instance and resource group:
 
 ```azurecli
@@ -263,6 +265,22 @@ az apim update --name my-apim-service --resource-group my-resource-group --publi
 ```
 
 You can also use the [API Management Service - Update](/rest/api/apimanagement/api-management-service/update) REST API to disable public network access, by setting the `publicNetworkAccess` property to `Disabled`.
+
+#### [Standard v2](#tab/v2)
+
+To disable the public network access property in a Standard v2 instance using the Azure CLI, run the following [az rest](/cli/azure/reference-index#az-rest) command.
+
+
+```azurecli
+SUBSCRIPTION_ID=<your-subscription-id>
+RESOURCE_GROUP=<your-resource-group>
+SERVICE_NAME=<your-api-management-service-name>
+
+az rest --method patch \
+    --uri "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.ApiManagement/service/$SERVICE_NAME?api-version=2024-05-01" \
+    --body "{ \"properties\": { \"publicNetworkAccess\": \"Disabled\" } }"
+```
+---
 
 ## Validate private endpoint connection
 
