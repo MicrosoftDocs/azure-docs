@@ -12,7 +12,9 @@ ms.date: 01/24/2025
 
 # What is Azure Logic Apps?
 
-Azure Logic Apps is a cloud platform where you can create and run automated workflows by writing little or no code. By using the platform's visual designer and prebuilt operations that work with commonly used services, systems, apps, and data sources, you can quickly build workflows that automate tasks inside, outside, and across the software ecosystem used by your enterprise or organization.
+Azure Logic Apps is a cloud platform where you build and run automated workflows that complete tasks inside, across, and outside the software ecosystems in your enterprise or organization. These workflows bring together disparate components so that they can work more easily together in the solutions that you build.
+
+The platform includes a visual designer for creating workflows along with prebuilt operations that work with commonly used services, systems, apps, and data sources. You use these operations as the building blocks for your workflows.
 
 Azure Logic Apps simplifies the way that you connect legacy, modern, and cutting-edge systems across cloud, on premises, and partially connected environments. You can use low-code-no-code tools to develop highly scalable integration solutions that support your enterprise and business-to-business (B2B) scenarios.
 
