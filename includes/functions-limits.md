@@ -16,8 +16,8 @@ ms.author: glenga
 | Max query string length<sup>3</sup> |  4096 | 4096 | 4096 | 4096 | 4096 |
 | Max request URL length<sup>3</sup> | 8192 | 8192 | 8192 | 8192 | 8192 | 
 |[ACU](/azure/virtual-machines/acu) per instance |  210-840 | 100-840/210-250<sup>10</sup> | [varies](/azure/container-apps/billing) |100 | varies |
-| Max memory (GB per instance) | 4<sup4</sup> |  3.5-14 | 1.75-256/8-256 | [varies](/azure/container-apps/billing) |1.5 | 
-| Max instance count (Windows/Linux) |  100/20 | varies by SKU/100<sup>11</sup> |  10-300<sup>18</sup> | 200/100 | 1000 <sup>15</sup> | 
+| Max memory (GB per instance) | 4<sup>14</sup> |  3.5-14 | 1.75-256/8-256 | [varies](/azure/container-apps/billing) |1.5 | 
+| Max instance count (Windows/Linux) |  n/a/1000 | varies by SKU/100<sup>11</sup> |  10-300<sup>18</sup> | 200/100 | 1000 <sup>15</sup> | 
 | Function apps per plan<sup>13</sup> |  100 | 100 | unbounded<sup>4</sup> | unbounded<sup>4</sup> |100 |
 | [App Service plans](/azure/app-service/overview-hosting-plans) |  n/a | 100 per resource group |100 per resource group | n/a | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) |
 | [Deployment slots](/azure/azure-functions/functions-deployment-slots) per app<sup>12</sup> |  n/a | 3 | 1-20<sup>11</sup> | not supported |2 |
