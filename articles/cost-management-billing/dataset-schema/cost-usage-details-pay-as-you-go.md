@@ -35,7 +35,7 @@ The meter is used to track the usage of specific services or resources, mainly f
 | 12 |PreTaxCost|  |
 | 13 |ConsumedService|Name of the service the charge is associated with.|
 | 14 |ResourceType|Type of resource instance. Not all charges come from deployed resources. Charges that don't have a resource type are shown as null or empty, `Others` , or `Not applicable`.|
-| 15 |InstanceId|Unique identifier of the [Azure Resource Manager](rest/api/resources/resources) resource.|
+| 15 |InstanceId|Unique identifier of the [Azure Resource Manager](/rest/api/resources/resources) resource.|
 | 16 |Tags|Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](../../azure-resource-manager/management/tag-resources.md). |
 | 17 |OfferId|Name of the Azure offer, which is the type of Azure subscription that you have. For more information, see supported [Microsoft Azure offer details](https://azure.microsoft.com/support/legal/offer-details/).|
 | 18 |AdditionalInfo|Service-specific metadata. For example, an image type for a virtual machine.|

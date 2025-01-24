@@ -56,7 +56,7 @@ The meter is used to track the usage of specific services or resources, mainly f
 |35|publisherId|The ID of the publisher. It's only available after the invoice is generated.|
 |36|publisherName|The name of the publisher. For first-party services, the value should be listed as Microsoft or Microsoft Corporation.|
 |37|resourceGroupName|Name of the resource group the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, `Others`, or` Not applicable`.|
-|38|ResourceId|Unique identifier of the [Azure Resource Manager](rest/api/resources/resources) resource.|
+|38|ResourceId|Unique identifier of the [Azure Resource Manager](/rest/api/resources/resources) resource.|
 |39|resourceLocation|The Azure region where the resource is deployed, also referred to as the datacenter location where the resource is running. For an example using Virtual Machines, see [What's the difference between MeterRegion and ResourceLocation](/azure/virtual-machines/vm-usage#what-is-the-difference-between-meter-region-and-resource-location).|
 |40|location|The normalized location used to resolve inconsistencies in region names sent by different Azure Resource Providers (RPs). The normalized location is based strictly on the resource location sent by RPs in usage data and is programmatically normalized to mitigate inconsistencies. Purchases and Marketplace usage might be shown as blank or unassigned. For example, US East.|
 |41|effectivePrice|Blended unit price for the period. Blended prices average out any fluctuations in the unit price, like graduated tiering, which lowers the price as quantity increases over time.|
@@ -132,7 +132,7 @@ The meter is used to track the usage of specific services or resources, mainly f
 |35|publisherId|The ID of the publisher. It's only available after the invoice is generated.|
 |36|publisherName|The name of the publisher. For first-party services, the value should be listed as Microsoft or Microsoft Corporation.|
 |37|resourceGroupName|Name of the resource group the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, `Others`, or` Not applicable`.|
-|38|ResourceId|Unique identifier of the [Azure Resource Manager](rest/api/resources/resources) resource.|
+|38|ResourceId|Unique identifier of the [Azure Resource Manager](/rest/api/resources/resources) resource.|
 |39|resourceLocation|The Azure region where the resource is deployed, also referred to as the datacenter location where the resource is running. For an example using Virtual Machines, see [What's the difference between MeterRegion and ResourceLocation](/azure/virtual-machines/vm-usage#what-is-the-difference-between-meter-region-and-resource-location).|
 |40|location|The normalized location used to resolve inconsistencies in region names sent by different Azure Resource Providers (RPs). The normalized location is based strictly on the resource location sent by RPs in usage data and is programmatically normalized to mitigate inconsistencies. Purchases and Marketplace usage might be shown as blank or unassigned. For example, US East.|
 |41|effectivePrice|Blended unit price for the period. Blended prices average out any fluctuations in the unit price, like graduated tiering, which lowers the price as quantity increases over time.|
@@ -208,7 +208,7 @@ The meter is used to track the usage of specific services or resources, mainly f
 |35|publisherId|The ID of the publisher. It's only available after the invoice is generated.|
 |36|publisherName|The name of the publisher. For first-party services, the value should be listed as Microsoft or Microsoft Corporation.|
 |37|resourceGroupName|Name of the resource group the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, `Others`, or` Not applicable`.|
-|38|ResourceId|Unique identifier of the [Azure Resource Manager](rest/api/resources/resources) resource.|
+|38|ResourceId|Unique identifier of the [Azure Resource Manager](/rest/api/resources/resources) resource.|
 |39|resourceLocation|The Azure region where the resource is deployed, also referred to as the datacenter location where the resource is running. For an example using Virtual Machines, see [What's the difference between MeterRegion and ResourceLocation](/azure/virtual-machines/vm-usage#what-is-the-difference-between-meter-region-and-resource-location).|
 |40|location|The normalized location used to resolve inconsistencies in region names sent by different Azure Resource Providers (RPs). The normalized location is based strictly on the resource location sent by RPs in usage data and is programmatically normalized to mitigate inconsistencies. Purchases and Marketplace usage might be shown as blank or unassigned. For example, US East.|
 |41|effectivePrice|Blended unit price for the period. Blended prices average out any fluctuations in the unit price, like graduated tiering, which lowers the price as quantity increases over time.|
@@ -281,7 +281,7 @@ The meter is used to track the usage of specific services or resources, mainly f
 |35|publisherId|The ID of the publisher. It's only available after the invoice is generated.|
 |36|publisherName|The name of the publisher. For first-party services, the value should be listed as Microsoft or Microsoft Corporation.|
 |37|resourceGroupName|Name of the resource group the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, `Others`, or` Not applicable`.|
-|38|InstanceName|Unique identifier of the [Azure Resource Manager](rest/api/resources/resources) resource.|
+|38|InstanceName|Unique identifier of the [Azure Resource Manager](/rest/api/resources/resources) resource.|
 |39|resourceLocation|The Azure region where the resource is deployed, also referred to as the datacenter location where the resource is running. For an example using Virtual Machines, see [What's the difference between MeterRegion and ResourceLocation](/azure/virtual-machines/vm-usage#what-is-the-difference-between-meter-region-and-resource-location).|
 |40|Location|The normalized location used to resolve inconsistencies in region names sent by different Azure Resource Providers (RPs). The normalized location is based strictly on the resource location sent by RPs in usage data and is programmatically normalized to mitigate inconsistencies. Purchases and Marketplace usage might be shown as blank or unassigned. For example, US East.|
 |41|effectivePrice|Blended unit price for the period. Blended prices average out any fluctuations in the unit price, like graduated tiering, which lowers the price as quantity increases over time.|
