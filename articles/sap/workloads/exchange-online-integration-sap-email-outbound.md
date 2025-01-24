@@ -40,7 +40,7 @@ We will update this guide when additional SAP-supported options become available
 ## Option 1: SMTP Authentication Client Submission (retiring soon!)
 
 > [!IMPORTANT]
-> We strongly recommend **not** using this option. **SMTP Auth is being retired** and will be **disabled by September 2025**. Choose any other option below.
+> We strongly recommend **not** using this option. **SMTP Auth is being retired**. Find exact timelines [here](https://techcommunity.microsoft.com/blog/exchange/exchange-online-to-retire-basic-auth-for-client-submission-smtp-auth/4114750). We recommend adopting option 3 instead.
 
 Choose this option when you want to send mail to **people inside and outside** your organization.
 
