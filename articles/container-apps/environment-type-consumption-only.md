@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 08/30/2024
+ms.date: 01/24/2025
 ms.author: cshoe
 ---
 
@@ -13,7 +13,7 @@ ms.author: cshoe
 
 In Azure Container Apps, the environment type determines functionality and billing methods associated with your applications.
 
-The Consumption-only environment runs your application using compute resources exclusively allocated on-demand. You only pay for resources consumed by your application.
+The Consumption-only environment runs your application using compute resources exclusively allocated on-demand. In other words, you only pay for resources consumed by your application.
 
 This article explains features of the *Consumption-only (v1)* environment type. For more information on the default *Workload profiles (v2)* environment type, see [Compute and billing structures in Azure Container Apps](structure.md).
 
