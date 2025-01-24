@@ -45,7 +45,7 @@ The following example shows how to create a BrokerAuthorization resource by usin
 
 # [Bicep](#tab/bicep)
 
-To edit an authorization policy, create a Bicep `.bicep` file with the following content. Update the settings as needed, and replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
+To edit an authorization policy, create a `.bicep` file with the following content. Update the settings as needed, and replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
 
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
@@ -219,7 +219,7 @@ In the broker authorization rules for your authorization policy, use the followi
 
 # [Bicep](#tab/bicep)
 
-To edit an authorization policy, create a Bicep `.bicep` file with the following content. Update the settings as needed, and replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
+To edit an authorization policy, create a `.bicep` file with the following content. Update the settings as needed, and replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
 
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
@@ -384,7 +384,7 @@ In the broker authorization rules for your authorization policy, use the followi
 
 # [Bicep](#tab/bicep)
 
-To edit an authorization policy, create a Bicep `.bicep` file with the following content. Update the settings as needed, and replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
+To edit an authorization policy, create a `.bicep` file with the following content. Update the settings as needed, and replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
 
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
@@ -645,7 +645,7 @@ In the broker authorization rules for your authorization policy, add a similar c
 
 # [Bicep](#tab/bicep)
 
-To edit an authorization policy, create a Bicep `.bicep` file with the following content. Update the settings as needed, and replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
+To edit an authorization policy, create a `.bicep` file with the following content. Update the settings as needed, and replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
 
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
