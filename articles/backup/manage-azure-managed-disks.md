@@ -3,8 +3,8 @@ title: Manage Azure Managed Disks
 description: Learn about managing Azure Managed Disk from the Azure portal.
 ms.topic: how-to
 ms.date: 03/21/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.service: azure-backup
 ms.custom: engagement-fy24
 ---
@@ -12,6 +12,23 @@ ms.custom: engagement-fy24
 # Manage Azure Managed Disks
 
 This article explains how to manage Azure Managed Disk from the Azure portal.
+
+
+## Change policy
+
+You can change the associated policy with a backup instance.
+
+1. Select the **Backup Instance** -> **Change Policy**.
+
+   :::image type="content" source="./media/manage-azure-database-postgresql/change-policy.png" alt-text="Screenshot showing the option to change policy.":::
+   
+1. Select the new policy that you wish to apply to the database.
+
+   :::image type="content" source="./media/manage-azure-database-postgresql/reassign-policy.png" alt-text="Screenshot showing the option to reassign policy.":::
+
+> [!NOTE]
+>
+> Changing a backup policy assigned to a backup instance does not affect existing recovery points and their retention duration. The updated retention settings will apply only to new recovery points created after the policy change.
 
 ## Monitor a backup operation
 
@@ -114,7 +131,7 @@ There are three ways by which you can stop protecting an Azure Disk:
 If you have selected the **Stop Protection and Retain data** option, you can resume protection for your disks.
 
 >[!Note]
->When you start protecting a disk, the backup policy is applied to the retained data as well. The recovery points that have expired as per the policy will be cleaned up.
+>When you resume protecting a backup instance, the existing backup policy will start applying to new recovery points only. Recovery points that have already expired based on their original retention duration, as defined by the backup policy in effect at the time of their creation, will be cleaned up.
 
 Use the following steps:
 

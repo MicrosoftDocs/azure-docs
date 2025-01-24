@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: overview
-ms.date: 08/20/2024
+ms.date: 01/2/2025
 ms.author: anfdocs
 ---
 # Storage hierarchy of Azure NetApp Files
@@ -63,8 +63,7 @@ When you [create a capacity pool](azure-netapp-files-set-up-capacity-pool.md), y
 
 In a manual QoS capacity pool, you can assign the capacity and throughput for a volume independently. For minimum and maximum throughput levels, see [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits). The total throughput of all volumes created with a manual QoS capacity pool is limited by the total throughput of the pool. It's determined by the combination of the pool size and the service-level throughput.  For instance, a 4-TiB capacity pool with the Ultra service level has a total throughput capacity of 512 MiB/s (4 TiB x 128 MiB/s/TiB) available for the volumes.
 
-Manual QoS capacity pools also support the [**Flexible** service level](azure-netapp-files-service-levels.md#Flexible), enabling you to adjust throughput and size limits independently for capacity pools using manual QoS. This service level is designed for demanding applications such as Oracle or SAP HANA. The Flexible service level supports throughput values between 128 and 2560 MiB/s per one TiB of capacity provisioned. 
-
+Manual QoS capacity pools also support the [**Flexible** service level](azure-netapp-files-sce-levels.md#Flexible), enabling you to adjust throughput and size limits independently for capacity pools using manual QoS. This service level is designed for demanding applications such as Oracle or SAP HANA. For throughput information, see [Service levels for Azure NetApp Files](azure-netapp-files-sce-levels.md#Flexible).
 ##### Example of using manual QoS
 
 When you use a manual QoS capacity pool with, for example, an SAP HANA system, an Oracle database, or other workloads requiring multiple volumes, the capacity pool can be used to create these application volumes.  Each volume can provide the individual size and throughput to meet the application requirements. See [Throughput limit examples of volumes in a manual QoS capacity pool](azure-netapp-files-service-levels.md#throughput-limit-examples-of-volumes-in-a-manual-qos-capacity-pool) for details about the benefits.  

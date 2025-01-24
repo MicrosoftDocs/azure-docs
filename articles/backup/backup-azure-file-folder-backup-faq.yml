@@ -5,8 +5,8 @@ metadata:
   ms.topic: faq
   ms.service: azure-backup
   ms.date: 10/25/2024
-  author: AbhishekMallick-MS
-  ms.author: v-abhmallick
+  author: jyothisuri
+  ms.author: jsuri
 title: Frequently asked questions - Microsoft Azure Recovery Services (MARS) agent
 summary: |
   This article answers common questions about backing up data with the Microsoft Azure Recovery Services (MARS) Agent in the [Azure Backup](backup-overview.md) service.

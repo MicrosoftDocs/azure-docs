@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 09/05/2024
+ms.date: 01/24/2025
 ms.author: anfdocs
 ---
 # Service levels for Azure NetApp Files
@@ -25,7 +25,7 @@ Azure NetApp Files supports four service levels: *Standard*, *Premium*, *Ultra*,
     The Ultra service level provides up to 128 MiB/s of throughput per 1 TiB of capacity provisioned. 
 
 * <a name="Flexible"></a>Flexible storage:
-    The Flexible service level enables you to adjust throughput and size limits independently for capacity pools using manual QoS. This service level is designed for demanding applications such as Oracle or SAP HANA. It can also be used to create high-capacity volumes with (relatively) low throughput requirements. The minimum throughput to be assigned to a Flexible capacity pool is 128 MiB/s regardless of the pool quota; the maximum is 640 MiB/s per one TiB of capacity provisioned.You can assign throughput and capacity to volumes that are part of a Flexible capacity pool in the same way you do volumes that are part of a manual QoS capacity pool of another service level.
+    The Flexible service level enables you to adjust throughput and size limits independently for capacity pools using manual QoS. This service level is designed for demanding applications such as Oracle or SAP HANA. It can also be used to create high-capacity volumes with (relatively) low throughput requirements. The minimum throughput to be assigned to a Flexible capacity pool is 128 MiB/s regardless of the pool quota. The maximum throughput is 5 x 128 x the size of the capacity pool in TiB. For example, if your capacity pool is 1 TiB, the maximum is 640 MiB/second (5 x 128 x 1); f your capacity pool is 100 TiB, the maximum is 64,000 MiB/second (5 x 128 x 100). You can assign throughput and capacity to volumes that are part of a Flexible capacity pool in the same way you do volumes that are part of a manual QoS capacity pool of any service level.
 
     Flexible storage capacity pools enforce single encryption. They do not support double encryption. 
 

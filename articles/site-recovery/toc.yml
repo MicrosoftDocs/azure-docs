@@ -91,7 +91,7 @@
       href: how-to-move-from-classic-to-modernized-vmware-disaster-recovery.md
     - name: Deploy Azure Site Recovery replication appliance (modernized)
       href: deploy-vmware-azure-replication-appliance-modernized.md
-  - name: Set up disaster recovery for Azure Public Multi-Access Edge Compute (MEC) VMs  
+  - name: Set up disaster recovery for Azure Extended Zones VMs  
     items:
     - name: Disaster recovery using the Recovery Services vault
       href: disaster-recovery-for-edge-zone-vm-tutorial.md
@@ -161,6 +161,8 @@
       href: azure-to-azure-architecture.md
     - name: Azure trusted launch VMs
       href: concepts-trusted-vm.md
+    - name: Azure to Azure - Costs
+      href: site-recovery-cost.md
     - name: Configure Failover for Multiple IP addresses
       href: concepts-multiple-ip-address-failover.md
     - name: Configure Mobility Service Proxy Settings
@@ -533,7 +535,7 @@
   items:
   - name: Set up disaster recovery of Azure VMs using PowerShell
     href: azure-to-azure-powershell.md
-  - name: Set up disaster recovery on Public MEC VMs using PowerShell
+  - name: Set up disaster recovery on Azure Extended Zones VMs using PowerShell
     href: tutorial-replicate-vms-edge-zone-to-azure-region.md
   - name: Set up disaster recovery of VMware VMs to Azure using PowerShell
     href: vmware-azure-disaster-recovery-powershell.md
@@ -609,8 +611,6 @@
   items:
   - name: Azure PowerShell
     href: /powershell/module/az.recoveryservices
-  - name: AzureRM PowerShell
-    href: /powershell/module/AzureRM.RecoveryServices
   - name: Resource Manager template
     href: /azure/templates/microsoft.recoveryservices/allversions
   - name: REST
