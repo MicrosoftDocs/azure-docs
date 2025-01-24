@@ -36,7 +36,7 @@ This section describes how to deploy the update by using the Azure portal or Azu
 
 1. Under **Status** in the group list, select **Deploy** next to **One or more new updates are available for this group**.
 
-   ![Screenshot of the compliance view for Groups and Deployments.](media/deploy-update/compliance-1.png)
+   :::image type="content" source="media/deploy-update/compliance-1.png" alt-text="Screenshot of the compliance view for Groups and Deployments." lightbox="media/deploy-update/compliance-1.png":::
    
 1. View the update compliance chart and group list. You should see a new update available for your tag based or default group. You might need to refresh once. For more information, see [Device Update compliance](device-update-compliance.md).
 
@@ -44,7 +44,7 @@ This section describes how to deploy the update by using the Azure portal or Azu
 
 1. From the list on the right, select the desired update to deploy.
 
-   ![Screenshot of the deployment view for selecting updates.](media/deploy-update/deploy-3.png)
+   :::image type="content" source="media/deploy-update/deploy-3.png" alt-text="Screenshot of the deployment view for selecting updates." lightbox="media/deploy-update/deploy-3.png":::
    
 1. Schedule your deployment to start immediately or in the future.
 
@@ -55,11 +55,11 @@ This section describes how to deploy the update by using the Azure portal or Azu
 
 1. Create an automatic rollback policy if needed. Then select **Create**.
 
-1. In the **Current Updates** tab, you can view the status of your deployment.
+1. In the **Current updates** tab, you can view the status of your deployment.
 
-   ![A screenshot of the Current Updates view.](media/deploy-update/current-updates-4.png)
+   :::image type="content" source="media/deploy-update/current-updates-4.png" alt-text="A screenshot of the Current updates view." lightbox="media/deploy-update/current-updates-4.png":::
    
-1. In the **Group Basics** view, the compliance chart shows that the update is now in progress.
+1. In the **Group basics** view, the compliance chart shows that the update is now in progress.
 
    After your device successfully updates, your compliance chart and deployment details update to reflect that status.
 
