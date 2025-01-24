@@ -327,6 +327,8 @@
           href: firewall-integration.md
         - name: Use a private endpoint
           href: how-to-use-private-endpoint.md
+        - name: Use mTLS
+          href: mtls.md
         - name: Integrate with Azure Front Door
           href: how-to-integrate-with-azure-front-door.md
 - name: Languages and runtimes

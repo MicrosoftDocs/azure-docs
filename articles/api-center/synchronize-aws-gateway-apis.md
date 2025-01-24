@@ -4,7 +4,7 @@ description: Integrate an Amazon API Gateway to Azure API Center for automatic s
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 01/21/2025
+ms.date: 01/23/2025
 ms.author: danlep 
 ms.custom: devx-track-azurecli
 # Customer intent: As an API program manager, I want to integrate my Azure API Management instance with my API center and synchronize API Management APIs to my inventory.
@@ -28,7 +28,7 @@ Synchronization is one-way from Amazon API Gateway to your Azure API center, mea
 
 > [!NOTE]
 > * Integration of Amazon API Gateway is currently in preview.
-> * There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#api-center-limits) for the number of integrated API sources.
+> * There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#azure-api-center-limits) for the number of integrated API sources.
 > * APIs in Amazon API Gateway synchronize to your API center once per hour. Only REST APIs are synchronized.
 > * API definitions also synchronize to the API center if you select the option to include them during integration. Only definitions from deployed APIs are synchronized.
 
