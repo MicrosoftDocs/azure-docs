@@ -110,7 +110,7 @@ To remove the pod, run `kubectl delete pod mqtt-client -n azure-iot-operations`.
 
 ## Connect clients from outside the cluster
 
-Because the [default broker listener](howto-configure-brokerlistener.md#default-brokerlistener) is set to the `ClusterIp` service type, you can't connect to the broker from outside the cluster directly. To prevent unintentional disruption to communication between internal IoT Operations components, we recommend that you keep the default listener unmodified and dedicated for AIO internal communication. Although it's possible to create a separate Kubernetes `LoadBalancer` service to expose the cluster IP service, it's better to create a separate listener with different settings, like more common MQTT ports 1883 and 8883, to avoid confusion and potential security risks.
+Because the [default broker listener](howto-configure-brokerlistener.md#default-brokerlistener) is set to the `ClusterIp` service type, you can't connect to the broker from outside the cluster directly. To prevent unintentional disruption to communication between internal IoT Operations components, we recommend that you keep the default listener unmodified and dedicated for IoT Operations internal communication. Although it's possible to create a separate Kubernetes `LoadBalancer` service to expose the cluster IP service, it's better to create a separate listener with different settings, like more common MQTT ports 1883 and 8883, to avoid confusion and potential security risks.
 
 <!-- TODO: consider moving to the main listener article and just link from here? -->
 ### Node port
