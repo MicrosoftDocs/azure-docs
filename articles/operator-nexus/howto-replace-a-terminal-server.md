@@ -58,7 +58,8 @@ After the new Terminal Server is installed and configured, open a support ticket
 
 Wait for the operation to complete.
 
->[!Note] The lockbox operation will execute the following tasks:
+>[!Note] 
+> The lockbox operation will execute the following tasks:
 > - Configure's essential services, including httpd and dhcpd.<br>
 > - Set's up the Net3 interface.<br>
 > - Copies necessary OS, dhcpd configuration, device configurations, and certificate files to the appropriate directories.<br>
