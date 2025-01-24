@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 05/10/2024
+ms.date: 01/23/2025
 ms.collection: ce-skilling-ai-copilot
 ms.custom: template-how-to, build-2024
 ---
@@ -16,8 +16,8 @@ ms.custom: template-how-to, build-2024
 
 This article shows two options to import an [Azure OpenAI Service](/azure/ai-services/openai/overview) API into an Azure API Management instance as a REST API:
 
-- [Import an Azure OpenAI API directly from Azure OpenAI Service](#option-1-import-api-from-azure-openai-service)
-- [Download and add the OpenAPI specification](#option-2-add-an-openapi-specification-to-api-management) for Azure OpenAI and add it to API Management as an OpenAPI API.
+- [Import an Azure OpenAI API directly from Azure OpenAI Service](#option-1-import-api-from-azure-openai-service) (recommended)
+- [Download the OpenAPI specification](#option-2-add-an-openapi-specification-to-api-management) and add it to API Management as an OpenAPI API.
 
 ## Prerequisites
 
@@ -37,9 +37,9 @@ When you import the API, API Management automatically configures:
 
 * Operations for each of the Azure OpenAI [REST API endpoints](/azure/ai-services/openai/reference).
 * A system-assigned identity with the necessary permissions to access the Azure OpenAI resource.
-* A [backend](backends.md) resource and [set-backend-service](set-backend-service-policy.md) policy that direct API requests to the Azure OpenAI Service endpoint.
-* An [authentication-managed-identity](authentication-managed-identity-policy.md) policy that can authenticate to the Azure OpenAI resource using the instance's system-assigned identity.
-* (optionally) Policies to help you monitor and manage token consumption by the Azure OpenAI API.
+* A [backend](backends.md) resource and a [set-backend-service](set-backend-service-policy.md) policy that direct API requests to the Azure OpenAI Service endpoint.
+* Authentication to the Azure OpenAI backend using the instance's system-assigned managed identity.
+* (optionally) Policies to help you monitor and manage the Azure OpenAI API.
 
 To import an Azure OpenAI API to API Management:
 
@@ -57,8 +57,14 @@ To import an Azure OpenAI API to API Management:
     
         For example, if your API Management gateway endpoint is `https://contoso.azure-api.net`, set a **Base URL** similar to `https://contoso.azure-api.net/my-openai-api/openai`.
     1. Optionally select one or more products to associate with the API. Select **Next**.
-1. On the **Policies** tab, optionally enable policies to monitor and manage Azure OpenAI API token consumption. 
-    If selected, enter settings or accept defaults that define the `azure-openai-token-limit` and `azure-openai-emit-token-metric` policies for your API. You can also set or update the policy configuration later. Select **Review + Create**.
+1. On the **Policies** tab, optionally enable policies to monitor and manage Azure OpenAI API token consumption and response caching. You can also set or edit policies later.
+
+    If selected, enter settings or accept defaults that define the following policies (see linked articles for configuration details):
+    * [Manage token consumption](azure-openai-token-limit-policy.md)
+    * [Track token usage](azure-openai-emit-token-metric-policy.md)
+    * [Enable semantic caching](azure-openai-enable-semantic-caching.md)  
+    
+    Select **Review + Create**.
 1. After settings are validated, select **Create**. 
 
 ## Option 2. Add an OpenAPI specification to API Management
@@ -67,7 +73,7 @@ Alternatively, manually download the OpenAPI specification for the Azure OpenAI 
 
 ### Download the OpenAPI specification
 
-Download the OpenAPI specification for the Azure OpenAI REST API, such as the [2024-02-01 GA version](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2024-02-01/inference.json).
+Download the OpenAPI specification for the Azure OpenAI REST API, such as the [2024-10-01 GA version](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2024-10-01/inference.json).
 
 1. In a text editor, open the specification file that you downloaded.
 1. In the `servers` element in the specification, substitute the name of your Azure OpenAI Service endpoint in the placeholder values of `url` and `default` endpoint in the specification. For example, if your Azure OpenAI Service endpoint is `contoso.openai.azure.com`, update the `servers` element with the following values:
@@ -89,7 +95,7 @@ Download the OpenAPI specification for the Azure OpenAI REST API, such as the [2
       ],
     [...]
     ```
-1. Make a note of the value of the API `version` in the specification. You'll need it to test the API. Example: `2024-02-01`.
+1. Make a note of the value of the API `version` in the specification. You'll need it to test the API. Example: `2024-10-01`.
 
 ### Add OpenAPI specification to API Management
 
