@@ -64,7 +64,7 @@ Disk backup offers multiple backups per day, and blob backup is a continuous bac
 
 So, this object defines what type of backups are triggered, how they're triggered (via a schedule), what they're tagged with, where they land (a datastore), and the life cycle of the backup data in a datastore. The default PowerShell object for PostgreSQL – Flexible Server triggers a full backup every week and they reach the vault, where they're stored for *3 months*.
 
-### Retrieving the Policy template
+### Retrieve the Policy template
 
 To understand the inner components of a backup policy for Azure PostgreSQL – Flexible server database backup, retrieve the policy template using the [Get-AzDataProtectionPolicyTemplate](/powershell/module/az.dataprotection/get-azdataprotectionpolicytemplate) cmdlet. This cmdlet returns a default policy template for a given datasource type. Use this policy template to create a new policy.
 
@@ -127,7 +127,7 @@ TargetDataStoreCopySetting : {}
 
 The default policy template offers a backup once per week. You can modify the schedule for the backup to happen multiple days per week. To modify the schedule, use the [`Edit-AzDataProtectionPolicyTriggerClientObject`](/powershell/module/az.dataprotection/edit-azdataprotectionpolicytriggerclientobject) cmdlet.
 
-The following example modifies the weekly backup to back up happening on every Sunday, Wednesday, and Friday of every week. The schedule date array mentions the dates, and the days of the week of those dates are taken as days of the week. You also need to specify that these schedules should repeat every week. So, the schedule interval is *1* and the interval type is *Weekly*.
+The following example modifies the weekly backup to back up happening on every Sunday, Wednesday, and Friday of every week. The schedule date array mentions the dates, and the days of the week of those dates are taken as days of the week. Also, specify that these schedules should repeat every week. So, the schedule interval is *1* and the interval type is *Weekly*.
 
 ```azurepowershell
 $schDates = @(
@@ -173,7 +173,7 @@ Edit-AzDataProtectionPolicyTagClientObject -Policy $policyDefn -Name Monthly -Cr
 
 ```
 
-If the schedule is multiple backups per week (every Sunday, Wednesday, Thursday as specified in the above example) and you want to archive the Sunday and Friday backups, then the tagging criteria can be changed as follows, using the [`New-AzDataProtectionPolicyTagCriteriaClientObject`](/powershell/module/az.dataprotection/new-azdataprotectionpolicytagcriteriaclientobject?view=azps-12.3.0&preserve-view=true) cmdlet.
+If the schedule is multiple backups per week (every Sunday, Wednesday, Thursday as specified in the example) and you want to archive the Sunday and Friday backups, then the tagging criteria can be changed as follows, using the [`New-AzDataProtectionPolicyTagCriteriaClientObject`](/powershell/module/az.dataprotection/new-azdataprotectionpolicytagcriteriaclientobject?view=azps-12.3.0&preserve-view=true) cmdlet.
 ```azurepowershell
 $tagCriteria = New-AzDataProtectionPolicyTagCriteriaClientObject -DaysOfWeek @("Sunday", "Friday")
 Edit-AzDataProtectionPolicyTagClientObject -Policy $policyDefn -Name Monthly -Criteria $tagCriteria
@@ -197,7 +197,7 @@ Once the vault and policy are created, consider the following  critical points t
 - Backup vault to store the backup data
 - Request for backup configuration
 
-### PostgreSQL - flexible Server to be protected
+### Fetch the ID of the PostgreSQL - Flexible Server to be protected
 
 Fetch the Azure Resource Manager ID (ARM ID) of PostgreSQL – Flexible Server to be protected. This ID serves as the identifier of the database. Let's use an example of a database named `empdb11` under a PostgreSQL - Flexible Server `testposgresql`, which is present in the resource group `ossrg` under a different subscription.
 
@@ -205,13 +205,13 @@ Fetch the Azure Resource Manager ID (ARM ID) of PostgreSQL – Flexible Server t
 $ossId = "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/ossrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/archive-postgresql-ccy/databases/empdb11"
 ```
 
-### Backup vault
+### Grant access to the Backup vault
 
 Backup vault has to connect to the PostgreSQL – Flexible Server, and then access the database via the keys present in the key vault. So, it requires access to the PostgreSQL – Flexible Server and the key vault. Grant the required access to the Backup vault's **Managed Service Identity (MSI)**.
 
 Check the [permissions](backup-azure-database-postgresql-flex-overview.md#permissions-for-backup) required for the Backup vault's **Managed Service Identity (MSI)** on the PostgreSQL – Flexible Server and Azure Key vault that stores keys to the database.
 
-### Prepare the request
+### Prepare the backup configuration request
 
 Once all the relevant permissions are set, configure the backup by running following cmdlets:
 
