@@ -22,7 +22,7 @@ To create a cluster without a service principal user name and password, you can 
 1. A user-assigned managed identity resource with permissions over the log analytics workspace of [Log Analytics Contributor](/azure/role-based-access-control/built-in-roles/analytics#log-analytics-contributor).
 
 > [!NOTE]
-> This functionality exists with the latest GA API offered by Azure Operator Nexus 
+> This functionality exists with the 2024-10-01-preview API and will be available with the 2025-02-01 GA API offered by Azure Operator Nexus 
 
 
 ### Create and configure Log Analytics Workspace and User Assigned Managed Identity
