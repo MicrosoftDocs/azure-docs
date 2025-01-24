@@ -22,7 +22,7 @@ If you're using multiple clusters together, you want to create a virtual network
 
 ## Cluster setup methods
 
-The following table shows the different methods you can use to set up a HDInsight cluster.
+The following table shows the different methods you can use to set up an HDInsight cluster.
 
 | Clusters created with | Web browser | Command line | REST API | SDK |
 | --- |:---:|:---:|:---:|:---:|
@@ -33,7 +33,7 @@ The following table shows the different methods you can use to set up a HDInsigh
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✅ |✅ |&nbsp; |
 | [Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✅ |&nbsp; |&nbsp; |
 
-This article walks you through setup in the [Azure portal](https://portal.azure.com), where you can create a HDInsight cluster.
+This article walks you through setup in the [Azure portal](https://portal.azure.com), where you can create an HDInsight cluster.
 
 ## Basics
 
@@ -136,9 +136,9 @@ For more information, see [Use external metadata stores in Azure HDInsight](./hd
 
 #### SQL database for Hive
 
-If you want to retain your Hive tables after you delete a HDInsight cluster, use a custom metastore. You can then attach the metastore to another HDInsight cluster.
+If you want to retain your Hive tables after you delete an HDInsight cluster, use a custom metastore. You can then attach the metastore to another HDInsight cluster.
 
-A HDInsight metastore that is created for one HDInsight cluster version can't be shared across different HDInsight cluster versions. For a list of HDInsight versions, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
+An HDInsight metastore that is created for one HDInsight cluster version can't be shared across different HDInsight cluster versions. For a list of HDInsight versions, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
 You can use Managed Identity to authenticate with SQL database for Hive. For more information, see [Use Managed Identity for SQL Database authentication in Azure HDInsight](./use-managed-identity-for-sql-database-authentication-in-azure-hdinsight.md)
 

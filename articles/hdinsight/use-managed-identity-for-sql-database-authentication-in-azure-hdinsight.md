@@ -11,7 +11,7 @@ ms.date: 01/09/2025
 
 HDInsight added the Managed Identity option for authenticating SQL databases within its cluster offerings and providing a more secure authentication mechanism. 
 
-This article outlines the process of using the Managed Identity (MSI) option for SQL Database authentication when creating a HDInsight cluster. 
+This article outlines the process of using the Managed Identity (MSI) option for SQL Database authentication when creating an HDInsight cluster. 
 
 The Managed Identity (MI) option is available for the following Databases:
 
@@ -23,12 +23,12 @@ The Managed Identity (MI) option is available for the following Databases:
 |Ranger (ESP)|❌ | ❌ |
 
 > [!NOTE]
-> 1. Managed Identity (MI) is currently available only in public regions. It will be rolled out to other regions in future releases.
-> 2. MI option isn't enabled by default. To get it enabled, submit a [support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) with your subscription and region details.
+> * Managed Identity (MI) is currently available only in public regions.
+> * MI option isn't enabled by default. To get it enabled, submit a [support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) with your subscription and region details.
 
 > [!IMPORTANT]
-> 1. It's recommended not to update the Managed Identity after cluster recreation as it can disrupt cluster operation.
-> 2. When you recreate an MSI with the same name, users must recreate the contained user and reassign roles, as the new MSI will have different object and client IDs even if the name remains unchanged.
+> * It's recommended not to update the Managed Identity after cluster recreation as it can disrupt cluster operation.
+> *  When you recreate an MSI with the same name, users must recreate the contained user and reassign roles, as the new MSI will have different object and client IDs even if the name remains unchanged.
 
 
 ## Steps to Use Managed Identity during cluster creation in Azure portal
@@ -52,7 +52,7 @@ Object ID of managed identity can be obtained from portal on the managed identit
    >
    > For example: 
    > * MSI Name: contosoMSI 
-   > * Object ID: `2ba6c-1111-2222-3333-cccccccccccc`
+   > * Object ID: `aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb`
    > * user_name could be `contosoMSI-2ba6c`
 
 
