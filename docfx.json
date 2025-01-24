@@ -11,6 +11,7 @@
         ],
         "exclude": [
           "iot-edge/**",
+          "migrate/**",
           "**/_themes/**",
           "**/includes/**",
           "**/obj/**",
@@ -21,6 +22,20 @@
         "group": "grp-iot-edge",
         "src": "articles/iot-edge",
         "dest": "./iot-edge/",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+            "**/_themes/**",
+            "**/includes/**",
+            "**/obj/**"
+        ]
+      },
+      {
+        "group": "migrate",
+        "src": "articles/migrate",
+        "dest": "./migrate/",
         "files": [
           "**/*.md",
           "**/*.yml"
@@ -79,6 +94,22 @@
         ]
       },
       {
+        "group": "migrate",
+        "src": "articles/migrate",
+        "dest": "./migrate/",
+        "files": [
+          "**/*.gif",
+          "**/*.jpeg",
+          "**/*.jpg",
+          "**/*.png",
+          "**/*.svg"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/obj/**"
+        ]
+      },
+      {
         "src": null,
         "dest": null,
         "files": [
@@ -94,6 +125,12 @@
         ]
       }
     ],
+    "groups": {
+      "migrate": {
+        "dest": "migrate",
+        "moniker_range": ">=migrate-classic <=migrate"
+      }
+    },
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
@@ -692,9 +729,6 @@
         "articles/virtual-desktop/**/*.md": "eliotgra",
         "articles/virtual-desktop/**/*.yml": "eliotgra"
       },
-      "monikerRange": {
-        "articles/migrate/**/*.md": "=azure-migrate"
-      },
       "ms.author": {
         "articles/advisor/*.md": "ikhapova",
         "articles/ansible/**/*.md": "tarcher",
@@ -997,6 +1031,9 @@
         "articles/partner-solutions/split-experimentation/**/*.yml": "split-experimentation",
         "articles/governance/management-groups/**/*.md": "azure-governance"
       },
+      "monikerRange": {
+        "articles/migrate/**/*.md": ">=migrate-classic <=migrate"
+      },
       "recommendations": {
       },
       "no-loc": {
@@ -1279,15 +1316,6 @@
           "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md"
         ]
       }
-    },
-    "template": [],
-    "markdownEngineName": "markdig",
-    "groups": {
-      "migrate": {
-        "dest": "migrate",
-        "moniker_range": "azure-migrate || >= migrate-classic <= migrate"
-      }
-    },
-    "dest": "azure"
+    }
   }
 }
