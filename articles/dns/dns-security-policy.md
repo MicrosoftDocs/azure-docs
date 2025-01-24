@@ -56,6 +56,7 @@ To display DNS traffic rules in the Azure portal, select a DNS security policy a
 - Rules are processed in order of **Priority** in the range 100-65000. Lower numbers are higher priority.
     * If a domain name is blocked in a lower priority rule, and the same domain is allowed in a higher priority rule, the domain name is allowed.
     * Rules follow the DNS hierarchy. If contoso.com is allowed in a higher priority rule, then sub.contoso.com is allowed, even if sub.contoso.com is blocked in a lower priority rule.
+    * By nature of the former, you can block all or allow all DNS domains using just . as a DNS domain value.
 - You can dynamically add and delete rules from the list. Be sure to **Save** after editing rules in the portal.
 - Multiple **DNS Domain Lists** are allowed per rule. You must have at least one DNS domain list. 
 - Each rule is associated with one of three **Traffic Actions**: **Allow**, **Block**, or **Alert**.
