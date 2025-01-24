@@ -17,14 +17,14 @@
   items:
     - name: Deploy ASP.NET
       href: quickstart-dotnetcore.md
-    - name: Deploy Node.js
-      href: quickstart-nodejs.md
-    - name: Deploy PHP
-      href: quickstart-php.md
     - name: Deploy Java
       href: quickstart-java.md
+    - name: Deploy Node.js
+      href: quickstart-nodejs.md
     - name: Deploy Python
       href: quickstart-python.md
+    - name: Deploy PHP
+      href: quickstart-php.md
     - name: Deploy WordPress
       href: quickstart-wordpress.md
     - name: Deploy a custom container
