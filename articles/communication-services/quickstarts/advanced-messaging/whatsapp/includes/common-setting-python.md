@@ -15,13 +15,13 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 ### Authenticate the client 
 
-Messages sending is done using NotificationMessagesClient. NotificationMessagesClient is authenticated using your connection string acquired from Azure Communication Services resource in the Azure portal. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
+Messages sending is done using NotificationMessagesClient. NotificationMessagesClient is authenticated using your connection string acquired from Azure Communication Services resource in the Azure portal. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 
 #### [Connection String](#tab/connection-string)
 
 Get Azure Communication Resource connection string from Azure portal as given in screenshot. On the left, navigate to the `Keys` tab. Copy the `Connection string` field for the primary key. The connection string is in the format `endpoint=https://{your Azure Communication Services resource name}.communication.azure.com/;accesskey={secret key}`.
 
-:::image type="content" source="../../media/get-started/get-communication-resource-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Primary Key' field in the 'Keys' section.":::
+:::image type="content" source="../media/get-started/get-communication-resource-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Primary Key' field in the 'Keys' section.":::
 
 Set the environment variable `COMMUNICATION_SERVICES_CONNECTION_STRING` to the value of your connection string.   
 Open a console window and enter the following command:
@@ -52,7 +52,7 @@ The [`azure.identity`](https://github.com/Azure/azure-sdk-for-python/tree/azure-
 The `DefaultAzureCredential` attempts to authenticate via [`several mechanisms`](/python/api/overview/azure/identity-readme?view=azure-python#defaultazurecredential&preserve-view=true) and it might be able to find its authentication credentials if you're signed into Visual Studio or Azure CLI. However, this option walks you through setting up with environment variables.   
 
 To create a `DefaultAzureCredential` object:
-1. To set up your service principle app, follow the instructions at [Creating a Microsoft Entra registered Application](../../../../identity/service-principal.md?pivots=platform-azcli#creating-a-microsoft-entra-registered-application).
+1. To set up your service principle app, follow the instructions at [Creating a Microsoft Entra registered Application](../../../identity/service-principal.md?pivots=platform-azcli#creating-a-microsoft-entra-registered-application).
 
 1. Set the environment variables `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID` using the output of your app's creation.    
     Open a console window and enter the following commands:
@@ -85,7 +85,7 @@ You can also authenticate with an AzureKeyCredential.
 
 Get the endpoint and key from your Azure Communication Services resource in the Azure portal. On the left, navigate to the `Keys` tab. Copy the `Endpoint` and the `Key` field for the primary key.
 
-:::image type="content" source="../../media/get-started/get-communication-resource-endpoint-and-key.png" lightbox="../../media/get-started/get-communication-resource-endpoint-and-key.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Connection string' field in the 'Primary key' section.":::
+:::image type="content" source="../media/get-started/get-communication-resource-endpoint-and-key.png" lightbox="../../media/get-started/get-communication-resource-endpoint-and-key.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Connection string' field in the 'Primary key' section.":::
 
 Set the environment variable `COMMUNICATION_SERVICES_KEY` to the value of your connection string.   
 Open a console window and enter the following command:
