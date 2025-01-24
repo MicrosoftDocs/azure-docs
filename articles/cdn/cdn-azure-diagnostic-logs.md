@@ -226,6 +226,7 @@ Here's how you can use the tool:
 
 ## Log data delays
 
+Microsoft log data is delayed by up to 1 hour. This delay is due to the time it takes to process and store the data.
 
 <a name='diagnostic-log-types-for-cdn-core-analytics'></a>
 
