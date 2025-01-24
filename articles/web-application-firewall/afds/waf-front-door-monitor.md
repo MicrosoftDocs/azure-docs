@@ -27,7 +27,7 @@ To access your WAF's metrics:
 1. On the leftmost pane under **Monitoring**, select the **Metrics** tab.
 1. Add the **Web Application Firewall Request Count** metric to track the number of requests that match WAF rules.
 
-You can create custom filters based on action types and rule names. Metrics include requests with all actions except `Log`.
+You can create custom filters based on action types and rule names. Metrics include requests with terminating actions like `Block` and `Allow` as well as requests where the WAF took no action. Since multiple non-terminating `Log` actions can be triggered by a single request, they are excluded from this metric to avoid duplicating request counts.
 
 :::image type="content" source="../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png" alt-text="Screenshot that shows the metrics for an Azure Front Door WAF.":::
 

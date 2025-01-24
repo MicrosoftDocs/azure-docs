@@ -8,8 +8,8 @@ ms.custom:
   - devx-track-azurecli
   - ignite-2023
   - ignite-2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up Azure Kubernetes Service using Azure CLI 

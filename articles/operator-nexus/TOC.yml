@@ -206,8 +206,14 @@
           href: howto-set-up-break-glass-access.md
         - name: How to use-break-glass-access
           href: howto-use-break-glass-access.md
-        - name: How to enable-Micro-BFD on CE and PE devices.md
+        - name: How to enable-Micro-BFD on CE and PE devices
           href: howto-enable-micro-bfd.md
+        - name: How to replace a terminal server
+          href: howto-replace-a-terminal-server.md
+        - name: How to upgrade os of terminal server
+          href: howto-upgrade-os-of-terminal-server.md
+        - name: How to restrict serial port access and set timeout on terminal-server
+          href: howto-restrict-serial-port-access-and-set-timeout-on-terminal-server.md       
     - name: Cluster
       expanded: false
       items:
