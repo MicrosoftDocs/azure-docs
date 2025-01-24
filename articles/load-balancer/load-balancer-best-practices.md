@@ -54,7 +54,11 @@ For more information, see [Azure Load Balancer Reliability documentation](../rel
 
 ### Reliability with Gateway Load Balancer
 
-Chain your Gateway Load Balancer to a Standard Public Load Balancer to get high availability and redundancy on both the NVA and application layer. 
+The following best practices are recommended to ensure the reliability of your Gateway Load Balancer deployment.
+
+#### Chain your Gateway Load Balancer to a Standard Public Load Balancer
+
+Chaining your Gateway Load Balancer to a Standard Public Load Balancer is recommended. This configuration provides high availability and redundancy on both the NVA and application layer. For more information, see [Tutorial: Create a gateway load balancer](./tutorial-gateway-portal.md)
 
 #### Use a Gateway load balancer when using NVAs instead of a dual load balancer set-up.
 
@@ -64,34 +68,34 @@ We recommend using a Gateway load balancer in north-south traffic scenarios with
 
 The following configuration guidance are best practices for configuring your Azure Load Balancer deployments. 
 
-#### Create Network Security Groups (NSGs)
+### Create Network Security Groups (NSGs)
 
 To explicitly permit allowed inbound traffic, you should create Network Security Groups (NSGs). NSGs must be created on the subnet or network interface card (NIC) of your VM, otherwise there will be no inbound connectivity to your Standard external load balancers. For more information, see [Create, change, or delete an Azure network security group](../virtual-network/manage-network-security-group.md).
 
-#### Unblock 168.63.129.16 IP address
+### Unblock 168.63.129.16 IP address
 
 Ensure 168.63.129.16 IP address isn't blocked by any Azure network security groups and local firewall policies. This IP address enables health probes from Azure Load Balancer to determine the health state of the VM. If it isn't allowed, the health probe fails as it is unable to reach your instance and it marks your instance as down. For more information, see [Azure Load Balancer health probe](load-balancer-custom-probe-overview.md) and [What is IP address 168.63.129.16?](../virtual-network/what-is-ip-address-168-63-129-16.md)s.
 
-#### Use outbound rules with manual port allocation
+### Use outbound rules with manual port allocation
 
 Use outbound rules with manual port allocation instead of default port allocation to prevent SNAT exhaustion or connection failures. Default port allocation automatically assigns a conservative number of ports which can cause a higher risk of SNAT port exhaustion. Manual port allocation can help maximize the number of SNAT ports made available for each of the instances in your backend pool which can help prevent your connections from being impacted due to port reallocation. 
 There are two options for manual port allocation, “ports per instance” or “maximum number of backend instances”. To understand the considerations of both, see [Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md).
 
-#### Check your distribution mode
+### Check your distribution mode
 
 Azure Load Balancer uses a 5-tuple hash based distribution mode by default and also offers session persistence using a 2-tuple or 3-tuple hash. Consider whether your deployment could benefit from session persistence (also known as session affinity) where connections from the same client IP or same client IP and protocol go to the same backend instance within the backend pool. Also consider that enabling session affinity can cause uneven load distribution as most connections come from the same client IP or same client IP and protocol.
 For more information about Azure Load Balancers distribution modes, see [Azure Load Balancer distribution modes](distribution-mode-concepts.md).
 
-#### Enable TCP resets
+### Enable TCP resets
 
 Enabling TCP resets on your Load Balancer sends bidirectional TCP resets packets to both client and server endpoints on idle time-out to inform your application endpoints that the connection timed out and is no longer usable. Without enabling TCP reset, the Load Balancer silently drops flows when the idle time-out of a flow is reached. It can also be beneficial to increase idle time-out and/or use a TCP keep-alive if you’re seeing connections time out.
 For more information on TCP resets, idle time-outs, and TCP keepalive, visit [Load Balancer TCP Reset and idle time-out in Azure](load-balancer-tcp-reset.md).
 
-#### Configure loop back interface when setting up floating IP
+### Configure loop back interface when setting up floating IP
 
 If you enable floating IP, ensure you have a loopback interface within guest OS that is configured with the frontend IP address of the load balancer. For more information, see [Azure Load Balancer Floating IP configuration](load-balancer-floating-ip.md#floating-ip-guest-os-configuration).
 
-#### Implement Gateway Load Balancer configuration best practices
+### Implement Gateway Load Balancer configuration best practices
 
 Separate your trusted and untrusted traffic on two different tunnel interfaces; use the tunnel interface type external for untrusted/not yet inspected or managed traffic and use the tunnel interface type internal for trusted/inspected traffic. As a security best practice, this ensures isolation of trusted and untrusted traffic and can allow for more granular traffic control and troubleshooting. 
 
@@ -101,11 +105,11 @@ Ensure your NVAs MTU limit is increased to at least 1550, or up to the recommend
 
 Along with new improvements and updates to Azure Load Balancer, there are also deprecations to functionalities. It's critical to stay updated and ensure you're making the necessary changes to avoid any potential service disruptions. For a complete list of retirement announcements, see the [Azure Updates page](https://azure.microsoft.com/updates?filters=%5B%22Load+Balancer%22%2C%22Retirements%22%5D) and filter for “Load Balancer” under “Products” and “Retirements” under “Update Type”.
 
-#### Use or upgrade to Standard Load Balancer.
+### Use or upgrade to Standard Load Balancer.
 
 [Basic Load Balancer will be retired September 30, 2025](https://azure.microsoft.com/updates?id=azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer) and customers should upgrade from Basic Load Balancer to Standard Load Balancer by then. Standard Load Balancer provides significant improvements including high performance, ultra-low latency, security by default, and SLA of 99.99% availability. 
 
-#### Don't use default outbound access
+### Don't use default outbound access
 
 Moving forward, don't use [default outbound access](../virtual-network/ip-services/default-outbound-access.md) and ensure all VMs have a defined explicit outbound method. This is recommended for better security and greater control over how your VMs connect to the internet. Default outbound access will [retire September 30, 2025](https://azure.microsoft.com/updates?id=default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access) and VMs created after this date must use one of the following outbound solutions to communicate to the internet:
 - Associate a NAT GW to the subnet
