@@ -61,14 +61,27 @@ param sshPublicKeys array
 //   keyData: 'string'
 // }
 
+@description('The type of the OS disk storage to use.')
+@allowed([
+  'Persistent'
+  'Ephemeral'
+])
+param osDisk string = 'Ephemeral'
+
+@description('The size of the virtual machine OS disk in GB')
+param osDiskSizeGB int = 64
+
+@description('The list of volume attachments to the virtual machine.')
+param volumeAttachments array
+
 @description('StorageProfile represents information about OS and (optionally) data disks.')
 param storageProfile object = {
   osDisk: {
-    createOption: 'Ephemeral'
+    createOption: (empty(osDisk) ? 'Ephemeral' : osDisk)
     deleteOption: 'Delete'
-    diskSizeGB: 64
+    diskSizeGB: osDiskSizeGB
   }
-  volumeAttachments: []
+  volumeAttachments: (empty(volumeAttachments) ? null : volumeAttachments)
 }
 
 @description('The Base64 encoded cloud-init user data.')

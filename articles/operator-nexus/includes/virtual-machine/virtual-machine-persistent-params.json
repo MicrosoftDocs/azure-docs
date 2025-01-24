@@ -24,21 +24,11 @@
             }
         ]
       },
-      "storageProfile": {
-        "value": {
-          "osDisk": {
-            "value" : {
-              "createOption": "Persistent",
-              "deleteOption": "Delete",
-              "diskSizeGB": 64
-            }
-          },
-          "volumeAttachments": {
-            "value": [
-              "/subscriptions/<subscription>/resourceGroups/<volume-resource-group>/providers/Microsoft.NetworkCloud/volumes/<volume-name>"
-            ]
-          }
-        }
+      "osDisk": {
+          "value": "Persistent"
+      },
+      "volumeAttachments": {
+          "value": ["/subscriptions/<subscription>/resourceGroups/<cluster-resource-group>/providers/Microsoft.NetworkCloud/volumes/<volume-name>"]
       },
       "sshPublicKeys": {
           "value": [
