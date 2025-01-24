@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 01/22/2025
+ms.date: 01/24/2025
 ---
 
 # Azure HDInsight release notes
@@ -60,7 +60,7 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
     * After the capability has been enabled, proceed to recreate the cluster.
 
 > [!NOTE]
-> Managed Identity is currently available only in public regions. It will be rolled out to other regions in future releases. Change will be rolled out in a phased manner for different regions.
+> Managed Identity is currently available only in public regions. It will be rolled out to other regions (Federal and China regions) in future releases.
 
 ## New Regions 
 
