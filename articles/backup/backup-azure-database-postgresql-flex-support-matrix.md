@@ -1,6 +1,6 @@
 ---
-title: Azure Database for PostgreSQL- Flexible server support matrix
-description: Provides a summary of support settings and limitations of Azure Database for PostgreSQL- Flexible server backup.
+title: Azure Database for PostgreSQL- Flexible Server support matrix
+description: Provides a summary of support settings and limitations of Azure Database for PostgreSQL- Flexible Server backup.
 ms.topic: reference
 ms.date: 02/17/2025
 ms.custom: references_regions, ignite-2024
@@ -9,36 +9,24 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Support matrix for Azure Database for PostgreSQL- Flexible server
+# Support matrix for Azure Database for PostgreSQL- Flexible Server
 
-You can use [Azure Backup](./backup-overview.md) to protect Azure Database for PostgreSQL- Flexible server. This article summarizes supported regions, scenarios, and the limitations.
+You can use [Azure Backup](backup-overview.md) to protect Azure Database for PostgreSQL – Flexible Server. This article summarizes supported regions, scenarios, and the limitations.
 
 ## Supported regions
 
-Azure Database for PostgreSQL - Flexible server backup is now available in all public regions.
+Azure Database for PostgreSQL – Flexible Server backup is now available in all public regions.
 
 ## Support scenarios
 
-- PostgreSQL Flexible Server backup data can be recovered in user specified storage containers that can be used to rebuild the PostgreSQL flexible server. You can restore this data as a new PostgreSQL - flexible server with the database native tools.
-
-- Only weekly backups are supported with option to opt for one day in the week on which backup is initiated.
-
-- Both Cross Region and Cross Subscription backups are supported.
-
-- Recommended limit for the maximum server size is 4 TB.
-
-- Recommended backup frequency for backing up a server is Weekly. In case you opt for Daily backup and observe failures, we recommend decreasing the frequency while relying on automated backup solution to achieve required RPO.  
-
-- PostgreSQL - Flexible servers encrypted by Customer Managed Key are supported.
-
-- Private endpoint-enabled Azure PostgreSQL flexible servers can be backed up by allowing trusted Microsoft services in the network settings.
-
+PostgreSQL – Flexible Server backup data can be recovered in specified storage containers to rebuild the server. Restore this data as a new server using the database's native tools.
 
 ## Limitation
 
--  Currently, restoring backups directly to flexible server isn't supported.
+Here are some important limitations about PostgreSQL – Flexible Server backups:
 
--  Currently, backing up individual databases isn't supported. You can only back up the entire server.
+- Backing up individual databases is currently not supported; only the entire server can be backed up.
+- Long-term retention is currently supported only with Vault-Standard tier backup.
 
 
 ## Next steps
