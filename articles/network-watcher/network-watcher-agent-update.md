@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 09/06/2024
+ms.date: 01/24/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
