@@ -2,21 +2,22 @@
 title: Authentication types by deployment methods
 description: Learn the available types of authentication with Azure App Service when deploying your application code.
 ms.topic: article
-ms.date: 01/26/2024
+ms.date: 01/24/2025
 author: cephalin
 ms.author: cephalin
+#customer intent: As an app developer, I want to understand the authentication options available for different deployment methods in Azure App Service.
 ---
 
 # Authentication types by deployment methods in Azure App Service
 
-Azure App Service lets you deploy your web application code and configuration by using multiple options. These deployment options may support one or more authentication mechanisms. This article provides details about various authentication mechanisms supported by different deployment methods. 
+Azure App Service lets you deploy your web application code and configuration by using multiple options. These deployment options support one or more authentication mechanisms. This article provides details about various authentication mechanisms supported by different deployment methods.
 
 > [!NOTE]
 > To disable basic authentication for your App Service app, see [Disable basic authentication in App Service deployments](configure-basic-auth-disable.md). 
 
 |Deployment method|Authentication  |Reference Documents |
 |:----|:----|:----|
-|Azure CLI |Microsoft Entra ID | In Azure CLI, version 2.48.1 or higher, the following commands have been modified to use Microsoft Entra if basic authentication is turned off for your web app or function app:<br/>- [az webapp up](/cli/azure/webapp#az-webapp-up)<br/>- [az webapp deploy](/cli/azure/webapp#az-webapp-deploy)<br/>- [az webapp log deployment show](/cli/azure/webapp/log/deployment#az-webapp-log-deployment-show)<br/>- [az webapp log deployment list](/cli/azure/webapp/log/deployment#az-webapp-log-deployment-list)<br/>- [az webapp log download](/cli/azure/webapp/log#az-webapp-log-download)<br/>- [az webapp log tail](/cli/azure/webapp/log#az-webapp-log-tail)<br/>- [az webapp browse](/cli/azure/webapp#az-webapp-browse)<br/>- [az webapp create-remote-connection](/cli/azure/webapp#az-webapp-create-remote-connection)<br/>- [az webapp ssh](/cli/azure/webapp#az-webapp-ssh)<br/>- [az functionapp deploy](/cli/azure/functionapp#az-functionapp-deploy)<br/>- [az functionapp log deployment list](/cli/azure/functionapp/log/deployment#az-functionapp-log-deployment-list)<br/>- [az functionapp log deployment show](/cli/azure/functionapp/log/deployment#az-functionapp-log-deployment-show)<br/>- [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip)<br/>For more information, see [az appservice](/cli/azure/appservice) and [az webapp](/cli/azure/webapp). |
+|Azure CLI |Microsoft Entra ID | In Azure CLI, version 2.48.1 or higher, the following commands use Microsoft Entra if basic authentication is turned off for your web app or function app:<br/>- [az webapp up](/cli/azure/webapp#az-webapp-up)<br/>- [az webapp deploy](/cli/azure/webapp#az-webapp-deploy)<br/>- [az webapp log deployment show](/cli/azure/webapp/log/deployment#az-webapp-log-deployment-show)<br/>- [az webapp log deployment list](/cli/azure/webapp/log/deployment#az-webapp-log-deployment-list)<br/>- [az webapp log download](/cli/azure/webapp/log#az-webapp-log-download)<br/>- [az webapp log tail](/cli/azure/webapp/log#az-webapp-log-tail)<br/>- [az webapp browse](/cli/azure/webapp#az-webapp-browse)<br/>- [az webapp create-remote-connection](/cli/azure/webapp#az-webapp-create-remote-connection)<br/>- [az webapp ssh](/cli/azure/webapp#az-webapp-ssh)<br/>- [az functionapp deploy](/cli/azure/functionapp#az-functionapp-deploy)<br/>- [az functionapp log deployment list](/cli/azure/functionapp/log/deployment#az-functionapp-log-deployment-list)<br/>- [az functionapp log deployment show](/cli/azure/functionapp/log/deployment#az-functionapp-log-deployment-show)<br/>- [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip)<br/>For more information, see [az appservice](/cli/azure/appservice) and [az webapp](/cli/azure/webapp). |
 |Azure PowerShell |Microsoft Entra | In Azure PowerShell, version 9.7.1 or above, Microsoft Entra is available for App Service. For more information, see [PowerShell samples for Azure App Service](samples-powershell.md). |
 |SCM/Kudu/OneDeploy REST endpoint |Basic authentication<br/>Microsoft Entra |[Deploy files to App Service](deploy-zip.md) |
 |Kudu UI |Basic authentication<br/>Microsoft Entra |[Deploy files to App Service](deploy-zip.md)|
