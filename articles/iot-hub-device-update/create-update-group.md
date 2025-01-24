@@ -1,8 +1,8 @@
 ---
 title: Manage device groups in Device Update for Azure IoT Hub | Microsoft Docs
 description: Configure device groups in Device Update for Azure IoT Hub by using twin tags
-author: vimeht
-ms.author: vimeht
+author: andrewbrownmsft
+ms.author: andbrown
 ms.date: 10/31/2022
 ms.topic: how-to
 ms.service: azure-iot-hub
