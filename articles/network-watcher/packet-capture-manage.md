@@ -160,7 +160,7 @@ az network watcher packet-capture create --name 'myVM_1' --resource-group 'myRes
 ```
 
 > [!NOTE]
-> If the storage account is in a different resource group than the virtual machine, use its full resource ID instead of the name: `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup2/providers/Microsoft.Storage/storageAccounts/mystorageaccount`.
+> If the storage account is in a different resource group than the virtual machine, use the full resource ID of the storage account instead of its name: `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup2/providers/Microsoft.Storage/storageAccounts/mystorageaccount`.
 
 ---
 
@@ -292,7 +292,7 @@ To download a packet capture from Azure storage to the local disk, use [Get-AzSt
 
 ```azurepowershell-interactive
 # Download the packet capture file from Azure storage container.
-Get-AzStorageBlobContent -Container 'network-watcher-logs' -Blob 'subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm/2024/01/25/packetcapture_22_44_54_342.cap' -Destination 'C:\Capture\myVM_1.cap'
+Get-AzStorageBlobContent -Container 'network-watcher-logs' -Blob '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm/2024/01/25/packetcapture_22_44_54_342.cap' -Destination 'C:\Capture\myVM_1.cap'
 ```
 
 > [!NOTE]
@@ -312,7 +312,7 @@ To download a packet capture from Azure storage to the local disk, use [az stora
 
 ```azurecli-interactive
 # Download the packet capture file from Azure storage container.
-az storage blob download --container-name 'network-watcher-logs' --blob-url 'subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm/2024/01/25/packetcapture_22_44_54_342.cap' --file 'C:\Capture\myVM_1.cap'
+az storage blob download --container-name 'network-watcher-logs' --blob-url '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm/2024/01/25/packetcapture_22_44_54_342.cap' --file 'C:\Capture\myVM_1.cap'
 ```
 
 > [!NOTE]
