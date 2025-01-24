@@ -397,12 +397,15 @@ The following IDs are used for a [Verification display control](display-control-
 | `but_send_new_code` | Send new code|
 | `but_change_claims` | Change e-mail|
 | `UserMessageIfVerificationControlClaimsNotVerified` <sup>2</sup> | The claims for verification control have not been verified. |
+| `UserMessageIfVerificationControlClaimsHaveChanged` <sup>3</sup> | The claims to verify have been changed. |
 
 <sup>1</sup> The `intro_msg` element is hidden, and not shown on the self-asserted page. To make it visible, use the [HTML customization](customize-ui-with-html.md) with Cascading Style Sheets. For example:
 
 `.verificationInfoText div{display: block!important}`
 
 <sup>2</sup> This error message is displayed to the user if they enter a verification code, but instead of completing the verification by selecting on the **Verify** button, they select the **Continue** button.
+
+<sup>3</sup> This error message is displayed to the user if they validate an email address but then they select the **Change e-mail** button and don't validate the new email.
 
 ### Verification display control example
 
@@ -420,6 +423,7 @@ The following IDs are used for a [Verification display control](display-control-
     <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_new_code">Send new code</LocalizedString>
     <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_change_claims">Change e-mail</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationControlClaimsNotVerified">The claims for verification control have not been verified.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationControlClaimsHaveChanged">The claims to verify have been changed.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```
