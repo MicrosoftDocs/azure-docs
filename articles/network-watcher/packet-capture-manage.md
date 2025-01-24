@@ -64,7 +64,7 @@ In this article, you learn how to use the Azure Network Watcher [packet capture]
 ---
 
 > [!NOTE]
-> - Azure creates a Network Watcher instance in the virtual machine's region if Network Watcher wasn't enabled for that region. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
+> Azure creates a Network Watcher instance in the virtual machine's region if Network Watcher wasn't enabled for that region. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
 
 If a network security group is associated to the network interface, or subnet that the network interface is in, ensure that rules exist to allow outbound connectivity over the previous ports. Similarly, ensure outbound connectivity over the previous ports when adding user-defined routes to your network.
 
@@ -117,7 +117,6 @@ If a network security group is associated to the network interface, or subnet th
 
 # [**PowerShell**](#tab/powershell)
 
-
 To start a capture session, use [New-AzNetworkWatcherPacketCapture](/powershell/module/az.network/new-aznetworkwatcherpacketcapture) cmdlet:
 
 ```azurepowershell-interactive
@@ -155,13 +154,14 @@ The packet capture will stop once the time limit or the file size (maximum bytes
 
 To start a capture session, use [az network watcher packet-capture create](/cli/azure/network/watcher/packet-capture#az-network-watcher-packet-capture-create) command:
 
-
 ```azurecli-interactive
 # Start the Network Watcher capture session.
 az network watcher packet-capture create --name 'myVM_1' --resource-group 'myResourceGroup' --vm 'myVM' --storage-account 'mystorageaccount'
 ```
+
 > [!NOTE]
 > If the storage account is in a different resource group than the virtual machine, use its full resource ID instead of the name: `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup2/providers/Microsoft.Storage/storageAccounts/mystorageaccount`.
+
 ---
 
 ## Stop a packet capture
@@ -170,7 +170,7 @@ az network watcher packet-capture create --name 'myVM_1' --resource-group 'myRes
 
 To manually stop a packet capture session before it reaches its time limit, select the **...** on the right-side of the packet capture, or right-click it, then select **Stop**.
  
-    :::image type="content" source="./media/packet-capture-manage/stop-packet-capture.png" alt-text="Screenshot that shows how to stop a packet capture in the Azure portal." lightbox="./media/packet-capture-manage/stop-packet-capture.png":::
+:::image type="content" source="./media/packet-capture-manage/stop-packet-capture.png" alt-text="Screenshot that shows how to stop a packet capture in the Azure portal." lightbox="./media/packet-capture-manage/stop-packet-capture.png":::
 
 # [**PowerShell**](#tab/powershell)
 
@@ -202,7 +202,7 @@ az network watcher packet-capture stop --location 'eastus' --name 'myVM_1'
 
 Go to the **Packet capture** page of Network Watcher to list existing packet captures regardless of their status.
 
-    :::image type="content" source="./media/packet-capture-manage/view-packet-capture.png" alt-text="Screenshot that shows how to list and see packet captures in the Azure portal." lightbox="./media/packet-capture-manage/view-packet-capture.png":::
+:::image type="content" source="./media/packet-capture-manage/view-packet-capture.png" alt-text="Screenshot that shows how to list and see packet captures in the Azure portal." lightbox="./media/packet-capture-manage/view-packet-capture.png":::
 
 
 # [**PowerShell**](#tab/powershell)
