@@ -51,13 +51,16 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 
 * MSI Based authentication for SQL Databases.
   
-    HDInsight now offers Managed Identity for secure authentication with SQL databases in its clusters offerings. This enhancement provides a more secure mechanism for authentication.
-
+    HDInsight now offers Managed Identity for secure authentication with SQL databases in its clusters offerings. This enhancement provides a more secure mechanism for authentication. For more information see, [Use Managed Identity for SQL Database authentication in Azure HDInsight](./use-managed-identity-for-sql-database-authentication-in-azure-hdinsight.md).
+    
    To use Managed Identity with SQL databases, follow these steps: 
 
     * This feature isn't enabled by default. To enable it, submit a [support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) with your subscription and region details.
 
     * After the capability has been enabled, proceed to recreate the cluster.
+
+    > [!NOTE]
+    > Managed Identity is currently available only in public regions. It will be rolled out to other regions (Federal and China regions) in future releases. 
 
 ## New Regions 
 

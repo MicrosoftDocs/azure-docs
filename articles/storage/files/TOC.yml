@@ -81,6 +81,8 @@
   items:
   - name: Overview of identity-based authentication
     href: storage-files-active-directory-overview.md
+  - name: Overview of authorization and access control
+    href: storage-files-authorization-overview.md    
   - name: Windows identity-based authentication (SMB)
     items:
     - name: Enable an AD source
