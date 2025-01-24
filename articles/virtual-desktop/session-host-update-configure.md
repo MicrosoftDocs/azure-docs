@@ -63,17 +63,15 @@ Before you update session hosts using session host update, you need:
 
 - A key vault containing the secrets you want to use for your virtual machine local administrator account credentials and, if you're joining session hosts to an Active Directory domain, your domain join account credentials. You need one secret for each username and password. The virtual machine local administrator password must meet the [password requirements when creating a VM](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-).
 
-   - You must set the Firewall of the Key Vault to [Allow public access from all networks](https://learn.microsoft.com/en-us/azure/key-vault/general/how-to-azure-key-vault-network-security).
-
-   - You need to provide the Azure Virtual Desktop service principal the ability to read the secrets. Your key vault can be configured to use either:
+   - Provide the Azure Virtual Desktop service principal the ability to read the secrets. See [Assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md) to make sure you're using the correct service principal. Your key vault can be configured to use either:
 
       - [The Azure RBAC permission model](/azure/key-vault/general/rbac-guide) with the role [Key Vault Secrets User](../role-based-access-control/built-in-roles.md#key-vault-secrets-user) assigned to the Azure Virtual Desktop service principal.
 
       - [An access policy](/azure/key-vault/general/assign-access-policy) with the *Get* secret permission assigned to the Azure Virtual Desktop service principal.
 
-   - The key vault must allow [Azure Resource Manager for template deployment](../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment).
+   - Configure the key vault access configuration to allow [Azure Resource Manager for template deployment](../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment).
 
-   See [Assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md) to make sure you're using the correct service principal.
+   - Configure the key vault network settings to [Allow public access from all networks](/azure/key-vault/general/how-to-azure-key-vault-network-security).
 
 - For any custom configuration PowerShell scripts you specify in the session host configuration to run after an update, the URL to the script must be resolvable from the public internet.
 
