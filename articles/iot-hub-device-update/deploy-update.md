@@ -3,7 +3,7 @@ title: Deploy an update by using Azure Device Update for IoT Hub | Microsoft Doc
 description: Learn how to deploy an update to IoT devices by using Azure Device Update for IoT Hub in the Azure portal or with Azure CLI.
 author: vimeht
 ms.author: vimeht
-ms.date: 01/23/2025
+ms.date: 01/24/2025
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.custom: devx-track-azurecli
@@ -36,30 +36,32 @@ This section describes how to deploy the update by using the Azure portal or Azu
 
 1. Under **Status** in the group list, select **Deploy** next to **One or more new updates are available for this group**.
 
-   :::image type="content" source="media/deploy-update/updated-view.png" alt-text="Screenshot that shows the Groups and Deployments tab." lightbox="media/deploy-update/updated-view.png":::
+   ![Screenshot of the compliance view for Groups and Deployments.](media/deploy-update/compliance-1.png)
+   
+1. View the update compliance chart and group list. You should see a new update available for your tag based or default group. You might need to refresh once. For more information, see [Device Update compliance](device-update-compliance.md).
 
-1. On the **Group details** page, confirm that the correct group and imported update appear. To start the deployment, on the **Current deployment** tab, select the **Deploy** link next to the desired update in the **Available updates** section. The best available update for a given group is denoted with a **Best** highlight.
+1. Select **Deploy** next to the **one or more updates available** status.
 
-   :::image type="content" source="media/deploy-update/select-update.png" alt-text="Screenshot that shows Best highlighted." lightbox="media/deploy-update/select-update.png":::
+1. From the list on the right, select the desired update to deploy.
 
-1. On the **Create deployment** page, schedule your deployment to start immediately or at a future time. Create an automatic rollback policy if necessary, and then select **Create**.
+   ![Screenshot of the deployment view for selecting updates.](media/deploy-update/deploy-3.png)
+   
+1. Schedule your deployment to start immediately or in the future.
 
    > [!TIP]
-   > By default, the **Start** date and time is 24 hours from your current time. Be sure to select a different date and time if you want the deployment to begin sooner.
+   > By default, the **Start** date and time is 24 hours from your current time. Be sure to select a different date and time if you want the deployment to begin sooner or later.
 
    :::image type="content" source="media/deploy-update/create-deployment.png" alt-text="Screenshot that shows the Create deployment screen" lightbox="media/deploy-update/create-deployment.png":::
 
-   In the deployment details, **Status** turns to **Active**. The deployed update is marked with **(deploying)**.
+1. Create an automatic rollback policy if needed. Then select **Create**.
 
-   :::image type="content" source="media/deploy-update/deployment-active.png" alt-text="Screenshot that shows deployment as Active." lightbox="media/deploy-update/deployment-active.png":::
+1. In the **Current Updates** tab, you can view the status of your deployment.
 
-1. On the **Updates** page, view the compliance chart to see that the update is now in progress.
-
-   :::image type="content" source="media/deploy-update/update-in-progress.png" alt-text="Screenshot that shows Updates in progress." lightbox="media/deploy-update/update-in-progress.png":::
+   ![A screenshot of the Current Updates view.](media/deploy-update/current-updates-4.png)
+   
+1. In the **Group Basics** view, the compliance chart shows that the update is now in progress.
 
    After your device successfully updates, your compliance chart and deployment details update to reflect that status.
-
-   :::image type="content" source="media/deploy-update/update-succeeded.png" alt-text="Screenshot that shows the update succeeded." lightbox="media/deploy-update/update-succeeded.png":::
 
 # [Azure CLI](#tab/cli)
 
