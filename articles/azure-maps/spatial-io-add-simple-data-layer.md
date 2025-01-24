@@ -19,7 +19,7 @@ The simple data layer achieves this functionality by wrapping multiple rendering
 
 The `SimpleDataLayer` class also provides a built-in popup feature with a popup template (which can be disabled if not needed). The popup appears when a feature is selected. This layer also supports clustered data. When a cluster is selected, the map zooms in to the cluster and expands it into individual points and subclusters.
 
-The `SimpleDataLayer` class is intended to be used on large data sets that contain features that have many applied geometry types and styles. When used, this class adds an overhead of six layers containing style expressions. So, there are cases when it's more efficient to use the core rendering layers. For example, you can use a core layer to render a small number of geometry types and styles on a feature.
+The `SimpleDataLayer` class is intended to be used on large data sets that contain features that have many applied geometry types and styles. When used, this class adds an overhead of six layers containing style expressions. So, there are cases when it's more efficient to use a core rendering layer. For example, you can use a core layer when you only need to render a few geometry types and styles on a feature.
 
 ## Use a simple data layer
 
@@ -111,13 +111,7 @@ The sample code renders the point feature using the simple data layer, and appea
 :::image type="content" source="./media/spatial-io-add-simple-data-layer/simple-data-layer.png"alt-text="A screenshot of a map with coordinates of 0, 0 that shows a red dot over blue water; the red dot was added using the symbol layer.":::
 
 > [!NOTE]
-> The coordinates that you set when the map is initialized:
->
-> &emsp; center: [-73.967605, 40.780452]
->
-> Are overwritten by the value from the data source:
->
-> &emsp; "coordinates": [0, 0]
+> The value from the data source `"coordinates": [0, 0]` overrides the coordinates `center: [-73.967605, 40.780452]` that you set when the map was initialized.
 
 The simple data layer is a powerful tool for the following scenarios:
 
@@ -125,7 +119,7 @@ The simple data layer is a powerful tool for the following scenarios:
 - Features in the data set have several style properties that are individually set.
 - You're not sure what the data set contains.
 
-For example, when parsing XML data feeds, you might not know the features' exact style and geometry types. The [Simple data layer options] sample shows how the simple data layer renders the features of a KML file. You can also see the options provided by the `SimpleDataLayer` class. For the source code for this sample, see [Simple data layer options.html] in the Azure Maps code samples in GitHub.
+For example, when parsing XML data feeds, you might not know the features' exact style and geometry types. The [Simple data layer options] sample shows how the simple data layer renders the features of a Keyhole Markup Language (KML) file. You can also see the options provided by the `SimpleDataLayer` class. For the source code for this sample, see [Simple data layer options.html] in the Azure Maps code samples in GitHub.
 
 :::image type="content" source="./media/spatial-io-add-simple-data-layer/simple-data-layer-options.png"alt-text="A screenshot of map with a panel on the left showing simple data layer options.":::
 
@@ -136,16 +130,16 @@ For example, when parsing XML data feeds, you might not know the features' exact
 > [!NOTE]
 > This simple data layer uses the [popup template] class to display KML balloons or feature properties as a table. By default, all content rendered in the popup is sandboxed inside of an iFrame as a security feature. However, there are limitations:
 >
-> - All scripts, forms, pointer lock, and top navigation functionality is disabled. Links can open in a new tab when selected.
+> - All scripts, forms, pointer lock, and top navigation functionalities are disabled. Links can open in a new tab when selected.
 > - Older browsers that don't support the `srcdoc` parameter on iFrames can only render a small amount of content.
 >
-> If you trust the data loaded into the pop-ups, and want popup scripts to be able to access your application, you can disable this feature. Just set the popup templates' `sandboxContent` option to false.
+> If you trust the data loaded into the pop-ups, and want popup scripts to be able to access your application, you can disable this feature. Just set the popup templates `sandboxContent` option to false.
 
 ## Default supported style properties
 
 The simple data layer wraps several of the core rendering layers: bubble, symbol, line, polygon, and extruded polygon. It uses expressions to search for valid style properties on individual features.
 
-The two main sets of supported property names are Azure Maps and GitHub. Most property names of Azure maps layer options are supported in the simple data layer as style properties of features. Expressions have been added to some layer options to support style property names that are commonly used by GitHub. [GitHub's GeoJSON map support] defines these property names, and they're used to style GeoJSON files that are stored and rendered within the platform. Most of GitHub's styling properties are supported in the simple data layer, except the `marker-symbol` styling properties.
+The two main sets of supported property names are Azure Maps and GitHub. Most property names of Azure Maps layer options are supported in the simple data layer as style properties of features. Some layer options include expressions that support style property names that are commonly used by GitHub. [GitHub's GeoJSON map support] defines these property names, and they're used to style GeoJSON files that are stored and rendered within the platform. Most of GitHub's styling properties are supported in the simple data layer, except the `marker-symbol` styling properties.
 
 If the reader comes across a less common style property, it converts it to the most similar Azure Maps style property. Additionally, you can override the default style expressions by using the `getLayers` function of the simple data layer and updating the options on any of the layers.
 
@@ -161,9 +155,9 @@ If a feature is a `Point` or a `MultiPoint`, and the feature doesn't have an `im
 | `radius` | `size`<sup>1</sup>, `marker-size`<sup>2</sup>, `scale`<sup>1</sup> | `8` |
 | `strokeColor` | `strokeColor`, `stroke` | `'#FFFFFF'` |
 
-\[1\] The `size` and `scale` values are considered scalar values, and are multiplied by `8`
+<sup>1</sup> The `size` and `scale` values are considered scalar values, and are multiplied by `8`
 
-\[2\] If the GitHub `marker-size` option is specified, the following values are used for the radius:
+<sup>2</sup> If the GitHub `marker-size` option is specified, the following values are used for the radius:
 
 | Marker size | Radius |
 |-------------|--------|
@@ -191,7 +185,7 @@ If a feature is a `Point` or `MultiPoint`, and the feature has an `image` proper
 | `offset`     | `offset`                   | `[0, 0]`      |
 | `anchor`     | `anchor`                   | `'bottom'`    |
 
-\[1\] If the GitHub `marker-size` option is specified, the following values are used for the icon size option.
+<sup>1</sup> If the GitHub `marker-size` option is specified, the following values are used for the icon size option.
 
 | Marker size | Symbol size |
 |-------------|-------------|
@@ -237,18 +231,18 @@ Learn more about the classes and methods used in this article:
 - [SimpleDataLayer]
 - [SimpleDataLayerOptions]
 
-See the following articles for more code samples to add to your maps:
+See the following articles to get more code samples to add to your maps:
 
 - [Read and write spatial data]
 - [Add an OGC map layer]
 - [Connect to a WFS service]
-- [Leverage core operations]
+- [Use core operations]
 - [Supported data format details]
 
 [Add an OGC map layer]: spatial-io-add-ogc-map-layer.md
 [Connect to a WFS service]: spatial-io-connect-wfs-service.md
 [GitHub's GeoJSON map support]: https://docs.github.com/en/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojsontopojson-files-on-github
-[Leverage core operations]: spatial-io-core-operations.md
+[Use core operations]: spatial-io-core-operations.md
 [popup template]: map-add-popup.md#add-popup-templates-to-the-map
 [Read and write spatial data]: spatial-io-read-write-spatial-data.md
 [Simple data layer options.html]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/Simple%20data%20layer%20options/Simple%20data%20layer%20options.html
