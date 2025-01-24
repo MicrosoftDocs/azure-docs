@@ -57,6 +57,11 @@ To use the Service Bus Explorer, navigate to the Service Bus namespace on which 
     > When peeking or receiving from a subscription, first select the specific **Subscription** from the dropdown selector.
     > :::image type="content" source="./media/service-bus-explorer/subscription-selected.png" alt-text="Screenshot of dropdown for topic subscriptions." lightbox="./media/service-bus-explorer/subscription-selected.png":::
 
+   > [!NOTE]
+   > When you navigate to Service Bus explorer for an entity in a namespace that has the public access disabled, you see the following message eventhough you access it from a virtual machine that's in the same virtual network as the private endpoint. You can ignore it.
+   >
+   > "The namespace has public network access disabled. Data operations such as Peek, Send, or Receive against this Service Bus entity won't work until you switch to all networks or allowlist your client IP in selected networks."
+
 ## Peek a message
 
 With the peek functionality, you can use the Service Bus Explorer to view the top 100 messages in a queue, subscription, or dead-letter queue.
