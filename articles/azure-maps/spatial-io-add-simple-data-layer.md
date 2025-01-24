@@ -121,7 +121,7 @@ The sample code renders the point feature using the simple data layer, and appea
 
 The simple data layer is a powerful tool for the following scenarios:
 
-- There are several feature types in a data source.
+- A data source includes several feature types.
 - Features in the data set have several style properties that are individually set.
 - You're not sure what the data set contains.
 
@@ -134,28 +134,28 @@ For example, when parsing XML data feeds, you might not know the features' exact
 ------------------------------------>
 
 > [!NOTE]
-> This simple data layer uses the [popup template] class to display KML balloons or feature properties as a table. By default, all content rendered in the popup will be sandboxed inside of an iFrame as a security feature. However, there are limitations:
+> This simple data layer uses the [popup template] class to display KML balloons or feature properties as a table. By default, all content rendered in the popup is sandboxed inside of an iFrame as a security feature. However, there are limitations:
 >
 > - All scripts, forms, pointer lock, and top navigation functionality is disabled. Links can open in a new tab when selected.
-> - Older browsers that don't support the `srcdoc` parameter on iFrames will only be able to render a small amount of content.
+> - Older browsers that don't support the `srcdoc` parameter on iFrames can only render a small amount of content.
 >
-> If you trust the data that's loaded into the pop-ups, and want popup scripts to be able to access your application, you can disable this feature. Just set the popup templates' `sandboxContent` option to false.
+> If you trust the data loaded into the pop-ups, and want popup scripts to be able to access your application, you can disable this feature. Just set the popup templates' `sandboxContent` option to false.
 
 ## Default supported style properties
 
 The simple data layer wraps several of the core rendering layers: bubble, symbol, line, polygon, and extruded polygon. It uses expressions to search for valid style properties on individual features.
 
-The two main sets of supported property names are Azure Maps and GitHub. Most property names of Azure maps layer options are supported in the simple data layer as style properties of features. Expressions have been added to some layer options to support style property names that are commonly used by GitHub. [GitHub's GeoJSON map support] defines these property names, and they're used to style GeoJSON files that are stored and rendered within the platform. Most of GitHub's styling properties are supported in the simple data layer, with the exception of the `marker-symbol` styling properties.
+The two main sets of supported property names are Azure Maps and GitHub. Most property names of Azure maps layer options are supported in the simple data layer as style properties of features. Expressions have been added to some layer options to support style property names that are commonly used by GitHub. [GitHub's GeoJSON map support] defines these property names, and they're used to style GeoJSON files that are stored and rendered within the platform. Most of GitHub's styling properties are supported in the simple data layer, except the `marker-symbol` styling properties.
 
 If the reader comes across a less common style property, it converts it to the most similar Azure Maps style property. Additionally, you can override the default style expressions by using the `getLayers` function of the simple data layer and updating the options on any of the layers.
 
-The following sections provide details on the default style properties that are supported by the simple data layer. The order of the supported property name is also the priority of the property. If two style properties are defined for the same layer option, the first one in the list has higher precedence. Any CSS3 color value including HEX, RGB, RGBA, HSL, HSLA, or named color value can be used.
+The following sections provide details on the default style properties that the simple data layer supports. The order of the supported property name is also the priority of the property. If two style properties are defined for the same layer option, the first one in the list has higher precedence. Any CSS3 color value including HEX, RGB, RGBA, HSL, HSLA, or named color value can be used.
 
 ### Bubble layer style properties
 
 If a feature is a `Point` or a `MultiPoint`, and the feature doesn't have an `image` property to use as a custom icon to render the point as a symbol, the feature is rendered with a `BubbleLayer`.
 
-| Layer option | Supported property name(s) | Default value |
+| Layer option | Supported property names | Default value |
 |--------------|----------------------------|---------------|
 | `color` | `color`, `marker-color` | `'#1A73AA'` |
 | `radius` | `size`<sup>1</sup>, `marker-size`<sup>2</sup>, `scale`<sup>1</sup> | `8` |
@@ -205,7 +205,7 @@ If the point feature is a cluster, the `point_count_abbreviated` property is ren
 
 If the feature is a `LineString`, `MultiLineString`, `Polygon`, or `MultiPolygon`, the feature is rendered with a `LineLayer`.
 
-| Layer option    | Supported property name(s) | Default value |
+| Layer option    | Supported property names | Default value |
 |-----------------|----------------------------|---------------|
 | `strokeColor`   | `strokeColor`, `stroke`    | `'#1E90FF'`   |
 | `strokeWidth`   | `strokeWidth`, `stroke-width`, `stroke-thickness` | `3` |
@@ -215,7 +215,7 @@ If the feature is a `LineString`, `MultiLineString`, `Polygon`, or `MultiPolygon
 
 If the feature is a `Polygon` or a `MultiPolygon`, and the feature either doesn't have a `height` property or the `height` property is zero, the feature is rendered with a `PolygonLayer`.
 
-| Layer option | Supported property name(s) | Default value |
+| Layer option | Supported property names | Default value |
 |--------------|----------------------------|---------------|
 | `fillColor`  | `fillColor`, `fill`        | `'#1E90FF'`   |
 | `fillOpacity`|`fillOpacity`, '`fill-opacity`| `0.5`       |

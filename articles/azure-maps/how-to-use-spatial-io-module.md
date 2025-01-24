@@ -14,11 +14,11 @@ ms.subservice: web-sdk
 
 The Azure Maps Web SDK provides the [Spatial IO module], which integrates spatial data with the Azure Maps Web SDK using JavaScript or TypeScript. You can use the robust features in this module to:
 
-- [Read and write spatial data]. You can use file formats including KML, KMZ, GPX, GeoRSS, GML, GeoJSON, and CSV files containing columns with spatial information. Well-Known Text (WKT) is also supported.
+- [Read and write spatial data]. You can use file formats including Keyhole Markup Language (KML), Compressed KML (KMZ), GPS Exchange Format (GPX), Geographic RSS (GeoRSS), Geography Markup Language (GML), Geographic JavaScript Object Notation (GeoJSON), and Comma-Separated Values (CSV) files containing columns with spatial information. Well-Known Text (WKT) is also supported.
 - Connect to Open Geospatial Consortium (OGC) services and integrate with Azure Maps Web SDK. You can also overlay Web Map Services (WMS) and Web Map Tile Services (WMTS) as layers on the map. For more information, see [Add a map layer from the Open Geospatial Consortium (OGC)].
 - Query data in a Web Feature Service (WFS). For more information, see [Connect to a WFS service].
 - Overlay complex data sets that contain style information, which can render automatically. For more information, see [Add a simple data layer].
-- Leverage high-speed XML and delimited file reader and writer classes. For more information, see [Core IO operations].
+- Use high-speed XML and delimited file reader and writer classes. For more information, see [Core IO operations].
 
 This guide demonstrates how to integrate and use the Spatial IO module in a web application.
 
@@ -30,12 +30,12 @@ The following video provides an overview of the Spatial IO module in the Azure M
 > [!WARNING]
 > Only use data and services that are from a source you trust, especially if the data is referenced from another domain. The spatial IO module takes steps to minimize risk, but you should not allow any dangerous data into your application regardless.
 
-## Prerequisites
+Prerequisites include:
 
 - An [Azure Maps account]
 - A [subscription key]
 
-## Installing the Spatial IO module
+## Install the Spatial IO module
 
 You can load the Azure Maps Spatial IO module using one of the following two options:
 
@@ -59,7 +59,7 @@ You can load the Azure Maps Spatial IO module using one of the following two opt
 
     To learn more, see [How to use the Azure Maps map control npm package].
 
-## Using the Spatial IO module
+## Use the Spatial IO module
 
 1. Create a new HTML file.
 
@@ -231,17 +231,17 @@ There are many features available in the Spatial IO module. To learn about other
 - [Read and write spatial data]
 - [Add an OGC map layer]
 - [Connect to a WFS service]
-- [Leverage core operations]
-- [Supported data format details]
-- [Documentation: Azure Maps Spatial IO package]
+- [Use core operations]
+- [Learn about supported data formats]
+- [Get documentation for the Azure Maps Spatial IO package]
 
 [Add a simple data layer]: spatial-io-add-simple-data-layer.md
 [Read and write spatial data]: spatial-io-read-write-spatial-data.md
 [Add an OGC map layer]: spatial-io-add-ogc-map-layer.md
 [Connect to a WFS service]: spatial-io-connect-wfs-service.md
-[Leverage core operations]: spatial-io-core-operations.md
-[Supported data format details]: spatial-io-supported-data-format-details.md
-[Documentation: Azure Maps Spatial IO package]: /javascript/api/azure-maps-spatial-io
+[Use core operations]: spatial-io-core-operations.md
+[Learn about supported data formats]: spatial-io-supported-data-format-details.md
+[Get documentation for the Azure Maps Spatial IO package]: /javascript/api/azure-maps-spatial-io
 [Add a map layer from the Open Geospatial Consortium (OGC)]: spatial-io-add-ogc-map-layer.md
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps map control]: how-to-use-map-control.md
