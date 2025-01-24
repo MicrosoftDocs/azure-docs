@@ -2,11 +2,11 @@
 title: Deploy files to App Service
 description: Learn to deploy various app packages or discrete libraries, static files, or startup scripts to Azure App Service.
 ms.topic: article
-ms.date: 01/22/2025
+ms.date: 01/24/2025
 ms.custom: devx-track-azurecli
 author: cephalin
 ms.author: cephalin
-#customer intent: As an app developer, I want to deploy my Azure App Service code as a ZIP, WAR, JAR, or EAR package or deploy individual files.
+#customer intent: As a web app developer, I want to deploy my Azure App Service code as a ZIP, WAR, JAR, or EAR package or deploy individual files.
 ---
 
 # Deploy files to App Service
@@ -242,7 +242,7 @@ curl -X POST \
 ```
 
 > [!NOTE]
-> For the actual fully qualified domain name to use in the URL, see [note at top](#dnl-note)
+> For the actual fully qualified domain name to use in the URL, see [note at top](#dnl-note).
 
 ### Deploy a static file
 
@@ -265,7 +265,7 @@ curl -X POST \
 ```
 
 > [!NOTE]
-> For the actual fully qualified domain name to use in the URL, see the [note at top](#dnl-note)
+> For the actual fully qualified domain name to use in the URL, see the [note at top](#dnl-note).
 
 # [ARM template](#tab/arm)
 
@@ -314,7 +314,7 @@ curl -X POST \
 ```
 
 > [!NOTE]
-> For the actual fully qualified domain name to use in the URL, see the [note at top](#dnl-note)
+> For the actual fully qualified domain name to use in the URL, see the [note at top](#dnl-note).
 
 # [ARM template](#tab/arm)
 
