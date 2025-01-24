@@ -1,6 +1,5 @@
 ---
-title: How to restrict serial port access and set time-out on terminal server
-titleSuffix: Azure Operator Nexus
+title: "Azure Operator Nexus: How to restrict serial port access and set time-out on terminal server"
 description: Process of configuring serial port access restrictions and time-out settings on terminal server
 author: sushantjrao 
 ms.author: sushrao

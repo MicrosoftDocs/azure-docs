@@ -1,6 +1,5 @@
 ---
-title: How to Upgrade the operating system of a Terminal Server
-titleSuffix: Azure Operator Nexus
+title: "Azure Operator Nexus: How to upgrade the operating system of a Terminal Server"
 description: Learn the process for upgrading the operating system of a Terminal Server
 author: sushantjrao 
 ms.author: sushrao
