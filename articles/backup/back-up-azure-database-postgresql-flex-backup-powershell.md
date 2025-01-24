@@ -245,7 +245,6 @@ $instance = Get-AzDataProtectionBackupInstance -SubscriptionId "aaaa0a0a-bb1b-cc
 Specify a retention rule while triggering backup. To view the retention rules in policy, go to the policy object for retention rules. In the following example, the rule with name *default* appears. Let's use that rule for the on-demand backup.
 
 ```azurepowershell
-Azure PowerShell
 $ossPol.PolicyRule | fl
 
 BackupParameter           : Microsoft.Azure.PowerShell.Cmdlets.DataProtection.Models.Api20210201Preview.AzureBackupParams
