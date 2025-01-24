@@ -25,7 +25,7 @@ For each best practice, this article explains:
 
 These best practices are based on a consensus opinion, and Azure platform capability and features sets, as they exist at the time this article was written. 
 
-## Architectural best practices
+## Architectural Best Practices
 
 The following architectural guidance helps ensure the reliability of your Azure Load Balancer deployment. It includes best practices for deploying with zone-redundancy, redundancy in your backend pool, and deploying a global load balancer. Along with reliability for Gateway Load Balancer, which is recommended when using NVAs instead of a dual load balancer set-up.
 
@@ -44,11 +44,11 @@ Zone-redundancy provides the best resiliency by protecting the data path from zo
 
 #### Redundancy in your backend pool
 
-Ensure that the backend pool contains at least two instances. If your backend pool only has one instance and it's unhealthy, all traffic sent to the backend pool fails due to lack of redundancy. 
+Ensure that the backend pool contains at least two instances. If your backend pool only has one instance and it's unhealthy, all traffic sent to the backend pool fails due to lack of redundancy. The Standard Load Balancer SLA is also only supported when there are at least 2 healthy backend pool instances per backend pool. Visit the [SLA documentation](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) for more information.    
 
 #### Deploy a global load balancer
 
-Standard Load Balancer supports cross-region load balancing enabling regional redundancy through linking a global load balancer to your existing regional load balancers. If you have a zone redundant deployment and that region fails, your deployment is impacted. However, there's no impact when using a global load balancer because the traffic would be routed to the next closest healthy regional load balancer.
+Standard Load Balancer supports cross-region load balancing enabling regional redundancy through linking a global load balancer to your existing regional load balancers. With a global load balancer, if one region fails, the traffic is routed to the next closest healthy regional load balancer. For more details, visit the [Global Load Balancer documentation](cross-region-overview.md).
 
 For more information, see [Azure Load Balancer Reliability documentation](../reliability/reliability-load-balancer.md).
 
@@ -83,7 +83,7 @@ There are two options for manual port allocation, “ports per instance” or �
 
 ### Check your distribution mode
 
-Azure Load Balancer uses a 5-tuple hash based distribution mode by default and also offers session persistence using a 2-tuple or 3-tuple hash. Consider whether your deployment could benefit from session persistence (also known as session affinity) where connections from the same client IP or same client IP and protocol go to the same backend instance within the backend pool. Also consider that enabling session affinity can cause uneven load distribution as most connections come from the same client IP or same client IP and protocol.
+Azure Load Balancer uses a 5-tuple hash based distribution mode by default and also offers session persistence using a 2-tuple or 3-tuple hash. Consider whether your deployment could benefit from session persistence (also known as session affinity) where connections from the same client IP or same client IP and protocol go to the same backend instance within the backend pool. Also consider that enabling session affinity can cause uneven load distribution as most connections come from the same client IP or same client IP and protocol will be sent to the same backend VM.
 For more information about Azure Load Balancers distribution modes, see [Azure Load Balancer distribution modes](distribution-mode-concepts.md).
 
 ### Enable TCP resets
@@ -93,7 +93,7 @@ For more information on TCP resets, idle time-outs, and TCP keepalive, visit [Lo
 
 ### Configure loop back interface when setting up floating IP
 
-If you enable floating IP, ensure you have a loopback interface within guest OS that is configured with the frontend IP address of the load balancer. For more information, see [Azure Load Balancer Floating IP configuration](load-balancer-floating-ip.md#floating-ip-guest-os-configuration).
+If you enable floating IP, ensure you have a loopback interface within guest OS that is configured with the frontend IP address of the load balancer. Floating IP needs to be enabled it you want to reuse the backend port across multiple rules. Some example use cases of port reuse include clustering for high availability and network virtual appliances. For more information, see [Azure Load Balancer Floating IP configuration](load-balancer-floating-ip.md#floating-ip-guest-os-configuration).
 
 ### Implement Gateway Load Balancer configuration best practices
 
