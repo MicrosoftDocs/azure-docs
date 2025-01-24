@@ -14,7 +14,7 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-# February 2025
+## February 2025
 
 * [Flexible service level](azure-netapp-files-set-up-capacity-pool.md) (preview)
  

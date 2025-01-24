@@ -25,12 +25,10 @@ Azure NetApp Files supports four service levels: *Standard*, *Premium*, *Ultra*,
     The Ultra service level provides up to 128 MiB/s of throughput per 1 TiB of capacity provisioned. 
 
 * <a name="Flexible"></a>Flexible storage:
-    The Flexible service level enables you to adjust throughput and size limits independently for capacity pools using manual QoS. This service level is designed for demanding applications such as Oracle or SAP HANA. It can also be used to create high-capacity volumes with (relatively) low throughput requirements. The minimum throughput to be assigned to a Flexible capacity pool is 128 MiB/s regardless of the pool quota. The maximum throughput is 5 x 128 x the size of the capacity pool in TiB. For example, if your capacity pool is 1 TiB, the maximum is 640 MiB/second (5 x 128 x 1); f your capacity pool is 100 TiB, the maximum is 64,000 MiB/second (5 x 128 x 100). You can assign throughput and capacity to volumes that are part of a Flexible capacity pool in the same way you do volumes that are part of a manual QoS capacity pool of any service level.
-
-    Flexible storage capacity pools enforce single encryption. They do not support double encryption. 
+    The Flexible service level enables you to adjust throughput and size limits independently for capacity pools using manual QoS. This service level is designed for demanding applications such as Oracle or SAP HANA. It can also be used to create high-capacity volumes with (relatively) low throughput requirements. The minimum throughput to be assigned to a Flexible capacity pool is 128 MiB/s regardless of the pool quota. The maximum throughput is 5 x 128 x the size of the capacity pool in TiB. For examples, see [Flexible service level throughput examples](#flexible-examples). You can assign throughput and capacity to volumes that are part of a Flexible capacity pool in the same way you do volumes that are part of a manual QoS capacity pool of any service level.
 
     >[!IMPORTANT]
-    >The Flexible service level is only supported for _manual QoS_ capacity pools. 
+    >The Flexible service level is only supported for new _manual QoS_ capacity pools. 
 
 * Storage with cool access:      
     Cool access storage is available with the Standard, Premium, and Ultra service levels. The throughput experience for any of these service levels with cool access is the same for cool access as it is for data in the hot tier. It may differ when data that resides in the cool tier is accessed. For more information, see [Azure NetApp Files storage with cool access](cool-access-introduction.md) and [Performance considerations for storage with cool access](performance-considerations-cool-access.md). 
@@ -54,7 +52,7 @@ The following diagram shows throughput limit examples of volumes in an auto QoS 
 
 ### Throughput limit examples of volumes in a manual QoS capacity pool 
 
-If you use a manual QoS capacity pool, you can assign the capacity and throughput for a volume independently. When you create a volume in a manual QoS capacity pool, you can specify the throughput (MiB/S) value. The total throughput assigned to volumes in a manual QoS capacity pool depends on the size of the pool and the service level. Throughput limits are capped by a formula: capacity pool size in TiB x service level throughput/TiB. For instance, a 10-TiB capacity pool with the Ultra service level has a total throughput capacity of 1280 MiB/s (10 TiB x 128 MiB/s/TiB) available for the volumes.
+If you use a manual QoS capacity pool, you can assign the capacity and throughput for a volume independently. When you create a volume in a manual QoS capacity pool, you can specify the throughput (MiB/S) value. The total throughput assigned to volumes in a manual QoS capacity pool depends on the size of the pool and the service level. Throughput limits for the Standard, Premium, and Ultra service levels are capped by a formula: capacity pool size in TiB x service level throughput/TiB. For instance, a 10-TiB capacity pool with the Ultra service level has a total throughput capacity of 1,280 MiB/s (10 TiB x 128 MiB/s/TiB) available for the volumes. For the Flexible service level, the formula is 5 x capacity pool size in TiB x minimum service level throughput (128 MiB/s/TiB). For examples, see [Flexible service level throughput examples](#flexible-examples). 
 
 For example, for an SAP HANA system, this capacity pool can be used to create the following volumes. Each volume provides the individual size and throughput to meet your application requirements:
 
@@ -67,9 +65,9 @@ The following diagram illustrates the scenarios for the SAP HANA volumes:
 
 ![QoS SAP HANA volume scenarios](./media/azure-netapp-files-service-levels/qos-sap-hana-volume-scenarios.png) 
 
-Flexible service level throughput examples:
+<a name="flexible-examples">Flexible service level throughput examples:</a>
 
-| Flexible pool size (TiB) | Allowable throughput min (MiB/s) | Allowable throughput max (MiB/s) |
+| Flexible pool size (TiB) | Allowable throughput minimum (MiB/s) | Allowable throughput maximum (MiB/s) |
 | - | - | -- |
 | 1 | 128 | 5 * 128 * 1 = 640 |
 | 2 | 128 | 5 * 128 * 2 = 1,280 |
@@ -79,7 +77,7 @@ Flexible service level throughput examples:
 | 100 | 128 | 5 * 128 * 100 = 64,000 |
 
 >[!NOTE]
->A flexible capacity pool with 128 MiB/s throughput assigned to it is only charged for the allocated capacity.
+>A Flexible capacity pool with 128 MiB/s throughput assigned to it is only charged for the allocated capacity.
 
 ## Next steps
 

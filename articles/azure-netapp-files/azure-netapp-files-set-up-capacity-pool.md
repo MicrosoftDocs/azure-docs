@@ -20,6 +20,7 @@ Creating a capacity pool enables you to create volumes within it.
 * If you're using the Azure REST API, ensure that you specify the latest version.
     >[!IMPORTANT]
     >To create a 1-TiB capacity pool with a tag, you must use API versions `2023-07-01_preview` to `2024-01-01_preview` or stable releases from `2024-01-01`.
+* The Standard, Premium, and Ultra service levels are generally available (GA). No registration is required. 
 * The **Flexible** service level is currently in preview. Before creating a Flexible service level capacity pool, you must first register the feature:  
 
     1. Register the feature: 
@@ -42,6 +43,7 @@ Creating a capacity pool enables you to create volumes within it.
     * The minimum throughput for Flexible service level capacity pools is 128 MiB/second. Maximum throughput is calculated based on the size of the capacity pool using the formula 5 x 128 x capacity pool size in TiB. If your capacity pool is 1 TiB, the maximum is 640 MiB/second (5 x 128 x 1). If your capacity pool is 100 TiB, the maximum is 64,000 (5 x 128 x 100). 
     * Cool access isn't currently supported with the Flexible service level. 
     * Only single encryption is currently supported for Flexible service level capacity pools. 
+    * Volumes in Flexible service level capacity pools can't be moved to capacity pools of a different service level. Similarly, you can't move volumes from capacity pools with different service levels into a Flexible service level capacity pool.
     
 ## Steps 
 
