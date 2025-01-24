@@ -12,6 +12,7 @@ The Durable Task Scheduler dashboard is a tool that offers a variety of features
 Key features include:
 
 ## Monitoring Orchestration Progress and Execution History
+
 The dashboard allows you to monitor orchestration progress and review execution history. You can also filter by orchestration metadata, such as state and timestamps.
 
 :::image type="content" source="media/durable-task-scheduler-dashboard/track-orchestration-progress.png" alt-text="Screenshot of the dashboard listing orchestration history and status.":::

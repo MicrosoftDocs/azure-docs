@@ -17,22 +17,9 @@ Durable Task Scheduler:
 
 - Handles applications that require high throughput for scheduling orchestrations and their associated activities. 
 - Manages retries and interruptions through automatic retries and state persistence.
-- Provides an easy debugging experience for stuck orchestrations via [the Durable Task Scheduler dashboard]()
+- Adheres to security best practices such as authorization and access via Managed Identity.
+- Provides an easy debugging experience for stuck orchestrations via [the Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md)
 - The ability to deploy new versions of orchestration code while existing orchestrations were in flight
-
-### Performance
-
-- **Performance**
-
-   The Durable Task Scheduler  [Learn more about Durable Task Scheduler performance.](./docs/performance.md)
-
-### Authentication
-
-The Durable Task Scheduler also adheres to Azure’s best practices for security by enabling developers to manage authorization and access through Managed Identity. This allows for the assignment of granular permissions, ensuring that team members can only perform actions they are authorized to do.
-
-### Debugging
-
-The Durable Task Scheduler includes an [orchestration debugging and management dashboard](./docs/dashboard.md), making it extremely easy for developers to track the progress and state of the orchestrations, as well as insights into the inputs and outputs of each activity.
 
 ## Durable Task Scheduler in Azure Compute Services
 
@@ -46,7 +33,7 @@ These capabilities significantly reduce operational overhead, allowing you to fo
 - [Durable Functions in Azure Functions](#using-durable-functions-in-azure-functions)
 - [The Durable Task SDK in Azure Container Apps, Azure Kubernetes Service, App Service, etc.](#using-the-durable-task-sdk-in-other-azure-services)
 
-:::image type="content" source="media/durable-task-scheduler-overview/durable-task-scheduler-overview.png" alt-text="Diagram demonstrating Durable Task Scheduler spanning Azure Computes.":::
+:::image type="content" source="/media/durable-task-scheduler-overview/durable-task-scheduler-overview.png" alt-text="Diagram demonstrating Durable Task Scheduler spanning Azure Computes.":::
 
 ### Using Durable Functions in Azure Functions
 
@@ -64,7 +51,7 @@ Durable Functions supports four storage providers:
 
 - [Azure Storage](../durable-functions-storage-providers.md#azure-storage)
 - [Netherite](../durable-functions-storage-providers.md#netherite)
-- [Microsoft SQL Server (MSSQL)](../durable-functions-storage-providers.md#microsoft-sql-server-mssql)
+- [Microsoft SQL Server (MSSQL)](../durable-functions-storage-providers.md#mssql)
 - [Durable Task Scheduler](../durable-functions-storage-providers.md#durable-task-scheduler)
 
 ###  Using the Durable Task SDK in other Azure Services 
@@ -83,7 +70,3 @@ The Durable Task SDKs are available in multiple programming languages:
 - [JavaScript](https://github.com/microsoft/durabletask-js)
 - [Java](https://github.com/microsoft/durabletask-java)
 
-
-
-![Diagram demonstrating how Durable Task Scheduler backend works with functions](./media/images/durable-task-scheduler-private-preview.png)
-*Diagram of the interaction between an example Durable Functions app and the Durable Task Scheduler*

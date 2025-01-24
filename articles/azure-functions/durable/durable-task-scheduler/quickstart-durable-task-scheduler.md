@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Set a Durable Functions app to use the Durable Task Scheduler (preview) storage provider"
-description: Learn how to debug and manage your orchestrations using the Durable Task Scheduler.
+description: Learn how to configure the Durable Task Scheduler as your Durable Function app backend provider.
 ms.topic: quickstart
 ms.date: 01/24/2025
 ---
@@ -9,7 +9,7 @@ ms.date: 01/24/2025
 
 Let's begin working with Durable Functions using the new Durable Task Scheduler backend provider.
 
-In this quickstart, the [provided sample](https://github.com/Azure/Azure-Functions-Durable-Task-Scheduler-Private-Preview/tree/main/quickstarts/HelloCities) uses the [official Durable Functions "hello cities" quickstart](https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-isolated-create-first-csharp?pivots=code-editor-vscode). The sample schedules orchestrations that include three activities via an HTTP trigger.
+In this quickstart, the [provided sample](https://github.com/Azure/Azure-Functions-Durable-Task-Scheduler-Private-Preview/tree/main/quickstarts/HelloCities) uses the [official Durable Functions "hello cities" quickstart](../durable/durable-functions-isolated-create-first-csharp?pivots=code-editor-vscode). The sample schedules orchestrations that include three activities via an HTTP trigger.
 
 This quickstart showcases the necessary configuration for using Durable Task Scheduler as the backend provider for your Durable Function app.
 
@@ -23,7 +23,7 @@ This quickstart showcases the necessary configuration for using Durable Task Sch
 - [The latest Visual Studio Code installed](https://code.visualstudio.com/download) with the following extensions:
   - [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
   - [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-- [Start and configure an Azurite storage emulator for local storage](https://learn.microsoft.com/azure/storage/common/storage-use-azurite).
+- [Start and configure an Azurite storage emulator for local storage](/azure/storage/common/storage-use-azurite).
 
 ## Log into the Azure CLI
 
@@ -85,27 +85,15 @@ Your application has been deployed!
 1. In the portal, navigate to the `rg-<YOUR_AZD_ENVIRONMENT_NAME>` overview page.
 1. Select the `dts-<randomGUID>` resource.
 
-    ![Select the DTS dashboard resource](../../media/images/dts-dashboard-resource.png)
-
 1. When on the Scheduler Resource overview page, select the TaskHub child resource:
-
-    ![TaskHub child resource](../../media/images/dts-overview-portal.png)
 
 1. Select the Dashboard URL:
 
-    ![TaskHub child resource](../../media/images/taskhub-overview-portal.png)
-
 1. Browse orchestration state and history from within the TaskHub:
-
-    ![TaskHub Overview](../../media/images/taskhub-overview.png)
 
 ### Scheduler registration using the Azure CLI
 
-1. Navigate to [https://dashboard.durabletask.io](https://dashboard.durabletask.io/) and sign in using your Microsoft Entra ID account.
-
 1. Once successfully authenticated, follow these steps to add the connection to the Durable Task Scheduler:
-
-    ![Connecting DTS in the dashboard](../../media/images/connecting-dts.png)
 
 - Add your Subscription ID in the Subscription input field.
 - Enter the Scheduler Resource Name in the Scheduler input field.
@@ -181,12 +169,7 @@ az durabletask taskhub list -s "SCHEDULER-NAME" -g "RESOURCE-GROUP"
 
 - Click "Add Endpoint".
 
-    ![The Durable Task Scheduler Connected](../../media/images/dts-connected.png)
-
 3. Once the connection has been successfully added, you will be able to navigate to the TaskHub Overview page, where you can see the status of the orchestrations within that TaskHub.
-
-
-    ![TaskHub Overview](../../media/images/taskhub-overview.png)
 
 ## Clean up resources
 
@@ -216,13 +199,8 @@ az durabletask taskhub list -s "SCHEDULER-NAME" -g "RESOURCE-GROUP"
     ```
 
 ## Demo
-Click the image below to watch the video on YouTube.
 
-<a href="https://youtu.be/8Ot13RgT2oI"><img src="../../media/images/video_thumbnail.png" width="600px"></a>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8Ot13RgT2oI?si=UBMZo2ZsQiRCEY7H" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Next steps
 
-Learn more about:
-
-- [Durable Task Scheduler performance](../../docs/performance.md)
-- [The Durable Task Scheduler dashboard](../../docs/dashboard.md)
