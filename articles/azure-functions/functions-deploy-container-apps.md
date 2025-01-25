@@ -162,7 +162,7 @@ In addition to the required site settings, the [`az resource patch`](/cli/azure/
 
 In this example, replace `<APP_NAME>`, `<REGISTRY_NAME>`, and `<USER_IDENTITY_NAME>` with the names of your function app, container registry, and identity, respectively.  
 
-### [Docker Hub](#tab/docker/system-assigned)
+### [Docker Hub](#tab/docker/user-assigned)
 
 First use the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command to create a function app using the image from your container repository.
 
@@ -174,7 +174,7 @@ In the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) c
 
 If you're using a private registry, you need to include the fully qualified domain name of your registry instead of just the Docker ID for `<DOCKER_ID>`, along with the `--registry-username` and `--registry-password` credential required to access the registry. 
 
-### [Docker Hub](#tab/docker/user-assigned)
+### [Docker Hub](#tab/docker/system-assigned)
 
 First use the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command to create a function app using the image from your container repository.
 
