@@ -58,7 +58,7 @@ Azure Functions currently supports the following methods of deploying a containe
 + [GitHub Actions](https://github.com/Azure/azure-functions-on-container-apps/tree/main/samples/GitHubActions)
 + [Visual Studio Code](https://github.com/Azure/azure-functions-on-container-apps/tree/main/samples/VSCode%20Sample)
 
-You can continuously deploy your containerized apps from source code using either [Azure Pipelines](functions-how-to-azure-devops.mdpivots=v1#deploy-a-container) or [GitHub Actions](https://github.com/Azure/azure-functions-on-container-apps/tree/main/samples/GitHubActions). The continuous deployment feature of Functions isn't currently supported when deploying to Container Apps. 
+You can continuously deploy your containerized apps from source code using either [Azure Pipelines](functions-how-to-azure-devops.md?pivots=v1#deploy-a-container) or [GitHub Actions](https://github.com/Azure/azure-functions-on-container-apps/tree/main/samples/GitHubActions). The continuous deployment feature of Functions isn't currently supported when deploying to Container Apps. 
 
 ## Managed identity authorization
 
@@ -134,7 +134,7 @@ Keep in mind the following considerations when deploying your function app conta
     + [Triggers and bindings](functions-reference.md#configure-an-identity-based-connection)
     + [Required host storage connection](functions-identity-based-connections-tutorial.md) 
 + By default, a containerized function app monitors port 80 for incoming requests. If your app must use a different port, use the [`WEBSITES_PORT` application setting](../app-service/reference-app-settings.md#custom-containers) to change this default port.  
-+ You aren't currently able to use built-in continuous deployment features when hosting on Container Apps. You must instead deploy from source code using either [Azure Pipelines](functions-how-to-azure-devops.mdpivots=v1#deploy-a-container) or [GitHub Actions](https://github.com/Azure/azure-functions-on-container-apps/tree/main/samples/GitHubActions).
++ You aren't currently able to use built-in continuous deployment features when hosting on Container Apps. You must instead deploy from source code using either [Azure Pipelines](functions-how-to-azure-devops.md?pivots=v1#deploy-a-container) or [GitHub Actions](https://github.com/Azure/azure-functions-on-container-apps/tree/main/samples/GitHubActions).
 + You currently can't move a Container Apps hosted function app deployment between resource groups or between subscriptions. Instead, you would have to recreate the existing containerized app deployment in a new resource group, subscription, or region. 
 + When using Container Apps, you don't have direct access to the lower-level Kubernetes APIs. 
 + The `containerapp` extension conflicts with the `appservice-kube` extension in Azure CLI. If you have previously published apps to Azure Arc, run `az extension list` and make sure that `appservice-kube` isn't installed. If it is, you can remove it by running `az extension remove -n appservice-kube`.  
