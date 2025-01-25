@@ -20,7 +20,7 @@ You can use the robust features in this module to:
 - Connect to Open Geospatial Consortium (OGC) services and integrate with Azure Maps Web SDK. You can also overlay Web Map Services (WMS) and Web Map Tile Services (WMTS) as layers on the map. For more information, see [Add a map layer from the Open Geospatial Consortium (OGC)].
 - Query data in a Web Feature Service (WFS). For more information, see [Connect to a WFS service].
 - Overlay complex data sets that contain style information, which can render automatically. For more information, see [Add a simple data layer].
-- Use high-speed XML and delimited file reader and writer classes. For more information, see [Core IO operations].
+- Use high-speed Extensible Markup Language (XML) and delimited file reader and writer classes. For more information, see [Core IO operations].
 
 The following video provides an overview of the Spatial IO module in the Azure Maps Web SDK.
 
@@ -30,7 +30,7 @@ The following video provides an overview of the Spatial IO module in the Azure M
 > [!WARNING]
 > Only use data and services that are from a source you trust, especially if the data is referenced from another domain. The spatial IO module takes steps to minimize risk, but you should not allow any dangerous data into your application regardless.
 
-## Supported file formats and pre-requisites
+## Supported file formats and prerequisites
 
 You can use file formats that include:
 -  Keyhole Markup Language (KML).
@@ -40,18 +40,18 @@ You can use file formats that include:
 - Geography Markup Language (GML).
 - Geographic JavaScript Object Notation (GeoJSON).
 - Well-Known Text (WKT).
-- Comma-Separated Values (CSV) files containing columns that include spatial information.
+- Comma-Separated Values (CSV) when columns include spatial information.
 
 Prerequisites include:
 
-- An [Azure Maps account]
-- A [subscription key]
+- An [Azure Maps account].
+- A [subscription key].
 
 ## Install the Spatial IO module
 
 You can load the Azure Maps Spatial IO module using one of the following two options:
 
-- You can use the globally hosted Azure Content Delivery Network (CDN) for the Azure Maps Spatial IO module. For this option, you add a reference to the JavaScript in the `<head>` element of the HTML file.
+- You can use the globally hosted Azure Content Delivery Network (CDN) for the Azure Maps Spatial IO module. For this option, add a reference to the JavaScript in the `<head>` element of the HTML file.
 
     ```html
     <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
@@ -136,7 +136,7 @@ You can load the Azure Maps Spatial IO module using one of the following two opt
     ```
 
 1. Initialize a `datasource`, and add the data source to the map. Initialize a `layer`, and add the data source to the map layer. Then, render both the data source and the layer.
-1. Before you scroll down to see the full code in the next step, think about the best places to put the data source and layer code snippets. Wait until the map resources are ready before you programmatically manipulate the map.
+1. Before you scroll down to see the full code in the next step, determine the best places to put the data source and layer code snippets. Wait until the map resources are ready before you programmatically manipulate the map.
 
     ```javascript
     var datasource, layer;
@@ -231,7 +231,7 @@ You can load the Azure Maps Spatial IO module using one of the following two opt
     </html>
     ```
 
-1. Remember to replace `<Your Azure Maps Key>` with your subscription key. Your HTML file should include an image that looks like this.
+1. Remember to replace your Azure Maps key with your subscription key. Your HTML file should include an image that looks like this.
 
     :::image type="content" source="./media/how-to-use-spatial-io-module/spatial-data-example.png" lightbox="./media/how-to-use-spatial-io-module/spatial-data-example.png" alt-text="Screenshot showing the Spatial Data sample in a map.":::
 
