@@ -12,15 +12,15 @@ ms.subservice: web-sdk
 
 # How to use the Azure Maps Spatial IO module
 
-The Azure Maps Web SDK provides the [Spatial IO module], which integrates spatial data with the Azure Maps Web SDK using JavaScript or TypeScript. You can use the robust features in this module to:
+The Azure Maps Web SDK provides the [Spatial IO module], which integrates spatial data with the Azure Maps Web SDK using JavaScript or TypeScript. This guide demonstrates how to integrate and use the Spatial IO module in a web application.
 
-- [Read and write spatial data]. You can use file formats including Keyhole Markup Language (KML), Compressed KML (KMZ), GPS Exchange Format (GPX), Geographic RSS (GeoRSS), Geography Markup Language (GML), Geographic JavaScript Object Notation (GeoJSON), and Comma-Separated Values (CSV) files containing columns with spatial information. Well-Known Text (WKT) is also supported.
+You can use the robust features in this module to:
+
+- [Read and write spatial data].
 - Connect to Open Geospatial Consortium (OGC) services and integrate with Azure Maps Web SDK. You can also overlay Web Map Services (WMS) and Web Map Tile Services (WMTS) as layers on the map. For more information, see [Add a map layer from the Open Geospatial Consortium (OGC)].
 - Query data in a Web Feature Service (WFS). For more information, see [Connect to a WFS service].
 - Overlay complex data sets that contain style information, which can render automatically. For more information, see [Add a simple data layer].
 - Use high-speed XML and delimited file reader and writer classes. For more information, see [Core IO operations].
-
-This guide demonstrates how to integrate and use the Spatial IO module in a web application.
 
 The following video provides an overview of the Spatial IO module in the Azure Maps Web SDK.
 
@@ -29,6 +29,18 @@ The following video provides an overview of the Spatial IO module in the Azure M
 > [!VIDEO https://learn.microsoft.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player?format=ny]
 > [!WARNING]
 > Only use data and services that are from a source you trust, especially if the data is referenced from another domain. The spatial IO module takes steps to minimize risk, but you should not allow any dangerous data into your application regardless.
+
+## Supported file formats and pre-requisites
+
+You can use file formats that include:
+-  Keyhole Markup Language (KML).
+- Compressed KML (KMZ).
+- GPS Exchange Format (GPX).
+- Geographic RSS (GeoRSS).
+- Geography Markup Language (GML).
+- Geographic JavaScript Object Notation (GeoJSON).
+- Well-Known Text (WKT).
+- Comma-Separated Values (CSV) files containing columns that include spatial information.
 
 Prerequisites include:
 
@@ -45,13 +57,13 @@ You can load the Azure Maps Spatial IO module using one of the following two opt
     <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
     ```
 
-- With the second option, you can load the source code for [azure-maps-spatial-io] locally, and then host it with your app. This package also includes TypeScript definitions. Use the following command to install the package:
+- With the second option, you can load the source code for [azure-maps-spatial-io] locally, and host it with your app. This package also includes TypeScript definitions. Use the following command to install the package:
 
     ```sh
     npm install azure-maps-spatial-io
     ```
 
-    Then, use an import declaration to add the module into a source file:
+    Use an import declaration to add the module into a source file:
 
     ```js
     import * as spatial from "azure-maps-spatial-io";
@@ -74,7 +86,7 @@ You can load the Azure Maps Spatial IO module using one of the following two opt
 
         <meta charset="utf-8">
 
-        <!-- Ensures that Internet Explorer and Edge use the latest version and don't emulate an older version -->
+        <!-- Ensures that Internet Explorer and Edge use the latest version and don't emulate an older version. -->
         <meta http-equiv="x-ua-compatible" content="IE=Edge">
 
         <!-- Ensures the web page looks good on all screen sizes. -->
@@ -93,7 +105,7 @@ You can load the Azure Maps Spatial IO module using one of the following two opt
                 map = new atlas.Map('myMap', {
                     view: 'Auto',
 
-                    //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
+                    //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps.
                     authOptions: {
                         authType: 'subscriptionKey',
                         subscriptionKey: '<Your Azure Maps Key>'
@@ -155,7 +167,7 @@ You can load the Azure Maps Spatial IO module using one of the following two opt
 
         <meta charset="utf-8">
 
-        <!-- Ensures that Internet Explorer and Edge use the latest version and don't emulate an older version -->
+        <!-- Ensures that Internet Explorer and Edge use the latest version and don't emulate an older version. -->
         <meta http-equiv="x-ua-compatible" content="IE=Edge">
 
         <!-- Ensures the web page looks good on all screen sizes. -->

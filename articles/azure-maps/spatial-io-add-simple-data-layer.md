@@ -15,11 +15,11 @@ ms.subservice: web-sdk
 
 The spatial IO module provides a `SimpleDataLayer` class. This class makes it easy to render styled features on a map. It can even render data sets that have style properties and data sets that contain mixed geometry types.
 
-The simple data layer achieves this functionality by wrapping multiple rendering layers and by using style expressions. The style expressions search wrapped layers for common style properties. The `atlas.io.read` and `atlas.io.write` functions use these properties to read and write styles into a supported file format. After the properties are added to a supported file format, the file can be used for purposes like displaying styled features on a map.
+The simple data layer achieves this functionality by wrapping multiple rendering layers and by using style expressions. The style expressions search wrapped layers for common style properties. The `atlas.io.read` and `atlas.io.write` functions use these properties to read and write styles into a supported file format. When properties are added to a supported file format, the file can be used for purposes like displaying styled features on a map.
 
 The `SimpleDataLayer` class also provides a built-in popup feature with a popup template (which can be disabled if not needed). The popup appears when a feature is selected. This layer also supports clustered data. When a cluster is selected, the map zooms in to the cluster and expands it into individual points and subclusters.
 
-The `SimpleDataLayer` class is intended to be used on large data sets that contain features that have many applied geometry types and styles. When used, this class adds an overhead of six layers containing style expressions. So, there are cases when it's more efficient to use a core rendering layer. For example, you can use a core layer when you only need to render a few geometry types and styles on a feature.
+The `SimpleDataLayer` class is intended to be used on large data sets that contain features that have many applied geometry types and styles. When used, this class adds an overhead of six layers containing style expressions. Therefore, if you only need to render a few geometry types and styles on a feature, it might be more efficient to use a core rendering layer.
 
 ## Use a simple data layer
 
@@ -47,7 +47,7 @@ The following code snippet demonstrates how to use a simple data layer that refe
             zoom: 12,
             view: "Auto",
 
-            //Add authentication details for connecting to Azure Maps.
+            //Add authentication details to connect to Azure Maps.
             authOptions: {
                 // Get an Azure Maps key at https://azuremaps.com/.
                 authType: "subscriptionKey",
@@ -102,18 +102,18 @@ The following code snippet demonstrates how to use a simple data layer that refe
 </script>
 ```
 
-When you add features to the data source, the simple data layer renders them in the most appropriate way. You can set styles for individual features as properties on the feature.
+When you add features to the data source, the simple data layer renders them in the most appropriate way. You can set styles as properties for each individual feature.
 
-The preceding sample code shows a GeoJSON point feature with a `color` property set to `red`.
+The preceding sample code shows a Geographic JavaScript Object Notation (GeoJSON) point feature with a `color` property set to `red`.
 
-The sample code renders the point feature using the simple data layer, and appears as follows.
+The sample code renders the point feature by using the simple data layer, and the result appears as follows.
 
 :::image type="content" source="./media/spatial-io-add-simple-data-layer/simple-data-layer.png"alt-text="A screenshot of a map with coordinates of 0, 0 that shows a red dot over blue water; the red dot was added using the symbol layer.":::
 
 > [!NOTE]
 > The value from the data source `"coordinates": [0, 0]` overrides the coordinates `center: [-73.967605, 40.780452]` that you set when the map was initialized.
 
-The simple data layer is a powerful tool for the following scenarios:
+The simple data layer can be used as a powerful tool in the following scenarios:
 
 - A data source includes several feature types.
 - Features in the data set have several style properties that are individually set.
@@ -128,22 +128,24 @@ For example, when parsing XML data feeds, you might not know the features' exact
 ------------------------------------>
 
 > [!NOTE]
-> This simple data layer uses the [popup template] class to display KML balloons or feature properties as a table. By default, all content rendered in the popup is sandboxed inside of an iFrame as a security feature. However, there are limitations:
+> This simple data layer uses the [popup template] class to display KML balloons or feature properties as a table. By default, all content rendered in the popup is sandboxed inside an iFrame as a security feature. However, there are limitations:
 >
-> - All scripts, forms, pointer lock, and top navigation functionalities are disabled. Links can open in a new tab when selected.
+> - All pointer lock functionality, top navigation functionality, scripts, and forms are disabled. Links can open in a new tab when selected.
 > - Older browsers that don't support the `srcdoc` parameter on iFrames can only render a small amount of content.
 >
-> If you trust the data loaded into the pop-ups, and want popup scripts to be able to access your application, you can disable this feature. Just set the popup templates `sandboxContent` option to false.
+> If you trust the data loaded into the pop-ups, and want popup scripts to be able to access your application, you can disable this feature. Just set the `sandboxContent` option in the popup template to false.
 
 ## Default supported style properties
 
 The simple data layer wraps several of the core rendering layers: bubble, symbol, line, polygon, and extruded polygon. It uses expressions to search for valid style properties on individual features.
 
-The two main sets of supported property names are Azure Maps and GitHub. Most property names of Azure Maps layer options are supported in the simple data layer as style properties of features. Some layer options include expressions that support style property names that are commonly used by GitHub. [GitHub's GeoJSON map support] defines these property names, and they're used to style GeoJSON files that are stored and rendered within the platform. Most of GitHub's styling properties are supported in the simple data layer, except the `marker-symbol` styling properties.
+The two main sets of supported property names are Azure Maps and GitHub. Most property names of Azure Maps layer options are supported in the simple data layer as style properties of features. Some layer options include expressions that support style property names that are commonly used by GitHub. 
+
+[GitHub's GeoJSON map support] defines these property names, which are used to style GeoJSON files that are stored and rendered within the platform. Most of GitHub's styling properties are supported in the simple data layer, except the `marker-symbol` styling properties.
 
 If the reader comes across a less common style property, it converts it to the most similar Azure Maps style property. Additionally, you can override the default style expressions by using the `getLayers` function of the simple data layer and updating the options on any of the layers.
 
-The following sections provide details on the default style properties that the simple data layer supports. The order of the supported property name is also the priority of the property. If two style properties are defined for the same layer option, the first one in the list has higher precedence. Any CSS3 color value including HEX, RGB, RGBA, HSL, HSLA, or named color value can be used.
+The following sections provide details on the default style properties that the simple data layer supports. The order of the supported property names is also the priority. If two style properties are defined for the same layer option, the first one in the list takes precedence. Any CSS3 color value including HEX, RGB, RGBA, HSL, HSLA, or named color value can be used.
 
 ### Bubble layer style properties
 
