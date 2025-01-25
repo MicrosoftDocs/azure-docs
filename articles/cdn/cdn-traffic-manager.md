@@ -61,8 +61,6 @@ Create an Azure Traffic Manager profile and configure load balancing across your
 
     For example, create **cdndemo101microsoft.azureedge.net** with a priority of **1** and **cdndemo101microsoft2.azureedge.net** with a priority of **2**.
 
-   ![Screenshot of the content delivery network Traffic Manager endpoints.](./media/cdn-traffic-manager/cdn-traffic-manager-endpoints.png)
-
 <a name='configure-custom-domain-on-azure-cdn-and-azure-traffic-manager'></a>
 
 ## Configure custom domain on Azure Content Delivery Network and Azure Traffic Manager
