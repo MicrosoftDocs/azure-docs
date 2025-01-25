@@ -12,24 +12,24 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: As a security analyst, I want to use threat intelligence in Microsoft Sentinel so that I can detect and respond to security threats more effectively.
+#Customer intent: As a security analyst, I want to use threat intelligence managed by Microsoft Sentinel so that I can detect and respond to security threats more effectively.
 
 ---
 
-# Work with threat indicators in Microsoft Sentinel
+# Work with threat intelligence in Microsoft Sentinel
 
-Integrate threat intelligence into Microsoft Sentinel through the following activities:
+Manage your threat intelligence with the following features:
 
 - **Import threat intelligence** into Microsoft Sentinel by enabling *data connectors* to various threat intelligence [platforms](connect-threat-intelligence-tip.md) and [feeds](connect-threat-intelligence-taxii.md).
-- **View and manage** the imported threat intelligence in **Logs** and on the Microsoft Sentinel **Threat intelligence** page.
+- **View and manage** the imported threat intelligence in **Logs** and the management interface.
 - **Detect threats** and generate security alerts and incidents by using the built-in **Analytics** rule templates based on your imported threat intelligence.
 - **Visualize key information** about your imported threat intelligence in Microsoft Sentinel with the **Threat Intelligence workbook**.
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
-## View your threat indicators in Microsoft Sentinel
+## View your threat intelligence in Microsoft Sentinel
 
-Learn how to work with threat intelligence indicators throughout Microsoft Sentinel.
+Learn how to work with threat intelligence intelligence throughout Microsoft Sentinel.
 
 ### Find and view your indicators on the Threat intelligence page
 
@@ -43,7 +43,7 @@ To view your threat intelligence indicators on the **Threat intelligence** page:
 
 1. From the grid, select the indicator for which you want to view more information. The indicator's information includes confidence levels, tags, and threat types.
 
-Microsoft Sentinel only displays the most current version of indicators in this view. For more information on how indicators are updated, see [Understand threat intelligence](understand-threat-intelligence.md#view-and-manage-your-threat-indicators).
+Microsoft Sentinel only displays the most current version of indicators in this view. For more information on how indicators are updated, see [Understand threat intelligence](understand-threat-intelligence.md#view-and-manage-your-threat-intelligence).
 
 IP and domain name indicators are enriched with extra `GeoLocation` and `WhoIs` data. This data provides more context for investigations where the selected indicator is found.
 
@@ -98,7 +98,7 @@ Tagging threat indicators is an easy way to group them together to make them eas
 
 :::image type="content" source="media/work-with-threat-indicators/threat-intel-tagging-indicators.png" alt-text="Screenshot that shows applying tags to threat indicators." lightbox="media/work-with-threat-indicators/threat-intel-tagging-indicators.png":::
 
-With Microsoft Sentinel, you can also edit indicators, whether they were created directly in Microsoft Sentinel or come from partner sources, like TIP and TAXII servers. For indicators created in Microsoft Sentinel, all fields are editable. For indicators that come from partner sources, only specific fields are editable, including tags, **Expiration date**, **Confidence**, and **Revoked**. Either way, only the latest version of the indicator appears on the **Threat Intelligence** page. For more information on how indicators are updated, see [Understand threat intelligence](understand-threat-intelligence.md#view-and-manage-your-threat-indicators).
+With Microsoft Sentinel, you can also edit indicators, whether they were created directly in Microsoft Sentinel or come from partner sources, like TIP and TAXII servers. For indicators created in Microsoft Sentinel, all fields are editable. For indicators that come from partner sources, only specific fields are editable, including tags, **Expiration date**, **Confidence**, and **Revoked**. Either way, only the latest version of the indicator appears on the **Threat Intelligence** page. For more information on how indicators are updated, see [Understand threat intelligence](understand-threat-intelligence.md#view-and-manage-your-threat-intelligence).
 
 ## Gain insights about your threat intelligence with workbooks
 
@@ -149,7 +149,7 @@ There's also a rich resource for [Azure Monitor workbooks on GitHub](https://git
 
 ## Related content
 
-For more about threat intelligence in Microsoft Sentinel, see the following articles:
+For more information, see the following articles:
 
 - [Understand threat intelligence in Microsoft Sentinel](understand-threat-intelligence.md).
 - Connect Microsoft Sentinel to [STIX/TAXII threat intelligence feeds](./connect-threat-intelligence-taxii.md).

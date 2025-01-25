@@ -47,8 +47,8 @@ Use threat intelligence in Microsoft Sentinel to detect malicious activity obser
 You can integrate threat intelligence into Microsoft Sentinel through the following activities:
 
 - **Import threat intelligence** into Microsoft Sentinel by enabling *data connectors* to various threat intelligence [platforms](connect-threat-intelligence-tip.md) and [feeds](connect-threat-intelligence-taxii.md).
-- **Create threat intelligence** individually or import using a file from the management interface.
 - **Connect threat intelligence** to Microsoft Sentinel by using the upload API to connect various TI [platforms](connect-threat-intelligence-tip.md) or custom applications.
+- **Create threat intelligence** individually or import using a file from the management interface.
 - **View and manage** the imported threat intelligence in **Logs** or with advanced search in the user interface.
 - **Detect threats** and generate security alerts and incidents by using the built-in **Analytics** rule templates based on your imported threat intelligence.
 - **Visualize key information** about your imported threat intelligence in Microsoft Sentinel with the **Threat Intelligence** workbook.
@@ -59,13 +59,13 @@ Threat intelligence also provides useful context within other Microsoft Sentinel
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-## Import threat intelligence with data connectors
+## Import and connect threat intelligence
 
 Most threat intelligence is imported using data connectors or an API. Here are the solutions available for Microsoft Sentinel.
 
 - **Microsoft Defender Threat Intelligence data connector** to ingest Microsoft's threat intelligence 
 - **Threat Intelligence - TAXII** for industry-standard STIX/TAXII feeds
-- **Threat Intelligence upload API** for integrated and curated TI feeds using a REST API to connect 
+- **Threat Intelligence upload API** for integrated and curated TI feeds using a REST API to connect (doesn't require a data connector)
 - **Threat Intelligence Platform data connector** also connects TI feeds using a legacy REST API, but is on the path for deprecation
  
 Use any of these solutions in any combination, depending on where your organization sources threat intelligence. All of these are available in **Content hub** as part of the **Threat Intelligence** solution. For more information about this solution, see the Azure Marketplace entry [Threat Intelligence](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-threatintelligence-taxii?tab=Overview).
@@ -133,13 +133,13 @@ To import STIX-formatted threat intelligence to Microsoft Sentinel from a TAXII 
 
 For more information, see [Connect Microsoft Sentinel to STIX/TAXII threat intelligence feeds](connect-threat-intelligence-taxii.md).
 
+## Create threat intelligence
+
+Manually create threat intelligence 
+
 ## View and manage your threat intelligence
 
-View and manage threat intelligence from the management interface. 
-- For threat intelligence powered by Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Threat intelligence** > **Intel management**
-- For threat intelligence in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Threat intelligence**.
-
-Sort, filter, and search your imported threat intelligence without even writing a Log Analytics query.
+View and manage threat intelligence from the management interface. Sort, filter, and search your imported threat intelligence without even writing a Log Analytics query.
 
 :::image type="content" source="media/understand-threat-intelligence/advanced-search.png" alt-text="Screenshot that shows an advanced search interface with source and confidence conditions selected." lightbox="media/understand-threat-intelligence/advanced-search.png":::
 
@@ -147,9 +147,11 @@ Two of the most common threat intelligence tasks are tagging and creating new th
 
 Tagging threat intelligence is an easy way to group them together to make them easier to find. Typically, you might apply tags related to a particular incident, or if an indicator represents threats from a particular known actor or well-known attack campaign you might create a relationship. After you search for the threat intelligence that you want to work with, tag them individually or multiselect and tag them all at once. Because tagging is free-form, we recommend that you create standard naming conventions for threat intelligence tags.
 
-Validate your indicators and view your successfully imported threat indicators from the Microsoft Sentinel-enabled Log Analytics workspace. The `ThreatIntelligenceIndicator` table under the **Microsoft Sentinel** schema is where all your Microsoft Sentinel threat indicators are stored. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features, such as analytics and workbooks. The tables that support other STIX objects aren't available for public preview yet. For more information about opting into tables supporting STIX objects, check with our customer connection program [http://www.aka.ms/JoinCCP](http://www.aka.ms/JoinCCP). 
+Validate your indicators and view your successfully imported threat indicators from the Microsoft Sentinel-enabled Log Analytics workspace. The `ThreatIntelligenceIndicator` table under the **Microsoft Sentinel** schema is where all your Microsoft Sentinel threat indicators are stored. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features, such as analytics and workbooks. 
 
-Here's an example view of a basic query for threat indicators.
+New tables are used to support the new STIX object schema, but aren't available publicly yet. In order to view threat intelligence for STIX objects and unlock the hunting model that uses them, request to opt-in with [this form](https://forms.office.com/r/903VU5x3hz?origin=lprLink). Either ingest your threat intelligence into only the new tables, `ThreatIntelIndicator` and `ThreatIntelObjects`, or alongside the current table, `ThreatIntelligenceIndicator` with this optional request.
+
+Here's an example view of a basic query for for just threat indicators using the current table.
 
 :::image type="content" source="media/understand-threat-intelligence/logs-page-ti-table.png" alt-text="Screenshot that shows the Logs page with a sample query of the ThreatIntelligenceIndicator table." lightbox="media/understand-threat-intelligence/logs-page-ti-table.png":::
 
