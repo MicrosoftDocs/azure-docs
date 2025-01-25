@@ -1,7 +1,7 @@
 ---
 title: How to Use the Azure Maps Spatial IO Module
 titleSuffix: Microsoft Azure Maps
-description: Learn how to easily integrate spatial data with the Azure Maps Web SDK by using the Spatial IO Module. 
+description: Learn how to use the Azure Maps Spatial IO module to integrate spatial data with the Azure Maps Web SDK.
 author: sinnypan
 ms.author: sipa
 ms.date: 02/28/2020
@@ -12,12 +12,12 @@ ms.subservice: web-sdk
 
 # How to use the Azure Maps Spatial IO module
 
-The Azure Maps Web SDK provides the [Spatial IO module], which integrates spatial data with the Azure Maps Web SDK using JavaScript or TypeScript. This guide demonstrates how to integrate and use the Spatial IO module in a web application.
+The Azure Maps [Spatial IO module] integrates spatial data with the Azure Maps Web SDK using JavaScript or TypeScript. This guide demonstrates how to integrate and use the Spatial IO module in a web application.
 
 You can use the robust features in this module to:
 
 - [Read and write spatial data].
-- Connect to Open Geospatial Consortium (OGC) services and integrate with Azure Maps Web SDK. You can also overlay Web Map Services (WMS) and Web Map Tile Services (WMTS) as layers on the map. For more information, see [Add a map layer from the Open Geospatial Consortium (OGC)].
+- Connect to Open Geospatial Consortium (OGC) services and integrate with the Azure Maps Web SDK. You can also overlay Web Map Services (WMS) and Web Map Tile Services (WMTS) as layers on the map. For more information, see [Add a map layer from the Open Geospatial Consortium (OGC)].
 - Query data in a Web Feature Service (WFS). For more information, see [Connect to a WFS service].
 - Overlay complex data sets that contain style information, which can render automatically. For more information, see [Add a simple data layer].
 - Use high-speed Extensible Markup Language (XML) and delimited file reader and writer classes. For more information, see [Core IO operations].

@@ -1,7 +1,7 @@
 ---
 title: Add a Simple Data Layer
 titleSuffix: Microsoft Azure Maps
-description: Learn how to add a simple data layer using the Spatial IO module, provided by Azure Maps Web SDK.
+description: Learn how to add a simple data layer using the Spatial IO module provided by the Azure Maps Web SDK.
 author: sinnypan
 ms.author: sipa
 ms.date: 06/19/2023
@@ -13,7 +13,7 @@ ms.subservice: web-sdk
 
 # Add a simple data layer
 
-The spatial IO module provides a `SimpleDataLayer` class. This class makes it easy to render styled features on a map. It can even render data sets that have style properties and data sets that contain mixed geometry types.
+The Azure Maps Web SDK provides a Spatial IO module which includes a `SimpleDataLayer` class. This class makes it easy to render styled features on a map. It can even render data sets that have style properties and data sets that contain mixed geometry types.
 
 The simple data layer achieves this functionality by wrapping multiple rendering layers and by using style expressions. The style expressions search wrapped layers for common style properties. The `atlas.io.read` and `atlas.io.write` functions use these properties to read and write styles into a supported file format. When properties are added to a supported file format, the file can be used for purposes like displaying styled features on a map.
 
@@ -133,13 +133,13 @@ For example, when parsing XML data feeds, you might not know the features' exact
 > - All pointer lock functionality, top navigation functionality, scripts, and forms are disabled. Links can open in a new tab when selected.
 > - Older browsers that don't support the `srcdoc` parameter on iFrames can only render a small amount of content.
 >
-> If you trust the data loaded into the pop-ups, and want popup scripts to be able to access your application, you can disable this feature. Just set the `sandboxContent` option in the popup template to false.
+> If you trust the data loaded into the pop-ups, and want the popup scripts to be able to access your application, you can disable this feature. Just set the `sandboxContent` option in the popup template to false.
 
 ## Default supported style properties
 
 The simple data layer wraps several of the core rendering layers: bubble, symbol, line, polygon, and extruded polygon. It uses expressions to search for valid style properties on individual features.
 
-The two main sets of supported property names are Azure Maps and GitHub. Most property names of Azure Maps layer options are supported in the simple data layer as style properties of features. Some layer options include expressions that support style property names that are commonly used by GitHub. 
+The two main sets of supported property names are Azure Maps and GitHub. Most property names of Azure Maps layer options are supported in the simple data layer as style properties of features. Some layer options include expressions that support style property names that are commonly used by GitHub.
 
 [GitHub's GeoJSON map support] defines these property names, which are used to style GeoJSON files that are stored and rendered within the platform. Most of GitHub's styling properties are supported in the simple data layer, except the `marker-symbol` styling properties.
 
@@ -157,7 +157,7 @@ If a feature is a `Point` or a `MultiPoint`, and the feature doesn't have an `im
 | `radius` | `size`<sup>1</sup>, `marker-size`<sup>2</sup>, `scale`<sup>1</sup> | `8` |
 | `strokeColor` | `strokeColor`, `stroke` | `'#FFFFFF'` |
 
-<sup>1</sup> The `size` and `scale` values are considered scalar values, and are multiplied by `8`
+<sup>1</sup> The `size` and `scale` values are considered scalar values, and are multiplied by `8`.
 
 <sup>2</sup> If the GitHub `marker-size` option is specified, the following values are used for the radius:
 
@@ -187,7 +187,7 @@ If a feature is a `Point` or `MultiPoint`, and the feature has an `image` proper
 | `offset`     | `offset`                   | `[0, 0]`      |
 | `anchor`     | `anchor`                   | `'bottom'`    |
 
-<sup>1</sup> If the GitHub `marker-size` option is specified, the following values are used for the icon size option.
+<sup>1</sup> If the GitHub `marker-size` option is specified, the following values are used for the icon size option:
 
 | Marker size | Symbol size |
 |-------------|-------------|
@@ -239,7 +239,7 @@ See the following articles to get more code samples to add to your maps:
 - [Add an OGC map layer]
 - [Connect to a WFS service]
 - [Use core operations]
-- [Supported data format details]
+- [Get details about supported data formats]
 
 [Add an OGC map layer]: spatial-io-add-ogc-map-layer.md
 [Connect to a WFS service]: spatial-io-connect-wfs-service.md
@@ -251,4 +251,4 @@ See the following articles to get more code samples to add to your maps:
 [Simple data layer options]: https://samples.azuremaps.com/spatial-io-module/simple-data-layer-options
 [SimpleDataLayer]: /javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer
 [SimpleDataLayerOptions]: /javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions
-[Supported data format details]: spatial-io-supported-data-format-details.md
+[Get details about supported data formats]: spatial-io-supported-data-format-details.md
