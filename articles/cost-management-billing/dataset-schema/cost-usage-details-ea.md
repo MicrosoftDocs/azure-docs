@@ -33,8 +33,7 @@ The following information lists the cost and usage details (formerly known as us
 | 11 |MeterSubCategory|Name of the meter subclassification category. Purchases and Marketplace usage might be shown as blank or unassigned.|
 | 12 |MeterId|The unique identifier for the meter.|
 | 13 |MeterName|The name of the meter. Purchases and Marketplace usage might be shown as blank or unassigned.|
-| 14 |MeterRegion|The name of the Azure region associated with the meter. It generally aligns with the resource location, except for certain global meters that are shared across regions. In such cases, the meter region indicates the primary region of the meter.<p>
-The meter is used to track the usage of specific services or resources, mainly for billing purposes. Each Azure service, resource, and region have its own billing meter ID that precisely reflects how its consumption and price are calculated.|
+| 14 |MeterRegion|The name of the Azure region associated with the meter. It generally aligns with the resource location, except for certain global meters that are shared across regions. In such cases, the meter region indicates the primary region of the meter. The meter is used to track the usage of specific services or resources, mainly for billing purposes. Each Azure service, resource, and region have its own billing meter ID that precisely reflects how its consumption and price are calculated.|
 | 15 |UnitOfMeasure|The unit of measure for billing for the service. For example, compute services are billed per hour.|
 | 16 |Quantity|The number of units used by the given product or service for a given day.|
 | 17 |EffectivePrice|Blended unit price for the period. Blended prices average out any fluctuations in the unit price, like graduated tiering, which lowers the price as quantity increases over time.|
@@ -96,8 +95,7 @@ The meter is used to track the usage of specific services or resources, mainly f
 | 11 |MeterSubCategory|Name of the meter subclassification category. Purchases and Marketplace usage might be shown as blank or unassigned.|
 | 12 |MeterId|The unique identifier for the meter.|
 | 13 |MeterName|The name of the meter. Purchases and Marketplace usage might be shown as blank or unassigned.|
-| 14 |MeterRegion|The name of the Azure region associated with the meter. It generally aligns with the resource location, except for certain global meters that are shared across regions. In such cases, the meter region indicates the primary region of the meter.<p>
-The meter is used to track the usage of specific services or resources, mainly for billing purposes. Each Azure service, resource, and region have its own billing meter ID that precisely reflects how its consumption and price are calculated.|
+| 14 |MeterRegion|The name of the Azure region associated with the meter. It generally aligns with the resource location, except for certain global meters that are shared across regions. In such cases, the meter region indicates the primary region of the meter. The meter is used to track the usage of specific services or resources, mainly for billing purposes. Each Azure service, resource, and region have its own billing meter ID that precisely reflects how its consumption and price are calculated.|
 | 15 |UnitOfMeasure|The unit of measure for billing for the service. For example, compute services are billed per hour.|
 | 16 |Quantity|The number of units used by the given product or service for a given day.|
 | 17 |EffectivePrice|Blended unit price for the period. Blended prices average out any fluctuations in the unit price, like graduated tiering, which lowers the price as quantity increases over time.|
@@ -156,8 +154,7 @@ The meter is used to track the usage of specific services or resources, mainly f
 | 10 |MeterId|The unique identifier for the meter.|
 | 11 |MeterCategory|Name of the classification category for the meter. For example, `Cloud services` and `Networking`. Purchases and Marketplace usage might be shown as blank or unassigned.|
 | 12 |MeterSubCategory|Name of the meter subclassification category. Purchases and Marketplace usage might be shown as blank or unassigned.|
-| 13 |MeterRegion|The name of the Azure region associated with the meter. It generally aligns with the resource location, except for certain global meters that are shared across regions. In such cases, the meter region indicates the primary region of the meter.<p>
-The meter is used to track the usage of specific services or resources, mainly for billing purposes. Each Azure service, resource, and region have its own billing meter ID that precisely reflects how its consumption and price are calculated.|
+| 13 |MeterRegion|The name of the Azure region associated with the meter. It generally aligns with the resource location, except for certain global meters that are shared across regions. In such cases, the meter region indicates the primary region of the meter. The meter is used to track the usage of specific services or resources, mainly for billing purposes. Each Azure service, resource, and region have its own billing meter ID that precisely reflects how its consumption and price are calculated.|
 | 14 |MeterName|The name of the meter. Purchases and Marketplace usage might be shown as blank or unassigned.|
 | 15 |Quantity|The number of units used by the given product or service for a given day.|
 | 16 |ResourceLocation|The Azure region where the resource is deployed, also referred to as the datacenter location where the resource is running. For an example using Virtual Machines, see [What's the difference between MeterRegion and ResourceLocation](/azure/virtual-machines/vm-usage#what-is-the-difference-between-meter-region-and-resource-location).|
@@ -218,8 +215,7 @@ The meter is used to track the usage of specific services or resources, mainly f
 | 11 |MeterSubCategory|Name of the meter subclassification category. Purchases and Marketplace usage might be shown as blank or unassigned.|
 | 12 |MeterId|The unique identifier for the meter.|
 | 13 |MeterName|The name of the meter. Purchases and Marketplace usage might be shown as blank or unassigned.|
-| 14 |MeterRegion|The name of the Azure region associated with the meter. It generally aligns with the resource location, except for certain global meters that are shared across regions. In such cases, the meter region indicates the primary region of the meter.<p>
-The meter is used to track the usage of specific services or resources, mainly for billing purposes. Each Azure service, resource, and region have its own billing meter ID that precisely reflects how its consumption and price are calculated.|
+| 14 |MeterRegion|The name of the Azure region associated with the meter. It generally aligns with the resource location, except for certain global meters that are shared across regions. In such cases, the meter region indicates the primary region of the meter. The meter is used to track the usage of specific services or resources, mainly for billing purposes. Each Azure service, resource, and region have its own billing meter ID that precisely reflects how its consumption and price are calculated.|
 | 15 |UnitOfMeasure|The unit of measure for billing for the service. For example, compute services are billed per hour.|
 | 16 |Quantity|The number of units used by the given product or service for a given day.|
 | 17 |EffectivePrice|Blended unit price for the period. Blended prices average out any fluctuations in the unit price, like graduated tiering, which lowers the price as quantity increases over time.|
@@ -277,8 +273,7 @@ The meter is used to track the usage of specific services or resources, mainly f
 | 11 |MeterSubCategory|Name of the meter subclassification category. Purchases and Marketplace usage might be shown as blank or unassigned.|
 | 12 |MeterId|The unique identifier for the meter.|
 | 13 |MeterName|The name of the meter. Purchases and Marketplace usage might be shown as blank or unassigned.|
-| 14 |MeterRegion|The name of the Azure region associated with the meter. It generally aligns with the resource location, except for certain global meters that are shared across regions. In such cases, the meter region indicates the primary region of the meter.<p>
-The meter is used to track the usage of specific services or resources, mainly for billing purposes. Each Azure service, resource, and region have its own billing meter ID that precisely reflects how its consumption and price are calculated.|
+| 14 |MeterRegion|The name of the Azure region associated with the meter. It generally aligns with the resource location, except for certain global meters that are shared across regions. In such cases, the meter region indicates the primary region of the meter. The meter is used to track the usage of specific services or resources, mainly for billing purposes. Each Azure service, resource, and region have its own billing meter ID that precisely reflects how its consumption and price are calculated.|
 | 15 |UnitOfMeasure|The unit of measure for billing for the service. For example, compute services are billed per hour.|
 | 16 |Quantity|The number of units used by the given product or service for a given day.|
 | 17 |EffectivePrice|Blended unit price for the period. Blended prices average out any fluctuations in the unit price, like graduated tiering, which lowers the price as quantity increases over time.|
@@ -335,8 +330,7 @@ The meter is used to track the usage of specific services or resources, mainly f
 | 11 |MeterSubcategory|Name of the meter subclassification category. Purchases and Marketplace usage might be shown as blank or unassigned.|
 | 12 |MeterId|The unique identifier for the meter.|
 | 13 |MeterName|The name of the meter. Purchases and Marketplace usage might be shown as blank or unassigned.|
-| 14 |MeterRegion|The name of the Azure region associated with the meter. It generally aligns with the resource location, except for certain global meters that are shared across regions. In such cases, the meter region indicates the primary region of the meter.<p>
-The meter is used to track the usage of specific services or resources, mainly for billing purposes. Each Azure service, resource, and region have its own billing meter ID that precisely reflects how its consumption and price are calculated.|
+| 14 |MeterRegion|The name of the Azure region associated with the meter. It generally aligns with the resource location, except for certain global meters that are shared across regions. In such cases, the meter region indicates the primary region of the meter. The meter is used to track the usage of specific services or resources, mainly for billing purposes. Each Azure service, resource, and region have its own billing meter ID that precisely reflects how its consumption and price are calculated.|
 | 15 |UnitOfMeasure|The unit of measure for billing for the service. For example, compute services are billed per hour.|
 | 16 |UsageQuantity|The number of units used by the given product or service for a given day.|
 | 17 |ResourceRate|Blended unit price for the period. Blended prices average out any fluctuations in the unit price, like graduated tiering, which lowers the price as quantity increases over time.|
