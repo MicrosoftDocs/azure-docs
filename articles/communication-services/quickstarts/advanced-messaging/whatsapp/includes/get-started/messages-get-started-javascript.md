@@ -61,7 +61,7 @@ Follow these steps to add required code snippets to the main function of your `s
 - [Send a video media message to a WhatsApp user](#send-a-video-media-message-to-a-whatsapp-user).
 
 > [!IMPORTANT]
-> To send a media message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+> To send a message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
 ### Send a text message to a WhatsApp user
 
@@ -72,7 +72,7 @@ The Messages SDK enables Contoso to send text WhatsApp messages, when initiated 
 
 In this example, we reply to the WhatsApp user with the text `"Thanks for your feedback.\n From Notification Messaging SDK."`
 
-Assemble and send the media message:
+Assemble and send the text message:
 ```javascript
 // Send text message
 const textMessageResult = await client.path("/messages/notifications:send").post({
@@ -251,4 +251,4 @@ node ./send-messages.js
 
 ## Full sample code
 
-You can download the sample app from [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/7efc61a0414c6f898409e355d0ba8d228882625f/sdk/communication/communication-messages-rest/samples-dev).
+You can download the sample app from [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication/communication-messages-rest/samples).
