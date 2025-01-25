@@ -546,6 +546,8 @@
       href: json-to-xml-policy.md
     - name: limit-concurrency
       href: limit-concurrency-policy.md
+    - name: llm-content-safety
+      href: llm-content-safety-policy.md
     - name: llm-emit-token-metric
       href: llm-emit-token-metric-policy.md
     - name: llm-semantic-cache-lookup
