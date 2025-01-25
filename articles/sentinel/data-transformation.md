@@ -14,15 +14,15 @@ ms.date: 09/25/2024
 
 [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) serves as the data platform for Microsoft Sentinel. All logs ingested into Microsoft Sentinel are stored in a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview), and [log queries](/azure/azure-monitor/logs/log-query-overview) written in Kusto Query Language (KQL) are used to to detect threats and monitor your network activity.
 
-Log Analytics gives you a high level of control over the data that gets ingested to your workspace with custom data ingestion and [*data collection rules (DCRs)*](/azure/azure-monitor/essentials/data-collection-rule-overview). DCRs allow you to both collect and manipulate your data before it's stored in your workspace. DCRs collect data in both standard Log Analaytics tables and customizable tables for data sources that produce unique log formats.
+Log Analytics gives you a high level of control over the data that gets ingested to your workspace with custom data ingestion and [*data collection rules (DCRs)*](/azure/azure-monitor/essentials/data-collection-rule-overview). DCRs allow you to both collect and manipulate your data before it's stored in your workspace. DCRs format and send data to both standard Log Analytics tables and customizable tables for data sources that produce unique log formats.
 
 ## Azure Monitor tools for custom data ingestion in Microsoft Sentinel
 
 Microsoft Sentinel uses the following Azure Montitor tools to control custom data ingestion:
 
-- [**Data transformations**](/azure/azure-monitor/essentials/data-collection-transformations) are defined in DCRs and apply KQL queries to incoming data before it's stored in your workspace. These transformations can filter out irrelevant data, enrich existing data with analytics or external data, or mask sensitive or personal information.
+- [**Transformations**](/azure/azure-monitor/essentials/data-collection-transformations) are defined in DCRs and apply KQL queries to incoming data before it's stored in your workspace. These transformations can filter out irrelevant data, enrich existing data with analytics or external data, or mask sensitive or personal information.
 
-- The [**Logs ingestion API**](/azure/azure-monitor/logs/logs-ingestion-api-overview) allows you to send custom-format logs from any data source to your Log Analytics workspace, and store those logs either in certain standard tables, or in custom-formatted tables that you create. You have full control over the creation of these custom tables, down to specifying the column names and types. The API uses [**DCRs**](/azure/azure-monitor/essentials/data-collection-rule-overview) to define, configure, and apply transformations to these data flows.
+- [**Logs ingestion API**](/azure/azure-monitor/logs/logs-ingestion-api-overview) allows you to send custom-format logs from any data source to your Log Analytics workspace, and store those logs either in certain standard tables, or in custom-formatted tables that you create. You have full control over the creation of these custom tables, down to specifying the column names and types. The API uses [**DCRs**](/azure/azure-monitor/essentials/data-collection-rule-overview) to define, configure, and apply transformations to these data flows.
 
 Log Analytics workspaces enabled for Microsoft Sentinel aren't subject to the [filtering ingestion charge](/azure/azure-monitor/essentials/data-collection-transformations#cost-for-transformations), regardless of how much data the transformation filters. However, transformations in Microsoft Sentinel have the same limitations as Azure Monitor. For more information, see [Limitations and considerations](/azure/azure-monitor/essentials/data-collection-transformations-create#limitations-and-considerations).
 
@@ -40,9 +40,11 @@ Log Analytics workspaces enabled for Microsoft Sentinel aren't subject to the [f
 
 ## Data ingestion flow in Microsoft Sentinel
 
-The following image shows where ingestion-time data transformation enters the data ingestion flow in Microsoft Sentinel. This data can be supported standard tables or in a specific set of custom tables.
+The following image shows where ingestion-time data transformation enters the data ingestion flow in Microsoft Sentinel. This data can be supported standard tables or in a specific set of custom tables. 
 
-<!--items to fix here - some clarity for anyone who isn't as familiar with the backend as much. Happy to help make these updates if you send me the source. - 1. Add a space between azure monitor agent. 2. I don't think it was clear to me that direct ingestion was the API-based connectors. 3. What's the cloud pipeline? can we explain that? 4. In the original, we differentiated between custom and standard tables. Do we want to do that here? Or at least change "Tables" to "Standard / Custom tables"?-->
+> [!NOTE]
+> This image shows the cloud pipeline, which represents the data collection component of Azure Monitor. It's automatically available in your Azure subscription doesn't appear in the Azure portal. You can learn more about it along with other data collection scenarios in [Data collection rules (DCRs) in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview#azure-monitor-pipeline).
+
 :::image type="content" source="media/data-transformation/data-transformation-architecture.png" alt-text="Diagram of the Microsoft Sentinel data transformation architecture." lightbox="media/data-transformation/data-transformation-architecture.png"  border="false":::
 
 Microsoft Sentinel collects data in the Log Analytics workspace from multiple sources. 
@@ -64,7 +66,7 @@ The following table describes DCR support for Microsoft Sentinel data connector 
 
 ## DCR support in Microsoft Sentinel
 
-In Azure Monitor, DCRs control the data flow depending on the type of data source. The data flow incldues the data stream being transformed (standard or custom), the destination workspace and table, and an optional KQL transformation.  <!--I thought the standard/custom referred to the table it's being streamed into. It refers to the types of data too? I think we could clarify this better.-->
+In Azure Monitor, DCRs control the data flow depending on the type of data source. The data flow includes the data stream being transformed (standard or custom), the destination workspace and table, and an optional KQL transformation.  <!--I thought the standard/custom referred to the table it's being streamed into. It refers to the types of data too? I think we could clarify this better.-->
 
 Ingestion-time transformations are defined in DCRs, and Microsoft Sentinel's support for DCRs depends on the type of data connector you're using. <!--this section feels like it's a continuation of an explanation of the image above. can we combine them to make it flow nicer?-->
 
