@@ -21,11 +21,11 @@ There are a few different options available for authenticating a Message client:
 
 To authenticate a client, you instantiate an `NotificationMessagesClient` or `MessageTemplateClient` with your connection string. You can also initialize the client with any custom HTTP client that implements the `com.azure.core.http.HttpClient` interface.
 
-For simplicity, this quickstart uses a connection string to authenticate. In production environments, we recommend using [service principals](../../../../identity/service-principal.md).
+For simplicity, this quickstart uses a connection string to authenticate. In production environments, we recommend using [service principals](../../../identity/service-principal.md).
 
 Get the connection string from your Azure Communication Services resource in the Azure portal. On the left, navigate to the `Keys` tab. Copy the `Connection string` field for the `Primary key`. The connection string is in the format `endpoint=https://{your Azure Communication Services resource name}.communication.azure.com/;accesskey={secret key}`.
 
-:::image type="content" source="../../media/get-started/get-communication-resource-connection-string.png" lightbox="../../media/get-started/get-communication-resource-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Connection string' field in the 'Primary key' section.":::
+:::image type="content" source="../media/get-started/get-communication-resource-connection-string.png" lightbox="../media/get-started/get-communication-resource-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Connection string' field in the 'Primary key' section.":::
 
 Set the environment variable `COMMUNICATION_SERVICES_CONNECTION_STRING` to the value of your connection string.   
 Open a console window and enter the following command:
@@ -33,7 +33,7 @@ Open a console window and enter the following command:
 setx COMMUNICATION_SERVICES_CONNECTION_STRING "<your connection string>"
 ```
 
-For more information on how to set an environment variable for your system, follow the steps at [Store your connection string in an environment variable](../../../../create-communication-resource.md#store-your-connection-string-in-an-environment-variable).
+For more information on how to set an environment variable for your system, follow the steps at [Store your connection string in an environment variable](../../../create-communication-resource.md#store-your-connection-string-in-an-environment-variable).
 
 To instantiate a NotificationMessagesClient, add the following code to the `main` method:
 
@@ -57,7 +57,7 @@ The [`Azure.Identity`](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk
 The `DefaultAzureCredential` attempts to authenticate via [`several mechanisms`](/java/api/overview/azure/identity-readme#defaultazurecredential) and it might be able to find its authentication credentials if you're signed into Visual Studio or Azure CLI. However, this option walks you through setting up with environment variables.   
 
 To create a `DefaultAzureCredential` object:
-1. To set up your service principle app, follow the instructions at [Creating a Microsoft Entra registered Application](../../../../identity/service-principal.md?pivots=platform-azcli#creating-a-microsoft-entra-registered-application).
+1. To set up your service principle app, follow the instructions at [Creating a Microsoft Entra registered Application](../../../identity/service-principal.md?pivots=platform-azcli#creating-a-microsoft-entra-registered-application).
 
 1. Set the environment variables `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID` using the output of your app's creation.    
     Open a console window and enter the following commands:
@@ -107,7 +107,7 @@ NotificationMessage or MessageTemplate clients can also be created and authentic
 
 The Channel Registration ID GUID was created during channel registration. You can look it up in the portal on the Channels tab of your Azure Communication Services resource.
 
-:::image type="content" source="../../media/get-started/get-messages-channel-id.png" lightbox="../../media/get-started/get-messages-channel-id.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Channels' tab. Attention is placed on the copy action of the 'Channel ID' field.":::
+:::image type="content" source="../media/get-started/get-messages-channel-id.png" lightbox="../media/get-started/get-messages-channel-id.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Channels' tab. Attention is placed on the copy action of the 'Channel ID' field.":::
 
 Assign it to a variable called channelRegistrationId.
 ```java
@@ -151,11 +151,11 @@ Initiate a conversation by sending a template message.
 
 First, create a MessageTemplate using the values for a template. 
 > [!NOTE]
-> To check which templates you have available, see the instructions at [List templates](../../../../../concepts/advanced-messaging/whatsapp/template-messages.md#list-templates).
+> To check which templates you have available, see the instructions at [List templates](../../../../concepts/advanced-messaging/whatsapp/template-messages.md#list-templates).
 > If you don't have a template to use, proceed to [Option 2](#option-2-initiate-conversation-from-user).
 
 Here's MessageTemplate creation using a default template, `sample_template`.   
-If `sample_template` isn't available to you, skip to [Option 2](#option-2-initiate-conversation-from-user). For advanced users, see the page [Templates](../../../../../concepts/advanced-messaging/whatsapp/template-messages.md) to understand how to send a different template with Option 1.
+If `sample_template` isn't available to you, skip to [Option 2](#option-2-initiate-conversation-from-user). For advanced users, see the page [Templates](../../../../concepts/advanced-messaging/whatsapp/template-messages.md) to understand how to send a different template with Option 1.
 
 Messages SDK allows Contoso to send templated WhatsApp messages to WhatsApp users. To send template messages below details are required:
 - [WhatsApp Channel ID](#set-channel-registration-id)
@@ -193,4 +193,4 @@ Now, the user needs to respond to the template message. From the WhatsApp user a
 The other option to initiate a conversation between a WhatsApp Business Account and a WhatsApp user is to have the user initiate the conversation.
 To do so, from your personal WhatsApp account, send a message to your business number (Sender ID).
 
-:::image type="content" source="../../media/get-started/user-initiated-conversation.png" lightbox="" alt-text="A WhatsApp conversation viewed on the web showing a user message sent to the WhatsApp Business Account number.":::
+:::image type="content" source="../media/get-started/user-initiated-conversation.png" lightbox="" alt-text="A WhatsApp conversation viewed on the web showing a user message sent to the WhatsApp Business Account number.":::

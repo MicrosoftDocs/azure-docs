@@ -26,15 +26,16 @@ ms.author: memontic
 The following classes and interfaces handle some of the major features of the Azure Communication Services Advance Messaging SDK for .NET.
 
 | Class Name | Description |
-| --- | --- |
+| ----------------------------- | ------------------------------------------------------------------------------------------- |
 | `NotificationMessagesClient`  | Connects to your Azure Communication Services resource. It sends the messages.              |
 | `MessageTemplate`             | Defines which template you use and the content of the template properties for your message. |
 | `TemplateNotificationContent` | Defines the "who" and the "what" of the template message you intend to send.                |
-| `TextNotificationContent`     | Defines the "who" and the "what" of the text message you intend to send.                      |
+| `TextNotificationContent`     | Defines the "who" and the "what" of the text message you intend to send.                    |
 | `ImageNotificationContent`    | Defines the "who" and the "what" of the image media message you intend to send.             |
-| `DocumentNotificationContent` | Defines the "who" and the "what" of the Document media message you intend to send.             |
+| `DocumentNotificationContent` | Defines the "who" and the "what" of the Document media message you intend to send.          |
 | `VideoNotificationContent`    | Defines the "who" and the "what" of the Video media message you intend to send.             |
-| `AudioNotificationContent`    | Defines the "who" and the "what" of the Audio media message you intend to send.             |               |
+| `AudioNotificationContent`    | Defines the "who" and the "what" of the Audio media message you intend to send.             |
+
 
 > [!NOTE]
 > For more information, see the Azure SDK for .NET reference [Azure.Communication.Messages Namespace](/dotnet/api/azure.communication.messages).

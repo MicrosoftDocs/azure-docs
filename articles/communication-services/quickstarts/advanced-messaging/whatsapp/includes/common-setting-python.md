@@ -30,7 +30,7 @@ setx COMMUNICATION_SERVICES_CONNECTION_STRING "<your connection string>"
 ```
 After you add the environment variable, you might need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
 
-For more information on how to set an environment variable for your system, follow the steps at [Store your connection string in an environment variable](../../../../create-communication-resource.md#store-your-connection-string-in-an-environment-variable).
+For more information on how to set an environment variable for your system, follow the steps at [Store your connection string in an environment variable](../../../create-communication-resource.md#store-your-connection-string-in-an-environment-variable).
 
 ```python
     # Get a connection string to our Azure Communication Services resource.
@@ -85,7 +85,7 @@ You can also authenticate with an AzureKeyCredential.
 
 Get the endpoint and key from your Azure Communication Services resource in the Azure portal. On the left, navigate to the `Keys` tab. Copy the `Endpoint` and the `Key` field for the primary key.
 
-:::image type="content" source="../media/get-started/get-communication-resource-endpoint-and-key.png" lightbox="../../media/get-started/get-communication-resource-endpoint-and-key.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Connection string' field in the 'Primary key' section.":::
+:::image type="content" source="../media/get-started/get-communication-resource-endpoint-and-key.png" lightbox="../media/get-started/get-communication-resource-endpoint-and-key.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Connection string' field in the 'Primary key' section.":::
 
 Set the environment variable `COMMUNICATION_SERVICES_KEY` to the value of your connection string.   
 Open a console window and enter the following command:
@@ -95,7 +95,7 @@ setx COMMUNICATION_SERVICES_KEY "<your key>"
 ```
 After you add the environment variable, you might need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
 
-For more information on how to set an environment variable for your system, follow the steps at [Store your connection string in an environment variable](../../../../create-communication-resource.md#store-your-connection-string-in-an-environment-variable).
+For more information on how to set an environment variable for your system, follow the steps at [Store your connection string in an environment variable](../../../create-communication-resource.md#store-your-connection-string-in-an-environment-variable).
 
 To instantiate a `NotificationMessagesClient`, add the following code:
 
