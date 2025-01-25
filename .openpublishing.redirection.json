@@ -1991,6 +1991,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cdn/enable-raw-logs.md",
+      "redirect_url": "/azure/cdn/monitoring-and-access-log",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cdn/cdn-features.md",
+      "redirect_url": "/azure/frontdoor/front-door-cdn-comparison",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/chef/chef-automation.md",
       "redirect_url": "/azure/developer/chef/windows-vm-configure",
       "redirect_document_id": false
