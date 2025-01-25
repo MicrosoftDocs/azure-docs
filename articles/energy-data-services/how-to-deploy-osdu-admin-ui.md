@@ -144,6 +144,7 @@ There are two deployment options for the OSDU Admin UI:
     ```
 
 ## Deploy storage account
+
 1. Create resource group. Skip this step if the resource group exists already.
     
     ```azurecli
@@ -183,7 +184,7 @@ There are two deployment options for the OSDU Admin UI:
         --public-access blob
     ```
 
-### Build and deploy the web app
+### Configure the website
 
 1. Navigate to the `OSDUApp` folder.
     
@@ -282,11 +283,14 @@ Replace the values according to the explanation.
     }
     ...
 }
+
 ```
 
-   > [!NOTE]
-   > [OSDU Connector API](https://community.opengroup.org/osdu/ui/admin-ui-group/admin-ui-totalenergies/connector-api-totalenergies) is built as an interface between consumers and OSDU APIs wrapping some API chain calls and objects. Currently, it manages all operations and actions on project and scenario objects.
-      
+---
+
+> [!NOTE]
+> [OSDU Connector API](https://community.opengroup.org/osdu/ui/admin-ui-group/admin-ui-totalenergies/connector-api-totalenergies) is built as an interface between consumers and OSDU APIs wrapping some API chain calls and objects. Currently, it manages all operations and actions on project and scenario objects.
+
 1. Build the web UI.
     ```bash
     ng build
@@ -300,7 +304,7 @@ Replace the values according to the explanation.
         --destination '$web' \
         --overwrite
     ```
-    
+
 1. Fetch the website URL.
     ```bash
    echo $REDIRECT_URI

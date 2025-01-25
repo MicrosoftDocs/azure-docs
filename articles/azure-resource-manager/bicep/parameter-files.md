@@ -1,9 +1,9 @@
 ---
 title: Create parameters files for Bicep deployment
-description: Create parameters file for passing in values during deployment of a Bicep file.
+description: Create parameters file for passing in values when deploying a Bicep file.
 ms.topic: how-to
+ms.date: 01/10/2025
 ms.custom: devx-track-bicep
-ms.date: 12/06/2024
 ---
 
 # Create parameters files for Bicep deployment
@@ -11,11 +11,11 @@ ms.date: 12/06/2024
 Rather than passing parameters as inline values in your script, you can use a Bicep parameters file with the `.bicepparam` file extension or a JSON parameters file that contains the parameter values. This article shows how to create parameters files.
 
 > [!NOTE]
-> The Bicep parameters file is only supported in [Bicep CLI](./install.md) version 0.18.4 or newer, [Azure CLI](/cli/azure/install-azure-cli) version 2.47.0 or newer, and [Azure PowerShell](/powershell/azure/install-azure-powershell) version 9.7.1 or newer.
+> The Bicep parameters file is only supported in [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.18.4 or later, [Azure CLI](/cli/azure/install-azure-cli) version 2.47.0 or later, and [Azure PowerShell](/powershell/azure/install-azure-powershell) version 9.7.1 or later.
 
 A single Bicep file can have multiple Bicep parameters files associated with it. However, each Bicep parameters file is intended for one particular Bicep file. This relationship is established with the [using statement](./bicep-using.md) within the Bicep parameters file.
 
-You can compile Bicep parameters files into JSON parameters files to deploy with a Bicep file. See [build-params](./bicep-cli.md#build-params). You can also decompile a JSON parameters file into a Bicep parameters file. See [decompile-params](./bicep-cli.md#decompile-params).
+You can compile Bicep parameters files into JSON parameters files to deploy with a Bicep file. See [build-params](./bicep-cli.md#build-params) for more information. You can also decompile a JSON parameters file into a Bicep parameters file. See [decompile-params](./bicep-cli.md#decompile-params) to learn more.
 
 ## Parameters file
 
@@ -30,7 +30,7 @@ param <first-parameter-name> = <first-value>
 param <second-parameter-name> = <second-value>
 ```
 
-You can use the [using statement](./bicep-using.md) with a Bicep file, Azure Resource Manager JSON templates, Bicep modules, and template specs. For example:
+You can use the [using statement](./bicep-using.md) with a Bicep file, JSON Azure Resource Manager templates, Bicep modules, and template specs. For example:
 
 ```bicep
 using './main.bicep'
@@ -76,7 +76,7 @@ using './main.bicep'
 param intFromEnvironmentVariables = int(readEnvironmentVariable('intEnvVariableName'))
 ```
 
-You can define and use variables. [Bicep CLI version 0.21.X or higher](./install.md) is required for using variables in .bicepparam files. Here are some examples:
+You can define and use variables. [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.21.X or later is required for using variables in `.bicepparam` files. Here are some examples:
 
 ```bicep
 using './main.bicep'
@@ -314,7 +314,7 @@ param storageAccountType = '' // This value is optional. Bicep will use default 
 ```
 
 > [!NOTE]
-> For inline comments, you can use either // or /* ... */. In VS Code, save parameters files with the **JSONC** file type; otherwise, you'll get an error message that says, "Comments not permitted in JSON."
+> For inline comments, you can use either // or /* ... */. In Visual Studio Code, save parameters files with the `JSONC` file type; otherwise, you'll get an error message that says, "Comments not permitted in JSON."
 
 ---
 
@@ -353,7 +353,7 @@ param storageAccountType = 'Standard_ZRS'
 
 ## Generate parameters file
 
-You can create a parameters file two ways: either with VS Code or the Bicep CLI. Both tools allow you to use a Bicep file to generate a parameters file. See [Generate parameters file](./visual-studio-code.md#generate-parameters-file) for the VS Code method and [Generate parameters file](./bicep-cli.md#generate-params) for the Bicep CLI method.
+You can create a parameters file two ways: either with Visual Studio Code or the Bicep CLI. Both tools allow you to use a Bicep file to generate a parameters file. See [Generate parameters file](./visual-studio-code.md#generate-parameters-file-command) for the Visual Studio Code method and [Generate parameters file](./bicep-cli.md#generate-params) for the Bicep CLI method.
 
 ## Build Bicep parameters file
 
@@ -367,7 +367,7 @@ From Azure CLI, you can pass a parameters file with your Bicep file deployment.
 
 # [Bicep parameters file](#tab/Bicep)
 
-You can deploy a Bicep file by using a Bicep parameters file with Azure CLI version 2.53.0 or later and [Bicep CLI version 0.22.X or higher](./install.md). With the `using` statement within the Bicep parameters file, there's no need to provide the `--template-file` switch when specifying a Bicep parameters file for the `--parameters` switch.
+You can deploy a Bicep file by using a Bicep parameters file with [Azure CLI](./install.md#azure-cli) version 2.53.0 or later and [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.22.X or later. With the `using` statement within the Bicep parameters file, there's no need to provide the `--template-file` switch when specifying a Bicep parameters file for the `--parameters` switch.
 
 ```azurecli
 az deployment group create \
@@ -413,7 +413,7 @@ az deployment group create \
 
 ---
 
-For more information, see [Deploy resources with Bicep and Azure CLI](./deploy-cli.md#parameters).
+For more information, see [Deploy Bicep files with the Azure CLI](./deploy-cli.md#parameters).
 
 ### Azure PowerShell
 
@@ -467,7 +467,7 @@ New-AzResourceGroupDeployment `
 
 ---
 
-For more information, see [Deploy resources with Bicep and Azure PowerShell](./deploy-powershell.md#parameters). To deploy _.bicep_ files, you need Azure PowerShell version 5.6.0 or later.
+For more information, see [Deploy Bicep files with Azure PowerShell](./deploy-powershell.md#parameters). To deploy `.bicep` files, you need Azure PowerShell version 5.6.0 or later.
 
 ## Parameter precedence
 

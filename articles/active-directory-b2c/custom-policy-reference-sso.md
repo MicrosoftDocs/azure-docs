@@ -71,7 +71,7 @@ To use a session provider in your technical profile:
 
     ```xml
     <TechnicalProfile Id="SM-AAD">
-      <DisplayName>Session Mananagement Provider</DisplayName>
+      <DisplayName>Session Management Provider</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.DefaultSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <PersistedClaims>
         <PersistedClaim ClaimTypeReferenceId="objectId" />

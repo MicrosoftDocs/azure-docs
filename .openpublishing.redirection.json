@@ -1,6 +1,226 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-network/migrate-classic-vnet-powershell.md",
+      "redirect_url": "/previous-versions/azure/virtual-network/migrate-classic-vnet-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/index.yml",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/best-practices.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/concept-chamber.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/concept-connector.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/concept-data-pipeline.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/concept-license-service.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/concept-network.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/concept-storage.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/concept-user-personas.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/concept-vm-offerings.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/concept-workbench.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/disaster-recovery.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/get-started-modeling-simulation-workbench.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/how-to-guide-add-redirect-uris.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/how-to-guide-chamber-idle.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/how-to-guide-chamber-vm.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/how-to-guide-chamber.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/how-to-guide-configure-firewall-red-hat.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/how-to-guide-download-data.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/how-to-guide-enable-copy-paste.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/how-to-guide-licenses.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/how-to-guide-manage-chamber-storage.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/how-to-guide-manage-shared-storage.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/how-to-guide-manage-users.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/how-to-guide-private-network.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/how-to-guide-public-network.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/how-to-guide-register-resource-provider.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/how-to-guide-set-up-networking.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/how-to-guide-start-stop-restart.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/how-to-guide-upload-data.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/limits-quotas.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/modeling-simulation-workbench-overview.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/quickstart-add-users.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/quickstart-connect-desktop.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/quickstart-import-data.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/refresh-remote-connection-keys.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/resources-get-support.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/resources-troubleshoot.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/shared-storage.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/troubleshoot-known-issues.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/modeling-simulation-workbench/tutorial-install-slurm.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/appliance-catalog/virtual-management-hyper-v.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/appliance-catalog/virtual-management-hyper-v",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/appliance-catalog/virtual-management-vmware.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/appliance-catalog/virtual-management-vmware",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/defender-for-iot/organizations/api/management-alert-apis.md",
       "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/api/management-alert-apis",
       "redirect_document_id": false
@@ -106,83 +326,88 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/operator-5g-core/index.yml",
+      "redirect_url": "https://learn.microsoft.com",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/operator-5g-core/concept-centralized-lifecycle-management.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/concept-centralized-lifecycle-management",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/concept-deployment-order.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/concept-deployment-order",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/concept-observability-analytics.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/concept-observability-analytics",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/concept-security.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/concept-security",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/how-to-configure-network-function.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/how-to-configure-network-function",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/how-to-delete-network-function-cluster.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/how-to-delete-network-function-cluster",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/how-to-deploy-network-functions.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/how-to-deploy-network-functions",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/how-to-deploy-observability.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/how-to-deploy-observability",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/overview-product.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/overview-product",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/quickstart-complete-prerequisites-deploy-azure-kubernetes-service.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/quickstart-complete-prerequisites-deploy-azure-kubernetes-service",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/quickstart-complete-prerequisites-deploy-nexus-azure-kubernetes-service.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/quickstart-complete-prerequisites-deploy-nexus-azure-kubernetes-service",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/quickstart-configure-extension-for-status-monitoring.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/quickstart-configure-extension-for-status-monitoring",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/quickstart-deploy-5g-core.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/quickstart-deploy-5g-core",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/quickstart-monitor-deployment-status.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/quickstart-monitor-deployment-status",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/quickstart-subscription.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/quickstart-subscription",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operator-5g-core/tutorial-configure-network-function.md",
-      "redirect_url": "/previous-versions/azure/operator-5g-core/tutorial-configure-network-function",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
@@ -1506,6 +1731,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/bastion/diagnostic-logs.md",
+      "redirect_url": "/azure/bastion/monitor-bastion",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/bastion/howto-metrics-monitor-alert.md",
+      "redirect_url": "/azure/bastion/monitor-bastion",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/bastion/tutorial-protect-bastion-host-ddos.md",
       "redirect_url": "/azure/bastion/tutorial-create-host-portal",
       "redirect_document_id": false
@@ -1552,8 +1787,8 @@
     },
     {
       "source_path_from_root": "/articles/best-practices-availability-paired-regions.md",
-      "redirect_url": "/azure/reliability/cross-region-replication-azure",
-      "redirect_document_id": true
+      "redirect_url": "/azure/reliability/regions-paired",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/best-practices-background-jobs.md",
@@ -2013,6 +2248,20 @@
     {
       "source_path_from_root": "/articles/ddos-protection/telemetry-monitoring-alerting.md",
       "redirect_url": "/azure/ddos-protection/telemetry",
+      "redirect_document_id": false
+    },    {
+      "source_path_from_root": "/articles/ddos-protection/telemetry.md",
+      "redirect_url": "/azure/ddos-protection/monitor-ddos-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ddos-protection/ddos-configure-log-analytics-workspace.md",
+      "redirect_url": "/azure/azure-monitor/logs/quick-create-workspace",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ddos-protection/diagnostic-logging.md",
+      "redirect_url": "/azure/azure-monitor/essentials/tutorial-resource-logs",
       "redirect_document_id": false
     },
     {
@@ -2857,7 +3106,7 @@
     },
     {
       "source_path_from_root": "/articles/media-services/media-services-manage-with-powershell.md",
-      "redirect_url": "/powershell/module/azurerm.media/?view=azurermps-4.2.0",
+      "redirect_url": "/powershell/module/az.media/",
       "redirect_document_id": false
     },
     {
@@ -4726,6 +4975,36 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-spaces/how-to-add-components.md",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/how-to-manage-components.md",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/index.yml",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/overview.md",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/quickstart-deploy-starter-app.md",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-spaces/quickstart-deploy-your-app.md",
+      "redirect_url": "/azure/container-apps/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-network/create-vm-accelerated-networking-cli.md",
       "redirect_url": "/azure/virtual-network/create-virtual-machine-accelerated-networking",
       "redirect_document_id": false
@@ -4733,6 +5012,106 @@
     {
       "source_path_from_root": "/articles/virtual-network/create-vm-accelerated-networking-powershell.md",
       "redirect_url": "/azure/virtual-network/create-virtual-machine-accelerated-networking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/reliability/cross-region-replication-azure.md",
+      "redirect_url": "/azure/reliability/regions-paired",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-agent.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-app-attach.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-app-attach",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-authorization.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-authorization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-azure-ad-connections.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-azure-ad-connections",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-connection-quality.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-connection-quality",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-custom-image-templates.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-custom-image-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-device-redirections.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-device-redirections",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-insights.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-insights",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-management-issues.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-management-issues",
+      "redirect_document_id": false  
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-multimedia-redirection.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-multimedia-redirection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-powershell.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-rdp-shortpath.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-rdp-shortpath",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-service-connection.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-service-connection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-session-host-configuration-update.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-session-host-configuration-update",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-set-up-issues.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-set-up-issues",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-set-up-overview.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-set-up-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-vm-configuration.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-vm-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/reliability/business-continuity-management-program.md",
+      "redirect_url": "/azure/reliability/concept-business-continuity-high-availability-disaster-recovery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/reliability/disaster-recovery-overview.md",
+      "redirect_url": "/azure/reliability/concept-business-continuity-high-availability-disaster-recovery",
       "redirect_document_id": false
     }
   ]
