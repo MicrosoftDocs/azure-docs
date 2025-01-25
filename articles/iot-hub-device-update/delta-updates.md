@@ -3,7 +3,7 @@ title: Azure Device Update for IoT Hub delta updates | Microsoft Learn
 description: Understand key concepts for using delta or differential updates with Azure Device Update for IoT Hub.
 author: andrewbrownmsft
 ms.author: andbrown
-ms.date: 01/22/2025
+ms.date: 01/24/2025
 ms.topic: conceptual
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -95,8 +95,8 @@ The following table describes the arguments in more detail:
 
 | Argument | Description |
 |--|--|
-| `<source_archive>` | The image that the delta creation is based on when creating the delta. **Important**: This image must be identical to the image already present on the device, for example cached from a previous update. |
-| `<target_archive>` | The image that the delta updates the device to. |
+| `<source_archive>` | The base image that DiffGen uses as a starting point to create the delta. **Important**: This image must be identical to the image already present on the device, for example cached from a previous update. |
+| `<target_archive>` | The image that defines the desired end state of the device after receiving the delta update. |
 | `<output_path>` | The path on the host machine to place the delta file in after creation, including desired name of the generated delta file. If the path doesn't exist, the tool creates it. |
 | `<log_folder>` | The path on the host machine to create logs in. It's best to define this location as a subfolder of the output path. If the path doesn't exist, the tool creates it. |
 | `<working_folder>` | The path on the machine to place collateral and other working files in during the delta generation. It's best to define this location as a subfolder of the output path. If the path doesn't exist, the tool creates it. |
