@@ -70,9 +70,9 @@ The following V1 connectors or version 1.0 will be deprecated, but new updated v
 - [Snowflake](connector-snowflake.md#upgrade-the-snowflake-linked-service)
 - [Vertica](connector-vertica.md#upgrade-the-vertica-version)
 
-## Connectors that are deprecated with alternative solutions
+## Connectors that are at End of Support stage
 
-The following connectors were deprecated. You should migrate to [alternative solutions for linked services](#options-to-replace-deprecated-connectors) that use these connectors.
+The following connectors are at End of Support stage. You should migrate to [alternative solutions for linked services](#options-to-replace-deprecated-connectors) that use these connectors.
 
 - [Azure Database for MariaDB](connector-azure-database-for-mariadb.md)
 - [Concur (Preview)](connector-concur.md)
