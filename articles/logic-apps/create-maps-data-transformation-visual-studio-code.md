@@ -6,7 +6,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, kewear, alexzuniga, azla
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 01/15/2025
 # Customer intent: As a developer, I want to transform data in Azure Logic Apps by creating a map between schemas with Visual Studio Code.
 ---
 
@@ -44,7 +44,7 @@ This how-to guide shows how to create a blank data map, choose your source and t
 
   > [!NOTE]
   >
-  > The previously separate Data Mapper extension is now merged with the Azure Logic Apps (Standard) extension. 
+  > The formerly separate Data Mapper extension is now merged with the Azure Logic Apps (Standard) extension. 
   > To avoid conflicts, any existing version of the Data Mapper extension is removed when you install or update 
   > the Azure Logic Apps (Standard) extension. After extension install or update, please restart Visual Studio Code.
 
@@ -53,7 +53,7 @@ This how-to guide shows how to create a blank data map, choose your source and t
   - An XML schema definition file with the .xsd file extension
   - A JavaScript Object Notation file with the .json file extension
 
-- A Standard logic app project that includes a stateful or stateless workflow with at least a trigger. If you don't have a project, follow these steps in Visual Studio Code:
+- A Standard logic app project that includes a stateful or stateless workflow with a trigger at minimum. If you don't have a project, follow these steps in Visual Studio Code:
 
   1. [Connect to your Azure account](create-single-tenant-workflows-visual-studio-code.md#connect-azure-account), if you haven't already.
 
@@ -67,41 +67,43 @@ This how-to guide shows how to create a blank data map, choose your source and t
 
 1. On the Visual Studio Code left menu, select the **Azure** icon.
 
-1. In the **Azure** pane, under the **Data Mapper** section, select **Create new data map**.
+1. In the **Azure** window, under **Data Mapper**, select **Create data map**.
 
-   ![Screenshot showing Visual Studio Code with Data Mapper tool, Azure window open, and selected button for Create new data map.](media/create-maps-data-transformation-visual-studio-code/create-new-data-map.png)
+   ![Screenshot shows Visual Studio Code with Azure window and selected button for Create data map.](media/create-maps-data-transformation-visual-studio-code/create-data-map.png)
 
-1. Provide a name for your data map.
+   On the Visual Studio Code title bar, a prompt box opens so you can provide a name for your map.
 
-1. Specify your source and target schemas by following these steps:
+1. In the prompt box, enter a data map name.
 
-   1. On the map surface, select **Add a source schema**.
+   For this guide, these steps use the name **Example-data-map**.
 
-      ![Screenshot showing Visual Studio Code with Data Mapper open, new data map, and selected option for Add a source schema.](media/create-maps-data-transformation-visual-studio-code/select-source-schema.png)
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/data-map-name.png" alt-text="Screenshot shows prompt box and example data map name.":::
 
-   1. On the **Configure** pane that opens, select **Add new** > **Browse**.
+   The Data Mapper creates and opens a blank data map.
 
-   1. Find and select your source schema file, and then select **Add**.
+1. Choose your source and target schemas by following these steps:
 
-      If your source schema doesn't appear in the **Open** window, from the file type list, change **XSD File (\*.xsd)** to **All Files (\*.\*)**.
+   1. In the **Source** pane, select **Add new** > **Browse** to find and upload your source schema.
 
-      The map surface now shows the data types from the source schema. For the examples in this guide, 
+      :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/add-source-schema.png" alt-text="Screenshot shows Data Mapper and Source pane with selected options for Add new and Browse.":::
 
-   1. On the map surface, select **Add a target schema**.
+      After you add your source schema, the **Source** pane populates with the XML element "nodes" for the data types in the source schema, for example:
 
-   1. On the **Configure** pane that opens, select **Add new** > **Browse**.
+      :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/added-source-schema.png" alt-text="Screenshot shows Source pane populated with source schema XML element nodes.":::
 
-   1. Find and select your target schema file, and then select **Add**.
+   1. In the **Destination** pane, select **Add new** > **Browse** to find and upload your target schema.
 
-      If your target schema doesn't appear in the **Open** window, from the file type list, change **XSD File (\*.xsd)** to **All Files (\*.\*)**.
+      :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/add-target-schema.png" alt-text="Screenshot shows Data Mapper and Destination pane with selected options for Add new and Browse.":::
 
-      The map surface now shows data types from the target schema.
+      After you add your target schema, the **Destination** pane populates with the XML element "nodes" for the data types in the target schema, for example:
 
-   Alternatively, you can also add your source and target schema files locally to your logic app project in the **Artifacts**\/**Schemas** folder, so that they appear in Visual Studio Code. In this case, you can specify your source and target schema in the Data Mapper tool on the **Configure** pane by selecting **Select existing**, rather than **Add new**.
+      :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/added-target-schema.png" alt-text="Screenshot shows Source pane populated with source schema XML element nodes.":::
 
-   When you're done, your map looks similar to the following example:
+   Alternatively, you can also add your source and target schema files locally to your logic app project in the **Artifacts**\/**Schemas** folder, so that they appear in Visual Studio Code. In this case, you can specify your source and target schema in the Data Mapper on the **Configure** pane by selecting **Select existing**, rather than **Add new**.
 
-   ![Screenshot showing the Data Mapper open and data map with sample source and target schemas.](media/create-maps-data-transformation-visual-studio-code/high-level-schema-example.png)
+   When you're done, your map looks like the following example:
+
+   ![Screenshot shows Data Mapper and the data map with nodes from the sample source and target schemas.](media/create-maps-data-transformation-visual-studio-code/high-level-schema-example.png)
 
 The following table describes the possible data types that might appear in a schema:
 
