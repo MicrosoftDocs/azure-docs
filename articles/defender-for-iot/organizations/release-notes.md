@@ -25,10 +25,6 @@ When updating your on-premises software, we recommend:
 
 - Update to a **patch version only for specific bug fixes or security patches**. When working with the Microsoft support team on a specific issue, verify which patch version is recommended to resolve your issue.
 
-> [!NOTE]
-> If you have an on-premises management console, make sure to also update your on-premises management console to the same version as your sensors.
->
-
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
 ### OT monitoring software versions (sensor versions)

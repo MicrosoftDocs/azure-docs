@@ -59,7 +59,7 @@ Keep in mind the following items as you use serverless GPUs:
 - **CUDA version**: Serverless GPUs support the latest CUDA version
 
 - **Support limitations**:
-  - Only one container in an app can use the GPU at a time.
+  - Only one container in an app can use the GPU at a time. If you have multiple containers in an app, the first container gets access to the GPU.
   - Multiple apps can share the same GPU workload profile but each requires their own replica.
   - Multi and fractional GPU replicas aren't supported.
   - The first container in your application gets access to the GPU.

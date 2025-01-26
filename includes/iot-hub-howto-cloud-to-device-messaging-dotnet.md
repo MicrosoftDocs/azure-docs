@@ -4,7 +4,7 @@ ms.author: kgremban
 ms.service: azure-iot-hub
 ms.devlang: csharp
 ms.topic: include
-ms.date: 12/19/2024
+ms.date: 1/6/2025
 ms.custom: [amqp, mqtt, "Role: Cloud Development", "Role: IoT Device", devx-track-csharp, devx-track-dotnet]
 ---
 
@@ -40,8 +40,6 @@ A device app can authenticate with IoT Hub using the following methods:
 #### Authenticate using a shared access key
 
 The [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) class exposes all the methods required to receive messages on the device.
-
-### Supply the connection parameters
 
 Supply the IoT Hub primary connection string and Device ID to `DeviceClient` using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring) method. In addition to the required IoT Hub primary connection string, the `CreateFromConnectionString` method can be overloaded to include these *optional* parameters:
 
@@ -184,8 +182,6 @@ You can connect a backend service to IoT Hub using the following methods:
 
 #### Connect using a shared access policy
 
-##### Supply the connection string
-
 Connect a backend application to a device using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.serviceclient.createfromconnectionstring). In addition to the required IoT Hub primary connection string, the `CreateFromConnectionString` method can be overloaded to include these *optional* parameters:
 
 * `transportType` - `Amqp` or `Amqp_WebSocket_Only`.
@@ -278,7 +274,7 @@ var feedbackReceiver = serviceClient.GetFeedbackReceiver();
 // Define the cancellation token.
 CancellationTokenSource source = new CancellationTokenSource();
 CancellationToken token = source.Token;
-// Call ReceiveAsync, passing the token. Wait for the timout period.
+// Call ReceiveAsync, passing the token. Wait for the timeout period.
 var feedbackBatch = await feedbackReceiver.ReceiveAsync(token);
 if (feedbackBatch == null) continue;
 ```

@@ -692,14 +692,6 @@ productDirectory:
         - developer-tools
       url: https://code.visualstudio.com/docs
     # Card
-    - title: Application Insights
-      summary: Full observability into your applications, infrastructure, and network
-      imageSrc: ./media/index/application-insights.svg
-      azureCategories:
-        - devops
-        - management-and-governance
-      url: /azure/azure-monitor/
-    # Card
     - title: Azure Artifacts
       summary: Create, host, and share packages with your team
       imageSrc: ./media/index/artifacts.svg
@@ -818,13 +810,6 @@ productDirectory:
         - security
       url: sentinel/index.yml
     # Card
-    - title: Azure Stack
-      summary: Build and run innovative hybrid applications across cloud boundaries
-      imageSrc: ./media/index/stack.svg
-      azureCategories:
-        - hybrid
-      url: /azure-stack/
-    # Card
     - title: Azure Local
       summary: Operate infrastructure across distributed locations enabled by Azure Arc
       imageSrc: ./media/index/azure-local.svg
@@ -924,7 +909,7 @@ productDirectory:
         - iot
       url: iot-hub/index.yml
     # Card
-    - title: Azure IoT Operations (Preview)
+    - title: Azure IoT Operations
       summary: Unlock insights for intelligent local actions and global visibility
       imageSrc: ./media/index/iot-operations.svg
       azureCategories:
@@ -946,13 +931,6 @@ productDirectory:
       azureCategories:
         - iot
       url: /azure-sphere/
-    # Card
-    - title: Azure Time Series Insights
-      summary: Explore and analyze time-series data from IoT devices
-      imageSrc: ./media/index/time-series-insights-environments.svg
-      azureCategories:
-        - iot
-      url: time-series-insights/index.yml
     # Card
     - title: Notification Hubs
       summary: Send push notifications to any platform from any back end
@@ -1157,13 +1135,6 @@ productDirectory:
       azureCategories:
         - mobile
       url: /appcenter/
-    # Card
-    - title: Xamarin
-      summary: Create cloud-powered mobile apps faster
-      imageSrc: /media/logos/logo_xamarin.svg
-      azureCategories:
-        - mobile
-      url: /xamarin/
     # Card
     - title: Application Gateway
       summary: Build secure, scalable, and highly available web front ends in Azure
@@ -1419,13 +1390,6 @@ productDirectory:
       azureCategories:
         - web
       url: azure-signalr/index.yml
-    # Card
-    - title: Azure Orbital Ground Station
-      summary: Satellite ground station and scheduling services for fast down linking of data
-      imageSrc: /media/logos/logo-azureorbital.svg
-      azureCategories:
-        - networking
-      url: orbital/index.yml
     # Card
     - title: Azure Web PubSub
       summary: Easily build real-time messaging web applications using WebSockets and the publish-subscribe pattern

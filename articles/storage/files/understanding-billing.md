@@ -4,12 +4,13 @@ description: Learn how to interpret the provisioned and pay-as-you-go billing mo
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 10/08/2024
+ms.date: 01/23/2025
 ms.author: kendownie
 ms.custom: references_regions
 ---
 
 # Understand Azure Files billing models
+
 Azure Files supports two different media tiers of storage, SSD and HDD, which allow you to tailor your file shares to the performance and price requirements of your scenario:
 
 - **SSD (premium)**: file shares hosted on solid-state drives (SSDs) provide consistent high performance and low latency, within single-digit milliseconds for most IO operations.
@@ -19,11 +20,20 @@ Azure Files has multiple pricing models including provisioned and pay-as-you-go 
 
 - **Provisioned billing models**: In a provisioned billing model, the primary costs of the file share are based on the amount of storage, IOPS (input and output operations per second), and throughput you provision when you create or update your file share, regardless of how much you use. Azure Files has two different provisioned models *provisioned v2* and *provisioned v1*.
     - **Provisioned v2**: In the provisioned v2 model, you have the ability to separately provision storage, IOPS, and throughput, although we provide a recommendation for you to help you with first time provisioning.
-    - **Provisioned v1**: In the provisioned v1 model, you provision the amount of storage you need for the share while IOPS and throughput are determined based on how much storage you provision. The provisioned v1 model for Azure Files is only available for SSD file shares.
+    - **Provisioned v1**: In the provisioned v1 model, you provision the amount of storage you need for the share while IOPS and throughput are determined based on how much storage you provision. The provisioned v1 model for Azure Files is only available for SSD (premium) file shares.
     
 - **Pay-as-you-go billing model**: In a pay-as-you-go model, the cost of the file share is based on how much you use the share, in the form of used storage, transaction, and data transfer costs. The pay-as-you-go model for Azure Files is only available for HDD file shares. We recommend using the provisioned v2 model for new HDD file share deployments.
-    
-This article explains the billing models for Azure Files work to help you understand your monthly Azure Files bill. For Azure Files pricing information, see [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
+
+This article explains how the billing models for Azure Files work to help you understand your monthly Azure Files bill. For Azure Files pricing information, see [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
+
+:::row:::
+    :::column:::
+        > [!VIDEO https://www.youtube-nocookie.com/embed/dyqQkheaHYg]
+    :::column-end:::
+    :::column:::
+        This video covers the Azure Files billing models including pay-as-you-go, provisioned v1, and provisioned v2.
+   :::column-end:::
+:::row-end:::
 
 ## Applies to
 | Management model | Billing model | Media tier | Redundancy | SMB | NFS |
@@ -105,6 +115,8 @@ Currently, these SKUs are generally available in a limited subset of regions:
 - West Central US
 - West Europe
 - North Europe
+- Germany West Central
+- Germany North
 
 ### Provisioned v2 provisioning detail
 When you create a provisioned v2 file share, you specify the provisioned capacity for the file share in terms of storage, IOPS, and throughput. File shares are limited based on the following attributes:
@@ -171,8 +183,8 @@ Snapshots are always differential from the live share and from each other. In th
 
 Some value-added services for Azure Files use snapshots as part of their value proposition. See [value-added services for Azure Files](#value-added-services) for more information.
 
-### Provisioned v2 soft-delete
-Deleted file shares in storage accounts with soft-delete enabled are billed based on the used storage capacity of the deleted share for the duration of the soft-delete period. To ensure that a deleted file share can always be restored, the provisioned storage, IOPS, and throughput of the share count against the storage account's limits until the file share is purged, however are not billed. For more information on soft-delete, see [How to enable soft delete on Azure file shares](storage-files-enable-soft-delete.md).
+### Provisioned v2 soft delete
+Deleted file shares in storage accounts with soft-delete enabled are billed based on the used storage capacity of the deleted share for the duration of the soft delete period. To ensure that a deleted file share can always be restored, the provisioned storage, IOPS, and throughput of the share count against the storage account's limits until the file share is purged, however are not billed. For more information on soft delete, see [How to enable soft delete on Azure file shares](storage-files-enable-soft-delete.md).
 
 ### Provisioned v2 billing meters
 File shares provisioned using the provisioned v2 billing model are billed against the following five billing meters:
@@ -193,8 +205,14 @@ Consumption against the provisioned v2 billing meters are emitted hourly in term
     - 30 day month: 737,280 units against the **Provisioned Storage** meter.
     - 31 day month: 761,856 units against the **Provisioned Storage** meter.
 
+### Provisioned v2 migrations
+The process for migrating your SMB Azure file shares from a pay-as-you-go model to the provisioned v2 billing model differs depending on whether or not you're using Azure File Sync. 
+
+- If you're using Azure Files without Azure File Sync, see [Migrate files from one SMB Azure file share to another](migrate-files-between-shares.md).
+- If you're using Azure File Sync, see [Migrate files from one Azure file share to another when using Azure File Sync](../file-sync/file-sync-share-to-share-migration.md).
+
 ## Provisioned v1 model
-The provisioned v1 method provides storage, IOPS and throughput in a fixed ratio to each other, similar to how storage is purchased in an on-premises storage solution. When you create a new provisioned v1 file share, you specify how much storage your share needs, and IOPS and throughput are computed values. The provisioned v1 model for Azure Files is only available for SSD file shares. 
+The provisioned v1 method provides storage, IOPS, and throughput in a fixed ratio to each other, similar to how storage is purchased in an on-premises storage solution. When you create a new provisioned v1 file share, you specify how much storage your share needs, and IOPS and throughput are computed values. The provisioned v1 model for Azure Files is only available for SSD file shares. 
 
 The amount of storage you provision determines the guaranteed storage, IOPS, and throughput limits of your file share's usage. For example, if you provision a 2 TiB share and upload 2 TiB of data to your share, your share will be full and you will not be able to add more data unless you increase the size of your share, or delete some of the data. Credit-based IOPS bursting provides added flexibility around usage, on a best-effort basis, while credits remain.
 
@@ -269,8 +287,8 @@ Azure Files supports snapshots, which are similar to volume shadow copies (VSS) 
 
 Snapshots are always differential from the live share and from each other. In the provisioned v1 billing model, the total differential size is billed against a usage meter, regardless of how much provisioned storage is unused. The used snapshot storage meter has a reduced price over the provisioned storage price.
 
-### Provisioned v1 soft-delete
-Deleted file shares in storage accounts with soft-delete enabled are billed based on the used storage capacity of the deleted share for the duration of the soft-delete period. The soft-deleted usage storage capacity is emitted against the used snapshot storage meter. For more information on soft-delete, see [How to enable soft delete on Azure file shares](storage-files-enable-soft-delete.md).
+### Provisioned v1 soft delete
+Deleted file shares in storage accounts with soft-delete enabled are billed based on the used storage capacity of the deleted share for the duration of the soft delete period. The soft-deleted usage storage capacity is emitted against the used snapshot storage meter. For more information on soft delete, see [How to enable soft delete on Azure file shares](storage-files-enable-soft-delete.md).
 
 ### Provisioned v1 billing meters
 File shares provisioned using the provisioned v1 billing model are billed against the following two meters:
@@ -355,7 +373,7 @@ The following table illustrates the cost breakdown of moving access tiers:
 | **Hot (source)** | <ul><li>1 hot read transaction per file.</li><ul> | -- | <ul><li>1 cool write transaction per file.</li></ul> |
 | **Cool (source)** | <ul><li>1 cool read transaction per file.</li><li>Data retrieval per total used GiB.</li></ul> | <ul><li>1 cool read transaction per file.</li><li>Data retrieval per total used GiB.</li></ul> | -- |
 
-Although there's no formal limit on how often you can change the access tier of your file share, your share will take time to transition based on the amount of data in your share. You can't change the access tier of the share while the file share is transitioning between access tiers. Changing the access tier of the file share doesn't impact regular file share access.
+You can change a file share's access tier up to 5 times within a 30 day window. The first day of the 30 day window begins when the first tier change happens. Changes between access tiers happen instantly, however, once you've changed the access tier of a share, you can't change it again within 24 hours, even if you've changed the access tier property fewer than 5 times within the last 30 days.
 
 ### Choosing an access tier
 Regardless of how you migrate existing data into Azure Files, we recommend initially creating the file share in transaction optimized access tier due to the large number of transactions incurred during migration. After your migration is complete and you've operated for a few days or weeks with regular usage, you can plug your transaction counts into the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to figure out which access tier is best suited for your workload.

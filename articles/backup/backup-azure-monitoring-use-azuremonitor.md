@@ -4,8 +4,8 @@ description: Monitor Azure Backup workloads and create custom alerts by using Az
 ms.topic: how-to
 ms.date: 12/30/2024
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 

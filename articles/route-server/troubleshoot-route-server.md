@@ -95,6 +95,14 @@ Azure Route Server drops routes with an ASN of 0 in the AS-Path. To ensure these
 
 When you advertise the same routes from your on-premises network to Azure over multiple ExpressRoute connections, normally ECMP is enabled by default for the traffic destined for these routes from Azure back to your on-premises network. Currently, when you deploy the Route Server, multiple-path information is lost in the BGP exchange between ExpressRoute and the Route Server, and consequently traffic from Azure will traverse only on one of the ExpressRoute connections.
 
+## Operational Issues
+
+### Why am I seeing an error about invalid scope and authorization to perform Route Server operations?
+
+If you see an error in the below format, then please make sure you have the following permissions configured: [Route Server Roles and Permissions](roles-permissions.md#permissions)
+
+Error message format: "The client with object id {} does not have authorization to perform action {} over scope {} or the scope is invalid. If access was recently granted, please refresh your credentials."
+
 ## Next step
 
 To learn how to create and configure Azure Route Server, see:

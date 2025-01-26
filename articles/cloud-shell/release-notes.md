@@ -1,7 +1,7 @@
 ---
 title: Azure Cloud Shell release notes
 description: This article lists the new features and changes released in Azure Cloud Shell.
-ms.date: 12/09/2024
+ms.date: 01/24/2025
 ms.topic: release-notes
 ---
 
@@ -10,6 +10,14 @@ ms.topic: release-notes
 The following document outlines the changes to Azure Cloud Shell. The Cloud Shell container image is
 updated on a monthly basis. Changes can include new or updated features and tools, security updates,
 and bug fixes.
+
+## January 2025
+
+Tool changes
+
+- Updated Azure CLI to [v2.68.0](/cli/azure/release-notes-azure-cli)
+- Updated Azure PowerShell to [v13.1.0](/powershell/azure/release-notes-azureps?view=azps-13.1.0&preserve-view=true)
+- Removed guava-android Java library
 
 ## December 2024
 

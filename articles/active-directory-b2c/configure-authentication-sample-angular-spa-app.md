@@ -190,7 +190,7 @@ Your final configuration file should look like the following JSON:
 ```json
 {
     "credentials": {
-        "tenantName": "<your-tenant-namee>",
+        "tenantName": "<your-tenant-name>",
         "clientID": "<your-webapi-application-ID>",
         "issuer": "https://<your-tenant-name>.b2clogin.com/<your-tenant-ID>/v2.0/"
     },

@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 07/22/2024
 ms.service: azure-backup
 ms.custom: engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up a SharePoint farm to Azure using Microsoft Azure Backup Server
