@@ -33,7 +33,7 @@ This Azure Database for PostgreSQL connector is supported for the following capa
 The three activities work on Azure Database for PostgreSQL  [Single Server](/azure/postgresql/single-server/) and [Flexible Server](/azure/postgresql/flexible-server/), as well as [Azure Cosmos DB for PostgreSQL](/azure/postgresql/hyperscale/).
 
 > [!NOTE]
-> When utilizing Azure Database for PostgreSQL Flexible Server or Azure Cosmos DB for PostgreSQL, please ensure to apply [version 2.0](#version-20) in the connector. If you are currently using driver version 1.0, please [upgrade the connector](#upgrade-the-azure-database-for-postgresql-connector).
+> When utilizing Azure Database for PostgreSQL Flexible Server or Azure Cosmos DB for PostgreSQL, please ensure to apply [version 2.0](#version-20) in the connector. If you are currently using version 1.0, please [upgrade the connector](#upgrade-the-azure-database-for-postgresql-connector).
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL Single Server will be retired on March 28, 2025. Please migrate to Flexible Server by that date. You can refer to this [article](/postgresql/migrate/migration-service/overview-migration-service-postgresql) and [FAQ](/postgresql/migrate/whats-happening-to-postgresql-single-server) for the migration guidance.
@@ -70,10 +70,10 @@ The following sections offer details about properties that are used to define Da
 
 ## Linked service properties
 
-The Azure Database for PostgreSQL connector driver version **2.0** supports TLS 1.3. Refer to this [section](#upgrade-the-azure-database-for-postgresql-connector) to upgrade your Azure SQL Database connector version from driver version 1.0. For the property details, see the corresponding sections.
+The Azure Database for PostgreSQL connector version **2.0** supports TLS 1.3. Refer to this [section](#upgrade-the-azure-database-for-postgresql-connector) to upgrade your Azure SQL Database connector version from version 1.0. For the property details, see the corresponding sections.
 
-- [Version 2.0](#driver-version-20)
-- [Version 1.0](#driver-version-10)
+- [Version 2.0](#version-20)
+- [Version 1.0](#version-10)
 
 ### Version 2.0
 
@@ -82,7 +82,7 @@ The following properties are supported for the Azure Database for PostgreSQL lin
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzurePostgreSql**. | Yes |
-| version | The driver version that you specify. The value is `2.0`. | Yes |
+| version | The version that you specify. The value is `2.0`. | Yes |
 | server | Specifies the host name and optionally port on which Azure Database for PostgreSQL is running. | Yes |
 | port |The TCP port of the Azure Database for PostgreSQL server. The default value is `5432`. |No |
 | database| The name of the Azure Database for PostgreSQL database to connect to. |Yes |
@@ -151,14 +151,14 @@ The following properties are supported for the Azure Database for PostgreSQL lin
 }
 ```
 
-### Driver version 1.0
+### Version 1.0
 
-The following properties are supported for the Azure Database for PostgreSQL linked service when you apply driver version 1.0:
+The following properties are supported for the Azure Database for PostgreSQL linked service when you apply version 1.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzurePostgreSql**. | Yes |
-| version | The driver version that you specify. The value is `1.0`. | Yes |
+| version | The version that you specify. The value is `1.0`. | Yes |
 | connectionString |A Npgsql connection string to connect to Azure Database for PostgreSQL.<br/>You can also put a password in Azure Key Vault and pull the `password` configuration out of the connection string. See the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) for more details. | Yes |
 | connectVia | This property represents the [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
