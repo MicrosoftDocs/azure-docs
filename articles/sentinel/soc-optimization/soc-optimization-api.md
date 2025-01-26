@@ -20,9 +20,9 @@ appliesto:
 
 # Use SOC optimizations programmatically (Preview)
 
-Use the Microsoft Sentinel [`recommendations`](/rest/api/securityinsights/get-recommendations/list) API to programmatically interact with SOC optimization recommendations, helping you to close coverage gaps against specific threats and tighten ingestion rates. You can get details about all current recommendations across your workspaces or a specific SOC optimization recommendation, or you can reevaluate a recommendation if you've made changes in your environment.
+Use the Microsoft Sentinel *[`recommendations`](/rest/api/securityinsights/get-recommendations/list)* API to programmatically interact with SOC optimization recommendations, helping you to close coverage gaps against specific threats and tighten ingestion rates. You can get details about all current recommendations across your workspaces or a specific SOC optimization recommendation, or you can reevaluate a recommendation if you've made changes in your environment.
 
-For example, use the [`recommendations`](/rest/api/securityinsights/get-recommendations/list) API to:
+For example, use the *[`recommendations`](/rest/api/securityinsights/get-recommendations/list)* API to:
 
 - Build custom reports and dashboards. For example, see [Visualize custom SOC optimization data](#visualize-custom-soc-optimization-data).
 - Integrate with third-party tools, such as for SOAR and ITSM services
@@ -33,7 +33,7 @@ For customers or MSSPs managing multiple environments, the `recommendations` API
 > [!IMPORTANT]
 > [!INCLUDE [unified-soc-preview-without-alert](../includes/unified-soc-preview-without-alert.md)]
 >
-> The [`recommendations`](/rest/api/securityinsights/get-recommendations/list) API is in **PREVIEW** and uses the *2024-10-01-preview* version. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The [`recommendations`](/rest/api/securityinsights/get-recommendations/list) API is in **PREVIEW** and uses version *2024-01-01-preview* or later. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Get, update, or reevaluate recommendations
 
