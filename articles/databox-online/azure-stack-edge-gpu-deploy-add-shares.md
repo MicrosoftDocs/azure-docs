@@ -83,7 +83,7 @@ To create a share, do the following procedure:
 
         ![Add NFS share](./media/azure-stack-edge-gpu-deploy-add-shares/add-share-nfs-1.png)
    
-5. Select **Create** to create the share.
+4. Select **Create** to create the share.
     
     You're notified that the share creation is in progress. After the share is created with the specified settings, the **Shares** tile updates to reflect the new share.
     
