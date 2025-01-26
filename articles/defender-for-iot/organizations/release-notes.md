@@ -32,7 +32,7 @@ When updating your on-premises software, we recommend:
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
 ### OT monitoring software versions (sensor versions)
-
+ 
 Cloud features may be dependent on a specific sensor version. Such features are listed below for the relevant software versions, and are only available for data coming from sensors that have the required version installed, or higher.
 
 > [!IMPORTANT]
