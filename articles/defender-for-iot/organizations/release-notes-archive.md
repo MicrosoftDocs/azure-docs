@@ -35,7 +35,7 @@ We now support the Open protocol. [See the updated protocol list](concept-suppor
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Single sign-on for the sensor console](#single-sign-on-for-the-sensor-console)<br>- [Sensor time drift detection](#sensor-time-drift-detection)<br>- [Security update](#security-update-1) |
+| **OT networks** | - [Single sign-on for the sensor console](#single-sign-on-for-the-sensor-console)<br>- [Sensor time drift detection](#sensor-time-drift-detection)<br>- [Security update](#security-update) |
 
 ### Single sign-on for the sensor console
 
@@ -678,7 +678,7 @@ For more information, see:
 
 ### Update sensor software from the Azure portal (Public preview)
 
-For cloud-connected sensor versions [22.2.3](release-notes.md#2223) and higher, now you can update your sensor software directly from the new **Sites and sensors** page on the Azure portal.
+For cloud-connected sensor versions [22.2.3](ot-sensor-archive.md#2223) and higher, now you can update your sensor software directly from the new **Sites and sensors** page on the Azure portal.
 
 :::image type="content" source="media/update-ot-software/send-package.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/send-package.png":::
 

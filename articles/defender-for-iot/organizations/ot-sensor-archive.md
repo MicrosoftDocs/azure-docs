@@ -1,6 +1,6 @@
 ---
 title: OT monitoring software versions archive for Microsoft Defender for IoT for organizations
-description: Learn about the features and enhancements released for Microsoft Defender for IoT for organizations more than six months ago.
+description: Learn about OT monitoring software versions released for Microsoft Defender for IoT for organizations more than six months ago.
 ms.topic: concept-article
 ms.date: 01/26/2025
 ---
@@ -11,7 +11,7 @@ ms.date: 01/26/2025
 
 This article serves as an archive for OT monitoring software versions released for Microsoft Defender for IoT for organizations more than six months ago.
 
-For more recent updates, see [OT monitoring software versions in Microsoft Defender for IoT?](release-notes.md.md).
+For more recent updates, see [OT monitoring software versions in Microsoft Defender for IoT?](release-notes.md).
 <!-- do we need this? -->
 Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
@@ -69,7 +69,7 @@ For more information, see [Threat intelligence research and packages](how-to-wor
 
 Defender for IoT provides **1 year of support** for every new version, starting with versions **22.1.7** and **22.2.7**. For example, version **22.2.7** was released in **October 2022** and is supported through **September 2023**.
 
-Earlier versions use a legacy support model, with support dates [detailed for each version](#ot-monitoring-software-versions).
+Earlier versions use a legacy support model, with support dates detailed for each version.
 
 ### On-premises appliance security
 
@@ -101,7 +101,7 @@ To understand whether a feature is supported in your sensor version, check the r
 
 This version includes the following updates and enhancements:
 
-- [Sensor software runs on a Debian 11 operating system](ot-deploy/install-software-ot-sensor.md) and [updates to this version may be heavier and longer than usual](whats-new.md#ot-network-sensors-now-run-on-debian-11)
+- [Sensor software runs on a Debian 11 operating system](ot-deploy/install-software-ot-sensor.md) and [updates to this version may be heavier and longer than usual](release-notes-archive.md#ot-network-sensors-now-run-on-debian-11)
 - [The legacy, privileged default *support* user is replaced by the default *admin* user](roles-on-premises.md#legacy-users)
 
 > [!IMPORTANT]
@@ -156,7 +156,7 @@ This version includes bug fixes for stability improvements.
 
 This version includes:
 
-- [Improved monitoring and support for OT sensor logs](whats-new.md#improved-monitoring-and-support-for-ot-sensor-logs)
+- [Improved monitoring and support for OT sensor logs](release-notes-archive.md#improved-monitoring-and-support-for-ot-sensor-logs)
 - Bug fixes for stability improvements.
 
 ### 22.3.8
@@ -444,5 +444,4 @@ This version includes the following new updates and fixes:
 - [PLC operating mode detections](how-to-create-risk-assessment-reports.md)
 - [New PCAP API](api/management-alert-apis.md#pcap-request-alert-pcap)
 - [Export logs from the on-premises management console for troubleshooting](legacy-central-management/how-to-troubleshoot-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting)
-- [Support for Webhook extended to send data to endpoints](how-to-forward-alert-information-to-partners.md#webhook-extended)
 - [Unicode support for certificate passphrases](best-practices/plan-prepare-deploy.md#prepare-ca-signed-certificates)

@@ -127,7 +127,7 @@ This version includes the following updates and enhancements:
 
 This version includes the following updates and enhancements:
 
-- [Malicious URL path alert](whats-new.md#malicious-url-path-alert)
+- [Malicious URL path alert](release-notes-archive.md#malicious-url-path-alert)
 - The following CVE is resolved in this version:
   - CVE-2024-38089
 
@@ -139,7 +139,7 @@ This version includes the following updates and enhancements:
 
 This version includes the following updates and enhancements:
 
-- [Sensor time drift detection](whats-new.md#sensor-time-drift-detection)
+- [Sensor time drift detection](release-notes-archive.md#sensor-time-drift-detection)
 - Bug fixes for stability improvements
 - The following CVEs are resolved in this version:
   - CVE-2024-29055
