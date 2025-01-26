@@ -2,19 +2,60 @@
 title: What's new archive for Microsoft Defender for IoT for organizations
 description: Learn about the features and enhancements released for Microsoft Defender for IoT for organizations more than six months ago.
 ms.topic: concept-article
-ms.date: 08/07/2022
+ms.date: 01/26/2025
 ---
 
 # What's new archive for in Microsoft Defender for IoT for organizations
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
-This article serves as an archive for features and enhancements released for Microsoft Defender for IoT for organizations more than nine months ago.
+This article serves as an archive for features and enhancements released for Microsoft Defender for IoT for organizations more than six months ago.
 
 For more recent updates, see [What's new in Microsoft Defender for IoT?](whats-new.md).
 
 Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+## June 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [Malicious URL path alert](#malicious-url-path-alert)<br> - [Newly supported protocols](#newly-supported-protocols)|
+
+### Malicious URL path alert
+
+The new alert, Malicious URL path, allows users to identify malicious paths in legitimate URLs. The Malicious URL path alert expands Defender for IoT's threat identification to include generic URL signatures, crucial for countering a wide range of cyber threats.
+
+For more information, this alert is described in the [Malware engine alerts table](alert-engine-messages.md#malware-engine-alerts).  
+
+### Newly supported protocols
+
+We now support the Open protocol. [See the updated protocol list](concept-supported-protocols.md).
+
+## April 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [Single sign-on for the sensor console](#single-sign-on-for-the-sensor-console)<br>- [Sensor time drift detection](#sensor-time-drift-detection)<br>- [Security update](#security-update-1) |
+
+### Single sign-on for the sensor console
+
+You can set up single sign-on (SSO) for the Defender for IoT sensor console using Microsoft Entra ID. SSO allows simple sign in for your organization's users, allows your organization to meet regulation standards, and increases your security posture. With SSO, your users don't need multiple login credentials across different sensors and sites.
+
+Using Microsoft Entra ID simplifies the onboarding and offboarding processes, reduces administrative overhead, and ensures consistent access controls across the organization.
+
+:::image type="content" source="media/set-up-sso/sso-sign-in.png" alt-text="Screenshot of the sensor console login screen with SSO.":::
+
+For more information, see [Set up single sign-on on for the sensor console](set-up-sso.md).
+
+### Sensor time drift detection
+
+This version introduces a new troubleshooting test in the connectivity tool feature, specifically designed to identify time drift issues.
+
+One common challenge when connecting sensors to Defender for IoT in the Azure portal arises from discrepancies in the sensor’s UTC time, which can lead to connectivity problems. To address this issue, we recommend that you configure a Network Time Protocol (NTP) server [in the sensor settings](configure-sensor-settings-portal.md#ntp).
+
+### Security update
+
+This update resolves six CVEs, which are listed in [software version 24.1.3 feature documentation](release-notes.md#version-2413).
 
 ## February 2024
 
