@@ -34,6 +34,17 @@ Azure Communication Services enables you to send and receive WhatsApp messages. 
 [!INCLUDE [Send WhatsApp Messages Python SDK](./includes/stickers/messages-quickstart-sticker-messages-python.md)]
 ::: zone-end
 
+## Working with WhatsApp Stickers FAQ
+
+### What are supported Sticker format and size limits?
+|Sticker Type	| Extension	| MIME Type	| Max Size |
+|----------------|------------|------------|-----------|
+|Animated sticker | .webp      |    image/webp | 500 KB |
+|Static sticker   | .webp      | image/webp    | 100 KB |
+
+### What is Sticker correct dimension to be uploaded?
+Sticker dimension should be 512x512.
+
 ## Next steps
 
 For more information, see:
