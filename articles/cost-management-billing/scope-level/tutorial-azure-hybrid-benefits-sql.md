@@ -49,7 +49,7 @@ Your recent Azure SQL usage details detected by the system are shown when you [c
 
 We recommend that you consult the appropriate people in your organization to validate that information and confirm any planned SQL Server usage growth.
 
-An optional, but useful, method to investigate your Azure SQL usage (including usage of Azure Hybrid Benefit at the resource level) is to use the Azure Hybrid Benefit [sql-license-usage PowerShell script](https://github.com/anosov1960/sql-server-samples/tree/master/samples/manage/azure-hybrid-benefit). It analyzes and tracks the combined SQL Server license usage of all the SQL resources in a specific subscription or an entire account.
+An optional, but useful, method to investigate your Azure SQL usage (including usage of Azure Hybrid Benefit at the resource level) is to use the Azure Hybrid Benefit [sql-license-usage PowerShell script](https://github.com/microsoft/sql-server-samples/tree/master/samples/manage/azure-hybrid-benefit). It analyzes and tracks the combined SQL Server license usage of all the SQL resources in a specific subscription or an entire account.
 
 ### Determine the number of eligible SQL Server core licenses available to assign to Azure
 

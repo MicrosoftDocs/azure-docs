@@ -94,11 +94,11 @@ The station OPC UA server uses the following OPC UA node IDs for telemetry to th
 - i=418 - actual cycle time
 - i=434 - pressure
 
-### Digital feedback loop with UA Cloud Commander and UA Cloud Action
+## Digital feedback loop with UA Cloud Commander and UA Cloud Action
 
 The solution uses a digital feedback loop to manage the pressure in a simulated station. To implement the feedback loop, the solution triggers a command from the cloud on one of the OPC UA servers in the simulation. The trigger activates when simulated time-series pressure data reaches a certain threshold. You can see the pressure of the assembly machine in the Azure Data Explorer dashboard. The pressure is released at regular intervals for the Seattle production line.
 
-### Install the production line simulation and cloud services
+## Install the production line simulation and cloud services
 
 Select the **Deploy** button to deploy all required resources to your Azure subscription:
 
@@ -123,7 +123,7 @@ curl -sfL https://get.k3s.io | sh
 
 Your VM is now ready to run the production line simulation.
 
-### Run the production line simulation
+## Run the production line simulation
 
 In the VM, open a Windows command prompt, enter *wsl*, and press **Enter**. Navigate to the `/mnt/c/ManufacturingOntologies-main/Tools/FactorySimulation` directory and run the **StartSimulation** shell script:
 
@@ -308,6 +308,99 @@ To create the Power BI dashboard, complete the following steps:
 > Use the same approach to add other data from Azure Data Explorer to your report.
 
 :::image type="content" source="media/concepts-iot-industrial-solution-architecture/power-bi.png" alt-text="Screenshot of a Power BI view." lightbox="media/concepts-iot-industrial-solution-architecture/power-bi.png" border="false" :::
+
+## Connect the reference solution to Microsoft Dynamics 365 Field Service
+
+This integration showcases the following scenarios:
+
+- Upload assets from the manufacturing ontologies reference solution to Dynamics 365 Field Service.
+- Create alerts in Dynamics 365 Field Service when a certain threshold on manufacturing ontologies reference solution telemetry data is reached.
+
+The integration uses Azure Logics Apps. With Logic Apps, you can use no-code workflows to connect business-critcal apps and services. This example shows you how to fetch data from Azure Data Explorer and trigger actions in Dynamics 365 Field Service.
+
+If you're not already a Dynamics 365 Field Service customer, activate a [30 day trial](https://dynamics.microsoft.com/field-service/field-service-management-software/free-trial).
+
+> [!TIP]
+> To avoid the need to configure cross tenant authentication, use the same Microsoft Entra ID that you used to deploy the manufacturing ontologies reference solution.
+
+### Create an Azure Logic Apps workflow to create assets in Dynamics 365 Field Service
+
+To upload assets from the manufacturing ontologies reference solution into Dynamics 365 Field Service:
+
+1. Go to the Azure portal and create a new logic app resource.
+
+1. Give the Azure Logic Apps a name, and place it in the same resource group as the manufacturing ontologies reference solution.
+
+1. Select **Workflows**.
+
+1. Give your workflow a name. For this scenario, use the stateful state type because assets aren't flows of data.
+
+1. In the workflow designer, select **Add a trigger**. Create a **Recurrence** trigger to run every day. You can change the trigger to occur more frequently.
+
+1. Add an action after the recurrence trigger. In **Add an action**, search for `Azure Data Explorer` and select the **Run KQL query** command. Leave the default authentication **OAuth**. Enter your Azure Data Explorer cluster URL and `ontologies` as the database name. In this query, you check what kind of assets you have. Use the following query to get assets from the manufacturing ontologies reference solution:
+
+    ```kql
+    opcua_telemetry
+    | join kind=inner (    
+        opcua_metadata
+        | distinct Name, DataSetWriterID
+        | extend AssetList = split(Name, ';')
+        | extend AssetName = tostring(AssetList[0])
+    ) on DataSetWriterID
+    | project AssetName
+    | summarize by AssetName
+    ```
+
+1. To get your asset data into Dynamics 365 Field Service, you need to connect to Microsoft Dataverse. In **Add an action**, search for `Dataverse` and select the **Add a new row** command. Leave the default authentication **OAuth**. Connect to your Dynamics 365 Field Service instance and use the following configuration:
+
+    - In the **Table Name** field, select **Customer Assets**
+    - In the **Name** field, select **Enter data from a previous step**, and the select **AssetName**.
+
+    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/add-asset-name.png" alt-text="Screenshot of workflow designer that shows how to add the asset names to the table.":::
+
+1. Save your workflow and run it. You can see the new assets are created in Dynamics 365 Field Service:
+
+    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/dynamics-asset-table.png" alt-text="Screenshot that shows the new asset definitions in the field service asset table.":::
+
+### Create an Azure Logic Apps workflow to create alerts in Dynamics 365 Field service
+
+This workflow creates alerts in Dynamics 365 Field Service, when the `FaultyTime` for an asset in the manufacturing ontologies reference solution reaches a threshold.
+
+1. To fetch the data, create an Azure Data Explorer function. In the Azure Data Explorer query panel in the Azure portal, run the following code to create a `FaultyFieldAssets` function in the **ontologies** database:
+
+    ```kql
+    .create-or-alter function  FaultyFieldAssets() {  
+    let Lw_start = ago(3d);
+    opcua_telemetry
+    | where Name == 'FaultyTime'
+    and Value > 0
+    and Timestamp between (Lw_start .. now())
+    | join kind=inner (
+        opcua_metadata
+        | extend AssetList =split (Name, ';')
+        | extend AssetName=AssetList[0]
+        ) on DataSetWriterID
+    | project AssetName, Name, Value, Timestamp}
+    ```
+
+1. Create a new stateful workflow in your Logic App.
+
+1. In the workflow designer, create a recurrence trigger that runs every three minutes. Then add an action and select the **Run KQL query** action.
+
+1. Enter your Azure Data Explorer Cluster URL, then enter **ontologies** as the database name and use the `FaultyFieldAssets` function name as the query.
+
+1. To get your asset data into Dynamics 365 Field Service, you need to connect to Microsoft Dataverse. In **Add an action**, search for `Dataverse` and select the **Add a new row** command. Leave the default authentication **OAuth**. Connect to your Dynamics 365 Field Service instance and use the following configuration:
+
+    - In the **Table Name** field, select **IoT Alerts**
+    - In the **Description** field, use **Enter data from a previous step**, to build a message "**[AssetName]** has a **[Name]** of **[Value]**". **AssetName**, **Name**, and **Value** are the fields from the previous step.
+    - In the **Alert Time** field, select **Enter data from a previous step**, and the select **Timestamp**.
+    - In the **Alert Type** field, select **Anomaly**.
+
+    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/add-alert-details.png" alt-text="Screenshot that shows the logic app configuration to create an alert.":::
+
+1. Run the workflow and to see new alerts generated in your Dynamics 365 Field Service **IoT Alerts** dashboard:
+
+    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/dynamics-iot-alerts.png" alt-text="Screenshot of alerts in Dynamics 365 FS." lightbox="media/concepts-iot-industrial-solution-architecture/dynamics-iot-alerts.png" border="false" :::
 
 ## Related content
 

@@ -5,8 +5,8 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 02/01/2024
 ms.custom: mvc, devx-track-azurepowershell, mode-api
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Quickstart: Restore Azure Database for PostgreSQL server across regions with PowerShell by using Azure Backup

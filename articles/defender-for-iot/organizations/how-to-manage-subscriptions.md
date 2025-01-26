@@ -64,14 +64,9 @@ This procedure describes how to add an OT plan for Defender for IoT in the Azure
 
 1. Select **Next** and review the details for any of your licensed sites. The details listed on the **Review and purchase** pane reflect any licenses you've purchased from the Microsoft 365 admin center.
 
-1. Do one or both of the following:
+1. Select the terms and conditions.
 
-   - Select the terms and conditions.
-   - If you're working with an on-premises management console, select **Download OT activation file (Optional)**.
-
-   When you're finished, select **Save**. If you've selected to download the on-premises management console activation file, the file is downloaded and you're prompted to save it locally. You'll use it later, when [activating your on-premises management console](legacy-central-management/activate-deploy-management.md#activate-the-on-premises-management-console).
-
-   [!INCLUDE [on-premises-management-deprecation](includes/on-premises-management-deprecation.md)]
+1. When you're finished, select **Save**.
 
 Your new plan is listed under the relevant subscription on the **Plans and pricing** > **Plans** page.
 
@@ -202,8 +197,6 @@ If you have multiple legacy subscriptions and are migrating to a Microsoft 365 p
 1. Select the **I accept the terms and conditions** option, and then select **Save**.
 
 1. After any changes are made, make sure to reactivate your sensors. For more information, see [Reactivate an OT sensor](how-to-manage-sensors-on-the-cloud.md#reactivate-an-ot-sensor).
-
-1. If you have an on-premises management console, make sure to upload a new activation file, which reflects the changes made. For more information, see [Upload a new activation file](legacy-central-management/how-to-manage-the-on-premises-management-console.md#upload-a-new-activation-file).
 
 Changes to your plan will take effect one hour after confirming the change. This change appears on your next monthly statement, and you're charged based on the length of time each plan was in effect.
 
