@@ -32,8 +32,11 @@ This Azure Database for PostgreSQL connector is supported for the following capa
 
 The three activities work on Azure Database for PostgreSQL  [Single Server](/azure/postgresql/single-server/) and [Flexible Server](/azure/postgresql/flexible-server/), as well as [Azure Cosmos DB for PostgreSQL](/azure/postgresql/hyperscale/).
 
->[!NOTE]
->When utilizing Azure Database for PostgreSQL Flexible Server or Azure Cosmos DB for PostgreSQL, please ensure to apply [version 2.0](#version-20) in the connector. If you are currently using driver version 1.0, please [upgrade the connector](#upgrade-the-azure-database-for-postgresql-connector).
+> [!NOTE]
+> When utilizing Azure Database for PostgreSQL Flexible Server or Azure Cosmos DB for PostgreSQL, please ensure to apply [version 2.0](#version-20) in the connector. If you are currently using driver version 1.0, please [upgrade the connector](#upgrade-the-azure-database-for-postgresql-connector).
+
+> [!IMPORTANT]
+> Azure Database for PostgreSQL Single Server will be retired on March 28, 2025. Please migrate to Flexible Server by that date. You can refer to this [article](/postgresql/migrate/migration-service/overview-migration-service-postgresql) and [FAQ](/postgresql/migrate/whats-happening-to-postgresql-single-server) for the migration guidance.
 
 ## Getting started
 
@@ -84,7 +87,7 @@ The following properties are supported for the Azure Database for PostgreSQL lin
 | port |The TCP port of the Azure Database for PostgreSQL server. The default value is `5432`. |No |
 | database| The name of the Azure Database for PostgreSQL database to connect to. |Yes |
 | username| The username to connect with. Not required if using IntegratedSecurity. |Yes |
-| password| The password to connect with. Not required if using IntegratedSecurity. |Yes |
+| password| The password to connect with. Not required if using IntegratedSecurity. Mark this field as **SecureString** to store it securely. Or, you can  [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | sslMode | Controls whether SSL is used, depending on server support. <br/>- **Disable**: SSL is disabled. If the server requires SSL, the connection will fail.<br/>- **Allow**: Prefer non-SSL connections if the server allows them, but allow SSL connections.<br/>- **Prefer**: Prefer SSL connections if the server allows them, but allow connections without SSL.<br/>- **Require**: The connection fails if the server doesn't support SSL.<br/>- **Verify-ca**: The connection fails if the server doesn't support SSL. Also verifies server certificate.<br/>- **Verify-full**: The connection fails if the server doesn't support SSL. Also verifies server certificate with host's name. <br/>Options: Disable (0) / Allow (1) / Prefer (2) **(Default)** / Require (3) / Verify-ca (4) / Verify-full (5) | No |
 | connectVia | This property represents the [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime.|No|
 | ***Additional connection properties:*** |  |  |
