@@ -11,12 +11,12 @@ ms.author: kabalas
 
 # External metadata
 
-The external metadata feature allows to store the metadata or additional information about the DICOM files that is not part of the DICOM file. For e.g, using the same (STOW-RS), you can store the metadata by passing the additional information in the header.
+The external metadata feature allows users to store metadata or additional information about the DICOM files that is not part of the DICOM file. This is accomplished by using STOW-RS to store the metadata by passing the additional information in the header.
 
 ## Limiations
 
 - External metadata is only supported in latest api version. i.e Version 2 or above
-- Only private dicom tags are supported to be as external metadata.
+- Only tags which don't conform with standard DICOM protocol tags such as [private tags](https://dicom.nema.org/dicom/2013/output/chtml/part05/sect_7.8.html) are supported to be as external metadata.
 - Only study level tags are supported.
 - External metadata tags cannot be updated or deleted. 
 - The following VR types are supported:
@@ -66,11 +66,11 @@ Body:
 > Only study level tags are supported.
 > If the tag already exists, it will update the value of the existing tag for the study.
 > If the tag already exists with different VR, then it will results in an error.
-> All the tag values must follow the standard for their respective VR. If there is an issue with one of the tags, then it will fail the whole transaction.
+> Once a tag is created, its Value Representation (VR) is fixed and must comply with the standard for that specific VR. If there is an issue with one of the tags, then it will fail the whole transaction.
 
 ### Retrieve metadata (for study, series, or instance)
 
-The [Retrieve metadata (for study, series, or instance)](dicom-services-conformance-statement-v2.md#retrieve-metadata-for-study-series-or-instance) transaction allows to retrieve the external metadata along with other metadata. The external metadata is retrieved along with other tags by setting the `msdicom-request-meta` header to `true`. An example request follows. 
+The [Retrieve metadata (for study, series, or instance)](dicom-services-conformance-statement-v2.md#retrieve-metadata-for-study-series-or-instance) transaction allows users to retrieve the external metadata along with other metadata. The external metadata is retrieved along with other tags by setting the `msdicom-request-meta` header to `true`. An example request follows. 
 
 ```http 
 GET {dicom-service-url}/{version}/studies/{study}/series/{series}/instances/{instance}/metadata
@@ -86,7 +86,7 @@ Content-Type: application/dicom
 
 ### Search (QIDO-RS)
 
-The [Search (QIDO-RS)](dicom-services-conformance-statement-v2.md#search-qido-rs) transaction allows to query external metadata similar to other tags. The external metadata can be queried by setting the `msdicom-request-meta` header to `true`. An example request follows. 
+The [Search (QIDO-RS)](dicom-services-conformance-statement-v2.md#search-qido-rs) transaction allows users to query external metadata similar to other tags. The external metadata can be queried by setting the `msdicom-request-meta` header to `true`. An example request follows. 
 
 ```http 
 GET {dicom-service-url}/{version}/studies?00191100=PersonName
