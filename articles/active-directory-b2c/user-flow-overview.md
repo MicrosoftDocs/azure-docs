@@ -6,7 +6,7 @@ author: garrodonnell
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: concept-article
-ms.date: 11/09/2023
+ms.date: 01/10/2024
 ms.author: godonnell
 ms.subservice: b2c
 

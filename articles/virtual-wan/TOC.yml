@@ -208,8 +208,12 @@
           href: certificates-point-to-site.md
       - name: Microsoft Entra ID authentication
         items:
-        - name: Configure a P2S VPN
+        - name: Configure P2S - Microsoft-registered VPN client
+          href: point-to-site-entra-gateway.md
+        - name: Configure P2S - manually registered VPN client
           href: virtual-wan-point-to-site-azure-ad.md
+        - name: Create or modify custom audience app ID
+          href: point-to-site-entra-register-custom-app.md
         - name: Configure a tenant
           href: openvpn-azure-ad-tenant.md
         - name: Configure multifactor authentication (MFA)

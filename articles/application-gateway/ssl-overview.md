@@ -4,7 +4,7 @@ description: This article is an overview of the Application Gateway end to end T
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/09/2023
 ms.author: greglin
 
@@ -49,7 +49,7 @@ Application gateway supports the following types of certificates:
 For more information, see [configure TLS termination with application gateway](./create-ssl-portal.md).
 
 ### Size of the certificate
-Check the [Application Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits) section to know the maximum TLS/SSL certificate size supported.
+Check the [Application Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-application-gateway-limits) section to know the maximum TLS/SSL certificate size supported.
 
 ## End-to-end TLS encryption
 

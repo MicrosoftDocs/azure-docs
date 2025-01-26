@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: faq
-ms.date: 07/18/2024
+ms.date: 01/10/2025
 ms.author: duau
 
 ---
@@ -266,6 +266,13 @@ No. From a routing perspective, all virtual networks linked to the same ExpressR
 
 Yes. You can link a single virtual network with up to four ExpressRoute circuits in the same location or up to 16 ExpressRoute circuits in different peering locations. 
 
+### Service Endpoint Policy on the Gateway Subnet?
+
+Configuring a Service Endpoint Policy (SEP) on the Gateway Subnet is not advisable due to potential issues, including:
+* Failures in gateway service deployment
+* Challenges with scaling and service healing
+
+
 ### Do virtual networks connected to ExpressRoute circuits have Internet connectivity?
 
 Yes. If a default routes (0.0.0.0/0) or Internet route prefixes isn't advertised through the BGP session, you can connect to the Internet from a virtual network linked to an ExpressRoute circuit.
@@ -299,9 +306,12 @@ The public IP address is used for internal management only, and doesn't constitu
 
 Yes. ExpressRoute accepts up to 4000 prefixes for private peering and 200 prefixes for Microsoft peering. You can increase the limit to 10,000 routes for private peering when using ExpressRoute premium.
 
+> [!NOTE]
+> Advertising prefixes received over Microsoft Peering to Private Peering carries the risk of exceeding prefix limits, as Microsoft prefixes are updated monthly and can grow significantly. To manage this, configure Service Health to review prefix updates, implement monitoring to detect changes, and consider upgrading the SKU or summarizing routes to control the number of prefixes advertised from on-premises.
+
 ### Are there restrictions on IP ranges I can advertise over the BGP session?
 
-We don't accept private prefixes (RFC1918) for the Microsoft peering BGP session. We accept any prefix size up to /32 prefix on both the Microsoft and the private peering.
+We don't accept private prefixes (RFC1918) for the Microsoft peering BGP session. We accept any prefix size up to /32 prefix on both the Microsoft and the private peering. 
 
 ### What happens if the BGP route limit gets exceeded?
 

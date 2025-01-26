@@ -5,7 +5,7 @@ description: Learn about public IP addresses in Azure.
 services: virtual-network
 ms.service: azure-virtual-network
 ms.subservice: ip-services
-ms.topic: conceptual
+ms.topic: concept-article
 author: mbender-ms
 ms.author: mbender
 ms.date: 09/27/2024
@@ -154,7 +154,7 @@ There are other attributes that can be used for a public IP address (Standard SK
 
 ## Limits 
 
-The limits for IP addressing are listed in the full set of [limits for networking](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) in Azure. The limits are per region and per subscription. 
+The limits for IP addressing are listed in the full set of [limits for networking](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-networking-limits) in Azure. The limits are per region and per subscription. 
 
 [Contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to increase above the default limits based on your business needs.
 

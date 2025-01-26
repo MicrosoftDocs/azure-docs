@@ -200,7 +200,7 @@ az networkcloud cluster update --name "<clusterName>" /
 az networkcloud cluster show --resource-group "<resourceGroup>" --name "<clusterName>" | grep -a3 computeDeploymentThreshold
 
   "clusterType": "MultiRack",
-  "clusterVersion": "<CLUSER_VERSION>",
+  "clusterVersion": "<CLUSTER_VERSION>",
   "computeDeploymentThreshold": {
     "grouping": "PerCluster",
     "type": "PercentSuccess",
@@ -507,3 +507,5 @@ Deleting a cluster deletes the resources in Azure and the cluster that resides i
 ```azurecli
 az networkcloud cluster delete --name "$CLUSTER_NAME" --resource-group "$CLUSTER_RG"
 ```
+>[!NOTE]
+>It is recommended to wait for 20 minutes after deleting cluster before trying to create a new cluster with the same name.
