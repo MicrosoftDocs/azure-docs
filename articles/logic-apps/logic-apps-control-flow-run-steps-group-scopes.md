@@ -24,7 +24,7 @@ you can use scopes when you want to implement
 
 To check a scope's status, you can use the same criteria 
 that you use to determine a logic apps' run status, 
-such as **Succeeded**, **Failed**, **Cancelled**, and so on. 
+such as **Succeeded**, **Failed**, **Canceled**, and so on. 
 By default, when all the scope's actions succeed, 
 the scope's status is marked as **Succeeded**. 
 But when any action in the scope fails or is canceled, 
