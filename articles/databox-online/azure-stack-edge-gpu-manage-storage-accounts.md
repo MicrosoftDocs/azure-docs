@@ -88,6 +88,9 @@ You can now select a container from this list and select **+ Delete container** 
 
 Each Azure Storage account has two 512-bit storage access keys that are used for authentication when the storage account is accessed. One of these two keys must be supplied when your Azure Stack Edge device accesses your cloud storage service provider (in this case, Azure).
 
+> [!NOTE]
+> Access your Azure Storage Account with storage access keys from Azure Stack Edge Pro or Data Box Gateway device has been deprecated in 2501. Tiering data from an Azure Stack Edge Pro or Data Box Gateway device to the mapped Azure Storage account uses Managed Service Identity to authorize the data access from 2501. For more information, see [Assign an Azure role for access to blob data](../storage/blobs/assign-azure-role-data-access.md?tabs=portal#assign-an-azure-role).
+
 An Azure administrator can regenerate or change the access key by directly accessing the storage account (via the Azure Storage service). The Azure Stack Edge service and the device do not see this change automatically.
  
 To inform Azure Stack Edge of the change, you will need to access the Azure Stack Edge service, access the storage account, and then synchronize the access key. The service then gets the latest key, encrypts the keys, and sends the encrypted key to the device. When the device gets the new key, it can continue to transfer data to the Azure Storage account. 
