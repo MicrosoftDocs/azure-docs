@@ -45,13 +45,12 @@ Each data factory is deployed into a single Azure region. If the region becomes 
 
 For higher resiliency, you can deploy a standby or backup data factory in a secondary region and failover to that other region if the primary region is unavailable. To enable this capability, complete the following tasks:
 
-- Deploy your data factory in both primary and secondary regions.
-- Reconfigure connections to resources as needed.
-- Configure load balancing and failover policies. 
-- Plan to monitor the primary instance health and initiate failover.
+* Deploy your data factory in both primary and secondary regions.
+* Reconfigure connections to resources as needed.
+* Configure load balancing and failover policies.
+* Plan to monitor the primary instance health and initiate failover.
 
 For more information on multi-region deployments for your data factory pipelines, see [Set up automated recovery](/analytics/pipelines-disaster-recovery#set-up-automated-recovery).
-
 
 ## Backup and restore
 
