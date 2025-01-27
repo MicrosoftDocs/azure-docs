@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 06/12/2024
+ms.date: 01/27/2025
 ---
 
 # Overview: Automate deployment for Azure Logic Apps by using Azure Resource Manager templates
