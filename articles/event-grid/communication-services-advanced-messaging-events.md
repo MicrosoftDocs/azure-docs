@@ -42,6 +42,7 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
 | Attribute  | Type  | Nullable | Description |
 |:--- |:---:|:---:| --- |
 | channelType  | `string` | ❌ | Channel type of the channel that the message was sent on. For example: `"whatsapp"`. |
+| messageId  | `string` | ❌ | Message Id of the message receive event as GUID. |
 | messageType  | `string` | ❌ | Message Type of the message receive event. Such as: `"interactive"`, `"sticker"`, `"reaction"`. |
 | from    | `string` | ❌ | Sender ID that sent the message.  |
 | to | `string` | ❌ | The channel ID that received the message, formatted as a GUID.  |
