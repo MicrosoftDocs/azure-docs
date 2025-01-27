@@ -22,7 +22,7 @@ Azure Data Factory helps you more easily integrate and orchestrate data between 
 
 * [On-premises data gateways](/data-integration/gateway/service-gateway-onprem), which are Azure resources that you create and use in your data factory to access data in on-premises systems. Each gateway resource represents a separate [data gateway installation](/data-integration/gateway/service-gateway-install) on a local computer. You can configure an on-premises data gateway for high availability by using multiple computers. For more information, see [High availability support](/data-integration/gateway/plan-scale-maintain).
 
-## Transient faults 
+## Transient faults
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
@@ -39,18 +39,18 @@ Azure Data Factory supports *zone redundancy*, which spreads compute resources a
 Each data factory is deployed into a single Azure region. If the region becomes unavailable, your data factory is also unavailable.
 
 > [!NOTE]
-> In case of a disaster (loss of region), a new data factory can be provisioned manually or in an automated fashion. Once the new data factory has been created, you can restore your pipelines, datasets and linked services JSON from an existing Git repository if you have setup [source control in Azure Data Factory](/data-factory/source-control).
+> If there's a disaster (loss of region), a new data factory can be provisioned manually or in an automated fashion. Once you create the new data factory, you can restore your pipelines, datasets, and linked services JSON from an existing Git repository if you have setup [source control in Azure Data Factory](/data-factory/source-control).
 
 ### Alternative multi-region approaches 
 
-For higher resiliency, you can deploy a standby or backup data factory in a secondary region and fail over to that other region if the primary region is unavailable. To enable this capability, complete the following tasks:
+For higher resiliency, you can deploy a standby or backup data factory in a secondary region and failover to that other region if the primary region is unavailable. To enable this capability, complete the following tasks:
 
 - Deploy your data factory in both primary and secondary regions.
 - Reconfigure connections to resources as needed.
 - Configure load balancing and failover policies. 
 - Plan to monitor the primary instance health and initiate failover.
 
-For more information on multi-region deployments for your data factory pipelines, refer to [Set up automated recovery](/analytics/pipelines-disaster-recovery#set-up-automated-recovery).
+For more information on multi-region deployments for your data factory pipelines, see [Set up automated recovery](/analytics/pipelines-disaster-recovery#set-up-automated-recovery).
 
 
 ## Backup and restore
