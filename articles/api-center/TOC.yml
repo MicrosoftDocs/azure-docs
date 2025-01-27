@@ -11,7 +11,7 @@
       - name: Key concepts
         href: key-concepts.md  
       - name: Service limits
-        href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#api-center-limits
+        href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#azure-api-center-limits
       - name: Frequently asked questions
         href: frequently-asked-questions.yml    
     - name: Quickstarts
@@ -38,8 +38,12 @@
         href: manage-apis-azure-cli.md
       - name: Import APIs from API Management
         href: import-api-management-apis.md
-      - name: Synchronize APIs from API Management
-        href: synchronize-api-management-apis.md
+      - name: Integrate API sources
+        items:    
+        - name: Synchronize APIs from API Management
+          href: synchronize-api-management-apis.md
+        - name: Synchronize APIs from Amazon API Gateway
+          href: synchronize-aws-gateway-apis.md
       - name: Build and register APIs - VS Code extension
         href: build-register-apis-vscode-extension.md
       - name: Design APIs - GitHub Copilot for Azure
