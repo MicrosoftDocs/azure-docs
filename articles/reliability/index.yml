@@ -10,7 +10,7 @@ metadata:
   ms.author: anaharris
   author: anaharris-ms
   ms.service: azure
-  ms.date: 07/12/2022
+  ms.date: 01/28/2025
   ms.subservice: azure-reliability
 
 landingContent: 
@@ -42,7 +42,7 @@ landingContent:
           - text: Multi-region solutions in nonpaired regions
             url: regions-multi-region-nonpaired.md
   # Card
-  - title: Availability zone support
+  - title: Azure availability zones
     linkLists:
       - linkListType: concept
         links:
@@ -65,5 +65,3 @@ landingContent:
         links:
           - text: Reliability guidance for Azure services
             url: overview-reliability-guidance.md
-
-  

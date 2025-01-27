@@ -1149,6 +1149,8 @@
       href: partner-integrations.md
     - name: Creating Workbooks
       href: sentinel-workbook-creation.md
+    - name: Creating Playbooks
+      href: sentinel-playbook-creation.md
     - name: Publish solutions
       href: publish-sentinel-solutions.md
     - name: Solution lifecycle post publish

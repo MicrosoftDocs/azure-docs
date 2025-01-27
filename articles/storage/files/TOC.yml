@@ -79,9 +79,11 @@
       href: ../common/storage-use-azcopy-configure.md?toc=/azure/storage/files/toc.json
 - name: Authentication and authorization
   items:
-  - name: Overview of identity-based authentication options
+  - name: Overview of identity-based authentication
     href: storage-files-active-directory-overview.md
-  - name: Windows identity-based authentication
+  - name: Overview of authorization and access control
+    href: storage-files-authorization-overview.md    
+  - name: Windows identity-based authentication (SMB)
     items:
     - name: Enable an AD source
       items:
@@ -113,7 +115,7 @@
         href: storage-files-identity-configure-file-level-permissions.md
     - name: Mount file share
       href: storage-files-identity-mount-file-share.md
-  - name: Linux identity-based authentication
+  - name: Linux identity-based authentication (SMB)
     href: storage-files-identity-auth-linux-kerberos-enable.md
   - name: Authorize access to file data
     items:

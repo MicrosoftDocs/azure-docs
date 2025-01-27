@@ -29,8 +29,6 @@ Azure Content Delivery Network global and Azure Content Delivery Network China h
 
      - Performs content delivery outside of China
 
-     - Three pricing tiers: Microsoft standard, Edgio standard, and Edgio premium
-
      - [Documentation](./index.yml)
 
 - Azure Content Delivery Network China:

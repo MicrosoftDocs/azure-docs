@@ -1,6 +1,91 @@
 {
   "redirections": [
     {
+      "source_path": "articles/cdn/cdn-analyze-usage-patterns.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-analyze-usage-patterns",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-http-debug-headers.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-http-debug-headers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-migrate.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-migrate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-pop-abbreviations.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-pop-abbreviations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-query-string-premium.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-query-string-premium",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-query-string.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-query-string",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-real-time-alerts.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-real-time-alerts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-restrict-access-by-country-region.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-restrict-access-by-country-region",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-verizon-custom-reports.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-verizon-custom-reports",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-verizon-http-headers.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-verizon-http-headers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-verizon-premium-rules-engine-reference-conditional-expressions.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-verizon-premium-rules-engine-reference-conditional-expressions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-verizon-premium-rules-engine-reference-features.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-verizon-premium-rules-engine-reference-features",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-verizon-premium-rules-engine-reference-match-conditions.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-verizon-premium-rules-engine-reference-match-conditions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-verizon-premium-rules-engine-reference.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-verizon-premium-rules-engine-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-verizon-premium-rules-engine.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-verizon-premium-rules-engine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/network-watcher-nsg-auditing-powershell.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-nsg-auditing-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/view-relative-latencies.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/view-relative-latencies",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-network/migrate-classic-vnet-powershell.md",
       "redirect_url": "/previous-versions/azure/virtual-network/migrate-classic-vnet-powershell",
       "redirect_document_id": false
@@ -1989,6 +2074,11 @@
       "source_path_from_root": "/articles/cdn/enable-raw-logs.md",
       "redirect_url": "/azure/cdn/monitoring-and-access-log",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cdn/cdn-features.md",
+      "redirect_url": "/azure/frontdoor/front-door-cdn-comparison",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/chef/chef-automation.md",
