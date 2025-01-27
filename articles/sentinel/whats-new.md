@@ -23,7 +23,7 @@ Get notified when this page is updated by copying and pasting the following URL 
 
 ## January 2025
 
-- [Threat intelligence management interface updated](#threat-intelligence-management-interface-updated)
+- [Threat intelligence management interface updated](#threat-intelligence-management-interface-has-moved)
 - [Unlock advanced hunting with new STIX objects by opting in to new threat intelligence tables](#unlock-advanced-hunting-with-new-stix-objects-by-opting-in-to-new-threat-intelligence-tables)
 - [Threat intelligence upload API now supports more STIX objects](#threat-intelligence-upload-api-now-supports-more-stix-objects)
 - [Microsoft Defender Threat Intelligence data connectors now generally available (GA)](#microsoft-defender-threat-intelligence-data-connectors-now-generally-available-ga)
