@@ -79,7 +79,7 @@ Client (null) sending PUBLISH (d0, q0, r0, m1, 'world', ... (5 bytes))
 Client (null) sending DISCONNECT
 ```
 
-The mosquitto client uses the service account token mounted at `/var/run/secrets/tokens/broker-sat` to authenticate with the broker. The token is valid for 24 hours. The client also uses the default root CA certificate mounted at `/var/run/certs/ca.crt` to verify the broker's TLS certificate chain.
+The Mosquitto client uses the service account token mounted at `/var/run/secrets/tokens/broker-sat` to authenticate with the broker. The token is valid for 24 hours. The client also uses the default root CA certificate mounted at `/var/run/certs/ca.crt` to verify the broker's TLS certificate chain.
 
 > [!TIP]
 > You can use kubectl to download the default root CA certificate to use with other clients. For example, to download the default root CA certificate to a file named `ca.crt`:
@@ -104,7 +104,7 @@ Client (null) received SUBACK
 Subscribed (mid: 1): 0
 ```
 
-The mosquitto client uses the same service account token and root CA certificate to authenticate with the broker and subscribe to the topic.
+The Mosquitto client uses the same service account token and root CA certificate to authenticate with the broker and subscribe to the topic.
 
 To remove the pod, run `kubectl delete pod mqtt-client -n azure-iot-operations`.
 
