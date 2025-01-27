@@ -1,7 +1,7 @@
 ---
 title: Email Resource Management - Automating the creation and management of Communication and Email Services with custom domains
 titleSuffix: An Azure Communication Services Automation Sample
-description: Learn how to automate the creation of Communication Services, Email Communication Services, custom domain management, DNS record configuration, and domain verification.
+description: Learn how to automate the creation of Communication Services and Email Communication Services. You will also manage custom domains, configure DNS records, and verify domains.
 author: Deepika0530
 manager: komivi.agbakpem
 services: azure-communication-services
@@ -15,9 +15,9 @@ ms.subservice: email
 
 # Email Resource Management: Automating end to end resource creation
 
-Get started with Azure PowerShell to automate the creation of Azure Communication Services (ACS), Email Communication Services (ECS), manage custom domains, configure DNS records, verify domains and domain linking to communication resource.
+Get started with Azure PowerShell to automate the creation of Azure Communication Services (ACS), Email Communication Services (ECS), manage custom domains, configure DNS records, verify domains, and domain linking to communication resource.
 
-In this sample, we'll cover off what this sample does and what you need as pre-requisites before we run this sample locally on your machine. 
+In this sample, we cover what the sample does and the prerequisites you need before running it locally on your machine.
 
 This documentation provides a detailed guide on using Azure PowerShell to automate the creation of Azure Communication Services (ACS) and Email Communication Services (ECS). It also covers the process of managing custom domains, configuring DNS records (such as Domain, SPF, DKIM, DKIM2), verifying domains and domain linking to communication resource.
 
@@ -29,11 +29,11 @@ This documentation provides a detailed guide on using Azure PowerShell to automa
 
 ### Prerequisite check
 
-- In a command prompt, run the `powershell -command $PSVersionTable.PSVersion` command to check whether the powershell is installed or not.
+- In a command prompt, run the `powershell -command $PSVersionTable.PSVersion` command to check whether the PowerShell is installed or not.
 
 ## Initialize all the Parameters
 
-Before proceeding, define the variables needed for setting up the ACS, ECS and domains, along with DNS configuration for the domains. Modify these variables based on your environment:
+Before proceeding, define the variables needed for setting up the ACS, ECS, and domains, along with DNS configuration for the domains. Modify these variables based on your environment:
 
 ```azurepowershell-interactive
 # Parameters for configuration
@@ -65,7 +65,7 @@ $domains = @(
 
 ## Connect to Azure Account
 
-Before performing any actions with Azure resources, authenticate using the `Connect-AzAccount` cmdlet. This allows you to login and authenticate your Azure account for further tasks:
+Before performing any actions with Azure resources, authenticate using the `Connect-AzAccount` cmdlet. This process allows you to login and authenticate your Azure account for further tasks:
 
 ```azurepowershell-interactive
 # Attempt to authenticate the Azure session using the Connect-AzAccount cmdlet
@@ -137,7 +137,7 @@ Automate domain creation, configuration, and DNS record setup (including Domain,
 > The maximum limit for domain creation is 800 per Email Communication Service.
 
 > [!NOTE]
-> We are working with five predefined domains, for which DNS records will be added and configured.
+> In our code, we work with five predefined domains, for which DNS records are added and configured.
 
 ```azurepowershell-interactive
 # Loop through each domain in the predefined list of domains to create and configure them
@@ -685,4 +685,4 @@ PS C:\> Remove-AzEmailServiceDomain -Name contoso.com -EmailServiceName ContosoE
 If you have any phone numbers assigned to your resource upon resource deletion, the phone numbers are automatically released from your resource at the same time.
 
 > [!NOTE]
-> Resource deletion is **permanent** and no data, including event grid filters, phone numbers, or other data tied to your resource, can be recovered if you delete the resource.
+> Resource deletion is **permanent** and no data, including Event Grid filters, phone numbers, or other data tied to your resource, can be recovered if you delete the resource.
