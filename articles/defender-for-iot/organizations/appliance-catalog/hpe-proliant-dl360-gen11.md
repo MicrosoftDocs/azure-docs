@@ -32,7 +32,7 @@ The following image displays the hardware elements on the HPE ProLiant DL360 Gen
 |**Storage**| 6 HPE 2.4TB SAS 12G Mission Critical 10K SFF BC 3-year Warranty 512e Multi Vendor HDD |
 |**Network controller**| On-board: 8 x 1 Gb |
 |**Management**     | HPE iLO Advanced         |
-|**Power**            |HPE 800W Flex Slot Titanium Hot Plug Low Halogen Power Supply Kit |
+|**Power**            |HPE 1000W flex slot power supply with 96% efficiency, 100-240 VAC input, 80 Plus Titanium certified |
 |**Rack support**     | HPE 1U Rail 3 kit        |
 
 ## HPE DL360 Gen 11 Plus (NHP 4SFF) - Bill of materials
@@ -51,7 +51,7 @@ The following image displays the hardware elements on the HPE ProLiant DL360 Gen
 |**P10097-B21** | Broadcom BCM57416 Ethernet 10Gb 2-port BASE-T OCP3 Adapter for HPE |1|
 |**P48907-B21** | HPE ProLiant DL3X0 Gen11 1U Standard Fan Kit |1|
 |**P54697-B21** | HPE ProLiant DL3X0 Gen11 1U 2P Standard Fan Kit |1|
-|**865438-B21** | HPE 800W Flex Slot Titanium Hot Plug Low Halogen Power Supply Kit |2|
+|**P03178-B21** | HPE 1000W flex slot power supply with 96% efficiency, 100-240 VAC input, 80 Plus Titanium certified |2|
 |**AF573A** | HPE C13 - C14 WW 250V 10Amp Flint Gray 2.0m Jumper Cord |2|
 |**P48830-B21** | HPE ProLiant DL3XX Gen11 CPU2 to OCP2 x8 Enablement Kit  |1|
 |**P52416-B21** | HPE ProLiant DL360 Gen11 OROC Tri-Mode Cable Kit |1|
