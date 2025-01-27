@@ -22,12 +22,12 @@ You can use Update Manager for:
 
 - **Unified Update Management** - Monitor update compliance across Windows and Linux machines (running a server operating system) from a single dashboard, including machines in Azure, and on-premises or other cloud environments (connected by Azure Arc).
 - **Flexible patching options**:
-    - Schedule updates within [customer-defined maintenance ](scheduled-patching.md), for both Azure and Arc-connected machines.
+    - Schedule updates within [customer-defined maintenance ](https://aka.ms/umc-scheduled-patching), for both Azure and Arc-connected machines.
     - [Apply updates in real-time](deploy-updates.md) 
     - Use [Automatic VM guest patching](https://learn.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching), to automatically apply updates to Azure VMs without requiring manual intervention. 
     - Use [Hot patching](https://learn.microsoft.com/windows-server/get-started/hotpatch), to apply critical updates to Azure VMs without requiring a reboot, minimizing downtime
 - **Security and Compliance tracking** - Apply security and critical patches with enhanced security measures and compliance tracking. 
-- **Periodic update Assessments** - Enable [periodic assessments](periodic-assessment-at-scale.md) to check for updates every 24 hours. 
+- **Periodic update Assessments** - Enable [periodic assessments](https://aka.ms/umc-periodic-assessment-policy) to check for updates every 24 hours. 
 - **Dynamic Scoping** - Group machines based on criteria and apply updates at scale. 
 - **Custom Reporting and Alerts** - Build custom dashboards to report update status and [configure alerts](manage-alerts.md) to notify you of update statuses and any issues that arise. 
 - **Granular Access Control** - Use role-based access control (RBAC) to delegate permissions for patch management tasks at a per-resource level. 
