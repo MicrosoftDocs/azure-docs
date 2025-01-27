@@ -402,6 +402,8 @@
       href: data-connectors/dynatrace-problems.md
     - name: Dynatrace Runtime Vulnerabilities
       href: data-connectors/dynatrace-runtime-vulnerabilities.md
+    - name: ESET Protect Platform (using Azure Functions)
+      href: data-connectors/eset-protect-platform.md
     - name: Elastic Agent (Standalone)
       href: data-connectors/elastic-agent-standalone.md
     - name: Exchange Security Insights On-Premises Collector
@@ -780,13 +782,13 @@
     href: threat-intelligence-integration.md
   - name: Enable MDTI data connector
     href: connect-mdti-data-connector.md
-  - name: Connect threat intelligence STIX objects API
+  - name: Connect threat intelligence with upload API
     href: connect-threat-intelligence-upload-api.md
   - name: Connect threat intelligence platforms
     href: connect-threat-intelligence-tip.md
   - name: Connect to STIX/TAXII feeds
     href: connect-threat-intelligence-taxii.md
-  - name: Add indicators in bulk by file
+  - name: Add threat intelligence in bulk by file
     href: indicators-bulk-file-import.md
   - name: Work with threat indicators
     href: work-with-threat-indicators.md
@@ -1147,6 +1149,8 @@
       href: partner-integrations.md
     - name: Creating Workbooks
       href: sentinel-workbook-creation.md
+    - name: Creating Playbooks
+      href: sentinel-playbook-creation.md
     - name: Publish solutions
       href: publish-sentinel-solutions.md
     - name: Solution lifecycle post publish
@@ -1255,7 +1259,7 @@
       href: hunting-with-rest-api.md
     - name: Enrich entities with geolocation data with REST-API
       href: geolocation-data-api.md
-    - name: STIX objects API reference
+    - name: Threat intelligence upload API reference
       href: stix-objects-api.md
     - name: Legacy upload indicator API reference
       href: upload-indicators-api.md
