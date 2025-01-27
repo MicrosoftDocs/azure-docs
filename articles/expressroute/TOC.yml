@@ -76,7 +76,7 @@
   - name: About ExpressRoute encryption
     href: expressroute-about-encryption.md
   - name: About ExpressRoute limits
-    href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/expressroute/toc.json#expressroute-limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/expressroute/toc.json#azure-expressroute-limits
   - name: Design architecture for ExpressRoute resiliency
     href: design-architecture-for-resiliency.md
   - name: ExpressRoute Traffic Collector
