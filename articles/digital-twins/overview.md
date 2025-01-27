@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Overview of the Azure Digital Twins IoT platform, including its features and value.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 11/27/2025
+ms.date: 01/27/2025
 ms.topic: overview
 ms.service: azure-digital-twins
 

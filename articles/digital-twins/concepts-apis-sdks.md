@@ -39,7 +39,7 @@ You can also exercise the data plane APIs by interacting with Azure Digital Twin
 
 ## Bulk import with the Import Jobs API
 
-The [Import Jobs API](/rest/api/digital-twins/dataplane/jobs) is a data plane API that allows you to import a set of models, twins, and/or relationships in a single API call. Import Jobs API operations are also included with the [CLI commands](/cli/azure/dt/job/import) and [data plane SDKs](#data-plane-apis). Using the Import Jobs API requires use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
+The [Import Jobs API](/rest/api/digital-twins/dataplane/jobs) is a data plane API that allows you to import a set of models, twins, and/or relationships in a single API call. Import Jobs API operations are also included with the [CLI commands](/cli/azure/dt/job/import) and [data plane SDKs](#data-plane-overview). Using the Import Jobs API requires use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
 
 ### Check permissions
 
