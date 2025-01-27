@@ -423,8 +423,6 @@
           href: ../cdn/cdn-standard-rules-engine.md?toc=/azure/frontdoor/TOC.json
         - name: Control caching behavior
           items:
-          - name: Cache content by query strings
-            href: ../cdn/cdn-query-string.md?toc=/azure/frontdoor/TOC.json
           - name: Purge cached assets
             href: ../cdn/cdn-purge-endpoint.md?toc=/azure/frontdoor/TOC.json
         - name: Shared access signature storage support
@@ -522,8 +520,6 @@
         items:
         - name: Microsoft (classic)
           href: ../cdn/microsoft-pop-abbreviations.md?toc=/azure/frontdoor/TOC.json
-        - name: Edgio
-          href: ../cdn/cdn-pop-abbreviations.md?toc=/azure/frontdoor/TOC.json
     - name: Standard rules engine
       href: ../cdn/cdn-standard-rules-engine-reference.md?toc=/azure/frontdoor/TOC.json
       items:
