@@ -28,11 +28,11 @@ You need at least [user](devtest-lab-add-devtest-user.md#devtest-labs-user) acce
 
 1. On the lab **Overview** page, select **Add**.
 
-   :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-add-vm.png" alt-text="Screenshot of Lab overview page showing add button." lightbox="./media/devtest-lab-add-vm/portal-lab-add-vm.png":::
+   :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-add-vm.png" alt-text="Screenshot of lab overview page showing add button." lightbox="./media/devtest-lab-add-vm/portal-lab-add-vm.png":::
 
 1. On the **Choose a base** page, select a Generation 2 image for the VM. The **Generation** column in the list of images displays whether it is a Generation 1 or Generation 2 image.
 
-    :::image type="content" source="./media/devtest-lab-gen2-vm/dev-test-lab-gen-2-images.png" alt-text="Screenshot of List of available base images."  lightbox="./media/devtest-lab-gen2-vm/dev-test-lab-gen-2-images.png":::
+    :::image type="content" source="./media/devtest-lab-gen2-vm/dev-test-lab-gen-2-images.png" alt-text="Screenshot of list of available base images."  lightbox="./media/devtest-lab-gen2-vm/dev-test-lab-gen-2-images.png":::
 
 1. On the **Basics Settings** tab of the **Create lab resource** screen, provide the following information:
 
@@ -46,7 +46,7 @@ You need at least [user](devtest-lab-add-devtest-user.md#devtest-labs-user) acce
    - **OS disk type**: Keep the default value for the base, or select a different option from the dropdown list.
    - **Artifacts**: This field shows the number of artifacts already configured for this VM base. Optionally, select **Add or Remove Artifacts** to select and configure artifacts to add to the VM.
 
-   :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-vm-basic-settings.png" alt-text="Screenshot of Virtual machine basic settings page." lightbox="./media/devtest-lab-add-vm/portal-lab-vm-basic-settings.png":::
+   :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-vm-basic-settings.png" alt-text="Screenshot of virtual machine basic settings page." lightbox="./media/devtest-lab-add-vm/portal-lab-vm-basic-settings.png":::
 
 1. After you configure all settings, on the **Basic Settings** tab of the **Create lab resource** screen, select **Create** to deploy the VM.
 
