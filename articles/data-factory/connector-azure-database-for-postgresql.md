@@ -36,7 +36,7 @@ The three activities work on Azure Database for PostgreSQL  [Single Server](/azu
 > When utilizing Azure Database for PostgreSQL Flexible Server or Azure Cosmos DB for PostgreSQL, please ensure to apply [version 2.0](#version-20) in the connector. If you are currently using version 1.0, please [upgrade the connector](#upgrade-the-azure-database-for-postgresql-connector).
 
 > [!IMPORTANT]
-> Azure Database for PostgreSQL Single Server will be retired on March 28, 2025. Please migrate to Flexible Server by that date. You can refer to this [article](/postgresql/migrate/migration-service/overview-migration-service-postgresql) and [FAQ](/postgresql/migrate/whats-happening-to-postgresql-single-server) for the migration guidance.
+> Azure Database for PostgreSQL Single Server will be retired on March 28, 2025. Please migrate to Flexible Server by that date. You can refer to this [article](./postgresql/migrate/migration-service/overview-migration-service-postgresql) and [FAQ](./postgresql/migrate/whats-happening-to-postgresql-single-server) for the migration guidance.
 
 ## Getting started
 
