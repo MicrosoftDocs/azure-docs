@@ -2071,7 +2071,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/app-service-web/tutorial-python-postgresql-app.md",
+      "source_path_from_root": "/articles/app-service/tutorial-python-postgresql-app.md",
       "redirect_url": "/azure/app-service/tutorial-python-postgresql-app-flask",
       "redirect_document_id": false
     },

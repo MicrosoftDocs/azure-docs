@@ -85,7 +85,7 @@ Examples of using application secrets to connect to a database:
 - [Tutorial: Deploy a PHP, MySQL, and Redis app to Azure App Service](tutorial-php-mysql-app.md)
 - [Deploy a Node.js + MongoDB web app to Azure](tutorial-nodejs-mongodb-app.md)
 - [Deploy a Python (Flask) web app with PostgreSQL in Azure](tutorial-python-postgresql-app-flask.md)
-- [Deploy a Python (Django) web app with PostgreSQL in Azure](tutorial-python-postgresql-django.md)
+- [Deploy a Python (Django) web app with PostgreSQL in Azure](tutorial-python-postgresql-app-django.md)
 - [Deploy a Python (FastAPI) web app with PostgreSQL in Azure](tutorial-python-postgresql-app-fastapi.md)
 - [Tutorial: Build a Tomcat web app with Azure App Service on Linux and MySQL](tutorial-java-tomcat-mysql-app.md)
 - [Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB](tutorial-java-spring-cosmosdb.md)
