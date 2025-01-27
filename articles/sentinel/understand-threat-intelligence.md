@@ -122,6 +122,10 @@ For more information, see [Connect Microsoft Sentinel to STIX/TAXII threat intel
 
 ## Create and manage threat intelligence
 
+Threat intelligence management is unified with Microsoft Defender Threat Intelligence (MDTI) and Threat Analytics in the Defender portal.
+
+:::image type="content" source="media/understand-threat-intelligence/intel-management-defender portal.png" alt-text="Screenshot showing intel management page in the Defender portal.":::
+
 Two of the most common threat intelligence tasks are creating new threat intelligence related to security investigations and tagging intel objects. The management interface streamlines the manual process of creating individual threat intel with a few key features.
 - Define relationships as you create new STIX objects.
 - Curate existing TI with the relationship builder.
@@ -137,7 +141,7 @@ The following STIX objects are available in Microsoft Sentinel:
 | Identity | Describe victims, organizations and other groups or individuals along with the business sectors most closely associated with them. |
 | Relationship | The threads that connect threat intelligence, helping to make connections across disparate signals and data points are described with relationships. |
 
-:::image type="content" source="{source}" alt-text="{alt-text}":::
+:::image type="content" source="media/understand-threat-intelligence/new-object.png" alt-text="Screenshot of the add new menu STIX object options.":::
 
 Tagging threat intelligence is a quick way to group objects together to make them easier to find. Typically, you might apply tags related to a particular incident. But, if an indicator represents threats from a particular known actor or well-known attack campaign you might create a relationship instead of a tag. After you search for the threat intelligence that you want to work with, tag them individually or multiselect and tag them all at once. Because tagging is free-form, we recommend that you create standard naming conventions for threat intelligence tags.
 
@@ -153,7 +157,7 @@ Microsoft enriches IPV4 and domain name indicators with [GeoLocation and WhoIs d
 
 Validate your indicators and view your successfully imported threat indicators from the Microsoft Sentinel-enabled Log Analytics workspace. The `ThreatIntelligenceIndicator` table under the **Microsoft Sentinel** schema is where all your Microsoft Sentinel threat indicators are stored. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features, such as analytics and workbooks. 
 
-New tables are used to support the new STIX object schema, but aren't available publicly yet. In order to view threat intelligence for STIX objects and unlock the hunting model that uses them, request to opt-in with [this form](https://forms.office.com/r/903VU5x3hz?origin=lprLink). Either ingest your threat intelligence into only the new tables, `ThreatIntelIndicator` and `ThreatIntelObjects`, or alongside the current table, `ThreatIntelligenceIndicator` with this optional request.
+Tables supporting the new STIX object schema aren't available publicly yet. In order to view threat intelligence for STIX objects and unlock the hunting model that uses them, request to opt-in with [this form](https://forms.office.com/r/903VU5x3hz?origin=lprLink). Ingest your threat intelligence into the new tables, `ThreatIntelIndicator` and `ThreatIntelObjects` alongside with or instead of the current table, `ThreatIntelligenceIndicator` with this opt-in process.
 
 Here's an example view of a basic query for for just threat indicators using the current table.
 

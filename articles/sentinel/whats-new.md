@@ -24,6 +24,7 @@ Get notified when this page is updated by copying and pasting the following URL 
 ## January 2025
 
 - [Threat intelligence management interface updated](#threat-intelligence-management-interface-updated)
+- [Opt in to new threat intelligence tables to unlock advanced hunting with new STIX objects](#opt-in-to-new-threat-intelligence-tables-to-unlock-advanced-hunting-with-new-stix-objects)
 - [Threat intelligence upload API now supports more STIX objects](#threat-intelligence-upload-api-now-supports-more-stix-objects)
 - [Microsoft Defender Threat Intelligence data connectors now generally available (GA)](#microsoft-defender-threat-intelligence-data-connectors-now-generally-available-ga)
 - [Bicep template support for repositories (Preview)](#bicep-template-support-for-repositories-preview)
@@ -31,7 +32,17 @@ Get notified when this page is updated by copying and pasting the following URL 
 
 ### Threat intelligence management interface updated
 
+Managing Microsoft Sentinel powered threat intelligence has moved in the Defender portal to a **Intel management**. 
 
+:::image type="content" source="media/whats-new/intel-management-navigation.png" alt-text="Screenshot showing new menu placement for Microsoft Sentinel threat intelligence.":::
+
+Enhanced threat intelligence capabilities are available in both Microsoft's unified SecOps platform as well as Microsoft Sentinel in the Azure portal.
+
+### Opt in to new threat intelligence tables to unlock advanced hunting with new STIX objects
+
+Tables supporting the new STIX object schema aren't available publicly yet. In order to view threat intelligence for STIX objects and unlock the hunting model that uses them, request to opt-in with [this form](https://forms.office.com/r/903VU5x3hz?origin=lprLink). Ingest your threat intelligence into the new tables, `ThreatIntelIndicator` and `ThreatIntelObjects` alongside with or instead of the current table, `ThreatIntelligenceIndicator` with this opt-in process.
+
+For more information, see the blog announcement [New STIX objects in Microsoft Sentinel](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/announcing-public-preview-new-stix-objects-in-microsoft-sentinel/4369164).
 
 ### Threat intelligence upload API now supports more STIX objects
 
@@ -47,6 +58,7 @@ For more information, see the following articles:
 
 - [Connect your threat intelligence platform with the upload API (Preview)](connect-threat-intelligence-upload-api.md)
 - [Import threat intelligence to Microsoft Sentinel with the upload API (Preview)](stix-objects-api.md)
+- [New STIX objects in Microsoft Sentinel](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/announcing-public-preview-new-stix-objects-in-microsoft-sentinel/4369164)
 
 ### Microsoft Defender Threat Intelligence data connectors now generally available (GA)
 
