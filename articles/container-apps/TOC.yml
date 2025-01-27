@@ -121,8 +121,6 @@
       items:
         - name: Code interpreter sessions
           href: sessions-code-interpreter.md
-        - name: Custom container sessions
-          href: sessions-custom-container.md
         - name: Tutorials
           items:
           - name: Use a LLM agent
@@ -139,6 +137,8 @@
             items:
             - name: JavaScript Code interpreter (preview)
               href: sessions-tutorial-nodejs.md
+        - name: Custom container sessions
+          href: sessions-custom-container.md
     - name: Event-driven processing
       items:
         - name: With a job
