@@ -174,7 +174,7 @@ In the other result, FIO was used against Azure NetApp Files regular volumes wit
 
 The test results displayed in the graph display the side-by-side comparison of read performance with and without the caching influence, where caching produced up to ~4500 MiB/second read throughput, while no caching achieved around ~3600 MiB/second.
 
-:::image type="content" source="./media/performance-benchmarks-linux/64K-sequential-read-nconnect-compare.png" alt-text="Diagram of comparing 64-KiB sequential reads and writes." lightbox="./media/performance-benchmarks-linux/64K-sequential-read-nconnect-compare.png":::
+:::image type="content" source="./media/performance-benchmarks-linux/64K-sequential-read.png" alt-text="Diagram of comparing 64-KiB sequential reads throughputs based on caching." lightbox="./media/performance-benchmarks-linux/64K-sequential-read.png":::
 
 ### Side-by-side comparison (with and without `nconnect`) 
 
