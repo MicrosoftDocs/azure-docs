@@ -5,21 +5,25 @@ ms.topic: how-to
 ms.date: 01/27/2025
 ---
 
-In this guide, you configure an existing Durable Functions app to use Durable Task Scheduler (DTS) as the storage backend. Note that **no** code changes are needed to switch an existing Durable Functions app to use DTS.
+# Configure an existing Durable Functions app to use the Durable Task Scheduler (preview)
+
+You can switch an existing Durable Functions app to use Durable Task Scheduler without changing any of your code. In this guide, you learn how to configure an existing app to use Durable Task Scheduler as the storage backend for either:
 
 - [.NET (isolated) applications](#configure-net-isolated-applications)
 - [Non-.NET applications](#configure-non-net-applications)
 
 ## Prerequisites
+
 Before continuing with the tutorial, make sure you have:
 
-- [Enrolled in private preview](enroll.md)
 - [A Durable Task Scheduler and task hub](https://github.com/Azure/Azure-Functions-Durable-Task-Scheduler-Private-Preview/issues/70) 
 - A Durable Functions app
 > Note: As of now, DTS is only supported on Function Apps hosted on App Service plans. While DTS may function on other Function SKUs, performance might not be optimal. For instance, Function Apps will not automatically scale out based on orchestration throughput via DTS. This issue is expected to be resolved shortly after or during the middle of the Private Preview.
 - An Azure Storage account for deployment to Azure (all Azure Function apps require this)
 - [Azurite](https://learn.microsoft.com/azure/storage/common/storage-use-azurite) (Azure Storage emulator) for testing locally
 - [DurableTask CLI](enroll.md#upgrade-the-azure-cli-to-use-the-durable-task-scheduler-commands) enabled 
+
+# [.NET (isolated)](#tab/isolated)
 
 ## Configure .NET (isolated) applications
 
@@ -270,6 +274,8 @@ Congratulations! Your Durable Functions app should now be configured to use DTS!
 
 For more tutorials and information about DTS, see [Next Steps](#next-steps). 
 
+# [non-.NET](#tab/non-dotnet)
+
 ## Configure non-.NET applications
 
 The steps for configuring a non-.NET to use Durable Task Scheduler (DTS) is similar to those of a .NET app, except for a few differences. The following are the steps in common: 
@@ -336,6 +342,8 @@ You can test your app locally by running `func start`.
 
 Follow steps in the [.NET section](#run-the-app-on-azure-net). 
 
+---
+
 ## Clean up resources
 
 Remove the task hub you created. 
@@ -361,37 +369,6 @@ Make sure you've deleted all task hubs in the Durable Task Scheduler environment
     "message": "Cannot delete resource while nested resources exist. Some existing nested resource IDs include: 'Microsoft.DurableTask/schedulers/YOUR_SCHEDULER/taskhubs/YOUR_TASKHUB'. Please delete all nested resources before deleting this resource."
   }
 }
-```
-
-## Troubleshooting
-
-### Non-.NET applications
-
-If you see gRPC errors related to not finding native binaries for ARM (such as on a Mx Mac), you may need to add the following workaround to the end of your `extensions.csproj` file.
-
-```xml
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <WarningsAsErrors></WarningsAsErrors>
-    <DefaultItemExcludes>**</DefaultItemExcludes>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DurableTask" Version="2.13.7" />
-    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DurableTask.AzureManaged" Version="0.3.0-alpha" />
-    <PackageReference Include="Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator" Version="1.1.3" />
-  </ItemGroup>
-  <!-- Add the below groups/targets to workaround gRPC issues on ARM devices. -->  
-  <ItemGroup>
-    <PackageReference Include="Contrib.Grpc.Core.M1" Version="2.41.0" />
-  </ItemGroup>
-  <Target Name="CopyGrpcNativeAssetsToOutDir" AfterTargets="Build">
-    <ItemGroup>
-       <NativeAssetToCopy Condition="$([MSBuild]::IsOSPlatform('OSX'))" Include="$(OutDir)runtimes/osx-arm64/native/*"/>
-    </ItemGroup>
-    <Copy SourceFiles="@(NativeAssetToCopy)" DestinationFolder="$(OutDir).azurefunctions/runtimes/osx-arm64/native"/>
-  </Target>
-</Project>
 ```
 
 ## Next steps
