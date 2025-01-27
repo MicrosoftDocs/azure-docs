@@ -43,16 +43,11 @@ These capabilities significantly reduce operational overhead, allowing you to fo
 
 Durable Functions works with all Azure Functions programming languages and supports [multiple application patterns](../durable-functions-overview.md#application-patterns).
 
-Durable Functions uses a backend component, which refers to the storage provider that is used to:
+Durable Functions uses a backend component, which refers to the storage provider. The Durable Task Scheduler storage provider:
 - Schedule orchestrations and tasks
 - Persist the state of orchestrations and entities. 
 
-Durable Functions supports four storage providers:
-
-- [Azure Storage](../durable-functions-storage-providers.md#azure-storage)
-- [Netherite](../durable-functions-storage-providers.md#netherite)
-- [Microsoft SQL Server (MSSQL)](../durable-functions-storage-providers.md#mssql)
-- [Durable Task Scheduler](../durable-functions-storage-providers.md#durable-task-scheduler)
+Learn more about the [Durable Task Scheduler storage provider](../durable-functions-storage-providers.md#dts)
 
 ###  Using the Durable Task SDK in other Azure Services 
 
@@ -70,3 +65,6 @@ The Durable Task SDKs are available in multiple programming languages:
 - [JavaScript](https://github.com/microsoft/durabletask-js)
 - [Java](https://github.com/microsoft/durabletask-java)
 
+## Limitations
+
+- **Durable Entities:** Currently, Durable Task Scheduler does not have support for Durable Entities.
