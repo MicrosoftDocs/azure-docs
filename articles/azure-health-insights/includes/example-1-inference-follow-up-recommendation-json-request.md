@@ -79,7 +79,7 @@ ms.service: azure-health-insights
                       "code": {
                         "coding": [
                           {
-                            "system": "Https://loinc.org",
+                            "system": "https://loinc.org",
                             "code": "LP207608-3",
                             "display": "ULTRASOUND"
                           }

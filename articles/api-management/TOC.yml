@@ -18,7 +18,7 @@
     - name: Terminology
       href: api-management-terminology.md
     - name: Service limits
-      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json#api-management-limits
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json#azure-api-management-limits
   - name: Create an instance
     items:
     - name: Create an instance - CLI
@@ -174,14 +174,12 @@
   - name: Observability
     displayName: monitoring
     href: observability.md
-  - name: Get API analytics
-    href: howto-use-analytics.md
+  - name: Monitor API Management
+    href: monitor-api-management.md
   - name: Log events to Azure Event Hubs
     href: api-management-howto-log-event-hubs.md
   - name: Log requests with Azure Application Insights
     href: api-management-howto-app-insights.md
-  - name: Visualize data using Managed Grafana
-    href: visualize-using-managed-grafana-dashboard.md
 - name: Define APIs
   items:
   - name: Add and import APIs
@@ -399,8 +397,6 @@
       href: api-management-howto-oauth2.md
     - name: Integrate Application Insights
       href: developer-portal-integrate-application-insights.md
-    - name: Log developer portal usage
-      href: developer-portal-enable-usage-logs.md
     - name: Integrate Google Tag Manager
       href: developer-portal-integrate-google-tag-manager.md
     - name: Customize developer portal on WordPress
@@ -468,6 +464,8 @@
     href: /cli/azure/apim
   - name: Azure PowerShell
     href: /powershell/module/az.apimanagement/
+  - name: Monitoring data reference
+    href: monitor-api-management-reference.md
   - name: REST API
     href: /rest/api/apimanagement/
   - name: REST API SDKs

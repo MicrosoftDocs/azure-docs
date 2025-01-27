@@ -76,7 +76,7 @@ The **User Errors** and **System Errors** metrics are the percentage of attempte
 
 ### Resource log categories
 
-Resource logs are grouped into category groups. Category groups are a collection of different logs to help you achieve different monitoring goals. Azure SignalR supports connectivity logs, messaging logs, and Http request logs.
+Resource logs are grouped into category groups. Category groups are a collection of different logs to help you achieve different monitoring goals. Azure SignalR supports connectivity logs, messaging logs, and HTTP request logs.
 
 #### Connectivity logs
 
@@ -94,9 +94,9 @@ Messaging logs provide tracing information for the SignalR hub messages received
 > [!NOTE]
 > This type of log is generated for every message. If the messages are sent frequently, messaging logs might impact the performance of the SignalR service. However, you can choose different collecting behaviors to minimize the performance impact. See [resource logs collecting behaviors](#resource-logs-collecting-behaviors).
 
-#### Http request logs
+#### HTTP request logs
 
-Http request logs provide detailed information for the HTTP requests received by Azure SignalR, for example status code and URL of the request. Http request log is helpful to troubleshoot request-related issues.
+HTTP request logs provide detailed information for the HTTP requests received by Azure SignalR, for example status code and URL of the request. HTTP request log is helpful to troubleshoot request-related issues.
 
 For the available resource log categories, their associated Log Analytics tables, and the log schemas for Azure SignalR Service, see [Azure SignalR Service monitoring data reference](monitor-signalr-reference.md#resource-logs).
 

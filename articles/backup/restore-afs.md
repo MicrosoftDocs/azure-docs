@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 12/20/2024
 ms.service: azure-backup
 ms.custom: engagement-fy23
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Restore Azure File shares
@@ -124,7 +124,7 @@ To perform item-level restore for Azure File share to the original location, fol
 
 ### Restore to an alternate location (item-level recovery)
 
-To perform iten-level restore for Azure File share to an alternate location, follow these steps:
+To perform item-level restore for Azure File share to an alternate location, follow these steps:
 
 1. Select **Alternate Location** as the **Recovery Destination**.
 1. Select the destination storage account where you want to restore the backed-up content from the **Storage Account** drop-down list.

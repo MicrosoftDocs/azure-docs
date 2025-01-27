@@ -5,7 +5,7 @@ description: Learn about roles and permissions for Azure Route Server
 author: siddomala
 ms.author: halkazwini
 ms.service: azure-route-server
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/13/2024
 ---
 
@@ -26,7 +26,7 @@ If the [Azure built-in roles](../role-based-access-control/built-in-roles.md) do
 Just like built-in roles, you can assign custom roles to users, groups, and service principals at management group, subscription, and resource group scopes.
 For more information, see [Steps to create a custom role](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role)  .
 
-To ensure proper functionality, check your custom role permissions to confirm user service principals, and managed identities operating the VPN gateway have the necessary permissions.
+To ensure proper functionality, check your custom role permissions to confirm user service principals, and managed identities interacting with Route Server have the necessary permissions.
 To add any missing permissions listed here, see [Update a custom role](../role-based-access-control/custom-roles-portal.md#update-a-custom-role).
 
 ## Permissions
@@ -51,7 +51,23 @@ For more information, see [Scope levels](../role-based-access-control/scope-over
 > [!NOTE]
 > Allow sufficient time for [Azure Resource Manager cache](../role-based-access-control/troubleshooting.md) to refresh after role assignment changes.
 
-## Next steps
+## Additional services
+
+To view roles and permissions for other services, see the following links:
+
+- [Azure Application Gateway](../application-gateway/configuration-infrastructure.md)
+
+- [Azure ExpressRoute](../expressroute/roles-permissions.md) 
+
+- [Azure Firewall](../firewall/roles-permissions.md) 
+
+- [Azure Virtual WAN](../virtual-wan/roles-permissions.md)
+
+- [Managed NVA](../virtual-wan/roles-permissions.md#nva-resources)
+
+- [Azure VPN Gateway](../vpn-gateway/roles-permissions.md)
+
+## Related content
 
 - [What is Azure Role Based Access](../role-based-access-control/overview.md)
 

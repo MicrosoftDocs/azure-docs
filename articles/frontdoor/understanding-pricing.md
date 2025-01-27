@@ -4,7 +4,7 @@ description: This article describes the billing model for Azure Front Door and c
 services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/12/2024
 ms.author: duau
 ---

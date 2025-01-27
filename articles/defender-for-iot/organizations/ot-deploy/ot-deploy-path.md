@@ -44,9 +44,6 @@ Plan basic details about your monitoring system, such as:
 
 For more information, see [Plan your OT monitoring system with Defender for IoT](../best-practices/plan-corporate-monitoring.md).
 
-> [!TIP]
-> If you're using several locally managed sensors, you may also want to deploy an [on-premises management console](air-gapped-deploy.md) for central visibility and management.
->
 ### Prepare for an OT site deployment
 
 Define additional details for each site planned in your system, including:
@@ -98,7 +95,7 @@ For more information, see:
 
 Configure any firewall rules to ensure that your OT sensor appliances will be able to access Defender for IoT on the Azure cloud. If you're planning to connect via a proxy, you'll configure those settings only after installing your sensor.
 
-Skip this step for any OT sensor that is planned to be air-gapped and managed locally, either directly on the sensor console, or via an [on-premises management console](air-gapped-deploy.md).
+Skip this step for any OT sensor that is planned to be air-gapped and managed locally directly on the sensor console.
 
 For more information, see [Provision OT sensors for cloud management](provision-cloud-management.md).
 
@@ -134,7 +131,7 @@ If you've decided to use a proxy to connect your sensors to the cloud, set up yo
 Skip this step in the following situations:
 
 - For any OT sensor where you're connecting directly to Azure, without a proxy
-- For any sensor that is planned to be air-gapped and managed locally, either directly on the sensor console, or via an [on-premises management console](air-gapped-deploy.md).
+- For any sensor that is planned to be air-gapped and managed locally directly on the sensor console.
 
 ### Configure optional settings
 
@@ -182,7 +179,7 @@ Your OT sensors will remain in *Learning mode* for as long as new traffic is det
 When baseline learning ends, the OT monitoring deployment process is complete, and you'll continue on in operational mode for ongoing monitoring. In operational mode, any activity that differs from your baseline data will trigger an alert.
 
 > [!TIP]
-> [Turn off learning mode manually](../how-to-manage-individual-sensors.md#turn-off-learning-mode-manually) if you feel that the current alerts in Defender for IoT reflect your network traffic accurately, and learning mode hasn't already ended automatically.
+> [Turn off learning mode manually](../how-to-manage-individual-sensors.md#turn-off-learning-mode-manually) when the current alerts in Defender for IoT reflect your network traffic accurately.
 >
 
 ## Connect Defender for IoT data to your SIEM
