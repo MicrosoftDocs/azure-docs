@@ -16,8 +16,8 @@ The Azure reliability documentation provides information on what reliability mea
 
 The documentation is organized into the following sections:
 
-- **Reliability fundamentals.** Learn about the concepts of reliability, business continuity, high availability, and disaster recovery. Understand how shared responsibility works between Microsoft and you.
 - **Azure reliability guides by service.** Learn how each Azure service supports reliability, including availability zones, multi-region support, and backup support.
+- **Reliability fundamentals.** Learn about the concepts of reliability, business continuity, high availability, and disaster recovery. Understand how shared responsibility works between Microsoft and you.
 - **Azure regions.** Learn about Azure regions, paired and nonpaired regions, and the list of services that are deployed to Azure regions.
 - **Azure availability zones.** Learn about availability zones, including how they support high availability and disaster recovery, and which Azure services and regions supports availability zones.
 
