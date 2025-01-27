@@ -16,6 +16,8 @@ For a VM instance to be a Generation 2 VM, it must use the specific Generation 2
 
 This article explains how to use Generation 2 images in Azure DevTest Labs.
 
+[!INCLUDE [preview-announcement](./includes/preview-announcement-text.md){feature-name="enhanced support for Gen 2 VMs"}]
+
 ## Create lab virtual machines with a Generation 2 base image
 
 ### Prerequisite
