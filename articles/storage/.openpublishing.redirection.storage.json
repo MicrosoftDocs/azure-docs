@@ -166,7 +166,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_bench",
+            "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-bench.md",
             "redirect_url": "https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_bench",
             "redirect_document_id": false
         },
