@@ -4,8 +4,8 @@ description: Learn how to back up all Azure blobs within a storage account using
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.date: 12/27/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up all Azure blobs in a storage account using Azure PowerShell

@@ -173,5 +173,4 @@ XIJ | Kuwait | Europe
 
 ## Next steps
 
-- View [Azure CDN from Edgio POP locations by metro](cdn-pop-locations.md#partners).
 - Learn how to [create an Azure CDN profile](cdn-create-new-endpoint.md).

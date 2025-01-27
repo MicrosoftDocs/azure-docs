@@ -303,7 +303,7 @@ sections:
       - question: |
           What is the quota limit for my Cloud Service?
         answer: |
-          See [Service-specific limits](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
+          See [Service-specific limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-subscription-limits).
           
       - question: |
           Why does the drive on my Cloud Service VM show little free disk space?

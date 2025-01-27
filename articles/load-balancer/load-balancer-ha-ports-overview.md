@@ -93,12 +93,16 @@ You can configure **one** public standard load balancer resource for the backend
 
 Flow symmetry isn't guaranteed in any scenarios that involve two or more load balancer components, such as across two different load balancers, multiple backend pools, or multiple frontend IP configurations. Since traffic is distributed based on load balancing rules, which make independent decisions and aren't coordinated, flow symmetry cannot be guaranteed in such scenarios. As a result, flow symmetry isn't supported when placing NVAs between a public and internal load balancer. If you need flow symmetry in such scenarios, consider leveraging [Gateway Load Balancer](gateway-overview.md) instead.
 
+## Design Consideration
+- ICMP traffic is supported for internal standard load balancer when HA port is enabled.
 
 ## Limitations
 
 - HA ports load-balancing rules are available only for an internal standard load balancer.
 
 - The combining of an HA ports load-balancing rule and a non-HA ports load-balancing rule pointing to the same backend **ipconfiguration(s)** isn't supported on a single frontend IP configuration unless both have Floating IP enabled.
+
+- TCP idle timeout isn't supported for Internal Load Balancer (ILB) HA ports when a User Defined Route (UDR) is used to forward traffic to the ILB. 
 
 - IP fragmenting isn't supported. 
 

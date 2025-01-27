@@ -17,14 +17,14 @@
   items:
     - name: Deploy ASP.NET
       href: quickstart-dotnetcore.md
-    - name: Deploy Node.js
-      href: quickstart-nodejs.md
-    - name: Deploy PHP
-      href: quickstart-php.md
     - name: Deploy Java
       href: quickstart-java.md
+    - name: Deploy Node.js
+      href: quickstart-nodejs.md
     - name: Deploy Python
       href: quickstart-python.md
+    - name: Deploy PHP
+      href: quickstart-php.md
     - name: Deploy WordPress
       href: quickstart-wordpress.md
     - name: Deploy a custom container
@@ -472,7 +472,7 @@
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/app-service/
     - name: Quota Information
-      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits
     - name: Service Updates
       href: https://azure.microsoft.com/updates/?product=app-service
     - name: Routine maintenance

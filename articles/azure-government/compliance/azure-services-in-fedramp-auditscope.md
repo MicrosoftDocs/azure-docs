@@ -7,7 +7,7 @@ ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
 recommendations: false
-ms.date: 12/4/2024
+ms.date: 01/15/2025
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -104,7 +104,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Sphere](/azure-sphere/) | &#x2705; | &#x2705; |
 | [Azure Spring Apps](../../spring-apps/index.yml) | &#x2705; | &#x2705; |
 | [Azure Stack Edge](../../databox-online/index.yml) (formerly Data Box Edge) **&ast;&ast;&ast;** | &#x2705; | &#x2705; |
-| [Azure Stack HCI](/azure-stack/hci/) **&ast;&ast;&ast;** | &#x2705; | &#x2705; |
+| [Azure Local](/azure-stack/hci/) **&ast;&ast;&ast;** | &#x2705; | &#x2705; |
 | [Azure Static WebApps](../../static-web-apps/index.yml) | &#x2705; | &#x2705; |
 | [Azure Video Indexer](/azure/azure-video-indexer/) | &#x2705; | &#x2705; |
 | [Azure Virtual Desktop](../../virtual-desktop/index.yml) (formerly Windows Virtual Desktop) | &#x2705; | &#x2705; |
@@ -259,7 +259,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 
 **&ast;&ast;** FedRAMP High authorization for Azure Databricks is applicable to limited regions in Azure. To configure Azure Databricks for FedRAMP High use, contact your Microsoft or Databricks representative.
 
-**&ast;&ast;&ast;** FedRAMP High authorization for edge devices (such as Azure Data Box, Azure Stack Edge and Azure Stack HCI) applies only to Azure services that support on-premises, customer-managed devices. For example, FedRAMP High authorization for Azure Data Box covers datacenter infrastructure services and Data Box pod and disk service, which are the online software components supporting your Data Box hardware appliance. You are wholly responsible for the authorization package that covers the physical devices. For assistance with accelerating your onboarding and authorization of devices, contact your Microsoft account representative.
+**&ast;&ast;&ast;** FedRAMP High authorization for edge devices (such as Azure Data Box, Azure Stack Edge and Azure Local) applies only to Azure services that support on-premises, customer-managed devices. For example, FedRAMP High authorization for Azure Data Box covers datacenter infrastructure services and Data Box pod and disk service, which are the online software components supporting your Data Box hardware appliance. You are wholly responsible for the authorization package that covers the physical devices. For assistance with accelerating your onboarding and authorization of devices, contact your Microsoft account representative.
 
 ## Azure Government services by audit scope
 *Last updated: August 2024*
@@ -320,7 +320,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Sign-up portal](https://signup.azure.com/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Stack](/azure-stack/operator/azure-stack-usage-reporting) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Stack Edge](../../databox-online/index.yml) (formerly Data Box Edge) **&ast;** | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Azure Stack HCI](/azure-stack/hci/)  **&ast;** | &#x2705; | &#x2705; | &#x2705; | &#x2705; |  |
+| [Azure Local](/azure-stack/hci/)  **&ast;** | &#x2705; | &#x2705; | &#x2705; | &#x2705; |  |
 | [Azure Video Indexer](/azure/azure-video-indexer/)  | &#x2705; | &#x2705; | &#x2705; | | |
 | [Azure Virtual Desktop](../../virtual-desktop/index.yml) (formerly Windows Virtual Desktop) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure VMware Solution](../../azure-vmware/index.yml) | &#x2705; | &#x2705; | &#x2705; |  |  |
@@ -455,7 +455,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [VPN Gateway](../../vpn-gateway/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Web Application Firewall](../../web-application-firewall/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 
-**&ast;** Authorizations for edge devices (such as Azure Data Box, Azure Stack Edge and Azure Stack HCI) apply only to Azure services that support on-premises, customer-managed devices. You are wholly responsible for the authorization package that covers the physical devices. For assistance with accelerating your onboarding and authorization of devices, contact your Microsoft account representative.
+**&ast;** Authorizations for edge devices (such as Azure Data Box, Azure Stack Edge and Azure Local) apply only to Azure services that support on-premises, customer-managed devices. You are wholly responsible for the authorization package that covers the physical devices. For assistance with accelerating your onboarding and authorization of devices, contact your Microsoft account representative.
 
 **&ast;&ast;** Azure Information Protection (AIP) is part of the Microsoft Purview Information Protection solution - it extends the labeling and classification functionality provided by Microsoft 365. Before AIP can be used for DoD workloads at a given impact level (IL), the corresponding Microsoft 365 services must be authorized at the same IL.
 
