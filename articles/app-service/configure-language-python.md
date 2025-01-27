@@ -108,7 +108,7 @@ Existing web applications can be redeployed to Azure as follows:
 1. **App service resources**: Create a resource group, App Service plan, and App Service web app to host your application. You can do this easily by running the Azure CLI command [`az webapp up`](/cli/azure/webapp#az-webapp-up). Or, you can create and deploy resources as shown in the [Flask](tutorial-python-postgresql-app-flask.md), [Django](tutorial-python-postgresql-app-django.md), or [FastAPI](tutorial-python-postgresql-app-fastapi.md) with PostgreSQL tutorial. Replace the names of the resource group, App Service plan, and web app to be more suitable for your application.
 
 1. **Environment variables**: If your application requires any environment variables, create equivalent [App Service application settings](configure-common.md#configure-app-settings). These App Service settings appear to your code as environment variables, as described in [Access environment variables](#access-app-settings-as-environment-variables).
-    - Database connections, for example, are often managed through such settings, as shown in [Tutorial: Deploy a Django web app with PostgreSQL - verify connection settings](tutorial-python-postgresql-app-django.md#3-secure-connection-secrets).
+    - Database connections, for example, are often managed through such settings, as shown in [Tutorial: Deploy a Django web app with PostgreSQL - verify connection settings](tutorial-python-postgresql-app-django.md&pivots=azure-portal#3-secure-connection-secrets).
     - See [Production settings for Django apps](#production-settings-for-django-apps) for specific settings for typical Django apps.
 
 1. **App startup**: Review the section [Container startup process](#container-startup-process) later in this article to understand how App Service attempts to run your app. App Service uses the Gunicorn web server by default, which must be able to find your app object or *wsgi.py* folder. If you need to, you can [Customize the startup command](#customize-startup-command).
@@ -430,7 +430,7 @@ When attempting to run database migrations with a Django app, you might see "sql
 
 Check the `DATABASES` variable in the app's *settings.py* file to ensure that your app is using a cloud database instead of SQLite.
 
-If you're encountering this error with the sample in [Tutorial: Deploy a Django web app with PostgreSQL](tutorial-python-postgresql-app-django.md), check that you completed the steps in [Verify connection settings](tutorial-python-postgresql-app-django.md#3-secure-connection-secrets).
+If you're encountering this error with the sample in [Tutorial: Deploy a Django web app with PostgreSQL](tutorial-python-postgresql-app-django.md), check that you completed the steps in [Verify connection settings](tutorial-python-postgresql-app-django.md&pivots=azure-portal#3-secure-connection-secrets).
 
 #### Other issues
 
