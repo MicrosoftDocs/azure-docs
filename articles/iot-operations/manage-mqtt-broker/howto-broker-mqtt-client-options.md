@@ -42,7 +42,7 @@ To get started, prepare a Broker configuration file in JSON format, like the fol
 }
 ```
 
-Then, deploy IoT Operations by using the `az iot ops create` command with the `--broker-config-file` flag, like the following command (other parameters are omitted for brevity):
+Then, deploy IoT Operations by using the `az iot ops create` command with the `--broker-config-file` flag, like the following command. (Other parameters are omitted for brevity.)
 
 ```azurecli
 az iot ops create ... --broker-config-file <FILE>.json
