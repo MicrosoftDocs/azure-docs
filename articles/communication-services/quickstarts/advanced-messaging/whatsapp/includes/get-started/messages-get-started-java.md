@@ -24,45 +24,20 @@ To set up an environment for sending messages, complete the steps in the followi
 
 [!INCLUDE [Setting up for Java Application](../java-application-setup.md)]
 
-## Object model
-
-The following classes and interfaces handle some of the major features of the Azure Communication Services Advance Messaging SDK for Java.
-
-| Class Name | Description |
-| --- |--- |
-| `NotificationMessagesClientBuilder`           | Creates the Notification Messages Client. You provide it with an endpoint and a credential. |
-| `NotificationMessagesClient`                  | Needed to send WhatsApp messages and download media files.                               |
-| `NotificationMessagesAsyncClient`             | Needed to send WhatsApp messages and download media files asynchronously.                |
-| `SendMessageResult`                           | Contains the result from the Advance Messaging service for send notification message.       |
-| `MessageTemplateClientBuilder`                | Creates the Message Template Client. You provide it with an endpoint and a credential.      |
-| `MessageTemplateClient`                       | Needed to get the list of WhatsApp templates.                                            |
-| `MessageTemplateAsyncClient`                  | Needed to get the list of WhatsApp templates asynchronously.  |
-
-> [!NOTE]
-> For more information, see the Azure SDK for Java reference [com.azure.communication.messages](/java/api/com.azure.communication.messages)
-
-## Common configuration
-
-Complete these steps to add required code snippets to the `messages-quickstart.py` python program.
-
-- [Authenticate the client](#authenticate-the-client).
-- [Set channel registration ID](#set-channel-registration-id).
-- [Set recipient list](#set-recipient-list).
-- [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
-
-[!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting-java.md)]
-
 ## Code examples
 
 Follow these steps to add required code snippets to the main function of your `App.java` file.
+- [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+- [Authenticate the client](#authenticate-the-client).
+- [Set channel registration ID](#set-channel-registration-id).
+- [Set recipient list](#set-recipient-list).
 - [Send a text message to a WhatsApp user](#send-a-text-message-to-a-whatsapp-user)
 - [Send an image media message to a WhatsApp user](#send-an-image-media-message-to-a-whatsapp-user)
 - [Send a document media message to a WhatsApp user](#send-a-document-media-message-to-a-whatsapp-user)
 - [Send an audio media message to a WhatsApp user](#send-an-audio-media-message-to-a-whatsapp-user)
 - [Send a video media message to a WhatsApp user](#send-a-video-media-message-to-a-whatsapp-user)
 
-> [!IMPORTANT]
-> To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+[!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting-java.md)]
 
 ### Send a text message to a WhatsApp user
 
@@ -72,6 +47,9 @@ Messages SDK allows Contoso to send text WhatsApp messages, which initiated What
 - Message body/text to be sent
 
 In this example, we reply to the WhatsApp user with the text `"Thanks for your feedback.\n From Notification Messaging SDK."`
+
+> [!IMPORTANT]
+> To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
 Assemble and send the text message:
 
@@ -98,6 +76,9 @@ The Messages SDK enables Contoso to send media (image, video, audio, or document
 > [!IMPORTANT]
 > As of SDK version 1.1.0, `MediaNotificationContent` is being deprecated for images. We encourage you to use `ImageNotificationContent` to send images. Explore other content-specific classes for other media types like `DocumentNotificationContent`, `VideoNotificationContent`, and `AudioNotificationContent`.
 
+> [!IMPORTANT]
+> To send a image message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+
 Assemble and send the image message:
 
 ```java
@@ -120,6 +101,9 @@ The Messages SDK enables Contoso to send media (image, video, audio, or document
 - [WhatsApp Channel ID](#set-channel-registration-id).
 - [Recipient Phone Number in E16 format](#set-recipient-list).
 - URL of the Video media.
+
+> [!IMPORTANT]
+> To send a video message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
 Assemble and send the video message:
 
@@ -144,6 +128,9 @@ The Messages SDK enables Contoso to send media (image, video, audio, or document
 - [Recipient Phone Number in E16 format](#set-recipient-list).
 - URL of the Audio media.
 
+> [!IMPORTANT]
+> To send a audio message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+
 Assemble and send the audio message:
 
 ```java
@@ -166,6 +153,9 @@ The Messages SDK enables Contoso to send media (image, video, audio, or document
 - [WhatsApp Channel ID](#set-channel-registration-id).
 - [Recipient Phone Number in E16 format](#set-recipient-list).
 - URL of the Document media.
+
+> [!IMPORTANT]
+> To send a document message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
 Assemble and send the document message:
 
@@ -199,4 +189,4 @@ for (MessageReceipt messageReceipt : docMessageResult.getReceipts()) {
 
 ## Full sample code
 
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/d668cb44f64d303e71d2ee72a8b0382896aa09d5/sdk/communication/azure-communication-messages/src/samples/java/com/azure/communication/messages).
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication/azure-communication-messages/src/samples/java/com/azure/communication/messages).

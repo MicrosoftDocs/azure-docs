@@ -11,6 +11,13 @@ ms.custom: include file
 ms.author: armohamed
 ---
 
+## Prerequisites
+
+- [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md).
+- Active WhatsApp phone number to receive messages.
+- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or later.
+- [Apache Maven](https://maven.apache.org/download.cgi).
+
 ## Set up environment
 
 To set up an environment for sending messages, complete the steps in the following sections.
@@ -20,11 +27,17 @@ To set up an environment for sending messages, complete the steps in the followi
 ## Code examples
 
 Follow these steps to add required code snippets to the main function of your `App.java` file.
+- [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+- [Authenticate the client](#authenticate-the-client).
+- [Set channel registration ID](#set-channel-registration-id).
+- [Set recipient list](#set-recipient-list).
 - [List WhatsApp templates in the Azure portal](#list-whatsapp-templates-in-the-azure-portal).
 - [Send template message with text parameters in the body](#send-template-message-with-text-parameters-in-the-body).
 - [Send template message with media parameter in the header](#send-template-message-with-media-parameter-in-the-header).
 - [Send template message with quick reply buttons](#send-template-message-with-quick-reply-buttons).
 - [Send Template message with call to action buttons and dynamic link](#send-template-message-with-call-to-action-buttons-and-dynamic-link).
+
+[!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting-java.md)]
 
 ### List WhatsApp templates in the Azure portal
 
@@ -466,4 +479,4 @@ private static void sendTemplateMessageWithImage() {
 
 ## Full sample code
 
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/d668cb44f64d303e71d2ee72a8b0382896aa09d5/sdk/communication/azure-communication-messages/src/samples/java/com/azure/communication/messages/).
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication/azure-communication-messages/src/samples/java/com/azure/communication/messages).

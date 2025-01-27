@@ -11,7 +11,15 @@ ms.custom: include file
 ms.author: shamkh
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python
----  
+---
+
+### Start sending messages between a business and a WhatsApp user
+
+Conversations between a WhatsApp Business Account and a WhatsApp user can be initiated in one of two ways:
+- The business sends a template message to the WhatsApp user.
+- The WhatsApp user sends any message to the business number.
+
+Regardless of how the conversation was started, **a business can only send template messages until the user sends a message to the business.** Only after the user sends a message to the business, the business is allowed to send text or media messages to the user during the active conversation. Once the 24 hour conversation window expires, the conversation must be reinitiated. To learn more about conversations, see the definition at [WhatsApp Business Platform](https://developers.facebook.com/docs/whatsapp/pricing#conversations).  
 
 ### Authenticate the client
 
@@ -137,60 +145,3 @@ Example:
 List<String> recipientList = new ArrayList<>();
 recipientList.add("+14255550199");
 ```
-
-### Start sending messages between a business and a WhatsApp user
-
-Conversations between a WhatsApp Business Account and a WhatsApp user can be initiated in one of two ways:
-- The business sends a template message to the WhatsApp user.
-- The WhatsApp user sends any message to the business number.
-
-Regardless of how the conversation was started, **a business can only send template messages until the user sends a message to the business.** Only after the user sends a message to the business, the business is allowed to send text or media messages to the user during the active conversation. Once the 24 hour conversation window expires, the conversation must be reinitiated. To learn more about conversations, see the definition at [WhatsApp Business Platform](https://developers.facebook.com/docs/whatsapp/pricing#conversations).
-
-#### (Option 1) Initiate conversation from business - Send a template message
-Initiate a conversation by sending a template message.
-
-First, create a MessageTemplate using the values for a template. 
-> [!NOTE]
-> To check which templates you have available, see the instructions at [List templates](../../../../concepts/advanced-messaging/whatsapp/template-messages.md#list-templates).
-> If you don't have a template to use, proceed to [Option 2](#option-2-initiate-conversation-from-user).
-
-Here's MessageTemplate creation using a default template, `sample_template`.   
-If `sample_template` isn't available to you, skip to [Option 2](#option-2-initiate-conversation-from-user). For advanced users, see the page [Templates](../../../../concepts/advanced-messaging/whatsapp/template-messages.md) to understand how to send a different template with Option 1.
-
-Messages SDK allows Contoso to send templated WhatsApp messages to WhatsApp users. To send template messages below details are required:
-- [WhatsApp Channel ID](#set-channel-registration-id)
-- [Recipient Phone Number in E16 format](#set-recipient-list)
-- Template details
-    - Name like 'sample_template'
-    - Language like 'en_us'
-    - Parameters if any
-    
-```java
-// Assemble the template content
-String templateName = "sample_template";
-String templateLanguage = "en_us";
-MessageTemplate messageTemplate = new MessageTemplate(templateName, templateLanguage);
-
-// Assemble template message
-TemplateNotificationContent templateContent = new TemplateNotificationContent(channelRegistrationId, recipientList, messageTemplate);
-
-// Send template message
-SendMessageResult templateMessageResult = notificationClient.send(templateContent);
-
-// Process result
-for (MessageReceipt messageReceipt : templateMessageResult.getReceipts()) {
-    System.out.println("Message sent to:" + messageReceipt.getTo() + " and message id:" + messageReceipt.getMessageId());
-}
-```
-
-Now, the user needs to respond to the template message. From the WhatsApp user account, reply to the template message received from the WhatsApp Business Account. The content of the message is irrelevant for this scenario.
-
-> [!IMPORTANT]
-> The recipient must respond to the template message to initiate the conversation before text or media message can be delivered to the recipient.
-
-#### (Option 2) Initiate conversation from user
-
-The other option to initiate a conversation between a WhatsApp Business Account and a WhatsApp user is to have the user initiate the conversation.
-To do so, from your personal WhatsApp account, send a message to your business number (Sender ID).
-
-:::image type="content" source="../media/get-started/user-initiated-conversation.png" lightbox="" alt-text="A WhatsApp conversation viewed on the web showing a user message sent to the WhatsApp Business Account number.":::
