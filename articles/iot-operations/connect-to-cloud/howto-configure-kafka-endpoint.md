@@ -24,7 +24,7 @@ To set up bi-directional communication between Azure IoT Operations and Apache K
 
 ## Azure Event Hubs
 
-[Azure Event Hubs is compatible with the Kafka protocol](../../event-hubs/azure-event-hubs-kafka-overview.md) and can be used with dataflows with some limitations.
+[Azure Event Hubs is compatible with the Kafka protocol](../../event-hubs/azure-event-hubs-apache-kafka-overview.md) and can be used with dataflows with some limitations.
 
 ### Create an Azure Event Hubs namespace and event hub
 
@@ -220,7 +220,7 @@ kafkaSettings:
 
 ### Limitations
 
-Azure Event Hubs [doesn't support all the compression types that Kafka supports](../../event-hubs/azure-event-hubs-kafka-overview.md#compression). Only GZIP compression is supported in Azure Event Hubs premium and dedicated tiers currently. Using other compression types might result in errors.
+Azure Event Hubs [doesn't support all the compression types that Kafka supports](../../event-hubs/azure-event-hubs-apache-kafka-overview.md#compression). Only GZIP compression is supported in Azure Event Hubs premium and dedicated tiers currently. Using other compression types might result in errors.
 
 ## Custom Kafka brokers
 
@@ -685,7 +685,7 @@ The compression field enables compression for the messages sent to Kafka topics.
 | Value | Description |
 | ----- | ----------- |
 | `None` | No compression or batching is applied. None is the default value if no compression is specified. |
-| `Gzip` | GZIP compression and batching are applied. GZIP is a general-purpose compression algorithm that offers a good balance between compression ratio and speed. Only [GZIP compression is supported in Azure Event Hubs premium and dedicated tiers](../../event-hubs/azure-event-hubs-kafka-overview.md#compression) currently. |
+| `Gzip` | GZIP compression and batching are applied. GZIP is a general-purpose compression algorithm that offers a good balance between compression ratio and speed. Only [GZIP compression is supported in Azure Event Hubs premium and dedicated tiers](../../event-hubs/azure-event-hubs-apache-kafka-overview.md#compression) currently. |
 | `Snappy` | Snappy compression and batching are applied. Snappy is a fast compression algorithm that offers moderate compression ratio and speed. This compression mode isn't supported by Azure Event Hubs. |
 | `Lz4` | LZ4 compression and batching are applied. LZ4 is a fast compression algorithm that offers low compression ratio and high speed. This compression mode isn't supported by Azure Event Hubs. |
 

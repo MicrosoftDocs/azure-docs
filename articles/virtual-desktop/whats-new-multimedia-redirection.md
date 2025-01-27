@@ -10,11 +10,11 @@ ms.custom: docs_inherited
 
 # What's new in multimedia redirection?
 
-This article has the latest updates for host component of multimedia redirection for Azure Virtual Desktop.
+This article has the latest updates for the host component of multimedia redirection for Azure Virtual Desktop, which is installed on session hosts. To learn how to install and configure multimedia redirection, see [Multimedia redirection for video playback and calls in a remote session](multimedia-redirection.md).
 
 ## Latest available version
 
-The following table shows the latest available version of multimedia redirection for Azure Virtual Desktop. For setup instructions, see [Multimedia redirection for video playback and calls in a remote session](multimedia-redirection.md).
+The following table shows the latest available version of multimedia redirection for Azure Virtual Desktop.
 
 | Release | Latest version | Download |
 |---------|----------------|----------|

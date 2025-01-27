@@ -34,7 +34,7 @@ The most recent stable release of the Azure Maps services.
 
 ## Previous releases
 
-There are previous stable releases of an Azure Maps services that are still in use. The services in these lists will generally have a more recent version available, and are slated for retirement. If using a previous release, update to the latest version before it's retired to avoid disruption of service.
+There are previous stable releases of an Azure Maps service that are still in use. The services in these lists will generally have a more recent version available, and are slated for retirement. If using a previous release, update to the latest version before it's retired to avoid disruption of service.
 
 ### Version 2022-08-01
 
@@ -55,7 +55,7 @@ Prerelease version of an Azure Maps service. Preview releases contain new functi
 
 | API | API version | Description |
 |-----|-------------|-------------|
-| [Route][Route-2023-10-01-preview] | 2023-10-01-preview | Returns the ideal route in GeoJSON between locations for multiple modes of transportation.<BR><BR>Some of the updates in this version of the Route service include:<ul><li>Routes with "via" waypoints that the route must pass through.</li><li>More geographies</li><li>More languages available for localized travel instructions.</li></ul> |
+| [Route][Route-2024-07-01-preview] | 2024-07-01-preview | Returns the ideal route in GeoJSON between locations for multiple modes of transportation.<BR><BR>Some of the updates in this version of the Route service include:<ul><li>New Snap to Roads API that snaps GPS data to road aligned coordinates.</li><li>Support for up to 50,000 cells in Route Matrix async.</li><li>High-definition route range polygon.</li><li>Routes with "via" waypoints that the route must pass through.</li><li>More geographies</li><li>More languages available for localized travel instructions.</li> |
 
 <!--- Links to latest versions of each service ---------------------------------->
 [Data Registry]: /rest/api/maps/data-registry
@@ -74,6 +74,6 @@ Prerelease version of an Azure Maps service. Preview releases contain new functi
 [Render v1]: /rest/api/maps/render?view=rest-maps-1.0
 [Search-v1]: /rest/api/maps/search?view=rest-maps-1.0
 
-<!--- 2023-10-01-preview is the latest preview release of the Route service,
+<!--- 2024-07-01-preview is the latest preview release of the Route service,
       currently the only Azure Maps service in Preview -------------------------->
-[Route-2023-10-01-preview]: /rest/api/maps/route?view=rest-maps-2023-10-01-preview
+[Route-2024-07-01-preview]: /rest/api/maps/route?view=rest-maps-2024-07-01-preview

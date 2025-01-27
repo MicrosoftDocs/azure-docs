@@ -321,8 +321,6 @@ For you to successfully link your integration account to your logic app resource
 
 ### [Consumption](#tab/consumption)
 
-This section describes how to complete this task using the Azure portal. If you use Visual Studio and your logic app is in an [Azure Resource Group project](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md), you can [link your logic app to an integration account by using Visual Studio](../manage-logic-apps-with-visual-studio.md#link-integration-account).
-
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 
 1. On your logic app's navigation menu, under **Settings**, select **Workflow settings**. Under **Integration account**, open the **Select an Integration account** list, and select the integration account you want.

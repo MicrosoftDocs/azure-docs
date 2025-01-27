@@ -108,7 +108,7 @@ When you receive the Data Box, perform the following steps to cable, connect, an
 
     1. Connect the power cable to the device.
     2. Use the RJ-45 CAT 6 network cable to connect your host computer to the management port (MGMT) on the device. 
-    3. Use the QFSP28 copper cable to connect at least one 100 Gbps (preferred over 10 Gbps or 1 Gbps) network interface, DATA 1 or DATA 2 for data. 
+    3. Use the QSFP28 copper cable to connect at least one 100 Gbps (preferred over 10 Gbps or 1 Gbps) network interface, DATA 1 or DATA 2 for data. 
     4. Turn on the device. The power button is on the front panel of the device.
 
 

@@ -73,7 +73,7 @@ To integrate with Crowdstrike Falcon Data Replicator (using Azure Functions) mak
 
 Option 1 - Azure Resource Manager (ARM) Template
 
-Use this method for automated deployment of the Crowdstrike Falcon Data Replicator connector using an ARM Tempate.
+Use this method for automated deployment of the Crowdstrike Falcon Data Replicator connector using an ARM Template.
 
 1. Click the **Deploy to Azure** button below. 
 

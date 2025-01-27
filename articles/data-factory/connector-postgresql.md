@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 11/27/2024
+ms.date: 01/26/2025
 ms.author: jianleishen
 ---
 # Copy data from PostgreSQL using Azure Data Factory or Synapse Analytics
@@ -14,8 +14,8 @@ ms.author: jianleishen
 
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from a PostgreSQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
->[!IMPORTANT]
->The new PostgreSQL connector provides improved native PostgreSQL support. If you are using the legacy PostgreSQL connector in your solution, please [upgrade your PostgreSQL connector](#upgrade-the-postgresql-linked-service) before **October 31, 2024**. Refer to this [section](#differences-between-postgresql-and-postgresql-legacy) for details on the difference between the legacy and latest version. 
+> [!IMPORTANT]
+> The [PostgreSQL V2 connector](connector-postgresql.md) provides improved native PostgreSQL support. If you are using the [PostgreSQL V1 connector](connector-postgresql-legacy.md) in your solution, please [upgrade your PostgreSQL connector](#upgrade-the-postgresql-linked-service) as V1 is at [End of Support stage](connector-deprecation-plan.md). Refer to this [section](#differences-between-postgresql-and-postgresql-legacy) for details on the difference between V2 and V1.
 
 ## Supported capabilities
 
@@ -210,6 +210,7 @@ To copy data from PostgreSQL, the following properties are supported in the copy
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **PostgreSqlV2Source** | Yes |
 | query | Use the custom SQL query to read data. For example: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | No (if "tableName" in dataset is specified) |
+| queryTimeout | The wait time before terminating the attempt to execute a command and generating an error, default is 120 minutes. If parameter is set for this property, allowed values are timespan, such as "02:00:00" (120 minutes). For more information, see [CommandTimeout](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_CommandTimeout). <br> If both `commandTimeout` and `queryTimeout` are configured, `queryTimeout` takes precedence. | No |
 
 > [!NOTE]
 > Schema and table names are case-sensitive. Enclose them in `""` (double quotes) in the query.
@@ -236,7 +237,8 @@ To copy data from PostgreSQL, the following properties are supported in the copy
         "typeProperties": {
             "source": {
                 "type": "PostgreSqlV2Source",
-                "query": "SELECT * FROM \"MySchema\".\"MyTable\""
+                "query": "SELECT * FROM \"MySchema\".\"MyTable\"",
+                "queryTimeout": "00:10:00"
             },
             "sink": {
                 "type": "<sink type>"

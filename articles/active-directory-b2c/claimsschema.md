@@ -325,7 +325,7 @@ The **DateTimeDropdown** user input type is used to provide a set of drop-downs 
 
 The **RadioSingleSelect** user input type is used to provide a collection of radio buttons that allows the user to select one option.
 
-![Using claim type with radiodsingleselect](./media/claimsschema/radiosingleselect.png)
+![Using claim type with radiosingleselect](./media/claimsschema/radiosingleselect.png)
 
 ```xml
 <ClaimType Id="color">

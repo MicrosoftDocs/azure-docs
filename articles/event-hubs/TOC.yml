@@ -5,7 +5,7 @@
     - name: What is Event Hubs?
       href: event-hubs-about.md
     - name: Apache Kafka on Azure Event Hubs
-      href: azure-event-hubs-kafka-overview.md
+      href: azure-event-hubs-apache-kafka-overview.md
     - name: Schema Registry
       href: schema-registry-overview.md      
     - name: Terminology
