@@ -190,7 +190,7 @@ if(assignedRoom.state == 'open' && !assignedRoom.autoMoveParticipantToBreakoutRo
   const breakoutRoomCall = await assignedRoom.join();
 }
 ```
-Microsoft 365 user with role organizer, co-organizer, or breakout room manager get the list of breakout rooms created by the breakout room manager or organizer of the main meeting. In this case, the behavior is slightly different. This user has to explicitly call `join()` method to join the breakout room. The user is kept on hold in the main meeting initially and eventually removed from the main meeting. The user has to initialize the breakoutRooms Feature for the `breakoutRoomCall` inorder to receive updates on the breakout room.
+Microsoft 365 user with role organizer, co-organizer, or breakout room manager get the list of breakout rooms created by the breakout room manager or organizer of the main meeting. In this case, the behavior is slightly different. This user has to explicitly call `join()` method to join the breakout room. The user is kept on hold in the main meeting initially and eventually removed from the main meeting. The user has to initialize the breakoutRooms Feature for the `breakoutRoomCall` in order to receive updates on the breakout room.
 
 If the user wants to join any of the breakout rooms , then the user explicitly calls the `join` method.
 

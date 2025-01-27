@@ -140,7 +140,7 @@ var recognizeOptions = new CallMediaRecognizeSpeechOptions(
                                                    targetParticipant: targetParticipant)
 {
       InterruptCallMediaOperation = true,
-      InterrupPrompt = false, 
+      InterruptPrompt = false, 
       Prompt = greetingPrompt,
       EndSilenceTimeoutInMS = TimeSpan.FromMilliseconds(1000),
       OperationContext = “OpenQuestionSpeech”
@@ -164,14 +164,14 @@ Developers can subscribe to the *RecognizeCompleted* and *RecognizeFailed* event
             string phraseDetected = null;
             switch (recognizeCompletedEvent.RecognizeResult)
             {
-                // Take action for Recongition through Choices
+                // Take action for Recognition through Choices
                 case ChoiceResult choiceResult:
                     labelDetected = choiceResult.Label;
                     phraseDetected = choiceResult.RecognizedPhrase;
                     //If choice is detected by phrase, choiceResult.RecognizedPhrase will have the phrase detected,
                     // if choice is detected using dtmf tone, phrase will be null
                     break;
-                //Take action for Recongition through DTMF
+                //Take action for Recognition through DTMF
                 case DtmfResult dtmfResult: 
                     var tones = dtmfResult.Tones;
                     break;
@@ -197,7 +197,7 @@ if (@event is RecognizeFailed { OperationContext: "AppointmentReminderMenu" })
             if (ReasonCode.RecognizeInitialSilenceTimedOut.Equals(recognizeFailedEvent.ReasonCode))
             {
                 logger.LogInformation($"Recognition timed out for call connection id: {@event.CallConnectionId}");
-                var playSource = new TextSource("No input recieved and recognition timed out, Disconnecting the call. Thank you!");
+                var playSource = new TextSource("No input received and recognition timed out, Disconnecting the call. Thank you!");
                 //Play audio for time out
                 await callConnectionMedia.PlayToAllAsync(playSource, new PlayOptions { OperationContext = "ResponseToChoice", Loop = false });
             }
