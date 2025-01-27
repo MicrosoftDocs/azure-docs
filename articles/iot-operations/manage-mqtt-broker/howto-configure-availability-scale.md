@@ -164,11 +164,11 @@ To learn more, see [`az iot ops create` optional parameters](/cli/azure/iot/ops#
 
 ---
 
-There are predefined memory profiles with different memory usage characteristics.
+There are predefined memory profiles with different memory usage characteristics for publishing messages. There isn't a limit on the number of sessions or subscriptions that the broker can handle. The memory profile governs only the memory usage for PUBLISH traffic.
 
 ### Tiny
 
-Use this profile when you need to handle a small number of connections and messages and have limited memory resources.
+Use this profile when you have limited memory resources and client publish traffic is low.
 
 When you use this profile:
 
@@ -182,7 +182,7 @@ Recommendations when you use this profile:
 
 ### Low
 
-Use this profile when you need to handle a low number of connections and messages.
+Use this profile when you have limited memory resources and clients publish small packets.
 
 When you use this profile:
 
@@ -196,7 +196,7 @@ Recommendations when you use this profile:
 
 ### Medium
 
-Use this profile when you need to handle a moderate number of connections and messages.
+Use this profile when you need to handle a moderate number of client messages.
 
 Medium is the default profile.
 
@@ -205,7 +205,7 @@ Medium is the default profile.
 
 ### High
 
-Use this profile when you need to handle a large number of connections and messages.
+Use this profile when you need to handle a large number of client messages.
 
 - Maximum memory usage of each frontend replica is approximately 4.9 GiB, but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 5.8 GiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
@@ -236,6 +236,9 @@ For example if you choose the *Medium* memory profile, the profile has a fronten
 In comparison, the *Tiny* memory profile has a frontend memory usage of 1.9 GB and backend memory usage of 1.5 GB. If you assume the same broker configuration, the total memory usage is:
 
 *2 * 99 MB + (2 * 2) * 102 MB * 2 = 198 MB + 816 MB* = 1.014 GB.
+
+> [!IMPORTANT]
+> The MQTT broker starts rejecting messages when memory is 75% full.
 
 ## Cardinality and Kubernetes resource limits
 
