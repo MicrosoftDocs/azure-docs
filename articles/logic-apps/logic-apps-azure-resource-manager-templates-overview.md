@@ -206,7 +206,7 @@ Here is the structure inside the parameters file, which includes a key vault ref
             "keyVault": {
                "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/Microsoft.KeyVault/vaults/<key-vault-name>"
             },
-            "secretName: "<secret-name>"
+            "secretName": "<secret-name>"
          }
       },
       <other-parameter-values>
@@ -405,7 +405,7 @@ This syntax shows where you can declare parameters at both the template and work
                      "type": "<trigger-type>",
                      "inputs": {
                          // Workflow definition parameter reference
-                         "<attribute-name>": "@parameters('<workflow-definition-parameter-name')"
+                         "<attribute-name>": "@parameters('<workflow-definition-parameter-name>')"
                      }
                   }
                },
