@@ -36,7 +36,7 @@ With this setting enabled, Grafana Viewers can:
 - Edit dashboards temporarily, without saving.
 - Access the **Explore** menu to perform interactive queries and analyze data.
 
-1. In the **Grafana Settings** tab, locate the **Viewers can edit** option.
+1. In the **Grafana Settings** tab, locate the **Viewers Can Edit** option.
 1. This option is disabled by default. Toggle the switch to enable this setting.
 
 ## External Enabled
@@ -55,7 +55,7 @@ The **CSRF Always Check** setting enhances security by rejecting requests that h
 1. In the **Grafana Settings** tab, locate the **CSRF Always Check** option.
 1. Toggle the switch to enable or disable this setting based on your security requirements.
 
-## Related Content
+## Related content
 
 - [Grafana UI](grafana-app-ui.md)
 - [Manage plugins](how-to-manage-plugins.md)
