@@ -38,7 +38,9 @@ The Container Apps diagnostics features an intelligent and interactive experienc
 
 1. In the left navigation, select **Container Apps Ingress Port settings check** to diagnose and troubleshoot the issue.
 
-    Select the required revision of your container app from the dropdown. The latest revision would be populated by default.  
+    Select the required revision of your container app from the dropdown. The latest revision would be populated by default.
+
+    :::image type="content" source="media/troubleshooting/port-mismatch.png" alt-text="Screenshot of port mismatch report.":::
 
     This report provides details on the issue, possible causes, and recommended resolutions.
 
