@@ -35,7 +35,8 @@ For SIEM solutions like Microsoft Sentinel, the most common forms of CTI are thr
 
 Another facet of threat intelligence represents threat actors, their techniques, tactics and procedures (TTPs), their infrastructure, and the identities of their victims. Microsoft Sentinel supports managing these facets along with IOCs, expressed using the open source standard for exchanging CTI known as structured threat information expression (STIX). Threat intelligence expressed as STIX objects improves interoperability and empowers organizations to hunt more efficiently. Use threat intelligence STIX objects in Microsoft Sentinel to detect malicious activity observed in your environment and provide the full context of an attack to inform response decisions.
 
-The following outline describes the activities required to make the most of threat intelligence integration in Microsoft Sentinel:
+The following table outlines the activities required to make the most of threat intelligence integration in Microsoft Sentinel:
+
 | Action | Description|
 |---|---|
 | **Store threat intelligence in Microsoft Sentinel's workspace** | <ul><li>Import threat intelligence into Microsoft Sentinel by enabling *data connectors* to various threat intelligence [platforms](connect-threat-intelligence-tip.md) and [feeds](connect-threat-intelligence-taxii.md).</li><li>Connect threat intelligence to Microsoft Sentinel by using the upload API to connect various TI [platforms](connect-threat-intelligence-tip.md) or custom applications.</br></br>Create threat intelligence with a streamlined UI individually or importing as a file from the management interface.</li>|
@@ -124,7 +125,7 @@ For more information, see [Connect Microsoft Sentinel to STIX/TAXII threat intel
 
 Threat intelligence management is unified with Microsoft Defender Threat Intelligence (MDTI) and Threat Analytics in the Defender portal.
 
-:::image type="content" source="media/understand-threat-intelligence/intel-management-defender portal.png" alt-text="Screenshot showing intel management page in the Defender portal.":::
+:::image type="content" source="media/understand-threat-intelligence/intel-management-defender-portal.png" alt-text="Screenshot showing intel management page in the Defender portal.":::
 
 Two of the most common threat intelligence tasks are creating new threat intelligence related to security investigations and tagging intel objects. The management interface streamlines the manual process of creating individual threat intel with a few key features.
 - Define relationships as you create new STIX objects.
