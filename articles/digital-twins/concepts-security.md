@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about Azure Digital Twins security best practices.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/31/2023
+ms.date: 01/27/2025
 ms.topic: conceptual
 ms.service: azure-digital-twins
 
@@ -125,6 +125,8 @@ For instructions on how to set up Private Link for Azure Digital Twins, see [Ena
 
 >[!NOTE]
 > Private network access with Azure Private Link applies to accessing Azure Digital Twins through its rest APIs. This feature does not apply to egress scenarios using Azure Digital Twins's [event routing](concepts-route-events.md) feature.
+
+[!INCLUDE [digital-twins-explorer-private-note.md](../../includes/digital-twins-explorer-private-note.md)]
 
 ### Design considerations 
 

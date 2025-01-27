@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the basics of the Azure Digital Twins query language.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 01/10/2023
+ms.date: 01/27/2025
 ms.topic: conceptual
 ms.service: azure-digital-twins
 
@@ -40,6 +40,7 @@ When writing queries for Azure Digital Twins, keep the following considerations 
 * Escape single quotes: If your query text includes a single quote character in the data, the quote will need to be escaped with the `\` character. Here's an example that deals with a property value of *D'Souza*:
 
   :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="EscapedSingleQuote":::
+* If you're using the Azure CLI to run queries, you may need to escape certain additional characters to meet the requirements of various shells. For more information, see [Use special characters in different shells](concepts-cli.md#use-special-characters-in-different-shells)
 
 [!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
 
