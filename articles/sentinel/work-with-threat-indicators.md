@@ -10,22 +10,42 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-
-
 #Customer intent: As a security analyst, I want to use threat intelligence managed by Microsoft Sentinel so that I can detect and respond to security threats more effectively.
-
 ---
 
 # Work with threat intelligence in Microsoft Sentinel
 
-Manage your threat intelligence with the following features:
+This article demonstrates how to make the most of threat intelligence (TI) integration in the management interface with these activities:
 
-- **Import threat intelligence** into Microsoft Sentinel by enabling *data connectors* to various threat intelligence [platforms](connect-threat-intelligence-tip.md) and [feeds](connect-threat-intelligence-taxii.md).
-- **View and manage** the imported threat intelligence in **Logs** and the management interface.
-- **Detect threats** and generate security alerts and incidents by using the built-in **Analytics** rule templates based on your imported threat intelligence.
-- **Visualize key information** about your imported threat intelligence in Microsoft Sentinel with the **Threat Intelligence workbook**.
+- Create TI in the management interface
+- Manage TI by viewing, curating, and visualizing 
+
+All of these activities have the same steps except the management interface is accessed differently depending which portal you use.
+ 
+- For Microsoft Sentinel-powered threat intelligence in the Defender portal, navigate to **Threat intelligence** > **Intel management**.
+- For Microsoft Sentinel in the Azure portal, navigate to **Threat management** > **Threat intelligence**.
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
+## Create threat intelligence in the management interface
+
+Use the management interface to create threat intelligence objects and perform other common threat intelligence tasks such as indicator tagging and establishing connections between objects security investigations.
+
+- Define relationships as you create new STIX objects.
+- Curate existing TI with the relationship builder.
+- Quickly create multiple objects by using the duplicate feature to copy the metadata from a new or existing TI object.
+
+### Create a new indicator
+
+1. On the menu bar at the top of the page, select **Add new**.
+
+    :::image type="content" source="media/work-with-threat-indicators/threat-intel-add-new-indicator.png" alt-text="Screenshot that shows adding a new threat indicator." lightbox="media/work-with-threat-indicators/threat-intel-add-new-indicator.png":::
+
+1. Choose the indicator type, and then fill in the form on the **New indicator** pane. The required fields are marked with an asterisk (*).
+
+1. Select **Apply**. The indicator is added to the indicators list and is also sent to the `ThreatIntelligenceIndicator` table in **Logs**.
+
+## Manage threat intelligence 
 
 ## View your threat intelligence in Microsoft Sentinel
 
@@ -74,23 +94,7 @@ To view your threat intelligence indicators in **Logs**:
 
     :::image type="content" source="media/work-with-threat-indicators/ti-table-results.png" alt-text="Screenshot that shows sample ThreatIntelligenceIndicator table results with the details expanded." lightbox="media/work-with-threat-indicators/ti-table-results.png":::
 
-## Create and manage objects
 
-Use the management interface to create threat intelligence objects and perform other common threat intelligence tasks such as indicator tagging and establishing connections between objects security investigations.
-
-### Create a new indicator
-
-1. In the [Defender portal](https://security.microsoft.com/), select **** > **Threat intelligence** > **Intel management**.
-   
-   For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Threat intelligence**.
-
-1. On the menu bar at the top of the page, select **Add new**.
-
-    :::image type="content" source="media/work-with-threat-indicators/threat-intel-add-new-indicator.png" alt-text="Screenshot that shows adding a new threat indicator." lightbox="media/work-with-threat-indicators/threat-intel-add-new-indicator.png":::
-
-1. Choose the indicator type, and then fill in the form on the **New indicator** pane. The required fields are marked with an asterisk (*).
-
-1. Select **Apply**. The indicator is added to the indicators list and is also sent to the `ThreatIntelligenceIndicator` table in **Logs**.
 
 ### Tag and edit threat indicators
 

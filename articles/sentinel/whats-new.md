@@ -39,7 +39,7 @@ Managing Microsoft Sentinel-powered threat intelligence has moved in the Defende
 Enhanced threat intelligence capabilities are available in both Microsoft's unified SecOps platform and Microsoft Sentinel in the Azure portal. The management interface streamlines the manual process of creating individual threat intel with these key features:
 - Define relationships as you create new STIX objects.
 - Curate existing threat intelligence with the new relationship builder.
-- Quickly create multiple objects by using the duplicate feature to copy the metadata from a new or existing threat intel.
+- Quickly create multiple objects by using the duplicate feature to copy the metadata from a new or existing threat intel objects.
 
 Use advanced search to sort and filter your threat intelligence objects without even writing a Log Analytics query. For more information, see the following articles:
 - [New STIX objects in Microsoft Sentinel](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/announcing-public-preview-new-stix-objects-in-microsoft-sentinel/4369164)
