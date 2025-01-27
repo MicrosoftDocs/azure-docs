@@ -33,10 +33,11 @@ The following video provides an overview of the Spatial IO module in the Azure M
 ## Supported file formats and prerequisites
 
 You can use file formats that include:
--  Keyhole Markup Language (KML).
+
+- Keyhole Markup Language (KML).
 - Compressed KML (KMZ).
 - GPS Exchange Format (GPX).
-- Geographic RSS (GeoRSS).
+- Geographic Really Simple Syndication (GeoRSS).
 - Geography Markup Language (GML).
 - Geographic JavaScript Object Notation (GeoJSON).
 - Well-Known Text (WKT).
@@ -49,7 +50,7 @@ Prerequisites include:
 
 ## Install the Spatial IO module
 
-You can load the Azure Maps Spatial IO module using one of the following two options:
+You can load the Azure Maps Spatial IO module by using one of the following two options:
 
 - You can use the globally hosted Azure Content Delivery Network (CDN) for the Azure Maps Spatial IO module. For this option, add a reference to the JavaScript in the `<head>` element of the HTML file.
 
@@ -86,10 +87,10 @@ You can load the Azure Maps Spatial IO module using one of the following two opt
 
         <meta charset="utf-8">
 
-        <!-- Ensures that Internet Explorer and Edge use the latest version and don't emulate an older version. -->
+        <!-- Ensure that Internet Explorer and Edge use the latest version and don't emulate an older version. -->
         <meta http-equiv="x-ua-compatible" content="IE=Edge">
 
-        <!-- Ensures the web page looks good on all screen sizes. -->
+        <!-- Ensure that the web page looks good on all screen sizes. -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
@@ -167,10 +168,10 @@ You can load the Azure Maps Spatial IO module using one of the following two opt
 
         <meta charset="utf-8">
 
-        <!-- Ensures that Internet Explorer and Edge use the latest version and don't emulate an older version. -->
+        <!-- Ensure that Internet Explorer and Edge use the latest version and don't emulate an older version. -->
         <meta http-equiv="x-ua-compatible" content="IE=Edge">
 
-        <!-- Ensures the web page looks good on all screen sizes. -->
+        <!-- Ensure that the web page looks good on all screen sizes. -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps map control JavaScript and CSS files. -->

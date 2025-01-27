@@ -1,7 +1,7 @@
 ---
 title: Add a Simple Data Layer
 titleSuffix: Microsoft Azure Maps
-description: Learn how to add a simple data layer using the Spatial IO module provided by the Azure Maps Web SDK.
+description: Learn how to add a simple data layer by using the Spatial IO module provided by the Azure Maps Web SDK.
 author: sinnypan
 ms.author: sipa
 ms.date: 06/19/2023
@@ -19,7 +19,7 @@ The simple data layer achieves this functionality by wrapping multiple rendering
 
 The `SimpleDataLayer` class also provides a built-in popup feature with a popup template (which can be disabled if not needed). The popup appears when a feature is selected. This layer also supports clustered data. When a cluster is selected, the map zooms in to the cluster and expands it into individual points and subclusters.
 
-The `SimpleDataLayer` class is intended to be used on large data sets that contain features that have many applied geometry types and styles. When used, this class adds an overhead of six layers containing style expressions. Therefore, if you only need to render a few geometry types and styles on a feature, it might be more efficient to use a core rendering layer.
+The `SimpleDataLayer` class is intended to be used on large data sets that include features with many applied geometry types and styles. When used, this class adds an overhead of six layers containing style expressions. Therefore, if you only need to render a few geometry types and styles on a feature, it might be more efficient to use a core rendering layer.
 
 ## Use a simple data layer
 
@@ -133,7 +133,7 @@ For example, when parsing XML data feeds, you might not know the features' exact
 > - All pointer lock functionality, top navigation functionality, scripts, and forms are disabled. Links can open in a new tab when selected.
 > - Older browsers that don't support the `srcdoc` parameter on iFrames can only render a small amount of content.
 >
-> If you trust the data loaded into the pop-ups, and want the popup scripts to be able to access your application, you can disable this feature. Just set the `sandboxContent` option in the popup template to false.
+> If you trust the data loaded into the popups, and want the popup scripts to be able to access your application, you can disable this feature. Just set the `sandboxContent` option in the popup template to false.
 
 ## Default supported style properties
 
@@ -209,7 +209,7 @@ If the feature is a `LineString`, `MultiLineString`, `Polygon`, or `MultiPolygon
 
 ### Polygon style properties
 
-If the feature is a `Polygon` or a `MultiPolygon`, and the feature either doesn't have a `height` property or the `height` property is zero, the feature is rendered with a `PolygonLayer`.
+If the feature is a `Polygon` or a `MultiPolygon`, and the feature either doesn't have a `height` property, or if the `height` property is zero, the feature is rendered with a `PolygonLayer`.
 
 | Layer option | Supported property names | Default value |
 |--------------|----------------------------|---------------|
