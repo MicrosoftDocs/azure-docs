@@ -103,7 +103,7 @@ Create your secured virtual hub using Firewall Manager.
    :::image type="content" source="./media/secure-cloud-network/3-azure-firewall-parameters-with-zones.png" alt-text="Screenshot of configuring Azure Firewall parameters." lightbox="./media/secure-cloud-network/3-azure-firewall-parameters-with-zones.png":::
 
 
-16. Type **1** in the **Specify number of Public IP addressees** text box.
+16. Type **1** in the **Specify number of Public IP addressees** text box or associate an existing public IP address (preview) with this firewall.
 16. Under **Firewall Policy** ensure the **Default Deny Policy** is selected. You refine your settings later in this article.
 17. Select **Next: Security Partner Provider**.
 

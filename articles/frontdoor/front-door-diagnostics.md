@@ -38,7 +38,7 @@ The metrics listed in the following table are recorded and stored free of charge
 | Request Size | The number of bytes sent in requests from clients to Azure Front Door. | Endpoint, Client Country, client Region, HTTP Status, HTTP Status Group | Avg, Max |
 | Response Size | The number of bytes sent as responses from Front Door to clients. | Endpoint, client Country, client Region, HTTP Status, HTTP Status Group | Avg, Max |
 | Total Latency | Azure Front Door receives the client request and sends the last response byte to the client. This is the total time taken. For WebSocket, this metric refers to the time it takes to establish the WebSocket connection. | Endpoint, Client Country, Client Region, HTTP Status, HTTP Status Group | Avg, Max |
-| Web Application Firewall Request Count | The number of requests processed by the Azure Front Door web application firewall. | Action, Policy Name, Rule Name | Avg, Sum |
+| Web Application Firewall Request Count | The number of requests processed by Azure Front Door web application firewall with either no action taken, or a terminating action taken. To avoid duplicate counting `Log` actions are excluded. | Action, Policy Name, Rule Name | Avg, Sum |
 
 > [!NOTE]
 > If a request to the origin times out, the value of the *Http Status* dimension is **0**.
