@@ -216,19 +216,13 @@ You'd configured your OT sensor network configuring during [installation](ot-dep
 
 1. Select **Save** to save your changes.
 
-### Turn off learning mode manually
-<!-- Limor should most of this intro be moved to create-learned-baseline.md? that is a 'concept' page about learning mode-->
+## Turn off learning mode manually
+
 An OT network sensor starts monitoring your network automatically as soon as it connects to your network and you [sign in](ot-deploy/activate-deploy-sensor.md#sign-in-to-the-sensor-console-and-change-the-default-password). Network devices start appearing in your [device inventory](device-inventory.md), and [alerts](alerts.md) are triggered for any security or operational incidents that occur in your network.
 
 There are three stages to the monitoring process. For more information, see [overview of the multi stage monitoring process](ot-deploy/create-learned-baseline.md).
 
-<!--1. In **Learning mode** the sensor monitors and assesses all network communication, including the devices and protocols in your network, and the regular file transfers that occur between specific devices. The sensor learns which communications are normal, safe traffic and which are suspicious, thereby creating a baseline of safe traffic which won't trigger alerts. Any regularly detected activity becomes your network's [baseline traffic](ot-deploy/create-learned-baseline.md).  In learning mode you'll see alerts for malware, ..., or ...., however, no Policy Violation alerts are generated in learning mode.<!-- what doesnt happen in learning mode? Are there any policy violation alerts produced?? any other alerts not produced? What alerts are produced? -->
-<!--1. In **Dynamic mode** the sensor continues the monitoring process, ensuring that the baseline produced in the learning mode is accurate. Dynamic mode also starts to produce **Policy violation** alerts that detail important, suspicious traffic that needs to be remidated.
-
-1. In **Operational mode** the sensor monitors all network traffic, with a completed baseline, and triggers all alerts.
-<!-- Limor- This was original text - included in the first para above :- Initially, this activity happens in *learning* mode, which instructs your OT sensor to learn your network's usual activity, including the devices and protocols in your network, and the regular file transfers that occur between specific devices. Any regularly detected activity becomes your network's [baseline traffic](ot-deploy/create-learned-baseline.md). The *Learning* mode monitors all of the network OT sensors with identical global settings to ensure that it tracks and identifies all types of network traffic. In learning mode you'll see alerts for malware, ..., or ...., however, no Policy Violation alerts are generated in learning mode. -->
-Two to six weeks after deploying your sensor the detection levels should accurately reflect your network activity. At this stage we recommend turning off learning mode.<!-- The sensor remains in *dynamic* mode, where it continues to monitor and assess the network traffic as though it was in learning mode, but slowly starts to generate **Policy Violation** alerts as well. Eventually, when the sensor recognises all normal types of network traffic it will automatically change to *Operational* mode. -->
-<!--This procedure describes how to manually turn off the learning mode if you feel that the alerts accurately reflect your network activity.-->
+Two to six weeks after deploying your sensor the detection levels should accurately reflect your network activity. At this stage we recommend turning off learning mode.
 
 **To turn off learning mode**:
 

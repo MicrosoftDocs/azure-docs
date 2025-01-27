@@ -17,35 +17,35 @@ An OT network sensor starts monitoring your network automatically after it conne
 
 Defender for IoT employs a three stage monitoring process that learns your network's normal traffic behavior. These three stages ensure accurate detection while reducing unnecessary alerts, are:
 
-1. Learning mode
-1. Dynamic mode
-1. Operational mode
+1. [Learning mode](#learning-mode)
+1. [Dynamic mode](#dynamic-mode)
+1. [Operational mode](#operational-mode)
+
+### Summary of the monitoring stages
+
+| Mode | Purpose | Trigger alerts | User actions needed |
+| --- | --- | --- | --- |
+| **[Learning](#learning-mode)** | Builds a baseline of normal network traffic | Malware alerts, anomaly alerts, operational alerts, protocol violation alerts | Turn off manually after 2–6 weeks or when baseline reflects accurate network activity |
+| **[Dynamic](#dynamic-mode)** | Refines the baseline while gradually introducing Policy Violations alerts to ensure accuracy and reduce alert noise | Policy Violation alerts are introduced | Optional: Adjust settings for specific scenarios (e.g. during POCs) |
+| **[Operational](#operational-mode)** | Monitors all network traffic with a stable baseline, triggering all alerts to reflect deviations or suspicious activity | All types of alerts | None. Automatically transitions when baseline stabilizes |
 
 ### Learning mode
 
 Initially, the sensor runs in *learning* mode to monitor all of your network traffic and build a baseline of all normal traffic patterns. This baseline includes all of the devices and protocols in your network, and the regular file transfers that occur between devices. This process normally takes between 2 and 6 weeks, depending on your network size and complexity. Additionally, any devices discovered later enter learning mode for 7 days in order to establish their network traffic baseline.
 
-In learning mode, the sensor monitors and protects your environment by triggering relevant security alerts, such as malware, anomaly and operational alerts. However, policy violation alerts, which indicate deviations from the baseline, aren't triggered while the system is in learning mode.
+In learning mode, the sensor monitors and protects your environment by triggering relevant security alerts, such as malware, anomaly and operational alerts. However, Policy Violation alerts, which indicate deviations from the baseline, aren't triggered while the system is in learning mode.
 
 ### Dynamic mode
 
-Once the discovery process and network traffic are stable, you should manually turn off learning mode. At this point, the sensor transitions to dynamic mode. In Dynamic mode the sensor continues to monitor your network, validating and refining the baseline. The sensor assesses each alert category and scenario individually, dynamically changing them to operational mode when their baselines are confirmed to be accurate. Alternatively, if the sensor detects significant changes in traffic, it might automatically extend the learning mode for specific alerts or scenarios.
+Once the discovery process and network traffic are stable, you should manually turn off learning mode. At this point, the sensor transitions to dynamic mode. In dynamic mode the sensor continues to monitor your network, validating and refining the baseline. The sensor assesses each alert category and scenario individually, dynamically changing them to operational mode when their baselines are confirmed to be accurate. Alternatively, if the sensor detects significant changes in traffic, it might automatically extend the learning mode for specific alerts or scenarios.
 
-In dynamic mode, policy violation alerts are gradually introduced and start to appear in the alert inventory.
+In dynamic mode, Policy Violation alerts are gradually introduced and start to appear in the alert inventory.
 
 ### Operational mode
 
 Once the sensor identifies that the baseline is stable and complete it automatically transitions into operational mode, monitoring all of the network traffic and triggering all alert types.
 
 The **Learn** action becomes relevant after learning mode is turned off, when the scenario transitions to operational mode, and you wish to mark specific operations as authorized or expected activity. Once learned, similar activity won't generate new alerts in the future.
-
-### Summary of the monitoring stages
-
-| Mode | Purpose | Trigger alerts | User actions needed |
-| --- | --- | --- | --- |
-| **Learning** | Builds a baseline of normal network traffic | Malware alerts, anomaly alerts, operational alerts, protocol violation alerts | Turn off manually after 2–6 weeks or when baseline reflects accurate network activity |
-| **Dynamic** | Refines the baseline while gradually introducing policy violations alerts to ensure accuracy and reduce alert noise | Policy Violation alerts are introduced | Optional: Adjust settings for specific scenarios (e.g. during POCs) |
-| **Operational** | Monitors all network traffic with a stable baseline, triggering all alerts to reflect deviations or suspicious activity | All types of alerts | None. Automatically transitions when baseline stabilizes |
 
 [Turn off learning mode manually before then](../how-to-manage-individual-sensors.md#turn-off-learning-mode-manually) if you feel that the current alerts accurately reflect your network activity.
 
