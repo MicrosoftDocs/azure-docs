@@ -133,6 +133,8 @@ Two of the most common threat intelligence tasks are creating new threat intelli
 - Add free-form tags to objects with multi-select.
 
 The following STIX objects are available in Microsoft Sentinel:
+:::image type="content" source="media/understand-threat-intelligence/new-object.png" alt-text="Screenshot of the add new menu STIX object options."::: 
+
 | STIX object | Description |
 |---|---|
 | Threat actor | From script kiddies to nation states, threat actors objects describe motivations, sophistication and resourcing levels. |
@@ -140,8 +142,6 @@ The following STIX objects are available in Microsoft Sentinel:
 | Indicator | <ul><li>Domain name<li>URL<li>IPv4 and IPv6 addresses<li>File hashes</li></br><li>**X509 certificates** are used to authenticate the identity of devices and servers for  secure communication over the internet.</li><li>**JA3** fingerprints are unique identifiers generated from the TLS/SSL handshake process. They help in identifying specific applications and tools used in network traffic, making it easier to detect malicious activities</li><li>**JA3S** fingerprints extend the capabilities of JA3 by also including server-specific characteristics in the fingerprinting process. This provides a more comprehensive view of the network traffic and helps in identifying both client and server-side threats.<li>**User agents** provide information about the client software making requests to a server, such as the browser or operating system. They are useful in identifying and profiling devices and applications accessing a network.</li> |
 | Identity | Describe victims, organizations and other groups or individuals along with the business sectors most closely associated with them. |
 | Relationship | The threads that connect threat intelligence, helping to make connections across disparate signals and data points are described with relationships. |
-
-:::image type="content" source="media/understand-threat-intelligence/new-object.png" alt-text="Screenshot of the add new menu STIX object options.":::
 
 Tagging threat intelligence is a quick way to group objects together to make them easier to find. Typically, you might apply tags related to a particular incident. But, if an indicator represents threats from a particular known actor or well-known attack campaign you might create a relationship instead of a tag. After you search for the threat intelligence that you want to work with, tag them individually or multiselect and tag them all at once. Because tagging is free-form, we recommend that you create standard naming conventions for threat intelligence tags.
 
