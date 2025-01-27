@@ -32,7 +32,7 @@ Get notified when this page is updated by copying and pasting the following URL 
 
 ### Threat intelligence management interface has moved
 
-Managing Microsoft Sentinel powered threat intelligence has moved in the Defender portal to a **Intel management**. In the Azure portal, the location remains unchanged.
+Managing Microsoft Sentinel-powered threat intelligence has moved in the Defender portal to **Intel management**. In the Azure portal, the location remains unchanged.
 
 :::image type="content" source="media/whats-new/intel-management-navigation.png" alt-text="Screenshot showing new menu placement for Microsoft Sentinel threat intelligence.":::
 
