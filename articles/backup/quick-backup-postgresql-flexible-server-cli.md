@@ -11,35 +11,19 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-#  Back up an Azure PostgreSQL - Flexible servers with Azure CLI
+#  Quickstart: Configure backup Azure Database for PostgreSQL - Flexible Server using Azure CLI
 
-[Azure Backup](backup-azure-database-postgresql-flex-overview.md) allows you to back up your Azure PostgreSQL - Flexible servers using multiple options - such as Azure portal, PowerShell, CLI, Azure Resource Manager, Bicep, and so on. This article describes how to back up an Azure PostgreSQL - Flexible servers with Azure CLI.
+This quickstart describes how to configure backup for Azure Database for  PostgreSQL - Flexible Server using Azure CLI.
 
-For info on PostgreSQL databases supported scenarios and limitations, see the [support matrix](backup-azure-database-postgresql-flex-support-matrix.md).
+[Azure Backup](backup-azure-database-postgresql-flex-overview.md) allows you to back up your Azure PostgreSQL - Flexible Server using multiple options - such as Azure portal, PowerShell, CLI, Azure Resource Manager, Bicep, and so on. 
 
-## Create a Backup vault
+## Prerequisites
 
-In this article, we create a Backup vault _TestBkpVault_, in the region _westus_, under the resource group _testBkpVaultRG_. 
+Before you configure backup for Azure Database for PostgreSQL Flexible Server, ensure that the following prerequisites are met:
 
-```azurecli
-az dataprotection backup-vault create -g testBkpVaultRG --vault-name TestBkpVault -l westus --type SystemAssigned --storage-settings datastore-type="VaultStore" type="LocallyRedundant"
-```
-
-## Create a Backup policy
-
-We generate a default policy template for a PostgreSQL - Flexible server. Then, we use this policy template to create a new policy.
-
-```azurecli
-az dataprotection backup-policy get-default-policy-template --datasource-type AzureDatabaseForPostgreSQLFlexibleServer
-```
-
-The default policy template consists of a trigger (which decides what triggers the backup) and a lifecycle (which decides when to delete/copy/move the backup). In Azure PostgreSQL - flexible server backup, the default value for trigger is a scheduled Weekly trigger (one backup every seven days) and to retain each backup for three months.
-
-With this command, we create a policy using the Default template.
-
-```azurecli
-az dataprotection backup-policy create --backup-policy-name FinalOSSPolicy --policy AddedRetentionRuleAndTag.JSON --resource-group testBkpVaultRG --vault-name TestBkpVault
-```
+- Review the [supported scenarios and limitations for backing up Azure Database for PostgreSQL - Flexible Servers](backup-azure-database-postgresql-flex-support-matrix.md).
+- [Create a Backup vault](back-up-azure-database-postgresql-flex-backup-cli.md#create-a-backup-vault) to store the recovery points for the database.
+- [Configure a backup policy](back-up-azure-database-postgresql-flex-backup-cli.md#create-a-backup-policy) to schedule the backup operations.
 
 ## Configure backup
 
@@ -61,7 +45,9 @@ az dataprotection backup-instance initialize --datasource-id $ossId --datasource
 az dataprotection backup-instance create --resource-group testBkpVaultRG --vault-name TestBkpVault TestBkpvault --backup-instance .\OSSBkpInstance.JSON
 ```
 
+After the backup configuration is complete, you can [run an on-demand backup](back-up-azure-database-postgresql-flex-backup-cli.md#run-an-on-demand-backup) to create the first full backup for the database.
+
 ## Next steps
 
-- [Restore Azure Database for PostgreSQL - flexible server using Azure CLI](backup-azure-database-postgresql-flex-restore-cli.md)
-- [About Azure PostgreSQL - Flexible server backup](backup-azure-database-postgresql-flex-overview.md)
+[Restore Azure Database for PostgreSQL - flexible server using Azure CLI](backup-azure-database-postgresql-flex-restore-cli.md)
+
