@@ -14,11 +14,7 @@ ms.custom: mvc
 
 [!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
-Azure Content Delivery Network includes three products:
 
-- **Azure CDN Standard from Microsoft**
-- **Azure CDN Standard from Edgio (formerly Verizon)**
-- **Azure CDN Premium from Edgio (formerly Verizon)**.
 
 The following table compares the features available with each product.
 
