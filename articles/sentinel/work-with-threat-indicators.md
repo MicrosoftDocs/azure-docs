@@ -74,15 +74,15 @@ To view your threat intelligence indicators in **Logs**:
 
     :::image type="content" source="media/work-with-threat-indicators/ti-table-results.png" alt-text="Screenshot that shows sample ThreatIntelligenceIndicator table results with the details expanded." lightbox="media/work-with-threat-indicators/ti-table-results.png":::
 
-## Create and tag indicators
+## Create and manage objects
 
-Use the **Threat Intelligence** page to create threat indicators directly within the Microsoft Sentinel interface and perform two common threat intelligence administrative tasks: indicator tagging and creating new indicators related to security investigations.
+Use the management interface to create threat intelligence objects and perform other common threat intelligence tasks such as indicator tagging and establishing connections between objects security investigations.
 
 ### Create a new indicator
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Threat intelligence**.
-
-   For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Threat intelligence**.
+1. In the [Defender portal](https://security.microsoft.com/), select **** > **Threat intelligence** > **Intel management**.
+   
+   For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Threat intelligence**.
 
 1. On the menu bar at the top of the page, select **Add new**.
 

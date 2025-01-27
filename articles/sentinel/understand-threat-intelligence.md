@@ -11,14 +11,12 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 
-
 #Customer intent: As a security analyst, I want to integrate threat intelligence into Microsoft Sentinel so that I can detect, investigate, and respond to potential security threats effectively.
-
 ---
 
 # Understand threat intelligence in Microsoft Sentinel
 
-Microsoft Sentinel is a cloud-native security information and event management (SIEM) solution with the ability to manage threat intelligence from numerous sources.
+Microsoft Sentinel is a cloud-native security information and event management (SIEM) solution with the ability to ingest, curate, and manage threat intelligence from numerous sources.
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
@@ -35,27 +33,19 @@ Organizations use CTI to provide essential context to unusual activity so that s
 
 For SIEM solutions like Microsoft Sentinel, the most common forms of CTI are threat indicators, which are also known as indicators of compromise (IOCs) or indicators of attack. Threat indicators are data that associate observed artifacts such as URLs, file hashes, or IP addresses with known threat activity such as phishing, botnets, or malware. This form of threat intelligence is often called *tactical threat intelligence*. It's applied to security products and automation in large scale to detect potential threats to an organization and protect against them.
 
-Another facet of threat intelligence represents threat actors, their TTPs (techniques, tactics and procedures), their infrastructure, and their victims. Microsoft Sentinel supports managing these facets along with IOCs, expressed using the open source standard for exchanging CTI known as the STIX (structured threat information expression) language format. The STIX objects usable in Microsoft Sentinel are:
-- Indicator
-- Attack pattern
-- Identity
-- Threat actor
-- Relationship
+Another facet of threat intelligence represents threat actors, their techniques, tactics and procedures (TTPs), their infrastructure, and the identities of their victims. Microsoft Sentinel supports managing these facets along with IOCs, expressed using the open source standard for exchanging CTI known as structured threat information expression (STIX). Threat intelligence expressed as STIX objects improves interoperability and empowers organizations to hunt more efficiently. Use threat intelligence STIX objects in Microsoft Sentinel to detect malicious activity observed in your environment and provide the full context of an attack to inform response decisions.
 
-Use threat intelligence in Microsoft Sentinel to detect malicious activity observed in your environment and provide context to security investigators to inform response decisions.
+The following outline describes the activities required to make the most of threat intelligence integration in Microsoft Sentinel:
 
-You can integrate threat intelligence into Microsoft Sentinel through the following activities:
-
-- **Import threat intelligence** into Microsoft Sentinel by enabling *data connectors* to various threat intelligence [platforms](connect-threat-intelligence-tip.md) and [feeds](connect-threat-intelligence-taxii.md).
-- **Connect threat intelligence** to Microsoft Sentinel by using the upload API to connect various TI [platforms](connect-threat-intelligence-tip.md) or custom applications.
-- **Create threat intelligence** individually or import using a file from the management interface.
-- **View and manage** the imported threat intelligence in **Logs** or with advanced search in the user interface.
-- **Detect threats** and generate security alerts and incidents by using the built-in **Analytics** rule templates based on your imported threat intelligence.
-- **Visualize key information** about your imported threat intelligence in Microsoft Sentinel with the **Threat Intelligence** workbook.
+| Action | Description|
+|---|---|
+| **Store threat intelligence in Microsoft Sentinel's workspace** | - Import threat intelligence into Microsoft Sentinel by enabling *data connectors* to various threat intelligence [platforms](connect-threat-intelligence-tip.md) and [feeds](connect-threat-intelligence-taxii.md).</br>- Connect threat intelligence to Microsoft Sentinel by using the upload API to connect various TI [platforms](connect-threat-intelligence-tip.md) or custom applications.</br>- Create threat intelligence with a streamlined UI individually or importing as a file from the management interface.|
+| **Manage threat intelligence** | - View imported threat intelligence in logs or with advanced search.</br>- Visualize key information about your imported threat intelligence in Microsoft Sentinel with the threat intelligence workbook.|
+| **Use threat intelligence** | - Detect threats and generate security alerts and incidents by using the built-in analytics rule templates based on your threat intelligence.</br>- Hunt for threats using the threat intel you have to ask the right questions about the signals captured for your organization.|
 
 Microsoft enriches IPV4 and domain name indicators with [GeoLocation and WhoIs data](#view-your-geolocation-and-whois-data-enrichments-public-preview), which is displayed together with other indicator information.
 
-Threat intelligence also provides useful context within other Microsoft Sentinel experiences, such as hunting and notebooks. For more information, see [Jupyter notebooks in Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239) and [Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md).
+Threat intelligence also provides useful context within other Microsoft Sentinel experiences, such as notebooks. For more information, see [Jupyter notebooks in Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239) and [Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md).
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -133,19 +123,30 @@ To import STIX-formatted threat intelligence to Microsoft Sentinel from a TAXII 
 
 For more information, see [Connect Microsoft Sentinel to STIX/TAXII threat intelligence feeds](connect-threat-intelligence-taxii.md).
 
-## Create threat intelligence
+## Create and manage threat intelligence
 
-Manually create threat intelligence 
+Two of the most common threat intelligence tasks are tagging and creating new threat intelligence related to security investigations. The management interface streamlines the manual process of creating individual threat intel with a few key features.
 
-## View and manage your threat intelligence
+- Define relationships as you create new STIX objects.
+- Curate existing TI with the relationship builder.
+- Add a new TI object and duplicate its metadata to create multiple objects more quickly.
 
-View and manage threat intelligence from the management interface. Sort, filter, and search your imported threat intelligence without even writing a Log Analytics query.
+The following STIX objects are usable in Microsoft Sentinel:
 
-:::image type="content" source="media/understand-threat-intelligence/advanced-search.png" alt-text="Screenshot that shows an advanced search interface with source and confidence conditions selected." lightbox="media/understand-threat-intelligence/advanced-search.png":::
-
-Two of the most common threat intelligence tasks are tagging and creating new threat intelligence related to security investigations. Create or edit the threat indicators directly in the management interface.
+- Indicator
+- Attack pattern
+- Identity
+- Threat actor
+- Relationship
 
 Tagging threat intelligence is an easy way to group them together to make them easier to find. Typically, you might apply tags related to a particular incident, or if an indicator represents threats from a particular known actor or well-known attack campaign you might create a relationship. After you search for the threat intelligence that you want to work with, tag them individually or multiselect and tag them all at once. Because tagging is free-form, we recommend that you create standard naming conventions for threat intelligence tags.
+
+
+## View your threat intelligence
+
+View your threat intelligence from the management interface. Use advanced search to sort and filter your threat intelligence objects without even writing a Log Analytics query.
+
+:::image type="content" source="media/understand-threat-intelligence/advanced-search.png" alt-text="Screenshot that shows an advanced search interface with source and confidence conditions selected." lightbox="media/understand-threat-intelligence/advanced-search.png":::
 
 Validate your indicators and view your successfully imported threat indicators from the Microsoft Sentinel-enabled Log Analytics workspace. The `ThreatIntelligenceIndicator` table under the **Microsoft Sentinel** schema is where all your Microsoft Sentinel threat indicators are stored. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features, such as analytics and workbooks. 
 
