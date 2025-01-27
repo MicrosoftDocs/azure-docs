@@ -26,6 +26,18 @@ Microsoft Sentinel uses the following Azure Montitor tools to control custom dat
 
 Log Analytics workspaces enabled for Microsoft Sentinel aren't subject to the [filtering ingestion charge](/azure/azure-monitor/essentials/data-collection-transformations#cost-for-transformations), regardless of how much data the transformation filters. However, transformations in Microsoft Sentinel have the same limitations as Azure Monitor. For more information, see [Limitations and considerations](/azure/azure-monitor/essentials/data-collection-transformations-create#limitations-and-considerations).
 
+
+### DCR support in Microsoft Sentinel
+Ingestion-time transformations are defined in data collection rules (DCRs), which control the data flow in Azure Monitor. DCRs are currently used by AMA-based connectors and workflows using the [Logs ingestion API](/azure/azure-monitor/logs/logs-ingestion-api-overview). Each DCR contains the configuration for a particular data collection scenario, and multiple connectors or sources can share different DCRs.
+
+[Workspace transformation DCRs](/azure/azure-monitor/essentials/data-collection-transformations#workspace-transformation-dcr) support workflows that don't otherwise use DCRs. Workspace transformation DCRs contain transformations for any [supported tables](/azure/azure-monitor/logs/tables-feature-support) and are applied to all traffic sent to that table.
+
+For more information, see:
+
+- [Data collection transformations in Azure Monitor](/azure/azure-monitor/essentials/data-collection-transformations)
+- [Logs ingestion API in Azure Monitor Logs](/azure/azure-monitor/logs/logs-ingestion-api-overview)
+- [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview)
+
 ## Use cases and sample scenarios
 
 [Sample transformations in Azure Monitor](/azure/azure-monitor/essentials/data-collection-transformations-samples) provides description and sample queries for common scenarios using ingestion-time transformations in Azure Monitor. Scenarios that are particularly useful for Microsoft Sentinel include:
@@ -63,22 +75,6 @@ The following table describes DCR support for Microsoft Sentinel data connector 
 | **Built-in, API-based data connector**, such as: <li>[Codeless data connectors](create-codeless-connector.md) | DCR created for connector |
 | **Built-in, API-based data connectors**, such as: <li>[Legacy codeless data connectors](create-codeless-connector-legacy.md)<li>[Azure Functions-based data connectors](connect-azure-functions-template.md) | Not currently supported |
 
-
-## DCR support in Microsoft Sentinel
-
-In Azure Monitor, DCRs control the data flow depending on the type of data source. The data flow includes the data stream being transformed (standard or custom), the destination workspace and table, and an optional KQL transformation.  <!--I thought the standard/custom referred to the table it's being streamed into. It refers to the types of data too? I think we could clarify this better.-->
-
-Ingestion-time transformations are defined in DCRs, and Microsoft Sentinel's support for DCRs depends on the type of data connector you're using. <!--this section feels like it's a continuation of an explanation of the image above. can we combine them to make it flow nicer?-->
-
-- **Standard DCRs**, currently supported for AMA-based connectors and workflows using the [Logs ingestion API](/azure/azure-monitor/logs/logs-ingestion-api-overview). Each DCR contains the configuration for a particular data collection scenario, and multiple connectors or sources can share different DCRs.
-
-- **Workspace transformation DCRs**, for workflows that don't otherwise use DCRs. Workspace transformation DCRs contain transformations for any [supported tables](/azure/azure-monitor/logs/tables-feature-support), and  are applied to all traffic sent to that table.
-
-For more information, see:
-
-- [Data collection transformations in Azure Monitor Logs](/azure/azure-monitor/essentials/data-collection-transformations)
-- [Logs ingestion API in Azure Monitor Logs](/azure/azure-monitor/logs/logs-ingestion-api-overview)
-- [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview)
 
 ## Related content
 
