@@ -5203,6 +5203,11 @@
       "source_path_from_root": "/articles/reliability/disaster-recovery-overview.md",
       "redirect_url": "/azure/reliability/concept-business-continuity-high-availability-disaster-recovery",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/reliability/cross-region-replication-azure-no-pair.md",
+      "redirect_url": "/azure/reliability/regions-multi-region-nonpaired",
+      "redirect_document_id": false
     }
   ]
 }
