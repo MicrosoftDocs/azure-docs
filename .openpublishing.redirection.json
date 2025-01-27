@@ -74,8 +74,8 @@
       "source_path": "articles/cdn/cdn-verizon-premium-rules-engine.md",
       "redirect_url": "/previous-versions/azure/cdn/cdn-verizon-premium-rules-engine",
       "redirect_document_id": false
-    } 
-    {, 
+    },
+    {
       "source_path": "articles/network-watcher/network-watcher-nsg-auditing-powershell.md",
       "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-nsg-auditing-powershell",
       "redirect_document_id": false
