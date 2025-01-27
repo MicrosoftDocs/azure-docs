@@ -88,18 +88,10 @@ Follow the procedure detailed below to use the alert details feature. These step
     
        > [!CAUTION]
        > 
-       > If you onboarded Microsoft Sentinel to the Microsoft Defender portal, **do not customize** the following properties for alerts from Microsoft sources:
-       > - *ProductName* field
-       > - *ProductComponentName* field
-       > - *ProviderName* field
-       > 
-       > Attempting to do so will result in these alerts being dropped from Microsoft Defender XDR and no incident being created.
-
-       > [!CAUTION]
-       > 
-       > If you onboarded Microsoft Sentinel to the Microsoft Defender portal, **do not customize** the *ProductName* field for alerts from Microsoft sources. Doing so will result in these alerts being dropped from Microsoft Defender XDR and no incident being created.
+       > If you onboarded Microsoft Sentinel to the Microsoft Defender portal:
+       > - **Do not customize** the *ProductName* field for alerts from Microsoft sources. Doing so will result in these alerts being dropped from Microsoft Defender XDR and no incident being created.
        >
-       > Also, you will not be able to customize the *ProductComponentName* and *ProviderName* fields.
+       > - The *ProductComponentName* and *ProviderName* fields are no longer available to be customized.
 
     If you change your mind, or if you made a mistake, you can remove an alert detail by clicking the trash can icon next to the **Alert property/Value** pair, or delete the free text from the **Alert Name/Description Format** fields.
 
