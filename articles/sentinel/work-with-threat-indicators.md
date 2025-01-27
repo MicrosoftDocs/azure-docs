@@ -13,19 +13,30 @@ ms.collection: usx-security
 #Customer intent: As a security analyst, I want to use threat intelligence managed by Microsoft Sentinel so that I can detect and respond to security threats more effectively.
 ---
 
-# Work with threat intelligence in Microsoft Sentinel
+# Work with Microsoft Sentinel threat intelligence
 
-This article demonstrates how to make the most of threat intelligence (TI) integration in the management interface with these activities:
+Accelerate threat detection and remediation with streamlined creation and management of threat intelligence. This article demonstrates how to make the most of threat intelligence integration in the management interface, whether you're accessing it from Microsoft Sentinel in the Azure portal or using Microsoft's unified SecOps platform.
 
-- Create TI in the management interface
-- Manage TI by viewing, curating, and visualizing 
-
-All of these activities have the same steps except the management interface is accessed differently depending which portal you use.
- 
-- For Microsoft Sentinel-powered threat intelligence in the Defender portal, navigate to **Threat intelligence** > **Intel management**.
-- For Microsoft Sentinel in the Azure portal, navigate to **Threat management** > **Threat intelligence**.
+- Create threat intelligence objects using the standard known as structured threat information expression (STIX)
+- Manage threat intelligence by viewing, curating, and visualizing 
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
+## Access the management interface
+
+Use one of the following tabs, depending on whether you're working in the Azure portal or the Defender portal. Even though the management interface is accessed differently depending which portal you use, the creation and management tasks have the same steps. 
+
+### [Defender portal](#tab/defender-portal)
+
+For Microsoft Sentinel-powered threat intelligence in the Defender portal, navigate to **Threat intelligence** > **Intel management**.
+
+:::image type="content" source="media/work-with-threat-indicators/intel-management-navigation.png" alt-text="Screenshot showing the intel management menu item in the Defender portal.":::
+
+### [Azure portal](#tab/azure-portal)
+
+For Microsoft Sentinel in the Azure portal, navigate to **Threat management** > **Threat intelligence**.
+
+:::image type="content" source="media/work-with-threat-indicators/threat-intelligence-sentinel.png" alt-text="Screenshot showing threat intelligence menu for Microsoft Sentinel in the Azure portal.":::
 
 ## Create threat intelligence in the management interface
 
@@ -93,8 +104,6 @@ To view your threat intelligence indicators in **Logs**:
     Your results should look similar to the sample threat indicator shown here.
 
     :::image type="content" source="media/work-with-threat-indicators/ti-table-results.png" alt-text="Screenshot that shows sample ThreatIntelligenceIndicator table results with the details expanded." lightbox="media/work-with-threat-indicators/ti-table-results.png":::
-
-
 
 ### Tag and edit threat indicators
 
