@@ -172,3 +172,22 @@ In order to take advantage of Workbooks, follow the instructions outlined
 in [Enable Azure Monitor in Diagnostic Settings](../enable-logging.md). 
 To enable Workbooks, you need to send your logs to a 
 [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) destination. 
+
+
+of your calls to display many data visualizations conveying insights
+ from the Azure Monitor logs and metrics monitored for your Communications Services
+The **Insights Dashboard** is run with  powered by 
+[Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview) 
+so you can modify and save edits to the template we provided to better suite your needs. To learn more see, [build workbook reports on top of your data](/azure/azure-monitor/logs/data-platform-logs#built-in-insights-and-custom-dashboards-workbooks-and-reports). 
+
+
+Azure Communication Services (ACS) integrates [Copilot in Azure](../../../copilot/overview.md) 
+with your call quality analytics and visualizations in the **Voice and Video Insights** blade. 
+You will find the **Insights** blade in the monitoring section of your of your ACS resource when you 
+are in your Azure Portal. You can interact with Copilot to quickly understand the high level 
+summary of the calling health of your ACS calling resource and learn how to improve the call 
+quality for your call participants. 
+
+We recommend using the **Voice and Video Insights** sections 
+described in this article first to understand and improve your overall call quality, and as needed, 
+use Call Diagnostics to troubleshoot individual calls in granular detail. 
