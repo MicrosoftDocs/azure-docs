@@ -1029,7 +1029,7 @@ items:
       href: query-acceleration-sql-reference.md
     - name: AzCopy v10
       items:
-      - name: AzCopy command reference
+      - name: Command reference
         href: https://github.com/Azure/azure-storage-azcopy/wiki/azcopy
       - name: Configuration settings
         href: ../common/storage-ref-azcopy-configuration-settings.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -1399,7 +1399,7 @@ items:
     href: query-acceleration-sql-reference.md
   - name: AzCopy v10
     items:
-    - name: AzCopy command reference
+    - name: Command reference
       href: https://github.com/Azure/azure-storage-azcopy/wiki/azcopy
     - name: Configuration settings
       href: ../common/storage-ref-azcopy-configuration-settings.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
