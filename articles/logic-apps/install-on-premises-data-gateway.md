@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: mideboer, azla
 ms.topic: how-to
-ms.date: 12/06/2023
+ms.date: 01/26/2025
 #Customer intent: As a logic apps developer, I want to create workflows that can access data in on-premises systems, which require that I install and set up the on-premises data gateway.
 ---
 
@@ -97,9 +97,13 @@ You can use the same gateway installation with other cloud services, such as Pow
 
 1. If prompted, confirm that the installer can make changes to your computer.
 
+   Installation might take a few minutes.
+
 1. After the gateway installation finishes, provide the email address for your Azure account, and select **Sign in**.
 
    :::image type="content" source="./media/install-on-premises-data-gateway/sign-in-gateway-install.png" alt-text="Screenshot shows gateway installer with a message about successful installation, a box that contains an email address, and a button for Sign in.":::
+
+1. When you're prompted to pick an account, select your Azure account.
 
 1. Select **Register a new gateway on this computer** > **Next**.
 
