@@ -38,7 +38,7 @@ Follow these steps to generate an OpenAPI specification using natural language p
 
     The agent responds with an OpenAPI specification document.
 
-    :::image type="content" source="media/design-api-github-copilot/generate-api-specification.png" alt-text="Screenshot showing how to use @azure extension to generate an OpenAPI spec from a prompt.":::
+    :::image type="content" source="media/design-api-github-copilot-azure/generate-api-specification.png" alt-text="Screenshot showing how to use @azure extension to generate an OpenAPI spec from a prompt.":::
 
 
 1. Review the generated output for accuracy, completeness, and compliance with your API style guide. 
