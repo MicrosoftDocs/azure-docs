@@ -143,7 +143,23 @@
         - name: With a job
           href: tutorial-event-driven-jobs.md
     - name: Troubleshooting
-      href: troubleshooting.md
+      items:
+        - name: Overview
+          href: troubleshooting.md
+        - name: Errors and failures
+          items:
+          - name: Container create
+            href: troubleshoot-container-create-failures.md
+          - name: Open Container Initiative (OCI)
+            href: troubleshoot-open-container-initiative-errors.md
+          - name: Health probe
+            href: troubleshoot-health-probe-failures.md
+          - name: Image pull
+            href: troubleshoot-image-pull-failures.md
+          - name: Storage mount
+            href: troubleshoot-storage-mount-failures.md
+          - name: Target port
+            href: troubleshoot-target-port-settings.md
     - name: Reliability in Azure Container Apps
       href: ../reliability/reliability-azure-container-apps.md?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
 - name: Observability
@@ -294,12 +310,8 @@
   items:
     - name: Architecture overview
       href: networking.md
-    - name: Environments
-      items:
-        - name: Deploy with an external environment
-          href: vnet-custom.md
-        - name: Deploy with an internal environment
-          href: vnet-custom-internal.md
+    - name: Use a custom virtual network
+      href: vnet-custom.md
     - name: Ingress
       items:
         - name: Overview
@@ -331,10 +343,10 @@
           href: firewall-integration.md
         - name: Use a private endpoint
           href: how-to-use-private-endpoint.md
+        - name: Use mTLS
+          href: mtls.md
         - name: Integrate with Azure Front Door
           href: how-to-integrate-with-azure-front-door.md
-    - name: Use a custom VNET
-      href: vnet-custom.md
 - name: Languages and runtimes
   items:
     - name: .NET
@@ -372,6 +384,9 @@
       - name: Metrics
         href: java-metrics.md
         displayName: java
+      - name: Scale with Java metrics
+        href: java-metrics-scale-with-keda.md
+        displayName: java
       - name: Connect to Eureka Server for Spring
         href: java-eureka-server.md
         displayName: java
@@ -399,6 +414,9 @@
             href: java-application-performance-management-config.md
           - name: Create a highly available Eureka server component cluster
             href: java-eureka-server-highly-available.md
+            displayName: java
+          - name: Build a Java metrics dashboard with Azure Managed Grafana
+            href: java-metrics-with-grafana.md
             displayName: java
 - name: Billing & quotas
   items:

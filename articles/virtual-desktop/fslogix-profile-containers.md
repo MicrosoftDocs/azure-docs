@@ -3,7 +3,7 @@ title: User profile management for Azure Virtual Desktop with FSLogix profile co
 description: Learn about using User profile management for Azure Virtual Desktop with FSLogix profile containers to manage user profiles and personalization.
 author: dknappettmsft
 ms.topic: conceptual
-ms.date: 01/04/2021
+ms.date: 08/22/2024
 ms.author: daknappe
 ms.custom: docs_inherited
 ---
@@ -12,7 +12,7 @@ ms.custom: docs_inherited
 
 A user profile contains data elements about an individual, including configuration information like desktop settings, persistent network connections, and application settings. By default, Windows creates a local user profile that is tightly integrated with the operating system.
 
-A remote user profile provides a partition between user data and the operating system. It allows the operating system to be replaced or changed without affecting the user data. With a VDI solution, such as Azure Virtual Desktop, the operating system may be replaced for the following reasons:
+If you configure a user profile to be remote, it provides a partition between user data and the operating system. You can change or replace the operating system without affecting the user data. With a virtual desktop infrastructure (VDI) solution, such as Azure Virtual Desktop, the operating system might be replaced for the following reasons:
 
 - An upgrade of the operating system.
 - A replacement of an existing session host.
@@ -23,19 +23,17 @@ We recommend using [FSLogix profile containers](/fslogix/concepts-container-type
 > [!NOTE]
 > If you're looking for comparison material about the different FSLogix Profile Container storage options on Azure, see [Storage options for FSLogix profile containers](store-fslogix-profile.md).
 
-
 ## FSLogix profile containers
 
 Existing and legacy Microsoft solutions for user profiles came with various challenges. No previous solution handled all the user profile needs of a VDI environment.
 
 FSLogix profile containers address many user profile challenges. Key among them are:
 
-- **Performance:** The [FSLogix profile containers](/fslogix/configure-profile-container-tutorial/) are high performance and resolve performance issues that have historically blocked cached exchange mode.
+- **Performance:** [FSLogix profile containers](/fslogix/configure-profile-container-tutorial/) are high performance and can resolve performance issues that historically blocked cached Exchange mode in Microsoft Outlook.
 
-- **OneDrive:** Without FSLogix profile containers, OneDrive is not supported in non-persistent VDI environments.
+- **OneDrive:** Without FSLogix profile containers, OneDrive isn't supported in non-persistent VDI environments.
 
-- **Additional folders:** FSLogix profile containers provides the ability to extend user profiles to include additional folders.
-
+- **Additional folders:** you can extend user profiles to include other folders.
 
 ## Best practices for Azure Virtual Desktop
 
@@ -51,17 +49,17 @@ To ensure your Azure Virtual Desktop environment follows best practices:
 
    - Azure Files has limits on the number of open handles per root directory, directory, and file. For more information on the limits and sizing guidance, see [Azure Files scalability and performance targets](../storage/files/storage-files-scale-targets.md#file-scale-targets) and [Azure Files sizing guidance for Azure Virtual Desktop](../storage/files/storage-files-scale-targets.md#azure-files-sizing-guidance-for-azure-virtual-desktop).
 
-- Each host pool VM must be built of the same type and size VM based on the same master image.
+- Each host pool VM must be built of the same type and size VM based on the same VM image.
 
 - Each host pool VM must be in the same resource group to aid management, scaling and updating.
 
 - For optimal performance, the storage solution and the FSLogix profile container should be in the same data center location.
 
-- The storage account containing the master image must be in the same region and subscription where the VMs are being provisioned.
+- The storage account containing the VM image must be in the same region and subscription where the VMs are being provisioned.
 
 ## Next steps
 
-- Learn more about storage options for FSLogix profile containers, see [Storage options for FSLogix profile containers in Azure Virtual Desktop](store-fslogix-profile.md).
+- To learn more about storage options for FSLogix profile containers, see [Storage options for FSLogix profile containers in Azure Virtual Desktop](store-fslogix-profile.md).
 - [Set up FSLogix Profile Container with Azure Files and Active Directory](fslogix-profile-container-configure-azure-files-active-directory.md)
 - [Set up FSLogix Profile Container with Azure Files and Microsoft Entra ID](create-profile-container-azure-ad.yml)
 - [Set up FSLogix Profile Container with Azure NetApp Files](create-fslogix-profile-container.md)

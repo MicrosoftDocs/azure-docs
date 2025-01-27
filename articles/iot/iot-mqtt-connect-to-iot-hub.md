@@ -189,7 +189,7 @@ For more information about using MQTT with modules, see [Publish and subscribe w
 
 The [IoT MQTT Sample repository](https://github.com/Azure-Samples/IoTMQTTSample) contains C/C++, Python, and CLI samples that show you how to send telemetry messages, receive cloud-to-device messages, and use device twins without using the Azure device SDKs.
 
-The C/C++ samples use the [Eclipse Mosquitto](https://mosquitto.org) library, the Python sample uses [Eclipse Paho](https://www.eclipse.org/paho/), and the CLI samples use `mosquitto_pub`.
+The C/C++ samples use the [Eclipse Mosquitto](https://mosquitto.org) library, the Python sample uses [Eclipse Paho](https://projects.eclipse.org/projects/iot.paho), and the CLI samples use `mosquitto_pub`.
 
 To learn more, see [Tutorial - Use MQTT to develop an IoT device client](./tutorial-use-mqtt.md).
 

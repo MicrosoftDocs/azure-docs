@@ -91,7 +91,7 @@ The **SAPUsersAuthorizations** function returns the following data:
 | -------- | ----------- | ----- |
 | User     | SAP user ID |       |
 | Roles    | Set of roles (default max set size = 50) | `["Role 1", "Role 2",...,"Role 50"]` |
-| AuthorizationsDetails | Set of authorizations (default max set size = 100) | `{{AuthorizationsDeatils1}`,<br>`{AuthorizationsDeatils2}`, <br>...,<br>`{AuthorizationsDeatils100}}` |
+| AuthorizationsDetails | Set of authorizations (default max set size = 100) | `{{AuthorizationsDetails1}`,<br>`{AuthorizationsDetails2}`, <br>...,<br>`{AuthorizationsDetails100}}` |
 | Client   | Client ID   |       |
 | SystemID | System ID   |       |
 

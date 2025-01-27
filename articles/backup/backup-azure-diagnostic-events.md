@@ -4,8 +4,8 @@ description: This article describes how to use the old and new diagnostics event
 ms,service: backup
 ms.topic: how-to
 ms.date: 12/30/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy2
 ---
 
@@ -16,6 +16,9 @@ This article describes how to use diagnostics settings for Recovery Services vau
 Azure Backup sends diagnostics events that can be collected and used for the purposes of analysis, alerting, and reporting.
 
 You can configure diagnostics settings for a Recovery Services vault via the Azure portal by going to the vault and selecting **Diagnostics settings**. Selecting **+ Add Diagnostic Setting** lets you send one or more diagnostic events to a storage account, an event hub, or a Log Analytics workspace.
+
+> [!NOTE]
+> Recovery Services vaults can send diagnostic logs to a storage account located in the same region. They can also send these logs to a Log Analytics workspace that may be situated in either the same or a different region.
 
 ![Diagnostics settings pane](./media/backup-azure-diagnostics-events/diagnostics-settings-blade.png)
 

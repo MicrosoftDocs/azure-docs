@@ -4,7 +4,6 @@ description: Real-time alerts in Microsoft Azure CDN. Real-time alerts provide n
 services: cdn
 author: zhangmanling
 manager: erikre
-ms.assetid: 1e85b809-e1a9-4473-b835-69d1b4ed3393
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
@@ -55,7 +54,7 @@ This document explains real-time alerts in Microsoft Azure CDN. This functionali
    > [!IMPORTANT]
    > You must select **HTTP Large Object** as the **Media Type**. The other choices are not used by **Azure CDN from Edgio**. Failure to select **HTTP Large Object** causes your alert to never be triggered.
    >
-   >
+   
 8. Create an **Expression** to monitor by selecting a **Metric**, **Operator**, and **Trigger value**.
 
    - For **Metric**, select the type of condition you want monitored.  **Bandwidth Mbps** is the amount of bandwidth usage in megabits per second.  **Total Connections** is the number of concurrent HTTP connections to our edge servers. For definitions of the various cache statuses and status codes, see [Azure CDN Cache Status Codes](/previous-versions/azure/mt759237(v=azure.100)) and [Azure CDN HTTP Status Codes](/previous-versions/azure/mt759238(v=azure.100))

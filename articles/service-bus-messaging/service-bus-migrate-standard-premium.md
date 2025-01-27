@@ -11,15 +11,14 @@ Previously, Azure Service Bus offered namespaces only on the standard tier. Name
 
 This article describes how to migrate existing standard tier namespaces to the premium tier.  
 
->[!WARNING]
-> Migration is intended for Service Bus standard namespaces to be upgraded to the premium tier. The migration tool doesn't support downgrading. During migration from the standard to the premium level, a DNS pointer will be created that can be used to access the standard service bus. Please note that during migration an alternateName will be created that represents the pointer to the DNS namespace of the old service bus and the operation cannot be undone. Any sort of testing should be done in a testing environment.
-
+> [!WARNING]
+> Migration is intended for Service Bus standard namespaces to be upgraded to the premium tier. The migration tool doesn't support downgrading. Please note that during migration a post migration name will be created that represents the pointer to the DNS namespace of the standard service bus namespace and the operation cannot be undone. This post migration name can be used to access the standard namespace, post migration. Any sort of testing should be done in a testing environment.
 Some of the points to note:
 
 - This migration is meant to happen in place, meaning that existing sender and receiver applications **don't require any changes to code or configuration**. The existing connection string will automatically point to the new premium namespace.
 - If you're using an existing premium name, the **premium** namespace should have **no entities** in it for the migration to succeed, and should not have [partitioning enabled](enable-partitions-premium.md).
 - All **entities** in the standard namespace are **copied** to the premium namespace during the migration process.
-- Migration supports **1,000 entities per messaging unit** on the premium tier. To identify how many messaging units you need, start with the number of entities that you have on your current standard namespace.
+- Migration supports **1,000 entities (queues, topics and subscriptions) per messaging unit** on the premium tier. To identify how many messaging units you need, start with the number of entities that you have on your current standard namespace.
 - You can't directly migrate from **basic tier** to **premium tier**, but you can do so indirectly by migrating from basic to standard first and then from the standard to premium in the next step.
 - The role-based access control (RBAC) settings aren't migrated, so you'll need to add them manually after the migration. 
 
@@ -45,16 +44,15 @@ To migrate your Service Bus standard namespace to premium by using the Azure CLI
 
 1. Set the following environment variables to simplify the migration commands. You can get the Azure Resource Manager ID for your premium namespace by navigating to the namespace in the Azure portal and copying the portion of the URL that looks like the following sample: `/subscriptions/00000000-0000-0000-0000-00000000000000/resourceGroups/contosoresourcegroup/providers/Microsoft.ServiceBus/namespaces/contosopremiumnamespace`.
 
-   ```
+      ```
    resourceGroup = <resource group for the standard namespace>
    standardNamespace = <standard namespace to migrate>
    premiumNamespaceArmId = <Azure Resource Manager ID of the premium namespace to migrate to>
    postMigrationDnsName = <post migration DNS name entry to access the standard namespace>
    ```
 
-    >[!IMPORTANT]
-    > The Post-migration alias/name (post_migration_dns_name) will be used to access the old standard namespace post migration. Use this to drain the queues and the subscriptions, and then delete the namespace.
-
+   > [!IMPORTANT]
+   > The Post-migration alias/name (postMigrationDnsName) will be used to access the old standard namespace post migration. Use this to drain the queues and the subscriptions, and then delete the namespace.
 1. Pair the standard and premium namespaces and start the sync by using the following command:
 
     ```azurecli-interactive

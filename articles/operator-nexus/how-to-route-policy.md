@@ -570,3 +570,19 @@ Expected output:
   "type": "microsoft.managednetworkfabric/routepolicies"
 }
 ```
+### Delete route policy
+
+This command deletes route policies:
+
+
+```Azurecli
+az networkfabric routepolicy delete --resource-group "ResourceGroupName" --resource-name "rcf-Fab3-l3domain-v6-connsubnet-ext-policy"
+```
+Expected output:
+
+```Output
+{
+  "status": "Succeeded",
+  "message": "The route policy 'rcf-Fab3-l3domain-v6-connsubnet-ext-policy' in resource group 'ResourceGroupName' has been successfully deleted."
+}
+```

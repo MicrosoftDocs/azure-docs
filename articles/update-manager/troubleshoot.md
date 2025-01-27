@@ -48,7 +48,7 @@ To review the logs related to all actions performed by the extension, on Windows
 
 * `WindowsUpdateExtension.log`: Contains information related to the patch actions. This information includes the patches assessed and installed on the machine and any problems encountered in the process.
 * `cmd_execution_<numeric>_stdout.txt`: There's a wrapper above the patch action. It's used to manage the extension and invoke specific patch operation. This log contains information about the wrapper. For autopatching, the log has information on whether the specific patch operation was invoked.
-* `cmd_excution_<numeric>_stderr.txt`
+* `cmd_execution_<numeric>_stderr.txt`
 
 ---
 
@@ -302,15 +302,15 @@ For Windows, see [Protocols in TLS/SSL Schannel SSP](/windows/win32/secauthn/pro
 For Linux, execute the following command to see the supported versions of TLS for your distro.
 `nmap --script ssl-enum-ciphers -p 443 www.azure.com`
 
-### Https connection check failed
+### HTTPS connection check failed
 
 #### Issue
 
-Https connection is not available which is required to download and install updates from required endpoints for each operating system. 
+HTTPS connection is not available which is required to download and install updates from required endpoints for each operating system. 
 
 #### Resolution
 
-Allow Https connection from your machine. 
+Allow HTTPS connection from your machine. 
 
 ### MsftLinuxPatchAutoAssess service is not running, or Time is not active 
 

@@ -110,7 +110,7 @@ Event | where Source == "Microsoft-Windows-Sysmon" and EventID == 1
 ```
 
 > [!IMPORTANT]
-> A parser should not filter by time. The query which uses the parser will apply a time range. 
+> A parser should not filter by time. The query that uses the parser will apply a time range. 
 
 #### Filtering by source type using a Watchlist
 
@@ -146,8 +146,11 @@ srcipaddr=='*' or ClientIP==srcipaddr
 array_length(domain_has_any) == 0 or Name has_any (domain_has_any)
 ```
 
-#### <a name="optimization"></a>Filtering optimization
+See more information on the following items in the Kusto documentation:
+- [***array_length*** function](/kusto/query/array-length-function?view=microsoft-sentinel&preserve-view=true)
+- [***has_any*** operator](/kusto/query/has-any-operator?view=microsoft-sentinel&preserve-view=true)
 
+#### <a name="optimization"></a>Filtering optimization
 
 To ensure the performance of the parser, note the following filtering recommendations:
 
@@ -175,17 +178,16 @@ Once the query selects the relevant records, it may need to parse them. Typicall
 
 The KQL operators that perform parsing are listed below, ordered by their performance optimization. The first provides the most optimized performance, while the last provides the least optimized performance.
 
-|Operator  |Description  |
-|---------|---------|
-|[split](/azure/data-explorer/kusto/query/splitfunction)     |    Parse a string of delimited values.     |
-|[parse_csv](/azure/data-explorer/kusto/query/parsecsvfunction)     |     Parse a string of values formatted as a CSV (comma-separated values) line.    |
-|[parse-kv](/azure/data-explorer/kusto/query/parse-kv-operator)     |     Extracts structured information from a string expression and represents the information in a key/value form.    |
-|[parse](/azure/data-explorer/kusto/query/parseoperator)     |    Parse multiple values from an arbitrary string using a pattern, which can be a simplified pattern with better performance, or a regular expression.     |
-|[extract_all](/azure/data-explorer/kusto/query/extractallfunction)     | Parse single values from an arbitrary string using a regular expression. `extract_all` has a similar performance to `parse` if the latter uses a regular expression.        |
-|[extract](/azure/data-explorer/kusto/query/extractfunction)     |    Extract a single value from an arbitrary string using a regular expression. <br><br>Using `extract` provides better performance than `parse` or `extract_all` if a single value is needed. However, using multiple activations of `extract` over the same source string is less efficient than a single `parse` or `extract_all` and should be avoided.      |
-|[parse_json](/azure/data-explorer/kusto/query/parsejsonfunction)  | Parse the values in a string formatted as JSON. If only a few values are needed from the JSON, using `parse`, `extract`, or `extract_all` provides better performance.        |
-|[parse_xml](/azure/data-explorer/kusto/query/parse-xmlfunction)     |    Parse the values in a string formatted as XML. If only a few values are needed from the XML, using `parse`, `extract`, or `extract_all` provides better performance.     |
-
+| Operator/function()  | Description  |
+| --------- | --------- |
+| [split()](/kusto/query/split-function) function    |    Parse a string of delimited values.     |
+| [parse_csv()](/kusto/query/parse-csv-function) function    |     Parse a string of values formatted as a CSV (comma-separated values) line.    |
+| [parse-kv](/kusto/query/parse-kv-operator) operator    |     Extracts structured information from a string expression and represents the information in a key/value form.    |
+| [parse](/kusto/query/parse-operator) operator    |    Parse multiple values from an arbitrary string using a pattern, which can be a simplified pattern with better performance, or a regular expression.     |
+| [extract_all()](/kusto/query/extract-all-function) function    | Parse single values from an arbitrary string using a regular expression. `extract_all` has a similar performance to `parse` if the latter uses a regular expression.        |
+| [extract()](/kusto/query/extract-function) function     |    Extract a single value from an arbitrary string using a regular expression. <br><br>Using `extract` provides better performance than `parse` or `extract_all` if a single value is needed. However, using multiple activations of `extract` over the same source string is less efficient than a single `parse` or `extract_all` and should be avoided.      |
+| [parse_json()](/kusto/query/parse-json-function) function | Parse the values in a string formatted as JSON. If only a few values are needed from the JSON, using `parse`, `extract`, or `extract_all` provides better performance.        |
+| [parse_xml()](/kusto/query/parse-xml-function) function    |    Parse the values in a string formatted as XML. If only a few values are needed from the XML, using `parse`, `extract`, or `extract_all` provides better performance.     |
 
 ### Normalizing
 
@@ -304,7 +306,7 @@ This function will set the fields as follows:
 | server1.microsoft.com | SrcHostname: server1<br>SrcDomain: microsoft.com<br> SrcDomainType: FQDN<br>SrcFQDN:server1.microsoft.com |
 
 
-The functions `_ASIM_ResolveDstFQDN` and `_ASIM_ResolveDvcFQDN` perform a similar task populating the related `Dst` and `Dvc` fields.For a full list of ASIM help functions, refer to [ASIM functions](normalization-functions.md)
+The functions `_ASIM_ResolveDstFQDN` and `_ASIM_ResolveDvcFQDN` perform a similar task populating the related `Dst` and `Dvc` fields. For a full list of ASIM help functions, refer to [ASIM functions](normalization-functions.md)
 
 ### Select fields in the result set
 
@@ -407,7 +409,7 @@ Handle the results as follows:
 | Missing recommended alias [\<Field\>] aliasing existing column [\<Field\>] | Add the alias to your parser |
 | Missing optional alias [\<Field\>] aliasing existing column [\<Field\>] | Add the alias to your parser |
 | Missing mandatory alias [\<Field\>] aliasing missing column [\<Field\>] | This error accompanies a similar error for the aliased field. Correct the aliased field error and add this alias to your parser. |
-| Type mismatch for field [\<Field\>]. It is currently [\<Type\>] and should be [\<Type\>] | Make sure that the type of normalized field is correct, usually by using a [conversion function](/azure/data-explorer/kusto/query/scalarfunctions#conversion-functions) such as `tostring`. |
+| Type mismatch for field [\<Field\>]. It is currently [\<Type\>] and should be [\<Type\>] | Make sure that the type of normalized field is correct, usually by using a [conversion function](/kusto/query/scalar-functions?view=microsoft-sentinel&preserve-view=true#conversion-functions) such as `tostring`. |
 
 | Info | Action |
 | ----- | ------ |
@@ -444,7 +446,7 @@ Handle the results as follows:
 
 | Message | Action |
 | ------- | ------ |
-| **(0) Error: type mismatch for column  [\<Field\>]. It is currently [\<Type\>] and should be [\<Type\>]** | Make sure that the type of normalized field is correct, usually by using a [conversion function](/azure/data-explorer/kusto/query/scalarfunctions#conversion-functions) such as `tostring`.  |
+| **(0) Error: type mismatch for column  [\<Field\>]. It is currently [\<Type\>] and should be [\<Type\>]** | Make sure that the type of normalized field is correct, usually by using a [conversion function](/kusto/query/scalar-functions?view=microsoft-sentinel&preserve-view=true#conversion-functions) such as `tostring`.  |
 | **(0) Error: Invalid value(s) (up to 10 listed) for field [\<Field\>] of type [\<Logical Type\>]** | Make sure that the parser maps the correct source field to the output field. If mapped correctly, update the parser to transform the source value to the correct type, value or format. Refer to the [list of logical types](normalization-about-schemas.md#logical-types) for more information on the correct values and formats for each logical type. <br><br>Note that the testing tool lists only a sample of 10 invalid values.   |
 | **(1) Warning: Empty value in mandatory field [\<Field\>]** | Mandatory fields should be populated, not just defined. Check whether the field can be populated from other sources for records for which the current source is empty. |
 | **(2) Info: Empty value in recommended field [\<Field\>]** | Recommended fields should usually be populated. Check whether the field can be populated from other sources for records for which the current source is empty. |
@@ -497,7 +499,7 @@ To submit the event samples, use the following steps:
 
 - In the `Logs` screen, run a query that will extract from the source table only the events selected by the parser. For example, for the [Infoblox DNS parser](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/ASimDns/Parsers/ASimDnsInfobloxNIOS.yaml), use the following query:
 
-``` KQL
+```kusto
     Syslog
     | where ProcessName == "named"
 ```
@@ -506,14 +508,14 @@ To submit the event samples, use the following steps:
 
 - In the `Logs` screen, run a query that will output the schema or the parser input table. For example, for the same Infoblox DNS parser, the query is:
 
-``` KQL
+```kusto
     Syslog
     | getschema
 ```
 
 - Export the results using the **Export to CSV** option to a file named `<TableName>_schema.csv`, where `TableName` is the name of source table the parser uses.
 
-- Include both files in your PR in the folder `/Sample Data/ASIM`. If the file already exists, add your GitHub handle to the name, for example: `<EventVendor>_<EventProduct>_<EventSchema>_SchemaTest_<GitHubHanlde>.csv`
+- Include both files in your PR in the folder `/Sample Data/ASIM`. If the file already exists, add your GitHub handle to the name, for example: `<EventVendor>_<EventProduct>_<EventSchema>_SchemaTest_<GitHubHandle>.csv`
 
 ### Test results submission guidelines
 

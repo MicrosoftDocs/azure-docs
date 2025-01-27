@@ -2699,6 +2699,16 @@
       "source_path_from_root": "/articles/app-service/quickstart-java-uiex.md",
       "redirect_url": "/azure/app-service/quickstart-java",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/app-service/app-service-sql-github-actions.md",
+      "redirect_url": "/azure/app-service/deploy-github-actions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/app-service-sql-asp-github-actions.md",
+      "redirect_url": "/azure/app-service/deploy-github-actions",
+      "redirect_document_id": false
     }
   ]
 }

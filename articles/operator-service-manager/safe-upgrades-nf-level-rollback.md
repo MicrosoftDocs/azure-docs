@@ -14,7 +14,7 @@ ms.service: azure-operator-service-manager
 This guide describes the Azure Operator Service Manager (AOSM) upgrade failure behavior features for container network functions (CNFs). These features, as part of the AOSM safe upgrade practices initiative, offer a choice between faster retries, with pause on failure, versus return to starting point, with rollback on failure.
 
 ## Pause on failure
-Any upgrade using AOSM starts with a site network service (SNS) reput opreation. The reput operation processes the network function applications (NfApps) found in the network function design version (NFDV). The reput operation implements the following default logic:
+Any upgrade using AOSM starts with a site network service (SNS) reput operation. The reput operation processes the network function applications (NfApps) found in the network function design version (NFDV). The reput operation implements the following default logic:
 * NfApps are processed following either updateDependsOn ordering, or in the sequential order they appear.
 * NfApps with parameter "applicationEnabled" set to disable are skipped.
 * NFApps present, but not referenced by the new NFDV are deleted.

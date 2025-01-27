@@ -5,7 +5,7 @@ services: cdn
 author: duongau
 manager: kumudd
 ms.service: azure-cdn
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/20/2024
 ms.author: duau
 ms.custom: references_regions
@@ -173,5 +173,4 @@ XIJ | Kuwait | Europe
 
 ## Next steps
 
-- View [Azure CDN from Edgio POP locations by metro](cdn-pop-locations.md#partners).
 - Learn how to [create an Azure CDN profile](cdn-create-new-endpoint.md).
