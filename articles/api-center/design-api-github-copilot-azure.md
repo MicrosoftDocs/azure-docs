@@ -1,19 +1,19 @@
 ---
-title: Generate OpenAI spec with GitHub Copilot for Azure - API Center plugin
-description: API developers can use the Azure API Center plugin for GitHub Copilot for Azure to generate an OpenAPI spec with AI assistance starting from natural language prompts.
+title: Develop APIs with GitHub Copilot for Azure - API Center plugin
+description: API developers can use the Azure API Center plugin for GitHub Copilot for Azure to design and develop compliant APIs with AI assistance.
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 01/21/2025
+ms.date: 01/27/2025
 ms.author: danlep 
 ms.collection: ce-skilling-ai-copilot
 ms.custom: 
 # Customer intent: As an API developer, I want to use my Visual Studio Code environment and GitHub Copilot for Azure to generate Open API specs from natural language prompts.
 ---
 
-# Generate OpenAPI spec using natural language prompts
+# Design and develop APIs using API Center plugin for GitHub Copilot for Azure
 
-The API Center plugin for [GitHub Copilot for Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot) (preview) accelerates design of new APIs starting from natural language prompts. With AI assistance available through the Azure API Center extension for Visual Studio Code, quickly generate an OpenAPI spec for API development that complies with your organization's standards. After you generate a compliant spec, you can register the API with your [API center](overview.md).
+The API Center plugin for [GitHub Copilot for Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot) (preview) accelerates design and development of new APIs starting from natural language prompts. With AI assistance available through the API Center plugin combined with the API Center VSCode extension, simply describe your API and quickly generate an OpenAPI spec for API development that complies with your organization's standards. After you generate a compliant spec, you can register the API with your [API center](overview.md).
 
 > [!NOTE]
 > This feature is available in the pre-release version of the API Center extension.
@@ -27,9 +27,9 @@ The API Center plugin for [GitHub Copilot for Azure](https://marketplace.visuals
 
 Follow these steps to generate an OpenAPI specification using natural language prompts with GitHub Copilot for Azure:
 
-1. If desired, set an active API style guide. Use the **Ctrl+Shift+P** keyboard shortcut to open the Command Palette. Type **Azure API Center: Set API Style Guide**, make a selection, and hit **Enter**. 
+1. If desired, set an active API style guide in the Azure API Center extension. Use the **Ctrl+Shift+P** keyboard shortcut to open the Command Palette. Type **Azure API Center: Set API Style Guide**, make a selection, and hit **Enter**. 
 
-    If no style guide is set, the default `spectral:oas` ruleset is used.
+    If no style guide is set, the default `spectral:oas` ruleset is used. Learn more about [API specification linting](govern-apis-vscode-extension.md#api-design-conformance) using the API Center extension.
 1. In the chat panel, make a request in natural language to the `@azure` agent to describe what the API does. Example:
 
     ```vscode
@@ -41,7 +41,9 @@ Follow these steps to generate an OpenAPI specification using natural language p
     :::image type="content" source="media/design-api-github-copilot/generate-api-specification.png" alt-text="Screenshot showing how to use @azure extension to generate an OpenAPI spec from a prompt.":::
 
 
-1. Review the generated output for accuracy, completeness, and compliance with your API style guide. Refine the prompt if needed to regenerate, or repeat the process using a new style guide.
+1. Review the generated output for accuracy, completeness, and compliance with your API style guide. 
+
+    Refine the prompt if needed to regenerate the spec, or repeat the process using a different style guide that you set in the Azure API Center extension.
 
     > [!TIP]
     > Effective prompts focus on an API's business requirements rather than implementation details. Shorter prompts sometimes work better than longer ones.

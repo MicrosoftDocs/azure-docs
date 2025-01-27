@@ -17,7 +17,6 @@ API producer developers in your organization can build and register APIs in your
 
 * Add an existing API to an API center as a one-time operation, or integrate a development pipeline to register APIs as part of a CI/CD workflow.
 * Use GitHub Copilot to generate new OpenAPI specs from API code.
-* Use natural language prompts with the API Center plugin for GitHub Copilot for Azure to create new OpenAPI specs.
 
 API consumer developers can also take advantage of features in the extension to [discover and consume APIs](discover-apis-vscode-extension.md) in the API center and ensure [API governance](govern-apis-vscode-extension.md).
 
@@ -62,6 +61,9 @@ Use the power of [GitHub Copilot](https://marketplace.visualstudio.com/items?ite
 :::image type="content" source="media/build-register-apis-vscode-extension/generate-api-documentation.gif" alt-text="Animation showing how to use GitHub Copilot to generate an OpenAPI spec from code." lightbox="media/build-register-apis-vscode-extension/generate-api-documentation.gif":::
 
 After generating the OpenAPI specification file and checking for accuracy, you can register the API with your API center using the **Azure API Center: Register API** command.
+
+> [!TIP]
+> API developers can also generate new OpenAPI specs using natural language prompts with the API Center plugin for GitHub Copilot for Azure. [Learn more](design-api-github-copilot-azure.md).
 
 ## Related content
 

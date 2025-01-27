@@ -46,8 +46,8 @@
           href: synchronize-aws-gateway-apis.md
       - name: Build and register APIs - VS Code extension
         href: build-register-apis-vscode-extension.md
-      - name: Design APIs - GitHub Copilot for Azure
-        href: design-api-github-copilot.md
+      - name: Design and develop  APIs - GitHub Copilot for Azure
+        href: design-api-github-copilot-azure.md
       - name: Register APIs - GitHub Actions
         href: register-apis-github-actions.md
 - name: API governance
