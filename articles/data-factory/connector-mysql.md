@@ -20,7 +20,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory and Syn
 >To copy data from or to [Azure Database for MySQL](/azure/mysql/overview) service, use the specialized [Azure Database for MySQL connector](connector-azure-database-for-mysql.md).
 
 > [!IMPORTANT]
-> The MySQL connector version 2.0 provides improved native MySQL support. If you are using MySQL connector version 1.0 in your solution, please [upgrade your MariaDB connector](#upgrade-the-mysql-connector) as v1 is at [End of Support stage](connector-deprecation-plan.md). Refer to this [section](#differences-between-the-recommended-and-the-legacy-driver-version) for details on the difference between version 2.0 and version 1.0.
+> The MySQL connector version 2.0 provides improved native MySQL support. If you are using MySQL connector version 1.0 in your solution, please [upgrade your MariaDB connector](#upgrade-the-mysql-driver-version) as v1 is at [End of Support stage](connector-deprecation-plan.md). Refer to this [section](#differences-between-the-recommended-and-the-legacy-driver-version) for details on the difference between version 2.0 and version 1.0.
 
 ## Supported capabilities
 
