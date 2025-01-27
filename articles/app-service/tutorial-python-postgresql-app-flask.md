@@ -378,7 +378,7 @@ Having issues? Check the [Troubleshooting guide](configure-language-python.md#tr
 
 ## 4. Generate database schema
 
-With the PostgreSQL database protected by the virtual network, the easiest way to run [Flask database migrations](https://flask-migrate.readthedocs.io/en/latest/) is in an SSH session with the App Service container. 
+With the PostgreSQL database protected by the virtual network, the easiest way to run [Flask database migrations](https://flask-migrate.readthedocs.io/en/latest/) is in an SSH session with the Linux container in App Service. 
 
 :::row:::
     :::column span="2":::
@@ -392,7 +392,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2:** In the SSH terminal, run `flask db upgrade`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
+        **Step 2:** In the SSH session, run `flask db upgrade`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app-flask/azure-portal-generate-db-schema-flask-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output." lightbox="./media/tutorial-python-postgresql-app-flask/azure-portal-generate-db-schema-flask-2.png":::
@@ -546,17 +546,17 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 The AZD template you use generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings) and outputs the them to the terminal for your convenience. App settings are one way to keep connection secrets out of your code repository.
 
-1. In the AZD output, find the app settings and find the settings `AZURE_POSTGRESQL_USER`, `AZURE_POSTGRESQL_PASSWORD`, `AZURE_POSTGRESQL_HOST`, and `AZURE_POSTGRESQL_NAME`. To keep secrets safe, only the setting names are displayed. They look like this in the azd output:
+1. In the AZD output, find the app settings and find the settings `AZURE_POSTGRESQL_USER`, `AZURE_POSTGRESQL_PASSWORD`, `AZURE_POSTGRESQL_HOST`, and `AZURE_POSTGRESQL_NAME`. To keep secrets safe, only the setting names are displayed. They look like this in the AZD output:
 
     <pre>
-App Service app has the following connection settings:
-        - AZURE_POSTGRESQL_NAME
-        - AZURE_POSTGRESQL_HOST
-        - AZURE_POSTGRESQL_USER
-        - AZURE_POSTGRESQL_PASSWORD
-        - AZURE_REDIS_CONNECTIONSTRING
-        - AZURE_KEYVAULT_RESOURCEENDPOINT
-        - AZURE_KEYVAULT_SCOPE
+    App Service app has the following connection settings:
+            - AZURE_POSTGRESQL_NAME
+            - AZURE_POSTGRESQL_HOST
+            - AZURE_POSTGRESQL_USER
+            - AZURE_POSTGRESQL_PASSWORD
+            - AZURE_REDIS_CONNECTIONSTRING
+            - AZURE_KEYVAULT_RESOURCEENDPOINT
+            - AZURE_KEYVAULT_SCOPE
     </pre>
 
 1. For your convenience, the AZD template shows you the direct link to the app's app settings page. Find the link and open it in a new browser tab.
@@ -613,16 +613,16 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 5. Generate database schema
 
-With the PostgreSQL database protected by the virtual network, the easiest way to run [Flask database migrations](https://flask-migrate.readthedocs.io/en/latest/) is in an SSH session with the App Service container.
+With the PostgreSQL database protected by the virtual network, the easiest way to run [Flask database migrations](https://flask-migrate.readthedocs.io/en/latest/) is in an SSH session with the Linux container in App Service.
 
 
-1. In the azd output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
+1. In the AZD output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
 
     <pre>
     Open SSH session to App Service container at: https://&lt;app-name>.scm.azurewebsites.net/webssh/host
     </pre>
 
-1. In the SSH terminal, run `flask db upgrade`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
+1. In the SSH session, run `flask db upgrade`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
 
     :::image type="content" source="./media/tutorial-python-postgresql-app-flask/azure-portal-generate-db-schema-flask-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output." lightbox="./media/tutorial-python-postgresql-app-flask/azure-portal-generate-db-schema-flask-2.png":::
 
@@ -707,7 +707,7 @@ Pricing for the created resources is as follows:
 
 #### How do I connect to the PostgreSQL server that's secured behind the virtual network with other tools?
 
-- For basic access from a command-line tool, you can run `psql` from the app's SSH terminal.
+- For basic access from a command-line tool, you can run `psql` from the app's SSH session.
 - To connect from a desktop tool, your machine must be within the virtual network. For example, it could be an Azure VM that's connected to one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
 - You can also [integrate Azure Cloud Shell](../cloud-shell/private-vnet.md) with the virtual network.
 

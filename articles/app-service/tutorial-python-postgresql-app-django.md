@@ -261,7 +261,7 @@ The creation wizard generated the connectivity variables for you already as [app
         **Step 7: Configure the Redis connector to use Key Vault secrets** 
         1. In the Service Connectors page, select the checkbox next to the Cache for Redis connector, then select **Edit**.
         1. Select the **Authentication** tab.
-        1. Select **Store Secret in Key Vault**.
+        1. Select **Store Secret in Key Vault**.    
         1. Under **Key Vault Connection**, select the key vault you created. 
         1. Select **Next: Networking**.
         1. Select **Configure firewall rules to enable access to target service**. The app creation wizard already secured the SQL database with a private endpoint.
@@ -359,7 +359,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
         GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/tutorial-python-postgresql-app-flask/github-copilot-1.png" alt-text="A screenshot showing how to ask a question in a new GitHub Copilot chat session." lightbox="media/tutorial-python-postgresql-app-django/github-flask-1.png":::
+        :::image type="content" source="media/tutorial-python-postgresql-app-flask/github-copilot-1.png" alt-text="A screenshot showing how to ask a question in a new GitHub Copilot chat session." lightbox="media/tutorial-python-postgresql-app-django/github-copilot-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -409,7 +409,7 @@ Having issues? Check the [Troubleshooting guide](configure-language-python.md#tr
 
 ## 4. Generate database schema
 
-With the PostgreSQL database protected by the virtual network, the easiest way to run [Django database migrations](https://docs.djangoproject.com/en/4.1/topics/migrations/) is in an SSH session with the App Service container. 
+With the PostgreSQL database protected by the virtual network, the easiest way to run [Django database migrations](https://docs.djangoproject.com/en/4.1/topics/migrations/) is in an SSH session with the Linux container in App Service. 
 
 :::row:::
     :::column span="2":::
@@ -423,7 +423,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2:** In the SSH terminal, run `python manage.py migrate`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
+        **Step 2:** In the SSH session, run `python manage.py migrate`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-generate-db-schema-django-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output (Django)." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-generate-db-schema-django-2.png":::
@@ -577,17 +577,17 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 The AZD template you use generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings) and outputs the them to the terminal for your convenience. App settings are one way to keep connection secrets out of your code repository.
 
-1. In the AZD output, find the app settings and find the settings `AZURE_POSTGRESQL_USER`, `AZURE_POSTGRESQL_PASSWORD`, `AZURE_POSTGRESQL_HOST`, `AZURE_POSTGRESQL_NAME`, and `AZURE_REDIS_CONNECTIONSTRING`. To keep secrets safe, only the setting names are displayed. They look like this in the azd output:
+1. In the AZD output, find the settings `AZURE_POSTGRESQL_USER`, `AZURE_POSTGRESQL_PASSWORD`, `AZURE_POSTGRESQL_HOST`, `AZURE_POSTGRESQL_NAME`, and `AZURE_REDIS_CONNECTIONSTRING`. To keep secrets safe, only the setting names are displayed. They look like this in the AZD output:
 
     <pre>
-App Service app has the following connection settings:
-        - AZURE_POSTGRESQL_NAME
-        - AZURE_POSTGRESQL_HOST
-        - AZURE_POSTGRESQL_USER
-        - AZURE_POSTGRESQL_PASSWORD
-        - AZURE_REDIS_CONNECTIONSTRING
-        - AZURE_KEYVAULT_RESOURCEENDPOINT
-        - AZURE_KEYVAULT_SCOPE
+    App Service app has the following connection settings:
+            - AZURE_POSTGRESQL_NAME
+            - AZURE_POSTGRESQL_HOST
+            - AZURE_POSTGRESQL_USER
+            - AZURE_POSTGRESQL_PASSWORD
+            - AZURE_REDIS_CONNECTIONSTRING
+            - AZURE_KEYVAULT_RESOURCEENDPOINT
+            - AZURE_KEYVAULT_SCOPE
     </pre>
 
 1. For your convenience, the AZD template shows you the direct link to the app's app settings page. Find the link and open it in a new browser tab.
@@ -616,7 +616,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 # [Without GitHub Copilot](#tab/nocopilot)
 
-1. You need to use the four app settings for connectivity in App service. Open *azureproject/production.py*, uncomment the following lines (lines 3-8), and save the file:
+1. You need to use the five app settings for connectivity in App service. Open *azureproject/production.py*, uncomment the following lines (lines 29-48), and save the file:
 
     ```python
     DATABASE_URI = 'postgresql+psycopg2://{dbuser}:{dbpass}@{dbhost}/{dbname}'.format(
@@ -637,6 +637,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
         }
     }
     ```
+
     Your application code is now configured to connect to the PostgreSQL database and Redis cache in Azure.  
 
     -----
@@ -648,7 +649,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
     ```
 
 > [!NOTE]
-> If you run `azd up`, it combines `azd package`, `azd provision`, and `azd deploy`. The reason you didn't do it at the beginning was because you didn't have the PostgreSQL connection settings for to modify your code with yet. If you ran `azd up` then, the deploy stage would stall because the Gunicorn server wouldn't be able to start the app without valid connection settings.
+> If you run `azd up`, it combines `azd package`, `azd provision`, and `azd deploy`. The reason you didn't do it at the beginning was because you didn't have the PostgreSQL connection settings to modify your code with yet. If you ran `azd up` then, the deploy stage would stall because the Gunicorn server wouldn't be able to start the app without valid connection settings. But in general, you can rerun these commands when you make changes to your AZD template or to your code.
 
 -----
 
@@ -656,15 +657,15 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 5. Generate database schema
 
-With the PostgreSQL database protected by the virtual network, the easiest way to run Django database migrations is in an SSH session with the App Service container.
+With the PostgreSQL database protected by the virtual network, the easiest way to run Django database migrations is in an SSH session with the Linux container in App Service.
 
-1. In the azd output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
+1. In the AZD output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
 
     <pre>
     Open SSH session to App Service container at: https://&lt;app-name>.scm.azurewebsites.net/webssh/host
     </pre>
 
-1. In the SSH terminal, run `python manage.py migrate`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
+1. In the SSH session, run `python manage.py migrate`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
 
     :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-generate-db-schema-django-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output (Django)." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-generate-db-schema-django-2.png":::
 
@@ -767,7 +768,7 @@ Pricing for the created resources is as follows:
 
 #### How do I connect to the PostgreSQL server that's secured behind the virtual network with other tools?
 
-- For basic access from a command-line tool, you can run `psql` from the app's SSH terminal.
+- For basic access from a command-line tool, you can run `psql` from the app's SSH session.
 - To connect from a desktop tool, your machine must be within the virtual network. For example, it could be an Azure VM that's connected to one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
 - You can also [integrate Azure Cloud Shell](../cloud-shell/private-vnet.md) with the virtual network.
 
