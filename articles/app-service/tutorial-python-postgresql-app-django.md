@@ -359,7 +359,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
         GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/tutorial-python-postgresql-app-flask/github-copilot-1.png" alt-text="A screenshot showing how to ask a question in a new GitHub Copilot chat session." lightbox="media/tutorial-python-postgresql-app-django/github-copilot-1.png":::
+        :::image type="content" source="media/tutorial-python-postgresql-app-django/github-copilot-1.png" alt-text="A screenshot showing how to ask a question in a new GitHub Copilot chat session." lightbox="media/tutorial-python-postgresql-app-django/github-copilot-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
