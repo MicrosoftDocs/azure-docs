@@ -1,14 +1,13 @@
 ---
 title: Enable Microsoft Entra authentication for Azure SSIS integration runtime
 description: This article describes how to enable Microsoft Entra authentication with the specified system/user-assigned managed identity for Azure Data Factory to create Azure-SSIS integration runtime.
-ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
 ms.custom: has-azure-ad-ps-ref
-ms.date: 07/17/2023
+ms.date: 05/15/2024
 ---
 
 # Enable Microsoft Entra authentication for Azure-SSIS integration runtime
@@ -30,7 +29,7 @@ For more info about the managed identity for your ADF, see [Managed identity for
 > 
 > - If you have already created your Azure-SSIS IR using SQL authentication, you can not reconfigure it to use Microsoft Entra authentication via PowerShell at this time, but you can do so via Azure portal/ADF app. 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 <a name='enable-azure-ad-authentication-on-azure-sql-database'></a>
 
@@ -67,10 +66,10 @@ You can use an existing Microsoft Entra group or create a new one using Azure AD
    6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
    ```
 
-3. Add the specified system/user-assigned managed identity for your ADF to the group. You can follow the [Managed identity for Data Factory or Azure Synapse](./data-factory-service-identity.md) article to get the Object ID of specified system/user-assigned managed identity for your ADF (e.g. 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, but do not use the Application ID for this purpose).
+3. Add the specified system/user-assigned managed identity for your ADF to the group. You can follow the [Managed identity for Data Factory or Azure Synapse](./data-factory-service-identity.md) article to get the Object ID of specified system/user-assigned managed identity for your ADF (e.g. aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb, but do not use the Application ID for this purpose).
 
    ```powershell
-   Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
+   Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
    ```
 
    You can also check the group membership afterwards.

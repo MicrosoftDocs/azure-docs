@@ -6,7 +6,7 @@ ms.reviewer: sahilkhurana
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 03/21/2024
+ms.date: 01/22/2025
 ms.author: banders
 ---
 
@@ -120,11 +120,11 @@ The transactions file is a CSV file that includes the same information as the in
 | Extended Amount | The quantity multiplied by the unit price. |
 | Commitment Usage | The amount of monetary commitment that has been used. |
 | Net Amount | The extended amount minus the commitment usage. |
-| Tax Rate | The tax rate applicable to the product based on the country of billing. |
+| Tax Rate | The tax rate applicable to the product based on the country/region of billing. |
 | Tax Amount | The net amount multiplied by tax rate. |
 | Total | The sum of the net amount and tax amount. |
 | Is Third Party | Indicates whether the product or service is a third-party product. |
 
-## Next steps
+## Related content
 
 - Learn how to download your Direct EA billing invoice documents at [View your Azure usage summary details and download reports for direct EA enrollments](direct-ea-azure-usage-charges-invoices.md).

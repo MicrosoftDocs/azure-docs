@@ -6,7 +6,7 @@ ms.reviewer: bshy
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 11/17/2023
+ms.date: 12/06/2024
 ms.author: banders
 ---
 
@@ -14,7 +14,7 @@ ms.author: banders
 
 Azure Reservations help you save money by committing to one-year or three-year plans for multiple products. Committing allows you to get a discount on the resources you use. Reservations can significantly reduce your resource costs by up to 72% from pay-as-you-go prices. Reservations provide a billing discount and don't affect the runtime state of your resources. After you purchase a reservation, the discount automatically applies to matching resources.
 
-You can pay for a reservation up front or monthly. The total cost of up-front and monthly reservations is the same and you don't pay any extra fees when you choose to pay monthly. Monthly payment is available for Azure reservations, not third-party products.
+You can pay for a reservation up front or monthly. The total cost of up-front and monthly reservations is the same and you don't pay any extra fees when you choose to pay monthly. Monthly payments are for complete month and not proparted based on calendar month. As an example if you purchased a reservation on January 15, the next charge will be around February 15. Monthly payment is available for Azure reservations, not third-party products.
 
 You can buy a reservation in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
@@ -95,24 +95,24 @@ For more information, see [Self-service exchanges and refunds for Azure Reservat
 - **App Service stamp fee** - A reservation covers stamp usage. It doesn't apply to workers, so any other resources associated with the stamp are charged separately.
 - **Azure Database for MySQL** - Only the compute costs are included with a reservation. A reservation doesn't cover software, networking, or storage charges associated with the MySQL Database server.
 - **Azure Database for PostgreSQL** - Only the compute costs are included with a reservation. A reservation doesn't cover software, networking, or storage charges associated with the PostgreSQL Database servers.
-- **Azure Database for MariaDB** - Only the compute costs are included with a reservation. A reservation doesn't cover software, networking, or storage charges associated with the MariaDB Database server.
 - **Azure Data Explorer** - A reservation covers the markup charges. A reservation doesn't apply to compute, networking, or storage charges associated with the clusters.
 - **Azure Cache for Redis** - Only the compute costs are included with a reservation. A reservation doesn't cover networking or storage charges associated with the Redis cache instances.
 - **Azure Dedicated Host** - Only the compute costs are included with the Dedicated host.
 - **Azure Disk Storage reservations** - A reservation only covers premium SSDs of P30 size or greater. It doesn't cover any other disk types or sizes smaller than P30.
 - **Azure Backup Storage reserved capacity** - A capacity reservation lowers storage costs of backup data in a Recovery Services Vault.
+- **Azure NetApp Files** - A capacity reservation covers matching capacity pools in the selected service level and region. When using capacity pools configured with [cool access](../../azure-netapp-files/manage-cool-access.md), only "hot" tier consumption is covered by the reservation benefit. 
 
 Software plans:
 
 - **SUSE Linux** - A reservation covers the software plan costs. The discounts apply only to SUSE meters and not to the virtual machine usage.
-- **Red Hat Plans** - A reservation covers the software plan costs. The discounts apply only to RedHat meters and not to the virtual machine usage.
+- **Red Hat Plans** (***plans and renewal are temporarily unavailable***) - A reservation covers the software plan costs. The discounts apply only to RedHat meters and not to the virtual machine usage.
 - **Azure Red Hat OpenShift** - A reservation applies to the OpenShift costs, not to Azure infrastructure costs.
 
 For Windows virtual machines and SQL Database, the reservation discount doesn't apply to the software costs. You can cover the licensing costs with [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 ## Need help? Contact us.
 
-If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
 
@@ -124,10 +124,11 @@ If you have questions or need help,  [create a support request](https://go.micro
     - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations)
 
 - Learn more about reservations for service plans:
-    - [Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
-    - [Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](../../cosmos-db/cosmos-db-reserved-capacity.md)
+    - [Virtual Machines with Azure Reserved VM Instances](/azure/virtual-machines/prepay-reserved-vm-instances)
+    - [Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](/azure/cosmos-db/cosmos-db-reserved-capacity)
     - [SQL Database compute resources with Azure SQL Database reserved capacity](/azure/azure-sql/database/reserved-capacity-overview)
     - [Azure Cache for Redis resources with Azure Cache for Redis reserved capacity](../../azure-cache-for-redis/cache-reserved-pricing.md)
-Learn more about reservations for software plans:
-    - [Red Hat software plans from Azure Reservations](../../virtual-machines/linux/prepay-suse-software-charges.md)
-    - [SUSE software plans from Azure Reservations](../../virtual-machines/linux/prepay-suse-software-charges.md)
+
+- Learn more about reservations for software plans:
+    - [Red Hat software plans from Azure Reservations](/azure/virtual-machines/linux/prepay-suse-software-charges)
+    - [SUSE software plans from Azure Reservations](/azure/virtual-machines/linux/prepay-suse-software-charges)

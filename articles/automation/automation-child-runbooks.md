@@ -7,6 +7,7 @@ ms.date: 11/21/2022
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer, I want create modular runbooks so that I can be more efficient.
+ms.service: azure-automation
 ---
 
 # Create modular runbooks in Automation
@@ -46,7 +47,7 @@ Currently, PowerShell 5.1 is supported and only certain runbook types can call e
 
 > [!IMPORTANT]
 > Executing child scripts using `.\child-runbook.ps1` is not supported in PowerShell 7.1 and PowerShell 7.2 
-  **Workaround**: Use `Start-AutomationRunbook` (internal cmdlet) or `Start-AzAutomationRunbook` (from *Az.Automation* module) to start another runbook from parent runbook.
+  **Workaround**: Use `Start-AutomationRunbook` ([internal cmdlet](/azure/automation/shared-resources/modules#internal-cmdlets)) or `Start-AzAutomationRunbook` (from [Az.Automation module](/powershell/module/Az.Automation/Start-AzAutomationRunbook)) to start another runbook from parent runbook.
 
 The publish order of runbooks matters only for PowerShell Workflow and graphical PowerShell Workflow runbooks.
 

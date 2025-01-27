@@ -3,7 +3,7 @@ title: Azure Stream Analytics solution patterns
 description: Learn about common solution patterns for Azure Stream Analytics, such as dashboarding, event messaging, data stores, reference data enrichment, and monitoring.
 author: ajetasin
 ms.author: ajetasi
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 02/27/2024
 ---

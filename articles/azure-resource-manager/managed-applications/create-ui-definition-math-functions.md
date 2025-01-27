@@ -1,8 +1,8 @@
 ---
 title: Create UI definition math functions
 description: Describes the functions to use when performing math operations.
-ms.topic: conceptual
-ms.date: 07/13/2020
+ms.topic: reference
+ms.date: 06/21/2024
 ---
 
 # CreateUiDefinition math functions
@@ -97,7 +97,7 @@ The following example returns `6`:
 
 ## rand
 
-Returns a random integral number within the specified range. This function does not generate cryptographically secure random numbers.
+Returns a random integral number within the specified range. This function doesn't generate cryptographically secure random numbers.
 
 The following example could return `42`:
 
@@ -127,4 +127,4 @@ The following example returns `1`:
 
 ## Next steps
 
-* For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](../management/overview.md).
+- For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](../management/overview.md).

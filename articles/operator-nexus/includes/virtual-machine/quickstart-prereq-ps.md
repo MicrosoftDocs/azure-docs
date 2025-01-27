@@ -7,7 +7,7 @@ ms.service: azure-operator-nexus
 ms.custom:
 ---
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 * Use the PowerShell environment in [Azure Cloud Shell](../../../cloud-shell/overview.md). For more information, see [Quickstart for PowerShell in Azure Cloud Shell.](../../../cloud-shell/quickstart.md)
 
@@ -33,7 +33,7 @@ ms.custom:
     Location          : eastus
     ProvisioningState : Succeeded
     Tags              :
-    ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup
+    ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup
     ```
 
 * You need the `custom location` resource ID of your Azure Operator Nexus cluster.

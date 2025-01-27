@@ -78,7 +78,7 @@ The following sections discuss the code that implements this architecture.
 In this tutorial, you'll use Microsoft Entra authentication to create `ServiceBusClient` and `ServiceBusAdministrationClient` objects. You'll also use `DefaultAzureCredential` and to use it, you need to do the following steps to test the application locally in a development environment.
 
 1. [Register an application in the Microsoft Entra ID](../active-directory/develop/quickstart-register-app.md).
-1. [Add the application to the `Service Bus Data Owner` role](../role-based-access-control/role-assignments-portal.md).
+1. [Add the application to the `Service Bus Data Owner` role](../role-based-access-control/role-assignments-portal.yml).
 1. Set the `AZURE-CLIENT-ID`, `AZURE-TENANT-ID`, AND `AZURE-CLIENT-SECRET` environment variables. For instructions, see [this article](/dotnet/api/overview/azure/identity-readme#environment-variables).
 
 For a list of Service Bus built-in roles, see [Azure built-in roles for Service Bus](service-bus-managed-service-identity.md#azure-built-in-roles-for-azure-service-bus).
@@ -135,7 +135,7 @@ queue and displays status information about the queue.
 
    Note that the required client assemblies are now referenced and some new code files have been added.
 10. Follow the same steps to add the `Azure.Identity` NuGet package to the project.  
-10. In **Solution Explorer**, expand **FronendWebRole**, right-click **Models** and select **Add**,
+10. In **Solution Explorer**, expand **FrontendWebRole**, right-click **Models** and select **Add**,
     then select **Class**. In the **Name** box, type the name
     **OnlineOrder.cs**. Then select **Add**.
 

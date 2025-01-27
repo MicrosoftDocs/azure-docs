@@ -21,13 +21,15 @@ This how-to guide shows how to create an example logic app workflow that generat
 | Request message structure | Use this information to form your BAPI `get` list. |
 | Response message structure | Use this information to parse the response. |
 
-Both Standard and Consumption logic app workflows offer the SAP *managed* connector that's hosted and run in multi-tenant Azure. Standard workflows also offer the preview SAP *built-in* connector that's hosted and run in single-tenant Azure Logic Apps, but this connector is currently in preview and subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). If you create and host a Consumption workflow in an integration service environment (ISE), you can also use the SAP connector's ISE-native version. For more information, see [Connector technical reference](sap.md#connector-technical-reference).
+Both Standard and Consumption logic app workflows offer the SAP *managed* connector that's hosted and run in multitenant Azure. Standard workflows also offer the preview SAP *built-in* connector that's hosted and run in single-tenant Azure Logic Apps, but this connector is currently in preview and subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Connector technical reference](sap.md#connector-technical-reference).
 
 ## Prerequisites
 
 - Before you start, make sure to [review and meet the SAP connector requirements](sap.md#prerequisites) for your specific scenario.
 
 - If you want to upload your generated schemas to a repository, such as an [integration account](../logic-apps-enterprise-integration-create-integration-account.md), make sure that the repository already exists.
+
+[!INCLUDE [api-test-http-request-tools-bullet](../../../includes/api-test-http-request-tools-bullet.md)]
 
 ## Generate schemas for an SAP artifact
 
@@ -37,7 +39,7 @@ The following example logic app workflow triggers when the workflow's SAP trigge
 
 To have your workflow receive requests from your SAP server over HTTP, you can use the [Request built-in trigger](../../connectors/connectors-native-reqres.md). This trigger creates an endpoint with a URL where your SAP server can send HTTP POST requests to your workflow. When your workflow receives these requests, the trigger fires and runs the next step in your workflow.
 
-Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
+Based on whether you have a Consumption workflow in multitenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
 
 ### [Consumption](#tab/consumption)
 
@@ -71,7 +73,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 ### Add an SAP action to generate schemas
 
-Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
+Based on whether you have a Consumption workflow in multitenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
 
 ### [Consumption](#tab/consumption)
 
@@ -146,6 +148,9 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
    | **Logon Type** | Yes | Select either **Application Server** or **Group**, and then configure the corresponding required parameters, even though they appear optional: <br><br>**Application Server**: <br>- **Server Host**: The host name for your SAP Application Server <br>- **Service**: The service name or port number for your SAP Application Server <br>- **System Number**: Your SAP server's system number, which ranges from 00 to 99 <br><br>**Group**: <br>- **Server Host**: The host name for your SAP Message Server <br>- **Service Name or Port Number**: The service name or port number for your SAP Message Server <br>- **System ID**: The system ID for your SAP server <br>- **Logon Group**: The logon group for your SAP server. On your SAP server, you can find or edit the **Logon Group** value by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, review [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317). |
    | **Language** | Yes | The language to use for sending data to your SAP server. The value is either **Default** (English) or one of the [permitted values](/azure/logic-apps/connectors/built-in/reference/sap/#parameters-21). <br><br>**Note**: The SAP built-in connector saves this parameter value as part of the SAP connection parameters. For more information, see [Change language headers for sending data to SAP](sap-create-example-scenario-workflows.md#change-language-headers). |
 
+
+For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
+
    After Azure Logic Apps sets up and tests your connection, the action information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](sap-create-example-scenario-workflows.md#troubleshoot-connections).
 
    ![Screenshot shows Standard workflow and SAP built-in action named Generate Schema.](./media/sap-generate-schemas-for-artifacts/sap-generate-schemas-standard.png)
@@ -178,17 +183,17 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 ### Test your workflow for schema generation
 
-Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
+Based on whether you have a Consumption workflow in multitenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
 
 ### [Consumption](#tab/consumption)
 
 1. If your Consumption logic app resource isn't already enabled, on your logic app menu, select **Overview**. On the toolbar, select **Enable**.
 
-1. On the designer toolbar, select **Run Trigger** > **Run** to manually start your workflow.
+1. On the designer toolbar, select **Run** > **Run** to manually start your workflow.
 
-1. To simulate a webhook trigger payload, send an HTTP POST request to the endpoint URL that's specified by your workflow's Request trigger. To send the request, use a tool such as [Postman](https://www.getpostman.com/apps).
+1. To simulate a webhook trigger payload and trigger the workflow, send an HTTP request to the endpoint URL created by your workflow's **Request** trigger, including the method that the **Request** trigger expects, by using your HTTP request tool and its instructions. Make sure to include your message content with your request.
 
-   For this example, the HTTP POST request sends an IDoc file, which must be in XML format and include the namespace for the SAP action that you selected, for example:
+   This example uses the **POST** method and the endpoint URL to send an IDoc file, which must be in XML format and include the namespace for the SAP action that you selected, for example:
 
    ```xml
    <?xml version="1.0" encoding="UTF-8" ?>
@@ -220,9 +225,9 @@ For more information about reviewing workflow run history, see [Monitor logic ap
 
 1. Return to the workflow level. On the workflow menu, select **Overview**. On the toolbar, select **Run** > **Run** to manually start your workflow.
 
-1. To simulate a webhook trigger payload, send an HTTP POST request to the endpoint URL that's specified by your workflow's Request trigger. To send the request, use a tool such as [Postman](https://www.getpostman.com/apps).
+1. To simulate a webhook trigger payload and trigger the workflow, send an HTTP request to the endpoint URL created by your workflow's **Request** trigger, including the method that the **Request** trigger expects, by using your HTTP request tool and its instructions. Make sure to include your message content with your request.
 
-   For this example, the HTTP POST request sends an IDoc file, which must be in XML format and include the namespace for the SAP action that you selected, for example:
+   This example uses the **POST** method and the endpoint URL to send an IDoc file, which must be in XML format and include the namespace for the SAP action that you selected, for example:
 
    ```xml
    <?xml version="1.0" encoding="UTF-8" ?>
@@ -267,7 +272,7 @@ Optionally, you can download or store the generated schemas in repositories, suc
 > }
 > ```
 
-For this task, you'll need an [integration account](../logic-apps-enterprise-integration-create-integration-account.md), if you don't already have one. Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps to upload schemas to an integration account from your workflow after schema generation.
+For this task, you'll need an [integration account](../logic-apps-enterprise-integration-create-integration-account.md), if you don't already have one. Based on whether you have a Consumption workflow in multitenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps to upload schemas to an integration account from your workflow after schema generation.
 
 ### [Consumption](#tab/consumption)
 
@@ -348,7 +353,7 @@ You can begin your XML schema with an optional XML prolog. The SAP connector wor
 
 ### XML samples for RFC requests
 
-The following example shows a basic RFC call where the RFC name is `STFC_CONNECTION`. This request uses the default namespace named `xmlns=`. However, you can assign and use namespace aliases such as `xmmlns:exampleAlias=`. The namespace value is the namespace for all the RFCs in SAP for Microsoft services. The request has a simple input parameter named `<REQUTEXT>`.
+The following example shows a basic RFC call where the RFC name is `STFC_CONNECTION`. This request uses the default namespace named `xmlns=`. However, you can assign and use namespace aliases such as `xmlns:exampleAlias=`. The namespace value is the namespace for all the RFCs in SAP for Microsoft services. The request has a simple input parameter named `<REQUTEXT>`.
 
 ```xml
 <STFC_CONNECTION xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">

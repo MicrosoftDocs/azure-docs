@@ -17,7 +17,7 @@ This how-to guide helps you use Azure Pipelines to set up continuous integration
 
 [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) is used by development teams to configure continuous deployment for applications hosted in Azure subscriptions. We can use this service for applications running in Azure Government by defining [service connections](/azure/devops/pipelines/library/service-endpoints) for Azure Government.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 
@@ -168,7 +168,7 @@ For more information, see the following resources:
 
 - [Sign up for Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/?ReqType=Trial)
 - [Acquiring and accessing Azure Government](https://azure.microsoft.com/offers/azure-government/)
-- [Ask questions via the azure-gov tag on StackOverflow](https://stackoverflow.com/tags/azure-gov)
+- [Ask questions via the azure-gov tag on Stack Overflow](https://stackoverflow.com/tags/azure-gov)
 - [Azure Government blog](https://devblogs.microsoft.com/azuregov/)
 - [What is Infrastructure as Code? – Azure DevOps](/devops/deliver/what-is-infrastructure-as-code)
 - [DevSecOps for infrastructure as code (IaC) – Azure Architecture Center](/azure/architecture/solution-ideas/articles/devsecops-infrastructure-as-code)

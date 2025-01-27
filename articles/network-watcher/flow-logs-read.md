@@ -4,15 +4,17 @@ titleSuffix: Azure Network Watcher
 description: Learn how to use a PowerShell script to parse flow logs that are created hourly and updated every few minutes in Azure Network Watcher.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 04/18/2024
+ms.date: 09/26/2024
 ms.custom: devx-track-azurepowershell
 
 #CustomerIntent: As an Azure administrator, I want to read my flow logs using a PowerShell script so I can see the latest data.
 ---
 
 # Read flow logs
+
+[!INCLUDE [NSG flow logs retirement](../../includes/network-watcher-nsg-flow-logs-retirement.md)]
 
 In this article, you learn how to selectively read portions of Azure Network Watcher flow logs using PowerShell without having to parse the entire log. Flow logs are stored in a storage account in block blobs. Each log is a separate block blob that is generated every hour and updated with the latest data every few minutes. Using the script provided in this article, you can read the latest data from the flow logs without having to download the entire log.
 
@@ -24,15 +26,15 @@ The concepts discussed in this article aren't limited to the PowerShell and are 
 
 - PowerShell installed on your machine. For more information, see [Install PowerShell on Windows, Linux, and macOS](/powershell/scripting/install/installing-powershell). This article requires the Az PowerShell module. For more information, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell). To find the installed version, run `Get-Module -ListAvailable Az`. 
 
-- Flow logs in a region or more. For more information, see [Create NSG flow logs](nsg-flow-logs-portal.md#create-a-flow-log) or [Create VNet flow logs](vnet-flow-logs-portal.md#create-a-flow-log).
+- Flow logs in a region or more. For more information, see [Create network security group flow logs](nsg-flow-logs-portal.md#create-a-flow-log) or [Create virtual network flow logs](vnet-flow-logs-portal.md#create-a-flow-log).
 
 - Necessary RBAC permissions for the subscriptions of flow logs and storage account. For more information, see [Network Watcher RBAC permissions](required-rbac-permissions.md).
 
 ## Retrieve the blocklist
 
-# [**NSG flow logs**](#tab/nsg)
+# [**Network security group flow logs**](#tab/nsg)
 
-The following PowerShell script sets up the variables needed to query the NSG flow log blob and list the blocks within the [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block blob. Update the script to contain valid values for your environment.
+The following PowerShell script sets up the variables needed to query the network security group flow log blob and list the blocks within the [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block blob. Update the script to contain valid values for your environment, specifically "yourSubscriptionId", "FLOWLOGSVALIDATIONWESTCENTRALUS", "V2VALIDATIONVM-NSG", "yourStorageAccountName", "ml-rg", "000D3AF87856", "11/11/2018 03:00". For example, yourSubscriptionId should be replaced with your subscription ID.
 
 ```powershell
 function Get-NSGFlowLogCloudBlockBlob {
@@ -48,16 +50,16 @@ function Get-NSGFlowLogCloudBlockBlob {
     )
 
     process {
-        # Retrieve the primary storage account key to access the NSG logs
+        # Retrieve the primary storage account key to access the network security group logs
         $StorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $storageAccountResourceGroup -Name $storageAccountName).Value[0]
 
         # Setup a new storage context to be used to query the logs
         $ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
-        # Container name used by NSG flow logs
+        # Container name used by network security group flow logs
         $ContainerName = "insights-logs-networksecuritygroupflowevent"
 
-        # Name of the blob that contains the NSG flow log
+        # Name of the blob that contains the network security group flow log
         $BlobName = "resourceId=/SUBSCRIPTIONS/${subscriptionId}/RESOURCEGROUPS/${NSGResourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/${NSGName}/y=$($logTime.Year)/m=$(($logTime).ToString("MM"))/d=$(($logTime).ToString("dd"))/h=$(($logTime).ToString("HH"))/m=00/macAddress=$($macAddress)/PT1H.json"
 
         # Gets the storage blog
@@ -91,9 +93,9 @@ $CloudBlockBlob = Get-NSGFlowLogCloudBlockBlob -subscriptionId "yourSubscription
 $blockList = Get-NSGFlowLogBlockList -CloudBlockBlob $CloudBlockBlob
 ```
 
-# [**VNet flow logs (preview)**](#tab/vnet)
+# [**Virtual network flow logs**](#tab/vnet)
 
-The following PowerShell script sets up the variables needed to query the VNet flow log blob and list the blocks within the [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block blob. Update the script to contain valid values for your environment.
+The following PowerShell script sets up the variables needed to query the virtual network flow log blob and list the blocks within the [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block blob. Update the script to contain valid values for your environment.
 
 ```powershell
 function Get-VNetFlowLogCloudBlockBlob {
@@ -109,16 +111,16 @@ function Get-VNetFlowLogCloudBlockBlob {
     )
 
     process {
-        # Retrieve the primary storage account key to access the VNet flow logs
+        # Retrieve the primary storage account key to access the virtual network flow logs
         $StorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $storageAccountResourceGroup -Name $storageAccountName).Value[0]
 
         # Setup a new storage context to be used to query the logs
         $ctx = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $StorageAccountKey
 
-        # Container name used by VNet flow logs
+        # Container name used by virtual network flow logs
         $ContainerName = "insights-logs-flowlogflowevent"
 
-        # Name of the blob that contains the VNet flow log
+        # Name of the blob that contains the virtual network flow log
         $BlobName = "flowLogResourceID=/$($subscriptionId.ToUpper())_NETWORKWATCHERRG/NETWORKWATCHER_$($region.ToUpper())_$($VNetFlowLogName.ToUpper())/y=$($logTime.Year)/m=$(($logTime).ToString("MM"))/d=$(($logTime).ToString("dd"))/h=$(($logTime).ToString("HH"))/m=00/macAddress=$($macAddress)/PT1H.json"
 
         # Gets the storage blog
@@ -174,7 +176,7 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 In this section, you read the `$blocklist` variable to retrieve the data. In the following example, we iterate through the blocklist to read the bytes from each block and store them in an array. Use the [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray) method to retrieve the data.
 
-# [**NSG flow logs**](#tab/nsg)
+# [**Network security group flow logs**](#tab/nsg)
 
 ```powershell
 function Get-NSGFlowLogReadBlock  {
@@ -218,7 +220,7 @@ function Get-NSGFlowLogReadBlock  {
 $valuearray = Get-NSGFlowLogReadBlock -blockList $blockList -CloudBlockBlob $CloudBlockBlob
 ```
 
-# [**VNet flow logs (preview)**](#tab/vnet)
+# [**Virtual network flow logs**](#tab/vnet)
 
 ```powershell
 function Get-VNetFlowLogReadBlock  {
@@ -272,7 +274,7 @@ The `$valuearray` array contains now the string value of each block. To verify t
 
 The results of this value are shown in the following example:
 
-# [**NSG flow logs**](#tab/nsg)
+# [**Network security group flow logs**](#tab/nsg)
 
 ```json
 {
@@ -281,7 +283,7 @@ The results of this value are shown in the following example:
 			"time": "2017-06-16T20:59:43.7340000Z",
 			"systemId": "abcdef01-2345-6789-0abc-def012345678",
 			"category": "NetworkSecurityGroupFlowEvent",
-			"resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYNSG",
+			"resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYNSG",
 			"operationName": "NetworkSecurityGroupFlowEvents",
 			"properties": {
 				"Version": 1,
@@ -333,7 +335,7 @@ The results of this value are shown in the following example:
 }
 ```
 
-# [**VNet flow logs (preview)**](#tab/vnet)
+# [**Virtual network flow logs**](#tab/vnet)
 
 ```json
 {
@@ -342,8 +344,8 @@ The results of this value are shown in the following example:
     "flowLogGUID": "abcdef01-2345-6789-0abc-def012345678",
     "macAddress": "0022485D8CF8",
     "category": "FlowLogFlowEvent",
-    "flowLogResourceID": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/NETWORKWATCHERRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKWATCHERS/NETWORKWATCHER_EASTUS/FLOWLOGS/MYVNET-MYRESOURCEGROUP-FLOWLOG",
-    "targetResourceID": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet",
+    "flowLogResourceID": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/NETWORKWATCHERRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKWATCHERS/NETWORKWATCHER_EASTUS/FLOWLOGS/MYVNET-MYRESOURCEGROUP-FLOWLOG",
+    "targetResourceID": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet",
     "operationName": "FlowLogFlowEvent",
     "flowRecords": {
         "flows": [
@@ -382,5 +384,5 @@ The results of this value are shown in the following example:
 ## Related content
 
 - [Traffic analytics overview](./traffic-analytics.md)
-- [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json)
+- [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json)
 - [Azure Blob storage bindings for Azure Functions overview](../azure-functions/functions-bindings-storage-blob.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json)

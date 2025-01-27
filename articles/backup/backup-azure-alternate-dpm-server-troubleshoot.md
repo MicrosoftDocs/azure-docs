@@ -3,10 +3,10 @@ title: Troubleshoot data recovery from Microsoft Azure Backup Server by using Az
 description: Learn how to troubleshoot data recovery from Microsoft Azure Backup Server.
 ms.topic: troubleshooting
 ms.date: 01/26/2024
-ms.service: backup
+ms.service: azure-backup
 ms.custom: engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Troubleshoot data recovery from Microsoft Azure Backup Server 

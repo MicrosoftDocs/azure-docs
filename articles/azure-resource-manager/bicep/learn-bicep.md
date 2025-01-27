@@ -1,21 +1,21 @@
 ---
 title: Learn modules for Bicep
-description: Provides an overview of the Learn modules for Bicep.
+description: Get started with an overview of Microsoft Learn modules for Bicep.
 ms.topic: conceptual
+ms.date: 01/15/2025
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
 ---
 
 # Learn modules for Bicep
 
-Ready to see how Bicep can help simplify and accelerate your deployments to Azure? Check out the many hands-on courses.
+Once you're ready to see how Bicep can help simplify and accelerate your deployments to Azure, proceed to the many hands-on courses from Microsoft Learn.
 
 > [!TIP]
-> Want to learn Bicep live from subject matter experts? [Follow on-demand Learn Live sessions with our experts.](/events/learntv/learnlive-iac-and-bicep/)
+> [Follow Learn Live sessions](/events/learntv/learnlive-iac-and-bicep/) to learn about Bicep from subject matter experts on demand and in real time.
 
 ## Get started
 
-If you're new to Bicep, a great way to get started is by reviewing the following Learn module. You'll learn how Bicep makes it easier to define how your Azure resources should be configured and deployed in a way that's automated and repeatable. You’ll deploy several Azure resources so you can see for yourself how Bicep works. We provide free access to Azure resources to help you practice the concepts.
+Learn provides free access to resources that can help you apply concepts in Azure.If you're new to Bicep, one way to get started is by reviewing the following Learn module. You'll learn how Bicep makes it easier to define how your Azure resources should be configured and deployed in a way that's automated and repeatable. You’ll deploy several Azure resources to see how Bicep works.
 
 [<img src="media/learn-bicep/build-first-bicep-template.svg" width="101" height="120" alt="The badge for the Build your first Bicep template module." role="presentation"></img>](/training/modules/build-first-bicep-template/)
 
@@ -23,7 +23,7 @@ If you're new to Bicep, a great way to get started is by reviewing the following
 
 ## Learn more
 
-To learn even more about Bicep's features, take these learning paths:
+Follow these learning paths to discover more Bicep features:
 
 :::row:::
 :::column:::
@@ -45,7 +45,7 @@ To learn even more about Bicep's features, take these learning paths:
 
 ## Use Bicep in a deployment pipeline
 
-After that, you might be interested in adding your Bicep code to a deployment pipeline. Take one of these two learning paths based on the tool you want to use:
+After that, you might be interested in adding your Bicep code to a deployment pipeline. Take one of these two learning paths based on the tool that you want to use:
 
 :::row:::
 :::column:::
@@ -60,7 +60,29 @@ After that, you might be interested in adding your Bicep code to a deployment pi
 :::column-end:::
 :::row-end:::
 
+## Use deployment stacks
+
+Learn how to use deployment stacks to manage resource lifecycles:
+
+:::row:::
+:::column:::
+  [<img src="media/learn-bicep/introduction-to-deployment-stacks.svg" width="101" height="120" alt="The trophy for the Introduction to deployment stacks." role="presentation"></img>](/training/modules/introduction-to-deployment-stacks/)
+    
+  [Introduction to deployment stacks](/training/modules/introduction-to-deployment-stacks)
+:::column-end:::
+:::column:::
+  [<img src="media/learn-bicep/build-first-deployment-stack.svg" width="101" height="120" alt="The trophy for the Build first deployment stack." role="presentation"></img>](/training/modules/build-first-deployment-stack/)
+    
+  [Build your first deployment stack](/training/modules/build-first-deployment-stack)
+:::column-end:::
+:::column:::
+  [<img src="media/learn-bicep/manage-resource-lifecycles-deployment-stacks.svg" width="101" height="120" alt="The trophy for the Manage resource lifecycles with deployment stacks." role="presentation"></img>](/training/modules/manage-resource-lifecycles-deployment-stacks/)
+    
+  [Manage resource lifecycles with deployment stacks](/training/modules/manage-resource-lifecycles-deployment-stacks)
+:::column-end:::
+:::row-end:::
+
 ## Next steps
 
-* For a short introduction to Bicep, see [Bicep quickstart](quickstart-create-bicep-use-visual-studio-code.md).
-* For suggestions about how to improve your Bicep files, see [Best practices for Bicep](best-practices.md).
+* See [Bicep quickstart](./quickstart-create-bicep-use-visual-studio-code.md) for a brief introduction to Bicep.
+* See [best practices for Bicep](./best-practices.md) for suggestions about how to improve your Bicep files.

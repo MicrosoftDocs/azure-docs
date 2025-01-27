@@ -4,9 +4,9 @@ description: Reference for the http-data-source resolver policy available for us
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 03/19/2024
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
@@ -97,7 +97,6 @@ The `http-data-source` resolver policy configures the HTTP request and optionall
 
 * To configure and manage a resolver with this policy, see [Configure a GraphQL resolver](configure-graphql-resolver.md).
 * This policy is invoked only when resolving a single field in a matching GraphQL operation type in the schema. 
-* This policy supports GraphQL [union types](https://spec.graphql.org/October2021/#sec-Unions).
 
 ## Examples
 
@@ -129,7 +128,7 @@ type User {
 </http-data-source>
 ```
 
-### Resolver for a GraqhQL query that returns a list, using a liquid template
+### Resolver for a GraphQL query that returns a list, using a liquid template
 
 The following example uses a liquid template, supported for use in the [set-body](set-body-policy.md) policy, to return a list in the HTTP response to a query.  It also renames the `username` field in the response from the REST API to `name` in the GraphQL response.
 

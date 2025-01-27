@@ -6,7 +6,7 @@ ms.author: ajagadish
 manager: joannapea
 ms.reviewer: joannapea, wiassaf
 ms.date: 01/23/2024
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:
@@ -26,7 +26,7 @@ In this article, you learn how to restore an existing dedicated SQL pool (former
 
 1. Make sure to [install Azure PowerShell](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-   [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+   [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 1. Have an existing restore point that you want to restore from. If you want to create a new restore, see [the tutorial to create a new user-defined restore point](sql-data-warehouse-restore-points.md).
 
@@ -108,7 +108,7 @@ This is similar guidance to restoring an existing dedicated SQL pool, however th
 1. Update Az.Sql Module to 3.8.0 (or greater) if on an older version using `Update-Module`. Otherwise it will cause failures. To validate the version with PowerShell:
 
    ```powershell
-   foreach ($i in (get-module -ListAvailable | ?{$_.name -eq 'az.sql'}).Version) { $version = [string]$i.Major + "." + [string]$i.Minor; if ($version -gt 3.7) {write-host "Az.Sql version $version installed. Prequisite met."} else {update-module az.sql} }
+   foreach ($i in (get-module -ListAvailable | ?{$_.name -eq 'az.sql'}).Version) { $version = [string]$i.Major + "." + [string]$i.Minor; if ($version -gt 3.7) {write-host "Az.Sql version $version installed. Prerequisite met."} else {update-module az.sql} }
    ```
 
 1. Connect to your Azure account and list all the subscriptions associated with your account.

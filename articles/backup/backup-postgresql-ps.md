@@ -1,17 +1,17 @@
 ---
 title: Back up Azure Database for PostgreSQL with long-term-retention using Azure PowerShell
 description: Learn how to back up Azure Database for PostgreSQL using Azure PowerShell.
-ms.topic: conceptual
-ms.date: 01/24/2022
+ms.topic: how-to
+ms.date: 07/30/2024
 ms.custom: devx-track-azurepowershell
-ms.service: backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.service: azure-backup
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up Azure PostgreSQL databases using Azure PowerShell
 
-This article explains how to back up [Azure PostgreSQL database](../postgresql/overview.md#azure-database-for-postgresql---single-server) using Azure PowerShell.
+This article explains how to back up [Azure PostgreSQL database](/azure/postgresql/overview#azure-database-for-postgresql---single-server) using Azure PowerShell.
 
 In this article, you'll learn how to:
 
@@ -29,7 +29,7 @@ For information on the Azure PostgreSQL databases supported scenarios and limita
 
 Backup vault is a storage entity in Azure that stores the backup data for various new workloads that Azure Backup supports, such as Azure Database for PostgreSQL servers, Azure Disks, and Azure Blobs. Backup vaults help to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides enhanced capabilities to help secure backup data.
 
-Before you creat a Backup vault, choose the storage redundancy of the data within the vault. Then proceed to create the backup vault with that storage redundancy and the location.
+Before you create a Backup vault, choose the storage redundancy of the data within the vault. Then proceed to create the backup vault with that storage redundancy and the location.
 
 In this article, we'll create a Backup vault *TestBkpVault*, in *westus* region, under the resource group *testBkpVaultRG*. Use the [New-AzDataProtectionBackupVault](/powershell/module/az.dataprotection/new-azdataprotectionbackupvault) command to create a Backup vault. Learn more about [creating a Backup vault](./create-manage-backup-vault.md#create-a-backup-vault).
 
@@ -241,7 +241,7 @@ $keyURI = "https://testkeyvaulteus.vault.azure.net/secrets/ossdbkey"
 
 #### Backup vault
 
-You need to connect the Backup vault to the PostgreSQL server, and then access the database via the keys present in the key vault. So, it requires access to the PostgGreSQL server and the key vault. Access is granted to the Backup vault's MSI.
+You need to connect the Backup vault to the PostgreSQL server, and then access the database via the keys present in the key vault. So, it requires access to the PostgreSQL server and the key vault. Access is granted to the Backup vault's MSI.
 
 [Read about the appropriate permissions](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-backup) that you should grant to the Backup vault's MSI on the PostgreSQL server and the Azure key vault, where the keys to the database are stored.
 

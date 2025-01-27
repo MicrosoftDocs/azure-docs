@@ -1,14 +1,17 @@
 ---
 title: How to create Spark cluster in HDInsight on AKS
 description: Learn how to create Spark cluster in HDInsight on AKS
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 12/28/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Create Spark cluster in HDInsight on AKS (Preview)
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Once the  [subscription prerequisites](../prerequisites-subscription.md) and [resource prerequisites](../prerequisites-resources.md)  steps are complete, and you have a cluster pool deployed, continue to use the Azure portal to create a Spark cluster. 
 You can use the Azure portal to create an Apache Spark cluster in cluster pool. You can then create a Jupyter Notebook and use it to run Spark SQL queries against Apache Hive tables.
@@ -60,7 +63,7 @@ You can use the Azure portal to create an Apache Spark cluster in cluster pool. 
     |Number of worker nodes| 	Select the number of nodes for Spark cluster. Out of those, three nodes are reserved for coordinator and system services, remaining nodes are dedicated to Spark workers, one worker per node. For example, in a five-node cluster there are two workers|
     |Autoscale|	Click on the toggle button to enable Autoscale|
     |Autoscale Type	|Select from either load based or schedule based autoscale|
-    |Graceful decomission timeout	|Specify Graceful decommission timeout|
+    |Graceful decommission timeout	|Specify Graceful decommission timeout|
     |No of default worker node	|Select the number of nodes for autoscale|
     |Time Zone	|Select the time zone|
     |Autoscale Rules	|Select the day, start time, end time, no. of worker nodes|

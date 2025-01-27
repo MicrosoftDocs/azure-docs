@@ -9,12 +9,16 @@ ms.author: daknappe
 
 # Use features of the Remote Desktop client for iOS and iPadOS when connecting to Azure Virtual Desktop
 
+> [!TIP]
+> To ensure a seamless experience, users are encouraged to download Windows App. Windows App is the gateway to securely connect to any devices or apps across Azure Virtual Desktop, Windows 365, and Microsoft Dev Box. For more information, see [What is Windows App](/windows-app/overview).
+
 Once you've connected to Azure Virtual Desktop using the Remote Desktop client, it's important to know how to use the features. This article shows you how to use the features available in the Remote Desktop client for iOS and iPadOS. If you want to learn how to connect to Azure Virtual Desktop, see [Connect to Azure Virtual Desktop with the Remote Desktop client for iOS and iPadOS](connect-ios-ipados.md).
 
 You can find a list of all the Remote Desktop clients at [Remote Desktop clients overview](remote-desktop-clients-overview.md). For more information about the differences between the clients, see [Compare the Remote Desktop clients](../compare-remote-desktop-clients.md).
 
 > [!NOTE]
 > Your admin can choose to override some of these settings in Azure Virtual Desktop, such as being able to copy and paste between your local device and your remote session. If some of these settings are disabled, please contact your admin.
+
 
 ## Edit, refresh, or delete a workspace
 
@@ -201,7 +205,33 @@ In addition, the <kbd>Alt</kbd> key to the right of the space bar on a Mac keybo
 
 ### Mouse and trackpad
 
-You can use a mouse or trackpad with the Remote Desktop client. However, support for these devices depends on whether you're using iOS or iPadOS. iPadOS natively supports a mouse and trackpad as an input method, whereas support can only be enabled in iOS with *AssistiveTouch*. For more information, see [Connect a Bluetooth mouse or trackpad to your iPad](https://support.apple.com/HT211009) or [How to use a pointer device with AssistiveTouch on your iPhone, iPad, or iPod touch](https://support.apple.com/HT210546).
+You can use a mouse or trackpad with the Remote Desktop app. However, support for these devices depends on whether you're using iOS or iPadOS. iPadOS natively supports a mouse and trackpad as an input method; for more information, see [Connect a Bluetooth mouse or trackpad to your iPad](https://support.apple.com/HT211009).
+
+On iOS, the only native support for a mouse and trackpad is through *AssistiveTouch*. AssistiveTouch provides a cursor emulating touch input, so it doesn't support right-click actions or external monitor support, so we don't recommend using it with the Remote Desktop app. For iPhone users projecting a remote session to a larger external monitor, we recommend the following options:
+
+1. Use the Remote Desktop app as touchpad, where the iPhone itself can serve as a touchpad for the remote session. The app will automatically convert to a touchpad once connected to external monitor.
+
+1. Use a bluetooth mouse from the SwiftPoint PenGrip Models, which are compatible with the Remote Desktop app. The following models are supported:
+
+   - Swiftpoint ProPoint
+   - Swiftpoint PadPoint
+   - SwiftPoint GT
+   
+   In order to benefit from the Swiftpoint integration, you must connect a Swiftpoint mouse to your iPhone and in the Remote Desktop app:
+
+   1. Put the mouse in pairing mode for bluetooth.
+
+   1. Open the **Settings** app on your iPhone, then select **Bluetooth**.
+
+   1. The mouse should be listed under **Other devices**. Tap the name of the mouse to pair it.
+
+   1. Open the **RD Client** application on your device.
+
+   1. In the top left-hand corner, tap the menu icon (the circle with three dots inside), then tap **Settings**.
+
+   1. Tap **Input Devices**, then in the list of the devices, tap the name of the Swiftpoint mouse you want to use.
+
+   1. Tap the back arrow (**<**), then tap the **X** mark. You're ready to connect to a remote session and use the Swiftpoint mouse.
 
 ## Redirections
 

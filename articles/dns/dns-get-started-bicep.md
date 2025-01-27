@@ -7,7 +7,7 @@ author: greg-lindsay
 ms.author: greglin
 ms.date: 11/30/2023
 ms.topic: quickstart
-ms.service: dns
+ms.service: azure-dns
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using Bicep so I can use Azure DNS for my name resolution.
 ---
@@ -16,7 +16,7 @@ ms.custom: subject-armqs, mode-arm, devx-track-bicep
 
 This quickstart describes how to use Bicep to create a DNS zone with an `A` record in it.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

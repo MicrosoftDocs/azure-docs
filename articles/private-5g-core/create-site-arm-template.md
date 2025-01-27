@@ -2,11 +2,11 @@
 title: Create a site - ARM template
 titleSuffix: Azure Private 5G Core
 description: This how-to guide shows how to create a site in your private mobile network using an Azure Resource Manager (ARM) template. 
-author: robswain
-ms.author: robswain
-ms.service: private-5g-core
+author: anzaman
+ms.author: alzam
+ms.service: azure-private-5g-core
 ms.topic: how-to
-ms.date: 03/16/2022
+ms.date: 01/15/2025
 ms.custom: template-how-to, devx-track-arm-template
 zone_pivot_groups: ase-pro-version
 ---
@@ -15,7 +15,7 @@ zone_pivot_groups: ase-pro-version
 
 Azure Private 5G Core private mobile networks include one or more *sites*. Each site represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. In this how-to guide, you'll learn how to create a site in your private mobile network using an Azure Resource Manager template (ARM template).
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
@@ -75,7 +75,7 @@ Four Azure resources are defined in the template.
     | **Core Network Technology** | Enter *5GC* for 5G, *EPC* for 4G, or *EPC + 5GC* for combined 4G and 5G. |
     | **Napt Enabled** | Set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network. |
     | **Dns Addresses** | Enter the DNS server addresses. You should only omit this if you don't need the UEs to perform DNS resolution, or if all UEs in the network will use their own locally configured DNS servers. |
-    | **Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. |
+    | **Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Local (AKS on Azure Local) cluster on the Azure Stack Edge Pro device in the site. |
 
 :::zone-end
 :::zone pivot="ase-pro-2"
@@ -100,7 +100,7 @@ Four Azure resources are defined in the template.
     | **Core Network Technology** | Enter *5GC* for 5G, *EPC* for 4G, or *EPC + 5GC* for combined 4G and 5G. |
     | **Napt Enabled** | Set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network. |
     | **Dns Addresses** | Enter the DNS server addresses. You should only omit this if you don't need the UEs to perform DNS resolution, or if all UEs in the network will use their own locally configured DNS servers. |
-    | **Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. |
+    | **Custom Location** | Enter the resource ID of the custom location that targets the AKS on Azure Local cluster on the Azure Stack Edge Pro device in the site. |
 
 :::zone-end
 

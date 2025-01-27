@@ -6,10 +6,9 @@ summary: Oracle applications and solutions on Azure.
 metadata:
   title: Oracle on Azure
   description: Learn about solutions for Oracle workloads on Azure VMs
-  ms.service: virtual-machines
-  ms.subservice: oracle
+  ms.service: oracle-on-azure
   ms.topic: landing-page
-  ms.author: jjaygbay1
+  ms.author: jacobjaygbay 
   author: jjaygbay1
   ms.date: 05/11/2023
   keywords: oracle workloads on azure virtual machines, database, oracle, data migration to cloud, workloads on azure, azure data migration 
@@ -42,11 +41,20 @@ landingContent:
             url: oracle-db/database-overview.md
           - text: Onboard with Oracle Database@Azure
             url: oracle-db/onboard-oracle-database.md
-          - text: Network planning for Oracle Database@Azure
+          - text: Region availability
+            url: oracle-db/oracle-database-regions.md
+          - text: Network planning
             url: oracle-db/oracle-database-network-plan.md
-          - text: Groups and roles for Oracle Database@Azure
-            url: oracle-db/oracle-database-groups-roles.md          
-          - text: Provision and manage Oracle Database@Azure
-            url: oracle-db/provision-oracle-database.md
-          - text: Support for Oracle Database@Azure
-            url: oracle-db/oracle-database-support.md
+          - text: Known issues
+            url: oracle-db/oracle-database-known-issues.md
+          - text: Group roles 
+            url: oracle-db/oracle-database-groups-roles.md
+          - text: Plan IP address space 
+            url: oracle-db/oracle-database-plan-ip.md
+          - text: Delegated subnet limits
+            url: oracle-db/oracle-database-delegated-subnet-limits.md
+          - text: FAQs
+            url: oracle-db/faq-oracle-database-azure.md
+          
+            
+          

@@ -3,10 +3,10 @@ author: cephalin
 ms.author: cephalin
 ms.topic: include
 ms.custom: devx-track-azurecli
-ms.date: 01/22/2024
+ms.date: 01/16/2025
 ---
 
-To deploy with OpenID Connect using the managed identity you configured, use the `azure/login@v1` action with the `client-id`, `tenant-id`, and `subscription-id` keys and reference the GitHub secrets that you [created earlier](../../deploy-github-actions.md?tabs=openid#2-configure-the-github-secret).
+To deploy with OpenID Connect using the managed identity you configured, use the `azure/login@v1` action with the `client-id`, `tenant-id`, and `subscription-id` keys. Reference the GitHub secrets that you created earlier.
 
 # [ASP.NET Core](#tab/aspnetcore)
 
@@ -65,7 +65,7 @@ jobs:
 
 # [ASP.NET](#tab/aspnet)
 
-Build and deploy a ASP.NET MVC app to Azure using an Azure service principal. The example uses GitHub secrets for the `client-id`, `tenant-id`, and `subscription-id` values. You can also pass these values directly in the login action.
+Build and deploy a ASP.NET MVC app to Azure using an Azure service principal. The example uses GitHub secrets for the `client-id`, `tenant-id`, and `subscription-id` values. You can also pass these values directly in the sign-in action.
 
 ```yaml
 name: Deploy ASP.NET MVC App deploy to Azure Web App
@@ -120,9 +120,9 @@ jobs:
         az logout
 ```
 
-# [Java](#tab/java)
+# [Java SE](#tab/java)
 
-Build and deploy a Java Spring app to Azure using an Azure service principal. The example uses GitHub secrets for the `client-id`, `tenant-id`, and `subscription-id` values. You can also pass these values directly in the login action.
+Build and deploy a Java Spring app to Azure using an Azure service principal. The example uses GitHub secrets for the `client-id`, `tenant-id`, and `subscription-id` values. You can also pass these values directly in the sign-in action.
 
 ```yaml
 name: Java CI with Maven
@@ -163,6 +163,56 @@ jobs:
       run: |
         az logout
 ```
+
+# [Tomcat](#tab/tomcat)
+
+```yaml
+name: Build and deploy WAR app to Azure Web App using OpenID Connect
+
+env:
+  JAVA_VERSION: '11'                  # set this to the Java version to use
+  DISTRIBUTION: microsoft             # set this to the Java distribution
+  AZURE_WEBAPP_NAME: sampleapp        # set this to the name of your web app
+
+on: [push]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Java version
+        uses: actions/setup-java@v3.0.0
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.DISTRIBUTION }}
+          cache: 'maven'
+
+      - name: Build with Maven
+        run: mvn clean install
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          package: '*.war'
+```
+
+You can find this [full example](https://github.com/Azure-Samples/onlinebookstore/blob/master/.github/workflows/azure-webapps-java-war-oidc.yml) using multiple jobs for build and deploy.
 
 # [Node.js](#tab/nodejs)
 
@@ -266,4 +316,4 @@ jobs:
         az logout
 ```
 
------
+---

@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
-ms.service: backup
+ms.service: azure-backup
 ms.date: 10/18/2023
 ---
 
@@ -20,11 +20,11 @@ Azure Backup is a secure and reliable built-in data protection mechanism in Azur
 
 Azure Backup supports the following data redundant storage options:
 
-- **Locally redundant storage (LRS):**  To protect your data against server rack and drive failures, you can use LRS. LRS replicates your backup data three times within a single data center in the primary region. For more information on locally redundant storage, see [Azure Blog Storage - locally redundant storage](/azure/storage/common/storage-redundancy#locally-redundant-storage).
+- **Locally redundant storage (LRS):**  To protect your data against server rack and drive failures, you can use LRS. LRS replicates your backup data three times within a single data center in the primary region. For more information on locally redundant storage, see [Azure Blob Storage - locally redundant storage](/azure/storage/common/storage-redundancy#locally-redundant-storage).
 
-- **Geo-redundant storage (GRS):** To protect against region-wide outages, you can use GRS. GRS replicates your backup data to a secondary region. For more information, see [Azure Blog Storage - geo-redundant storage](/azure/storage/common/storage-redundancy#geo-redundant-storage).
+- **Geo-redundant storage (GRS):** To protect against region-wide outages, you can use GRS. GRS replicates your backup data to a secondary region. For more information, see [Azure Blob Storage - geo-redundant storage](/azure/storage/common/storage-redundancy#geo-redundant-storage).
 
-- **Zone-redundant storage (ZRS):**  To replicate your backup data in availability zones, you can use ZRS. ZRS guarantees data residency and resiliency in the same region. [Azure Blog Storage - zone-redundant storage](/azure/storage/common/storage-redundancy#zone-redundant-storage).
+- **Zone-redundant storage (ZRS):**  To replicate your backup data in availability zones, you can use ZRS. ZRS guarantees data residency and resiliency in the same region. [Azure Blob Storage - zone-redundant storage](/azure/storage/common/storage-redundancy#zone-redundant-storage).
 
 >[!NOTE]
 >The redundancy options are applicable to how backup data is stored and not on the Azure Backup Service itself. 
@@ -70,7 +70,7 @@ To learn how to migrate a Recovery Services vault to availability zone support, 
 
 When an entire Azure region or datacenter experiences downtime, your vaults continue to be accessible and you'll still be able to see your backup items. However, unless you deploy for regional redundancy, the underlying backup data isn't accessible to you for performing a restore operation.  
 
-To achieve regional redundancy for your backup data, Azure Backup allows you to replicate your backups to an additional [Azure paired region](./availability-zones-overview.md#paired-and-unpaired-regions) by using [geo-redundant storage (GRS)](/azure/storage/common/storage-redundancy#geo-redundant-storage) to protect your backups from regional outages. When you enable the backups with GRS, the backups in the secondary region become accessible only when Microsoft declares an outage in the primary region. However, by using Cross Region Restore you can access and perform restores from the secondary region recovery points even when no outage occurs in the primary region. With Cross Region Store you can perform drills to assess regional resiliency. 
+To achieve regional redundancy for your backup data, Azure Backup allows you to replicate your backups to an additional [Azure paired region](./regions-paired.md) by using [geo-redundant storage (GRS)](/azure/storage/common/storage-redundancy#geo-redundant-storage) to protect your backups from regional outages. When you enable the backups with GRS, the backups in the secondary region become accessible only when Microsoft declares an outage in the primary region. However, by using Cross Region Restore you can access and perform restores from the secondary region recovery points even when no outage occurs in the primary region. With Cross Region Store you can perform drills to assess regional resiliency. 
 
 ## Next steps
 

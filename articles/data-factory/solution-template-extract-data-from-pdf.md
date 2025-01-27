@@ -3,10 +3,9 @@ title: Extract data from PDF
 description: Learn how to use a solution template to extract data from a PDF source using Azure Data Factory.
 author: n0elleli
 ms.author: noelleli
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 10/03/2024
+ms.subservice: data-flows
 ---
 
 # Extract data from PDF
@@ -71,7 +70,7 @@ This template defines five parameters:
 
 10. Enter parameter values, review results, and publish. 
 
-	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-10.png" alt-text="Screesnhot of where to enter pipeline debug parameters on a panel to the right.":::
+	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-10.png" alt-text="Screenshot of where to enter pipeline debug parameters on a panel to the right.":::
 
 	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-11.png" alt-text="Screenshot of the results that return when the pipeline is triggered.":::
 

@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 03/19/2024
-ms.custom: 
+ms.date: 08/08/2024
+ms.custom: engagement-fy25
 
 ---
 
@@ -44,7 +44,7 @@ Before you get started, ensure that you've:
 To create an assessment for the discovered SAP systems, follow these steps:
 
 1. Sign into the [Azure portal](https://ms.portal.azure.com/#home) and search for **Azure Migrate**.
-1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
+1. On the **Azure Migrate** page, select **Servers, databases and web apps**.
 1. On the **Servers, databases and web apps** page, under **Assessments tools**, select **SAP® Systems (Preview)** from the **Assess** dropdown menu.
 
     :::image type="content" source="./media/tutorial-assess-sap-systems/assess-sap-systems.png" alt-text="Screenshot that shows assess option." lightbox="./media/tutorial-assess-sap-systems/assess-sap-systems.png":::
@@ -95,7 +95,7 @@ To run an assessment, follow these steps:
 
 To review an assessment, follow these steps:
 
-1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
+1. On the **Azure Migrate** page, select **Servers, databases and web apps**.
 1. On the **Servers, databases and web apps** page, under **Assessment tools** > **Assessments**, select the number associated with **SAP® Systems (Preview)**.
 
     :::image type="content" source="./media/tutorial-assess-sap-systems/review-assess.png" alt-text="Screenshot that shows the option to access assess." lightbox="./media/tutorial-assess-sap-systems/review-assess.png":::
@@ -108,4 +108,7 @@ To review an assessment, follow these steps:
 
 > [!NOTE]
 > When you update any of the assessment settings, it triggers a new assessment, which takes a few minutes to reflect the updates.
+
+## Next steps
+Find server dependencies using [dependency mapping](concepts-dependency-visualization.md).
 

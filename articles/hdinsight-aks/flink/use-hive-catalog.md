@@ -1,14 +1,17 @@
 ---
 title: Use Hive Catalog, Hive Read & Write demo on Apache Flink® 
 description: Learn how to use Hive Catalog, Hive Read & Write demo on Apache Flink® on HDInsight on AKS
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 03/29/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # How to use Hive Catalog with Apache Flink® on HDInsight on AKS
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 This example uses Hive’s Metastore as a persistent catalog with Apache Flink’s Hive Catalog. We use this functionality for storing Kafka table and MySQL table metadata on Flink across sessions. Flink uses Kafka table registered in Hive Catalog as a source, perform some lookup and sink result to MySQL database
 

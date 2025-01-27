@@ -1,12 +1,12 @@
 ---
 title: Back up an Azure file share by using PowerShell
 description: In this article, learn how to back up an Azure Files file share by using the Azure Backup service and PowerShell. 
-ms.topic: conceptual
-ms.date: 02/11/2022
+ms.topic: how-to
+ms.date: 12/10/2024
 ms.custom: devx-track-azurepowershell
-ms.service: backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.service: azure-backup
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up an Azure file share by using PowerShell
@@ -32,7 +32,7 @@ This article explains how to:
 
 ## Set up PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 > [!NOTE]
 > Azure PowerShell currently doesn't support backup policies with hourly schedule. Please use Azure Portal to leverage this feature. [Learn more](manage-afs-backup.md#create-a-new-policy)
@@ -152,45 +152,12 @@ A backup policy specifies the schedule for backups, and how long backup recovery
 
 A backup policy is associated with at least one retention policy. A retention policy defines how long a recovery point is kept before it's deleted. You can configure backups with daily, weekly, monthly, or yearly retention. With multiple backups policy, you can also configure backups hourly retention.
 
-**Choose a policy type**:
-
-# [Daily backup policy](#tab/daily-backup-policy)
-
-Here are some cmdlets for backup policies:
-
-* View the default backup policy retention by using [Get-AzRecoveryServicesBackupRetentionPolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject).
-* View the default backup policy schedule by using [Get-AzRecoveryServicesBackupSchedulePolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject).
-* Create a new backup policy by using [New-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy). You enter the schedule and retention policy objects as input.
-
-By default, a start time is defined in the schedule policy object. Use the following example to change the start time to the desired start time. The desired start time should be in Universal Coordinated Time (UTC). The example assumes that the desired start time is 01:00 AM UTC for daily backups.
-
-```azurepowershell-interactive
-$schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureFiles"
-$UtcTime = Get-Date -Date "2019-03-20 01:30:00Z"
-$UtcTime = $UtcTime.ToUniversalTime()
-$schpol.ScheduleRunTimes[0] = $UtcTime
-```
-
-> [!IMPORTANT]
-> You need to provide the start time in 30-minute multiples only. In the preceding example, it can be only "01:00:00" or "02:30:00". The start time can't be "01:15:00".
-
-The following example stores the schedule policy and the retention policy in variables. It then uses those variables as parameters for a new policy (**NewAFSPolicy**). **NewAFSPolicy** takes a daily backup and retains it for 30 days.
-
-```azurepowershell-interactive
-$schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureFiles"
-$retPol = Get-AzRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureFiles"
-New-AzRecoveryServicesBackupProtectionPolicy -Name "NewAFSPolicy" -WorkloadType "AzureFiles" -RetentionPolicy $retPol -SchedulePolicy $schPol
-```
-
-The output is similar to the following:
-
-```azurepowershell-interactive
-Name                 WorkloadType       BackupManagementType BackupTime                DaysOfWeek
-----                 ------------       -------------------- ----------                ----------
-NewAFSPolicy           AzureFiles            AzureStorage              10/24/2019 1:30:00 AM
-```
-
-# [Multiple backups policy](#tab/multiple-backups-policy)
+>[!Important]
+>The following cmdlets are used for the Backup policies:
+>
+>- View the default backup retention policy by using `Get-AzRecoveryServicesBackupRetentionPolicyObject`.
+>- View the default backup schedule policy by using `Get-AzRecoveryServicesBackupSchedulePolicyObject`.
+>- Create a new backup policy by using `New-AzRecoveryServicesBackupProtectionPolicy`. Provide the schedule and retention policy objects as inputs.
 
 To create a backup policy that configures multiple backups a day, follow these steps:
 
@@ -230,6 +197,14 @@ To create a backup policy that configures multiple backups a day, follow these s
    $schPol.ScheduleRunTimeZone=$timeZone.Id
    ```
 
+   To create a policy with daily schedule, run the following cmdlet:
+
+   ```azurepowershell
+   $UtcTime = Get-Date -Date "2019-03-20 01:30:00Z"
+   $UtcTime = $UtcTime.ToUniversalTime()
+   $schpol.ScheduleRunTimes[0] = $UtcTime
+   ```
+   
 1. Fetch the retention policy object using following cmdlet:
 
    ```azurepowershell-interactive
@@ -260,7 +235,6 @@ To create a backup policy that configures multiple backups a day, follow these s
    testing        AzureFiles      AzureStorage         Hourly                          12/22/2021 8:00:00 AM     4        12         Russia Time Zone 11
    
     ```
----
 
 ## Enable backup
 

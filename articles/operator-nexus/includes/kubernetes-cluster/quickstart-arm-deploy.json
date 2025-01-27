@@ -85,7 +85,7 @@
         /*
           {
             "networkId": "string",
-            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN"
+            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN"
           }
         */
       },
@@ -112,7 +112,7 @@
         /*
           {
             "networkId": "string",
-            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN"
+            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN"
           }
         */
       },
@@ -125,7 +125,7 @@
         /*
           {
             "networkId": "string",
-            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN"
+            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN"
           }
         */
       },
@@ -152,7 +152,7 @@
         /*
           {
             "networkId": "string",
-            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN"
+            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN"
           }
         */
       },
@@ -173,12 +173,58 @@
           }
         */
       },
+      "fabricPeeringEnabled": {
+        "type": "string",
+        "metadata": {
+          "description": "The indicator to specify if the load balancer peers with the network fabric."
+        },
+        "defaultValue": "True"
+      },
+      "bgpAdvertisements": {
+        "type": "array",
+        "metadata": {
+          "description": "The association of IP address pools to the communities and peers, allowing for announcement of IPs."
+        },
+        "defaultValue": []
+        /*
+          {
+            "advertiseToFabric": "True/False",
+            "communities": [
+              "string"
+            ],
+            "ipAddressPools": [
+              "string"
+            ],
+            "pools": [
+              "string"
+            ]
+          }
+        */
+      },
+      "bgpPeers": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of additional BgpPeer entities that the Kubernetes cluster will peer with. All peering must be explicitly defined."
+        },
+        "defaultValue": []
+        /*
+          {
+            "bfdEnabled": "True/False",
+            "bgpMultiHop": "True/False",
+            "myAsn": 0-4294967295,
+            "name": "string",
+            "password": "string",
+            "peerAddress": "string",
+            "peerPort": 179
+          }
+        */
+      },
       "kubernetesVersion": {
         "type": "string",
         "metadata": {
           "description": "The version of Kubernetes to be used in the Nexus Kubernetes cluster"
         },
-        "defaultValue": "v1.24.9"
+        "defaultValue": "v1.27.1"
       },
       "controlPlaneCount": {
         "type": "int",
@@ -235,11 +281,50 @@
           "hugepagesSize": "2M/1G"
         */
       },
-      "sshPublicKey": {
-        "type": "string",
+      "sshPublicKeys": {
+        "type": "array",
         "metadata": {
-          "description": "The SSH public key that will be associated with the 'azureuser' user for secure remote login"
-        }
+          "description": "The cluster wide SSH public key that will be associated with the given user for secure remote login"
+        },
+        "defaultValue": []
+        /*
+          {
+            "keyData": "ssh-rsa AAAAA...."
+          },
+          {
+            "keyData": "ssh-rsa BBBBB...."
+          }
+        */
+      },
+      "controlPlaneSshKeys": {
+        "type": "array",
+        "metadata": {
+          "description": "The control plane SSH public key that will be associated with the given user for secure remote login"
+        },
+        "defaultValue": []
+        /*
+          {
+            "keyData": "ssh-rsa AAAAA...."
+          },
+          {
+            "keyData": "ssh-rsa BBBBB...."
+          }
+        */
+      },
+      "agentPoolSshKeys": {
+        "type": "array",
+        "metadata": {
+          "description": "The agent pool SSH public key that will be associated with the given user for secure remote login"
+        },
+        "defaultValue": []
+        /*
+          {
+            "keyData": "ssh-rsa AAAAA...."
+          },
+          {
+            "keyData": "ssh-rsa BBBBB...."
+          }
+        */
       },
       "labels": {
         "type": "array",
@@ -271,7 +356,7 @@
     "resources": [
       {
         "type": "Microsoft.NetworkCloud/kubernetesClusters",
-        "apiVersion": "2023-07-01",
+        "apiVersion": "2024-07-01",
         "name": "[parameters('kubernetesClusterName')]",
         "location": "[parameters('location')]",
         "tags": "[parameters('tags')]",
@@ -290,16 +375,15 @@
           },
           "administratorConfiguration": {
             "adminUsername": "[parameters('adminUsername')]",
-            "sshPublicKeys": [
-              {
-                "keyData": "[parameters('sshPublicKey')]"
-              }
-            ]
+            "sshPublicKeys": "[if(empty(parameters('sshPublicKeys')), createArray(), parameters('sshPublicKeys'))]"
           },
           "initialAgentPoolConfigurations": [
             {
               "name": "[concat(parameters('kubernetesClusterName'), '-nodepool-1')]",
-              "administratorConfiguration": {},
+              "administratorConfiguration": {
+                "adminUsername": "[parameters('adminUsername')]",
+                "sshPublicKeys": "[if(empty(parameters('agentPoolSshKeys')), createArray(), parameters('agentPoolSshKeys'))]"
+              },
               "count": "[parameters('systemPoolNodeCount')]",
               "vmSkuName": "[parameters('workerVmSkuName')]",
               "mode": "System",
@@ -318,7 +402,10 @@
             }
           ],
           "controlPlaneNodeConfiguration": {
-            "administratorConfiguration": {},
+            "administratorConfiguration": {
+              "adminUsername": "[parameters('adminUsername')]",
+              "sshPublicKeys": "[if(empty(parameters('controlPlaneSshKeys')), createArray(), parameters('controlPlaneSshKeys'))]"
+            },
             "count": "[parameters('controlPlaneCount')]",
             "vmSkuName": "[parameters('controlPlaneVmSkuName')]",
             "availabilityZones": "[if(empty(parameters('controlPlaneZones')), json('null'), parameters('controlPlaneZones'))]"
@@ -335,7 +422,10 @@
               "trunkedNetworks": "[if(empty(parameters('trunkedNetworks')), json('null'), parameters('trunkedNetworks'))]"
             },
             "bgpServiceLoadBalancerConfiguration": {
-              "ipAddressPools": "[if(empty(parameters('ipAddressPools')), json('null'), parameters('ipAddressPools'))]"
+              "ipAddressPools": "[if(empty(parameters('ipAddressPools')), json('null'), parameters('ipAddressPools'))]",
+              "fabricPeeringEnabled": "[if(empty(parameters('fabricPeeringEnabled')), json('null'), parameters('fabricPeeringEnabled'))]",
+              "bgpAdvertisements": "[if(empty(parameters('bgpAdvertisements')), json('null'), parameters('bgpAdvertisements'))]",
+              "bgpPeers": "[if(empty(parameters('bgpPeers')), json('null'), parameters('bgpPeers'))]"
             }
           }
         }

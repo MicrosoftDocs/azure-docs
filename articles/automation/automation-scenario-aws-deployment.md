@@ -3,8 +3,9 @@ title: Deploy an Amazon Web Services VM with an Azure Automation runbook
 description: This article tells how to automate the creation of an Amazon Web Services VM.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/16/2018
-ms.topic: conceptual
+ms.date: 09/09/2024
+ms.topic: overview
+ms.service: azure-automation
 ---
 
 # Deploy an Amazon Web Services VM with a runbook
@@ -94,7 +95,7 @@ Ensure that the AWS PowerShell module has been imported into Azure Automation.
 
 ## Next steps
  
-* To find out what runbooks are supported, see[Azure Automation runbook types](automation-runbook-types.md).
+* To find out what runbooks are supported, see [Azure Automation runbook types](automation-runbook-types.md).
 * To work with runbooks, see [Manage runbooks in Azure Automation](manage-runbooks.md).
 * For details of PowerShell, see [PowerShell Docs](/powershell/scripting/overview).
 * For script support, see [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).

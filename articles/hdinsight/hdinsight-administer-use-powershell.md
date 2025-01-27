@@ -1,10 +1,10 @@
 ---
 title: Manage Apache Hadoop clusters with PowerShell - Azure HDInsight
 description: Learn how to perform administrative tasks for the Apache Hadoop clusters in HDInsight using Azure PowerShell.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive, devx-track-azurepowershell
-ms.date: 10/16/2023
+ms.date: 10/17/2024
 ---
 
 # Manage Apache Hadoop clusters in HDInsight by using Azure PowerShell
@@ -17,7 +17,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 The PowerShell [Az Module](/powershell/azure/) installed.
 
@@ -86,13 +86,13 @@ $clusterName = "<HDInsight Cluster Name>"
 
 $clusterInfo = Get-AzHDInsightCluster -ClusterName $clusterName
 $storageInfo = $clusterInfo.DefaultStorageAccount.split('.')
-$defaultStoreageType = $storageInfo[1]
+$defaultStorageType = $storageInfo[1]
 $defaultStorageName = $storageInfo[0]
 
 echo "Default Storage account name: $defaultStorageName"
-echo "Default Storage account type: $defaultStoreageType"
+echo "Default Storage account type: $defaultStorageType"
 
-if ($defaultStoreageType -eq "blob")
+if ($defaultStorageType -eq "blob")
 {
     $defaultBlobContainerName = $cluster.DefaultStorageContainer
     $defaultStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value

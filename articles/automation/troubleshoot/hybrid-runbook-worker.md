@@ -9,8 +9,7 @@ ms.custom: linux-related-content, has-azure-ad-ps-ref, azure-ad-ref-level-one-do
 
 # Troubleshoot agent-based Hybrid Runbook Worker issues in Automation
 
-> [!IMPORTANT]
->  Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) will retire on **31 August 2024** and wouldn't be supported after that date. You must complete migrating existing Agent-based User Hybrid Runbook Workers to Extension-based Workers before 31 August 2024. Moreover, starting **1 November 2023**, creating new Agent-based Hybrid Workers wouldn't be possible. [Learn more](../migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md)
+[!INCLUDE [./agent-based-user-hybrid-runbook-worker-retirement.md](../includes/agent-based-user-hybrid-runbook-worker-retirement.md)]
 
 This article provides information on troubleshooting and resolving issues with Azure Automation agent-based Hybrid Runbook Workers. For troubleshooting extension-based workers, see [Troubleshoot extension-based Hybrid Runbook Worker issues in Automation](./extension-based-hybrid-runbook-worker.md). For general information, see [Hybrid Runbook Worker overview](../automation-hybrid-runbook-worker.md).
 
@@ -79,7 +78,7 @@ The Hybrid Runbook Worker jobs failed to refresh when communicating through a Lo
 
 #### Resolution
 
-Verify the Log Analytics Gateway server is online and is accessible from the machine hosting the Hybrid Runbook Worker role. For additional troubleshooting information, see [Troubleshoot Log Analytics Gateway](../../azure-monitor/agents/gateway.md#troubleshooting).
+Verify the Log Analytics Gateway server is online and is accessible from the machine hosting the Hybrid Runbook Worker role. For additional troubleshooting information, see [Troubleshoot Log Analytics Gateway](/azure/azure-monitor/agents/gateway#troubleshooting).
 
 
 ### Scenario: Job failed to start as the Hybrid Worker was not available when the scheduled job started
@@ -98,7 +97,7 @@ This error can occur due to the following reasons:
 
 #### Resolution
 - Ensure that the machine exists, and Hybrid Runbook Worker extension is installed on it. The Hybrid Worker should be healthy and should give a heartbeat. Troubleshoot any network issues by checking the Microsoft-SMA event logs on the Workers in the Hybrid Runbook Worker Group that tried to run this job.
-- You can also monitor [HybridWorkerPing](../../azure-monitor/essentials/metrics-supported.md#microsoftautomationautomationaccounts) metric that provides the number of pings from a Hybrid Worker and can help to check ping-related issues.
+- You can also monitor [HybridWorkerPing](/azure/azure-monitor/essentials/metrics-supported#microsoftautomationautomationaccounts) metric that provides the number of pings from a Hybrid Worker and can help to check ping-related issues.
 
 ### Scenario: Job was suspended as it exceeded the job limit for a Hybrid Worker
 
@@ -115,7 +114,7 @@ Jobs might get suspended due to any of the following reasons:
 #### Resolution
 - If the job limit for a Hybrid Worker exceeds four jobs per 30 seconds, you can add more Hybrid Workers to the Hybrid Worker group for high availability and load balancing. You can also schedule jobs so they do not exceed the limit of four jobs per 30 seconds. The processing time of the jobs queue depends on the Hybrid worker hardware profile and load. Ensure that the Hybrid Worker is healthy and gives a heartbeat.
 - Troubleshoot any network issues by checking the Microsoft-SMA event logs on the Workers in the Hybrid Runbook Worker Group that tried to run this job.
-- You can also monitor the [HybridWorkerPing](../../azure-monitor/essentials/metrics-supported.md#microsoftautomationautomationaccounts) metric that provides the number of pings from a Hybrid Worker and can help to check ping-related issues.
+- You can also monitor the [HybridWorkerPing](/azure/azure-monitor/essentials/metrics-supported#microsoftautomationautomationaccounts) metric that provides the number of pings from a Hybrid Worker and can help to check ping-related issues.
 
 
 
@@ -201,7 +200,7 @@ The following issues are possible causes:
 #### Resolution
 
 ##### Mistyped workspace ID or key
-To verify if the agent's workspace ID or workspace key was mistyped, see [Adding or removing a workspace - Windows agent](../../azure-monitor/agents/agent-manage.md#windows-agent) for the Windows agent or [Adding or removing a workspace - Linux agent](../../azure-monitor/agents/agent-manage.md#linux-agent) for the Linux agent. Make sure to select the full string from the Azure portal, and copy and paste it carefully.
+To verify if the agent's workspace ID or workspace key was mistyped, see [Adding or removing a workspace - Windows agent](/azure/azure-monitor/agents/agent-manage#windows-agent) for the Windows agent or [Adding or removing a workspace - Linux agent](/azure/azure-monitor/agents/agent-manage#linux-agent) for the Linux agent. Make sure to select the full string from the Azure portal, and copy and paste it carefully.
 
 ##### Configuration not downloaded
 
@@ -211,7 +210,7 @@ You might also need to update the date or time zone of your computer. If you sel
 
 ##### Log Analytics gateway not configured
 
-Follow the steps mentioned [here](../../azure-monitor/agents/gateway.md#configure-for-automation-hybrid-runbook-workers) to add Hybrid Runbook Worker endpoints to the Log Analytics Gateway.
+Follow the steps mentioned [here](/azure/azure-monitor/agents/gateway#configure-for-automation-hybrid-runbook-workers) to add Hybrid Runbook Worker endpoints to the Log Analytics Gateway.
 
 
 ### <a name="set-azstorageblobcontent-execution-fails"></a>Scenario: Set-AzStorageBlobContent fails on a Hybrid Runbook Worker
@@ -247,7 +246,7 @@ Place this file in the same folder as the executable file `OrchestratorSandbox.e
 
 ## Linux
 
-The Linux Hybrid Runbook Worker depends on the [Log Analytics agent for Linux](../../azure-monitor/agents/log-analytics-agent.md) to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, here are some possible causes for the error.
+The Linux Hybrid Runbook Worker depends on the [Log Analytics agent for Linux](/azure/azure-monitor/agents/log-analytics-agent) to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, here are some possible causes for the error.
 
 ### <a name="prompt-for-password"></a>Scenario: Linux Hybrid Runbook Worker receives prompt for a password when signing a runbook
 
@@ -303,7 +302,7 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 ## Windows
 
-The Windows Hybrid Runbook Worker depends on the [Log Analytics agent for Windows](../../azure-monitor/agents/log-analytics-agent.md) to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, this section includes some possible reasons.
+The Windows Hybrid Runbook Worker depends on the [Log Analytics agent for Windows](/azure/azure-monitor/agents/log-analytics-agent) to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, this section includes some possible reasons.
 
 ### <a name="mma-not-running"></a>Scenario: The Log Analytics agent for Windows isn't running
 
@@ -331,7 +330,7 @@ This issue can be caused by your proxy or network firewall blocking communicatio
 
 #### Resolution
 
-Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. You can verify if there are any warning or error events in the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event logs. These logs indicate a connectivity or other type of issue that affects the enabling of the role to Azure Automation, or an issue encountered under normal operations. For more help troubleshooting issues with the Log Analytics agent, see [Troubleshoot issues with the Log Analytics Windows agent](../../azure-monitor/agents/agent-windows-troubleshoot.md).
+Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. You can verify if there are any warning or error events in the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event logs. These logs indicate a connectivity or other type of issue that affects the enabling of the role to Azure Automation, or an issue encountered under normal operations. For more help troubleshooting issues with the Log Analytics agent, see [Troubleshoot issues with the Log Analytics Windows agent](/azure/azure-monitor/agents/agent-windows-troubleshoot).
 
 Hybrid workers send [Runbook output and messages](../automation-runbook-output-and-messages.md) to Azure Automation in the same way that runbook jobs running in the cloud send output and messages. You can enable the Verbose and Progress streams just as you do for runbooks.
 
@@ -452,5 +451,5 @@ To resolve this issue:
 If you don't see your problem here or you can't resolve your issue, try one of the following channels for more support:
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
-* Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
+* Connect with [@AzureSupport](https://x.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 * File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get Support**.

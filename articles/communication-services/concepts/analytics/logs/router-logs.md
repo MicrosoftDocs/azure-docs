@@ -15,7 +15,7 @@ ms.subservice: data
 
 Azure Communication Services offers logging capabilities that you can use to monitor and debug your Communication Services solution. You configure these capabilities through the Azure portal.
 
-The content in this article refers to logs enabled through [Azure Monitor](../../../../azure-monitor/overview.md) (see also [FAQ](../../../../azure-monitor/overview.md#frequently-asked-questions)). To enable these logs for Communication Services, see [Enable logging in diagnostic settings](../enable-logging.md).
+The content in this article refers to logs enabled through [Azure Monitor](/azure/azure-monitor/overview) (see also [FAQ](/azure/azure-monitor/overview#frequently-asked-questions)). To enable these logs for Communication Services, see [Enable logging in diagnostic settings](../enable-logging.md).
 
 ## Resource log categories
 
@@ -62,7 +62,7 @@ Here's an example:
   "CorrelationId": "6b300c18827245e3b43d3c0179d75af3",
   "URI": "https://jobrouter-test-resource.communication.azure.com/routing/queues/328135a9-6c1f-49eb-af32-0a477af97999?api-version=2022-07-18-preview",
   "SdkType": "dotnet",
-  "EntityId": "328135a9-6c1f-49eb-af32-0a477af97999",
+  "EntityId": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
   "EntityType": "Queues"
 }
 ```

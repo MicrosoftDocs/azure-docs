@@ -5,7 +5,7 @@ author: mstehrani
 ms.author: emtehran
 ms.reviewer: nibruno; wiassaf
 ms.date: 09/05/2019
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:
@@ -140,7 +140,7 @@ a1          total
 -- Drop unique constraint.
 ALTER TABLE t1 DROP CONSTRAINT unique_t1_a1
 
--- Add primary key contraint
+-- Add primary key constraint
 ALTER TABLE t1 ADD CONSTRAINT PK_t1_a1 PRIMARY KEY NONCLUSTERED (a1) NOT ENFORCED
 
 -- Re-run this query.  5 rows returned.  Correct result.

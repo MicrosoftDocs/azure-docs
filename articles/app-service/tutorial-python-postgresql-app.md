@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy a Python Django or Flask web app with PostgreSQL'
 description: Create a Python Django or Flask web app with a PostgreSQL database and deploy it to Azure. The tutorial uses either the Django or Flask framework and the app is hosted on Azure App Service on Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 11/30/2023
+ms.date: 12/20/2024
 ms.author: msangapu
 author: msangapu-msft
 ms.custom: mvc, cli-validate, devx-track-python, devdivchpfy22, vscode-azure-extension-update-completed, AppServiceConnectivity, devx-track-extended-azdevcli, linux-related-content
@@ -12,7 +12,7 @@ zone_pivot_groups: app-service-portal-azd
 
 # Deploy a Python (Django or Flask) web app with PostgreSQL in Azure
 
-In this tutorial, you'll deploy a data-driven Python web app (**[Django](https://www.djangoproject.com/)** or **[Flask](https://flask.palletsprojects.com/)**) to **[Azure App Service](./overview.md#app-service-on-linux)** with the **[Azure Database for PostgreSQL](../postgresql/index.yml)** relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment.
+In this tutorial, you'll deploy a data-driven Python web app (**[Django](https://www.djangoproject.com/)** or **[Flask](https://flask.palletsprojects.com/)**) to **[Azure App Service](./overview.md#app-service-on-linux)** with the **[Azure Database for PostgreSQL](/azure/postgresql/)** relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment.
 
 :::image type="content" border="False" source="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture-240px.png" lightbox="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture.png" alt-text="An architecture diagram showing an App Service with a PostgreSQL database in Azure.":::
 
@@ -142,22 +142,6 @@ python manage.py runserver
 
 ## 1. Create App Service and PostgreSQL
 
-
-### [Flask](#tab/flask)
-
-```bash
-git clone https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app.git
-```
-
-### [Django](#tab/django)
-
-```bash
-git clone https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app.git
-```
-
------
-
-
 In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Database for PostgreSQL. For the creation process, you'll specify:
 
 * The **Name** for the web app. It's the name used as part of the DNS name for your webapp in the form of `https://<app-name>.azurewebsites.net`.
@@ -260,77 +244,109 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 -----
 
-## 2. Verify connection settings
+## 2. Secure connection secrets
 
-The creation wizard generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings). App settings are one way to keep connection secrets out of your code repository. When you're ready to move your secrets to a more secure location, here's an [article on storing in Azure Key Vault](../key-vault/certificates/quick-create-python.md).
-
-### [Flask](#tab/flask)
+The creation wizard generated the database connectivity string for you already as an [app setting](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You move your secrets to a key vault and change your app setting to a [Key Vault reference](app-service-key-vault-references.md) with the help of Service Connectors.
 
 :::row:::
     :::column span="2":::
-        **Step 1:** In the App Service page, in the left menu, select **Configuration**.
+        **Step 1: Retrieve the existing connection string** 
+        1. In the left menu of the App Service page, select **Settings > Environment variables**. 
+        1. Select **AZURE_POSTGRESQL_CONNECTIONSTRING**. 
+        1. In **Add/Edit application setting**, in the **Value** field, find the *password=* part at the end of the string.
+        1. Copy the password string after *Password=* for use later.
+        This app setting lets you connect to the Postgres database secured behind a private endpoint. However, the secret is saved directly in the App Service app, which isn't the best. You'll change this.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-1.png" alt-text="A screenshot showing how to open the configuration page in App Service (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-1.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-1.png" alt-text="A screenshot showing how to see the value of an app setting." lightbox="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2:** In the **Application settings** tab of the **Configuration** page, verify that `AZURE_POSTGRESQL_CONNECTIONSTRING` is present. That will be injected into the runtime environment as an environment variable.
+        **Step 2:  Create a key vault for secure management of secrets**
+        1. In the top search bar, type "*key vault*", then select **Marketplace** > **Key Vault**.
+        1. In **Resource Group**, select **msdocs-python-postgres-tutorial**.
+        1. In **Key vault name**, type a name that consists of only letters and numbers.
+        1. In **Region**, set it to the same location as the resource group.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-2.png" alt-text="A screenshot showing how to see the autogenerated connection string (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-2.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-2.png" alt-text="A screenshot showing how to create a key vault." lightbox="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3:** In a terminal or command prompt, run the following Python script to generate a unique secret: `python -c 'import secrets; print(secrets.token_hex())'`. Copy the output value to use in the next step.
+        **Step 3: Secure the key vault with a Private Endpoint**
+        1. Select the **Networking** tab.
+        1. Unselect **Enable public access**.
+        1. Select **Create a private endpoint**.
+        1. In **Resource Group**, select **msdocs-python-postgres-tutorial**.
+        1. In **Name**, type a name for the private endpoint that consists of only letters and numbers.
+        1. In **Region**, set it to the same location as the resource group.
+        1. In the dialog, in **Location**, select the same location as your App Service app.
+        1. In **Resource Group**, select **msdocs-python-postgres-tutorial**.
+        1. In **Name**, type **msdocs-python-postgres-XYZVaultEndpoint**.
+        1. In **Virtual network**, select **msdocs-python-postgres-XYZVnet**.
+        1. In **Subnet**, **msdocs-python-postgres-XYZSubnet**.
+        1. Select **OK**.
+        1. Select **Review + create**, then select **Create**. Wait for the key vault deployment to finish. You should see "Your deployment is complete."
     :::column-end:::
     :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-3.png" alt-text="A screenshot showing how to secure a key vault with a private endpoint." lightbox="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-3.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 4: Configure the Service Connector**
+        1. In the top search bar, type *msdocs-python-postgres*, then select the App Service resource called **msdocs-python-postgres-XYZ**.
+        1. In the App Service page, in the left menu, select **Settings > Service Connector**. There's already a connector, which the app creation wizard created for you.
+        1. Select checkbox next to the connector, then select **Edit**.
+        1. In the **Basics** tab, under **PostgreSQL database** select the PostgreSQL database that was created.
+        1. Select the **Authentication** tab.
+        1. In **Password**, paste the password you copied earlier.
+        1. Select **Store Secret in Key Vault**.
+        1. Under **Key Vault Connection**, select **Create new**. 
+        A **Create connection** dialog is opened on top of the edit dialog.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-4.png" alt-text="A screenshot showing how to edit a service connector with a key vault connection." lightbox="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-4.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 5: Establish the Key Vault connection**        
+        1. In the **Create connection** dialog for the Key Vault connection, in **Key Vault**, select the key vault you created earlier.
+        1. Select **Review + Create**.
+        1. When validation completes, select **Create**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-5.png" alt-text="A screenshot showing how to configure a key vault service connector." lightbox="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-5.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 6: Finalize the Service Connector configuration** 
+        1. You're back in the edit dialog for **defaultConnector**. In the **Authentication** tab, wait for the key vault connector to be created. When it's finished, the **Key Vault Connection** dropdown automatically selects it.
+        1. Select **Next: Networking**.
+        1. Select **Save**. Wait until the **Update succeeded** notification appears.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-6.png" alt-text="A screenshot showing the key vault connection selected in the defaultConnector." lightbox="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-6.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 7: Verify the Key Vault integration**
+        1. From the left menu, select **Settings > Environment variables** again.
+        1. Next to **AZURE_POSTGRESQL_CONNECTIONSTRING**, select **Show value**. The value should be `@Microsoft.KeyVault(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-7.png" alt-text="A screenshot showing how to see the value of the MySQL environment variable in Azure." lightbox="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-7.png":::
     :::column-end:::
 :::row-end:::
 
-### [Django](#tab/django)
+To summarize, the process involved retrieving the PostgreSQL connection string from the App Service's environment variables, creating an Azure Key Vault for secure secret management with private access, and updating the service connector to store the password in the key vault. A secure connection between the App Service app and key vault was established using a system-assigned managed identity, and the setup was verified by confirming the connection string uses a Key Vault reference.
 
-:::row:::
-    :::column span="2":::
-        **Step 1:** In the App Service page, in the left menu, select **Configuration**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-1.png" alt-text="A screenshot showing how to open the configuration page in App Service (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-1.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 2:** In the **Application settings** tab of the **Configuration** page, verify that `AZURE_POSTGRESQL_CONNECTIONSTRING` and `AZURE_REDIS_CONNECTIONSTRING` are present. They will be injected into the runtime environment as an environment variable.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-2-django.png" alt-text="A screenshot showing how to see the autogenerated connection string (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-2.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 3:** In a terminal or command prompt, run the following Python script to generate a unique secret: `python -c 'import secrets; print(secrets.token_hex())'`. Copy the output value to use in the next step.
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 4:** Back in the **Configuration** page, select **New application setting**. Name the setting `SECRET_KEY`. Paste the value from the previous value. Select **OK**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-app-service-app-setting.png" alt-text="A screenshot showing how to set the SECRET_KEY app setting in the Azure portal (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-app-service-app-setting.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 5:** Select **Save**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-app-service-app-setting-save.png" alt-text="A screenshot showing how to save the SECRET_KEY app setting in the Azure portal (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-app-service-app-setting-save.png":::
-    :::column-end:::
-:::row-end:::
+Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 -----
 

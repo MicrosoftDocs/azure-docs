@@ -14,7 +14,7 @@ After you complete this quickstart, you understand the [key concepts of the Batc
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 - Azure Cloud Shell or Azure CLI.
 
@@ -178,7 +178,7 @@ AZ_BATCH_TASK_WORKING_DIR=/mnt/batch/tasks/workitems/myJob/job-1/myTask1/wd
 AZ_BATCH_NODE_SHARED_DIR=/mnt/batch/tasks/shared
 AZ_BATCH_TASK_USER=_azbatch
 AZ_BATCH_NODE_ROOT_DIR=/mnt/batch/tasks
-AZ_BATCH_JOB_ID=myJobl
+AZ_BATCH_JOB_ID=myJob
 AZ_BATCH_NODE_IS_DEDICATED=true
 AZ_BATCH_NODE_ID=tvm-257509324_2-20180703t215033z
 AZ_BATCH_POOL_ID=myPool

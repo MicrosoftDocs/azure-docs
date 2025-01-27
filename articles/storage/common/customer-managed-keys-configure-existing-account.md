@@ -51,7 +51,7 @@ The system-assigned managed identity must have permissions to access the key in 
 
 #### [Azure portal](#tab/azure-portal)
 
-Before you can configure customer-managed keys with a system-assigned managed identity, you must assign the **Key Vault Crypto Service Encryption User** role to the system-assigned managed identity, scoped to the key vault. This role grants the system-assigned managed identity permissions to access the key in the key vault. For more information on assigning Azure RBAC roles with the Azure portal, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+Before you can configure customer-managed keys with a system-assigned managed identity, you must assign the **Key Vault Crypto Service Encryption User** role to the system-assigned managed identity, scoped to the key vault. This role grants the system-assigned managed identity permissions to access the key in the key vault. For more information on assigning Azure RBAC roles with the Azure portal, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 When you configure customer-managed keys with the Azure portal with a system-assigned managed identity, the system-assigned managed identity is assigned to the storage account for you under the covers.
 
@@ -114,7 +114,7 @@ When the key version is changed, whether automatically or manually, the protecti
 You can use either a system-assigned or user-assigned managed identity to authorize access to the key vault when you configure customer-managed keys for an existing storage account.
 
 > [!NOTE]
-> To rotate a key, create a new version of the key in Azure Key Vault. Azure Storage does not handle key rotation, so you will need to manage rotation of the key in the key vault. You can [configure key auto-rotation in Azure Key Vault](../../key-vault/keys/how-to-configure-key-rotation.md) or rotate your key manually.
+> To rotate a key, create a new version of the key in Azure Key Vault. Azure Storage does not handle key rotation, so you will need to manage rotation of the key in the key vault. You can [configure key auto-rotation in Azure Key Vault](/azure/key-vault/keys/how-to-configure-key-rotation) or rotate your key manually.
 
 ### Configure encryption for automatic updating of key versions
 

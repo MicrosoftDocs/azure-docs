@@ -1,9 +1,9 @@
 ---
 title: Python UDF with Apache Hive and Apache Pig - Azure HDInsight 
 description: Learn how to use Python User Defined Functions (UDF) from Apache Hive and Apache Pig in HDInsight, the Apache Hadoop technology stack on Azure.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 09/15/2023
+ms.date: 09/06/2024
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python, devx-track-azurepowershell
 ---
 
@@ -99,7 +99,7 @@ The script output is a concatenation of the input values for `devicemake` and `d
 
 ### Upload file (shell)
 
-The following command, replaces `sshuser` with the actual username if different.  Replace `mycluster` with the actual cluster name.  Ensure your working directory is where the file is located.
+The following command replaces `sshuser` with the actual username if different.  Replace `mycluster` with the actual cluster name.  Ensure your working directory is where the file is located.
 
 1. Use `scp` to copy the files to your HDInsight cluster. Edit and enter the command:
 
@@ -393,7 +393,7 @@ In the commands below, replace `sshuser` with the actual username if different. 
    DUMP DETAILS;
    ```
 
-3. After entering the following line, the job should start. Once the job completes, it returns output similar to the following data:
+3. After you enter the following line, the job should start. Once the job completes, it returns output similar to the following data:
 
     ```output
     ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
@@ -575,7 +575,7 @@ You can use the following PowerShell statements to remove the CR characters befo
 
 Both of the example PowerShell scripts used to run the examples contain a commented line that displays error output for the job. If you aren't seeing the expected output for the job, uncomment the following line and see if the error information indicates a problem.
 
-[!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=135-139)]
+[!Code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=135-139)]
 
 The error information (STDERR) and the result of the job (STDOUT) are also logged to your HDInsight storage.
 

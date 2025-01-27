@@ -3,8 +3,8 @@ title: 'About virtual hub settings'
 titleSuffix: Azure Virtual WAN
 description: This article answers common questions about virtual hub settings and routing infrastructure units.
 author: cherylmc
-ms.service: virtual-wan
-ms.topic: conceptual
+ms.service: azure-virtual-wan
+ms.topic: concept-article
 ms.date: 08/24/2023
 ms.author: cherylmc
 ---
@@ -30,8 +30,6 @@ When increasing the virtual hub capacity, the virtual hub router will continue t
 > [!NOTE]
 > Regardless of the virtual hub's capacity, the hub can only accept a maximum of 10,000 routes from its connected resources (virtual networks, branches, other virtual hubs, etc).
 >
-
-### Configure virtual hub capacity
 
 Capacity is configured on the **Basics** tab **Virtual hub capacity** setting when you create your virtual hub.
 

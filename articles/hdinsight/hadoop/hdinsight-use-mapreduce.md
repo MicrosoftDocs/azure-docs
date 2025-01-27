@@ -1,10 +1,10 @@
 ---
 title: MapReduce with Apache Hadoop on HDInsight 
 description: Learn how to run Apache MapReduce jobs on Apache Hadoop in HDInsight clusters.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 01/04/2024
+ms.date: 01/02/2025
 ---
 
 # Use MapReduce in Apache Hadoop on HDInsight
@@ -101,8 +101,8 @@ HDInsight can run HiveQL jobs by using various methods. Use the following table 
 
 | **Use this**... | **...to do this** |  ...from this **client operating system** |
 |:--- |:--- |:--- |:--- |
-| [SSH](apache-hadoop-use-mapreduce-ssh.md) |Use the Hadoop command through **SSH** |Linux, Unix, `MacOS X`, or Windows |
-| [Curl](apache-hadoop-use-mapreduce-curl.md) |Submit the job remotely by using **REST** |Linux, Unix, `MacOS X`, or Windows |
+| [SSH](apache-hadoop-use-mapreduce-ssh.md) |Use the Hadoop command through **SSH** |Linux, Unix, `macOS X`, or Windows |
+| [Curl](apache-hadoop-use-mapreduce-curl.md) |Submit the job remotely by using **REST** |Linux, Unix, `macOS X`, or Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Submit the job remotely by using **Windows PowerShell**  |Windows |
 
 ## Next steps

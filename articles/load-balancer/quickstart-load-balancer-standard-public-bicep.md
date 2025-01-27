@@ -4,9 +4,9 @@ titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a load balancer using a Bicep file.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 10/25/2023
+ms.date: 12/06/2024
 ms.author: mbender
 ms.custom: mvc, subject-bicepqs, mode-arm, template-quickstart, devx-track-bicep
 #Customer intent: I want to create a load balancer by using a Bicep file so that I can load balance internet traffic to VMs.
@@ -14,15 +14,13 @@ ms.custom: mvc, subject-bicepqs, mode-arm, template-quickstart, devx-track-bicep
 
 # Quickstart: Create a public load balancer to load balance VMs using a Bicep file
 
-Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines (VMs).
-
-This quickstart shows you how to deploy a standard load balancer to load balance virtual machines.
+In this quickstart, you learn to use a BICEP file to create a public Azure load balancer. The public load balancer distributes traffic to virtual machines in a virtual network located in the load balancer's backend pool. Along with the public load balancer, this template creates a virtual network, network interfaces, a NAT Gateway, and an Azure Bastion instance.
 
 :::image type="content" source="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png" alt-text="Diagram of resources deployed for a standard public load balancer." lightbox="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png":::
 
 Using a Bicep file takes fewer steps comparing to other deployment methods.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
@@ -49,7 +47,7 @@ Multiple Azure resources have been defined in the bicep file:
 - [**Microsoft.Network/natGateways**](/azure/templates/microsoft.network/natgateways): for the NAT gateway.
 
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 To find more Bicep files or ARM templates that are related to Azure Load Balancer, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
@@ -71,11 +69,10 @@ To find more Bicep files or ARM templates that are related to Azure Load Balance
     New-AzResourceGroup -Name exampleRG -Location EastUS
     New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep
     ```
-
     ---
 
     > [!NOTE]
-    > The Bicep file deployment creates three availability zones. Availability zones are supported only in [certain regions](../availability-zones/az-overview.md). Use one of the supported regions. If you aren't sure, enter **EastUS**.
+    > The Bicep file deployment creates three availability zones. Availability zones are supported only in [certain regions](../reliability/availability-zones-overview.md). Use one of the supported regions. If you aren't sure, enter **EastUS**.
 
     You're prompted to enter the following values:
 

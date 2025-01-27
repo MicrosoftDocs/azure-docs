@@ -1,15 +1,15 @@
 ---
 title: Quickstart for adding feature flags to .NET background service
 titleSuffix: Azure App Configuration
-description: A quickstart for adding feature flags to .NET background services and managing them in Azure App Configuration
+description: Learn to implement feature flags in your .NET background service using feature management and Azure App Configuration. Dynamically manage feature rollouts, conduct A/B testing, and control feature visibility without redeploying the app.
 services: azure-app-configuration
-author: zhiyuanliang
+author: zhiyuanliang-ms
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other, devx-track-dotnet
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
-ms.date: 2/19/2024
+ms.date: 12/17/2024
 ms.author: zhiyuanliang
 #Customer intent: As a .NET background service developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
@@ -25,7 +25,7 @@ Feature management support extends the dynamic configuration feature in App Conf
 
 ## Add a feature flag
 
-Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md).
+Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag).
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot showing fields to enable a feature flag named Beta.](media/add-beta-feature-flag.png)
@@ -52,10 +52,35 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 1. Add a call to the `UseFeatureFlags` method inside the `AddAzureAppConfiguration` call and register feature management services.
 
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+
     ```csharp
     // Existing code in Program.cs
     // ... ...
+    builder.Configuration.AddAzureAppConfiguration(options =>
+    {
+        string endpoint = Environment.GetEnvironmentVariable("Endpoint"); 
+        options.Connect(new Uri(endpoint), new DefaultAzureCredential());
 
+        // Use feature flags
+        options.UseFeatureFlags();
+
+        // Register the refresher so that the Worker service can consume it through dependency injection
+        builder.Services.AddSingleton(options.GetRefresher());
+    });
+
+    // Register feature management services
+    builder.Services.AddFeatureManagement();
+
+    // The rest of existing code in Program.cs
+    // ... ...
+    ```
+
+    ### [Connection string](#tab/connection-string)
+
+    ```csharp
+    // Existing code in Program.cs
+    // ... ...
     builder.Configuration.AddAzureAppConfiguration(options =>
     {
         options.Connect(Environment.GetEnvironmentVariable("ConnectionString"));
@@ -73,6 +98,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     // The rest of existing code in Program.cs
     // ... ...
     ```
+    ---
 
     > [!TIP]
     > When no parameter is passed to the `UseFeatureFlags` method, it loads *all* feature flags with *no label* in your App Configuration store. The default refresh interval of feature flags is 30 seconds. You can customize this behavior via the `FeatureFlagOptions` parameter. For example, the following code snippet loads only feature flags that start with *TestApp:* in their *key name* and have the label *dev*. The code also changes the refresh interval time to 5 minutes. Note that this refresh interval time is separate from that for regular key-values.
@@ -91,16 +117,16 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     using Microsoft.FeatureManagement;
     ```
 
-1. Update the constructor of the `Worker` service to obtain instances of `IConfigurationRefresher` and `IFeatureManager` through dependency injection.
+1. Update the constructor of the `Worker` service to obtain instances of `IConfigurationRefresher` and `IVariantFeatureManager` through dependency injection.
 
     ```csharp
     public class Worker : BackgroundService
     {
         private readonly ILogger<Worker> _logger;
         private readonly IConfigurationRefresher _refresher;
-        private readonly IFeatureManager _featureManager;
+        private readonly IVariantFeatureManager _featureManager;
 
-        public Worker(ILogger<Worker> logger, IConfigurationRefresher refresher, IFeatureManager featureManager)
+        public Worker(ILogger<Worker> logger, IConfigurationRefresher refresher, IVariantFeatureManager featureManager)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _refresher = refresher ?? throw new ArgumentNullException(nameof(refresher));
@@ -173,15 +199,22 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 ## Next steps
 
+In this quickstart, you created a feature flag and used it with a background service.
+
 To enable feature management capability for other types of apps, continue to the following tutorials.
 
 > [!div class="nextstepaction"]
-> [Use feature flags in .NET console apps](./quickstart-feature-flag-dotnet.md)
+> [Use feature flags in ASP.NET Core apps](./quickstart-feature-flag-aspnet-core.md)
 
 > [!div class="nextstepaction"]
-> [Use feature flags in ASP.NET Core apps](./quickstart-feature-flag-aspnet-core.md)
+> [Use feature flags in .NET/.NET framework console apps](./quickstart-feature-flag-dotnet.md)
 
 To learn more about managing feature flags in Azure App Configuration, continue to the following tutorial.
 
 > [!div class="nextstepaction"]
 > [Manage feature flags in Azure App Configuration](./manage-feature-flags.md)
+
+For the full feature rundown of the .NET feature management library, continue to the following document.
+
+> [!div class="nextstepaction"]
+> [.NET Feature Management](./feature-management-dotnet-reference.md)

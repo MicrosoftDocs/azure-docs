@@ -3,9 +3,9 @@ title: Azure Notification Hubs and the Google Firebase Cloud Messaging (FCM) mig
 description: Describes how Azure Notification Hubs addresses the Google Cloud Messaging (GCM) to FCM migration using the Azure SDKs.
 author: sethmanheim
 manager: femila
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.topic: article
-ms.date: 03/01/2024
+ms.date: 05/08/2024
 ms.author: sethm
 ms.reviewer: heathertian
 ms.lastreviewed: 03/01/2024
@@ -15,9 +15,13 @@ ms.lastreviewed: 03/01/2024
 
 Google will deprecate the Firebase Cloud Messaging (FCM) legacy API by July 2024. You can begin migrating from the legacy HTTP protocol to FCM v1 on March 1, 2024. You must complete the migration by June 2024. This section describes the steps to migrate from FCM legacy to FCM v1 using the Azure SDKs.
 
+> [!IMPORTANT]
+> As of June 2024, FCM legacy APIs will no longer be supported and will be retired. To avoid any disruption in your push notification service, you must [migrate to the FCM v1 protocol](notification-hubs-gcm-to-fcm.md) as soon as possible.
+
 ## Prerequisites
 
-To update your FCM credentials, [follow step 1 in the REST API guide](firebase-migration-rest.md#step-1-add-fcm-v1-credentials-to-hub).
+- Ensure that **Firebase Cloud Messaging API (V1)** is enabled in Firebase project setting under **Cloud Messaging**.
+- Ensure that FCM credentials are updated. [Follow step 1 in the REST API guide](firebase-migration-rest.md#step-1-add-fcm-v1-credentials-to-hub).
 
 ## Android SDK
 

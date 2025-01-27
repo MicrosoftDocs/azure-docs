@@ -1,10 +1,11 @@
 ---
 title: Apply Windows license to session host virtual machines - Azure
 description: Describes how to apply the Windows license for Azure Virtual Desktop VMs.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 11/14/2022
-ms.author: helohr 
+ms.author: daknappe
+ms.custom: docs_inherited 
 ---
 # Apply Windows license to session host virtual machines
 
@@ -72,4 +73,4 @@ If you deploy Windows Server as session hosts in Azure Virtual Desktop, a Remote
 
 ## Known limitations
 
-If you create a Windows Server session host using the Azure Virtual Desktop host pool creation process, the process might automatically assign it an incorrect license type. To change the license type using PowerShell, follow the instructions in [Convert an existing VM using Azure Hybrid Benefit for Windows Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md#powershell-1).
+If you create a Windows Server session host using the Azure Virtual Desktop host pool creation process, the process might automatically assign it an incorrect license type. To change the license type using PowerShell, follow the instructions in [Convert an existing VM using Azure Hybrid Benefit for Windows Server](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#powershell-1).

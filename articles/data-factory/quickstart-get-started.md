@@ -2,11 +2,10 @@
 title: Get started and try out your first data factory pipeline
 description: Get started with your first data factory to copy data from one blob storage to another.
 author: pennyzhou-msft
-ms.service: data-factory
 ms.subservice: data-movement
 ms.devlang: bicep
 ms.topic: quickstart
-ms.date: 07/17/2023
+ms.date: 05/15/2024
 ms.author: xupzhou
 ms.custom: subject-armqs
 ---
@@ -24,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure
 
 The following video provides a walkthrough of the sample:
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE583aX]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=0550df36-bfe6-407b-b00b-1b60fa700e94]
 
 ## Try your first demo with one click
 In your first demo scenario you will use the [Copy activity](copy-activity-overview.md) in a data factory to copy an Azure blob named moviesDB2.csv from an input folder on an Azure Blob Storage to an output folder. In a real world scenario this copy operation could be between any of the many supported data sources and sinks available in the service. It could also involve transformations in the data.

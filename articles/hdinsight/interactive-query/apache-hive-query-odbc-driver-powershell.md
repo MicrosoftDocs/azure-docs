@@ -2,9 +2,9 @@
 title: Query Apache Hive with ODBC Driver & PowerShell - Azure HDInsight
 description: Use the Microsoft Hive ODBC driver and PowerShell to query Apache Hive clusters on Azure HDInsight.
 keywords: hive,hive odbc,powershell
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: tutorial
-ms.date: 05/24/2023
+ms.date: 06/15/2024
 #Customer intent: As a HDInsight user, I want to query data from my Apache Hive datasets so that I can view and interpret the data.
 ---
 
@@ -37,7 +37,7 @@ The following steps show you how to create an Apache Hive ODBC data source.
 
 1. From Windows, navigate to **Start** > **Windows Administrative Tools** > **ODBC Data Sources (32-bit)/(64-bit)**.  An **ODBC Data Source Administrator** window opens.
 
-    :::image type="content" source="./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png " alt-text="OBDC data source administrator." border="true":::
+    :::image type="content" source="./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png " alt-text="ODBC data source administrator." border="true":::
 
 1. From the **User DSN** tab, select **Add** to open the **Create New Data Source** window.
 

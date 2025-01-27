@@ -2,7 +2,7 @@
 ms.author: cherylmc
 author: cherylmc
 ms.date: 01/31/2024
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: include
 ---
 1. On your Virtual WAN page, go to **Hubs**.

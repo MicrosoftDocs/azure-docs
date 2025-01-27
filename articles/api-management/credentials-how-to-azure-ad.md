@@ -3,7 +3,7 @@ title: Create connection to Microsoft Graph API - Azure API Management | Microso
 description: Learn how to create and use a managed connection to a backend Microsoft Graph API using the Azure API Management credential manager. 
 services: api-management
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 11/14/2023
 ms.author: danlep
@@ -127,7 +127,9 @@ On the **Connection** tab, complete the steps for your connection to the provide
     |**URL** for GET    |  /me/joinedTeams |
 
 1. Select **All operations**. In the **Inbound processing** section, select the (**</>**) (code editor) icon.
-1. Make sure the `provider-id` and `authorization-id` values in the `get-authorization-context` policy correspond to the names of the credential provider and connection, respectively, that you configured in the preceding steps. Select **Save**. 
+1. Copy and paste the following snippet. Update the `get-authorization-context` policy with the names of the credential provider and connection that you configured in the preceding steps, and select **Save**.
+    * Substitute your credential provider name as the value of `provider-id`
+    * Substitute your connection name as the value of `authorization-id`  
 
     ```xml
     <policies>

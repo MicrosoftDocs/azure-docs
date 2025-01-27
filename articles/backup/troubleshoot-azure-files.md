@@ -1,10 +1,12 @@
 ---
 title: Troubleshoot Azure file share backup
 description: This article is troubleshooting information about issues occurring when protecting your Azure file shares.
-ms.date: 06/14/2023
+ms.service: azure-backup
+ms.date: 01/15/2025
 ms.topic: troubleshooting
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
+ms.custom: engagement-fy24
 ---
 
 # Troubleshoot problems while backing up Azure file shares
@@ -65,7 +67,7 @@ In the Azure portal, open your **Vault** > **Backup Infrastructure** > **Storage
 
 Error Code: FileShareNotFound
 
-Error Message: Operation failed as the file share is not found
+Error Message: Operation failed as the file share isn't found
 
 Ensure that the file share you're trying to protect hasn't been deleted.
 
@@ -79,11 +81,11 @@ Error Message: Storage account not found or not supported
 
 - Ensure that the Storage account is a supported Storage account for file share backup.
 
-### AFSMaxSnapshotReached- You have reached the max limit of snapshots for this file share; you will be able to take more once the older ones expire
+### AFSMaxSnapshotReached- You have reached the max limit of snapshots for this file share; you'll be able to take more once the older ones expire
 
 Error Code: AFSMaxSnapshotReached
 
-Error Message: You have reached the max limit of snapshots for this file share; you will be able to take more once the older ones expire.
+Error Message: You have reached the max limit of snapshots for this file share; you'll be able to take more once the older ones expire.
 
 - This error can occur when you create multiple on-demand backups for a file share.
 - There's a limit of 200 snapshots per file share including the ones taken by Azure Backup. Older scheduled backups (or snapshots) are cleaned up automatically. On-demand backups (or snapshots) must be deleted if the maximum limit is reached.
@@ -133,7 +135,7 @@ Error Code: UserErrorStorageAccountInternetRoutingNotSupported
 
 Error Message: Storage accounts with Internet routing configuration are not supported by Azure Backup
 
-Ensure that the routing preference set for the storage account hosting backed up file share is Microsoft network routing.
+Ensure that the routing preference set for the storage account hosting backed-up file share is Microsoft network routing.
 
 ### FileshareBackupFailedWithAzureRpRequestThrottling/ FileshareRestoreFailedWithAzureRpRequestThrottling- File share backup or restore operation failed due to storage service throttling. This may be because the storage service is busy processing other requests for the given storage account
 
@@ -288,8 +290,24 @@ Recommended Actions: Ensure that the following configurations in the storage acc
 
   :::image type="content" source="./media/troubleshoot-azure-files/target-storage-account-configuration.png" alt-text="Screenshot shows the target storage account configuration." lightbox="./media/troubleshoot-azure-files/target-storage-account-configuration.png":::
 
+### DatamoverGenericError
 
-## Common modify policy errors
+**Error Code**: `DatamoverGenericError`
+ 
+**Error Message**: Failed to transfer data to vault.
+ 
+**Recommended action**: Wait for a few minutes and then retry the operation. If the issue persists, contact Microsoft support.
+ 
+### DatamoverInsufficientVaultStorage
+
+**Error Code**: `DatamoverInsufficientVaultStorage`
+ 
+**Error Message**: Current operation has failed due to insufficient vault storage.
+ 
+**Recommended action**: The next backup will be automatically triggered with increased vault storage.
+
+
+## Common policy modification errors
 
 ### BMSUserErrorConflictingProtectionOperation- Another configure protection operation is in progress for this item
 
@@ -326,7 +344,7 @@ Error Message: Listed restore points are not available as the associated file sh
 Check if the backed-up file share is deleted. If it was in soft deleted state, check if the soft delete retention period is over and it wasn't recovered back. In either of these cases, you'll lose all your snapshots permanently and won’t be able to recover the data.
 
 >[!NOTE]
-> We recommend you don't delete the backed up file share, or if it's in soft deleted state, undelete before the soft delete retention period ends, to avoid losing all your restore points.
+> We recommend you don't delete the backed-up file share, or if it's in soft deleted state, undelete before the soft delete retention period ends, to avoid losing all your restore points.
 
 ### UserErrorBackupAFSInSoftDeleteState - Backup failed as the Azure File Share is in soft-deleted state
 

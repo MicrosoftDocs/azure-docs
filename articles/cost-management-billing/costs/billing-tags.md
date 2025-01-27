@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains what billing tags are how and how to apply them in Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/15/2023
+ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -54,6 +54,6 @@ Billing tags are applied in the Azure portal. The required permissions are:
 
 When you enable the **Tag inheritance** setting at the billing profile level, tags from billing profile and invoices sections are applied to usage records for all child resources. For more information about tag inheritance, see [Group and allocate costs using tag inheritance](enable-tag-inheritance.md).
 
-## Next steps
+## Related content
 
 - Learn how to [Group and allocate costs using tag inheritance](enable-tag-inheritance.md).

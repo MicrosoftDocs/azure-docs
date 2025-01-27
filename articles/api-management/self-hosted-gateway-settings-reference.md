@@ -4,7 +4,7 @@ description: Reference for the required and optional settings to configure the A
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: reference
 ms.date: 04/12/2024
 ms.author: danlep
@@ -107,12 +107,24 @@ This guidance helps you provide the required information to define how to authen
 
 ## Security
 
+### Certificates and Ciphers
+
 | Name  | Description | Required | Default | Availability |
 | ------------- | ------------- | ------------- | ----| ----|
 | certificates.local.ca.enabled | Indication whether or not the self-hosted gateway should use local CA certificates that are mounted. It's required to run the self-hosted gateway as root or with user ID 1001. | No | `false` | v2.0+ |
 | net.server.tls.ciphers.allowed-suites |   Comma-separated list of ciphers to use for TLS connection between API client and the self-hosted gateway. | No | `TLS_AES_256_GCM_SHA384,TLS_CHACHA20_POLY1305_SHA256,TLS_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_DHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256,TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256,TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_DHE_RSA_WITH_AES_256_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_GCM_SHA384,TLS_RSA_WITH_AES_128_GCM_SHA256,TLS_RSA_WITH_AES_256_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_256_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA` | v2.0+ |
 | net.client.tls.ciphers.allowed-suites | Comma-separated list of ciphers to use for TLS connection between the self-hosted gateway and the backend. | No | `TLS_AES_256_GCM_SHA384,TLS_CHACHA20_POLY1305_SHA256,TLS_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_DHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256,TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256,TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_DHE_RSA_WITH_AES_256_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_GCM_SHA384,TLS_RSA_WITH_AES_128_GCM_SHA256,TLS_RSA_WITH_AES_256_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_256_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA` | v2.0+ |
 | security.certificate-revocation.validation.enabled | Provides capability to turn certificate revocation list validation on/off | No | `false` | v2.3.6+ |
+
+### TLS
+
+| Name  | Description | Required | Default | Availability |
+| ------------- | ------------- | ------------- | ----| ----|
+| Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls13 | Indication whether or not TLS 1.3 is allowed towards the backend. Similar to [managing protocol ciphers in managed gateway](api-management-howto-manage-protocols-ciphers.md). | No | `true` | v2.0+ |
+| Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls12 | Indication whether or not TLS 1.2 is allowed towards the backend. Similar to [managing protocol ciphers in managed gateway](api-management-howto-manage-protocols-ciphers.md). | No | `true` | v2.0+ |
+| Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11 | Indication whether or not TLS 1.1 is allowed towards the backend. Similar to [managing protocol ciphers in managed gateway](api-management-howto-manage-protocols-ciphers.md). | No | `false` | v2.0+ |
+| Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10 | Indication whether or not TLS 1.0 is allowed towards the backend. Similar to [managing protocol ciphers in managed gateway](api-management-howto-manage-protocols-ciphers.md). | No | `false` | v2.0+ |
+| Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Ssl30 | Indication whether or not SSL 3.0 is allowed towards the backend. Similar to [managing protocol ciphers in managed gateway](api-management-howto-manage-protocols-ciphers.md). | No | `false` | v2.0+ |
 
 ## Sovereign clouds
 

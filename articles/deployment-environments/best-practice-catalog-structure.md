@@ -3,7 +3,7 @@ title: "Best practices for structuring an Azure Deployment Environments catalog"
 description: "This article provides guidelines for structuring an Azure Deployment Environments catalog for efficient caching."
 author: RoseHJM
 ms.author: rosemalcolm
-ms.service: deployment-environments
+ms.service: azure-deployment-environments
 ms.topic: best-practice 
 ms.date: 11/27/2023
 
@@ -25,7 +25,7 @@ The following diagram shows the recommended structure for a repo. Each template 
 :::image type="content" source="media/best-practice-catalog-structure/deployment-environments-catalog-structure.png" alt-text="Diagram that shows the recommended folder structure for an Azure Deployment Environments catalog." lightbox="media/best-practice-catalog-structure/deployment-environments-catalog-structure.png":::
 
 ## Linked environment definitions
-In a linked environment definitions scenario, multiple .json files can point to a single ARM template. ADE checks linked  environment definitions sequentially and retrieves the linked files and  environment definitions from the repository. For best performance, these interactions should be minimized. 
+In a linked environment definitions scenario, multiple .json files can point to a single template. ADE checks linked  environment definitions sequentially and retrieves the linked files and  environment definitions from the repository. For best performance, these interactions should be minimized. 
 
 ## Update  environment definitions and sync changes
 Over time, environment definitions need updates. You make those updates in your Git repository, and then you must manually sync the catalog up to update the changes to ADE. 

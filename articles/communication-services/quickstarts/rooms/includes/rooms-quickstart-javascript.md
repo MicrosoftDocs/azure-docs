@@ -17,7 +17,7 @@ ms.author: orwatson
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
-- The latest versions of [Node.js](https://nodejs.org/en/download/) Active LTS and Maintenance LTS versions.
+- The latest versions of [Node.js](https://nodejs.org/en/download/package-manager/) Active LTS and Maintenance LTS versions.
 
 ## Sample code
 
@@ -89,7 +89,7 @@ const roomsClient = new RoomsClient(connectionString);
 
 ### Set up room participants
 
-In order to set up who can join a room, you need to have the list of the identities of those users. You can follow the instructions [here](../../identity/access-tokens.md?pivots=programming-language-javascript) for creating users and issuing access tokens. Alternatively, if you want to create the users on demand, you can create them using the `CommunicationIdentityClient`.
+In order to set up who can join a room, you need to have the list of the identities of those users. You can follow the instructions [here](../../identity/access-tokens.md?pivots=programming-language-javascript) for creating users and issuing access tokens. Alternatively, if you want to create the users on demand, you can create them using the `CommunicationIdentityClient`. ACS Rooms currently supports a room participant of type CommunicationUserIdentifier only, using other types of CommunicationIdentity will result in a runtime error.
 
 To use the CommunicationIdentityClient, install the following npm package:
 

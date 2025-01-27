@@ -4,9 +4,9 @@ titleSuffix: Azure Network Watcher
 description: In this quickstart, you learn how to diagnose a virtual machine network traffic filter problem using Azure Network Watcher IP flow verify in the Azure portal.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: quickstart
-ms.date: 10/26/2023
+ms.date: 10/14/2024
 
 #Customer intent: I want to diagnose a virtual machine (VM) network traffic filter using IP flow verify to know which security rule is denying the traffic and causing the communication problem to the VM.
 ---
@@ -29,7 +29,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Create a virtual machine
 
-1. In the search box at the top of the portal, enter *virtual machines*. Select **Virtual machines** in the search results.
+1. In the search box at the top of the portal, enter *virtual machines*. Select **Virtual machines** from the search results.
 
 1. Select **+ Create** and then select **Azure virtual machine**.
 
@@ -79,7 +79,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
     | Public inbound ports | Select **None**. |
 
     > [!NOTE]
-    > Azure will create a default network security group for **myVM** virtual machine (because you selected **Basic** NIC network security group). You will use this default network security group to test network communication to and from the virtual machine in the next section.
+    > Azure will create a default network security group for **myVM** virtual machine (because you selected **Basic** NIC network security group). You'll use this default network security group to test network communication to and from the virtual machine in the next section.
 
 1. Select **Review + create**.
 
@@ -89,11 +89,11 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 In this section, you use the IP flow verify capability of Network Watcher to test network communication to and from the virtual machine. 
 
-1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
 1. Under **Network diagnostic tools**, select **IP flow verify**.
 
-1. In the **IP flow verify** page, enter or select the following values:
+1. In the **IP flow verify** page, enter, or select the following values:
 
     | Setting | Value |
     |---------|-------|
@@ -108,7 +108,7 @@ In this section, you use the IP flow verify capability of Network Watcher to tes
     | Remote port | Enter *80* |
 
     > [!NOTE]
-    > If you don't see the virtual machine in the list of virtual machines available to select, make sure that it is running. Stopped virtual machines are not available to select for IP flow verify test.
+    > If you don't see the virtual machine in the list of virtual machines available to select, make sure that it's running. Stopped virtual machines aren't available to select for IP flow verify test.
 
     :::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify.png" alt-text="Screenshot shows the values to input in IP flow verify for first test." lightbox="./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify.png":::
 
@@ -150,8 +150,6 @@ To determine why the rules in the previous section allow or deny communication, 
     :::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/effective-security-rules.png" alt-text="Screenshot of Effective security rules in Network Watcher." lightbox="./media/diagnose-vm-network-traffic-filtering-problem/effective-security-rules.png" :::
 
 1. Under **Outbound rules**, select **AllowInternetOutBound** to see the allowed destination IP address prefixes under this security rule.
-
-    :::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/internet-prefixes.png" alt-text="Screenshot of the prefixes of AllowInternetOutBound rule." lightbox="./media/diagnose-vm-network-traffic-filtering-problem/internet-prefixes.png" :::
 
     You can see that address prefix **13.104.0.0/13** is among the address prefixes of **AllowInternetOutBound** rule. This prefix encompasses IP address **13.107.21.200** which you tested in step 4 of previous section.
 

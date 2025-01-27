@@ -1,7 +1,7 @@
 ---
  ms.topic: include
  author: cherylmc
- ms.service: vpn-gateway
+ ms.service: azure-vpn-gateway
  ms.date: 08/11/2023
  ms.author: cherylmc
 
@@ -10,7 +10,7 @@
 ---
 
 
-1. Install client certificates on the Windows client, as shown in this [point-to-site VPN client](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) article. The certificate must be in the current user store.
+1. Install client certificates on the Windows client, as shown in this [point-to-site VPN client](/azure/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert) article. The certificate must be in the current user store.
 
 1. You can configure the Always On VPN client through PowerShell, Configuration Manager, or Intune by following the instructions in [Configure Windows 10 or later client Always On VPN connections](/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
 

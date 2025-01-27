@@ -1,14 +1,14 @@
 ---
 title: About Azure File share backup
 description: Learn how to back up Azure file shares in the Recovery Services vault
-ms.topic: conceptual
-ms.date: 03/04/2024
-ms.service: backup
+ms.topic: overview
+ms.date: 11/20/2024
+ms.service: azure-backup
 ms.custom:
   - engagement-fy23
   - ignite-2023
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # About Azure File share backup
@@ -102,6 +102,12 @@ To protect a snapshot from deletion while restore operation is in progress, Azur
 The following diagram explains the lifecycle of the lease acquired by Azure Backup:
 
 :::image type="content" source="./media/azure-file-share-backup-overview/backup-lease-lifecycle-diagram.png" alt-text="Diagram explaining the lifecycle of the lease acquired by Azure Backup." border="false":::
+
+## How Cross Subscription Backup for Azure File share (preview) works?
+
+Cross Subscription Backup (CSB) for Azure File share (preview) enables you to back up file shares across subscriptions. This feature is useful when you want to centralize backup management for file shares across different subscriptions. You can back up file shares from a source subscription to a Recovery Services vault in a target subscription.
+
+Learn about the [additional prerequisites](backup-azure-files.md#prerequisites) and [steps to configure Cross Subscription Backup for Azure File share (preview)](backup-azure-files.md#configure-the-backup). For information on the supported regions for Cross Subscription Backup, see the [Azure File share backup support matrix](azure-file-share-support-matrix.md#supported-regions-for-cross-subscription-backup-preview).
 
 ## Next steps
 

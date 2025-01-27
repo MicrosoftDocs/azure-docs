@@ -1,6 +1,6 @@
 ---
 author: cephalin
-ms.service: app-service
+ms.service: azure-app-service
 ms.devlang: java
 ms.topic: include
 ms.date: 08/30/2023
@@ -12,16 +12,16 @@ In this quickstart, you'll use the [Maven Plugin for Azure App Service Web Apps]
 ![Screenshot of Maven Hello World web app running in Azure App Service.](../../media/quickstart-java/jboss-sample-in-app-service.png)
 
 If Maven isn't your preferred development tool, check out our similar tutorials for Java developers:
-+ [Gradle](../../configure-language-java.md?pivots=platform-linux#gradle)
++ [Gradle](../../configure-language-java-deploy-run.md?pivots=platform-linux#gradle)
 + [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app)
 + [Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)
 + [Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp)
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## 1 - Use Azure Cloud Shell
 
-[!INCLUDE [cloud-shell-try-it-no-header.md](../../../../includes/cloud-shell-try-it-no-header.md)]
+[!INCLUDE [cloud-shell-try-it-no-header.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it-no-header.md)]
 
 ## 2 - Create a Java app
 
@@ -52,13 +52,13 @@ The deployment process to Azure App Service uses your Azure credentials from the
 Run the Maven command shown next to configure the deployment. This command helps you to set up the App Service operating system, Java version, and Tomcat version.
 
 ```azurecli-interactive
-mvn com.microsoft.azure:azure-webapp-maven-plugin:2.12.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.13.0:config
 ```
 
 1. For **Create new run configuration**, type **Y**, then **Enter**.
 1. For **Define value for OS**, type **2** for Linux, then **Enter**.
 1. For **Define value for javaVersion**, type **2** for Java 11, then **Enter**.
-1. For **webContainer** option, type **1** for Jbosseap 7, then **Enter**.
+1. For **webContainer** option, type **4** for Jbosseap 7, then **Enter**.
 1. For **Define value for pricingTier**, type **1** for P1v3, then **Enter**.
 1. For **Confirm**, type **Y**, then **Enter**.
 

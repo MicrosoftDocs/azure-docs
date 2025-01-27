@@ -46,9 +46,6 @@ To delete the resources in Azure:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **All Resources** and **Filter by the name** of the Confluent Cloud resource or the **Resource Type** _Confluent organization_. Or in the Azure portal, search for the resource name.
 1. In the resource's **Overview** select **Delete**.
-
-    :::image type="content" source="media/delete-resources-icon.png" alt-text="Resource delete icon.":::
-
 1. To confirm the deletion, type the resource name and select **Delete**.
 
     :::image type="content" source="media/delete-resources-prompt.png" alt-text="Prompt to confirm resource deletion.":::

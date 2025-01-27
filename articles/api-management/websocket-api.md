@@ -1,7 +1,7 @@
 ---
 title: Import a WebSocket API to Azure API Management | Microsoft Docs
 description: Learn how API Management supports WebSocket, add a WebSocket API, and WebSocket limitations.
-ms.service: api-management
+ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
@@ -11,15 +11,17 @@ ms.custom: template-how-to
 
 # Import a WebSocket API
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 With API Management’s WebSocket API solution, API publishers can quickly add a WebSocket API in API Management via the Azure portal, Azure CLI, Azure PowerShell, and other Azure tools. 
+
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
 You can secure WebSocket APIs by applying existing access control policies, like [JWT validation](validate-jwt-policy.md). You can also test WebSocket APIs using the API test consoles in both Azure portal and developer portal. Building on existing observability capabilities, API Management provides metrics and logs for monitoring and troubleshooting WebSocket APIs. 
 
 In this article, you will:
 > [!div class="checklist"]
-> * Understand Websocket passthrough flow.
+> * Understand WebSocket passthrough flow.
 > * Add a WebSocket API to your API Management instance.
 > * Test your WebSocket API.
 > * View the metrics and logs for your WebSocket API.
@@ -119,7 +121,7 @@ Below are the current restrictions of WebSocket support in API Management:
 * Currently, the [set-header](set-header-policy.md) policy doesn't support changing certain well-known headers, including `Host` headers, in onHandshake requests.
 * During the TLS handshake with a WebSocket backend, API Management validates that the server certificate is trusted and that its subject name matches the hostname. With HTTP APIs, API Management validates that the certificate is trusted but doesn’t validate that hostname and subject match.
 
-For WebSocket connection limits, see [API Management limits](../azure-resource-manager/management/azure-subscription-service-limits.md#api-management-limits).
+For WebSocket connection limits, see [API Management limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-api-management-limits).
 
 ### Unsupported policies
 

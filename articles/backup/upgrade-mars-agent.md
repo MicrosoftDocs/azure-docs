@@ -3,10 +3,10 @@ title: Upgrade the Microsoft Azure Recovery Services (MARS) agent for Azure Back
 description: Learn how to upgrade the Microsoft Azure Recovery Services (MARS) agent.
 ms.topic: how-to
 ms.date: 08/27/2023
-ms.service: backup
+ms.service: azure-backup
 ms.custom: engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Upgrade the Microsoft Azure Recovery Services (MARS) agent

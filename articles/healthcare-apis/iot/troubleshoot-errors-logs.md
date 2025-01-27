@@ -2,12 +2,12 @@
 title: Troubleshoot errors using the MedTech service logs - Azure Health Data Services
 description: Learn how to troubleshoot and fix MedTech service error using the service logs.
 services: healthcare-apis
-author: msjasteppe
-ms.service: healthcare-apis
-ms.subservice: iomt
+author: chachachachami
+ms.service: azure-health-data-services
+ms.subservice: medtech-service
 ms.topic: troubleshooting
 ms.date: 06/02/2023
-ms.author: jasteppe
+ms.author: chrupa
 ---
 
 # Troubleshoot errors using the MedTech service logs

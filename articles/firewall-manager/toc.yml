@@ -5,10 +5,9 @@
   - name: What is Azure Firewall Manager?
     href: overview.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: Secure virtual hub - Bicep
-    displayName: Resource Manager, ARM, Template
+    displayName: Resource Manager, ARM, Templatehttps://github.com/MicrosoftDocs/azure-docs-pr/pull/290736/
     href: quick-secure-virtual-hub-bicep.md
   - name: Secure virtual hub - Terraform
     displayName: Terraform
@@ -28,6 +27,7 @@
   - name: Create and update policy
     displayName: PowerShell
     href: create-policy-powershell.md
+  expanded: true
 - name: Tutorials
   items:
   - name: Secure your virtual hub - portal
@@ -46,8 +46,6 @@
     href: deployment-overview.md
   - name: Security partner providers
     href: trusted-security-partners.md
-  - name: Secure hubs using Check Point Cloudguard Connect
-    href: check-point-overview.md
   - name: IP Groups
     href: ip-groups.md
   - name: Rule processing logic
@@ -72,8 +70,6 @@
     href: migrate-to-policy.md
   - name: DNS settings
     href: dns-settings.md
-  - name: Deploy multiple public IPs - PowerShell
-    href: multiple-public-ip-powershell.md
   - name: Define a rule hierarchy
     href: rule-hierarchy.md
   - name: Configure DDoS Protection Plan

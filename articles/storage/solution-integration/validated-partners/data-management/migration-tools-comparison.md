@@ -31,7 +31,7 @@ The following comparison matrix shows basic functionality of different tools tha
 | **Lustre** | No | No | No | No | Yes | No |
 
 > [!TIP]
->  As Cirrus Data specializes in SAN / Block data migrations, we have ommitted them from the remainder of this document.  For more information about Cirrus Data and their Migrate Cloud solution, please review the [Cirrus Data getting Started Guide](/azure/storage/solution-integration/validated-partners/data-management/cirrus-data-migration-guide).
+>  As Cirrus Data specializes in SAN / Block data migrations, we have omitted them from the remainder of this document, which compares File data migration features. For more information about Cirrus Data and their Migrate Cloud solution, please review the [Cirrus Data getting Started Guide](/azure/storage/solution-integration/validated-partners/data-management/cirrus-data-migration-guide).
 
 ## Supported Azure services
 
@@ -67,7 +67,7 @@ The following comparison matrix shows basic functionality of different tools tha
 |  **Solution name**  | [AzCopy](/azure/storage/common/storage-ref-azcopy-copy) | [Azure Storage Mover](/azure/storage-mover/) | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    | [Miria](https://azuremarketplace.microsoft.com/marketplace/apps/atempo1612274992591.miria_saas_prod?tab=Overview) |
 | **UID / SID remapping**                   | No  | No | Yes | No | No |
 | **Protocol ACL remapping**                | No  | No | No  | No  | No |
-| **Azure Data Lake Storage Gen2**          | Yes | No | Yes | Yes | No |
+| **Azure Data Lake Storage**          | Yes | No | Yes | Yes | No |
 | **Throttling support**                    | Yes | No | Yes | No | Yes | 
 | **File pattern exclusions**               | Yes | No | Yes | Yes | Yes |
 | **Support for selective file attributes** | No  | No | Yes | Yes | Yes |

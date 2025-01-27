@@ -1,9 +1,9 @@
 ---
 title: Azure HDInsight for Visual Studio Code
 description: Learn how to use the Spark & Hive Tools (Azure HDInsight) for Visual Studio Code. Use the tools to create and submit queries and scripts.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 06/08/2023
+ms.date: 06/13/2024
 ms.custom: devx-track-python
 ---
 
@@ -21,7 +21,7 @@ The following items are required for completing the steps in this article:
 - [Visual Studio Code](https://code.visualstudio.com/).
 - [Mono](https://www.mono-project.com/docs/getting-started/install/). Mono is required only for Linux and macOS.
 - [A PySpark interactive environment for Visual Studio Code](set-up-pyspark-interactive-environment.md).
-- A local directory. This article uses  **C:\HD\HDexample**.
+- A local directory. This article uses  `C:\HD\HDexample`.
 
 ## Install Spark & Hive Tools
 
@@ -43,9 +43,9 @@ After you meet the prerequisites, you can install Spark & Hive Tools for Visual 
 
 To open a work folder and to create a file in Visual Studio Code, follow these steps:
 
-1. From the menu bar, navigate to **File** > **Open Folder...** > **C:\HD\HDexample**, and then select the **Select Folder** button. The folder appears in the **Explorer** view on the left.
+1. From the menu bar, navigate to **File** > **Open Folder...** > `C:\HD\HDexample`, and then select the **Select Folder** button. The folder appears in the **Explorer** view on the left.
 
-2. In **Explorer** view, select the **HDexample** folder, and then select the **New File** icon next to the work folder:
+2. In **Explorer** view, select the **`HDexample`** folder, and then select the **New File** icon next to the work folder:
 
    :::image type="content" source="./media/hdinsight-for-vscode/visual-studio-code-new-file.png" alt-text="visual studio code new file icon.":::
 
@@ -126,7 +126,7 @@ You can link a normal cluster by using an [Apache Ambari](https://ambari.apache.
 
 ## Set the default cluster
 
-1. Reopen the **HDexample** folder that was discussed [earlier](#open-a-work-folder), if closed.  
+1. Reopen the **`HDexample`** folder that was discussed [earlier](#open-a-work-folder), if closed.  
 
 2. Select the **HelloWorld.hql** file that was created [earlier](#open-a-work-folder). It opens in the script editor.
 
@@ -142,7 +142,7 @@ You can link a normal cluster by using an [Apache Ambari](https://ambari.apache.
 
 With Spark & Hive Tools for Visual Studio Code, you can submit interactive Hive queries and Hive batch scripts to your clusters.
 
-1. Reopen the **HDexample** folder that was discussed [earlier](#open-a-work-folder), if closed.  
+1. Reopen the **`HDexample`** folder that was discussed [earlier](#open-a-work-folder), if closed.  
 
 2. Select the **HelloWorld.hql** file that was created [earlier](#open-a-work-folder). It opens in the script editor.
 
@@ -175,7 +175,7 @@ Users can perform PySpark interactive in the following ways.
 ### Using the PySpark interactive command in PY file
 Using the PySpark interactive command to submit the queries, follow these steps:
 
-1. Reopen the **HDexample** folder that was discussed [earlier](#open-a-work-folder), if closed.  
+1. Reopen the **`HDexample`** folder that was discussed [earlier](#open-a-work-folder), if closed.  
 
 2. Create a new **HelloWorld.py** file, following the [earlier](#open-a-work-folder) steps.
 
@@ -214,7 +214,7 @@ Using the PySpark interactive command to submit the queries, follow these steps:
 
 7. From the menu bar, navigate to **View** > **Command Palette...** or use the **Shift + Ctrl + P** keyboard shortcut, and enter **Python: Select Interpreter to start Jupyter Server**.
 
-   :::image type="content" source="./media/hdinsight-for-vscode/select-interpreter-to-start-jupyter-server.png" alt-text="select interpreter to start jupyter server.":::
+   :::image type="content" source="./media/hdinsight-for-vscode/select-interpreter-to-start-jupyter-server.png" alt-text="select interpreter to start Jupyter server.":::
 
 8. Select the Python option below.
 
@@ -249,15 +249,15 @@ The tool also supports the **Spark SQL** query:
 
    :::image type="content" source="./media/hdinsight-for-vscode/run-cell.png" alt-text="add #%%.":::
 
-2. Click on **Run Cell**. After a few moments, the Python Interactive results appear in a new tab. Click on PySpark to switch the kernel to PySpark/Synapse PySpark, then, click on **Run Cell** again, and the code will run successfully.
+2. Click on **Run Cell**. After a few moments, the Python Interactive results appear in a new tab. Click on PySpark to switch the kernel to PySpark/Synapse PySpark, then click on **Run Cell** again, and the code will run successfully.
 
    :::image type="content" source="./media/hdinsight-for-vscode/run-cell-get-results.png" alt-text="run cell results.":::
 
 ## Leverage IPYNB support from Python extension
 
-1. You can create a Jupyter Notebook by command from the Command Palette or by creating a new .ipynb file in your workspace. For more information, see [Working with Jupyter Notebooks in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support)
+1. You can create a Jupyter Notebook by command from the Command Palette or by creating a new`.ipynb` file in your workspace. For more information, see [Working with Jupyter Notebooks in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support)
 
-2. Click on **Run cell** button, follow the prompts to **Set the default spark pool** (strongly encourage to set default cluster/pool every time before opening a notebook) and then, **Reload** window.
+2. Click on **Run cell** button, follow the prompts to **set the default spark pool** (we suggest you to set default cluster/pool every time before opening a notebook) and then, **Reload** window.
 
    :::image type="content" source="./media/hdinsight-for-vscode/set-the-default-spark-pool-and-reload.png" alt-text="set the default spark pool and reload.":::
 
@@ -268,12 +268,12 @@ The tool also supports the **Spark SQL** query:
 
 > [!NOTE]
 >
-> [For Synapse PySpark installation error](#known-issues), since its dependency will not be maintained anymore by other team, this will not be maintained anymore as well. If you trying to use Synapse Pyspark interactive, please switch to use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/en-us/) instead. And it's a long term change.
+> [For Synapse PySpark installation error](#known-issues), since its dependency will not be maintained anymore by other team, this will not be maintained anymore as well. If you try to use Synapse Pyspark interactive, please switch to use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/en-us/) instead. And it's a long term change.
 >
 
 ## Submit PySpark batch job
 
-1. Reopen the **HDexample** folder that you discussed [earlier](#open-a-work-folder), if closed.  
+1. Reopen the **`HDexample`** folder that you discussed [earlier](#open-a-work-folder), if closed.  
 
 2. Create a new **BatchFile.py** file by following the [earlier](#open-a-work-folder) steps.
 
@@ -494,7 +494,7 @@ From the menu bar, go to **View** > **Command Palette**, and then enter **Azure:
 
 ### Synapse PySpark installation error.
 
- For Synapse PySpark installation error, since its dependency will not be maintained anymore by other team, it will not be maintained anymore. If you trying to use Synapse Pyspark interactive, please use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/) instead. And it's a long term change.
+ For Synapse PySpark installation error, since its dependency will not be maintained anymore by other team, it will not be maintained anymore. If you try to use Synapse Pyspark interactive, please use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/) instead. And it's a long term change.
 
    :::image type="content" border="true" source="./media/hdinsight-for-vscode/known-issue.png" alt-text="synapse pyspark installation error.":::
 

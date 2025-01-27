@@ -6,13 +6,13 @@ description: Define a self-asserted technical profile in a custom policy in Azur
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/17/2024
 
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer using Azure Active Directory B2C, I want to define a self-asserted technical profile with display, so that I can collect and validate user input.
@@ -176,7 +176,8 @@ The following example demonstrates the use of a self-asserted technical profile 
   <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
 </TechnicalProfile>
 ```
-
+> [!NOTE]
+> When you collect the password claim value in the self-asserted technical profile, that value is only available within the same technical profile or within a validation technical profiles that are referenced by that same self-asserted technical profile. When execution of that self-asserted technical profile completes, and moves to another technical profile, the password's value is lost. Consequently, password claim can only be stored in the orchestration step in which it is collected.
 ### Output claims sign-up or sign-in page
 
 In a combined sign-up and sign-in page, note the following when using a content definition [DataUri](contentdefinitions.md#datauri) element that specifies a `unifiedssp` or `unifiedssd` page type:
@@ -219,6 +220,7 @@ You can also call a REST API technical profile with your business logic, overwri
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 |setting.forgotPasswordLinkOverride <sup>4</sup>| No | A password reset claims exchange to be executed. For more information, see [Self-service password reset](add-password-reset-policy.md). |
 | setting.enableCaptchaChallenge | No | Specifies whether CAPTCHA challenge code should be displayed. Possible values: `true` , or `false` (default). For this setting to work, the [CAPTCHA display control]() must be referenced in the [display claims](#display-claims) of the self-asserted technical profile. CAPTCHA feature is in **public preview**.|
+| setting.showHeading | No | Specifies whether **User Details** heading element should be visible. Possible values: `true` (default), or `false`.|
 
 Notes:
 

@@ -3,7 +3,7 @@ title: 'Troubleshoot network link performance: Azure ExpressRoute'
 description: This page provides a standardized method of testing Azure network link performance.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: troubleshooting
 ms.date: 12/28/2023
 ms.author: duau
@@ -109,7 +109,7 @@ There are three basic steps to use this toolkit for Performance testing.
 If the performance test isn't giving you expected results, figuring out why should be a progressive step-by-step process. Given the number of components in the path, a systematic approach provides a faster path to resolution than jumping around. By troubleshooting systematically, you can prevent doing unnecessary testing multiple times.
 
 >[!NOTE]
->The scenario here is a performance issue, not a connectivity issue. To isolate the connectivity problem to Azure network, follow [Verifying ExpressRotue connectivity](expressroute-troubleshooting-expressroute-overview.md) article.
+>The scenario here is a performance issue, not a connectivity issue. To isolate the connectivity problem to Azure network, follow [Verifying ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md) article.
 >
 
 First, challenge your assumptions. Is your expectation reasonable? For instance, if you have a 1-Gbps ExpressRoute circuit and 100 ms of latency. It's not reasonable to expect the full 1 Gbps of traffic given the performance characteristics of TCP over high latency links. See the [References section](#references) for more on performance assumptions.

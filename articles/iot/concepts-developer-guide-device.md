@@ -1,11 +1,11 @@
 ---
 title: Device developer guide - IoT Plug and Play | Microsoft Docs
 description: "Description of IoT Plug and Play for device developers. Includes examples in the following languages: C, C#, Java, JavaScript, Python, and Embedded C."
-author: timlt
-ms.author: timlt
-ms.date: 1/23/2024
+author: dominicbetts
+ms.author: dobett
+ms.date: 1/10/2025
 ms.topic: conceptual
-ms.service: iot
+ms.service: azure-iot
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-twenty-seven
 
@@ -72,6 +72,6 @@ Now that you've learned about IoT Plug and Play device development, here are som
 
 - [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md)
 - [C device SDK](https://github.com/Azure/azure-iot-sdk-c/)
-- [IoT REST API](/rest/api/iothub/device)
+- [IoT REST API](/rest/api/iothub/service/devices/get-devices)
 - [Understand components in IoT Plug and Play models](concepts-modeling-guide.md)
 - [IoT Plug and Play service developer guide](concepts-developer-guide-service.md)

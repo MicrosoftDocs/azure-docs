@@ -6,14 +6,14 @@ description: Learn how to configure a sign-up and sign-in flow for a social acco
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 01/11/2024
+ms.date: 10/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer, I want to set up a sign-up and sign-in flow with a social account using Azure Active Directory B2C custom policy, so that users can sign in to my application using their social media credentials.
@@ -32,7 +32,7 @@ For local accounts, a user account is uniquely identified by using the `objectId
 
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
-- [Register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant). For the Redirect URI, use https://jwt.ms.  
+- [Register a web application](tutorial-register-applications.md).  
 
 - You must have [Visual Studio Code (VS Code)](https://code.visualstudio.com/) installed in your computer. 
 
@@ -225,7 +225,7 @@ Notice the claims transformations we defined in [step 3.2](#step-32---define-cla
 
 Just like in sign-in with a local account, you need to configure the [Microsoft Entra Technical Profiles](active-directory-technical-profile.md), which you use to connect to Microsoft Entra ID storage, to store or read a user social account. 
 
-1. In the `ContosoCustomPolicy.XML` file, locate the `AAD-UserRead` technical profile and then add a new technical profile by using the following code: 
+1. In the `ContosoCustomPolicy.XML` file, locate the `AAD-UserRead` technical profile and then add a new technical profile below it by using the following code: 
 
     ```xml
         <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
@@ -517,6 +517,7 @@ Use the following steps to add a combined local and social account:
     ```xml
         <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localIdpAuthentication" AlwaysUseDefaultValue="true" />
     ```
+   Make sure you also add the `authenticationSource` claim in the output claims collection of the `UserSignInCollector` self-asserted technical profile.
 
 1. In the `UserJourneys` section, add a new user journey, `LocalAndSocialSignInAndSignUp` by using the following code: 
 

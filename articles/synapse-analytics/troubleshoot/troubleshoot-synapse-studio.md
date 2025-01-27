@@ -2,17 +2,38 @@
 title: Troubleshoot Synapse Studio
 description: Troubleshoot Synapse Studio
 author: JeneZhang
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: troubleshooting
 ms.date: 10/01/2023
 ms.author: jingzh
-ms.reviewer: sngun, wiassaf
+ms.reviewer: whhender, wiassaf
 ---
 
 # Synapse Studio troubleshooting
 
 This trouble-shooting guide provides instruction on what information to provide when opening a support ticket on network connectivity issues. With the proper information, we can possibly resolve the issue more quickly.
+
+## Publish fails when session remains idle
+
+### Symptom
+ 
+In some cases, if your browser session has been inactive for an extended period, your attempt to publish might fail due to a message about token expiration:
+
+`ERROR: Unauthorized Inner error code: ExpiredAuthenticationToken Message: Token Authentication failed with SecurityTokenExpiredException - MISE12034: AuthenticationTicketProvider Name:AuthenticationTicketProvider, GetVersion:1.9.2.0.;`
+
+### Root cause and mitigation
+
+Handling token expiration in Synapse Studio requires careful consideration, especially when working in a live workspace without Git integration. Here’s how to manage your session to avoid losing work:
+- **With Git integration:**
+   - Regularly commit your changes. This ensures that even if you need to refresh your browser to renew your session, your work is safely stored.
+   - After committing, you can refresh your browser to reset the session and then continue to publish your changes.
+- **Without Git integration:**
+   - Before taking breaks or periods of inactivity, attempt to publish your changes. It is critical to remember that if your session has been idle for a long time, you might encounter a token expiration error when you try to publish upon returning.
+   - If you're concerned about the risk of losing unsaved changes due to a required refresh, consider structuring your work periods to include frequent save and publish actions and avoid leaving the session idle for extended periods.
+
+> [!IMPORTANT]
+> In a live workspace without Git, if you find that your session has been idle and you face a token expiration, you face a dilemma: refresh the page and risk losing unsaved changes, or attempt to publish if the token hasn't expired yet. To minimize this risk, try to keep active sessions or save frequently, depending on the nature of your work and the environment setup.
 
 ## Serverless SQL pool service connectivity issue
 

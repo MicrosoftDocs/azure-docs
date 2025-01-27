@@ -2,15 +2,16 @@
 title: Create protection policy for resources
 description: In this article, you'll learn how to create backup and replication policies to protect your resources.
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 11/19/2024
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+  - ignite-2024
+author: jyothisuri
+ms.author: jsuri
 ---
 
-# Create backup and replication policies for your resources (preview)
+# Create backup and replication policies for your resources
 
 This article describes how to create a backup and replication policy that can be used for backups with Azure Backup and replication with Azure Site Recovery. 
 
@@ -20,16 +21,16 @@ Replication policy defines the settings for recovery point retention history and
 
 ## Prerequisites
 
-- [Review](../backup/guidance-best-practices.md#backup-policy-considerations) the guidelines for creating a backup policy. 
+Before you create a backup policy, [review](../backup/guidance-best-practices.md#backup-policy-considerations) the guidelines for creating a backup policy. 
 
 ## Create policy
 
-Follow these steps to create a policy: 
+To create a policy, follow these steps:
 
-1. In the Azure Business Continuity center, select **Protection Policies** under **Manage**.
+1. On **Business Continuity Center**, go to **Manage** > **Protection Policies**.
     :::image type="content" source="./media/backup-protection-policy/protection-policies.png" alt-text="Screenshot showing **Protection Policies** page." lightbox="./media/backup-protection-policy/protection-policies.png":::
 
-1. On the **Protection polices** pane, select **+Create policy**.  
+1. On **Protection polices**, select **+Create policy**.  
     :::image type="content" source="./media/backup-protection-policy/create-policy.png" alt-text="Screenshot showing **+Create policy** option." lightbox="./media/backup-protection-policy/create-policy.png":::
 
 1. Select the type of policy you want to create. 

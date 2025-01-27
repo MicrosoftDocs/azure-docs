@@ -1,9 +1,9 @@
 ---
 title: Bicep safe-dereference operator
 description: Describes Bicep safe-dereference operator.
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 07/11/2024
 ---
 
 # Bicep safe-dereference operator
@@ -19,6 +19,7 @@ A safe-dereference operator applies a member access, `.?<property>`, or element 
 
 - If `a` evaluates to `null`, the result of `a.?x` or `a[?x]` is `null`.
 - If `a` is an object that doesn't have an `x` property, then `a.?x` is `null`.
+- If `a` is an object that doesn't have an element at index `x`, then `a[?x]` is `null`
 - If `a` is an array whose length is less than or equal to `x`, then `a[?x]` is `null`.
 - If `a` is non-null and has a property named `x`, the result of `a.?x` is the same as the result of `a.x`.
 - If `a` is non-null and has an element at index `x`, the result of `a[?x]` is the same as the result of `a[x]`
@@ -30,7 +31,7 @@ param storageAccountSettings array = []
 param storageCount int
 param location string = resourceGroup().location
 
-resource storage 'Microsoft.Storage/storageAccounts@2022-09-01' = [for i in range(0, storageCount): {
+resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = [for i in range(0, storageCount): {
   name: storageAccountSettings[?i].?name ?? 'defaultname'
   location: storageAccountSettings[?i].?location ?? location
   kind: storageAccountSettings[?i].?kind ?? 'StorageV2'

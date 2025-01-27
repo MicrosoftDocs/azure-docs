@@ -6,7 +6,7 @@ ms.reviewer: kelliep
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 01/09/2024
+ms.date: 01/22/2025
 ms.author: banders 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -205,7 +205,7 @@ Delete the linked partner ID
 az managementpartner delete --partner-id 12345
 ```
 
-### Next steps
+## Related content
 
 - Learn more about the [Low Code Application Development advanced specialization](https://partner.microsoft.com/membership/advanced-specialization/low-code-application-development) 
 - Read the [Low Code Application Development advanced specialization learning path](https://partner.microsoft.com/training/assets/collection/low-code-application-development-advanced-specialization#/)

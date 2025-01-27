@@ -2,7 +2,7 @@
 title: Physical security of Azure datacenters - Microsoft Azure | Microsoft Docs
 description: The article describes what Microsoft does to secure the Azure datacenters, including physical infrastructure, security, and compliance offerings.
 services: security
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
 
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -10,7 +10,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 03/27/2024
-ms.author: terrylan
+ms.author: mbaldwin
 
 ---
 
@@ -22,7 +22,7 @@ Azure is composed of a [globally distributed datacenter infrastructure](https://
 
 The infrastructure is designed to bring applications closer to users around the world, preserving data residency, and offering comprehensive compliance and resiliency options for customers. Azure has over 60 regions worldwide, and is available in 140 countries/regions.
 
-A region is a set of datacenters that is interconnected via a massive and resilient network. The network includes content distribution, load balancing, redundancy, and [data-link layer encryption by default](encryption-overview.md#encryption-of-data-in-transit) for all Azure traffic within a region or travelling between regions. With more global regions than any other cloud provider, Azure gives you the flexibility to deploy applications where you need them.
+A region is a set of datacenters that is interconnected via a massive and resilient network. The network includes content distribution, load balancing, redundancy, and [data-link layer encryption by default](encryption-overview.md#encryption-of-data-in-transit) for all Azure traffic within a region or traveling between regions. With more global regions than any other cloud provider, Azure gives you the flexibility to deploy applications where you need them.
 
 Azure regions are organized into geographies. An Azure geography ensures that data residency, sovereignty, compliance, and resiliency requirements are honored within geographical boundaries.
 

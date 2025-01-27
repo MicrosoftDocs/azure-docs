@@ -3,14 +3,16 @@ title: Troubleshoot lab VM access
 titleSuffix: Azure Lab Services
 description: Learn the different approaches for troubleshooting lab VMs in Azure Lab Services. Understand how each approach affects user data.
 services: lab-services
-ms.service: lab-services
-author: ntrogh
-ms.author: nicktrog
+ms.service: azure-lab-services
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: troubleshooting
 ms.date: 03/15/2024
 ---
 
 # Troubleshoot accessing lab VMs in Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 In this article, you learn about the different approaches for troubleshooting lab VMs. Understand how each approach affects your lab environment and user data on the lab VM. There can be different reasons why you're unable to access to a lab VM in Azure Lab Services, or why you're stuck to complete a course. For example, the underlying VM is experiencing issues, your organization's firewall settings changed, or a software change in the lab VM operating system.
 
@@ -107,7 +109,6 @@ Learn more about how to [reimage a lab VM in the Azure Lab Services website](./h
 When you reimage a lab VM, all user data on the VM is lost. To avoid losing this data, you have to store the user data outside of the lab VM. You have different options to configure the template VM:
 
 - [Use OneDrive to store user data](./how-to-prepare-windows-template.md#install-and-configure-onedrive).
-- [Attach external file storage](./how-to-attach-external-storage.md), such as Azure Files or Azure NetApp Files.
 
 ## Create multiple labs for a course
 
@@ -122,5 +123,4 @@ Learn how to [set up a new lab](./tutorial-setup-lab.md#create-a-lab) and how to
 ## Next steps
 
 - As a lab user, learn how to [reimage or redeploy lab VMs](./how-to-reset-and-redeploy-vm.md).
-- As an admin or educator, [attach external file storage to a lab](./how-to-attach-external-storage.md).
 - As a lab creator, [use OneDrive to store user data](./how-to-prepare-windows-template.md#install-and-configure-onedrive).

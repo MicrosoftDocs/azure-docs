@@ -1,13 +1,13 @@
 ---
 title: Use Azure Cache for Redis with Rust
 description: In this quickstart, you learn how to interact with Azure Cache for Redis using Rust.
-author: flang-msft
-ms.author: franlanglois
-ms.service: cache
+
+
+
 ms.devlang: rust
 ms.topic: quickstart
 ms.date: 01/08/2021
-ms.custom: mode-other
+ms.custom: mode-other, ignite-2024
 #Customer intent: As a Rust developer new to Azure Cache for Redis, I want to learn how to use it with Azure Cache for Redis.
 ---
 # Quickstart: Use Azure Cache for Redis with Rust
@@ -31,7 +31,7 @@ If you want to skip straight to the code, see the [Rust quickstart](https://gith
 - [Git](https://git-scm.com/downloads)
 
 ## Create an Azure Cache for Redis instance
-[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
 [!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
 
@@ -332,21 +332,7 @@ The application accepts connectivity and credentials in the form of environment 
     }
     ```
 
-## Clean up resources
-
-You can delete the resource group and resources when you're finished with them. By deleting what you created in this quickstart, you avoid being charged for them.
-
-> [!IMPORTANT]
-> Deleting a resource group is irreversible, and the resource group and all the resources in it are permanently deleted. If you created your Azure Cache for Redis instance in an existing resource group that you want to keep, you can delete just the cache by selecting **Delete** from the cache **Overview** page. 
-
-To delete the resource group and its Redis Cache for Azure instance:
-
-1. From the [Azure portal](https://portal.azure.com), search for and select **Resource groups**.
-1. In the **Filter by name** text box, enter the name of the resource group that contains your cache instance. Then, select it from the search results. 
-1. On your resource group page, select **Delete resource group**.
-1. Type the resource group name, and then select **Delete**.
-   
-   ![Delete your resource group for Azure Cache for Redis](./media/cache-python-get-started/delete-your-resource-group-for-azure-cache-for-redis.png)
+[!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
 ## Next steps
 

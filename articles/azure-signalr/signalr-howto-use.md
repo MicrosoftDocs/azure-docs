@@ -2,7 +2,7 @@
 title: Use Azure SignalR Service
 description: Learn how to use Azure SignalR Service in your app server
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ms.date: 04/18/2024
 ms.author: lianwei 
@@ -10,8 +10,9 @@ ms.author: lianwei
 
 # Use Azure SignalR Service
 
-
 This article shows you how to use SDK in your app server side to connect to SignalR Service when you are using SignalR in your app server.
+
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
 
 ## Create an Azure SignalR Service instance
 
@@ -46,6 +47,8 @@ public void Configure(IApplicationBuilder app)
 ```
 
 ### Configure connection string
+
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
 There are two approaches to configure SignalR Service's connection string in your application.
 
@@ -145,7 +148,7 @@ You can increase this value to avoid client disconnect.
 #### `MaxPollIntervalInSeconds`
 
 - Default value is `5`
-- This option defines the max poll interval allowed for `LongPolling` connections in Azure SignalR Service. If the next poll request doesn't come in within `MaxPollIntervalInSeconds`, Azure SignalR Service cleans up the client connection. Note that Azure SignalR Service also cleans up connections when cached waiting to write buffer size is greater than `1Mb` to ensure service performance.
+- This option defines the max poll interval allowed for `LongPolling` connections in Azure SignalR Service. If the next poll request doesn't come in within `MaxPollIntervalInSeconds`, Azure SignalR Service cleans up the client connection.
 - The value is limited to `[1, 300]`.
 
 #### `TransportTypeDetector`
@@ -153,6 +156,14 @@ You can increase this value to avoid client disconnect.
 - Default value: All transports are enabled.
 - This option defines a function to customize the transports that clients can use to send HTTP requests.
 - Use this options instead of [`HttpConnectionDispatcherOptions.Transports`](/aspnet/core/signalr/configuration?&tabs=dotnet#advanced-http-configuration-options) to configure transports. 
+
+#### `AllowStatefulReconnects`
+
+- Default value is `null`
+- This option enables or disables stateful reconnects for all hubs.
+- If `null`, SDK will read [hub settings](/dotnet/api/microsoft.aspnetcore.http.connections.httpconnectiondispatcheroptions.allowstatefulreconnects).
+- If `true`, Azure SignalR Service will enable stateful reconnects in all of declared hubs. And clients need [enable stateful reconnects in client side](/aspnet/core/signalr/configuration).
+- If `false`, Azure SignalR Service will disable stateful reconnects in all of declared hubs.
 
 ### Sample
 
@@ -265,7 +276,7 @@ You can increase this value to avoid client disconnect.
 #### `MaxPollIntervalInSeconds`
 
 - Default value is `5`
-- This option defines the max idle time allowed for inactive connections in Azure SignalR Service. In ASP.NET SignalR, it applies to long polling transport type or reconnection. If the next `/reconnect` or `/poll` request doesn't come in within `MaxPollIntervalInSeconds`, Azure SignalR Service cleans up the client connection. Note that Azure SignalR Service also cleans up connections when cached waiting to write buffer size is greater than `1Mb` to ensure service performance.
+- This option defines the max idle time allowed for inactive connections in Azure SignalR Service. In ASP.NET SignalR, it applies to long polling transport type or reconnection. If the next `/reconnect` or `/poll` request doesn't come in within `MaxPollIntervalInSeconds`, Azure SignalR Service cleans up the client connection.
 - The value is limited to `[1, 300]`.
 
 ### Sample

@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot problems with Bicep installation
 description: How to resolve errors and problems with your Bicep installation.
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.custom: devx-track-bicep, devx-track-dotnet
 ms.date: 03/20/2024
 ---
@@ -9,61 +9,6 @@ ms.date: 03/20/2024
 # Troubleshoot Bicep installation
 
 This article describes how to resolve potential errors in your Bicep installation.
-
-## .NET runtime error
-
-When installing the Bicep extension for Visual Studio Code, you may run into the following error messages:
-
-```error
-Failed to install .NET runtime v5.0
-```
-
-```error
-Failed to download .NET 5.0.x ....... Error!
-```
-
-> [!WARNING]
-> This is a last resort solution that may cause problems when updating versions.
-
-To solve the problem, you can manually install .NET from the [.NET website](https://aka.ms/dotnet-core-download), and then configure Visual Studio Code to reuse an existing installation of .NET with the following settings:
-
-**Windows**
-
-```json
-"dotnetAcquisitionExtension.existingDotnetPath": [
-  {
-    "extensionId": "ms-azuretools.vscode-bicep",
-    "path": "C:\\Program Files\\dotnet\\dotnet.exe"
-  }
-]
-
-```
-
-**macOS**
-
-If you need an **x64** installation, use:
-
-```json
-"dotnetAcquisitionExtension.existingDotnetPath": [
-  {
-    "extensionId": "ms-azuretools.vscode-bicep",
-    "path": "/usr/local/share/dotnet/x64/dotnet"
-  }
-]
-```
-
-For other **macOS** installations, use:
-
-```json
-"dotnetAcquisitionExtension.existingDotnetPath": [
-  {
-    "extensionId": "ms-azuretools.vscode-bicep",
-    "path": "/usr/local/share/dotnet/dotnet"
-  }
-]
-```
-
-See [User and Workspace Settings](https://code.visualstudio.com/docs/getstarted/settings) for configuring Visual Studio Code settings.
 
 ## Visual Studio Code error
 
@@ -77,7 +22,7 @@ From VS Code, open the **Output** view in the pane at the bottom of the screen, 
 
   :::image type="content" source="./media/installation-troubleshoot/visual-studio-code-output-pane-bicep.png" alt-text="Visual Studio Code output pane":::
 
-If you see the following output in the pane, and you're using Bicep CLI **version 0.4.1124** or later, check whether you have added the `dotnetAcquisitionExtension.existingDotnetPath` configuration option to VS Code. See [.NET runtime error](#net-runtime-error). If this configuration option is present, remove it and restart VS Code.
+If you see the following output in the pane, check whether you have added the `dotnetAcquisitionExtension.existingDotnetPath` setting to VS Code. If this setting is present, remove it and restart VS Code. See [User and Workspace Settings](https://code.visualstudio.com/docs/getstarted/settings) for configuring Visual Studio Code settings.
 
   ```error
   It was not possible to find any compatible framework version.

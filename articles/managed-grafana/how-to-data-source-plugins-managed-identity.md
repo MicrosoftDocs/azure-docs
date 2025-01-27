@@ -3,9 +3,9 @@ title: How to manage data sources for Azure Managed Grafana
 description: In this how-to guide, discover how you can add, configure and remove data sources for Azure Managed Grafana.
 author: maud-lv 
 ms.author: malev 
-ms.service: managed-grafana 
+ms.service: azure-managed-grafana
 ms.topic: how-to
-ms.date: 12/08/2023
+ms.date: 12/18/2024
 ---
 
 # How to manage data sources in Azure Managed Grafana
@@ -53,7 +53,7 @@ Azure Managed Grafana supports many popular data sources. The table below lists 
 Within the Standard service tier, users who have subscribed to the Grafana Enterprise option can also access the following data sources.
 
 * [AppDynamics](https://grafana.com/grafana/plugins/dlopes7-appdynamics-datasource)
-* [Azure Devops](https://grafana.com/grafana/plugins/grafana-azuredevops-datasource)
+* [Azure DevOps](https://grafana.com/grafana/plugins/grafana-azuredevops-datasource)
 * [Databricks](https://grafana.com/grafana/plugins/grafana-databricks-datasource)
 * [DataDog](https://grafana.com/grafana/plugins/grafana-datadog-datasource)
 * [Dynatrace](https://grafana.com/grafana/plugins/grafana-dynatrace-datasource)
@@ -86,13 +86,12 @@ To add a data source to Azure Managed Grafana, follow the steps below.
 
 ### [Portal](#tab/azure-portal)
 
-1. [Core Grafana plugins](https://grafana.com/docs/grafana/latest/datasources/#built-in-core-data-sources) are installed in your workspace by default. If you want to use another type of data source, you first need to install its plugin. To install a new data source plugin, follow the instructions available at [Add a plugin](how-to-manage-plugins.md#add-a-plugin).
+1. [Core Grafana plugins](https://grafana.com/docs/grafana/latest/datasources/#built-in-core-data-sources) are installed in your workspace by default. If you want to use another type of data source, you first need to install its plugin by following the instructions available at [Add a plugin](how-to-manage-plugins.md#add-a-plugin).
 1. Add the data source to your instance.
 
    1. Open your Azure Managed Grafana workspace in the Azure portal and go to **Overview** > **Endpoint** to open the Grafana UI.
-   1. In the Grafana portal, deploy the menu on the left and select **Connections** > **Data sources** > **Add new data source**.
-   1. Select a data source from the list. The data source is added to your instance.
-   1. Fill out the required fields and select **Save & test** to update the data source configuration and make sure it works.
+   1. In the Grafana UI, deploy the menu on the left and select **Connections** > **Data sources** > **Add new data source**.
+   1. Select a data source from the list, then fill out the required fields and select **Save & test** to update the data source configuration and test it.
 
    :::image type="content" source="media/data-sources/add-data-source.png" alt-text="Screenshot of the Add data source page in Grafana.":::
 
@@ -140,12 +139,8 @@ The Azure Monitor data source is automatically added to all new Managed Grafana 
 
    :::image type="content" source="media/data-sources/configuration.png" alt-text="Screenshot of the Add data sources page.":::
 
-1. Azure Monitor is listed as a built-in data source for your Managed Grafana instance. Select **Azure Monitor**.
-1. In the **Settings** tab, authenticate through **Managed Identity** and select your subscription from the dropdown list or enter your **App Registration** details
-
-   :::image type="content" source="media/data-sources/configure-Azure-Monitor.png" alt-text="Screenshot of the Azure Monitor page in data sources.":::
-
-Authentication and authorization are made through the provided managed identity. Using managed identity, lets you assign permissions for your Managed Grafana instance to access Azure Monitor data without having to manually manage service principals in Microsoft Entra ID.
+1. Azure Monitor is listed as a built-in data source for your Azure Managed Grafana instance. Select **Azure Monitor**.
+1. In the **Settings** tab, authenticate through **Managed Identity** and select your subscription from the dropdown list, or alternatively enter your **App Registration** details. When you select **Managed identity**, the authentication and authorization are made through the system-assigned or the user-assigned managed identity you [configured in your Azure Managed Grafana workspace](how-to-authentication-permissions.md). Using a managed identity lets you assign permissions for your Azure Managed Grafana instance to access Azure Monitor data without having to manually manage service principals in Microsoft Entra ID.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -186,9 +181,6 @@ az grafana data-source update --data-source 'Azure Monitor' --name <instance-nam
 ```
 
 ---
-
-> [!NOTE]
-> User-assigned managed identity isn't currently supported.
 
 ### Azure Data Explorer
 

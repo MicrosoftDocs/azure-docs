@@ -1,12 +1,12 @@
 ---
 title: MedTech service and Azure Machine Learning Service - Azure Health Data Services
 description: Learn how to use the MedTech service and the Azure Machine Learning Service
-author: msjasteppe
-ms.service: healthcare-apis
-ms.subservice: iomt
+author: chachachachami
+ms.service: azure-health-data-services
+ms.subservice: medtech-service
 ms.topic: conceptual
 ms.date: 07/21/2023
-ms.author: jasteppe
+ms.author: chrupa
 ---
 
 # MedTech service and Azure Machine Learning Service

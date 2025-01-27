@@ -2,12 +2,18 @@
 title: Logz.io overview
 description: Learn about Azure integration using Logz.io in Azure Marketplace.
 ms.topic: conceptual
-ms.date: 10/25/2021
-author: flang-msft
-ms.author: franlanglois
+ms.date: 01/21/2025
+
+
 ---
 
 # What is Logz.io integration with Azure?
+
+[!INCLUDE [what-is](../includes/what-is.md)]
+
+Microsoft and Logz.io developed this service and manage it together.
+
+You can find Logz.io in the [Azure portal](https://portal.azure.com/) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/).
 
 Logz.io's Cloud-Native Observability Platform centralizes log, metric, and tracing analytics in one place, so you can monitor the health and performance of your Azure environment. You manage your solution through the Azure portal.
 
@@ -26,7 +32,12 @@ The following key capabilities are provided by the Azure Logz.io integration:
 - **Management experience** - Provides a single location to monitor how Azure services shipping logs are sent to Logz.io.
 - **Logz.io Agent Deployment** - Set up Logz.io agents on virtual machine (VM) hosts with a single step.
 
+## Subscribe to Logz.io
+
+[!INCLUDE [subscribe](../includes/subscribe.md)] *Logz.io*.
+
+[!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
+
 ## Next steps
 
-- To create a Logz.io integration, see [Quickstart: Create a Logz.io resource in Azure portal](create.md).
-- Single sign-on is optional. For more information, see [Set up Logz.io single sign-on](setup-sso.md).
+- [Quickstart: Create a Logz.io resource in Azure portal](create.md)

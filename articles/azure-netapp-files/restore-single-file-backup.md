@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 02/17/2023
+ms.date: 01/277/2025
 ms.author: anfdocs
 ---
 # Restore individual files with single-file restore from backups
@@ -21,17 +21,17 @@ To restore individual files no longer available in an online snapshot [single-fi
 
 ## Considerations
 
-* If no destination path is provided during the restore operation (in which case you still need to enter a slash (/) in the Destination path), the given file(s) is restored in the original file location. If the file already exists, it will be overwritten.
-    * If the file being restored has a multi-level directory depth (for example, `/dir1/dir2/file.txt`), all of the parent directories must be present in the active file system for the restore operation to succeed. The restore cannot create new directories. 
+* If no destination path is provided during the restore operation (in which case you still need to enter a slash (/) in the Destination path), the file is restored in the original file location. If the file already exists at that location, it's overwritten by the restore operation. 
+    * If the file being restored has a multi-level directory depth (for example, `/dir1/dir2/file.txt`), all of the parent directories must be present in the active file system for the restore operation to succeed. The restore operation can't create new directories. 
 * If the destination path provided is invalid (non-existent in the Active file system), the operation will fail.
-* A maximum of eight (8) files can be restored to a volume in a single operation. You must wait for a restore operation to complete before initiating another operation to restore more files to that volume.
-* The file list field has a character limit of 1024 characters. 
+* A maximum of eight files can be restored to a volume in a single operation. You must wait for a restore operation to complete before initiating another operation to restore more files to that volume.
+* The file list field has a character limit of 1,024 characters. 
 * The target volume for the restore operation must have enough logical free space available to accommodate all the files being restored.
-* The restore operation will not work if a directory or a soft link path is entered in the file list field.
+* The restore operation doesn't work if a directory or a soft link path is entered in the file list field.
 
 ## Register the feature
 
-The single file backup restore feature is currently in preview. If you are using this feature for the first time, you need to register the feature first.
+Before using single file backup restore for the first time, you need to register the feature first.
 
 1. Register the feature: 
 

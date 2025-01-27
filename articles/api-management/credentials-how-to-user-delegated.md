@@ -3,7 +3,7 @@ title: Manage connections for end users - Azure API Management | Microsoft Docs
 description: Learn how to configure a connection with user-delegated permissions to a backend OAuth 2.0 API using the Azure API Management credential manager. 
 services: api-management
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 11/14/2023
@@ -41,7 +41,7 @@ In this scenario, you configure a managed [connection](credentials-overview.md) 
 - A running API Management instance. If you need to, [create an Azure API Management instance](get-started-create-service-instance.md).
 - A backend OAuth 2.0 API that you want to access on behalf of the user or group.
 
-[!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
+[!INCLUDE [azure-powershell-requirements-no-header](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
 ## Step 1: Provision Azure API Management Data Plane service principal
 

@@ -4,10 +4,16 @@ description: This article tells how to manage inventory collection from VMs.
 services: automation
 ms.subservice: change-inventory-management
 keywords: inventory, automation, change, tracking
-ms.date: 10/14/2020
-ms.topic: conceptual
+ms.date: 09/19/2024
+ms.topic: how-to
+ms.service: azure-automation
 ---
 # Manage inventory collection from VMs
+
+[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
+
+> [!NOTE]
+> Change Tracking & Inventory with Log Analytics onboarding via Azure portal will not be allowed since the service has retired on **31st August 2024**. We recommend that you configure new version of Change Tracking & Inventory with AMA. Your existing VMs on Change Tracking & Inventory with legacy agent will continue to work till **1st February, 2025**. For more information, see [Enable Change Tracking and Inventory using Azure Monitoring Agent](enable-vms-monitoring-agent.md).
 
 You can enable inventory tracking for an Azure VM from the resource page of the machine. You can collect and view the following inventory information on your computers:
 
@@ -20,7 +26,7 @@ Azure Automation Change Tracking and Inventory provides a browser-based user int
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
 
-This article assumes that you have a VM to enable with Change Tracking and Inventory. If you don't have an Azure VM, you can [create a VM](../../virtual-machines/windows/quick-create-portal.md).
+This article assumes that you have a VM to enable with Change Tracking and Inventory. If you don't have an Azure VM, you can [create a VM](/azure/virtual-machines/windows/quick-create-portal).
 
 ## Sign in to the Azure portal
 
@@ -88,7 +94,7 @@ The following sections provide information about each property that can be confi
 
 Inventory allows you to create and view machine groups in Azure Monitor logs. Machine groups are collections of machines defined by a query in Azure Monitor logs.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-log-analytics-rebrand.md)]
 
 To view your machine groups select the **Machine groups** tab on the Inventory page.
 

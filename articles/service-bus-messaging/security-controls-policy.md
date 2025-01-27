@@ -5,7 +5,6 @@ ms.date: 02/06/2024
 ms.topic: sample
 author: spelluru
 ms.author: spelluru
-ms.service: service-bus-messaging
 ms.custom: subject-policy-compliancecontrols
 ---
 # Azure Policy Regulatory Compliance controls for Azure Service Bus Messaging

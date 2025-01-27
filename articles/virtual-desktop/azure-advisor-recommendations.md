@@ -1,10 +1,11 @@
 ---
 title: Azure Advisor Azure Virtual Desktop Walkthrough - Azure
 description: How to resolve Azure Advisor recommendations for Azure Virtual Desktop.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: conceptual
 ms.date: 03/31/2021
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # How to resolve Azure Advisor recommendations
 
@@ -68,4 +69,4 @@ To solve this recommendation, make sure you unblock all the URLs on the [Safe UR
 
 ## Next steps
 
-If you're looking for more in-depth guides about how to resolve common issues, check out [Troubleshooting overview, feedback, and support for Azure Virtual Desktop](troubleshoot-set-up-overview.md).
+If you're looking for more in-depth guides about how to resolve common issues, check out [Troubleshooting overview, feedback, and support for Azure Virtual Desktop](/troubleshoot/azure/virtual-desktop/troubleshoot-set-up-overview).

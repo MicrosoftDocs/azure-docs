@@ -1,17 +1,17 @@
 ---
-title: Monitoring overview
-description: Start here to learn about monitoring for Azure Logic Apps.
-ms.date: 03/19/2024
-ms.custom: horz-monitor
+title: Monitor logic app workflows
+description: Start here to learn about monitoring workflows in Azure Logic Apps.
+ms.service: azure-logic-apps
 ms.topic: conceptual
-ms.service: logic-apps
+ms.custom: horz-monitor
+ms.date: 07/11/2024
 ---
 
-# Overview: Monitor Azure Logic Apps
+# Monitor workflows in Azure Logic Apps
 
 [!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
-For a detailed guide describing how to monitor Azure Logic Apps workflow run status, review trigger and workflow run history, and set up alerts, see [Monitor workflows](monitor-logic-apps.md).
+For a detailed guide describing how to check Azure Logic Apps workflow status, view workflow run history, and set up alerts, see [Check workflow status, view workflow run history, and set up alerts](monitor-logic-apps.md).
 
 [!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
 
@@ -39,7 +39,7 @@ For more information about the resource types for Azure Logic Apps, see [Azure L
 
 - To learn how to set up diagnostic logging and monitor logic apps in Microsoft Defender for Cloud, see [Set up logging to monitor logic apps in Microsoft Defender for Cloud](healthy-unhealthy-resource.md).
 
-- For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure Logic Apps, see [Azure Logic Apps monitoring data reference](monitor-logic-apps-reference.md#resource-logs).
+- For the available resource log categories, their associated Log Analytics tables, and the log's schemas for Azure Logic Apps, see [Azure Logic Apps monitoring data reference](monitor-logic-apps-reference.md#resource-logs).
 
 ## Monitoring for B2B workflows
 

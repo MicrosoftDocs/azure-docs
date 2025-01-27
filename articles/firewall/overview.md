@@ -3,7 +3,7 @@ title: What is Azure Firewall?
 description: Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources.
 author: vhorne
 ms.author: victorh
-ms.service: firewall
+ms.service: azure-firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, references_regions
@@ -13,7 +13,7 @@ ms.date: 02/26/2024
 
 # What is Azure Firewall?
 
-Azure Firewall is a cloud-native and intelligent network firewall security service that provides the best of breed threat protection for your cloud workloads running in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. It provides both east-west and north-south traffic inspection. To learn what's east-west and north-south traffic, see [East-west and north-south traffic](/azure/architecture/framework/security/design-network-flow#east-west-and-north-south-traffic).
+Azure Firewall is a cloud-native and intelligent network firewall security service that provides the best of breed threat protection for your cloud workloads running in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. It provides both east-west and north-south traffic inspection. To learn what's east-west and north-south traffic, see [East-west and north-south traffic](/azure/well-architected/security/networking#scope-of-influence).
 
 Azure Firewall is offered in three SKUs: Standard, Premium, and Basic.
 
@@ -75,7 +75,7 @@ For the supported regions for Azure Firewall, see [Azure products available by r
 
 ## What's new
 
-To learn what's new with Azure Firewall, see [Azure updates](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Firewall).
+To learn what's new with Azure Firewall, see [Azure updates](https://azure.microsoft.com/updates?filters=%5B%22Azure+Firewall%22%5D).
 
 
 ## Known issues

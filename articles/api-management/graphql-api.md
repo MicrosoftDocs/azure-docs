@@ -1,7 +1,7 @@
 ---
 title: Add a GraphQL API to Azure API Management | Microsoft Docs
 description: Learn how to add an existing GraphQL service as an API in Azure API Management using the Azure portal, Azure CLI, or Azure PowerShell. Manage the API and enable queries to pass through to the GraphQL endpoint.
-ms.service: api-management
+ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
@@ -31,7 +31,7 @@ If you want to import a GraphQL schema and set up field resolvers using REST or 
 
 
 - Azure PowerShell
-    [!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
+    [!INCLUDE [azure-powershell-requirements-no-header](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
 ## Add a GraphQL API
 
@@ -128,7 +128,7 @@ If your GraphQL  API supports a subscription, you can test it in the test consol
     :::image type="content" source="media/graphql-api/test-graphql-subscription.png" alt-text="Screenshot of a subscription query in the query editor.":::
 1. Review connection details in the **Subscription** pane. 
 
-    :::image type="content" source="media/graphql-api/graphql-websocket-connection.png" alt-text="Screenshot of Websocket connection in the portal.":::
+    :::image type="content" source="media/graphql-api/graphql-websocket-connection.png" alt-text="Screenshot of WebSocket connection in the portal.":::
     
 1. Subscribed events appear in the **Subscription** pane. The WebSocket connection is maintained until you disconnect it or you connect to a new WebSocket subscription.  
 

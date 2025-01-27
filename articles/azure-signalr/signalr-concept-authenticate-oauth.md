@@ -2,7 +2,7 @@
 title: Guide for authenticating Azure SignalR Service clients
 description: Learn how to implement your own authentication and integrate it with Azure SignalR Service by following the end-to-end example.
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: conceptual
 ms.date: 02/18/2024
 ms.author: lianwei
@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 > - Add an authentication controller to support GitHub authentication
 > - Deploy your ASP.NET Core web app to Azure
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -149,7 +149,7 @@ Let's reuse the chat app created in tutorial [Create a chat room with SignalR Se
     }
     ```
 
-    Inside the code, `AddAuthentication` and `UseAuthentication` are used to add authentication support with the GitHub OAuth app, and `GetUserCompanyInfoAsync` helper method is sample code showing how to load the company info from GitHub OAuth and save into user identity. You might also notice that `UseHttpsRedirection()` is used since GitHub OAuth set `secure` cookie that only passes through to secured `https` scheme. Also don't forget to update the local `Properties/lauchSettings.json` to add https endpoint:
+    Inside the code, `AddAuthentication` and `UseAuthentication` are used to add authentication support with the GitHub OAuth app, and `GetUserCompanyInfoAsync` helper method is sample code showing how to load the company info from GitHub OAuth and save into user identity. You might also notice that `UseHttpsRedirection()` is used since GitHub OAuth set `secure` cookie that only passes through to secured `https` scheme. Also don't forget to update the local `Properties/launchSettings.json` to add https endpoint:
 
     ```json
     {

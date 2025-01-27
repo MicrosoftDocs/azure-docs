@@ -3,7 +3,7 @@ title: How Azure applies centrally assigned SQL licenses to hourly usage
 description: This article provides a detailed explanation about how Azure applies centrally assigned SQL licenses to hourly usage with Azure Hybrid Benefit.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/21/2024
+ms.date: 05/08/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: ahb
@@ -20,6 +20,9 @@ Each resource reports its usage once an hour using the appropriate full price or
 
 The following diagram shows the discounting process when there's enough unutilized NCs to discount the entire vCore consumption by all the SQL resources for the hour.
 
+>[!NOTE]
+> Although the Hyperscale service tier is shown in the diagram, it's no longer available to receive the Azure Hybrid Benefit discount for new Hyperscale databases. Existing Hyperscale single databases with provisioned compute can continue to use Azure Hybrid Benefits to save on compute costs.
+
 Prices shown in the following image are only examples.
 
 :::image type="content" source="./media/manage-licenses-centrally/fully-discounted-consumption.svg" alt-text="Diagram showing fully discounted vCore consumption." border="false" lightbox="./media/manage-licenses-centrally/fully-discounted-consumption.svg":::
@@ -33,11 +36,11 @@ Prices shown in the following image are only examples.
 
 The Azure SQL resources covered by the assigned Core licenses can vary from hour to hour. The variance depends on what resources run and in what order the automated system processes their usage. However, the system ensures the maximum usage of the assigned SQL licenses in the selected scope. You can monitor the usage using Cost Management. For more information, see [How to track assigned license usage](create-sql-license-assignments.md#track-assigned-license-use).
 
-The following diagram shows how the assigned SQL Server licenses apply over time to get the maximum Azure Hybrid Benefit discount.
+The following diagram shows how the assigned SQL Server licenses apply over time to get the maximum Azure Hybrid Benefit allocation.
 
 :::image type="content" source="./media/manage-licenses-centrally/ncl-utilization-over-time.png" alt-text="Diagram showing NC use over time." border="false" lightbox="./media/manage-licenses-centrally/ncl-utilization-over-time.png":::
 
-## Next steps
+## Related content
 
 - Review the [Centrally managed Azure Hybrid Benefit FAQ](faq-azure-hybrid-benefit-scope.yml).
 - Learn about how to [transition from existing Azure Hybrid Benefit experience](transition-existing.md).

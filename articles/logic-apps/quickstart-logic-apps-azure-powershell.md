@@ -12,7 +12,7 @@ ms.date: 01/04/2024
 
 # Quickstart: Create and manage workflows with Azure PowerShell in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 This quickstart shows how to create and manage automated workflows that run in Azure Logic Apps by using [Azure PowerShell](/powershell/azure/install-azure-powershell). From PowerShell, you can create a [Consumption logic app](logic-apps-overview.md#resource-environment-differences) in multi-tenant Azure Logic Apps by using the JSON file for a logic app workflow definition. You can then manage your logic app by running the cmdlets in the [Az.LogicApp](/powershell/module/az.logicapp/) PowerShell module.
 
@@ -22,7 +22,7 @@ This quickstart shows how to create and manage automated workflows that run in A
 > Azure Logic Apps. Azure PowerShell is currently unavailable for Standard logic app workflows that 
 > run in single-tenant Azure Logic Apps. For more information, review [Resource type and host differences in Azure Logic Apps](logic-apps-overview.md#resource-environment-differences).
 
-If you're new to Azure Logic Apps, learn how to create your first Consumption logic app workflow [through the Azure portal](quickstart-create-example-consumption-workflow.md), [in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md), or [in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md).
+If you're new to Azure Logic Apps, learn how to create your first Consumption logic app workflow [through the Azure portal](quickstart-create-example-consumption-workflow.md) or [in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md).
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ ResourceGroupName : testResourceGroup
 Location          : westus
 ProvisioningState : Succeeded
 Tags              :
-ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testResourceGroup
+ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testResourceGroup
 ```
 
 ## Workflow definition

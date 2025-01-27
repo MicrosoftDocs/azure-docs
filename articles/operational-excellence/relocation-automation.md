@@ -1,19 +1,23 @@
 ---
-title: Relocation guidance for Azure Automation
+title: Relocate Azure Automation to another region
 description: Learn how to relocate an Azure Automation to a another region
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 01/19/2024
-ms.service: automation
-ms.topic: concept
+ms.service: azure-automation
+ms.topic: concept-article
 ms.custom:
   - subject-relocation
 ---
 
 # Relocate Azure Automation to another region
 
-This article covers relocation guidance for [Azure Automation](../automation/overview.md) across regions.
+This article covers relocation guidance for relocating [Azure Automation](../automation/overview.md) across regions.
+
+[!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
+
+
 
 If your Azure Automation instance doesn't have any configuration and the instance itself needs to be moved alone, you can choose to redeploy the NetApp File instance by using [Bicep, ARM Template, or Terraform](/azure/templates/microsoft.automation/automationaccounts?tabs=bicep&pivots=deployment-language-bicep).
 
@@ -57,7 +61,7 @@ In the diagram below, the red flow lines illustrate redeployment of the target i
 
 1. Deploy the template using [ARM](/azure/automation/quickstart-create-automation-account-template), [Portal](/azure/automation/automation-create-standalone-account?tabs=azureportal)  or [PowerShell](/powershell/module/az.automation/import-azautomationrunbook?view=azps-11.2.0&preserve-view=true).
 
-1. Use PowerShell to export all associated runbooks from the source Azure Automation instance and import them to the target instance. Reconfigure the properties as per target. For more information, see [Export-AzAuotomationRunbook](/powershell/module/az.automation/export-azautomationrunbook?view=azps-11.2.0&viewFallbackFrom=azps-9.4.0&preserve-view=true).
+1. Use PowerShell to export all associated runbooks from the source Azure Automation instance and import them to the target instance. Reconfigure the properties as per target. For more information, see [Export-AzAutomationRunbook](/powershell/module/az.automation/export-azautomationrunbook?view=azps-11.2.0&viewFallbackFrom=azps-9.4.0&preserve-view=true).
 
 1. Associate the relocated Azure Automation instance to the target Log Analytics workspace.
 

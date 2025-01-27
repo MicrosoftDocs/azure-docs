@@ -5,7 +5,7 @@ author: jjaygbay1
 ms.author: jacobjaygbay
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/18/2023
+ms.date: 01/08/2025
 ms.custom: engagement-fy23
 ---
 
@@ -57,7 +57,7 @@ The following table indicates the estimated downtime for migration of each SQL S
 |:---|:-----|:-----|
 | **SQL Server standalone instance** | Low | Migration is done using VMware vMotion, the database is available during migration time, but it isn't recommended to commit any critical data during it. |
 | **SQL Server Always On Availability Group** | Low | The primary replica will always be available during the migration of the first secondary replica and the secondary replica will become the primary after the initial failover to Azure. |
-| **SQL Server Always On Failover Customer Instance** | High | All nodes of the cluster are shut down and migrated using VMware HCX Cold Migration. Downtime duration depends upon database size and private network speed to Azure cloud. |
+| **SQL Server Always On Failover Cluster Instance** | High | All nodes of the cluster are shut down and migrated using VMware HCX Cold Migration. Downtime duration depends upon database size and private network speed to Azure cloud. |
 
 ## Windows Server Failover Cluster quorum considerations
 
@@ -147,9 +147,8 @@ Check the connectivity to SQL Server from other systems and applications in your
 - [Microsoft SQL Server 2019 Documentation](/sql/sql-server/?view=sql-server-ver15&preserve-view=true)
 - [Microsoft SQL Server 2022 Documentation](/sql/sql-server/?view=sql-server-ver16&preserve-view=true)
 - [Windows Server Technical Documentation](/windows-server/)
-- [Planning Highly Available, Mission Critical SQL Server Deployments with VMware vSphere](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/vmware-vsphere-highly-available-mission-critical-sql-server-deployments.pdf)
-- [Microsoft SQL Server on VMware vSphere Availability and Recovery Options](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/sql-server-on-vmware-availability-and-recovery-options.pdf)
-- [VMware KB 100 2951 – Tips for configuring Microsoft SQL Server in a virtual machine](https://kb.vmware.com/s/article/1002951)
+- [Planning Highly Available, Mission Critical SQL Server Deployments with VMware vSphere](https://www.vmware.com/docs/architecting-mssql-server-for-ha-on-vmware-vsphere-platform-final-0)
+- [VMware KB 100 2951 – Tips for configuring Microsoft SQL Server in a virtual machine](https://knowledge.broadcom.com/external/article?legacyId=1002951)
 - [Microsoft SQL Server 2019 in VMware vSphere 7.0 Performance Study](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/performance/vsphere7-sql-server-perf.pdf)
 - [Architecting Microsoft SQL Server on VMware vSphere – Best Practices Guide](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/sql-server-on-vmware-best-practices-guide.pdf)
-- [Setup for Windows Server Failover Cluster in VMware vSphere 7.0](https://docs.vmware.com/en/VMware-vSphere/7.0/vsphere-esxi-vcenter-server-703-setup-wsfc.pdf)
+- [Setup for Windows Server Failover Cluster in VMware vSphere 7.0](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/setup-for-windows-server-failover-clustering.html)

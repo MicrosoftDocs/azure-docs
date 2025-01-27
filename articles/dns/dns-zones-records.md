@@ -3,10 +3,10 @@ title: DNS Zones and Records Overview - Azure Public DNS
 description: Overview of support for hosting DNS zones and records in Microsoft Azure Public DNS.
 author: greg-lindsay
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
-ms.service: dns
-ms.topic: conceptual
+ms.service: azure-dns
+ms.topic: concept-article
 ms.custom: H1Hack27Feb2017
-ms.date: 11/21/2023
+ms.date: 11/04/2024
 ms.author: greglin
 ---
 
@@ -100,9 +100,17 @@ The DNS standards permit a single TXT record to contain multiple strings, each o
 
 When calling the Azure DNS REST API, you need to specify each TXT string separately.  When you use the Azure portal, PowerShell, or CLI interfaces, you should specify a single string per record. This string is automatically divided into 255-character segments if necessary.
 
-The multiple strings in a DNS record shouldn't be confused with the multiple TXT records in a TXT record set.  A TXT record set can contain multiple records, *each of which* can contain multiple strings.  Azure DNS supports a total string length of up to 4096 characters`*` in each TXT record set (across all records combined).
+The multiple strings in a DNS record shouldn't be confused with the multiple TXT records in a TXT record set.  A TXT record set can contain multiple records, *each of which* can contain multiple strings.  Azure DNS supports a total string length of up to 4096 characters in each TXT record set (across all records combined).
 
-`*` 4096 character support is currently only available in the Azure Public Cloud. National clouds are limited to 1024 characters until 4k support rollout is complete.
+### DS records
+
+The delegation signer (DS) record is a [DNSSEC](dnssec.md) resource record type that is used to secure a delegation. To create a DS record in a zone, the zone must first be signed with DNSSEC.
+
+### TLSA records
+
+A TLSA (Transport Layer Security Authentication) record is used to associate a TLS server certificate or public key with the domain name where the record is found. A TLSA record links the public key (a TLS server certificate) to the domain name, providing an additional layer of security for TLS connections. 
+
+To use TLSA records effectively, [DNSSEC](dnssec.md) must be enabled on your domain. This ensures that the TLSA records can be trusted and properly validated
 
 ## Tags and metadata
 

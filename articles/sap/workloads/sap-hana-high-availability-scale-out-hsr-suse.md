@@ -7,7 +7,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 01/16/2024
+ms.date: 06/18/2024
 ms.author: radeltch
 ---
 
@@ -184,8 +184,6 @@ The full set of PowerShell code display the setup of the load balancer, which in
 
 ---
 
-> [!IMPORTANT]
-> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.
 
 > [!NOTE]
 > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
@@ -206,7 +204,7 @@ The next sections describe the steps to deploy NFS - you'll need to select only 
 
 #### Deploy the Azure NetApp Files infrastructure
 
-Deploy ANF volumes for the `/hana/shared` file system. You'll need a separate `/hana/shared` volume for each HANA system replication site. For more information, see [Set up the Azure NetApp Files infrastructure](./sap-hana-scale-out-standby-netapp-files-suse.md#set-up-the-azure-netapp-files-infrastructure).
+Deploy Azure NetApp Files volumes for the `/hana/shared` file system. You'll need a separate `/hana/shared` volume for each HANA system replication site. For more information, see [Set up the Azure NetApp Files infrastructure](./sap-hana-scale-out-standby-netapp-files-suse.md#set-up-the-azure-netapp-files-infrastructure).
 
 In this example, the following Azure NetApp Files volumes were used:
 
@@ -1111,12 +1109,12 @@ You can adjust the behavior of susChkSrv with parameter action_on_lost. Valid va
 
    To simulate failure for `/hana/shared`:
 
-   * If using NFS on ANF, first confirm the IP address for the `/hana/shared` ANF volume on the primary site. You can do that by running `df -kh|grep /hana/shared`.
+   * If using NFS on Azure NetApp Files, first confirm the IP address for the `/hana/shared` Azure NetApp Files volume on the primary site. You can do that by running `df -kh|grep /hana/shared`.
    * If using NFS on Azure Files, first determine the IP address of the private end point for your storage account.
 
    Then, set up a temporary firewall rule to block access to the IP address of the `/hana/shared` NFS file system by executing the following command on one of the primary HANA system replication site VMs.
 
-   In this example, the command was executed on hana-s1-db1 for ANF volume `/hana/shared`.
+   In this example, the command was executed on hana-s1-db1 for Azure NetApp Files volume `/hana/shared`.
 
      ```bash
      iptables -A INPUT -s 10.23.1.7 -j DROP; iptables -A OUTPUT -d 10.23.1.7 -j DROP

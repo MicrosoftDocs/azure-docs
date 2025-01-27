@@ -1,8 +1,10 @@
 ---
 title: Import an SAP API using the Azure portal | Microsoft Docs
-titleSuffix: 
+titleSuffix:
 description: Learn how to import OData metadata from SAP as an API to Azure API Management, either directly or by converting the metadata to an OpenAPI specification.
-ms.service: api-management
+ms.service: azure-api-management
+ms.custom:
+  - build-2024
 author: martinpankraz
 ms.author: mapankra
 ms.topic: how-to
@@ -21,9 +23,6 @@ In this article, you'll:
 > * Import OData metadata to API Management, either directly or after conversion to an OpenAPI specification
 > * Complete API configuration
 > * Test the API in the Azure portal
-
-> [!NOTE]
-> Importing an OData API to API Management from its metadata description is in preview. [Learn more](import-api-from-odata.md).
 
 ## Prerequisites
 
@@ -140,11 +139,10 @@ Also, configure authentication to your backend using an appropriate method for y
 
 ## Production considerations
 
-* See an [example end-to-end scenario](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway/) to integrate API Management with an SAP gateway.
-* Control access to an SAP backend using API Management policies. For example, if the API is imported as an OData API, use the [validate OData request](validate-odata-request-policy.md) policy. See also policy snippets for [SAP principal propagation](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Request%20OAuth2%20access%20token%20from%20SAP%20using%20AAD%20JWT%20token.xml) and [fetching an X-CSRF token](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Get%20X-CSRF%20token%20from%20SAP%20gateway%20using%20send%20request.policy.xml).
+* See an [example end-to-end scenario](https://community.powerplatform.com/blogs/post/?postid=c6a609ab-3556-ef11-a317-6045bda95bf0) to integrate API Management with an SAP gateway.
+* Control access to an SAP backend using API Management policies. For example, if the API is imported as an OData API, use the [validate OData request](validate-odata-request-policy.md) policy. See also policy snippets for [SAP principal propagation for SAP ECC or S/4HANA](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Request%20OAuth2%20access%20token%20from%20SAP%20using%20AAD%20JWT%20token.xml) or [SAP SuccessFactors](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Request%20OAuth2%20access%20token%20from%20SuccessFactors%20using%20AAD%20JWT%20token.xml) and [fetching an X-CSRF token](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Get%20X-CSRF%20token%20from%20SAP%20gateway%20using%20send%20request.policy.xml).
 * For guidance to deploy, manage, and migrate APIs at scale, see:
     * [Automated API deployments with APIOps](/azure/architecture/example-scenario/devops/automated-api-deployments-apiops)
     * [CI/CD for API Management using Azure Resource Manager templates](devops-api-development-templates.md).
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
-

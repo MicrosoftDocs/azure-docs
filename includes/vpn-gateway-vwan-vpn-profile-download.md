@@ -3,7 +3,7 @@
  description: include file
  services: vpn-gateway
  author: cherylmc
- ms.service: vpn-gateway
+ ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 02/08/2021
  ms.author: cherylmc
@@ -30,7 +30,7 @@ In the **AzureVPN** folder, navigate to the ***azurevpnconfig.xml*** file and op
 ```
 <audience>          </audience>
 <issuer>            </issuer>
-<tennant>           </tennant>
+<tenant>            </tenant>
 <fqdn>              </fqdn>
 <serversecret>      </serversecret>
 ```

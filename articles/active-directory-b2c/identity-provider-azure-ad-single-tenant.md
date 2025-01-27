@@ -6,12 +6,12 @@ description: Set up sign-in for a specific Microsoft Entra organization in Azure
 author: garrodonnell
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
-ms.date: 01/27/2024
+ms.date: 01/27/2025
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: fasttrack-edit, 
 zone_pivot_groups: b2c-policy-type
 
@@ -161,7 +161,7 @@ You can define Microsoft Entra ID as a claims provider by adding Microsoft Entra
           <Protocol Name="OpenIdConnect"/>
           <Metadata>
             <Item Key="METADATA">https://login.microsoftonline.com/tenant-name.onmicrosoft.com/v2.0/.well-known/openid-configuration</Item>
-            <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+            <Item Key="client_id">00001111-aaaa-2222-bbbb-3333cccc4444</Item>
             <Item Key="response_types">code</Item>
             <Item Key="scope">openid profile</Item>
             <Item Key="response_mode">form_post</Item>

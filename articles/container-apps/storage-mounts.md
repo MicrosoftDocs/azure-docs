@@ -3,10 +3,10 @@ title: Use storage mounts in Azure Container Apps
 description: Learn to use temporary and permanent storage mounts in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 04/10/2024
+ms.date: 01/23/2025
 ms.author: cshoe
 zone_pivot_groups: arm-azure-cli-portal
 ---
@@ -17,13 +17,13 @@ A container app has access to different types of storage. A single app can take 
 
 | Storage type | Description | Persistence | Usage example |
 |--|--|--|
-| [Container-scoped storage](#container-scoped-storage) | Ephemeral storage available to a running container | Data is available until container shuts down | Writing a local app cache.  |
-| [Replica-scoped storage](#replica-scoped-storage) | Ephemeral storage for sharing files between containers in the same replica | Data is available until replica shuts down | The main app container writing log files that are processed by a sidecar container. |
+| [Container-scoped storage](#container-scoped-storage) | Ephemeral storage available to a running container | Data is available until container shuts down | Writing a local app cache. |
+| [Replica-scoped storage](#replica-scoped-storage) | Ephemeral storage for sharing files between containers in the same replica | Data is available until replica shuts down | The main app container writing log files that a sidecar container processes. |
 | [Azure Files](#azure-files) | Permanent storage | Data is persisted to Azure Files | Writing files to a file share to make data accessible by other systems. |
 
 ## Ephemeral storage
 
-A container app can read and write temporary data to ephemeral storage. Ephemeral storage can be scoped to a container or a replica. The total amount of container-scoped and replica-scoped storage available to each replica depends on the total amount of vCPUs allocated to the replica.
+A container app can read and write temporary data to ephemeral storage. Ephemeral storage can be scoped to a container or a replica. The total amount of container-scoped and replica-scoped storage available to each replica depends on the total number of vCPUs allocated to the replica.
 
 | vCPUs | Total ephemeral storage |
 |--|--|
@@ -227,7 +227,7 @@ Azure Files storage has the following characteristics:
 * All containers that mount the share can access files written by any other container or method.
 * More than one Azure Files volume can be mounted in a single container.
 
-Azure Files supports both SMB and NFS protocols. You can mount an Azure Files share using either protocol. The file share you define in the environment must be configured with the same protocol used by the file share in the storage account.
+Azure Files supports both SMB (Server Message Block) and NFS (Network File System) protocols. You can mount an Azure Files share using either protocol. The file share you define in the environment must be configured with the same protocol used by the file share in the storage account.
 
 > [!NOTE]
 > Support for mounting NFS shares in Azure Container Apps is in preview.
@@ -235,7 +235,7 @@ Azure Files supports both SMB and NFS protocols. You can mount an Azure Files sh
 To enable Azure Files storage in your container, you need to set up your environment and container app as follows:
 
 * Create a storage definition in the Container Apps environment.
-* If you are using NFS, your environment must be configured with a custom VNet and the storage account must be configured to allow access from the VNet. For more information, see [NFS file shares in Azure Files
+* If you're using NFS, your environment must be configured with a custom VNet and the storage account must be configured to allow access from the VNet. For more information, see [NFS file shares in Azure Files
 ](../storage/files/files-nfs-protocol.md).
 * If your environment is configured with a custom VNet, you must allow ports 445 and 2049 in the network security group (NSG) associated with the subnet.
 * Define a volume of type `AzureFile` (SMB) or `NfsAzureFile` (NFS) in a revision.
@@ -248,7 +248,7 @@ To enable Azure Files storage in your container, you need to set up your environ
 | Requirement | Instructions |
 |--|--|
 | Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). |
-| Azure Storage account | [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-cli#create-a-storage-account-1). |
+| Azure Storage account | [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-cli#create-a-storage-account). |
 | Azure Container Apps environment | [Create a container apps environment](environment.md). |
 
 ### Configuration
@@ -574,23 +574,34 @@ See the [ARM template API specification](azure-resource-manager-api-spec.md) for
 
 ::: zone pivot="azure-portal"
 
-# [SMB](#tab/smb)
-
 To configure a volume mount for Azure Files storage in the Azure portal, add a file share to your Container Apps environment and then add a volume mount to your container app by creating a new revision.
 
 1. In the Azure portal, navigate to your Container Apps environment.
 
-1. Select **Azure Files** from the left menu.
+1. In the navigation pane, under *Settings*, select **Azure Files**.
 
 1. Select **Add**.
 
-1. In the *Add file share* context menu, enter the following information:
+1. Select **Server Message Block (SMB)** or **Network File System (NFS)**, depending on the protocol used by your file share.
+
+1. In the *Add file share* context pane, enter the following information:
+
+    # [SMB](#tab/smb)
 
     - **Name**: A name for the file share.
     - **Storage account name**: The name of the storage account that contains the file share.
     - **Storage account key**: The access key for the storage account.
     - **File share**: The name of the file share.
-    - **Access mode**: The access mode for the file share. Valid values are "Read/Write" and "Read only".
+    - **Access mode**: The access mode for the file share. Valid values are **Read/Write** and **Read only**.
+
+    # [NFS](#tab/nfs)
+
+    - **Name**: A name for the file share.
+    - **Server**: The name of the server that contains the file share. This has the form `<STORAGE_ACCOUNT_NAME>.file.core.windows.net`.
+    - **File share name**: The name of the file share. This has the form `/<STORAGE_ACCOUNT_NAME>/<FILE_SHARE_NAME>`.
+    - **Access mode**: The access mode for the file share. Valid values are **Read/Write** and **Read only**.
+
+    ---
 
 1. Select **Add** to exit the context pane.
 
@@ -598,27 +609,34 @@ To configure a volume mount for Azure Files storage in the Azure portal, add a f
 
 1. Navigate to your container app.
 
-1. Select **Revision management** from the left menu.
+1. In the navigation pane, under *Application*, select **Revisions and replicas**.
 
 1. Select **Create new revision**.
+
+1. In the *Create and deploy new revision* page, select the **Volumes** tab.
+
+1. Select **Add**.
+
+1. In the *Add volume* context pane, set the following.
+
+    - **Volume type**: **Azure file volume**.
+    - **Name**: Enter a volume name.
+    - **File share name**: Select the file share you created previously.
+
+1. Select **Add** to exit the context pane.
+
+1. In the *Create and reploy new revision* page, select the **Container** tab.
 
 1. Select the container that you want to mount the volume in.
 
 1. In the *Edit a container* context pane, select the **Volume mounts** tab.
 
-1. Under the *File shares* section, create a new volume with the following information.
+1. Under *Volume name*, select the volume you created previously.
 
-    - **File share name**: The file share you added.
-    - **Mount path**: The absolute path in the container to mount the volume.
+1. In **Mount path**, enter the absolute path in the container to mount the volume.
 
 1. Select **Save** to save changes and exit the context pane.
 
 1. Select **Create** to create the new revision.
-
-# [NFS](#tab/nfs)
-
-Azure portal doesn't support creating NFS Azure Files volumes. To create an NFS Azure Files volume, use the [Azure CLI](storage-mounts.md?tabs=nfs&pivots=azure-cli#azure-files) or [ARM template](storage-mounts.md?tabs=nfs&pivots=azure-resource-manager#azure-files).
-
----
 
 ::: zone-end

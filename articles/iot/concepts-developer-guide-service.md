@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 1/23/2024
 ms.topic: conceptual
-ms.service: iot
+ms.service: azure-iot
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-ten
 
@@ -63,5 +63,5 @@ Now that you've learned about device modeling, here are some more resources:
 
 - [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md)
 - [C device SDK](https://github.com/Azure/azure-iot-sdk-c/)
-- [IoT REST API](/rest/api/iothub/device)
+- [IoT REST API](/rest/api/iothub/device/device)
 - [IoT Plug and Play modeling guide](concepts-modeling-guide.md)

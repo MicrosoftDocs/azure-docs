@@ -1,15 +1,15 @@
 ---
-title: Use one-click ingestion to ingest data from Event Hub into Azure Synapse Data Explorer (Preview)
-description: Learn how to use one-click to ingest (load) data into Azure Synapse Data Explorer from Event Hub.
+title: Use one-select ingestion to ingest data from Event Hubs into Azure Synapse Data Explorer (Preview)
+description: Learn how to use one-select to ingest (load) data into Azure Synapse Data Explorer from Event Hubs.
 ms.topic: how-to
 ms.date: 11/02/2021
 author: shsagir
 ms.author: shsagir
 ms.reviewer: tzgitlin
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: data-explorer
 ---
-# Use one-click ingestion to create an Event Hub data connection for Azure Synapse Data Explorer (Preview)
+# Use one-select ingestion to create an Event Hubs data connection for Azure Synapse Data Explorer (Preview)
 
 > [!div class="op_single_selector"]
 > * [Portal](data-explorer-ingest-event-hub-portal.md)
@@ -18,13 +18,13 @@ ms.subservice: data-explorer
 > * [Python](data-explorer-ingest-event-hub-python.md)
 > * [Azure Resource Manager template](data-explorer-ingest-event-hub-resource-manager.md)
 
-Azure Synapse Data Explorer offers ingestion (data loading) from Event Hubs, a big data streaming platform and event ingestion service. [Event Hubs](../../../event-hubs/event-hubs-about.md) can process millions of events per second in near real-time. In this article, you connect an Event Hub to a table in Azure Synapse Data Explorer using the [one-click ingestion](data-explorer-ingest-data-one-click.md) experience.
+Azure Synapse Data Explorer offers ingestion (data loading) from Event Hubs, a big data streaming platform and event ingestion service. [Event Hubs](../../../event-hubs/event-hubs-about.md) can process millions of events per second in near real-time. In this article, you connect an Event Hubs to a table in Azure Synapse Data Explorer using the [one-select ingestion](data-explorer-ingest-data-one-click.md) experience.
 
 ## Prerequisites
 
 [!INCLUDE [data-explorer-ingest-prerequisites](../includes/data-explorer-ingest-prerequisites.md)]
 
-- [Event Hub with data for ingestion](data-explorer-ingest-event-hub-portal.md#create-an-event-hub).
+- [Event Hubs with data for ingestion](data-explorer-ingest-event-hub-portal.md#create-an-event-hub).
 
 > [!NOTE]
 > Ingesting data from an Event Hub into Data Explorer pools will not work if your Synapse workspace uses a managed virtual network with data exfiltration protection enabled.
@@ -39,7 +39,7 @@ Azure Synapse Data Explorer offers ingestion (data loading) from Event Hubs, a b
 
 1. In the left menu of the Web UI, select the **Data** tab. 
 
-    :::image type="content" source="../media/ingest-data-event-hub/one-click-ingestion-event-hub.png" alt-text="Select one-click ingest data from Event Hub in the web UI.":::
+    :::image type="content" source="../media/ingest-data-event-hub/one-click-ingestion-event-hub.png" alt-text="Screenshot showing the Azure Data Explorer Data menu with ingest from event hub highlighted.":::
 
 1. In the **Ingest data from Event Hub** card, select **Ingest**. 
 
@@ -64,29 +64,29 @@ The **Ingest new data** window opens with the **Destination** tab selected.
 
 1. Under **Data Connection**, fill in the following fields:
 
-    :::image type="content" source="../media/ingest-data-one-click/select-azure-data-explorer-ingest-event-hub-details.png" alt-text="Screenshot of source tab with project details fields to be filled in - ingest new data to Azure Synapse Data Explorer with Event Hub in the one click experience.":::
+    :::image type="content" source="../media/ingest-data-one-click/select-azure-data-explorer-ingest-event-hub-details.png" alt-text="Screenshot of source tab with project details fields to be filled in - ingest new data to Azure Synapse Data Explorer with Event Hubs in the one select experience.":::
 
     |**Setting** | **Suggested value** | **Field description**
     |---|---|---|
     | Data connection name | *ContosoDataConnection*  | The name that identifies your data connection.
-    | Subscription |      | The subscription ID where the Event Hub resource is located.  |
-    | Event Hub namespace |  | The name that identifies your namespace. |
-    | Event Hub |  | The Event Hub you wish to use. |
-    | Consumer group |  | The consumer group defined in your Event Hub. |
-    | Event system properties | Select relevant properties | The [Event Hub system properties](../../../service-bus-messaging/service-bus-amqp-protocol-guide.md#message-annotations). If there are multiple records per event message, the system properties will be added to the first one. When adding system properties, [create](/azure/data-explorer/kusto/management/create-table-command?context=/azure/synapse-analytics/context/context) or [update](/azure/data-explorer/kusto/management/alter-table-command?context=/azure/synapse-analytics/context/context) table schema and [mapping](/azure/data-explorer/kusto/management/mappings?context=/azure/synapse-analytics/context/context) to include the selected properties. |
+    | Subscription |      | The subscription ID where the Event Hubs resource is located.  |
+    | Event Hubs namespace |  | The name that identifies your namespace. |
+    | Event Hubs |  | The Event Hubs you wish to use. |
+    | Consumer group |  | The consumer group defined in your Event Hubs. |
+    | Event system properties | Select relevant properties | The [Event Hubs system properties](../../../service-bus-messaging/service-bus-amqp-protocol-guide.md#message-annotations). If there are multiple records per event message, the system properties will be added to the first one. When adding system properties, [create](/azure/data-explorer/kusto/management/create-table-command?context=/azure/synapse-analytics/context/context) or [update](/azure/data-explorer/kusto/management/alter-table-command?context=/azure/synapse-analytics/context/context) table schema and [mapping](/azure/data-explorer/kusto/management/mappings?context=/azure/synapse-analytics/context/context) to include the selected properties. |
 
 1. Select **Next: Schema**.
 
 ## Schema tab
 
-Data is read from the Event Hub in form of [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) objects. Supported formats are CSV, JSON, PSV, SCsv, SOHsv TSV, TXT, and TSVE.
+Data is read from the Event Hubs in form of [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) objects. Supported formats are CSV, JSON, PSV, SCsv, SOHsv TSV, TXT, and TSVE.
 
 <!-- For information on schema mapping with JSON-formatted data, see [Edit the schema](one-click-ingestion-existing-table.md#edit-the-schema).
 For information on schema mapping with CSV-formatted data, see [Edit the schema](one-click-ingestion-new-table.md#edit-the-schema). -->
 
-:::image type="content" source="../media/ingest-data-event-hub/schema-tab.png" alt-text="Screenshot of schema tab in ingest new data to Azure Synapse Data Explorer with Event Hub in the one click experience.":::
+:::image type="content" source="../media/ingest-data-event-hub/schema-tab.png" alt-text="Screenshot of schema tab in ingest new data to Azure Synapse Data Explorer with Event Hubs in the one select experience.":::
 
-1. If the data you see in the preview window is not complete, you may need more data to create a table with all necessary data fields. Use the following commands to fetch new data from your Event Hub:
+1. If the data you see in the preview window isn't complete, you may need more data to create a table with all necessary data fields. Use the following commands to fetch new data from your Event Hubs:
     * **Discard and fetch new data**: discards the data presented and searches for new events.
     * **Fetch more data**: Searches for more events in addition to the events already found. 
     
@@ -95,11 +95,11 @@ For information on schema mapping with CSV-formatted data, see [Edit the schema]
         
 1. Select **Next: Summary**.
 
-## Continuous ingestion from Event Hub
+## Continuous ingestion from Event Hubs
 
-In the **Continuous ingestion from Event Hub established** window, all steps will be marked with green check marks when establishment finishes successfully. The cards below these steps give you options to explore your data with **Quick queries**, undo changes made using **Tools**, or **Monitor** the Event Hub connections and data.
+In the **Continuous ingestion from Event Hub established** window, all steps will be marked with green check marks when establishment finishes successfully. The cards below these steps give you options to explore your data with **Quick queries**, undo changes made using **Tools**, or **Monitor** the Event Hubs connections and data.
 
-:::image type="content" source="../media/ingest-data-event-hub/data-ingestion-completed.png" alt-text="Screenshot of final screen in ingestion to Azure Synapse Data Explorer from Event Hub with the one click experience.":::
+:::image type="content" source="../media/ingest-data-event-hub/data-ingestion-completed.png" alt-text="Screenshot of final screen in ingestion to Azure Synapse Data Explorer from Event Hubs with the one select experience.":::
 
 ## Next steps
 

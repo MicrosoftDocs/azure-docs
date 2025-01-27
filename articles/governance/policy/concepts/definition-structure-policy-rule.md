@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure policy rules
 description: Describes how policy definition policy rules are used to establish conventions for Azure resources in your organization.
-ms.date: 04/01/2024
+ms.date: 04/25/2024
 ms.topic: conceptual
 ---
 
@@ -9,9 +9,9 @@ ms.topic: conceptual
 
 The policy rule consists of `if` and `then` blocks. In the `if` block, you define one or more conditions that specify when the policy is enforced. You can apply logical operators to these conditions to precisely define the scenario for a policy.
 
-For complete details on each effect, order of evaluation, properties, and examples, see [Understanding Azure Policy Effects](effects.md).
+For complete details on each effect, order of evaluation, properties, and examples, see [Azure Policy definitions effect basics](effect-basics.md).
 
-In the `then` block, you define the effect that happens when the `if conditions are fulfilled.
+In the `then` block, you define the effect that happens when the `if` conditions are fulfilled.
 
 ```json
 {
@@ -633,7 +633,7 @@ The following functions are only available in policy rules:
 - `field(fieldName)`
   - `fieldName`: [Required] string - Name of the [field](./definition-structure-policy-rule.md#fields) to retrieve
   - Returns the value of that field from the resource that is being evaluated by the If condition.
-  - `field` is primarily used with `auditIfNotExists` and `deployIfNotExists` to reference fields on the resource that are being evaluated. An example of this use can be seen in the [DeployIfNotExists example](effects.md#deployifnotexists-example).
+  - `field` is primarily used with `auditIfNotExists` and `deployIfNotExists` to reference fields on the resource that are being evaluated. An example of this use can be seen in the [DeployIfNotExists example](effect-deploy-if-not-exists.md#deployifnotexists-example).
 
 - `requestContext().apiVersion`
   - Returns the API version of the request that triggered policy evaluation (example: `2021-09-01`). This value is the API version that was used in the PUT/PATCH request for evaluations on resource creation/update. The latest API version is always used during compliance evaluation on existing resources.
@@ -727,7 +727,7 @@ The length of the string created by the `concat()` function depends on the value
 - For more information about policy definition structure, go to [basics](./definition-structure-basics.md), [parameters](./definition-structure-parameters.md), and [alias](./definition-structure-alias.md).
 - For initiatives, go to [initiative definition structure](./initiative-definition-structure.md).
 - Review examples at [Azure Policy samples](../samples/index.md).
-- Review [Understanding policy effects](effects.md).
+- Review [Understanding policy effects](effect-basics.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).

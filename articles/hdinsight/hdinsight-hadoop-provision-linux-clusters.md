@@ -1,10 +1,10 @@
 ---
 title: Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more
 description: Set up Hadoop, Kafka, Spark, or HBase clusters for HDInsight from a browser, the Azure classic CLI, Azure PowerShell, REST, or SDK.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive, devx-track-azurepowershell, linux-related-content
-ms.date: 04/11/2024
+ms.date: 01/08/2025
 ---
 
 # Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more
@@ -16,9 +16,9 @@ Learn how to set up and configure Apache Hadoop, Apache Spark, Apache Kafka, Int
 A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks. Azure HDInsight handles implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information.
 
 > [!IMPORTANT]
-> HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use. Learn how to [delete a cluster.](hdinsight-delete-cluster.md)
+> HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it's no longer in use. Learn how to [delete a cluster.](hdinsight-delete-cluster.md)
 
-If you're using multiple clusters together, you'll want to create a virtual network, and if you're using a Spark cluster you'll also want to use the Hive Warehouse Connector. For more information, see [Plan a virtual network for Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md) and [Integrate Apache Spark and Apache Hive with the Hive Warehouse Connector](interactive-query/apache-hive-warehouse-connector.md).
+If you're using multiple clusters together, you want to create a virtual network, and if you're using a Spark cluster you also want to use the Hive Warehouse Connector. For more information, see [Plan a virtual network for Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md) and [Integrate Apache Spark and Apache Hive with the Hive Warehouse Connector](interactive-query/apache-hive-warehouse-connector.md).
 
 ## Cluster setup methods
 
@@ -64,7 +64,7 @@ You don't need to specify the cluster location explicitly: The cluster is in the
 Azure HDInsight currently provides the following cluster types, each with a set of components to provide certain functionalities.
 
 > [!IMPORTANT]
-> HDInsight clusters are available in various types, each for a single workload or technology. There is no supported method to create a cluster that combines multiple types, such HBase on one cluster. If your solution requires technologies that are spread across multiple HDInsight cluster types, an [Azure virtual network](../virtual-network/index.yml) can connect the required cluster types.
+> HDInsight clusters are available in various types, each for a single workload or technology. There's no supported method to create a cluster that combines multiple types, such HBase on one cluster. If your solution requires technologies that are spread across multiple HDInsight cluster types, an [Azure virtual network](../virtual-network/index.yml) can connect the required cluster types.
 
 | Cluster type | Functionality |
 | --- | --- |
@@ -82,7 +82,7 @@ Choose the version of HDInsight for this cluster. For more information, see [Sup
 
 With HDInsight clusters, you can configure two user accounts during cluster creation:
 
-* Cluster login username: The default username is *admin*. It uses the basic configuration on the Azure portal. Sometimes it's called "Cluster user," or "HTTP user."
+* Cluster login username: The default username is *admin*. It uses the basic configuration on the Azure portal. Also called as "Cluster user," or "HTTP user."
 * Secure Shell (SSH) username: Used to connect to the cluster through SSH. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 The HTTP username has the following restrictions:
@@ -107,22 +107,20 @@ Although an on-premises installation of Hadoop uses the Hadoop Distributed File 
 HDInsight clusters can use the following storage options:
 
 * Azure Data Lake Storage Gen2
-* Azure Data Lake Storage Gen1
 * Azure Storage General Purpose v2
-* Azure Storage General Purpose v1
-* Azure Storage Block blob (**only supported as secondary storage**)
+* * Azure Storage Block blob (**only supported as secondary storage**)
 
 For more information on storage options with HDInsight, see [Compare storage options for use with Azure HDInsight clusters](hdinsight-hadoop-compare-storage-options.md).
 
 > [!WARNING]
-> Using an additional storage account in a different location from the HDInsight cluster is not supported.
+> Using more storage account in a different location from the HDInsight cluster isn't supported.
 
-During configuration, for the default storage endpoint you specify a blob container of an Azure Storage account or Data Lake Storage. The default storage contains application and system logs. Optionally, you can specify additional linked Azure Storage accounts and Data Lake Storage accounts that the cluster can access. The HDInsight cluster and the dependent storage accounts must be in the same Azure location.
+During configuration, for the default storage endpoint you specify a blob container of an Azure Storage account or Data Lake Storage. The default storage contains application and system logs. Optionally, you can specify more linked Azure Storage accounts and Data Lake Storage accounts that the cluster can access. The HDInsight cluster and the dependent storage accounts must be in the same Azure location.
 
 [!INCLUDE [secure-transfer-enabled-storage-account](includes/hdinsight-secure-transfer.md)]
 
 > [!IMPORTANT]
-> Enabling secure storage transfer after creating a cluster can result in errors using your storage account and is not recommended. It is better to create a new cluster using a storage account with secure transfer already enabled.
+> Enabling secure storage transfer after creating a cluster can result in errors using your storage account and isn't recommended. It's better to create a new cluster using a storage account with secure transfer already enabled.
 
 > [!Note]
 > Azure HDInsight does not automatically transfer, move or copy your data stored in Azure Storage from one region to another.
@@ -134,13 +132,15 @@ You can create optional Hive or Apache Oozie metastores. However, not all cluste
 For more information, see [Use external metadata stores in Azure HDInsight](./hdinsight-use-external-metadata-stores.md).
 
 > [!IMPORTANT]
-> When you create a custom metastore, don't use dashes, hyphens, or spaces in the database name. This can cause the cluster creation process to fail.
+> When you create a custom metastore, don't use dashes, hyphens, or spaces in the database name. This such characters can cause the cluster creation process to fail.
 
 #### SQL database for Hive
 
 If you want to retain your Hive tables after you delete an HDInsight cluster, use a custom metastore. You can then attach the metastore to another HDInsight cluster.
 
 An HDInsight metastore that is created for one HDInsight cluster version can't be shared across different HDInsight cluster versions. For a list of HDInsight versions, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
+
+You can use Managed Identity to authenticate with SQL database for Hive. For more information, see [Use Managed Identity for SQL Database authentication in Azure HDInsight](./use-managed-identity-for-sql-database-authentication-in-azure-hdinsight.md)
 
 > [!IMPORTANT]
 > The default metastore provides an Azure SQL Database with a **basic tier 5 DTU limit (not upgradeable)**! Suitable for basic testing purposes. For large or production workloads, we recommend migrating to an external metastore.
@@ -149,12 +149,16 @@ An HDInsight metastore that is created for one HDInsight cluster version can't b
 
 To increase performance when using Oozie, use a custom metastore. A metastore can also provide access to Oozie job data after you delete your cluster.
 
+You can use Managed Identity to authenticate with SQL database for Oozie. For more information, see  [Use Managed Identity for SQL Database authentication in Azure HDInsight](./use-managed-identity-for-sql-database-authentication-in-azure-hdinsight.md)
+
 #### SQL database for Ambari
 
-Ambari is used to monitor HDInsight clusters, make configuration changes, and store cluster management information as well as job history. The custom Ambari DB feature allows you to deploy a new cluster and setup Ambari in an external database that you manage. For more information, see [Custom Ambari DB](./hdinsight-custom-ambari-db.md).
+Ambari is used to monitor HDInsight clusters, make configuration changes, and store cluster management information and job history. The custom Ambari DB feature allows you to deploy a new cluster and setup Ambari in an external database that you manage. For more information, see [Custom Ambari DB](./hdinsight-custom-ambari-db.md).
+
+You can use Managed Identity to authenticate with SQL database for Ambari. For more information, see [Use Managed Identity for SQL Database authentication in Azure HDInsight](./use-managed-identity-for-sql-database-authentication-in-azure-hdinsight.md)
 
 > [!IMPORTANT]
-> You cannot reuse a custom Oozie metastore. To use a custom Oozie metastore, you must provide an empty Azure SQL Database when creating the HDInsight cluster.
+> You can't reuse a custom Oozie metastore. To use a custom Oozie metastore, you must provide an empty Azure SQL Database when creating the HDInsight cluster.
 
 ## Security + networking
 
@@ -196,7 +200,7 @@ For more information, see [Managed identities in Azure HDInsight](./hdinsight-ma
 
 :::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration-disk-attach.png" alt-text="HDInsight choose your node size.":::
 
-You're billed for node usage for as long as the cluster exists. Billing starts when a cluster is created and stops when the cluster is deleted. Clusters can't be de-allocated or put on hold.
+You're billed for node usage for as long as the cluster exists. Billing starts when a cluster is created and stops when the cluster is deleted. Clusters can't be deallocated or put on hold.
 
 ### Node configuration
 
@@ -210,7 +214,7 @@ Each cluster type has its own number of nodes, terminology for nodes, and defaul
 
 For more information, see [Default node configuration and virtual machine sizes for clusters](hdinsight-supported-node-configuration.md) in "What are the Hadoop components and versions in HDInsight?"
 
-The cost of HDInsight clusters is determined by the number of nodes and the virtual machines sizes for the nodes.
+The cost of HDInsight clusters determined by the number of nodes and the virtual machines sizes for the nodes.
 
 Different cluster types have different node types, numbers of nodes, and node sizes:
 
@@ -223,7 +227,7 @@ Different cluster types have different node types, numbers of nodes, and node si
 If you're just trying out HDInsight, we recommend you use one Worker node. For more information about HDInsight pricing, see [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 > [!NOTE]
-> The cluster size limit varies among Azure subscriptions. Contact [Azure billing support](../azure-portal/supportability/how-to-create-azure-support-request.md) to increase the limit.
+> The cluster size limit varies among Azure subscriptions. Contact [Azure billing support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to increase the limit.
 
 When you use the Azure portal to configure the cluster, the node size is available through the **Configuration + pricing** tab. In the portal, you can also see the cost associated with the different node sizes.
 
@@ -231,15 +235,15 @@ When you use the Azure portal to configure the cluster, the node size is availab
 
 When you deploy clusters, choose compute resources based on the solution you plan to deploy. The following VMs are used for HDInsight clusters:
 
-* A and D1-4 series VMs: [General-purpose Linux VM sizes](../virtual-machines/sizes-general.md)
-* D11-14 series VM: [Memory-optimized Linux VM sizes](../virtual-machines/sizes-memory.md)
+* A and D1-4 series VMs: [General-purpose Linux VM sizes](/azure/virtual-machines/sizes-general)
+* D11-14 series VM: [Memory-optimized Linux VM sizes](/azure/virtual-machines/sizes-memory)
 
 To find out what value you should use to specify a VM size while creating a cluster using the different SDKs or while using Azure PowerShell, see [VM sizes to use for HDInsight clusters](../cloud-services/cloud-services-sizes-specs.md#size-tables). From this linked article, use the value in the **Size** column of the tables.
 
 > [!IMPORTANT]
 > If you need more than 32 Worker nodes in a cluster, you must select a head node size with at least 8 cores and 14 GB of RAM.
 
-For more information, see [Sizes for virtual machines](../virtual-machines/sizes.md). For information about pricing of the various sizes, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight).
+For more information, see [Sizes for virtual machines](/azure/virtual-machines/sizes). For information about pricing of the various sizes, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight).
 
 ### Disk attachment
 
@@ -247,9 +251,9 @@ For more information, see [Sizes for virtual machines](../virtual-machines/sizes
 > The added disks are only configured for node manager local directories and **not for datanode directories**
 
 
-HDInsight cluster comes with pre-defined disk space based on SKU. If you run some large applications, can lead to insufficient disk space, with disk full error -  `LinkId=221672#ERROR_NOT_ENOUGH_DISK_SPACE` and job failures. 
+HDInsight cluster comes with predefined disk space based on SKU. If you run some large applications, can lead to insufficient disk space, with disk full error -  `LinkId=221672#ERROR_NOT_ENOUGH_DISK_SPACE` and job failures. 
 
-More discs can be added to the cluster using the new feature **NodeManager**’s local directory. At the time of Hive and Spark cluster creation, the number of discs can be selected and added to the worker nodes. The selected disk, which will be of size 1TB each, would be part of **NodeManager**'s local directories.
+More discs can be added to the cluster using the new feature **NodeManager**’s local directory. At the time of Hive and Spark cluster creation, the number of discs can be selected and added to the worker nodes. The selected disk, which can be of size 1 TB each, would be part of **NodeManager**'s local directories.
 
 1. From **Configuration + pricing** tab
 1. Select **Enable managed disk** option
@@ -262,18 +266,18 @@ You can verify the number of disks from **Review + create** tab, under **Cluster
 
 HDInsight application is an application, that users can install on a Linux-based HDInsight cluster. You can use applications provided by Microsoft, third parties, or developed by you. For more information, see [Install third-party Apache Hadoop applications on Azure HDInsight](hdinsight-apps-install-applications.md).
 
-Most of the HDInsight applications are installed on an empty edge node.  An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the head node. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. For more information, see [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md).
+Most of the HDInsight applications are installed on an empty edge node. An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the head node. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. For more information, see [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md).
 
 ### Script actions
 
-You can install additional components or customize cluster configuration by using scripts during creation. Such scripts are invoked via **Script Action**, which is a configuration option that can be used from the Azure portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK. For more information, see [Customize HDInsight cluster using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
+You can install more components or customize cluster configuration by using scripts during creation. Such scripts are invoked via **Script Action**, which is a configuration option that can be used from the Azure portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK. For more information, see [Customize HDInsight cluster using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
 Some native Java components, like Apache Mahout and Cascading, can be run on the cluster as Java Archive (JAR) files. These JAR files can be distributed to Azure Storage and submitted to HDInsight clusters with Hadoop job submission mechanisms. For more information, see [Submit Apache Hadoop jobs programmatically](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 > [!NOTE]
 > If you have issues deploying JAR files to HDInsight clusters, or calling JAR files on HDInsight clusters, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
 > 
-> Cascading is not supported by HDInsight and is not eligible for Microsoft Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight](hdinsight-component-versioning.md).
+> Cascading not supported by HDInsight and not eligible for Microsoft Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight](hdinsight-component-versioning.md).
 
 Sometimes, you want to configure the following configuration files during the creation process:
 

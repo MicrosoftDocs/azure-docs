@@ -4,7 +4,7 @@ titleSuffix: Azure Load Testing
 description: 'This article shows how to run your load tests with Azure Load Testing in CI/CD. Learn how to add a load test to GitHub Actions, Azure Pipelines or other CI tools.'
 author: ninallam
 ms.author: ninallam
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.custom: devx-track-azurecli
 ms.topic: how-to 
 ms.date: 06/05/2023
@@ -365,7 +365,7 @@ Update your CI workflow to run a load test for your Azure load testing resource 
 
 1. Sign into the Azure subscription by using the service principal.
 
-    Use the `clientId`, `clientSecret`, and `tenandId` values you stored previously.
+    Use the `clientId`, `clientSecret`, and `tenantId` values you stored previously.
 
     ```azurecli-interactive
     az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID

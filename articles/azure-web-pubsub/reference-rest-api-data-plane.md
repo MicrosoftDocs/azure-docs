@@ -14,6 +14,8 @@ ms.date: 06/09/2022
 
 As illustrated by the above workflow graph, and also detailed workflow described in [internals](./concept-service-internals.md), your app server can send messages to clients or to manage the connected clients using REST APIs exposed by Web PubSub service. This article describes the REST APIs in detail.
 
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
+
 ## Using REST API
 
 ### Authenticate via Azure Web PubSub Service AccessKey
@@ -39,6 +41,8 @@ Below claims are required to be included in the JWT token.
 
 A pseudo code in JS:
 
+[!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
+
 ```js
 const bearerToken = jwt.sign({}, connectionString.accessKey, {
   audience: request.url,
@@ -59,7 +63,7 @@ The credential scope used should be `https://webpubsub.azure.com/.default`.
 
 You could also use **Role Based Access Control (RBAC)** to authorize the request from your server to Azure Web PubSub Service.
 
-[Learn how to configure Role Based Access Control roles for your resource](./howto-authorize-from-application.md#add-role-assignments-on-azure-portal)
+[Learn how to configure Role Based Access Control roles for your resource](./howto-authorize-from-application.md#add-a-role-assignment-in-the-azure-portal)
 
 ## APIs
 

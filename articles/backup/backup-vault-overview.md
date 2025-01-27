@@ -1,16 +1,16 @@
 ---
 title: Overview of the Backup vaults
 description: An overview of Backup vaults.
-ms.topic: conceptual
-ms.date: 03/28/2024
+ms.topic: overview
+ms.date: 09/30/2024
 ms.custom: references_regions
-ms.service: backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.service: azure-backup
+author: jyothisuri
+ms.author: jsuri
 ---
 # Backup vaults overview
 
-This article describes the features of a Backup vault. A Backup vault is a storage entity in Azure that houses backup data for certain newer workloads that Azure Backup supports. You can use Backup vaults to hold backup data for various Azure services, such Azure Database for PostgreSQL servers and newer workloads that Azure Backup will support. Backup vaults make it easy to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides features such as:
+This article describes the features of a Backup vault. A Backup vault is a storage entity in Azure that houses backup data for certain newer workloads that Azure Backup supports. You can use Backup vaults to hold backup data for various Azure services, such as Azure Blob, Azure Database for PostgreSQL servers and newer workloads that Azure Backup will support. Backup vaults make it easy to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides features such as:
 
 - **Enhanced capabilities to help secure backup data**: With Backup vaults, Azure Backup provides security capabilities to protect cloud backups. The security features ensure you can secure your backups, and safely recover data, even if production and backup servers are compromised. [Learn more](backup-azure-security-feature.md)
 
@@ -18,13 +18,15 @@ This article describes the features of a Backup vault. A Backup vault is a stora
 
 - **Data isolation**: With Azure Backup, the vaulted backup data is stored in Microsoft-managed Azure subscription and tenant. External users or guests have no direct access to this backup storage or its contents, which ensures the isolation of backup data from the production environment where the data source resides. This robust approach ensures that even in a compromised environment, existing backups can't be tampered or deleted by unauthorized users.
 
+- **Central monitoring of the V2 workloads**: With Backup Vault you can monitor all your V2 workloads from Backup jobs to alerts. Reporting capabilities for the same is available in the Azure Business Continuity Center.
+
 ## Storage settings in the Backup vault
 
 A Backup vault is an entity that stores the backups and recovery points created over time. The Backup vault also contains the backup policies that are associated with the protected resources.
 
 - Azure Backup automatically handles storage for the vault. Choose the storage redundancy that matches your business needs when creating the Backup vault.
 
-- To learn more about storage redundancy, see these articles on [geo](../storage/common/storage-redundancy.md#geo-redundant-storage), [zonal (preview)](../storage/common/storage-redundancy.md#zone-redundant-storage), and [local](../storage/common/storage-redundancy.md#locally-redundant-storage) redundancy.
+- To learn more about storage redundancy, see these articles on [geo](../storage/common/storage-redundancy.md#geo-redundant-storage), [zonal](../storage/common/storage-redundancy.md#zone-redundant-storage), and [local](../storage/common/storage-redundancy.md#locally-redundant-storage) redundancy.
 
 ## Encryption settings in the Backup vault
 
@@ -41,7 +43,7 @@ You can fetch your own keys to encrypt the backup data by using the **Customer M
 
 Azure Backup allows you to replicate your backups to an additional Azure paired region by using Geo-redundant Storage (GRS)  to protect your backups from regional outages. When you enable the backups with GRS, the backups in the secondary region become accessible only when Microsoft declares an outage in the primary region. However, Cross Region Restore enables you to access and perform restores from the secondary region recovery points even when no outage occurs in the primary region; thus, enables you to perform drills to assess regional resiliency.
 
-Learn [how to perform Cross Region Restore](create-manage-backup-vault.md#perform-cross-region-restore-using-azure-portal).
+Learn [how to perform Cross Region Restore](manage-backup-vault.md#perform-cross-region-restore-using-azure-portal).
 
 >[!Note]
 >- Cross Region Restore is now available for PostgreSQL backups protected in Backup vaults. 
@@ -49,4 +51,5 @@ Learn [how to perform Cross Region Restore](create-manage-backup-vault.md#perfor
 
 ## Next steps
 
-- [Create and manage Backup vault](create-manage-backup-vault.md#perform-cross-region-restore-using-azure-portal).
+- [Create and delete Backup vault](create-manage-backup-vault.md).
+- [Manage Backup vault](manage-backup-vault.md).

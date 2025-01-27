@@ -7,6 +7,8 @@ metadata:
   title: Service Connector documentation
   description: Connect your Azure compute service to backing services easily with Service Connector.
   ms.service: service-connector
+  ms.custom:
+    - build-2024
   ms.topic: landing-page
   author: maud-lv
   ms.author: malev
@@ -26,6 +28,8 @@ landingContent:
             url: concept-availability.md
           - text: Permission requirements
             url: concept-permission.md
+          - text: Microsoft Entra roles assigned by Service Connector
+            url: concept-microsoft-entra-roles.md
           - text: Frequently asked questions
             url: faq.yml
 
@@ -33,24 +37,32 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a connection in App Service
+          - text: Create a connection in Azure App Service
             url: quickstart-portal-app-service-connection.md 
-          - text: Create a connection in Azure Spring Apps
-            url: quickstart-portal-spring-cloud-connection.md
-          - text: Create a connection in Container Apps
+          - text: Create a connection in Azure Container Apps
             url: quickstart-portal-container-apps.md
+          - text: Create a connection in Azure Functions
+            url: quickstart-portal-functions-connection.md
           - text: Create a connection in Azure Kubernetes Service (AKS)
             url: quickstart-portal-aks-connection.md
+          - text: Create a connection in Azure Spring Apps
+            url: quickstart-portal-spring-cloud-connection.md
+
   - title: Get started using the Azure CLI
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a connection in App Service
+          - text: Create a connection in Azure App Service
             url: quickstart-cli-app-service-connection.md
+          - text: Create a connection in Azure Container Apps
+            url: quickstart-cli-container-apps.md
+          - text: Create a connection in Azure Functions
+            url: quickstart-cli-functions-connection.md
+          - text: Create a connection in Azure Kubernetes Service (AKS)
+            url: quickstart-portal-aks-connection.md
           - text: Create a connection in Azure Spring Apps
             url: quickstart-cli-spring-cloud-connection.md
-          - text: Create a connection in Container Apps
-            url: quickstart-cli-container-apps.md
+
   - title: Common tasks
     linkLists:
       - linkListType: tutorial
@@ -69,7 +81,12 @@ landingContent:
             url: tutorial-connect-web-app-app-configuration.md
           - text: Passwordless connection to database
             url: tutorial-passwordless.md
-            
+          - text: Connect to Azure OpenAI in AKS using a connection string
+            url: tutorial-python-aks-openai-connection-string.md
+          - text: Connect to Azure OpenAI in AKS using workload identity
+            url: tutorial-python-aks-openai-workload-identity.md  
+          - text: Connect to Azure SQL Database
+            url: tutorial-python-aks-sql-database-connection-string.md
       - linkListType: how-to-guide
         links:
           - text: Manage authentication

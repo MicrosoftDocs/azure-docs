@@ -1,11 +1,11 @@
 ---
 title: Transform data inside Azure IoT Central
-description: IoT devices send data in various formats that you may need to transform. This article describes how to transform data in an IoT Central before exporting it.
+description: IoT devices send data in various formats that you might need to transform. This article describes how to transform data in an IoT Central before exporting it.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/13/2023
+ms.date: 10/22/2024
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 
 # This topic applies to solution builders.
@@ -13,11 +13,11 @@ services: iot-central
 
 # Transform data inside your IoT Central application for export
 
-IoT devices send data in various formats. To use the device data in your IoT solution, you may need to transform your device data before it's exported to other services.
+IoT devices send data in various formats. To use the device data in your IoT solution, you might need to transform your device data before you export it to other services.
 
 This article shows you how to transform device data as part of a data export definition in an IoT Central application.
 
-Transformations in an IoT Central data export definition let you manipulate the format and structure of the device data before it's exported to a destination. You can specify a transformation for each destination in an export definition. Each message passes through the transformation to create an output record that's exported to the destination.
+Transformations in an IoT Central data export definition let you manipulate the format and structure of the device data before you export it to a destination. You can specify a transformation for each destination in an export definition. Each message passes through the transformation to create an output record to export to the destination.
 
 Use transformations to restructure JSON payloads, rename fields, filter out fields, and run simple calculations on telemetry values. For example, use a transformation to convert your messages into a tabular format that matches the schema of a destination such as an Azure Data Explorer table.
 
@@ -27,7 +27,7 @@ The following video introduces you to IoT Central data transformations:
 
 ## Add a transformation
 
-To add a transformation for a destination in your data export, select **+ Transform** as shown in the following screenshot:
+To add a transformation for a destination in your data export definition, select **+ Transform** as shown in the following screenshot:
 
 :::image type="content" source="media/howto-transform-data-internally/add-transformation.png" alt-text="Screenshot that shows how to add a transformation to a destination." lightbox="media/howto-transform-data-internally/add-transformation.png":::
 
@@ -50,7 +50,7 @@ The following example shows the shape of telemetry message. All this data is ava
 
 ```json
 {
-  "applicationId": "93d68c98-9a22-4b28-94d1-06625d4c3d0f",
+  "applicationId": "00001111-aaaa-2222-bbbb-3333cccc4444",
   "device": {
     "id": "31edabe6-e0b9-4c83-b0df-d12e95745b9f",
     "name": "Scripted Device - 31edabe6-e0b9-4c83-b0df-d12e95745b9f",
@@ -249,7 +249,7 @@ In this scenario, the device sends the `t1`, `t2`, and `t3` telemetry values in 
 
 ```json
 {
-  "applicationId": "c57fe8d9-d15d-4659-9814-d3cc38ca9e1b",
+  "applicationId": "11112222-bbbb-3333-cccc-4444dddd5555",
   "enqueuedTime": "1933-01-26T03:10:44.480001324Z",
   "messageSource": "telemetry",
   "telemetry": [
@@ -319,7 +319,7 @@ In this scenario, the device sends the following array of telemetry in one messa
 
 ```json
 {
-  "applicationId": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
+  "applicationId": "22223333-cccc-4444-dddd-5555eeee6666",
   "enqueuedTime": "1909-10-10T07:11:56.078161042Z",
   "messageSource": "telemetry",
   "telemetry": [
@@ -421,7 +421,7 @@ JSON output:
 
 ### Scenario 3: Power BI streaming
 
-The Power BI real-time streaming feature lets you view data in a dashboard that's updated in real time with  low latency. To learn more, see [Real-time streaming in Power BI](/power-bi/connect-data/service-real-time-streaming).
+The Power BI real-time streaming feature lets you view data in a dashboard that updates in real time with low latency. To learn more, see [Real-time streaming in Power BI](/power-bi/connect-data/service-real-time-streaming).
 
 To use IoT Central with Power BI Streaming, set up a webhook export that sends request bodies in a specific format. This example assumes you have a Power BI Streaming dataset with the following schema:
 
@@ -446,7 +446,7 @@ In this scenario, the device sends telemetry messages that look like the followi
 
 ```json
 {
-  "applicationId": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
+  "applicationId": "22223333-cccc-4444-dddd-5555eeee6666",
   "enqueuedTime": "1909-10-10T07:11:56.078161042Z",
   "messageSource": "telemetry",
   "telemetry": [
@@ -567,7 +567,7 @@ In this scenario, the device sends telemetry messages that look like the followi
 
 ```json
 {
-    "applicationId": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
+    "applicationId": "22223333-cccc-4444-dddd-5555eeee6666",
     "enqueuedTime": "1909-10-10T07:11:56.078161042Z",
     "messageSource": "telemetry",
     "telemetry": [
@@ -649,7 +649,7 @@ JSON output:
 
 ```json
 {
-  "Application": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
+  "Application": "22223333-cccc-4444-dddd-5555eeee6666",
   "Capability": "HeartRate",
   "Component": "",
   "Device": "9xwhr7khkfri",
@@ -661,7 +661,7 @@ JSON output:
   "Value": -633994413
 },
 {
-  "Application": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
+  "Application": "22223333-cccc-4444-dddd-5555eeee6666",
   "Capability": "RespiratoryRate",
   "Component": "",
   "Device": "9xwhr7khkfri",
@@ -673,7 +673,7 @@ JSON output:
   "Value": 1582211310
 },
 {
-  "Application": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
+  "Application": "22223333-cccc-4444-dddd-5555eeee6666",
   "Capability": "HeartRateVariability",
   "Component": "",
   "Device": "9xwhr7khkfri",
@@ -685,7 +685,7 @@ JSON output:
   "Value": -37514094
 },
 {
-  "Application": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
+  "Application": "22223333-cccc-4444-dddd-5555eeee6666",
   "Capability": "BodyTemperature",
   "Component": "",
   "Device": "9xwhr7khkfri",
@@ -697,7 +697,7 @@ JSON output:
   "Value": 5.323322666478241e+307
 },
 {
-  "Application": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
+  "Application": "22223333-cccc-4444-dddd-5555eeee6666",
   "Capability": "FallDetection",
   "Component": "",
   "Device": "9xwhr7khkfri",
@@ -709,7 +709,7 @@ JSON output:
   "Value": "Earum est nobis at voluptas id qui."
 },
 {
-  "Application": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
+  "Application": "22223333-cccc-4444-dddd-5555eeee6666",
   "Capability": "BloodPressure",
   "Component": "",
   "Device": "9xwhr7khkfri",

@@ -7,7 +7,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 01/22/2025
 ms.author: banders
 ---
 
@@ -21,7 +21,7 @@ Only certain roles have permission to get billing invoice, like the Account Admi
 
 If you have a Microsoft Customer Agreement, you must be a billing profile Owner, Contributor, Reader, or Invoice manager to view billing information. To learn more about billing roles for Microsoft Customer Agreements, see [Billing profile roles and tasks](understand-mca-roles.md#billing-profile-roles-and-tasks).
 
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 ## Download your Azure invoices (.pdf)
 
@@ -87,7 +87,7 @@ You can opt out of getting your invoice by email by following the preceding step
 
 ### Get your Microsoft Customer Agreement invoices in email
 
-If you have a Microsoft Customer Agreement, you can opt in to get your invoice in an email. All billing profile Owners, Contributors, Readers, and Invoice managers will get the invoice by email. Readers can't update the email invoice preference.
+If you have a Microsoft Customer Agreement, you can opt in to get your invoice in an email. All billing profile Owners, Contributors, Readers, and Invoice managers will get the invoice by email. Readers can't update the email invoice preference. Please note that if you have inherited a role from the Billing Account, you will not receive invoices. Access must be granted explicitly under the Billing profile.
 
 1. Search for **Cost Management + Billing**.
 1. Select a billing profile.

@@ -6,7 +6,7 @@ ms.reviewer: kendalv
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 04/15/2024
+ms.date: 12/06/2024
 ms.author: banders
 ---
 
@@ -48,7 +48,7 @@ You can cancel, exchange, or refund reservations with certain limitations. For m
 
 If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## Next steps
+## Related content
 
 To learn how to manage a reservation, see [Manage Azure reservations](manage-reserved-vm-instance.md).
 

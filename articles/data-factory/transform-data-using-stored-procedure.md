@@ -2,13 +2,12 @@
 title: Transform data by using the Stored Procedure activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Explains how to use SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database/Data Warehouse from an Azure Data Factory or Synapse Analytics pipeline.
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 08/10/2023
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 
 # Transform data by using the SQL Server Stored Procedure activity in Azure Data Factory or Synapse Analytics
@@ -31,7 +30,7 @@ You can use the Stored Procedure Activity to invoke a stored procedure in one of
 >
 > When copying data from Azure SQL Database or SQL Server or Azure Synapse Analytics, you can configure **SqlSource** in copy activity to invoke a stored procedure to read data from the source database by using the **sqlReaderStoredProcedureName** property. For more information, see the following connector articles: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md), [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md)          
 
-When the stored procedure has Output parameters, instead of using stored procedure activity, use lookup acitivty and Script activity. Stored procedure activity does not support calling SPs with Output parameter yet.  
+When the stored procedure has Output parameters, instead of using stored procedure activity, use lookup activity and Script activity. Stored procedure activity does not support calling SPs with Output parameter yet.  
 
 If you call a stored procedure with output parameters using stored procedure activity, following error occurs.
 

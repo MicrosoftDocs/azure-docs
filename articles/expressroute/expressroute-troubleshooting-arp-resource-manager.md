@@ -3,8 +3,8 @@ title: 'Azure ExpressRoute: ARP tables - Troubleshooting'
 description: This page provides instructions on getting the Address Resolution Protocol (ARP) tables for an ExpressRoute circuit
 services: expressroute
 author: duongau
-ms.service: expressroute
-ms.custom: devx-track-azurepowershell
+ms.service: azure-expressroute
+ms.custom:
 ms.topic: troubleshooting
 ms.date: 06/30/2023
 ms.author: duau
@@ -92,32 +92,6 @@ Age InterfaceProperty IpAddress  MacAddress
   0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
 ```
 
-
-### ARP tables for Azure public peering
-The following cmdlet provides the ARP tables for Azure public peering
-
-```azurepowershell
-# Required Variables
-$RG = "<Your Resource Group Name Here>"
-$Name = "<Your ExpressRoute Circuit Name Here>"
-
-# ARP table for Azure public peering - Primary path
-Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Primary
-
-# ARP table for Azure public peering - Secondary path
-Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Secondary 
-```
-
-Sample output for one of the paths:
-
-```output
-Age InterfaceProperty IpAddress  MacAddress    
---- ----------------- ---------  ----------    
- 10 On-Prem           64.0.0.1   ffff.eeee.dddd
-  0 Microsoft         64.0.0.2   aaaa.bbbb.cccc
-```
-
-
 ### ARP tables for Microsoft peering
 The following cmdlet provides the ARP tables for Microsoft peering
 
@@ -139,8 +113,8 @@ Sample output for one of the paths:
 ```output
 Age InterfaceProperty IpAddress  MacAddress    
 --- ----------------- ---------  ----------    
- 10 On-Prem           65.0.0.1   ffff.eeee.dddd
-  0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+ 10 On-Prem           20.33.0.1   ffff.eeee.dddd
+  0 Microsoft         20.33.0.2   aaaa.bbbb.cccc
 ```
 
 
@@ -157,15 +131,15 @@ The ARP table of a peering can be used to determine and validate layer 2 configu
 ```output
 Age InterfaceProperty IpAddress  MacAddress    
 --- ----------------- ---------  ----------    
- 10 On-Prem           65.0.0.1   ffff.eeee.dddd
-  0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+ 10 On-Prem           20.33.0.1   ffff.eeee.dddd
+  0 Microsoft         20.33.0.2   aaaa.bbbb.cccc
 ```
 or
 
 ```output
 Age InterfaceProperty IpAddress  MacAddress    
 --- ----------------- ---------  ----------    
- 10 On-Prem           65.0.0.1   ffff.eeee.dddd
+ 10 On-Prem           20.33.0.1   ffff.eeee.dddd
 ```
 
 ### ARP table when on-premises / connectivity provider side has problems
@@ -175,15 +149,15 @@ If a problem with the on-premises or connectivity provider occurs, the ARP table
 ```output
 Age InterfaceProperty IpAddress  MacAddress    
 --- ----------------- ---------  ----------   
-  0 On-Prem           65.0.0.1   Incomplete
-  0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+  0 On-Prem           20.33.0.1   Incomplete
+  0 Microsoft         20.33.0.2   aaaa.bbbb.cccc
 ```
 or
    
 ```output
 Age InterfaceProperty IpAddress  MacAddress    
 --- ----------------- ---------  ----------    
-  0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+  0 Microsoft         20.33.0.2   aaaa.bbbb.cccc
 ```  
 
 > [!NOTE]

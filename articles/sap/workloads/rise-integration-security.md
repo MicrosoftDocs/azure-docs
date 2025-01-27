@@ -16,7 +16,7 @@ ms.author: robiro
 
 This article details integration of Azure identity and security services with an SAP RISE workload. Additionally use of some Azure monitoring services are explained for an SAP RISE landscape.
 
-## Single sign-on for SAP 
+## Single sign-on for SAP RISE
 
 Single sign-On (SSO) is configured for many SAP environments. With SAP workloads running in ECS/RISE, steps to implement do not differ from a natively run SAP system. The integration steps with Microsoft Entra ID based SSO are available for typical ECS/RISE managed workloads:
 - [Tutorial: Microsoft Entra Single sign-on (SSO) integration with SAP NetWeaver](../../active-directory/saas-apps/sap-netweaver-tutorial.md)
@@ -31,19 +31,47 @@ Single sign-On (SSO) is configured for many SAP environments. With SAP workloads
 
 SSO against Active Directory (AD) of your Windows domain for ECS/RISE managed SAP environment, with SAP SSO Secure Login Client requires AD integration for end user devices. With SAP RISE, any Windows systems are not integrated with the customer's active directory domain. The domain integration isn't necessary for SSO with AD/Kerberos as the domain security token is read on the client device and exchanged securely with SAP system. Contact SAP if you require any changes to integrate AD based SSO or using third party products other than SAP SSO Secure Login Client, as some configuration on RISE managed systems might be required.
 
+
+For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
+
+## Identity and Access Management for SAP RISE
+
+> [!NOTE]
+> SAP [announced retirement](https://community.sap.com/t5/technology-blogs-by-sap/preparing-for-sap-identity-management-s-end-of-maintenance-in-2027/ba-p/13596101) of SAP Identity Management (SAP IDM) by 2027. [SAP recommends](https://community.sap.com/t5/technology-blogs-by-sap/preparing-for-sap-identity-management-s-end-of-maintenance-in-2027/ba-p/13596101) to customers to migrate to Microsoft Entra.
+
+[Microsoft Entra ID Governance](/entra/id-governance/identity-governance-overview) and built-in integrations with SAP Cloud Identity Service are an ideal fit to handle SAP user lifecycle and their authorizations across both eco-systems.
+
+Learn more from this [Microsoft Learn article](/entra/id-governance/scenarios/migrate-from-sap-idm) and [our SAP scenarios hub](https://aka.ms/EntraSAPHub).
+
+## Microsoft Security Copilot with SAP RISE
+
+[Security Copilot](/copilot/security/microsoft-security-copilot) is a generative AI security product that empowers security and IT professionals respond to cyber threats, process signals, and assess risk exposure at the speed and scale of AI. It has its own [portal](https://securitycopilot.microsoft.com/) and embedded experiences in Microsoft Defender XDR, Microsoft Sentinel, and Intune.
+
+It can be used with any data source that Defender XDR and Sentinel support, including SAP RISE/ECS. Below shows the stand-alone experience.
+
+:::image type="complex" source="./media/sap-rise-integration/sap-rise-security-copilot.png" alt-text="Screenshot of Security Copilot experience with SAP RISE/ECS incidents." lightbox="./media/sap-rise-integration/sap-rise-security-copilot.png":::
+   This image shows an example of the Microsoft Security Copilot experience using a prompt to investigate an SAP incident.
+:::image-end:::
+
+In addition to that the Security Copilot experience is embedded on the Defender XDR portal. Next to an AI-generated summary, recommendations and remediation like password reset for SAP are provided out-of-the-box. Learn more about automatic SAP attack disruption [here](../../sentinel/sap/deployment-attack-disrupt.md).
+
+:::image type="complex" source="./media/sap-rise-integration/sap-rise-security-copilot-defender-portal.png" alt-text="Screenshot of embedded Security Copilot experience in Defender with SAP RISE/ECS incidents." lightbox="./media/sap-rise-integration/sap-rise-security-copilot-defender-portal.png":::
+   This image shows an example of Microsoft Security Copilot analyzing an incident detected on SAP RISE through Defender XDR. Data ingestion is done through the Microsoft Sentinel solution for SAP applications.
+:::image-end:::
+
 ## Microsoft Sentinel with SAP RISE
 
-The [SAP RISE certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) Microsoft Sentinel solution for SAP applications allows you to monitor, detect, and respond to suspicious activities. Microsoft Sentinel guards your critical data against sophisticated cyberattacks for SAP systems hosted on Azure, other clouds, or on-premises infrastructure. 
+The [SAP RISE certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) Microsoft Sentinel solution for SAP applications allows you to monitor, detect, and respond to suspicious activities. Microsoft Sentinel guards your critical data against sophisticated cyberattacks for SAP systems hosted on Azure, other clouds, or on-premises infrastructure. [Microsoft Sentinel Solution for SAP BTP](../../sentinel/sap/sap-btp-solution-overview.md) expands that coverage to SAP Business Technology Platform (BTP).
 
 The solution allows you to gain visibility to user activities on SAP RISE/ECS and the SAP business logic layers and apply Sentinel’s built-in content.
 -	Use a single console to monitor all your enterprise estate including SAP instances in SAP RISE/ECS on Azure and other clouds, SAP Azure native and on-premises estate
 -	Detect and automatically respond to threats: detect suspicious activity including privilege escalation, unauthorized changes, sensitive transactions, data exfiltration and more with out-of-the-box detection capabilities
 -	Correlate SAP activity with other signals: more accurately detect SAP threats by cross-correlating across endpoints, Microsoft Entra data and more
 -	Customize based on your needs - build your own detections to monitor sensitive transactions and other business risks
--	Visualize the data with built-in workbooks
+-	Visualize the data with [built-in workbooks](../../sentinel/sap/sap-audit-log-workbook.md)
 
-:::image type="complex" source="./media/sap-rise-integration/sap-rise-sentinel.png" alt-text="Connecting Sentinel with SAP RISE/ECS":::
-   This diagram shows an example of Microsoft Sentinel connected through an intermediary VM or container to SAP managed SAP system. The intermediary VM or container runs in customer's own subscription with configured SAP data connector agent.
+:::image type="complex" source="./media/sap-rise-integration/sap-rise-sentinel.png" alt-text="Diagram that shows how to connect Sentinel with SAP RISE/ECS." lightbox="./media/sap-rise-integration/sap-rise-sentinel.png":::
+   This diagram shows an example of Microsoft Sentinel connected through an intermediary VM or container to SAP managed SAP system. The intermediary VM or container runs in customer's own subscription with configured SAP data connector agent. Connection to SAP Business Technology Platform (BTP) uses SAP's public APIs for the Audit Log Management Service.
 :::image-end:::
 
 For SAP RISE/ECS, the Microsoft Sentinel solution must be deployed in customer's Azure subscription. All parts of the Sentinel solution are managed by customer and not by SAP. Private network connectivity from customer's vnet is needed to reach the SAP landscapes managed by SAP RISE/ECS. Typically, this connection is over the established vnet peering or through alternatives described in this document.
@@ -52,15 +80,18 @@ To enable the solution, only an authorized RFC user is required and nothing need
 - Authentication methods supported in SAP RISE: SAP username and password or X509/SNC certificates
 - Only RFC based connections are possible currently with SAP RISE/ECS environments
 
-Note for running Microsoft Sentinel in an SAP RISE/ECS environment:
-- The following log fields/source require an SAP transport change request: Client IP address information from SAP security audit log, DB table logs (preview), spool output log. Sentinel's built-in content (detections, workbooks and playbooks) provides extensive coverage and correlation without those log sources.
--	SAP infrastructure and operating system logs aren't available to Sentinel in RISE, including VMs running SAP, SAPControl data sources, network resources placed within ECS. SAP monitors elements of the Azure infrastructure and operation system independently.
+> [!IMPORTANT]
+> 
+> - Running Microsoft Sentinel in an SAP RISE/ECS environment requires: Importing an SAP transport change request for the following log fields/source: Client IP address information from SAP security audit log, DB table logs (preview), spool output log. Sentinel's built-in content (detections, workbooks and playbooks) provides extensive coverage and correlation without those log sources.
+> - SAP infrastructure and operating system logs aren't available to Sentinel in RISE, due to shared responsibility model.
+
+### Automatic response with Sentinel's SOAR capabilities
 
 Use prebuilt playbooks for security, orchestration, automation and response capabilities (SOAR) to react to threats quickly. A popular first scenario is SAP user blocking with intervention option from Microsoft Teams. The integration pattern can be applied to any incident type and target service spanning towards SAP Business Technology Platform (BTP) or Microsoft Entra ID with regard to reducing the attack surface.
 
 For more information on Microsoft Sentinel and SOAR for SAP, see the blog series [From zero to hero security coverage with Microsoft Sentinel for your critical SAP security signals](https://blogs.sap.com/2023/05/22/from-zero-to-hero-security-coverage-with-microsoft-sentinel-for-your-critical-sap-security-signals-blog-series/).
 
-:::image type="complex" source="./media/sap-rise-integration/sap-rise-sentinel-adaptive-card.png" alt-text="Using Sentinel SOAR capability with SAP RISE/ECS":::
+:::image type="complex" source="./media/sap-rise-integration/sap-rise-sentinel-adaptive-card.png" alt-text="Using Sentinel SOAR capability with SAP RISE/ECS." lightbox="./media/sap-rise-integration/sap-rise-sentinel-adaptive-card.png":::
    This image shows an SAP incident detected by Sentinel offering the option to block the suspicious user on the SAP ERP, SAP Business Technology Platform or Microsoft Entra ID.
 :::image-end:::
 
@@ -82,4 +113,5 @@ Check out the documentation:
 - [Integrating Azure with SAP RISE overview](./rise-integration.md)
 - [Network connectivity options in Azure with SAP RISE](./rise-integration-network.md)
 - [Integrating Azure services with SAP RISE](./rise-integration-services.md)
-- [Deploy Microsoft Sentinel solution for SAP® applicationsE](../../sentinel/sap/deployment-overview.md)
+- [Deploy Microsoft Sentinel solution for SAP® applications](../../sentinel/sap/deployment-overview.md)
+- [Deploy Microsoft Sentinel Solution for SAP® BTP](../../sentinel/sap/deploy-sap-btp-solution.md)

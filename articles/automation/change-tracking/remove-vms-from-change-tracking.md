@@ -3,11 +3,14 @@ title: Remove machines from Azure Automation Change Tracking and Inventory
 description: This article tells how to remove Azure and non-Azure machines from Change Tracking and Inventory.
 services: automation
 ms.subservice: change-inventory-management
-ms.topic: conceptual
-ms.date: 10/26/2021
+ms.topic: how-to
+ms.date: 09/09/2024
+ms.service: azure-automation
 ---
 
 # Remove machines from Change Tracking and Inventory
+
+[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
 
 When you're finished tracking changes on your Azure or non-Azure machines in your environment, you can stop managing them with the [Change Tracking and Inventory](overview.md) feature. To stop managing them, you will edit the saved search query `MicrosoftDefaultComputerGroup` in your Log Analytics workspace that is linked to your Automation account.
 

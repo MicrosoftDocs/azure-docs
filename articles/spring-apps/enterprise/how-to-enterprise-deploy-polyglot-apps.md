@@ -3,18 +3,17 @@ title: How to deploy polyglot apps in the Azure Spring Apps Enterprise plan
 description: Shows you how to deploy polyglot apps in the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: fenzho
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 07/05/2023
+ms.date: 08/28/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # How to deploy polyglot apps in the Azure Spring Apps Enterprise plan
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article shows you how to deploy polyglot apps in the Azure Spring Apps Enterprise plan, and how these polyglot apps can use the build service features provided by buildpacks.
 
@@ -25,7 +24,7 @@ This article shows you how to deploy polyglot apps in the Azure Spring Apps Ente
 
 ## Deploy polyglot applications in a service instance
 
-This section applies to building and deploying polyglot applications when the build service is enabled. If you disable the build service, you can deploy applications only with a custom container image. You can create your own image or use one built by an Azure Spring Apps Enterprise instance. For more information, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
+This section applies to building and deploying polyglot applications when the build service is enabled. If you disable the build service, you can deploy applications only with a custom container image. You can create your own image or use one built by an Azure Spring Apps Enterprise instance. For more information, see [Deploy an application with a custom container image](../basic-standard/how-to-deploy-with-custom-container-image.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 ### Manage builders
 
@@ -71,7 +70,7 @@ You can't delete a builder when existing active deployments are being built with
 
 In Azure Spring Apps, we recommend using `Jammy OS Stack` to create your builder because `Bioinic OS Stack` is in line for deprecation by VMware. The following list describes the options available:
 
-- Jammy Tiny: Suitable for building a minimal image for the smallest possible size and security footprint. Like building a Java Native Image, it can make the final container image smaller. The integrated libraries are limited. For example, you can't [connect to an app instance for troubleshooting](how-to-connect-to-app-instance-for-troubleshooting.md) because there's no `shell` library.
+- Jammy Tiny: Suitable for building a minimal image for the smallest possible size and security footprint. Like building a Java Native Image, it can make the final container image smaller. The integrated libraries are limited. For example, you can't [connect to an app instance for troubleshooting](../basic-standard/how-to-connect-to-app-instance-for-troubleshooting.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json) because there's no `shell` library.
   - Most Go apps.
   - Java apps. Some Apache Tomcat configuration options, such as setting *bin/setenv.sh*, aren't available because Tiny has no shell.
 
@@ -234,7 +233,7 @@ az spring app deploy \
 
 #### [User-managed container registry](#tab/user-managed-container-registry)
 
-This example builds or updates an application and deploys it using two commands. With a user-managed container registry, you can deploy an application only from a custom container image. For more information, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
+This example builds or updates an application and deploys it using two commands. With a user-managed container registry, you can deploy an application only from a custom container image. For more information, see [Deploy an application with a custom container image](../basic-standard/how-to-deploy-with-custom-container-image.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 The following command builds an application:
 
@@ -314,7 +313,7 @@ az spring build-service build update \
     --source-path <path-to-source-code>
 ```
 
-To deploy the application, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
+To deploy the application, see [Deploy an application with a custom container image](../basic-standard/how-to-deploy-with-custom-container-image.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 ---
 
@@ -362,7 +361,7 @@ az spring build-service build update \
     --artifact-path <path-to-your-JAR-file>
 ```
 
-To deploy the application, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
+To deploy the application, see [Deploy an application with a custom container image](../basic-standard/how-to-deploy-with-custom-container-image.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 ---
 
@@ -414,7 +413,7 @@ az spring build-service build update \
     --artifact-path <path-to-your-JAR-file>
 ```
 
-To deploy the application, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
+To deploy the application, see [Deploy an application with a custom container image](../basic-standard/how-to-deploy-with-custom-container-image.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 ---
 
@@ -434,36 +433,36 @@ The following table indicates the features supported for each language.
 
 | Feature                                                         | Java | Python | Node | .NET Core | Go | [Static Files](how-to-enterprise-deploy-static-file.md) | Java Native Image | PHP |
 |-----------------------------------------------------------------|------|--------|------|-----------|----|---------------------------------------------------------|-------------------|-----|
-| App lifecycle management                                        | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
-| Assign endpoint                                                 | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
-| Azure Monitor                                                   | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      |                   | ✔️ |
-| Out of box APM integration                                      | ✔️  |        |      |           |    |                                                         |                   |     |
-| Blue/green deployment                                           | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
-| Custom domain                                                   | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
-| Scaling - auto scaling                                          | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      |                   | ✔️ |
-| Scaling - manual scaling (in/out, up/down)                      | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
-| Managed identity                                                | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ️                 | ✔️ |
-| API portal for VMware Tanzu                                     | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
-| Spring Cloud Gateway for VMware Tanzu                           | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
-| Application Configuration Service for VMware Tanzu              | ✔️  |        |      |           |    |                                                         | ✔️                |     |
-| VMware Tanzu Service Registry                                   | ✔️  |        |      |           |    |                                                         | ✔️                |     |
-| App Live View for VMware Tanzu                                  | ✔️  |        |      |           |    |                                                         | ✔️                |     |
-| Virtual network                                                 | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
-| Outgoing IP Address                                             | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
-| E2E TLS                                                         | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
-| Advanced troubleshooting - thread/heap/JFR dump                 | ✔️  |        |      |           |    |                                                         |                   |     |
-| Bring your own storage                                          | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
-| Integrate service binding with Resource Connector               | ✔️  |        |      |           |    |                                                         | ✔️                |     |
-| Availability Zone                                               | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
-| App Lifecycle events                                            | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
-| Reduced app size - 0.5 vCPU and 512 MB                          | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
-| Automate app deployments with Terraform and Azure Pipeline Task | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
-| Soft Deletion                                                   | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
-| Interactive diagnostic experience (AppLens-based)               | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
-| SLA                                                             | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
-| Customize health probes                                         | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
-| Web shell connect for troubleshooting                           | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ️   ✔️           | ✔️  |
-| Remote debugging                                                | ✔️  |        |      |           | ️  | ️                                                       | ️                 |     |
+| App lifecycle management                                        | ✅  | ✅     | ✅  | ✅        | ✅ | ✅                                                      | ✅               | ✅  |
+| Assign endpoint                                                 | ✅  | ✅     | ✅  | ✅        | ✅ | ✅                                                      | ✅               | ✅  |
+| Azure Monitor                                                   | ✅  | ✅     | ✅  | ✅        | ✅ | ✅                                                      |                   | ✅ |
+| Out of box APM integration                                      | ✅  |        |      |           |    |                                                         |                   |     |
+| Blue/green deployment                                           | ✅  | ✅     | ✅  | ✅        | ✅ | ✅                                                      | ✅               | ✅  |
+| Custom domain                                                   | ✅  | ✅     | ✅  | ✅        | ✅ | ✅                                                      | ✅               | ✅  |
+| Scaling - auto scaling                                          | ✅  | ✅     | ✅  | ✅        | ✅ | ✅                                                      |                   | ✅ |
+| Scaling - manual scaling (in/out, up/down)                      | ✅  | ✅     | ✅  | ✅        | ✅ | ✅                                                      | ✅               | ✅  |
+| Managed identity                                                | ✅  | ✅     | ✅  | ✅        | ✅ | ✅                                                      | ️                 | ✅ |
+| API portal for VMware Tanzu                                     | ✅  | ✅     | ✅  | ✅        | ✅ | ✅                                                      | ✅               | ✅  |
+| Spring Cloud Gateway for VMware Tanzu                           | ✅  | ✅     | ✅  | ✅        | ✅ | ✅                                                      | ✅               | ✅  |
+| Application Configuration Service for VMware Tanzu              | ✅  |        |      |           |    |                                                         | ✅                |     |
+| VMware Tanzu Service Registry                                   | ✅  |        |      |           |    |                                                         | ✅                |     |
+| App Live View for VMware Tanzu                                  | ✅  |        |      |           |    |                                                         | ✅                |     |
+| Virtual network                                                 | ✅  | ✅     | ✅  | ✅        | ✅ | ✅                                                      | ✅               | ✅  |
+| Outgoing IP Address                                             | ✅  | ✅     | ✅  | ✅        | ✅ | ✅                                                      | ✅               | ✅  |
+| E2E TLS                                                         | ✅  | ✅     | ✅  | ✅        | ✅ | ✅                                                      | ✅               | ✅  |
+| Advanced troubleshooting - thread/heap/JFR dump                 | ✅  |        |      |           |    |                                                         |                   |     |
+| Bring your own storage                                          | ✅  | ✅     | ✅  | ✅        | ✅ | ✅                                                      | ✅               | ✅  |
+| Integrate service binding with Resource Connector               | ✅  |        |      |           |    |                                                         | ✅                |     |
+| Availability Zone                                               | ✅  | ✅     | ✅  | ✅        | ✅ | ✅                                                      | ✅               | ✅  |
+| App Lifecycle events                                            | ✅  | ✅     | ✅  | ✅        | ✅ | ✅                                                      | ✅               | ✅  |
+| Reduced app size - 0.5 vCPU and 512 MB                          | ✅  | ✅     | ✅  | ✅        | ✅ | ✅                                                      | ✅               | ✅  |
+| Automate app deployments with Terraform and Azure Pipeline Task | ✅  | ✅     | ✅  | ✅        | ✅ | ✅                                                      | ✅               | ✅  |
+| Soft Deletion                                                   | ✅  | ✅     | ✅  | ✅        | ✅ | ✅                                                      | ✅               | ✅  |
+| Interactive diagnostic experience (AppLens-based)               | ✅  | ✅     | ✅  | ✅        | ✅ | ✅                                                      | ✅               | ✅  |
+| SLA                                                             | ✅  | ✅     | ✅  | ✅        | ✅ | ✅                                                      | ✅               | ✅  |
+| Customize health probes                                         | ✅  | ✅     | ✅  | ✅        | ✅ | ✅                                                      | ✅               | ✅  |
+| Web shell connect for troubleshooting                           | ✅  | ✅     | ✅  | ✅        | ✅ | ✅                                                      | ️   ✅           | ✅  |
+| Remote debugging                                                | ✅  |        |      |           | ️  | ️                                                       | ️                 |     |
 
 For more information about the supported configurations for different language apps, see the corresponding section later in this article.
 
@@ -532,7 +531,7 @@ The following table lists the features supported in Azure Spring Apps:
 
 | Feature description                                                 | Comment                                                                                                                                                                                                                                                                                                                                    | Environment variable                                                                                                  | Usage                                |
 |---------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|--------------------------------------|
-| Configure the .NET Core runtime version.                            | Supports *Net6.0*, *Net7.0*, and *Net8.0*. <br> You can configure through a *runtimeconfig.json* or MSBuild Project file. <br> The default runtime is *6.0.\**.                                                                                                                                                                                      | N/A                                                                                                                   | N/A                                  |
+| Configure the .NET Core runtime version.                            | Supports *Net6.0*, and *Net8.0*. <br> You can configure through a *runtimeconfig.json* or MSBuild Project file. <br> The default runtime is *6.0.\**.                                                                                                                                                                                      | N/A                                                                                                                   | N/A                                  |
 | Add CA certificates to the system trust store at build and runtime. | See the [Configure CA certificates for app builds and deployments](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md#configure-ca-certificates-for-app-builds-and-deployments) section of [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md). | N/A                                                                                                                   | N/A                                  |
 | Integrate with the Dynatrace and New Relic APM agents.              | See [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md).                                                                                                                                                                                                          | N/A                                                                                                                   | N/A                                  |
 | Enable configuration of labels on the created image.                | Configures both OCI-specified labels with short environment variable names and arbitrary labels using a space-delimited syntax in a single environment variable.                                                                                                                                                                           | `BP_IMAGE_LABELS` <br> `BP_OCI_AUTHORS` <br> See more environment variables [here](https://github.com/paketo-buildpacks/image-labels). | `--build-env BP_OCI_AUTHORS=<value>` |
@@ -557,7 +556,7 @@ The following table lists the features supported in Azure Spring Apps:
 
 | Feature description                                                 | Comment                                                                                                                                                                                                                                                                                                                                    | Environment variable                                                                                                  | Usage                                                    |
 |---------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|
-| Specify a Go version.                                               | Supports *1.20.\**, *1.21.\**. The default value is *1.20.\**.<br> The Go version is automatically detected from the app’s *go.mod* file. You can override this version by setting the `BP_GO_VERSION` environment variable at build time.                                                                                                 | `BP_GO_VERSION`                                                                                                       | `--build-env BP_GO_VERSION=1.20.*`                       |
+| Specify a Go version.                                               | Supports *1.21.\**, *1.22.\**. The default value is *1.21.\**.<br> The Go version is automatically detected from the app’s *go.mod* file. You can override this version by setting the `BP_GO_VERSION` environment variable at build time.                                                                                                 | `BP_GO_VERSION`                                                                                                       | `--build-env BP_GO_VERSION=1.22.*`                       |
 | Configure multiple targets.                                         | Specifies multiple targets for a Go build.                                                                                                                                                                                                                                                                                                 | `BP_GO_TARGETS`                                                                                                       | `--build-env BP_GO_TARGETS=./some-target:./other-target` |
 | Add CA certificates to the system trust store at build and runtime. | See the [Configure CA certificates for app builds and deployments](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md#configure-ca-certificates-for-app-builds-and-deployments) section of [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md). | N/A                                                                                                                   | N/A                                                      |
 | Integrate with Dynatrace APM agent.                                 | See [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md).                                                                                                                                                                                                          | N/A                                                                                                                   | N/A                                                      |
@@ -571,7 +570,7 @@ The following table lists the features supported in Azure Spring Apps:
 
 | Feature description                                                  | Comment                                                                                                                                                                                                                                                                                                                                    | Environment variable                                                                                                  | Usage                                |
 |----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|--------------------------------------|
-| Specify a Node version.                                              | Supports *16.\**, *18.\**, *19.\**, *20.\**. The default value is *20.\**. <br>You can specify the Node version via an *.nvmrc* or *.node-version* file at the application directory root. `BP_NODE_VERSION` overrides the settings.                                                                                              | `BP_NODE_VERSION`                                                                                                     | `--build-env BP_NODE_VERSION=19.*`   |
+| Specify a Node version.                                              | Supports *16.\**, *18.\**, *19.\**, *20.\**. The default value is *20.\**. <br>You can specify the Node version via an *.nvmrc* or *.node-version* file at the application directory root. `BP_NODE_VERSION` overrides the settings.                                                                                              | `BP_NODE_VERSION`                                                                                                     | `--build-env BP_NODE_VERSION=20.*`   |
 | Add CA certificates to the system trust store at build and runtime.  | See the [Configure CA certificates for app builds and deployments](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md#configure-ca-certificates-for-app-builds-and-deployments) section of [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md). | N/A                                                                                                                   | N/A                                  |
 | Integrate with Dynatrace, Elastic, New Relic, App Dynamic APM agent. | See [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md).                                                                                                                                                                                                          | N/A                                                                                                                   | N/A                                  |
 | Enable configuration of labels on the created image.                 | Configures both OCI-specified labels with short environment variable names and arbitrary labels using a space-delimited syntax in a single environment variable.                                                                                                                                                                           | `BP_IMAGE_LABELS` <br> `BP_OCI_AUTHORS` <br> See more environment variables [here](https://github.com/paketo-buildpacks/image-labels). | `--build-env BP_OCI_AUTHORS=<value>` |
@@ -597,7 +596,7 @@ The following table lists the features supported in Azure Spring Apps:
 
 | Feature description                                                 | Comment                                                                                                                                                          | Environment variable                                                                                                                   | Usage                                                         |
 |---------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------|
-| Integrate with Bellsoft OpenJDK.                                    | Configures the JDK version. Currently supported: JDK 8, 11, 17, and 20.                                                                                          | `BP_JVM_VERSION`                                                                                                                       | `--build-env BP_JVM_VERSION=17`                               |
+| Integrate with Bellsoft OpenJDK.                                    | Configures the JDK version. Currently supported: JDK 8, 11, 17, and 21.                                                                                          | `BP_JVM_VERSION`                                                                                                                       | `--build-env BP_JVM_VERSION=17`                               |
 | Configure arguments for the `native-image` command.                 | Arguments to pass directly to the native-image command. These arguments must be valid and correctly formed or the native-image command fails.                    | `BP_NATIVE_IMAGE_BUILD_ARGUMENTS`                                                                                                      | `--build-env BP_NATIVE_IMAGE_BUILD_ARGUMENTS="--no-fallback"` |
 | Add CA certificates to the system trust store at build and runtime. | See [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md).                                | Not applicable.                                                                                                                        | Not applicable.                                               |
 | Enable configuration of labels on the created image                 | Configures both OCI-specified labels with short environment variable names and arbitrary labels using a space-delimited syntax in a single environment variable. | `BP_IMAGE_LABELS` <br> `BP_OCI_AUTHORS` <br> See more environment variables [here](https://github.com/paketo-buildpacks/image-labels). | `--build-env BP_OCI_AUTHORS=<value>`                          |
@@ -615,7 +614,7 @@ The following table lists the features supported in Azure Spring Apps:
 
 | Feature description                                                 | Comment                                                                                                                                                                                                                                                                                                                                    | Environment variable | Usage                               |
 |---------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|-------------------------------------|
-| Specify the PHP version.                                            | Configures the PHP version. Currently supported: PHP *8.1.\**, and *8.2.\**. The default value is *8.1.\**                                                                                                                                                                                                                       | `BP_PHP_VERSION`     | `--build-env BP_PHP_VERSION=8.0.*`  |
+| Specify the PHP version.                                            | Configures the PHP version. Currently supported: PHP *8.1.\**, *8.2.\**, and *8.3.\**. The default value is *8.1.\**                                                                                                                                                                                                                       | `BP_PHP_VERSION`     | `--build-env BP_PHP_VERSION=8.1.*`  |
 | Add CA certificates to the system trust store at build and runtime. | See the [Configure CA certificates for app builds and deployments](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md#configure-ca-certificates-for-app-builds-and-deployments) section of [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md). | N/A                  | N/A                                 |
 | Integrate with Dynatrace, New Relic, App Dynamic APM agent.         | See [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md).                                                                                                                                                                                                          | N/A                  | N/A                                 |
 | Select a Web Server.                                                | The setting options are *php-server*, *httpd*, and *nginx*. The default value is *php-server*.                                                                                                                                                                                                                                             | `BP_PHP_SERVER`      | `--build-env BP_PHP_SERVER=httpd`   |

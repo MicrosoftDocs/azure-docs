@@ -5,12 +5,12 @@ description: Learn how to request an access token from Azure Active Directory B2
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: concept-article
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer integrating Azure Active Directory B2C with a web application and web API, I want to understand how to request an access token, so that I can authenticate and authorize users to access my APIs securely.
@@ -23,7 +23,7 @@ An *access token* contains claims that you can use in Azure Active Directory B2C
 This article shows you how to request an access token for a web application and web API. For more information about tokens in Azure AD B2C, see the [overview of tokens in Azure Active Directory B2C](tokens-overview.md).
 
 > [!NOTE]
-> **Web API chains (On-Behalf-Of) is not supported by Azure AD B2C** - Many architectures include a web API that needs to call another downstream web API, both secured by Azure AD B2C. This scenario is common in clients that have a web API back end, which in turn calls a another service. This chained web API scenario can be supported by using the OAuth 2.0 JWT Bearer Credential grant, otherwise known as the On-Behalf-Of flow. However, the On-Behalf-Of flow is not currently implemented in Azure AD B2C. Although On-Behalf-Of works for applications registered in Microsoft Entra ID, it does not work for applications registered in Azure AD B2C, regardless of the tenant (Microsoft Entra ID or Azure AD B2C) that is issuing the tokens.
+> **Web API chains (On-Behalf-Of) is not supported by Azure AD B2C** - Many architectures include a web API that needs to call another downstream web API, both secured by Azure AD B2C. This scenario is common in clients that have a web API back end, which in turn calls another service. This chained web API scenario can be supported by using the OAuth 2.0 JWT Bearer Credential grant, otherwise known as the On-Behalf-Of flow. However, the On-Behalf-Of flow is not currently implemented in Azure AD B2C. Although On-Behalf-Of works for applications registered in Microsoft Entra ID, it does not work for applications registered in Azure AD B2C, regardless of the tenant (Microsoft Entra ID or Azure AD B2C) that is issuing the tokens.
 
 ## Prerequisites
 

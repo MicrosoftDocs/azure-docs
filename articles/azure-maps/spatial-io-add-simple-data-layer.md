@@ -7,6 +7,7 @@ ms.author: sipa
 ms.date: 06/19/2023
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: web-sdk
 #Customer intent: As an Azure Maps web sdk user, I want to add simple data layer so that I can render styled features on the map.
 ---
 
@@ -14,7 +15,7 @@ ms.service: azure-maps
 
 The spatial IO module provides a `SimpleDataLayer` class. This class makes it easy to render styled features on the map. It can even render data sets that have style properties and data sets that contain mixed geometry types. The simple data layer achieves this functionality by wrapping multiple rendering layers and using style expressions. The style expressions search for common style properties of the features inside these wrapped layers. The `atlas.io.read` function and the `atlas.io.write` function use these properties to read and write styles into a supported file format. After adding the properties to a supported file format, the file can be used for various purposes. For example, the file can be used to display the styled features on the map.
 
-In addition to styling features, the `SimpleDataLayer` provides a built-in popup feature with a popup template. The popup displays when a feature is clicked. The default popup feature can be disabled, if desired. This layer also supports clustered data. When a cluster is clicked, the map zooms into the cluster and expands it into individual points and subclusters.
+In addition to styling features, the `SimpleDataLayer` provides a built-in popup feature with a popup template. The popup displays when a feature is selected. The default popup feature can be disabled, if desired. This layer also supports clustered data. When a cluster is clicked, the map zooms into the cluster and expands it into individual points and subclusters.
 
 The `SimpleDataLayer` class is intended to be used on large data sets with many geometry types and many styles applied on the features. When used, this class adds an overhead of six layers containing style expressions. So, there are cases when it's more efficient to use the core rendering layers. For example, use a core layer to render a couple of geometry types and a few styles on a feature
 
@@ -35,69 +36,68 @@ map.layers.add(layer);
 The following code snippet demonstrates using a simple data layer, referencing the data from an online source.
 
 ```javascript
-function InitMap()
-{
-  var map = new atlas.Map('myMap', {
-    center: [-73.967605, 40.780452],
-    zoom: 12,
-    view: "Auto",
+<script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.min.js"></script>
 
-    //Add authentication details for connecting to Azure Maps.
-    authOptions: {
-      // Get an Azure Maps key at https://azuremaps.com/.
-      authType: 'subscriptionKey',
-      subscriptionKey: '{Your-Azure-Maps-Subscription-key}'
-    },
-  });    
+<script>
+    function InitMap() {
+        var map = new atlas.Map("myMap", {
+            center: [-73.967605, 40.780452],
+            zoom: 12,
+            view: "Auto",
 
-  //Wait until the map resources are ready.
-  map.events.add('ready', function () {
+            //Add authentication details for connecting to Azure Maps.
+            authOptions: {
+                // Get an Azure Maps key at https://azuremaps.com/.
+                authType: "subscriptionKey",
+                subscriptionKey: '{Your-Azure-Maps-Subscription-key}'
+            }
+        });
 
-    //Create a data source and add it to the map.
-    var datasource = new atlas.source.DataSource();
-    map.sources.add(datasource);
+        //Wait until the map resources are ready.
+        map.events.add("ready", function () {
+            //Create a data source and add it to the map.
+            var datasource = new atlas.source.DataSource();
+            map.sources.add(datasource);
 
-    //Add a simple data layer for rendering data.
-    var layer = new atlas.layer.SimpleDataLayer(datasource);
-    map.layers.add(layer);
+            //Add a simple data layer for rendering data.
+            var layer = new atlas.layer.SimpleDataLayer(datasource);
+            map.layers.add(layer);
 
-    //Load an initial data set.
-    loadDataSet('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1717245/use-simple-data-layer.json');
+            //Load an initial data set.
+            const dataSet = {
+                type: "FeatureCollection",
+                bbox: [0, 0, 0, 0],
+                features: [
+                    {
+                        type: "Feature",
+                        geometry: {
+                            type: "Point",
+                            coordinates: [0, 0]
+                        },
+                        properties: {
+                            color: "red"
+                        }
+                    }
+                ]
+            };
 
-    function loadDataSet(url) {
-      //Read the spatial data and add it to the map.
-      atlas.io.read(url).then(r => {
-      if (r) {
-        //Update the features in the data source.
-        datasource.setShapes(r);
+            loadDataSet(dataSet);
 
-        //If bounding box information is known for data, set the map view to it.
-        if (r.bbox) {
-          map.setCamera({
-            bounds: r.bbox,
-            padding: 50
-          });
-        }
-      }
-      });
+            function loadDataSet(r) {
+                //Update the features in the data source.
+                datasource.setShapes(r);
+
+                //If bounding box information is known for data, set the map view to it.
+                if (r.bbox) {
+                    map.setCamera({
+                        bounds: r.bbox,
+                        padding: 50
+                    });
+                }
+            }
+        });
     }
-  });
-}
-```
-
-The url passed to the `loadDataSet` function points to the following json:
-
-```json
-{
-    "type": "Feature",
-    "geometry": {
-        "type": "Point",
-        "coordinates": [0, 0]
-    },
-    "properties": {
-        "color": "red"
-    }
-}
+</script>
 ```
 
 Once you add features to the data source, the simple data layer figures out how best to render them. Styles for individual features can be set as properties on the feature.
@@ -117,10 +117,6 @@ This sample code renders the point feature using the simple data layer, and appe
 >
 > &emsp; "coordinates": [0, 0]
 
-<!------------------------------------
-> [!VIDEO //codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result&editable=true]
------------------------------------->
-
 The real power of the simple data layer comes when:
 
 - There are several different types of features in a data source; or
@@ -138,7 +134,7 @@ For example when parsing XML data feeds, you may not know the exact styles and g
 > [!NOTE]
 > This simple data layer uses the [popup template] class to display KML balloons or feature properties as a table. By default, all content rendered in the popup will be sandboxed inside of an iframe as a security feature. However, there are limitations:
 >
-> - All scripts, forms, pointer lock and top navigation functionality is disabled. Links are allowed to open up in a new tab when clicked.
+> - All scripts, forms, pointer lock and top navigation functionality is disabled. Links are allowed to open up in a new tab when selected.
 > - Older browsers that don't support the `srcdoc` parameter on iframes will be limited to rendering a small amount of content.
 >
 > If you trust the data being loaded into the popups and potentially want these scripts loaded into popups be able to access your application, you can disable this by setting the popup templates `sandboxContent` option to false.

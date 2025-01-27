@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description:  This article helps you understand when to use which view, how each one provides unique insights about your costs and recommended next steps to investigate further.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/10/2023
+ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -162,7 +162,7 @@ Use the **Invoice details** view to:
 
 :::image type="content" source="./media/cost-analysis-built-in-views/invoice-details.png" alt-text="Screenshot showing an example of the Invoice details view." lightbox="./media/cost-analysis-built-in-views/invoice-details.png" :::
 
-## Next steps
+## Related content
 
 - Now that you're familiar with using built-in views, read about [Saving and sharing customized views](save-share-views.md).
 - Learn about how to [Customize views in cost analysis](customize-cost-analysis-views.md)

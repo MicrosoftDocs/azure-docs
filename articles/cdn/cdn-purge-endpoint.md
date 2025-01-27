@@ -4,7 +4,6 @@ description: Learn how to purge all cached content from an Azure Content Deliver
 services: cdn
 author: duongau
 manager: kumud
-ms.assetid: 0b50230b-fe82-4740-90aa-95d4dde8bd4f
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
@@ -12,6 +11,8 @@ ms.author: duau
 ---
 
 # Purge an Azure Content Delivery Network endpoint
+
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 Azure Content Delivery Network edge nodes cache contents until the content's time to live (TTL) expires. After the TTL expires, when a client makes a request for the content from the edge node, the edge node will retrieve a new updated copy of the content to serve to the client. Then the refreshed content in cache of the edge node.
 
@@ -47,17 +48,13 @@ This guide walks you through purging assets from all edge nodes of an endpoint.
 	3. **Root domain purge**: Purge the root of the endpoint with "/" in the path.
 
    > [!TIP]
-   > 1. Paths must be specified for purge and must be a relative URL that fit the following [RFC 3986 - Uniform Resource Identifier (URI: Generic Syntax](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3).
+   > 1. Paths must be specified for purge and must be a relative URL that fit the following [RFC 3986 - Uniform Resource Identifier (URI): Generic Syntax](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3).
    >
    > 1. In Azure CDN from Microsoft, query strings in the purge URL path are not considered. If the path to purge is provided as `/TestCDN?myname=max`, only `/TestCDN` is considered. The query string `myname=max` is omitted. Both `TestCDN?myname=max` and `TestCDN?myname=clark` will be purged.
 
 5. Select the **Purge** button.
 
     ![Purge button](./media/cdn-purge-endpoint/cdn-purge-button.png)
-
-> [!IMPORTANT]
-> Purge requests take approximately 2 minutes with **Azure CDN from Edgio** (standard and premium). Azure Content Delivery Network has a limit of 100 concurrent purge requests at any given time at the profile level.
->
 
 ## Next steps
 

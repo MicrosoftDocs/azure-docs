@@ -3,7 +3,7 @@ title: Generate a refresh token for Azure Data Manager for Energy
 description: This article describes how to generate an auth token.
 author: shikhagarg1
 ms.author: shikhagarg
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 01/03/2024
 ms.custom: template-how-to
@@ -95,6 +95,9 @@ You have two ways to get the list of data partitions in your Azure Data Manager 
    :::image type="content" source="media/how-to-generate-auth-token/data-partition-id-second-option.png" alt-text="Screenshot that shows finding the data-partition-id from the Azure Data Manager for Energy instance Overview page.":::
 
    :::image type="content" source="media/how-to-generate-auth-token/data-partition-id-second-option-step-2.png" alt-text="Screenshot that shows finding the data-partition-id from the Azure Data Manager for Energy instance Overview page with the data partitions.":::
+
+### Find domain
+By default, the `domain` is dataservices.energy for all the Azure Data Manager for Energy instances.
 
 ## Generate the client-id auth token
 
@@ -199,7 +202,7 @@ The second step is to get the auth token and the refresh token. Your app uses th
 
 For more information on generating a user access token and using a refresh token to generate a new access token, see [Generate refresh tokens](/graph/auth-v2-user#2-get-authorization).
 
-OSDU&trade; is a trademark of The Open Group.
+OSDU&reg; is a trademark of The Open Group.
 
 ## Next steps
 

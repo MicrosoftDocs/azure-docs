@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: This article lists out commonly added questions on  retirement of Application gateway V1 SKUs and Migration
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 04/18/2024
 ms.author: greglin
@@ -16,7 +16,7 @@ On April 28,2023 we announced retirement of Application gateway V1 on 28 April 2
 
 ### What is the official date Application Gateway V1 is cut off from creation?
 
-New Customers won't be allowed to create V1 from 1 July 2023 onwards. However, any existing V1 customers can continue to create resources in existing subscriptions until August 2024 and manage V1 resources until the retirement date of 28 April 2026.
+New Customers won't be allowed to create V1 from 1 July 2023 onwards. However, any existing V1 customers can continue to create resources in existing subscriptions until 1 September 2024 and manage V1 resources until the retirement date of 28 April 2026.
 
 ### What happens to existing Application Gateway V1 after 28 April 2026?
 
@@ -28,7 +28,7 @@ Customers who didn't have Application Gateway V1 SKU in their subscriptions as o
 
 ### What is the definition of an existing customer on Application Gateway V1 SKU?
 
-Customers who had active or stopped but allocated Application Gateway V1 SKU in their subscriptions as of  4 July 2023, are considered existing customers. These customers get until August 28, 2024 to create new V1 application gateways in their existing subscriptions and until April 28,2026 to migrate their V1 gateways to V2.
+Customers who had active or stopped but allocated Application Gateway V1 SKU in their subscriptions as of  4 July 2023, are considered existing customers. These customers get until end of August, 2024 to create new V1 application gateways in their existing subscriptions and until April 28,2026 to migrate their V1 gateways to V2.
 
 ### Does this migration plan affect any of my existing workloads that run on Application Gateway V1 SKU?
 
@@ -59,7 +59,7 @@ Planning and execution of migration greatly depends on the complexity of the dep
 
 ### How do I report an issue?
 
-Post your issues and questions about migration to our [Microsoft Q&A](https://aka.ms/ApplicationGatewayQA) for AppGateway, with the keyword `V1Migration`. We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a [support ticket](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade) as well.
+Post your issues and questions about migration to our [Microsoft Q&A](https://aka.ms/ApplicationGatewayQA) for AppGateway, with the keyword `V1Migration`. We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a [support ticket](https://portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade) as well.
 
 ## FAQ on V1 to V2 migration
 

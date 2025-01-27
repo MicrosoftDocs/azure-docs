@@ -2,11 +2,7 @@
 title: Azure Functions runtime versions overview
 description: Azure Functions supports multiple versions of the runtime. Learn the differences between them and how to choose the one that's right for you.
 ms.topic: conceptual
-ms.custom:
-  - devx-track-extended-java
-  - devx-track-js
-  - devx-track-python
-  - ignite-2023
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, ignite-2023, devx-track-ts
 ms.date: 02/26/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -18,7 +14,7 @@ zone_pivot_groups: programming-languages-set-functions
 | Version | Support level | Description |
 | --- | --- | --- |
 | 4.x | GA | **_Recommended runtime version for functions in all languages._** Check out [Supported language versions](#languages). |
-| 1.x | GA ([support ends September 14, 2026](https://aka.ms/azure-functions-retirements/hostv1)) | Supported only for C# apps that must use .NET Framework. This version is in maintenance mode, with enhancements provided only in later versions. **Support will end for version 1.x on September 14, 2026.** We highly recommend you [migrate your apps to version 4.x](migrate-version-1-version-4.md?pivots=programming-language-csharp), which supports .NET Framework 4.8, .NET 6, .NET 7, and .NET 8.|
+| 1.x | GA ([support ends September 14, 2026](https://aka.ms/azure-functions-retirements/hostv1)) | Supported only for C# apps that must use .NET Framework. This version is in maintenance mode, with enhancements provided only in later versions. **Support will end for version 1.x on September 14, 2026.** We highly recommend you [migrate your apps to version 4.x](migrate-version-1-version-4.md?pivots=programming-language-csharp), which supports .NET Framework 4.8, .NET 8, and .NET 9.|
 
 > [!IMPORTANT]
 > As of December 13, 2022, function apps running on versions 2.x and 3.x of the Azure Functions runtime have reached the end of extended support. For more information, see [Retired versions](#retired-versions).
@@ -35,7 +31,7 @@ All functions in a function app must share the same language. You choose the lan
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-For information about the language versions of previously supported versions of the Functions runtime, see [Retired runtime versions](language-support-policy.md#retired-runtime-versions).
+For information about the language versions of previously supported versions of the Functions runtime, see [Retired runtime versions](language-support-policy.md#language-support-related-resources).
 
 ## <a name="creating-1x-apps"></a>Run on a specific version
 
@@ -70,7 +66,7 @@ Older minor versions are periodically removed from Functions. For the latest new
 ::: zone pivot="programming-language-csharp"
 There's technically not a correlation between binding extension versions and the Functions runtime version. However, starting with version 4.x the Functions runtime enforces a minimum version for all trigger and binding extensions. 
 
-If you receive a warning about a package not meeting a minimum required version, you should update that NuGet package to the minimum version as you normally would. The minimum version requirements for extensions used in Functions v4.x can be found in [the linked configuration file](https://github.com/Azure/azure-functions-host/blob/v4.x/src/WebJobs.Script/extensionrequirements.json).
+If you receive a warning about a package not meeting a minimum required version, you should update that NuGet package to the minimum version as you normally would. The minimum version requirements for extensions used in Functions v4.x can be found in [the linked configuration file](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script/extensionrequirements.json).
 
 For C# script, update the extension bundle reference in the host.json as follows:
 
@@ -135,7 +131,11 @@ In Visual Studio, you select the runtime version when you create a project. Azur
 <AzureFunctionsVersion>v4</AzureFunctionsVersion>
 ```
 
-You can choose `net8.0`, `net7.0`, `net6.0`, or `net48` as the target framework if you are using the [isolated worker model](dotnet-isolated-process-guide.md). If you are using the [in-process model](./functions-dotnet-class-library.md), you can only choose `net6.0`, and you must include the `Microsoft.NET.Sdk.Functions` extension set to at least `4.0.0`.
+If you are using the [isolated worker model](dotnet-isolated-process-guide.md), you can choose, `net8.0`, `net6.0`, or `net48` as the target framework. You can also choose to use [preview support](./dotnet-isolated-process-guide.md#preview-net-versions) for `net9.0`. If you are using the [in-process model](./functions-dotnet-class-library.md), you can choose `net8.0` or `net6.0`, and you must include the `Microsoft.NET.Sdk.Functions` extension set to at least `4.4.0`.
+
+.NET 7 was previously supported on the isolated worker model but reached the end of official support on [May 14, 2024][dotnet-policy].
+
+[dotnet-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle
 
 # [Version 1.x](#tab/v1)
 

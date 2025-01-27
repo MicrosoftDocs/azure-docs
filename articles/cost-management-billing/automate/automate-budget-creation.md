@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article helps you create budgets with the Budget API and a budget template.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/17/2023
+ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -168,7 +168,7 @@ Languages supported by a culture code:
 
 You can configure budgets to start automated actions using Azure Action Groups. To learn more about automating actions using budgets, see [Automation with budgets](../manage/cost-management-budget-scenario.md).
 
-## Next steps
+## Related content
 
 - Learn more about Cost Management + Billing automation at [Cost Management automation overview](automation-overview.md).
 - [Assign permissions to Cost Management APIs](cost-management-api-permissions.md).

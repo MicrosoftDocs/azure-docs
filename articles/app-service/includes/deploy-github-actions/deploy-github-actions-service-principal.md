@@ -3,10 +3,10 @@ author: cephalin
 ms.author: cephalin
 ms.topic: include
 ms.custom: devx-track-azurecli
-ms.date: 01/22/2024
+ms.date: 01/16/2025
 ---
 
-To deploy with the service principal you configured, use the `azure/login@v1` action with the `creds` key and reference the `AZURE_CREDENTIALS` secret that you [created earlier](../../deploy-github-actions.md?tabs=userlevel#2-configure-the-github-secret).
+To deploy with the service principal you configured, use the `azure/login@v1` action with the `creds` key and reference the `AZURE_CREDENTIALS` secret that you created earlier.
 
 # [ASP.NET Core](#tab/aspnetcore)
 
@@ -59,7 +59,7 @@ jobs:
 
 # [ASP.NET](#tab/aspnet)
 
-Build and deploy a ASP.NET MVC app to Azure using an Azure service principal. Note how the `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
+Build and deploy a ASP.NET MVC app to Azure using an Azure service principal. The `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
 
 ```yaml
 name: Deploy ASP.NET MVC App deploy to Azure Web App
@@ -108,9 +108,9 @@ jobs:
         az logout
 ```
 
-# [Java](#tab/java)
+# [Java SE](#tab/java)
 
-Build and deploy a Java Spring app to Azure using an Azure service principal. Note how the `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
+Build and deploy a Java Spring app to Azure using an Azure service principal. The `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
 
 ```yaml
 name: Java CI with Maven
@@ -146,9 +146,58 @@ jobs:
         az logout
 ```
 
+# [Tomcat](#tab/tomcat)
+
+Build and deploy a Tomcat app to Azure using an Azure service principal. The `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
+
+```yaml
+name: Build and deploy WAR app to Azure Web App using Service Principal Connect
+
+env:
+  JAVA_VERSION: '11'                  # set this to the Java version to use
+  DISTRIBUTION: microsoft             # set this to the Java distribution
+  AZURE_WEBAPP_NAME: sampleapp        # set this to the name of your web app
+
+on: [push]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Java version
+        uses: actions/setup-java@v3.0.0
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.DISTRIBUTION }}
+          cache: 'maven'
+
+      - name: Build with Maven
+        run: mvn clean install
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          package: '*.war'
+```
+
+You can find this [full example](https://github.com/Azure-Samples/onlinebookstore/blob/master/.github/workflows/azure-webapps-java-war-service-principal.yml) using multiple jobs for build and deploy.
+
 # [Node.js](#tab/nodejs)
 
-Build and deploy a Node.js app to Azure using an Azure service principal. Note how the `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
+Build and deploy a Node.js app to Azure using an Azure service principal. The `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
 
 ```yaml
 name: JavaScript CI
@@ -200,7 +249,7 @@ jobs:
 
 # [Python](#tab/python)
 
-Build and deploy a Python app to Azure using an Azure service principal. Note how the `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
+Build and deploy a Python app to Azure using an Azure service principal. The `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
 
 ```yaml
 name: Python application

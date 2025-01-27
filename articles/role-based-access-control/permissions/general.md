@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -162,6 +162,7 @@ Azure service: [Azure Quotas](/azure/quotas/quotas-overview)
 > | Microsoft.Quota/register/action | Register the subscription with Microsoft.Quota Resource Provider |
 > | Microsoft.Quota/groupQuotas/read | Get the GroupQuota |
 > | Microsoft.Quota/groupQuotas/write | Creates the GroupQuota resource |
+> | Microsoft.Quota/groupQuotas/delete | Deletes the GroupQuota resource |
 > | Microsoft.Quota/groupQuotas/groupQuotaLimits/read | Get the current GroupQuota of the specified resource |
 > | Microsoft.Quota/groupQuotas/groupQuotaLimits/write | Creates the GroupQuota request for the specified resource |
 > | Microsoft.Quota/groupQuotas/groupQuotaRequests/read | Get the GroupQuota request status for the specific request |
@@ -170,6 +171,7 @@ Azure service: [Azure Quotas](/azure/quotas/quotas-overview)
 > | Microsoft.Quota/groupQuotas/quotaAllocations/write | Creates the GroupQuota to subscription Quota limit request for the specified resource |
 > | Microsoft.Quota/groupQuotas/subscriptions/read | Get the GroupQuota subscriptions |
 > | Microsoft.Quota/groupQuotas/subscriptions/write | Add Subscriptions to GroupQuota resource |
+> | Microsoft.Quota/groupQuotas/subscriptions/delete | Deletes Subscriptions from GroupQuota resource |
 > | Microsoft.Quota/operations/read | Get the Operations supported by Microsoft.Quota |
 > | Microsoft.Quota/quotaRequests/read | Get any service limit request for the specified resource |
 > | Microsoft.Quota/quotas/read | Get the current Service limit or quota of the specified resource |
@@ -189,10 +191,13 @@ Azure service: core
 > | Microsoft.Subscription/aliases/write | Create subscription alias |
 > | Microsoft.Subscription/aliases/read | Get subscription alias |
 > | Microsoft.Subscription/aliases/delete | Delete subscription alias |
+> | Microsoft.Subscription/changeTenantRequest/write | Change tenant request of the Subscription |
 > | Microsoft.Subscription/Policies/write | Create tenant policy |
 > | Microsoft.Subscription/Policies/default/read | Get tenant policy |
 > | Microsoft.Subscription/subscriptions/acceptOwnership/action | Accept ownership of Subscription |
+> | Microsoft.Subscription/subscriptions/acceptChangeTenant/action | Accept Change tenant request of the Subscription |
 > | Microsoft.Subscription/subscriptions/acceptOwnershipStatus/read | Get the status of accepting ownership of Subscription |
+> | Microsoft.Subscription/subscriptions/changeTenantStatus/read | Change tenant status of the Subscription |
 
 ## Microsoft.Support
 
@@ -204,12 +209,10 @@ Azure service: core
 > | Microsoft.Support/register/action | Registers Support Resource Provider |
 > | Microsoft.Support/lookUpResourceId/action | Looks up resource Id for resource type |
 > | Microsoft.Support/checkNameAvailability/action | Checks that name is valid and not in use for resource type |
-> | Microsoft.Support/classifyServices/action | Lists one or all classified services |
 > | Microsoft.Support/operationresults/read | Gets the result of the asynchronous operation |
 > | Microsoft.Support/operations/read | Lists all operations available on Microsoft.Support resource provider |
 > | Microsoft.Support/operationsstatus/read | Gets the status of the asynchronous operation |
 > | Microsoft.Support/services/read | Lists one or all Azure services available for support |
-> | Microsoft.Support/services/classifyProblems/action | Lists one or all classified problems |
 > | Microsoft.Support/services/problemClassifications/read | Lists one or all problem classifications for an Azure service |
 > | Microsoft.Support/supportTickets/read | Lists one or all support tickets |
 > | Microsoft.Support/supportTickets/write | Allows creating and updating a support ticket |

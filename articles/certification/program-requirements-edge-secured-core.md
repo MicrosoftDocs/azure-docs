@@ -1,12 +1,12 @@
 ---
 title: Edge Secured-core Certification Requirements
 description: Edge Secured-core Certification program requirements
-author: sufon
+author: sufenfong
 ms.author: sufon
 ms.topic: conceptual 
 ms.date: 02/20/2024
 ms.custom: Edge Secured-core Certification Requirements, linux-related-content
-ms.service: certification
+ms.service: azure-certified-device
 zone_pivot_groups: app-service-platform-windows-linux-sphere-rtos
 ---
 
@@ -16,9 +16,9 @@ zone_pivot_groups: app-service-platform-windows-linux-sphere-rtos
 
 ## Windows IoT OS Support
 Edge Secured-core requires a version of Windows IoT that has at least five years of support from Microsoft remaining in its support lifecycle, at time of certification such as:
-* [Windows 10 IoT Enterprise Lifecycle](/lifecycle/products/windows-10-iot-enterprise)
 * [Windows 10 IoT Enterprise LTSC 2021 Lifecycle](/lifecycle/products/windows-10-iot-enterprise-ltsc-2021)
 * [Windows 11 IoT Enterprise Lifecycle](/lifecycle/products/windows-11-iot-enterprise)
+* [Windows 11 IoT Enterprise LTSC 2024](/windows/iot/iot-enterprise/whats-new/windows-11-iot-enterprise-ltsc-2024)
 
 ## Windows IoT Hardware/Firmware Requirements
 > [!Note]
@@ -79,7 +79,7 @@ Edge Secured-core requires a version of Windows IoT that has at least five years
 |Description|The device identity, along with its platform boot logs and measurements, must be remotely attestable to the Microsoft Azure Attestation (MAA) service.|
 |Purpose|Enables services to establish the trustworthiness of the device. Allows for reliable security posture monitoring and other trust scenarios such as the release of access credentials.|
 |Dependencies|Microsoft Azure Attestation service|
-|Resources| [Microsoft Azure Attestation](../attestation/index.yml)|
+|Resources| [Microsoft Azure Attestation](/azure/attestation/)|
 
 ---
 
@@ -259,7 +259,7 @@ Edge Secured-core requires a version of Windows IoT that has at least five years
 |Description|The device identity, along with its platform boot logs and measurements, must be remotely attestable to the Microsoft Azure Attestation (MAA) service.|
 |Purpose|Enables services to establish the trustworthiness of the device. Allows for reliable security posture monitoring and other trust scenarios such as the release of access credentials.|
 |Dependencies|Trusted Platform Module (TPM) 2.0 </br><sup>or *supported OP-TEE based application chained to a HWRoT (Secure Element or Secure Enclave)</sup>|
-|Resources| [Microsoft Azure Attestation](../attestation/index.yml)|
+|Resources| [Microsoft Azure Attestation](/azure/attestation/)|
 
 ---
 </br>

@@ -4,7 +4,7 @@ description: Significant updates to Azure Automation updated each month.
 services: automation
 ms.subservice:
 ms.topic: overview
-ms.date: 01/26/2024
+ms.date: 02/01/2025
 ms.custom: references_regions
 ---
 
@@ -20,6 +20,40 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
+
+## December 2024
+
+###  Final retirement notice: AzureRM modules starting February 01, 2025
+
+Azure Automation will **discontinue** execution of all runbooks that use AzureRM modules. AzureRM PowerShell module has retired on **February 29, 2024**. Refer [migration resources](https://aka.ms/azpsmigrate) for guidance on transitioning from AzureRM to Az PowerShell module.
+
+### Final retirement notice: TLS 1.0/1.1 protocols for Azure Automation
+
+Starting **March 01, 2025** all agent-based and extension-based User Hybrid Runbook Workers, Webhooks and DSC nodes using Transport Layer Security (TLS) 1.0 and 1.1 protocols would no longer be able to connect to Azure Automation. All jobs running or scheduled on Hybrid Workers using TLS 1.0 and 1.1 protocols will fail. [Learn more](automation-managing-data.md#tls-for-azure-automation).
+
+### Final retirement notice: Agent-based User Hybrid Runbook Worker
+
+Starting **April 01, 2025** all jobs running on Agent-based User Hybrid Runbook Worker (Windows and Linux) will be stopped. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
+
+
+## July 2024
+
+### General Availability: Azure Automation supports PowerShell 7.2 runbooks in Government clouds
+
+Azure Automation now supports PowerShell 7.2 runbooks in Government clouds.
+
+
+## April 2024
+ 
+### Changes in Process Automation subscription and service limits and quotas
+ 
+Find the changes in Azure Automation limits and quotas [here](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-automation-limits). These changes are aimed towards improving the reliability and performance of the service by ensuring fair access to cloud resources for all users. We recommend to use other regions or other subscriptions within the same Azure geography to create more Automation accounts.
+
+## February 2024
+
+### New version of Start/Stop VMs
+
+Start/Stop VM during off-hours, version 1 is deprecated and unavailable in the marketplace now and we recommend that you start using version 2, which is now generally available. The new version of Start/Stop VMs v2 provides a decentralized low-cost automation option for customers who want to optimize their VM costs. It offers all of the same functionality as the original version that was available with Azure Automation. [Learn more](../azure-functions/start-stop-vms/overview.md).
 
 ## January 2024
 
@@ -101,7 +135,7 @@ On **31 August 2024**, Azure Automation will [retire](https://azure.microsoft.co
 
 ### General Availability: Azure Automation User Hybrid Runbook Worker Extension 
 
-User Hybrid Worker enables execution of the scripts directly on the machines for managing guest workloads or as a gateway to environments that are not accessible from Azure. Azure Automation announces **General Availability of User Hybrid Worker extension**, that is based on Virtual Machine extensions framework and provides a **seamless and integrated** installation experience. It is supported for Windows & Linux Azure VMs and [Azure Arc-enabled Servers](../azure-arc/servers/overview.md). It is also available for [Azure Arc-enabled VMware vSphere VMs](../azure-arc/vmware-vsphere/overview.md) in preview.
+User Hybrid Worker enables execution of the scripts directly on the machines for managing guest workloads or as a gateway to environments that are not accessible from Azure. Azure Automation announces **General Availability of User Hybrid Worker extension**, that is based on Virtual Machine extensions framework and provides a **seamless and integrated** installation experience. It is supported for Windows & Linux Azure VMs and [Azure Arc-enabled Servers](/azure/azure-arc/servers/overview). It is also available for [Azure Arc-enabled VMware vSphere VMs](/azure/azure-arc/vmware-vsphere/overview) in preview.
 
 
 ## October 2022

@@ -5,7 +5,7 @@ description: Set up and configure Azure API Management in an internal virtual ne
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.author: danlep
 ms.date: 04/17/2023
@@ -32,13 +32,13 @@ For architectural guidance, see:
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To follow the steps described in this article, you must have:
 
 * An active Azure subscription
 
-    [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+    [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 * Certificates
      - Personal Information Exchange (PFX) files for API Management's custom host names: gateway, developer portal, and management endpoint.
@@ -61,14 +61,14 @@ In the first setup example, all your APIs are managed only from within your virt
 * **Back-end server pool**: This server pool is the internal virtual IP address of API Management.
 * **Back-end server pool settings**: Every pool has settings like port, protocol, and cookie-based affinity. These settings are applied to all servers within the pool.
 * **Front-end port**: This public port is opened on the application gateway. Traffic that hits it gets redirected to one of the back-end servers.
-* **Listener**: The listener has a front-end port, a protocol (Http or Https, these values are case sensitive), and the Transport Layer Security (TLS) certificate name (if configuring TLS offload).
+* **Listener**: The listener has a front-end port, a protocol (HTTP or HTTPS, these values are case sensitive), and the Transport Layer Security (TLS) certificate name (if configuring TLS offload).
 * **Rule**: The rule binds a listener to a back-end server pool.
 * **Custom health probe**: Application Gateway, by default, uses IP address-based probes to figure out which servers in `BackendAddressPool` are active. API Management only responds to requests with the correct host header, so the default probes fail. You define a custom health probe to help the application gateway determine that the service is alive and should forward requests.
 * **Custom domain certificates**: To access API Management from the internet, create Domain Name System (DNS) records to map its host names to the Application Gateway front-end IP address. This mapping ensures that the Host header and certificate sent to API Management are valid. In this example, we use three certificates. They're for API Management's gateway (the back end), the developer portal, and the management endpoint.
 
 ### Expose the developer portal and management endpoint externally through Application Gateway
 
-In this article, we also expose the *developer portal* and the *management endpoint* to external audiences through the application gateway. Extra steps are needed to create a listener, probe, settings, and rules for each endpoint. All details are provided in their respective steps.
+In this article, we also expose the *developer portal* and the *management endpoint* to external audiences through the application gateway. Extra steps are needed to create a listener, probe, settings, and rules for each endpoint. All details are provided in their respective steps. If you need to expose the *v2 configuration endpoint* of the [self-hosted gateway](self-hosted-gateway-overview.md#fqdn-dependencies), follow similar steps (not shown).
 
 If you use Microsoft Entra ID or third-party authentication, enable the [cookie-based session affinity](../application-gateway/features.md#session-affinity) feature in Application Gateway.
 
@@ -86,7 +86,7 @@ Throughout this guide, you need to define several variables. Naming is based on 
 
 ```powershell
 # These variables must be changed.
-$subscriptionId = "00000000-0000-0000-0000-000000000000"      # GUID of your Azure subscription
+$subscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"      # GUID of your Azure subscription
 $domain = "contoso.net"                                       # The custom domain for your certificate
 $apimServiceName = "apim-contoso"                             # API Management service instance name, must be globally unique    
 $apimDomainNameLabel = $apimServiceName                       # Domain name label for API Management's public IP address, must be globally unique

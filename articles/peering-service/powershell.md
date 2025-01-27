@@ -3,7 +3,7 @@ title: Create or change a Peering Service connection - Azure PowerShell
 description: Learn how to create or change a Peering Service connection using PowerShell.
 author: halkazwini
 ms.author: halkazwini 
-ms.service: peering-service
+ms.service: azure-peering-service
 ms.topic: how-to
 ms.date: 02/08/2024
 ms.custom: devx-track-azurepowershell
@@ -47,7 +47,7 @@ Use [Get-AzPeeringServiceCountry](/powershell/module/az.peering/get-azpeeringser
 ```azurepowershell-interactive
 # List the countries/regions available for Peering Service.
 Get-AzPeeringServiceCountry 
-# List metro locations serviced in a country
+# List metro locations serviced in a country/region
 Get-AzPeeringServiceLocation -Country "United States"
 ```
 

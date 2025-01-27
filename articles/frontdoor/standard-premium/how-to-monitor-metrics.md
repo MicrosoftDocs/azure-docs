@@ -4,7 +4,7 @@ description: This article describes the Azure Front Door monitoring metrics.
 services: frontdoor
 author: duongau
 manager: KumudD
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 03/31/2024
 ms.author: yuajia
@@ -14,7 +14,7 @@ ms.author: yuajia
 
 Azure Front Door is integrated with Azure Monitor. You can use metrics in real time to measure traffic to your application, and to track, troubleshoot, and debug issues.  
 
-You can also configure alerts for each metric such as a threshold for 4XXErrorRate or 5XXErrorRate. When the error rate exceeds the threshold, it triggers an alert as configured. For more information, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/alerts/alerts-metric.md). 
+You can also configure alerts for each metric such as a threshold for 4XXErrorRate or 5XXErrorRate. When the error rate exceeds the threshold, it triggers an alert as configured. For more information, see [Create, view, and manage metric alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-metric). 
 
 ## Access metrics in the Azure portal
 
@@ -44,7 +44,7 @@ You can also configure alerts for each metric such as a threshold for 4XXErrorRa
 
 1. Select **New alert rule** for metrics listed in Metrics section.
 
-Alert is charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](../../azure-monitor/alerts/alerts-overview.md).
+Alert is charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview).
 
 ## Next steps
 

@@ -1,10 +1,10 @@
 ---
 title: Use Apache Maven to build a Java HBase client for Azure HDInsight
 description: Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to HBase on Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-java, devx-track-azurepowershell, devx-track-extended-java, linux-related-content
-ms.date: 10/17/2023
+ms.date: 10/17/2024
 ---
 
 # Build Java applications for Apache HBase
@@ -401,7 +401,7 @@ The following steps use `scp` to copy the JAR to the primary head node of your A
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-3. To create an HBase table using the Java application, use the following command in your open ssh connection:
+3. To create a HBase table using the Java application, use the following command in your open ssh connection:
 
     ```bash
     yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.CreateTable

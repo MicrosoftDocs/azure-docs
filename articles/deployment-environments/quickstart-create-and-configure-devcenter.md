@@ -1,16 +1,16 @@
 ---
-title: Set up a dev center for Azure Deployment Environments
+title: Set up Azure Deployment Environments
 titleSuffix: Azure Deployment Environments
 description: Learn how to set up the resources to get started with Azure Deployment Environments. Configure a dev center, attach an identity, and attach a catalog for using IaC templates.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: quickstart
-ms.service: deployment-environments
+ms.service: azure-deployment-environments
 ms.custom: build-2023
 ms.date: 03/22/2024
 ---
 
-# Quickstart: Create and configure a dev center for Azure Deployment Environments
+# Quickstart: Configure Azure Deployment Environments
 
 In this quickstart, you set up all the resources in Azure Deployment Environments to enable self-service deployment environments for development teams. Learn how to create and configure a dev center, add a catalog to the dev center, and define an environment type. Then associate a project with the dev center, add environment types, and allow dev access to the project.
 
@@ -18,7 +18,7 @@ A dev center is the top-level resource for Azure Deployment Environments that co
 
 A platform engineering team typically sets up the dev center, attaches external catalogs to the dev center, creates projects, and provides access to development teams. Development teams then create [environments](concept-environments-key-concepts.md#environments) by using [environment definitions](concept-environments-key-concepts.md#environment-definitions), connect to individual resources, and deploy applications. 
 
-After you complete this quickstart, developers can use the [developer portal](quickstart-create-access-environments.md), the [Azure CLI](how-to-create-access-environments.md), or the [Azure Developer CLI](how-to-create-environment-with-azure-developer.md) to create environments in the project to deploy their applications.
+After you complete this quickstart, developers can use the [developer portal](quickstart-create-access-environments.md), the [Azure CLI](how-to-create-access-environments.md), or the [Azure Developer CLI](how-to-configure-azure-developer-cli-deployment-environments.md ) to create environments in the project to deploy their applications.
 
 To learn more about the components of Azure Deployment Environments, see [Key concepts for Azure Deployment Environments](concept-environments-key-concepts.md).
 
@@ -176,7 +176,7 @@ To configure a project, add a [project environment type](how-to-configure-projec
 
 
 > [!NOTE]
-> At least one identity (system-assigned or user-assigned) must be enabled for deployment identity. The identity is used to perform the environment deployment on behalf of the developer. Additionally, the identity attached to the dev center should be [assigned the Contributor and the User Access Admistrator roles](how-to-configure-managed-identity.md) for access to the deployment subscription for each environment type.
+> At least one identity (system-assigned or user-assigned) must be enabled for deployment identity. The identity is used to perform the environment deployment on behalf of the developer. Additionally, the identity attached to the dev center should be [assigned the Contributor and the User Access Administrator roles](how-to-configure-managed-identity.md) for access to the deployment subscription for each environment type.
 
 ## Give access to the development team
 
@@ -188,7 +188,7 @@ Before developers can create environments based on the environment types in a pr
 
 1. Select **Add** > **Add role assignment**.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |

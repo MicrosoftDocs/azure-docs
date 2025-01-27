@@ -22,7 +22,7 @@ ms.author: wchi
     
     string endpoint = Environment.GetEnvironmentVariable("AZURE_APPCONFIGURATION_ENDPOINT");
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // system-assigned managed identity
     // var credential = new DefaultAzureCredential();
     
@@ -60,7 +60,7 @@ ms.author: wchi
 1. Authenticate using `azure-identity` and get the Azure App Configuration endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```java
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // for system-managed identity
     // DefaultAzureCredential defaultCredential = new DefaultAzureCredentialBuilder().build();
 
@@ -97,7 +97,7 @@ ms.author: wchi
     from azure.appconfiguration import AzureAppConfigurationClient
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential
     
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # system-assigned managed identity
     # cred = ManagedIdentityCredential()
     
@@ -129,7 +129,7 @@ ms.author: wchi
     import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
     const appConfig = require("@azure/app-configuration");
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // for system-assigned managed identity
     // const credential = new DefaultAzureCredential();
     

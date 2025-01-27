@@ -3,8 +3,8 @@ title: Restore files to Windows Server using the MARS Agent
 description: In this article, learn how to restore data stored in Azure to a Windows server or Windows computer with the Microsoft Azure Recovery Services (MARS) Agent.
 ms.topic: how-to
 ms.date: 08/14/2023
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Restore files to Windows Server using the MARS Agent
 
@@ -22,7 +22,7 @@ Use the Instant Restore feature to mount a writeable recovery point snapshot as 
 
 Use Instant Restore with Recovery Services vaults in the Azure portal. If you stored data in Backup vaults, they've been converted to Recovery Services vaults. If you want to use Instant Restore, download the MARS update, and follow the procedures that mention Instant Restore.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
+[!INCLUDE [learn-about-deployment-models](~/reusable-content/ce-skilling/azure/includes/learn-about-deployment-models-rm-include.md)]
 
 ## Use Instant Restore to recover data to the same machine
 

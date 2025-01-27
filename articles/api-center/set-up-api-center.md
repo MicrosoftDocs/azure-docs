@@ -1,32 +1,34 @@
 ---
-title: Quickstart - Create your Azure API center (preview) | Microsoft Docs
+title: Quickstart - Create your Azure API center - portal
 description: In this quickstart, use the Azure portal to set up an API center for API discovery, reuse, and governance. 
 author: dlepow
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: quickstart
-ms.date: 11/07/2023
+ms.date: 04/19/2024
 ms.author: danlep 
 ---
 
-# Quickstart: Create your API center
+# Quickstart: Create your API center - portal
 
-Create your [API center](overview.md) to start an inventory of your organization's APIs. The API Center service enables tracking APIs in a centralized location for discovery, reuse, and governance.
+[!INCLUDE [quickstart-intro](includes/quickstart-intro.md)]
 
-After creating your API center, follow the steps in the tutorials to add custom metadata, APIs, versions, definitions, and other information.
-
-[!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
-
-
-## Prerequisites
-
-* If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-* At least a Contributor role assignment or equivalent permissions in the Azure subscription. 
-
+[!INCLUDE [quickstart-prerequisites](includes/quickstart-prerequisites.md)]
 
 ## Register the Microsoft.ApiCenter provider
 
-If you haven't already, you need to register the **Microsoft.ApiCenter** resource provider in your subscription, using the portal or other tools. You only need to register the resource provider once. For steps, see [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider). 
+If you haven't already, you need to register the **Microsoft.ApiCenter** resource provider in your subscription. You only need to register the resource provider once. 
+
+To register the resource provider using the portal:
+
+1. [Sign in](https://portal.azure.com) to the Azure portal.
+
+1. In the search bar, enter *Subscriptions* and select **Subscriptions**.
+
+1. Select the subscription where you want to create the API center.
+
+1. In the left menu, under **Resources**, select **Resource providers**.
+
+1. Search for **Microsoft.ApiCenter** in the list of resource providers. If it's not registered, select **Register**.
 
 ## Create an API center
 
@@ -40,11 +42,13 @@ If you haven't already, you need to register the **Microsoft.ApiCenter** resourc
 
     1. Select your Azure subscription. 
 
-    1. Select an existing resource group, or select **New** to create a new one. 
+    1. Select an existing resource group, or select **Create new** to create a new one. 
 
     1. Enter a **Name** for your API center. It must be unique in the region where you're creating your API center. 
 
-    1. In **Region**, select one of the [available regions](overview.md#available-regions) for API Center preview. 
+    1. In **Region**, select one of the [available regions](overview.md#available-regions) for Azure API Center, for example, *West Europe*. 
+    
+    1. In **Pricing plan**, select the pricing plan that meets your needs. 
 
 1. Optionally, on the **Tags** tab, add one or more name/value pairs to help you categorize your Azure resources.
 
@@ -54,11 +58,5 @@ If you haven't already, you need to register the **Microsoft.ApiCenter** resourc
 
 After deployment, your API center is ready to use!
 
-
-## Next steps
-
-Now you can start adding information to the inventory in your API center. To help you organize your APIs and other information, begin by defining custom metadata properties in your API center.
-
-> [!div class="nextstepaction"]
-> [Define metadata properties](add-metadata-properties.md)
+[!INCLUDE [quickstart-next-steps](includes/quickstart-next-steps.md)]
 

@@ -3,11 +3,10 @@ title: Copy data from MySQL
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about MySQL connector in Azure Data Factory and Synapse Analytics that lets you copy data from a MySQL database to a data store supported as a sink.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/17/2024
+ms.date: 01/26/2025
 ms.author: jianleishen
 ---
 
@@ -18,7 +17,10 @@ ms.author: jianleishen
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from a MySQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 >[!NOTE]
->To copy data from or to [Azure Database for MySQL](../mysql/overview.md) service, use the specialized [Azure Database for MySQL connector](connector-azure-database-for-mysql.md).
+>To copy data from or to [Azure Database for MySQL](/azure/mysql/overview) service, use the specialized [Azure Database for MySQL connector](connector-azure-database-for-mysql.md).
+
+> [!IMPORTANT]
+> The MySQL connector version 2.0 provides improved native MySQL support. If you are using MySQL connector version 1.0 in your solution, please [upgrade your MySQL connector](#upgrade-the-mysql-driver-version) as version 1.0 is at [End of Support stage](connector-deprecation-plan.md). Refer to this [section](#differences-between-the-recommended-and-the-legacy-driver-version) for details on the difference between version 2.0 and version 1.0.
 
 ## Supported capabilities
 
@@ -87,6 +89,14 @@ If you use the recommended driver version，the following properties are support
 | sslMode | This option specifies whether the driver uses TLS encryption and verification when connecting to MySQL. E.g., `SSLMode=<0/1/2/3/4>`.<br/>Options: DISABLED (0) / PREFERRED (1) **(Default)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Yes |
 | useSystemTrustStore | This option specifies whether to use a CA certificate from the system trust store, or from a specified PEM file. E.g. `UseSystemTrustStore=<0/1>`;<br/>Options: Enabled (1) / Disabled (0) **(Default)** | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
+| ***Additional connection properties*** | | |
+| allowZeroDateTime | Specifying this property value to `true` allows the special "zero" date value of `0000-00-00` to be retrieved from the database. If set to `false` (the default), date columns are returned as DateTime values, which means `0000-00-00` cannot be retrieved. <br><br> MySQL permits you to store a "zero" value of `0000-00-00` as a "dummy date". In some cases, this feature is more convenient than using NULL values, and uses less data and index space. To disallow `0000-00-00` in MySQL, enable the [NO_ZERO_DATE](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_no_zero_date) mode. For more information, see this [article](https://dev.mysql.com/doc/refman/8.4/en/date-and-time-types.html).| No |
+| connectionTimeout | The length of time (in seconds) to wait for a connection to the server before terminating the attempt and generating an error. | No |
+| convertZeroDateTime | Set it to `true` to return DateTime.MinValue for date or datetime columns that have disallowed values. | No |
+| guidFormat| Determines which column type (if any) should be read as a GUID. Go to this [article](https://mysqlconnector.net/connection-options/) for the description of each column type by searching this property. <br><br> The recommended version treats Char(36) as GUID type by default for better performance. The connector treats Char(36) fields as GUIDs for easier database handling. This treatment simplifies operations such as inserting, updating, and retrieving GUID values, ensuring they are consistently managed as GUID objects in the application code instead of plain strings. This behavior is particularly useful in scenarios where GUIDs are used as primary keys or unique identifiers and provides better performance. If you don't need this default setting, you can configure `guidFormat=none` in connection property. |No|
+| sslCert | The path to the client's SSL certificate file in PEM format. SslKey must also be specified. |No|
+| sslKey | The path to the client's SSL private key in PEM format. SslCert must also be specified.| No |
+| treatTinyAsBoolean | When set to true, tinyint(1) values are returned as Boolean. Setting this property to false causes tinyint(1) to be returned as SByte/Byte. <br><br>The recommended version treats tinyint(1) as Boolean type by default. For more information, see this [article](https://dev.mysql.com/doc/refman/8.0/en/numeric-type-syntax.html). To let the connector return tiny as numeric, set `treatTinyAsBoolean=false` in the connection properties.| No | 
 
 **Example:**
 
@@ -303,7 +313,7 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 | `time` |`TimeSpan` |`TimeSpan` |
 | `timestamp` |`Datetime` |`Datetime` |
 | `tinyblob` |`Byte[]` |`Byte[]` |
-| `tinyint` |`SByte` |`Int16` |
+| `tinyint` |`SByte` <br/> (`tinyint(1)` is mapped to `Boolean`) |`Int16` |
 | `tinyint unsigned` |`Int16` |`Int16` |
 | `tinytext` |`String` |`String` |
 | `varchar` |`String` |`String` |
@@ -313,9 +323,9 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the MySQL driver version
+## <a name="upgrade-the-mysql-driver-version"></a> Upgrade the MySQL connector
 
-Here are steps that help you upgrade your MySQL driver version: 
+Here are steps that help you upgrade your MySQL connector: 
 
 1. In **Edit linked service** page, select **Recommended** under **Driver version** and configure the linked service by referring to [Linked service properties](connector-mysql.md#linked-service-properties).  
 
@@ -323,9 +333,21 @@ Here are steps that help you upgrade your MySQL driver version:
 
 1. The latest driver version v2 supports more MySQL versions. For more information, see [Supported capabilities](connector-mysql.md#supported-capabilities).
 
-## Differences between MySQL using the recommended driver version and using the legacy driver version
+### Best practices for MySQL connector recommended version
 
-The table below shows the data type mapping differences between MySQL connector using the recommended driver version and using the legacy driver version.
+This section introduces best practices for MySQL connector recommended version.
+
+#### Cannot load SSL key
+
+- **Symptoms**: If you are using MySQL connector recommended version with SSL Key as a connection property, you may meet the following error message: `Could not load the client key from your_pem_file: Unrecognized PEM header: -----BEGIN PRIVATE KEY-----`
+
+- **Cause**: The recommended version cannot decrypt the PCKS#8 format.
+
+- **Recommendation**: Convert the PEM format to PCKS#1.
+
+## Differences between the recommended and the legacy driver version
+
+The table below shows the data type mapping differences between MySQL using the recommended and the legacy driver version.
 
 |MySQL data type |Interim service data type (using the recommended driver version) |Interim service data type (using the legacy driver version)|
 |:---|:---|:---|

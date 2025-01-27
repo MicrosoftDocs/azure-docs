@@ -2,7 +2,7 @@
 description: Overview of the Azure Cloud Shell.
 ms.contributor: jahelmic
 ms.date: 04/11/2024
-ms.topic: article
+ms.topic: overview
 tags: azure-resource-manager
 title: What is Azure Cloud Shell?
 ---

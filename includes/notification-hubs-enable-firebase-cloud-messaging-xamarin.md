@@ -3,7 +3,7 @@
  description: include file
  services: notification-hubs
  author: spelluru
- ms.service: notification-hubs
+ ms.service: azure-notification-hubs
  ms.topic: include
  ms.date: 08/01/2019
  ms.author: spelluru
@@ -16,7 +16,7 @@
     ![Add Firebase to your Android app](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-add-firebase-to-android-app.png)
 
 3. On the **Add Firebase to your Android app** page, take the following steps: 
-    1. For the **Android package name**, enter a name for your package. For example: `tutorials.tutoria1.xamarinfcmapp`. 
+    1. For the **Android package name**, enter a name for your package. For example: `tutorials.tutorial1.xamarinfcmapp`. 
 
         ![Specify the package name](./media/notification-hubs-enable-firebase-cloud-messaging/specify-package-name-fcm-settings.png)
     2. Select **Register app**.  

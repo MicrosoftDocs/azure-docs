@@ -1,10 +1,10 @@
 ---
 title: 'Azure Toolkit for IntelliJ: Debug Spark apps with SSH - HDInsight'
 description: Step-by-step guidance on how to use HDInsight Tools in Azure Toolkit for IntelliJ to debug applications remotely on HDInsight clusters through SSH
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 06/09/2023
+ms.date: 06/13/2024
 ---
 
 # Debug Apache Spark applications on an HDInsight cluster with Azure Toolkit for IntelliJ through SSH
@@ -73,7 +73,7 @@ This article provides step-by-step guidance on how to use HDInsight Tools in [Az
 
     - [Environment variables](#prerequisites): If you already set the system environment variable **HADOOP_HOME** to **C:\WinUtils**, it can auto detect that no need to manually add.
     - [WinUtils.exe Location](#prerequisites): If you have not set the system environment variable, you can find the location by clicking its button.
-    - Just choose either of two options and, they are not needed on MacOS and Linux.
+    - Just choose either of two options and, they are not needed on macOS and Linux.
 
 1. You can also set the configuration manually before performing local run and local debug. In the preceding screenshot, select the plus sign (**+**). Then select the **Apache Spark on HDInsight** option. Enter information for **Name**, **Main class name** to save, then click the local run button.
 
@@ -91,7 +91,7 @@ This article provides step-by-step guidance on how to use HDInsight Tools in [Az
 
    :::image type="content" source="./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png" alt-text="Intellij Add new configuration." border="true":::
 
-1. Switch to **Remotely Run in Cluster** tab. Enter information for **Name**, **Spark cluster**, and **Main class name**. Then Click **Advanced configuration (Remote Debugging)**. Our tools support debug with **Executors**. The **numExectors**, the default value is 5. You'd better not set higher than 3.
+1. Switch to **Remotely Run in Cluster** tab. Enter information for **Name**, **Spark cluster**, and **Main class name**. Then Click **Advanced configuration (Remote Debugging)**. Our tools support debug with **Executors**. The **numExecutors**, the default value is 5. You'd better not set higher than 3.
 
    :::image type="content" source="./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png" alt-text="Intellij Run debug configurations." border="true":::
 

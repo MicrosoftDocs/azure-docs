@@ -5,6 +5,10 @@ author: oshezaf
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: ofshezaf
+
+
+#Customer intent: As a security analyst, I want to modify custom analytics rules to use the Advanced Security Information Model (ASIM) so that I can leverage normalized data for more efficient and consistent threat detection.
+
 ---
 
 # Modify content to use the Advanced Security Information Model (ASIM) (Public preview)
@@ -103,6 +107,17 @@ imDns
     ) on SrcIpAddr
 | extend timestamp = TimeGenerated, IPCustomEntity = SrcIpAddr
 ```
+
+See more information on the following items used in the preceding examples, in the Kusto documentation:
+- [***let*** statement](/kusto/query/let-statement?view=microsoft-sentinel&preserve-view=true)
+- [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+- [***extend*** operator](/kusto/query/extend-operator?view=microsoft-sentinel&preserve-view=true)
+- [***join*** operator](/kusto/query/join-operator?view=microsoft-sentinel&preserve-view=true)
+- [***summarize*** operator](/kusto/query/summarize-operator?view=microsoft-sentinel&preserve-view=true)
+- [***isnotempty()*** function](/kusto/query/isnotempty-function?view=microsoft-sentinel&preserve-view=true)
+- [***count()*** aggregation function](/kusto/query/count-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+
+[!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
 
 ## <a name="next-steps"></a>Next steps
 

@@ -1,8 +1,8 @@
 ---
 title: Operator Nexus Platform Cluster runtime upgrades
-description: Detail the cadence and process Nexus uses to release new runtime versions to customers
+description: Detail the cadence and process Nexus uses to release new runtime versions to customers.
 ms.topic: article
-ms.date: 12/29/2023
+ms.date: 07/24/2024
 author: matthewernst
 ms.author: matthewernst
 ms.service: azure-operator-nexus
@@ -12,7 +12,7 @@ ms.service: azure-operator-nexus
 
 This document details how Operator Nexus releases, manages, and supports various platform runtime upgrades for near edge customers. 
 
-Operator Nexus will release platform cluster runtime versions with three minor versions per year and monthly patch versions in between.
+Operator Nexus releases a platform cluster runtime version with three minor versions per year and monthly patch versions in between.
 
 Operator Nexus supports n-2 platform cluster runtime releases for customers, providing approximately one year of support upon release.
 
@@ -38,24 +38,26 @@ In addition to minor releases, Operator Nexus releases patch platform cluster re
 
 ## Patch Platform Cluster runtime releases
 
-Platform Cluster patch releases will be scheduled monthly to provide customers with an updated version of Azure Linux. These releases will be applied to the latest minor release.
+Platform Cluster patch releases are scheduled monthly to provide customers with an updated version of Azure Linux, starting in Nexus release 2408.1. These patch releases are applied to the latest minor release.
 
-Operator Nexus will also release patch platform cluster runtime releases addressing critical functional or high severity security issues. 
+The contents of these releases are primarily scoped to updating current versions of the HostOS and Kubernetes patch releases. Operator Nexus will also release patch platform cluster runtime releases addressing critical functional or high severity security issues. These patch runtime releases are released alongside a new management bundle release to enable the deployment of this new runtime.
+
+The patch releases are optional and not required to be applied. Operator Nexus certifies the various supported runtime releases to ensure there's a path to upgrade, regardless of the patch runtime release, to the next minor runtime version. 
 
 ## Platform Cluster runtime releases out of support
 
-When a customer is on a release that has moved out of support, Microsoft will attempt to mitigate the customer tickets but it may not be possible to address. When a runtime minor release has dropped support, it will no longer be an option to deploy to a new instance.  
+When a customer is on a release that becomes out of support, Microsoft attempts to mitigate the customer tickets but it may not be possible to address. When a runtime minor release drops support, it will no longer be an option to deploy to a new instance.  
 
  
 
 When an instance is running an n-3 version: 
 
-- The cluster will continue to run; however, normal operations may start to degrade as older versions of software aren't validated 
-- Support tickets raised will continue to get support, but the issues may not be able to be mitigated.  
-- The n-3 release will no longer be available to customers to deploy a new instance.  
-- There's no upgrade path supported (more details below), requiring customers to repave instances. 
-- Platform Cluster runtime versions past support may continue to run but Microsoft doesn't guarantee all functionality to be compatible with the newest version of software in the Cluster Manager.  An upgrade path will be supported for customers on supported releases. Upgrading from an n-3 version or greater is not supported and will require a repave of the site.  Customers need to execute a platform cluster runtime upgrade before a site gets to n-3.
-- There's currently a requirement for the customer to update their platform cluster runtime within a year of the most recent platform cluster runtime upgrade or first deployment to ensure their Nexus instance can connect to Azure. After a year without any runtime upgrade, the Operator Nexus instance, having lost connection to Azure, will require a new deployment
+- The cluster continues to run; however, normal operations may start to degrade as older versions of software aren't validated 
+- Support tickets raised will receive support, but the issues may not be able to be mitigated.  
+- The n-3 release isn't available to customers to deploy a new instance.  
+- An upgrade path is no longer supported, requiring customers to repave instances. 
+- Platform Cluster runtime versions past support may continue to run but Microsoft doesn't guarantee all functionality to be compatible with the newest version of software in the Cluster Manager. An upgrade path is provided for customers on supported releases. Upgrading from an n-3 version or greater isn't supported and requires a redeployment of the site. Customers need to execute a platform cluster runtime upgrade before a site gets to n-3.
+- A requirement for the customer to update their platform cluster runtime within a year of the most recent platform cluster runtime upgrade or first deployment to ensure their Nexus instance can connect to Azure. After a year without any runtime upgrade, the Operator Nexus instance, losing connection to Azure, will require a new deployment
 
 ## Skipping minor releases
 

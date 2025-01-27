@@ -1,14 +1,17 @@
 ---
 title: Enrich the events from Apache Kafka® with the attributes from FileSystem with Apache Flink®
 description: Learn how to join stream from Kafka with table from fileSystem using Apache Flink® DataStream API.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 03/14/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Enrich the events from Apache Kafka® with attributes from ADLS Gen2 with Apache Flink®
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 In this article, you can learn how you can enrich the real time events by joining a stream from Kafka with table on ADLS Gen2 using Flink Streaming. We use Flink Streaming API to join events from HDInsight Kafka with attributes from ADLS Gen2. Further we use attributes-joined events to sink into another Kafka topic.
 

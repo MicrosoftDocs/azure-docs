@@ -1,14 +1,18 @@
 ---
 title: HDInsight on AKS FAQ
 description: HDInsight on AKS frequently asked questions.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: faq
-ms.date: 08/29/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # HDInsight on AKS - Frequently asked questions
 
 This article addresses some common questions about Azure HDInsight on AKS.
+
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 ## General
 
@@ -36,7 +40,7 @@ This article addresses some common questions about Azure HDInsight on AKS.
 
    For a list of supported regions, refer to [Region availability](./overview.md#region-availability-public-preview).
 
-* What’s the cost to deploy an HDInsight on AKS Cluster?
+* What’s the cost to deploy a HDInsight on AKS Cluster?
 
    For more information about pricing, see HDInsight on AKS pricing.
 
@@ -101,7 +105,7 @@ This article addresses some common questions about Azure HDInsight on AKS.
 
 * What is state backend management and how it's done in HDInsight on AKS? 
 
-   Backends determine where state is stored. When checkpointing is activated, state is persisted upon checkpoints to guard against data loss and recover consistently. How the state is represented internally, and how and where it's persisted upon checkpoints depends on the chosen State Backend. For more information,see [Flink overview](./flink/flink-overview.md)
+   Backends determine where state is stored. When checkpointing is activated, state is persisted upon checkpoints to guard against data loss and recover consistently. How the state is represented internally, and how and where it's persisted upon checkpoints depends on the chosen State Backend. For more information, see [Flink overview](./flink/flink-overview.md)
 
 ### Apache Spark 
 

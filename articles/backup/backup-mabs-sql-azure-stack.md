@@ -3,9 +3,9 @@ title: Back up SQL Server workloads on Azure Stack by using Azure Backup
 description: In this article, learn how to configure Microsoft Azure Backup Server (MABS) to protect SQL Server databases on Azure Stack.
 ms.topic: how-to
 ms.date: 02/27/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
-ms.service: backup
+author: jyothisuri
+ms.author: jsuri
+ms.service: azure-backup
 ms.custom: engagement-fy24
 ---
 

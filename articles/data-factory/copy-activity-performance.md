@@ -5,11 +5,10 @@ description: Learn about key factors that affect the performance of data movemen
 ms.author: jianleishen
 author: jianleishen
 manager: shwang
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/20/2023
+ms.date: 09/25/2024
 ---
 # Copy activity performance and scalability guide
 

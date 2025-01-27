@@ -3,7 +3,7 @@ title: Tutorial - Configure message routing
 titleSuffix: Azure IoT Hub
 description: Tutorial - Route device messages to an Azure Storage account with message routing for Azure IoT Hub using the Azure CLI and the Azure portal
 author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 05/11/2023
@@ -29,7 +29,7 @@ In this tutorial, you perform the following tasks:
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](iot-hub-create-through-portal.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 
 * This tutorial uses sample code from [Azure IoT SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp).
 
@@ -53,6 +53,8 @@ There are no other prerequisites for the Azure portal.
 ## Register a device and send messages to IoT Hub
 
 Register a new device in your IoT hub.
+
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
 
 # [Azure portal](#tab/portal)
 
@@ -255,6 +257,9 @@ Now set up the routing for the storage account. In this section you define a new
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
+
+
 # [Azure portal](#tab/portal)
 
 1. In the [Azure portal](https://portal.azure.com), go to your IoT hub.
@@ -302,29 +307,26 @@ Now set up the routing for the storage account. In this section you define a new
    routeName=ROUTE_NAME
    ```
 
-1. Use the [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint#az-iot-hub-routing-endpoint-create) command to create a custom endpoint that points to the storage container you made in the previous section.
+1. Use the [az iot hub message-endpoint create](/cli/azure/iot/hub/message-endpoint/create#az-iot-hub-message-endpoint-create-storage-container) command to create a custom endpoint that points to the storage container you made in the previous section.
 
    ```azurecli-interactive
-   az iot hub routing-endpoint create \
+   az iot hub message-endpoint create storage-container \
      --connection-string $(az storage account show-connection-string --name $storageName --query connectionString -o tsv) \
      --endpoint-name $endpointName \
-     --endpoint-resource-group $resourceGroup \
-     --endpoint-subscription-id $(az account show --query id -o tsv) \
-     --endpoint-type azurestoragecontainer
      --hub-name $hubName \
      --container $containerName \
      --resource-group $resourceGroup \
      --encoding json
    ```
 
-1. Use the [az iot hub route create](/cli/azure/iot/hub/route#az-iot-hub-route-create) command to create a route that passes any message where `level=storage` to the storage container endpoint.
+1. Use the [az iot hub message-route create](/cli/azure/iot/hub/message-route#az-iot-hub-message-route-create) command to create a route that passes any message where `level=storage` to the storage container endpoint.
 
    ```azurecli-interactive
-   az iot hub route create \
-     --name $routeName \
+   az iot hub message-route create \
+     --route-name $routeName \
      --hub-name $hubName \
      --resource-group $resourceGroup \
-     --source devicemessages \
+     --source-type devicemessages \
      --endpoint-name $endpointName \
      --enabled true \
      --condition 'level="storage"'

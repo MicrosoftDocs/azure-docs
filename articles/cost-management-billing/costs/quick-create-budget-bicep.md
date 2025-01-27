@@ -6,7 +6,7 @@ ms.author: banders
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
-ms.date: 03/21/2024
+ms.date: 01/07/2025
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm, devx-track-azurecli, devx-track-bicep
 ---
 
@@ -14,7 +14,7 @@ ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm, devx-track-azure
 
 Budgets in Cost Management help you plan for and drive organizational accountability. With budgets, you can account for the Azure services you consume or subscribe to during a specific period. They help you inform others about their spending to proactively manage costs and monitor how spending progresses over time. When the budget thresholds you've created are exceeded, notifications are triggered. None of your resources are affected and your consumption isn't stopped. You can use budgets to compare and track spending as you analyze costs. This quickstart shows you how to create a budget named 'MyBudget' using Bicep.
 
-[!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
@@ -91,7 +91,7 @@ One Azure resource is defined in the Bicep file:
 
     You need to enter the following parameters:
 
-    - **startDate**: Replace **\<start-date\>** with the start date. It must be the first of the month in YYYY-MM-DD format. A future start date shouldn't be more than three months in the future. A past start date should be selected within the timegrain period.
+    - **startDate**: Replace **\<start-date\>** with the start date. It must be the first of the month in YYYY-MM-DD format. A future start date shouldn't be more than three months in the future. A past start date should be selected within the time grain period.
     - **endDate**: Replace **\<end-date\>** with the end date in YYYY-MM-DD format. If not provided, it defaults to ten years from the start date.
     - **contactEmails**: First create a variable that holds your emails and then pass that variable. Replace the sample emails with the email addresses to send the budget notification to when the threshold is exceeded.
 
@@ -137,7 +137,7 @@ One Azure resource is defined in the Bicep file:
 
     You need to enter the following parameters:
 
-    - **startDate**: Replace **\<start-date\>** with the start date. It must be the first of the month in YYYY-MM-DD format. A future start date shouldn't be more than three months in the future. A past start date should be selected within the timegrain period.
+    - **startDate**: Replace **\<start-date\>** with the start date. It must be the first of the month in YYYY-MM-DD format. A future start date shouldn't be more than three months in the future. A past start date should be selected within the time grain period.
     - **endDate**: Replace **\<end-date\>** with the end date in YYYY-MM-DD format. If not provided, it defaults to ten years from the start date.
     - **contactEmails**: First create a variable that holds your emails and then pass that variable. Replace the sample emails with the email addresses to send the budget notification to when the threshold is exceeded.
     - **resourceGroupFilterValues** First create a variable that holds your resource group filter values and then pass that variable. Replace the sample filter values with the set of values for your resource group filter.
@@ -189,7 +189,7 @@ One Azure resource is defined in the Bicep file:
 
     You need to enter the following parameters:
 
-    - **startDate**: Replace **\<start-date\>** with the start date. It must be the first of the month in YYYY-MM-DD format. A future start date shouldn't be more than three months in the future. A past start date should be selected within the timegrain period.
+    - **startDate**: Replace **\<start-date\>** with the start date. It must be the first of the month in YYYY-MM-DD format. A future start date shouldn't be more than three months in the future. A past start date should be selected within the time grain period.
     - **endDate**: Replace **\<end-date\>** with the end date in YYYY-MM-DD format. If not provided, it defaults to ten years from the start date.
     - **contactEmails**: First create a variable that holds your emails and then pass that variable. Replace the sample emails with the email addresses to send the budget notification to when the threshold is exceeded.
     - **contactGroups**: First create a variable that holds your contact groups and then pass that variable. Replace the sample contact groups with the list of action groups to send the budget notification to when the threshold is exceeded. You must pass the resource ID of the action group, which you can get with [az monitor action-group show](/cli/azure/monitor/action-group#az-monitor-action-group-show) or [Get-AzActionGroup](/powershell/module/az.monitor/get-azactiongroup).

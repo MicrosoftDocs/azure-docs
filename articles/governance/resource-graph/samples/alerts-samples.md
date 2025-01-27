@@ -1,7 +1,7 @@
 ---
 title: Azure Resource Graph alerts sample queries
 description: Sample queries that can be used to create alerts for your Azure resources using an Azure Resource Graph query and a Log Analytics workspace.
-ms.date: 03/20/2024
+ms.date: 06/18/2024
 ms.topic: sample
 ---
 
@@ -39,7 +39,7 @@ This query filters virtual machines that need to be monitored.
 ```kusto
 let RuleGroupTags = dynamic(['Linux']);
 Perf | where ObjectName == 'Processor' and CounterName == '% Idle Time' and (InstanceName in ('Total','total'))
-| extend CpuUtilisation = (100 - CounterValue)   
+| extend CpuUtilization = (100 - CounterValue)   
 | join kind=inner hint.remote=left (arg("").Resources
     | where type =~ 'Microsoft.Compute/virtualMachines'
     | project _ResourceId=tolower(id), tags

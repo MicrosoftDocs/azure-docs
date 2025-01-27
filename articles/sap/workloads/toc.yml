@@ -23,8 +23,6 @@ items:
         href: business-one-azure.md
       - name: Connect to SAP LaMa
         href: lama-installation.md
-      - name: Deploy with SAP Cloud Appliance Library
-        href: cal-s4h.md
       - name: SAP IDES on Windows/SQL Server SAP CAL
         href: cal-ides-erp6-erp7-sp3-sql.md
       - name: SAP ILM
@@ -89,7 +87,7 @@ items:
         href: sap-higher-availability-architecture-scenarios.md
       - name: Azure Availability Zones for SAP workloads
         href: high-availability-zones.md
-      - name: Configuration options for optimal network latency with SAP applications
+      - name: Configuration options to minimize network latency with SAP applications
         href: proximity-placement-scenarios.md
       - name: Public endpoint connectivity with Azure Load Balancer
         href: high-availability-guide-standard-load-balancer-outbound-connections.md
@@ -229,8 +227,8 @@ items:
           href: high-availability-guide-rhel-with-hana-ascs-ers-dialog-instance.md
     - name: Disaster recovery
       items: 
-      - name: Add HSR third site to HANA Pacemaker cluster
-        href: disaster-recovery-sap-hana-suse.md
+      - name: Add additional secondary sites to HANA Pacemaker cluster
+        href: disaster-recovery-sap-hana.md
     - name: Integration with Microsoft services
       items:
       - name: Outbound E-Mail from SAP to Exchange Online

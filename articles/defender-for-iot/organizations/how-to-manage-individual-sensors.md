@@ -9,7 +9,7 @@ ms.topic: how-to
 
 This article describes extra OT sensor maintenance activities that you might perform outside of a larger deployment process.
 
-OT sensors can also be maintained from the OT sensor [CLI](cli-ot-sensor.md), the [Azure portal](how-to-manage-sensors-on-the-cloud.md), and an [on-premises management console](legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md).
+OT sensors can also be maintained from the OT sensor [CLI](cli-ot-sensor.md) or the [Azure portal](how-to-manage-sensors-on-the-cloud.md).
 
 [!INCLUDE [caution do not use manual configurations](includes/caution-manual-configurations.md)]
 
@@ -121,10 +121,6 @@ If you're working with a production environment, you'd deployed a CA-signed SSL/
 
 The following procedures describe how to deploy updated SSL/TLS certificates, such as if the certificate has expired.
 
-> [!TIP]
-> You can also [import the certificate to your OT sensor using CLI commands](references-work-with-defender-for-iot-cli-commands.md#tlsssl-certificate-commands).
->
-
 # [Deploy a CA-signed certificate](#tab/ca-signed)
 
 **To deploy a CA-signed SSL/TLS certificate:**
@@ -149,7 +145,7 @@ The following procedures describe how to deploy updated SSL/TLS certificates, su
 
     If an upload fails, contact your security or IT administrator. For more information, see [SSL/TLS certificate requirements for on-premises resources](best-practices/certificate-requirements.md) and [Create SSL/TLS certificates for OT appliances](ot-deploy/create-ssl-certificates.md).
 
-1. In the **Validation of on-premises management console certificate** area, select **Mandatory** if SSL/TLS certificate validation is required. Otherwise, select **None**.
+1. In the **Validation of OT sensor certificate** area, select **Mandatory** if SSL/TLS certificate validation is required. Otherwise, select **None**.
 
     If you've selected **Mandatory** and validation fails, communication between relevant components is halted, and a validation error is shown on the sensor. For more information, see [CRT file requirements](best-practices/certificate-requirements.md#crt-file-requirements).
 
@@ -183,7 +179,7 @@ When you're done, use the following procedures to validate your certificate file
 
 1. Select the **Confirm** option to confirm the warning.
 
-1. In the **Validation of on-premises management console certificate** area, select **Mandatory** if SSL/TLS certificate validation is required. Otherwise, select **None**.
+1. In the **Validation of OT sensor certificate** area, select **Mandatory** if SSL/TLS certificate validation is required. Otherwise, select **None**.
 
     If this option is toggled on and validation fails, communication between relevant components is halted, and a validation error is shown on the sensor. For more information, see [CRT file requirements](best-practices/certificate-requirements.md#crt-file-requirements).
 
@@ -226,7 +222,7 @@ A Microsoft Defender for IoT OT network sensor starts monitoring your network au
 
 Initially, this activity happens in *learning* mode, which instructs your OT sensor to learn your network's usual activity, including the devices and protocols in your network, and the regular file transfers that occur between specific devices. Any regularly detected activity becomes your network's [baseline traffic](ot-deploy/create-learned-baseline.md).
 
-This procedure describes how to turn off learning mode manually if you feel that the current alerts accurately reflect your network activity.
+This procedure describes how to turn off learning mode manually when the current alerts accurately reflect your network activity.
 
 **To turn off learning mode**:
 
@@ -307,7 +303,7 @@ Time zones are used in [alerts](how-to-view-alerts.md), [trends and statistics w
 
 Define SMTP mail server settings on your OT sensor so that you configure the OT sensor to send data to other servers and partner services.
 
-You need an SMTP mail server configured to enable email alerts about disconnected sensors, failed sensor backup retrievals, and SPAN monitoring port failures from the on-premises management console, and to set up mail forwarding and configure [forwarding alert rules](how-to-forward-alert-information-to-partners.md).
+You need an SMTP mail server configured to enable email alerts about disconnected sensors, failed sensor backup retrievals, and SPAN monitoring port failures from the OT sensor, and to set up mail forwarding and configure [forwarding alert rules](how-to-forward-alert-information-to-partners.md).
 
 **Prerequisites**:
 
@@ -389,9 +385,9 @@ While we recommend that you keep all analytics engines on, you may want to turn 
 
 1. Select **Close** to save your changes.
 
-**To manage analytics engines from an on-premises management console**:
+**To manage analytics engines from an OT sensor**:
 
-1. Sign into your on-premises management console and select **System Settings**.
+1. Sign into your OT sensor and select **System Settings**.
 
 1. In the **Sensor Engine Configuration** section, select one or more OT sensors where you want to apply settings, and clear any of the following options:
 
@@ -458,6 +454,5 @@ Log data is available for export in the **Dissection statistics** and **Dissecti
 
 For more information, see:
 
-- [Manage sensors from the on-premises management console](legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md)
 - [Track sensor activity](how-to-track-sensor-activity.md)
 - [Troubleshoot the sensor](how-to-troubleshoot-sensor.md)

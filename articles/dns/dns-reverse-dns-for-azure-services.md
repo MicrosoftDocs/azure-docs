@@ -3,16 +3,16 @@ title: Reverse DNS for Azure services - Azure DNS
 description: With this learning path, get started configuring reverse DNS lookups for services hosted in Azure.
 services: dns
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.topic: how-to
-ms.date: 01/10/2024
+ms.date: 09/11/2024
 ms.author: greglin
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Configure reverse DNS for services hosted in Azure
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 This article explains how to configure reverse DNS lookups for services hosted in Azure.
 
@@ -92,7 +92,7 @@ azure network public-ip set -n PublicIp -g MyResourceGroup -d contosoapp1 -f con
 
 To update reverse DNS on a public IP address with an existing PTR:
 
-```azurecli-interacgive
+```azurecli-interactive
 az network public-ip update --resource-group MyResourceGroup --name PublicIp --reverse-fqdn contosoapp1.westus.cloudapp.azure.com.
 ```
 
@@ -241,7 +241,7 @@ No. Azure supports a single reverse DNS record for each Azure Cloud Service or P
 
 ### Can I configure reverse DNS for IPv6 PublicIpAddress resources?
 
-No. Azure currently supports reverse DNS only for IPv4 PublicIpAddress resources and Cloud Services.
+No. Azure DNS does not currently support reverse DNS (PTR records) for public IPv6 addresses.
 
 ### Can I send emails to external domains from my Azure Compute services?
 

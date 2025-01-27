@@ -54,17 +54,17 @@ Besides managed identities, another identity option is to create a security prin
 Once you have an application security principal and followed above steps, [assign the permission to publish events to that identity](#assign-permission-to-a-security-principal-to-publish-events).
 
 > [!NOTE]
-> When you register an application in the portal, an [application object](/entra/identity-platform/app-objects-and-service-principals?tabs=browser#application-object) and a [service principal](/entra/identity-platform/app-objects-and-service-principals?tabs=browser#service-principal-object) are created automatically in your home tenant. Alternatively, you can use Microsot Graph to register your application. However, if you register or create an application using the Microsoft Graph APIs, creating the service principal object is a separate step. 
+> When you register an application in the portal, an [application object](/entra/identity-platform/app-objects-and-service-principals?tabs=browser#application-object) and a [service principal](/entra/identity-platform/app-objects-and-service-principals?tabs=browser#service-principal-object) are created automatically in your home tenant. Alternatively, you can use Microsoft Graph to register your application. However, if you register or create an application using the Microsoft Graph APIs, creating the service principal object is a separate step. 
 
 
 ## Assign permission to a security principal to publish events
 
-The identity used to publish events to Event Grid must have the permission ``Microsoft.EventGrid/events/send/action`` that allows it to send events to Event Grid. That permission is included in the built-in RBAC role [Event Grid Data Sender](../role-based-access-control/built-in-roles.md#eventgrid-data-sender). This role can be assigned to a [security principal](../role-based-access-control/overview.md#security-principal), for a given [scope](../role-based-access-control/overview.md#scope), which can be a management group, an Azure subscription, a resource group, or a specific Event Grid topic, domain, or partner namespace. Follow the steps in [Assign Azure roles](../role-based-access-control/role-assignments-portal.md?tabs=current) to assign a security principal the **EventGrid Data Sender** role and in that way grant an application using that security principal access to send events. Alternatively, you can define a [custom role](../role-based-access-control/custom-roles.md) that includes the ``Microsoft.EventGrid/events/send/action`` permission and assign that custom role to your security principal.
+The identity used to publish events to Event Grid must have the permission ``Microsoft.EventGrid/events/send/action`` that allows it to send events to Event Grid. That permission is included in the built-in RBAC role [Event Grid Data Sender](../role-based-access-control/built-in-roles.md#eventgrid-data-sender). This role can be assigned to a [security principal](../role-based-access-control/overview.md#security-principal), for a given [scope](../role-based-access-control/overview.md#scope), which can be a management group, an Azure subscription, a resource group, or a specific Event Grid topic, domain, or partner namespace. Follow the steps in [Assign Azure roles](../role-based-access-control/role-assignments-portal.yml?tabs=current) to assign a security principal the **EventGrid Data Sender** role and in that way grant an application using that security principal access to send events. Alternatively, you can define a [custom role](../role-based-access-control/custom-roles.md) that includes the ``Microsoft.EventGrid/events/send/action`` permission and assign that custom role to your security principal.
 
 With RBAC privileges taken care of, you can now [build your client application to send events](#publish-events-using-event-grids-client-sdks) to Event Grid.
 
 > [!NOTE]
-> Event Grid supports more RBAC roles for purposes beyond sending events. For more information, see[Event Grid built-in roles](security-authorization.md#built-in-roles).
+> Event Grid supports more RBAC roles for purposes beyond sending events. For more information, see [Event Grid built-in roles](security-authorization.md#built-in-roles).
 
 
 ## Publish events using Event Grid's client SDKs
@@ -136,7 +136,7 @@ Microsoft Entra authentication provides a superior authentication support than t
 Once you decide to use Microsoft Entra authentication, you can disable authentication based on access keys or SAS tokens. 
 
 > [!NOTE]
-> Acess keys or SAS token authentication is a form of **local authentication**. you'll hear sometimes referring to "local auth" when discussing this category of authentication mechanisms that don't rely on Microsoft Entra ID. The API parameter used to disable local authentication is called, appropriately so, ``disableLocalAuth``.
+> Access keys or SAS token authentication is a form of **local authentication**. you'll hear sometimes referring to "local auth" when discussing this category of authentication mechanisms that don't rely on Microsoft Entra ID. The API parameter used to disable local authentication is called, appropriately so, ``disableLocalAuth``.
 
 ### Azure portal
 
@@ -202,7 +202,7 @@ New-AzResource -ResourceGroupName <ResourceGroupName> -ResourceType Microsoft.Ev
 - Learn about [registering an application with the Microsoft Identity platform](/entra/identity-platform/quickstart-register-app).
 - Learn about how [authorization](../role-based-access-control/overview.md) (RBAC access control) works.
 - Learn about Event Grid built-in RBAC roles including its [Event Grid Data Sender](../role-based-access-control/built-in-roles.md#eventgrid-data-sender) role. [Event Grid's roles list](security-authorization.md#built-in-roles).
-- Learn about [assigning RBAC roles](../role-based-access-control/role-assignments-portal.md?tabs=current) to identities.
+- Learn about [assigning RBAC roles](../role-based-access-control/role-assignments-portal.yml?tabs=current) to identities.
 - Learn about how to define [custom RBAC roles](../role-based-access-control/custom-roles.md).
 - Learn about [application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals).
 - Learn about [Microsoft Identity Platform access tokens](/entra/identity-platform/access-tokens).

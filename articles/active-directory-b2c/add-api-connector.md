@@ -2,8 +2,8 @@
 title: Add API connectors to sign up user flows
 description: Configure an API connector to be used in a sign-up user flow.
 
-ms.service: active-directory
-ms.subservice: B2C
+ms.service: azure-active-directory
+ms.subservice: b2c
 ms.topic: how-to
 ms.date: 01/24/2024
 author: garrodonnell
@@ -76,7 +76,7 @@ Content-type: application/json
      }
  ],
  "displayName": "John Smith",
- "objectId": "11111111-0000-0000-0000-000000000000",
+ "objectId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
  "givenName":"John",
  "surname":"Smith",
  "jobTitle":"Supplier",
@@ -88,7 +88,7 @@ Content-type: application/json
  "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
  "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
  "step": "<step-name>",
- "client_id":"93fd07aa-333c-409d-955d-96008fd08dd9",
+ "client_id":"00001111-aaaa-2222-bbbb-3333cccc4444",
  "ui_locales":"en-US"
 }
 ```
@@ -211,7 +211,7 @@ Content-type: application/json
  "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
  "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
  "step": "PostAttributeCollection",
- "client_id":"93fd07aa-333c-409d-955d-96008fd08dd9",
+ "client_id":"00001111-aaaa-2222-bbbb-3333cccc4444",
  "ui_locales":"en-US"
 }
 ```
@@ -262,7 +262,7 @@ POST <API-endpoint>
 Content-type: application/json
 
 {
- "clientId": "231c70e8-8424-48ac-9b5d-5623b9e4ccf3",
+ "clientId": "11112222-bbbb-3333-cccc-4444dddd5555",
  "step": "PreTokenApplicationClaims",
  "ui_locales":"en-US",
  "email": "johnsmith@fabrikam.onmicrosoft.com",
@@ -442,7 +442,7 @@ A claim provides temporary storage of data during an Azure AD B2C policy executi
 
 ## Add the RESTful API technical profile 
 
-A [Restful technical profile](restful-technical-profile.md) provides support for interfacing to your own RESTful service. Azure AD B2C sends data to the RESTful service in an `InputClaims` collection and receives data back in an `OutputClaims` collection. Find the **ClaimsProviders** element and add a new claims provider as follows:
+A [RESTful technical profile](restful-technical-profile.md) provides support for interfacing to your own RESTful service. Azure AD B2C sends data to the RESTful service in an `InputClaims` collection and receives data back in an `OutputClaims` collection. Find the **ClaimsProviders** element and add a new claims provider as follows:
 
 ```xml
 <ClaimsProvider>
@@ -597,8 +597,8 @@ To return the promo code claim back to the relying party application, add an out
   "exp": 1584295703,
   "nbf": 1584292103,
   "ver": "1.0",
-  "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
-  "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
+  "iss": "https://contoso.b2clogin.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/v2.0/",
+  "aud": "22223333-cccc-4444-dddd-5555eeee6666",
   "acr": "b2c_1a_signup_signin",
   "nonce": "defaultNonce",
   "iat": 1584292103,

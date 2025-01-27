@@ -5,6 +5,41 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/hdinsight/interactive-query/apache-hive-migrate-workloads.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/interactive-query/interactive-query-troubleshoot-migrate-36-to-40.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/benefits-of-migrating-to-hdinsight-40.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+    "source_path_from_root": "/articles/hdinsight/kafka241-validation-error-arm-templates.md",
+    "redirect_url": "/azure/hdinsight/kafka/apache-kafka-introduction",
+    "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/spark/apache-spark-use-with-data-lake-store.md",
+        "redirect_url": "/azure/hdinsight/overview-data-lake-storage-gen2",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/overview-data-lake-storage-gen1.md",
+        "redirect_url": "/azure/hdinsight/overview-data-lake-storage-gen2",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/hdinsight/hdinsight-50-component-versioning.md",
         "redirect_url": "/azure/hdinsight/hdinsight-5x-component-versioning",
         "redirect_document_id": false
@@ -257,6 +292,11 @@
     {
         "source_path_from_root": "/articles/hdinsight/hdinsight-analyze-twitter-data.md",
         "redirect_url": "/azure/hdinsight/hdinsight-analyze-twitter-data-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-version-release.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
     },
     {

@@ -19,7 +19,7 @@ ms.subservice: data
 
 ## Prerequisites
 
-Azure Communications Services provides monitoring and analytics features via [Azure Monitor Logs overview](../../../../azure-monitor/logs/data-platform-logs.md) and [Azure Monitor Metrics](../../../../azure-monitor/essentials/data-platform-metrics.md). Each Azure resource requires its own diagnostic setting, which defines the following criteria:
+Azure Communications Services provides monitoring and analytics features via [Azure Monitor Logs overview](/azure/azure-monitor/logs/data-platform-logs) and [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics). Each Azure resource requires its own diagnostic setting, which defines the following criteria:
   * Categories of logs and metric data sent to the destinations defined in the setting. The available categories will vary for different resource types.
   * One or more destinations to send the logs. Current destinations include Log Analytics workspace, Event Hubs, and Azure Storage.
   * A single diagnostic setting can define no more than one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), then create multiple settings. Each resource can have up to five diagnostic settings.
@@ -94,9 +94,9 @@ Communication Services offers the following types of logs that you can enable:
 [
 {
 "TimeGenerated":"2023-04-12T14:21:35.0700920Z", 
-"CorrelationId":"91c3369f-test-40b0-a4ba-0000003419f9",
+"CorrelationId":"aaaa0000-bb11-2222-33cc-444444dddddd",
 "Category":"CallSurvey", 
-"ResourceId":"/SUBSCRIPTIONS/ED463725-1C38-43FC-BD8B-CAC509B41E96/RESOURCEGROUPS/ACS-DATALYTICS-SPGW-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-DATALYTICS-ALLTELEMETRY", 
+"ResourceId":"/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/ACS-DATALYTICS-SPGW-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-DATALYTICS-ALLTELEMETRY", 
 "OperationName":"CallSurvey", 
 "OperationVersion":"0.0"
 
@@ -104,7 +104,7 @@ Communication Services offers the following types of logs that you can enable:
     {
         "CallId":"fcc1234f-ce69-ZZZZ-b73f-b036051test4",
         "SurveyId":"a6dd61c4-b924-4885-96a4-a991d4c09e8b",
-        "ParticipantId":"91c3369f-test-40b0-a4ba-0000003419f9",
+        "ParticipantId":"aaaa0000-bb11-2222-33cc-444444dddddd",
         "OverallCallIssues":"CallCannotJoin",
         "OverallRatingScore":7,
         "OverallRatingScoreLowerBound":0,
@@ -120,9 +120,9 @@ Communication Services offers the following types of logs that you can enable:
 [
 {
 "TimeGenerated":"2023-04-12T14:21:35.0700920Z", 
-"CorrelationId":"91c3369f-test-40b0-a4ba-0000003419f9",
+"CorrelationId":"aaaa0000-bb11-2222-33cc-444444dddddd",
 "Category":"CallSurvey", 
-"ResourceId":"/SUBSCRIPTIONS/ED463725-1C38-43FC-BD8B-CAC509B41E96/RESOURCEGROUPS/ACS-DATALYTICS-SPGW-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-DATALYTICS-ALLTELEMETRY", 
+"ResourceId":"/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/ACS-DATALYTICS-SPGW-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-DATALYTICS-ALLTELEMETRY", 
 "OperationName":"EndOfCallSurvey", 
 "OperationVersion":"0.0"
 
@@ -130,7 +130,7 @@ Communication Services offers the following types of logs that you can enable:
     {
         "CallId":"fcc1234f-ce69-ZZZZ-b73f-b036051test4",
         "SurveyId":"a6dd61c4-xxxx-4885-96a4-a991d4c09e8b",
-        "ParticipantId":"91c3369f-test-40b0-a4ba-0000003419f9",
+        "ParticipantId":"aaaa0000-bb11-2222-33cc-444444dddddd",
         "AudioIssues":"NoRemoteAudio",      
         "AudioRatingScore":6,
         "AudioRatingScoreLowerBound":0,
@@ -144,9 +144,9 @@ Communication Services offers the following types of logs that you can enable:
 [
 {
 "TimeGenerated":"2023-04-12T14:21:35.0700920Z", 
-"CorrelationId":"91c3369f-test-40b0-a4ba-0000003419f9",
+"CorrelationId":"aaaa0000-bb11-2222-33cc-444444dddddd",
 "Category":"CallSurvey", 
-"ResourceId":"/SUBSCRIPTIONS/ED463725-1C38-43FC-BD8B-CAC509B41E96/RESOURCEGROUPS/ACS-DATALYTICS-SPGW-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-DATALYTICS-ALLTELEMETRY", 
+"ResourceId":"/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/ACS-DATALYTICS-SPGW-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-DATALYTICS-ALLTELEMETRY", 
 "OperationName":"CallSurvey", 
 "OperationVersion":"0.0"
 
@@ -154,7 +154,7 @@ Communication Services offers the following types of logs that you can enable:
     {
         "CallId":"fcc87f7f-ce69-eeed-7777-b036051faea4",
         "SurveyId":"a6dd61c4-zzzz-4885-tttt-a991d4c09e8b",
-        "ParticipantId":"91c3369f-test-40b0-a4ba-0000003419f9",
+        "ParticipantId":"aaaa0000-bb11-2222-33cc-444444dddddd",
         "VideoIssues":"NoVideoReceived",
         "VideoRatingScore":9,
         "VideoRatingScoreLowerBound":0,
@@ -170,9 +170,9 @@ Communication Services offers the following types of logs that you can enable:
 {
 "TimeGenerated":"2023-04-12T14:21:35.0700920Z", 
 "TimeGenerated":"2023-04-12T14:21:35.0700920Z", 
-"CorrelationId":"91c3369f-test-40b0-a4ba-0000003419f9",
+"CorrelationId":"aaaa0000-bb11-2222-33cc-444444dddddd",
 "Category":"CallSurvey", 
-"ResourceId":"/SUBSCRIPTIONS/ED463725-1C38-43FC-BD8B-CAC509B41E96/RESOURCEGROUPS/ACS-DATALYTICS-SPGW-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-DATALYTICS-ALLTELEMETRY", 
+"ResourceId":"/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/ACS-DATALYTICS-SPGW-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-DATALYTICS-ALLTELEMETRY", 
 "OperationName":"EndOfCallSurvey", 
 "OperationVersion":"0.0"
 
@@ -180,7 +180,7 @@ Communication Services offers the following types of logs that you can enable:
     {
         "CallId":"1237f7f-ce69-ffff-b73f-b036051f6666",
         "SurveyId":"a6dd6bbb-b924-zzzz-96a4-a991d4c01000",
-        "ParticipantId":"91c3369f-test-40b0-a4ba-0000003419f9",
+        "ParticipantId":"aaaa0000-bb11-2222-33cc-444444dddddd",
         "ScreenshareIssues":"StoppedUnexpectedly,CannotPresent",
         "ScreenshareRatingScore":2,
         "ScreenshareRatingScoreLowerBound":0,
@@ -190,6 +190,3 @@ Communication Services offers the following types of logs that you can enable:
 }
 ]
 ```
-
-
-

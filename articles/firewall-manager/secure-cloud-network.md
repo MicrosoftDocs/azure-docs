@@ -3,7 +3,7 @@ title: 'Tutorial: Secure your virtual hub using Azure Firewall Manager'
 description: In this tutorial, you learn how to secure your virtual hub with Azure Firewall Manager using the Azure portal. 
 services: firewall-manager
 author: vhorne
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 ms.topic: tutorial
 ms.date: 03/05/2024
 ms.author: victorh
@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 > It is also possible to convert an existing hub to a secured hub using the Azure portal, as described in [Configure Azure Firewall in a Virtual WAN hub](../virtual-wan/howto-firewall.md). But like Azure Firewall Manager, you can't configure **Availability Zones**.
 > To upgrade an existing hub and specify **Availability Zones** for Azure Firewall (recommended) you must follow the upgrade procedure in [Tutorial: Secure your virtual hub using Azure PowerShell](secure-cloud-network-powershell.md).
 
-:::image type="content" source="media/secure-cloud-network/secure-cloud-network.png" alt-text="Diagram showing the secure cloud network.":::
+:::image type="content" source="media/secure-cloud-network/secure-cloud-network.png" alt-text="Diagram showing the secure cloud network." lightbox="media/secure-cloud-network/secure-cloud-network.png":::
 
 ## Prerequisites
 
@@ -103,7 +103,7 @@ Create your secured virtual hub using Firewall Manager.
    :::image type="content" source="./media/secure-cloud-network/3-azure-firewall-parameters-with-zones.png" alt-text="Screenshot of configuring Azure Firewall parameters." lightbox="./media/secure-cloud-network/3-azure-firewall-parameters-with-zones.png":::
 
 
-16. Type **1** in the **Specify number of Public IP addressees** text box.
+16. Type **1** in the **Specify number of Public IP addressees** text box or associate an existing public IP address (preview) with this firewall.
 16. Under **Firewall Policy** ensure the **Default Deny Policy** is selected. You refine your settings later in this article.
 17. Select **Next: Security Partner Provider**.
 

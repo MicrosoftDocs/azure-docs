@@ -6,12 +6,12 @@ summary: Events documentation for Azure Health Data Services.
 metadata:
   title: Azure Health Data Services events
   description: Events documentation for Azure Health Data Services
-  ms.service: healthcare-apis
+  ms.service: azure-health-data-services
   ms.subservice: data-transformation
   ms.topic: landing-page 
 
-  author: msjasteppe
-  ms.author: jasteppe
+  author: chachachachami
+  ms.author: chrupa
   ms.date: 09/26/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new

@@ -3,7 +3,7 @@ title: Estimate costs with the Azure pricing calculator
 description: This article explains how to use the Azure pricing calculator to turn anticipated usage into an estimated cost, which makes it easier to plan and budget for your Azure usage.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/23/2023
+ms.date: 01/07/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -15,7 +15,8 @@ ms.reviewer: micflan
 The Azure pricing calculator helps you turn anticipated usage into an estimated cost, which makes it easier to plan and budget for your Azure usage. Whether you're a small business owner or an enterprise-level organization, the web-based tool helps you make informed decisions about your cloud spending. When you log in, the calculator also provides a cost estimate for your Azure consumption with your negotiated or discounted prices. This article explains how to use the Azure pricing calculator.
 
 >[!NOTE]
-> Prices shown in this article are examples to help you understand how the calculator works. They are not actual prices.
+> - You can also use Azure [Total Cost of Ownership (TCO) Calculator](https://azure.microsoft.com/pricing/tco/calculator/) to estimate the cost savings you can achieve by migrating your application workloads to Microsoft Azure.
+> - Prices shown in this article are examples to help you understand how the calculator works. They are not actual prices.
 
 ## Access the Azure pricing calculator
 

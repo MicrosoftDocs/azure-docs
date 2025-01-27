@@ -23,7 +23,7 @@ This article describes the least privileged built-in Azure roles or RBAC actions
 
 ## Permission to read, edit, or delete a task
 
-You must assign a role to any security principal in your organization that needs access to the storage task. To learn how to assign an Azure role, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+You must assign a role to any security principal in your organization that needs access to the storage task. To learn how to assign an Azure role, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 To give users or applications access to the storage task, choose an Azure Built-in or custom role that has the permission necessary to edit the read or edit task. If you prefer to use a custom role, make sure that your role contains the RBAC actions necessary to read or edit the task. Use the following table as a guide.
 
@@ -39,7 +39,7 @@ A task _assignment_ identifies a storage account and a subset of objects in that
 
 To create an assignment, your identity must be assigned a custom role that contains the following RBAC actions:
 
-- The `Microsot.Authorization.roleAssignments/write` action.
+- The `Microsoft.Authorization/roleAssignments/write` action.
 
 - All of the RBAC actions that are available in the `Microsoft.Storage/StorageAccounts` set of RBAC action.
 

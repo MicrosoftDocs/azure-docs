@@ -4,12 +4,12 @@ description:  This article discusses how to use Azure Active Directory B2C to pr
 
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: "b2c-support"
 
 
@@ -76,7 +76,7 @@ In the next sections, you create a new web API project. Select your programming 
 # [Node.js](#tab/nodejsgeneric)
 
 * [Visual Studio Code](https://code.visualstudio.com/), or another code editor
-* [Node.js runtime](https://nodejs.org/en/download/)
+* [Node.js runtime](https://nodejs.org/en/download/package-manager/)
 
 ---
 

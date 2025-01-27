@@ -4,8 +4,7 @@ description: Describes how to deploy GPU enabled IoT module on your Azure Stack 
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 10/19/2022
 ms.author: alkohli
@@ -47,8 +46,6 @@ Before you begin, make sure you have:
     ![Browse apps in Azure Marketplace](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/browse-apps-marketplace-1.png)
 
 2. Search for **Getting started with GPUs**.
-
-    ![Search GPU sample module](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/search-gpu-sample-module-1.png)
 
 3. Select **Get it now**.
 

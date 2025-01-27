@@ -3,7 +3,7 @@ title: 'Quickstart: Automate load tests with CI/CD'
 titleSuffix: Azure Load Testing
 description: 'Learn how to automate an existing load test by adding it to Azure Pipelines directly from the Azure portal. Run load tests in your CI/CD pipeline to automate performance regression testing.'
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.topic: quickstart
 author: ninallam
 ms.author: ninallam
@@ -26,6 +26,8 @@ If you want to automate your load test with GitHub Actions, learn how to [manual
 - An Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops&preserve-view=true).
 
 - Your Azure DevOps organization is connected to Microsoft Entra ID in your subscription. Learn how you can [connect your organization to Microsoft Entra ID](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
+
+- Your Azure DevOps organization needs to have the [Azure Load Testing](https://marketplace.visualstudio.com/items?itemName=AzloadTest.AzloadTesting) extension installed.
 
 - A load testing resource, which contains a test. Create a [URL-based load test](./quickstart-create-and-run-load-test.md) or [use an existing JMeter script](./how-to-create-and-run-load-test-with-jmeter-script.md) to create a load test.
 

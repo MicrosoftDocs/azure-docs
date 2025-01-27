@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: Learn how to use the Azure portal to create an application gateway with end-to-end TLS encryption.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 03/28/2023
 ms.author: greglin

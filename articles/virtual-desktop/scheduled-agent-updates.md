@@ -1,20 +1,18 @@
 ---
 title: Azure Virtual Desktop Scheduled Agent Updates
 description: How to use the Scheduled Agent Updates feature to choose a date and time to update your Azure Virtual Desktop agent components.
-author: Sefriend
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 07/20/2022
-ms.author: sefriend
-manager: rkiran
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
+
 # Scheduled Agent Updates for Azure Virtual Desktop host pools
 
 The Scheduled Agent Updates feature lets you create up to two maintenance windows for the Azure Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent to get updated so that updates don't happen during peak business hours. To monitor agent updates, you can use Log Analytics to see when agent component updates are available and when updates are unsuccessful.
 
 This article describes how the Scheduled Agent Updates feature works and how to set it up.
-
->[!NOTE]
-> Azure Virtual Desktop (classic) doesn't support the Scheduled Agent Updates feature.
 
 ## Configure the Scheduled Agent Updates feature using the Azure portal
 
@@ -68,4 +66,4 @@ For more information related to Scheduled Agent Updates and agent components, ch
 - Learn how to set up diagnostics for this feature at the [Scheduled Agent Updates Diagnostics guide](agent-updates-diagnostics.md).
 - Learn more about the Azure Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent at [Getting Started with the Azure Virtual Desktop Agent](agent-overview.md).
 - For more information about the current and earlier versions of the Azure Virtual Desktop agent, see [Azure Virtual Desktop agent updates](whats-new-agent.md).
-- If you're experiencing agent or connectivity-related issues, see the [Azure Virtual Desktop Agent issues troubleshooting guide](troubleshoot-agent.md).
+- If you're experiencing agent or connectivity-related issues, see the [Azure Virtual Desktop Agent issues troubleshooting guide](/troubleshoot/azure/virtual-desktop/troubleshoot-agent).

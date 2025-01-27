@@ -4,7 +4,7 @@ description: How to choose the correct IoT hub tier and size to support your ant
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 04/08/2024
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: Operations']
@@ -50,6 +50,9 @@ Both tiers offer the same security and authentication features.
 
 IoT Hub also offers a free tier that is meant for testing and evaluation. It has all the capabilities of the standard tier, but includes limited messaging allowances. You can't upgrade from the free tier to either the basic or standard tier.
 
+>[!NOTE]
+>The name of a free tier IoT hub might be visible to other free tier users. You can [manage access to your IoT hub by using Microsoft Entra ID and Azure RBAC](authenticate-authorize-azure-ad.md#manage-access-to-iot-hub-by-using-azure-rbac-role-assignment).
+
 ### IoT Hub REST APIs
 
 The difference in supported capabilities between the basic and standard tiers of IoT Hub means that some API calls don't work with basic tier IoT hubs. The following table shows which APIs are available:
@@ -61,18 +64,18 @@ The difference in supported capabilities between the basic and standard tiers of
 | [Get registry statistics](/rest/api/iothub/service/statistics/get-device-statistics) | Yes | Yes |
 | [Get services statistics](/rest/api/iothub/service/statistics/get-service-statistics) | Yes | Yes |
 | [Query IoT Hub](/rest/api/iothub/iot-hub-resource/get) | Yes | Yes |
-| [Create file upload SAS URI](/rest/api/iothub/device/createfileuploadsasuri) | Yes | Yes |
-| [Receive device bound notification](/rest/api/iothub/device/receivedeviceboundnotification) | Yes | Yes |
-| [Send device event](/rest/api/iothub/device/senddeviceevent) | Yes | Yes |
+| [Create file upload SAS URI](/rest/api/iothub/operation-groups) | Yes | Yes |
+| [Receive device bound notification](/rest/api/iothub/operation-groups) | Yes | Yes |
+| [Send device event](/rest/api/iothub/operation-groups) | Yes | Yes |
 | Send module event | AMQP and MQTT only | AMQP and MQTT only |
-| [Update file upload status](/rest/api/iothub/device/updatefileuploadstatus) | Yes | Yes |
+| [Update file upload status](/rest/api/iothub/iot-hub-resource/update) | Yes | Yes |
 | [Bulk device operation](/rest/api/iothub/service/bulk-registry/update-registry) | Yes, except for IoT Edge capabilities | Yes |
 | [Create import export job](/rest/api/iothub/service/jobs/createimportexportjob), [Get import export job](/rest/api/iothub/service/jobs/getimportexportjob), [Cancel import export job](/rest/api/iothub/service/jobs/cancelimportexportjob) | Yes | Yes |
 | [Get device twin](/rest/api/iothub/service/devices/get-twin), [Update device twin](/rest/api/iothub/service/devices/update-twin) |   | Yes |
 | [Get module twin](/rest/api/iothub/service/modules/get-twin), [Update module twin](/rest/api/iothub/service/modules/update-twin) |   | Yes |
 | [Invoke device method](/rest/api/iothub/service/devices/invoke-method) |   | Yes |
-| [Abandon device bound notification](/rest/api/iothub/device/abandondeviceboundnotification) |   | Yes |
-| [Complete device bound notification](/rest/api/iothub/device/completedeviceboundnotification) |   | Yes |
+| [Abandon device bound notification](/rest/api/iothub/service/devices) |   | Yes |
+| [Complete device bound notification](/rest/api/iothub/service/devices) |   | Yes |
 | [Create job](/rest/api/iothub/service/jobs/create-scheduled-job), [Get job](/rest/api/iothub/service/jobs/get-scheduled-job), [Cancel job](/rest/api/iothub/service/jobs/cancel-scheduled-job) |   | Yes |
 | [Query jobs](/rest/api/iothub/service/jobs/query-scheduled-jobs) |   | Yes |
 
@@ -97,7 +100,7 @@ Once you've chosen the tier that provides the best features for your solution, d
 
 Each IoT Hub tier is available in three sizes, based around how much data throughput they can handle in any given day. These sizes are numerically identified as 1, 2, and 3.
 
-A tier-size pair is represented as an *edition*. A basic tier IoT hub of size 2 is represented by the edition **B2**. Similarly, a standard tier IoT hub of size 3 is represented by the edition **S3**. For more information, includig pricing details, see [IoT Hub edition](https://azure.microsoft.com/pricing/details/iot-hub/)
+A tier-size pair is represented as an *edition*. A basic tier IoT hub of size 2 is represented by the edition **B2**. Similarly, a standard tier IoT hub of size 3 is represented by the edition **S3**. For more information, including pricing details, see [IoT Hub edition](https://azure.microsoft.com/pricing/details/iot-hub/)
 
 Once you choose an edition for your IoT hub, you can multiple its messaging capacity by increasing the number of *units*.
 

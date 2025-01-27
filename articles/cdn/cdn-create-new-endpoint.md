@@ -12,6 +12,8 @@ ms.author: duau
 
 # Quickstart: Create an Azure Content Delivery Network profile and endpoint
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 In this quickstart, you enable Azure Content Delivery Network by creating a new content delivery network profile, which is a collection of one or more content delivery network endpoints. After you've created a profile and an endpoint, you can start delivering content to your customers.
 
 ## Prerequisites
@@ -58,10 +60,7 @@ After you've created a content delivery network profile, you use it to create an
 
     :::image type="content" source="./media/cdn-create-new-endpoint/cdn-endpoint-success.png" alt-text="View added endpoint.":::
 
-   The time it takes for the endpoint to propagate depends on the pricing tier selected when you created the profile. **Standard Microsoft** usually completes within one minute in 10 minutes, and **Standard Edgio** and **Premium Edgio** in up to 30 minutes.
-
-> [!NOTE]
-> For *Edgio CDN endpoints*, when an endpoint is **disabled** or **stopped** for any reason, all resources configured through the Edgio supplemental portal will be cleaned up. These configurations can't be restored automatically by restarting the endpoint. You will need to make the configuration change again.
+    It can take up to ten minutes for the endpoint to propagate and be ready to serve content.
 
 ## Clean up resources
 

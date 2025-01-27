@@ -19,7 +19,7 @@ The scale settings take a few minutes to apply. In rare cases, it may take aroun
 For information about the pricing and capacities of individual Web PubSub Service, see [Azure Web PubSub Service Pricing Details](https://azure.microsoft.com/pricing/details/web-pubsub/).  
 
 > [!NOTE]
-> Changing Web PubSub Service from **Free** tier to **Standard** or **Premium** tier or vice versa, the public service IP will be changed and it usually takes 30-60 minutes to propagate the change to DNS servers across the entire internet. Chaning tiers between  **Standard** and **Premium** will not change the public IP.
+> Changing Web PubSub Service from **Free** tier to **Standard** or **Premium** tier or vice versa, the public service IP will be changed and it usually takes 30-60 minutes to propagate the change to DNS servers across the entire internet. Changing tiers between  **Standard** and **Premium** will not change the public IP.
 > Your service might be unreachable before DNS gets updated. Generally it’s not recommended to change your pricing tier too often.
 
 
@@ -69,7 +69,7 @@ For a table of service limits, quotas, and constraints in each tier, see [Web Pu
 
 
 ## Enhanced large instance support with Premium_P2 SKU
-The new Premium_P2 SKU (currently in Preview) is designed to facilitate extensive scalability for high-demand scenarios.  This SKU allows scaling among 100, 200, 300, 400, 500, 600. 700, 800, 900, 1000 units for a single Web PubSub Service instance. This enhancement enables the handling of up to **one million** concurrent connections, catering to large-scale, real-time communication needs.
+The new Premium_P2 SKU is designed to facilitate extensive scalability for high-demand scenarios.  This SKU allows scaling among 100, 200, 300, 400, 500, 600. 700, 800, 900, 1000 units for a single Web PubSub Service instance. This enhancement enables the handling of up to **one million** concurrent connections, catering to large-scale, real-time communication needs.
 
 You can scale up the SKU to Premium_P2 using Azure portal or Azure CLI.
 

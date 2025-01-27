@@ -6,7 +6,6 @@ ms.custom: horz-monitor
 ms.topic: reference
 author: jonburchel
 ms.author: jburchel
-ms.service: data-factory
 ---
 
 # Azure Data Factory monitoring data reference
@@ -20,12 +19,12 @@ See [Monitor Data Factory](monitor-data-factory.md) for details on the data you 
 ### Supported metrics for Microsoft.DataFactory/datafactories
 The following table lists the metrics available for the Microsoft.DataFactory/datafactories resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.DataFactory/datafactories](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-datafactory-datafactories-metrics-include.md)]
+[!INCLUDE [microsoft-datafactory-datafactories-metrics-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-datafactory-datafactories-metrics-include.md)]
 
 ### Supported metrics for Microsoft.DataFactory/factories
 The following table lists the metrics available for the Microsoft.DataFactory/factories resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.DataFactory/factories](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-datafactory-factories-metrics-include.md)]
+[!INCLUDE [microsoft-datafactory-factories-metrics-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-datafactory-factories-metrics-include.md)]
 
 > [!NOTE]
 > Except for _PipelineElapsedTimeRuns_, only events from completed, triggered activity and pipeline runs are emitted. In-progress and debug runs aren't emitted. However, events from all SSIS package executions are emitted, including those that are completed and in progress, regardless of their invocation methods. For example, you can invoke package executions on Azure-enabled SQL Server Data Tools, via T-SQL on SQL Server Management Studio, SQL Server Agent, or other designated tools, and as triggered or debug runs of Execute SSIS Package activities in Data Factory pipelines.
@@ -60,9 +59,10 @@ The following table lists the metrics available for the Microsoft.DataFactory/fa
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.DataFactory/factories
-[!INCLUDE [Microsoft.DataFactory/factories](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-datafactory-factories-logs-include.md)]
+[!INCLUDE [microsoft-datafactory-factories-logs-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-datafactory-factories-logs-include.md)]
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
+
 ### Data factories
 
 Microsoft.DataFactory/factories
@@ -148,7 +148,7 @@ Log Analytics inherits the schema from Azure Monitor with the following exceptio
 | Property | Type | Description | Example |
 | --- | --- | --- | --- |
 | **Level** |String | The level of the diagnostic logs. For activity-run logs, set the property value to 4. | `4` |
-| **correlationId** |String | The unique ID for tracking a particular request. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| **correlationId** |String | The unique ID for tracking a particular request. | `aaaa0000-bb11-2222-33cc-444444dddddd` |
 | **time** | String | The time of the event in the timespan UTC format `YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
 |**activityRunId**| String| The ID of the activity run. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |**pipelineRunId**| String| The ID of the pipeline run. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
@@ -202,7 +202,7 @@ Log Analytics inherits the schema from Azure Monitor with the following exceptio
 | Property | Type | Description | Example |
 | --- | --- | --- | --- |
 | **Level** |String | The level of the diagnostic logs. For activity-run logs, set the property value to 4. | `4` |
-| **correlationId** |String | The unique ID for tracking a particular request. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| **correlationId** |String | The unique ID for tracking a particular request. | `aaaa0000-bb11-2222-33cc-444444dddddd` |
 | **time** | String | The time of the event in the timespan UTC format `YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
 |**runId**| String| The ID of the pipeline run. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |**resourceId**| String | The ID associated with the data factory resource. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
@@ -247,7 +247,7 @@ Log Analytics inherits the schema from Azure Monitor with the following exceptio
 | Property | Type | Description | Example |
 | --- | --- | --- | --- |
 | **Level** |String | The level of the diagnostic logs. For activity-run logs, set the property value to 4. | `4` |
-| **correlationId** |String | The unique ID for tracking a particular request. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| **correlationId** |String | The unique ID for tracking a particular request. | `aaaa0000-bb11-2222-33cc-444444dddddd` |
 | **time** | String | The time of the event in the timespan UTC format `YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
 |**triggerId**| String| The ID of the trigger run. | `08587023010602533858661257311` |
 |**resourceId**| String | The ID associated with the data factory resource. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
@@ -326,7 +326,7 @@ Here are the log attributes of conditions related to event messages that are gen
 | **time**                   | String | The time of event in UTC format: `YYYY-MM-DDTHH:MM:SS.00000Z`        | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | Set to `YourSSISIRName-SSISPackageEventMessageContext`       | `mysqlmissisir-SSISPackageEventMessageContext` |
 | **category**               | String | The category of diagnostic logs                                      | `SSISPackageEventMessageContext` |
-| **correlationId**          | String | The unique ID for tracking a particular operation                    | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
+| **correlationId**          | String | The unique ID for tracking a particular operation                    | `bbbb1111-cc22-3333-44dd-555555eeeeee` |
 | **dataFactoryName**        | String | The name of your data factory                                                 | `MyADFv2` |
 | **integrationRuntimeName** | String | The name of your SSIS IR                                             | `MySSISIR` |
 | **level**                  | String | The level of diagnostic logs                                         | `Informational` |
@@ -376,7 +376,7 @@ Here are the log attributes of event messages that are generated by SSIS package
 | **time**                   | String | The time of event in UTC format: `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | Set to `YourSSISIRName-SSISPackageEventMessages`           | `mysqlmissisir-SSISPackageEventMessages` |
 | **category**               | String | The category of diagnostic logs                                    | `SSISPackageEventMessages` |
-| **correlationId**          | String | The unique ID for tracking a particular operation                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
+| **correlationId**          | String | The unique ID for tracking a particular operation                  | `bbbb1111-cc22-3333-44dd-555555eeeeee` |
 | **dataFactoryName**        | String | The name of your data factory                                               | `MyADFv2` |
 | **integrationRuntimeName** | String | The name of your SSIS IR                                           | `MySSISIR` |
 | **level**                  | String | The level of diagnostic logs                                       | `Informational` |
@@ -425,7 +425,7 @@ Here are the log attributes of executable statistics that are generated by SSIS 
 | **time**                   | String | The time of event in UTC format: `YYYY-MM-DDTHH:MM:SS.00000Z`    | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | Set to `YourSSISIRName-SSISPackageExecutableStatistics`  | `mysqlmissisir-SSISPackageExecutableStatistics` |
 | **category**               | String | The category of diagnostic logs                                  | `SSISPackageExecutableStatistics` |
-| **correlationId**          | String | The unique ID for tracking a particular operation                | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
+| **correlationId**          | String | The unique ID for tracking a particular operation                | `bbbb1111-cc22-3333-44dd-555555eeeeee` |
 | **dataFactoryName**        | String | The name of your data factory                                             | `MyADFv2` |
 | **integrationRuntimeName** | String | The name of your SSIS IR                                         | `MySSISIR` |
 | **level**                  | String | The level of diagnostic logs                                     | `Informational` |
@@ -470,7 +470,7 @@ Here are the log attributes of runtime statistics for data flow components that 
 | **time**                   | String | The time of event in UTC format: `YYYY-MM-DDTHH:MM:SS.00000Z`       | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | Set to `YourSSISIRName-SSISPackageExecutionComponentPhases` | `mysqlmissisir-SSISPackageExecutionComponentPhases` |
 | **category**               | String | The category of diagnostic logs                                     | `SSISPackageExecutionComponentPhases` |
-| **correlationId**          | String | The unique ID for tracking a particular operation                   | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
+| **correlationId**          | String | The unique ID for tracking a particular operation                   | `bbbb1111-cc22-3333-44dd-555555eeeeee` |
 | **dataFactoryName**        | String | The name of your data factory                                                | `MyADFv2` |
 | **integrationRuntimeName** | String | The name of your SSIS IR                                            | `MySSISIR` |
 | **level**                  | String | The level of diagnostic logs                                        | `Informational` |
@@ -518,7 +518,7 @@ Here are the log attributes of data movements through each leg of data flow pipe
 | **time**                     | String | The time of event in UTC format: `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**            | String | Set to `YourSSISIRName-SSISPackageExecutionDataStatistics` | `mysqlmissisir-SSISPackageExecutionDataStatistics` |
 | **category**                 | String | The category of diagnostic logs                                    | `SSISPackageExecutionDataStatistics` |
-| **correlationId**            | String | The unique ID for tracking a particular operation                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
+| **correlationId**            | String | The unique ID for tracking a particular operation                  | `bbbb1111-cc22-3333-44dd-555555eeeeee` |
 | **dataFactoryName**          | String | The name of your data factory                                               | `MyADFv2` |
 | **integrationRuntimeName**   | String | The name of your SSIS IR                                           | `MySSISIR` |
 | **level**                    | String | The level of diagnostic logs                                       | `Informational` |

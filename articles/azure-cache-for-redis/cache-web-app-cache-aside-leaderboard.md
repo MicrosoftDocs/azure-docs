@@ -1,9 +1,9 @@
 ---
 title: 'Tutorial: Create a Web App (cache-aside) - Azure Cache for Redis'
 description: Learn how to create a Web App with Azure Cache for Redis that uses the cache-aside pattern.
-author: flang-msft
-ms.author: franlanglois
-ms.service: cache
+
+
+
 ms.topic: tutorial
 ms.devlang: csharp
 ms.custom: "devx-track-csharp, mvc"
@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 > * Provision the Azure resources for the application using a Resource Manager template.
 > * Publish the application to Azure using Visual Studio.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -406,7 +406,7 @@ It isn't required to store the team statistics in multiple formats in the cache 
     }
     ```
 
-    The `GetFromList` method reads the team statistics from cache as a serialized `List<Team>`. If the statistics aren't present in the cache, a cache miss occurs. For a cache miss, the team statistics are read from the database and then stored in the cache for the next request. In this sample, JSON.NET serialization is used to serialize the .NET objects to and from the cache. For more information, see [How to work with .NET objects in Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
+    The `GetFromList` method reads the team statistics from cache as a serialized `List<Team>`. If the statistics aren't present in the cache, a cache miss occurs. For a cache miss, the team statistics are read from the database and then stored in the cache for the next request. In this sample, JSON.NET serialization is used to serialize the .NET objects to and from the cache.
 
     ```csharp
     List<Team> GetFromList()

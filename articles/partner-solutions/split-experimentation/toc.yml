@@ -1,0 +1,11 @@
+items:
+- name: Split Experimentation Workspace (preview)
+  href: index.yml
+- name: Overview
+- name: Quickstart
+  expanded: true
+- name: How to
+- name: Reference
+  items:
+  - name: REST API
+    href: /rest/api/splitexperimentation

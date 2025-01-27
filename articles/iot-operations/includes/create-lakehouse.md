@@ -3,7 +3,7 @@ title: include file
 description: include file
 author: dominicbetts
 ms.topic: include
-ms.date: 12/18/2023
+ms.date: 10/22/2024
 ms.author: dobett
 ---
 
@@ -13,4 +13,4 @@ Create a lakehouse in your Microsoft Fabric workspace:
 
     :::image type="content" source="media/create-lakehouse/create-lakehouse.png" alt-text="Screenshot that shows how to create a lakehouse.":::
 
-1. Enter a name for your lakehouse, such as _yourname_pipeline_destination_, and select **Create**.
+1. Enter a name for your lakehouse, such as _yourname_mq_destination_, and select **Create**.

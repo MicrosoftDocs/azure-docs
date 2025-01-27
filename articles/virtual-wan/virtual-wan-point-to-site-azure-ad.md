@@ -5,15 +5,22 @@ description: Learn how to configure Microsoft Entra authentication for Virtual W
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 11/21/2023
+ms.date: 01/15/2025
 ms.author: cherylmc 
+
+#Audience ID values are not sensitive data.
 
 ---
 # Create a P2S User VPN connection using Azure Virtual WAN - Microsoft Entra authentication
 
 This article shows you how to use Virtual WAN to connect to your resources in Azure. In this article, you create a point-to-site User VPN connection to Virtual WAN that uses Microsoft Entra authentication. Microsoft Entra authentication is only available for gateways that use the OpenVPN protocol.
+
+> [!NOTE]
+> Instead of using the steps in this article, we recommend that you use the new [Microsoft-registered Azure VPN Client App ID](point-to-site-entra-gateway.md) article for your User VPN configuration when possible.
+
+[!INCLUDE [About Microsoft-registered app](../../includes/virtual-wan-entra-app-id-descriptions.md)]
 
 [!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
@@ -28,7 +35,7 @@ In this article, you learn how to:
 * Download and apply the User VPN client configuration
 * View your virtual WAN
 
-:::image type="content" source="./media/virtual-wan-about/virtualwanp2s.png" alt-text="Virtual WAN diagram.":::
+:::image type="content" source="./media/virtual-wan-about/virtualwanp2s.png" alt-text="Screenshot of Virtual WAN diagram." lightbox="./media/virtual-wan-about/virtualwanp2s.png":::
 
 ## Before you begin
 
@@ -68,14 +75,14 @@ A User VPN configuration defines the parameters for connecting remote clients. I
 
     Toggle **Microsoft Entra ID** to **Yes** and supply the following values based on your tenant details. You can view the necessary values on the Microsoft Entra ID page for Enterprise applications in the portal.
    * **Authentication method** - Select Microsoft Entra ID.
-   * **Audience** - Type in the Application ID of the [Azure VPN](openvpn-azure-ad-tenant.md) Enterprise Application registered in your Microsoft Entra tenant.
+   * **Audience** - Type the Application ID of the Azure VPN Client Enterprise Application registered in your Microsoft Entra tenant. For values, see: [Azure VPN Client Audience values](openvpn-azure-ad-tenant.md)
    * **Issuer** - `https://sts.windows.net/<your Directory ID>/`
-   * **Microsoft Entra tenant:** TenantID for the Microsoft Entra tenant. Make sure there is no `/` at the end of the Microsoft Entra tenant URL. 
+   * **Microsoft Entra tenant:** TenantID for the Microsoft Entra tenant. Make sure there is no `/` at the end of the Microsoft Entra tenant URL.
 
-     * Enter `https://login.microsoftonline.com/{AzureAD TenantID}` for Azure Public AD
-     * Enter `https://login.microsoftonline.us/{AzureAD TenantID}` for Azure Government AD
-     * Enter `https://login-us.microsoftonline.de/{AzureAD TenantID}` for Azure Germany AD
-     * Enter `https://login.chinacloudapi.cn/{AzureAD TenantID}` for China 21Vianet AD
+     * Enter `https://login.microsoftonline.com/<your Directory Tenant ID>` for Azure Public AD
+     * Enter `https://login.microsoftonline.us/<your Directory Tenant ID>` for Azure Government AD
+     * Enter `https://login-us.microsoftonline.de/<your Directory Tenant ID>` for Azure Germany AD
+     * Enter `https://login.chinacloudapi.cn/<your Directory Tenant ID>` for China 21Vianet AD
 
 1. Click **Create** to create the User VPN configuration. You'll select this configuration later in the exercise.
 

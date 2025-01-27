@@ -27,7 +27,7 @@ The .NET Feature Management libraries extend the framework with feature flag sup
 
 ## Add a feature flag
 
-Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./quickstart-azure-app-configuration-create.md#create-a-feature-flag).
+Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag).
 
 > [!div class="mx-imgBorder"]
 > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
@@ -134,10 +134,10 @@ This project will use [dependency injection in .NET Azure Functions](../azure-fu
    Add a constructor used to obtain instances of `_featureManagerSnapshot` and `IConfigurationRefresherProvider` through dependency injection. From the `IConfigurationRefresherProvider`, you can obtain the instance of `IConfigurationRefresher`.
 
     ```csharp
-    private readonly IFeatureManagerSnapshot _featureManagerSnapshot;
+    private readonly IVariantFeatureManagerSnapshot _featureManagerSnapshot;
     private readonly IConfigurationRefresher _configurationRefresher;
 
-    public Function1(IFeatureManagerSnapshot featureManagerSnapshot, IConfigurationRefresherProvider refresherProvider)
+    public Function1(IVariantFeatureManagerSnapshot featureManagerSnapshot, IConfigurationRefresherProvider refresherProvider)
     {
         _featureManagerSnapshot = featureManagerSnapshot;
         _configurationRefresher = refresherProvider.Refreshers.First();
@@ -171,19 +171,19 @@ This project will use [dependency injection in .NET Azure Functions](../azure-fu
 1. Set an environment variable named **ConnectionString**, where the value is the connection string you retrieved earlier in your App Configuration store under **Access Keys**. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-        setx ConnectionString "connection-string-of-your-app-configuration-store"
+        setx ConnectionString "<connection-string-of-your-app-configuration-store>"
     ```
 
     If you use Windows PowerShell, run the following command:
 
     ```azurepowershell
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+        $Env:ConnectionString = "<connection-string-of-your-app-configuration-store>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-        export ConnectionString='connection-string-of-your-app-configuration-store'
+        export ConnectionString='<connection-string-of-your-app-configuration-store>'
     ```
 
 1. Press F5 to test your function. If prompted, accept the request from Visual Studio to download and install **Azure Functions Core (CLI)** tools. You might also need to enable a firewall exception so that the tools can handle HTTP requests.
@@ -192,15 +192,15 @@ This project will use [dependency injection in .NET Azure Functions](../azure-fu
 
     ![Quickstart Function debugging in VS](./media/quickstarts/function-visual-studio-debugging.png)
 
-1. Paste the URL for the HTTP request into your browser's address bar. The following image shows the response indicating that the feature flag `Beta` is disabled. 
+1. Paste the URL for the HTTP request into your browser's address bar. The following image shows the response indicating that the feature flag *Beta* is disabled. 
 
     ![Quickstart Function feature flag disabled](./media/quickstarts/functions-launch-ff-disabled.png)
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store that you created.
 
-1. Select **Feature manager**, and change the state of the **Beta** key to **On**.
+1. Select **Feature manager**, and change the state of the *Beta* key to **On**.
 
-1. Refresh the browser a few times. When the refresh interval time window passes, the page will change to indicate the feature flag `Beta` is turned on, as shown in the image below.
+1. Refresh the browser a few times. When the refresh interval time window passes, the page will change to indicate the feature flag *Beta* is turned on, as shown in the image below.
  
     ![Quickstart Function feature flag enabled](./media/quickstarts/functions-launch-ff-enabled.png)
 
@@ -213,10 +213,25 @@ This project will use [dependency injection in .NET Azure Functions](../azure-fu
 
 ## Next steps
 
-In this quickstart, you created a feature flag and used it with an Azure Functions app via the [Microsoft.FeatureManagement](https://www.nuget.org/packages/Microsoft.FeatureManagement/) library.
+In this quickstart, you created a feature flag and used it with an Azure Functions.
 
-- Learn more about [feature management](./concept-feature-management.md)
-- [Manage feature flags](./manage-feature-flags.md)
-- [Use conditional feature flags](./howto-feature-filters-aspnet-core.md)
-- [Enable staged rollout of features for targeted audiences](./howto-targetingfilter-aspnet-core.md)
-- [Use dynamic configuration in an Azure Functions app](./enable-dynamic-configuration-azure-functions-csharp.md)
+To enable feature management capability for other types of apps, continue to the following tutorials.
+
+> [!div class="nextstepaction"]
+> [Use feature flags in ASP.NET Core apps](./quickstart-feature-flag-aspnet-core.md)
+
+> [!div class="nextstepaction"]
+> [Use feature flags in .NET/.NET framework console apps](./quickstart-feature-flag-dotnet.md)
+
+> [!div class="nextstepaction"]
+> [Use feature flags in .NET background services](./quickstart-feature-flag-dotnet-background-service.md)
+
+To learn more about managing feature flags in Azure App Configuration, continue to the following tutorial.
+
+> [!div class="nextstepaction"]
+> [Manage feature flags in Azure App Configuration](./manage-feature-flags.md)
+
+For the full feature rundown of the .NET feature management library, continue to the following document.
+
+> [!div class="nextstepaction"]
+> [.NET Feature Management](./feature-management-dotnet-reference.md)

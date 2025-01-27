@@ -3,19 +3,18 @@ title:  How to monitor Spring Boot apps with Dynatrace Java OneAgent
 description: How to use Dynatrace Java OneAgent to monitor Spring Boot applications in Azure Spring Apps
 author:  KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 06/07/2022
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
 # How to monitor Spring Boot apps with Dynatrace Java OneAgent
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌️ Enterprise
+**This article applies to:** ✅ Standard consumption and dedicated (Preview) ✅ Basic/Standard ❎️ Enterprise
 
 This article shows you how to use Dynatrace OneAgent to monitor Spring Boot applications in Azure Spring Apps.
 
@@ -203,7 +202,7 @@ The Dynatrace OneAgent auto-upgrade is disabled and is upgraded quarterly with t
 
 ## Virtual network injection instance outbound traffic configuration
 
-For a virtual network injection instance of Azure Spring Apps, you need to make sure the outbound traffic for Dynatrace communication endpoints is configured correctly for Dynatrace OneAgent. For information about how to get `communicationEndpoints`, see [Deployment API - GET connectivity information for OneAgent](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/deployment/oneagent/get-connectivity-info/). For more information, see [Customer responsibilities for running Azure Spring Apps in a virtual network](../enterprise/vnet-customer-responsibilities.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json).
+For a virtual network injection instance of Azure Spring Apps, you need to make sure the outbound traffic for Dynatrace communication endpoints is configured correctly for Dynatrace OneAgent. For information about how to get `communicationEndpoints`, see [Deployment API - GET connectivity information for OneAgent](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/deployment/oneagent/get-connectivity-info/). For more information, see [Customer responsibilities for running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md).
 
 ## Dynatrace support model
 
@@ -211,4 +210,4 @@ For information about limitations when deploying Dynatrace OneAgent in applicati
 
 ## Next steps
 
-[Use Application Insights Java In-Process Agent in Azure Spring Apps](../enterprise/how-to-application-insights.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
+[Use Application Insights Java In-Process Agent in Azure Spring Apps](how-to-application-insights.md?pivots=sc-standard)

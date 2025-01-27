@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Join a Teams meeting
-author: askaur
-ms.author: askaur
-ms.date: 06/30/2021
+author: eboltonmaggs
+ms.author: eboltonmaggs
+ms.date: 04/30/2024
 ms.topic: include
 ms.service: azure-communication-services
 ---
@@ -53,7 +53,7 @@ The `--save` option lists the library as a dependency in your **package.json** f
 
 ## Set up the app framework
 
-This quickstart uses Webpack to bundle the application assets. Run the following command to install the Webpack, webpack-cli and webpack-dev-server npm packages and list them as development dependencies in your **package.json**:
+This quickstart uses webpack to bundle the application assets. Run the following command to install the webpack, webpack-cli and webpack-dev-server npm packages and list them as development dependencies in your **package.json**:
 
 ```console
 npm install webpack@5.89.0 webpack-cli@5.1.4 webpack-dev-server@4.15.1 --save-dev
@@ -199,7 +199,7 @@ var chatThreadId = "";
 
 async function init() {
   const connectionString = "<SECRET_CONNECTION_STRING>";
-  const endpointUrl = connectionString.split(";")[0];
+  const endpointUrl = connectionString.split(";")[0].replace("endpoint=", "");
 
   const identityClient = new CommunicationIdentityClient(connectionString);
 
@@ -339,7 +339,7 @@ var displayName = call.remoteParticipants.find(p => p.identifier.communicationUs
 
 ## Run the code
 
-Webpack users can use the `webpack-dev-server` to build and run your app. Run the following command to bundle your application host on a local webserver:
+Use the `webpack-dev-server` to build and run your app. Run the following command to bundle your application host on a local webserver:
 
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map

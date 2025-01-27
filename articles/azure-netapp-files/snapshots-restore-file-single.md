@@ -5,13 +5,13 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/04/2023
+ms.date: 03/04/2024
 ms.author: anfdocs
 ---
 
 # Restore individual files using single-file snapshot restore 
 
-If you do not want to [restore the entire snapshot to a new volume](snapshots-restore-new-volume.md) or [copy large files across the network](snapshots-restore-file-client.md), you can use the single-file snapshot restore feature to recover individual files directly within a volume from a snapshot. This option does not require an external client data copy.  
+If you don't want to [restore the entire snapshot to a new volume](snapshots-restore-new-volume.md) or [copy large files across the network](snapshots-restore-file-client.md), you can use the single-file snapshot restore feature to recover individual files directly within a volume from a snapshot. This option doesn't require an external client data copy.  
 
 The single-file snapshot restore feature enables you to restore a single file or a list of files (up to 10 files at a time) from a snapshot. You can specify a specific destination location or folder for the files to be restored to.    
 
@@ -20,7 +20,7 @@ The single-file snapshot restore feature enables you to restore a single file or
 * If you use this feature to restore files to be new files, ensure that the volume has enough logical free space to accommodate the files.
 * You can restore up to 10 files at a time, specified in a total length of 1024 characters.    
 * All the directories in the destination path that you specify must be present in the active file system. 
-The restore operation doesn't create directories in the process. If the specified destination path is invalid (doesn't exist in Active file system), the restore operation fails.
+The restore operation doesn't create directories in the process. If the specified destination path is invalid (meaning it doesn't exist in the active file system), the restore operation fails.
 * If you don’t specify a destination path, the files will be restored to the original file location. If the files already exist in the original location, the files restored from the snapshot will overwrite the existing files. 
 * A volume can have only one active file-restore operation. If you want to restore additional files, you must wait until the current restore operation is complete before triggering another restore operation.   
 * *During the file restore operation*, the following restrictions apply: 
@@ -35,7 +35,7 @@ The restore operation doesn't create directories in the process. If the specifie
 The single-file snapshot restore feature is currently in preview. If you're using this feature for the first time, register the feature before using it.
 
 > [!IMPORTANT]
-> Until further communication, [Azure NetApp Files for Azure Government](azure-government.md) users should contact their account team to access this feature instead of following the steps below.
+> If you're using [Azure NetApp Files for Azure Government](azure-government.md), contact your account team to access this feature instead of following the steps below.
 
 1. Register the feature: 
 
@@ -69,15 +69,24 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         * The maximum length of the File Paths field must not exceed 1024 characters and 10 files.
         * Regardless of the volume’s protocol type (NFS, SMB, or dual protocol), directories in the path must be specified using forward slashes (`/`) and not backslashes (`\`).  
 
+<<<<<<< HEAD
     2. In the **Destination Path** field, provide the location in the volume to where the specified files are to be restored.
         * If you don’t specify a destination path, the files will be restored to their original location. If files with the same names already exist in the original location, the files restored from the snapshot will overwrite the existing files
+=======
+    2. In the **Destination Path** field, provide the location in the volume where the specified files are to be restored to.
+        * If you don’t specify a destination path, the files are restored to their original location. If files with the same names already exist in the original location, they're overwritten by the files restored from the snapshot.  
+>>>>>>> 618155a2774e41b63fb4697aaa78dab6bc68557d
         * If you specify a destination path: 
             * Ensure that all directories in the path are present in the active file system. Otherwise, the restore operation will fail.   
                 For example, if you specify `/CurrentCopy/contoso` as the destination path, the `/CurrentCopy/contoso` path must already exist.  
             * By specifying a destination path, all files specified in the **File Paths** field will be restored to the destination path (folder).
             * Regardless of the volume’s protocol type (NFS, SMB, or dual protocol), directories in the path must be specified using forward slashes (`/`) and not backslashes (`\`).   
 
+<<<<<<< HEAD
     3. Select **Restore** to begin the restore operation.
+=======
+    3. Select **Restore** to initiate the restore operation.
+>>>>>>> 618155a2774e41b63fb4697aaa78dab6bc68557d
 
     ![Snapshot the Restore Files window.](./media/snapshots-restore-file-single/snapshot-restore-files-window.png)
 

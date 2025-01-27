@@ -12,9 +12,9 @@ ms.date: 01/04/2024
 
 # Improve threat protection by integrating security operations with Microsoft Graph Security & Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Microsoft Graph Security](/graph/security-concept-overview) connector, you can improve how your app detects, protects, and responds to threats by creating automated workflows for integrating Microsoft security products, services, and partners. For example, you can create [Microsoft Defender for Cloud playbooks](../security-center/workflow-automation.md) that monitor and manage Microsoft Graph Security entities, such as alerts. Here are some scenarios that are supported by the Microsoft Graph Security connector:
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Microsoft Graph Security](/graph/security-concept-overview) connector, you can improve how your app detects, protects, and responds to threats by creating automated workflows for integrating Microsoft security products, services, and partners. For example, you can create [Microsoft Defender for Cloud playbooks](../security-center/workflow-automation.yml) that monitor and manage Microsoft Graph Security entities, such as alerts. Here are some scenarios that are supported by the Microsoft Graph Security connector:
 
 * Get alerts based on queries or by alert ID. For example, you can get a list that includes high severity alerts.
 
@@ -83,7 +83,7 @@ In Azure Logic Apps, every logic app must start with a [trigger](../logic-apps/l
 
 This example shows how you can start a logic app workflow when new alerts are sent to your app.
 
-1.	In the Azure portal or Visual Studio, create a blank logic app, which opens the Logic App Designer. This example uses the Azure portal.
+1.	In the Azure portal, create a blank logic app, which opens the Logic App Designer. This example uses the Azure portal.
 
 1.	On the designer, in the search box, enter "microsoft graph security" as your filter. From the triggers list, select this trigger: **On all new alerts**
 

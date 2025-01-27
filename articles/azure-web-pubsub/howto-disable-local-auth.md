@@ -1,43 +1,55 @@
 ---
-title: Disable local (access key) authentication with Azure Web PubSub Service
-description: This article provides information about how to disable access key authentication and use only Microsoft Entra authorization with Azure Web PubSub Service.
+title: Turn off local (access key) authentication
+description: Learn how to turn off local access key authentication and use only Microsoft Entra authorization for your Azure Web PubSub resource.
 author: terencefan
-
 ms.author: tefa
-ms.date: 03/31/2023
+ms.date: 08/16/2024
 ms.service: azure-web-pubsub
 ms.custom: devx-track-arm-template
 ms.topic: conceptual
 ---
 
-# Disable local (access key) authentication with Azure Web PubSub Service
+# Turn off local (access key) authentication
 
-There are two ways to authenticate to Azure Web PubSub Service resources: Microsoft Entra ID and Access Key. Microsoft Entra ID provides superior security and ease of use over access key. With Microsoft Entra ID, there’s no need to store the tokens in your code and risk potential security vulnerabilities. We recommend that you use Microsoft Entra ID with your Azure Web PubSub Service resources when possible.
+Azure Web PubSub resources can authenticate requests in two ways:
+
+- Microsoft Entra ID (recommended)
+- Access key
+
+Microsoft Entra ID provides superior security and ease of use over an access key. If you use Microsoft Entra ID, you don't need to store the tokens in your code and risk potential security vulnerabilities. We recommend that you use Microsoft Entra ID for your Web PubSub resources when possible.
 
 > [!IMPORTANT]
-> Disabling local authentication can have following influences.
+> Disabling local authentication might have the following results:
 >
-> - The current set of access keys will be permanently deleted.
-> - Tokens signed with current set of access keys will become unavailable.
-> - Signature will **NOT** be attached in the upstream request header. Please visit _[how to validate access token](./howto-use-managed-identity.md#validate-access-tokens)_ to learn how to validate requests via Microsoft Entra token.
+> - The current set of access keys is permanently deleted.
+> - Tokens that are signed by using the current set of access keys become unavailable.
+> - A signature will *not* be attached in the upstream request header. Learn how to [validate an access token](./howto-use-managed-identity.md#validate-an-access-token).
 
-## Use Azure portal
+## Turn off local authentication
 
-In this section, you will learn how to use the Azure portal to disable local authentication.
+You can turn off local authentication via access key by using:
 
-1. Navigate to your Web PubSub Service resource in the [Azure portal](https://portal.azure.com).
+- The Azure portal
+- An Azure Resource Manager template
+- Azure Policy
 
-2. in the **Settings** section of the menu sidebar, select **Keys** tab.
+### Azure portal
 
-3. Select **Disabled** for local authentication.
+To turn off local authentication by using the Azure portal:
 
-4. Click **Save** button.
+1. In the [Azure portal](https://portal.azure.com), go to your Web PubSub resource.
 
-![Screenshot of disabling local auth.](./media/howto-disable-local-auth/disable-local-auth.png)
+1. On the left menu under **Settings**, select **Keys**.
 
-## Use Azure Resource Manager template
+1. For local authentication, select **Disabled**.
 
-You can disable local authentication by setting `disableLocalAuth` property to true as shown in the following Azure Resource Manager template.
+1. Select **Save**.
+
+:::image type="content" source="media/howto-disable-local-auth/disable-local-auth.png" alt-text="Screenshot that shows turning off local authentication.":::
+
+### Azure Resource Manager template
+
+You can turn off local authentication by setting the `disableLocalAuth` property to `true` as shown in the following Azure Resource Manager template:
 
 ```json
 {
@@ -87,16 +99,14 @@ You can disable local authentication by setting `disableLocalAuth` property to t
 }
 ```
 
-## Use Azure Policy
+### Azure Policy
 
-You can assign the [Azure Web PubSub Service should have local authentication methods disabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb66ab71c-582d-4330-adfd-ac162e78691e) Azure policy to an Azure subscription or a resource group to enforce disabling of local authentication for all Web PubSub resources in the subscription or the resource group.
+You can assign the policy [Azure Web PubSub Service should have local authentication methods disabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb66ab71c-582d-4330-adfd-ac162e78691e) in Azure Policy to an Azure subscription or to a resource group. Assigning this policy turns off local authentication for all Web PubSub resources in the subscription or resource group.
 
-![Screenshot of disabling local auth policy.](./media/howto-disable-local-auth/disable-local-auth-policy.png)
+:::image type="content" source="media/howto-disable-local-auth/disable-local-auth-policy.png" alt-text="Screenshot that shows turning off local authentication policy.":::
 
-## Next steps
+## Related content
 
-See the following docs to learn about authentication methods.
-
-- [Overview of Microsoft Entra ID for Web PubSub](concept-azure-ad-authorization.md)
-- [Authenticate with Azure applications](./howto-authorize-from-application.md)
-- [Authenticate with managed identities](./howto-authorize-from-managed-identity.md)
+- [Microsoft Entra ID for Web PubSub](concept-azure-ad-authorization.md)
+- [Authenticate your Azure applications](./howto-authorize-from-application.md)
+- [Authenticate by using managed identities](./howto-authorize-from-managed-identity.md)

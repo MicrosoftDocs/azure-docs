@@ -13,6 +13,8 @@ ms.author: duau
 
 # Using Azure CDN with CORS
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 ## What is CORS?
 
 CORS (cross-origin resource sharing) is an HTTP feature that enables a web application running under one domain to access resources in another domain. In order to reduce the possibility of cross-site scripting attacks, all modern web browsers implement a security restriction known as [same-origin policy](https://www.w3.org/Security/wiki/Same_Origin_Policy). This restriction prevents a web page from calling APIs in a different domain. CORS provides a secure way to allow one origin (the origin domain) to call APIs in another origin.
@@ -68,14 +70,6 @@ On Azure CDN Standard from Microsoft, you can create a rule in the [Standard rul
 > You can add additional actions to your rule to modify additional response headers, such as **Access-Control-Allow-Methods**.
 >
 
-<a name='azure-cdn-premium-from-verizon'></a>
-
-### Azure CDN Premium from Edgio
-
-Using the Edgio Premium rules engine, you need to [create a rule](./cdn-verizon-premium-rules-engine.md) to check the **Origin** header on the request. If it's a valid origin, your rule sets the **Access-Control-Allow-Origin** header with the origin provided in the request. If the origin specified in the **Origin** header isn't allowed, your rule should omit the **Access-Control-Allow-Origin** header, which causes the browser to reject the request.
-
-There are two ways to resolve this problem with the Premium rules engine. In both cases, the **Access-Control-Allow-Origin** header from the file's origin server is ignored and the CDN's rules engine completely manages the allowed CORS origins.
-
 #### One regular expression with all valid origins
 
 In this case, you create a regular expression that includes all of the origins you want to allow:
@@ -84,22 +78,16 @@ In this case, you create a regular expression that includes all of the origins y
 https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.com)$
 ```
 
-> [!TIP]
-> **Azure CDN Premium from Edgio** uses [Perl Compatible Regular Expressions](https://pcre.org/) as its engine for regular expressions. You can use a tool like [Regular Expressions 101](https://regex101.com/) to validate your regular expression. Note that the "/" character is valid in regular expressions and doesn't need to be escaped, however, escaping that character is considered a best practice and is expected by some regex validators.
->
->
-
 If the regular expression matches, your rule replaces the **Access-Control-Allow-Origin** header (if any) from the origin with the origin that sent the request. You can also add extra CORS headers, such as **Access-Control-Allow-Methods**.
 
 ![Rules example with regular expression](./media/cdn-cors/cdn-cors-regex.png)
 
 #### Request header rule for each origin.
 
-Rather than regular expressions, you can instead create a separate rule for each origin you wish to allow using the **Request Header Wildcard** [match condition](/previous-versions/azure/mt757336(v=azure.100)#match-conditions). As with the regular expression method, the rules engine alone sets the CORS headers.
+Rather than regular expressions, you can instead create a separate rule for each origin you wish to allow using the **Request Header Wildcard** [match condition](./cdn-verizon-premium-rules-engine-reference-match-conditions.md). As with the regular expression method, the rules engine alone sets the CORS headers.
 
 ![Rules example without regular expression](./media/cdn-cors/cdn-cors-no-regex.png)
 
 > [!TIP]
 > In the example, the use of the wildcard character * tells the rules engine to match both HTTP and HTTPS.
->
 >

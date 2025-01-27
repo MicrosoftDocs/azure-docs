@@ -5,12 +5,12 @@ description: How to build apps directly by using the protocols that are supporte
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: concept-article
-ms.date: 01/11/2024
+ms.date: 10/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer integrating Azure AD B2C into my application, I want to understand the authentication protocols supported by Azure AD B2C, so that I can choose the appropriate protocol for my application and ensure secure authentication and authorization for my users.
@@ -85,5 +85,3 @@ When you're ready to review some example requests, you can start with one of the
 
 * [Build mobile and native applications by using OAuth 2.0](authorization-code-flow.md)
 * [Build web apps by using OpenID Connect](openid-connect.md)
-* [Build single-page apps using the OAuth 2.0 implicit flow](implicit-flow-single-page-application.md)
-

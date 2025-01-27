@@ -3,9 +3,9 @@ title: "Next.js support on Azure Static Web Apps"
 description: "An overview of the support of Next.js on Azure Static Web Apps"
 services: static-web-apps
 author: aaronpowell
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic:  how-to
-ms.date: 10/12/2022
+ms.date: 04/25/2024
 ms.author: aapowell
 ms.custom: devx-track-js
 ---
@@ -14,12 +14,9 @@ ms.custom: devx-track-js
 
 Next.js support on Azure Static Web Apps can be categorized as two deployment models:
 
-- **Hybrid**: Hybrid Next.js sites, which includes support for all Next.js features such as the [App Router](https://nextjs.org/docs/app), the [Pages Router](https://nextjs.org/docs/pages) and [React Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components)
-
+- **Hybrid**: Hybrid Next.js sites, which include support for all Next.js features such as the [App Router](https://nextjs.org/docs/app), the [Pages Router](https://nextjs.org/docs/pages) and [React Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components)
 
 - **Static**: Static Next.js sites, which use the [Static HTML Export](https://nextjs.org/docs/advanced-features/static-html-export) option of Next.js.
-
-
 
 ## Hybrid Next.js applications (preview)
 
@@ -31,7 +28,6 @@ With hybrid Next.js applications, pages and components can be dynamically render
 
 Key features that are available in the preview are:
 
-
 - [App Router](https://nextjs.org/docs/app) and [Pages Router](https://nextjs.org/docs/pages)
 - [React Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components)
 - [Hybrid rendering](https://nextjs.org/docs/app/building-your-application/rendering/server-components#server-rendering-strategies)
@@ -39,12 +35,15 @@ Key features that are available in the preview are:
 - [Image optimization](https://nextjs.org/docs/basic-features/image-optimization)
 - [Internationalization](https://nextjs.org/docs/advanced-features/i18n-routing)
 - [Middleware](https://nextjs.org/docs/advanced-features/middleware)
-- [Authentication](https://nextjs.org/docs/authentication)
+- [Authentication](https://nextjs.org/docs/pages/building-your-application/authentication)
 
 Follow the [deploy hybrid Next.js applications](deploy-nextjs-hybrid.md) tutorial to learn how to deploy a hybrid Next.js application to Azure.
 
 [!INCLUDE [Unsupported Next.js features](../../includes/static-web-apps-nextjs-unsupported.md)]
 
+## Server side rendering
+
+[!INCLUDE [Server side rendering](../../includes/static-web-apps/static-web-apps-nextjs-backends.md)]
 
 ## Static HTML export
 

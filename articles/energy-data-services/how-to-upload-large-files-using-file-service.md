@@ -3,7 +3,7 @@ title: How to upload large files using file service API in Microsoft Azure Data 
 description: This article describes how to upload large files using File service API in Microsoft Azure Data Manager for Energy
 author: harshit283
 ms.author: haaggarw
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 06/13/2023
 ms.custom: template-how-to
@@ -44,7 +44,7 @@ Consider an Azure Data Manager for Energy resource named "medstest" with a data 
 }
 ```
 
-The SignedURL key in the response object can be then used to upload files into Azure Blob Storage
+The SignedURL key in the response object can be then used to upload files into Azure Blob Storage. The expiry time of the SignedURL for File service and Dataset service is 1 hour as per [security enhancements from OSDU](https://community.opengroup.org/osdu/platform/system/file/-/issues/78).
 
 ## Upload files with size less than 5 GB
 In order to upload file sizes less than 5 GB one can directly use [PUT blob API](https://azure.github.io/Storage/docs/application-and-user-data/basics/azure-blob-storage-upload-apis/#put-blob) call to upload their files into Azure Blob Storage

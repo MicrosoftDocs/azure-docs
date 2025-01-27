@@ -1,14 +1,14 @@
 ---
 author: cephalin
-ms.service: app-service
+ms.service: azure-app-service
 ms.devlang: java
 ms.custom: linux-related-content
 ms.topic: quickstart
-ms.date: 06/30/2022
+ms.date: 01/22/2025
 ms.author: cephalin
 ---
 
-[Azure App Service](../../overview.md) on Linux provides pre-defined application stacks on Linux with support for languages such as .NET, PHP, Node.js and others. You can also use a custom Docker image to run your web app on an application stack that isn't already defined in Azure. This quickstart shows you how to deploy an image from Azure Container Registry to Azure App Service.
+[Azure App Service](../../overview.md) on Linux provides pre-defined application stacks on Linux with support for languages such as .NET, Java, Node.js, PHP, and others. You can also use a custom Docker image to run your web app on an application stack that isn't already defined in Azure. This quickstart shows you how to deploy an image from Azure Container Registry to Azure App Service.
 
 > [!NOTE]
 > For information regarding running containerized applications in a serverless environment, please see [Container Apps](../../../container-apps/overview.md).
@@ -17,7 +17,7 @@ ms.author: cephalin
 To complete this quickstart, you need:
 
 - An [Azure account](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
-- An [Azure container registry](../../../container-registry/container-registry-get-started-portal.md)
+- An [Azure container registry](/azure/container-registry/container-registry-get-started-portal)
 - [Azure CLI](/cli/azure/install-azure-cli)
 - [Docker](https://www.docker.com/community-edition)
 
@@ -84,7 +84,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Under **App Service Plan**, select **Create new** App Service Plan. Type *myAppServicePlan* for the name. To change to the Free tier, select **Change size**, select the **Dev/Test** tab, select **F1**, and select the **Apply** button at the bottom of the page.
 
-    :::image type="content" source="../../media/quickstart-custom-container/app-service-plan-details-linux.png" alt-text="Screenshot of the Administrator account section where you provide the administrator username and password.":::
+    :::image type="content" source="../../media/quickstart-custom-container/app-service-plan-details-linux.png" alt-text="Screenshot of the App Service plan options.":::
 
 1. Select the **Next: Docker >** button at the bottom of the page.
 

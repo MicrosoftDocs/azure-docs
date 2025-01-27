@@ -3,9 +3,9 @@ title: Traffic Splitting in Azure Static Web Apps (preview)
 description: Learn to divert traffic from one branch to another.
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic:  how-to
-ms.date: 07/10/2023
+ms.date: 01/22/2025
 ms.author: cshoe
 ---
 
@@ -14,6 +14,9 @@ ms.author: cshoe
 Traffic splitting allows you to divert a percentage of traffic to different [branch environments](./branch-environments.md).
 
 Traffic splitting is only available on the [Standard hosting plan](plans.md).
+
+> [!NOTE]
+> Traffic splitting does not work with private endpoint or enterprise-grade edge.
 
 ## Split traffic
 

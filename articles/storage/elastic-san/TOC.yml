@@ -46,7 +46,7 @@ items:
       href: ../container-storage/use-container-storage-with-elastic-san.md?toc=/azure/storage/elastic-san/toc.json&bc=/azure/storage/elastic-san/breadcrumb/toc.json
     - name: Use Kubernetes iSCSI CSI driver
       href: elastic-san-connect-aks.md
-  - name: Expand an Elastic SAN
+  - name: Resize an Elastic SAN
     href: elastic-san-expand.md
   - name: Use volume snapshots
     href: elastic-san-snapshots.md

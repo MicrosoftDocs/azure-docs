@@ -5,12 +5,12 @@ description: Follow this tutorial to learn how to prepare for registering your a
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: tutorial
-ms.date: 01/11/2024
+ms.date: 09/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: "b2c-support"
 
 
@@ -48,10 +48,9 @@ Before you create your Azure AD B2C tenant, you need to take the following consi
 
 ## Create an Azure AD B2C tenant
 >[!NOTE]
->If you're unable to create Azure AD B2C tenant, [review your user settings page](tenant-management-check-tenant-creation-permission.md) to ensure that tenant creation isn't switched off. If tenant creation is switched on, ask your *Global Administrator* to assign you a **Tenant Creator** role.
+>If you're unable to create Azure AD B2C tenant, [review your user settings page](tenant-management-check-tenant-creation-permission.md) to ensure that tenant creation isn't switched off. If tenant creation is switched on, ask your [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator) to assign you a [Tenant Creator](/entra/identity/role-based-access-control/permissions-reference#tenant-creator) role.
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
-
 
 1. Make sure you're using the Microsoft Entra tenant that contains your subscription: 
 
@@ -97,7 +96,7 @@ You can link multiple Azure AD B2C tenants to a single Azure subscription for bi
 
 ## Activate Azure AD B2C Go-Local add-on
 
-Azure AD B2C allows you to activate Go-Local add-on on an existing tenant as long as your tenant stores data in a country/region that has local data residence option. To opt-in to Go-Local add-on, use the following steps:
+Azure AD B2C allows you to activate Go-Local add-on on an existing tenant as long as your tenant stores data in a country/region that has local data residence option. To opt in to Go-Local add-on, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 

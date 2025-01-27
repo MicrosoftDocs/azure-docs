@@ -5,10 +5,14 @@ ms.topic: how-to
 zone_pivot_groups: azure-virtual-desktop-windows-clients
 author: dknappettmsft
 ms.author: daknappe
+ms.custom: "se-defect-target"
 ms.date: 02/21/2024
 ---
 
 # Use features of the Remote Desktop client for Windows when connecting to Azure Virtual Desktop
+
+> [!TIP]
+> To ensure a seamless experience, users are encouraged to download Windows App. Windows App is the gateway to securely connect to any devices or apps across Azure Virtual Desktop, Windows 365, and Microsoft Dev Box. For more information, see [What is Windows App](/windows-app/overview).
 
 ::: zone pivot="avd-store"
 > [!IMPORTANT]
@@ -24,8 +28,6 @@ There are three versions of the Remote Desktop client for Windows, which are all
 - Azure Virtual Desktop app from the Microsoft Store. This is a preview version of the Remote Desktop client for Windows.
 - Remote Desktop app from the Microsoft Store. This version is no longer being developed. 
 
-> [!TIP]
-> You can also connect to Azure Virtual Desktop with Windows App, a single app to securely connect you to Windows devices and apps from Azure Virtual Desktop, Windows 365, Microsoft Dev Box, Remote Desktop Services, and remote PCs. For more information, see [What is Windows App?](/windows-app/overview)
 
 You can find a list of all the Remote Desktop clients at [Remote Desktop clients overview](remote-desktop-clients-overview.md). For more information about the differences between the clients, see [Compare the Remote Desktop clients](../compare-remote-desktop-clients.md).
 

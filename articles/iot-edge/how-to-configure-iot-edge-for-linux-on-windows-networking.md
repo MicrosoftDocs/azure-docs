@@ -1,19 +1,18 @@
 ---
-title: Networking for Azure IoT Edge for Linux on Windows | Microsoft Docs
+title: Networking for Azure IoT Edge for Linux on Windows
 description: Learn about how to configure custom networking for Azure IoT Edge for Linux on Windows virtual machine.
 author: PatAltimore
-manager: kgremban
-ms.author: fcabrera
-ms.date: 10/21/2022
+ms.author: patricka
+ms.date: 01/21/2025
 ms.topic: conceptual
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ---
 
 # Networking configuration for Azure IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This article helps you decide which networking option is best for your scenario and provide insights into IoT Edge for Linux on Windows (EFLOW) configuration requirements.
 
@@ -138,7 +137,7 @@ If you need to manually set up the DNS server addresses, you can use the EFLOW P
 ### Check DNS resolution
 There are multiple ways to check the DNS resolution. 
 
-First, from inside the EFLOW VM, use the `resolvectl query` command to query a specific URL. For example, to check if the name resolution is working for the address _microsoft.com_, use:
+First, from inside the EFLOW VM, use the `resolvectl query` command to query a specific URL. For example, to check if the name resolution is working for the address *microsoft.com*, use:
 
 ```bash
 resolvectl query microsoft.com
@@ -157,7 +156,7 @@ microsoft.com: 40.112.72.205
 -- Data is authenticated: no
 ```
 
-You can also use the `dig` command to query a specific URL. For example, to check if the name resolution is working for the address _microsoft.com_, use:
+You can also use the `dig` command to query a specific URL. For example, to check if the name resolution is working for the address *microsoft.com*, use:
 
 ```bash
 dig microsoft.com

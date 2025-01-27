@@ -6,20 +6,30 @@ items:
   items:
   - name: What is HDInsight on AKS?
     href: overview.md
+  - name: Preview information 
+    href: preview.md
   - name: What's new?
     href: whats-new.md 
-  - name: Preview information
-    href: preview.md
 - name: Quickstarts
   items:
   - name: Subscription prerequisites
-    href: prerequisites-subscription.md
+    href: quickstart-prerequisites-subscription.md
   - name: Resource prerequisites
-    href: prerequisites-resources.md
+    href: quickstart-prerequisites-resources.md
   - name: One click deployment
-    href: get-started.md
+    href: quickstart-get-started.md
+  - name: Create cluster pool
+    items:
+    - name: Create cluster pool - Azure portal
+      href: quickstart-create-cluster.md
+    - name: Create cluster pool - Azure CLI
+      href: quickstart-create-cli.md
+    - name: Create cluster pool - Azure PowerShell
+      href: quickstart-create-powershell.md
 - name: Concepts
   items:
+  - name: Reliability
+    href: ../reliability/reliability-hdinsight-on-aks.md?toc=/azure/hdinsight-aks/toc.json
   - name: Versioning
     href: versions.md 
   - name: Enterprise security
@@ -51,16 +61,8 @@ items:
     href: ./release-notes/hdinsight-aks-release-notes-archive.md
 - name: Get started
   items:
-  - name: Create a cluster pool and cluster
-    href: quickstart-create-cluster.md
   - name: Introduction to cluster storage
     href: cluster-storage.md
-  - name: Export cluster ARM template
-    items:
-    - name: Export ARM template using Azure portal
-      href: ./create-cluster-using-arm-template-script.md
-    - name: Export ARM template using Azure CLI
-      href: ./create-cluster-using-arm-template.md
   - name: Secure network traffic  
     items:
     - name: Use firewall with Azure CLI
@@ -69,6 +71,12 @@ items:
       href: ./secure-traffic-by-firewall-azure-portal.md
     - name: Use NSG to restrict traffic
       href: ./secure-traffic-by-nsg.md
+  - name: Export cluster ARM template
+    items:
+    - name: Export ARM template using Azure portal
+      href: ./create-cluster-using-arm-template-script.md
+    - name: Export ARM template using Azure CLI
+      href: ./create-cluster-using-arm-template.md
   - name: Tutorials
     items: 
     - name: Manage HDInsight on AKS clusters - .NET SDK

@@ -1,9 +1,10 @@
 ---
 author: kgremban
-ms.service: iot-dps
+ms.service: azure-iot-hub
 ms.topic: include
 ms.date: 03/28/2023
 ms.author: kgremban
+ms.subservice: azure-iot-hub-dps
 ---
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Device Provisioning Service instance.

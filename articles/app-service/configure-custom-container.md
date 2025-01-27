@@ -4,7 +4,7 @@ description: Learn how to configure a custom container in Azure App Service. Thi
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: how-to
-ms.date: 10/25/2023
+ms.date: 01/23/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
 zone_pivot_groups: app-service-containers-windows-linux
 ---
@@ -21,7 +21,7 @@ This guide provides key concepts and instructions for containerization of Window
 
 ::: zone pivot="container-linux"
 
-This guide provides key concepts and instructions for containerization of Linux apps in App Service. If are new to Azure App Service, follow the [custom container quickstart](quickstart-custom-container.md) and [tutorial](tutorial-custom-container.md) first. There's also a [multi-container app quickstart](quickstart-multi-container.md) and [tutorial](tutorial-multi-container-app.md). For sidecar containers (preview), see [Tutorial: Configure a sidecar container for custom container in Azure App Service (preview)](tutorial-custom-container-sidecar.md).
+This guide provides key concepts and instructions for containerization of Linux apps in App Service. If you're new to Azure App Service, follow the [custom container quickstart](quickstart-custom-container.md) and [tutorial](tutorial-custom-container.md) first. For sidecar containers (preview), see [Tutorial: Configure a sidecar container for custom container in Azure App Service (preview)](tutorial-custom-container-sidecar.md).
 
 ::: zone-end
 
@@ -198,31 +198,7 @@ When persistent storage is disabled, then writes to the `C:\home` directory aren
 
 The only exception is the `C:\home\LogFiles` directory, which is used to store the container and application logs. This folder always persists upon app restarts if [application logging is enabled](troubleshoot-diagnostic-logs.md?#enable-application-logging-windows) with the **File System** option, independently of the persistent storage being enabled or disabled. In other words, enabling or disabling the persistent storage doesn't affect the application logging behavior.
 
-By default, persistent storage is *disabled* on Windows custom containers. To enable it, set the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting value to `true` via the [Cloud Shell](https://shell.azure.com). In Bash:
-
-```azurecli-interactive
-az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=true
-```
-
-In PowerShell:
-
-```azurepowershell-interactive
-Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=true}
-```
-
-::: zone-end
-
-::: zone pivot="container-linux"
-
-You can use the */home* directory in your custom container file system to persist files across restarts and share them across instances. The `/home` directory is provided to enable your custom container to access persistent storage. Saving data within `/home` contributes to the [storage space quota](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) included with your App Service Plan.
-
-When persistent storage is disabled, then writes to the `/home` directory aren't persisted across app restarts or across multiple instances. When persistent storage is enabled, all writes to the `/home` directory are persisted and can be accessed by all instances of a scaled-out app. Additionally, any contents inside the `/home` directory of the container are overwritten by any existing files already present on the persistent storage when the container starts.
-
-The only exception is the `/home/LogFiles` directory, which is used to store the container and application logs. This folder always persists upon app restarts if [application logging is enabled](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) with the **File System** option, independently of the persistent storage being enabled or disabled. In other words, enabling or disabling the persistent storage doesn't affect the application logging behavior.
-
-It's recommended to write data to `/home` or a [mounted Azure storage path](configure-connect-to-azure-storage.md?tabs=portal&pivots=container-linux). Data written outside these paths isn't persistent during restarts and is saved to platform-managed host disk space separate from the App Service Plans file storage quota.
-
-By default, persistent storage is *enabled* on Linux custom containers. To disable it, set the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting value to `false` via the [Cloud Shell](https://shell.azure.com). In Bash:
+By default, persistent storage is *enabled* on Windows custom containers. To disable it, set the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting value to `false` via the [Cloud Shell](https://shell.azure.com). In Bash:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
@@ -232,6 +208,30 @@ In PowerShell:
 
 ```azurepowershell-interactive
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=false}
+```
+
+::: zone-end
+
+::: zone pivot="container-linux"
+
+You can use the */home* directory in your custom container file system to persist files across restarts and share them across instances. The `/home` directory is provided to enable your custom container to access persistent storage. Saving data within `/home` contributes to the [storage space quota](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits) included with your App Service Plan.
+
+When persistent storage is disabled, then writes to the `/home` directory aren't persisted across app restarts or across multiple instances. When persistent storage is enabled, all writes to the `/home` directory are persisted and can be accessed by all instances of a scaled-out app. Additionally, any contents inside the `/home` directory of the container are overwritten by any existing files already present on the persistent storage when the container starts.
+
+The only exception is the `/home/LogFiles` directory, which is used to store the container and application logs. This folder always persists upon app restarts if [application logging is enabled](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) with the **File System** option, independently of the persistent storage being enabled or disabled. In other words, enabling or disabling the persistent storage doesn't affect the application logging behavior.
+
+It's recommended to write data to `/home` or a [mounted Azure storage path](configure-connect-to-azure-storage.md?tabs=portal&pivots=container-linux). Data written outside these paths isn't persistent during restarts and is saved to platform-managed host disk space separate from the App Service Plans file storage quota.
+
+By default, persistent storage is *disabled* on Linux custom containers. To enable it, set the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting value to `true` via the [Cloud Shell](https://shell.azure.com). In Bash:
+
+```azurecli-interactive
+az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=true
+```
+
+In PowerShell:
+
+```azurepowershell-interactive
+Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=true}
 ```
 
 ::: zone-end
@@ -477,6 +477,9 @@ Further troubleshooting information is available at the Azure App Service blog: 
 
 ## Configure multi-container apps
 
+> [!NOTE]
+> Sidecar containers (preview) will succeed multi-container apps in App Service. To get started, see [Tutorial: Configure a sidecar container for custom container in Azure App Service (preview)](tutorial-custom-container-sidecar.md).
+
 - [Use persistent storage in Docker Compose](#use-persistent-storage-in-docker-compose)
 - [Preview limitations](#preview-limitations)
 - [Docker Compose options](#docker-compose-options)
@@ -559,7 +562,7 @@ The following lists show supported and unsupported Docker Compose configuration 
 ::: zone pivot="container-linux"
 
 > [!div class="nextstepaction"]
-> [Tutorial: Multi-container WordPress app](tutorial-multi-container-app.md)
+> [Tutorial: Configure a sidecar container for custom container in Azure App Service (preview)](tutorial-custom-container-sidecar.md)
 
 ::: zone-end
 

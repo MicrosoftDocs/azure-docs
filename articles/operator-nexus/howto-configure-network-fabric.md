@@ -1,6 +1,6 @@
 ---
-title: "Azure Operator Nexus: Configure the network fabric"
-description: Learn commands to create, view, list, update, and delete network fabrics.
+title: "Azure Operator Nexus: Configure the Network Fabric"
+description: Learn commands to create, view, list, update, and delete Network Fabrics.
 author: jdasari
 ms.author: jdasari
 ms.service: azure-operator-nexus
@@ -17,17 +17,13 @@ This article describes how to create a Network Fabric by using the Azure Command
 ## Prerequisites
 
 * An Azure account with an active subscription.
-* Install the latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install Azure CLI](./howto-install-cli-extensions.md)
+* Install the latest version of the CLI commands. For information about installing the CLI commands, see [Install Azure CLI](./howto-install-cli-extensions.md)
 * A Network Fabric controller manages multiple Network Fabrics on the same Azure region.
-* Physical Operator-Nexus instance with cabling as per BoM.
+* Physical Operator-Nexus instance with cabling as per BoM version.
 * Express Route connectivity between NFC and Operator-Nexus instances.
 * Terminal server pre-configured with username and password [installed and configured](./howto-platform-prerequisites.md#set-up-terminal-server)
 * PE devices pre-configured with necessary VLANs, Route-Targets and IP addresses.
-* Supported SKUs from NFA Release 2.4 and beyond for Fabric are **M4-A400-A100-C16-ab**, **M8-A400-A100-C16-ab**, **M4-A400-A100-C16-aa** and **M8-A400-A100-C16-aa**.
-    * M4-A400-A100-C16-aa - up to four compute racks (BOM 1.6.2)
-    * M8-A400-A100-C16-aa - up to eight compute racks (BOM 1.6.2)
-    * M4-A400-A100-C16-ab - Up to four Compute Racks (BOM 1.7.3)
-    * M8-A400-A100-C16-ab - Up to eight Compute Racks (BOM 1.7.3)
+* Supported SKU information is [inventoried here](./reference-operator-nexus-fabric-skus.md)
 
 ## Steps to Provision a Fabric & Racks
 
@@ -42,14 +38,14 @@ This article describes how to create a Network Fabric by using the Azure Command
 
 The following table specifies parameters used to create Network Fabric,
 
-**$prefix:** /subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers
+**$prefix:** /subscriptions/<subscription_id>/resourceGroups/\<NFResourceGroup\>/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers
 
 | Parameter | Description | Example | Required | Type|
 |-----------|-------------|---------|----------|----------|
-| resource-group | Name of the resource group |  "NFResourceGroup" |True |
+| resource-group | Name of the resource group |  \<NFResourceGroup\> |True |
 | location | Operator-Nexus Azure region | "eastus" |True | 
-| resource-name | Name of the FabricResource | NF-ResourceName |True |
-|  nf-sku  |Fabric SKU ID is the SKU of the ordered BoM. Four SKUs are supported (**M4-A400-A100-C16-aa**, **M8-A400-A100-C16-aa**, **M4-A400-A100-C16-ab** and **M8-A400-A100-C16-ab**). | M4-A400-A100-C16-ab |True | String|
+| resource-name | Name of the FabricResource | \<NFName\>|True |
+|  nf-sku  |Fabric SKU ID is the SKU of the ordered BoM version. See [Network Fabric SKUs](./reference-operator-nexus-fabric-skus.md). | M4-A400-A100-C16-ab |True | String|
 |nfc-id|Network Fabric Controller "ARM resource ID"|**$prefix**/NFCName|True | |
 |rackcount|Number of compute racks per fabric. Possible values are 2-8|8|True | 
 |serverCountPerRack|Number of compute servers per rack. Possible values are 4, 8, 12 or 16|16|True | 
@@ -70,6 +66,7 @@ The following table specifies parameters used to create Network Fabric,
 |username| Username configured on the terminal server that the services use to configure TS|username|True|
 |password| Password configured on the terminal server that the services use to configure TS|password|True|
 |serialNumber| Serial number of Terminal Server|SN of the Terminal Server||
+|subscription_id| Customer Subscription ID|xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx||
 
 
 ## Create a Network Fabric 
@@ -77,18 +74,18 @@ The following table specifies parameters used to create Network Fabric,
 Resource group must be created before Network Fabric creation. It's recommended to create a separate resource group for each Network Fabric. Resource group can be created by the following command:
 
 ```azurecli
-az group create -n NFResourceGroup -l "East US"
+az group create -n <NFResourceGroup> -l "East US"
 ```
 Run the following command to create the Network Fabric:
 
 ```azurecli
 
 az networkfabric fabric create \ 
---resource-group "NFResourceGroupName" 
---location "eastus" \
---resource-name "NFName" \
---nf-sku "NFSKU" \
---nfc-id "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/NFCName" 
+--resource-group "<NFResourceGroup>" 
+--location "<Location>" \
+--resource-name "<NFName>" \
+--nf-sku "<NFSKU>" \
+--nfc-id "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/<NFCName>" 
 --fabric-asn 65048 
 --ipv4-prefix 10.2.0.0/19 
 --ipv6-prefix fda0:d59c:da02::/59 
@@ -105,10 +102,10 @@ Expected output:
 
 ```output
 {
-  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/microsoft.managednetworkfabric/networkfabrics/NFName",
-  "name": "NFName",
+  "id": "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/microsoft.managednetworkfabric/networkfabrics/<NFName>",
+  "name": "<NFName>",
   "type": "microsoft.managednetworkfabric/networkfabrics",
-  "location": "eastus",
+  "location": "<Location>",
   "systemData": {
     "createdBy": "97fdd529-68de-4ba5-aa3c-adf86bd564bf",
     "createdByType": "Application",
@@ -119,8 +116,8 @@ Expected output:
   },
   "properties": {
     "fabricVersion": "1.0.0",
-    "networkFabricSku": "NFSKU",
-    "networkFabricControllerId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroup/providers/microsoft.managednetworkfabric/networkfabriccontrollers/NFCName",
+    "networkFabricSku": "<NFSKU>",
+    "networkFabricControllerId": "/subscriptions/<subscription_id>/resourceGroups/<NFCResourceGroup>/providers/microsoft.managednetworkfabric/networkfabriccontrollers/<NFCName>",
     "terminalServerConfiguration": {
       "username": "XXXX",
       "serialNumber": "TerminalServerSerialNumber",
@@ -180,10 +177,10 @@ Expected output:
 
 
 ```
-## show network fabric 
+## Show Network Fabric 
 
 ```azurecli
-az networkfarbic fabric show --resource-group "NFResourceGroupName" --resource-name "NFName"
+az networkfarbic fabric show --resource-group "<NFResourceGroup>" --resource-name "<NFName>"
 ```
 Expected output:
 
@@ -193,12 +190,12 @@ Expected output:
   "configurationState": "Provisioned",
   "fabricASN": 65048,
   "fabricVersion": "1.0.0",
-  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/microsoft.managednetworkfabric/networkfabrics/NFName",
+  "id": "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/microsoft.managednetworkfabric/networkfabrics/<NFName>",
   "ipv4Prefix": "10.2.0.0/19",
   "ipv6Prefix": "fda0:d59c:df02::/59",
   "l2IsolationDomains": [],
   "l3IsolationDomains": [],
-  "location": "eastus",
+  "location": "<Location>",
   "managementNetworkConfiguration": {
     "infrastructureVpnConfiguration": {
       "administrativeState": "Enabled",
@@ -241,19 +238,19 @@ Expected output:
       "peeringOption": "OptionB"
     }
   },
-  "name": "NFName",
-  "networkFabricControllerId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroupName/providers/microsoft.managednetworkfabric/networkfabriccontrollers/NFCName",
-  "networkFabricSku": "NFSKU",
+  "name": "<NFName>",
+  "networkFabricControllerId": "/subscriptions/<subscription_id>/resourceGroups/<NFCResourceGroup>/providers/microsoft.managednetworkfabric/networkfabriccontrollers/<NFCName>",
+  "networkFabricSku": "<NFSKU>",
   "provisioningState": "Succeeded",
   "rackCount": 4,
   "racks": [
-    "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourcegroups/NFResourceGroup/providers/microsoft.managednetworkfabric/networkracks/NFName-aggrack",
-    "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourcegroups/NFResourceGroup/providers/microsoft.managednetworkfabric/networkracks/NFName-comprack1",
-    "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourcegroups/NFResourceGroup/providers/microsoft.managednetworkfabric/networkracks/NFName-comprack2",
-    "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourcegroups/NFResourceGroup/providers/microsoft.managednetworkfabric/networkracks/NFName-comprack3",
-    "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourcegroups/NFResourceGroup/providers/microsoft.managednetworkfabric/networkracks/NFName-comprack4"
+    "/subscriptions/<subscription_id>/resourcegroups/<NFResourceGroup>/providers/microsoft.managednetworkfabric/networkracks/<NFName-aggrack>",
+    "/subscriptions/<subscription_id>/resourcegroups/<NFResourceGroup>/providers/microsoft.managednetworkfabric/networkracks/<NFName-comprack1>",
+    "/subscriptions/<subscription_id>/resourcegroups/<NFResourceGroup>/providers/microsoft.managednetworkfabric/networkracks/<NFName-comprack2>",
+    "/subscriptions/<subscription_id>/resourcegroups/<NFResourceGroup>/providers/microsoft.managednetworkfabric/networkracks/<NFName-comprack3>",
+    "/subscriptions/<subscription_id>/resourcegroups/<NFResourceGroup>/providers/microsoft.managednetworkfabric/networkracks/<NFName-comprack4>"
   ],
-  "resourceGroup": "NFResourceGroup",
+  "resourceGroup": "<NFResourceGroup>",
   "serverCountPerRack": 8,
   "systemData": {
     "createdAt": "2023-XX-XXT18:29:58.3785568Z",
@@ -273,10 +270,10 @@ Expected output:
 }
 ```
 
-## List all network fabrics in a resource group
+## List all Network Fabrics in a resource group
 
 ```azurecli
-az networkfabric fabric list --resource-group "NFResourceGroup"  
+az networkfabric fabric list --resource-group "<NFResourceGroup>"  
 ```
 
 Expected output:
@@ -286,12 +283,12 @@ Expected output:
   "configurationState": "Provisioned",
   "fabricASN": 65048,
   "fabricVersion": "1.0.0",
-  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/microsoft.managednetworkfabric/networkfabrics/NFName",
+  "id": "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/microsoft.managednetworkfabric/networkfabrics/<NFName>",
   "ipv4Prefix": "10.2.0.0/19",
   "ipv6Prefix": "fda0:d59c:df02::/59",
   "l2IsolationDomains": [],
   "l3IsolationDomains": [],
-  "location": "eastus",
+  "location": "<Location>",
   "managementNetworkConfiguration": {
     "infrastructureVpnConfiguration": {
       "administrativeState": "Enabled",
@@ -334,19 +331,19 @@ Expected output:
       "peeringOption": "OptionB"
     }
   },
-  "name": "NFName",
-  "networkFabricControllerId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroupName/providers/microsoft.managednetworkfabric/networkfabriccontrollers/NFCName",
-  "networkFabricSku": "NFSKU",
+  "name": "<NFName>",
+  "networkFabricControllerId": "/subscriptions/<subscription_id>/resourceGroups/<NFCResourceGroup>/providers/microsoft.managednetworkfabric/networkfabriccontrollers/<NFCName>",
+  "networkFabricSku": "<NFSKU>",
   "provisioningState": "Succeeded",
   "rackCount": 4,
   "racks": [
-    "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourcegroups/NFResourceGroup/providers/microsoft.managednetworkfabric/networkracks/NFName-aggrack",
-    "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourcegroups/NFResourceGroup/providers/microsoft.managednetworkfabric/networkracks/NFName-comprack1",
-    "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourcegroups/NFResourceGroup/providers/microsoft.managednetworkfabric/networkracks/NFName-comprack2",
-    "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourcegroups/NFResourceGroup/providers/microsoft.managednetworkfabric/networkracks/NFName-comprack3",
-    "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourcegroups/NFResourceGroup/providers/microsoft.managednetworkfabric/networkracks/NFName-comprack4"
+    "/subscriptions/<subscription_id>/resourcegroups/<NFResourceGroup>/providers/microsoft.managednetworkfabric/networkracks/<NFName-aggrack>",
+    "/subscriptions/<subscription_id>/resourcegroups/<NFResourceGroup>/providers/microsoft.managednetworkfabric/networkracks/<NFName-comprack1>",
+    "/subscriptions/<subscription_id>/resourcegroups/<NFResourceGroup>/providers/microsoft.managednetworkfabric/networkracks/<NFName-comprack2>",
+    "/subscriptions/<subscription_id>/resourcegroups/<NFResourceGroup>/providers/microsoft.managednetworkfabric/networkracks/<NFName-comprack3>",
+    "/subscriptions/<subscription_id>/resourcegroups/<NFResourceGroup>/providers/microsoft.managednetworkfabric/networkracks/<NFName-comprack4>"
   ],
-  "resourceGroup": "NFResourceGroup",
+  "resourceGroup": "<NFResourceGroup>",
   "serverCountPerRack": 8,
   "systemData": {
     "createdAt": "2023-XX-XXT18:29:58.3785568Z",
@@ -373,16 +370,12 @@ The following table specifies parameters used to create Network-to-Network Inter
 
 | Parameter | Description | Example | Required | Type|
 |-----------|-------------|---------|----------|-----------|
-|isMangementType| Configuration to make NNI to be used for management of Fabric. Default value is true. Possible values are True/False |True|True
+|isManagementType| Configuration to make NNI to be used for management of Fabric. Default value is true. Possible values are True/False |True|True
 |useOptionB| Configuration to enable optionB. Possible values are True/False |True|True
-||
 |*layer2Configuration*| Layer 2 configuration ||
-||
-|portCount| Number of ports that are part of the port-channel. Maximum value is based on Fabric SKU|3||
+|interfaces| Define multiple CE-PE interfaces. Maximum value is based on Fabric SKU|/subscriptions/subscription_id/resourceGroups/\<NFResourceGroup\>/providers/Microsoft.ManagedNetworkFabric/networkDevices/NFName-aggrack-CEXX/networkInterfaces/EthernetX-X"||
 |mtu| Maximum transmission unit between CE and PE. |1500||
-||
 |*layer3Configuration*| Layer 3 configuration between CEs and PEs||True
-||
 |primaryIpv4Prefix|IPv4 Prefix for connectivity between CE1 and PE1. CE1 port-channel interface is assigned the first usable IP from the prefix and the corresponding interface on PE1 should be assigned the second usable address|10.246.0.124/31, CE1 port-channel interface is assigned 10.246.0.125 and PE1 port-channel interface should be assigned 10.246.0.126||String|
 |secondaryIpv4Prefix|IPv4 Prefix for connectivity between CE2 and PE2. CE2 port-channel interface is assigned the first usable IP from the prefix and the corresponding interface on PE2 should be assigned the second usable address|10.246.0.128/31, CE2 port-channel interface should be assigned 10.246.0.129 and PE2 port-channel interface 10.246.0.130||String|
 |primaryIpv6Prefix|IPv6 Prefix for connectivity between CE1 and PE1. CE1 port-channel interface is assigned the first usable IP from the prefix and the corresponding interface on PE1 should be assigned the second usable address|3FFE:FFFF:0:CD30::a1 is assigned to CE1 and 3FFE:FFFF:0:CD30::a2 is assigned to PE1. Default value is 3FFE:FFFF:0:CD30::a0/127||String|
@@ -400,18 +393,28 @@ The following table specifies parameters used to create Network-to-Network Inter
 Resource group & Network Fabric must be created before Network to Network Interconnect creation. 
 
 Run the following command to create the Network to Network Interconnect (Default nni type is CE):
- 
 
 ```azurecli
 
 az networkfabric nni create \
---resource-group "NFResourceGroup" \
---location "eastus" \
---resource-name "NFNNIName" \
---fabric "NFFabric" \
+--resource-group "<NFResourceGroup>" \
+--location "<Location>" \
+--resource-name "<NFNNIName>" \
+--fabric "<NFFabric>" \
 --is-management-type "True" \
 --use-option-b "False" \
---layer2-configuration '{"portCount": 3, "mtu": 1500}' \
+--layer2-configuration '{"interfaces": ["/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE1>/networkInterfaces/Ethernet1-1",
+"/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE2>/networkInterfaces/Ethernet1-1",
+"/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE1>/networkInterfaces/Ethernet2-1",
+"/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE2>/networkInterfaces/Ethernet2-1",
+"/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE1>/networkInterfaces/Ethernet3-1",
+"/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE2>/networkInterfaces/Ethernet3-1",
+"/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE1>/networkInterfaces/Ethernet4-1",
+"/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE2>/networkInterfaces/Ethernet4-1",
+"/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE1>/networkInterfaces/Ethernet5-1",
+"/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE2>/networkInterfaces/Ethernet5-1",
+"/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE1>/networkInterfaces/Ethernet6-1",
+"/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE2>/networkInterfaces/Ethernet6-1"], "mtu": <mtu>}' \
 --layer3-configuration '{"peerASN": 65048, "vlanId": 501, "primaryIpv4Prefix": "10.2.0.124/30", "secondaryIpv4Prefix": "10.2.0.128/30", "primaryIpv6Prefix": "10:2:0:124::400/127", "secondaryIpv6Prefix": "10:2:0:124::402/127"}'
 
 ```
@@ -420,8 +423,8 @@ Expected output:
 
 ```output
 {
-  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/microsoft.managednetworkfabric/networkfabrics/NFName/networkToNetworkInterconnects/NFNNIName",
-  "name": "NFNNIName",
+  "id": "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/microsoft.managednetworkfabric/networkfabrics/<NFName>/networkToNetworkInterconnects/<<NFNNIName>>",
+  "name": "<NFNNIName>",
   "type": "microsoft.managednetworkfabric/networkfabrics/networktonetworkinterconnects",
   "systemData": {
     "createdBy": "97fdd529-68de-4ba5-aa3c-adf86bd564bf",
@@ -437,7 +440,21 @@ Expected output:
     "isManagementType": "True",
     "useOptionB": "False",
     "layer2Configuration": {
-      "mtu": 1500
+      "interfaces": [
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE1>/networkInterfaces/Ethernet1-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE2>/networkInterfaces/Ethernet1-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE1>/networkInterfaces/Ethernet2-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE2>/networkInterfaces/Ethernet2-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE1>/networkInterfaces/Ethernet3-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE2>/networkInterfaces/Ethernet3-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE1>/networkInterfaces/Ethernet4-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE2>/networkInterfaces/Ethernet4-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE1>/networkInterfaces/Ethernet5-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE2>/networkInterfaces/Ethernet5-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE1>/networkInterfaces/Ethernet6-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE2>/networkInterfaces/Ethernet6-1"
+      ],
+      "mtu": <mtu>
     },
     "optionBLayer3Configuration": {
       "peerASN": 65050,
@@ -458,7 +475,7 @@ Expected output:
 ## Show Network Fabric NNIs (Network to Network Interface)
 
 ```azurecli
-az networkfabric nni show -g "NFResourceGroup" --resource-name "NFNNIName" --fabric "NFFabric"
+az networkfabric nni show -g "<NFResourceGroup>" --resource-name "<NFNNIName>" --fabric "<NFFabric>"
 
 ```
 
@@ -468,10 +485,24 @@ Expected output:
 {
   "administrativeState": "Enabled",
   "configurationState": "Succeeded",
-  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/microsoft.managednetworkfabric/networkfabrics/NFName/networkToNetworkInterconnects/NFNNIName",
+  "id": "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/microsoft.managednetworkfabric/networkfabrics/NFName/networkToNetworkInterconnects/<NFNNIName>",
   "isManagementType": "True",
   "layer2Configuration": {
-    "mtu": 1500
+    "interfaces": [
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE1>/networkInterfaces/Ethernet1-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE2>/networkInterfaces/Ethernet1-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE1>/networkInterfaces/Ethernet2-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE2>/networkInterfaces/Ethernet2-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE1>/networkInterfaces/Ethernet3-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE2>/networkInterfaces/Ethernet3-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE1>/networkInterfaces/Ethernet4-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE2>/networkInterfaces/Ethernet4-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE1>/networkInterfaces/Ethernet5-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE2>/networkInterfaces/Ethernet5-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE1>/networkInterfaces/Ethernet6-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE2>/networkInterfaces/Ethernet6-1"
+      ],
+      "mtu": <mtu>
   },
   "name": "nffab2lab180723-nni",
   "nniType": "CE",
@@ -485,7 +516,7 @@ Expected output:
     "vlanId": 501
   },
   "provisioningState": "Succeeded",
-  "resourceGroup": "NFResourceGroupName",
+  "resourceGroup": "NFResourceGroup",
   "systemData": {
     "createdAt": "2023-XX-XXT18:30:14.613498Z",
     "createdBy": "97fdd529-68de-4ba5-aa3c-adf86bd564bf",
@@ -504,7 +535,7 @@ Expected output:
 ## List or Get Network Fabric NNI (Network to Network Interface)
 
 ```azurecli
-az networkfabric nni list -g NFResourceGroup --fabric NFFabric
+az networkfabric nni list -g <NFResourceGroup> --fabric <NFFabric>
 ```
 
 Expected output:
@@ -513,10 +544,24 @@ Expected output:
 {
   "administrativeState": "Enabled",
   "configurationState": "Succeeded",
-  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/microsoft.managednetworkfabric/networkfabrics/NFName/networkToNetworkInterconnects/NFNNIName",
+  "id": "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/microsoft.managednetworkfabric/networkfabrics/<NFName>/networkToNetworkInterconnects/<NFNNIName>",
   "isManagementType": "True",
   "layer2Configuration": {
-    "mtu": 1500
+      "interfaces": [
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE1>/networkInterfaces/Ethernet1-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE2>/networkInterfaces/Ethernet1-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE1>/networkInterfaces/Ethernet2-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE2>/networkInterfaces/Ethernet2-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE1>/networkInterfaces/Ethernet3-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE2>/networkInterfaces/Ethernet3-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE1>/networkInterfaces/Ethernet4-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE2>/networkInterfaces/Ethernet4-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE1>/networkInterfaces/Ethernet5-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE2>/networkInterfaces/Ethernet5-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE1>/networkInterfaces/Ethernet6-1",
+      "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NFName-aggrack-CE2>/networkInterfaces/Ethernet6-1"
+      ],
+      "mtu": <mtu>
   },
   "name": "nffab2lab180723-nni",
   "nniType": "CE",
@@ -530,7 +575,7 @@ Expected output:
     "vlanId": 501
   },
   "provisioningState": "Succeeded",
-  "resourceGroup": "NFResourceGroupName",
+  "resourceGroup": "<NFResourceGroup>",
   "systemData": {
     "createdAt": "2023-XX-XXT18:30:14.613498Z",
     "createdBy": "97fdd529-68de-4ba5-aa3c-adf86bd564bf",
@@ -561,10 +606,10 @@ Run the following command to update Network Fabric Devices:
 ```azurecli
 
 az networkfabric device update \
---resource-group "NFResourceGroup" \
---resource-name "Network-Device-Name" \
---location "eastus" \
---serial-number "xxxx"
+--resource-group "<NFResourceGroup>" \
+--resource-name "<Network-Device-Name>" \
+--host-name "<example-hostname>" \
+--serial-number "<xxxx>"
 
 ```
 
@@ -572,10 +617,10 @@ Expected output:
 
 ```output
 {
-  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
+  "id": "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
   "name": "Network-Device-Name",
   "type": "microsoft.managednetworkfabric/networkdevices",
-  "location": "eastus",
+  "location": "<Location>",
   "systemData": {
     "createdBy": "d1bd24c7-b27f-477e-86dd-939e107873d7",
     "createdByType": "Application",
@@ -585,7 +630,7 @@ Expected output:
     "lastModifiedAt": "2023-XX-XXT18:30:29.1296291Z"
   },
   "properties": {
-    "networkRackId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/Network-Device-Name",
+    "networkRackId": "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkRacks/Network-Device-Name",
     "networkDeviceSku": "DefaultSku",
     "networkDeviceRole": "XX",
     "hostName": "example-hostname",
@@ -609,10 +654,10 @@ For example, `AggrRack` consists of:
 
 ## List or Get Network Fabric Devices
 
-Run the following command to list network fabric devices in a resource group:
+Run the following command to list Network Fabric devices in a resource group:
 
 ```azurecli
-az networkfabric device list --resource-group "NFResourceGroup"
+az networkfabric device list --resource-group "<NFResourceGroup>"
 ```
 
 Expected output:
@@ -623,14 +668,14 @@ Expected output:
     "administrativeState": "Enabled",
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
-    "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "eastus",
+    "id": "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "CE",
     "networkDeviceSku": "DefaultSku",
-    "networkRackId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/Network-Device-Name-aggrack",
+    "networkRackId": "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkRacks/Network-Device-Name-aggrack",
     "provisioningState": "Succeeded",
-    "resourceGroup": "NFResourceGroup",
+    "resourceGroup": "<NFResourceGroup>",
     "serialNumber": "AXXXX;DCS-XXXXX-24;XX.XX;JXXXXXXX",
     "systemData": {
       "createdAt": "2023-XX-XXT18:30:00.5266816Z",
@@ -647,14 +692,14 @@ Expected output:
     "administrativeState": "Enabled",
     "configurationState": "Succeeded",
     "hostName": "AR-MGMT2",
-    "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "eastus",
+    "id": "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "TS",
     "networkDeviceSku": "DefaultSku",
-    "networkRackId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/Network-Device-Name-aggrack",
+    "networkRackId": "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkRacks/Network-Device-Name-aggrack",
     "provisioningState": "Succeeded",
-    "resourceGroup": "NFResourceGroup",
+    "resourceGroup": "<NFResourceGroup>",
     "serialNumber": "AXXXX;DCS-XXXXX-24;XX.XX;JXXXXXXX",
     "systemData": {
       "createdAt": "2023-XX-XXT18:30:00.727495Z",
@@ -671,14 +716,14 @@ Expected output:
     "administrativeState": "Enabled",
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
-    "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "eastus",
+    "id": "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "NPB",
     "networkDeviceSku": "DefaultSku",
-    "networkRackId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/Network-Device-Name-aggrack",
+    "networkRackId": "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkRacks/Network-Device-Name-aggrack",
     "provisioningState": "Succeeded",
-    "resourceGroup": "NFResourceGroup",
+    "resourceGroup": "<NFResourceGroup>",
     "serialNumber": "AXXXX;DCS-XXXXX-24;XX.XX;JXXXXXXX",
     "systemData": {
       "createdAt": "2023-XX-XXT18:30:00.7582997Z",
@@ -695,14 +740,14 @@ Expected output:
     "administrativeState": "Enabled",
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
-    "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "eastus",
+    "id": "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "CE",
     "networkDeviceSku": "DefaultSku",
-    "networkRackId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/Network-Device-Name-aggrack",
+    "networkRackId": "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkRacks/Network-Device-Name-aggrack",
     "provisioningState": "Succeeded",
-    "resourceGroup": "NFResourceGroup",
+    "resourceGroup": "<NFResourceGroup>",
     "serialNumber": "AXXXX;DCS-XXXXX-24;XX.XX;JXXXXXXX",
     "systemData": {
       "createdAt": "2023-XX-XXT18:30:00.7210136Z",
@@ -719,12 +764,12 @@ Expected output:
     "administrativeState": "Enabled",
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
-    "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "eastus",
+    "id": "/subscriptions/<subscription_id>/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "TS",
     "networkDeviceSku": "DefaultSku",
-    "networkRackId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/Network-Device-Name-aggrack",
+    "networkRackId": "/subscriptions/<subscription_id>/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/Network-Device-Name-aggrack",
     "provisioningState": "Succeeded",
     "resourceGroup": "NFResourceGroup",
     "serialNumber": "AXXXX;DCS-XXXXX-24;XX.XX;JXXXXXXX",
@@ -743,12 +788,12 @@ Expected output:
     "administrativeState": "Enabled",
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
-    "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "eastus",
+    "id": "/subscriptions/<subscription_id>/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "ToR",
     "networkDeviceSku": "DefaultSku",
-    "networkRackId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/nffab2lab180723-comprack1",
+    "networkRackId": "/subscriptions/<subscription_id>/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/nffab2lab180723-comprack1",
     "provisioningState": "Succeeded",
     "resourceGroup": "NFResourceGroup",
     "serialNumber": "AXXXX;DCS-XXXXX-24;XX.XX;JXXXXXXX",
@@ -767,12 +812,12 @@ Expected output:
     "administrativeState": "Enabled",
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
-    "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "eastus",
+    "id": "/subscriptions/<subscription_id>/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "TS",
     "networkDeviceSku": "DefaultSku",
-    "networkRackId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/nffab2lab180723-comprack1",
+    "networkRackId": "/subscriptions/<subscription_id>/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/nffab2lab180723-comprack1",
     "provisioningState": "Succeeded",
     "resourceGroup": "NFResourceGroup",
     "serialNumber": "AXXXX;DCS-XXXXX-24;XX.XX;JXXXXXXX",
@@ -791,12 +836,12 @@ Expected output:
     "administrativeState": "Enabled",
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
-    "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "eastus",
+    "id": "/subscriptions/<subscription_id>/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "ToR",
     "networkDeviceSku": "DefaultSku",
-    "networkRackId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/nffab2lab180723-comprack1",
+    "networkRackId": "/subscriptions/<subscription_id>/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/nffab2lab180723-comprack1",
     "provisioningState": "Succeeded",
     "resourceGroup": "NFResourceGroup",
     "serialNumber": "AXXXX;DCS-XXXXX-24;XX.XX;JXXXXXXX",
@@ -815,12 +860,12 @@ Expected output:
     "administrativeState": "Enabled",
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
-    "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "eastus",
+    "id": "/subscriptions/<subscription_id>/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "ToR",
     "networkDeviceSku": "DefaultSku",
-    "networkRackId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/nffab2lab180723-comprack2",
+    "networkRackId": "/subscriptions/<subscription_id>/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/nffab2lab180723-comprack2",
     "provisioningState": "Succeeded",
     "resourceGroup": "NFResourceGroup",
     "serialNumber": "AXXXX;DCS-XXXXX-24;XX.XX;JXXXXXXX",
@@ -839,12 +884,12 @@ Expected output:
     "administrativeState": "Enabled",
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
-    "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "eastus",
+    "id": "/subscriptions/<subscription_id>/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "TS",
     "networkDeviceSku": "DefaultSku",
-    "networkRackId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/nffab2lab180723-comprack2",
+    "networkRackId": "/subscriptions/<subscription_id>/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/nffab2lab180723-comprack2",
     "provisioningState": "Succeeded",
     "resourceGroup": "NFResourceGroup",
     "serialNumber": "AXXXX;DCS-XXXXX-24;XX.XX;JXXXXXXX",
@@ -863,14 +908,14 @@ Expected output:
     "administrativeState": "Enabled",
     "configurationState": "Succeeded",
     "hostName": "example-hostname",
-    "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-    "location": "eastus",
+    "id": "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
+    "location": "<Location>",
     "name": "Network-Device-Name",
     "networkDeviceRole": "ToR",
     "networkDeviceSku": "DefaultSku",
-    "networkRackId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/nffab2lab180723-comprack2",
+    "networkRackId": "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkRacks/nffab2lab180723-comprack2",
     "provisioningState": "Succeeded",
-    "resourceGroup": "NFResourceGroup",
+    "resourceGroup": "<NFResourceGroup>",
     "serialNumber": "AXXXX;DCS-XXXXX-24;XX.XX;JXXXXXXX",
     "systemData": {
       "createdAt": "2023-XX-XXT18:30:05.4906233Z",
@@ -888,7 +933,7 @@ Expected output:
 Run the following command to Get or Show details of a Network Fabric Device:
 
 ```azurecli
-az networkfabric device show --resource-group "NFResourceGroup" --resource-name "Network-Device-Name"
+az networkfabric device show --resource-group "<NFResourceGroup>" --resource-name "<Network-Device-Name>"
 ```
 
 Expected output:
@@ -898,14 +943,14 @@ Expected output:
   "administrativeState": "Enabled",
   "configurationState": "Succeeded",
   "hostName": "example-hostname",
-  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
-  "location": "eastus",
+  "id": "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/Network-Device-Name",
+  "location": "<Location>",
   "name": "Network-Device-Name",
   "networkDeviceRole": "ToR",
   "networkDeviceSku": "DefaultSku",
-  "networkRackId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/nffab2lab180723-comprack2",
+  "networkRackId": "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkRacks/nffab2lab180723-comprack2",
   "provisioningState": "Succeeded",
-  "resourceGroup": "NFResourceGroup",
+  "resourceGroup": "<NFResourceGroup>",
   "serialNumber": "AXXXX;DCS-XXXXX-24;XX.XX;JXXXXXXX",
   "systemData": {
     "createdAt": "2023-XX-XXT18:30:05.4906233Z",
@@ -921,16 +966,16 @@ Expected output:
 ```
 
 
-## Provision a network fabric
+## Provision a Network Fabric
 
 After you update the device serial number, provision and show the fabric by running the following commands:
 
 ```azurecli
-az networkfabric fabric provision --resource-group "NFResourceGroup"  --resource-name "NFName"
+az networkfabric fabric provision --resource-group "<NFResourceGroup>"  --resource-name "<NFName>"
 ```
 
 ```azurecli
-az networkfabric fabric show --resource-group "NFResourceGroup"  --resource-name "NFName"
+az networkfabric fabric show --resource-group "<NFResourceGroup>"  --resource-name "<NFName>"
 ```
 
 Expected output:
@@ -940,12 +985,12 @@ Expected output:
   "configurationState": "Provisioned",
   "fabricASN": 65048,
   "fabricVersion": "1.0.0",
-  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/microsoft.managednetworkfabric/networkfabrics/NFName",
+  "id": "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/microsoft.managednetworkfabric/networkfabrics/<NFName>",
   "ipv4Prefix": "10.2.0.0/19",
   "ipv6Prefix": "fda0:d59c:df02::/59",
   "l2IsolationDomains": [],
   "l3IsolationDomains": [],
-  "location": "eastus",
+  "location": "<Location>",
   "managementNetworkConfiguration": {
     "infrastructureVpnConfiguration": {
       "administrativeState": "Enabled",
@@ -988,18 +1033,18 @@ Expected output:
     }
   },
   "name": "NFName",
-  "networkFabricControllerId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroup/providers/microsoft.managednetworkfabric/networkfabriccontrollers/NFCName",
-  "networkFabricSku": "NFSKU",
+  "networkFabricControllerId": "/subscriptions/<subscription_id>/resourceGroups/<NFCResourceGroup>/providers/microsoft.managednetworkfabric/networkfabriccontrollers/<NFCName>",
+  "networkFabricSku": "<NFSKU>",
   "provisioningState": "Succeeded",
   "rackCount": 4,
   "racks": [
-    "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/NFName-aggrack",
-    "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/NFName-comprack1",
-    "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/NFName-comprack2",
-    "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/NFName-comprack3",
-    "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/NFName-comprack4"
+    "/subscriptions/<subscription_id>/resourceGroups/<NFCResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkRacks/<NFName-aggrack>",
+    "/subscriptions/<subscription_id>/resourceGroups/<NFCResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkRacks/<NFName-comprack1>",
+    "/subscriptions/<subscription_id>/resourceGroups/<NFCResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkRacks/<NFName-comprack2>",
+    "/subscriptions/<subscription_id>/resourceGroups/<NFCResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkRacks/<NFName-comprack3>",
+    "/subscriptions/<subscription_id>/resourceGroups/<NFCResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkRacks/<NFName-comprack4>"
   ],
-  "resourceGroup": "NFResourceGroup",
+  "resourceGroup": "<NFResourceGroup>",
   "serverCountPerRack": 8,
   "systemData": {
     "createdAt": "2023-XX-XXT18:29:58.3785568Z",
@@ -1020,10 +1065,10 @@ Expected output:
 ```
 
 ## Deprovision a Fabric 
-To deprovision a fabric, ensure that the fabric is in a provisioned operational state and then run this command:
+To deprovision a fabric, ensure that the fabric is in a provisioned operational state, stop the dhcp service on the terminal server, and then run this command:
 
 ```azurecli
-az networkfabric fabric deprovision --resource-group "NFResourceGroup" --resource-name "NFName"
+az networkfabric fabric deprovision --resource-group "<NFResourceGroup>" --resource-name "<NFName>"
 
 ```
 
@@ -1034,12 +1079,12 @@ Expected output:
   "configurationState": "Deprovisioned",
   "fabricASN": 65048,
   "fabricVersion": "1.0.0",
-  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/microsoft.managednetworkfabric/networkfabrics/NFName",
+  "id": "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/microsoft.managednetworkfabric/networkfabrics/<NFName>",
   "ipv4Prefix": "10.2.0.0/19",
   "ipv6Prefix": "fda0:d59c:df02::/59",
   "l2IsolationDomains": [],
   "l3IsolationDomains": [],
-  "location": "eastus",
+  "location": "<Location>",
   "managementNetworkConfiguration": {
     "infrastructureVpnConfiguration": {
       "administrativeState": "Enabled",
@@ -1083,18 +1128,18 @@ Expected output:
     }
   },
   "name": "NFName",
-  "networkFabricControllerId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroup/providers/microsoft.managednetworkfabric/networkfabriccontrollers/NFCName",
-  "networkFabricSku": "NFSKU",
+  "networkFabricControllerId": "/subscriptions/<subscription_id>/resourceGroups/<NFCResourceGroup>/providers/microsoft.managednetworkfabric/networkfabriccontrollers/<NFCName>",
+  "networkFabricSku": "<NFSKU>",
   "provisioningState": "Succeeded",
   "rackCount": 4,
   "racks": [
-    "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/NFName-aggrack",
-    "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/NFName-comprack1",
-    "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/NFName-comprack2",
-    "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/NFName-comprack3",
-    "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/NFName-comprack4"
+    "/subscriptions/<subscription_id>/resourceGroups/<NFCResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkRacks/<NFName-aggrack>",
+    "/subscriptions/<subscription_id>/resourceGroups/<NFCResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkRacks/<NFName-comprack1>",
+    "/subscriptions/<subscription_id>/resourceGroups/<NFCResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkRacks/<NFName-comprack2>",
+    "/subscriptions/<subscription_id>/resourceGroups/<NFCResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkRacks/<NFName-comprack3>",
+    "/subscriptions/<subscription_id>/resourceGroups/<NFCResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkRacks/<NFName-comprack4>"
   ],
-  "resourceGroup": "NFResourceGroup",
+  "resourceGroup": "<NFResourceGroup>",
   "serverCountPerRack": 8,
   "systemData": {
     "createdAt": "2023-XX-XXT18:29:58.3785568Z",
@@ -1124,7 +1169,7 @@ To delete a fabric, run the following command. Before you do, make sure that:
 
 
 ```azurecli
-az networkfabric fabric delete --resource-group "NFResourceGroup" --resource-name "NFName"
+az networkfabric fabric delete --resource-group "<NFResourceGroup>" --resource-name "<NFName>"
 
 ```
 
@@ -1135,12 +1180,12 @@ Sample output:
   "configurationState": "Deleting",
   "fabricASN": 65048,
   "fabricVersion": "1.0.0",
-  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/microsoft.managednetworkfabric/networkfabrics/NFName",
+  "id": "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/microsoft.managednetworkfabric/networkfabrics/<NFName>",
   "ipv4Prefix": "10.2.0.0/19",
   "ipv6Prefix": "fda0:d59c:df02::/59",
   "l2IsolationDomains": [],
   "l3IsolationDomains": [],
-  "location": "eastus",
+  "location": "<Location>",
   "managementNetworkConfiguration": {
     "infrastructureVpnConfiguration": {
       "administrativeState": "Enabled",
@@ -1183,19 +1228,19 @@ Sample output:
       "peeringOption": "OptionB"
     }
   },
-  "name": "NFName",
-  "networkFabricControllerId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroup/providers/microsoft.managednetworkfabric/networkfabriccontrollers/NFCName",
-  "networkFabricSku": "NFSKU",
+  "name": "<NFName>",
+  "networkFabricControllerId": "/subscriptions/<subscription_id>/resourceGroups/<NFCResourceGroup>/providers/microsoft.managednetworkfabric/networkfabriccontrollers/<NFCName>",
+  "networkFabricSku": "<NFSKU>",
   "provisioningState": "Deleting",
   "rackCount": 4,
   "racks": [
-    "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/NFName-aggrack",
-    "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/NFName-comprack1",
-    "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/NFName-comprack2",
-    "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/NFName-comprack3",
-    "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/NFName-comprack4"
+    "/subscriptions/<subscription_id>/resourceGroups/<NFCResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkRacks/<NFName-aggrack>",
+    "/subscriptions/<subscription_id>/resourceGroups/<NFCResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkRacks/<NFName-comprack1>",
+    "/subscriptions/<subscription_id>/resourceGroups/<NFCResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkRacks/<NFName-comprack2>",
+    "/subscriptions/<subscription_id>/resourceGroups/<NFCResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkRacks/<NFName-comprack3>",
+    "/subscriptions/<subscription_id>/resourceGroups/<NFCResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkRacks/<NFName-comprack4>"
   ],
-  "resourceGroup": "NFResourceGroup",
+  "resourceGroup": "<NFResourceGroup>",
   "serverCountPerRack": 7,
   "systemData": {
     "createdAt": "2023-XX-XXT18:29:58.3785568Z",
@@ -1217,11 +1262,15 @@ Sample output:
 After successfully deleting the Network Fabric, when you run a show of the same fabric, you won't find any resources available.
 
 ```azurecli
-az networkfabric fabric show --resource-group "NFResourceGroup" --resource-name "NFName"
+az networkfabric fabric show --resource-group "<NFResourceGroup>" --resource-name "<NFName>"
 ```
 
 Expected output:
 ```output
-(ResourceNotFound) The Resource 'Microsoft.ManagedNetworkFabric/NetworkFabrics/NFName' under resource group 'NFResourceGroup' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+(ResourceNotFound) The Resource 'Microsoft.ManagedNetworkFabric/NetworkFabrics/<NFName>' under resource group '<NFResourceGroup>' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
 Code: ResourceNotFound
 ```
+
+## Next steps
+
+After you successfully created a Network Fabric, the next step is to create a [cluster](./howto-configure-cluster.md).

@@ -3,16 +3,16 @@ title: 'Connect to a VM using Bastion - Linux native client'
 titleSuffix: Azure Bastion
 description: Learn how to connect to a VM from a Linux computer by using Bastion and a native client.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.custom: devx-track-azurecli, linux-related-content
 ms.topic: how-to
-ms.date: 08/08/2023
+ms.date: 04/05/2024
 ms.author: cherylmc
 ---
 
 # Connect to a VM using Bastion and a Linux native client
 
-This article helps you connect via Azure Bastion to a VM in VNet using the native client on your local Linux computer. The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Microsoft Entra ID. For more information and steps to configure Bastion for native client connections, see [Configure Bastion for native client connections](native-client.md). Connections via native client require the Bastion Standard SKU.
+This article helps you connect via Azure Bastion to a VM in VNet using the native client on your local Linux computer. The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Microsoft Entra ID. For more information and steps to configure Bastion for native client connections, see [Configure Bastion for native client connections](native-client.md). Connections via native client require the Bastion Standard SKU or higher.
 
 :::image type="content" source="./media/native-client/native-client-architecture.png" alt-text="Diagram shows a connection via native client." lightbox="./media/native-client/native-client-architecture.png":::
 
@@ -78,7 +78,7 @@ You can connect to a VM private IP address instead of the resource ID. Be aware 
 Using the `az network bastion` command, replace `--target-resource-id` with `--target-ip-address` and the specified IP address to connect to your VM. The following example uses --ssh-key for the authentication method.
 
 ```azurecli
-az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-ip-addres "<VMIPAddress>" --auth-type "ssh-key" --username "<Username>" --ssh-key "<Filepath>"
+az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-ip-address "<VMIPAddress>" --auth-type "ssh-key" --username "<Username>" --ssh-key "<Filepath>"
 ```
 
 ## <a name="tunnel"></a>Connect to a VM - tunnel command

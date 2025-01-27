@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 04/17/2024
+ms.date: 01/14/2025
 ms.author: phjensen
 ---
 
@@ -13,9 +13,46 @@ ms.author: phjensen
 
 This page lists major changes made to AzAcSnap to provide new functionality or resolve defects.
 
-Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer and review how to [get started](azacsnap-get-started.md).  
+Download the latest release of the binary for [Linux](https://aka.ms/azacsnap-linux) or [Windows](https://aka.ms/azacsnap-windows) and review how to [get started](azacsnap-get-started.md).  
 
 For specific information on Preview features, refer to the [AzAcSnap Preview](azacsnap-preview.md) page.
+
+## Oct-2024
+
+### AzAcSnap 10a (Build: 1B79BA*)
+
+AzAcSnap 10a is being released with the following fixes and improvements:
+
+- Fixes and Improvements:
+  - Allow configurable wait time-out for Microsoft SQL Server. This option helps you increase time-out for slow responding systems (default and minimum value is 30 seconds).
+    - Added a global override variable `MSSQL_CMD_TIMEOUT_SECS` to be used in either the `.azacsnaprc` file or as an environment variable set to the required wait time-out in seconds. For details on configuration refer to the [global override settings to control AzAcSnap behavior](azacsnap-tips.md#global-override-settings-to-control-azacsnap-behavior).
+
+Download the binary of [AzAcSnap 10a for Linux](https://aka.ms/azacsnap-10a-linux)([signature file](https://aka.ms/azacsnap-10a-linux-signature)) or [AzAcSnap 10a for Windows](https://aka.ms/azacsnap-10a-windows).
+
+## Jul-2024
+
+### AzAcSnap 10 (Build: 1B55F1*)
+
+AzAcSnap 10 is being released with the following fixes and improvements:
+
+- Features added to [Preview](azacsnap-preview.md):
+  - **Microsoft SQL Server** support adding options to configure, test, and snapshot backup Microsoft SQL Server in an application consistent manner.
+- Features moved to GA (generally available):
+  - **Windows** support with AzAcSnap now able to be run on supported Linux distributions and Windows.
+  - New configuration file layout.
+    - To upgrade pre-AzAcSnap 10 configurations use the `azacsnap -c configure --configuration new` command to create a new configuration file and use the values in your existing configuration file.
+  - Azure Large Instance storage management via REST API over HTTPS.
+    - This change to the REST API allows the use of Consistency Group snapshots on supported Azure Large Instance storage.
+- Fixes and Improvements:
+  - New `--flush` option which flushes in memory file buffers for local storage, useful for Azure Large Instance and Azure Managed Disk when connected as block storage.
+  - Logging improvements.
+- Features removed:
+  - AzAcSnap installer for Linux.
+    - AzAcSnap is now downloadable as a binary for supported versions of Linux and Windows to simplify access to the AzAcSnap program allowing you to get started quickly.
+  - Azure Large Instance storage management via CLI over SSH.
+    - CLI over SSH replaced with the REST API over HTTPS.
+
+Download the binary of [AzAcSnap 10 for Linux](https://aka.ms/azacsnap-10-linux) or [AzAcSnap 10 for Windows](https://aka.ms/azacsnap-10-windows).
 
 ## Apr-2024
 
@@ -37,7 +74,7 @@ AzAcSnap 9 is being released with the following fixes and improvements:
 
 - Features moved to GA (generally available):
   - IBM Db2 Database support.
-  - [System Managed Identity](azacsnap-installation.md#azure-system-managed-identity) support for easier setup while improving security posture.
+  - [System Managed Identity](azacsnap-configure-storage.md#azure-system-managed-identity) support for easier setup while improving security posture.
 - Fixes and Improvements:
   - Configure (`-c configure`) changes:
     - Allows for a blank value for `authFile` in the configuration file when using System Managed Identity.
@@ -86,15 +123,15 @@ AzAcSnap 8 is being released with the following fixes and improvements:
   - Restore (`-c restore`) changes:
     - New ability to use `-c restore` to `--restore revertvolume` for Azure NetApp Files.
   - Backup (`-c backup`) changes:
-    - Fix for incorrect error output when using `-c backup` and the database has ‘backint’ configured.
+    - Fix for incorrect error output when using `-c backup` and the database has "backint" configured.
     - Remove lower-case conversion for anfBackup rename-only option using `-c backup` so the snapshot name maintains case of Volume name.
     - Fix for when a snapshot is created even though SAP HANA wasn't put into backup-mode. Now if SAP HANA can't be put into backup-mode, AzAcSnap immediately exits with an error.
   - Details (`-c details`) changes:
     - Fix for listing snapshot details with `-c details` when using Azure Large Instance storage.
   - Logging enhancements:
     - Extra logging output to syslog (for example, `/var/log/messages`) on failure.
-    - New “mainlog” (`azacsnap.log`) to provide a more parse-able high-level log of commands run with success or failure result.
-  - New global settings file (`.azacsnaprc`) to control behavior of azacsnap, including location of “mainlog” file.
+    - New "mainlog" (`azacsnap.log`) to provide a more parse-able high-level log of commands run with success or failure result.
+  - New global settings file (`.azacsnaprc`) to control behavior of azacsnap, including location of "mainlog" file.
 
 Download the [AzAcSnap 8](https://aka.ms/azacsnap-8) installer.
 
@@ -120,7 +157,7 @@ AzAcSnap 7 is being released with the following fixes and improvements:
   - Backup (`-c backup`) changes:
     - Shorten suffix added to the snapshot name. The previous 26 character suffix of "YYYY-MM-DDThhhhss-nnnnnnnZ" was too long. The suffix is now an 11 character hex-decimal based on the ten-thousandths of a second since the Unix epoch to avoid naming collisions, for example, F2D212540D5.
     - Increased validation when creating snapshots to avoid failures on snapshot creation retry.
-    - Time out when executing AzAcSnap mechanism to disable/enable backint (`autoDisableEnableBackint=true`) now aligns with other SAP HANA related operation timeout values.
+    - Time out when executing AzAcSnap mechanism to disable/enable backint (`autoDisableEnableBackint=true`) now aligns with other SAP HANA related operation time-out values.
     - Azure Backup now allows third party snapshot-based backups without impact to streaming backups (also known as "backint"). Therefore, AzAcSnap "backint" detection logic is reordered to allow for future deprecation of this feature. By default this setting is disabled (`autoDisableEnableBackint=false`). For customers who relied on this feature to take snapshots with AzAcSnap and use Azure Backup, keeping this value as true means AzAcSnap 7 continues to disable/enable backint. As this setting is no longer necessary for Azure Backup, we recommend testing AzAcSnap backups with the value of `autoDisableEnableBackint=false`, and then if successful make the same change in your production deployment.
   - Restore (`-c restore`) changes:
     - Ability to create a custom suffix for Volume clones created when using `-c restore --restore snaptovol` either:
@@ -169,6 +206,8 @@ Download the [AzAcSnap 6](https://aka.ms/azacsnap-6) installer.
 AzAcSnap v5.0.3 (Build: 20220524.14204) is provided as a patch update to the v5.0 branch with the following fix:
 
 - Fix for handling delimited identifiers when querying SAP HANA. This issue only impacted SAP HANA in HSR-HA node when there's a Secondary node configured with "logreplay_readaccss" and is resolved.
+
+Download the [AzAcSnap 5.0.3](https://aka.ms/azacsnap-5) installer.
 
 ### AzAcSnap v5.1 Preview (Build: 20220524.15550)
 
@@ -233,7 +272,7 @@ AzAcSnap v5.0.1 (Build: 20210524.14837) is provided as a patch update to the v5.
 
 AzAcSnap v5.0 (Build: 20210421.6349) is now Generally Available and for this build had the following fixes and improvements:
 
-- The hdbsql retry timeout (to wait for a response from SAP HANA) is automatically set to half of the "savePointAbortWaitSeconds" to avoid race conditions. The setting for "savePointAbortWaitSeconds" can be modified directly in the JSON configuration file and must be a minimum of 600 seconds.
+- The hdbsql retry time-out (to wait for a response from SAP HANA) is automatically set to half of the "savePointAbortWaitSeconds" to avoid race conditions. The setting for "savePointAbortWaitSeconds" can be modified directly in the JSON configuration file and must be a minimum of 600 seconds.
 
 ## March-2021
 
@@ -241,7 +280,7 @@ AzAcSnap v5.0 (Build: 20210421.6349) is now Generally Available and for this bui
 
 AzAcSnap v5.0 Preview (Build: 20210318.30771) is released with the following fixes and improvements:
 
-- Removed the need to add the AZACSNAP user into the SAP HANA Tenant DBs, see the [Enable communication with database](azacsnap-installation.md#enable-communication-with-the-database) section.
+- Removed the need to add the AZACSNAP user into the SAP HANA Tenant DBs, see the [Enable communication with database](azacsnap-configure-database.md#enable-communication-with-the-database) section.
 - Fix to allow a [restore](azacsnap-cmd-ref-restore.md) with volumes configured with Manual QOS.
 - Added mutex control to throttle SSH connections for Azure Large Instance.
 - Fix installer for handling path names with spaces and other related issues.

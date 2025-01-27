@@ -1,7 +1,7 @@
 ---
 title: Monitor OT networks with Zero Trust principles - Microsoft Defender for IoT
 description: Learn how to use Microsoft Defender for IoT to monitor your operational technology (OT) networks with Zero Trust principles.
-ms.date: 12/14/2023
+ms.date: 5/21/2024
 ms.topic: tutorial
 ms.collection:
   -       zerotrust-services
@@ -9,7 +9,7 @@ ms.collection:
 
 # Tutorial: Monitor your OT networks with Zero Trust principles
 
-[!INCLUDE [zero-trust-principles](../../../includes/security/zero-trust-principles.md)]
+[!INCLUDE [zero-trust-principles](~/reusable-content/ce-skilling/azure/includes/security/zero-trust-principles.md)]
 
 Defender for IoT uses site and zone definitions across your OT network to ensure that you're maintaining network hygiene and keeping each subsystem separate and secure.
 

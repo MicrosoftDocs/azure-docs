@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+[!INCLUDE [az-powershell-update](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 
@@ -211,7 +211,7 @@ To update the custom role, you can update the JSON file or use the `PSRoleDefini
     AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000}
     ```
 
-1. To use the `PSRoleDefintion` object to update your custom role, first use the [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) command to get the role.
+1. To use the `PSRoleDefinition` object to update your custom role, first use the [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) command to get the role.
 
     ```azurepowershell
     $role = Get-AzRoleDefinition "Reader Support Tickets"

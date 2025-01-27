@@ -4,11 +4,10 @@ description: Use a data factory to copy data from one location in Azure Blob sto
 author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
-ms.service: data-factory
-ms.subservice: tutorials
+ms.subservice: data-movement
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 07/20/2023
+ms.date: 05/15/2024
 ms.custom: devx-track-python, mode-api
 ---
 
@@ -134,7 +133,7 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
         # Specify your Active Directory client ID, client secret, and tenant ID
         credentials = ClientSecretCredential(client_id='<Application (client) ID>', client_secret='<client secret value>', tenant_id='<tenant ID>') 
         
-        # Specify following for Soverign Clouds, import right cloud constant and then use it to connect.
+        # Specify following for Sovereign Clouds, import right cloud constant and then use it to connect.
         # from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD as CLOUD
         # credentials = DefaultAzureCredential(authority=CLOUD.endpoints.active_directory, tenant_id=tenant_id)
         

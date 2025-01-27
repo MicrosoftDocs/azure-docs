@@ -5,7 +5,7 @@ author: XiaoyuMSFT
 ms.author: xiaoyul
 ms.reviewer: wiassaf
 ms.date: 08/29/2018
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ---

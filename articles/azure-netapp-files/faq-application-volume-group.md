@@ -1,15 +1,15 @@
 ---
 title: FAQs About Azure NetApp Files application volume groups | Microsoft Docs
-description: answers frequently asked questions (FAQs) about Azure NetApp Files application volume groups.
+description: Learn answers to frequently asked questions (FAQs) about Azure NetApp Files application volume groups.
 ms.service: azure-netapp-files
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 05/19/2022
+ms.date: 09/11/2024
 ---
 # Azure NetApp Files application volume group FAQs
 
-This article answers frequently asked questions (FAQs) about Azure NetApp Files application volume group. 
+Find answers to frequently asked questions (FAQs) about Azure NetApp Files application volume group. 
 
 ## Generic FAQs
 
@@ -81,7 +81,7 @@ NFSv4.1 is the supported protocol for SAP HANA and Oracle. As such, one TCP/IP s
 
 ### How do I size Azure NetApp Files volumes for use with SAP HANA for optimal performance and cost-effectiveness? 
 
-For optimal sizing, it's important to size for the complete landscape including snapshots and backup. Decide your volume layout for production, HA, and data protection, and perform your sizing using the [Azure NetApp Files sizing calculator for SAP HANA deployments](https://aka.ms/anfsapcalc).
+For optimal sizing, it's important to size for the complete landscape including snapshots and backups. Decide your volume layout for production, HA, and data protection, and perform your sizing using the [Azure NetApp Files sizing calculator for SAP HANA deployments](https://aka.ms/anfsapcalc).
 
 ### I received a warning message `"Not enough pool capacity"`. What can I do? 
 
@@ -131,15 +131,19 @@ Database volume throughput mostly affects the time it takes to read data into me
 
 Azure NetApp Files performance of each volume can be adjusted at runtime.  As such, at any time, you can adjust the performance of your database by adjusting the data and log volume throughput to your specific requirements. For instance, you can fine-tune performance and reduce costs by allowing higher throughput at startup while reducing to KPIs during normal operation.  
 
-### Will all the volumes be provisioned in close proximity to my SAP HANA servers?
+### Are all the volumes provisioned in close proximity to my SAP HANA servers?
 
-Using the proximity placement group (PPG) that you created for your SAP HANA servers ensures that the data, log, and shared volumes are created close to the SAP HANA servers to achieve the best latency and throughput. However, log-backup and data-backup volumes don’t require low latency. From a protection perspective, it makes sense to store these backup volumes in a different location from the data, log, and shared volumes. Therefore, application volume group places the backup volumes on a different storage location inside the region that has sufficient capacity and throughput available.
+With an application volume group, you have the option to deploy volumes with an availability zone or proximity placement group volume placement. Both methods ensure that the data volumes are placed in close proximity to the HANA VMs, but using different principles.
+
+Using availability zone volume placement (available with extension 1) places the volumes in the same availability zone as the application VMs. Using availability zones also supports Standard network features, which support enhanced security via network security group support. This method doesn't require manual pinning. It'ss therefore easier and faster to use.
+
+Using proximity placement group requires the creation of a proximity placement group (PPG) for your SAP HANA servers. This placement ensures the data, log, and shared volumes are created close to the SAP HANA servers to achieve the best latency and throughput. This method requires manual pinning of the proximity placement group, which application volume group uses to find the optimal location for deploying the volumes. This method only supports Basic network features. Note that log-backup and data-backup volumes don’t require low latency. From a protection perspective, it makes sense to store these backup volumes in a different location from the data, log, and shared volumes. Therefore, the application volume group places the backup volumes on a different storage location inside the region that has sufficient capacity and throughput availability.
 
 ### What is the relationship between AVset, VM, PPG, and Azure NetApp Files volumes? 
 
 A proximity placement group (PPG) needs to have at least one VM assigned to it, either directly or via an AVset. The purpose of the PPG is to extract the exact location of a VM and pass this information to application volume group to search for Azure NetApp Files resources in the very same data center. This setting only works when at least ONE VM in the PPG is started. Typically, you can add your database servers to the PPG.
 
-PPGs have the side effect that if all VMs are shut down, a following restart of VMs DOES NOT guarantee that they will start in the same data center as before. To prevent this situation from happening, it's strongly recommended to use an AVset where all VMs and the PPG are associated to and use the [HANA pinning workflow](https://aka.ms/HANAPINNING). The workflow not only ensures that the VMs aren't moving when restarted, it also ensures that locations are selected where enough compute and Azure NetApp Files resources are available. 
+PPGs have the side effect that if all VMs are shut down, a following restart of VMs DOES NOT guarantee that they'll start in the same data center as before. To prevent this situation from happening, it's strongly recommended to use an AVset where all VMs and the PPG are associated to and use the [HANA pinning workflow](https://aka.ms/HANAPINNING). The workflow not only ensures that the VMs aren't moving when restarted, it also ensures that locations are selected where enough compute and Azure NetApp Files resources are available. 
 
 ### For a multi-host SAP HANA system, will the shared volume be resized when I add additional HANA hosts?
 
@@ -152,7 +156,6 @@ No. This scenario is currently one of the very few cases where you need to manua
 
 Log-back and data-backup volumes are optional, and they don't require close proximity. The best way to achieve the intended outcome is to remove the data-backup or log-backup volume when you create the first volume from the application volume group for SAP HANA. You can then create your own volume as a single, independent volume using standard volume provisioning and selecting the proper capacity and throughput to meet your needs. You should use a naming convention that indicates a data-backup volume and that it's used for multiple SIDs.
 
-
 ## FAQs about application volume group for Oracle
 
 This section answers questions about Azure NetApp Files application volume group for Oracle.
@@ -163,7 +166,7 @@ The deployment workflow ensures that all volumes are placed in the availability 
 
 ### How do I size Azure NetApp Files volumes for use with Oracle for optimal performance and cost-effectiveness?
 
-For optimal sizing, it's important to size for the complete database landscape including HA, snapshots, and backup. Decide your volume layout for production, HA and data protection, and perform your sizing according to [Run Your Most Demanding Oracle Workloads in Azure without Sacrificing Performance or Scalability](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545) and [Estimate Tool for Sizing Oracle Workloads to Azure IaaS VMs](https://techcommunity.microsoft.com/t5/data-architecture-blog/estimate-tool-for-sizing-oracle-workloads-to-azure-iaas-vms/ba-p/1427183). You can also use the [SAP on Azure NetApp Files Sizing Estimator](https://aka.ms/anfsapcalc) by using the **Add Single Volume** input option.
+For optimal sizing, it's important to size for the complete database landscape including HA, snapshots, and backups. Decide your volume layout for production, HA and data protection, and perform your sizing according to [Run Your Most Demanding Oracle Workloads in Azure without Sacrificing Performance or Scalability](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545) and [Estimate Tool for Sizing Oracle Workloads to Azure IaaS VMs](https://techcommunity.microsoft.com/t5/data-architecture-blog/estimate-tool-for-sizing-oracle-workloads-to-azure-iaas-vms/ba-p/1427183). You can also use the [SAP on Azure NetApp Files Sizing Estimator](https://aka.ms/anfsapcalc) by using the **Add Single Volume** input option.
 
 Important information you need to provide for sizing each of the volumes includes: SID, role (production, Dev, pre-prod/QA), snapshot reserve in percentage, number of days for local snapshot retention, number of file-based backups, single-host/multiple-host with the number of hosts, and Data Guard requirements (primary, secondary). Contact an Oracle on Azure NetApp Files sizing expert to help you plan the overall Oracle system sizing. 
 

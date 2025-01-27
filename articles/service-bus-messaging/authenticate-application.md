@@ -15,7 +15,7 @@ Azure Service Bus supports using Microsoft Entra ID to authorize requests to Ser
 ## Overview
 When a security principal (a user, group, or application) attempts to access a Service Bus entity, the request must be authorized. With Microsoft Entra ID, access to a resource is a two-step process. 
 
- 1. First, the security principal’s identity is authenticated, and an OAuth 2.0 token is returned. The resource name to request a token is `https://servicebus.azure.net`.
+1. First, the security principal’s identity is authenticated, and an OAuth 2.0 token is returned. The resource name to request a token is `https://servicebus.azure.net`.
  1. Next, the token is passed as part of a request to the Service Bus service to authorize access to the specified resource.
 
 The authentication step requires that an application request contains an OAuth 2.0 access token at runtime. If an application is running within an Azure entity such as an Azure VM,  a Virtual Machine Scale Set, or an Azure Function app, it can use a managed identity to access the resources. To learn how to authenticate requests made by a managed identity to the Service Bus service, see [Authenticate access to Azure Service Bus resources with Microsoft Entra ID and managed identities for Azure Resources](service-bus-managed-service-identity.md). 
@@ -29,7 +29,7 @@ Native applications and web applications that make requests to Service Bus can a
 
 Microsoft Entra authorizes access rights to secured resources through [Azure RBAC](../role-based-access-control/overview.md). Azure Service Bus defines a set of Azure built-in roles that encompass common sets of permissions used to access Service Bus entities and you can also define custom roles for accessing the data.
 
-When an Azure role is assigned to a Microsoft Entra security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of subscription, the resource group, or the Service Bus namespace. A Microsoft Entra security principal can be a user, a group, an application service principal, or a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+When an Azure role is assigned to a Microsoft Entra security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of subscription, the resource group, the Service Bus namespace or entity (queue, topic or subscription). A Microsoft Entra security principal can be a user, a group, an application service principal, or a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 For Azure Service Bus, the management of namespaces and all related resources through the Azure portal and the Azure resource management API is already protected using the Azure RBAC model. Azure provides the following built-in roles for authorizing access to a Service Bus namespace:
 
@@ -42,10 +42,12 @@ Before you assign an Azure role to a security principal, determine the scope of 
 
 The following list describes the levels at which you can scope access to Service Bus resources, starting with the narrowest scope:
 
-- **Queue**, **topic**, or **subscription**: Role assignment applies to the specific Service Bus entity. Currently, the Azure portal doesn't support assigning users/groups/managed identities to Service Bus Azure roles at the subscription level. 
-- **Service Bus namespace**: Role assignment spans the entire topology of Service Bus under the namespace and to the consumer group associated with it.
+- **Queue**, **topic**, or **subscription**: Role assignment applies to the specific Service Bus entity. Currently, the Azure portal doesn't support assigning users/groups/managed identities to Service Bus Azure roles at the topic subscription level. 
+
+- **Service Bus namespace**: Role assignment spans the entire topology of Service Bus under the namespace and to the queue or topic subscription associated with it.
+
 - **Resource group**: Role assignment applies to all the Service Bus resources under the resource group.
-- **Subscription**: Role assignment applies to all the Service Bus resources in all of the resource groups in the subscription.
+- **Azure Subscription**: Role assignment applies to all the Service Bus resources in all of the resource groups in the subscription.
 
 > [!NOTE]
 > Keep in mind that Azure role assignments may take up to five minutes to propagate. 
@@ -97,7 +99,7 @@ The application needs a client secret to prove its identity when requesting a to
 If your application is a console application, you must register a native application and add API permissions for **Microsoft.ServiceBus** to the **required permissions** set. Native applications also need a **redirect-uri** in Microsoft Entra ID, which serves as an identifier; the URI doesn't need to be a network destination. Use `https://servicebus.microsoft.com` for this example, because the sample code already uses that URI.
 
 ## Assign Azure roles using the Azure portal  
-Assign one of the [Service Bus roles](#azure-built-in-roles-for-azure-service-bus) to the application's service principal at the desired scope (Service Bus namespace, resource group, subscription). For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+Assign one of the [Service Bus roles](#azure-built-in-roles-for-azure-service-bus) to the application's service principal at the desired scope (entity, Service Bus namespace, resource group, Azure subscription). For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 Once you define the role and its scope, you can test this behavior with the [sample on GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample00_AuthenticateClient.md#authenticate-with-azureidentity).
 

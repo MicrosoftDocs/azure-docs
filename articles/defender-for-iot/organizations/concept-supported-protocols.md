@@ -21,9 +21,11 @@ OT network sensors can detect the following protocols when identifying assets an
 |**Beckhoff**     |   AMS (ADS)<br> Twincat       |
 |**Cisco**     |   CAPWAP Control<br> CAPWAP Data<br> CDP<br>  LWAPP      |
 |**DICOM** |  Dicom    |
+|**Desoutter Protocol** | Open |
 |**DNP. org**     |   DNP3      |
 |**Emerson**     |   DeltaV<br> DeltaV - Discovery<br> Emerson OpenBSI/BSAP<br> Ovation DCS ADMD<br>Ovation DCS DPUSTAT<br> Ovation DCS SSRPC      |
 |**Emerson Fischer**     |  ROC       |
+|**EVRoaming Foundation** | OCPI |
 |**FANUC**     |  FANUC FOCUS    |
 |**FieldComm Group**| HART-IP  |
 |**GE**     | ADL (MarkVIe) <br>Bentley Nevada (System 1 / BN3500)<br>ClassicSDI (MarkVle) <br>  EGD<br>  GSM (GE MarkVI and MarkVIe)<br> InterSite<br> SDI (MarkVle) <br>  SRTP (GE)<br> GE_CMP        |

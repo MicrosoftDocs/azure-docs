@@ -5,11 +5,10 @@ description: Learn about change data capture in Azure Data Factory and Azure Syn
 author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/08/2023
+ms.date: 05/15/2024
 ---
 
 # Change data capture in Azure Data Factory and Azure Synapse Analytics
@@ -32,7 +31,7 @@ The easiest and quickest way to get started in data factory with CDC is through 
 
 The changed data including inserted, updated and deleted rows can be automatically detected and extracted by ADF mapping data flow from the source databases.  No timestamp or ID columns are required to identify the changes since it uses the native change data capture technology in the databases.  By simply chaining a source transform and a sink transform reference to a database dataset in a mapping data flow, you can see the changes happened on the source database to be automatically applied to the target database, so that you can easily synchronize data between two tables.  You can also add any transformations in between for any business logic to process the delta data. When defining your sink data destination, you can set insert, update, upsert, and delete operations in your sink without the need of an Alter Row transformation because ADF is able to automatically detect the row makers.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5bkg2]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=ba3e201c-c9d0-4c1d-806c-b3c8ca601de2]
 
 **Supported connectors**
 -   [SAP CDC](connector-sap-change-data-capture.md)
@@ -40,7 +39,7 @@ The changed data including inserted, updated and deleted rows can be automatical
 -   [SQL Server](connector-sql-server.md)
 -   [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md)
 -   [Azure Cosmos DB (SQL API)](connector-azure-cosmos-db.md)
--   [Azure Cosmos DB analytical store](../cosmos-db/analytical-store-introduction.md)
+-   [Azure Cosmos DB analytical store](/azure/cosmos-db/analytical-store-introduction)
 -   [Snowflake](connector-snowflake.md)
 
 ### Auto incremental extraction in mapping data flow

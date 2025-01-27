@@ -2,7 +2,7 @@
 title: Enable FIPS on an Azure Red Hat OpenShift cluster
 description: Learn how to enable FIPS on an Azure Red Hat OpenShift cluster.
 ms.service: azure-redhat-openshift
-ms.topic: article
+ms.topic: how-to
 ms.date: 5/5/2022
 author: johnmarco
 ms.author: johnmarc

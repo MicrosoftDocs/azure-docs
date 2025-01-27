@@ -2,7 +2,7 @@
 title: Configure API for server-sent events in Azure API Management 
 description: How to configure an API for server-sent events (SSE) in Azure API Management
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.author: danlep
 ms.date: 02/24/2022
@@ -10,7 +10,7 @@ ms.date: 02/24/2022
 
 # Configure API for server-sent events
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 This article provides guidelines for configuring an API in API Management that implements server-sent events (SSE). SSE is based on the HTML5 `EventSource` standard for streaming (pushing) data automatically to a client over HTTP after a client has established a connection.
 

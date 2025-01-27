@@ -39,7 +39,7 @@ param dnsServiceIp string = '10.96.0.10'
 param agentPoolL2Networks array = []
 // {
 //   networkId: 'string'
-//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN'
+//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN'
 // }
 
 @description('The Layer 3 networks associated with the initial agent pool')
@@ -54,14 +54,14 @@ param agentPoolL3Networks array = []
 param agentPoolTrunkedNetworks array = []
 // {
 //   networkId: 'string'
-//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN'
+//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN'
 // }
 
 @description('The Layer 2 networks associated with the cluster')
 param l2Networks array = []
 // {
 //   networkId: 'string'
-//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN'
+//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN'
 // }
 
 @description('The Layer 3 networks associated with the cluster')
@@ -76,7 +76,7 @@ param l3Networks array = []
 param trunkedNetworks array = []
 // {
 //   networkId: 'string'
-//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN'
+//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN'
 // }
 
 @description('The LoadBalancer IP address pools associated with the cluster')
@@ -93,7 +93,7 @@ param ipAddressPools array = []
 // Cluster Configuration Parameters
 
 @description('The version of Kubernetes to be used in the Nexus Kubernetes cluster')
-param kubernetesVersion string = 'v1.24.9'
+param kubernetesVersion string = 'v1.27.1'
 
 @description('The number of control plane nodes to be deployed in the cluster')
 param controlPlaneCount int = 1
@@ -122,8 +122,32 @@ param initialPoolAgentOptions object = {}
 //   "hugepagesSize": "2M/1G"
 // }
 
-@description('The SSH public key that will be associated with the "azureuser" user for secure remote login')
-param sshPublicKey string = ''
+@description('The cluster wide SSH public key that will be associated with the given user for secure remote login')
+param sshPublicKeys array = []
+// {
+//   keyData: "ssh-rsa AAAAA...."
+// },
+// {
+//   keyData: "ssh-rsa AAAAA...."
+// }
+
+@description('The control plane SSH public key that will be associated with the given user for secure remote login')
+param controlPlaneSshKeys array = []
+// {
+//   keyData: "ssh-rsa AAAAA...."
+// },
+// {
+//   keyData: "ssh-rsa AAAAA...."
+// }
+
+@description('The agent pool SSH public key that will be associated with the given user for secure remote login')
+param agentPoolSshKeys array = []
+// {
+//   keyData: "ssh-rsa AAAAA...."
+// },
+// {
+//   keyData: "ssh-rsa AAAAA...."
+// }
 
 @description('The labels to assign to the nodes in the cluster for identification and organization')
 param labels array = []
@@ -137,8 +161,17 @@ param taints array = []
 //   key: 'string'
 //   value: 'string:NoSchedule|PreferNoSchedule|NoExecute'
 // }
+@description('The association of IP address pools to the communities and peers, allowing for announcement of IPs.')
+param bgpAdvertisements array = []
 
-resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2023-07-01' = {
+@description('"The list of additional BgpPeer entities that the Kubernetes cluster will peer with. All peering must be explicitly defined.')
+param bgpPeers array = []
+
+@description('The indicator to specify if the load balancer peers with the network fabric.')
+param fabricPeeringEnabled string = 'False'
+
+
+resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2024-07-01' = {
   name: kubernetesClusterName
   location: location
   tags: tags
@@ -157,16 +190,15 @@ resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2023-07-01
     }
     administratorConfiguration: {
       adminUsername: adminUsername
-      sshPublicKeys: [
-        {
-          keyData: sshPublicKey
-        }
-      ]
+      sshPublicKeys: empty(sshPublicKeys) ? [] : sshPublicKeys
     }
     initialAgentPoolConfigurations: [
       {
         name: '${kubernetesClusterName}-nodepool-1'
-        administratorConfiguration: {}
+        administratorConfiguration: {
+          adminUsername: adminUsername
+          sshPublicKeys: empty(agentPoolSshKeys) ? [] : agentPoolSshKeys
+        }
         count: systemPoolNodeCount
         vmSkuName: workerVmSkuName
         mode: 'System'
@@ -185,7 +217,10 @@ resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2023-07-01
       }
     ]
     controlPlaneNodeConfiguration: {
-      administratorConfiguration: {}
+      administratorConfiguration: {
+        adminUsername: adminUsername
+        sshPublicKeys: empty(controlPlaneSshKeys) ? [] : controlPlaneSshKeys
+      }
       count: controlPlaneCount
       vmSkuName: controlPlaneVmSkuName
       availabilityZones: empty(controlPlaneZones) ? null : controlPlaneZones
@@ -202,6 +237,9 @@ resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2023-07-01
         trunkedNetworks: empty(trunkedNetworks) ? null : trunkedNetworks
       }
       bgpServiceLoadBalancerConfiguration: {
+        bgpAdvertisements: empty(bgpAdvertisements) ? null : bgpAdvertisements
+        bgpPeers: empty(bgpPeers) ? null : bgpPeers
+        fabricPeeringEnabled: fabricPeeringEnabled
         ipAddressPools: empty(ipAddressPools) ? null : ipAddressPools
       }
     }

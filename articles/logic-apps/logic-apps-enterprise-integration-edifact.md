@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/10/2024
+ms.date: 10/14/2024
 ---
 
 # Exchange EDIFACT messages using workflows in Azure Logic Apps
@@ -22,15 +22,14 @@ The **EDIFACT** connector has different versions, based on [logic app type and h
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | multitenant Azure Logic Apps | **EDIFACT** managed connector (Standard class). The **EDIFACT** connector provides only actions, but you can use any trigger that works for your scenario. For more information, see the following documentation: <br><br>- [EDIFACT managed connector reference](/connectors/edifact/) <br>- [EDIFACT message limits](logic-apps-limits-and-config.md#b2b-protocol-limits) |
-| **Consumption** | Integration service environment (ISE) | **EDIFACT** managed connector (Standard class) and **EDIFACT** ISE version, which has different message limits than the Standard class. The **EDIFACT** connector provides only actions, but you can use any trigger that works for your scenario. For more information, see the following documentation: <br><br>- [EDIFACT managed connector reference](/connectors/edifact/) <br>- [EDIFACT message limits](logic-apps-limits-and-config.md#b2b-protocol-limits) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | **EDIFACT** built-in connector (preview) and **EDIFACT** managed connector. The built-in version differs in the following ways: <br><br>- The built-in version provides only actions, but you can use any trigger that works for your scenario. <br><br>- The built-in version can directly access Azure virtual networks. You don't need an on-premises data gateway.<br><br>For more information, see the following documentation: <br><br>- [EDIFACT managed connector reference](/connectors/edifact/) <br>- [EDIFACT built-in connector operations](#edifact-built-in-operations) <br>- [EDIFACT message limits](logic-apps-limits-and-config.md#b2b-protocol-limits) |
+| **Consumption** | Multitenant Azure Logic Apps | **EDIFACT** managed connector (Standard class). The **EDIFACT** connector provides only actions, but you can use any trigger that works for your scenario. For more information, see the following documentation: <br><br>- [EDIFACT managed connector reference](/connectors/edifact/) <br>- [EDIFACT message limits](logic-apps-limits-and-config.md#b2b-protocol-limits) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | **EDIFACT** built-in connector and **EDIFACT** managed connector. The built-in version differs in the following ways: <br><br>- The built-in version provides only actions, but you can use any trigger that works for your scenario. <br><br>- The built-in version can directly access Azure virtual networks. You don't need an on-premises data gateway.<br><br>For more information, see the following documentation: <br><br>- [EDIFACT managed connector reference](/connectors/edifact/) <br>- [EDIFACT built-in connector operations](#edifact-built-in-operations) <br>- [EDIFACT message limits](logic-apps-limits-and-config.md#b2b-protocol-limits) |
 
 <a name="edifact-built-in-operations"></a>
 
-### EDIFACT built-in operations (Standard workflows only - Preview)
+### EDIFACT built-in operations (Standard workflows only)
 
-The preview **EDIFACT** built-in connector has the following actions, which are similar to their counterpart **EDIFACT** managed connector actions, except where noted in [Limitations and known issues](#limitations-known-issues).
+The **EDIFACT** built-in connector has the following actions, which are similar to their counterpart **EDIFACT** managed connector actions, except where noted in [Limitations and known issues](#limitations-known-issues).
 
 * [**EDIFACT Encode** action](#encode)
 * [**EDIFACT Decode** action](#decode)
@@ -39,19 +38,17 @@ The preview **EDIFACT** built-in connector has the following actions, which are 
 
 ### Limitations and known issues
 
-* Preview **EDIFACT** built-in connector
+* **EDIFACT** built-in connector
 
-  * This capability is in preview and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+  * This connector's actions currently support payloads up to 100 MB.
 
-  * This connector's actions currently support payloads up to at least 100 MB.
-
-  * The preview **EDIFACT Decode** action currently doesn't include the following capabilities:
+  * The **EDIFACT Decode** action currently doesn't include the following capabilities:
 
     * Check for duplicate interchange, group, and transaction set control numbers, if configured.
 
     * Preserve the entire interchange.
 
-    Otherwise, the preview **EDIFACT Encode** and **EDIFACT decode** built-in connector actions have capabilities similar to their counterpart **EDIFACT** managed connector actions.
+    Otherwise, the **EDIFACT Encode** and **EDIFACT decode** built-in connector actions have capabilities similar to their counterpart **EDIFACT** managed connector actions.
 
   * This connector's actions currently don't support interchanges with multiple transactions or batched messages.
 
@@ -158,7 +155,7 @@ The **EDIFACT** managed connector action named **Encode to EDIFACT message** act
 
 ### [Standard](#tab/standard)
 
-#### EDIFACT built-in connector (preview)
+#### EDIFACT built-in connector
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -302,7 +299,7 @@ The **EDIFACT** managed connector action named **Decode EDIFACT message** action
 
 ### [Standard](#tab/standard)
 
-#### EDIFACT built-in connector (preview)
+#### EDIFACT built-in connector
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 

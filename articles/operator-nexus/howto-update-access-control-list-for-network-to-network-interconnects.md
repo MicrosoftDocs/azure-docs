@@ -6,7 +6,7 @@ ms.author: sushrao
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 04/18/2024
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Updating ACL on NNI or External Network
@@ -103,3 +103,6 @@ az networkfabric fabric commit-configuration --resource-group "<resource-group>"
 
 4. Verify the changes using the `resource list` command.
 
+## Next Steps
+
+[Deleting ACLs associated with Network-to-Network Interconnects (NNI)](howto-delete-access-control-list-network-to-network-interconnect.md)

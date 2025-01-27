@@ -5,7 +5,6 @@ summary: Azure Data Factory is Azure's cloud ETL service for scale-out serverles
 metadata:
   title: Azure Data Factory Documentation
   description: Learn how to use Data Factory, a cloud data integration service, to compose data storage, movement, and processing services into automated data pipelines. Tutorials and other documentation show you how to set up and manage data pipelines, and how to move and transform data for analysis.
-  ms.service: data-factory
   ms.topic: landing-page
   author: jonburchel
   ms.author: jburchel
@@ -39,16 +38,24 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
+          - text: Monitor Azure Data Factory
+            url: ./monitor-data-factory.md
           - text: Pipelines and activities in Azure Data Factory
             url: ./concepts-pipelines-activities.md
           - text: Pipeline execution and triggers
             url: ./concepts-pipeline-execution-triggers.md
+          - text: Mapping data flows in Azure Data Factory
+            url: ./concepts-data-flow-overview.md
+          - text: Using expressions and functions
+            url: ./control-flow-expression-language-functions.md
       - linkListType: quickstart
         links:
           - text: Create an Azure Data Factory with UI
             url: ./quickstart-create-data-factory-portal.md
           - text: Use the Copy Data tool
             url: ./quickstart-hello-world-copy-data-tool.md
+          - text: Transform data with mapping data flows
+            url: ./tutorial-data-flow.md
   - title: Data movement
     linkLists:
       - linkListType: overview
@@ -59,16 +66,10 @@ landingContent:
         links:
           - text: Copy activity overview
             url: ./copy-activity-overview.md
-          - text: SAP Knowledge Center
-            url: ./industry-sap-overview.md
-      - linkListType: tutorial
-        links:
-          - text: Copy data in cloud
-            url: ./tutorial-copy-data-tool.md
-          - text: Copy data in bulk
-            url: ./tutorial-bulk-copy-portal.md
-          - text: Copy data incrementally
-            url: ./tutorial-incremental-copy-overview.md
+          - text: Troubleshoot Copy activity performance
+            url: ./copy-activity-performance-troubleshooting.md
+          - text: Troubleshoot connectors
+            url: ./connector-troubleshoot-guide.md
   - title: Data transformation
     linkLists:
       - linkListType: tutorial
@@ -77,20 +78,22 @@ landingContent:
             url: ./data-flow-create.md
           - text: Copy and transform data from a REST endpoint
             url: ./connector-rest.md
-      - linkListType: concept
-        links:
-          - text: Change Data Capture (CDC)
-            url: ./concepts-change-data-capture.md
-  - title: Change data capture (CDC)
+  - title: Lift and shift SSIS packages
     linkLists:
       - linkListType: overview
         links:
-          - text: Change data capture
-            url: concepts-change-data-capture.md
+          - text: SSIS migration assessment rules
+            url: ./scenario-ssis-migration-rules.md
+      - linkListType: concept
+        links:
+          - text: Integration runtime in Azure Data Factory
+            url: ./concepts-integration-runtime.md
+          - text: Create a self-hosted integration runtime
+            url: ./create-self-hosted-integration-runtime.md
       - linkListType: tutorial
         links:
-          - text: Capture changed data with a CDC resource
-            url: how-to-change-data-capture-resource.md
+          - text: Running SSIS packages in Azure
+            url: ./tutorial-deploy-ssis-packages-azure.md            
   - title: Workflow Orchestration Manager
     linkLists:
       - linkListType: concept
@@ -104,33 +107,29 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Run an existing pipeline with Workflow Orchestration Manager
-            url: tutorial-run-existing-pipeline-with-airflow.md
+            url: tutorial-run-existing-pipeline-with-airflow.md            
+  - title: Change data capture (CDC)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Change data capture
+            url: concepts-change-data-capture.md
+      - linkListType: tutorial
+        links:
+          - text: Capture changed data with a CDC resource
+            url: how-to-change-data-capture-resource.md
   - title: SAP knowledge center
     linkLists:
       - linkListType: concept
         links:
           - text: Overview
-            url: industry-sap-overview.md
+            url: industry-sap-overview.md            
           - text: SAP connectors
             url: industry-sap-connectors.md
           - text: SAP templates
             url: industry-sap-templates.md
           - text: SAP change data capture (CDC) capabilities
             url: sap-change-data-capture-introduction-architecture.md
-  - title: Lift and shift SSIS packages
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: SSIS migration assessment rules
-            url: ./scenario-ssis-migration-rules.md
-      - linkListType: concept
-        links:
-          - text: Integration runtime in Azure Data Factory
-            url: ./concepts-integration-runtime.md
-      - linkListType: tutorial
-        links:
-          - text: Running SSIS packages in Azure
-            url: ./tutorial-deploy-ssis-packages-azure.md
   - title: Author, Monitor and Manage
     linkLists:
       - linkListType: how-to-guide

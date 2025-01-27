@@ -6,7 +6,7 @@ summary: Learn how to use Event Hubs to ingest millions of events per second fro
 metadata:
   title: Azure Event Hubs documentation
   description: Learn how to use Event Hubs to ingest millions of events per second from connected devices and applications.
-  ms.service: event-hubs
+  ms.service: azure-event-hubs
   ms.topic: landing-page
   author: spelluru
   ms.author: spelluru
@@ -25,7 +25,7 @@ landingContent:
           - text: What is Event Hubs?
             url: event-hubs-about.md
           - text: Event Hubs for Apache Kafka
-            url: azure-event-hubs-kafka-overview.md
+            url: azure-event-hubs-apache-kafka-overview.md
           - text: Schema Registry
             url: schema-registry-overview.md
           - text: Event Hubs Capture
@@ -81,7 +81,7 @@ landingContent:
       - linkListType: overview      
         links:
           - text: What is Event Hubs for Apache Kafka?
-            url: azure-event-hubs-kafka-overview.md    
+            url: azure-event-hubs-apache-kafka-overview.md    
       - linkListType: quickstart
         links:
           - text: Stream into Event Hubs for Apache Kafka

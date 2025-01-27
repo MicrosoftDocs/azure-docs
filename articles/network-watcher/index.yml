@@ -1,15 +1,15 @@
 ### YamlMime:Landing
 
 title: Network Watcher documentation
-summary: Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and NSG flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.
+summary: Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.
 metadata:
   title: Network Watcher Documentation
-  description: Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and NSG flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.
-  ms.service: network-watcher
+  description: Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.
+  ms.service: azure-network-watcher
   ms.topic: landing-page
   author: halkazwini
   ms.author: halkazwini
-  ms.date: 04/03/2024
+  ms.date: 04/24/2024
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
@@ -80,9 +80,9 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: NSG flow logs overview
+          - text: Network security group flow logs overview
             url: nsg-flow-logs-overview.md
-          - text: VNet flow logs overview
+          - text: Virtual network flow logs overview
             url: vnet-flow-logs-overview.md
       - linkListType: tutorial  
         links:
@@ -90,9 +90,9 @@ landingContent:
             url: nsg-flow-logs-tutorial.md           
       - linkListType: how-to-guide  
         links:
-          - text: Manage NSG flow logs
+          - text: Manage network security group flow logs
             url: nsg-flow-logs-portal.md
-          - text: Manage VNet flow logs
+          - text: Manage virtual network flow logs
             url: vnet-flow-logs-portal.md
 
   # Card (optional)

@@ -5,11 +5,11 @@ description: Reference for service limits and restrictions for Azure Active Dire
 author: kengaderdus
 ms.author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 01/11/2024
-ms.subservice: B2C
+ms.date: 05/11/2024
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 
@@ -169,13 +169,58 @@ The following table lists the administrative configuration limits in the Azure A
 |String Limit per Attribute      |250 Chars          |
 |Number of B2C tenants per subscription      |20         |
 |Total number of objects (user accounts and applications) per tenant (default limit)|1.25 million |
-|Total number of objects (user accounts and applications) per tenant (using a verified custom domain)|5.25 million |
+|Total number of objects (user accounts and applications) per tenant (using a verified custom domain). If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md).|5.25 million |
 |Levels of [inheritance](custom-policy-overview.md#inheritance-model) in custom policies     |10         |
 |Number of policies per Azure AD B2C tenant (user flows + custom policies)     |200          |
 |Maximum policy file size      |1024 KB          |
 |Number of API connectors per tenant     |20         |
 
 <sup>1</sup> See also [Microsoft Entra service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
+
+## Region specific service limits 
+
+As a protection for our customers, Microsoft places some restrictions on telephony verification for certain region codes. The following table lists the region codes and their corresponding limits.
+
+| Region Code | Region Name                                    | Limit per tenant per 60 minutes | Limit per tenant per 24 hours            |                         
+|:----------- |:---------------------------------------------- |:------------------------------- | :----------------------------------------|
+| 228         |  Togo                                          | 10                              |  30                                      |
+| 257         |  Uzbek                                         | 10                              |  30                                      |
+| 970         |  State of Plaestine                            | 10                              |  30                                      |
+| 249         |  Sudan                                         | 10                              |  30                                      |
+| 226         |  Burina Faso                                   | 10                              |  30                                      |
+| 252         |  Somalia                                       | 10                              |  30                                      |  
+| 501         |  Belize                                        | 10                              |  30                                      |
+| 855         |  Cambodia                                      | 50                              |  200                                     |
+| 84         |  Vietnam                                       | 150                              |  500                                     |
+| 94         |  Sri Lanka                                     | 100                              |  500                                     |
+| 63         |  Philippines                                   | 50                              |  200                                     |
+| 62         |  Indonesia                                     | 50                              |  200                                     |
+| 7         |  Russia                                        | 100                              |  1000                                     |
+| 258         |  Mozambique                                    | 50                              |  200                                     |
+| 92         |  Pakistan                                    | 100                              |  1000                                     |
+| 994 | Azerbaijan | 50 | 200 | 
+| 880 | Bangladesh | 50 | 200 | 
+| 20  | Egypt | 50 | 200 | 
+| 260 | Zambia | 50 | 200 | 
+| 502 | Guatemala | 10 | 50 
+| 255 | Tanzania | 10 | 50 
+| 261 | Madagascar | 10 | 30 
+| 998 | Uzbekistan | 10 | 30 
+| 223 | Mali | 20 | 100 
+| 52 | Mexico | 100 | 500 
+| 60 | Malaysia | 50 | 200 |
+| 221 | Senegal | 10 | 30 |
+| 216 | Tunisia | 20 | 100 |
+| 503 | El Salvador | 10 | 30 |
+| 234 | Nigeria | 20 | 100 |
+| 386 | Slovenia | 10 | 50 |
+| 591 | Bolivia | 10 | 30 |
+| 263 | Zimbabwe | 10 | 30 |
+| 261 | Madagascar | 10 | 30 |
+| 995 | Georgia | 10 | 30 |
+| 993 | Turkmenistan | 10 | 30 |
+| 256 | Uganda | 20 | 100 |
+| 212 | Moroccoa | 20 | 100 |
 
 ## Next steps
 

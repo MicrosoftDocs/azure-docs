@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.date: 01/18/2024
+ms.date: 06/18/2024
 ms.author: juergent
 ---
 # High availability of IBM Db2 LUW on Azure VMs on Red Hat Enterprise Linux Server
@@ -59,7 +59,7 @@ Before you begin an installation, see the following SAP notes and documentation:
 
 ## Overview
 
-To achieve high availability, IBM Db2 LUW with HADR is installed on at least two Azure virtual machines, which are deployed in an [virtual machine scale set](./virtual-machine-scale-set-sap-deployment-guide.md) with flexible orchestration across [availability zones](./high-availability-zones.md) or in an [availability set](../../virtual-machines/windows/tutorial-availability-sets.md).
+To achieve high availability, IBM Db2 LUW with HADR is installed on at least two Azure virtual machines, which are deployed in an [virtual machine scale set](./virtual-machine-scale-set-sap-deployment-guide.md) with flexible orchestration across [availability zones](./high-availability-zones.md) or in an [availability set](/azure/virtual-machines/windows/tutorial-availability-sets).
 
 The following graphics display a setup of two database server Azure VMs. Both database server Azure VMs have their own storage attached and are up and running. In HADR, one database instance in one of the Azure VMs has the role of the primary instance. All clients are connected to primary instance. All changes in database transactions are persisted locally in the Db2 transaction log. As the transaction log records are persisted locally, the records are transferred via TCP/IP to the database instance on the second database server, the standby server, or standby instance. The standby instance updates the local database by rolling forward the transferred transaction log records. In this way, the standby server is kept in sync with the primary server.
 
@@ -339,9 +339,6 @@ During VM configuration, you have an option to create or select exiting load bal
 
 ---
 
-> [!IMPORTANT]
-> Floating IP isn't supported on a NIC secondary IP configuration in load-balancing scenarios. For more information, see [Azure Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need another IP address for the VM, deploy a second NIC.
-
 > [!NOTE]
 > When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) instance of Standard Azure Load Balancer, there's no outbound internet connectivity unless more configuration is performed to allow routing to public endpoints. For more information on how to achieve outbound connectivity, see [Public endpoint connectivity for VMs using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).
 
@@ -398,7 +395,7 @@ The following items are prefixed with either:
    # Replace bold strings with your instance name db2sid, database SID, and virtual IP address/Azure Load Balancer.
    sudo pcs resource create Db2_HADR_ID2 db2 instance='db2id2' dblist='ID2' master meta notify=true resource-stickiness=5000
    
-   #Configure resource stickiness and correct cluster notifications for master resoruce
+   #Configure resource stickiness and correct cluster notifications for master resource
    sudo pcs resource update Db2_HADR_ID2-master meta notify=true resource-stickiness=5000
    
    # Configure virtual IP - same as Azure Load Balancer IP
@@ -423,7 +420,7 @@ The following items are prefixed with either:
    # Replace bold strings with your instance name db2sid, database SID, and virtual IP address/Azure Load Balancer.
    sudo pcs resource create Db2_HADR_ID2 db2 instance='db2id2' dblist='ID2' promotable meta notify=true resource-stickiness=5000
    
-   #Configure resource stickiness and correct cluster notifications for master resoruce
+   #Configure resource stickiness and correct cluster notifications for master resource
    sudo pcs resource update Db2_HADR_ID2-clone meta notify=true resource-stickiness=5000
    
    # Configure virtual IP - same as Azure Load Balancer IP

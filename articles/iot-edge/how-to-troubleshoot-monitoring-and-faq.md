@@ -7,7 +7,7 @@ ms.author: veyalla
 ms.date: 06/09/2021
 ms.topic: conceptual
 ms.reviewer: kgremban
-ms.service: iot-edge 
+ms.service: azure-iot-edge
 services: iot-edge
 zone_pivot_groups: how-to-troubleshoot-monitoring-and-faq-zpg
 
@@ -56,7 +56,7 @@ You could use [built-in log pull features](how-to-retrieve-iot-edge-logs.md). A 
 
 ## Why can't I see device metrics in the metrics page in Azure portal?
 
-Azure Monitor's [native metrics](../azure-monitor/essentials/data-platform-metrics.md) technology doesn't yet support Prometheus data format directly. Log-based metrics are currently better suited for IoT Edge metrics because of:
+Azure Monitor's [native metrics](/azure/azure-monitor/essentials/data-platform-metrics) technology doesn't yet support Prometheus data format directly. Log-based metrics are currently better suited for IoT Edge metrics because of:
 
 * Native support for Prometheus metrics format via the standard *InsightsMetrics* table.
 * Advanced data processing via [KQL](/azure/data-explorer/kusto/query/) for visualizations and alerts.
