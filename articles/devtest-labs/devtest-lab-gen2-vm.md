@@ -32,7 +32,7 @@ You need at least [user](devtest-lab-add-devtest-user.md#devtest-labs-user) acce
 
 1. On the **Choose a base** page, select a Generation 2 image for the VM. The **Generation** column in the list of images displays whether it is a Generation 1 or Generation 2 image.
 
-    :::image type="content" source="./media/devtest-lab-gen2-vm/dev-test-lab-gen2-images.png" alt-text="Screenshot of List of available base images."  lightbox="./media/devtest-lab-gen2-vm/dev-test-lab-gen2-images.png":::
+    :::image type="content" source="./media/devtest-lab-gen2-vm/dev-test-lab-gen-2-images.png" alt-text="Screenshot of List of available base images."  lightbox="./media/devtest-lab-gen2-vm/dev-test-lab-gen-2-images.png":::
 
 1. On the **Basics Settings** tab of the **Create lab resource** screen, provide the following information:
 
