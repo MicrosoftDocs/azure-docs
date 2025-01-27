@@ -1,6 +1,21 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/network-watcher/packet-capture-vm-portal.md",
+            "redirect_url": "/azure/network-watcher/packet-capture-manage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/packet-capture-vm-powershell.md",
+            "redirect_url": "/azure/network-watcher/packet-capture-manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/packet-capture-vm-cli.md",
+            "redirect_url": "/azure/network-watcher/packet-capture-manage",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/network-watcher/supported-region-traffic-analytics.md",
             "redirect_url": "/azure/network-watcher/traffic-analytics",
             "redirect_document_id": false
