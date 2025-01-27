@@ -5115,11 +5115,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/reliability/overview.md",
-      "redirect_url": "/azure/reliability/concept-reliability",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/reliability/cross-region-replication-azure-no-pair.md",
       "redirect_url": "/azure/reliability/regions-multi-region-nonpaired",
       "redirect_document_id": false

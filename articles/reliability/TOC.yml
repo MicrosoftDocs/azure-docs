@@ -1,15 +1,13 @@
 - name: Azure reliability documentation
   href: index.yml
 - name: Overview
-  href: concept-reliability.md
+  href: overview.md
 - name: Reliability fundamentals
   items:
   - name: Business continuity, high availability, and disaster recovery
     href: concept-business-continuity-high-availability-disaster-recovery.md
   - name: Shared responsibility for resiliency
     href: concept-shared-responsibility.md
-  - name: Azure service incident response
-    href: incident-response.md
 - name: Azure regions
   items:
   - name: What are Azure regions?
@@ -26,12 +24,12 @@
     href: availability-zones-service-support.md
   - name: Regions with availability zone support
     href: availability-zones-region-support.md
-  - name: Azure availability zone migration baseline
-    href: availability-zones-baseline.md
   - name: Migrate to availability zone support
     items:
     - name: Overview
       href: availability-zones-migration-overview.md
+    - name: Azure availability zone migration baseline
+      href: availability-zones-baseline.md
     - name: Migration guides by service
       items:
       - name: Azure API Management
@@ -424,6 +422,8 @@
       href: ../azure-signalr/signalr-concept-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
 - name: Resources
   items:
+  - name: Azure service incident response
+    href: incident-response.md
   - name: Service availability
     items:
     - name: Service availability by region
