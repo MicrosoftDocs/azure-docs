@@ -24,37 +24,42 @@ Accelerate threat detection and remediation with streamlined creation and manage
 
 ## Access the management interface
 
-Use one of the following tabs, depending on whether you're working in the Azure portal or the Defender portal. Even though the management interface is accessed differently depending which portal you use, the creation and management tasks have the same steps. 
+Use one of the following tabs, depending on where you want to work with threat intelligence. Even though the management interface is accessed differently depending which portal you use, the creation and management tasks have the same steps once you get there. 
 
 ### [Defender portal](#tab/defender-portal)
 
-For Microsoft Sentinel-powered threat intelligence in the Defender portal, navigate to **Threat intelligence** > **Intel management**.
+In the Defender portal, navigate to **Threat intelligence** > **Intel management**.
 
 :::image type="content" source="media/work-with-threat-indicators/intel-management-navigation.png" alt-text="Screenshot showing the intel management menu item in the Defender portal.":::
 
 ### [Azure portal](#tab/azure-portal)
 
-For Microsoft Sentinel in the Azure portal, navigate to **Threat management** > **Threat intelligence**.
+In the Azure portal, navigate to **Threat management** > **Threat intelligence**.
 
 :::image type="content" source="media/work-with-threat-indicators/threat-intelligence-sentinel.png" alt-text="Screenshot showing threat intelligence menu for Microsoft Sentinel in the Azure portal.":::
 
-## Create threat intelligence in the management interface
+---
 
-Use the management interface to create threat intelligence objects and perform other common threat intelligence tasks such as indicator tagging and establishing connections between objects security investigations.
+## Create threat intelligence
+
+Use the management interface to create STIX objects and perform other common threat intelligence tasks such as indicator tagging and establishing connections between objects.
 
 - Define relationships as you create new STIX objects.
 - Curate existing TI with the relationship builder.
 - Quickly create multiple objects by using the duplicate feature to copy the metadata from a new or existing TI object.
 
-### Create a new indicator
+For more information on supported STIX objects, see [Understand threat intelligence](understand-threat-intelligence.md#create-and-manage-threat-intelligence).
 
-1. On the menu bar at the top of the page, select **Add new**.
+### Create a new STIX object
+
+1. Select **Add new** > **TI object**.
 
     :::image type="content" source="media/work-with-threat-indicators/threat-intel-add-new-indicator.png" alt-text="Screenshot that shows adding a new threat indicator." lightbox="media/work-with-threat-indicators/threat-intel-add-new-indicator.png":::
 
-1. Choose the indicator type, and then fill in the form on the **New indicator** pane. The required fields are marked with an asterisk (*).
+1. Choose the **Object type**, then fill in the form on the **New TI object** page. Required fields are marked with a red asterisk (*).
 
-1. Select **Apply**. The indicator is added to the indicators list and is also sent to the `ThreatIntelligenceIndicator` table in **Logs**.
+1. Select **Add and duplicate** if you want to create more items with the same metadata. Otherwise, select **Add** to create the single item.
+
 
 ## Manage threat intelligence 
 

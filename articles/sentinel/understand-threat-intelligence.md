@@ -147,9 +147,28 @@ The following STIX objects are available in Microsoft Sentinel:
 | Identity | Describe victims, organizations, and other groups or individuals along with the business sectors most closely associated with them. |
 | Relationship | The threads that connect threat intelligence, helping to make connections across disparate signals and data points are described with relationships. |
 
-Tagging threat intelligence is a quick way to group objects together to make them easier to find. Typically, you might apply tags related to a particular incident. But, if an indicator represents threats from a particular known actor or well-known attack campaign you might create a relationship instead of a tag. After you search for the threat intelligence that you want to work with, tag them individually or multiselect and tag them all at once. Because tagging is free-form, we recommend that you create standard naming conventions for threat intelligence tags.
+### Create relationships
 
-For more information, see [Work with threat intelligence in Microsoft Sentinel](work-with-threat-indicators.md#create-and-manage-objects).
+Establish connections between objects to enhance threat detection and response. Here are some examples of the relationship builder:
+
+Connecting Threat Actor to Attack Pattern: The threat actor "APT29" uses the attack pattern "Phishing via Email" to gain initial access.
+Linking Indicator to Threat Actor: An indicator (malicious domain) is attributed to the threat actor "APT29".
+Associating Identity (Victim) with Attack Pattern: The organization "Example Corp" is targeted by the attack pattern "Phishing via Email".
+
+### Curate threat intelligence
+
+Designate which TI objects can be shared with appropriate audiences by designating a sensitivity level called Traffic Light Protocol (TLP).
+
+| TLP color | Sensitivity |
+|---|---|
+| White | Information can be shared freely and publicly without any restrictions. |
+| Green | Information can be shared with peers and partner organizations within the community, but not publicly. It is intended for a wider audience within the community. |
+| Amber | Information can be shared with members of the organization, but not publicly. It is intended to be used within the organization to protect sensitive information. |
+| Red | Information is highly sensitive and should not be shared outside of the specific group or meeting where it was originally disclosed. |
+
+Tagging threat intelligence is a quick way to group objects together to make them easier to find. Typically, you might apply tags related to a particular incident. But, if an indicator represents threats from a particular known actor or well-known attack campaign, consider creating a relationship instead of a tag. After you search and filter for the threat intelligence that you want to work with, tag them individually or multiselect and tag them all at once. Because tagging is free-form, we recommend that you create standard naming conventions for threat intelligence tags.
+
+For more information, see [Work with threat intelligence in Microsoft Sentinel](work-with-threat-indicators.md#create-threat-intelligence).
 
 ## View your threat intelligence
 
