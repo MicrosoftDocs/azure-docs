@@ -12,6 +12,10 @@ ms.author: armohamed
 ---
 
 ## Prerequisites
+- [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md).
+- Active WhatsApp phone number to receive messages.
+- [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 are recommended)
+    - In a terminal or command window, run `node --version` to check that Node.js is installed
 
 ## Setting up
 
@@ -20,7 +24,13 @@ ms.author: armohamed
 ## Code examples
 
 Follow these steps to add required code snippets to your `send-messages.js` file.
+- [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+- [Authenticate the client](#authenticate-the-client).
+- [Set channel registration ID](#set-channel-registration-id).
+- [Set recipient list](#set-recipient-list).
 - [Send a Sticker messages to a WhatsApp user](#send-a-sticker-messages-to-a-whatsapp-user).
+
+[!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting-javascript.md)]
 
 ### Send a sticker messages to a WhatsApp user
 
@@ -87,4 +97,4 @@ node ./send-messages.js
 
 ## Full sample code
 
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication/communication-messages-rest/samples).
+Find the finalized code for this sample on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication/communication-messages-rest/samples).

@@ -11,19 +11,28 @@ ms.custom: include file
 ms.author: armohamed
 ---
 
-## Set up environment
+## Prerequisites
+- [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md).
+- Active WhatsApp phone number to receive messages.
+- [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 are recommended)
+    - In a terminal or command window, run `node --version` to check that Node.js is installed
 
-To set up an environment for sending messages, complete the steps in the following sections.
+## Setting up
 
 [!INCLUDE [Setting up for JavaScript Application](../javascript-application-setup.md)]
 
 ## Code examples
 
 Follow these steps to add required code snippets to your `send-messages.js` file.
+- [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+- [Authenticate the client](#authenticate-the-client).
+- [Set channel registration ID](#set-channel-registration-id).
+- [Set recipient list](#set-recipient-list).
 - [Send an Interactive List options message to a WhatsApp user](#send-an-interactive-reply-button-message-to-a-whatsapp-user).
 - [Send an Interactive Reply Button message to a WhatsApp user](#send-an-interactive-reply-button-message-to-a-whatsapp-user).
 - [Send an Interactive Click-to-action Url based message to a WhatsApp user](#send-an-interactive-click-to-action-url-based-message-to-a-whatsapp-user)
 
+[!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting-javascript.md)]
 
 ### Send an Interactive List options message to a WhatsApp user
 
@@ -293,4 +302,4 @@ node ./send-messages.js
 
 ## Full sample code
 
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication/communication-messages-rest/samples).
+Find the finalized code for this sample on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication/communication-messages-rest/samples).
