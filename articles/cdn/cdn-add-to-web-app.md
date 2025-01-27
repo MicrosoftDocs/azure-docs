@@ -48,7 +48,7 @@ Open a browser and sign in to the [Azure portal](https://portal.azure.com).
 ### Dynamic site acceleration optimization
 
 If you want to optimize your content delivery network endpoint for dynamic site acceleration (DSA), you should use the [content delivery network portal](cdn-create-new-endpoint.md) to create your profile and endpoint. With [DSA optimization](cdn-dynamic-site-acceleration.md), the performance of web pages with dynamic content is measurably improved. For instructions about how to optimize a content delivery network endpoint for DSA from the content delivery network portal, see [content delivery network endpoint configuration to accelerate delivery of dynamic files](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files).
-Otherwise, if you don't want to optimize your new endpoint, you can use the web app portal to create it by following the steps in the next section. For **Azure CDN from Edgio** profiles, you can't change the optimization of a content delivery network endpoint after it has been created.
+Otherwise, if you don't want to optimize your new endpoint, you can use the web app portal to create it by following the steps in the next section.
 
 <a name='create-a-cdn-profile-and-endpoint'></a>
 
@@ -80,9 +80,7 @@ Otherwise, if you don't want to optimize your new endpoint, you can use the web 
 
 ### Test the content delivery network endpoint
 
-Because it takes time for the registration to propagate, the endpoint isn't immediately available for use:
-   - For **Azure CDN Standard from Microsoft (classic)** profiles, propagation usually completes in 10 minutes.
-   - For **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles, propagation usually completes within 90 minutes.
+Because it takes time for the registration to propagate, the endpoint isn't immediately available for use. For **Azure CDN Standard from Microsoft (classic)** profiles, propagation usually completes within 10 minutes.
 
 The sample app has an *index.html* file and *css*, *img*, and *js* folders that contain other static assets. The content paths for all of these files are the same at the content delivery network endpoint. For example, both of the following URLs access the *bootstrap.css* file in the *css* folder:
 

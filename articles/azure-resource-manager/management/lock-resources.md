@@ -93,7 +93,7 @@ Applying locks can lead to unexpected results. Some operations that don't seem t
 
 - A cannot-delete lock on a **Log Analytics workspace** doesn't prevent [data purge operations](/azure/azure-monitor/logs/personal-data-mgmt#delete). Instead, remove the [data purge](../../role-based-access-control/built-in-roles.md#data-purger) role from the user.
 
-- A read-only lock on a **subscription** prevents **Azure Advisor** from working correctly. Advisor is unable to store the results of its queries.
+- A read-only lock on a **subscription** prevents **Azure Advisor** from working correctly. Advisor can't store the results of its queries.
 
 - A read-only lock on an **Application Gateway** prevents you from getting the backend health of the application gateway. That [operation uses a POST method](/rest/api/application-gateway/application-gateways/backend-health), which a read-only lock blocks.
 
@@ -138,9 +138,9 @@ In the left navigation panel, the subscription lock feature's name is **Resource
 
 ### Template
 
-When you use an ARM template or Bicep file to deploy a lock, it's important to understand how the deployment scope and the lock scope work together. To apply a lock at the deployment scope, such as locking a resource group or a subscription, leave the scope property unset. When locking a resource within the deployment scope, set the scope property on the lock.
+When you use an ARM template or Bicep file to deploy a lock, you need to understand how the deployment scope and the lock scope work together. To apply a lock at the deployment scope, such as locking a resource group or a subscription, don't set the scope property. When locking a resource within the deployment scope, set the scope property on the lock.
 
-The following template applies a lock to the resource group. Notice there isn't a scope property on the lock resource because the lock scope matches the deployment scope. Deploy this template at the resource group level.
+The following template applies a lock to the resource group. Notice there's no scope property on the lock resource because the lock scope matches the deployment scope. Deploy this template at the resource group level.
 
 # [JSON](#tab/json)
 
