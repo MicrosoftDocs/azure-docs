@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -956,7 +956,7 @@ Can read, write, delete and re-onboard Azure Connected Machines.
 
 ## Azure Connected Machine Resource Manager
 
-Custom Role for AzureStackHCI RP to manage hybrid compute machines and hybrid connectivity endpoints in a resource group
+Custom role for Azure Local resource provider (Microsoft.AzureStackHCI Resource Provider) to manage hybrid compute machines and hybrid connectivity endpoints in a resource group
 
 [Learn more](/azure-stack/hci/deploy/deployment-azure-resource-manager-template)
 

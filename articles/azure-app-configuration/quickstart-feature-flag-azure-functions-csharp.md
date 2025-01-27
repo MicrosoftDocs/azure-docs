@@ -134,10 +134,10 @@ This project will use [dependency injection in .NET Azure Functions](../azure-fu
    Add a constructor used to obtain instances of `_featureManagerSnapshot` and `IConfigurationRefresherProvider` through dependency injection. From the `IConfigurationRefresherProvider`, you can obtain the instance of `IConfigurationRefresher`.
 
     ```csharp
-    private readonly IFeatureManagerSnapshot _featureManagerSnapshot;
+    private readonly IVariantFeatureManagerSnapshot _featureManagerSnapshot;
     private readonly IConfigurationRefresher _configurationRefresher;
 
-    public Function1(IFeatureManagerSnapshot featureManagerSnapshot, IConfigurationRefresherProvider refresherProvider)
+    public Function1(IVariantFeatureManagerSnapshot featureManagerSnapshot, IConfigurationRefresherProvider refresherProvider)
     {
         _featureManagerSnapshot = featureManagerSnapshot;
         _configurationRefresher = refresherProvider.Refreshers.First();
@@ -171,19 +171,19 @@ This project will use [dependency injection in .NET Azure Functions](../azure-fu
 1. Set an environment variable named **ConnectionString**, where the value is the connection string you retrieved earlier in your App Configuration store under **Access Keys**. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-        setx ConnectionString "connection-string-of-your-app-configuration-store"
+        setx ConnectionString "<connection-string-of-your-app-configuration-store>"
     ```
 
     If you use Windows PowerShell, run the following command:
 
     ```azurepowershell
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+        $Env:ConnectionString = "<connection-string-of-your-app-configuration-store>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-        export ConnectionString='connection-string-of-your-app-configuration-store'
+        export ConnectionString='<connection-string-of-your-app-configuration-store>'
     ```
 
 1. Press F5 to test your function. If prompted, accept the request from Visual Studio to download and install **Azure Functions Core (CLI)** tools. You might also need to enable a firewall exception so that the tools can handle HTTP requests.

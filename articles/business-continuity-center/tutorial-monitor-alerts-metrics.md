@@ -2,13 +2,13 @@
 title: Tutorial - Monitor alerts and metrics in Azure Business Continuity Center
 description: In this tutorial, learn how to monitor alerts and configure notifications for your business continuity estate using Azure Business Continuity center.
 ms.topic: tutorial
-ms.date: 11/19/2024
+ms.date: 12/30/2024
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
   - ignite-2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Tutorials: Monitor alerts and metrics for your business continuity estate
@@ -20,23 +20,7 @@ This tutorial describes how Azure Business Continuity Center allows you to view 
 
 Azure Business Continuity Center allows you to monitor alerts that are raised for your critical events in your backup and disaster recovery events. You can view any built-in alerts that were fired by solutions, such as Azure Backup or Azure Site Recovery, and alerts fired based on custom alert rules on metrics.
 
-To monitor the alerts, follow these steps:
-
-1. On **Business Continuity Center**, go to **Monitoring + Reporting** > **Alerts**. 
-
-   The count of all alert rules appears that have at least one or more fired alerts in the selected time range.
-
-   :::image type="content" source="./media/tutorial-monitor-alerts-metrics/view-triggered-alerts-in-selected-time-range.png" alt-text="Screemshot shows the triggered alerts in a selected time range." lightbox="./media/tutorial-monitor-alerts-metrics/view-triggered-alerts-in-selected-time-range.png":::
-
-2. On **Alerts**, filter the list by *severity of alert*, *category of alert*, *time range* (up to last 15 days), and other parameters.
-
-   :::image type="content" source="./media/tutorial-monitor-alerts-metrics/filter-alerts.png" alt-text="Screenshot shows how to filter alerts by severity." lightbox="./media/tutorial-monitor-alerts-metrics/filter-alerts.png":::
-
-3. The *Impacted Items count* in the grid shows the number of resources on which an alert corresponding to that alert rule was fired. To view the impacted items, select **View impacted items** in the context menu to view all alerts that were triggered due to that alert rule.
-
-   You can then review each alert and take appropriate action. 
-
-   :::image type="content" source="./media/tutorial-monitor-alerts-metrics/view-impacted-items.png" alt-text="Screenshot shows how to view impacted items." lightbox="./media/tutorial-monitor-alerts-metrics/view-impacted-items.png":::
+[!INCLUDE [View fired alerts in Azure Business Continuity Center.](../../includes/business-continuity-center-view-fired-alerts.md)]
 
 ## Configure notifications
 
@@ -88,7 +72,7 @@ To view metrics, follow these steps:
 
 4. Use the *filters* to further see the metric values at lower levels of granularity, for example, a particular protected item in the vault.
  
-5. To create alert rules based on the value of the metric, select **New Alert Rule** at the top of the *metrics chart*, which leads you to the metric alert rules creation experience. [Learn more](../backup/metrics-overview.md#configure-alerts-and-notifications-on-your-metrics) about supported metric alert scenarios.
+5. To create alert rules based on the value of the metric, select **New Alert Rule** at the top of the *metrics chart*, which leads you to the metric alert rules creation experience. [Learn more](../backup/backup-azure-monitor-alerts-notification.md#configure-alerts-and-notifications-on-your-metrics) about supported metric alert scenarios.
  
 ## Next steps
 

@@ -8,6 +8,7 @@ ms.custom: github-actions-azure, devx-track-azurecli, linux-related-content
 ms.devlang: azurecli
 author: cephalin
 ms.author: cephalin
+zone_pivot_groups:  app-service-containers-github-actions
 ---
 
 # Deploy a custom container to App Service using GitHub Actions
@@ -182,7 +183,9 @@ Define secrets to use with the Docker Login action. The example in this document
 
 ## Build the Container image
 
-The following example show part of the workflow that builds a Node.JS Docker image. Use [Docker Login](https://github.com/azure/docker-login) to log into a private container registry. This example uses Azure Container Registry but the same action works for other registries. 
+::: zone pivot="github-actions-containers-linux"
+
+The following example show part of the workflow that builds a Node.js Docker image. Use [Docker Login](https://github.com/azure/docker-login) to log into a private container registry. This example uses Azure Container Registry but the same action works for other registries. 
 
 
 ```yaml
@@ -234,6 +237,59 @@ jobs:
         docker push mycontainer.azurecr.io/myapp:${{ github.sha }}     
 ```
 
+::: zone-end  
+
+::: zone pivot="github-actions-containers-windows"
+
+The following example shows part of the workflow that builds a Windows Docker image. Use [Docker Login](https://github.com/azure/docker-login) to log into a private container registry. This example uses Azure Container Registry but the same action works for other registries. 
+
+
+```yaml
+name: Windows Container Workflow
+on: [push]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: azure/docker-login@v1
+      with:
+        login-server: mycontainer.azurecr.io
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+    - run: |
+        docker build . -t mycontainer.azurecr.io/myapp:${{ github.sha }}
+        docker push mycontainer.azurecr.io/myapp:${{ github.sha }}     
+```
+
+You can also use [Docker sign-in](https://github.com/azure/docker-login) to log into multiple container registries at the same time. This example includes two new GitHub secrets for authentication with docker.io. The example assumes that there's a Dockerfile at the root level of the registry. 
+
+```yml
+name: Windows Container Workflow
+on: [push]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: azure/docker-login@v1
+      with:
+        login-server: mycontainer.azurecr.io
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+    - uses: azure/docker-login@v1
+      with:
+        login-server: index.docker.io
+        username: ${{ secrets.DOCKERIO_USERNAME }}
+        password: ${{ secrets.DOCKERIO_PASSWORD }}
+    - run: |
+        docker build . -t mycontainer.azurecr.io/myapp:${{ github.sha }}
+        docker push mycontainer.azurecr.io/myapp:${{ github.sha }}     
+```
+
+::: zone-end  
+
+
 ## Deploy to an App Service container
 
 To deploy your image to a custom container in App Service, use the `azure/webapps-deploy@v2` action. This action has seven parameters:
@@ -248,7 +304,10 @@ To deploy your image to a custom container in App Service, use the `azure/webapp
 | **configuration-file** | (Optional) Applies to Web App Containers only: Path of the Docker-Compose file. Should be a fully qualified path or relative to the default working directory. Required for multi-container apps. |
 | **startup-command** | (Optional) Enter the start-up command. For ex. dotnet run or dotnet filename.dll |
 
+::: zone pivot="github-actions-containers-linux"
+
 # [Publish profile](#tab/publish-profile)
+
 
 ```yaml
 name: Linux Container Node Workflow
@@ -361,6 +420,126 @@ jobs:
       run: |
         az logout
 ```
+
+::: zone-end  
+
+::: zone pivot="github-actions-containers-windows"
+
+# [Publish profile](#tab/publish-profile)
+
+```yaml
+name: Windows_Container_Workflow
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: azure/docker-login@v1
+      with:
+        login-server: mycontainer.azurecr.io
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+
+    - run: |
+        docker build . -t mycontainer.azurecr.io/myapp:${{ github.sha }}
+        docker push mycontainer.azurecr.io/myapp:${{ github.sha }}     
+
+    - uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'myapp'
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        images: 'mycontainer.azurecr.io/myapp:${{ github.sha }}'
+```
+
+# [Service principal](#tab/service-principal)
+
+```yaml
+on: [push]
+
+name: Windows_Container_Workflow
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+    steps:
+    # checkout the repo
+    - name: 'Checkout GitHub Action' 
+      uses: actions/checkout@main
+    
+    - name: 'Sign in via Azure CLI'
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    
+    - uses: azure/docker-login@v1
+      with:
+        login-server: mycontainer.azurecr.io
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+    - run: |
+        docker build . -t mycontainer.azurecr.io/myapp:${{ github.sha }}
+        docker push mycontainer.azurecr.io/myapp:${{ github.sha }}     
+      
+    - uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'myapp'
+        images: 'mycontainer.azurecr.io/myapp:${{ github.sha }}'
+    
+    - name: Azure logout
+      run: |
+        az logout
+```
+
+# [OpenID Connect](#tab/openid)
+
+```yaml
+on: [push]
+name: Windows_Container_Workflow
+
+permissions:
+      id-token: write
+      contents: read
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+    steps:
+    # checkout the repo
+    - name: 'Checkout GitHub Action' 
+      uses: actions/checkout@main
+    
+    - name: 'Sign in via Azure CLI'
+      uses: azure/login@v1
+      with:
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+    
+    - uses: azure/docker-login@v1
+      with:
+        login-server: mycontainer.azurecr.io
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+    - run: |
+        docker build . -t mycontainer.azurecr.io/myapp:${{ github.sha }}
+        docker push mycontainer.azurecr.io/myapp:${{ github.sha }}     
+      
+    - uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'myapp'
+        images: 'mycontainer.azurecr.io/myapp:${{ github.sha }}'
+    
+    - name: Azure logout
+      run: |
+        az logout
+```
+
+::: zone-end
 
 ---
 

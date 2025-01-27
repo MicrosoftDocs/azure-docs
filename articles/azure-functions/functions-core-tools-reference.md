@@ -394,7 +394,7 @@ The `purge-history` action supports the following options:
 | **`--connection-string-setting`** | Optional name of the setting containing the storage connection string to use. |
 | **`--created-after`** | Optionally delete the history of instances created after this date/time (UTC). All ISO 8601 formatted datetime values are accepted. |
 | **`--created-before`** | Optionally delete the history of instances created before this date/time (UTC). All ISO 8601 formatted datetime values are accepted.|
-| **`--runtime-status`** | Optionally delete the history of instances whose status match a specific status, including `completd`, `terminated`, `canceled`, and `failed`. You can provide one or more space-separated statues. If you don't include `--runtime-status`, instance history is deleted regardless of status.|
+| **`--runtime-status`** | Optionally delete the history of instances whose status match a specific status, including `completed`, `terminated`, `canceled`, and `failed`. You can provide one or more space-separated statues. If you don't include `--runtime-status`, instance history is deleted regardless of status.|
 | **`--task-hub-name`** | Optional name of the Durable Functions task hub to use. |
 
 To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#azure-functions-core-tools-7).

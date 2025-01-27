@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/11/2024
+ms.date: 01/07/2025
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to create a dataflow to connect data sources.
@@ -173,26 +173,27 @@ To configure a source for the dataflow, specify the endpoint reference and a lis
 
 If the default endpoint isn't used as the source, it must be used as the [destination](#destination). To learn more about, see [Dataflows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#dataflows-must-use-local-mqtt-broker-endpoint).
 
-### Option 1: Use default MQTT endpoint as source
+### Option 1: Use default message broker endpoint as source
 
 # [Portal](#tab/portal)
 
-1. Under **Source details**, select **MQTT**.
+1. Under **Source details**, select **Message broker**.
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-source-mqtt.png" alt-text="Screenshot using operations experience to select MQTT as the source endpoint.":::
+    :::image type="content" source="media/howto-create-dataflow/dataflow-source-mqtt.png" alt-text="Screenshot using operations experience to select message broker as the source endpoint.":::
 
-1. Enter the following settings for the MQTT source:
+1. Enter the following settings for the message broker source:
 
     | Setting              | Description                                                                                       |
     | -------------------- | ------------------------------------------------------------------------------------------------- |
-    | MQTT topic           | The MQTT topic filter to subscribe to for incoming messages. See [Configure MQTT or Kafka topics](#configure-data-sources-mqtt-or-kafka-topics). |
+    | Dataflow endpoint    | Select *default* to use the default MQTT message broker endpoint. |
+    | Topic                | The topic filter to subscribe to for incoming messages. See [Configure MQTT or Kafka topics](#configure-data-sources-mqtt-or-kafka-topics). |
     | Message schema       | The schema to use to deserialize the incoming messages. See [Specify schema to deserialize data](#specify-source-schema). |
 
 1. Select **Apply**.
 
 # [Bicep](#tab/bicep)
 
-The MQTT endpoint is configured in the Bicep template file. For example, the following endpoint is a source for the dataflow.
+The message broker endpoint is configured in the Bicep template file. For example, the following endpoint is a source for the dataflow.
 
 ```bicep
 sourceSettings: {
@@ -208,7 +209,7 @@ Here, `dataSources` allow you to specify multiple MQTT or Kafka topics without n
 
 # [Kubernetes (preview)](#tab/kubernetes)
 
-For example, to configure a source using an MQTT endpoint and two MQTT topic filters, use the following configuration:
+For example, to configure a source using a message broker endpoint and two topic filters, use the following configuration:
 
 ```yaml
 sourceSettings:
@@ -250,19 +251,31 @@ Configuring an asset as a source is only available in the operations experience.
 
 When using an asset as the source, the asset definition is used to infer the schema for the dataflow. The asset definition includes the schema for the asset's datapoints. To learn more, see [Manage asset configurations remotely](../discover-manage-assets/howto-manage-assets-remotely.md).
 
-Once configured, the data from the asset reached the dataflow via the local MQTT broker. So, when using an asset as the source, the dataflow uses the local MQTT broker default endpoint as the source in actuality.
+Once configured, the data from the asset reaches the dataflow via the local MQTT broker. So, when using an asset as the source, the dataflow uses the local MQTT broker default endpoint as the source in actuality.
 
 ### Option 3: Use custom MQTT or Kafka dataflow endpoint as source
 
 If you created a custom MQTT or Kafka dataflow endpoint (for example, to use with Event Grid or Event Hubs), you can use it as the source for the dataflow. Remember that storage type endpoints, like Data Lake or Fabric OneLake, can't be used as source.
 
-To configure, use Kubernetes YAML or Bicep. Replace placeholder values with your custom endpoint name and topics.
-
 # [Portal](#tab/portal)
 
-Using a custom MQTT or Kafka endpoint as a source is currently not supported in the operations experience.
+1. Under **Source details**, select **Message broker**.
+
+    :::image type="content" source="media/howto-create-dataflow/dataflow-source-custom.png" alt-text="Screenshot using operations experience to select a custom message broker as the source endpoint.":::
+
+1. Enter the following settings for the message broker source:
+
+    | Setting              | Description                                                                                       |
+    | -------------------- | ------------------------------------------------------------------------------------------------- |
+    | Dataflow endpoint    | Use the **Reselect** button to select a custom MQTT or Kafka dataflow endpoint. For more information, see [Configure MQTT dataflow endpoints](howto-configure-mqtt-endpoint.md) or [Configure Azure Event Hubs and Kafka dataflow endpoints](howto-configure-kafka-endpoint.md).|
+    | Topic                | The topic filter to subscribe to for incoming messages. See [Configure MQTT or Kafka topics](#configure-data-sources-mqtt-or-kafka-topics). |
+    | Message schema       | The schema to use to deserialize the incoming messages. See [Specify schema to deserialize data](#specify-source-schema). |
+
+1. Select **Apply**.
 
 # [Bicep](#tab/bicep)
+
+Replace placeholder values with your custom endpoint name and topics.
 
 ```bicep
 sourceSettings: {
@@ -276,6 +289,8 @@ sourceSettings: {
 ```
 
 # [Kubernetes (preview)](#tab/kubernetes)
+
+Replace placeholder values with your custom endpoint name and topics.
 
 ```yaml
 sourceSettings:
@@ -298,20 +313,20 @@ When the source is an MQTT (Event Grid included) endpoint, you can use the MQTT 
 
 # [Portal](#tab/portal)
 
-In the operations experience dataflow **Source details**, select **MQTT**, then use the **MQTT topic** field to specify the MQTT topic filter to subscribe to for incoming messages.
+In the operations experience dataflow **Source details**, select **Message broker**, then use the **Topic** field to specify the MQTT topic filter to subscribe to for incoming messages.
 
 > [!NOTE]
-> Only one MQTT topic filter can be specified in the operations experience. To use multiple MQTT topic filters, use Bicep or Kubernetes.
+> Only one topic filter can be specified in the operations experience. To use multiple topic filters, use Bicep or Kubernetes.
 
 # [Bicep](#tab/bicep)
 
 ```bicep
 sourceSettings: {
-  endpointRef: '<MQTT_ENDPOINT_NAME>'
+  endpointRef: '<MESSAGE_BROKER_ENDPOINT_NAME>'
   dataSources: [
-    '<MQTT_TOPIC_FILTER_1>'
-    '<MQTT_TOPIC_FILTER_2>'
-    // Add more MQTT topic filters as needed
+    '<TOPIC_FILTER_1>'
+    '<TOPIC_FILTER_2>'
+    // Add more topic filters as needed
   ]
 }
 ```
@@ -334,14 +349,14 @@ Here, the wildcard `+` is used to select all devices under the `thermostats` and
   
 ```yaml
 sourceSettings:
-  endpointRef: <MQTT_ENDPOINT_NAME>
+  endpointRef: <ENDPOINT_NAME>
   dataSources:
-    - <MQTT_TOPIC_FILTER_1>
-    - <MQTT_TOPIC_FILTER_2>
-    # Add more MQTT topic filters as needed
+    - <TOPIC_FILTER_1>
+    - <TOPIC_FILTER_2>
+    # Add more topic filters as needed
 ```
 
-Example with multiple MQTT topic filters with wildcards:
+Example with multiple topic filters with wildcards:
 
 ```yaml
 sourceSettings:
@@ -357,11 +372,11 @@ Here, the wildcard `+` is used to select all devices under the `thermostats` and
 
 ##### Shared subscriptions
 
-To use shared subscriptions with MQTT sources, you can specify the shared subscription topic in the form of `$shared/<GROUP_NAME>/<TOPIC_FILTER>`.
+To use shared subscriptions with message broker sources, you can specify the shared subscription topic in the form of `$shared/<GROUP_NAME>/<TOPIC_FILTER>`.
 
 # [Portal](#tab/portal)
 
-In operations experience dataflow **Source details**, select **MQTT** and use the **MQTT topic** field to specify the shared subscription group and topic.
+In operations experience dataflow **Source details**, select **Message broker** and use the **Topic** field to specify the shared subscription group and topic.
 
 # [Bicep](#tab/bicep)
 
@@ -384,7 +399,7 @@ sourceSettings:
 ---
 
 
-If the instance count in the [dataflow profile](howto-configure-dataflow-profile.md) is greater than one, shared subscription is automatically enabled for all dataflows that use MQTT source. In this case, the `$shared` prefix is added and the shared subscription group name automatically generated. For example, if you have a dataflow profile with an instance count of 3, and your dataflow uses an MQTT endpoint as source configured with topics `topic1` and `topic2`, they are automatically converted to shared subscriptions as `$shared/<GENERATED_GROUP_NAME>/topic1` and `$shared/<GENERATED_GROUP_NAME>/topic2`. 
+If the instance count in the [dataflow profile](howto-configure-dataflow-profile.md) is greater than one, shared subscription is automatically enabled for all dataflows that use a message broker source. In this case, the `$shared` prefix is added and the shared subscription group name automatically generated. For example, if you have a dataflow profile with an instance count of 3, and your dataflow uses a message broker endpoint as source configured with topics `topic1` and `topic2`, they are automatically converted to shared subscriptions as `$shared/<GENERATED_GROUP_NAME>/topic1` and `$shared/<GENERATED_GROUP_NAME>/topic2`. 
 
 You can explicitly create a topic named `$shared/mygroup/topic` in your configuration. However, adding the `$shared` topic explicitly isn't recommended since the `$shared` prefix is automatically added when needed. Dataflows can make optimizations with the group name if it isn't set. For example, `$share` isn't set and dataflows only has to operate over the topic name.
 
@@ -402,7 +417,10 @@ To configure the Kafka topics:
 
 # [Portal](#tab/portal)
 
-Using a Kafka endpoint as a source is currently not supported in the operations experience.
+In the operations experience dataflow **Source details**, select **Message broker**, then use the **Topic** field to specify the Kafka topic filter to subscribe to for incoming messages.
+
+> [!NOTE]
+> Only one topic filter can be specified in the operations experience. To use multiple topic filters, use Bicep or Kubernetes.
 
 # [Bicep](#tab/bicep)
 
@@ -432,7 +450,7 @@ sourceSettings:
 
 ### Specify source schema
 
-When using MQTT or Kafka as the source, you can specify a [schema](concept-schema-registry.md) to display the list of data points in the operations experience portal. Note that using a schema to deserialize and validate incoming messages [isn't currently supported](../troubleshoot/known-issues.md#dataflows).
+When using MQTT or Kafka as the source, you can specify a [schema](concept-schema-registry.md) to display the list of data points in the operations experience portal. Using a schema to deserialize and validate incoming messages [isn't currently supported](../troubleshoot/known-issues.md#dataflows).
 
 If the source is an asset, the schema is automatically inferred from the asset definition.
 
@@ -443,7 +461,7 @@ To configure the schema used to deserialize the incoming messages from a source:
 
 # [Portal](#tab/portal)
 
-In operations experience dataflow **Source details**, select **MQTT** and use the **Message schema** field to specify the schema. You can use the **Upload** button to upload a schema file first. To learn more, see [Understand message schemas](concept-schema-registry.md).
+In operations experience dataflow **Source details**, select **Message broker** and use the **Message schema** field to specify the schema. You can use the **Upload** button to upload a schema file first. To learn more, see [Understand message schemas](concept-schema-registry.md).
 
 # [Bicep](#tab/bicep)
 
@@ -520,7 +538,7 @@ builtInTransformationSettings:
 
 To enrich the data, first add reference dataset in the Azure IoT Operations [state store](../create-edge-apps/overview-state-store.md). The dataset is used to add extra data to the source data based on a condition. The condition is specified as a field in the source data that matches a field in the dataset.
 
-You can load sample data into the state store by using the [state store CLI](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/state-store-cli). Key names in the state store correspond to a dataset in the dataflow configuration.
+You can load sample data into the state store by using the [state store CLI](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/statestore-cli). Key names in the state store correspond to a dataset in the dataflow configuration.
 
 # [Portal](#tab/portal)
 
@@ -592,9 +610,9 @@ To filter the data on a condition, you can use the `filter` stage. The condition
     | Filter condition   | The condition to filter the data based on a field in the source data.                               |
     | Description        | Provide a description for the filter condition.                                                     |
 
-    In the filter condition field, type `@` or select **Ctrl + Space** to select datapoints from a dropdown.
+    In the filter condition field, enter `@` or select **Ctrl + Space** to choose datapoints from a dropdown.
 
-    You can access MQTT metadata properties using the format `@$metadata.user_properties.<property>` or `@$metadata.topic`. You can also enter $metadata headers using the format `@$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references).
+    You can enter MQTT metadata properties using the format `@$metadata.user_properties.<property>` or `@$metadata.topic`. You can also enter $metadata headers using the format `@$metadata.<header>`. The `$metadata` syntax is only needed for MQTT properties that are part of the message header. For more information, see [field references](concept-dataflow-mapping.md#field-references).
 
     The condition can use the fields in the source data. For example, you could use a filter condition like `@temperature > 20` to filter data less than or equal to 20 based on the temperature field.
 
@@ -662,9 +680,9 @@ You can use the **Compute** transform to apply a formula to the source data. Thi
     | Last known value   | Optionally, use the last known value if the current value isn't available.                       |
 
 
-    You can enter or edit a formula in the **Formula** field. The formula can use the fields in the source data. Type `@` or select **Ctrl + Space** to select datapoints from a dropdown.
+    You can enter or edit a formula in the **Formula** field. The formula can use the fields in the source data. Enter `@` or select **Ctrl + Space** to choose datapoints from a dropdown.
 
-    You can access MQTT metadata properties using the format `@$metadata.user_properties.<property>` or `@$metadata.topic`. You can also enter $metadata headers using the format `@$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references).
+    You can enter MQTT metadata properties using the format `@$metadata.user_properties.<property>` or `@$metadata.topic`. You can also enter $metadata headers using the format `@$metadata.<header>`. The `$metadata` syntax is only needed for MQTT properties that are part of the message header. For more information, see [field references](concept-dataflow-mapping.md#field-references).
 
     The formula can use the fields in the source data. For example, you could use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` output field. 
     
@@ -682,11 +700,14 @@ You can rename a datapoint using the **Rename** transform. This operation is use
 
     | Setting            | Description                                                                                             |
     |--------------------|---------------------------------------------------------------------------------------------------------|
-    | Datapoint          | Select a datapoint from the dropdown or enter a $metadata header using the format `$metadata.<header>.` |
+    | Datapoint          | Select a datapoint from the dropdown or enter a $metadata header.                                       |
     | New datapoint name | Enter the new name for the datapoint.                                                                   |
     | Description        | Provide a description for the transformation.                                                           |
 
-    You can access MQTT metadata properties using the format `@$metadata.user_properties.<property>` or `@$metadata.topic`. You can also enter $metadata headers using the format `@$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references).
+    Enter `@` or select **Ctrl + Space** to choose datapoints from a dropdown.
+
+    You can enter MQTT metadata properties using the format `@$metadata.user_properties.<property>` or `@$metadata.topic`. You can also enter $metadata headers using the format `@$metadata.<header>`. The `$metadata` syntax is only needed for MQTT properties that are part of the message header. For more information, see [field references](concept-dataflow-mapping.md#field-references).
+
 
 1. Select **Apply**.
 
@@ -756,43 +777,6 @@ builtInTransformationSettings:
 
 To learn more, see [Map data by using dataflows](concept-dataflow-mapping.md) and [Convert data by using dataflows](concept-dataflow-conversions.md).
 
-<!-- TODO: DOE content for this -->
-
-<!-- #### Passthrough operation
-
-Using map, you can apply a passthrough operation that takes all the input fields and maps them to the output field, essentially passing through all fields. 
-
-# [Portal](#tab/portal)
-
-TBD
-
-# [Bicep](#tab/bicep)
-
-```bicep
-builtInTransformationSettings: {
-  map: [
-    {
-      inputs: [ '*' ]
-      output: '*'
-    }
-  ]
-}
-```
-
-# [Kubernetes (preview)](#tab/kubernetes)
-
-```yaml
-builtInTransformationSettings:
-  map:
-    - inputs:
-      - '*'
-      output: '*'
-```
-
----
-
- -->
-
 ### Serialize data according to a schema
 
 If you want to serialize the data before sending it to the destination, you need to specify a schema and serialization format. Otherwise, the data is serialized in JSON with the types inferred. Storage endpoints like Microsoft Fabric or Azure Data Lake require a schema to ensure data consistency. Supported serialization formats are Parquet and Delta.
@@ -802,7 +786,7 @@ If you want to serialize the data before sending it to the destination, you need
 
 # [Portal](#tab/portal)
 
-For operations experience, you specify the schema and serialization format in the dataflow endpoint details. The endpoints that support serialization formats are Microsoft Fabric OneLake, Azure Data Lake Storage Gen 2, and Azure Data Explorer. For example, to serialize the data in Delta format, you need to upload a schema to the schema registry and reference it in the dataflow destination endpoint configuration.
+For operations experience, you specify the schema and serialization format in the dataflow endpoint details. The endpoints that support serialization formats are Microsoft Fabric OneLake, Azure Data Lake Storage Gen 2, Azure Data Explorer, and local storage. For example, to serialize the data in Delta format, you need to upload a schema to the schema registry and reference it in the dataflow destination endpoint configuration.
 
 :::image type="content" source="media/howto-create-dataflow/destination-serialization.png" alt-text="Screenshot using the operations experience to set the dataflow destination endpoint serialization.":::
 
@@ -973,7 +957,7 @@ The following example is a dataflow configuration that uses the MQTT endpoint fo
 
 # [Portal](#tab/portal)
 
-See Bicep or Kubernetes tabs for the configuration example.
+:::image type="content" source="media/howto-create-dataflow/dataflow-example.png" alt-text="Screenshot showing the operations experience dataflow example with a source endpoint, transforms, and a destination endpoint." lightbox="media/howto-create-dataflow/dataflow-example.png":::
 
 # [Bicep](#tab/bicep)
 

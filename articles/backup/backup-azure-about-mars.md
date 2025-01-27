@@ -5,8 +5,8 @@ ms.topic: overview
 ms.date: 08/13/2024
 ms.service: azure-backup
 ms.custom: engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # About the Microsoft Azure Recovery Services (MARS) agent for Azure Backup
@@ -61,7 +61,7 @@ To back up files, folders, and the volume or system state from an on-premises co
 
 The following diagram shows the backup flow:
 
-![Diagra shows the bacup flow of Azure Backup agent.](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
+![Diagram shows the backup flow of Azure Backup agent.](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
 ### Additional information
 

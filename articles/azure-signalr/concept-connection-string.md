@@ -12,6 +12,8 @@ ms.author: kenchen
 
 A connection string contains information about how to connect to Azure SignalR Service. In this article, you learn the basics of connection strings and how to configure one in your application.
 
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
+
 ## What a connection string is
 
 When an application needs to connect to Azure SignalR Service, it needs the following information:
@@ -191,6 +193,8 @@ Endpoint=https://<resource_name>.service.signalr.net;AccessKey=<access_key>;Serv
 ```
 
 ## Configure a connection string in your application
+
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
 There are two ways to configure a connection string in your application.
 

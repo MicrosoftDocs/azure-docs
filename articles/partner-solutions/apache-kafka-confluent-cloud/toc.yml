@@ -19,15 +19,19 @@ items:
     displayName: Azure CLI, az confluent organization create, az confluent organization wait, az confluent organization list, az confluent organization show
 - name: How to
   items:
-  - name: Connect to compute services
-    href: add-connectors.md
+  - name: Create Confluent resources
+    href: create-confluent-resources.md
   - name: Use Confluent connectors
     href: add-confluent-connectors.md
   - name: Manage
-    href: manage.md
-  - name: Manage access
-    href: manage-access.md
-    displayName: Azure CLI, az confluent organization delete
+    items:
+    - name: Manage a resource
+      href: manage.md
+      displayName: Azure CLI, az confluent organization delete
+    - name: Manage access
+      href: manage-access.md
+  - name: Connect to compute services
+    href: add-connectors.md
   - name: Troubleshoot
     items:
     - name: Get support

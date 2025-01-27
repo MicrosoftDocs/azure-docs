@@ -43,8 +43,6 @@ do
 } while (read > 0);
 ```
 
-To view and access the **ChangeFeedRetrieveService.cs** code example, see [Consume Change Feed](https://github.com/microsoft/dicom-server/blob/main/converter/dicom-cast/src/Microsoft.Health.DicomCast.Core/Features/DicomWeb/Service/ChangeFeedRetrieveService.cs).
-
 ## Next steps
 
 For information, see the [DICOM service overview](dicom-services-overview.md).

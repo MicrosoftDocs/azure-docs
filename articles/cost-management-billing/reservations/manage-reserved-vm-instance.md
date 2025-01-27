@@ -6,7 +6,7 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: primittal
 ms.topic: how-to
-ms.date: 08/14/2024
+ms.date: 12/06/2024
 ms.author: banders
 ---
 # Manage Reservations for Azure resources

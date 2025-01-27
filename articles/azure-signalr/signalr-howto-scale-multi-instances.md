@@ -16,10 +16,14 @@ zone_pivot_groups: azure-signalr-service-mode
 
 SignalR Service SDK supports multiple endpoints for SignalR Service instances. You can use this feature to scale the concurrent connections, or use it for cross-region messaging.
 
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
+
 :::zone pivot="default-mode"
 ## For ASP.NET Core
 
 ### Add multiple endpoints from config
+
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
 Configure with key `Azure:SignalR:ConnectionString` or `Azure:SignalR:ConnectionString:` for SignalR Service connection string.
 
@@ -316,7 +320,7 @@ By default, the functions binding uses the [DefaultEndpointRouter](https://githu
 ##### C# in-process model
 
 Here are the steps:
-1. Implement a customized router. You can leverage information provided from [`ServiceEndpoint`](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.Common/Endpoints/ServiceEndpoint.cs) to make routing decision. See guide here: [customize-route-algorithm](https://github.com/Azure/azure-signalr/blob/dev/docs/sharding.md#customize-route-algorithm). **Please note that Http trigger is required in the negotiation function when you need `HttpContext` in custom negotiation method.**
+1. Implement a customized router. You can leverage information provided from [`ServiceEndpoint`](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.Common/Endpoints/ServiceEndpoint.cs) to make routing decision. See guide here: [customize-route-algorithm](https://github.com/Azure/azure-signalr/blob/dev/docs/sharding.md#customize-route-algorithm). **Please note that HTTP trigger is required in the negotiation function when you need `HttpContext` in custom negotiation method.**
 
 1. Register the router to DI container.
 ```cs

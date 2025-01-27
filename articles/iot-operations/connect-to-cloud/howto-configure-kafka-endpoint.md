@@ -24,7 +24,7 @@ To set up bi-directional communication between Azure IoT Operations and Apache K
 
 ## Azure Event Hubs
 
-[Azure Event Hubs is compatible with the Kafka protocol](../../event-hubs/azure-event-hubs-kafka-overview.md) and can be used with dataflows with some limitations.
+[Azure Event Hubs is compatible with the Kafka protocol](../../event-hubs/azure-event-hubs-apache-kafka-overview.md) and can be used with dataflows with some limitations.
 
 ### Create an Azure Event Hubs namespace and event hub
 
@@ -63,7 +63,7 @@ Once the Azure Event Hubs namespace and event hub is configured, you can create 
     | Setting              | Description                                                                                       |
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                 | The name of the dataflow endpoint.                                     |
-    | Host                 | The hostname of the Kafka broker in the format `<NAMEPSACE>.servicebus.windows.net:9093`. Include port number `9093` in the host setting for Event Hubs. |
+    | Host                 | The hostname of the Kafka broker in the format `<NAMESPACE>.servicebus.windows.net:9093`. Include port number `9093` in the host setting for Event Hubs. |
     | Authentication method| The method used for authentication. We recommend that you choose [*System assigned managed identity*](#system-assigned-managed-identity) or [*User assigned managed identity*](#user-assigned-managed-identity). |
 
 1. Select **Apply** to provision the endpoint.
@@ -220,7 +220,7 @@ kafkaSettings:
 
 ### Limitations
 
-Azure Event Hubs [doesn't support all the compression types that Kafka supports](../../event-hubs/azure-event-hubs-kafka-overview.md#compression). Only GZIP compression is supported in Azure Event Hubs premium and dedicated tiers currently. Using other compression types might result in errors.
+Azure Event Hubs [doesn't support all the compression types that Kafka supports](../../event-hubs/azure-event-hubs-apache-kafka-overview.md#compression). Only GZIP compression is supported in Azure Event Hubs premium and dedicated tiers currently. Using other compression types might result in errors.
 
 ## Custom Kafka brokers
 
@@ -238,7 +238,7 @@ To configure a dataflow endpoint for non-Event-Hub Kafka brokers, set the host, 
     | Setting              | Description                                                                                       |
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                 | The name of the dataflow endpoint.                                     |
-    | Host                 | The hostname of the Kafka broker in the format `<Kafa-broker-host>:xxxx`. Include port number in the host setting. |
+    | Host                 | The hostname of the Kafka broker in the format `<Kafka-broker-host>:xxxx`. Include port number in the host setting. |
     | Authentication method| The method used for authentication. Choose [*SASL*](#sasl). |
     | SASL type            | The type of SASL authentication. Choose *Plain*, *ScramSha256*, or *ScramSha512*. Required if using *SASL*. |
     | Synced secret name   | The name of the secret. Required if using *SASL*. |
@@ -685,7 +685,7 @@ The compression field enables compression for the messages sent to Kafka topics.
 | Value | Description |
 | ----- | ----------- |
 | `None` | No compression or batching is applied. None is the default value if no compression is specified. |
-| `Gzip` | GZIP compression and batching are applied. GZIP is a general-purpose compression algorithm that offers a good balance between compression ratio and speed. Only [GZIP compression is supported in Azure Event Hubs premium and dedicated tiers](../../event-hubs/azure-event-hubs-kafka-overview.md#compression) currently. |
+| `Gzip` | GZIP compression and batching are applied. GZIP is a general-purpose compression algorithm that offers a good balance between compression ratio and speed. Only [GZIP compression is supported in Azure Event Hubs premium and dedicated tiers](../../event-hubs/azure-event-hubs-apache-kafka-overview.md#compression) currently. |
 | `Snappy` | Snappy compression and batching are applied. Snappy is a fast compression algorithm that offers moderate compression ratio and speed. This compression mode isn't supported by Azure Event Hubs. |
 | `Lz4` | LZ4 compression and batching are applied. LZ4 is a fast compression algorithm that offers low compression ratio and high speed. This compression mode isn't supported by Azure Event Hubs. |
 

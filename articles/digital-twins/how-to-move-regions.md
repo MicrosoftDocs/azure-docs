@@ -148,4 +148,4 @@ To delete the instance by using the Azure portal, [open the portal](https://port
 
 Select the **Delete** button, and follow the prompts to finish the deletion.
 
-:::image type="content" source="media/how-to-move-regions/delete-instance.png" alt-text="Sscreenshot of the Azure Digital Twins instance details in the Azure portal, on the Overview tab. The Delete button is highlighted.":::
+:::image type="content" source="media/how-to-move-regions/delete-instance.png" alt-text="Screenshot of the Azure Digital Twins instance details in the Azure portal, on the Overview tab. The Delete button is highlighted.":::

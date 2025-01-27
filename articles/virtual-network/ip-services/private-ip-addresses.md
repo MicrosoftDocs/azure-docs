@@ -7,7 +7,7 @@ ms.author: mbender
 ms.date: 11/05/2024
 ms.service: azure-virtual-network
 ms.subservice: ip-services
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Private IP addresses
@@ -118,7 +118,7 @@ The possible allocation methods that can be used are also displayed:
 | Application gateway |Front-end configuration |Yes |Yes |
 
 ## Limits
-The limits on IP addressing are found in the full set of [limits for networking](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) in Azure. The limits are per region and per subscription. [Contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to increase the default limits up to the maximum limits based on your business needs.
+The limits on IP addressing are found in the full set of [limits for networking](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-networking-limits) in Azure. The limits are per region and per subscription. [Contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to increase the default limits up to the maximum limits based on your business needs.
 
 ## Next steps
 

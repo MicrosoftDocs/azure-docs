@@ -238,7 +238,7 @@ To determine if the **Microsoft ECC Root Certificate Authority 2017** and **Micr
 1. To add a root certificate to the trusted root certificate store in Java, you can use the `keytool` utility. The following example adds the **Microsoft RSA Root Certificate Authority 2017** root certificate:
 
     ```bash
-    keytool -import -file microsoft-ecc-root-ca.crt -alias microsoft-rsa-root-ca -keystore $JAVA_HOME/jre/lib/security/cacerts
+    keytool -import -file microsoft-ecc-root-ca.crt -alias microsoft-ecc-root-ca -keystore $JAVA_HOME/jre/lib/security/cacerts
     keytool -import -file microsoft-rsa-root-ca.crt -alias microsoft-rsa-root-ca -keystore $JAVA_HOME/jre/lib/security/cacerts
     ```
 

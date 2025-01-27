@@ -76,7 +76,7 @@
   - name: About ExpressRoute encryption
     href: expressroute-about-encryption.md
   - name: About ExpressRoute limits
-    href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/expressroute/toc.json#expressroute-limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/expressroute/toc.json#azure-expressroute-limits
   - name: Design architecture for ExpressRoute resiliency
     href: design-architecture-for-resiliency.md
   - name: ExpressRoute Traffic Collector
@@ -95,6 +95,8 @@
     items:
     - name: Security baseline
       href: /security/benchmark/azure/baselines/expressroute-security-baseline?toc=/azure/expressroute/TOC.json
+    - name: Roles and permissions
+      href: roles-permissions.md
   - name: BFD over ExpressRoute
     href: expressroute-bfd.md
   - name: QoS requirements

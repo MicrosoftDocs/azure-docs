@@ -43,7 +43,7 @@ To set up exchange manager with Azure Blob Storage as spooling destination, you 
 
 
 > [!TIP]
-> You need to add `exchange-manager.properties` file in `common` component inside `serviceConfigsProfiles.serviceName[“trino”]` section in the cluster ARM template. Refer to [manage confgurations](./trino-service-configuration.md#using-arm-template) on how to add configuration files to your cluster.
+> You need to add `exchange-manager.properties` file in `common` component inside `serviceConfigsProfiles.serviceName[“trino”]` section in the cluster ARM template. Refer to [manage configurations](./trino-service-configuration.md#using-arm-template) on how to add configuration files to your cluster.
 
 Example:
 

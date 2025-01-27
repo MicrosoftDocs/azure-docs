@@ -1,6 +1,6 @@
 ---
-title: Azure API for FHIR monthly releases
-description: This article provides details about the Azure API for FHIR monthly features and enhancements.
+title: Azure API for FHIR monthly releases pre-2025
+description: This article provides details about the Azure API for FHIR monthly features and enhancements pre-2025.
 services: healthcare-apis
 author: kgaddam10
 ms.service: azure-health-data-services
@@ -11,7 +11,7 @@ ms.custom: references_regions
 ms.author: kavitagaddam
 ---
 
-# Release notes: Azure API for FHIR
+# Release notes pre-2025: Azure API for FHIR
 
 [!INCLUDE[retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
@@ -205,7 +205,7 @@ Bug is now fixed and Resource will be updated if it matches the Etag header. For
 
 |Enhancements |Related information |
 | :------------------- | :--------------- |
-|Added Publisher to `CapabiilityStatement.name` |You can now find the publisher in the capability statement at `CapabilityStatement.name`. [#2319](https://github.com/microsoft/fhir-server/pull/2319) |
+|Added Publisher to `CapabilityStatement.name` |You can now find the publisher in the capability statement at `CapabilityStatement.name`. [#2319](https://github.com/microsoft/fhir-server/pull/2319) |
 |Log `FhirOperation` linked to anonymous calls to Request metrics |We weren’t logging operations that didn’t require authentication. We extended the ability to get `FhirOperation` type in `RequestMetrics` for anonymous calls. [#2295](https://github.com/microsoft/fhir-server/pull/2295) |
 
 ### **Bug fixes**

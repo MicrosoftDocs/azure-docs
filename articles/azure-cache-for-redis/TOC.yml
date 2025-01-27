@@ -131,13 +131,13 @@
       href: managed-redis/managed-redis-best-practices-server-load.md
     - name: Performance testing
       href: managed-redis/managed-redis-best-practices-performance.md
+    - name: Kubernetes-hosted client applications best practices
+      href: managed-redis/managed-redis-best-practices-kubernetes.md
 
   - name: Authentication and authorization
     items:
     - name: Microsoft Entra ID for authentication
       href: managed-redis/managed-redis-entra-for-authentication.md
-    - name: Role-based access control
-      href: managed-redis/managed-redis-configure-role-based-access-control.md
 
   - name: Security and networking
     items:
@@ -444,7 +444,7 @@
         - name: Azure CLI
           href: /cli/azure/redisenterprise
         - name: REST
-          href: /rest/api/redis/redisenterprisecache
+          href: /rest/api/redis/redisenterprisecache/operation-groups
         - name: Resource Manager template
           href: /azure/templates/microsoft.cache/redisenterprise
     - name: Azure Cache for Redis

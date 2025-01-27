@@ -30,7 +30,7 @@ The following table summarizes the configuration options available for each stac
 |-|-|
 | .NET (in-process model) | `host.json` |
 | .NET (isolated model) | Default (send custom logs to the Functions host): `host.json`<br/>To send logs directly to Application Insights, see: [Configure Application Insights in the HostBuilder](./dotnet-isolated-process-guide.md#application-insights)  |
-| Node.JS | `host.json` |
+| Node.js | `host.json` |
 | Python | `host.json` |
 | Java | Default (send custom logs to the Functions host): `host.json`<br/>To send logs directly to Application Insights, see: [Configure the Application Insights Java agent](/azure/azure-monitor/app/monitor-functions#distributed-tracing-for-java-applications) |
 | PowerShell | `host.json` |

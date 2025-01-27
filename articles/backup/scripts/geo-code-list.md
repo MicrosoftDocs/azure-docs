@@ -4,8 +4,9 @@ description: Learn about geo-codes mapped with the respective regions.
 ms.topic: sample
 ms.date: 11/30/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.custom: references_regions
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Geo-code mapping

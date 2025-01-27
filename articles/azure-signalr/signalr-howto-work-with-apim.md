@@ -14,6 +14,8 @@ Azure API Management service provides a hybrid, multicloud management platform f
 
 :::image type="content" source="./media/signalr-howto-work-with-apim/architecture.png" alt-text="Diagram that shows the architecture of using SignalR Service with API Management.":::
 
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
+
 ## Create resources
 
 - Follow [Quickstart: Use an ARM template to deploy Azure SignalR](./signalr-quickstart-azure-signalr-service-arm-template.md) and create a SignalR Service instance **_ASRS1_**
@@ -110,6 +112,8 @@ Now API Management is successfully configured to support SignalR client with `Se
 
 Now, the traffic can reach SignalR Service through API Management. Let’s use [this chat application](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/ChatRoom) as an example. Let's start with running it locally.
 
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
+
 - First let's get the connection string of **_ASRS1_**
 
   - On the **Connection strings** tab of **_ASRS1_**
@@ -123,7 +127,7 @@ Now, the traffic can reach SignalR Service through API Management. Let’s use [
   ```bash
   cd samples/Chatroom
   dotnet restore
-  dotnet user-secrets set Azure:SignalR:ConnectionString "<copied-onnection-string-with-client-endpoint>"
+  dotnet user-secrets set Azure:SignalR:ConnectionString "<copied-connection-string-with-client-endpoint>"
   dotnet run
   ```
 

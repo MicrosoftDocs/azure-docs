@@ -16,7 +16,7 @@ ms.date: 01/23/2024
 
 - **Message**: When the client is connected, it can send messages to the upstream application, or receive messages from the upstream application, through the WebSocket connection. Messages can be in plain text, binary, or JSON format and have a maximum size of 1 MB.
 
-- **Client Events**: Events are created during the lifecycle of a client connection. For example, a simple WebSocket client connection creates a `connect` event when it tries to connect to the service, a `connected` event when it successfully connected to the service, a `message` event when it sends messages to the service and a `disconnected` event when it disconnects from the service. Details about *client events* are illustrated in [Client protocol](..\concept-service-internals.md#client-protocol) section.
+- **Client Events**: Events are created during the lifecycle of a client connection. For example, a simple WebSocket client connection creates a `connect` event when it tries to connect to the service, a `connected` event when it successfully connected to the service, a `message` event when it sends messages to the service in its default mode `sendEvent` and a `disconnected` event when it disconnects from the service. Details about *client events* are illustrated in [Client protocol](..\concept-service-internals.md#client-protocol) section.
 
 - **Event Handler**: The event handler contains the logic to handle the client events. Register and configure event handlers in the service through the portal or Azure CLI beforehand. Details are described in [Event handler](..\concept-service-internals.md#event-handler) section.
 

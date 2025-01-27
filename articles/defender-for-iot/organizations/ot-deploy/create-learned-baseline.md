@@ -47,13 +47,13 @@ Once the sensor identifies that the baseline is stable and complete it automatic
 
 The **Learn** action becomes relevant after learning mode is turned off, when the scenario transitions to operational mode, and you wish to mark specific operations as authorized or expected activity. Once learned, similar activity won't generate new alerts in the future.
 
-[Turn off learning mode manually before then](../how-to-manage-individual-sensors.md#turn-off-learning-mode-manually) if you feel that the current alerts accurately reflect your network activity.
+[Turn off learning mode manually](../how-to-manage-individual-sensors.md#turn-off-learning-mode-manually) when the level of alerts accurately reflect your network activity.
 
 For more information, see [Microsoft Defender for IoT alerts](../alerts.md).
 
 ## Prerequisites
 
-You can perform the procedures in this article from the Azure portal, an OT sensor, or an on-premises management console.
+You can perform the procedures in this article from the Azure portal or an OT sensor.
 
 Before you start, make sure that you have:
 
