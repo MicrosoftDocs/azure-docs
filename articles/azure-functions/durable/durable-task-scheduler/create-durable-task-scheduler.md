@@ -7,7 +7,7 @@ ms.date: 01/27/2025
 
 # Create the Durable Task Scheduler (preview)
 
-Onboard to the Durable Task Scheduler private preview to use it in your environment and provide feedback. 
+TODO 
 
 ## Prerequisites
 - An Azure subscription. [Don't have one? Create a free account.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -16,7 +16,7 @@ Onboard to the Durable Task Scheduler private preview to use it in your environm
 
 ## Set up the CLI
 
-Log into the Azure CLI and make sure you have the latest installed.
+Login to the Azure CLI and make sure you have the latest installed.
 
 ```azurecli
 az login
@@ -29,7 +29,7 @@ Install the Durable Task Scheduler CLI extension.
 az extension add --name durabletask
 ```
 
-If you've already installed the Durable Task Scheduler CLI extension, make sure it's upgraded to the latest version.
+If you've already installed the Durable Task Scheduler CLI extension, upgrade to the latest version.
 
 ```azurecli
 az extension add --upgrade --name durabletask
@@ -43,23 +43,23 @@ The `DurableTask` feature needs to be registered to your Azure subscription. Ver
 az account set --subscription <YOUR-AZURE-SUBSCRIPTION-ID>
 ```
 
-Start by running the following command to register the private preview feature.
+Start by running the following command to register the preview feature.
 
 ```azurecli
-az feature register --namespace Microsoft.DurableTask --name PrivatePreview
+az feature register --namespace Microsoft.DurableTask
 ```
 
-Feature registrsation may take some time. After a few minutes, check the registration status using the following command: 
+Feature registration may take some time. After a few minutes, check the registration status using the following command: 
 
 ```azurecli
-az feature show --namespace Microsoft.DurableTask --name PrivatePreview
+az feature show --namespace Microsoft.DurableTask 
 ```
 
 Once the output shows the feature as `"Registered"`, continue to register the resource provider. 
 
 ## Register the Durable Task Scheduler resource provider
 
-To use the `DurableTask` resource provider, you'll need to register it with your subscription. Check the status of the provider registration using the [az provider list](/cli/azure/provider#az-provider-list) command, as shown in the following example. 
+To use the `DurableTask` resource provider, you need to register it with your subscription. Check the status of the provider registration using the [az provider list](/cli/azure/provider#az-provider-list) command, as shown in the following example. 
 
 ```azurecli
 az provider list --query "[?contains(namespace,'Microsoft.KubernetesConfiguration')]" -o table
@@ -111,7 +111,7 @@ Use the `az durabletask` CLI to create a scheduler in your resource group.
 az durabletask scheduler create -n "YOUR_SCHEDULER" -g "YOUR_RESOURCE_GROUP" -l "northcentralus" --ip-allowlist "[0.0.0.0/0]" --sku-name "dedicated" --sku-capacity "1"
 ```
 
-This may take up to 15 minutes to complete.
+The creation process may take up to 15 minutes to complete.
 
 *Output*
 
@@ -147,7 +147,7 @@ This may take up to 15 minutes to complete.
 
 ### Create a task hub
 
-Use `az durabletask` to create a task hub in the scheduler you just created.
+Use `az durabletask` to create a task hub in the scheduler you created.
 
 ```azurecli
 az durabletask taskhub create --resource-group YOUR_RESOURCE_GROUP --scheduler-name YOUR_SCHEDULER --name YOUR_TASKHUB
@@ -178,7 +178,7 @@ az durabletask taskhub create --resource-group YOUR_RESOURCE_GROUP --scheduler-n
 ## Related links
 
 - Durable Functions
-  - If you're looking to configure existing Durable Functions app to use DTS, see tutorial.
+  - If you're looking to configure existing Durable Functions app to use Durable Task Scheduler, see tutorial.
   - If you're starting from scratch, check out [Durable Functions quickstart sample](quickstart-durable-task-scheduler.md)
   - Did you know that you can host your Durable Functions app inside an Azure Container Apps environment? See tutorial.
 - Durable Task Framework
