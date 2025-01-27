@@ -57,14 +57,7 @@
     - name: Jobs
       href: jobs.md
     - name: Dynamic sessions
-      items:
-      - name: Overview
-        href: sessions.md
-        displayName: Dynamic sessions overview
-      - name: Code interpreter sessions
-        href: sessions-code-interpreter.md
-      - name: Custom container sessions
-        href: sessions-custom-container.md
+      href: sessions.md
     - name: Microservices
       href: microservices.md
     - name: Planned maintenance
@@ -127,17 +120,25 @@
     - name: Use dynamic sessions
       items:
         - name: Code interpreter sessions
+          href: sessions-code-interpreter.md
+        - name: Custom container sessions
+          href: sessions-custom-container.md
+        - name: Tutorials
           items:
-          - name: AutoGen
-            href: sessions-tutorial-autogen.md
-          - name: LangChain
-            href: sessions-tutorial-langchain.md
-          - name: LlamaIndex
-            href: sessions-tutorial-llamaindex.md
-          - name: Semantic Kernel
-            href: sessions-tutorial-semantic-kernel.md
-          - name: JavaScript Code Interpreter (preview)
-            href: sessions-tutorial-nodejs.md
+          - name: Use a LLM agent
+            items:
+            - name: AutoGen
+              href: sessions-tutorial-autogen.md
+            - name: LangChain
+              href: sessions-tutorial-langchain.md
+            - name: LlamaIndex
+              href: sessions-tutorial-llamaindex.md
+            - name: Semantic Kernel
+              href: sessions-tutorial-semantic-kernel.md
+          - name: Use the REST API
+            items:
+            - name: JavaScript Code interpreter (preview)
+              href: sessions-tutorial-nodejs.md
     - name: Event-driven processing
       items:
         - name: With a job
