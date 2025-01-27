@@ -53,6 +53,9 @@ Some Azure Managed Grafana features aren't available in Azure Government and Mic
 
 The following quotas apply to the Essential (preview) and Standard plans.
 
+> [!NOTE]
+> Grafana Enterprise is an option within the Standard plan, not a separate plan within Azure. The information listed below for the Standard plan also applies to Standard instances with Grafana Enterprise enabled.
+
 [!INCLUDE [Azure Managed Grafana limits](../../includes/azure-managed-grafana-limits.md)]
 
 Each data source also has its own limits that can be reflected in Azure Managed Grafana dashboards, alerts and reports. We recommend that you research these limits in the documentation of each data source provider. For instance:

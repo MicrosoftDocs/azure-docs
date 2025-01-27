@@ -15,7 +15,7 @@ In this guide, you learn how to set up Azure Monitor alerts and use them with Az
 Both Azure Monitor and Grafana provide alerting functions.
 
 > [!NOTE]
-> Grafana alerts are only available for instances in the Standard plan.
+> Grafana alerts aren't available in the Essential (preview) plan.
 
 Grafana provides an alerting function for a number of [supported data sources](https://grafana.com/docs/grafana/latest/alerting/fundamentals/data-source-alerting/#data-sources-and-grafana-alerting). Alert rules are processed in your Azure Managed Grafana workspace and they share the same compute resources and query throttling limits with dashboard rendering. For more information about these limits, refer to [performance considerations and limitations](https://grafana.com/docs/grafana/latest/alerting/set-up/performance-limitations/#performance-considerations-and-limitations).
 
