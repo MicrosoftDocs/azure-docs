@@ -67,6 +67,10 @@
       href: azure-netapp-files-network-topologies.md
     - name: Resource limits for Azure NetApp Files
       href: azure-netapp-files-resource-limits.md
+    - name: Understand large volumes 
+      href: large-volumes.md
+    - name: Requirements and considerations for large volumes
+      href: large-volumes-requirements-considerations.md
     - name: High file counts 
       items: 
         - name: Understand maxfiles 
@@ -99,10 +103,6 @@
       href: regional-capacity-quota.md
     - name: Understand default and individual user and group quotas
       href: default-individual-user-group-quotas-introduction.md
-    - name: Understand large volumes 
-      href: large-volumes.md
-    - name: Requirements and considerations for large volumes
-      href: large-volumes-requirements-considerations.md
   - name: Performance
     items:
     - name: Best practices and considerations

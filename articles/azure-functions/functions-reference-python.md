@@ -4,7 +4,7 @@ description: Understand how to develop, validate, and deploy your Python code pr
 ms.topic: article
 ms.date: 07/30/2024
 ms.devlang: python
-ms.custom: devx-track-python, devdivchpfy22
+ms.custom: devx-track-python, devdivchpfy22, ignite-2024
 zone_pivot_groups: python-mode-functions
 ---
 
@@ -66,7 +66,7 @@ Python v1 programming model:
 + [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-configuration)
 + [Terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-configuration)
 
-You can also create Python v1 functions in the Azure portal.
+You can also create Python functions in the Azure portal.
 
 > [!TIP]
 > Although you can develop your Python-based Azure functions locally on Windows, Python is supported only on a Linux-based hosting plan when it's running in Azure. For more information, see the [list of supported operating system/runtime combinations](functions-scale.md#operating-systemruntime).

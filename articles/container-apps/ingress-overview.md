@@ -4,6 +4,8 @@ description: Ingress options for Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
+ms.custom:
+  - ignite-2024
 ms.topic: conceptual
 ms.date: 05/03/2023
 ms.author: cshoe

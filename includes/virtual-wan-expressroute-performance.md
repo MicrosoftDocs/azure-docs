@@ -23,5 +23,8 @@
 |9 scale units <br> | 126,000 | 18,000 | 1,800,000
 |10 scale units <br> | 140,000 | 20,000 | 2,000,000
 
+It is important to note the following:
+* Scale units 2-10, during maintenance operations, maintain aggregate throughput. However, scale unit 1, during a maintenance operation, may see a slight variation in throughput numbers.  
+* Regardless of the number of scale units deployed, traffic may experience performance degradation if more than 1.5 Gbps is sent in a single TCP flow. 
 
-Scale units 2-10, during maintenance operations, maintain aggregate throughput. However, scale unit 1, during a maintenance operation, may see a slight variation in throughput numbers.  
+

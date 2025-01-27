@@ -11,7 +11,7 @@ ms.topic: how-to
 > This feature is in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-In addition to detecting OT devices on your network, use Defender for IoT to discover Microsoft Windows workstations and servers and enrich workstation and server data for devices already detected. Same as other detected devices, detected Windows workstations and servers are displayed in the Device inventory. The **Device inventory** pages on the sensor and on-premises management console show enriched data about Windows devices, including data about the Windows operating system and applications installed, patch-level data, open ports, and more.
+In addition to detecting OT devices on your network, use Defender for IoT to discover Microsoft Windows workstations and servers and enrich workstation and server data for devices already detected. Same as other detected devices, detected Windows workstations and servers are displayed in the Device inventory. The **Device inventory** pages on the sensor show enriched data about Windows devices, including data about the Windows operating system and applications installed, patch-level data, open ports, and more.
 
 This article describes how to use a Defender for IoT Windows-based WMI tool to get extended information from Windows devices, such as workstations, servers, and more. Run the WMI script on your Windows devices to get extended information, increasing your device inventory and security coverage. While you can also use [scheduled WMI scans](configure-windows-endpoint-monitoring.md) to obtain this data, scripts can be run locally for regulated networks with waterfalls and one-way elements if WMI connectivity isn't possible.
 
@@ -43,7 +43,8 @@ The script described in this article is supported for the following Windows oper
 - Windows XP
 - Windows 7
 - Windows 10
-- Windows Server 2003/2008/2012
+- Windows 11
+- Windows Server 2003/2008/2012/2016/2019/2022
 
 ## Download and run the script
 

@@ -244,7 +244,7 @@ If you reference a REST API technical profile directly from a user journey, the 
 
 ## Development of your REST API 
 
-Your REST API can be developed on any platform and written in any programing language, as long as it's secure and can send and receive claims in JSON format.
+Your REST API can be developed on any platform and written in any programming language, as long as it's secure and can send and receive claims in JSON format.
 
 The request to your REST API service comes from Azure AD B2C servers. The REST API service must be published to a publicly accessible HTTPS endpoint. The REST API call arrives from an Azure data center IP address.
 

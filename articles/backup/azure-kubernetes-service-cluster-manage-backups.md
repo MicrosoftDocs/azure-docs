@@ -6,9 +6,10 @@ ms.service: azure-backup
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
-ms.date: 02/28/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+  - ignite-2024
+ms.date: 01/16/2025
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Manage Azure Kubernetes Service backups using Azure Backup 
@@ -101,7 +102,11 @@ To enable Trusted Access between Backup vault and AKS cluster, use the following
 
 Learn more about [other commands related to Trusted Access](/azure/aks/trusted-access-feature#trusted-access-feature-overview).
 
-## Monitor a backup operation
+## Manage operations using the Azure portal
+
+This section describes several Azure Backup supported management operations that make it easy to manage Azure Kubernetes Service cluster backups.
+
+### Monitor a backup operation
 
 The Azure Backup service creates a job for scheduled backups or if you trigger on-demand backup operation for tracking. To view the backup job status:
 
@@ -121,7 +126,7 @@ The Azure Backup service creates a job for scheduled backups or if you trigger o
 
    ![Screenshot shows how to select a job to see details.](./media/backup-managed-disks/select-job.png)
 
-## Monitor a restore operation
+### Monitor a restore operation
 
 After you trigger the restore operation, the backup service creates a job for tracking. Azure Backup displays notifications about the job in the portal. To view the restore job progress:
 
@@ -142,7 +147,7 @@ After you trigger the restore operation, the backup service creates a job for tr
     ![Screenshot shows the list of jobs.](./media/restore-managed-disks/list-of-jobs.png)
 
 
-## Monitor AKS backup related jobs with the completed with warnings status
+### Monitor backup and restore jobs with the completed with warnings status
 
 When a scheduled or an on-demand backup or restore operation is performed, a job is created corresponding to the operation to track its progress. If there is a failure, these jobs allow you to identify error codes and fix issues to run a successful job later. 
 
@@ -159,12 +164,25 @@ To view these warnings, select **View Details** next to **Warning Details**.
 Learn [how to identify and resolve the error](azure-kubernetes-service-backup-troubleshoot.md#aks-backup-extension-installation-error-resolutions). 
 
 
-## Manage operations using the Azure portal
+### Change policy
 
-This section describes several Azure Backup supported management operations that make it easy to manage Azure Kubernetes Service cluster backups.
+You can change the associated policy with a backup instance.
+
+1. Select the **Backup Instance** -> **Change Policy**.
+
+
+   :::image type="content" source="./media/manage-azure-database-postgresql/change-policy.png" alt-text="Screenshot showing the option to change policy.":::
+   
+1. Select the new policy that you wish to apply to the database.
+
+   :::image type="content" source="./media/manage-azure-database-postgresql/reassign-policy.png" alt-text="Screenshot showing the option to reassign policy.":::
+
+> [!NOTE]
+>
+> Changing a backup policy assigned to a backup instance does not affect existing recovery points and their retention duration. The updated retention settings will apply only to new recovery points created after the policy change.
+
 
 ### Stop Protection
-
 
 There are three ways by which you can stop protecting an Azure Disk:
 
@@ -173,6 +191,10 @@ There are three ways by which you can stop protecting an Azure Disk:
 - **Stop Protection and Retain Data (Retain as per Policy)**: This option helps you stop all future backup jobs from protecting your cluster. The recovery points are retained as per policy and will be chargeable according to [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/). However, the latest recovery point is retained forever.
 
 - **Stop Protection and Delete Data**: This option helps you stop all future backup jobs from protecting your clusters and delete all the recovery points. You won't be able to restore the disk or use the **Resume backup** option.
+
+> [!NOTE]
+>
+> Even if AKS Backup is stopped or backups fail, the last restore point is always retained beyond the defined retention period, ensuring at least one restore point remains available.
 
 #### Stop Protection and Retain Data
 
@@ -232,7 +254,7 @@ There are three ways by which you can stop protecting an Azure Disk:
 If you have selected the **Stop Protection and Retain data** option, you can resume protection for your clusters.
 
 >[!Note]
->When you start protecting a clusters, the backup policy is applied to the retained data as well. The recovery points that have expired as per the policy will be cleaned up.
+>When you resume protecting a backup instance, the existing backup policy will start applying to new recovery points only. Recovery points that have already expired based on their original retention duration, as defined by the backup policy in effect at the time of their creation, will be cleaned up.
 
 Use the following steps:
 
@@ -271,6 +293,6 @@ To delete an AKS cluster backup instance, follow these steps:
 
 ## Next steps
 
-- [Back up Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-backup.md)
+- Back up Azure Kubernetes Service cluster using [Azure portal]](azure-kubernetes-service-cluster-backup.md), [Azure PowerShell](azure-kubernetes-service-cluster-backup-using-powershell.md)
 - [Restore Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-restore.md)
 - [Supported scenarios for backing up Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-backup-support-matrix.md)

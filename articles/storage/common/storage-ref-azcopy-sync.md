@@ -146,7 +146,7 @@ Note: if include and exclude flags are used together, only files matching the in
 
 `--hash-meta-dir` When using `--local-hash-storage-mode=HiddenFiles`, you can specify an alternate directory to store hash metadata files in (as opposed to next to the related files in the source).
 
-`--local-hash-storage-mode` Specify an alternative way to cache file hashes. Valid options are: `HiddenFiles (OS Agnostic)`, `XAttr (Linux/MacOS only` (requires `user_xattr` on all file systems traversed sat the source), `AlternateDataStreams` (Windows only. requires named streams on target volume).
+`--local-hash-storage-mode` Specify an alternative way to cache file hashes. Valid options are: `HiddenFiles (OS Agnostic)`, `XAttr (Linux/macOS only` (requires `user_xattr` on all file systems traversed sat the source), `AlternateDataStreams` (Windows only. requires named streams on target volume).
 
 `--mirror-mode`    Disable last-modified-time based comparison and overwrites the conflicting files and blobs at the destination if this flag is set to true. Default is false
 

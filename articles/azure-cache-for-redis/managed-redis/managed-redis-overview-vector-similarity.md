@@ -3,7 +3,9 @@ title: About Vector Embeddings and Vector Search in Azure Managed Redis (preview
 description: Learn about Azure Managed Redis to store vector embeddings and provide similarity search.
 
 
-ms.service: azure
+ms.service: azure-managed-redis
+ms.custom:
+  - ignite-2024
 ms.topic: overview
 ms.date: 11/15/2024
 ---

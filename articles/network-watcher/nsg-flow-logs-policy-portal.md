@@ -29,7 +29,7 @@ To audit your flow logs using the built-in policy, follow these steps:
 
 1. In the search box at the top of the portal, enter *policy*. Select **Policy** from the search results.
 
-    :::image type="content" source="./media/nsg-flow-logs-policy-portal/policy-portal-search.png" alt-text="Screenshot of searching for Azure Policy in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/policy-portal-search.png":::
+    :::image type="content" source="./media/policy-portal-search.png" alt-text="Screenshot that shows how to search for Azure Policy in the Azure portal." lightbox="./media/policy-portal-search.png":::
 
 1. Select **Assignments**, and then select **Assign policy**.
 
@@ -69,7 +69,7 @@ To assign the *deployIfNotExists* policy:
 
 1. In the search box at the top of the portal, enter *policy*. Select **Policy** from the search results.
 
-    :::image type="content" source="./media/nsg-flow-logs-policy-portal/policy-portal-search.png" alt-text="Screenshot of searching for Azure Policy in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/policy-portal-search.png":::
+    :::image type="content" source="./media/policy-portal-search.png" alt-text="Screenshot that shows how to search for Azure Policy in the Azure portal." lightbox="./media/policy-portal-search.png":::
 
 1. Select **Assignments**, and then select **Assign policy**.
 
@@ -92,7 +92,7 @@ To assign the *deployIfNotExists* policy:
     | Setting | Value |
     | --- | --- |
     | **NSG Region** | Select the region of your network security group that you're targeting with the policy. |
-    | **Storage id** | Enter the full resource ID of the storage account. The storage account must be in the same region as the network security group. The format of storage resource ID is `/subscriptions/<SubscriptionID>/resourceGroups/<ResouceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>`. |
+    | **Storage id** | Enter the full resource ID of the storage account. The storage account must be in the same region as the network security group. The format of storage resource ID is `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>`. |
     | **Network Watchers RG** | Select the resource group of your Azure Network Watcher instance. |
     | **Network Watcher name** | Enter the name of your Network Watcher instance. |
 

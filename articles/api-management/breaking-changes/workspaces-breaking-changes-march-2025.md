@@ -65,7 +65,7 @@ The following are abbreviated steps to add a workspace gateway to a workspace. F
 
 > [!NOTE]
 > * The workspace gateway incurs additional charges. For more information, see [API Management pricing](https://aka.ms/apimpricing).
-> * API Management currently supports a dedicated gateway per workspace only. If this is impacting your migration plans, see the workspaces roadmap in the [workspaces GA announcement](https://aka.ms/apim/workspaces/ga-announcement).
+> * We're introducing the ability to associate multiple workspaces with a workspace gateway, helping organizations manage APIs with workspaces at a lower cost. This feature is being rolled out starting in December 2024 and it may not be available to all eligible services before January. [Learn more](https://aka.ms/apim/workspaces/sharedgateway)
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **Workspaces**.

@@ -4,7 +4,7 @@ description: Learn to use code interpreter sessions in LlamaIndex on Azure Conta
 services: container-apps
 author: anthonychu
 ms.service: azure-container-apps
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, ignite-2024
 ms.topic: tutorial
 ms.date: 10/11/2024
 ms.author: antchu
@@ -46,7 +46,7 @@ The following lines of code instantiate a *AzureCodeInterpreterToolSpec* and pro
 
 ```python
 code_interpreter_tool = AzureCodeInterpreterToolSpec(
-    pool_managment_endpoint=pool_management_endpoint,
+    pool_management_endpoint=pool_management_endpoint,
 )
 agent = ReActAgent.from_tools(code_interpreter_tool.to_tool_list(), llm=llm, verbose=True)
 ```

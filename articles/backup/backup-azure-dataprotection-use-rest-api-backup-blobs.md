@@ -6,8 +6,8 @@ ms.date: 07/24/2024
 ms.assetid: 7c244b94-d736-40a8-b94d-c72077080bbe
 ms.service: azure-backup
 ms.custom: engagement-fy23
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up blobs in a storage account using Azure Data Protection via REST API
@@ -313,7 +313,7 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
           "innerError": {
             "code": "UserErrorMissingRequiredPermissions",
             "additionalInfo": {
-              "DetailedNonLocalisedMessage": "Validate for Protection failed. Exception Message: The client 'a8b24f84-f43c-45b3-aa54-e3f6d54d31a6' with object id 'a8b24f84-f43c-45b3-aa54-e3f6d54d31a6' does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/read' over scope '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/RG-BlobBackup/providers/Microsoft.Storage/storageAccounts/msblobbackup/providers/Microsoft.Authorization' or the scope is invalid. If access was recently granted, please refresh your credentials."
+              "DetailedNonLocalisedMessage": "Validate for Protection failed. Exception Message: The client '00001111-aaaa-2222-bbbb-3333cccc4444' with object id 'aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb' does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/read' over scope '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/RG-BlobBackup/providers/Microsoft.Storage/storageAccounts/msblobbackup/providers/Microsoft.Authorization' or the scope is invalid. If access was recently granted, please refresh your credentials."
             }
           },
           "isRetryable": false,

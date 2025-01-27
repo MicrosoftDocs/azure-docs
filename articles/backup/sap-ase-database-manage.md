@@ -4,8 +4,10 @@ description: In this article, learn the common tasks for managing and monitoring
 ms.topic: how-to
 ms.date: 11/19/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.custom:
+  - ignite-2024
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Manage and monitor backed-up SAP ASE databases (preview)

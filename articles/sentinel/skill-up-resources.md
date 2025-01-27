@@ -172,7 +172,7 @@ The first piece of information you see for each connector is its *data ingestion
 | ----------- | ----------- |
 | Azure service-to-service integration     | [Connect to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md)     |
 | Common Event Format (CEF) over Syslog	  |[Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md)|
-| Microsoft Sentinel Data Collector API | [Connect your data source to the Microsoft Sentinel Data Collector API to ingest data](connect-rest-api-template.md) |
+| Microsoft Sentinel Data Collector API | [Connect with the Log Ingestion API](create-custom-connector.md#connect-with-the-log-ingestion-api) |
 | Azure Functions and the REST API | [Use Azure Functions to connect Microsoft Sentinel to your data source](connect-azure-functions-template.md) |
 | Syslog | [Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md) |
 | Custom logs | [Custom Logs via AMA data connector - Configure data ingestion to Microsoft Sentinel from specific applications](unified-connector-custom-device.md) |
@@ -309,7 +309,7 @@ The current implementation is based on query time normalization, which uses KQL 
     - View the "Understanding normalization in Microsoft Sentinel" webinar: [YouTube](https://www.youtube.com/watch?v=WoGD-JeC7ng) or [presentation](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG).
     - View the "Deep Dive into Microsoft Sentinel normalizing parsers and normalized content" webinar: [YouTube](https://www.youtube.com/watch?v=zaqblyjQW6k), [MP3](https://aka.ms/AS_Normalizing_Parsers_and_Normalized_Content_11AUG2021_MP4), or [presentation](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM).
 
-- **Parsers** map existing data to the normalized schemas. You implement parsers by using [KQL functions](/azure/data-explorer/kusto/query/functions/user-defined-functions). View the "Extend and manage ASIM: Developing, testing and deploying parsers" webinar: [YouTube](https://youtu.be/NHLdcuJNqKw) or [presentation](https://1drv.ms/b/s!AnEPjr8tHcNmk0_k0zs21rL7euHp?e=5XkTnW).
+- **Parsers** map existing data to the normalized schemas. You implement parsers by using [KQL functions](/kusto/query/functions/user-defined-functions?view=microsoft-sentinel&preserve-view=true). View the "Extend and manage ASIM: Developing, testing and deploying parsers" webinar: [YouTube](https://youtu.be/NHLdcuJNqKw) or [presentation](https://1drv.ms/b/s!AnEPjr8tHcNmk0_k0zs21rL7euHp?e=5XkTnW).
 
 - **Content** for each normalized schema includes analytics rules, workbooks, and hunting queries. This content works on any normalized data without the need to create source-specific content.
 
@@ -362,7 +362,7 @@ In this section, we grouped the modules that help you learn how to create such c
 
 ### Module 10: Kusto Query Language
 
-Most Microsoft Sentinel capabilities use [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/). When you search in your logs, write rules, create hunting queries, or design workbooks, you use KQL.  
+Most Microsoft Sentinel capabilities use [Kusto Query Language (KQL)](/kusto/query/?view=microsoft-sentinel&preserve-view=true). When you search in your logs, write rules, create hunting queries, or design workbooks, you use KQL.  
 
 The next section on writing rules explains how to use KQL in the specific context of SIEM rules.
 
@@ -518,7 +518,7 @@ Microsoft Sentinel solutions provide in-product discoverability, single-step dep
 
 ### Module 16: Handling incidents
 
-After you build your SOC, you need to start using it. The "day in an SOC analyst's life" webinar ([YouTube](https://www.youtube.com/watch?v=HloK6Ay4h1M&ab_channel=MicrosoftSecurityCommunity), [MP4](https://onedrive.live.com/?authkey=%21ACD%5F1nY2ND8MOmg&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21273&parId=66C31D2DBF8E0F71%21271&o=OneUp), or [presentation](https://onedrive.live.com/?authkey=%21AAvOR9OSD51OZ8c&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21272&parId=66C31D2DBF8E0F71%21271&o=OneUp)) walks you through using Microsoft Sentinel in the SOC to *triage*, *investigate*, and *respond* to incidents.
+After you build your SOC, you need to start using it. The "day in an SOC analyst's life" webinar ([YouTube](https://www.youtube.com/watch?v=HloK6Ay4h1M&ab_channel=MicrosoftSecurityCommunity)) walks you through using Microsoft Sentinel in the SOC to *triage*, *investigate*, and *respond* to incidents.
 
 To help enable your teams to collaborate seamlessly across the organization  and with external stakeholders, see [Integrating with Microsoft Teams directly from Microsoft Sentinel](collaborate-in-microsoft-teams.md). And view the ["Decrease your SOC’s MTTR (Mean Time to Respond) by integrating Microsoft Sentinel with Microsoft Teams"](https://www.youtube.com/watch?v=0REgc2jB560&ab_channel=MicrosoftSecurityCommunity) webinar.
 

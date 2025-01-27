@@ -4,6 +4,8 @@ metadata:
   description: Learn the answers to common questions, patterns, and best practices for Azure Managed Redis
   ms.date: 11/15/2024
   ms.topic: faq
+  ms.custom:
+    - ignite-2024
 title: Azure Managed Redis (preview) FAQ
 summary: |
   Learn the answers to common questions, patterns, and best practices for Azure Managed Redis (preview).

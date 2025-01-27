@@ -148,7 +148,7 @@ $NewKvArguments = @{
 # Create the key vault.
 $KeyVault = New-AzKeyVault @NewKvArguments
 
-# Get the UPN of the currently loggged in user.
+# Get the UPN of the currently logged in user.
 $MyAccountUpn = (Get-AzADUser -SignedIn).UserPrincipalName
 
 # Setup the parameters to create the role assignment.

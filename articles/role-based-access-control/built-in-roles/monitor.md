@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -433,7 +433,10 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/savedSearches/* | Read/write/delete log analytics saved searches. |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/search/action | Executes a search query |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/sharedKeys/action | Retrieves the shared keys for the workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace. |
+> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/sharedKeys/read | Retrieves the shared keys for the workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace. |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/storageinsightconfigs/* | Read/write/delete log analytics storage insight configurations. |
+> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/locations/workspaces/failover/action | Initiates workspace failover to replication location. |
+> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/failback/action | Initiates workspace failback. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/smartDetectorAlertRules/* |  |
 > | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/actionRules/* |  |
@@ -491,7 +494,10 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
         "Microsoft.OperationalInsights/workspaces/savedSearches/*",
         "Microsoft.OperationalInsights/workspaces/search/action",
         "Microsoft.OperationalInsights/workspaces/sharedKeys/action",
+        "Microsoft.OperationalInsights/workspaces/sharedKeys/read",
         "Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*",
+        "Microsoft.OperationalInsights/locations/workspaces/failover/action",
+        "Microsoft.OperationalInsights/workspaces/failback/action",
         "Microsoft.Support/*",
         "Microsoft.AlertsManagement/smartDetectorAlertRules/*",
         "Microsoft.AlertsManagement/actionRules/*",

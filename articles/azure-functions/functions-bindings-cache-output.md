@@ -1,11 +1,11 @@
 ---
 title: Using Redis Output bindings with Azure Functions for Azure Cache for Redis
-description: Learn how to use Redis output binding on an Azure Functions. 
+description: Learn how to use Redis output binding on an Azure Functions.
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ms.author: franlanglois
 ms.service: azure-functions
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, ignite-2024
 ms.topic: reference
 ms.date: 07/12/2024
 ---

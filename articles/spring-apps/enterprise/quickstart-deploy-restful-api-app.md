@@ -236,22 +236,22 @@ Use the following steps to access the RESTful APIs of the `ToDo` app in the Swag
 ## 7. Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Deploy an event-driven application to Azure Spring Apps](quickstart-deploy-event-driven-app.md)
+> [Quickstart: Deploy an event-driven application to Azure Spring Apps](../basic-standard/quickstart-deploy-event-driven-app.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Deploy microservice applications to Azure Spring Apps](quickstart-deploy-microservice-apps.md)
+> [Quickstart: Deploy microservice applications to Azure Spring Apps](../basic-standard/quickstart-deploy-microservice-apps.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Structured application log for Azure Spring Apps](structured-app-log.md)
+> [Structured application log for Azure Spring Apps](../basic-standard/structured-app-log.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Map an existing custom domain to Azure Spring Apps](how-to-custom-domain.md)
+> [Map an existing custom domain to Azure Spring Apps](../basic-standard/how-to-custom-domain.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Use Azure Spring Apps CI/CD with GitHub Actions](how-to-github-actions.md)
+> [Use Azure Spring Apps CI/CD with GitHub Actions](../basic-standard/how-to-github-actions.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Automate application deployments to Azure Spring Apps](how-to-cicd.md)
+> [Automate application deployments to Azure Spring Apps](../basic-standard/how-to-cicd.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 For more information, see the following articles:
 

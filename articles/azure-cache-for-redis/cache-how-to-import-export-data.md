@@ -5,9 +5,9 @@ description: Learn how to import and export data to and from blob storage with y
 
 
 ms.topic: conceptual
+ms.custom:
+  - ignite-2024
 ms.date: 06/26/2023
-
-
 ---
 # Import and Export data in Azure Cache for Redis
 

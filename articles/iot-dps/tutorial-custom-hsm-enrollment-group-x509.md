@@ -1426,7 +1426,7 @@ When you're finished testing and exploring this device client sample, use the fo
 
 2. Select your IoT hub.
 
-3. In the **Explorers** menu, select **IoT devices**.
+3. In the **Device management** menu, select **Devices**.
 
 4. Select the check box next to the device ID of the devices you registered in this tutorial. For example, *device-01* and *device-02*.
 

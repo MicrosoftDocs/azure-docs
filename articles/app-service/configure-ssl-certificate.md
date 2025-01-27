@@ -341,6 +341,9 @@ This is only supported for Windows container apps in multi-tenant App Service. I
 ### Can I load a private CA certificate in my App Service Trusted Root Store?
 You can load your own CA certificate into the Trusted Root Store in [App Service Environment version 3](./environment/overview-certificates.md). You can't modify the list of Trusted Root Certificates in App Service (multi-tenant). For more information on App Service multi-tenant vs. single-tenant, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
 
+### Can App Service Certificate be used for other services?
+Yes, certificates purchased via App Service Certificate can be exported and used with Application Gateway or other services. Refer to the following blog article for more information: [Creating a local PFX copy of App Service Certificate](https://azure.github.io/AppService/2017/02/24/Creating-a-local-PFX-copy-of-App-Service-Certificate.html).
+
 ## More resources
 
 * [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)

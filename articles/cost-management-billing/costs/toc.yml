@@ -313,6 +313,8 @@
         href: ../automate/migrate-consumption-usage-details-api.md
       - name: Marketplaces API
         href: ../automate/migrate-consumption-marketplaces-api.md
+    - name: Transition from Consumption APIs to Cost Management APIs
+      href: ../automate/transition-consumption-apis-cost-management-apis.md
   - name: Reference
     items:
     - name: Exports API

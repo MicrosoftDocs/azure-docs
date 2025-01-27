@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 09/04/2024
+ms.date: 01/22/2025
 ms.author: banders
 # customer intent: As a reservation purchaser, I want learn how to exchange or refund Azure reservations.
 ---
@@ -20,9 +20,9 @@ You can also exchange a reservation to purchase another reservation of a similar
 ## Reservation exchange policy changes
 
 > [!NOTE]
-> Initially planned to end on January 1, 2024, the availability of Azure compute reservation exchanges for Azure Virtual Machine, Azure Dedicated Host and Azure App Service has been extended **until further notice**.
+> Initially planned to end on January 1, 2024, the availability of Azure compute reservation exchanges for Azure Virtual Machine, Azure Dedicated Host and Azure App Service was extended **until further notice**.
 >
->Launched in October 2022, the [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute) aims at providing savings on consistent spend, across different compute services, regardless of region. With savings plan's automatic flexibility, we've updated our reservations exchange policy. While [instance size flexibility for VMs](/azure/virtual-machines/reserved-vm-instance-size-flexibility) remains post-grace period, exchanges of instance series or regions for Azure Virtual Machine, Azure Dedicated Host and Azure App Service reservations will no longer be supported.
+>Launched in October 2022, the [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute) aims at providing savings on consistent spend, across different compute services, regardless of region. With savings plan's automatic flexibility, we updated our reservations exchange policy. While [instance size flexibility for VMs](/azure/virtual-machines/reserved-vm-instance-size-flexibility) remains post-grace period, exchanges of instance series or regions for Azure Virtual Machine, Azure Dedicated Host and Azure App Service reservations will no longer be supported.
 >
 >You may continue [exchanging](exchange-and-refund-azure-reservations.md) your compute reservations for different instance series and regions until we notify you again, which will be **at least 6 months in advance**. In addition, any compute reservations purchased during this extended grace period will retain the right to **one more exchange after the grace period ends**. The extended grace period allows you to better assess your cost savings commitment needs and plan effectively. For more information, see [Changes to the Azure reservation exchange policy](reservation-exchange-policy-changes.md).
 >
@@ -39,6 +39,8 @@ Not all reservations are eligible for exchange. For example, you can't exchange 
 - Synapse Analytics Pre-purchase plan
 - Red Hat plans
 - SUSE Linux plans
+- Microsoft Defender for Cloud Pre-Purchase Plan
+- Microsoft Sentinel Pre-Purchase Plan
 
 You can also refund reservations, but the sum total of all canceled reservation commitment in your billing scope (such as EA, Microsoft Customer Agreement, and Microsoft Partner Agreement) can't exceed USD 50,000 in a 12 month rolling window.
 
@@ -51,6 +53,8 @@ The following reservations aren't eligible for refunds:
 - Azure VMware solution by CloudSimple
 - Red Hat plans
 - SUSE Linux plans
+- Microsoft Defender for Cloud Pre-Purchase Plan
+- Microsoft Sentinel Pre-Purchase Plan
 
 ## Prerequisites
 
@@ -136,7 +140,19 @@ Azure has the following policies for cancellations, exchanges, and refunds.
 **Refund policies**
 
 - We're currently not charging an early termination fee, but in the future there might be a 12% early termination fee for cancellations.
-- The total canceled commitment can't exceed 50,000 USD in a 12-month rolling window for a billing profile or single enrollment. For example, assume you have a three-year reservation (36 months). It costs 100 USD per month. It gets refunded in the 12th month. The canceled commitment is 2,400 USD (for the remaining 24 months). After the refund, your new available limit for refund is 47,600 USD (50,000-2,400). In 365 days from the refund, the 47,600 USD limit increases by 2,400 USD. Your new pool is 50,000 USD. Any other reservation cancellation for the billing profile or EA enrollment depletes the same pool, and the same replenishment logic applies. This example also applies to the monthly payment method.
+- The total canceled commitment can't exceed 50,000 USD in a 12-month rolling window for a billing profile or single enrollment. 
+    - For example, assume you have a three-year reservation (36 months). 
+        - It costs 100 USD per month. It gets refunded in the 12th month. 
+        - The canceled commitment is 2,400 USD (for the remaining 24 months). 
+        - After the refund, your new available limit for refund is 47,600 USD (50,000-2,400). 
+        - In 365 days from the refund, the 47,600 USD limit increases by 2,400 USD. 
+        - Your new pool is 50,000 USD. Any other reservation cancellation for the billing profile or EA enrollment depletes the same pool, and the same replenishment logic applies. 
+        - This example also applies to the monthly payment method.
+    - In another example, assume you bought a three-year reservation (36 months) with a monthly payment. 
+        - It costs 3,000 USD per month for a total commitment of 108,000 USD. 
+        - Because of the 50,000 USD cancellation threshold, you can’t cancel the reservation until you’ve spent 58,000 USD of your commitment. 
+        - After spending 58,000 USD of your commitment, you have 50,000 remaining that you can cancel to apply to a refund or reservation exchange. 
+        - This example also applies to the monthly payment method.
 - Azure doesn't process any refund that exceeds the 50,000 USD limit in a 12-month window for a billing profile or EA enrollment.
     - Refunds that result from an exchange don't count against the refund limit.
 - Refunds are calculated based on the lowest price of either your purchase price or the current price of the reservation.

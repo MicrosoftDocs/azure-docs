@@ -70,12 +70,18 @@ items:
     href: logic-apps-serverless-overview.md
   - name: Business rules engine integration
     href: rules-engine/rules-engine-overview.md
+  - name: AI playbook and solution development
+    href: ai-resources.md
   - name: B2B integration & EDI processing
     href: logic-apps-enterprise-integration-overview.md
   - name: Mainframe modernization
     href: mainframe-modernization-overview.md
-  - name: Business continuity and disaster recovery
-    href: business-continuity-disaster-recovery-guidance.md
+  - name: Reliability
+    items:
+    - name: Reliability in Azure Logic Apps
+      href: ../reliability/reliability-logic-apps.md?toc=/azure/logic-apps/toc.json
+    - name: Multi-region deployments for disaster recovery
+      href: multi-region-disaster-recovery.md
   - name: Security
     items:
     - name: Security controls by Azure Policy
@@ -173,14 +179,14 @@ items:
       href: azure-arc-enabled-logic-apps-create-deploy-workflows.md
   - name: Migrate
     items:
-    - name: Migrate from BizTalk to Azure
+    - name: Migrate from BizTalk to Azure Logic Apps
       items:
       - name: Why migrate from BizTalk Server?
-        href: biztalk-server-to-azure-integration-services-overview.md
+        href: biztalk-server-migration-overview.md
       - name: Which integration services to choose
         href: azure-integration-services-choose-capabilities.md
       - name: Migration options and best practices
-        href: biztalk-server-azure-integration-services-migration-approaches.md
+        href: biztalk-server-migration-approaches.md
   - name: Develop
     items:
     - name: Build your workflow with a trigger or action
@@ -305,10 +311,14 @@ items:
       items:
       - name: Create maps in Visual Studio Code
         href: create-maps-data-transformation-visual-studio-code.md
-      - name: Transform XML
-        href: logic-apps-enterprise-integration-transform.md
       - name: Process XML
         href: logic-apps-enterprise-integration-xml.md
+      - name: Parse XML
+        href: logic-apps-enterprise-integration-xml-parse.md
+      - name: Compose XML
+        href: logic-apps-enterprise-integration-xml-compose.md
+      - name: Transform XML
+        href: logic-apps-enterprise-integration-transform.md
       - name: Validate XML
         href: logic-apps-enterprise-integration-xml-validation.md
       - name: Transform JSON
@@ -479,13 +489,13 @@ items:
         href: tracking-schemas-as2-x12-custom.md
       - name: Create monitoring and tracking queries
         href: create-monitoring-tracking-queries.md
-  - name: Business continuity and disaster recovery
+  - name: Reliability
     items:
-    - name: Set up zone redundant logic apps
+    - name: Enable zone redundancy
       href: set-up-zone-redundancy-availability-zones.md
-    - name: Replicate Azure resources for business continuity and disaster recovery
+    - name: Create replication tasks for Azure resources
       href: create-replication-tasks-azure-resources.md
-    - name: Build a B2B business continuity and disaster recovery plan
+    - name: Set up cross-region disaster recovery for integration accounts
       href: logic-apps-enterprise-integration-b2b-business-continuity.md
   - name: Examples, scenarios, and walkthroughs
     href: logic-apps-examples-and-scenarios.md

@@ -5,8 +5,8 @@ ms.topic: reference
 ms.date: 10/30/2024
 ms.custom: references_regions 
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Support matrix for backup of SAP HANA databases on Azure VMs
@@ -36,7 +36,7 @@ Azure Backup supports the backup of SAP HANA databases to Azure. This article su
 | **Special configurations** |                                                              | SAP HANA + Dynamic Tiering <br>  Cloning through LaMa        |
 | **Compression** | You can enable HANA Native compression via the Backup policy. [See the SAP HANA document](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/86943e9f8d5343c59577755edff8296b.html). |       |
 | **Multi-streaming backup** | You can increase your streaming backup throughput from *420 MBps* to *1.5 GBps*. [Learn more](#support-for-multistreaming-data-backups). |      |
-| **File System types** | File Systems `ext3` and `xfs` are supported for SAP HANA database instance snapshots backup. | Other File Sustems aren't supported. |
+| **File System types** | File Systems `ext3` and `xfs` are supported for SAP HANA database instance snapshots backup. | Other File Systems aren't supported. |
 
 ------
 

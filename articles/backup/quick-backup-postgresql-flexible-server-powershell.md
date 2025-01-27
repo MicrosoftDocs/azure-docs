@@ -1,15 +1,17 @@
 ---
 title: "Quickstart: Configure Backup for an Azure PostgreSQL - Flexible server using PowerShell"
 description: Learn how to back up your Azure PostgreSQL - Flexible server with PowerShell.
-ms.devlang: terraform 
+ms.devlang: terraform
+ms.custom:
+  - ignite-2024
 ms.topic: quickstart
 ms.date: 10/07/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
-#  Back up an Azure PostgreSQL - Fleixble servers with PowerShell (preview)
+#  Back up an Azure PostgreSQL - Flexible servers with PowerShell (preview)
 
 [Azure Backup](backup-azure-database-postgresql-flex-overview.md) allows you to back up your Azure PostgreSQL - Flexible servers using multiple options - such as Azure portal, PowerShell, CLI, Azure Resource Manager, Bicep, and so on. This article describes how to back up an Azure PostgreSQL - Flexible servers with PowerShell.
 

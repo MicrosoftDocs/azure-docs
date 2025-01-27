@@ -2,7 +2,7 @@
 ms.topic: include
 author: sipastak
 ms.author: sipastak
-ms.date: 11/07/2024
+ms.date: 01/24/2025
 ---
 
 ## Supported client versions
@@ -11,28 +11,59 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |--|--|--|
-| Public | 1.2.5709 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.5802 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Public | 1.2.5807 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Insider | 1.2.5910 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
-## Updates for version 1.2.5802 (Insider) 
+## Updates for version 1.2.5910 (Insider) 
 
-*Date published: November 6, 2024*   
+*Date published: January 21, 2025* 
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) 
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139368) 
 
-- Added list of graphics codecs to the Connection Information dialog. 
-- Fixed an issue where the bottom portion of the Windows Authentication dialog could be cut off when connected to a RemoteApp.
-- Fixed an issue where the Connection Information dialog showed the lowest round-trip time (RTT) instead of average RTT.
-- Fixed an issue where UDP type was incorrectly reported as "UDP (Private Network)" for all UDP connections in the Connection Info dialog. 
+- Fixed an issue for [CVE-2024-49105](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49105).
+- Added support to optimize screen and app sharing.
+- Resolved an issue with keyboard shortcut <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Arrow</kbd> in a RemoteApp scenario.
+- Improved the session relaunch experience, removing the requirement that the previous session fully process telemetry before the next session launches.
 
 > [!NOTE]
-> This version replaced the Insider versions 1.2.5799, and 1.2.5800. Changes noted above reflect all changes for these versions. 
+> This version replaced the Insider versions 1.2.5900, 1.2.5905, and 1.2.5906. This list reflects all changes for these versions. 
+  
+## Updates for version 1.2.5807 
+ 
+*Date published: January 7, 2025*
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139370) 
+
+- Fixed an issue for [CVE-2024-49105](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49105).
+- Added list of graphics codecs to the Connection Information dialog. 
+- Fixed an issue where the bottom portion of the Windows Authentication dialog could be cut off when connected to a RemoteApp.  
+- Fixed an issue where the Connection Information dialog showed the lowest RTT instead of average RTT. 
+- Fixed an issue where UDP type was incorrectly reported as "UDP (Private Network)" for all UDP connections in the Connection Info dialog.
+ 
+> [!NOTE]
+> This version contains all changes from Insider versions 1.2.5799, 1.2.5800, 1.2.5802, 1.2.5804, and 1.2.5806. Changes noted above reflect all changes for these versions.  
+ 
+## Updates for version 1.2.5716 
+
+*Date published: December 10, 2024*
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139370) 
+
+- Fixed an issue for [CVE-2024-49105](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49105). 
+
+## Updates for version 1.2.5713
+
+*Date published: November 12, 2024*   
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139370) 
+
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 
 ## Updates for version 1.2.5709
 
 *Date published: October 8, 2024*
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) 
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139370) 
 
 - Fixed an issue for [CVE-2024-43533](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-43533).
 - Multimedia redirection call redirection is now generally available.
@@ -44,7 +75,7 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Wi
 - Fixed an issue where initiating a screen capture while Teams is open as a RemoteApp caused the client to crash.  
 - Fixed an issue where the client crashed for users who have Windows N SKUs without the media framework. 
 - Addressed an issue that reduces the chance of encountering a **low virtual memory** error on reconnect attempts.
-- Made an improvement where new session windows will not become the focused windows. 
+- Made an improvement where new session windows won't become the focused windows. 
 - Fixed a bug to ensure that the `screen mode id` setting in an RDP file is honored.
 - Fixed issue where Microsoft Teams rendered into the wrong window when multiple Remote Desktop session windows were open. 
 
@@ -59,7 +90,7 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Wi
 - Addressed an issue that reduces the chance of encountering a “low virtual memory” error on reconnect attempts.
 
 > [!NOTE]
-> This hotfix version replaced the public version 1.2.5620 and has the same release notes with the addition of the the above fixes. 
+> This hotfix version replaced the public version 1.2.5620 and has the same release notes with the addition of the above fixes. 
 
 ## Updates for version 1.2.5620
 
@@ -83,10 +114,10 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Wi
 
 In this release, we made the following changes:
 
-- Stability and security improvements for printer redirections. 
-- Improved experience for SSO Lock Screen dialogs.   
-- Fixed an issue with SSO login failure. 
-- Fixed an issue causing the client to crash on disconnect. 
+- Stability and security improvements for printer redirection.
+- Improved the experience for single sign-on lock screen dialogs.
+- Fixed an issue with single sign-on sign-in failure.
+- Fixed an issue causing the client to crash on disconnect.
 
 ## Updates for version 1.2.5559
 
@@ -114,7 +145,7 @@ In this release, we made the following changes:
 
 In this release, we made the following changes:
 
-- Fixed an issue where a minimized RemoteApp window will maximize when the lock screen timer runs out for a RemoteApp session.
+- Fixed an issue where a minimized RemoteApp window maximizes when the lock screen timer runs out for a RemoteApp session.
 - Improved usability of the connection bar by reducing the amount of time it displays on the screen after the mouse moves away.
 
 ## Updates for version 1.2.5454
@@ -156,8 +187,8 @@ In this release, we made the following changes:
 
 In this release, we made the following changes:
 
-- When subscribing to feeds via URL, all message states for the status message box can be announced by screen readers. 
-- When users search for workspaces via URL, they now see the searching status when entering URL-formatted input and receive an error if results are not found. 
+- When a user subscribes to feeds via URL, all message states for the status message box can be announced by screen readers. 
+- When users search for workspaces via URL, they now see the searching status when entering URL-formatted input and receive an error if results aren't found. 
 - Improved error messaging for end users when their saved credentials expire. 
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 
@@ -175,7 +206,7 @@ In this release, we made the following changes:
 
 *Date published: April 18, 2024*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed an issue that caused the RemoteApp window to appear stretched.
 - When users enter text into the email or URL field to search for a workspace while subscribing to a feed, screen readers now announce whether the client can find the workspace.
@@ -184,7 +215,7 @@ In this release, we've made the following changes:
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 
 > [!NOTE]
-> This release was originally version 1.2.5326, but we made a hotfix after receiving user reports about issues that affected the MFA prompt and tenant URLs. Version 1.2.5331, which fixes these issues, has replaced version 1.2.5326.
+> This release was originally version 1.2.5326, but we made a hotfix after receiving user reports about issues that affected the MFA prompt and tenant URLs. Version 1.2.5331, which fixes these issues, replaces version 1.2.5326.
 
 ## Updates for version 1.2.5255
 
@@ -193,7 +224,7 @@ In this release, we've made the following changes:
 > [!NOTE]
 > This version includes all the latest updates made in public build [1.2.5252](#updates-for-version-125252) and Insider builds [1.2.5248](#updates-for-version-125248) and [1.2.5126](#updates-for-version-125126). 
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Fixed an issue that caused connections to stop working when users tried to connect from a Private Network to Azure Virtual Desktop environment.
 
@@ -211,7 +242,7 @@ In this release, we've made the following change:
 >[!NOTE]
 >This version was released as a Public version on March 5, 2024 but was replaced by [version 1.2.5254](#updates-for-version-125254) on March 6, 2024.
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Devices no longer go into idle mode when video playback is active. 
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
@@ -222,7 +253,7 @@ In this release, we've made the following changes:
 
 >[!NOTE]
 >This version was an Insiders version that was replaced by version 1.2.5252 and never released to Public.
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed an issue that caused artifacts to appear on the screen during RemoteApp sessions.
 - Fixed an issue where resizing the Teams video call window caused the client to temporarily stop responding.
@@ -235,7 +266,7 @@ In this release, we've made the following changes:
 
 >[!NOTE]
 >This version was an Insiders version that was replaced by version 1.2.5248 and never released to Public.
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed the regression that caused a display issue when a user selects monitors for their session. 
 - Made the following accessibility improvements: 
@@ -247,7 +278,7 @@ In this release, we've made the following changes:
 
 *Published: February 7, 2024*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed the regression that caused a display issue when a user selects monitors for their session.
 
@@ -255,7 +286,7 @@ In this release, we've made the following changes:
 
 *Published: January 9, 2024*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed the [CVE-2024-21307](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21307) security vulnerability.
 - Improved accessibility by making the **Change the size of text and apps** drop-down menu more visible in the High Contrast theme.
@@ -272,7 +303,7 @@ In this release, we've made the following changes:
 > [!NOTE]
 > We replaced this Insiders version with [version 1.2.5102](#updates-for-version-125105). As a result, version 1.2.5018 is no longer available for download.
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 
@@ -280,7 +311,7 @@ In this release, we've made the following change:
 
 *Published: November 7, 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added a link to the troubleshooting documentation to error messages to help users resolve minor issues without needing to contact Microsoft Support. 
 - Improved the connection bar user interface (UI). 
@@ -293,7 +324,7 @@ In this release, we've made the following changes:
 
 *Published: October 17, 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added new parameters for multiple monitor configuration when connecting to a remote resource using the [Uniform Resource Identifier (URI) scheme](../uri-scheme.md).
 - Added support for the following languages: Czech (Czechia), Hungarian (Hungary), Indonesian (Indonesia), Korean (Korea), Portuguese (Portugal), Turkish (Türkiye).
@@ -307,7 +338,7 @@ In this release, we've made the following changes:
 
 *Published: October 6, 2023*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Fixed the [CVE-2023-5217](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-5217) security vulnerability.
 
@@ -315,25 +346,25 @@ In this release, we've made the following change:
 
 *Published: September 19, 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
-- Fixed an issue when using the default display settings and a change is made to the system display settings, where the bar does not show when hovering over top of screen after it is hidden.
+- Fixed an issue when using the default display settings and a change is made to the system display settings, where the bar doesn't show when hovering over top of screen after it's hidden.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Accessibility improvements:
-   - Narrator now announces the view mode selector as "*View combo box*", instead of "*Tile view combo box*" or "*List view combo box*".
+   - Narrator now announces the view mode selector as "*View combo box*" instead of "*Tile view combo box*" or "*List view combo box*".
    - Narrator now focuses on and announces **Learn more** hyperlinks.
    - Keyboard focus is now set correctly when a warning dialog loads.
    - Tooltip for the close button on the **About** panel now dismisses when keyboard focus moves.
    - Keyboard focus is now properly displayed for certain drop-down selectors in the **Settings** panel for published desktops.
 
 > [!NOTE]
-> This release was originally version 1.2.4577, but we made a hotfix after reports that connections to machines with watermarking policy enabled were failing. Version 1.2.4582, which fixes this issue, has replaced version 1.2.4577.
+> This release was originally version 1.2.4577, but we made a hotfix after reports that connections to machines with watermarking policy enabled were failing. Version 1.2.4582, which fixes this issue, replaces version 1.2.4577.
 
 ## Updates for version 1.2.4487
 
 *Published: July 21, 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed an issue where the client doesn't auto-reconnect when the gateway WebSocket connection shuts down normally.
 
@@ -341,7 +372,7 @@ In this release, we've made the following changes:
 
 *Published: July 11, 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added a new RDP file property called *allowed security protocols*. This property restricts the list of security protocols the client can negotiate.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
@@ -359,7 +390,7 @@ In this release, we've made the following changes:
 
 *Published: July 6, 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - General improvements to Narrator experience.
 - Fixed an issue that caused the text in the message for subscribing to workspaces to be cut off when the user increases the text size.
@@ -370,7 +401,7 @@ In this release, we've made the following changes:
 
 *Published: June 13, 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed the vulnerability known as [CVE-2023-29362](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-29362).
 - Fixed the vulnerability known as [CVE-2023-29352](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-29352).
@@ -379,7 +410,7 @@ In this release, we've made the following changes:
 
 *Published: June 6, 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Improved connection bar resizing so that resizing the bar to its minimum width doesn't make its buttons disappear.
 - Fixed an application compatibility issue that affected preview versions of Windows.
@@ -392,7 +423,7 @@ In this release, we've made the following changes:
 
 *Published: May 16, 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed an issue where the connection bar remained visible on local sessions when the user changed their contrast themes.
 - Made minor changes to connection bar UI, including improved button sizing.
@@ -403,7 +434,7 @@ In this release, we've made the following changes:
 
 *Published: May 9, 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Redesigned the connection bar for session desktops.
 - Fixed an issue that caused the client to report misleading or incorrect *ErrorCode 0x108* error logs.
@@ -419,7 +450,7 @@ In this release, we've made the following changes:
 
 *Published: March 28, 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - General improvements to Narrator experience.
 - Fixed a bug that caused the client to stop responding when disconnecting from the session early.
@@ -427,37 +458,37 @@ In this release, we've made the following changes:
 - Fixed a bug that caused scale resolution options to not display in display settings for session desktops.
 - Disabled UPnP for non-Insiders customers after reports of connectivity issues.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
-- Updates to multimedia redirection for Azure Virtual Desktop, including the following:
-   - Fixed an issue that caused multimedia redirection for Azure Virtual Desktop to not load for the ARM64 version of the client.
-- Updates to Teams for Azure Virtual Desktop, including the following:
+- Updates to multimedia redirection for Azure Virtual Desktop, including:
+   - Fixed an issue that caused multimedia redirection for Azure Virtual Desktop to not load for the Arm64 version of the client.
+- Updates to Teams for Azure Virtual Desktop, including:
    - Fixed an issue that caused the application window sharing to freeze or show a black screen in scenarios with Topmost window occlusions.
-   - Fixed an issue that caused Teams media optimizations for Azure Virtual Desktop to not load for the ARM64 version of the client.
+   - Fixed an issue that caused Teams media optimizations for Azure Virtual Desktop to not load for the Arm64 version of the client.
 
 >[!NOTE]
->This release was originally version 1.2.4065, but we made a hotfix after reports that UPnP was causing connectivity issues. version 1.2.4066 has replaced the previous version and has disabled UPnP.
+>This release was originally version 1.2.4065, but we made a hotfix after reports that UPnP was causing connectivity issues. Version 1.2.4066 replaces the previous version and disables UPnP.
 
 ## Updates for version 1.2.3918
 
 *Published: February 7, 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
-- Fixed a bug where refreshes increased memory usage.
+- Fixed a bug where workspace refreshes increased memory usage.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
-- Updates to Teams for Azure Virtual Desktop, including the following:
+- Updates to Teams for Azure Virtual Desktop, including:
    - Bug fix for Background Effects persistence between Teams sessions.
-- Updates to multimedia redirection for Azure Virtual Desktop, including the following:
+- Updates to multimedia redirection for Azure Virtual Desktop, including:
    - Various bug fixes for multimedia redirection video playback redirection.
    - [Multimedia redirection for Azure Virtual Desktop](../multimedia-redirection.md) is now generally available.
 
 >[!IMPORTANT]
->This is the final version of the Remote Desktop client with Windows 7 support. After this version, if you try to use the Remote Desktop client with Windows 7, it may not work as expected. For more information about which versions of Windows the Remote Desktop client currently supports, see [Prerequisites](../users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&tabs=subscribe#prerequisites).
+>This is the final version of the Remote Desktop client with Windows 7 support. After this version, if you try to use the Remote Desktop client with Windows 7, it might not work as expected. For more information about which versions of Windows the Remote Desktop client currently supports, see [Prerequisites](../users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&tabs=subscribe#prerequisites).
 
 ## Updates for version 1.2.3770
 
 *Published: December 14, 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed an issue where the app sometimes entered an infinite loop while disconnecting.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
@@ -468,9 +499,9 @@ In this release, we've made the following changes:
 
 *Published: November 30, 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
-- Added User Datagram Protocol support to the client's ARM64 platform.
+- Added User Datagram Protocol support to the client's Arm64 platform.
 - Fixed an issue where the tooltip didn't disappear when the user moved the mouse cursor away from the tooltip area.
 - Fixed an issue where the application crashes when calling reset manually from the command line.
 - Fixed an issue where the client stops responding when disconnecting, which prevents the user from launching another connection.
@@ -481,7 +512,7 @@ In this release, we've made the following changes:
 
 *Published: October 10, 2022*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Fixed a bug related to tracing that was blocking reconnections.
 
@@ -489,7 +520,7 @@ In this release, we've made the following change:
 
 *Published: October 6, 2022*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Fixed a bug that affected users of some third-party plugins.
 
@@ -497,7 +528,7 @@ In this release, we've made the following change:
 
 *Published: October 4, 2022*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Fixed an issue that caused unexpected disconnects in certain RemoteApp scenarios.
 
@@ -505,7 +536,7 @@ In this release, we've made the following change:
 
 *Published: October 4, 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added banner warning users running client on Windows 7 that support for Windows 7 will end starting January 10, 2023.
 - Added page to installer warning users running client on Windows 7 that support for Windows 7 will end starting January 10, 2023.
@@ -518,10 +549,10 @@ In this release, we've made the following changes:
 
 *Published: September 20, 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Accessibility improvements through increased color contrast in the virtual desktop connection blue bar.
-- Updated connection information dialog to distinguish between Websocket (renamed from TCP), RDP Shortpath for managed networks, and RDP Shortpath for public networks.
+- Updated connection information dialog to distinguish between WebSocket (renamed from TCP), RDP Shortpath for managed networks, and RDP Shortpath for public networks.
 - Fixed bugs.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to Teams for Azure Virtual Desktop, including the following:
@@ -532,7 +563,7 @@ In this release, we've made the following changes:
 
 *Published: September 8, 2022*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Reverted to version 1.2.3401 build to avoid a connectivity issue with older RDP stacks.
 
@@ -540,7 +571,7 @@ In this release, we've made the following change:
 
 *Published: August 2, 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed an issue where the narrator was announcing the **tenant expander** button as **on** or **off** instead of **expanded** or **collapsed**.
 - Fixed an issue where the text size didn't change when the user adjusted the text size system setting.
@@ -550,7 +581,7 @@ In this release, we've made the following changes:
 
 *Published: July 12, 2022*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Fixed the vulnerability known as [CVE-2022-30221](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-30221).
 
@@ -558,7 +589,7 @@ In this release, we've made the following change:
 
 *Published: July 6, 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed an issue where the service couldn't render RemoteApp windows while RemoteFX Advanced Graphics were disabled.
 - Fixed an issue that happened when a user tried to connect to an Azure Virtual Desktop endpoint while using the Remote Desktop Services Transport Layer Security protocol (RDSTLS) with CredSSP disabled, which caused the Windows Desktop client to not prompt the user for credentials. Because the client couldn't authenticate, it would get stuck in an infinite loop of failed connection attempts.
@@ -572,19 +603,19 @@ In this release, we've made the following changes:
 
 *Published: June 2, 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Reduced flicker when application is restored to full-screen mode from minimized state in single-monitor configuration.
 - The client now shows an error message when the user tries to open a connection from the UI, but the connection doesn't launch.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to Teams for Azure Virtual Desktop, including the following:
-  - The new hardware encoding feature increases the video quality (resolution and framerate) of the outgoing camera during Teams calls. Because this feature uses the underlying hardware on the PC and not just software, we're being extra careful to ensure broad compatibility before turning the feature on by default for all users. Therefore, this feature is currently off by default. To get an early preview of the feature, you can enable it on your local machine by creating a registry key at **Computer\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Terminal Server Client\Default\AddIns\WebRTC Redirector\UseHardwareEncoding** as a **DWORD** value and setting it to **1**. To disable the feature, set the key to **0**.
+  - The new hardware encoding feature increases the video quality (resolution and framerate) of the outgoing camera during Teams calls. Because this feature uses the underlying hardware on the PC and not just software, we're being extra careful to ensure broad compatibility before turning on the feature by default for all users. Therefore, this feature is currently off by default. To get an early preview of the feature, you can enable it on your local machine by creating a registry key at **Computer\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Terminal Server Client\Default\AddIns\WebRTC Redirector\UseHardwareEncoding** as a **DWORD** value and setting it to **1**. To disable the feature, set the key to **0**.
 
 ## Updates for version 1.2.3130
 
 *Published: May 10, 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed the vulnerability known as [CVE-2022-22017](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-22017).
 - Fixed the vulnerability known as [CVE-2022-26940](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-26940).
@@ -595,7 +626,7 @@ In this release, we've made the following changes:
 
 *Published: May 3, 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Improved Narrator application experience.
 - Accessibility improvements.
@@ -609,7 +640,7 @@ In this release, we've made the following changes:
 
 *Published: March 29, 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed an issue where Narrator didn't announce grid or list views correctly.
 - Fixed an issue where the `msrdc.exe` process might take a long time to exit after closing the last Azure Virtual Desktop connection if customers have set a very short token expiration policy.
@@ -623,7 +654,7 @@ In this release, we've made the following changes:
 
 *Published: March 15, 2022*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Fixed an issue where the number pad didn't work on initial focus.
 
@@ -631,7 +662,7 @@ In this release, we've made the following change:
 
 *Published: March 8, 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed the vulnerability known as [CVE-2022-21990](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-21990).
 - Fixed the vulnerability known as [CVE-2022-24503](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-24503).
@@ -641,7 +672,7 @@ In this release, we've made the following changes:
 
 *Published: February 23, 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - The Desktop client now supports Ctrl+Alt+arrow key keyboard shortcuts during desktop sessions.
 - Improved graphics performance with certain mouse types.
@@ -655,7 +686,7 @@ In this release, we've made the following changes:
 
 *Published: February 15, 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Improved stability of Azure Active Directory authentication.
 - Fixed an issue that was preventing users from opening multiple .RDP files from different host pools.
@@ -664,7 +695,7 @@ In this release, we've made the following changes:
 
 *Published: January 25, 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed an issue that caused a redirected camera to give incorrect error codes when camera access was restricted in the Privacy settings on the client device. This update should give accurate error messages in apps using the redirected camera.
 - Fixed an issue where the Azure Active Directory credential prompt appeared in the wrong monitor.
@@ -677,7 +708,7 @@ In this release, we've made the following changes:
 
 *Published: January 12, 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed the vulnerability known as [CVE-2019-0887](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2019-0887).
 - Fixed the vulnerability known as [CVE-2022-21850](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-21850).
@@ -688,7 +719,7 @@ In this release, we've made the following changes:
 
 *Published: December 9, 2021*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Fixed an issue where some users were unable to subscribe using the **subscribe with URL** option after updating to version 1.2.2687.0.
 
@@ -696,7 +727,7 @@ In this release, we've made the following change:
 
 *Published: December 2, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Improved manual refresh functionality to acquire new user tokens, which ensures the service can accurately update user access to resources.
 - Fixed an issue where the service sometimes pasted empty frames when a user tried to copy an image from a remotely running Internet Explorer browser to a locally running Word document.
@@ -720,7 +751,7 @@ In this release, we've made the following changes:
 
 *Published: November 9, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed the vulnerability known as [CVE-2021-38665](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-38665).
 - Fixed the vulnerability known as [CVE-2021-38666](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-38666).
@@ -730,7 +761,7 @@ In this release, we've made the following changes:
 
 *Published: October 26, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Updates to Teams for Azure Virtual Desktop, including improvements to camera performance during video calls.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
@@ -739,7 +770,7 @@ In this release, we've made the following changes:
 
 *Published: September 28, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Fixed an issue that caused the client to prompt for credentials a second time after closing a credential prompt window while subscribing.
@@ -751,7 +782,7 @@ In this release, we've made the following changes:
 
 *Published: August 24, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Added updates to Teams on Azure Virtual Desktop, including:
@@ -763,7 +794,7 @@ In this release, we've made the following changes:
 
 *Published: August 10, 2021*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Fixed the security vulnerability known as [CVE-2021-34535](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-34535).
 
@@ -771,7 +802,7 @@ In this release, we've made the following change:
 
 *Published: July 27, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - The client also updates in the background when the auto-update feature is enabled, no remote connection is active, and `msrdcw.exe` isn't running.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
@@ -781,7 +812,7 @@ In this release, we've made the following changes:
 
 *Published: June 22, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Windows Virtual Desktop has been renamed to Azure Virtual Desktop. Learn more about the name change at [our announcement on our blog](https://azure.microsoft.com/blog/azure-virtual-desktop-the-desktop-and-app-virtualization-platform-for-the-hybrid-workplace/).
 - Fixed an issue where the client would ask for authentication after the user ended their session and closed the window.
@@ -792,7 +823,7 @@ In this release, we've made the following changes:
 
 *Published: May 25, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to Teams on Azure Virtual Desktop, including the following:
@@ -803,7 +834,7 @@ In this release, we've made the following changes:
 
 *Published: May 13, 2021*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Fixed the vulnerability known as [CVE-2021-31186](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-31186).
 
@@ -811,14 +842,14 @@ In this release, we've made the following change:
 
 *Published: May 6, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed an issue that caused the client to crash when users selected **Disconnect all sessions** in the system tray.
 - Fixed an issue where the client wouldn't switch to full screen on a single monitor with a docking station.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to Teams on Azure Virtual Desktop, including the following:
   - Added hardware acceleration for video processing outgoing video streams for Windows 10-based clients.
-  - When joining a meeting with both a front-facing and rear-facing or external camera, the front-facing camera will be selected by default.
+  - When joining a meeting with both a front-facing and rear-facing or external camera, the front-facing camera is selected by default.
   - Fixed an issue that made Teams on Azure Virtual Desktop crash while loading on x86-based machines.
   - Fixed an issue that caused striations during screen sharing.
   - Fixed an issue that prevented some people in meetings from seeing incoming video or screen sharing.
@@ -827,7 +858,7 @@ In this release, we've made the following changes:
 
 *Published: March 23, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Updated background installation functionality to perform silently for the client auto-update feature.
 - Fixed an issue where the client forwarded multiple attempts to launch a desktop to the same session. Depending on your group policy configuration, the session host can now allow the creation of multiple sessions for the same user on the same session host or disconnect the previous connection by default. This behavior wasn't consistent before version 1.2.1755.
@@ -843,7 +874,7 @@ In this release, we've made the following changes:
 
 *Published: February 23, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added the Experience Monitor access point to the system tray icon.
 - Fixed an issue where entering an email address into the **Subscribe to a Workplace** tab caused the application to stop responding.
@@ -858,7 +889,7 @@ In this release, we've made the following changes:
 
 *Published: January 26, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added support for the screen capture protection feature for Windows 10 endpoints. To learn more, see [Session host security best practices](../security-guide.md#session-host-security-best-practices).
 - Added support for proxies that require authentication for feed subscription.
@@ -869,7 +900,7 @@ In this release, we've made the following changes:
 
 *Published: December 1, 2020*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added List view for remote resources so that longer app names are readable.
 - Added a notification icon that appears when an update for the client is available.
@@ -878,7 +909,7 @@ In this release, we've made the following changes:
 
 *Published: October 27, 2020*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added the auto-update feature, which allows the client to install the latest updates automatically.
 - The client now distinguishes between different feeds in the Connection Center.
@@ -890,7 +921,7 @@ In this release, we've made the following changes:
 
 *Published: September 22, 2020*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed an issue where single sign-on (SSO) didn't work on Windows 7.
 - Fixed the connection failure that happened when calling or joining a Teams call while another app has an audio stream opened in exclusive mode and when media optimization for Teams is enabled.
@@ -902,7 +933,7 @@ In this release, we've made the following changes:
 
 *Published: August 25, 2020*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added functionality to auto-detect sovereign clouds from the user’s identity.
 - Added functionality to enable custom URL subscriptions for all users.
@@ -915,7 +946,7 @@ In this release, we've made the following changes:
 
 *Published: July 28, 2020*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - You can now be subscribed to Workspaces with multiple user accounts, using the overflow menu (**...**) option on the command bar at the top of the client. To differentiate Workspaces, the Workspace titles now include the username, as do all app shortcuts titles.
 - Added additional information to subscription error messages to improve troubleshooting.
@@ -927,7 +958,7 @@ In this release, we've made the following changes:
 
 *Published: June 23, 2020*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Updated the automatic discovery logic for the **Subscribe** option to support the Azure Resource Manager-integrated version of Azure Virtual Desktop. Customers with only Azure Virtual Desktop resources should no longer need to provide consent for Azure Virtual Desktop (classic).
 - Improved support for high-DPI devices with scale factor up to 400%.
@@ -940,10 +971,10 @@ In this release, we've made the following changes:
 
 *Published: May 27, 2020*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - When subscribing, you can now choose your account instead of typing your email address.
-- Added a new **Subscribe with URL** option that allows you to specify the URL of the Workspace you are subscribing to or leverage email discovery when available in cases where we can't automatically find your resources. This is similar to the subscription process in the other Remote Desktop clients. This can be used to subscribe directly to Azure Virtual Desktop workspaces.
+- Added a new **Subscribe with URL** option that allows you to specify the URL of the Workspace you're subscribing to or use email discovery when available in cases where we can't automatically find your resources. This is similar to the subscription process in the other Remote Desktop clients. This can be used to subscribe directly to Azure Virtual Desktop workspaces.
 - Added support to subscribe to a Workspace using a new URI scheme that can be sent in an email to users or added to a support website.
 - Added a new **Connection information** dialog that provides client, network, and server details for desktop and app sessions. You can access the dialog from the connection bar in full screen mode or from the System menu when windowed.
 - Desktop sessions launched in windowed mode now always maximize instead of going full screen when maximizing the window. Use the **Full screen** option from the system menu to enter full screen.
@@ -961,16 +992,16 @@ In this release, we've made the following changes:
 
 *Published: April 28, 2020*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added new display settings options for desktop connections available when right-clicking a desktop icon on the Connection Center.
   - There are now three display configuration options: **All displays**, **Single display** and **Select displays**.
   - We now only show available settings when a display configuration is selected.
   - In Select display mode, a new **Maximize to current displays** option allows you to dynamically change the displays used for the session without reconnecting. When enabled, maximizing the session causes it to go full screen on all displays touched by the session window.
   - We've added a new **Single display when windowed** option for all displays and select displays modes. This option switches your session automatically to a single display when you exit full screen mode, and automatically returns to multiple displays when you maximize the window.
-- We've added a new **Display settings** group to the system menu that appears when you right-click the title bar of a windowed desktop session. This will let you change some settings dynamically during a session. For example, you can change the new **Single display mode when windowed** and **Maximize to current displays** settings.
-- When you exit full screen, the session window will return to its original location when you first entered full screen.
-- The background refresh for Workspaces has been changed to every four hours instead of every hour. A refresh now happens automatically when launching the client.
+- We've added a new **Display settings** group to the system menu that appears when you right-click the title bar of a windowed desktop session. This lets you change some settings dynamically during a session. For example, you can change the new **Single display mode when windowed** and **Maximize to current displays** settings.
+- When you exit full screen, the session window returns to its original location when you first entered full screen.
+- The background refresh for Workspaces has changed to every four hours instead of every hour. A refresh now happens automatically when launching the client.
 - Resetting your user data from the About page now redirects to the Connection Center when completed instead of closing the client.
 - The items in the system menu for desktop connections were reordered and the Help topic now points to the client documentation.
 - Addressed some accessibility issues with tab navigation and screen readers.
@@ -983,7 +1014,7 @@ In this release, we've made the following changes:
 
 *Published: March 24, 2020*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Renamed the **Update** action for Workspaces to **Refresh** for consistency with other Remote Desktop clients.
 - You can now refresh a Workspace directly from its context menu.
@@ -997,7 +1028,7 @@ In this release, we've made the following changes:
 
 *Published: February 25, 2020*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Connections to Azure Virtual Desktop are now blocked if the RDP file is missing the signature or one of the signscope properties has been modified.
 - When a Workspace is empty or has been removed, the Connection Center no longer appears to be empty.
@@ -1010,7 +1041,7 @@ In this release, we've made the following changes:
 
 *Published: January 29, 2020*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - You can now select which displays to use for desktop connections. To change this setting, right-click the icon of the desktop connection and select **Settings**.
 - Fixed an issue where the connection settings didn't display the correct available scale factors.
@@ -1023,7 +1054,7 @@ In this release, we've made the following changes:
 
 *Published: December 4, 2019*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - You can now access information about updates directly from the more options button on the command bar at the top of the client.
 - You can now report feedback from the command bar of the client.
@@ -1036,9 +1067,9 @@ In this release, we've made the following changes:
 
 *Published: November 12, 2019*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
-- The 32-bit and ARM64 versions of the client are now available!
+- The 32-bit and Arm64 versions of the client are now available!
 - The client now saves any changes you make to the connection bar (such as its position, size, and pinned state) and applies those changes across sessions.
 - Updated gateway information and connection status dialogs.
 - Addressed an issue that caused two credentials to prompt at the same time while trying to connect after the Azure Active Directory token expired.
@@ -1056,7 +1087,7 @@ In this release, we've made the following changes:
 
 *Published: September 17, 2019*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Improved the fallback languages for localized version. (For example, FR-CA will properly display in French instead of English.)
 - When removing a subscription, the client now properly removes the saved credentials from Credential Manager.

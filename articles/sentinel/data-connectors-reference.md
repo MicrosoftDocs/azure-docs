@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 08/26/2024
+ms.date: 11/18/2024
 ms.custom: linux-related-content
 ms.author: cwatson
 appliesto:
@@ -37,6 +37,8 @@ Data connectors are available as part of the following offerings:
 ## Data connector prerequisites
 
 [!INCLUDE [data-connector-prereq](includes/data-connector-prereq.md)]
+
+Azure Monitor agent (AMA) based data connectors require an internet connection from the system where the agent is installed. Enable port 443 outbound to allow a connection between the system where the agent is installed and Microsoft Sentinel.
 
 ## Syslog and Common Event Format (CEF) connectors
 
@@ -172,6 +174,10 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Cohesity (using Azure Functions)](data-connectors/cohesity.md)
 
+## Commvault
+
+- [CommvaultSecurityIQ (using Azure Functions)](data-connectors/commvaultsecurityiq.md)
+
 ## Corelight Inc.
 
 - [Corelight Connector Exporter](data-connectors/corelight-connector-exporter.md)
@@ -179,6 +185,10 @@ For more information about the codeless connector platform, see [Create a codele
 ## Cribl
 
 - [Cribl](data-connectors/cribl.md)
+
+## CTERA Networks Ltd
+
+- [CTERA Syslog](data-connectors/ctera-syslog.md)
 
 ## Crowdstrike
 
@@ -237,6 +247,10 @@ For more information about the codeless connector platform, see [Create a codele
 - [Dynatrace Audit Logs](data-connectors/dynatrace-audit-logs.md)
 - [Dynatrace Problems](data-connectors/dynatrace-problems.md)
 - [Dynatrace Runtime Vulnerabilities](data-connectors/dynatrace-runtime-vulnerabilities.md)
+
+## ESET
+
+- [ESET Protect Platform (using Azure Functions)](data-connectors/eset-protect-platform.md)
 
 ## Elastic
 
@@ -371,7 +385,7 @@ For more information about the codeless connector platform, see [Create a codele
 - [Premium Microsoft Defender Threat Intelligence (Preview)](data-connectors/premium-microsoft-defender-threat-intelligence.md)
 - [Threat intelligence - TAXII](data-connectors/threat-intelligence-taxii.md)
 - [Threat Intelligence Platforms](data-connectors/threat-intelligence-platforms.md)
-- [Threat Intelligence Upload Indicators API (Preview)](data-connectors/threat-intelligence-upload-indicators-api.md)
+- [Threat Intelligence Upload Indicators API (Preview)](data-connectors/threat-intelligence-upload-api.md)
 - [Microsoft Defender for IoT](data-connectors/microsoft-defender-for-iot.md)
 - [Windows Firewall](data-connectors/windows-firewall.md)
 - [Windows Firewall Events via AMA (Preview)](data-connectors/windows-firewall-events-via-ama.md)
@@ -392,12 +406,20 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Exchange Security Insights Online Collector (using Azure Functions)](data-connectors/exchange-security-insights-online-collector.md)
 - [Exchange Security Insights On-Premises Collector](data-connectors/exchange-security-insights-on-premises-collector.md)
+- [IIS Logs of Microsoft Exchange Servers](data-connectors/iis-logs-of-microsoft-exchange-servers.md)
+- [Microsoft Active-Directory Domain Controllers Security Event Logs](data-connectors/microsoft-active-directory-domain-controllers-security-event-logs.md)
+- [Microsoft Exchange Admin Audit Logs by Event Logs](data-connectors/microsoft-exchange-admin-audit-logs-by-event-logs.md)
+- [Microsoft Exchange HTTP Proxy Logs](data-connectors/microsoft-exchange-http-proxy-logs.md)
 - [Microsoft Exchange Logs and Events](data-connectors/microsoft-exchange-logs-and-events.md)
+- [Microsoft Exchange Message Tracking Logs](data-connectors/microsoft-exchange-message-tracking-logs.md)
 - [Forcepoint DLP](data-connectors/forcepoint-dlp.md)
 - [MISP2Sentinel](data-connectors/misp2sentinel.md)
 
 ## Mimecast North America
 
+- [Mimecast Audit (using Azure Functions)](data-connectors/mimecast-audit.md)
+- [Mimecast Awareness Training (using Azure Functions)](data-connectors/mimecast-awareness-training.md)
+- [Mimecast Cloud Integrated (using Azure Functions)](data-connectors/mimecast-cloud-integrated.md)
 - [Mimecast Audit & Authentication (using Azure Functions)](data-connectors/mimecast-audit-authentication.md)
 - [Mimecast Secure Email Gateway (using Azure Functions)](data-connectors/mimecast-secure-email-gateway.md)
 - [Mimecast Intelligence for Microsoft - Microsoft Sentinel (using Azure Functions)](data-connectors/mimecast-intelligence-for-microsoft-microsoft-sentinel.md)
@@ -500,6 +522,10 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Seraphic Web Security](data-connectors/seraphic-web-security.md)
 
+## Siemens DI Software
+
+- [SINEC Security Guard](data-connectors/sinec-security-guard.md)
+
 ## Silverfort Ltd.
 
 - [Silverfort Admin Console](data-connectors/silverfort-admin-console.md)
@@ -557,6 +583,10 @@ For more information about the codeless connector platform, see [Create a codele
 ## Valence Security Inc.
 
 - [SaaS Security](data-connectors/saas-security.md)
+
+## Varonis
+
+- [Varonis SaaS](data-connectors/varonis-saas.md)
 
 ## Vectra AI, Inc
 

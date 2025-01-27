@@ -3,7 +3,7 @@ title: Support matrix for VMware/physical disaster recovery in Azure Site Recove
 description: Summarizes support for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
 ms.topic: concept-article
 ms.service: azure-site-recovery
-ms.date: 07/15/2024
+ms.date: 12/20/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ms.custom: engagement-fy23, linux-related-content
@@ -62,7 +62,9 @@ Ports | 443 used for control channel orchestration<br/>9443 for data transport
 NAT | Supported
 
 > [!NOTE]
-> Operating system has to be installed with English locale. Conversion of locale post installation could result in potential issues.
+> Operating system must be installed with English locale. Conversion of locale post installation could result in potential issues.
+>
+> FQDN or NAT IP selection is a one time selection and cannot be changed later the appliance .
 
 ## Replicated machines
 
@@ -206,7 +208,7 @@ Debian 12 <br> **Note**: Support for Debian 12 is available for Modernized exper
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4, SP5 | 9.63 | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5, SP6 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> No new kernels in this release. | 
+SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4, SP5 | 9.63 | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> No new kernels in this release. | 
 SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4, SP5 | 9.62 | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> **SUSE 12 Azure kernels support added for Modernized experience:** <br> 4.12.14-16.185-azure:5 <br> 4.12.14-16.188-azure:5 <br> 4.12.14-16.191azure:5 <br> 4.12.14-16.194-azure:5  |
 SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4, SP5 | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> **SUSE 12 Azure kernels support added for Modernized experience:** <br> 4.12.14-16.173-azure <br> 4.12.14-16.182-azure:5 <br><br> **SUSE 12 Azure kernels support added for Classic experience:** <br> 4.12.14-16.163-azure:5 <br> 4.12.14-16.168-azure:5  |
 SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4 | 9.60 | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> 4.12.14-16.163-azure:5 <br> 4.12.14-16.168-azure  |
@@ -265,12 +267,12 @@ Rocky Linux | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-az
 File systems | ext3, ext4, XFS, BTRFS (conditions applicable as per this table)
 Logical volume management (LVM) provisioning| Thick provision - Yes <br></br> Thin provision - Yes, it is supported from [Update Rollup 61](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) onwards. It wasn't supported in earlier Mobility service versions.
 Volume manager | - LVM is supported.<br/> - /boot on LVM is supported from [Update Rollup 31](https://support.microsoft.com/help/4478871/) (version 9.20 of the Mobility service) onwards. It wasn't supported in earlier Mobility service versions.<br/> - Multiple OS disks aren't supported.
-Paravirtualized storage devices | Devices exported by paravirtualized drivers aren't supported.
+Paravirtualized storage devices | Devices exported by paravirtualized drivers aren't supported. <br><br> Supported only for VMware and not for AWS(Physical). 
 Multi-queue block IO devices | Not supported.
 Physical servers with the HP CCISS storage controller | Not supported.
 Device/Mount point naming convention | Device name or mount point name should be unique.<br/> Ensure that no two devices/mount points have case-sensitive names. For example, naming devices for the same VM as *device1* and *Device1* isn't supported.
-Directories | If you're running a version of the Mobility service earlier than version 9.20 (released in [Update Rollup 31](https://support.microsoft.com/help/4478871/)), then these restrictions apply:<br/><br/> - These directories (if set up as separate partitions/file-systems) must be on the same OS disk on the source server: /(root), /boot, /usr, /usr/local, /var, /etc.</br> - The /boot directory should be on a disk partition and not be an LVM volume.<br/><br/> From version 9.20 onwards, these restrictions don't apply.
-Boot directory | - Boot disks with GPT partition format are supported. GPT disks are also supported as data disks.<br/><br/> Multiple boot disks on a VM aren't supported.<br/><br/> - /boot on an LVM volume across more than one disk isn't supported.<br/> - A machine without a boot disk can't be replicated.
+Directories | If you're running a version of the Mobility service earlier than version 9.20 (released in [Update Rollup 31](https://support.microsoft.com/help/4478871/)), then these restrictions apply:<br/><br/> - These directories (if set up as separate partitions/file-systems) must be on the same OS disk on the source server: /(root), /boot, /usr, /usr/local, /var, /etc.</br> - The /boot directory should be on a disk partition and not be an LVM volume.
+Boot directory | Boot disks with GPT partition format are supported. GPT disks are also supported as data disks.<br/><br/> Multiple boot disks on a VM aren't supported.<br/><br/> - /boot on an LVM volume across more than one disk isn't supported.<br/> - A machine without a boot disk can't be replicated.
 Free space requirements| 2 GB on the /(root) partition <br/><br/> 600 MB on the installation folder
 XFSv5 | XFSv5 features on XFS file systems, such as metadata checksum, are supported (Mobility service version 9.10 onwards).<br/> Use the xfs_info utility to check the XFS superblock for the partition. If `ftype` is set to 1, then XFSv5 features are in use.
 BTRFS | BTRFS is supported from [Update Rollup 34](https://support.microsoft.com/help/4490016) (version 9.22 of the Mobility service) onwards. BTRFS isn't supported if:<br/><br/> - The BTRFS file system subvolume is changed after enabling protection.</br> - The BTRFS file system is spread over multiple disks.</br> - The BTRFS file system supports RAID.
@@ -279,7 +281,7 @@ BTRFS | BTRFS is supported from [Update Rollup 34](https://support.microsoft.com
 
 **Action** | **Details**
 --- | ---
-Resize disk on replicated VM | Resizing up on the source VM is supported. Resizing down on the source VM isn't supported. Resizing should be performed before failover, directly in the VM properties. No need to disable/re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captures.<br/><br/> If you change the disk size on the Azure VM after failover, when you fail back, Site Recovery creates a new VM with the updates.
+Resize disk on replicated VM | Resizing up on the source VM is supported. Resizing down on the source VM isn't supported. Resizing should be performed before failover, directly in the VM properties. No need to disable/re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captured.<br/><br/> If you change the disk size on the Azure VM after failover, when you fail back, Site Recovery creates a new VM with the updates.
 Add disk on replicated VM | Supported.<br/> You can manually enable replication on a disk added after a VMware VM has been protected. [Learn more](vmware-azure-enable-replication-added-disk.md).
 Exclude disk before replicating VM | Supported for VMware machines. <br/><br/> Not supported for Physical machines, if using modernized experience. 
 
@@ -330,7 +332,7 @@ Host NFS | Yes for VMware<br/><br/> No for physical servers
 Host SAN (iSCSI/FC) | Yes
 Host vSAN | Yes for VMware<br/><br/> N/A for physical servers
 Host multipath (MPIO) | Yes, tested with Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
-Host Virtual Volumes (VVols) | Yes for VMware<br/><br/> N/A for physical servers
+Host Virtual Volumes (VVols) | Yes for VMware<br/><br/> N/A for physical servers. <br> Failback and Re-protect is not supported.
 Guest/server VMDK | Yes
 Guest/server shared cluster disk | No
 Guest/server encrypted disk | No
@@ -338,7 +340,7 @@ FIPS encryption | No
 Guest/server NFS | No
 Guest/server iSCSI | For Migration - Yes, but you must setup replication as a Physical machine.<br/>For Disaster Recovery - No, iSCSI will failback as an attached disk to the VM
 Guest/server SMB 3.0 | No
-Guest/server RDM | Yes<br/><br/> N/A for physical servers
+Guest/server RDM | Yes<br/><br/> However, when failing back such VMs from Azure to on-premises VMware, the RDM disks attach as additional disks. <br> N/A for physical servers
 Guest/server disk > 1 GB | Yes, disk must be larger than 1024 MB<br/><br/>Up to 32,767 GB when replicating to managed disk (9.41 version onwards)<br></br> Up to 4,095 GB when replicating to storage accounts
 Guest/server disk with 4K logical and 4k physical sector size | No
 Guest/server disk with 4K logical and 512-bytes physical sector size | No
@@ -346,7 +348,8 @@ Guest/server volume with striped disk >4 TB | Yes
 Logical volume management (LVM)| Thick provisioning - Yes <br></br> Thin provisioning - Yes, it is supported from [Update Rollup 61](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) onwards. It wasn't supported in earlier Mobility service versions.
 Guest/server - Storage Spaces | No
 Guest/server - NVMe interface | Yes, for Windows machines. Not supported for Linux machines.
-Guest/server hot add/remove disk | No
+Guest/server hot add | Yes
+Guest/server - remove disk | No
 Guest/server - exclude disk | Yes
 Guest/server multipath (MPIO) | No
 ReFS | Resilient File System is supported with Mobility service version 9.23 or higher
@@ -416,7 +419,7 @@ VM name | From 1 to 63 characters.<br/><br/> Restricted to letters, numbers, and
 
 ## Resource group limits
 
-To understand the number of virtual machines that can be protected under a single resource group, refer to the article on [subscription limits and quotas](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).
+To understand the number of virtual machines that can be protected under a single resource group, refer to the article on [subscription limits and quotas](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-group-limits).
 
 ## Churn limits
 

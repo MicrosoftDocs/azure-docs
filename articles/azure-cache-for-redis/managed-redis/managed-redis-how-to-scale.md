@@ -3,12 +3,11 @@ title: Scale an Azure Managed Redis (preview) instance
 description: Learn how to scale your Azure Managed Redis instances using the Azure portal, and tools such as Azure PowerShell, and Azure CLI
 
 
-ms.servic: azure
+ms.service: azure
 ms.topic: conceptual
 ms.date: 11/15/2024
 ms.devlang: csharp
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2024
 ---
 
 # Scale an Azure Managed Redis (preview) instance
@@ -37,9 +36,9 @@ There are four tiers of Azure Managed Redis available, each with different perfo
 
 Three tiers are for in-memory data:
 
-- _Memory Optimized_. Ideal for memory-intensive use cases that require a high memory-to-vCPU ratio (1:8) but don't need the highest throughput performance. It provides a lower price point for scenarios where less processing power or throughput is necessary, making it an excellent choice for development and testing environments.
-- _Balanced (Memory + Compute)_. Offers a balanced memory-to-vCPU (1:4) ratio, making it ideal for standard workloads. It provides a healthy balance of memory and compute resources.
-- _Compute Optimized_. Designed for performance-intensive workloads requiring maximum throughput, with a low memory-to-vCPU (1:2) ratio. It's ideal for applications that demand the highest performance.
+- _Memory Optimized_. Ideal for memory-intensive use cases that require a high memory-to-vCPU ratio (8:1) but don't need the highest throughput performance. It provides a lower price point for scenarios where less processing power or throughput is necessary, making it an excellent choice for development and testing environments.
+- _Balanced (Memory + Compute)_. Offers a balanced memory-to-vCPU (4:1) ratio, making it ideal for standard workloads. It provides a healthy balance of memory and compute resources.
+- _Compute Optimized_. Designed for performance-intensive workloads requiring maximum throughput, with a low memory-to-vCPU (2:1) ratio. It's ideal for applications that demand the highest performance.
 
 One tier stores data both in-memory and on-disk:
 
@@ -171,7 +170,7 @@ For more information on how Azure Managed Redis handles sharding, see [Sharding 
 
 ### Are there scaling limitations with geo-replication?
 
-With [active geo-replication](managed-redis-how-to-active-geo-replication.md) configured, you can't mix and match cache sizes in a geo-replication group. As a result, scaling the caches in a geo-repliation group requires a few more steps. See [Scaling instances in a geo-replication group](managed-redis-how-to-active-geo-replication.md#scaling-instances-in-a-geo-replication-group) for instructions.
+With [active geo-replication](managed-redis-how-to-active-geo-replication.md) configured, you can't mix and match cache sizes in a geo-replication group. As a result, scaling the caches in a geo-replication group requires a few more steps. See [Scaling instances in a geo-replication group](managed-redis-how-to-active-geo-replication.md#scaling-instances-in-a-geo-replication-group) for instructions.
 
 ### How long does scaling take?
 
