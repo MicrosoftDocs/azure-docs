@@ -20,25 +20,29 @@ Update Manager is a unified service to help manage and govern updates for all yo
 
 You can use Update Manager for:
 
-- 
+- **Unified Update Management** - Monitor update compliance across Windows and Linux machines (running a server operating system) from a single dashboard, including machines in Azure, and on-premises or other cloud environments (connected by Azure Arc).
+- **Flexible patching options**:
+    - Schedule updates within [customer-defined maintenance ](scheduled-patching.md), for both Azure and Arc-connected machines.
+    - [Apply updates in real-time](deploy-updates.md) 
+    - Use [Automatic VM guest patching](https://learn.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching), to automatically apply updates to Azure VMs without requiring manual intervention. 
+    - Use [Hot patching](https://learn.microsoft.com/windows-server/get-started/hotpatch), to apply critical updates to Azure VMs without requiring a reboot, minimizing downtime
+- **Security and Compliance tracking** - Apply security and critical patches with enhanced security measures and compliance tracking. 
+- **Periodic update Assessments** - Enable [periodic assessments](periodic-assessment-at-scale.md) to check for updates every 24 hours. 
+- **Dynamic Scoping** - Group machines based on criteria and apply updates at scale. 
+- **Custom Reporting and Alerts** - Build custom dashboards to report update status and [configure alerts](manage-alerts.md) to notify you of update statuses and any issues that arise. 
+- **Granular Access Control** - Use role-based access control (RBAC) to delegate permissions for patch management tasks at a per-resource level. 
+- **Third party software updates**: 
+    - Available in Microsoft Updates  
+    - All updates available in Linux packages 
+    - Updates published to [Windows Server Update Services (WSUS)](https://learn.microsoft.com/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) 
+- Patching diverse resources 
+    - Azure Virtual Machines (VMs): both Windows and Linux VMs in Azure (including SQL servers). VMs also include the ones which are created by Azure Migrate, Azure Backup, and Azure Site Recovery. 
+    - [Hybrid machines](https://learn.microsoft.com/azure/azure-arc/servers/) (including SQL Arc servers) and Windows IoT Enterprise on Arc enabled servers 
+    - [VMware machines](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/)
+    - [System Center Virtual Machine Manager (SCVMM) machines](https://learn.microsoft.com/azure/azure-arc/system-center-virtual-machine-manager/) 
+    - [Azure Local clusters](https://learn.microsoft.com/azure/azure-local/)
 
-
-
-
-
-
-- Instantly check for updates or [deploy security or critical updates](https://aka.ms/on-demand-patching) to help secure your machines.
-- Enable [periodic assessment](https://aka.ms/umc-periodic-assessment-policy) to check for updates every 24 hours.
-- Use flexible patching options such as:
-    - [Customer-defined maintenance schedules](https://aka.ms/umc-scheduled-patching) for both Azure and Arc-connected machines.
-    - [Automatic virtual machine (VM) guest patching](/azure/virtual-machines/automatic-vm-guest-patching) and [hot patching](/azure/automanage/automanage-hotpatch) for Azure VMs.
-- Build custom reporting dashboards for reporting update status and [configure alerts](https://aka.ms/aum-alerts) on certain conditions.
-- Oversee update compliance for your entire fleet of machines in Azure and on-premises/in other cloud environments connected by [Azure Arc](/azure/azure-arc/) through a single pane. The different types of machines that can be managed are:
-- 
-    - [Hybrid machines](/azure/azure-arc/servers/)
-    - [VMWare machines](/azure/azure-arc/vmware-vsphere/)
-    - [SCVMM machines](/azure/azure-arc/system-center-virtual-machine-manager/)
-    - [Azure Local VMs](/azure-stack/hci/)
+These features make Azure Update Manager a powerful tool for maintaining the security and performance of your IT infrastructure. 
 
 ## Key benefits
 
