@@ -306,6 +306,8 @@ items:
     href: naming-rules.md
   - name: Data redundancy
     href: concepts-data-redundancy.md
+  - name: Reliability
+    href: /reliability/reliability-data-factory.md?toc=/azure/data-factory/toc.json
 - name: How-to guides
   items:
   - name: Create a data factory in UI
