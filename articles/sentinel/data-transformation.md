@@ -29,7 +29,7 @@ Microsoft Sentinel uses the following Azure Montitor tools to control custom dat
 
 
 ### DCR support in Microsoft Sentinel
-Ingestion-time transformations are defined in data collection rules (DCRs), which control the data flow in Azure Monitor. DCRs are currently used by AMA-based connectors and workflows using the [Logs ingestion API](/azure/azure-monitor/logs/logs-ingestion-api-overview). Each DCR contains the configuration for a particular data collection scenario, and multiple connectors or sources can share different DCRs.
+Ingestion-time transformations are defined in [data collection rules (DCRs)](/azure/azure-monitor/essentials/data-collection-rule-overview), which control the data flow in Azure Monitor. DCRs are currently used by AMA-based Sentinel connectors and workflows using the [Logs ingestion API](/azure/azure-monitor/logs/logs-ingestion-api-overview). Each DCR contains the configuration for a particular data collection scenario, and multiple connectors or sources can share different DCRs.
 
 [Workspace transformation DCRs](/azure/azure-monitor/essentials/data-collection-transformations#workspace-transformation-dcr) support workflows that don't otherwise use DCRs. Workspace transformation DCRs contain transformations for any [supported tables](/azure/azure-monitor/logs/tables-feature-support) and are applied to all traffic sent to that table.
 
@@ -45,7 +45,7 @@ For more information, see:
 
 - [Reduce data costs.](/azure/azure-monitor/essentials/data-collection-transformations-samples#reduce-data-costs) Filter data collection by either rows or columns to reduce ingestion and storage costs.
 
-- [Normalization](/azure/azure-monitor/essentials/data-collection-transformations-samples#normalize-data). Normalize logs with the [Advanced Security Information Model (ASIM)](normalization.md) to improve the performance of normalized queries. For more information, see [Ingest-time normalization](normalization-ingest-time.md). <!--i'm guessing you're adding this to the azmon docs? is it clear there that this is sentinel-only? (*is* it sentinel only?)-->
+- [Normalization](/azure/azure-monitor/essentials/data-collection-transformations-samples#normalize-data). Normalize logs with the [Advanced Security Information Model (ASIM)](normalization.md) to improve the performance of normalized queries. For more information, see [Ingest-time normalization](normalization-ingest-time.md). 
 
 - [Enrich data](/azure/azure-monitor/essentials/data-collection-transformations-samples#enrich-data). Ingestion-time transformations let you improve analytics by enriching your data with extra columns added to the configured KQL transformation. Extra columns might include parsed or calculated data from existing columns.
 
