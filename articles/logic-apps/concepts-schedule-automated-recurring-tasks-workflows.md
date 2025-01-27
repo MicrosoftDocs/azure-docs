@@ -254,12 +254,6 @@ If these logic apps use the UTC-6:00 Central Time (US & Canada) zone, this simul
     | 11/03/2019 | 2:30:00 AM | 8:30:00 AM ||
     | 11/04/2019 | 2:30:00 AM | 8:30:00 AM ||
 
-<a name="run-once"></a>
-
-## Run one time only
-
-To only run your workflow once in the future, you can [use the **Scheduler: Run once jobs** workflow template](../connectors/connectors-native-recurrence.md#run-once).
-
 <a name="run-once-last-day-of-the-month"></a>
 
 ## Run once on last day of the month
