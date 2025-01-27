@@ -40,7 +40,7 @@ azcopy benchmark 'https://mystorageaccount.blob.core.windows.net/mycontainer/myB
 
 This command runs a performance benchmark by uploading test data to a specified destination. The test data is generated in memory, uploaded to the destination, then deleted from the destination after the test is complete. You can specify how many files to generate and what size you'd like them to be by using optional command parameters.
 
-If you prefer to run this test by downloading data, set the `mode` parameter to `download`. For detailed reference docs, see [azcopy benchmark](storage-ref-azcopy-bench.md).
+If you prefer to run this test by downloading data, set the `mode` parameter to `download`. For detailed reference docs, see [azcopy benchmark](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_bench).
 
 ## Optimize for large numbers of files
 
