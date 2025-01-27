@@ -15,7 +15,7 @@
   - name: Paired and nonpaired regions
     href: regions-paired.md
   - name: Multi-region solutions in nonpaired regions
-    href: cross-region-replication-azure-no-pair.md
+    href: regions-multi-region-nonpaired.md
 - name: Azure availability zones
   items:
   - name: What are Azure availability zones?
