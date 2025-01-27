@@ -16,7 +16,7 @@ ms.topic: overview
 > For more information, see the [FAQs on retirement](update-manager-faq.md#impact-of-log-analytics-agent-retirement).
 
 
-Update Manager is a unified service to help manage and govern updates for all your machines (running a servers operating system). You can monitor Windows and Linux update compliance across your machines in Azure, and on-premises or other cloud environments (connected by [Azure Arc](/azure/azure-arc/)) from a single pane of management. You can also use Update Manager to make real-time updates or schedule them within a defined maintenance window. 
+Update Manager is a unified service to help manage and govern updates for all your machines (running a server operating system). You can monitor Windows and Linux update compliance across your machines in Azure, and on-premises or other cloud environments (connected by [Azure Arc](/azure/azure-arc/)) from a single pane of management. You can also use Update Manager to make real-time updates or schedule them within a defined maintenance window. 
 
 You can use Update Manager for:
 
@@ -31,10 +31,10 @@ You can use Update Manager for:
 - **Dynamic Scoping** - Group machines based on criteria and apply updates at scale. 
 - **Custom Reporting and Alerts** - Build custom dashboards to report update status and [configure alerts](manage-alerts.md) to notify you of update statuses and any issues that arise. 
 - **Granular Access Control** - Use role-based access control (RBAC) to delegate permissions for patch management tasks at a per-resource level. 
-- **Third party software updates**: 
-    - Available in Microsoft Updates  
-    - All updates available in Linux packages 
-    - Updates published to [Windows Server Update Services (WSUS)](https://learn.microsoft.com/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) 
+- **Software updates including application updates**: 
+    - That are available in Microsoft Updates  
+    - That are available in Linux packages 
+    - That are published to [Windows Server Update Services (WSUS)](https://learn.microsoft.com/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) 
 - Patching diverse resources 
     - Azure Virtual Machines (VMs): both Windows and Linux VMs in Azure (including SQL servers). VMs also include the ones which are created by Azure Migrate, Azure Backup, and Azure Site Recovery. 
     - [Hybrid machines](https://learn.microsoft.com/azure/azure-arc/servers/) (including SQL Arc servers) and Windows IoT Enterprise on Arc enabled servers 
