@@ -87,6 +87,8 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 You can also enable HTTP2 support using the Azure portal by selecting **Enabled** under **HTTP2** in Application gateway > Configuration. 
 
+HTTP/2 without TLS (h2c) is not supported.
+
 ### WebSocket support
 
 WebSocket support is enabled by default. There's no user-configurable setting to enable or disable it. You can use WebSockets with both HTTP and HTTPS listeners.
