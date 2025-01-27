@@ -1,6 +1,6 @@
 ---
 title: "Azure Operator Nexus: Create Cluster Resource with a Managed Identity"
-description: Create Clusters using the User Assigned Managed Identity to access the Log Analytics Workspace
+description: Create Clusters using the User Assigned Managed Identity to access the Log Analytics Workspace.
 author: troy0820 
 ms.author: troyconnor
 ms.service: azure-operator-nexus
@@ -16,10 +16,10 @@ To create a cluster without a service principal user name and password, you can 
 
 ## Prerequisites
 
-1. Install the latest version of the
+* Install the latest version of the
    [appropriate CLI extensions](./howto-install-cli-extensions.md)
-1. A Log Analytics Workspace 
-1. A user-assigned managed identity resource with permissions over the log analytics workspace of [Log Analytics Contributor](/azure/role-based-access-control/built-in-roles/analytics#log-analytics-contributor).
+* A Log Analytics Workspace 
+* A user-assigned managed identity resource with permissions over the log analytics workspace of [Log Analytics Contributor](/azure/role-based-access-control/built-in-roles/analytics#log-analytics-contributor).
 
 > [!NOTE]
 > This functionality exists with the 2024-10-01-preview API and will be available with the 2025-02-01 GA API offered by Azure Operator Nexus 
