@@ -244,7 +244,7 @@ After it's imported, [threat intelligence](understand-threat-intelligence.md) is
 
 - Use the [built-in threat intelligence analytics rule templates](understand-threat-intelligence.md#detect-threats-with-threat-indicator-analytics) to generate security alerts and incidents by using your imported threat intelligence.
 
-- [Visualize key information about your threat intelligence](understand-threat-intelligence.md#view-and-manage-your-threat-intelligence) in Microsoft Sentinel by using the threat intelligence workbook.
+- [Visualize key information about your threat intelligence](understand-threat-intelligence.md#view-your-threat-intelligence) in Microsoft Sentinel by using the threat intelligence workbook.
 
 View the "Automate Your Microsoft Sentinel Triage Efforts with RiskIQ Threat Intelligence" webinar: [YouTube](https://youtu.be/8vTVKitim5c) or [presentation](https://1drv.ms/b/s!AnEPjr8tHcNmkngW7psV4janJrVE?e=UkmgWk).
 
