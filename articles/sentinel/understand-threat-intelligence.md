@@ -149,11 +149,15 @@ The following STIX objects are available in Microsoft Sentinel:
 
 ### Create relationships
 
-Establish connections between objects to enhance threat detection and response. Here are some examples of the relationship builder:
+Establish connections between objects to enhance threat detection and response. Here are use cases of the relationship builder:
 
-Connecting Threat Actor to Attack Pattern: The threat actor "APT29" uses the attack pattern "Phishing via Email" to gain initial access.
-Linking Indicator to Threat Actor: An indicator (malicious domain) is attributed to the threat actor "APT29".
-Associating Identity (Victim) with Attack Pattern: The organization "Example Corp" is targeted by the attack pattern "Phishing via Email".
+| Use case | Description |
+|---|---|
+| Connecting Threat Actor to Attack Pattern | The threat actor "APT29" uses the attack pattern "Phishing via Email" to gain initial access.|
+| Linking Indicator to Threat Actor|  An indicator (malicious domain) is attributed to the threat actor "APT29". |
+| Associating Identity (Victim) with Attack Pattern| The organization "Example Corp" is targeted by the attack pattern "Phishing via Email".|
+
+:::image type="content" source="media/understand-threat-intelligence/relationship-example.png" alt-text="Screenshot showing example relationship being built.":::
 
 ### Curate threat intelligence
 

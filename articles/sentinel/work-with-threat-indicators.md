@@ -58,7 +58,9 @@ For more information on supported STIX objects, see [Understand threat intellige
 
 1. Choose the **Object type**, then fill in the form on the **New TI object** page. Required fields are marked with a red asterisk (*).
 
-1. Select **Add and duplicate** if you want to create more items with the same metadata. Otherwise, select **Add** to create the single item.
+1. Select **Add and duplicate** if you want to create more items with the same metadata. The following image shows the section of each STIX object's metadata that is duplicated. 
+1. Otherwise, select **Add** to create the single item.
+
 
 
 ## Manage threat intelligence 
