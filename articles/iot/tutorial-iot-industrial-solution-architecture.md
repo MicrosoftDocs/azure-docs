@@ -94,11 +94,11 @@ The station OPC UA server uses the following OPC UA node IDs for telemetry to th
 - i=418 - actual cycle time
 - i=434 - pressure
 
-### Digital feedback loop with UA Cloud Commander and UA Cloud Action
+## Digital feedback loop with UA Cloud Commander and UA Cloud Action
 
 The solution uses a digital feedback loop to manage the pressure in a simulated station. To implement the feedback loop, the solution triggers a command from the cloud on one of the OPC UA servers in the simulation. The trigger activates when simulated time-series pressure data reaches a certain threshold. You can see the pressure of the assembly machine in the Azure Data Explorer dashboard. The pressure is released at regular intervals for the Seattle production line.
 
-### Install the production line simulation and cloud services
+## Install the production line simulation and cloud services
 
 Select the **Deploy** button to deploy all required resources to your Azure subscription:
 
@@ -123,7 +123,7 @@ curl -sfL https://get.k3s.io | sh
 
 Your VM is now ready to run the production line simulation.
 
-### Run the production line simulation
+## Run the production line simulation
 
 In the VM, open a Windows command prompt, enter *wsl*, and press **Enter**. Navigate to the `/mnt/c/ManufacturingOntologies-main/Tools/FactorySimulation` directory and run the **StartSimulation** shell script:
 
