@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how Azure Digital Twins uses custom models to describe entities in your environment and how to define these models using the Digital Twin Definition Language (DTDL).
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 1/3/2024
+ms.date: 01/27/2025
 ms.topic: conceptual
 ms.service: azure-digital-twins
 
@@ -90,7 +90,7 @@ Here are the attributes available in DTDL that are supported in Azure Digital Tw
 The [DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md) also defines *Commands* and *Telemetry*, but neither of these are used in Azure Digital Twins. Commands are not supported, and Telemetry—although it's allowed in model definitions—has no unique use case in Azure Digital Twins modeling. Instead of using DTDL telemetry, you should use DTDL properties for storing twin state information.
 
 > [!NOTE]
-> Although there's no need to define Telemetry fields in your DTDL models to store incoming device data, Azure Digital Twins can emit events as telemetry using the [SendTelemetry API](concepts-event-notifications.md#digital-twin-telemetry-messages). This triggers a [Digital Twin Telemetry Message event](concepts-event-notifications.md#digital-twin-telemetry-messages) that can be received by an event handler to take actions on other twins or trigger downstream services.
+> While there's no need to define Telemetry fields in your DTDL models to store incoming device data, Azure Digital Twins can emit events as telemetry using the [SendTelemetry API](concepts-event-notifications.md#digital-twin-telemetry-messages). This triggers a [Digital Twin Telemetry Message event](concepts-event-notifications.md#digital-twin-telemetry-messages) that can be received by an event handler to take actions on other twins or trigger downstream services.
 
 ## Properties
 
@@ -324,7 +324,7 @@ An alternative to the Import Jobs API is the [Model uploader sample](https://git
 
 If you need to delete all models in an Azure Digital Twins instance at once, you can use the [Model Deleter sample](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#deletemodels). This is a project that contains recursive logic to handle model dependencies through the deletion process. It currently only works with [version 2 of DTDL](concepts-models.md#supported-dtdl-versions).
 
-Or, if you want to clear out the data in an instance by deleting all the models **along with** all twins and relationships, you can use the [Delete Jobs API](concepts-apis-sdks.md#bulk-delete-with-the-delete-jobs-api).
+Or, if you want to clear out the data in an instance by deleting all the models **along with all twins and relationships**, you can use the [Delete Jobs API](concepts-apis-sdks.md#bulk-delete-with-the-delete-jobs-api).
 
 ### Visualize models
 

@@ -161,6 +161,8 @@
       href: azure-to-azure-architecture.md
     - name: Azure trusted launch VMs
       href: concepts-trusted-vm.md
+    - name: Azure to Azure - Costs
+      href: site-recovery-cost.md
     - name: Configure Failover for Multiple IP addresses
       href: concepts-multiple-ip-address-failover.md
     - name: Configure Mobility Service Proxy Settings
@@ -609,8 +611,6 @@
   items:
   - name: Azure PowerShell
     href: /powershell/module/az.recoveryservices
-  - name: AzureRM PowerShell
-    href: /powershell/module/AzureRM.RecoveryServices
   - name: Resource Manager template
     href: /azure/templates/microsoft.recoveryservices/allversions
   - name: REST

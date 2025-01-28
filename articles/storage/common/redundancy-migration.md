@@ -135,8 +135,8 @@ You can also add or remove zone redundancy to your storage account. To change be
 
 ```azurecli-interactive
 az storage account migration start \
-    -- account-name <string> \
-    -- g <string> \
+    --account-name <string> \
+    --g <string> \
     --sku <string> \
     --no-wait
 ```
@@ -427,7 +427,7 @@ Make sure the desired redundancy option supports the access tiers currently used
 An LRS storage account containing blobs in the archive tier can be switched to GRS or RA-GRS after rehydrating all archived blobs to the Hot or Cool tier. You can also perform a [manual migration](#manual-migration).
 
 > [!TIP]
-> Microsoft recommends that you avoid changing the redundancy configuration for a storage account that contains archived blobs if at all possible, because rehydration operations can be costly and time-consuming. But if you must change it, a [manual migration](#manual-migration) can save you the expense of rehydration.
+> Rehydrating archived blobs can be costly and time-consuming. Microsoft recommends that you avoid changing the redundancy configuration for a storage account that contains archived blobs. If such a redundancy configuration is required, you should use a [manual migration](#manual-migration) to selectively rehydrate only the data you want migrated.
 
 ### Protocol support
 
