@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language functions
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 06/29/2023
+ms.date: 01/27/2025
 ms.topic: article
 ms.service: azure-digital-twins
 

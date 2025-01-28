@@ -121,7 +121,7 @@ Below are the current restrictions of WebSocket support in API Management:
 * Currently, the [set-header](set-header-policy.md) policy doesn't support changing certain well-known headers, including `Host` headers, in onHandshake requests.
 * During the TLS handshake with a WebSocket backend, API Management validates that the server certificate is trusted and that its subject name matches the hostname. With HTTP APIs, API Management validates that the certificate is trusted but doesn’t validate that hostname and subject match.
 
-For WebSocket connection limits, see [API Management limits](../azure-resource-manager/management/azure-subscription-service-limits.md#api-management-limits).
+For WebSocket connection limits, see [API Management limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-api-management-limits).
 
 ### Unsupported policies
 

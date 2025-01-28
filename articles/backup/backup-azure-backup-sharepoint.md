@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 12/24/2024
 ms.service: azure-backup
 ms.custom: engagement-fy23
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up a SharePoint farm to Azure with Data Protection Manager

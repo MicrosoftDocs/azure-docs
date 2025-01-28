@@ -53,6 +53,5 @@ There's a limit of 10,000 parallel packet capture sessions per region per subscr
 
 ## Related content
 
-- To learn how to manage packet captures in virtual machines, see [the Azure portal](packet-capture-vm-portal.md), [PowerShell](packet-capture-vm-powershell.md), or [the Azure CLI](packet-capture-vm-cli.md) guides.
-- To learn how to manage packet captures in scale sets, see [the Azure portal](network-watcher-packet-capture-manage-portal-vmss.md) or [PowerShell](network-watcher-packet-capture-manage-powershell-vmss.md) guides.
+- To learn how to manage packet captures, see [the Azure portal](packet-capture-vm-portal.md), [PowerShell](packet-capture-vm-powershell.md), or [the Azure CLI](packet-capture-vm-cli.md) guides.
 - To learn how to create proactive packet captures based on virtual machine alerts, see [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md).

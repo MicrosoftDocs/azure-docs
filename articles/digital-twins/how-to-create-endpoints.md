@@ -238,7 +238,7 @@ To continue using an endpoint that was set up with a managed identity that's now
 
 When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as *dead-lettering*.
 
-You can set up the necessary storage resources using the [Azure portal](https://portal.azure.com/#home) or the [Azure Digital Twins CLI](/cli/azure/dt). However, to create an endpoint with dead-lettering enabled, you'll need to use the [Azure Digital Twins CLI](/cli/azure/dt) or [control plane APIs](concepts-apis-sdks.md#control-plane-apis).
+You can set up the necessary storage resources using the [Azure portal](https://portal.azure.com/#home) or the [Azure Digital Twins CLI](/cli/azure/dt). However, to create an endpoint with dead-lettering enabled, you'll need to use the [Azure Digital Twins CLI](/cli/azure/dt) or [control plane APIs](concepts-apis-sdks.md#control-plane-overview).
 
 To learn more about dead-lettering, see [Endpoints and event routes](concepts-route-events.md#dead-letter-events). For instructions on how to set up an endpoint with dead-lettering, continue through the rest of this section.
 
@@ -316,7 +316,7 @@ The value for the parameter is the dead letter SAS URI made up of the storage ac
 >[!TIP]
 >To create a dead-letter endpoint with identity-based authentication, add both the dead-letter parameter from this section and the appropriate [managed identity parameter](#3-create-the-endpoint-with-identity-based-authentication) to the same command.
 
-You can also create dead letter endpoints using the [Azure Digital Twins control plane APIs](concepts-apis-sdks.md#control-plane-apis) instead of the CLI. To do so, view the [DigitalTwinsEndpoint documentation](/rest/api/digital-twins/controlplane/endpoints/digital-twins-endpoint-create-or-update) to see how to structure the request and add the dead letter parameters.
+You can also create dead letter endpoints using the [Azure Digital Twins control plane APIs](concepts-apis-sdks.md#control-plane-overview) instead of the CLI. To do so, view the [DigitalTwinsEndpoint documentation](/rest/api/digital-twins/controlplane/endpoints/digital-twins-endpoint-create-or-update) to see how to structure the request and add the dead letter parameters.
 
 ---
 

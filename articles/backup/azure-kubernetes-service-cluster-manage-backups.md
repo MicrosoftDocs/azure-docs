@@ -8,8 +8,8 @@ ms.custom:
   - ignite-2023
   - ignite-2024
 ms.date: 01/16/2025
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Manage Azure Kubernetes Service backups using Azure Backup 
@@ -102,26 +102,6 @@ To enable Trusted Access between Backup vault and AKS cluster, use the following
 
 Learn more about [other commands related to Trusted Access](/azure/aks/trusted-access-feature#trusted-access-feature-overview).
 
-## Monitor a backup operation
-
-The Azure Backup service creates a job for scheduled backups or if you trigger on-demand backup operation for tracking. To view the backup job status:
-
-1. Go to the **Azure Business Continuity Center** and select **Protected Items** under **Protection Inventory**.
-
-   The **Protected Items** blade shows all the backup instances created across the subscriptions. Use the filters to access the backup instance you would like to take a look at. Select on the protected item and open it.
-
-   :::image type="content" source="./media/backup-managed-disks/jobs-dashboard.png" alt-text="Screenshot shows the jobs dashboard." lightbox="./media/backup-managed-disks/jobs-dashboard.png":::
-
-1. Now select on the **Associated Items** to open up the dashboard for the backup instance. Here you can see the backup jobs for the last seven days. 
-
-1. To view the status of the backup operation, select **View all** to show ongoing and past jobs of this backup instance.
-
-   ![Screenshot shows how to select the view all option.](./media/backup-managed-disks/view-all.png)
-
-1. Review the list of backup and restore jobs and their status. Select a job from the list of jobs to view job details.
-
-   ![Screenshot shows how to select a job to see details.](./media/backup-managed-disks/select-job.png)
-
 ## Manage operations using the Azure portal
 
 This section describes several Azure Backup supported management operations that make it easy to manage Azure Kubernetes Service cluster backups.
@@ -167,7 +147,7 @@ After you trigger the restore operation, the backup service creates a job for tr
     ![Screenshot shows the list of jobs.](./media/restore-managed-disks/list-of-jobs.png)
 
 
-### Monitor AKS backup related jobs with the completed with warnings status
+### Monitor backup and restore jobs with the completed with warnings status
 
 When a scheduled or an on-demand backup or restore operation is performed, a job is created corresponding to the operation to track its progress. If there is a failure, these jobs allow you to identify error codes and fix issues to run a successful job later. 
 
@@ -211,6 +191,10 @@ There are three ways by which you can stop protecting an Azure Disk:
 - **Stop Protection and Retain Data (Retain as per Policy)**: This option helps you stop all future backup jobs from protecting your cluster. The recovery points are retained as per policy and will be chargeable according to [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/). However, the latest recovery point is retained forever.
 
 - **Stop Protection and Delete Data**: This option helps you stop all future backup jobs from protecting your clusters and delete all the recovery points. You won't be able to restore the disk or use the **Resume backup** option.
+
+> [!NOTE]
+>
+> Even if AKS Backup is stopped or backups fail, the last restore point is always retained beyond the defined retention period, ensuring at least one restore point remains available.
 
 #### Stop Protection and Retain Data
 

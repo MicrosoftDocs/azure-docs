@@ -56,10 +56,6 @@ This guide walks you through purging assets from all edge nodes of an endpoint.
 
     ![Purge button](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
-> [!IMPORTANT]
-> Purge requests take approximately 2 minutes with **Azure CDN from Edgio** (standard and premium). Azure Content Delivery Network has a limit of 100 concurrent purge requests at any given time at the profile level.
->
-
 ## Next steps
 
 - [Pre-load assets on an Azure CDN endpoint](cdn-preload-endpoint.md)
