@@ -61,13 +61,13 @@ When you select regions that are geographically far apart, the latency of networ
 
 ## Non-regional services
 
-Most Azure services are deployed to a specific regions or regions. However, there are some services that aren't tied to a specific Azure region. It's important to understand these *non-regional* services, and to take them into account when you design your solutions and business continuity plan.
+Most Azure services are deployed to a specific regions or regions. However, there are some services that aren't tied to a specific Azure region. It's important to recognize how *non-regional* services operate in the case of a regional failure, and to take them into account when you design your solutions and business continuity plan.
 
 Non-regional services are deployed by Microsoft across two or more regions. If there's a regional failure, the instance of the service in a healthy region can continues servicing requests. For example, [Azure DNS](https://azure.microsoft.com/products/dns) is a non-regional service.
 
-Some Azure services allow you to specify a region or geography in which your data will be stored. For example, [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id/), which enables you to select the geographic area for your data, such as Europe or North America. For more information about data residency, see [Data residency in Azure](https://azure.microsoft.com/explore/global-infrastructure/data-residency/).
+Some Azure services allow you to specify a region or geography in which your data is stored. For example, with [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id/), you can select the geographic area for your data, such as Europe or North America. For more information about data residency, see [Data residency in Azure](https://azure.microsoft.com/explore/global-infrastructure/data-residency/).
 
-Some non-regional services enable you to specify the region where certain components are deployed. For example, [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) is a non-regional service, but it enables you to specify the region where the VMs it uses will reside.
+With some non-regional services you can specify the region where certain components are deployed. For example, you can choose which region [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) VMs are to reside.
 
 
 ## Related resources
