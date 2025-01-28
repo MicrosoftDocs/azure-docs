@@ -23,7 +23,7 @@ Azure Event Hubs schema registries are supported on Standard, Premium, and Dedic
 
 ## Schema registry components
 
-A schema registry lives in the context of the Event Hubs namespace but can also be used with other message or event brokers, including Azure messaging services. It comprises multiple schema groups, which act as a logical grouping of schemas and can be managed independently of other schema groups.
+The schema registry is part of the Event Hubs namespace but can also be used with other message or event brokers, including Azure messaging services. It comprises multiple schema groups, which act as a logical grouping of schemas and can be managed independently of other schema groups.
 
 :::image type="content" source="./media/schema-registry-overview/elements.png" alt-text="Diagram that shows the components of a schema registry in Azure Event Hubs." border="false":::
 
@@ -45,7 +45,7 @@ Schema formats are used to determine the manner in which a schema is structured 
 
 ##### Avro schema
 
-[Apache Avro™](https://avro.apache.org/) is a popular data serialization system that uses a compact binary format and provides schema evolution capabilities.
+[Apache Avro](https://avro.apache.org/) is a popular data serialization system that uses a compact binary format and provides schema evolution capabilities.
 
 To learn more about using Avro schema format with an Event Hubs schema registry, see:
   
@@ -106,7 +106,7 @@ You can use one of the following libraries to include an Avro serializer. You ca
 * **Java**: [azure-data-schemaregistry-avro](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/schemaregistry/azure-data-schemaregistry-apacheavro)
 * **Python**: [azure-schemaregistry-avroserializer](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/schemaregistry/azure-schemaregistry-avroencoder/)
 * **JavaScript**: [@azure/schema-registry-avro](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/schemaregistry/schema-registry-avro)
-* **Apache Kafka**: Run [Kafka-integrated Avro](https://github.com/Azure/azure-schema-registry-for-kafka/) serializers and deserializers backed by Azure schema registries. The Java client's Apache Kafka&reg; client serializer for Azure schema registries can be used in any Apache Kafka scenario and with any Apache Kafka-based deployment or cloud service.
+* **Apache Kafka**: Run [Kafka-integrated Avro](https://github.com/Azure/azure-schema-registry-for-kafka/) serializers and deserializers backed by Azure schema registries. The Java client's Apache Kafka client serializer for Azure schema registries can be used in any Apache Kafka scenario and with any Apache Kafka-based deployment or cloud service.
 * **Azure CLI**: For an example of adding a schema to a schema group by using the Azure CLI, see [Adding a schema to a schema group by using the Azure CLI](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/CLI/AddschematoSchemaGroups).
 * **PowerShell**: For an example of adding a schema to a schema group by using PowerShell, see [Adding a schema to a schema group by using PowerShell](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/PowerShell/AddingSchematoSchemagroups).
 
