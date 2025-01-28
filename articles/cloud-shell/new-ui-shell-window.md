@@ -1,7 +1,7 @@
 ---
 description: Overview of how to use the new user interface for Azure Cloud Shell.
 ms.contributor: jahelmic
-ms.date: 01/23/2024
+ms.date: 01/28/2025
 ms.topic: how-to
 tags: azure-resource-manager
 title: How to use the new user interface for Azure Cloud Shell
@@ -44,6 +44,10 @@ When you select **Reset User Settings**, the current session is closed and your 
 You're prompted to restart as if this is your first time using Cloud Shell.
 
 [![Screenshot of the Settings menu.][07i]][07x]
+
+When you select **Go to Classic version**, Cloud Shell restarts your session in the Classic user
+experience. For a description of the Classic user experience, see
+[Using the Azure Cloud Shell window][13].
 
 ## Manage files menu
 
@@ -182,3 +186,4 @@ minutes without interaction.
 [10x]: media/new-ui-shell-window/web-preview.png#lightbox
 [11x]: media/new-ui-shell-window/help-menu.png#lightbox
 [12]: using-cloud-shell-editor.md
+[13]: using-the-shell-window.md
