@@ -15,7 +15,7 @@ ms.author: jsuri
 
 This quickstart describes how to configure backup for Azure Database for  PostgreSQL - Flexible Server using Azure CLI.
 
-[Azure Backup](backup-azure-database-postgresql-flex-overview.md) allows you to back up your Azure PostgreSQL - Flexible Server using multiple options - such as Azure portal, PowerShell, CLI, Azure Resource Manager, Bicep, and so on. 
+[Azure Backup](backup-azure-database-postgresql-flex-overview.md) allows you to back up your Azure PostgreSQL - Flexible Server using multiple clients, such as Azure portal, PowerShell, CLI, Azure Resource Manager, Bicep, and so on. 
 
 ## Prerequisites
 

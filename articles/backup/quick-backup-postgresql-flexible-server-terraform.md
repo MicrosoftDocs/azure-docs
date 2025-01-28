@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Configure Backup for an Azure PostgreSQL - Flexible server using Terraform"
-description: Learn how to back up your Azure PostgreSQL - Flexible server with a Terraform template.
+title: "Quickstart: Configure Backup for an Azure PostgreSQL - Flexible Server using Terraform"
+description: Learn how to configure backup for your Azure PostgreSQL - Flexible Server with a Terraform template.
 ms.devlang: terraform
 ms.custom:
   - ignite-2024
@@ -11,19 +11,24 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-#  Back up an Azure PostgreSQL - Flexible servers with a Terraform template
+#  Quickstart: Configure backup for Azure Database for PostgreSQL - Flexible Server using a Terraform template
 
-[Azure Backup](backup-azure-database-postgresql-flex-overview.md) allows you to back up your Azure PostgreSQL - Flexible servers using multiple options - such as Azure portal, PowerShell, CLI, Azure Resource Manager, Bicep, and so on. This article describes how to back up an Azure PostgreSQL - Flexible servers with an Azure Terraform template. This quickstart focuses on the process of deploying a Terraform template to create a Backup vault and then configure backup for the Azure PostgreSQL - Flexible server. 
+This quickstart describes how to deploy a Terraform template to create a Backup vault and then configure backup for the Azure Database for PostgreSQL - Flexible Server. 
 
-## Before you begin
+[Azure Backup](backup-azure-database-postgresql-flex-overview.md) allows you to back up your Azure PostgreSQL - Flexible servers using multiple clients, such as Azure portal, PowerShell, CLI, Azure Resource Manager, Bicep, and so on.
+
+## Prerequisites
+
+Before you configure backup for Azure Database for PostgreSQL - Flexible Server, ensure that the following prerequisites are met:
 
 * You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
 
-* Log in to your Azure account and authenticate using one of the following methods:
+* Log in to your Azure account and [authenticate to Azure](/azure/developer/terraform/authenticate-to-azure). 
 
-Terraform only supports authenticating to Azure with the Azure CLI. Authenticating using Azure PowerShell isn't supported. Therefore, while you can use the Azure PowerShell module when doing your Terraform work, you first need to [authenticate to Azure](/azure/developer/terraform/authenticate-to-azure).
+  >[!Note]
+  >Terraform only supports authenticating to Azure with the Azure CLI. Authenticating using Azure PowerShell isn't supported. Therefore, while you can use the Azure PowerShell module when doing your Terraform work, you first need to authenticate to Azure.
 
 ## Implement the Terraform code
 
@@ -240,5 +245,5 @@ variable "retention_duration_in_months" {
 
 ## Next steps
 
-- [Restore Azure PostgreSQL - Flexible server using Azure CLI](backup-azure-database-postgresql-flex-restore-cli.md)
-- [About Azure PostgreSQL - Flexible server backup](backup-azure-database-postgresql-flex-overview.md)
+[Restore Azure PostgreSQL - Flexible server using Azure CLI](backup-azure-database-postgresql-flex-restore-cli.md)
+
