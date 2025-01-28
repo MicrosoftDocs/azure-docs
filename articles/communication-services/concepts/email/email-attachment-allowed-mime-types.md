@@ -99,6 +99,9 @@ The Internet Assigned Numbers Authority (IANA) is a department of the Internet C
 
 IANA maintains a registry of standardized MIME types. The registry includes a unique identifier for each MIME type, a short description of its purpose, and the associated file extensions. For the most up-to-date information about MIME types, including the definitive list of media types, go to the [IANA website](https://www.iana.org/assignments/media-types/media-types.xhtml).
 
+> [!NOTE]
+> Please note that the total email size includes Email content, Attachment and the base64 encoding (you need to consider that that base64 encoding increases the size of the message. You need to increase the size value to account for the message size increase that occurs after the attachment is Base64 encoded. Base64 encoding increases the size of the message by about 33%, so the message size is about 33% larger than the message sizes before encoding. For example, if you are allowed a maximum email size of ~10MB (including attachments), realistically you are restricted to ~7.5MB of email (including attachments) because of base64 encoding of the attachments.)
+
 ## Next steps
 
 * [Prepare an email communication resource for Azure Communication Services](./prepare-email-communication-resource.md)

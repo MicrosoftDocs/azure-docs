@@ -14,7 +14,7 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* The ability to [transition a volume to customer-managed keys](configure-customer-managed-keys.md#transition) is now generally available (GA)
+* The ability to [transition an existing volume to customer-managed keys](configure-customer-managed-keys.md#transition) is now generally available (GA)
 
     You can now transition existing volumes from platform-managed keys to customer-managed keys seamlessly. This provides you flexibility of encryption key lifecycle (renewals, rotations) and additional security for regulated industry requirements. 
     
@@ -48,7 +48,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Azure NetApp Files now supports the ability to edit network features (that is, upgrade from Basic to Standard network features) with no downtime for Azure NetApp Files volumes. Standard Network Features provide you with an enhanced virtual networking experience for a seamless and consistent experience along with security posture for Azure NetApp Files. 
 
-    This feature is currently in preview in the Australia East, Central India, East Asia, North Central US, and Switzerland North regions. 
+    This feature is currently in preview in the Australia East, Central India, East Asia, North Central US, Switzerland North, UK South, US Central, US East, US East 2, and US South, US West and US West 2 regions.
   
 ## September 2024 
 

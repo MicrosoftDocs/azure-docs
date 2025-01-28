@@ -4,8 +4,8 @@ description: In this article, discover how to back up SAP HANA databases with HA
 ms.topic: how-to
 ms.date: 10/01/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 

@@ -1,6 +1,106 @@
 {
   "redirections": [
     {
+      "source_path": "articles/network-watcher/network-watcher-packet-capture-manage-portal-vmss.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-packet-capture-manage-portal-vmss",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/network-watcher-packet-capture-manage-powershell-vmss.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-packet-capture-manage-powershell-vmss",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-analyze-usage-patterns.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-analyze-usage-patterns",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-http-debug-headers.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-http-debug-headers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-migrate.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-migrate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-pop-abbreviations.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-pop-abbreviations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-query-string-premium.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-query-string-premium",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-query-string.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-query-string",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-real-time-alerts.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-real-time-alerts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-restrict-access-by-country-region.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-restrict-access-by-country-region",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-verizon-custom-reports.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-verizon-custom-reports",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-verizon-http-headers.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-verizon-http-headers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-verizon-premium-rules-engine-reference-conditional-expressions.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-verizon-premium-rules-engine-reference-conditional-expressions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-verizon-premium-rules-engine-reference-features.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-verizon-premium-rules-engine-reference-features",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-verizon-premium-rules-engine-reference-match-conditions.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-verizon-premium-rules-engine-reference-match-conditions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-verizon-premium-rules-engine-reference.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-verizon-premium-rules-engine-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-verizon-premium-rules-engine.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-verizon-premium-rules-engine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/network-watcher-nsg-auditing-powershell.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-nsg-auditing-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/view-relative-latencies.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/view-relative-latencies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/migrate-classic-vnet-powershell.md",
+      "redirect_url": "/previous-versions/azure/virtual-network/migrate-classic-vnet-powershell",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/modeling-simulation-workbench/index.yml",
       "redirect_url": "/azure",
       "redirect_document_id": false
@@ -1986,6 +2086,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cdn/cdn-features.md",
+      "redirect_url": "/azure/frontdoor/front-door-cdn-comparison",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/chef/chef-automation.md",
       "redirect_url": "/azure/developer/chef/windows-vm-configure",
       "redirect_document_id": false
@@ -2243,6 +2348,20 @@
     {
       "source_path_from_root": "/articles/ddos-protection/telemetry-monitoring-alerting.md",
       "redirect_url": "/azure/ddos-protection/telemetry",
+      "redirect_document_id": false
+    },    {
+      "source_path_from_root": "/articles/ddos-protection/telemetry.md",
+      "redirect_url": "/azure/ddos-protection/monitor-ddos-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ddos-protection/ddos-configure-log-analytics-workspace.md",
+      "redirect_url": "/azure/azure-monitor/logs/quick-create-workspace",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ddos-protection/diagnostic-logging.md",
+      "redirect_url": "/azure/azure-monitor/essentials/tutorial-resource-logs",
       "redirect_document_id": false
     },
     {
@@ -4998,6 +5117,106 @@
     {
       "source_path_from_root": "/articles/reliability/cross-region-replication-azure.md",
       "redirect_url": "/azure/reliability/regions-paired",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-agent.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-app-attach.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-app-attach",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-authorization.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-authorization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-azure-ad-connections.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-azure-ad-connections",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-connection-quality.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-connection-quality",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-custom-image-templates.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-custom-image-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-device-redirections.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-device-redirections",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-insights.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-insights",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-management-issues.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-management-issues",
+      "redirect_document_id": false  
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-multimedia-redirection.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-multimedia-redirection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-powershell.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-rdp-shortpath.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-rdp-shortpath",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-service-connection.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-service-connection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-session-host-configuration-update.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-session-host-configuration-update",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-set-up-issues.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-set-up-issues",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-set-up-overview.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-set-up-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/troubleshoot-vm-configuration.md",
+      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-vm-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/reliability/business-continuity-management-program.md",
+      "redirect_url": "/azure/reliability/concept-business-continuity-high-availability-disaster-recovery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/reliability/disaster-recovery-overview.md",
+      "redirect_url": "/azure/reliability/concept-business-continuity-high-availability-disaster-recovery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/reliability/cross-region-replication-azure-no-pair.md",
+      "redirect_url": "/azure/reliability/regions-multi-region-nonpaired",
       "redirect_document_id": false
     }
   ]

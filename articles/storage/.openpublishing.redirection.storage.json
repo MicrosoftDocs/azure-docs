@@ -161,6 +161,101 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/storage/common/storage-ref-azcopy.md",
+            "redirect_url": "https://github.com/Azure/azure-storage-azcopy/wiki/azcopy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-bench.md",
+            "redirect_url": "https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_bench",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-copy.md",
+            "redirect_url": "https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-doc.md",
+            "redirect_url": "https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_doc",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-env.md",
+            "redirect_url": "https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_env",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-jobs.md",
+            "redirect_url": "https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_jobs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-jobs-clean.md",
+            "redirect_url": "https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_jobs_clean",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-jobs-list.md",
+            "redirect_url": "https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_jobs_list",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-jobs-remove.md",
+            "redirect_url": "https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_jobs_remove",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-jobs-resume.md",
+            "redirect_url": "https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_jobs_resume",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-jobs-show.md",
+            "redirect_url": "https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_jobs_show",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-list.md",
+            "redirect_url": "https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_jobs_list",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-login.md",
+            "redirect_url": "https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_login",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-login-status.md",
+            "redirect_url": "https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_login_status",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-logout.md",
+            "redirect_url": "https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_logout",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-make.md",
+            "redirect_url": "https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_make",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-remove.md",
+            "redirect_url": "https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_remove",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-sync.md",
+            "redirect_url": "https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_sync",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-set-properties.md",
+            "redirect_url": "https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_set-properties",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/common/storage-use-azcopy-troubleshoot.md",
             "redirect_url": "/troubleshoot/azure/azure-storage/storage-use-azcopy-troubleshoot",
             "redirect_document_id": false
