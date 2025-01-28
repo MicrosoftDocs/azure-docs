@@ -3,7 +3,7 @@ title: Azure reliability documentation
 description: Overview of Azure reliability documentation, including platform capabilities, the shared responsibility model, and how each Azure service supports reliability.
 author: anaharris-ms
 ms.topic: overview
-ms.date: 01/27/2025
+ms.date: 01/28/2025
 ms.author: anaharris
 ms.service: azure
 ms.custom: subject-reliability
