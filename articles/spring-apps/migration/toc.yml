@@ -49,7 +49,7 @@ items:
     href: migrate-to-azure-container-apps-automation.md
 - name: Migrate to Azure Kubernetes Service
   href: migrate-to-aks-overview.md
-- name: Containerization
+- name: App containerization
   expanded: true
   items:
     - name: Overview
