@@ -34,7 +34,7 @@ This how-to guide shows how to create an empty data map, choose your source and 
 
 - The layout and item positions in Data Mapper are currently automatic and read only.
 
-- If you create a mapping between parent (complex) elements in the source and target schemas, the mapper creates a loop that iterates through the child elements. However, you must still explicitly create mappings between the child elements. 
+- If you create a mapping between parent elements, which have **Complex** type, in the source and target schemas, the mapper creates a loop that iterates through the child elements. However, you must still explicitly create mappings between the child elements. 
 
 - To call maps created with Data Mapper, you can only use the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**. [For maps created by any other tool, use the **XML Operations** action named **Transform XML**](logic-apps-enterprise-integration-transform.md).
 
@@ -134,7 +134,7 @@ For a straightforward transformation between elements with the same type in the 
 
 1. On the mapper surface, in the **Source** pane, find the source element that you want to map.
 
-   - By default, parent elements are automatically expanded to show their children. However, if the parent doesn't appear expanded, expand the parent first so you can create a mapping for a child element.
+   - By default, parent elements are automatically expanded to show their children. You can't collapse parent elements.
 
    - This example starts mapping from the source element, but you can choose to start mapping from the target element.
 
@@ -190,15 +190,11 @@ The following table lists the available function groups and some example functio
 
 ### Add a function without a mapping relationship
 
-The example in this section transforms the source element from String type to DateTime type, which is the target element type. The example starts without creating a mapping and uses the **To Date** function, which takes a single input.
+The example in this section transforms the source element from String type to DateTime type, which is the target element type. The example starts without creating a mapping and uses the **To Date** function, which accepts a single input.
 
 1. To view what happens in code while you create the mapping, in the mapper's upper right corner, select **View code**.
 
-1. If the **Functions** list isn't visible, in the mapper's upper left corner, select the function icon (![Icon for Functions list.](media/create-maps-data-transformation-visual-studio-code/function-icon.png)).
-
-   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/no-mapping-show-functions.png" alt-text="Screenshot shows selected function icon.":::
-
-1. In the **Functions** list, find and select the function that you want to use, which adds the function to the mapper surface.
+1. In the **Functions** list, find and select the function that you want to use, which adds the function to the mapper surface. If the **Functions** list is collapsed, in the mapper's upper left corner, select the function icon (![Icon for Functions list.](media/create-maps-data-transformation-visual-studio-code/function-icon.png)).
 
    This example selects the **To Date** function, which is in the **Conversion** function group.
 
@@ -211,7 +207,7 @@ The example in this section transforms the source element from String type to Da
    > If no mapping exists on the map or if a mapping is selected when you add a function to the 
    > map, the function appears but isn't connected to any elements or other functions, for example:
    >
-   > :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/disconnected-function-to-date.png" alt-text="Screenshot shows a disconnected function." border="false":::
+   > :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/disconnected-function-to-date.png" alt-text="Screenshot shows disconnected function named To Date." border="false":::
 
 1. Connect the function to the source and target elements.
 
@@ -233,63 +229,42 @@ The example in this section transforms the source element from String type to Da
 
    :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/function-to-date-confirm-inputs.png" alt-text="Screenshot shows Input tab for the function named To Date.":::
 
-   For some data types, such as arrays, the scope for the transformation might also appear available. This scope is usually the immediate element, such as an array, but in some scenarios, the scope might exist beyond the immediate element.
+   For some data types, such as arrays, the scope for the transformation might also appear available. This scope is usually the immediate element, such as the array, but in some scenarios, the scope might exist beyond the immediate element.
 
    For example, to iterate through array items, see [Create a loop between arrays](#loop-through-array). To perform a task when an element's value meets a condition, see [Add a condition between elements](#add-condition).
 
-### Add a function to an existing mapping relationship
-
-When a mapping relationship already exists between source and target elements, you can add the function by following these steps:
-
-1. On the map, select the line for the mapping that you created.
-
-1. Move your pointer over the selected line, and select the **Insert function** plus sign (**+**) that appears, for example:
-
-   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/insert-function.png" alt-text="Screenshot shows Visual Studio Code with elements from source and target schemas with mapping relationship and option to Insert function." lightbox="media/create-maps-data-transformation-visual-studio-code/insert-function.png":::
-
-1. From the functions list that opens, find and select the function that you want to use. 
-
-   The function appears on the map and is automatically connected between the source and target elements.
-
 ### Add a function with multiple inputs
 
-The example in this section concatenates multiple source element types so that you can map the results to the target element type. The example uses the **Concat** function, which takes multiple inputs.
+The example in this section concatenates multiple source element types so that you can map the results to the target element type. The example uses the **Concat** function, which accepts multiple inputs.
 
-1. To view what happens in code while you create the mapping, in the mapper upper right corner, select **View code**.
+1. To view what happens in code while you create the mapping, in the mapper's upper right corner, select **View code**.
 
-1. If you haven't already, on the mapper surface, [select the source and target elements  map](#create-direct-mapping).
+1. In the **Functions** list, find and select the function that you want to use, which adds the function to the mapper surface. If the **Functions** list is collapsed, in the mapper's upper left corner, select the function icon (![Icon for Functions list.](media/create-maps-data-transformation-visual-studio-code/function-icon.png)).
 
-1. In the map's upper left corner, select **Show functions** (![Icon for Show functions.](media/create-maps-data-transformation-visual-studio-code/function-icon.png)).
+   This example selects the **Concat** function, which is in the **String** function group.
 
-   ![Screenshot showing source and target schema elements and the selected function named Show functions.](media/create-maps-data-transformation-visual-studio-code/multi-inputs-show-functions.png)
-
-1. From the functions list that opens, find and select the function that you want to use, which adds the function to the map. If the function doesn't appear visible on the map, try zooming out on the map surface.
-
-   This example selects the **Concat** function:
-
-   ![Screenshot showing the selected function named Concat.](media/create-maps-data-transformation-visual-studio-code/select-function.png)
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/select-function-concat.png" alt-text="Screenshot shows the selected function named Concat.":::
 
    > [!NOTE]
    >
-   > If no mapping line exists or is selected when you add a function to the map, the function 
-   > appears on the map, but disconnected from any elements or other functions. If the function 
-   > requires configuration, a red dot appears in the function's upper right corner, for example:
+   > If no mapping exists on the map or if a mapping is selected when you add a function to the 
+   > map, the function appears but isn't connected to any elements or other functions, for example:
    >
-   > ![Screenshot showing the disconnected function, Concat.](media/create-maps-data-transformation-visual-studio-code/disconnected-function-concat.png)
+   > :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/disconnected-function-concat.png" alt-text="Screenshot shows disconnected function named Concat." border="false":::
 
-1. Expand the function shape to display the function's details and connection points. To expand the function shape, select inside the shape.
+1. On the mapper surface, select the function shape to view the function details.
 
-1. In the function information pane, on the **Properties** tab, under **Inputs**, select the source data elements to use as the inputs.
+1. On the **Input** tab, select the source data elements to use as the inputs.
 
-   This example selects the **FirstName** and **LastName** source elements as the function inputs, which automatically add the respective connections on the map.
+   This example selects the **FirstName** and **LastName** elements in the source schema as the function inputs, which automatically adds the respective mappings to the mapper surface.
 
-   ![Screenshot showing multiple source data elements selected as function inputs.](media/create-maps-data-transformation-visual-studio-code/function-multiple-inputs.png)
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/function-multiple-inputs.png" alt-text="Screenshot shows multiple source elements as function inputs.":::
 
-1. To complete the mapping drag and draw a line between the function's right edge and the target element. You can start either from the target element or from the function.
+1. To complete the mapping, drag and draw a line between the function's right edge and the target element. You can start from either the target element or the function.
 
-   ![Screenshot showing finished mapping from function with multiple inputs to target element.](media/create-maps-data-transformation-visual-studio-code/function-multiple-inputs-single-output.png)
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/function-multiple-inputs-single-output.png" alt-text="Screenshot shows finished mappings between multiple inputs, Concat function, and target element.":::
 
-   The **Code** pane shows the mapping relationship that you created:
+   The **Code** pane shows the mapping relationships that you created:
 
    ![Screenshot showing Code pane  with complex mapping relationship between source and target elements.](media/create-maps-data-transformation-visual-studio-code/concat-example-code-view.png)
 
