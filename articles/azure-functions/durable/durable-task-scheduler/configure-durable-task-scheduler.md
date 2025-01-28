@@ -178,7 +178,7 @@ Retrieve the task hub name by running:
 Before running the app, give your developer identity the **Durable Task Data Contributor** role so you have permission to access Durable Task Scheduler. 
 
 > [!NOTE]
-> Learn [how identity-based connection works](https://learn.microsoft.com/azure/azure-functions/functions-reference#local-development-with-identity-based-connections) during local development. 
+> Learn [how identity-based connection works](../../functions-reference.md#local-development-with-identity-based-connections) during local development. 
 
 #### Set the assignee
 
@@ -260,7 +260,7 @@ The following output example shows a developer identity assigned with the Durabl
 
 ### Run the app locally
 
-Start [Azurite](https://learn.microsoft.com/azure/storage/common/storage-use-azurite#run-azurite). 
+Start [Azurite](../../../storage/common/storage-use-azurite.md#run-azurite). 
 
 Once you've started Azurite, go to the root directory of your app and run the application:
 
@@ -350,7 +350,7 @@ This article shows how to set up **user-assigned managed identity**.
 
 1. In the Azure portal, navigate to your Azure Storage account. 
 
-1. Repeat the steps from the [previous section](#assign-rbac-to-the-user-managed-identity) to assign the **Storage Blob Data Contributor** role to the identity. 
+1. Repeat the steps from the [previous section](#assign-azure-role-based-access-control-rbac-to-the-user-managed-identity) to assign the **Storage Blob Data Contributor** role to the identity. 
 
 ### Enable user-assigned managed identity on your app
 
@@ -388,7 +388,7 @@ Congratulations! Your Durable Functions app should now be configured to use Dura
 Remove the task hub you created. 
 
 ```azurecli
-az durabletask taskhub delete --resource-group YOUR_RESOURCE_GROUP --scheduler-name YOU_SCHEDULER --name YOUR_TASKHUB
+az durabletask taskhub delete --resource-group YOUR_RESOURCE_GROUP --scheduler-name YOUR_SCHEDULER --name YOUR_TASKHUB
 ```
 
 Successful deletion doesn't return any output. 
@@ -396,11 +396,8 @@ Successful deletion doesn't return any output.
 Next, delete the scheduler that housed that task hub.
 
 ```azurecli
-az durabletask scheduler delete --resource-group YOUR_RESOURCE_GROUP --scheduler-name YOU_SCHEDULER 
+az durabletask scheduler delete --resource-group YOUR_RESOURCE_GROUP --scheduler-name YOUR_SCHEDULER 
 ```
 
 ## Next steps
 
-- [Order processing sample](../E2E/OrderProcessor/)
-- [Learn more about Durable Task Scheduler performance](./performance.md)
-- [Learn more about the Durable Task Scheduler dashboard](./dashboard.md)
