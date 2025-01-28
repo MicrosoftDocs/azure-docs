@@ -41,7 +41,7 @@ font, choose a different color scheme, or reset your user settings. Your selecti
 across sessions unless you select **Reset User Settings**.
 
 When you select **Reset User Settings**, the current session is closed and your settings are reset.
-You're prompted to restart as if this is your first time using Cloud Shell.
+Cloud Shell restarts the session and takes you through the first time user experience.
 
 [![Screenshot of the Settings menu.][07i]][07x]
 
@@ -142,8 +142,8 @@ When you select the **Close** button, the Cloud Shell session is terminated.
 - Linux: <kbd>Ctrl</kbd>+<kbd>c</kbd> to copy and <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>v</kbd> to paste.
 
 > [!NOTE]
-> If no text is selected when you type <kbd>Ctrl</kbd>+<kbd>c</kbd>, Cloud Shell sends the `Ctrl C`
-> character to the shell. This could terminate the currently running command.
+> If no text is selected when you type <kbd>Ctrl</kbd>+<kbd>c</kbd>, Cloud Shell sends the `Ctrl-C`
+> character to the shell. Sending `Ctrl-C` can terminate the currently running command.
 
 ## Resize Cloud Shell window
 
