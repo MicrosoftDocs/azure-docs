@@ -446,14 +446,12 @@
           href: ../cdn/cdn-app-dev-net.md?toc=/azure/frontdoor/TOC.json
         - name: Node.js
           href: ../cdn/cdn-app-dev-node.md?toc=/azure/frontdoor/TOC.json
-    - name: Edgio
+    - name: Migrate to Azure Front Door
       items:
-      - name: Migrate to Azure Front Door
-        items:
-        - name: Custom domain
-          href: migrate-cdn-to-front-door.md
-        - name: Retain *.azureedge.net domain
-          href: ../cdn/migrate-cdn-to-front-door-retain-edge-domain.md?toc=/azure/frontdoor/TOC.json
+      - name: Custom domain
+        href: migrate-cdn-to-front-door.md
+      - name: Retain *.azureedge.net domain
+        href: ../cdn/migrate-cdn-to-front-door-retain-edge-domain.md?toc=/azure/frontdoor/TOC.json
     - name: Troubleshoot
       items:
       - name: 404 status
