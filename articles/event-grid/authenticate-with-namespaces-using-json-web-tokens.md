@@ -4,8 +4,8 @@ description: This article shows you how to authenticate with Azure Event Grid na
 ms.topic: how-to
 ms.custom: build-2024, devx-track-azurecli
 ms.date: 01/27/2025
-author: george-guirguis, seth-shanmugam
-ms.author: geguirgu, seshanmugam
+author: Connected-Seth
+ms.author: seshanmugam
 ---
 
 # Authenticate with namespaces using JSON Web Tokens
