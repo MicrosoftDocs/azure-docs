@@ -1,6 +1,31 @@
 {
   "redirections": [
     {
+      "source_path": "articles/partner-solutions/logzio/create.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/logzio/create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/logzio/manage.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/logzio/manage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/logzio/overview.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/logzio/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/logzio/setup-sso.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/logzio/setup-sso",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/logzio/troubleshoot.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/logzio/troubleshoot",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/network-watcher/network-watcher-packet-capture-manage-portal-vmss.md",
       "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-packet-capture-manage-portal-vmss",
       "redirect_document_id": false
