@@ -423,8 +423,6 @@
           href: ../cdn/cdn-standard-rules-engine.md?toc=/azure/frontdoor/TOC.json
         - name: Control caching behavior
           items:
-          - name: Cache content by query strings
-            href: ../cdn/cdn-query-string.md?toc=/azure/frontdoor/TOC.json
           - name: Purge cached assets
             href: ../cdn/cdn-purge-endpoint.md?toc=/azure/frontdoor/TOC.json
         - name: Shared access signature storage support
@@ -448,14 +446,12 @@
           href: ../cdn/cdn-app-dev-net.md?toc=/azure/frontdoor/TOC.json
         - name: Node.js
           href: ../cdn/cdn-app-dev-node.md?toc=/azure/frontdoor/TOC.json
-    - name: Edgio
+    - name: Migrate to Azure Front Door
       items:
-      - name: Migrate to Azure Front Door
-        items:
-        - name: Custom domain
-          href: migrate-cdn-to-front-door.md
-        - name: Retain *.azureedge.net domain
-          href: ../cdn/migrate-cdn-to-front-door-retain-edge-domain.md?toc=/azure/frontdoor/TOC.json
+      - name: Custom domain
+        href: migrate-cdn-to-front-door.md
+      - name: Retain *.azureedge.net domain
+        href: ../cdn/migrate-cdn-to-front-door-retain-edge-domain.md?toc=/azure/frontdoor/TOC.json
     - name: Troubleshoot
       items:
       - name: 404 status
@@ -522,8 +518,6 @@
         items:
         - name: Microsoft (classic)
           href: ../cdn/microsoft-pop-abbreviations.md?toc=/azure/frontdoor/TOC.json
-        - name: Edgio
-          href: ../cdn/cdn-pop-abbreviations.md?toc=/azure/frontdoor/TOC.json
     - name: Standard rules engine
       href: ../cdn/cdn-standard-rules-engine-reference.md?toc=/azure/frontdoor/TOC.json
       items:
