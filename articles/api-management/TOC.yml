@@ -134,12 +134,6 @@
       href: protect-with-ddos-protection.md
     - name: Configure Front Door
       href: front-door-api-management.md
-  - name: Workspaces
-    items:
-    - name: Workspaces overview
-      href: workspaces-overview.md
-    - name: Create a workspace
-      href: how-to-create-workspace.md
   - name: Configuration management
     items:
     - name: Landing zone accelerator
@@ -325,8 +319,12 @@
     href: how-to-self-hosted-gateway-on-kubernetes-in-production.md
   - name: Support policy for self-hosted gateway
     href: self-hosted-gateway-support-policies.md
-- name: Secure your APIs
-  items:
+  - name: Workspaces for federated API management
+    items:
+    - name: Workspaces overview
+      href: workspaces-overview.md
+    - name: Create a workspace
+      href: how-to-create-workspace.md
   - name: Secure API access
     items:
     - name: API authentication and authorization options

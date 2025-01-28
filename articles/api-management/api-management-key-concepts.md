@@ -109,7 +109,7 @@ Azure API Management supports several deployment models for managing an organiza
 **More information**:
 
 * [Workspaces in API Management](workspaces-overview.md)
-* [API Management deployment models](workspaces-overview.md#centralized-api-platform-and-decentralized-api-teams)
+* [API Management deployment models](workspaces-overview.md#workspaces-support-centralized-api-platform-and-decentralized-api-teams)
 
 ## API Management tiers
 
