@@ -86,17 +86,21 @@ Choose from the list of retention rules that were defined in the associated Back
 
 Azure Backup service creates a job for scheduled backups or if you trigger on-demand backup operation for tracking. 
 
-To view the backup job status:
+To view the backup job status, follow these steps:
 
-1. Go to the **Backup instance** screen.
+1. Go to the **Backup vault**, and then select  **Backup instance**.
 
-   It shows the jobs dashboard with operation and status for the past seven days.
+      The Backup instance pane for the database shows the jobs dashboard with operation and status for the past seven days.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql/postgre-jobs-dashboard-inline.png" alt-text="Screenshot showing the Jobs dashboard." lightbox="./media/backup-azure-database-postgresql/postgre-jobs-dashboard-expanded.png":::
+   :::image type="content" source="./media/backup-azure-database-postgresql/postgre-jobs-dashboard.png" alt-text="Screenshot showing the Jobs dashboard." lightbox="./media/backup-azure-database-postgresql/postgre-jobs-dashboard.png":::
 
-1. To view the status of the backup job, select **View all** to see ongoing and past jobs of this backup instance.
+1. To view the status of the backup job, select **All** to see ongoing and past jobs of this backup instance.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql/postgresql-jobs-view-all-inline.png" alt-text="Screenshot showing to select the View all option." lightbox="./media/backup-azure-database-postgresql/postgresql-jobs-view-all-expanded.png":::
+   :::image type="content" source="./media/backup-azure-database-postgresql/postgresql-jobs-view-all.png" alt-text="Screenshot showing to select the View all option." lightbox="./media/backup-azure-database-postgresql/postgresql-jobs-view-all.png":::
+
+1. Review the list of backup and restore jobs and their status. You can select a job from the list to view the job details.
+
+   :::image type="content" source="./media/backup-azure-database-postgresql-flex/job-details.png" alt-text="Screenshot shows the job details." lightbox="./media/backup-azure-database-postgresql-flex/job-details.png":::
 
 ## Next steps
 
