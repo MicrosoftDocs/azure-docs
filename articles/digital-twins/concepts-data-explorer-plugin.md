@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the Azure Digital Twins query plugin for Azure Data Explorer
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/23/2022
+ms.date: 01/27/2025
 ms.topic: conceptual
 ms.service: azure-digital-twins
 
@@ -17,9 +17,9 @@ ms.service: azure-digital-twins
 
 # Azure Digital Twins query plugin for Azure Data Explorer
 
-This article explains about the Azure Digital Twin query plugin for [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), how to use Azure Data Explorer IoT data with Azure Digital Twins, how to map data across Azure Data Explorer and Azure Digital Twins, and more.
+This article is about the Azure Digital Twins query plugin for [Azure Data Explorer](/azure/data-explorer/data-explorer-overview).
 
-The Azure Digital Twins plugin for [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) lets you run Azure Data Explorer queries that access and combine data across the Azure Digital Twins graph and Azure Data Explorer time series databases. Use the plugin to contextualize disparate time series data by reasoning across digital twins and their relationships to gain insights into the behavior of modeled environments.
+The Azure Digital Twins plugin for Azure Data Explorer lets you run Azure Data Explorer queries that access and combine data across the Azure Digital Twins graph and Azure Data Explorer time series databases. Use the plugin to contextualize disparate time series data by reasoning across digital twins and their relationships to gain insights into the behavior of modeled environments.
 
 For example, with this plugin, you can write a Kusto query that:
 1. Selects digital twins of interest via the Azure Digital Twins query plugin,
@@ -27,50 +27,6 @@ For example, with this plugin, you can write a Kusto query that:
 3. Performs advanced time series analytics on those twins.  
 
 Combining data from a twin graph in Azure Digital Twins with time series data in Azure Data Explorer can help you understand the operational behavior of various parts of your solution. 
-
-## Using the plugin
-
-You can invoke the plugin in a Kusto query with the following command. There are two placeholders, `<Azure-Digital-Twins-endpoint>` and `<Azure-Digital-Twins-query>`, which are strings representing the Azure Digital Twins instance endpoint and Azure Digital Twins query, respectively. 
-
-```kusto
-evaluate azure_digital_twins_query_request(<Azure-Digital-Twins-endpoint>, <Azure-Digital-Twins-query>) 
-```
-
-The plugin works by calling the [Azure Digital Twins Query API](/rest/api/digital-twins/dataplane/query), and the [query language structure](concepts-query-language.md) is the same as when using the API, with two exceptions: 
-* The `*` wildcard in the `SELECT` clause isn't supported. Instead, Azure Digital Twin queries that are executed using the plugin should use aliases in the `SELECT` clause.
-
-    For example, consider the below Azure Digital Twins query that is executed using the API:
-    
-    ```SQL
-    SELECT * FROM DIGITALTWINS
-    ```
-    
-    To execute that query when using the plugin, it should be rewritten like this:
-    
-    ```SQL
-    SELECT T FROM DIGITALTWINS T
-    ```
-* Column names returned by the plugin may not start with a `$`. Using aliases in the `SELECT` clause will also help to avoid this scenario.
-
-    For example, consider the below Azure Digital Twins query that is executed using the API:
-    
-    ```SQL
-    SELECT T.$dtId, T.Temperature FROM DIGITALTWINS T
-    ```
-    
-    To execute that query when using the plugin, it should be rewritten like this:
-    
-    ```SQL
-    SELECT T.$dtId as tid, T.Temperature FROM DIGITALTWINS T
-    ```
-
-
->[!IMPORTANT]
->The user of the plugin must be granted the **Azure Digital Twins Data Reader** role or the **Azure Digital Twins Data Owner** role, as the user's Microsoft Entra token is used to authenticate. Information on how to assign this role can be found in [Security for Azure Digital Twins solutions](concepts-security.md#authorization-azure-roles-for-azure-digital-twins).
-
-For more information on using the plugin, see the [Kusto documentation for the azure_digital_twins_query_request plugin](/azure/data-explorer/kusto/query/azure-digital-twins-query-request-plugin).
-
-To see example queries and complete a walkthrough with sample data, see [Azure Digital Twins query plugin for Azure Data Explorer: Sample queries and walkthrough](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/adt-adx-queries) in GitHub.
 
 ## Ingesting Azure Digital Twins data into Azure Data Explorer
 
@@ -147,6 +103,51 @@ The schema also supports storing properties for relationships, per the `relation
 You may want to store a property in your schema with multiple fields. These properties are represented by storing a JSON object as `value` in your schema.
 
 For instance, if you want to represent a property with three fields for roll, pitch, and yaw, the value object would look like this: `{"roll": 20, "pitch": 15, "yaw": 45}`.
+
+## Using the plugin
+
+Once your Azure Digital Twins data is in Azure Data Explorer, you can use the plugin to query it.
+
+You can invoke the plugin in a Kusto query with the following command. There are two placeholders, `<Azure-Digital-Twins-endpoint>` and `<Azure-Digital-Twins-query>`, which are strings representing the Azure Digital Twins instance endpoint and Azure Digital Twins query, respectively. 
+
+```kusto
+evaluate azure_digital_twins_query_request(<Azure-Digital-Twins-endpoint>, <Azure-Digital-Twins-query>) 
+```
+
+>[!IMPORTANT]
+>The user of the plugin must be granted the **Azure Digital Twins Data Reader** role or the **Azure Digital Twins Data Owner** role, as the user's Microsoft Entra token is used to authenticate. Information on how to assign this role can be found in [Security for Azure Digital Twins solutions](concepts-security.md#authorization-azure-roles-for-azure-digital-twins).
+
+The plugin works by calling the [Azure Digital Twins Query API](/rest/api/digital-twins/dataplane/query), and the [query language structure](concepts-query-language.md) is the same as when using the API, with two exceptions: 
+* The `*` wildcard in the `SELECT` clause isn't supported. Instead, Azure Digital Twin queries that are executed using the plugin should use aliases in the `SELECT` clause.
+
+    For example, consider the below Azure Digital Twins query that is executed using the API:
+    
+    ```SQL
+    SELECT * FROM DIGITALTWINS
+    ```
+    
+    To execute that query when using the plugin, it should be rewritten like this:
+    
+    ```SQL
+    SELECT T FROM DIGITALTWINS T
+    ```
+* Column names returned by the plugin may not start with a `$`. Using aliases in the `SELECT` clause will also help to avoid this scenario.
+
+    For example, consider the below Azure Digital Twins query that is executed using the API:
+    
+    ```SQL
+    SELECT T.$dtId, T.Temperature FROM DIGITALTWINS T
+    ```
+    
+    To execute that query when using the plugin, it should be rewritten like this:
+    
+    ```SQL
+    SELECT T.$dtId as tid, T.Temperature FROM DIGITALTWINS T
+    ```
+
+For more information on using the plugin, see the [Kusto documentation for the azure_digital_twins_query_request plugin](/azure/data-explorer/kusto/query/azure-digital-twins-query-request-plugin).
+
+To see example queries and complete a walkthrough with sample data, see [Azure Digital Twins query plugin for Azure Data Explorer: Sample queries and walkthrough](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/adt-adx-queries) in GitHub.
 
 ## Next steps
 

@@ -66,7 +66,8 @@ Azure Front Door is designed for internet-facing scenarios and is optimized for 
 
 #### Origin Security
 
-Azure Front Door connects securely to the Azure Storage account using [Private Link](private-link.md). The storage account is configured to deny direct internet access, allowing requests only through the private endpoint used by Azure Front Door. This setup ensures all requests get processed by Azure Front Door, protecting your storage account from direct internet exposure. This configuration requires the premium tier of Azure Front Door. If using the standard tier, the storage account must be publicly accessible. You can secure requests with a [shared access signature (SAS)](../storage/common/storage-sas-overview.md) and either have clients include the SAS in their requests or use the Azure Front Door [rules engine](front-door-rules-engine.md) to attach it.
+- If you are using the premium tier, Azure Front Door can connect securely to the Azure Storage account using [Private Link](private-link.md). The storage account can be configured to deny public network access, allowing requests only through the private endpoint used by Azure Front Door. This setup ensures all requests get processed by Azure Front Door, protecting your storage account from direct internet exposure. 
+- If you are using the standard tier, you can secure requests with a [shared access signature (SAS)](../storage/common/storage-sas-overview.md) and either have clients include the SAS in their requests or use the Azure Front Door [rules engine](front-door-rules-engine.md) to attach it. Note that the storage account's network access must be publicly accessible (from all networks or from Front Door IP addresses in AzureFrontDoor.Backend service tag).
 
 #### Custom Domain Names
 
