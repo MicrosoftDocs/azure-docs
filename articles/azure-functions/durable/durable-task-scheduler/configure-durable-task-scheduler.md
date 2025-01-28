@@ -86,8 +86,6 @@ Change the `storageProvider` type to be `azureManaged`:
 
 ::: zone pivot="other"  
 
-### Remove `extensionBundle` from `host.json`
-
 Change the `storageProvider` type to be `azureManaged` and remove the existing `Microsoft.Azure.Functions.ExtensionBundle` reference from the `host.json` file.
 
 ```json
@@ -401,3 +399,5 @@ az durabletask scheduler delete --resource-group YOUR_RESOURCE_GROUP --scheduler
 
 ## Next steps
 
+- Learn more about the [Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md).
+- [Troubleshoot any errors you may encounter](./troubleshoot-durable-task-scheduler.md) while using Durable Task Scheduler.

@@ -17,8 +17,8 @@ Connect your workloads to the Durable Task Scheduler, which:
 - Provides an easy debugging experience for stuck orchestrations via [the Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md)
 
 The choice of developer orchestration framework depends on where your applications are hosted. You can use:
-- [Durable Functions in Azure Functions](#using-durable-functions-in-azure-functions)
-- [The Durable Task SDK in Azure Container Apps, Azure Kubernetes Service, App Service, etc.](#using-the-durable-task-sdk-in-other-azure-services)
+- [Durable Functions in Azure Functions](#durable-functions-in-azure-functions)
+- [The Durable Task SDKs in Azure Container Apps, Azure Kubernetes Service, App Service, etc.](#the-durable-task-sdks-in-other-azure-services)
 
 :::image type="content" source="/media/durable-task-scheduler-overview/dts-in-all-computes.png" alt-text="Diagram demonstrating Durable Task Scheduler spanning Azure Computes.":::
 
@@ -42,6 +42,7 @@ In addition to Azure Functions, the Durable Task Scheduler introduces a managed 
 - Azure Container Apps (ACA)
 - Azure Kubernetes Service (AKS)
 - Azure App Service
+- Virtual Machines and other computes
 
 You can write your orchestrations as code using the Durable Task SDKs and connect your workloads directly to the Durable Task Scheduler for scheduling and persistence of orchestration state. 
 
