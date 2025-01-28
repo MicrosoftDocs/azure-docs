@@ -58,23 +58,40 @@ Inside your Azure Communication Services resource, scroll down on the left navig
 :::image type="content" source="..\media\workbooks\acs-insights-nav.png" alt-text="Screenshot of the Insights navigation blade.":::
 
 
-## Voice and Video Insights
+## Volume
 
-Since **Voice and video** logs are complex, this modality is broken down into four subsections:
+<!-- :::image type="content" source="..\media\workbooks\voice-and-video-nav.png" alt-text="Screenshot of voice and video navigation."::: -->
 
-:::image type="content" source="..\media\workbooks\voice-and-video-nav.png" alt-text="Screenshot of voice and video navigation.":::
+The **Volume** tab plots key usage metrics, such as call and participant volume, you can use the filters to focus your reviews and time frames. You can use Copilot to get detailed explanations of key concepts at the bottom of this section. 
 
-The **Summary** tab contains general information about Voice and video usage, including the types of media streams shared, the types of endpoints participating in a call (e.g. VoIP, Bot, Application, PSTN, or Server), the OS usage, and participant end reasons:
+This tab focuses on the composition and volume of your calls over time. You can see average call duration in a period or focus on top users by average call duration. We provide more information with breakdowns by SDK version, Teams interoperability, participant types, call type, endpoint type, and OS version. 
 
-:::image type="content" source="..\media\workbooks\voice-and-video-summary.png" alt-text="Screenshot of voice and video summary.":::
 
-The **Volume** tab under the **Voice and video** modality displays the number of calls and the number of participants in a specific period of time (**Time range** parameter), subdivided into time bins (**Time granularity** parameter):
+<!-- :::image type="content" source="..\media\workbooks\voice-and-video-summary.png" alt-text="Screenshot of voice and video summary."::: -->
+
+<!-- The **Volume** tab under the **Voice and video** modality displays the number of calls and the number of participants in a specific period of time (**Time range** parameter), subdivided into time bins (**Time granularity** parameter):
 
 :::image type="content" source="..\media\workbooks\voice-and-video-volume.png" alt-text="Screenshot of voice and video volume.":::
 
 The **Volume** tab contains a **Grouping** parameter, which helps visualize the number of calls and participants segmented by either Call type (P2P vs. Group calls) and Interop Calls (pure Azure Communication Services vs. Teams Interop):
 
-:::image type="content" source="..\media\workbooks\voice-and-video-volume-grouping.png" alt-text="Screenshot of voice and video volume grouping.":::
+:::image type="content" source="..\media\workbooks\voice-and-video-volume-grouping.png" alt-text="Screenshot of voice and video volume grouping."::: -->
+
+## Reliability
+The **Reliability** tab summarizes the performance of key calling SDK APIs to help you focus on the lowest performing areas. The default view shows a trend of all the APIs, you need to select a single API scenario to focus on and the visuals will update and show you a detailed breakdown of that API. You can then ask Copilot for help understanding individual error codes and possible solutions to improve performance. 
+
+## User Facing Diagnostics (UFD)
+
+The User Facing Diagnostic (UFD) tab opens with a summary of the top UFD events and highlights the recovery rate of each UFD for you to focus on. Like the Reliability tab, you’ll see an overview of all the UFDs first. Then you can interact with Copilot and select an individual UFD for further drill down insights. 
+
+We recommend prioritizing improvements on a UFD that has a low recovery rate and a high volume, which indicates the issue causes the biggest impact to user's call experiences. For example, the calling SDK will try to re-attempt or mitigate some in call events, finding the poorest performing areas can help identify root causes. 
+
+### How do you interpret UFDs?
+
+During calls, the calling SDK may trigger events called User Facing Diagnostics (UFDs), these UFD events can indicate a user had a poor call experience for various reasons. For example, their video freezes and their network quality drops in the middle of a call. Since UFDs are symptomatic by nature and are triggered based on broader quantitative criteria, there can be various root causes that trigger a UFD event. Additionally, a UFD can be triggered but the user may not have perceived an issue during a call. In contrast the reliability tab attempts to provide more concrete error code and subcode information for your analysis. 
+
+
+## Quality
 
 The **Quality** tab under **Voice and video** allows users to inspect the quality distribution of calls, where quality is defined at three levels for this dashboard:
 
@@ -87,15 +104,15 @@ The **Quality** tab under **Voice and video** allows users to inspect the qualit
 
 - **Participant end reasons**, which keep track of the reason why a participant left a call. End reasons are [SIP codes](https://en.wikipedia.org/wiki/List_of_SIP_response_codes), which are numeric codes that describe the specific status of a signaling request. SIP codes can be grouped into six categories: *Success*, *Client Failure*, *Server Failure*, *Global Failure*, *Redirection*, and *Provisional*. The distribution of SIP code categories is shown in the pie chart on the left hand side, while a list of the specific SIP codes for participant end reasons is provided on the right hand side
 
-:::image type="content" source="..\media\workbooks\voice-and-video-quality.png" alt-text="Screenshot of voice and video quality.":::
+<!-- :::image type="content" source="..\media\workbooks\voice-and-video-quality.png" alt-text="Screenshot of voice and video quality."::: -->
 
 Quality can also be filtered by the types of media streams (**Media Type** parameter) used in the call, e.g. to only get the impacted calls in terms of video stream quality:
 
-:::image type="content" source="..\media\workbooks\voice-and-video-quality-params.png" alt-text="Screenshot voice and video quality media type parameter.":::
+<!-- :::image type="content" source="..\media\workbooks\voice-and-video-quality-params.png" alt-text="Screenshot voice and video quality media type parameter."::: -->
 
 And can also be filtered by endpoint types (**Endpoint Type** parameter), e.g. getting the participant end reasons for PSTN participants. These filters allow for multiple selections:
 
-:::image type="content" source="..\media\workbooks\voice-and-video-params-2.png" alt-text="Screenshot voice and video quality endpoint type parameter.":::
+<!-- :::image type="content" source="..\media\workbooks\voice-and-video-params-2.png" alt-text="Screenshot voice and video quality endpoint type parameter."::: -->
 
 ## More information about workbooks
 
@@ -103,11 +120,11 @@ For an in-depth description of workbooks, refer to the [Azure Monitor Workbooks]
 
 ## Editing dashboards
 
-The **Insights** dashboards provided with your **Communication Service** resource can be customized by clicking on the **Edit** button on the top navigation bar:
+The **Insights** dashboards we provide can be customized to better suit your needs by clicking on the **Edit** button on the top navigation bar:
 
 :::image type="content" source="..\media\workbooks\dashboard-editing.png" alt-text="Screenshot of dashboard editing process.":::
 
-Editing these dashboards doesn't modify the **Insights** tab, but rather creates a separate workbook that can be accessed on your resource’s Workbooks tab:
+Editing these dashboards creates a separate workbook that can be accessed from your resource’s Workbooks tab:
 
 :::image type="content" source="..\media\workbooks\workbooks-tab.png" alt-text="Screenshot of the workbooks tab.":::
 
@@ -145,48 +162,9 @@ Interact with Copilot in Azure for quality improvement guidance and explanations
 - Learn how to use the Log Analytics workspace: [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
 - Create your own queries in Log Analytics: [Get started with log queries in Azure Monitor](/azure/azure-monitor/logs/get-started-queries).
 - Explore known call issues: [Known issues in the SDKs and APIs](../../known-issues.md).
-- 
-- 
-- 
-- 
-- NOTES
-- 
-- The **Insights Dashboard** is powered by 
-[Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview) 
-so you can modify and save edits to the template we provided to better suite your needs. To learn more see, [build workbook reports on top of your data](/azure/azure-monitor/logs/data-platform-logs#built-in-insights-and-custom-dashboards-workbooks-and-reports). 
+ 
 
 
-Azure Communication Services (ACS) integrates [Copilot in Azure](/azure/copilot/overview) 
-with your call quality analytics and visualizations in the **Voice and Video Insights** dashboard. 
-You will find the **Insights** dashboard in the monitoring section of your of your ACS resource when you 
-are in your Azure Portal. You can interact with Copilot to quickly understand the high level 
-summary of the calling health of your ACS calling resource and learn how to improve the call 
-quality for your call participants. 
+<!-- - NOTES
 
-
-In order to take advantage of Workbooks, follow the instructions outlined 
-in [Enable Azure Monitor in Diagnostic Settings](../enable-logging.md). 
-To enable Workbooks, you need to send your logs to a 
-[Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) destination. 
-
-
-of your calls to display many data visualizations conveying insights
- from the Azure Monitor logs and metrics monitored for your Communications Services
-The **Insights Dashboard** is run with  powered by 
-[Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview) 
-so you can modify and save edits to the template we provided to better suite your needs. To learn more see, [build workbook reports on top of your data](/azure/azure-monitor/logs/data-platform-logs#built-in-insights-and-custom-dashboards-workbooks-and-reports). 
-
-
-Azure Communication Services (ACS) integrates [Copilot in Azure](/azure/copilot/overview) 
-with your call quality analytics and visualizations in the **Voice and Video Insights** blade. 
-You will find the **Insights** blade in the monitoring section of your of your ACS resource when you 
-are in your Azure Portal. You can interact with Copilot to quickly understand the high level 
-summary of the calling health of your ACS calling resource and learn how to improve the call 
-quality for your call participants. 
-
-We recommend using the **Voice and Video Insights** sections 
-described in this article first to understand and improve your overall call quality, and as needed, 
-use Call Diagnostics to troubleshoot individual calls in granular detail. 
-
-
-:::image type="content" source="..\media\workbooks\insights-overview-2.png" alt-text="Screenshot of Communication Services Insights dashboard.":::
+:::image type="content" source="..\media\workbooks\insights-overview-2.png" alt-text="Screenshot of Communication Services Insights dashboard."::: -->
