@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the reasons and strategies behind extending an ontology
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 1/3/2024
+ms.date: 01/27/2025
 ms.topic: conceptual
 ms.service: azure-digital-twins
 
@@ -96,7 +96,7 @@ When querying for digital twins using the model ID (the `IS_OF_MODEL` operator),
 
 ## Contributing back to the original ontology 
 
-In some cases, you'll extend the industry ontology in a way that is broadly useful to most users of the ontology. In this case, you should consider contributing your extensions back to the original ontology. Each ontology has a different process for contributing, so check the ontology's GitHub repository for contribution details. 
+In some cases, you'll extend the industry ontology in a way that is broadly useful to most users of the ontology. When that happens, consider contributing your extensions back to the original ontology. Each ontology has a different process for contributing, so check the ontology's GitHub repository for contribution details. 
 
 ## DTDL for new interfaces 
 
