@@ -3,8 +3,8 @@ title: 'Azure Event Grid Namespace MQTT client authentication'
 description: 'Describes how MQTT clients are authenticated and mTLS connection is established when a client connects to Azure Event Grid’s MQTT broker feature.'
 ms.topic: concept-article
 ms.date: 01/27/2025
-author: george-guirguis, seth-shanmugam
-ms.author: geguirgu, seshanmugam
+author: Connected-Seth
+ms.author: seshanmugam
 ms.subservice: mqtt
 # Customer intent: I want to learn about different types of authentication that MQTT broker in Azure Event Grid supports. 
 ---
