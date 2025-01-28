@@ -193,7 +193,7 @@ Add public addresses that might have been used for internal use and shouldn't be
 
     :::image type="content" source="media/configure-sensor-settings-portal/sensor-settings-ip-addresses.png" alt-text="The screenshot shows the Settings tab for adding public addresses to the sensor settings.":::
 
-1. Select **Next
+1. Select **Next**
 1. In the **Apply** tab, select sites, and toggle the **Add selection by specific zone/sensor** to optionally apply the IP addresses to specific zones and sensors.
 1. Select **Next**.
 1. Review the details and select **Create** to add the address to the public addresses list.
