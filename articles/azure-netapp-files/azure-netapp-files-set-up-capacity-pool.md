@@ -40,6 +40,7 @@ Creating a capacity pool enables you to create volumes within it.
 * If you're using the Flexible service level:
     * The Flexible service level is only available for manual QoS capacity pools. 
     * The Flexible service level is only available on newly created capacity pools. You can't convert an existing capacity pool to use the Flexible service level. 
+        * Flexible service level capacity pools can't be converted to the Standard, Premium, or Ultra service level. 
     * The minimum throughput for Flexible service level capacity pools is 128 MiB/second. Maximum throughput is calculated based on the size of the capacity pool using the formula 5 x 128 x capacity pool size in TiB. If your capacity pool is 1 TiB, the maximum is 640 MiB/second (5 x 128 x 1). For more examples, see [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md#flexible-examples).
     * Cool access isn't currently supported with the Flexible service level. 
     * Only single encryption is currently supported for Flexible service level capacity pools. 

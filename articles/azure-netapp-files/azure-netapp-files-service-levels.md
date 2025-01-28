@@ -24,8 +24,9 @@ Azure NetApp Files supports four service levels: *Standard*, *Premium*, *Ultra*,
 * <a name="Ultra"></a>Ultra storage:   
     The Ultra service level provides up to 128 MiB/s of throughput per 1 TiB of capacity provisioned. 
 
-* <a name="Flexible"></a>Flexible storage:
-    The Flexible service level enables you to adjust throughput and size limits independently for capacity pools using manual QoS. This service level is designed for demanding applications such as Oracle or SAP HANA. It can also be used to create high-capacity volumes with (relatively) low throughput requirements. The minimum throughput to be assigned to a Flexible capacity pool is 128 MiB/s regardless of the pool quota. The maximum throughput is 5 x 128 x the size of the capacity pool in TiB. For examples, see [Flexible service level throughput examples](#flexible-examples). You can assign throughput and capacity to volumes that are part of a Flexible capacity pool in the same way you do volumes that are part of a manual QoS capacity pool of any service level.
+* <a name="Flexible"></a>Flexible storage (preview):
+
+    The Flexible service level enables you to adjust throughput and size limits independently for capacity pools using manual QoS. This service level is designed for demanding applications such as Oracle or SAP HANA. It can also be used to create high-capacity volumes with (relatively) low throughput requirements. The minimum throughput to be assigned to a Flexible capacity pool is 128 MiB/s regardless of the pool quota. The maximum throughput is 5 x 128 x the size of the capacity pool in TiB. For examples, see [Flexible service level throughput examples](#flexible-examples). You can assign throughput and capacity to volumes that are part of a Flexible capacity pool in the same way you do volumes that are part of a manual QoS capacity pool of any service level. Cool access isn't currently supported with the Flexible service level.
 
     >[!IMPORTANT]
     >The Flexible service level is only supported for new _manual QoS_ capacity pools. 
