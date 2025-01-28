@@ -25,10 +25,10 @@ is integrated with [Copilot in Azure](../../../copilot/overview.md) you
 can chat with Copilot to quickly understand  better understand what you are looking at and 
 what actions you can take to improve users call experiences. 
 
-Insert example prompts and images:
+<!-- Insert example prompts and images:
 1
 2
-3
+3 -->
 
 There are two main tools you can use to monitor your calls and improve call quality. 
 1. Voice and Video Insights dashboards
@@ -39,12 +39,11 @@ any quality investigations, and use Copilot in [Call Diagnostics](../../voice-vi
 as needed to explore individual calls when you need granular detail. 
 
 **Voice and Video Insights** consists of four main sections. 
-- **Volume:** Provides general statistics
-- **Reliability:** Aggregates all API functionality and error codes to focus your analysis 
-- **User Facing Diagnostics (UFD):** Highlights trends that can impact users call experince
-- **Quality:** Analyzes single calls for quality 
+- **Volume:** Provides general statistics.
+- **Reliability:** Aggregates all API functionality and error codes to focus your analysis.
+- **User Facing Diagnostics (UFD):** Highlights trends that can impact users call experince.
+- **Quality:** Provides key media stream measurements.
 
-:::image type="content" source="..\media\workbooks\insights-overview-2.png" alt-text="Screenshot of Communication Services Insights dashboard.":::
 
 ## Enable Voice and Video Insights
 
@@ -191,3 +190,6 @@ quality for your call participants.
 We recommend using the **Voice and Video Insights** sections 
 described in this article first to understand and improve your overall call quality, and as needed, 
 use Call Diagnostics to troubleshoot individual calls in granular detail. 
+
+
+:::image type="content" source="..\media\workbooks\insights-overview-2.png" alt-text="Screenshot of Communication Services Insights dashboard.":::
