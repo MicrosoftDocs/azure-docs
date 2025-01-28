@@ -6,7 +6,7 @@ ms.author: baanders
 ms.topic: quickstart
 ms.custom:
   - ignite-2023
-ms.date: 01/24/2025
+ms.date: 01/27/2025
 
 #CustomerIntent: As an OT user, I want to create a visual report for my processed OPC UA data that I can use to analyze and derive insights from it.
 ---
@@ -39,15 +39,16 @@ In this section, you create an eventstream that will be used to bring your data 
 
 Start by navigating to the [Real-Time hub in Microsoft Fabric](https://app.powerbi.com/workloads/oneriver/hub?experience=fabric-developer).
 
-Follow the steps in [Get events from Azure Event Hubs into Real-time hub](/fabric/real-time-hub/add-source-azure-event-hubs) to add your event hub as a data source for a new eventstream in your Fabric workspace. Keep the following notes in mind:
+Follow the steps in [Get events from Azure Event Hubs into Real-time hub](/fabric/real-time-hub/add-source-azure-event-hubs#microsoft-sources-page) to add your event hub as a data source for a new eventstream in your Fabric workspace. Keep the following notes in mind:
 
+* For **Azure Event Hub Key**, use the default selection (*RootManageSharedAccessKey*).
 * You can edit the **Eventstream name** to something friendly in the **Stream details** pane.
 * For **Connection**, create a new connection with Shared Access Key authentication.
     * Make sure local authentication is enabled on your Event Hubs namespace. You can set this from its Overview page in the Azure portal.
 * For **Consumer group**, use the default selection (*$Default*).
-* For **Data format**, choose *Json* (it might be selected already by default).
+* For **Data format**, use the default selection (*Json*).
 
-After creating the eventstream, open it to see it in the authoring canvas. Your Azure event hub is visible as a source for the eventstream.
+After connecting the eventstream, use the **Open Eventstream** button to see it in the authoring canvas. Your Azure event hub is visible as a source for the eventstream. (You also have the option edit the source name to something friendly from this canvas if you want.)
 
 :::image type="content" source="media/quickstart-get-insights/source-added.png" alt-text="Screenshot of the eventstream with an AzureEventHub source.":::
 
@@ -70,7 +71,7 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
 
 1. Follow the steps in [Create an eventhouse](/fabric/real-time-intelligence/create-eventhouse#create-an-eventhouse-1) to create a Real-Time Intelligence eventhouse with a child KQL database. You only need to complete the section entitled **Create an eventhouse**.
 
-1. Next, create a table in your database. Call it *OPCUA* and use the following columns.
+1. Next, follow the steps in [Create an empty table in your KQL database](/fabric/real-time-intelligence/create-empty-table#create-an-empty-table-in-your-kql-database) to create a table in your database. Call it *OPCUA* and use the following columns.
 
     | Column name | Data type |
     | --- | --- |
@@ -81,40 +82,34 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
     | EnergyUse | decimal |
     | Timestamp | datetime |
 
-1. After the *OPCUA* table has been created, select it and use the **Explore your data** button to open a query window for the table.
+1. After the *OPCUA* table has been created, select it and use the **Query with code** button to open any sample query in a new query window for the table.
 
-    :::image type="content" source="media/quickstart-get-insights/explore-your-data.png" alt-text="Screenshot showing the Explore your data button.":::
+    :::image type="content" source="media/quickstart-get-insights/query-with-code.png" alt-text="Screenshot showing the Query with code button.":::
 
-1. Run the following KQL query to create a data mapping for your table. The data mapping will be called *opcua_mapping*.
+1. Clear the sample query, and run the following KQL query to create a data mapping for your table. The data mapping will be called *opcua_mapping*.
 
     ```kql
     .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"column":"AssetId", "Properties":{"Path":"$[\'AssetId\']"}},{"column":"Spike", "Properties":{"Path":"$.Spike"}},{"column":"Temperature", "Properties":{"Path":"$.TemperatureF"}},{"column":"FillWeight", "Properties":{"Path":"$.FillWeight.Value"}},{"column":"EnergyUse", "Properties":{"Path":"$.EnergyUse.Value"}},{"column":"Timestamp", "Properties":{"Path":"$[\'EventProcessedUtcTime\']"}}]'
     ```
 
-### Add data table as a destination
+### Add eventstream data to KQL database
 
-Next, return to your eventstream view, where you can add your new KQL table as an eventstream destination.
+Next, add your eventstream as a data source for your KQL table.
 
-Follow the steps in [Add a KQL Database destination to an eventstream](/fabric/real-time-intelligence/event-streams/add-destination-kql-database?pivots=standard-capabilities#direct-ingestion-mode) to add the destination. Keep the following notes in mind:
+Follow the steps in [Get data from Eventstream](/fabric/real-time-intelligence/get-data-eventstream#source) to add the data source.
 
-- Use direct ingestion mode.
-- On the **Configure** step, select the *OPCUA* table that you created earlier.
+Keep the following notes in mind:
+
+- Use the *OPCUA* table as the destination table and your eventstream as the source.
 - On the **Inspect** step, open the **Advanced** options. Under **Mapping**, select **Existing mapping** and choose *opcua_mapping*.
 
     :::image type="content" source="media/quickstart-get-insights/existing-mapping.png" alt-text="Screenshot adding an existing mapping.":::
 
-    >[!TIP]
-    >If no existing mappings are found, try refreshing the eventstream editor and restarting the steps to add the destination. Alternatively, you can initiate this same configuration process from the KQL table instead of from the eventstream, as described in [Get data from Eventstream](/fabric/real-time-intelligence/get-data-eventstream).
+After completing this setup, data begins to flow through your eventstream and is processed into your KQL table.
 
-After completing this flow, the KQL table is visible in the eventstream live view as a destination.
+Wait a few minutes for data to propagate. Then, select the *OPCUA* table to see a preview of the data from the eventstream appearing in the table.
 
-Wait a few minutes for data to propagate. Then, select the KQL destination and refresh the **Data preview** to see the processed JSON data from the eventstream appearing in the table.
-
-:::image type="content" source="media/quickstart-get-insights/destination-added-data.png" alt-text="Screenshot of the eventstream with data in the KQL database destination.":::
-
-If you want, you can also view and query this data in your KQL database directly.
-
-:::image type="content" source="media/quickstart-get-insights/query-kql.png" alt-text="Screenshot of the same data being queried from the KQL database.":::
+:::image type="content" source="media/quickstart-get-insights/kql-data-preview.png" alt-text="Screenshot of the OPCUA table with data.":::
 
 ## Create a Real-Time Dashboard
 
