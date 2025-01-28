@@ -371,7 +371,7 @@ You can use `msiexec` to install the agent and the boot loader from the command 
 
    ```powershell
    $uris = @(
-       "https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv"
+       "https://res.cdn.office.net/s01-remote-desktop-agent/cdafac14-d9c8-43f6-a2c6-62d46ff4e722/Microsoft.RDInfra.RDAgent.Installer-x64-1.0.10004.2100.msi"
        "https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH"
    )
 
