@@ -199,7 +199,7 @@ sections:
       - question: |
           Portal
         answer: |
-          To use the Azure portal to migrate Service Bus namespaces to another subscription, follow the directions [here](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
+          To use the Azure portal to migrate Service Bus namespaces to another subscription, follow the directions [here](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-azure-portal). 
           
       - question: |
           PowerShell

@@ -9,8 +9,8 @@ ms.custom:
   - ignite-2023
   - engagement-fy24
   - ignite-2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up Azure Kubernetes Service using PowerShell 
