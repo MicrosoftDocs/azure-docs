@@ -11,16 +11,14 @@ ms.custom: include file
 ms.author: armohamed
 ---
 
-## Prerequisites
+## Set up environment
+To set up an environment for sending messages, complete the steps in the following sections.
 
+### Prerequisite
 - [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md).
 - Active WhatsApp phone number to receive messages.
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or later.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-
-## Set up environment
-
-To set up an environment for sending messages, complete the steps in the following sections.
 
 [!INCLUDE [Setting up for Java Application](../java-application-setup.md)]
 

@@ -11,15 +11,15 @@ ms.custom: include file
 ms.author: shamkh
 ---
 
-## Prerequisites
+## Setting up
+To set up an environment for sending messages, complete the steps in the following sections.
 
+### Prerequisite
 - [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md).
 - Active WhatsApp phone number to receive messages.
 - [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (We recommend 8.11.1 and 10.14.1).
 - [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 are recommended)
-    - In a terminal or command window, run `node --version` to check that Node.js is installed
-
-## Setting up
+- In a terminal or command window, run `node --version` to check that Node.js is installed
 
 [!INCLUDE [Setting up for JavaScript Application](../javascript-application-setup.md)]
 
