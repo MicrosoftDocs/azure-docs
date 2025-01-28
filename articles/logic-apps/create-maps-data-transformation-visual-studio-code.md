@@ -4,7 +4,7 @@ description: Create maps to transform data between schemas in Azure Logic Apps u
 services: logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
-ms.reviewer: estfan, kewear, alexzuniga, azla
+ms.reviewer: estfan, kewear, azla
 ms.topic: how-to
 ms.date: 01/15/2025
 # Customer intent: As a developer, I want to transform data in Azure Logic Apps by creating a map between schemas with Visual Studio Code.
@@ -20,7 +20,7 @@ To visually create and edit a map, you can use Visual Studio Code with the Azure
 
 After you create your map, you can directly call that map from a workflow in your logic app project or from a workflow in the Azure portal. For this task, you can use the **Data Mapper Operations** action named **Transform using Data Mapper XSLT** in your workflow.
 
-This how-to guide shows how to create a blank data map, choose your source and target schemas, select schema elements to start mapping, create various mappings, save and test your map, and then call the map from a workflow in your logic app project.
+This how-to guide shows how to create an empty data map, choose your source and target schemas, select schema elements to start mapping, create various mappings, save and test your map, and then call the map from a workflow in your logic app project.
 
 ## Limitations and known issues
 
@@ -30,13 +30,15 @@ This how-to guide shows how to create a blank data map, choose your source and t
 
 - Data Mapper currently doesn't support comma-separated values (.csv) files.
 
-- The Data Mapper's **Code view** pane is currently read only.
+- The **Code** pane in Data Mapper is currently read only.
 
-- The map layout and item position are currently automatic and read only.
+- The layout and item positions in Data Mapper are currently automatic and read only.
 
-- To call maps created with the Data Mapper tool, you can only use the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**. [For maps created by any other tool, use the **XML Operations** action named **Transform XML**](logic-apps-enterprise-integration-transform.md).
+- If you create a mapping between parent (complex) elements in the source and target schemas, the mapper creates a loop that iterates through the child elements. However, you must still explicitly create mappings between the child elements. 
 
-- To use the maps that you create with the Data Mapper tool but in the Azure portal, you must [add them directly to your Standard logic app resource](logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource).
+- To call maps created with Data Mapper, you can only use the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**. [For maps created by any other tool, use the **XML Operations** action named **Transform XML**](logic-apps-enterprise-integration-transform.md).
+
+- To use the maps that you create with Data Mapper with workflows in the Azure portal, you must [add them directly to your Standard logic app resource](logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource).
 
 ## Prerequisites
 
@@ -64,6 +66,8 @@ This how-to guide shows how to create a blank data map, choose your source and t
 - To use the **Run XSLT** function, your XSLT snippets must exist in files that use either the **.xml** or **.xslt** file name extension. You must put your XSLT snippets in the **InlineXslt** folder in your local project folder structure: **Artifacts** > **DataMapper** > **Extensions** > **InlineXslt**. If this folder structure doesn't exist, create the missing folders.
 
 ## Create a data map
+
+1. In Visual Studio Code, open the folder for your Standard logic app project.
 
 1. On the Visual Studio Code left menu, select the **Azure** icon.
 
@@ -97,66 +101,28 @@ This how-to guide shows how to create a blank data map, choose your source and t
 
       After you add your target schema, the **Destination** pane populates with the XML element "nodes" for the data types in the target schema, for example:
 
-      :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/added-target-schema.png" alt-text="Screenshot shows Source pane populated with source schema XML element nodes.":::
+      :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/added-target-schema.png" alt-text="Screenshot shows Destination pane populated with source schema XML element nodes.":::
 
-   Alternatively, you can also add your source and target schema files locally to your logic app project in the **Artifacts**\/**Schemas** folder, so that they appear in Visual Studio Code. In this case, you can specify your source and target schema in the Data Mapper on the **Configure** pane by selecting **Select existing**, rather than **Add new**.
+> [!TIP]
+>
+> If you experience problems loading your schemas, you can locally add your source and target 
+> schema files to your logic app project's **Artifacts**\/**Schemas** folder. In this scenario, 
+> to specify your source and target schema in Data Mapper, on the **Source** and **Destination** 
+> panes, open the **Select existing** list, rather than use **Add new**, and select your schema.
 
-   When you're done, your map looks like the following example:
-
-   ![Screenshot shows Data Mapper and the data map with nodes from the sample source and target schemas.](media/create-maps-data-transformation-visual-studio-code/high-level-schema-example.png)
+## Schema data types
 
 The following table describes the possible data types that might appear in a schema:
 
 | Symbol | Type | More info |
 |--------|------|-----------|
-| ![Icon representing an Array data type.](media/create-maps-data-transformation-visual-studio-code/array-icon.png) | Array | Contains items or repeating item nodes |
-| ![Icon representing a Binary data type.](media/create-maps-data-transformation-visual-studio-code/binary-icon.png) | Binary | |
-| ![Icon representing a Bool data type.](media/create-maps-data-transformation-visual-studio-code/bool-icon.png) | Bool | True or false only |
+| ![Icon representing an Array data type.](media/create-maps-data-transformation-visual-studio-code/complex-array-icon.png) | Complex (Array) | Contains items or repeating item nodes |
+| ![Icon representing a Boolean data type.](media/create-maps-data-transformation-visual-studio-code/bool-icon.png) | Boolean | True or false only |
 | ![Icon representing a Complex data type.](media/create-maps-data-transformation-visual-studio-code/complex-icon.png) | Complex | An XML object with children properties, similar to the Object JSON type |
 | ![Icon representing a DateTime data type.](media/create-maps-data-transformation-visual-studio-code/datetime-icon.png) | DateTime | |
 | ![Icon representing a Decimal data type.](media/create-maps-data-transformation-visual-studio-code/decimal-icon.png) | Decimal | |
 | ![Icon representing an Integer data type.](media/create-maps-data-transformation-visual-studio-code/integer-icon.png) | Integer | Whole numbers only |
-| ![Icon representing the NULL symbol.](media/create-maps-data-transformation-visual-studio-code/null-icon.png) | Null | Not a data type, but appears when an error or an invalid type exists |
-| ![Icon representing a Number data type.](media/create-maps-data-transformation-visual-studio-code/number-icon.png) | Number | A JSON integer or decimal |
-| ![Icon representing an Object data type.](media/create-maps-data-transformation-visual-studio-code/object-icon.png) | Object | A JSON object with children properties, similar to the Complex XML type |
 | ![Icon representing a String data type.](media/create-maps-data-transformation-visual-studio-code/string-icon.png) | String | |
-
-<a name="navigate-map"></a>
-
-## Navigate the map
-
-To move around the map, you have the following options:
-
-- To pan around, drag your pointer around the map surface. Or, press and hold the mouse wheel, while you move the mouse or trackball.
-
-- After you move one level down into the map, in the map's lower left corner, a navigation bar appears where you can select from the following options:
-
-  ![Screenshot showing map navigation bar.](media/create-maps-data-transformation-visual-studio-code/map-navigation-bar.png)
-
-  | Option | Alternative gesture |
-  |--------|---------------------|
-  | **Zoom out** | On the map surface, press SHIFT + double select. <br>-or- <br>Scroll down with the mouse wheel. |
-  | **Zoom in** | On the map surface, double select. <br>-or- <br>Scroll up with the mouse wheel. |
-  | **Zoom to fit** | None |
-  | **Show (Hide) mini-map** | None |
-
-- To move up one level on the map, on the breadcrumb path at the top of the map, select a previous level.
-
-<a name="select-elements"></a>
-
-## Select target and source elements to map
-
-1. On the map surface, starting from the right side, in the target schema area, select the target element that you want to map. If the element you want is a child of a parent element, find and expand the parent first.
-
-1. Now, on the left side, from the source schema area, select **Select element**.
-
-1. In the **Source schema** window that appears, select one or more source elements to show on the map.
-
-   - To include a parent and direct children, open the parent's shortcut menu, and select **Add children**.
-
-   - To include a parent and all the children for that parent, including any sub-parents, open the top-level parent's shortcut menu, and select **Add children (recursive)**.
-
-1. When you're done, you can close the source schema window. You can always add more source elements later. On the map, in the upper left corner, select **Show source schema** (![Icon for Show source schema.](media/create-maps-data-transformation-visual-studio-code/show-source-schema-icon.png)).
 
 <a name="create-direct-mapping"></a>
 
@@ -164,31 +130,41 @@ To move around the map, you have the following options:
 
 For a straightforward transformation between elements with the same type in the source and target schemas, follow these steps:
 
-1. To review what happens in code while you create the mapping, in the map's upper right corner, select **Show code**.
+1. To view what happens in code while you create the mapping, in the mapper's upper right corner, select **View code**.
 
-1. If you haven't already, on the map, [select the target elements and then the source elements that you want to map](#select-elements).
+1. On the mapper surface, in the **Source** pane, find the source element that you want to map.
 
-1. Move your pointer over the source element so that both a circle and a plus sign (**+**) appear.
+   - By default, parent elements are automatically expanded to show their children. However, if the parent doesn't appear expanded, expand the parent first so you can create a mapping for a child element.
 
-   ![Screenshot showing the data map and starting a mapping between EmployeeID and ID in the source and target schema, respectively.](media/create-maps-data-transformation-visual-studio-code/direct-mapping-start-source-element.png)
+   - This example starts mapping from the source element, but you can choose to start mapping from the target element.
 
-1. Drag a line to the target element so that the line connects to the circle that appears.
+1. Move your mouse pointer over the circle next to the source element name until the pointer changes to a plus sign (**+**).
 
-   ![Screenshot showing the data map and ending a mapping between EmployeeID and ID in the source and target schema, respectively.](media/create-maps-data-transformation-visual-studio-code/direct-mapping-target-element.png)
+   This example creates a mapping starting from the **Employee ID** source element.
 
-   You've now created a direct mapping between both elements.
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/direct-mapping-start-source-element.png" alt-text="Screenshot shows Data Mapper with pointer over the source element.":::
 
-   ![Screenshot showing the data map and a finished mapping between EmployeeID and ID in the source and target schema, respectively.](media/create-maps-data-transformation-visual-studio-code/direct-mapping-complete.png)
+1. Drag and draw a line so that the source element connects to the circle for the target element in the **Destination** pane.
 
-   The code view window reflects the mapping relationship that you created:
+   This example completes the mapping with the **ID** target element, which has the same data type as the source element.
 
-   ![Screenshot showing code view with direct mapping between EmployeeID and ID in the source and target schema, respectively.](media/create-maps-data-transformation-visual-studio-code/direct-mapping-example-code-view.png)
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/direct-mapping-target-element.png" alt-text="Screenshot shows Data Mapper, a pointer over the target element, and a line between the source and target elements.":::
 
-> [!NOTE]
-> 
-> If you create a mapping between elements where their data types don't match, a warning appears on the target element, for example:
->
-> ![Screenshot showing direct mapping between mismatching data types.](media/create-maps-data-transformation-visual-studio-code/data-type-mismatch.png)
+   You've now created a direct mapping between both elements that have the same data types.
+
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/direct-mapping-complete.png" alt-text="Screenshot shows a complete mapping between the EmployeeID and ID in the source and target schemas, respectively.":::
+
+   The **Code** pane shows the mapping relationship that you created:
+
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/direct-mapping-example-code-view.png" alt-text="Screenshot shows Code pane  with direct mapping between EmployeeID and ID in the source and target schemas, respectively.":::
+
+   > [!TIP]
+   > 
+   > To check whether your mappings have any problems, select **View issues**. For example, 
+   > a warning appears in the **Issues** list on the **Warnings** tab if you create a mapping 
+   > between elements that have mismatched data types:
+   >
+   > :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/data-type-mismatch.png" alt-text="Screenshot shows mapping between mismatched data types.":::
 
 <a name="create-complex-mapping"></a>
 
@@ -196,71 +172,70 @@ For a straightforward transformation between elements with the same type in the 
 
 For a more complex transformation between elements in the source and target schemas, such as elements that you want to combine or that have different data types, you can use one or more functions to perform tasks for that transformation.
 
-The following table lists the available function groups and *example* functions that you can use:
+On the mapper surface, a function's label is color-coded based on the function group. Next to the function name, the function's symbol appears, for example:
+
+:::image type="content" source="media/create-maps-data-transformation-visual-studio-code/example-function.png" alt-text="Screenshot shows example function label." border="false":::
+
+The following table lists the available function groups and some example functions that you can use. For the complete list, see the **Functions** list in the Data Mapper tool.
 
 | Group | Example functions |
 |-------|-------------------|
 | Collection | Average, Count, Direct Access, Distinct values, Filter, Index, Join, Maximum, Minimum, Reverse, Sort, Subsequence, Sum |
-| Conversion | To date, To integer, To number, To string |
-| Date and time | Add days |
-| Logical comparison | Equal, Exists, Greater, Greater or equal, If, If else, Is nil, Is null, Is number, Is string, Less, Less or equal, Logical AND, Logical NOT, Logical OR, Not equal |
-| Math | Absolute, Add, Arctangent, Ceiling, Cosine, Divide, Exponential, Exponential (base 10), Floor, Integer divide, Log, Log (base 10), Module, Multiply, Power, Round, Sine, Square root, Subtract, Tangent |
-| String | Code points to string, Concat, Contains, Ends with, Length, Lowercase, Name, Regular expression matches, Regular expression replace, Replace, Starts with, String to code-points, Substring, Substring after, Substring before, Trim, Trim left, Trim right, Uppercase |
-| Utility | Copy, Error, Execute XPath, Format date-time, Format number, Run XSLT |
-
-On the map, the function's label looks like the following example and is color-coded based on the function group. To the function name's left side, a symbol for the function appears. To the function name's right side, a symbol for the function output's data type appears.
-
-![Screenshot showing example function label.](media/create-maps-data-transformation-visual-studio-code/example-function.png)
+| Conversion | To Date, To Integer, To Number, To String |
+| Date and time | Add Days, Current Date, Current Time, Equals Date |
+| Logical comparison | Equal, Exists, Greater, Greater or equal, If, If Else, Is Nil, Is Null, Is Number, Is String, Less, Less or Equal, Logical AND, Logical NOT, Logical OR, Not Equal |
+| Math | Absolute, Add, Arctangent, Ceiling, Cosine, Divide, Exponential, Exponential (base 10), Floor, Integer Divide, Log, Log (base 10), Module, Multiply, Power, Round, Sine, Square Root, Subtract, Tangent |
+| String | Codepoints to String, Concat, Contains, Ends with, Length, Lowercase, Name, Regular Expression Matches, Regular Expression Replace, Replace, Starts with, String to Codepoints, Substring, Substring after, Substring before, Trim, Trim Left, Trim Right, Uppercase |
+| Utility | Copy, Error, Execute XPath, Format DateTime, Format Number, Run XSLT |
 
 ### Add a function without a mapping relationship
 
-The example in this section transforms the source element type from String type to DateTime type, which matches the target element type. The example uses the **To date** function, which takes a single input.
+The example in this section transforms the source element from String type to DateTime type, which is the target element type. The example starts without creating a mapping and uses the **To Date** function, which takes a single input.
 
-1. To review what happens in code while you create the mapping, in the map's upper right corner, select **Show code**.
+1. To view what happens in code while you create the mapping, in the mapper's upper right corner, select **View code**.
 
-1. If you haven't already, on the map, [select the target elements and then the source elements that you want to map](#select-elements).
+1. If the **Functions** list isn't visible, in the mapper's upper left corner, select the function icon (![Icon for Functions list.](media/create-maps-data-transformation-visual-studio-code/function-icon.png)).
 
-1. In the map's upper left corner, select **Show functions** (![Icon for Show functions.](media/create-maps-data-transformation-visual-studio-code/function-icon.png)).
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/no-mapping-show-functions.png" alt-text="Screenshot shows selected function icon.":::
 
-   ![Screenshot showing source and target schema elements plus the selected function, Show functions.](media/create-maps-data-transformation-visual-studio-code/no-mapping-show-functions.png)
+1. In the **Functions** list, find and select the function that you want to use, which adds the function to the mapper surface.
 
-1. From the functions list that opens, find and select the function that you want to use, which adds the function to the map. If the function doesn't appear visible on the map, try zooming out on the map surface.
+   This example selects the **To Date** function, which is in the **Conversion** function group.
 
-   This example selects the **To date** function. You can also find and select any custom functions in the same way. For more information, see [Create a custom function](#create-custom-function).
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/no-mapping-select-function.png" alt-text="Screenshot shows selected function named To Date.":::
 
-   ![Screenshot showing the selected function named To date.](media/create-maps-data-transformation-visual-studio-code/no-mapping-select-function.png)
+   You can also find and select any custom functions in the same way. For more information, see [Create a custom function](#create-custom-function).
 
    > [!NOTE]
    >
-   > If no mapping line exists or is selected when you add a function to the map, the function 
-   > appears on the map, but disconnected from any elements or other functions, for example:
+   > If no mapping exists on the map or if a mapping is selected when you add a function to the 
+   > map, the function appears but isn't connected to any elements or other functions, for example:
    >
-   > ![Screenshot showing the disconnected function, To date.](media/create-maps-data-transformation-visual-studio-code/disconnected-function-to-date.png)
-   >
-
-1. Expand the function shape to display the function's details and connection points. To expand the function shape, select inside the shape.
+   > :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/disconnected-function-to-date.png" alt-text="Screenshot shows a disconnected function." border="false":::
 
 1. Connect the function to the source and target elements.
 
-   1. Drag and draw a line between the source elements and the function's left edge. You can start either from the source elements or from the function.
+   1. Drag and draw a line between the source element and the circle on the function's left edge. You can start from either the source element or the function.
 
-      ![Screenshot showing start mapping between source element and function.](media/create-maps-data-transformation-visual-studio-code/function-connect-to-date-start.png)
+      :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/connect-function-to-date-start.png" alt-text="Screenshot shows mapping between a source element and a function.":::
 
-   1. Drag and draw a line between the function's right edge and the target element. You can start either from the target element or from the function.
+   1. Drag and draw a line between the function's right edge and the target element. You can start from either from the target element or the function.
 
-      ![Screenshot showing finish mapping between function and target element.](media/create-maps-data-transformation-visual-studio-code/function-connect-to-date-end.png)
+      :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/connect-function-to-date-end.png" alt-text="Screenshot shows mapping between function and target element.":::
 
-1. On the function's **Properties** tab, confirm or edit the input to use.
+   The **Code** pane shows the mapping relationship that you created:
 
-   ![Screenshot showing Properties tab for the function, To date.](media/create-maps-data-transformation-visual-studio-code/function-connect-to-date-confirm-inputs.png)
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/to-date-example-code-view.png" alt-text="Screenshot shows Code pane with direct mapping relationship between source and target elements.":::
+
+1. On the mapper surface, select the function shape to view the function details.
+
+1. On the **Input** tab, confirm or edit the input to use.
+
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/function-to-date-confirm-inputs.png" alt-text="Screenshot shows Input tab for the function named To Date.":::
 
    For some data types, such as arrays, the scope for the transformation might also appear available. This scope is usually the immediate element, such as an array, but in some scenarios, the scope might exist beyond the immediate element.
 
-   The code view window reflects the mapping relationship that you created:
-
-   ![Screenshot showing code view with direct mapping relationship between source and target elements.](media/create-maps-data-transformation-visual-studio-code/to-date-example-code-view.png)
-
-For example, to iterate through array items, see [Create a loop between arrays](#loop-through-array). To perform a task when an element's value meets a condition, see [Add a condition between elements](#add-condition).
+   For example, to iterate through array items, see [Create a loop between arrays](#loop-through-array). To perform a task when an element's value meets a condition, see [Add a condition between elements](#add-condition).
 
 ### Add a function to an existing mapping relationship
 
@@ -280,9 +255,9 @@ When a mapping relationship already exists between source and target elements, y
 
 The example in this section concatenates multiple source element types so that you can map the results to the target element type. The example uses the **Concat** function, which takes multiple inputs.
 
-1. To review what happens in code while you create the mapping, in the map's upper right corner, select **Show code**.
+1. To view what happens in code while you create the mapping, in the mapper upper right corner, select **View code**.
 
-1. If you haven't already, on the map, [select the target elements and then the source elements that you want to map](#select-elements).
+1. If you haven't already, on the mapper surface, [select the source and target elements  map](#create-direct-mapping).
 
 1. In the map's upper left corner, select **Show functions** (![Icon for Show functions.](media/create-maps-data-transformation-visual-studio-code/function-icon.png)).
 
@@ -314,9 +289,9 @@ The example in this section concatenates multiple source element types so that y
 
    ![Screenshot showing finished mapping from function with multiple inputs to target element.](media/create-maps-data-transformation-visual-studio-code/function-multiple-inputs-single-output.png)
 
-   The code view window reflects the mapping relationship that you created:
+   The **Code** pane shows the mapping relationship that you created:
 
-   ![Screenshot showing code view with complex mapping relationship between source and target elements.](media/create-maps-data-transformation-visual-studio-code/concat-example-code-view.png)
+   ![Screenshot showing Code pane  with complex mapping relationship between source and target elements.](media/create-maps-data-transformation-visual-studio-code/concat-example-code-view.png)
 
 <a name="loop-through-array"></a>
 
@@ -326,7 +301,7 @@ If your source and target schemas include arrays, you can create a loop mapping 
 
 1. To review what happens in code while you create the mapping, in the map's upper right corner, select **Show code**.
 
-1. On the map, in the target schema area, [select the target array element and target array item elements that you want to map](#select-elements).
+1. On the map, in the target schema area, [select the target array element and target array item elements that you want to map](#create-direct-mapping).
 
 1. On the map, in the target schema area, expand the target array element and array items.
 
@@ -340,9 +315,9 @@ If your source and target schemas include arrays, you can create a loop mapping 
 
    ![Screenshot showing loop mapping between the Name array items plus the source and target arrays, Employee and Person, respectively.](media/create-maps-data-transformation-visual-studio-code/loop-example-automap-arrays.png)
 
-   The code view window reflects the mapping relationship that you created:
+   The **Code** pane shows the mapping relationship that you created:
 
-   ![Screenshot showing code view with looping relationship between source and target arrays, Employee and Person, respectively.](media/create-maps-data-transformation-visual-studio-code/loop-example-code-view.png)
+   ![Screenshot showing Code pane  with looping relationship between source and target arrays, Employee and Person, respectively.](media/create-maps-data-transformation-visual-studio-code/loop-example-code-view.png)
 
 1. Continue mapping the other array elements.
 
@@ -362,7 +337,7 @@ The example in this section calculates a discount to apply when the purchase qua
 
 1. To review what happens in code while you create the mapping, in the map's upper right corner, select **Show code**.
 
-1. If you haven't already, on the map, [select the target elements and then the source elements that you want to map](#select-elements).
+1. If you haven't already, on the map, [select the target elements and then the source elements that you want to map](#create-direct-mapping).
 
    This example selects the following elements:
 
@@ -400,9 +375,9 @@ The example in this section calculates a discount to apply when the purchase qua
 
    ![Screenshot showing finished condition example.](media/create-maps-data-transformation-visual-studio-code/if-condition-example-complete.png)
 
-   The code view window reflects the mapping relationship that you created:
+   The **Code** pane shows the mapping relationship that you created:
 
-   ![Screenshot showing code view with conditional mapping between source and target elements using the functions, Greater, If, and Multiply.](media/create-maps-data-transformation-visual-studio-code/if-condition-example-code-view.png)
+   ![Screenshot showing Code pane  with conditional mapping between source and target elements using the functions, Greater, If, and Multiply.](media/create-maps-data-transformation-visual-studio-code/if-condition-example-code-view.png)
 
 ## Save your map
 
