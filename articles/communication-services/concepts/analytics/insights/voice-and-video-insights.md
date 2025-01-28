@@ -127,7 +127,7 @@ Data isn’t stored retroactively, so you begin capturing call logs only after c
 
 Follow instructions to add diagnostic settings for your resource in [Enable logs via Diagnostic Settings in Azure Monitor](../enable-logging.md). We recommend that you initially collect all logs. After you understand the capabilities in Azure Monitor, determine which logs you want to retain and for how long. When you add your diagnostic setting, you're prompted to [select logs](../enable-logging.md#adding-a-diagnostic-setting). To collect **all logs**, select **allLogs**.
 
-Your data volume, retention, and usage in Log Analytics within Azure Monitor is billed through existing Azure data meters. We recommend that you monitor your data usage and retention policies for cost considerations as needed. For more information, see [Controlling costs](../../../../../azure/azure-monitor/essentials/diagnostic-settings#controlling-costs).
+Your data volume, retention, and usage in Log Analytics within Azure Monitor is billed through existing Azure data meters. We recommend that you monitor your data usage and retention policies for cost considerations as needed. For more information, see [Controlling costs](/azure/azure-monitor/essentials/diagnostic-settings#controlling-costs).
 
 If you have multiple Azure Communications Services resource IDs, you must enable these settings for each resource ID. When you view Voice and Video Insights it shows you details for the resourceID you are viewing. 
 
@@ -139,12 +139,12 @@ Interact with Copilot in Azure for quality improvement guidance and explanations
 ## Next steps
 
 - Learn about Call Diagnostics: [Call Diagnostics](../../voice-video-calling/call-diagnostics.md)
-- Learn how to manage call quality: [Improve and manage call quality](../../manage-call-quality.md).
-- Explore troubleshooting guidance: [Overview of audio issues](../../../../../resources/troubleshooting/voice-video-calling/audio-issues/overview.md).
-- Learn about other quality best practices: [Best practices: Azure Communication Services calling SDKs](../best-practices.md).
+- Learn how to manage call quality: [Improve and manage call quality](../../voice-video-calling/manage-call-quality.md).
+- Explore troubleshooting guidance: [Overview of audio issues](../../../resources/troubleshooting/voice-video-calling/audio-issues/overview.md).
+- Learn about other quality best practices: [Best practices: Azure Communication Services calling SDKs](../../best-practices.md).
 - Learn how to use the Log Analytics workspace: [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
 - Create your own queries in Log Analytics: [Get started with log queries in Azure Monitor](/azure/azure-monitor/logs/get-started-queries).
-- Explore known call issues: [Known issues in the SDKs and APIs](../known-issues.md).
+- Explore known call issues: [Known issues in the SDKs and APIs](../../known-issues.md).
 - 
 - 
 - 
