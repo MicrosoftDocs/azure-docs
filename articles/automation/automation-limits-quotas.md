@@ -56,7 +56,7 @@ You can also view your current usage and request for quota increase/decrease for
 
 Follow these steps to view current limits and request for quota increase:
 
-1. Go to [My Quotas](https://ms.portal.azure.com/#view/Microsoft_Azure_Capacity/QuotaMenuBlade/~/myQuotas) page and choose provider **Automation accounts**. The filter options at the top of the page allows you filter by location, subscription, and usage.
+1. Go to [My Quotas](https://ms.portal.azure.com/#view/Microsoft_Azure_Capacity/QuotaMenuBlade/~/myQuotas) page and choose provider **Automation accounts**. The filter options at the top of the page allow you to filter by location, subscription, and usage.
 1. You can view your current usage and limit on the number of Automation accounts.
 
    :::image type="content" source="./media/automation-limits-quotas/view-current-usage.png" alt-text="Screenshot showing how to view current usage.":::
