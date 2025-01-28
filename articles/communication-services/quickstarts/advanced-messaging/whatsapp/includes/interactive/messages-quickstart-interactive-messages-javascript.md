@@ -21,18 +21,47 @@ ms.author: armohamed
 
 [!INCLUDE [Setting up for JavaScript Application](../javascript-application-setup.md)]
 
-## Code examples
+## Object model
+
+The following classes and interfaces handle some of the major features of the Azure Communication Services Advance Messaging SDK for JavaScript.
+
+| Class Name | Description |
+| --- |--- |
+| `NotificationMessagesClient`  | Connects to your Azure Communication Services resource. It sends the messages.  |
+| `InteractiveNotificationContent`  | Defines the interactive message business can send to user. |
+| `InteractiveMessage` | Defines interactive message content.|
+| `WhatsAppListActionBindings` | Defines WhatsApp List interactive message properties binding. |
+| `WhatsAppButtonActionBindings`| Defines WhatsApp Button interactive message properties binding.|
+| `WhatsAppUrlActionBindings` | Defines WhatsApp Url interactive message properties binding.|
+| `TextMessageContent`     | Defines the text content for Interactive message body, footer, header. |
+| `VideoMessageContent`   | Defines the video content for Interactive message header.  |
+| `DocumentMessageContent` | Defines the document content for Interactive message header. |
+| `ImageMessageContent` | Defines the image content for Interactive message header.|
+| `ActionGroupContent` | Defines the ActionGroup or ListOptions content for Interactive message.|
+| `ButtonSetContent` | Defines the Reply Buttons content for Interactive message. |
+| `LinkContent` | Defines the Url or Click-To-Action content for Interactive message. |
+
+> [!NOTE]
+> For more information, see the Azure SDK for JavaScript reference [@azure-rest/communication-messages package](/javascript/api/@azure-rest/communication-messages)
+
+## Common configuration
 
 Follow these steps to add required code snippets to your `send-messages.js` file.
 - [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 - [Authenticate the client](#authenticate-the-client).
 - [Set channel registration ID](#set-channel-registration-id).
 - [Set recipient list](#set-recipient-list).
+- [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+
+[!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting-javascript.md)]
+
+## Code examples
+
+Follow these steps to add required code snippets to your `send-messages.js` file.
 - [Send an Interactive List options message to a WhatsApp user](#send-an-interactive-reply-button-message-to-a-whatsapp-user).
 - [Send an Interactive Reply Button message to a WhatsApp user](#send-an-interactive-reply-button-message-to-a-whatsapp-user).
 - [Send an Interactive Click-to-action Url based message to a WhatsApp user](#send-an-interactive-click-to-action-url-based-message-to-a-whatsapp-user)
 
-[!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting-javascript.md)]
 
 ### Send an Interactive List options message to a WhatsApp user
 

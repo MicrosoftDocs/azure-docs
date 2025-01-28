@@ -21,16 +21,33 @@ ms.author: armohamed
 
 [!INCLUDE [Setting up for JavaScript Application](../javascript-application-setup.md)]
 
-## Code examples
+## Object model
+
+The following classes and interfaces handle some of the major features of the Azure Communication Services Messages SDK for Javascript.
+
+| Class Name | Description |
+| --- | --- |
+| `NotificationMessagesClient`  | Connects to your Azure Communication Services resource. It sends the messages.              |
+| `StickerNotificationContent` |  Defines sticker content of the messages. |
+
+> [!NOTE]
+> For more information, see the Azure SDK for JavaScript reference [@azure-rest/communication-messages package](/javascript/api/@azure-rest/communication-messages)
+
+## Common configuration
 
 Follow these steps to add required code snippets to your `send-messages.js` file.
 - [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 - [Authenticate the client](#authenticate-the-client).
 - [Set channel registration ID](#set-channel-registration-id).
 - [Set recipient list](#set-recipient-list).
-- [Send a Sticker messages to a WhatsApp user](#send-a-sticker-messages-to-a-whatsapp-user).
+- [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
 [!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting-javascript.md)]
+
+## Code examples
+
+Follow these steps to add required code snippets to your `send-messages.js` file.
+- [Send a Sticker messages to a WhatsApp user](#send-a-sticker-messages-to-a-whatsapp-user).
 
 ### Send a sticker messages to a WhatsApp user
 

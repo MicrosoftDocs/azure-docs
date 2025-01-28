@@ -44,7 +44,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Common configuration
 
-Follow these steps to add required code snippets to the `messages-quickstart.py` python program.
+Follow these steps to add required code snippets to the main function of your `DownloadMedia.js` file.
 
 - [Authenticate the client](#authenticate-the-client).
 - [Set channel registration ID](#set-channel-registration-id).
