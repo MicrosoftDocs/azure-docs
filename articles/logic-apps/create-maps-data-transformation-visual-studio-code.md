@@ -268,9 +268,9 @@ The example in this section concatenates multiple source element types so that y
 
 <a name="loop-through-array"></a>
 
-## Create a loop between arrays
+## Create loop mapping between arrays
 
-If your source and target schemas contain array elements that you want to map, you can create a loop to iterates through each array's item elements. The example in this section creates a loop through a source **Employee** array and a target **Person** array and mappings between the arrays' items.
+If your source and target schemas contain array elements, you can create a loop to iterates through each array's item elements. The example in this section creates a loop through a source **Employee** array and a target **Person** array and mappings between the arrays' items.
 
 1. To view what happens in code while you create the mapping, in the mapper's upper right corner, select **View code**.
 
