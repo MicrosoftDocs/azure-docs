@@ -13,7 +13,7 @@ ms.author: memontic
 
 ## Prerequisites
 
-- [Register WhatsApp Business Account with your Azure Communication Services resource](./connect-whatsapp-business-account.md).
+- [Register WhatsApp Business Account with your Azure Communication Services resource](../../connect-whatsapp-business-account.md).
 - [Create WhatsApp template message](#create-and-manage-whatsapp-template-message).
 - Active WhatsApp phone number to receive messages.
 
@@ -57,7 +57,7 @@ For more information about WhatsApp requirements for templates, see the WhatsApp
 - [Send Template Messages](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates).
 - Businesses must also adhere to [opt-in requirements](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in) before sending messages to WhatsApp users.
 
-[!INCLUDE [Common setting for using Advanced Messages SDK](./includes/common-setting-net.md)]
+[!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting-net.md)]
 
 ## Set up environment
 
