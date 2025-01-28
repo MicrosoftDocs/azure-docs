@@ -11,17 +11,29 @@ ms.custom: include file
 ms.author: shamkh
 ---
 
-## Set up environment
+## Prerequisites
 
-To set up an environment for sending messages, complete the steps in the following sections.
+- [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md).
+- Active WhatsApp phone number to receive messages.
+- [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (We recommend 8.11.1 and 10.14.1).
+- [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 are recommended)
+    - In a terminal or command window, run `node --version` to check that Node.js is installed
+
+## Setting up
 
 [!INCLUDE [Setting up for JavaScript Application](../javascript-application-setup.md)]
 
 ## Code examples
 
-Follow these steps to add required code snippets to the main function of your `App.java` file.
+Follow these steps to add required code snippets to the main function of your `send-messages.js` file.
+- [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+- [Authenticate the client](#authenticate-the-client).
+- [Set channel registration ID](#set-channel-registration-id).
+- [Set recipient list](#set-recipient-list).
 - [List WhatsApp templates in the Azure portal](#list-whatsapp-templates-in-the-azure-portal).
 - [Send template message with text parameters in the body](#send-template-message-with-text-parameters-in-the-body).
+
+[!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting-javascript.md)]
 
 ### List WhatsApp templates in the Azure portal
 
@@ -85,18 +97,6 @@ main().catch((error) => {
 ```
 
 ### Send template message with text parameters in the body
-
-To define parameters in the body denoted with double brackets surrounding a number, such as `{{1}}`. The number, index started at 1, indicates the order in which the binding values must be supplied to create the message template. Including parameters not in the template is invalid.
-
-Template definition with two parameters:
-```json
-{
-  "type": "BODY",
-  "text": "Message with two parameters: {{1}} and {{2}}"
-}
-```
-
-#### Examples
 
 `sample_shipping_confirmation` template:
 
@@ -231,4 +231,4 @@ node ./send-messages.js
 
 ## Full sample code
 
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/communication/communication-messages-rest/samples/v2/javascript/).
+Find the finalized code for this sample on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication/communication-messages-rest/samples).

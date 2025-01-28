@@ -16,52 +16,30 @@ ms.author: armohamed
 - [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md).
 - Active WhatsApp phone number to receive messages.
 - [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (We recommend 8.11.1 and 10.14.1).
-- In a terminal or command window, make sure Node.js is installed.
+- [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 are recommended)
+    - In a terminal or command window, run `node --version` to check that Node.js is installed
 
-   ```console
-   node --version
-   ```
-
-## Set up the environment
-
-To set up an environment for sending messages, complete the steps in the following sections.
+## Setting up
 
 [!INCLUDE [Setting up for JavaScript Application](../javascript-application-setup.md)]
-
-## Object model
-
-The following classes and interfaces handle some of the major features of the Azure Communication Services Advance Messaging SDK for JavaScript.
-
-| Class Name | Description |
-| --- | --- |
-| `MessageClient`   | Connects to your Azure Communication Services resource. It sends the messages.              |
-| `MessageTemplate` | Defines which template you use and the content of the template properties for your message. |
-
-> [!NOTE]
-> For more information, see the Azure SDK for JavaScript reference [@azure-rest/communication-messages package](/javascript/api/@azure-rest/communication-messages)
-
-## Common configuration
-
-Follow these steps to add required code snippets to the `messages-quickstart.py` python program.
-
-- [Authenticate the client](#authenticate-the-client).
-- [Set channel registration ID](#set-channel-registration-id).
-- [Set recipient list](#set-recipient-list).
-- [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
-
-[!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting-javascript.md)]
 
 ## Code examples
 
 Follow these steps to add required code snippets to the main function of your `send-messages.js` file.
+- [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+- [Authenticate the client](#authenticate-the-client).
+- [Set channel registration ID](#set-channel-registration-id).
+- [Set recipient list](#set-recipient-list).
 - [Send a text message to a WhatsApp user](#send-a-text-message-to-a-whatsapp-user).
 - [Send an image media message to a WhatsApp user](#send-an-image-media-message-to-a-whatsapp-user).
 - [Send a document media message to a WhatsApp user](#send-a-document-media-message-to-a-whatsapp-user).
 - [Send an audio media message to a WhatsApp user](#send-an-audio-media-message-to-a-whatsapp-user).
 - [Send a video media message to a WhatsApp user](#send-a-video-media-message-to-a-whatsapp-user).
 
+[!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting-javascript.md)]
+
 > [!IMPORTANT]
-> To send a media message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+> To send a message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
 ### Send a text message to a WhatsApp user
 
@@ -72,7 +50,7 @@ The Messages SDK enables Contoso to send text WhatsApp messages, when initiated 
 
 In this example, we reply to the WhatsApp user with the text `"Thanks for your feedback.\n From Notification Messaging SDK."`
 
-Assemble and send the media message:
+Assemble and send the text message:
 ```javascript
 // Send text message
 const textMessageResult = await client.path("/messages/notifications:send").post({
@@ -251,4 +229,4 @@ node ./send-messages.js
 
 ## Full sample code
 
-You can download the sample app from [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/7efc61a0414c6f898409e355d0ba8d228882625f/sdk/communication/communication-messages-rest/samples-dev).
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication/communication-messages-rest/samples).
