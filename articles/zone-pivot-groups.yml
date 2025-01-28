@@ -223,6 +223,14 @@ groups:
     title: Consumption plan
   - id: azure-arc
     title: Azure Arc
+- id: dts-lanugages
+  title: Application languages for Durable Task Scheduler
+  prompt: Choose your application language
+  pivots:
+  - id: csharp
+    title: .NET (isolated)
+  - id: other
+    title: non-.NET
 ### end azure-functions
 #Owner: jiayma
 - id: bring-third-party-dependency-programming-functions

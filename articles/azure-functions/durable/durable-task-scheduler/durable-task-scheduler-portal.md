@@ -26,7 +26,7 @@ Navigate to the Function app creation blade and select **App Service** as a host
 
 :::image type="content" source="media/create-durable-task-scheduler/function-app-hosted-app-service.png" alt-text="Screenshot of hosting options for Function apps and selecting App Service.":::
 
-In the **Create Function App (App Service) blade, [create the function app settings as specified in the Azure Functions documentation](../../functions-create-function-app-portal.md)
+In the **Create Function App (App Service)** blade, [create the function app settings as specified in the Azure Functions documentation](../../functions-create-function-app-portal.md)
 
 :::image type="content" source="media/create-durable-task-scheduler/function-app-basic-tab.png" alt-text="Screenshot of the Basic tab for creating an App Service plan Function app.":::
 

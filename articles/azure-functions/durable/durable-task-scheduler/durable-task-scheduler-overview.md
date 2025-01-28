@@ -19,7 +19,7 @@ Durable Task Scheduler:
 - Manages retries and interruptions through automatic retries and state persistence.
 - Adheres to security best practices such as authorization and access via Managed Identity.
 - Provides an easy debugging experience for stuck orchestrations via [the Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md)
-- The ability to deploy new versions of orchestration code while existing orchestrations were in flight
+- Offers the ability to deploy new versions of orchestration code while existing orchestrations are in flight
 
 ## Durable Task Scheduler in Azure Compute Services
 
