@@ -6,7 +6,7 @@ ms.author: baanders
 ms.topic: quickstart
 ms.custom:
   - ignite-2023
-ms.date: 01/27/2025
+ms.date: 01/28/2025
 
 #CustomerIntent: As an OT user, I want to create a visual report for my processed OPC UA data that I can use to analyze and derive insights from it.
 ---
@@ -37,7 +37,9 @@ In this section, you set up a Microsoft Fabric *eventstream* to connect your eve
 
 In this section, you create an eventstream that's used to bring your data from Event Hubs into Microsoft Fabric Real-Time Intelligence, and eventually into a KQL database.
 
-Start by navigating to the [Real-Time hub in Microsoft Fabric](https://app.powerbi.com/workloads/oneriver/hub?experience=fabric-developer). Add your event hub as a data source for a new eventstream (for detailed instructions, see [Get events from Azure Event Hubs into Real-time hub](/fabric/real-time-hub/add-source-azure-event-hubs#microsoft-sources-page)). As you add the data source, keep the following notes in mind:
+Start by navigating to the [Real-Time hub in Microsoft Fabric](https://app.powerbi.com/workloads/oneriver/hub?experience=fabric-developer). 
+
+Add your event hub as a data source for a new eventstream (for detailed instructions, see [Get events from Azure Event Hubs into Real-time hub](/fabric/real-time-hub/add-source-azure-event-hubs#microsoft-sources-page)). As you add the data source, keep the following notes in mind:
 
 * For **Azure Event Hub Key**, use the default selection (*RootManageSharedAccessKey*).
 * You can edit the **Eventstream name** to something friendly in the **Stream details** pane.
@@ -54,14 +56,14 @@ After connecting the eventstream, use the **Open Eventstream** button to see it 
 
 Follow these steps to check your work so far, and make sure data is flowing into the eventstream.
 
-1. Start your cluster where you deployed Azure IoT Operations in earlier quickstarts. The OPC PLC simulator you deployed with your Azure IoT Operations instance should begin running and sending data. You can [verify that your event hub is receiving messages](quickstart-configure.md#verify-data-is-flowing-to-event-hubs) in the Azure portal. 
+1. Start your cluster where you deployed Azure IoT Operations in earlier quickstarts. The OPC PLC simulator you deployed with your Azure IoT Operations instance should begin running and sending data. You can confirm this by [verifying that your event hub is receiving messages](quickstart-configure.md#verify-data-is-flowing-to-event-hubs) in the Azure portal. 
 
-1. Wait a few minutes for data to propagate. Then, in the eventstream live view, select the Azure event hub source and refresh the **Data preview**. You should see JSON data from the simulator begin to appear in the table.
+1. Wait a few minutes for data to propagate. Then, in the eventstream live view, select the eventstream source and refresh the **Data preview**. You should see JSON data from the simulator begin to appear in the table.
 
     :::image type="content" source="media/quickstart-get-insights/source-added-data.png" alt-text="Screenshot of the eventstream with data from the AzureEventHub source.":::
 
 >[!TIP]
->If data hasn't arrived in your eventstream, you may want to check your event hub activity to help you isolate which section of the flow to debug.
+>If data isn't arriving in your eventstream, you may want to check your event hub activity to help you isolate which section of the flow to debug.
 
 ### Prepare KQL resources
 
@@ -80,7 +82,7 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
     | EnergyUse | decimal |
     | Timestamp | datetime |
 
-1. After the *OPCUA* table has been created, select it and use the **Query with code** button to open any sample query in a new query window for the table.
+1. After the *OPCUA* table is created, select it and use the **Query with code** button to open any sample query in a new query window for the table.
 
     :::image type="content" source="media/quickstart-get-insights/query-with-code.png" alt-text="Screenshot showing the Query with code button.":::
 
