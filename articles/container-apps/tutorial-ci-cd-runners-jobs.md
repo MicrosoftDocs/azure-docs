@@ -125,7 +125,7 @@ $PLACEHOLDER_JOB_NAME="placeholder-agent-job"
 The Azure Container Apps environment acts as a secure boundary around container apps and jobs so they can share the same network and communicate with each other.
 
 > [!NOTE]
-> To create a Container Apps environment that's integrated with an existing virtual network, see [Provide a virtual network to an internal Azure Container Apps environment](vnet-custom-internal.md?tabs=bash).
+> To create a Container Apps environment that's integrated with an existing virtual network, see [Provide a virtual network to an Azure Container Apps environment](vnet-custom.md).
 
 1. Create a resource group using the following command.
 

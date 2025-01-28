@@ -2,12 +2,11 @@
 title: What is Azure Private Link service?
 description: Learn about Azure Private Link service.
 services: private-link
-author: abell
+author: AbdullahBell
 ms.service: azure-private-link
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/15/2024
 ms.author: abell
-ms.custom: template-concept
 ---
 
 # What is Azure Private Link service?
@@ -68,9 +67,9 @@ A Private Link service specifies the following properties:
  
 - The Private Link Service must be deployed in the same region as the virtual network and the Standard Load Balancer.  
  
-- A single Private Link Service can be accessed from multiple Private Endpoints belonging to different virtual networks, subscriptions and/or Active Directory tenants. The connection is established through a connection workflow. 
+- A single Private Link Service can be accessed from multiple Private Endpoints belonging to different virtual networks, subscriptions and/or Microsoft Entra tenants. The connection is established through a connection workflow. 
  
-- Multiple Private Link services can be created on the same Standard Load Balancer using different front-end IP configurations. There are limits to the number of Private Link services you can create per Standard Load Balancer and per subscription. For details, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
+- Multiple Private Link services can be created on the same Standard Load Balancer using different front-end IP configurations. There are limits to the number of Private Link services you can create per Standard Load Balancer and per subscription. For details, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-networking-limits).
  
 - Private Link service can have more than one NAT IP configurations linked to it. Choosing more than one NAT IP configurations can help service providers to scale. Today, service providers can assign up to eight NAT IP addresses per Private Link service. With each NAT IP address, you can assign more ports for your TCP connections and thus scale out. You can add multiple NAT IP addresses to a Private Link service, but you must maintain at least one NAT IP address once configured. You will be restricted from deleting the last remaining NAT IP to ensure that active connections aren't impacted as a result of unavailable NAT IP addresses.
 
@@ -92,7 +91,7 @@ Complete alias:  *Prefix*. {GUID}.*region*.azure.privatelinkservice
 
 The Private Link service provides you with three options in the **Visibility** setting to control the exposure of your service. Your visibility setting determines whether a consumer can connect to your service. Here are the visibility setting options, from most restrictive to least restrictive:
  
-- **Role-based access control only**: If your service is for private consumption from different virtual networks that you own, use role-based access control inside subscriptions that are associated with the same Active Directory tenant. **Cross tenant visibility is permitted through role-based access control**.
+- **Role-based access control only**: If your service is for private consumption from different virtual networks that you own, use role-based access control inside subscriptions that are associated with the same Microsoft Entra tenant. **Cross tenant visibility is permitted through role-based access control**.
 
 - **Restricted by subscription**: If your service will be consumed across different tenants, you can restrict the exposure to a limited set of subscriptions that you trust. Authorizations can be pre-approved.
 

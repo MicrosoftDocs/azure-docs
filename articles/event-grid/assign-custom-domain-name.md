@@ -64,7 +64,7 @@ For information configuring system and user-assigned identities using the Azure 
 1. Use the following command to create an Azure Key Vault account: 
  
     ```azurecli-interactive
-    az keyvault create --name "<your-unique-keyvault-name>" --resource-group "<resource group name>" --location "centraluseaup" 
+    az keyvault create --name "<your-unique-keyvault-name>" --resource-group "<resource group name>" --location "centraluseuap" 
     ```
 2. Use the following command to import a certificate to the Azure Key Vault 
 
@@ -268,7 +268,7 @@ To prove your domain ownership, follow these steps:
                                 "type": "SystemAssigned"
                             },
                             "certificateInfo": {
-                                "keyVaultArmId": " /subscriptions/AZURESUBCRIPTIONID/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.KeyVault/vaults/KEYVAULTNAME",
+                                "keyVaultArmId": " /subscriptions/AZURESUBSCRIPTIONID/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.KeyVault/vaults/KEYVAULTNAME",
                                 "certificateName": "CERTIFICATENAME"
                             }
                         }

@@ -23,8 +23,6 @@ Customer-managed (unplanned) failover enables you to fail over your entire geo-r
 
 This article describes what happens during a customer-managed (unplanned) failover and failback at every stage of the process.
 
-[!INCLUDE [updated-for-az](../../../includes/storage-failover-unplanned-hns-preview-include.md)]
-
 ## Redundancy management during unplanned failover and failback
 
 > [!TIP]
@@ -36,7 +34,7 @@ During the customer-managed (unplanned) failover process, the Domain Name System
 
 The original and current redundancy configurations are stored within the storage account's properties. This functionality allows you to return to your original configuration when you fail back. For a complete list of resulting redundancy configurations, read [Recovery planning and failover](storage-disaster-recovery-guidance.md#plan-for-failover).
 
-To regain geo-redundancy after a failover, you need to reconfigure your account as GRS.<!--Keep in mind that GZRS isn't a post-failover option because your storage account utilizes LRS after the failover completes.--> After the account is reconfigured for geo-redundancy, Azure immediately begins copying data from the new primary region to the new secondary. If you configure your storage account for read access to the secondary region, that access is available. However, replication from the primary to the secondary region might take some time to complete.
+To regain geo-redundancy after a failover, you need to reconfigure your account as GRS. After the account is reconfigured for geo-redundancy, Azure immediately begins copying data from the new primary region to the new secondary. If you configure your storage account for read access to the secondary region, that access is available. However, replication from the primary to the secondary region might take some time to complete.
 
 > [!WARNING]
 > After your account is reconfigured for geo-redundancy, it may take a significant amount of time before existing data in the new primary region is fully copied to the new secondary.

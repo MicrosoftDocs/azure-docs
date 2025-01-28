@@ -202,8 +202,8 @@ spec:
               - key: agentpool
                 operator: In
                 values:
-                - acc # this is the name of your confidential computing nodel pool
-                - acc_second # this is the name of your confidential computing nodel pool
+                - acc # this is the name of your confidential computing node pool
+                - acc_second # this is the name of your confidential computing node pool
       containers:
       - name: oe-helloworld
         image: mcr.microsoft.com/acc/samples/oe-helloworld:latest

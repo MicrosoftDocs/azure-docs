@@ -94,12 +94,6 @@
         ]
       }
     ],
-    "groups": {
-      "grp-iot-edge": {
-        "dest": "destiotedge",
-        "moniker_range": ">=iotedge-1.4"
-      }
-    },
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
@@ -248,8 +242,8 @@
         "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "Juliako",
         "articles/azure-video-indexer/*.md": "Juliako",
         "articles/azure-vmware/**/*.md": "jjaygbay1",
-        "articles/backup/**/*.md": "AbhishekMallick-MS",
-        "articles/backup/**/*.yml": "AbhishekMallick-MS",
+        "articles/backup/**/*.md": "jyothisuri",
+        "articles/backup/**/*.yml": "jyothisuri",
         "articles/baremetal-infrastructure/**/*.md": "dineshga",
         "articles/batch/**/*.md": "padmalathas",
         "articles/blockchain/**/*.md": "PatAltimore",
@@ -593,7 +587,6 @@
         "articles/network-watcher/**/*": "https://learn.microsoft.com/answers/tags/183/azure-network-watcher/",
         "articles/networking/**/*": "https://learn.microsoft.com/answers/tags/143/azure-virtual-network",
         "articles/notification-hubs/**/*": "https://learn.microsoft.com/answers/tags/12/azure-notification-hubs/",
-        "articles/object-anchors/**/*": "https://learn.microsoft.com/answers/tags/107/azure-object-anchors/",
         "articles/openshift/**/*": "https://learn.microsoft.com/answers/tags/137/azure-redhat-openshift/",
         "articles/operational-excellence/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/operator-5g-core/NO-QA-TAG-USE-GLOBAL/": "",
@@ -602,7 +595,6 @@
         "articles/operator-nexus/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/operator-service-manager/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/oracle/**/*": "https://learn.microsoft.com/answers/tags/94/azure-virtual-machines/",
-        "articles/orbital/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/partner-solutions/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/peering-service/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/playwright-testing/**/*": "https://aka.ms/mpt/feedback",
@@ -750,8 +742,8 @@
         "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "juliako",
         "articles/azure-video-indexer/*.md": "Juliako",
         "articles/azure-vmware/**/*.md": "jacobjaygbay",
-        "articles/backup/**/*.md": "v-abhmallick",
-        "articles/backup/**/*.yml": "AbhishekMallick-MS",
+        "articles/backup/**/*.md": "jsuri",
+        "articles/backup/**/*.yml": "jsuri",
         "articles/baremetal-infrastructure/**/*.md": "kalyank",
         "articles/batch/**/*.md": "padmalathas",
         "articles/blockchain/**/*.md": "patricka",
@@ -924,7 +916,6 @@
         "articles/media-services/**/*.md": "azure-media-services",
         "articles/migrate/*.md": "azure-migrate",
         "articles/notebooks/*.md": "azure-notebooks",
-        "articles/object-anchors/**/*.md": "azure-object-anchors",
         "articles/openshift/**/*.md": "azure-redhat-openshift",
         "articles/partner-solutions/**/*.md": "partner-services",
         "articles/partner-solutions/**/*.yml": "partner-services",
@@ -1002,9 +993,6 @@
         "articles/partner-solutions/split-experimentation/**/*.md": "split-experimentation",
         "articles/partner-solutions/split-experimentation/**/*.yml": "split-experimentation",
         "articles/governance/management-groups/**/*.md": "azure-governance"
-      },
-      "monikerRange": {
-        "articles/iot-edge/**/*.md": ">=iotedge-1.4"
       },
       "recommendations": {
       },
@@ -1199,8 +1187,6 @@
         "articles/media-services/live-video-analytics-edge/*.md": "Live Video Analytics on IoT Edge",
         "articles/media-services/video-indexer/*.md": "Azure Media Services Video Indexer",
         "articles/migrate/**/*.md": "Azure Migrate",
-        "articles/object-anchors/**/*.md": "Azure Object Anchors",
-        "articles/object-anchors/**/*.yml": "Azure Object Anchors",
         "articles/openshift/**/*.md": "Azure Red Hat OpenShift",
         "articles/openshift/**/*.yml": "Azure Red Hat OpenShift",
         "articles/partner-solutions/**/*.md": "Azure Native ISV Services",
