@@ -22,6 +22,7 @@ Profiles are configured to fit the different needs of your applications.
 | Profile type | Description | Potential use |
 |--|--|--|
 | Consumption | Automatically added to any new environment. | Apps that don't require specific hardware requirements |
+| Consumption GPU | GPU enabled serverless GPUs available in West US 3 and North Europe regions. | Apps that don't require GPU |
 | Dedicated (General purpose) | Balance of memory and compute resources | Apps that require larger amounts of CPU and/or memory |
 | Dedicated (Memory optimized) | Increased memory resources | Apps that need access to large in-memory data, in-memory machine learning models, or other high memory requirements |
 | Dedicated (GPU enabled) (preview) | GPU enabled with increased memory and compute resources available in West US 3 and North Europe regions. | Apps that require GPU |
