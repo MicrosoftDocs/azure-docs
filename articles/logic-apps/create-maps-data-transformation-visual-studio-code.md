@@ -229,9 +229,7 @@ The example in this section transforms the source element from String type to Da
 
    :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/function-to-date-confirm-inputs.png" alt-text="Screenshot shows Input tab for the function named To Date.":::
 
-   For some data types, such as arrays, the scope for the transformation might also appear available. This scope is usually the immediate element, such as the array, but in some scenarios, the scope might exist beyond the immediate element.
-
-   For example, to iterate through array items, see [Create a loop between arrays](#loop-through-array). To perform a task when an element's value meets a condition, see [Add a condition between elements](#add-condition).
+   For some data types such as arrays, the data transformation scope might also be available. This scope is usually the current element, such as the array. However, in some cases, the scope might exist beyond the current element. For example, to iterate through array items, see [Create a loop between arrays](#loop-through-array). To perform a task when an element's value meets a condition, see [Add a condition between elements](#add-condition).
 
 ### Add a function with multiple inputs
 
@@ -266,7 +264,7 @@ The example in this section concatenates multiple source element types so that y
 
    The **Code** pane shows the mapping relationships that you created:
 
-   ![Screenshot showing Code pane  with complex mapping relationship between source and target elements.](media/create-maps-data-transformation-visual-studio-code/concat-example-code-view.png)
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/concat-example-code-view.png" alt-text="Screenshot shows Code pane with Concat function, which has multiple inputs and a single output.":::
 
 <a name="loop-through-array"></a>
 
@@ -274,7 +272,7 @@ The example in this section concatenates multiple source element types so that y
 
 If your source and target schemas include arrays, you can create a loop mapping relationship that iterates through the items in those arrays. The example in this section loops through an Employee source array and a Person target array.
 
-1. To review what happens in code while you create the mapping, in the map's upper right corner, select **Show code**.
+1. To view what happens in code while you create the mapping, in the mapper's upper right corner, select **View code**.
 
 1. On the map, in the target schema area, [select the target array element and target array item elements that you want to map](#create-direct-mapping).
 
@@ -310,7 +308,7 @@ The example in this section calculates a discount to apply when the purchase qua
 - **If**: Check whether the **Greater** function returns true.
 - **Multiply**: Calculate the discount by multiplying the item price by 10% and the item quantity.
 
-1. To review what happens in code while you create the mapping, in the map's upper right corner, select **Show code**.
+1. To view what happens in code while you create the mapping, in the mapper's upper right corner, select **View code**.
 
 1. If you haven't already, on the map, [select the target elements and then the source elements that you want to map](#create-direct-mapping).
 
