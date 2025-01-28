@@ -108,7 +108,7 @@ After creation, modify the app registration:
 
 # [External configuration](#tab/external-configuration)
 
-[Create and use a new app registration](#express_external) or [use an existing registration created separately](#advanced_external).
+You can create and use a new app registration (option 1) or use an existing registration created separately (option 2).
 
 ### <a name="express_external"></a> Option 1: Create and use a new app registration
 
@@ -285,7 +285,9 @@ Within the API object, the Microsoft Entra identity provider configuration has a
 | `allowedPrincipals`                      | A group of checks that determine if the principal represented by the incoming request can access the app. Satisfaction of `allowedPrincipals` is based on a logical `OR` over its configured properties. |
 | `identities` (under `allowedPrincipals`) | An allowlist of string **object IDs** that represents users or applications that have access. When this property is configured as a nonempty array, the `allowedPrincipals` requirement can be satisfied if the user or application represented by the request is specified in the list. There's a limit of 500 characters total across the list of identities.<br/><br/>This policy evaluates the `oid` claim of the incoming token. See [Payload claims]. |
 
-Also, some checks can be configured through an [application setting], regardless of the API version being used. The `WEBSITE_AUTH_AAD_ALLOWED_TENANTS` application setting can be configured with a comma-separated list of up to 10 tenant IDs, for example, `aaaabbbb-0000-cccc-1111-dddd2222eeee`. This setting can require that the incoming token is from one of the specified tenants, as specified by the `tid` claim. The `WEBSITE_AUTH_AAD_REQUIRE_CLIENT_SERVICE_PRINCIPAL` application setting can be configured to `true` or `1` to require the incoming token to include an `oid` claim. If `allowedPrincipals.identities` has been configured, this setting is ignored and treated as true because the `oid` claim is checked against this provided list of identities.
+Also, some checks can be configured through an [application setting], regardless of the API version being used. The `WEBSITE_AUTH_AAD_ALLOWED_TENANTS` application setting can be configured with a comma-separated list of up to 10 tenant IDs, for example, `aaaabbbb-0000-cccc-1111-dddd2222eeee`.
+
+This setting can require that the incoming token is from one of the specified tenants, as specified by the `tid` claim. The `WEBSITE_AUTH_AAD_REQUIRE_CLIENT_SERVICE_PRINCIPAL` application setting can be configured to `true` or `1` to require the incoming token to include an `oid` claim. If `allowedPrincipals.identities` has been configured, this setting is ignored and treated as true because the `oid` claim is checked against this provided list of identities.
 
 Requests that fail these built-in checks are given an HTTP `403 Forbidden` response.
 
@@ -317,7 +319,7 @@ You configured a native client application that can request access your App Serv
 
 ### Daemon client application (service-to-service calls)
 
-In an N-tier architecture, your client application can acquire a token to call an App Service or Function app on behalf of the client app itself (not on behalf of a user). This scenario is useful for non-interactive daemon applications that perform tasks without a logged in user. It uses the standard OAuth 2.0 client credentials grant. For more information, see [Microsoft identity platform and the OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
+In an N-tier architecture, your client application can acquire a token to call an App Service or Function app on behalf of the client app itself, not on behalf of a user. This scenario is useful for non-interactive daemon applications that perform tasks without a logged in user. It uses the standard OAuth 2.0 client credentials grant. For more information, see [Microsoft identity platform and the OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
 
 1. From the Azure portal menu, select **Microsoft Entra ID**.
 1. From the left navigation, select **Manage** > **App registrations** > **New registration**.
@@ -331,7 +333,7 @@ In an N-tier architecture, your client application can acquire a token to call a
 
 You can now [request an access token using the client ID and client secret](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret). Set the `resource` parameter to the **Application ID URI** of the target app. The resulting access token can then be presented to the target app using the standard [OAuth 2.0 Authorization header](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#use-a-token). App Service authentication validates and uses the token as usual to now indicate that the caller is authenticated. In this case, the caller is an application, not a user.
 
-This approach allows *any* client application in your Microsoft Entra tenant to request an access token and authenticate to the target app. If you also want to enforce *authorization* to allow only certain client applications, you must perform some extra configuration.
+This approach allows *any* client application in your Microsoft Entra tenant to request an access token and authenticate to the target app. If you also want to enforce *authorization* to allow only certain client applications, you must perform extra configuration.
 
 1. [Define an App Role](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) in the manifest of the app registration that represents the App Service or Function app you want to protect.
 1. On the app registration that represents the client that needs to be authorized, select **API permissions** > **Add a permission** > **My APIs**.
