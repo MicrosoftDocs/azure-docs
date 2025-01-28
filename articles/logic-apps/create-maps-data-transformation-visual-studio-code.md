@@ -34,7 +34,7 @@ This how-to guide shows how to create an empty data map, choose your source and 
 
 - The layout and item positions in Data Mapper are currently automatic and read only.
 
-- If you create a mapping between parent elements, which have **Complex** type, in the source and target schemas, the mapper creates a loop that iterates through the child elements. However, you must still explicitly create mappings between the child elements. 
+- When you creating a mapping between parent array elements in the source and target schemas, the mapper automatically adds a loop to iterate through the array item elements. However, you must still explicitly create mappings between the source and target array item elements.
 
 - To call maps created with Data Mapper, you can only use the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**. [For maps created by any other tool, use the **XML Operations** action named **Transform XML**](logic-apps-enterprise-integration-transform.md).
 
@@ -116,7 +116,7 @@ The following table describes the possible data types that might appear in a sch
 
 | Symbol | Type | More info |
 |--------|------|-----------|
-| ![Icon representing an Array data type.](media/create-maps-data-transformation-visual-studio-code/complex-array-icon.png) | Complex (Array) | Contains items or repeating item nodes |
+| ![Icon representing an Array data type.](media/create-maps-data-transformation-visual-studio-code/complex-array-icon.png) | Complex (Array) | Contains items or repeating item nodes. <br><br>An array element also displays the following connection point: <br><br> ![Icon for array element connection point.](media/create-maps-data-transformation-visual-studio-code/array-connection-point.png) |
 | ![Icon representing a Boolean data type.](media/create-maps-data-transformation-visual-studio-code/bool-icon.png) | Boolean | True or false only |
 | ![Icon representing a Complex data type.](media/create-maps-data-transformation-visual-studio-code/complex-icon.png) | Complex | An XML object with children properties, similar to the Object JSON type |
 | ![Icon representing a DateTime data type.](media/create-maps-data-transformation-visual-studio-code/datetime-icon.png) | DateTime | |
@@ -180,13 +180,13 @@ The following table lists the available function groups and some example functio
 
 | Group | Example functions |
 |-------|-------------------|
-| Collection | Average, Count, Direct Access, Distinct values, Filter, Index, Join, Maximum, Minimum, Reverse, Sort, Subsequence, Sum |
-| Conversion | To Date, To Integer, To Number, To String |
-| Date and time | Add Days, Current Date, Current Time, Equals Date |
-| Logical comparison | Equal, Exists, Greater, Greater or equal, If, If Else, Is Nil, Is Null, Is Number, Is String, Less, Less or Equal, Logical AND, Logical NOT, Logical OR, Not Equal |
-| Math | Absolute, Add, Arctangent, Ceiling, Cosine, Divide, Exponential, Exponential (base 10), Floor, Integer Divide, Log, Log (base 10), Module, Multiply, Power, Round, Sine, Square Root, Subtract, Tangent |
-| String | Codepoints to String, Concat, Contains, Ends with, Length, Lowercase, Name, Regular Expression Matches, Regular Expression Replace, Replace, Starts with, String to Codepoints, Substring, Substring after, Substring before, Trim, Trim Left, Trim Right, Uppercase |
-| Utility | Copy, Error, Execute XPath, Format DateTime, Format Number, Run XSLT |
+| **Collection** | Average, Count, Direct Access, Distinct values, Filter, Index, Join, Maximum, Minimum, Reverse, Sort, Subsequence, Sum |
+| **Conversion** | To Date, To Integer, To Number, To String |
+| **Date and time** | Add Days, Current Date, Current Time, Equals Date |
+| **Logical comparison** | Equal, Exists, Greater, Greater or equal, If, If Else, Is Nil, Is Null, Is Number, Is String, Less, Less or Equal, Logical AND, Logical NOT, Logical OR, Not Equal |
+| **Math** | Absolute, Add, Arctangent, Ceiling, Cosine, Divide, Exponential, Exponential (base 10), Floor, Integer Divide, Log, Log (base 10), Module, Multiply, Power, Round, Sine, Square Root, Subtract, Tangent |
+| **String** | Codepoints to String, Concat, Contains, Ends with, Length, Lowercase, Name, Regular Expression Matches, Regular Expression Replace, Replace, Starts with, String to Codepoints, Substring, Substring after, Substring before, Trim, Trim Left, Trim Right, Uppercase |
+| **Utility** | Copy, Error, Execute XPath, Format DateTime, Format Number, Run XSLT |
 
 ### Add a function without a mapping relationship
 
@@ -270,31 +270,31 @@ The example in this section concatenates multiple source element types so that y
 
 ## Create a loop between arrays
 
-If your source and target schemas include arrays, you can create a loop mapping relationship that iterates through the items in those arrays. The example in this section loops through an Employee source array and a Person target array.
+If your source and target schemas contain array elements that you want to map, you can create a loop to iterates through each array's item elements. The example in this section creates a loop through a source **Employee** array and a target **Person** array and mappings between the arrays' items.
 
 1. To view what happens in code while you create the mapping, in the mapper's upper right corner, select **View code**.
 
-1. On the map, in the target schema area, [select the target array element and target array item elements that you want to map](#create-direct-mapping).
+1. On the mapper surface, in the **Source** and **Destination** panes, find the array elements that you want to map.
 
-1. On the map, in the target schema area, expand the target array element and array items.
+1. Drag and draw a line between the pair of array items that you want in the **Source** and **Destination** panes. You can start mapping from either pane.
 
-1. In the source schema area, add the source array element and array item elements to the map.
+   The following example starts a mapping between the **Name** items in the source **Employee** parent array and target **Person** parent array:
 
-1. [Create a direct mapping between the source and target elements](#create-direct-mapping).
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/loop-example-map-array-items.png" alt-text="Screenshot shows mapper surface and drawing a mapping between the Name items in the source Employee and target Person arrays.":::
 
-   ![Screenshot showing the data map and drawing a connection between Name array items in the source and target arrays, Employee and Person, respectively.](media/create-maps-data-transformation-visual-studio-code/loop-example-map-array-items.png)
+   After you complete the mapping between the first pair of array items, the mapper automatically adds a loop mapping between the parent arrays, which have the following connection point type: ![Icon for array element completed connection point.](media/create-maps-data-transformation-visual-studio-code/array-connection-point-complete.png)
 
-   When you first create a mapping relationship between a matching pair of array items, a mapping relationship is automatically created at the parent array level.
+   The following example shows the automatically added mapping between the source **Employee** and target **Person** parent arrays:
 
-   ![Screenshot showing loop mapping between the Name array items plus the source and target arrays, Employee and Person, respectively.](media/create-maps-data-transformation-visual-studio-code/loop-example-automap-arrays.png)
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/loop-example-automap-arrays.png" alt-text="Screenshot shows loop mapping between source Employee and target Person parent arrays.":::
 
    The **Code** pane shows the mapping relationship that you created:
 
-   ![Screenshot showing Code pane  with looping relationship between source and target arrays, Employee and Person, respectively.](media/create-maps-data-transformation-visual-studio-code/loop-example-code-view.png)
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/loop-example-code-view.png" alt-text="Screenshot shows Code pane  with loop mapping between source and target parent arrays plus array items.":::
 
-1. Continue mapping the other array elements.
+1. Continue mapping the other array elements, for example:
 
-   ![Screenshot showing continue looping mapping between other array items in source and target arrays.](media/create-maps-data-transformation-visual-studio-code/loop-example-continue-mapping.png)
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/loop-example-continue-mapping.png" alt-text="Screenshot shows more mappings between other array items in source and target arrays.":::
 
 <a name="add-condition"></a>
 
@@ -471,6 +471,6 @@ To create your own function that you can use with the Data Mapper tool, follow t
 
 1. To find your custom function in the Data Mapper tool's functions list, search for the function, or expand the **Custom functions** collection.
 
-## Next steps
+## Related content
 
 - For data transformations using B2B operations in Azure Logic Apps, see [Add maps for transformations in workflows with Azure Logic Apps](logic-apps-enterprise-integration-maps.md)
