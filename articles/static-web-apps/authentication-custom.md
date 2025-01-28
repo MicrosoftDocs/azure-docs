@@ -33,7 +33,7 @@ To create the registration, begin by creating the following [application setting
 | Setting Name | Value |
 | --- | --- |
 | `AZURE_CLIENT_ID` | The Application (client) ID for the Microsoft Entra app registration. |
-| `AZURE_CLIENT_SECRET_APP_SETTING_NAME | The name of the application setting that holds the client secret for the Microsoft Entra app registration. |
+| `AZURE_CLIENT_SECRET_APP_SETTING_NAME` | The name of the application setting that holds the client secret for the Microsoft Entra app registration. |
 
 Next, use the following sample to configure the provider in the [configuration file](configuration.md).
 
