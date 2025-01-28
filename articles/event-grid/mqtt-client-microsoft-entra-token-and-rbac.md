@@ -4,8 +4,8 @@ description: Describes JWT authentication and RBAC roles to authorize clients wi
 ms.topic: conceptual
 ms.custom: build-2024
 ms.date: 01/27/2025
-author: george-guirguis, seth-shanmugam
-ms.author: geguirgu, seshanmugam
+author: Connected-Seth
+ms.author: seshanmugam
 ms.subservice: mqtt
 ---
 
