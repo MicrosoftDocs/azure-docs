@@ -25,7 +25,7 @@ You can authenticate MQTT clients with Custom JWT to connect to the Event Grid n
 You can use the MQTT v5 CONNECT packet to provide the Custom JWT token to authenticate your client and the MQTT v5 AUTH packet to refresh the token.  
 
 > [!IMPORTANT]
-> - If you don't set the CONNECT packet's authentication method to CUSTOM-JWT, you'll receive an “invalid issuer” error—even if all other configurations are correct.
+> - If you don't set the CONNECT packet's authentication method to CUSTOM-JWT, you receive an 'invalid issuer'. error—even if all other configurations are correct.
 
 In the CONNECT packet, you can provide the required values in the following fields:
 
@@ -45,7 +45,7 @@ In the AUTH packet, you can provide the required values in the following fields:
 Authenticate Reason Code with value 25 signifies reauthentication.
 
 > [!NOTE]
-> - Audience: “aud” claim must be set to "https://eventgrid.azure.net/".
+> - Audience: 'aud' claim must be set to "https://eventgrid.azure.net/".
 
 ## Access permissions
 A client using Custom JWT authentication can use client attributes and permissions to limit access to specific topics.
