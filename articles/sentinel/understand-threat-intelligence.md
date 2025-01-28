@@ -125,15 +125,15 @@ For more information, see [Connect Microsoft Sentinel to STIX/TAXII threat intel
 
 Threat intelligence powered by Microsoft Sentinel is managed next to Microsoft Defender Threat Intelligence (MDTI) and Threat Analytics in Microsoft's unified SecOps platform.
 
-:::image type="content" source="media/understand-threat-intelligence/intel-management-defender-portal.png" alt-text="Screenshot showing intel management page in the Defender portal.":::
+:::image type="content" source="media/understand-threat-intelligence/intel-management-defender-portal.png" alt-text="Screenshot showing intel management page in the Defender portal." lightbox="media/understand-threat-intelligence/intel-management-defender-portal.png":::
 
 >[!NOTE]
-> Threat intelligence in the Azure portal remains in Microsoft Sentinel > **Threat management** > **Threat intelligence**.
+> Threat intelligence in the Azure portal is still accessed from **Microsoft Sentinel** > **Threat management** > **Threat intelligence**.
 
 Two of the most common threat intelligence tasks are creating new threat intelligence related to security investigations and tagging intel objects. The management interface streamlines the manual process of creating individual threat intel with a few key features.
 - Define relationships as you create new STIX objects.
 - Curate existing TI with the relationship builder.
-- Quickly create multiple objects by using the duplicate feature to copy the metadata from a new or existing TI object.
+- Copy common metadata from a new or existing TI object with the duplicate feature.
 - Add free-form tags to objects with multi-select.
 
 The following STIX objects are available in Microsoft Sentinel:
