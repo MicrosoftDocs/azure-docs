@@ -5,13 +5,25 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: overview
-ms.date: 09/06/2024
+ms.date: 01/28/2025
 ms.custom: references_regions
 ---
 
 # What's new with Azure Red Hat OpenShift?
 
 Azure Red Hat OpenShift receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about the latest releases.
+
+
+
+## Updates - January 2025
+
+- Public preview of [Confidential Containers support](confidential-containers-overview.md) on Azure Red Hat OpenShift released at Microsoft Ignite 2024. Confidential Containers provide a secure enclave within the host system, isolating applications and their data from potential threats.
+
+- Azure Red Hat OpenShift [released in Spain Central region](https://azure.microsoft.com/updates?id=478571).
+
+- New article released on [purchasing Reserved Instances](/azure/cost-management-billing/reservations/prepay-red-hat-openshift) for Azure Red Hat OpenShift.
+
+- SRE maintenance operations that previously required reboots of the nodes have been improved. The reboots won't be initiated by SREs and will be paused until the next cluster upgrade operation.
 
 ## Version 4.15 - September 2024
 
