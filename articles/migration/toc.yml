@@ -1,0 +1,37 @@
+- name: Microsoft Azure Migration Guide
+  href: ./index.yml
+  items:
+  - name: Migration mindset
+    href: ./placeholder.md
+  - name: Source workload evaluation
+    href: ./placeholder.md
+    items:
+    - name: Governance
+      href: ./placeholder.md
+    - name: Capability orgranization
+      href: ./placeholder.md
+    - name: Identity and access management
+      href: ./placeholder.md
+    - name: Deployment
+      href: ./placeholder.md
+    - name: Monitoring
+      href: ./placeholder.md
+    - name: Dependencies
+      href: ./placeholder.md   
+      items:
+      - name: Example - External
+        href: ./placeholder.md     
+    - name: Current state
+      items:
+      - name: Cost of ownership
+        href: ./placeholder.md
+      - name: Reliability objectives
+        href: ./placeholder.md
+      - name: Performance targets 
+        href: ./placeholder.md
+  - name: Service catalog
+    items:
+    - name: Functions migration guide
+      href: ../azure-functions/toc.yml  
+    - name: Virtual Machines migration guide
+      href: https://learn.microsoft.com/en-us/azure/virtual-machines/migration-guide?toc=/azure/migration/toc.json&bc=/azure/aks/breadcrumb/toc.json                   

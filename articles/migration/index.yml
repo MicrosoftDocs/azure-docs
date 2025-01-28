@@ -1,0 +1,138 @@
+### YamlMime:Marketing
+title: Microsoft Azure Migration Guide
+metadata:
+  title: Microsoft Azure Migration Guide
+  description: Guidance and tools needed to make informed decisions about switching cloud providers. Learn about the migration challenges and create familiarity with Azure, streamline the transition process, and be prepared to optimize your workloads Azure. 
+  ms.service: azure
+  ms.topic: hub-page
+author: robbyatmicrosoft
+ms.author: robbymillsap
+ms.date: 01/28/2025  
+sections:
+  # Intro
+  - componentType: text 
+    title: Microsoft Azure Migration Guide
+    summary: TBD.
+  # Navigation Section
+  - componentType: navigation
+    size: large # optionally make section larger
+    # backgroundColor: medium
+    alignment: center # 'left' is default
+    blocks:
+      - componentType: icon-link
+        icon: book-open
+        url: placeholder.md
+        text: What's new      
+      - componentType: icon-link
+        icon: book-open
+        url: placeholder.md
+        text: Source evaluation
+      - componentType: icon-link
+        icon: developer-tools
+        url: placeholder.md
+        text: Tools
+      - componentType: icon-link
+        icon: book-open
+        url: placeholder.md
+        text: Service catalog
+      - componentType: icon-link
+        icon: developer-tools
+        url: placeholder.md
+        text: Assessment tool      
+  # bifold with image and text blocks
+  - componentType: bifold
+    alignment: center
+    blocks:
+      - componentType: image
+        src: images/sample.png
+        alt: "Diagram showing topics included in this guide."
+      - title: What's included in this end to end guide
+        summary: "Here are some high level topics:"
+        componentType: text
+        links:
+          - componentType: link
+            url: ./placeholder.md
+            text: Migration gold
+        list:
+          componentType: list
+          style: checklist
+          children:
+            - Fundamental guidelines and best practices that ensure a smooth and successful migration process, including planning, risk management, and stakeholder engagement.
+
+            - Existing structure and design of the systems or applications that are being migrated, including hardware, software, and network configurations.
+
+            - Strategies and structure of the target environment in Microsoft Azure, including the use of Azure services, resources, and best practices for cloud architecture..
+            
+            - Tools used to plan, execute, and manage the migration process, including data transfer methods, automation tools, and migration frameworks.
+
+            - Comprehensive list of services, detailing their transition from another cloud provider to Azure, example scenarios, and best practices.
+
+            - eal-world examples and success stories of organizations that have successfully migrated to Azure, highlighting challenges faced, solutions implemented, and outcomes achieved.
+            
+# cards section (4)
+  - componentType: grid
+    title: Scenarios
+    blocks:
+    - componentType: icon-card
+      title: Scenario 1
+      summary: TBD. 
+      url: ./placeholder.md                         
+    - componentType: icon-card
+      title: Scenario 1
+      summary: TBD. 
+      url: ./placeholder.md  
+    - componentType: icon-card
+      title: Scenario 1
+      summary: TBD. 
+      url: ./placeholder.md  
+    - componentType: icon-card
+      title: Scenario 1
+      summary: TBD. 
+      url: ./placeholder.md  
+    - componentType: icon-card
+      title: Scenario 1
+      summary: TBD. 
+      url: ./placeholder.md  
+    - componentType: icon-card
+      title: Scenario 1
+      summary: TBD. 
+      url: ./placeholder.md                           
+     
+  # Summary cards grid
+  - componentType: grid
+    backgroundColor: "alternating-grey-reversed"
+    title: Workloads
+    blocks:
+    - componentType: icon-card
+      title: Scenario 1
+      summary: TBD. 
+      url: ./placeholder.md                         
+    - componentType: icon-card
+      title: Scenario 1
+      summary: TBD. 
+      url: ./placeholder.md  
+    - componentType: icon-card
+      title: Scenario 1
+      summary: TBD. 
+      url: ./placeholder.md  
+    - componentType: icon-card
+      title: Scenario 1
+      summary: TBD. 
+      url: ./placeholder.md  
+    - componentType: icon-card
+      title: Scenario 1
+      summary: TBD. 
+      url: ./placeholder.md  
+    - componentType: icon-card
+      title: Scenario 1
+      summary: TBD. 
+      url: ./placeholder.md    
+  
+  #Text section
+  - componentType: text
+    title: Service Catalog
+    links:
+    - componentType: link
+      url: ./placeholder
+      text: Browse the service guides
+
