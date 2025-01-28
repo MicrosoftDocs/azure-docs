@@ -142,8 +142,8 @@ Automate domain creation, configuration, and DNS record setup (including Domain,
 ```azurepowershell-interactive
 # Loop through each domain in the predefined list of domains to create and configure them
 foreach ($domainName in $domains){
-    # Extract the base domain name from the full domain name (e.g., "sales" from "sales.contoso.net")
-    $baseDomain = $domainName.split('.')[0]
+    # Extract the subdomain prefix from the fully qualified domain name (e.g., "sales" from "sales.contoso.net")
+    $subdomainPrefix = $domainName.split('.')[0]
 
     # Output the domain name that is being created
     Write-Host "Creating domain: $domainName"
@@ -162,6 +162,7 @@ foreach ($domainName in $domains){
     Start-Sleep -Seconds 30
 
     # Retrieve the domain details after creation
+    # The domain details will be used during the DNS record setting request
     $domainDetailsJson = Get-AzEmailServiceDomain -ResourceGroupName $resourceGroup -EmailServiceName $emailServiceName -Name $domainName
     $domainDetails = $domainDetailsJson | ConvertFrom-Json
     
