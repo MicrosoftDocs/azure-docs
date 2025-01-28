@@ -59,20 +59,15 @@ It's common to use multiple Azure regions, paired or nonpaired, when you design 
 
 When you select regions that are geographically far apart, the latency of network connections between those regions increases. Latency can affect how you design a multi-region solution, and it can restrict the types of geo-replication and geo-redundancy you can use. For more information, see [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones).
 
-## Azure regions and service deployment types
+## Non-regional services
 
-Although most Azure services are deployed to a specific regions or regions, there are some services that aren't tied to any specific region. It's important to take those services into account when you design your solutions and business continuity plan.
+Most Azure services are deployed to a specific regions or regions. However, there are some services that aren't tied to a specific Azure region. It's important to understand these *non-regional* services, and to take them into account when you design your solutions and business continuity plan.
 
-There are two types of Azure services in Azure: *non-regional* or always-available and *regional*:
+Non-regional services are deployed by Microsoft across two or more regions. If there's a regional failure, the instance of the service in a healthy region can continues servicing requests. For example, [Azure DNS](https://azure.microsoft.com/products/dns) is a non-regional service.
 
-- **Non-regional (Always available) services** are services that are deployed to two or more regions. If there's a regional failure, the instance of the service in a healthy region continues servicing customers. Certain non-regional services enable customers to specify the region where the underlying virtual machine (VM) on which service runs will be deployed. For example, [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) enables customers to specify the region location where the VM resides. All Azure services that store customer data allow the customer to specify the specific regions in which their data will be stored. The exception is [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/), which has geo placement (such as Europe or North America). For more information about data storage residency, see the [Data residency map](https://azure.microsoft.com/global-infrastructure/data-residency/).
+Some Azure services allow you to specify a region or geography in which your data will be stored. For example, [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id/), which enables you to select the geographic area for your data, such as Europe or North America. For more information about data residency, see [Data residency in Azure](https://azure.microsoft.com/explore/global-infrastructure/data-residency/).
 
-
-    >[!NOTE]
-    >If you need to understand dependencies between Azure services to help better architect your applications and services, you can request the **Azure service dependency documentation** by contacting your Microsoft sales or customer representative. This document lists the dependencies for Azure services, including dependencies on any common major internal services such as control plane services. To obtain this documentation, you must be a Microsoft customer and have the appropriate non-disclosure agreement (NDA) with Microsoft.
-
-- **Regional services** are services that are deployed in a specific region. Many regional services provide resiliency support through availability zones and multi-region support.  The reliability of regional services is determined by the service's architecture and the design of your workload, and so is a [shared responsibility between you and Microsoft](./concept-shared-responsibility.md).  For example, if you deploy a regional service in a region that has availability zones, you can design your workload to be resilient to zone failures by deploying across multiple zones. If you deploy a regional service in a region that doesn't have availability zones, you can design your workload to be resilient to region failures by deploying across multiple regions.
-
+Some non-regional services enable you to specify specific region where specific components are deployed. For example, [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) is a non-regional service, but it enables you to specify the region where the VMs it uses will reside.
 
 ## Related resources
 
