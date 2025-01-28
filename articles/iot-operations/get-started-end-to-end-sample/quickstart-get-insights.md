@@ -37,9 +37,7 @@ In this section, you set up a Microsoft Fabric *eventstream* to connect your eve
 
 In this section, you create an eventstream that will be used to bring your data from Event Hubs into Microsoft Fabric Real-Time Intelligence, and eventually into a KQL database.
 
-Start by navigating to the [Real-Time hub in Microsoft Fabric](https://app.powerbi.com/workloads/oneriver/hub?experience=fabric-developer).
-
-Follow the steps in [Get events from Azure Event Hubs into Real-time hub](/fabric/real-time-hub/add-source-azure-event-hubs#microsoft-sources-page) to add your event hub as a data source for a new eventstream in your Fabric workspace. Keep the following notes in mind:
+Start by navigating to the [Real-Time hub in Microsoft Fabric](https://app.powerbi.com/workloads/oneriver/hub?experience=fabric-developer). Add your event hub as a data source for a new eventstream (for detailed instructions, see [Get events from Azure Event Hubs into Real-time hub](/fabric/real-time-hub/add-source-azure-event-hubs#microsoft-sources-page)). As you add the data source, keep the following notes in mind:
 
 * For **Azure Event Hub Key**, use the default selection (*RootManageSharedAccessKey*).
 * You can edit the **Eventstream name** to something friendly in the **Stream details** pane.
@@ -48,7 +46,7 @@ Follow the steps in [Get events from Azure Event Hubs into Real-time hub](/fabri
 * For **Consumer group**, use the default selection (*$Default*).
 * For **Data format**, use the default selection (*Json*).
 
-After connecting the eventstream, use the **Open Eventstream** button to see it in the authoring canvas. Your Azure event hub is visible as a source for the eventstream. (You also have the option edit the source name to something friendly from this canvas if you want.)
+After connecting the eventstream, use the **Open Eventstream** button to see it in the authoring canvas. The stream from your Azure event hub is visible as an eventstream source.
 
 :::image type="content" source="media/quickstart-get-insights/source-added.png" alt-text="Screenshot of the eventstream with an AzureEventHub source.":::
 
@@ -63,15 +61,15 @@ Follow these steps to check your work so far, and make sure data is flowing into
     :::image type="content" source="media/quickstart-get-insights/source-added-data.png" alt-text="Screenshot of the eventstream with data from the AzureEventHub source.":::
 
 >[!TIP]
->If data has not arrived in your eventstream, you may want to check your event hub activity to This will help you isolate which section of the flow to debug.
+>If data has not arrived in your eventstream, you may want to check your event hub activity to help you isolate which section of the flow to debug.
 
 ### Prepare KQL resources
 
 In this section, you create a KQL database in your Microsoft Fabric workspace to use as a destination for your data.
 
-1. Follow the steps in [Create an eventhouse](/fabric/real-time-intelligence/create-eventhouse#create-an-eventhouse-1) to create a Real-Time Intelligence eventhouse with a child KQL database. You only need to complete the section entitled **Create an eventhouse**.
+1. First, create a Real-Time Intelligence eventhouse (for detailed instructions, see [Create an eventhouse](/fabric/real-time-intelligence/create-eventhouse#create-an-eventhouse-1)). The eventhouse will be created with a default KQL database of the same name.
 
-1. Next, follow the steps in [Create an empty table in your KQL database](/fabric/real-time-intelligence/create-empty-table#create-an-empty-table-in-your-kql-database) to create a table in your database. Call it *OPCUA* and use the following columns.
+1. Next, create a new table in the default database in your eventhouse (for detailed instructions, see [Create an empty table in your KQL database](/fabric/real-time-intelligence/create-empty-table#create-an-empty-table-in-your-kql-database)). Name it *OPCUA* and manually enter the following schema.
 
     | Column name | Data type |
     | --- | --- |
@@ -94,14 +92,10 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
 
 ### Add eventstream data to KQL database
 
-Next, add your eventstream as a data source for your KQL table.
+Next, add your eventstream as a data source for your KQL table (for detailed instructions, see [Get data from Eventstream](/fabric/real-time-intelligence/get-data-eventstream#source)). As you add the data source, keep the following notes in mind:
 
-Follow the steps in [Get data from Eventstream](/fabric/real-time-intelligence/get-data-eventstream#source) to add the data source.
-
-Keep the following notes in mind:
-
-- Use the *OPCUA* table as the destination table and your eventstream as the source.
-- On the **Inspect** step, open the **Advanced** options. Under **Mapping**, select **Existing mapping** and choose *opcua_mapping*.
+* Use the *OPCUA* table as the destination table and your eventstream as the source.
+* On the **Inspect** step, open the **Advanced** options. Under **Mapping**, select **Existing mapping** and choose *opcua_mapping*.
 
     :::image type="content" source="media/quickstart-get-insights/existing-mapping.png" alt-text="Screenshot adding an existing mapping.":::
 
@@ -120,7 +114,7 @@ In this section, you'll create a new [Real-Time Dashboard](/fabric/real-time-int
 
 ### Create dashboard
 
-Follow the steps in the [Create a new dashboard](/fabric/real-time-intelligence/dashboard-real-time-create#create-a-new-dashboard) section to create a new Real-Time Dashboard from the Real-Time Intelligence capabilities.
+Navigate to your workspace and create a new Real-Time Dashboard from the Real-Time Intelligence capabilities (for detailed instructions, see [Create a new dashboard](/fabric/real-time-intelligence/dashboard-real-time-create#create-a-new-dashboard)).
 
 ### Upload template and connect data source
 
