@@ -69,6 +69,7 @@ Some Azure services allow you to specify a region or geography in which your dat
 
 Some non-regional services enable you to specify the region where certain components are deployed. For example, [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) is a non-regional service, but it enables you to specify the region where the VMs it uses will reside.
 
+
 ## Related resources
 
 For more information on the Azure services available in each region, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region).
