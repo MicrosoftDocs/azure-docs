@@ -12,11 +12,11 @@ ms.subservice: azure-reliability
 
 # Reliability guides by service
 
-While Azure provides a set of reliability features, the resiliency of your workload is a [shared responsibility between you and Microsoft](./concept-shared-responsibility.md) and depends on how you have designed your business continuity plan to define your expectations for reliability. For this reason, it's important that you understand the reliability features of each service you use, and how to best implement them in your workload. This document provides links to the reliability guidance for each Azure service, detailing how each services supports or does not support specific reliability features. 
+While Azure provides a set of reliability features, the resiliency of your workload is a [shared responsibility between you and Microsoft](./concept-shared-responsibility.md) and depends on how you have designed your business continuity plan to define your expectations for reliability. For this reason, it's important that you understand the reliability features of each service you use, and how to best implement them in your workload. This document provides links to the reliability guidance for each Azure service, detailing how each services supports your reliability requirements through its features and design.
 
 Each service guide generally contains information on how the service supports:
 
-- *Availability zones* such as zonal or zone-redundant options, traffic routing and data replication between zones, zone-down experience, capacity planning, failback, and how to configure for availability zone support.
+- *Availability zones* such as zonal and zone-redundant deployment options, traffic routing and data replication between zones, what happens if a zone experiences an outage, failback, and how to configure your resources for availability zone support.
 - *Multi-region support* such as how to configure multi-region or geo-disaster support, traffic routing and data replication between regions, region-down experience, failover and failback support, alternative multi-region support.
 - *Backup support* such as who controls backups, where they are stored,how they can be recovered, and whether they are accessible only within a region or across regions.
 

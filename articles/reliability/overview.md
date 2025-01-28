@@ -35,7 +35,7 @@ Each Azure service has its own unique reliability characteristics. Azure provide
 
 Each reliability service guide generally contains information on how the service supports a range of reliability capabilities, including:
 
-- *Availability zones* such as zonal or zone-redundant deployment options, traffic routing and data replication between zones, zone-down experience, capacity planning, failback, and how to configure for availability zone support.
+- *Availability zones* such as zonal and zone-redundant deployment options, traffic routing and data replication between zones, what happens if a zone experiences an outage, failback, and how to configure your resources for availability zone support.
 - *Multi-region support* such as how to configure multi-region or geo-disaster recovery support, traffic routing and data replication between regions, region-down experience, and failover and failback support. For some services that don't have native multi-region support, the guides present alternative multi-region deployment approaches to consider.
 - *Backup support* such as Microsoft-controlled and customer-controlled backup capabilities, where they are stored, how they can be recovered, and whether they are accessible only within a region or across regions.
 
@@ -87,7 +87,7 @@ Many Azure regions provide availability zones, which are separated groups of dat
 
 ## Related content
 
-- For service specific guides on availability zone support and disaster recovery, see [Reliability guidance](./reliability-guidance-overview.md).
+- For service specific guides on availability zone support and other reliability capabilities, see [Reliability guidance](./reliability-guidance-overview.md).
 - For service migration guides to availability zone support, see [Availability zone migration guidance](./availability-zones-migration-overview.md).
 - [Availability of service by category](availability-service-by-category.md)
 - [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)
