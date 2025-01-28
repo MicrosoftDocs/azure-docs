@@ -9,9 +9,9 @@ ms.date: 01/27/2025
 
 ## Configuring function apps
 
-### Cannot delete resource
+### Can't delete resource
 
-Make sure you've deleted all task hubs in the Durable Task Scheduler environment. If you haven't, you'll receive the following error message:
+Make sure you delete all task hubs in the Durable Task Scheduler environment. If you haven't, you receive the following error message:
 
 ```json
 {
@@ -28,7 +28,7 @@ If, after starting Azurite, you encounter the error: `“Can't determine Project
 - Delete the **bin** and **obj** directories in your app.
 - Try running `func start` again.
 
-### Cannot find native binaries for ARM
+### Can't find native binaries for ARM
 
 If you see gRPC errors related to not finding native binaries for ARM (such as on a Mx Mac), you may need to add the following workaround to the end of your `extensions.csproj` file.
 
