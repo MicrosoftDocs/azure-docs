@@ -65,7 +65,7 @@ async function main() {
   const interactiveMessage = {
     body: {
       kind: "text",
-      text: "Do you want to proceed?",
+      text: "Which shipping option do you want?",
     },
     action: {
       kind: "whatsAppListAction",

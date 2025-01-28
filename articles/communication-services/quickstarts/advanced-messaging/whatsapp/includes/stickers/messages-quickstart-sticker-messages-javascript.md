@@ -37,7 +37,7 @@ Follow these steps to add required code snippets to your `send-messages.js` file
 The Messages SDK enables Contoso to send reaction WhatsApp messages, when initiated by WhatsApp users. To send text messages:
 - [WhatsApp Channel ID](#set-channel-registration-id).
 - [Recipient Phone Number in E16 format](#set-recipient-list).
-- Sticker message content.
+- URL of a sticker.
 
 > [!IMPORTANT]
 > To send a sticker message to user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).

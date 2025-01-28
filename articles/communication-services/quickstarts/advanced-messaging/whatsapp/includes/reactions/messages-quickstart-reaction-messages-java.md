@@ -2,13 +2,13 @@
 title: Include file
 description: Include file
 services: azure-communication-services
-author: shamkh
+author: arifibrahim4
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
-ms.date: 12/15/2024
+ms.date: 01/28/2025
 ms.topic: include
 ms.custom: include file
-ms.author: shamkh
+ms.author: armohamed
 ---
 
 ## Prerequisites
@@ -40,7 +40,8 @@ Follow these steps to add required code snippets to the main function of your `A
 The Messages SDK enables Contoso to send reaction WhatsApp messages, when initiated by WhatsApp users. To send text messages:
 - [WhatsApp Channel ID](#set-channel-registration-id).
 - [Recipient Phone Number in E16 format](#set-recipient-list).
-- Reaction message content.
+- Unicode escape sequence of the emoji.
+- Message Id of message you want to apply the emoji to.
 
 > [!IMPORTANT]
 > To send a reaction to user message, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
@@ -48,7 +49,7 @@ The Messages SDK enables Contoso to send reaction WhatsApp messages, when initia
 Assemble and send the reaction to a message:
 
 ```java
-// Assemble reaction message
+// Assemble reaction to a message
 String emoji = "\uD83D\uDE00";
 ReactionNotificationContent reaction = new ReactionNotificationContent("<CHANNEL_ID>", recipients, emoji, "<REPLY_MESSAGE_ID>");
 
