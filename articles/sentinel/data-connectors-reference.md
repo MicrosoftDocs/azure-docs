@@ -248,6 +248,10 @@ For more information about the codeless connector platform, see [Create a codele
 - [Dynatrace Problems](data-connectors/dynatrace-problems.md)
 - [Dynatrace Runtime Vulnerabilities](data-connectors/dynatrace-runtime-vulnerabilities.md)
 
+## ESET
+
+- [ESET Protect Platform (using Azure Functions)](data-connectors/eset-protect-platform.md)
+
 ## Elastic
 
 - [Elastic Agent (Standalone)](data-connectors/elastic-agent-standalone.md)

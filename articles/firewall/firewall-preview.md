@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 10/10/2023
+ms.date: 01/15/2025
 ms.author: victorh
 ---
 
@@ -57,6 +57,13 @@ This is also relevant for hybrid scenarios, connecting on-premises datacenters t
 
 For more information, see [Private IP DNAT Support and Scenarios with Azure Firewall](https://techcommunity.microsoft.com/t5/azure-network-security-blog/private-ip-dnat-support-and-scenarios-with-azure-firewall/ba-p/4230073).
 
+## Customer provided public IP address support in secured hubs (preview)
+
+Virtual WAN hub deployments can now associate customer tenant public IP addresses with Secured Hub Azure Firewall. The capability is available to new deployments of Secured Hub Firewalls (preview). 
+
+For existing secured virtual WAN hubs, delete the hub firewall and redeploy a new Firewall during scheduled maintenance hours. You can use the Azure portal or Azure PowerShell to configure this.  
+
+For more information, see [Customer provided public IP address support in secured hubs (preview)](secured-hub-customer-public-ip.md).
 
 ## Next steps
 

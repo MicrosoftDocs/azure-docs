@@ -495,7 +495,7 @@ For additional information, review the following articles:
 
 - [Azure AD B2C docs](solution-articles.md)
 
-- [Ask your question on Stackoverflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
+- [Ask your question on Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 
 - [Azure AD B2C Samples](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 

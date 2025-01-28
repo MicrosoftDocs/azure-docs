@@ -4,12 +4,20 @@ description: Learn about new and updated articles to the Azure Virtual Desktop d
 ms.topic: release-notes
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 12/04/2024
+ms.date: 01/24/2025
 ---
 
 # What's new in documentation for Azure Virtual Desktop
 
 We update documentation for Azure Virtual Desktop regularly. In this article, we highlight articles for new features and where there are significant updates to existing articles. To learn what's new in the service, see [What's new for Azure Virtual Desktop](whats-new.md).
+
+## December 2024
+
+Here are the highlights of documentation changes in December 2024:
+
+- Archived the Azure Virtual Desktop (Classic) documentation. Here's the new location: [Azure Virtual Desktop classic documentation](/previous-versions/azure/virtual-desktop-classic/). Redirection is in place for the previous URLs.
+
+- Updated [Multimedia redirection for video playback and calls in a remote session](multimedia-redirection-video-playback-calls.md) to provide registry key information to be able to [hide the advanced settings button](multimedia-redirection-video-playback-calls.md?pivots=azure-virtual-desktop#hide-advanced-settings-button) and [enable call redirection for specific domains](multimedia-redirection-video-playback-calls.md?pivots=azure-virtual-desktop#enable-call-redirection-for-specific-domains).
 
 ## November 2024
 
@@ -215,7 +223,7 @@ Here are the highlights of documentation changes in September 2023:
 - Updated articles for custom images templates general availability:
   - [Custom image templates](custom-image-templates.md).
   - [Use Custom image templates to create custom images](create-custom-image-templates.md).
-  - [Troubleshoot Custom image templates](troubleshoot-custom-image-templates.md).
+  - [Troubleshoot Custom image templates](/troubleshoot/azure/virtual-desktop/troubleshoot-custom-image-templates).
 
 - Updated [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md?tabs=monitor) for the general availability of using the Azure Monitor Agent with Azure Virtual Desktop Insights.
 
@@ -264,7 +272,7 @@ Here are the highlights of documentation changes in May 2023:
 - New articles for the custom images templates preview:
   - [Custom image templates](custom-image-templates.md).
   - [Use Custom image templates to create custom images](create-custom-image-templates.md).
-  - [Troubleshoot Custom image templates](troubleshoot-custom-image-templates.md).
+  - [Troubleshoot Custom image templates](/troubleshoot/azure/virtual-desktop/troubleshoot-custom-image-templates).
 
 - Added how to steps for the Azure portal to configure automatic or direct assignment type in [Configure personal desktop assignment](configure-host-pool-personal-desktop-assignment-type.md).
 

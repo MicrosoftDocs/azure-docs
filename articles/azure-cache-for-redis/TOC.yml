@@ -131,6 +131,8 @@
       href: managed-redis/managed-redis-best-practices-server-load.md
     - name: Performance testing
       href: managed-redis/managed-redis-best-practices-performance.md
+    - name: Kubernetes-hosted client applications best practices
+      href: managed-redis/managed-redis-best-practices-kubernetes.md
 
   - name: Authentication and authorization
     items:

@@ -8,22 +8,16 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a New Relic resource
+  - name: Get started
     href: create.md
-  - name: Link to an existing New Relic account
-    href: link-to-existing-resources.md
 - name: How to
   items:
-  - name: Configure prerequisites
-    href: configure-prerequisites.md
-  - name: Manage Azure Native New Relic service
+  - name: Manage
     href: manage.md
-  - name: Troubleshoot
-    items:
-    - name: Get support
-      href: support.md
-    - name: Fix common errors
-      href: troubleshoot.md
+  - name: Fix common errors
+    href: troubleshoot.md
+  - name: Get support
+    href: support.md
 - name: Reference
   items:
   - name: REST API

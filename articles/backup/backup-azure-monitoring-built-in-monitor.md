@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 12/30/2024
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Monitoring Azure Backup workloads

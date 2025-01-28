@@ -46,7 +46,7 @@ This version of the conformance statement corresponds to the `v2` version of the
 
 For more information on how to specify the version when making requests, see the [API Versioning Documentation](api-versioning-dicom-service.md).
 
-You can find example requests for supported transactions in the [Postman collection](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json).
+You can find example requests for supported transactions in the Postman collection.
 
 ## Preamble Sanitization
 
@@ -905,7 +905,7 @@ The following parameters for each query are supported:
 | --------- | ------------- | ------------ | --------------------------------------------------------------------- |
 | `{attributeID}=` | `{value}` | 0...N | Search for attribute/value matching in query. |
 | `includefield=`  | `{attributeID}`<br/>`all` | 0...N | The other attributes to return in the response. Only top-level attributes can be included - not attributes that are part of sequences. Both public and private tags are supported. When `all` is provided. See [Search Response](#search-response) for more information about which attributes are returned for each query type. If a mixture of `{attributeID}` and `all` is provided, the server defaults to using 'all'. |
-| `limit=`         | `{value}` | 0...1 | Integer value to limit the number of values returned in the response. Value can be between the range `1 >= x <= 200`. Defaulted to `100`. |
+| `limit=`         | `{value}` | 0...1 | Integer value to limit the number of values returned in the response. Value can be between the range `1 >= x <= 4000`. Defaulted to `100`. |
 | `offset=` | `{value}` | 0...1 | Skip {value} results. If an offset is provided larger than the number of search query results, a `204 (no content)` response is returned. |
 | `fuzzymatching=` | `true` \ `false` | 0...1 | If true fuzzy matching is applied to any attributes with the Person Name (PN) Value Representation (VR). It does a prefix word match of any name part inside these attributes. For example, if `PatientName` is `John^Doe`, then `joh`, `do`, `jo do`, `Doe` and `John Doe` all match. However `ohn` doesn't match. |
 
