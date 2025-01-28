@@ -191,7 +191,7 @@ After creation, modify the app registration:
 
 ## Configure additional checks
 
-*Additional checks* determines which requests are allowed to access your application. You can customize this behavior now or adjust these settings later from the main **Authentication** screen by choosing **Edit** next to **Authentication settings**.
+*Additional checks* determine which requests are allowed to access your application. You can customize this behavior now or adjust these settings later from the main **Authentication** screen by choosing **Edit** next to **Authentication settings**.
 
 For **Client application requirement**, choose whether to:
 
@@ -259,7 +259,7 @@ You can also work directly with the underlying access token from the injected `x
 
 ### Use a built-in authorization policy
 
-The created app registration authenticates incoming requests for your Microsoft Entra tenant. By default, it also lets anyone within the tenant to access the application. This is fine for many applications. Some applications need to restrict access further by making authorization decisions. Your application code is often the best place to handle custom authorization logic. However, for common scenarios, the Microsoft identity platform provides built-in checks that you can use to limit access.
+The created app registration authenticates incoming requests for your Microsoft Entra tenant. By default, it also lets anyone within the tenant to access the application. This approach is fine for many applications. Some applications need to restrict access further by making authorization decisions. Your application code is often the best place to handle custom authorization logic. However, for common scenarios, the Microsoft identity platform provides built-in checks that you can use to limit access.
 
 This section shows how to enable built-in checks using the [App Service authentication V2 API](./configure-authentication-api-version.md). Currently, the only way to configure these built-in checks is by using [Azure Resource Manager templates](/azure/templates/microsoft.web/sites/config-authsettingsv2) or the [REST API](/rest/api/appservice/web-apps/update-auth-settings-v2).
 
@@ -285,7 +285,7 @@ Within the API object, the Microsoft Entra identity provider configuration has a
 | `allowedPrincipals`                      | A group of checks that determine if the principal represented by the incoming request can access the app. Satisfaction of `allowedPrincipals` is based on a logical `OR` over its configured properties. |
 | `identities` (under `allowedPrincipals`) | An allowlist of string **object IDs** that represents users or applications that have access. When this property is configured as a nonempty array, the `allowedPrincipals` requirement can be satisfied if the user or application represented by the request is specified in the list. There's a limit of 500 characters total across the list of identities.<br/><br/>This policy evaluates the `oid` claim of the incoming token. See [Payload claims]. |
 
-Also, some checks can be configured through an [application setting], regardless of the API version being used. The `WEBSITE_AUTH_AAD_ALLOWED_TENANTS` application setting can be configured with a comma-separated list of up to 10 tenant IDs, for example, "aaaabbbb-0000-cccc-1111-dddd2222eeee". This setting can require that the incoming token is from one of the specified tenants, as specified by the `tid` claim. The `WEBSITE_AUTH_AAD_REQUIRE_CLIENT_SERVICE_PRINCIPAL` application setting can be configured to `true` or `1` to require the incoming token to include an `oid` claim. If `allowedPrincipals.identities` has been configured, this setting is ignored and treated as true because the `oid` claim is checked against this provided list of identities.
+Also, some checks can be configured through an [application setting], regardless of the API version being used. The `WEBSITE_AUTH_AAD_ALLOWED_TENANTS` application setting can be configured with a comma-separated list of up to 10 tenant IDs, for example, `aaaabbbb-0000-cccc-1111-dddd2222eeee`. This setting can require that the incoming token is from one of the specified tenants, as specified by the `tid` claim. The `WEBSITE_AUTH_AAD_REQUIRE_CLIENT_SERVICE_PRINCIPAL` application setting can be configured to `true` or `1` to require the incoming token to include an `oid` claim. If `allowedPrincipals.identities` has been configured, this setting is ignored and treated as true because the `oid` claim is checked against this provided list of identities.
 
 Requests that fail these built-in checks are given an HTTP `403 Forbidden` response.
 
@@ -331,17 +331,19 @@ In an N-tier architecture, your client application can acquire a token to call a
 
 You can now [request an access token using the client ID and client secret](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret). Set the `resource` parameter to the **Application ID URI** of the target app. The resulting access token can then be presented to the target app using the standard [OAuth 2.0 Authorization header](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#use-a-token). App Service authentication validates and uses the token as usual to now indicate that the caller is authenticated. In this case, the caller is an application, not a user.
 
-This approach allows _any_ client application in your Microsoft Entra tenant to request an access token and authenticate to the target app. If you also want to enforce _authorization_ to allow only certain client applications, you must perform some extra configuration.
+This approach allows *any* client application in your Microsoft Entra tenant to request an access token and authenticate to the target app. If you also want to enforce *authorization* to allow only certain client applications, you must perform some extra configuration.
 
-1. [Define an App Role](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) in the manifest of the app registration representing the App Service or Function app you want to protect.
-1. On the app registration representing the client that needs to be authorized, select **API permissions** > **Add a permission** > **My APIs**.
-1. Select the app registration you created earlier. If you don't see the app registration, make sure that you [added an App Role](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md).
-1. Under **Application permissions**, select the App Role you created earlier, and then select **Add permissions**.
+1. [Define an App Role](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) in the manifest of the app registration that represents the App Service or Function app you want to protect.
+1. On the app registration that represents the client that needs to be authorized, select **API permissions** > **Add a permission** > **My APIs**.
+1. Select the app registration that you created earlier. If you don't see the app registration, make sure that you [added an App Role](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md).
+1. Under **Application permissions**, select the App Role that you created earlier. Then select **Add permissions**.
 1. Make sure to select **Grant admin consent** to authorize the client application to request the permission.
-1. Similar to the previous scenario (before any roles were added), you can now [request an access token](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) for the same target `resource`, and the access token includes a `roles` claim containing the App Roles that were authorized for the client application.
-1. Within the target App Service or Function app code, you can now validate that the expected roles are present in the token. App Service authentication doesn't perform this validation. For more information, see [Access user claims](configure-authentication-user-identities.md#access-user-claims-in-app-code).
 
-You have now configured a daemon client application that can access your App Service app using its own identity.
+   Similar to the previous scenario (before any roles were added), you can now [request an access token](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) for the same target `resource`, and the access token includes a `roles` claim containing the App Roles that were authorized for the client application.
+
+Within the target App Service or Function app code, you can now validate that the expected roles are present in the token. App Service authentication doesn't perform this validation. For more information, see [Access user claims](configure-authentication-user-identities.md#access-user-claims-in-app-code).
+
+You have configured a daemon client application that can access your App Service app using its own identity.
 
 ## Best practices
 
@@ -349,25 +351,25 @@ Regardless of the configuration you use to set up authentication, the following 
 
 - Configure each App Service app with its own app registration in Microsoft Entra.
 - Give each App Service app its own permissions and consent.
-- Avoid permission sharing between environments by using separate app registrations for separate deployment slots. When you're testing new code, this practice can help prevent issues from affecting the production app.
+- Avoid permission sharing between environments. Use separate app registrations for separate deployment slots. When you're testing new code, this practice can help prevent issues from affecting the production app.
 
 ### Migrate to the Microsoft Graph
 
-Some older apps might also have been set up with a dependency on the [deprecated Azure AD Graph][aad-graph], which is scheduled for full retirement. For example, your app code might have called Azure AD Graph to check group membership as part of an authorization filter in a middleware pipeline. Apps should move to the [Microsoft Graph](/graph/overview). For more information, see [Migrate your apps from Azure AD Graph to Microsoft Graph][aad-graph].
+Some older apps might be set up with a dependency on the [deprecated Azure AD Graph][aad-graph], which is scheduled for full retirement. For example, your app code might call Azure AD Graph to check group membership as part of an authorization filter in a middleware pipeline. Apps should move to the [Microsoft Graph](/graph/overview). For more information, see [Migrate your apps from Azure AD Graph to Microsoft Graph][aad-graph].
 
 During this migration, you might need to make some changes to your configuration of App Service authentication. After you add Microsoft Graph permissions to your app registration, you can:
 
-1. Update the **Issuer URL** to include the "/v2.0" suffix if it doesn't already. 
+1. Update the **Issuer URL** to include the `/v2.0` suffix if it doesn't already.
 1. Remove requests for Azure AD Graph permissions from your sign-in configuration. The properties to change depend on [which version of the management API you're using](./configure-authentication-api-version.md):
 
-    - If you're using the V1 API (`/authsettings`), this would be in the `additionalLoginParams` array. 
-    - If you're using the V2 API (`/authsettingsV2`), this would be in the `loginParameters` array.
+   - If you're using the V1 API (`/authsettings`), this setting is in the `additionalLoginParams` array.
+   - If you're using the V2 API (`/authsettingsV2`), this setting is in the `loginParameters` array.
 
-    You would need to remove any reference to `https://graph.windows.net`, for example. This includes the `resource` parameter (which isn't supported by the "/v2.0" endpoint) or any scopes you're specifically requesting that are from the Azure AD Graph.
+   You need to remove any reference to `https://graph.windows.net`, for example. This change includes the `resource` parameter, which isn't supported by the `/v2.0` endpoint, or any scopes you specifically request that are from the Azure AD Graph.
 
-    You would also need to update the configuration to request the new Microsoft Graph permissions you set up for the application registration. You can use the [.default scope](../active-directory/develop/scopes-oidc.md#the-default-scope) to simplify this setup in many cases. To do so, add a new sign-in parameter `scope=openid profile email https://graph.microsoft.com/.default`.
+   You also need to update the configuration to request the new Microsoft Graph permissions you set up for the application registration. You can use the [.default scope](../active-directory/develop/scopes-oidc.md#the-default-scope) to simplify this setup in many cases. To do so, add a new sign-in parameter `scope=openid profile email https://graph.microsoft.com/.default`.
 
-With these changes, when App Service Authentication attempts to sign in, it will no longer request permissions to the Azure AD Graph, and instead it gets a token for the Microsoft Graph. Any use of that token from your application code would also need to be updated, as described in [Migrate your apps from Azure AD Graph to Microsoft Graph][aad-graph].
+With these changes, when App Service Authentication attempts to sign in, it no longer requests permissions to the Azure AD Graph. Instead, it gets a token for the Microsoft Graph. Any use of that token from your application code also needs to be updated, as described in [Migrate your apps from Azure AD Graph to Microsoft Graph][aad-graph].
 
 ## <a name="related-content"> </a>Next steps
 
