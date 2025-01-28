@@ -6,7 +6,7 @@ ms.author: baanders
 ms.topic: quickstart
 ms.custom:
   - ignite-2023
-ms.date: 11/05/2024
+ms.date: 01/24/2025
 
 #CustomerIntent: As an OT user, I want to create a visual report for my processed OPC UA data that I can use to analyze and derive insights from it.
 ---
@@ -37,24 +37,17 @@ In this section, you set up a Microsoft Fabric *eventstream* to connect your eve
 
 In this section, you create an eventstream that will be used to bring your data from Event Hubs into Microsoft Fabric Real-Time Intelligence, and eventually into a KQL database.
 
-Start by navigating to the [Real-Time Intelligence experience in Microsoft Fabric](https://msit.powerbi.com/home?experience=kusto) and opening your Fabric workspace.
+Start by navigating to the [Real-Time hub in Microsoft Fabric](https://app.powerbi.com/workloads/oneriver/hub?experience=fabric-developer).
 
-Follow the steps in [Create an eventstream in Microsoft Fabric](/fabric/real-time-intelligence/event-streams/create-manage-an-eventstream?pivots=standard-capabilities#create-an-eventstream-1) to create a new eventstream resource in your workspace.
+Follow the steps in [Get events from Azure Event Hubs into Real-time hub](/fabric/real-time-hub/add-source-azure-event-hubs) to add your event hub as a data source for a new eventstream in your Fabric workspace. Keep the following notes in mind:
 
-After the eventstream is created, you'll see the main editor where you can start building the eventstream.
+* You can edit the **Eventstream name** to something friendly in the **Stream details** pane.
+* For **Connection**, create a new connection with Shared Access Key authentication.
+    * Make sure local authentication is enabled on your Event Hubs namespace. You can set this from its Overview page in the Azure portal.
+* For **Consumer group**, use the default selection (*$Default*).
+* For **Data format**, choose *Json* (it might be selected already by default).
 
-### Add event hub as a source
-
-Next, add your event hub from the previous quickstart as a data source for the eventstream.
-
-Follow the steps in [Add Azure Event Hubs source to an eventstream](/fabric/real-time-intelligence/event-streams/add-source-azure-event-hubs?pivots=standard-capabilities#add-an-azure-event-hub-as-a-source) to add the event source. Keep the following notes in mind:
-
-- You'll be creating a new cloud connection with Shared Access Key authentication.
-    - Make sure local authentication is enabled on your Event Hubs namespace. You can set this from its Overview page in the Azure portal.
-- For **Consumer group**, use the default selection (*$Default*).
-- For **Data format**, choose *Json* (it might be selected already by default).
-
-After completing this flow, the Azure event hub is visible in the eventstream live view as a source.
+After creating the eventstream, open it to see it in the authoring canvas. Your Azure event hub is visible as a source for the eventstream.
 
 :::image type="content" source="media/quickstart-get-insights/source-added.png" alt-text="Screenshot of the eventstream with an AzureEventHub source.":::
 
