@@ -1,26 +1,26 @@
 ---
 title: Create maps for data transformation
-description: Create maps to transform data between schemas in Azure Logic Apps using Visual Studio Code.
+description: Create maps to convert data elements between schemas for Standard workflows in Azure Logic Apps with Visual Studio Code.
 services: logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, kewear, azla
 ms.topic: how-to
-ms.date: 01/15/2025
-# Customer intent: As a developer, I want to transform data in Azure Logic Apps by creating a map between schemas with Visual Studio Code.
+ms.date: 01/31/2025
+# Customer intent: As a developer, I want to convert data between different formats for a Standard workflow in Azure Logic Apps by creating a map with Visual Studio Code.
 ---
 
-# Create maps to transform data in Azure Logic Apps with Visual Studio Code
+# Create maps to transform data in logic app workflows with Visual Studio Code
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-To exchange messages that have different XML or JSON formats in an Azure Logic Apps workflow, you have to transform the data from one format to another, especially if you have gaps between the source and target schema structures. Data transformation helps you bridge those gaps. For this task, you need to create a map that defines the transformation between data elements in the source and target schemas.
+When you exchange messages that use different XML or JSON formats in a logic app workflow, you have to specify how to *transform* or convert the data from the source format to the target format, for example, between XML documents or between JSON documents. This task is important especially when you have gaps between the data structures in the source and target schemas. A *schema* describes the data elements, attributes, and data types in an XML or JSON document.
 
-To visually create and edit a map, you can use Visual Studio Code with the Azure Logic Apps (Standard) extension within the context of a Standard logic app project. The Data Mapper tool provides a unified experience for XSLT mapping and transformation using drag and drop gestures, a prebuilt functions library for creating expressions, and a way to manually test the maps that you create and use in your workflows.
+To define the transformations between data structures and bridge any gaps, you can create a map that specifies the relationships between the data elements in the source and target schemas. You can visually create or edit a map by using Visual Studio Code with the Azure Logic Apps (Standard) extension within the context of a Standard logic app project. The Data Mapper tool provides a unified experience for XSLT mapping and transformation using drag and drop gestures, prebuilt functions for building expressions, and a way to manually test the maps before you use them in your workflows.
 
-After you create your map, you can directly call that map from a workflow in your logic app project or from a workflow in the Azure portal. For this task, you can use the **Data Mapper Operations** action named **Transform using Data Mapper XSLT** in your workflow.
+After you create a map, you can directly call that map from a workflow in your logic app project or from a Standard logic app workflow in the Azure portal. For this task, you can use the **Data Mapper Operations** action named **Transform using Data Mapper XSLT** in your workflow.
 
-This how-to guide shows how to create an empty data map, choose your source and target schemas, select schema elements to start mapping, create various mappings, save and test your map, and then call the map from a workflow in your logic app project.
+This how-to guide shows how to create an empty data map, choose your source and target schemas, create various kinds of mappings between schema elements, save and test your map, and then call the map from a workflow in your logic app project.
 
 ## Limitations and known issues
 
@@ -229,7 +229,7 @@ The example in this section transforms the source element from String type to Da
 
    :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/function-to-date-confirm-inputs.png" alt-text="Screenshot shows Input tab for the function named To Date.":::
 
-   For some data types such as arrays, the data transformation scope might also be available. This scope is usually the current element, such as the array. However, in some cases, the scope might exist beyond the current element. For example, to iterate through array items, see [Create a loop between arrays](#loop-through-array). To perform a task when an element's value meets a condition, see [Add a condition between elements](#add-condition).
+   Some scenarios require peforming a transformation beyond the immediate pair of source and target elements. For example, to perform a transformation between a pair of arrays and their items, you need to [create a loop between the arrays](#loop-through-array). Or, to perform a task when an element's value meets a condition, you need to [add a condition between elements](#add-condition).
 
 ### Add a function with multiple inputs
 
