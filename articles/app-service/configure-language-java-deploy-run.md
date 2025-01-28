@@ -34,11 +34,13 @@ To show all supported Java versions, run the following command in the [Cloud She
 az webapp list-runtimes --os linux | grep "JAVA\|TOMCAT\|JBOSSEAP"
 ```
 
-For more detailed version information in your Linux container, [open an SSH session with the container](configure-linux-open-ssh-session.md?pivots=container-linux). Here are a few examples of what you can run.
+### Get Java version in Linux container
+
+For more detailed version information in the Linux container, [open an SSH session with the container](configure-linux-open-ssh-session.md?pivots=container-linux). Here are a few examples of what you can run.
 
 ::: zone pivot="java-javase,java-tomcat,java-jboss"
 
-To view the Java version:
+To view the Java version in the SSH session:
 
 ```bash
 java -version
@@ -48,7 +50,7 @@ java -version
 
 ::: zone pivot="java-tomcat"
 
-To view the Tomcat server version:
+To view the Tomcat server version in the SSH session:
 
 ```bash
 sh /usr/local/tomcat/version.sh
@@ -64,7 +66,7 @@ find / -name "version.sh"
 
 ::: zone pivot="java-jboss"
 
-To view the JBoss server version:
+To view the JBoss server version in the SSH session:
 ```bash
 $JBOSS_HOME/bin/jboss-cli.sh --connect --commands=:product-info
 ```
