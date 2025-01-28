@@ -19,7 +19,7 @@ Azure Red Hat OpenShift receives improvements on an ongoing basis. To stay up to
 
 - Public preview of [Confidential Containers support](confidential-containers-overview.md) on Azure Red Hat OpenShift released at Microsoft Ignite 2024. Confidential Containers provide a secure enclave within the host system, isolating applications and their data from potential threats.
 
-- Azure Red Hat OpenShift [released in Spain Central region](https://azure.microsoft.com/en-us/updates?id=478571).
+- Azure Red Hat OpenShift [released in Spain Central region](https://azure.microsoft.com/updates?id=478571).
 
 - New article released on [purchasing Reserved Instances](/azure/cost-management-billing/reservations/prepay-red-hat-openshift) for Azure Red Hat OpenShift.
 
