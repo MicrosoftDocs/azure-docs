@@ -2,7 +2,7 @@
 author: stevenmatthew
 ms.service: azure-storage
 ms.topic: include
-ms.date: 01/02/2025
+ms.date: 01/22/2025
 ms.author: shaas
 ---
 
@@ -15,8 +15,8 @@ ZRS for standard general-purpose v2 storage accounts is available for a subset o
 - (Asia Pacific) East Asia
 - (Asia Pacific) Japan East
 - (Asia Pacific) Korea Central
-- (Asia Pacific) Southeast Asia
 - (Asia Pacific) New Zealand North
+- (Asia Pacific) Southeast Asia
 - (Europe) France Central
 - (Europe) Germany West Central
 - (Europe) Italy North

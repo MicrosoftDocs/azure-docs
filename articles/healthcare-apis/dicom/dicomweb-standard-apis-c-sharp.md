@@ -11,7 +11,7 @@ ms.author: buchvarun
 
 # Use C# and DICOMweb Standard APIs
 
-This article shows how to work with the DICOMweb service using C# and [sample .dcm DICOM&reg; files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms).
+This article shows how to work with the DICOMweb service using C# and sample .dcm DICOM&reg; files.
 
 Use these sample files:
 

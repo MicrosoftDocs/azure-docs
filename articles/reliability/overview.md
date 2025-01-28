@@ -34,7 +34,7 @@ Building reliability systems on Azure is a **shared responsibility**. Microsoft 
 
 :::image type="content" source="media/shared-responsibility.svg" alt-text="Diagram showing the shared responsibility model for Azure business continuity.":::
 
-In the traditional on-premises model, the entire responsibility of managing, from the hardware for compute, storage and networking to the application, falls on you. You must plan for various types of failures and how to deal with them by creating a [disaster recovery strategy](./disaster-recovery-overview.md). With IaaS, the cloud service provider is responsible for the core infrastructure resiliency, including storage, networking, and compute. As you move from IaaS to PaaS and then to SaaS, you’ll find that you’re responsible for less and the cloud service provider is responsible for more.  
+In the traditional on-premises model, the entire responsibility of managing, from the hardware for compute, storage and networking to the application, falls on you. You must plan for various types of failures and how to deal with them by creating a [business continuity strategy](./concept-business-continuity-high-availability-disaster-recovery.md). With IaaS, the cloud service provider is responsible for the core infrastructure resiliency, including storage, networking, and compute. As you move from IaaS to PaaS and then to SaaS, you’ll find that you’re responsible for less and the cloud service provider is responsible for more.  
 
 For more information on Reliability principles, see [Well-architected Framework Reliability documentation](/azure/well-architected/resiliency/).   
 
@@ -98,7 +98,6 @@ If you need to understand dependencies between Azure services to help better arc
 
 - For service specific guides on availability zone support and disaster recovery, see [Reliability guidance](./reliability-guidance-overview.md).
 - For service migration guides to availability zone support, see [Availability zone migration guidance](./availability-zones-migration-overview.md).
-- [Business continuity management in Azure](business-continuity-management-program.md)
 - [Availability of service by category](availability-service-by-category.md)
 - [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)
 - [What are Azure regions and availability zones?](availability-zones-overview.md)

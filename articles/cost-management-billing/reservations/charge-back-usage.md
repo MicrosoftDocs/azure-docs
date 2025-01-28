@@ -31,7 +31,7 @@ Users with an individual subscription can get the amortized cost data from their
 
 Here's a video showing how to view reservation usage costs at subscription, resource group and resource level in the Azure portal.
 
- > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4sQOw] 
+ > [!VIDEO https://learn-video.azurefd.net/vod/player?id=741b6fdc-9d82-49af-ba87-a8ede2cf4535] 
 
 ## Get the data for show back and charge back
 

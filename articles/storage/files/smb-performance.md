@@ -4,7 +4,7 @@ description: Learn about ways to improve performance and throughput for premium 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 11/04/2024
+ms.date: 01/22/2025
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -67,8 +67,7 @@ This feature provides greater performance benefits to multi-threaded application
 SMB Multichannel for Azure file shares currently has the following restrictions:
 
 - Only available for premium Azure file shares. Not available for standard Azure file shares.
-- Only supported on Windows clients that are using SMB 3.1.1. Ensure SMB client operating systems are patched to recommended levels.
-- Not currently supported or recommended for Linux clients.
+- Only supported on clients that are using SMB 3.1.1. Ensure SMB client operating systems are patched to recommended levels.
 - Maximum number of channels is four, for details see [here](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json#cause-4-number-of-smb-channels-exceeds-four).
 
 ### Configuration
@@ -189,48 +188,7 @@ Register-AzProviderFeature -FeatureName AzurePremiumFilesMetadataCacheFeature -P
 
 ### Regional availability
 
-Currently the metadata caching preview is only available in the following Azure regions. To request additional region support, [sign up for the public preview](https://aka.ms/PremiumFilesMetadataCachingPreview).
-
-- Asia East
-- Australia Central
-- Australia East
-- Australia Southeast
-- Brazil South
-- Canada Central
-- Canada East
-- Europe North
-- Europe West
-- France Central
-- Germany West Central
-- Japan East
-- Japan West
-- Jio India West
-- India Central
-- India South
-- India West
-- Israel Central
-- Italy North
-- Korea Central
-- Korea South
-- Mexico Central
-- Norway East
-- Poland Central
-- Qatar Central
-- Spain Central
-- South Africa North
-- Sweden Central
-- Switzerland North
-- UAE North
-- UK West
-- UK South
-- US North Central
-- US South Central
-- US West Central
-- US West 2
-- US West 3
-
-> [!TIP]
-> As we extend region support for the Metadata Cache feature, premium file storage accounts in those regions will be automatically onboarded for all subscriptions registered with the Metadata Caching feature.
+Metadata caching preview is supported in all regions.
 
 ### Performance improvements with metadata caching
 
