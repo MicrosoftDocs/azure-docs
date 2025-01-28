@@ -39,7 +39,7 @@ For version 2 NAT rules, the **Type** value will be *Backend pool* with a define
 
 :::image type="content" source="media/load-balancer-nat-pool-migration/nat-rule-version-2.png" alt-text="Screenshot of NAT rule version 2 configuration in Azure portal.":::
 
-To programmatically determine if a deployment is using version 1 of Inbound NAT rules, inspect the load balancer’s configuration using the Azure CLI or PowerShell. If either the the `backendIPConfiguration` property within the `InboundNATRule` configuration is populated, then the deployment is version 1 of Inbound NAT rules. Version 2 rules will have the `backendAddressPool` property instead of the `backendIPConfiguration` property.
+To programmatically determine if a deployment is using version 1 of Inbound NAT rules, inspect the load balancer’s configuration using the Azure CLI or PowerShell. If either the `backendIPConfiguration` property within the `InboundNATRule` configuration is populated, then the deployment is version 1 of Inbound NAT rules. Version 2 rules will have the `backendAddressPool` property instead of the `backendIPConfiguration` property.
 
 ## How to migrate from version 1 to version 2?  
 
