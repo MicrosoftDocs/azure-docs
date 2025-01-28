@@ -16,9 +16,9 @@ ms.date: 01/31/2025
 
 When you exchange messages that use different XML or JSON formats in a logic app workflow, you have to specify how to *transform* or convert the data from the source format to the target format, for example, between XML documents or between JSON documents. This task is important especially when you have gaps between the data structures in the source and target schemas. A *schema* describes the data elements, attributes, and data types in an XML or JSON document.
 
-To define the transformations between data structures and bridge any gaps, you can create a map that specifies the relationships between the data elements in the source and target schemas. You can visually create or edit a map by using Visual Studio Code with the Azure Logic Apps (Standard) extension within the context of a Standard logic app project. The Data Mapper tool provides a unified experience for XSLT mapping and transformation using drag and drop gestures, prebuilt functions for building expressions, and a way to manually test the maps before you use them in your workflows.
+To define transformations between data structures and bridge any gaps, you can create a map (.xslt file) that specifies the relationships between the data elements in the source and target schemas. You can visually create or edit a map by using Visual Studio Code with the Azure Logic Apps (Standard) extension within the context of a Standard logic app project. The Data Mapper tool provides a unified experience for mapping and transformation using drag and drop gestures, prebuilt functions for building expressions, and a way to manually test maps before you use them in your workflows.
 
-After you create a map, you can directly call that map from a workflow in your logic app project or from a Standard logic app workflow in the Azure portal. For this task, you can use the **Data Mapper Operations** action named **Transform using Data Mapper XSLT** in your workflow.
+After you create your map, you can directly call that map from a workflow in your logic app project or from a Standard logic app workflow in the Azure portal. For this task, you can use the **Data Mapper Operations** action named **Transform using Data Mapper XSLT** in your workflow.
 
 This how-to guide shows how to create an empty data map, choose your source and target schemas, create various kinds of mappings between schema elements, save and test your map, and then call the map from a workflow in your logic app project.
 
@@ -28,7 +28,7 @@ This how-to guide shows how to create an empty data map, choose your source and 
 
 - Data Mapper is currently available only in Visual Studio Code, not the Azure portal, and only from within Standard logic app projects, not Consumption logic app projects.
 
-- Data Mapper currently doesn't support comma-separated values (.csv) files.
+- Data Mapper currently doesn't support schemas that use the comma-separated values (.csv) file format.
 
 - The **Code** pane in Data Mapper is currently read only.
 
@@ -229,7 +229,7 @@ The example in this section transforms the source element from String type to Da
 
    :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/function-to-date-confirm-inputs.png" alt-text="Screenshot shows Input tab for the function named To Date.":::
 
-   Some scenarios require peforming a transformation beyond the immediate pair of source and target elements. For example, to perform a transformation between a pair of arrays and their items, you need to [create a loop between the arrays](#loop-through-array). Or, to perform a task when an element's value meets a condition, you need to [add a condition between elements](#add-condition).
+   Some scenarios require defining a transformation beyond the immediate pair of source and target elements. For example, to define a transformation between a pair of arrays and their items, you need to [create a loop between the arrays](#loop-through-array). Or, to perform a task when an element's value meets a condition, you need to [add a condition between elements](#add-condition).
 
 ### Add a function with multiple inputs
 
