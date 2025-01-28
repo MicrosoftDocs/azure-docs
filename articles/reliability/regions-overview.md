@@ -67,7 +67,7 @@ Non-regional services are deployed by Microsoft across two or more regions. If t
 
 Some Azure services allow you to specify a region or geography in which your data will be stored. For example, [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id/), which enables you to select the geographic area for your data, such as Europe or North America. For more information about data residency, see [Data residency in Azure](https://azure.microsoft.com/explore/global-infrastructure/data-residency/).
 
-Some non-regional services enable you to specify specific region where specific components are deployed. For example, [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) is a non-regional service, but it enables you to specify the region where the VMs it uses will reside.
+Some non-regional services enable you to specify the region where certain components are deployed. For example, [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) is a non-regional service, but it enables you to specify the region where the VMs it uses will reside.
 
 ## Related resources
 
