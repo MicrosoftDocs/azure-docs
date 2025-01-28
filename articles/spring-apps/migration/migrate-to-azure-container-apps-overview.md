@@ -25,7 +25,7 @@ This article provides a detailed guide to assist you in migrating your workloads
 
 Following concept mapping table highlights the parallels between Azure Spring Apps and Azure Container Apps. It helps you understand how familiar concepts in Azure Spring Apps translate to equivalent features in Azure Container Apps.
 
-:::image type="content" source="media/migrate-to-azure-container-apps-overview/concept-mapping.png" alt-text="Concept Mapping":::
+:::image type="content" source="media/migrate-to-azure-container-apps-overview/concept-mapping.png" alt-text="Diagram of the concept mapping between Azure Spring Apps and Azure Container Apps.":::
 
 | Azure Spring Apps service                                                                                            | Azure Container Apps service                                                                                                                                                                   |
 |----------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -46,7 +46,7 @@ From an API perspective, Azure Container Apps designs the resource types for env
 
 The migration approach from Azure Spring Apps to Azure Container Apps involves the following key steps:
 
-:::image type="content" source="media/migrate-to-azure-container-apps-overview/migration-steps.png" alt-text="Migration Steps":::
+:::image type="content" source="media/migrate-to-azure-container-apps-overview/migration-steps.png" alt-text="Diagram of the migration steps described in this article.":::
 
 1. Assess and plan: Evaluate your current workloads on Azure Spring Apps, including dependencies, configurations, and network settings.
 

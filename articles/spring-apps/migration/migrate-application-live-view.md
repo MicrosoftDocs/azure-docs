@@ -27,7 +27,7 @@ Azure Spring Apps previously provided built-in integration with Tanzu Applicatio
 
    ### [Azure portal](#tab/Portal)
 
-   Use the following steps to create an Spring Boot Admin Server app:
+   Use the following steps to create a Spring Boot Admin Server app:
 
    1. Navigate to your Azure Spring Apps enterprise instance in the Azure portal.
    1. From the navigation pane, open the **Apps** pane to view apps for your service instance.
@@ -41,7 +41,7 @@ Azure Spring Apps previously provided built-in integration with Tanzu Applicatio
 
    ### [Azure CLI](#tab/Azure-CLI)
 
-   Use the following command to create an Spring Boot Admin Server app:
+   Use the following command to create a Spring Boot Admin Server app:
 
    ```azurecli
    az spring app create \
