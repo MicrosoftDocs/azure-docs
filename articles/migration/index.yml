@@ -5,9 +5,9 @@ metadata:
   description: Guidance and tools needed to make informed decisions about switching cloud providers. Learn about the migration challenges and create familiarity with Azure, streamline the transition process, and be prepared to optimize your workloads Azure. 
   ms.service: azure
   ms.topic: hub-page
-author: robbyatmicrosoft
-ms.author: robbymillsap
-ms.date: 01/28/2025  
+  author: PageWriter-MSFT
+  ms.author: prwilk
+  ms.date: 01/28/2025  
 sections:
   # Intro
   - componentType: text 
@@ -73,61 +73,31 @@ sections:
   - componentType: grid
     title: Scenarios
     blocks:
-    - componentType: icon-card
+    - componentType: summary-card
       title: Scenario 1
       summary: TBD. 
       url: ./placeholder.md                         
-    - componentType: icon-card
+    - componentType: summary-card
       title: Scenario 1
       summary: TBD. 
       url: ./placeholder.md  
-    - componentType: icon-card
+    - componentType: summary-card
       title: Scenario 1
       summary: TBD. 
       url: ./placeholder.md  
-    - componentType: icon-card
+    - componentType: summary-card
       title: Scenario 1
       summary: TBD. 
       url: ./placeholder.md  
-    - componentType: icon-card
+    - componentType: summary-card
       title: Scenario 1
       summary: TBD. 
       url: ./placeholder.md  
-    - componentType: icon-card
+    - componentType: summary-card
       title: Scenario 1
       summary: TBD. 
       url: ./placeholder.md                           
      
-  # Summary cards grid
-  - componentType: grid
-    backgroundColor: "alternating-grey-reversed"
-    title: Workloads
-    blocks:
-    - componentType: icon-card
-      title: Scenario 1
-      summary: TBD. 
-      url: ./placeholder.md                         
-    - componentType: icon-card
-      title: Scenario 1
-      summary: TBD. 
-      url: ./placeholder.md  
-    - componentType: icon-card
-      title: Scenario 1
-      summary: TBD. 
-      url: ./placeholder.md  
-    - componentType: icon-card
-      title: Scenario 1
-      summary: TBD. 
-      url: ./placeholder.md  
-    - componentType: icon-card
-      title: Scenario 1
-      summary: TBD. 
-      url: ./placeholder.md  
-    - componentType: icon-card
-      title: Scenario 1
-      summary: TBD. 
-      url: ./placeholder.md    
-  
   #Text section
   - componentType: text
     title: Service Catalog
