@@ -13,15 +13,23 @@ zone_pivot_groups: app-service-containers-windows-linux
 ---
 # Open an SSH session to a container in Azure App Service
 
-[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) can be used to execute administrative commands remotely to a container. App Service provides SSH support directly into an app hosted in a container (built-in or custom). 
+::: zone pivot="container-windows"
 
-- The built-in, stack-specific Linux containers already have the necessary configuration to enable SSH sessions. 
-- Windows custom containers don't require any special settings for the [browser SSH session](#open-ssh-session-in-browser) to work. It doesn't support SSH sessions through Azure CLI.
-- Linux custom containers require additional configurations to enable SSH sessions. See [Enable SSH](configure-custom-container.md&pivots=container-linux#enable-ssh).
+[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) can be used to execute administrative commands remotely to a container. App Service provides SSH support directly into an app hosted in a Windows custom container. 
+
+Windows custom containers don't require any special settings for the [browser SSH session](#open-ssh-session-in-browser) to work. SSH sessions through Azure CLI are not supported.
 
 ![Linux App Service SSH](./media/configure-linux-open-ssh-session/app-service-linux-ssh.png)
 
+::: zone-end
+
 ::: zone pivot="container-linux"
+
+[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) can be used to execute administrative commands remotely to a container. App Service provides SSH support directly into an app hosted in a Linux container (built-in or custom). 
+
+The built-in Linux containers already have the necessary configuration to enable SSH sessions. Linux custom containers require additional configurations to enable SSH sessions. See [Enable SSH](configure-custom-container.md?pivots=container-linux#enable-ssh).
+
+![Linux App Service SSH](./media/configure-linux-open-ssh-session/app-service-linux-ssh.png)
 
 You can also connect to the container directly from your local development machine using SSH and SFTP.
 
