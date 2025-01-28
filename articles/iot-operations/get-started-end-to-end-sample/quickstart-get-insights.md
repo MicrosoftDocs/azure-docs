@@ -27,7 +27,7 @@ You also need to meet the following Fabric requirements:
 
 ## What problem will we solve?
 
-Once your OPC UA data has arrived in the cloud, you'll have a lot of information available to analyze. You might want to organize that data and create reports containing graphs and visualizations to derive insights from the data. The steps in this quickstart illustrate how you can connect that data to Real-Time Intelligence and create a Real-Time Dashboard.
+Once your OPC UA data has arrived in the cloud, you have a lot of information available to analyze. You might want to organize that data and create reports containing graphs and visualizations to derive insights from the data. The steps in this quickstart illustrate how you can connect that data to Real-Time Intelligence and create a Real-Time Dashboard.
 
 ## Ingest data into Real-Time Intelligence
 
@@ -35,7 +35,7 @@ In this section, you set up a Microsoft Fabric *eventstream* to connect your eve
 
 ### Create an eventstream
 
-In this section, you create an eventstream that will be used to bring your data from Event Hubs into Microsoft Fabric Real-Time Intelligence, and eventually into a KQL database.
+In this section, you create an eventstream that's used to bring your data from Event Hubs into Microsoft Fabric Real-Time Intelligence, and eventually into a KQL database.
 
 Start by navigating to the [Real-Time hub in Microsoft Fabric](https://app.powerbi.com/workloads/oneriver/hub?experience=fabric-developer). Add your event hub as a data source for a new eventstream (for detailed instructions, see [Get events from Azure Event Hubs into Real-time hub](/fabric/real-time-hub/add-source-azure-event-hubs#microsoft-sources-page)). As you add the data source, keep the following notes in mind:
 
@@ -61,13 +61,13 @@ Follow these steps to check your work so far, and make sure data is flowing into
     :::image type="content" source="media/quickstart-get-insights/source-added-data.png" alt-text="Screenshot of the eventstream with data from the AzureEventHub source.":::
 
 >[!TIP]
->If data has not arrived in your eventstream, you may want to check your event hub activity to help you isolate which section of the flow to debug.
+>If data hasn't arrived in your eventstream, you may want to check your event hub activity to help you isolate which section of the flow to debug.
 
 ### Prepare KQL resources
 
 In this section, you create a KQL database in your Microsoft Fabric workspace to use as a destination for your data.
 
-1. First, create a Real-Time Intelligence eventhouse (for detailed instructions, see [Create an eventhouse](/fabric/real-time-intelligence/create-eventhouse#create-an-eventhouse-1)). The eventhouse will be created with a default KQL database of the same name.
+1. First, create a Real-Time Intelligence eventhouse (for detailed instructions, see [Create an eventhouse](/fabric/real-time-intelligence/create-eventhouse#create-an-eventhouse-1)). When the eventhouse is created, it automatically contains a default KQL database of the same name.
 
 1. Next, create a new table in the default database in your eventhouse (for detailed instructions, see [Create an empty table in your KQL database](/fabric/real-time-intelligence/create-empty-table#create-an-empty-table-in-your-kql-database)). Name it *OPCUA* and manually enter the following schema.
 
@@ -84,7 +84,7 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
 
     :::image type="content" source="media/quickstart-get-insights/query-with-code.png" alt-text="Screenshot showing the Query with code button.":::
 
-1. Clear the sample query, and run the following KQL query to create a data mapping for your table. The data mapping will be called *opcua_mapping*.
+1. Clear the sample query, and run the following KQL query to create a data mapping for your table. The data mapping is called *opcua_mapping*.
 
     ```kql
     .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"column":"AssetId", "Properties":{"Path":"$[\'AssetId\']"}},{"column":"Spike", "Properties":{"Path":"$.Spike"}},{"column":"Temperature", "Properties":{"Path":"$.TemperatureF"}},{"column":"FillWeight", "Properties":{"Path":"$.FillWeight.Value"}},{"column":"EnergyUse", "Properties":{"Path":"$.EnergyUse.Value"}},{"column":"Timestamp", "Properties":{"Path":"$[\'EventProcessedUtcTime\']"}}]'
@@ -99,7 +99,7 @@ Next, add your eventstream as a data source for your KQL table (for detailed ins
 
     :::image type="content" source="media/quickstart-get-insights/existing-mapping.png" alt-text="Screenshot adding an existing mapping.":::
 
-After completing this setup, data begins to flow through your eventstream and is processed into your KQL table.
+After you complete this setup, data begins to flow through your eventstream and is processed into your KQL table.
 
 Wait a few minutes for data to propagate. Then, select the *OPCUA* table to see a preview of the data from the eventstream appearing in the table.
 
@@ -107,7 +107,7 @@ Wait a few minutes for data to propagate. Then, select the *OPCUA* table to see 
 
 ## Create a Real-Time Dashboard
 
-In this section, you'll create a new [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to visualize your quickstart data, and import a set of tiles from a sample dashboard template. The dashboard will allow filtering by asset ID and timestamp, and will display visual summaries of temperature, spike frequency, and other data.
+In this section, you create a new [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to visualize your quickstart data, and import a set of tiles from a sample dashboard template. The dashboard allows filtering by asset ID and timestamp, and displays visual summaries of temperature, spike frequency, and other data.
 
 >[!NOTE]
 >You can only create Real-Time Dashboards if your tenant admin has enabled the creation of Real-Time Dashboards in your Fabric tenant. For more information, see [Enable tenant settings in the admin portal](/fabric/real-time-intelligence/dashboard-real-time-create#enable-tenant-settings-in-the-admin-portal).
@@ -125,10 +125,10 @@ Then, follow the steps below to upload the dashboard template and connect it to 
     :::image type="content" source="media/quickstart-get-insights/dashboard-upload-replace.png" alt-text="Screenshot of the buttons to upload a file template.":::
 1. Select the template file that you downloaded to your machine.
 1. The template file populates the dashboard with multiple tiles, although the tiles can't get data since you haven't yet connected your data source.
-    :::image type="content" source="media/quickstart-get-insights/dashboard-upload-errors.png" alt-text="Screenshot of the dashboard with erroring visuals.":::
+    :::image type="content" source="media/quickstart-get-insights/dashboard-upload-errors.png" alt-text="Screenshot of the dashboard with errors in the visuals.":::
 1. From the **Manage** tab, select **Data sources**. This opens the **Data sources** pane with a sample source for your AIO data. Select the pencil icon to edit the *AIOdata* data source.
     :::image type="content" source="media/quickstart-get-insights/dashboard-data-sources.png" alt-text="Screenshot of the buttons to connect a data source.":::
-1. Choose your database (it will be under **OneLake data hub**). When you're finished selecting your data source, select **Apply** and close the **Data sources** pane.
+1. Choose your database (it's under **OneLake data hub**). When you're finished selecting your data source, select **Apply** and close the **Data sources** pane.
 
 The visuals should populate with the data from your KQL database.
 
@@ -139,7 +139,7 @@ The visuals should populate with the data from your KQL database.
 Now you have a dashboard that displays different types of visuals for the asset data in these quickstarts. Here are the visuals included with the template:
 * Parameters for your dashboard that allow all visuals to be filtered by timestamp (included by default) and asset ID.
 * A line chart tile showing temperature and its spikes over time.
-* A stat tile showing a real-time spike indicator for temperature. The tile displays the most recent temperature value, and if that value is a spike, conditional formatting will display it as a warning.
+* A stat tile showing a real-time spike indicator for temperature. The tile displays the most recent temperature value, and if that value is a spike, conditional formatting displays it as a warning.
 * A stat tile showing max temperature.
 * A stat tile showing the number of spikes in the selected time frame.
 * A line chart tile showing temperature versus fill weight over time.
@@ -158,4 +158,4 @@ Now that you're finished with the quickstart experience, this section contains i
 > [!NOTE]
 > The resource group contains the Event Hubs namespace you created in this quickstart.
 
-You can also delete your Microsoft Fabric workspace and/or all the resources within it associated with this quickstart, including the eventstream, eventhouse, and Real-Time Dashboard. Additionally, you may want to delete the dashboard template file that you downloaded to your computer.
+You can also delete your Microsoft Fabric workspace and/or all the resources within it associated with this quickstart, including the eventstream, eventhouse, and Real-Time Dashboard. Additionally, you might want to delete the dashboard template file that you downloaded to your computer.
