@@ -11,6 +11,54 @@ ms.custom: include file
 ms.author: memontic
 ---
 
+## Prerequisites
+
+- [Register WhatsApp Business Account with your Azure Communication Services resource](./connect-whatsapp-business-account.md).
+- [Create WhatsApp template message](#create-and-manage-whatsapp-template-message).
+- Active WhatsApp phone number to receive messages.
+
+## Object model
+
+The following classes and interfaces handle some of the major features of the Azure Communication Services Messages SDK for Python.
+
+| Class Name | Description |
+| --- | --- |
+| `NotificationMessagesClient` | Connects to your Azure Communication Services resource. It sends the messages. |
+| `MessageTemplate` | Defines which template you use and the content of the template properties for your message. |
+| `TemplateNotificationContent` | Defines the "who" and the "what" of the template message you intend to send. |
+
+> [!NOTE]
+> For more information, see the Azure SDK for .NET reference [Azure.Communication.Messages Namespace](/dotnet/api/azure.communication.messages).
+
+### Supported WhatsApp template types
+
+| Template type | Description |
+| --- | --- |
+| Text-based message templates | WhatsApp message templates are specific message formats with or without parameters. |
+| Media-based message templates | WhatsApp message templates with media parameters for header components. |
+| Interactive message templates | Interactive message templates expand the content you can send recipients, by  including interactive buttons using the components object. Both Call-to-Action and Quick Reply are supported. |
+| Location-based message templates | WhatsApp message templates with location parameters in terms Longitude and Latitude for header components.|
+
+## Common configuration
+
+Follow these steps to add the necessary code snippets to the `messages-quickstart.py` python program.
+- [Create and manage WhatsApp template message](#create-and-manage-whatsapp-template-message).
+- [Authenticate the client](#authenticate-the-client).
+- [Set channel registration ID](#set-channel-registration-id).
+- [Set recipient list](#set-recipient-list).
+
+### Create and manage WhatsApp template message
+
+WhatsApp message templates are specific message formats that businesses use to send out notifications or customer care messages to people that opted in to notifications. Messages can include appointment reminders, shipping information, issue resolution, or payment updates. **Before start using Advanced messaging SDK to send templated messages, user needs to create required templates in the WhatsApp Business Platform**.
+
+For more information about WhatsApp requirements for templates, see the WhatsApp Business Platform API references:
+- [Create and Manage Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/).
+- [View Template Components](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/components).
+- [Send Template Messages](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates).
+- Businesses must also adhere to [opt-in requirements](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in) before sending messages to WhatsApp users.
+
+[!INCLUDE [Common setting for using Advanced Messages SDK](./includes/common-setting-net.md)]
+
 ## Set up environment
 
 [!INCLUDE [Setting up for .NET Application](../dot-net-application-setup.md)]
