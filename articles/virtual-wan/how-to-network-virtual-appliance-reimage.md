@@ -46,7 +46,7 @@ Verify that your deployment meets the following prerequisites before attempting 
 4. Select the instance of the NVA you want to restart.
     :::image type="content" source="./media/network-virtual-appliance-reimage/select-instance.png"alt-text="Screenshot showing how to select an NVA instance."lightbox="./media/network-virtual-appliance-reimage/select-instance.png":::
 5. Select **Reimage**.
-    :::image type="content" source="./media/network-virtual-appliance-reimage/execute-reimage.png"alt-text="Screenshot showing how to reimage an NVA instance."lightbox="./media/network-virtual-appliance-restart/execute-reimage.png":::
+    :::image type="content" source="./media/network-virtual-appliance-reimage/execute-reimage.png"alt-text="Screenshot showing how to reimage an NVA instance."lightbox="./media/network-virtual-appliance-reimage/execute-reimage.png":::
 6. Read the disclosure on the screen and note the OS software version that the post-reimage NVA instance will be running. Confirm the reimage by selecting **Yes**. 
     :::image type="content" source="./media/network-virtual-appliance-reimage/confirm-reimage.png"alt-text="Screenshot showing how to confirm you want to reimage an NVA instance."lightbox="./media/network-virtual-appliance-reimage/confirm-reimage.png":::
 
