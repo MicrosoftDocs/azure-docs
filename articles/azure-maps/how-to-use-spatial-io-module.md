@@ -10,17 +10,25 @@ ms.service: azure-maps
 ms.subservice: web-sdk
 ---
 
-# How to use the Azure Maps Spatial IO module
+# Use the Azure Maps Spatial IO module
 
-The Azure Maps [Spatial IO module] integrates spatial data with the Azure Maps Web SDK using JavaScript or TypeScript. This guide demonstrates how to integrate and use the Spatial IO module in a web application.
+The Azure Maps [Spatial IO module] integrates spatial data with the Azure Maps Web SDK by using JavaScript or TypeScript. This guide demonstrates how to integrate and use the Spatial IO module in a web application.
 
 You can use the robust features in this module to:
 
-- [Read and write spatial data].
+- [Read and write spatial data]. You can use file formats that include:
+    - Keyhole Markup Language (KML).
+    - Compressed KML (KMZ).
+    - GPS Exchange Format (GPX).
+    - Geographic Really Simple Syndication (GeoRSS).
+    - Geography Markup Language (GML).
+    - Geographic JavaScript Object Notation (GeoJSON).
+    - Well-Known Text (WKT).
+    - Comma-Separated Values (CSV) when columns include spatial information.
 - Connect to Open Geospatial Consortium (OGC) services and integrate with the Azure Maps Web SDK. You can also overlay Web Map Services (WMS) and Web Map Tile Services (WMTS) as layers on the map. For more information, see [Add a map layer from the Open Geospatial Consortium (OGC)].
 - Query data in a Web Feature Service (WFS). For more information, see [Connect to a WFS service].
 - Overlay complex data sets that contain style information, which can render automatically. For more information, see [Add a simple data layer].
-- Use high-speed Extensible Markup Language (XML) and delimited file reader and writer classes. For more information, see [Core IO operations].
+- Use high-speed XML and delimited file reader and writer classes. For more information, see [Core IO operations].
 
 The following video provides an overview of the Spatial IO module in the Azure Maps Web SDK.
 
@@ -28,31 +36,18 @@ The following video provides an overview of the Spatial IO module in the Azure M
 
 > [!VIDEO https://learn.microsoft.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player?format=ny]
 > [!WARNING]
-> Only use data and services that are from a source you trust, especially if the data is referenced from another domain. The spatial IO module takes steps to minimize risk, but you should not allow any dangerous data into your application regardless.
+> Use data and services only from a source that you trust, especially if the data is referenced from another domain. The Spatial IO module takes steps to minimize risk, but you should not allow any dangerous data into your application regardless.
 
-## Supported file formats and prerequisites
+## Prerequisites
 
-You can use file formats that include:
-
-- Keyhole Markup Language (KML).
-- Compressed KML (KMZ).
-- GPS Exchange Format (GPX).
-- Geographic Really Simple Syndication (GeoRSS).
-- Geography Markup Language (GML).
-- Geographic JavaScript Object Notation (GeoJSON).
-- Well-Known Text (WKT).
-- Comma-Separated Values (CSV) when columns include spatial information.
-
-Prerequisites include:
-
-- An [Azure Maps account].
-- A [subscription key].
+- An [Azure Maps account]
+- A [subscription key]
 
 ## Install the Spatial IO module
 
 You can load the Azure Maps Spatial IO module by using one of the following two options:
 
-- You can use the globally hosted Azure Content Delivery Network (CDN) for the Azure Maps Spatial IO module. For this option, add a reference to the JavaScript in the `<head>` element of the HTML file.
+- You can use the globally hosted Azure content delivery network for the Azure Maps Spatial IO module. For this option, add a reference to the JavaScript in the `<head>` element of the HTML file.
 
     ```html
     <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
@@ -72,7 +67,7 @@ You can load the Azure Maps Spatial IO module by using one of the following two 
 
     To learn more, see [How to use the Azure Maps map control npm package].
 
-## Use the Spatial IO module
+## Implement the Spatial IO module
 
 1. Create a new HTML file.
 
@@ -130,20 +125,20 @@ You can load the Azure Maps Spatial IO module by using one of the following two 
     </html>
     ```
 
-1. Load the Azure Maps Spatial IO module and use the CDN for the Azure Maps Spatial IO module. Add the following reference to the `<head>` element of your HTML file:
+1. Load the Azure Maps Spatial IO module and use the content delivery network for the Azure Maps Spatial IO module. Add the following reference to the `<head>` element of your HTML file:
 
     ```html
     <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
     ```
 
-1. Initialize a `datasource`, and add the data source to the map. Initialize a `layer`, and add the data source to the map layer. Then, render both the data source and the layer.
+1. Initialize a data source, and add the data source to the map. Initialize a layer, and add the data source to the map layer. Then, render both the data source and the layer.
 1. Before you scroll down to see the full code in the next step, determine the best places to put the data source and layer code snippets. Wait until the map resources are ready before you programmatically manipulate the map.
 
     ```javascript
     var datasource, layer;
     ```
 
-    and
+    Find the best places to put the code snippets.
 
     ```javascript
     //Create a data source and add it to the map.
@@ -232,13 +227,13 @@ You can load the Azure Maps Spatial IO module by using one of the following two 
     </html>
     ```
 
-1. Remember to replace your Azure Maps key with your subscription key. Your HTML file should include an image that looks like this.
+1. Remember to replace your Azure Maps key with your subscription key. Your HTML file should include an image that looks like this:
 
     :::image type="content" source="./media/how-to-use-spatial-io-module/spatial-data-example.png" lightbox="./media/how-to-use-spatial-io-module/spatial-data-example.png" alt-text="Screenshot showing the Spatial Data sample in a map.":::
 
 ## Related content
 
-There are many features available in the Spatial IO module. To learn about other functionalities, read the following guides:
+This article describes only one of the many features available in the Spatial IO module. To learn about others, read the following guides:
 
 - [Add a simple data layer]
 - [Read and write spatial data]
