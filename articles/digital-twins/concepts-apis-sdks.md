@@ -43,20 +43,20 @@ The [Import Jobs API](/rest/api/digital-twins/dataplane/jobs) is a data plane AP
 
 ### Check permissions
 
-To use the Import Jobs API, you'll need to enable the permission settings described in this section.
+To use the Import Jobs API, you need to enable the permission settings described in this section.
 
-First, you'll need a **system-assigned managed identity** for your Azure Digital Twins instance. For instructions to set up a system-managed identity for the instance, see [Enable/disable managed identity for the instance](how-to-set-up-instance-portal.md#enabledisable-managed-identity-for-the-instance).
+First, you need a **system-assigned managed identity** for your Azure Digital Twins instance. For instructions to set up a system-managed identity for the instance, see [Enable/disable managed identity for the instance](how-to-set-up-instance-portal.md#enabledisable-managed-identity-for-the-instance).
 
-You'll need to have **write permissions** in your Azure Digital Twins instance for the following data action categories: 
+You need to have **write permissions** in your Azure Digital Twins instance for the following data action categories: 
 * `Microsoft.DigitalTwins/jobs/*`
 * Any graph elements that you want to include in the Jobs call. This might include `Microsoft.DigitalTwins/models/*`, `Microsoft.DigitalTwins/digitaltwins/*`, and/or `Microsoft.DigitalTwins/digitaltwins/relationships/*`.
 
 The built-in role that provides all of these permissions is *Azure Digital Twins Data Owner*. You can also use a custom role to grant granular access to only the data types that you need. For more information about roles in Azure Digital Twins, see [Security for Azure Digital Twins solutions](concepts-security.md#authorization-azure-roles-for-azure-digital-twins).
 
 >[!NOTE]
-> If you attempt an Import Jobs API call and you're missing write permissions to one of the graph element types you're trying to import, the job will skip that type and import the others. For example, if you have write access to models and twins, but not relationships, an attempt to bulk import all three types of element will only succeed in importing the models and twins. The job status will reflect a failure and the message will indicate which permissions are missing.
+> If you attempt an Import Jobs API call and you're missing write permissions to one of the graph element types you're trying to import, the job skips that type and import the others. For example, if you have write access to models and twins, but not relationships, an attempt to bulk import all three types of element only succeeds in importing the models and twins. The job status reflects a failure and the message indicates which permissions are missing.
 
-You'll also need to grant the following **RBAC permissions** to the system-assigned managed identity of your Azure Digital Twins instance so that it can access input and output files in the Azure Blob Storage container:
+You also need to grant the following **RBAC permissions** to the system-assigned managed identity of your Azure Digital Twins instance so that it can access input and output files in the Azure Blob Storage container:
 * [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) for the Azure Storage input blob container
 * [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) for the Azure Storage output blob container
 
@@ -84,13 +84,13 @@ Here's a sample input data file for the import API:
 >[!TIP]
 >For a sample project that converts models, twins, and relationships into the NDJSON supported by the import API, see [Azure Digital Twins Bulk Import NDJSON Generator](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/bulk-import/ndjson-generator). The sample project is written for .NET and can be downloaded or adapted to help you create your own import files.
 
-Once the file has been created, upload it to a block blob in Azure Blob Storage using your preferred upload method (some options are the [AzCopy command](../storage/common/storage-use-azcopy-blobs-upload.md), the [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md#upload-a-blob), or the [Azure portal](https://portal.azure.com)). You'll use the blob storage URL of the NDJSON file in the body of the Import Jobs API call.
+Once the file has been created, upload it to a block blob in Azure Blob Storage using your preferred upload method (some options are the [AzCopy command](../storage/common/storage-use-azcopy-blobs-upload.md), the [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md#upload-a-blob), or the [Azure portal](https://portal.azure.com)). You use the blob storage URL of the NDJSON file in the body of the Import Jobs API call.
 
 ### Run the import job
 
 Now you can proceed with calling the [Import Jobs API](/rest/api/digital-twins/dataplane/jobs). For detailed instructions on importing a full graph in one API call, see  [Upload models, twins, and relationships in bulk with the Import Jobs API](how-to-manage-graph.md#upload-models-twins-and-relationships-in-bulk-with-the-import-jobs-api). You can also use the Import Jobs API to import each resource type independently. For more information on using the Import Jobs API with individual resource types, see Import Jobs API instructions for [models](how-to-manage-model.md#upload-large-model-sets-with-the-import-jobs-api), [twins](how-to-manage-twin.md#create-twins-in-bulk-with-the-import-jobs-api), and [relationships](how-to-manage-graph.md#create-relationships-in-bulk-with-the-import-jobs-api).
 
-In the body of the API call, you'll provide the blob storage URL of the NDJSON input file. You'll also provide a new blob storage URL to indicate where you'd like the output log to be stored once the service creates it. 
+In the body of the API call, you provide the blob storage URL of the NDJSON input file. You also provide a new blob storage URL to indicate where you'd like the output log to be stored once the service creates it. 
 
 >[!IMPORTANT]
 > Make sure the system-assigned managed identity of your Azure Digital Twins instance has the storage blob **RBAC permissions** described in the [Check permissions](#check-permissions) section.
@@ -115,7 +115,7 @@ It's also possible to cancel a running import job with the [Cancel operation](/r
 ### Limits and considerations
 
 Keep the following considerations in mind while working with the Import Jobs API:
-* Import Jobs are not atomic operations. There is no rollback in the case of failure, partial job completion, or usage of the [Cancel operation](/rest/api/digital-twins/dataplane/jobs/import-jobs-cancel).
+* Import Jobs are not atomic operations. There's no rollback in the case of failure, partial job completion, or usage of the [Cancel operation](/rest/api/digital-twins/dataplane/jobs/import-jobs-cancel).
 * Only one bulk job is supported at a time within an Azure Digital Twins instance. You can view this information and other numerical limits of the Jobs APIs in [Azure Digital Twins limits](reference-service-limits.md).
 
 ## Bulk delete with the Delete Jobs API
@@ -129,12 +129,12 @@ To make sure all elements are deleted, follow these recommendations while using 
 
 Depending on the size of the graph being deleted, a delete job can take anywhere from a few minutes to multiple hours.
 
-The default timeout period for a delete job is 12 hours, which can be adjusted to any value between 15 minutes and 24 hours by using a query parameter on the API. This is the amount of time that the delete job will run before it times out, at which point the service will attempt to stop the job if it hasn't completed yet.
+The default time-out period for a delete job is 12 hours, which can be adjusted to any value between 15 minutes and 24 hours by using a query parameter on the API. This is the amount of time that the delete job runs before it times out, at which point the service attempts to stop the job if it hasn't completed yet.
 
 ### Limits and other considerations
 
 Keep the following considerations in mind while working with the Delete Jobs API:
-* Delete Jobs are not atomic operations. There is no rollback in the case of failure, partial job completion, or timeout of the job.
+* Delete Jobs are not atomic operations. There is no rollback in the case of failure, partial job completion, or time-out of the job.
 * Only one bulk job is supported at a time within an Azure Digital Twins instance. You can view this information and other numerical limits of the Jobs APIs in [Azure Digital Twins limits](reference-service-limits.md).
 
 ## Usage and authentication notes
@@ -149,7 +149,7 @@ Here's some general information for calling the Azure Digital Twins APIs directl
 
 Here's some more information about authentication for API requests.
 * One way to generate a bearer token for Azure Digital Twins API requests is with the [az account get-access-token](/cli/azure/account#az-account-get-access-token()) CLI command. For detailed instructions, see [Add bearer token](how-to-use-apis.md#add-bearer-token).
-* Requests to the Azure Digital Twins APIs require a user or service principal that is a part of the same [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md)  tenant where the Azure Digital Twins instance exists. To prevent malicious scanning of Azure Digital Twins endpoints, requests with access tokens from outside the originating tenant will be returned a "404 Sub-Domain not found" error message. This error will be returned even if the user or service principal was given an Azure Digital Twins Data Owner or Azure Digital Twins Data Reader role through [Microsoft Entra B2B](../active-directory/external-identities/what-is-b2b.md) collaboration. For information on how to achieve access across multiple tenants, see [Write app authentication code](how-to-authenticate-client.md#authenticate-across-tenants).
+* Requests to the Azure Digital Twins APIs require a user or service principal that is a part of the same [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md)  tenant where the Azure Digital Twins instance exists. To prevent malicious scanning of Azure Digital Twins endpoints, requests with access tokens from outside the originating tenant are returned a "404 Sub-Domain not found" error message. This error is returned even if the user or service principal was given an Azure Digital Twins Data Owner or Azure Digital Twins Data Reader role through [Microsoft Entra B2B](../active-directory/external-identities/what-is-b2b.md) collaboration. For information on how to achieve access across multiple tenants, see [Write app authentication code](how-to-authenticate-client.md#authenticate-across-tenants).
 
 ### SDK notes
 
@@ -157,7 +157,7 @@ The underlying SDK for Azure Digital Twins is `Azure.Core`. See the [Azure names
 
 Here's some more information about authentication with the SDKs.
 * Start by instantiating the `DigitalTwinsClient` class. The constructor requires credentials that can be obtained with different kinds of authentication methods in the `Azure.Identity` package. For more on `Azure.Identity`, see its [namespace documentation](/dotnet/api/azure.identity). 
-* You may find the `InteractiveBrowserCredential` useful while getting started, but there are several other options, including credentials for [managed identity](/dotnet/api/azure.identity.interactivebrowsercredential), which you'll likely use to authenticate [Azure functions set up with MSI](../app-service/overview-managed-identity.md) against Azure Digital Twins. For more about `InteractiveBrowserCredential`, see its [class documentation](/dotnet/api/azure.identity.interactivebrowsercredential).
+* You may find the `InteractiveBrowserCredential` useful while getting started, but there are several other options, including credentials for [managed identity](/dotnet/api/azure.identity.interactivebrowsercredential), that may be useful to authenticate [Azure functions set up with MSI](../app-service/overview-managed-identity.md) against Azure Digital Twins. For more about `InteractiveBrowserCredential`, see its [class documentation](/dotnet/api/azure.identity.interactivebrowsercredential).
 
 Here's some more information about functions and returned data.
 * All service API calls are exposed as member functions on the `DigitalTwinsClient` class.
