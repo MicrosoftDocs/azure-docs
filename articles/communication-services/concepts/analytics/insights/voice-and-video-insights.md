@@ -21,7 +21,7 @@ In each Communications Resource, we've provided an Insights feature that
 acts as a dashboard for all your calls in that resource. The Voice and Video 
 section of the dashboard gives high level summaries of your call usage, 
 reliability, and quality for that calling resource. Since the dashboard 
-is integrated with [Copilot in Azure](../../../copilot/overview.md) you 
+is integrated with [Copilot in Azure](/azure/copilot/overview) you 
 can chat with Copilot to quickly understand  better understand what you are looking at and 
 what actions you can take to improve users call experiences. 
 
@@ -35,8 +35,7 @@ There are two main tools you can use to monitor your calls and improve call qual
 1. [Call Diagnostics](../../voice-video-calling/call-diagnostics.md)
 
 We recommend using Copilot in the **Voice and Video Insights** dashboards to start 
-any quality investigations, and use Copilot in [Call Diagnostics](../../voice-video-calling/call-diagnostics.md) 
-as needed to explore individual calls when you need granular detail. 
+any quality investigations, and use Copilot in [Call Diagnostics](../../voice-video-calling/call-diagnostics.md) as needed to explore individual calls when you need granular detail. 
 
 **Voice and Video Insights** consists of four main sections. 
 - **Volume:** Provides general statistics.
@@ -47,24 +46,10 @@ as needed to explore individual calls when you need granular detail.
 
 ## Enable Voice and Video Insights
 
-You need to start storing call data and confirm you've enabled [Copilot in Azure](../../../copilot/overview.md) to start using the Voice and Video Insights dashboards. 
-
-### Collect Call Logs
-
-The Insights Dashboards are powered by [Azure Monitor Workbooks](../../../../../azure/azure-monitor/visualize/workbooks-overview.md) which rely on data stored in your Azure account. Azure Communication Services generates call data in the form of metrics and events as you make calls. You must store these data in a Log Analytics workspace that is in the same resource group as your calling resource in order for any of the Insights Dashboard visuals to work. To store these data, you must enable a diagnostic setting in Azure Monitor that directs these call data to be stored in a Log Analytics workspace as they're created. These call data aren't retroactively available from Azure Communication Services, but once you set up your diagnostic setting you control the data retention periods for your Log Analytics resource.
-
+You need to start storing call logs and confirm you've enabled [Copilot in Azure](/azure/copilot/overview) to start using the Voice and Video Insights dashboards. 
 
 > [!IMPORTANT]
->To enable Call Diagnostics in your calling resource see: [How do I setup Voice and Video Insights?](#how-do-i-setup-voice-and-video-insights)
->
->
-> You need to start collecting the log data for Call Diagnostics to visualize. Call Diagnostics can only query data sent to a Log Analytics workspace that is located in the same resource group as your calling resource. Keep in mind, call data isn't stored anywhere until you set up a Diagnostic Setting to store it in a Log Analytics workspace. You need to enable a Diagonstic Setting for each Azure Communications Services resource ID you want to monitor.
-
-
-### Enable Copilot in Azure
-Your organization manages access to [Copilot in Azure](../../../copilot/overview.md). After your organization has access to Copilot in Azure, the Voice and Video Insights sections will display multiple Copilot icons you can interact with.
-
-Interact with Copilot in Azure for quality improvement guidance and explanations of common terms. Giving Copilot in Azure detailed information will help it identify fixes.
+>You must collect logs to use the dashboard. To enable Voice and Video Insights see: [**How do I setup Voice and Video Insights?**](#how-do-i-setup-voice-and-video-insights)
 
 ## Accessing Voice and Video Insights
 
@@ -75,7 +60,7 @@ Inside your Azure Communication Services resource, scroll down on the left navig
 
 ## Voice and Video Insights
 
-Since **Voice and video** logs are the most complex in nature, this modality is broken down into four subsections:
+Since **Voice and video** logs are complex, this modality is broken down into four subsections:
 
 :::image type="content" source="..\media\workbooks\voice-and-video-nav.png" alt-text="Screenshot of voice and video navigation.":::
 
@@ -132,12 +117,24 @@ For an in-depth description of workbooks, refer to the [Azure Monitor Workbooks]
 ## Frequently asked questions
 
 ### How do I setup Voice and Video Insights?
+Since the Voice and Video insights dashboard is integrated with [Copilot in Azure](/azure/copilot/overview) and powered by [Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview) you need to store call logs for it to visualize and confirm you've enabled [Copilot in Azure](/azure/copilot/overview). The following sections explain these two requirements.
+
+#### Collect Call Logs
+
+The Insights Dashboards uses [Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview) which displays call log data from Azure Communication Services. These call logs aren't stored in your Azure account by default so you need to begin storing them for the dashboard to work. To collect these call logs you need to enable a diagnostic setting that sends call data to a Log Analytics workspace in the same resource group as your calling resource. 
+
+Data isn’t stored retroactively, so you begin capturing call logs only after configuring the diagnostic setting.
 
 Follow instructions to add diagnostic settings for your resource in [Enable logs via Diagnostic Settings in Azure Monitor](../enable-logging.md). We recommend that you initially collect all logs. After you understand the capabilities in Azure Monitor, determine which logs you want to retain and for how long. When you add your diagnostic setting, you're prompted to [select logs](../enable-logging.md#adding-a-diagnostic-setting). To collect **all logs**, select **allLogs**.
 
 Your data volume, retention, and usage in Log Analytics within Azure Monitor is billed through existing Azure data meters. We recommend that you monitor your data usage and retention policies for cost considerations as needed. For more information, see [Controlling costs](../../../../../azure/azure-monitor/essentials/diagnostic-settings#controlling-costs).
 
 If you have multiple Azure Communications Services resource IDs, you must enable these settings for each resource ID. When you view Voice and Video Insights it shows you details for the resourceID you are viewing. 
+
+#### Enable Copilot in Azure
+Your organization manages access to [Copilot in Azure](/azure/copilot/overview). After your organization has access to Copilot in Azure, the Voice and Video Insights sections will display multiple Copilot icons you can interact with.
+
+Interact with Copilot in Azure for quality improvement guidance and explanations of common terms. Giving Copilot in Azure detailed information will help it identify fixes. If you want you can use the visuals without Copilot in a limited capacity.
 
 ## Next steps
 
@@ -159,7 +156,7 @@ If you have multiple Azure Communications Services resource IDs, you must enable
 so you can modify and save edits to the template we provided to better suite your needs. To learn more see, [build workbook reports on top of your data](/azure/azure-monitor/logs/data-platform-logs#built-in-insights-and-custom-dashboards-workbooks-and-reports). 
 
 
-Azure Communication Services (ACS) integrates [Copilot in Azure](../../../copilot/overview.md) 
+Azure Communication Services (ACS) integrates [Copilot in Azure](/azure/copilot/overview) 
 with your call quality analytics and visualizations in the **Voice and Video Insights** dashboard. 
 You will find the **Insights** dashboard in the monitoring section of your of your ACS resource when you 
 are in your Azure Portal. You can interact with Copilot to quickly understand the high level 
@@ -180,7 +177,7 @@ The **Insights Dashboard** is run with  powered by
 so you can modify and save edits to the template we provided to better suite your needs. To learn more see, [build workbook reports on top of your data](/azure/azure-monitor/logs/data-platform-logs#built-in-insights-and-custom-dashboards-workbooks-and-reports). 
 
 
-Azure Communication Services (ACS) integrates [Copilot in Azure](../../../copilot/overview.md) 
+Azure Communication Services (ACS) integrates [Copilot in Azure](/azure/copilot/overview) 
 with your call quality analytics and visualizations in the **Voice and Video Insights** blade. 
 You will find the **Insights** blade in the monitoring section of your of your ACS resource when you 
 are in your Azure Portal. You can interact with Copilot to quickly understand the high level 
