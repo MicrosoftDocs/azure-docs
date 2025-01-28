@@ -24,7 +24,7 @@ You can mount an NFS file on both Linux and Windows virtual machines (VMs).
 | **Port 2049 TCP/UDP – NFS** <br /> _NFS traffic._ | ![White checkmark in green box](../static-web-apps/media/get-started-cli/checkmark-green-circle.png) | ![White checkmark in green box](../static-web-apps/media/get-started-cli/checkmark-green-circle.png) |
 | **Port 4045 TCP/UDP – Network Lock Manager (NLM)** <br /> _Handles lock requests._ | ![White checkmark in green box](../static-web-apps/media/get-started-cli/checkmark-green-circle.png) | N/A* | 
 | **Port 4046 TCP/UDP – Network Status Monitor (NSM)** <br /> _Notifies NFS clients about reboots of the server for lock management._ | ![White checkmark in green box](../static-web-apps/media/get-started-cli/checkmark-green-circle.png) | N/A* | 
-| **Port 4049 TCP/UDP – `Rquotad`** <br /> _Handles [remote quota](https://linux.die.net/man/8/rpc.rquotad) services. (optional)_ | ![White checkmark in green box](../static-web-apps/media/get-started-cli/checkmark-green-circle.png) | N/A* | 
+| **Port 4049 TCP/UDP – `Rquotad`** <br /> _Handles [remote quota](https://linux.die.net/man/8/rpc.rquotad) services (optional)_ | ![White checkmark in green box](../static-web-apps/media/get-started-cli/checkmark-green-circle.png) | N/A* | 
 
 \* Incorporated into the NFSv4.1 standards. All traffic passed over port 2049.
 
