@@ -95,7 +95,7 @@ For detailed instructions on how to subscribe to events published by a partner, 
 Partner Events are charged by the number of operations done when routing events to or from Event Grid. For more information on all types of operations that are used as the basis for billing and detailed price information, see [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/).
 
 ## Limits
-See [Event Grid Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits) for detailed information about the limits in place for partner topics.
+See [Event Grid Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-event-grid-limits) for detailed information about the limits in place for partner topics.
 
 
 ## Next steps

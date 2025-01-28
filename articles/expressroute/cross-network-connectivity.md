@@ -123,7 +123,7 @@ Global Reach is rolled out on a country/region by country/region basis. To see i
 [Global Reach]: ./expressroute-global-reach.md
 [Configure VNet peering]: ../virtual-network/create-peering-different-subscriptions.md
 [Configure Global Reach]: ./expressroute-howto-set-global-reach.md
-[Subscription limits]: ../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits
+[Subscription limits]: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-networking-limits
 [Connect-ER-VNet]: ./expressroute-howto-linkvnet-portal-resource-manager.md
 [ER-FAQ]: ./expressroute-faqs.md
 [VNet-FAQ]: ../virtual-network/virtual-networks-faq.md

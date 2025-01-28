@@ -1589,6 +1589,26 @@
       "source_path_from_root": "/articles/iot-hub/module-twins-node.md",
       "redirect_url": "/azure/iot-hub/how-to-module-twins",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/schedule-jobs-dotnet.md",
+      "redirect_url": "/azure/iot-hub/howto-schedule-broadcast-jobs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/schedule-jobs-java.md",
+      "redirect_url": "/azure/iot-hub/howto-schedule-broadcast-jobs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/schedule-jobs-python.md",
+      "redirect_url": "/azure/iot-hub/howto-schedule-broadcast-jobs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/schedule-jobs-node.md",
+      "redirect_url": "/azure/iot-hub/howto-schedule-broadcast-jobs",
+      "redirect_document_id": false
     }
   ]
 }
