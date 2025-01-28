@@ -29,7 +29,7 @@ Following these steps to specify which Azure Marketplace images are allowed when
      
      ![Option to allow all Marketplace images to be used as base images for VMs](./media/devtest-lab-configure-marketplace-images/allow-all-marketplace-images.png)
 7. If you select **Selected Azure Marketplace images** in the previous step, the list of available marketplace images and a search box will be displayed to you on the same page.
-   You can use the search box to quickly search for images you are interested in. You can use the checkbox available in the first column in each row to select or deselect that particular image. To select or deselect all the items displayed in the list simultaneously, please use the first checkbox provided at the top of the checkbox column and just below the serchbar.
+   You can use the search box to quickly search for images you are interested in. You can use the checkbox available in the first column in each row to select or deselect that particular image. To select or deselect all the items displayed in the list simultaneously, please use the first checkbox provided at the top of the checkbox column and just below the searchbar.
    * Select the Azure Marketplace images you want to allow for VM creation individually by checking each image's corresponding checkbox.
    * Select nothing from the list if you don't want to allow any Azure Marketplace images to be used in the lab.
    
