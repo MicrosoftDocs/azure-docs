@@ -150,6 +150,8 @@
       href: how-to-nva-hub.md
     - name: Restart a NVA in a virtual hub
       href: how-to-network-virtual-appliance-restart.md
+    - name: Reimage a NVA in a virtual hub
+      href: how-to-network-virtual-appliance-reimage.md
     - name: Configure DNAT/Internet inbound
       href: how-to-network-virtual-appliance-inbound.md
   - name: Connect a VNet to a virtual hub
