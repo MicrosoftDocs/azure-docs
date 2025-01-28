@@ -1,5 +1,5 @@
 ---
-title: Use Azure Key Vault to pass a secret from a key vault as a parameter during Bicep deployment
+title: Use Azure Key Vault to Pass a Secret from a Key Vault as a Parameter During Bicep Deployment
 description: Learn how to to pass a secret from a key vault as a parameter during Bicep deployment.
 ms.topic: conceptual
 ms.date: 01/13/2025
@@ -21,13 +21,13 @@ To access a key vault during Bicep deployment, set `enabledForTemplateDeployment
 
 If you already have a key vault, make sure it permits template deployments.
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az keyvault update  --name ExampleVault --enabled-for-template-deployment true
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Set-AzKeyVaultAccessPolicy -VaultName ExampleVault -EnabledForTemplateDeployment
@@ -37,7 +37,7 @@ Set-AzKeyVaultAccessPolicy -VaultName ExampleVault -EnabledForTemplateDeployment
 
 To create a new key vault and add a secret, use:
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az group create --name ExampleGroup --location centralus
@@ -49,7 +49,7 @@ az keyvault create \
 az keyvault secret set --vault-name ExampleVault --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name ExampleGroup -Location centralus
@@ -66,7 +66,7 @@ $secret = Set-AzKeyVaultSecret -VaultName ExampleVault -Name 'ExamplePassword' -
 
 As the owner of the key vault, you automatically have access to create secrets. If the user working with secrets isn't the owner of the key vault, grant access with:
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az keyvault set-policy \
@@ -75,7 +75,7 @@ az keyvault set-policy \
   --secret-permissions set delete get list
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 $userPrincipalName = "<Email Address of the deployment operator>"
@@ -125,7 +125,7 @@ The following procedure shows how to create a role with the minimum permission a
 
 2. USe the JSON file to create the new role:
 
-    # [Azure CLI](#tab/azure-cli)
+    ### [Azure CLI](#tab/azure-cli)
 
     ```azurecli-interactive
     az role definition create --role-definition "<path-to-role-file>"
@@ -135,7 +135,7 @@ The following procedure shows how to create a role with the minimum permission a
       --assignee <user-principal-name>
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    ### [Azure PowerShell](#tab/azure-powershell)
 
     ```azurepowershell-interactive
     New-AzRoleDefinition -InputFile "<path-to-role-file>"
@@ -278,7 +278,7 @@ If you need to use a version of the secret other than the current one, include a
 "secretVersion": "cd91b2b7e10e492ebb870a6ee0591b68"
 ```
 
-## Next steps
+## Related content
 
 - For general information about key vaults, see [About Azure Key Vault](/azure/key-vault/general/overview)
 - For complete GitHub examples of how to reference key vault secrets, see [keyvaultexamples](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
