@@ -13,7 +13,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Deploy a Python (Flask) web app with PostgreSQL in Azure
 
-In this tutorial, you'll deploy a data-driven Python web app (**[Flask](https://flask.palletsprojects.com/)**) to **[Azure App Service](./overview.md#app-service-on-linux)** with the **[Azure Database for PostgreSQL](/azure/postgresql/)** relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment.
+In this tutorial, you'll deploy a data-driven Python web app (**[Flask](https://flask.palletsprojects.com/)**) to **[Azure App Service](./overview.md#app-service-on-linux)** with the **[Azure Database for PostgreSQL](/azure/postgresql/)** relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment. If you want, see the [Django tutorial](tutorial-python-postgresql-app-django.md) or the [FastAPI tutorial](tutorial-python-postgresql-app-fastapi.md) instead.
 
 :::image type="content" border="False" source="./media/tutorial-python-postgresql-app-flask/python-postgresql-app-architecture-240px.png" lightbox="./media/tutorial-python-postgresql-app-flask/python-postgresql-app-architecture.png" alt-text="An architecture diagram showing an App Service with a PostgreSQL database in Azure.":::
 
@@ -225,7 +225,7 @@ The creation wizard generated the connectivity variables for you already as [app
         1. In the top search bar, type *msdocs-python-postgres*, then select the App Service resource called **msdocs-python-postgres-XYZ**.
         1. In the App Service page, in the left menu, select **Settings > Service Connector**. There's already a connector, which the app creation wizard created for you.
         1. Select checkbox next to the PostgreSQL connector, then select **Edit**.
-        1. In **Client type**, select **Django**. Even though you have a Flask app, the [Django client type in the PostgreSQL service connector](/azure/service-connector/how-to-integrate-postgres?tabs=django#connection-string) gives you database variables in separate settings instead of one connection string. The separate variables are easier for you to use in your SQLAlchemy code.
+        1. In **Client type**, select **Django**. Even though you have a Flask app, the [Django client type in the PostgreSQL service connector](/azure/service-connector/how-to-integrate-postgres?tabs=django#connection-string) gives you database variables in separate settings instead of one connection string. The separate variables are easier for you to use in your application code, which uses [SQLAlchemy](https://pypi.org/project/SQLAlchemy/) to connect to the database.
         1. Select the **Authentication** tab.
         1. In **Password**, paste the password you copied earlier.
         1. Select **Store Secret in Key Vault**.
@@ -323,7 +323,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
         **Step 4 (Option 1: with GitHub Copilot):**  
         1. Start a new chat session by selecting the **Chat** view, then selecting **+**.
         1. Ask, "*@workspace How does the app connect to the database?*" Copilot might give you some explanation about `SQLAlchemy` how it's connection URI is configured in *azureproject/development.py* and *azureproject/production.py*. 
-        1. Ask, "@workspace In production mode, my app is running in an App Service web app, which uses Azure Service Connector to connect to a PostgreSQL flexible server using the Django client type. What are the environment variable names I need to use?*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *azureproject/production.py* file. 
+        1. Ask, "*@workspace In production mode, my app is running in an App Service web app, which uses Azure Service Connector to connect to a PostgreSQL flexible server using the Django client type. What are the environment variable names I need to use?*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *azureproject/production.py* file. 
         1. Open *azureproject/production.py* in the explorer and add the code suggestion.
         GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
     :::column-end:::
@@ -571,7 +571,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 1. Ask, "*@workspace How does the app connect to the database?*" Copilot might give you some explanation about `SQLAlchemy` how it's connection URI is configured in *azureproject/development.py* and *azureproject/production.py*. 
 
-1. Ask, "@workspace In production mode, my app is running in an App Service web app, which uses Azure Service Connector to connect to a PostgreSQL flexible server using the Django client type. What are the environment variable names I need to use?*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *azureproject/production.py* file. 
+1. Ask, "*@workspace In production mode, my app is running in an App Service web app, which uses Azure Service Connector to connect to a PostgreSQL flexible server using the Django client type. What are the environment variable names I need to use?*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *azureproject/production.py* file. 
 
 1. Open *azureproject/production.py* in the explorer and add the code suggestion.
 
