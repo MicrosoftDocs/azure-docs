@@ -52,20 +52,3 @@ public class App
     }
 }
 ```
-
-## Object model
-
-The following classes and interfaces handle some of the major features of the Azure Communication Services Advance Messaging SDK for Java.
-
-| Class Name | Description |
-| --- |--- |
-| `NotificationMessagesClientBuilder`           | Creates the Notification Messages Client. You provide it with an endpoint and a credential. |
-| `NotificationMessagesClient`                  | Needed to send WhatsApp messages and download media files.                               |
-| `NotificationMessagesAsyncClient`             | Needed to send WhatsApp messages and download media files asynchronously.                |
-| `SendMessageResult`                           | Contains the result from the Advance Messaging service for send notification message.       |
-| `MessageTemplateClientBuilder`                | Creates the Message Template Client. You provide it with an endpoint and a credential.      |
-| `MessageTemplateClient`                       | Needed to get the list of WhatsApp templates.                                            |
-| `MessageTemplateAsyncClient`                  | Needed to get the list of WhatsApp templates asynchronously.  |
-
-> [!NOTE]
-> For more information, see the Azure SDK for Java reference [com.azure.communication.messages](https://learn.microsoft.com/en-us/java/api/overview/azure/communication-messages-readme?view=azure-java-stable)
