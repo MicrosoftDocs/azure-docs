@@ -139,7 +139,7 @@ For example, when you're parsing XML data feeds, you might not know the features
 
 The simple data layer wraps several of the core rendering layers: bubble, symbol, line, polygon, and extruded polygon. It uses expressions to search for valid style properties on individual features.
 
-The two main sets of supported property names are Azure Maps and GitHub. Most property names of Azure Maps layer options are supported in the simple data layer as style properties of features. Some layer options include expressions that support style property names that Github commonly uses.
+The two main sets of supported property names are Azure Maps and GitHub. Most property names of Azure Maps layer options are supported in the simple data layer as style properties of features. Some layer options include expressions that support style property names that GitHub commonly uses.
 
 [GitHub's GeoJSON map support] defines these property names, which are used to style GeoJSON files that are stored and rendered within the platform. Most of GitHub's styling properties are supported in the simple data layer, except the `marker-symbol` styling properties.
 
