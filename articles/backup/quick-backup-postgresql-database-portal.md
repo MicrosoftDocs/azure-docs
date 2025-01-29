@@ -3,7 +3,7 @@ title: Quick start - Back up Azure Database for PostgreSQL server
 description: In this quickstart, learn how to back up Azure Database for PostgreSQL server to an Azure Backup Vault.
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
-ms.date: 02/25/2022
+ms.date: 02/17/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -135,11 +135,11 @@ Azure Backup service creates a job for scheduled backups or if you trigger on-de
 
    It shows the jobs dashboard with operation and status for the past seven days.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql/postgre-jobs-dashboard-inline.png" alt-text="Screenshot showing the Jobs dashboard." lightbox="./media/backup-azure-database-postgresql/postgre-jobs-dashboard-expanded.png":::
+   :::image type="content" source="./media/backup-azure-database-postgresql/postgre-jobs-dashboard.png" alt-text="Screenshot showing the Jobs dashboard." lightbox="./media/backup-azure-database-postgresql/postgre-jobs-dashboard.png":::
 
 1. To view the status of the backup job, select **View all** to see ongoing and past jobs of this backup instance.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql/postgresql-jobs-view-all-inline.png" alt-text="Screenshot showing to select the View all option." lightbox="./media/backup-azure-database-postgresql/postgresql-jobs-view-all-expanded.png":::
+   :::image type="content" source="./media/backup-azure-database-postgresql/postgresql-jobs-view-all.png" alt-text="Screenshot showing to select the View all option." lightbox="./media/backup-azure-database-postgresql/postgresql-jobs-view-all.png":::
 
 1. Review the list of backup and restore jobs and their status. Select a job from the list of jobs to view job details.
 
