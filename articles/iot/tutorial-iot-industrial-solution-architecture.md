@@ -229,7 +229,7 @@ To learn how to create no-code dashboards for condition monitoring, yield or mai
 > [!NOTE]
 > To display the OEE for a specific shift, select **Custom Time Range** in the **Time Range** drop-down in the top-left hand corner of the Azure Data Explorer Dashboard and enter the date and time from start to end of the shift you're interested in.
 
-### Render the built-in Unified Namespace (UNS) and ISA-95 model graph in Kusto Explorer
+### Render the built-in Unified NameSpace (UNS) and ISA-95 model graph in Kusto Explorer
 
 This reference solution implements a Unified Namespace (UNS), based on the OPC UA metadata sent to the Azure Data Explorer time-series database in the cloud. This OPC UA metadata includes the ISA-95 asset hierarchy. You can visualize the resulting graph in the [Kusto Explorer tool](/azure/data-explorer/kusto/tools/kusto-explorer).
 
