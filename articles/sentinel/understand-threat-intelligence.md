@@ -43,7 +43,7 @@ The following table outlines the activities required to make the most of threat 
 | **Manage threat intelligence** | <ul><li>View imported threat intelligence in logs or with advanced search.</li><li>Visualize key information about your TI with the threat intelligence workbook.</li>|
 | **Use threat intelligence** | <ul><li>Detect threats and generate security alerts and incidents by using the built-in analytics rule templates based on your threat intelligence.</li><li>Hunt for threats using the threat intel you have to ask the right questions about the signals captured for your organization.</li>|
 
-Threat intelligence also provides useful context within other Microsoft Sentinel experiences, such as notebooks. For more information, see [Jupyter notebooks in Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239). 
+Threat intelligence also provides useful context within other Microsoft Sentinel experiences, such as notebooks. For more information, see [Get started with notebooks and MSTICPy](/azure/sentinel/notebook-get-started). 
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
