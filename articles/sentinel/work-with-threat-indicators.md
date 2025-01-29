@@ -87,7 +87,7 @@ The following image demonstrates connections made between a threat actor and an 
 
 ### View your threat intelligence in the management interface
 
-Use the management interface to sort, filter, and search your threat indicators from whatever source they were ingested from without writing a Log Analytics query.
+Use the management interface to sort, filter, and search your threat intelligence from whatever source they were ingested from without writing a Log Analytics query.
 
 1. From the management interface, expand the **What would you like to search?** menu.
 1. Select the STIX object type or leave the default **All object types**.
@@ -96,7 +96,7 @@ Use the management interface to sort, filter, and search your threat indicators 
 
 In the following image, multiple sources were used to search by placing them in an `OR` group, while multiple conditions were group with the `AND` operator.
 
-:::image type="content" source="media/works-with-threat-indicators/advanced-search.png" alt-text="Screenshot shows an OR operator combined with multiple AND conditions to search threat intelligence.":::
+:::image type="content" source="media/work-with-threat-indicators/advanced-search.png" alt-text="Screenshot shows an OR operator combined with multiple AND conditions to search threat intelligence.":::
 
 Microsoft Sentinel only displays the most current version of your threat intel in this view. For more information on how objects are updated, see [Understand threat intelligence](understand-threat-intelligence.md#view-your-threat-intelligence).
 
@@ -109,19 +109,24 @@ Here's an example.
 > [!IMPORTANT]
 > `GeoLocation` and `WhoIs` enrichment is currently in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include more legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-### Tag threat intelligence
+### Tag and edit threat intelligence
 
-Tagging threat intelligence is an easy way to group them together to make them easier to find. Typically, you might apply tags to an indicator related to a particular incident, or if the indicator represents threats from a particular known actor or well-known attack campaign. After you search for the indicators you want to work with, tag them individually. Multiselect indicators and tag them all at once with one or more tags. Because tagging is free-form, we recommend that you create standard naming conventions for threat indicator tags.
+Tagging threat intelligence is a quick way to group objects together to make them easier to find. Typically, you might apply tags related to a particular incident. But, if an object represents threats from a particular known actor or well-known attack campaign, consider creating a relationship instead of a tag.
 
-:::image type="content" source="media/work-with-threat-indicators/threat-intel-tagging-indicators.png" alt-text="Screenshot that shows applying tags to threat indicators." lightbox="media/work-with-threat-indicators/threat-intel-tagging-indicators.png":::
+1. Use the management interface to sort, filter, and search for your threat intelligence.
+1. After you find the objects you want to work with, multiselect them choosing one or more objects of the same type.
+1. Select **Add tags** and tag them all at once with one or more tags. 
+1. Because tagging is free-form, we recommend that you create standard naming conventions for tags in your organization.
 
-With Microsoft Sentinel, you can also edit indicators, whether they were created directly in Microsoft Sentinel or come from partner sources, like TIP and TAXII servers. For indicators created in Microsoft Sentinel, all fields are editable. For indicators that come from partner sources, only specific fields are editable, including tags, **Expiration date**, **Confidence**, and **Revoked**. Either way, only the latest version of the indicator appears on the **Threat Intelligence** page. For more information on how indicators are updated, see [Understand threat intelligence](understand-threat-intelligence.md#view-your-threat-intelligence).
+Edit threat intelligence one object at a time, whether created directly in Microsoft Sentinel or from partner sources, like TIP and TAXII servers. For threat intel created in the management interface, all fields are editable. For threat intel ingested from partner sources, only specific fields are editable, including tags, **Expiration date**, **Confidence**, and **Revoked**. Either way, only the latest version of the object appears in the management interface.
 
-### Find and view your indicators
+For more information on how threat intel is updated, see [View your threat intelligence](understand-threat-intelligence.md#view-your-threat-intelligence).
+
+### Find and view your indicators with queries
 
 This procedure describes how to view your imported threat indicators in Log Analytics, together with other Microsoft Sentinel event data, regardless of the source feed or method you used to ingest them.
 
-Imported threat indicators are listed in the Microsoft Sentinel `ThreatIntelligenceIndicator` table. This table is the basis for threat intelligence queries run elsewhere in Microsoft Sentinel, such as in **Analytics** or **Workbooks**.
+Imported threat indicators are listed in the Microsoft Sentinel `ThreatIntelligenceIndicator` table. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features, such as **Analytics**, **Hunting**, and **Workbooks**.
 
 To view your threat intelligence indicators:
 
