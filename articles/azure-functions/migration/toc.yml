@@ -2,10 +2,7 @@
   href: ./function-placeholder.md
   items:
   - name: Evaluation - Source service
-    href: ./function-placeholder.md
     items:
-    - name: Governance
-      href: ./function-placeholder.md
     - name: Capability orgranization
       href: ./function-placeholder.md
     - name: Identity and access management
@@ -19,8 +16,10 @@
       - name: Example - Compute
         href: ./function-placeholder.md
       - name: Example - Networking
-        href: ./function-placeholder.md                  
-    - name: Measurement - Current state
+        href: ./function-placeholder.md
+    - name: Governance
+      href: ./function-placeholder.md                          
+    - name: Measurement - business requirements
       items:
       - name: Cost of ownership
         href: ./function-placeholder.md

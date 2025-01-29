@@ -4,11 +4,8 @@
   - name: Migration mindset
     href: ./placeholder.md
   - name: Evaluation - Source workload
-    href: ./placeholder.md
     items:
-    - name: Governance
-      href: ./placeholder.md
-    - name: Capability orgranization
+    - name: Resource orgranization
       href: ./placeholder.md
     - name: Identity and access management
       href: ./placeholder.md
@@ -21,8 +18,10 @@
       - name: Example - Organizational
         href: ./placeholder.md  
       - name: Example - External
-        href: ./placeholder.md     
-    - name: Measurement - Current state
+        href: ./placeholder.md
+    - name: Governance
+      href: ./placeholder.md             
+    - name: Measurement - business requirements
       items:
       - name: Cost of ownership
         href: ./placeholder.md
