@@ -179,7 +179,7 @@ You can visually create workflows using the Azure Logic Apps workflow designer i
 
 ## Pricing options
 
-Each logic app hosting option (multitenant, single-tenant, App Service Environment (ASE) v3, or partially connected environment) has a different [pricing model](logic-apps-pricing.md). For example, multitenant Consumption logic app workflows follow the Consumption pricing model, while single-tenant Standard logic app workflows follow the Standard pricing model. For specific pricing details, see [Azure Logic Apps pricing](https://azure.microsoft.com/en-us/pricing/details/logic-apps/).
+Each logic app hosting option (multitenant, single-tenant, App Service Environment (ASE) v3, or partially connected environment) has a different [pricing model](logic-apps-pricing.md). For example, multitenant Consumption logic app workflows follow the Consumption pricing model, while single-tenant Standard logic app workflows follow the Standard pricing model. For specific pricing details, see [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 ## How does Azure Logic Apps differ from Functions, WebJobs, and Power Automate?
 
