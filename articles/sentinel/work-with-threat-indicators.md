@@ -57,7 +57,7 @@ For more information on supported STIX objects, see [Understand threat intellige
     :::image type="content" source="media/work-with-threat-indicators/threat-intel-add-new-indicator.png" alt-text="Screenshot that shows adding a new threat indicator." lightbox="media/work-with-threat-indicators/threat-intel-add-new-indicator.png":::
 
 1. Choose the **Object type**, then fill in the form on the **New TI object** page. Required fields are marked with a red asterisk (*).
-
+1. If you know how this object relates to another threat intelligence object, indicate that connection with the **Relationship type** and the **Target reference**.
 1. Select **Add and duplicate** if you want to create more items with the same metadata. The following image shows the common section of each STIX object's metadata that is duplicated. 
 
 :::image type="content" source="media/work-with-threat-indicators/common-metadata-stix-object.png" alt-text="Screenshot showing new STIX object creation and the common metadata available to all objects.":::
@@ -66,8 +66,21 @@ For more information on supported STIX objects, see [Understand threat intellige
 
 ### Curate threat intelligence with the relationship builder
 
+Connect threat intelligence objects with the relationship builder. There is a maximum of 20 relationships in the builder at once, but more connections can be created through multiple iterations and by adding relationship target references for new objects.
 
+1. Start with an object like a threat actor or attack pattern where the single object connects to one or more objects, like indicators.
+1. Add the relationship type according to the best practices outlined in the following table and in the [STIX 2.1 reference relationship summary table](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_6n2czpjuie3v):
 
+| Relationship type | Description |
+|---|---|
+| <ul><li>Duplicate of</li><li>Derived from</li><li>Related to</li> | Common relationships defined for any STIX domain object (SDO)<br>For more information, see [STIX 2.1 reference on common relationships](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_f3dx2rhc3vl)|
+| Targets | `Attack pattern` or `Threat actor` *Targets* `Identity` |
+| Uses | `Threat actor` *Uses* `Attack pattern` |
+| Attributed to | `Threat actor` *Attributed to* `Identity` |
+| Indicates | `Indicator` *Indicates* `Attack pattern` or `Threat actor` |
+| Impersonates | `Threat actor` *Impersonates* `Identity` |
+
+The following image demonstrates connections made between a threat actor and an attack pattern, indicator and identity using the relationship type table.
 
 :::image type="content" source="media/work-with-threat-indicators/relationship-example.png" alt-text="Screenshot showing the relationship builder.":::
 
@@ -113,7 +126,6 @@ To view your threat intelligence indicators:
    For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Investigation & response** > **Hunting** > **Advanced hunting**.
 
 1. The `ThreatIntelligenceIndicator` table is located under the **Microsoft Sentinel** group.
-
 1. Select the **Preview data** icon (the eye) next to the table name. Select **See in query editor** to run a query that shows records from this table.
 
     Your results should look similar to the sample threat indicator shown here.
