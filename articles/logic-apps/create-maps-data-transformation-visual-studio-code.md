@@ -366,6 +366,8 @@ In the following example, when the purchase quantity exceeds 20 items, the mappi
 
    :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/condition-example-code-view.png" alt-text="Screenshot shows Code pane  with conditional mapping between source and target elements using the functions, Greater, If, and Multiply.":::
 
+<a name="save-map"></a>
+
 ## Save your map
 
 When you're done, on the map toolbar, select **Save**.
@@ -379,7 +381,7 @@ Visual Studio Code saves your map as the following artifacts:
 
 To confirm that the transformation works as you expect, you'll need sample input data.
 
-1. Before you test your map, make sure to [generate the latest **<*your-map-name*>.xslt** file](#generate-xslt).
+1. Before you test your map, [save the map to generate a current **<*your-map-name*>.xslt** file](#save-map).
 
 1. On your map toolbar, select **Open test panel**.
 
