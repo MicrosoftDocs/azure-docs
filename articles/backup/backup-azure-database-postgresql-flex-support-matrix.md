@@ -21,9 +21,7 @@ Azure Database for PostgreSQL - Flexible server backup is now available in all p
 
 - PostgreSQL Flexible Server backup data can be recovered in user specified storage containers that can be used to rebuild the PostgreSQL flexible server. You can restore this data as a new PostgreSQL - flexible server with the database native tools.
 
-- Only weekly backups are supported with option to opt for only one day in the week on which backup is initiated.
-
-- Both Cross Region and Cross Subscription backups are supported.
+- Backups for the PostgreSQL server are supported when the Backup Vault is in the same or a different subscription as the database, provided they are within the same tenant and region. Restores are supported across regions (Azure Paired) and across subscriptions within the same tenant.
 
 - Recommended limit for the maximum server size is 4 TB.  
 
@@ -31,12 +29,16 @@ Azure Database for PostgreSQL - Flexible server backup is now available in all p
 
 - Private endpoint-enabled Azure PostgreSQL flexible servers can be backed up by allowing trusted Microsoft services in the network settings.
 
+- Backups for PGSQLFlex will exclude databases owned by `azuresu` or `azure_pg_admin`, including the native `postgres` database. As a result, databases with these owners cannot be backed up or restored. 
+
 
 ## Limitation
 
 -  Currently, restoring backups directly to flexible server isn't supported.
 
 -  Currently, backing up individual databases isn't supported. You can only back up the entire server.
+
+- Only weekly backups are supported with option to opt for only one day in the week on which backup is initiated. 
 
 
 ## Next steps
