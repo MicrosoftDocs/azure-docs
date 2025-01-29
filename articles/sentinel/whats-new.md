@@ -122,7 +122,7 @@ The **Agentless solution** is compatible with SAP S/4HANA Cloud, Private Edition
 
 For more information, see:
 
-- [Microsoft Sentinel for SAP goes agentless ](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/microsoft-sentinel-for-sap-goes-agentless/ba-p/13960238)
+- [Microsoft Sentinel for SAP goes agentless](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/microsoft-sentinel-for-sap-goes-agentless/ba-p/13960238)
 - [Sign up for the limited preview](https://aka.ms/SentinelSAPAgentlessSignUp)
 - [Microsoft Sentinel solution for SAP applications: Deployment overview](sap/deployment-overview.md)
 
