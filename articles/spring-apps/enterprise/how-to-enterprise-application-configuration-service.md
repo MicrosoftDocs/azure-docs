@@ -548,7 +548,7 @@ To check the logs of `application-configuration-service` and `flux-source-contro
      :::image type="content" source="media/how-to-enterprise-application-configuration-service/query-logs-flux-source-controller.png" alt-text="Screenshot of the Azure portal that shows the query result of logs for flux-source-controller." lightbox="media/how-to-enterprise-application-configuration-service/query-logs-flux-source-controller.png":::
 
 > [!NOTE]
-> There might could be a few minutes delay before the logs are available in Log Analytics.
+> There might be a few minutes delay before the logs are available in Log Analytics.
 
 ## Examine Git revisions of the configuration files
 
