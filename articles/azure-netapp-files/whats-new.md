@@ -421,7 +421,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     * Restore (`-c restore`) improvements
     * Test (`-c test`) improvements
     * Validation improvements
-    * Timeout improvements
+    * Time-out improvements
     * Azure Backup integration improvements
     * Features moved to GA (generally available):
         None
