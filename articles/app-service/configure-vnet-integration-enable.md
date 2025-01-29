@@ -34,7 +34,9 @@ If the virtual network is in a different subscription than the app, ensure that 
 
    :::image type="content" source="./media/configure-vnet-integration-enable/vnetint-app.png" alt-text="Screenshot that shows selecting Virtual network integration.":::
 
-1. The dropdown list contains all the virtual networks in your subscription in the same region. Select an empty preexisting subnet or create a new subnet.
+1. Select a subscription and virtual network.
+
+1. Under **Subnet**, the dropdown list contains all the virtual networks in your subscription in the same region. Select an empty preexisting subnet or create a new subnet. Select **Connect**.
 
    :::image type="content" source="./media/configure-vnet-integration-enable/vnetint-add-vnet.png" alt-text="Screenshot that shows selecting the virtual network.":::
 
@@ -49,7 +51,7 @@ az webapp vnet-integration add --resource-group <group-name> --name <app-name> -
 ```
 
 > [!NOTE]
-> The command checks if the subnet is delegated to Microsoft.Web/serverFarms. It applies the necessary delegation if it isn't configured. If the subnet was configured and you don't have permissions to check it, or if the virtual network is in another subscription, you can use the `--skip-delegation-check` parameter to bypass the validation.
+> The command checks if the subnet is delegated to Microsoft.Web/serverFarms. If it isn't configured, the command applies the necessary delegation. If the subnet was configured and you don't have permissions to check it, or if the virtual network is in another subscription, you can use the `--skip-delegation-check` parameter to bypass the validation.
 
 ## Configure with Azure PowerShell
 
@@ -75,7 +77,7 @@ az webapp vnet-integration add --resource-group <group-name> --name <app-name> -
    Get-AzDelegation -Subnet $subnet
    ```
 
-1. If your subnet isn't delegated to Microsoft.Web/serverFarms, add delegation using below commands.
+1. If your subnet isn't delegated to Microsoft.Web/serverFarms, add delegation using these commands.
 
    ```azurepowershell
    $subnet = Add-AzDelegation -Name "myDelegation" -ServiceName "Microsoft.Web/serverFarms" -Subnet $subnet
