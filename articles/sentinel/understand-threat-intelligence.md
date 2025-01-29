@@ -196,7 +196,7 @@ Threat intelligence indicators are ingested into the `ThreatIntelligenceIndicato
 
 The `IndicatorId` property is generated using the STIX indicator ID. When indicators are imported or created from non-STIX sources, `IndicatorId` is generated from the source and pattern of the indicator.
 
-For more information, see [Work with threat intelligence in Microsoft Sentinel](work-with-threat-indicators.md#find-and-view-your-indicators).
+For more information, see [Work with threat intelligence in Microsoft Sentinel](work-with-threat-indicators.md#find-and-view-your-indicators-with-queries).
 
 ### View your GeoLocation and WhoIs data enrichments (public preview)
 
