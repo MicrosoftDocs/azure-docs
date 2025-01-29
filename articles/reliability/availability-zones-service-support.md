@@ -37,10 +37,7 @@ Some Azure services don't support availability zones because they are:
 
 - Available across multiple Azure regions within a geographic area, or even across all Azure regions globally.
 - Resilient to zone-wide outages.
-- Resilient to region-wide outages. 
-
-For a complete list of always-available services, also called non-regional services, in Azure, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
-
+- Resilient to region-wide outages.
 For more information on older-generation virtual machines, see [Previous generations of virtual machine sizes](/azure/virtual-machines/sizes-previous-gen).
 
 ## Azure services with availability zone support
