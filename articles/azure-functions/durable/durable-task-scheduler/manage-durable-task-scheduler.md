@@ -174,7 +174,59 @@ az durabletask taskhub create --resource-group YOUR_RESOURCE_GROUP --scheduler-n
 
 # [Azure portal](#tab/portal)
 
+You can create Durable Task Scheduler via the two following ways:
+1. [Function app integrated creation](#function-app-integrated-creation)  
+1. [Top-level creation](#top-level-creation) 
 
+## Function app integrated creation
+
+You can create a Durable Task Scheduler and a task hub as part of the existing Function app creation process in the Azure portal. 
+
+> [!NOTE]
+> This experience is only available with Functions hosted in the **App Service** plan. 
+
+### Create a Function app
+
+Navigate to the Function app creation blade and select **App Service** as a hosting option.
+
+:::image type="content" source="media/create-durable-task-scheduler/function-app-hosted-app-service.png" alt-text="Screenshot of hosting options for Function apps and selecting App Service.":::
+
+In the **Create Function App (App Service)** blade, [create the function app settings as specified in the Azure Functions documentation](../../functions-create-function-app-portal.md)
+
+:::image type="content" source="media/create-durable-task-scheduler/function-app-basic-tab.png" alt-text="Screenshot of the Basic tab for creating an App Service plan Function app.":::
+
+### Set Durable Task Scheduler as storage backend
+
+After filling out the appropriate fields in the **Basic** and other necessary tabs, select the **Durable Functions** tab. Choose **Durable Task Scheduler** as your storage backend. 
+
+:::image type="content" source="media/create-durable-task-scheduler/durable-func-tab.png" alt-text="Screenshot of creating an App Service plan Function app.":::
+
+> [!NOTE]
+> It is recommended that the region chosen for your Durable Task Scheduler matches the region chosen for your Function App. 
+
+### Verify user-managed identity
+
+Durable Task Scheduler supports only identity-based authentication. Once your function app is deployed, a user-managed identity resource with the necessary RBAC permission is automatically created. 
+
+On the **Review + create** tab, you can find information related to the managed identity resource, such as:
+- The RBAC assigned to it (*Durable Task Data Contributor*) 
+- The scope of the assignment (on the scheduler level):
+
+   :::image type="content" source="media/create-durable-task-scheduler/func-review-create-tab.png" alt-text="Screenshot of fields and properties chosen and in review on the Review + create tab.":::
+
+## Top-level creation  
+
+In the Azure portal, search for **Durable Task Scheduler** and select it from the results. 
+
+:::image type="content" source="media/create-durable-task-scheduler/search-for-dts.png" alt-text="Screenshot of searching for Durable Task Scheduler in the portal.":::
+
+Click **Create** to open the **Azure Functions: Durable Task Scheduler (preview)** pane.
+
+:::image type="content" source="media/create-durable-task-scheduler/top-level-create-form.png" alt-text="Screenshot of the create page for the Durable Task Scheduler.":::
+
+Fill out the fields in the **Basics** tab. Click **Review + create**. Once the validation passes, click **Create**. 
+
+Deployment may take around 15 to 20 minutes. 
 
 ---
 
