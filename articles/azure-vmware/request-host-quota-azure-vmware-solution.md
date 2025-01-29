@@ -9,12 +9,14 @@ ms.date: 12/19/2023
 
 # Request host quota for Azure VMware Solution
 
-In this article, learn how to request host quota/capacity for [Azure VMware Solution](introduction.md). You learn how to submit a support ticket to have your hosts allocated whether it's for a new deployment or an existing one. 
+In this article, learn how to request host quota/capacity for [Azure VMware Solution](introduction.md). You will learn how to submit a support ticket to have your hosts allocated whether it's for a new deployment or an existing one. 
 
 If you have an existing Azure VMware Solution private cloud and want more hosts allocated, follow the same process.
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > It can take up to five business days to allocate the hosts, depending on the number requested. Therefore, request what you need for provisioning to avoid the delays associated with making additional quota increase requests.
+> 
+> **NEW** Effective, Jan. 29, 2025, the process for requesting host quota has changed, except for our Azure Government regions.  Instructions for each scenario are listed below.
 
 ## Eligibility criteria
 
@@ -27,29 +29,28 @@ You need an Azure account in an Azure subscription that adheres to one of the fo
 ## Request host quota for EA and MCA customers
 
 1. In your Azure portal, under **Help + Support**, create a **[New support request](https://portal.azure.com/#create/Microsoft.Support)** and provide the following information:
-   - **Issue type:** Technical
+   - **Issue type:** Service and subscription limits (quotas)
    - **Subscription:** Select your subscription
-   - **Service:** All services > Azure VMware Solution
-   - **Resource:** General question 
-   - **Summary:** Need capacity
-   - **Problem type:** AVS Quota request
-
-   > [!NOTE]
-   > If the *Problem Type* is not is not visible from the short-list offered, select **None of the Above**. *AVS Quota requests* will be in the offered list of *Problem Types*.
-
-1. In the **Description** of the support ticket, on the **Details** tab, provide information for:
-
-   - Region Name
-   - Number of hosts
-   - Host SKU type
-   - Any other details, including Stretched Cluster, Availability Zone requirements for integrating with other Azure services; for example, Azure NetApp Files, Azure Blob Storage.
-      
+   - **Quota Type:** Azure VMware Solution
+1. Click on **Next** to **Additional Details**:
+   - **Request Details:** Click on Enter details, which opens a side pane. Provide details based on your needs.
+   - **Region:** Update with your AVS Preferred Region.
+   - **SKU:** Update with your preferred SKU
+   - **Number of nodes:** Update the total number of hosts for that sku to reflect the new absolute value.  For instance, if you currently have 3 hosts and require 3 more, the updated total should be 6.
+   - **File Upload:** Leave blank
+   - **Allow collection of advanced diagnostic information?** Yes (recommended)
+   - **Support plan:** Auto populated based on your plan
    > [!NOTE]
    > - Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts.
    > - Any unused quota expires after 30 days. A new request will need to be submitted for any additional quota.
-   > - **NEW** If requesting quota to leverage Portable [VMware Cloud Foundation (VCF)](/azure/azure-vmware/vmware-cloud-foundations-license-portability) pricing, add the following statement as is, by replacing \<N\> with the Number of VCF cores you have purchased from Broadcom for license portability to Azure VMware Solution.
-    ***"I acknowledge that I have procured portable VCF license from Broadcom for \<N\> cores to use with Azure VMware Solution."***  
-1. Select **Review + Create** to submit the request.
+   > - **NEW** If requesting quota to leverage Portable [VMware Cloud Foundation (VCF)](/azure/azure-vmware/vmware-cloud-foundations-license-portability) pricing, add the following statement as is, by replacing <N> with the Number of VCF cores you have purchased from Broadcom for license portability to Azure VMware Solution. **"I acknowledge that I have procured portable VCF license from Broadcom for <N> cores to use with Azure VMware Solution."**  
+   > - **VCF Disclaimer** Quota allocation will be processed upon request.  If you have not submitted the VCF license through [registeravsvcfbyol@microsoft.com](registeravsvcfbyol@microsoft.com) and provisioned the hosts, you will be subject to AVS PayGo pricing.
+   > - **NEW** If you have an Availability Zone requirement for integrating with other Azure services; for example, Azure NetApp Files, create a technical **[New support request](https://portal.azure.com/#create/Microsoft.Support)** once the quota has been allocated and prior to provisioning.
+
+
+ 
+    
+1. Select **Save and Continue** to submit the request.
 
 
 ## Request host quota for CSP customers 
@@ -82,32 +83,42 @@ Access the Azure portal using the **Admin On Behalf Of (AOBO)** procedure from P
    1. Select **CSP** to access the **Customers** area.
    
    1. Expand customer details and select **Microsoft Azure Management Portal**.
+1. In the Azure portal, under **Help + Support**, create a **[New support request](https://portal.azure.com/#create/Microsoft.Support)** and provide the following information:
+   - **Issue type:** Service and subscription limits (quotas)
+   - **Subscription:** Select your subscription
+   - **Quota Type:** Azure VMware Solution
+1. Click on **Next** to **Additional Details**:
+- **Request Details:** Click on Enter details, which opens a side pane. Provide details based on your needs.
+- **Region:** Update with your AVS Preferred Region.
+- **SKU:** Update with your preferred SKU
+- **Number of nodes:** Update the total number of hosts for that sku to reflect the new absolute value.  For instance, if you currently have 3 hosts and require 3 more, the updated total should be 6.
+- **File Upload:** Leave blank
+- **Allow collection of advanced diagnostic information?** Yes (recommended)
+- **Support plan:** Auto populated based on your plan
+   > [!NOTE]
+- Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts.
+- Any unused quota expires after 30 days. A new request will need to be submitted for any additional quota.
+- **NEW** If requesting quota to leverage Portable [VMware Cloud Foundation (VCF)](/azure/azure-vmware/vmware-cloud-foundations-license-portability) pricing, add the following statement as is, by replacing <N> with the Number of VCF cores you have purchased from Broadcom for license portability to Azure VMware Solution. **"I acknowledge that I have procured portable VCF license from Broadcom for <N> cores to use with Azure VMware Solution."**  
+- **VCF Disclaimer** Quota allocation will be processed upon request.  If you have not submitted the VCF license through [registeravsvcfbyol@microsoft.com](registeravsvcfbyol@microsoft.com) and provisioned the hosts, you will be subject to AVS PayGo pricing.
+   > - **NEW** If you have an Availability Zone requirement for integrating with other Azure services; for example, Azure NetApp Files, create a technical **[New support request](https://portal.azure.com/#create/Microsoft.Support)** once the quota has been allocated and prior to provisioning.
+   >  - Summary: Need a specific availability zone
+   >  - Problem type:  AVS Quota request
    
-   1. In the Azure portal, under **Help + Support**, create a **[New support request](https://portal.azure.com/#create/Microsoft.Support)** and provide the following information:
-      - **Issue type:** Technical
-      - **Subscription:** Select your subscription
-      - **Service:** All services > Azure VMware Solution
-      - **Resource:** General question 
-      - **Summary:** Need capacity
-      - **Problem type:** Capacity Management Issues
-      - **Problem subtype:** Customer Request for more Host Quota/Capacity
+1. Select **Save and Continue** to submit the request.
+
+## Request host quota for Azure Government Customers
+1. In the Azure portal, under **Help + Support**, create a **[New support request](https://portal.azure.com/#create/Microsoft.Support)** and provide the following information:
+   - **Issue type:** Technical
+   - **Subscription:** Select your subscription
    
-   1. In the **Description** of the support ticket, on the **Details** tab, provide information for:
+   - **Service:** All services > Azure VMware Solution
    
-      - Region Name
-      - Number of hosts
-      - Host SKU type
-      - Any other details, including Availability Zone requirements for integrating with other Azure services; for example, Azure NetApp Files, Azure Blob Storage.
-      - Is intended to host multiple customers?
-
-      > [!NOTE]
-      > - Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts.
-      > - Any unused quota expires after 30 days. A new request will need to be submitted for any additional quota.
-      > - **NEW** If requesting quota to leverage Portable [VMware Cloud Foundation (VCF)](/azure/azure-vmware/vmware-cloud-foundations-license-portability) pricing, add the following statement as is, by replacing \<N\> with the Number of VCF cores you have purchased from Broadcom for license portability to Azure VMware Solution.
-        ***"I acknowledge that I have procured portable VCF license from Broadcom for \<N\> cores to use with Azure VMware Solution."***
-1. Select **Review + Create** to submit the request.
-
-
+   - **Resource:** General question
+   
+   - **Summary:** Need capacity
+   
+   - **Problem type:** AVS Quota request
+   
 ## Next steps
 
 Before deploying Azure VMware Solution, you must first [register the resource provider](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider) with your subscription to enable the service.   
