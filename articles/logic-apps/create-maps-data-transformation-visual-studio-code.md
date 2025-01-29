@@ -117,7 +117,7 @@ The following table describes the possible data types that might appear in a sch
 | Symbol | Type | More info |
 |--------|------|-----------|
 | ![Icon representing an Array data type.](media/create-maps-data-transformation-visual-studio-code/complex-array-icon.png) | Complex (Array) | Contains items or repeating item nodes. <br><br>An array element also displays the following connection point: <br><br> ![Icon for array element connection point.](media/create-maps-data-transformation-visual-studio-code/array-connection-point.png) |
-| ![Icon representing a Boolean data type.](media/create-maps-data-transformation-visual-studio-code/bool-icon.png) | Boolean | True or false only |
+| ![Icon representing a Bool data type.](media/create-maps-data-transformation-visual-studio-code/bool-icon.png) | Bool | True or false only |
 | ![Icon representing a Complex data type.](media/create-maps-data-transformation-visual-studio-code/complex-icon.png) | Complex | An XML object with children properties, similar to the Object JSON type |
 | ![Icon representing a DateTime data type.](media/create-maps-data-transformation-visual-studio-code/datetime-icon.png) | DateTime | |
 | ![Icon representing a Decimal data type.](media/create-maps-data-transformation-visual-studio-code/decimal-icon.png) | Decimal | |
