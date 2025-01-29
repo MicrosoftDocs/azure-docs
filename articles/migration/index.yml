@@ -12,11 +12,11 @@ sections:
   # Intro
   - componentType: text 
     title: Microsoft Azure Migration Guide
-    summary: TBD.
+    summary: Guidance and tools needed to make informed decisions about switching cloud providers. Learn about the migration challenges and create familiarity with Azure, streamline the transition process, and be prepared to optimize your workloads Azure.
   # Navigation Section
   - componentType: navigation
     size: large # optionally make section larger
-    # backgroundColor: medium
+    backgroundColor: medium
     alignment: center # 'left' is default
     blocks:
       - componentType: icon-link
@@ -41,10 +41,11 @@ sections:
         text: Assessment tool      
   # bifold with image and text blocks
   - componentType: bifold
+    backgroundColor: 'alternating-grey'
     alignment: center
     blocks:
       - componentType: image
-        src: images/sample.png
+        src: images/sample2.png
         alt: "Diagram showing topics included in this guide."
       - title: What's included in this end to end guide
         summary: "Here are some high level topics:"
@@ -52,7 +53,7 @@ sections:
         links:
           - componentType: link
             url: ./placeholder.md
-            text: Migration gold
+            text: Get started here ...
         list:
           componentType: list
           style: checklist
