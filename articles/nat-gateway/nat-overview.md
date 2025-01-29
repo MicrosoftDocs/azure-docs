@@ -4,11 +4,10 @@ title: What is Azure NAT Gateway?
 titlesuffix: Azure NAT Gateway
 description: Overview of Azure NAT Gateway features, resources, architecture, and implementation. Learn about what NAT gateway is and how to use it.
 author: asudbring
-ms.service: nat-gateway
-ms.topic: conceptual
+ms.service: azure-nat-gateway
+ms.topic: overview
 ms.date: 08/12/2024
 ms.author: allensu
-ms.custom: FY23 content-maintenance
 #Customer intent: I want to understand what Azure NAT Gateway is and how to use it.
 ---
 
@@ -116,7 +115,7 @@ A NAT gateway doesn't affect the network bandwidth of your compute resources. Le
 
 * Multiple NAT gateways can’t be attached to a single subnet.
 
-* A NAT gateway can’t span multiple virtual networks.
+* A NAT gateway can’t span multiple virtual networks. However, NAT Gateway can be used to provide outbound connectivity in a hub and spoke model. For more details, see the [NAT gateway hub and spoke tutorial](/azure/nat-gateway/tutorial-hub-spoke-route-nat).
 
 * A NAT gateway can’t be deployed in a [gateway subnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub).
 

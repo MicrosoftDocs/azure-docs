@@ -4,7 +4,7 @@ description: This article provides information about how metering and pricing wo
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 02/09/2023
 ms.custom: [amqp, mqtt]

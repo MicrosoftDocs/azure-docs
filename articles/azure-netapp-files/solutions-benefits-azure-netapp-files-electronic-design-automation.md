@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/19/2024
+ms.date: 10/18/2024
 ms.author: anfdocs
 ---
 # Benefits of using Azure NetApp Files for Electronic Design Automation (EDA)
@@ -31,7 +31,7 @@ The Azure NetApp Files large volumes feature is ideal for the storage needs of t
 
 * **At 826,000 operations per second:** the performance edge of a single large volume - the application layer peaked at 7ms of latency in our tests, which shows that more operations are possible in a single large volume at a slight cost of latency. 
 
-Tests conducted internally using an EDA benchmark in 2020 found that with a single regular Azure NetApp Files volume, workload as high as 40,000 IOPS could be achieved at the 2ms mark, and 50,000 at the edge.   
+Tests conducted using an EDA benchmark found that with a single regular Azure NetApp Files volume, workload as high as 40,000 IOPS could be achieved at the 2ms mark, and 50,000 at the edge. See the table and chart below for regular and large volume side-by-side overview.
 
 
 | Scenario | I/O Rate at 2ms latency | I/O Rate at performance edge (~7 ms) | MiB/s at 2ms latency | MiB/s performance edge (~7 ms) | 
@@ -43,7 +43,7 @@ The following chart illustrates the test results.
 
 :::image type="content" source="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/latency-throughput-graph.png" alt-text="Chart comparing latency and throughput between large and regular volumes." lightbox="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/latency-throughput-graph.png":::
 
-The 2020 internal testing also explored single endpoint limits, the limits were reached with six volumes. Large Volume outperforms the scenario with six regular volumes by 260%.
+The regular volume testing also explored single endpoint limits, the limits were reached with six volumes. Large Volume outperforms the scenario with six regular volumes by 260%. The following table illustrates these results.
 
 | Scenario	| I/O Rate at 2ms latency | I/O Rate at performance edge (~7ms) | MiB/s at 2ms latency | MiB/s performance edge (~7ms) |
 | - | - | - | - | - | 

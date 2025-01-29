@@ -136,9 +136,6 @@ If you use Azure Key Vault to manage your certificates, you can import a PKCS12 
 
 By default, the App Service resource provider doesn't have access to your key vault. To use a key vault for a certificate deployment, you must authorize read access for the resource provider (App Service) to the key vault. You can grant access either with access policy or RBAC. 
 
-> [!NOTE]
-> Currently, the Azure portal does not allow you to configure an App Service certificate in Key Vault to use the RBAC model. You can, however, use Azure CLI, Azure PowerShell, or an ARM template deployment to perform this configuration.
-
 ### [RBAC permissions](#tab/RBAC)
 | Resource provider | Service principal app ID / assignee | Key vault RBAC role |
 |--|--|--|
@@ -343,6 +340,9 @@ This is only supported for Windows container apps in multi-tenant App Service. I
  
 ### Can I load a private CA certificate in my App Service Trusted Root Store?
 You can load your own CA certificate into the Trusted Root Store in [App Service Environment version 3](./environment/overview-certificates.md). You can't modify the list of Trusted Root Certificates in App Service (multi-tenant). For more information on App Service multi-tenant vs. single-tenant, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
+
+### Can App Service Certificate be used for other services?
+Yes, certificates purchased via App Service Certificate can be exported and used with Application Gateway or other services. Refer to the following blog article for more information: [Creating a local PFX copy of App Service Certificate](https://azure.github.io/AppService/2017/02/24/Creating-a-local-PFX-copy-of-App-Service-Certificate.html).
 
 ## More resources
 

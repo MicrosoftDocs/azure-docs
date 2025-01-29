@@ -4,7 +4,7 @@ description: How to perform troubleshooting for Azure IoT Hub message routing
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: troubleshooting
 ms.date: 05/06/2020
 ---

@@ -4,7 +4,7 @@ description: Provision Oracle Autonomous Databases.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/3/2024
 ms.custom: engagement-fy24
 ms.author: jacobjaygbay

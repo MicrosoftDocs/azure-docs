@@ -16,9 +16,11 @@ Durable Functions supports several [storage providers](durable-functions-storage
 
 > [!NOTE]
 >
-> - The MSSQL back end was designed to maximize application portability and control over your data. It uses [Microsoft SQL Server](https://www.microsoft.com/sql-server/) to persist all task hub data so that users get the benefits of a modern, enterprise-grade database management system (DBMS) infrastructure. To learn more about when to use the MSSQL storage provider, see the [storage providers overview](durable-functions-storage-providers.md).
+> - The MSSQL backend was designed to maximize application portability and control over your data. It uses [Microsoft SQL Server](https://www.microsoft.com/sql-server/) to persist all task hub data so that users get the benefits of a modern, enterprise-grade database management system (DBMS) infrastructure. To learn more about when to use the MSSQL storage provider, see the [storage providers overview](durable-functions-storage-providers.md).
 >
 > - Migrating [task hub data](durable-functions-task-hubs.md) across storage providers currently isn't supported. Function apps that have existing runtime data start with a fresh, empty task hub after they switch to the MSSQL back end. Similarly, the task hub contents that are created by using MSSQL can't be preserved if you switch to a different storage provider.
+>
+> - The MSSQL backend currently isn't supported by Durable Functions when running on the [Flex Consumption plan](../flex-consumption-plan.md). 
 
 ## Prerequisites
 
@@ -90,6 +92,14 @@ docker exec -d mssql-server /opt/mssql-tools/bin/sqlcmd -S . -U sa -P "$pw" -Q "
 ```
 
 After you run these commands, you should have a local SQL Server running on Docker and listening on port 1443. If port 1443 conflicts with another service, you can rerun these commands after you change the variable `$port` to a different value.
+
+If you receive this error when running the last command:
+
+```
+Error response from daemon: OCI runtime exec failed: exec failed: unable to start container process: exec: "/opt/mssql-tools/bin/sqlcmd": stat /opt/mssql-tools/bin/sqlcmd: no such file or directory: unknown
+```
+
+It's likely that the folder `/opt/mssql-tools/bin/sqlcmd` does not exist. Open Docker Desktop, select  your SQL Server Docker container, select Files and browse for the mssql-tools folder. This folder might have a different name, such as `/opt/mssql-tools18/bin/sqlcmd`. Update the last line of code accordingly and run it gain.
 
 > [!NOTE]
 > To stop and delete a running container, you can use `docker stop <containerName>` and `docker rm <containerName>` respectively. You can use these commands to re-create your container and to stop the container when you finish this quickstart. For more assistance, run `docker --help`.

@@ -4,7 +4,7 @@ description: This article provides an overview of the Update Management feature 
 services: automation
 ms.subservice: update-management
 ms.custom: linux-related-content
-ms.date: 09/15/2024
+ms.date: 01/16/2025
 ms.topic: overview
 ms.service: azure-automation
 ---
@@ -12,12 +12,12 @@ ms.service: azure-automation
 # Update Management overview
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+> This article references CentOS, a Linux distribution that has reached the End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 [!INCLUDE [./automation-update-management-retirement-announcement.md](../includes/automation-update-management-retirement-announcement.md)]
 
 > [!Important]
-> Azure Log Analytics agent, also known as the Microsoft Monitoring Agent (MMA) has [retired in August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). Azure Automation Update Management solution relies on this agent and may encounter issues once the agent is retired as it does not work with Azure Monitoring Agent (AMA). Therefore, if you are using the Azure Automation Update Management solution, we recommend that you move to Azure Update Manager for your software update needs. All the capabilities of Azure Automation Update management solution will be available on Azure Update Manager before the retirement date.
+> Azure Log Analytics agent, also known as the Microsoft Monitoring Agent (MMA) has [retired in August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). Azure Automation Update Management solution relies on this agent and may encounter issues once the agent is retired as it does not work with Azure Monitoring Agent (AMA). Therefore, if you are using the Azure Automation Update Management solution, we recommend that you move to [Azure Update Manager](../../update-manager/overview.md) for your software update needs. All the capabilities of Azure Automation Update management solution will be available on Azure Update Manager before the retirement date.
 
 You can use Update Management in Azure Automation to manage operating system updates for your Windows and Linux virtual machines in Azure, physical or VMs in on-premises environments, and in other cloud environments. You can quickly assess the status of available updates and manage the process of installing required updates for your machines reporting to Update Management. 
 

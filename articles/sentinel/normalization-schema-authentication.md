@@ -5,6 +5,10 @@ author: oshezaf
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: ofshezaf
+
+
+#Customer intent: As a security analyst, I want to use the ASIM Authentication normalization schema so that I can standardize and analyze authentication events across multiple sources for improved threat detection.
+
 ---
 
 # The Advanced Security Information Model (ASIM) Authentication normalization schema reference (Public preview)
@@ -57,13 +61,13 @@ The following filtering parameters are available:
 
 For example, to filter only authentication events from the last day to a specific user, use:
 
-```kql
+```kusto
 imAuthentication (targetusername_has = 'johndoe', starttime = ago(1d), endtime=now())
 ```
 
 
 > [!TIP]
-> To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals.md). For example: `dynamic(['192.168.','10.'])`.
+> To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/kusto/query/scalar-data-types/dynamic?view=microsoft-sentinel&preserve-view=true#dynamic-literals). For example: `dynamic(['192.168.','10.'])`.
 >
 
 
@@ -200,7 +204,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | **SrcGeoCountry**|Optional |Country |Example: `Canada` <br><br>For more information, see [Logical types](normalization-about-schemas.md#logical-types). |
 | **SrcGeoCity**|Optional |City |Example: `Montreal` <br><br>For more information, see [Logical types](normalization-about-schemas.md#logical-types). |
 |**SrcGeoRegion** | Optional|Region | Example: `Quebec` <br><br>For more information, see [Logical types](normalization-about-schemas.md#logical-types).|
-| **SrcGeoLongtitude**|Optional |Longitude  | Example: `-73.614830` <br><br>For more information, see [Logical types](normalization-about-schemas.md#logical-types).|
+| **SrcGeoLongitude**|Optional |Longitude  | Example: `-73.614830` <br><br>For more information, see [Logical types](normalization-about-schemas.md#logical-types).|
 | **SrcGeoLatitude**|Optional |Latitude |Example: `45.505918` <br><br>For more information, see [Logical types](normalization-about-schemas.md#logical-types). |
 | **SrcRiskLevel** | Optional | Integer | The risk level associated with the source. The value should be adjusted to a range of `0` to `100`, with `0` for benign and `100` for a high risk.<br><br>Example: `90` |
 | **SrcOriginalRiskLevel** | Optional | Integer | The risk level associated with the source, as reported by the reporting device. <br><br>Example: `Suspicious` |
@@ -220,7 +224,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 
 | Field          | Class        | Type       | Description   |
 |---------------|--------------|------------|-----------------|
-| <a name="dst"></a>**Dst** | Alias       | String     |    A unique identifier of the authentication target. <br><br>This field may alias the [TargerDvcId](#targetdvcid), [TargetHostname](#targethostname), [TargetIpAddr](#targetipaddr), [TargetAppId](#targetappid), or [TargetAppName](#targetappname) fields. <br><br>Example: `192.168.12.1` |
+| <a name="dst"></a>**Dst** | Alias       | String     |    A unique identifier of the authentication target. <br><br>This field may alias the [TargetDvcId](#targetdvcid), [TargetHostname](#targethostname), [TargetIpAddr](#targetipaddr), [TargetAppId](#targetappid), or [TargetAppName](#targetappname) fields. <br><br>Example: `192.168.12.1` |
 | <a name="targethostname"></a>**TargetHostname** | Recommended | Hostname | The target device hostname, excluding domain information.<br><br>Example: `DESKTOP-1282V4D` |
 | <a name="targetdomain"></a>**TargetDomain** | Recommended | String | The domain of the target device.<br><br>Example: `Contoso` |
 | <a name="targetdomaintype"></a>**TargetDomainType** | Conditional | Enumerated | The type of [TargetDomain](#targetdomain). For a list of allowed values and further information refer to [DomainType](normalization-about-schemas.md#domaintype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Required if [TargetDomain](#targetdomain) is used. |
@@ -228,13 +232,13 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | <a name = "targetdescription"></a>**TargetDescription** | Optional | String | A descriptive text associated with the device. For example: `Primary Domain Controller`. |
 | <a name="targetdvcid"></a>**TargetDvcId** | Optional | String | The ID of the target device. If multiple IDs are available, use the most important one, and store the others in the fields `TargetDvc<DvcIdType>`. <br><br>Example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
 | <a name="targetdvcscopeid"></a>**TargetDvcScopeId** | Optional | String | The cloud platform scope ID the device belongs to. **TargetDvcScopeId** map to a subscription ID on Azure and to an account ID on AWS. | 
-| <a name="targetdvcscope"></a>**TargerDvcScope** | Optional | String | The cloud platform scope the device belongs to. **TargetDvcScope** map to a subscription ID on Azure and to an account ID on AWS. | 
+| <a name="targetdvcscope"></a>**TargetDvcScope** | Optional | String | The cloud platform scope the device belongs to. **TargetDvcScope** map to a subscription ID on Azure and to an account ID on AWS. | 
 | **TargetDvcIdType** | Conditional | Enumerated | The type of [TargetDvcId](#targetdvcid). For a list of allowed values and further information refer to [DvcIdType](normalization-about-schemas.md#dvcidtype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>Required if **TargetDeviceId** is used.|
 | **TargetDeviceType** | Optional | Enumerated | The type of the target device.  For a list of allowed values and further information refer to [DeviceType](normalization-about-schemas.md#devicetype) in the [Schema Overview article](normalization-about-schemas.md). |
 |<a name="targetipaddr"></a>**TargetIpAddr** |Optional | IP Address|The IP address of the target device. <br><br>Example: `2.2.2.2` |
 | **TargetDvcOs**| Optional| String| The OS of the target device. <br><br>Example: `Windows 10`|
 | **TargetPortNumber** |Optional |Integer |The port of the target device.|
-| **TargetGeoCountry** | Optional | Country | The country associated with the target IP address.<br><br>Example: `USA` |
+| **TargetGeoCountry** | Optional | Country | The country/region associated with the target IP address.<br><br>Example: `USA` |
 | **TargetGeoRegion** | Optional | Region | The region associated with the target IP address.<br><br>Example: `Vermont` |
 | **TargetGeoCity** | Optional | City | The city associated with the target IP address.<br><br>Example: `Burlington` |
 | **TargetGeoLatitude** | Optional | Latitude | The latitude of the geographical coordinate associated with the target IP address.<br><br>Example: `44.475833` |

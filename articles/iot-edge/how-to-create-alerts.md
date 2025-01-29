@@ -7,7 +7,7 @@ ms.author: veyalla
 ms.date: 06/08/2021
 ms.topic: conceptual
 ms.reviewer: kgremban
-ms.service: iot-edge 
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 

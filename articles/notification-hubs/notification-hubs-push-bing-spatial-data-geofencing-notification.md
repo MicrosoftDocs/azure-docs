@@ -347,8 +347,6 @@ In this tutorial, you take the following steps:
     ![Screenshot of the Solution right-click menu with the Store and Associate App with the Store options highlighted.](./media/notification-hubs-geofence/vs-associate-with-store.png)
 3. Once you sign in to your developer account, make sure you select an existing app or create a new one and associate the package with it.
 4. Go to the Dev Center and open the app that you created. Choose **Services** > **Push Notifications** > **Live Services site**.
-
-    ![Screenshot of Windows Dev Center displaying the Push notifications page with Live Services site highlighted.](./media/notification-hubs-geofence/ms-live-services.png)
 5. On the site, take note of the **Application Secret** and the **Package SID**. You need both in the Azure portal – open your notification hub, choose **Settings** > **Notification Services** > **Windows (WNS)** and enter the information in the required fields.
 
     ![Screenshot showing the Settings page with the Notification Services and Windows (WNS) options highlighted and the Package SID and Security Key values filled in.](./media/notification-hubs-geofence/notification-hubs-wns.png)

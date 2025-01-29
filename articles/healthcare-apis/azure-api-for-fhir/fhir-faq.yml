@@ -223,3 +223,8 @@ sections:
           Is there a way to encrypt my data using my personal key and not a default key?
         answer: |
           Yes, Azure API for FHIR allows configuring customer-managed keys, leveraging support from Azure Cosmos DB. For more information about encrypting your data with a personal key, see [Configure customer-managed keys at REST](customer-managed-key.md).
+
+      - question: |
+          What should I do if I am unable to delete a FHIR Resource due to its provisioning state?
+        answer: |
+          Check if disaster recovery is enabled for the FHIR resource. If it is, disable the disaster recovery feature.  

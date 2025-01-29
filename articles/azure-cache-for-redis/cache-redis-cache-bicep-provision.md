@@ -5,7 +5,7 @@ description: Learn how to use Bicep to deploy an Azure Cache for Redis resource.
  
 
 ms.topic: conceptual
-ms.custom: subject-armqs, devx-track-bicep
+ms.custom: subject-armqs, devx-track-bicep, ignite-2024
 ms.date: 04/10/2024
 ---
 
@@ -20,8 +20,11 @@ Learn how to use Bicep to deploy a cache using Azure Cache for Redis. After you 
 * **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * **A storage account**: To create one, see [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal). The storage account is used for diagnostic data. Create the storage account in a new resource group named **exampleRG**.
 
-## Review the Bicep file
 
+
+## Azure Cache for Redis
+
+### Review the Bicep file
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates//).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.cache/redis-cache-microsoft-entra-authentication/main.bicep":::
@@ -31,7 +34,7 @@ The following resources are defined in the Bicep file:
 * [Microsoft.Cache/Redis](/azure/templates/microsoft.cache/redis)
 * [Microsoft.Insights/diagnosticsettings](/azure/templates/microsoft.insights/diagnosticsettings)
 
-## Deploy the Bicep file
+### Deploy the Azure Cache for Redis Bicep file
 
 1. Save the Bicep file as **main.bicep** to your local computer.
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
@@ -52,6 +55,70 @@ The following resources are defined in the Bicep file:
 
    > [!NOTE]
    > Replace **\<storage-name\>** with the name of the storage account you created at the beginning of this quickstart. Replace **\<resource-group\>** with the name of the resource group name in which your storage account is located.
+
+    When the deployment finishes, you see a message indicating the deployment succeeded.
+
+## Azure Managed Redis (preview)
+
+### Review the Bicep file
+
+```bicep
+@description('Specify the name of the Azure Redis Cache to create.')
+param redisCacheName string = 'redisCache-${uniqueString(resourceGroup().id)}'
+
+@description('Location of all resources')
+param location string = resourceGroup().location
+
+resource redisEnterprise 'Microsoft.Cache/redisEnterprise@2024-05-01-preview' = {
+  name: redisCacheName
+  location: location
+  sku: {
+    name: 'Balanced_B5'
+  }
+  identity: {
+    type: 'None'
+  }
+  properties: {
+    minimumTlsVersion: '1.2'    
+  }
+}
+
+resource redisEnterpriseDatabase 'Microsoft.Cache/redisEnterprise/databases@2024-05-01-preview' = {
+  name: 'default'
+  parent: redisEnterprise
+  properties:{
+    clientProtocol: 'Encrypted'
+    port: 10000
+    clusteringPolicy: 'OSSCluster'
+    evictionPolicy: 'NoEviction'
+    persistence:{
+      aofEnabled: false 
+      rdbEnabled: false
+    }
+  }
+}
+```
+
+The following resources are defined in the Bicep file:
+
+* [Microsoft.Cache/redisEnterprise](/azure/templates/microsoft.cache/redisEnterprise)
+
+### Deploy the Bicep file
+
+1. Save the Bicep file as **main.bicep** to your local computer.
+1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
+
+    # [CLI](#tab/CLI)
+
+    ```azurecli
+    az deployment group create --resource-group exampleRG --template-file main.bicep
+    ```
+
+    # [PowerShell](#tab/PowerShell)
+
+    ```azurepowershell
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep
+    ```
 
     When the deployment finishes, you see a message indicating the deployment succeeded.
 

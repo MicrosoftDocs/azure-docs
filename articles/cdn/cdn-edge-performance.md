@@ -4,7 +4,6 @@ description: Analyze edge node performance in Microsoft Azure CDN. Edge Performa
 services: cdn
 author: duongau
 manager: kumudd
-ms.assetid: 8cc596a7-3e01-4f76-af7b-a05a1421517e
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
@@ -47,7 +46,7 @@ This dashboard consists of:
 
 1. From the CDN profile page, select the **Manage** button.
 
-    :::image type="content" source="./media/cdn-edge-performance/cdn-manage-btn.png" alt-text="Screenshot of the manage button from an Azure CDN Edgio Premium profile.":::
+    :::image type="content" source="./media/cdn-edge-performance/cdn-manage-btn.png" alt-text="Screenshot of the manage button from an Azure CDN profile.":::
 
     The CDN management portal opens.
 2. Hover over the **Analytics** tab, then hover over the **Edge Performance Analytics** flyout. Select on **Dashboard**.
@@ -145,7 +144,7 @@ Each report in this module contains a chart and statistics on bandwidth and traf
 
 1. From the CDN profile page, select the **Manage** button.
 
-    :::image type="content" source="./media/cdn-edge-performance/cdn-manage-btn.png" alt-text="Screenshot of the manage button from an Azure CDN Edgio Premium profile.":::
+    :::image type="content" source="./media/cdn-edge-performance/cdn-manage-btn.png" alt-text="Screenshot of the manage button from an Azure CDN profile.":::
 
     The CDN management portal opens.
 2. Hover over the **Analytics** tab, then hover over the **Edge Performance Analytics** flyout. Select on **HTTP Large Object**.

@@ -2,9 +2,9 @@
 title: Offline backup for Data Protection Manager (DPM) and Microsoft Azure Backup Server (MABS) - previous versions
 description: With Azure Backup, you can send data off the network by using the Azure Import/Export service. This article explains the offline backup workflow for previous versions of DPM and Azure Backup Server.
 ms.topic: how-to
-ms.date: 01/23/2023
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 10/25/2024
+author: jyothisuri
+ms.author: jsuri
 ms.service: azure-backup
 ms.custom: engagement-fy23
 ---
@@ -23,8 +23,7 @@ The offline-seeding process of Azure Backup is tightly integrated with the [Azur
 > The process of offline backup for the Microsoft Azure Recovery Services (MARS) Agent is distinct from DPM and MABS. For information on using offline backup with the MARS Agent, see [Offline backup workflow in Azure Backup](backup-azure-backup-import-export.md). Offline backup isn't supported for system state backups done by using the Azure Backup Agent.
 >
 
-## Offline backup process
-
+## Offline backup workflow
 With the offline-seeding capability of Azure Backup and the Azure Import/Export service, it's simple to upload the data offline to Azure by using disks. The offline backup process involves the following steps:
 
 > [!div class="checklist"]
@@ -197,7 +196,7 @@ The *AzureOfflineBackupDiskPrep* utility is used to prepare the SATA drives that
 
     When you run the command, the utility requests the selection of the Azure import job that corresponds to the drives that need to be prepared. If only a single import job is associated with the provided staging location, you see a page like this one.
 
-    ![Screenshot shows how to add xthe Azure disk preparation tool input.](./media/offline-backup-dpm-mabs-previous-versions/azure-disk-preparation-tool-drive-input.png) <br/>
+    ![Screenshot shows how to add the Azure disk preparation tool input.](./media/offline-backup-dpm-mabs-previous-versions/azure-disk-preparation-tool-drive-input.png) <br/>
 
 1. Enter the drive letter without the trailing colon for the mounted disk that you want to prepare for transfer to Azure. When prompted, provide confirmation for the formatting of the drive.
 
@@ -279,6 +278,6 @@ After the import job finishes, initial backup data is available in your storage 
 
 At the time of the next scheduled backup, Azure Backup performs incremental backup over the initial backup copy.
 
-## Next steps
+## Next step
 
-* For any questions about the Azure Import/Export service workflow, see [Use the Microsoft Azure Import/Export service to transfer data to Blob storage](../import-export/storage-import-export-service.md).
+* [Frequently asked questions about the Azure Import/Export service workflow](../import-export/storage-import-export-service.md).

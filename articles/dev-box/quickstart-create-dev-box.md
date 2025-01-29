@@ -9,7 +9,7 @@ ms.custom:
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 08/30/2024
+ms.date: 10/29/2024
 #Customer intent: As a dev box user, I want to understand how to create and access a dev box so that I can start work.
 ---
 
@@ -85,9 +85,9 @@ To connect to a dev box by using the browser:
 
 1. Select **Open in browser**.
 
-   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-open-in-browser.png" alt-text="Screenshot of dev box card that shows the option for opening in a browser." lightbox="./media/quickstart-create-dev-box/dev-portal-open-in-browser.png":::
+   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-open-in-browser.png" alt-text="Screenshot of dev box card that shows the option for opening in a browser." lightbox="./media/quickstart-create-dev-box/dev-portal-open-in-browser-large.png":::
 
-A new tab opens with a Remote Desktop session through which you can use your dev box. Use a work or school account to sign in to your dev box, not a personal Microsoft account.
+A new tab opens with a new session through which you can use your dev box. Use a work or school account to sign in to your dev box, not a personal Microsoft account.
 
 [!INCLUDE [note-windows-app](includes/note-windows-app.md)]
 
@@ -101,4 +101,4 @@ When you no longer need your dev box, you can delete it:
 
 In this quickstart, you created a dev box through the developer portal and connected to it by using a browser. 
 
-- Learn how to [connect to a dev box by using a Remote Desktop app](./tutorial-connect-to-dev-box-with-remote-desktop-app.md)
+- Learn how to [Connect with Windows App](/windows-app/get-started-connect-devices-desktops-apps?context=/azure/dev-box/context/context&pivots=dev-box)

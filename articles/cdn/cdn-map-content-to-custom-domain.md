@@ -21,7 +21,7 @@ This tutorial shows how to add a custom domain to an Azure Content Delivery Netw
 
 The endpoint name in your content delivery network profile is a subdomain of azureedge.net. By default when delivering content, the content delivery network profile domain gets included in the URL.
 
-For example, `https://contoso.azureedge.net/photo.png`.
+For example, `https://*.azureedge.net/photo.png`.
 
 Azure Content Delivery Network provides the option of associating a custom domain with a content delivery network endpoint. This option delivers content with a custom domain in your URL instead of the default domain.
 
@@ -188,9 +188,7 @@ After you've registered your custom domain, you can then add it to your content 
 
    Azure verifies that the CNAME record exists for the custom domain name you entered. If the CNAME is correct, your custom domain gets validated.
 
-   It can take some time for the new custom domain settings to propagate to all content delivery network edge nodes:
-    - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes.
-    - For **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles, propagation usually completes in 10 minutes.
+   It can take up to 10 minutes for the new custom domain settings to propagate to all content delivery network edge nodes.
 
 # [**PowerShell**](#tab/azure-powershell)
 
@@ -198,7 +196,6 @@ After you've registered your custom domain, you can then add it to your content 
 
 ```azurepowershell-interactive
     Connect-AzAccount
-
 ```
 
 2. Use [New-AzCdnCustomDomain](/powershell/module/az.cdn/new-azcdncustomdomain) to map the custom domain to your content delivery network endpoint.
@@ -222,10 +219,7 @@ After you've registered your custom domain, you can then add it to your content 
 
 Azure verifies that the CNAME record exists for the custom domain name you entered. If the CNAME is correct, your custom domain gets validated.
 
-   It can take some time for the new custom domain settings to propagate to all content delivery network edge nodes:
-
-- For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes.
-- For **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles, propagation usually completes in 10 minutes.
+   It can take up to 10 minutes for the new custom domain settings to propagate to all content delivery network edge nodes.
 
 ---
 

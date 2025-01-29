@@ -4,8 +4,7 @@ description: Learn how to resize the virtual machines (VM) running on your Azure
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 07/08/2021
 ms.author: alkohli

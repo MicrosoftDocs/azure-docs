@@ -2,7 +2,7 @@
 title: Set up preview features in Azure subscription
 description: Describes how to list, register, or unregister preview features in your Azure subscription for a resource provider.
 ms.topic: how-to
-ms.date: 09/26/2024
+ms.date: 12/12/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 # Customer intent: As an Azure user, I want to use preview features in my subscription so that I can expose a resource provider's preview functionality.
 ---
@@ -25,7 +25,8 @@ You can list all the preview features and their registration states for an Azure
 
 # [Portal](#tab/azure-portal)
 
-The portal only shows a preview feature when the service that owns the feature has explicitly opted in to the preview features management experience.
+> [!NOTE]
+> The portal only shows a preview feature when the service that owns the feature has explicitly opted in to the preview features management experience. In case the feature you are looking for doesn't appear on the list available, we recommend using [Azure CLI](./preview-features.md?tabs=azure-cli#list-preview-features) and [Azure Powershell](./preview-features.md?tabs=azure-powershell#list-preview-features).
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the search box, enter _subscriptions_ and select **Subscriptions**.
@@ -64,7 +65,7 @@ az feature list
 
 ```json
 {
-  "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Features/providers/
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Features/providers/
     Microsoft.Compute/features/InGuestPatchVMPreview",
   "name": "Microsoft.Compute/InGuestPatchVMPreview",
   "properties": {
@@ -101,7 +102,7 @@ Name                                     RegistrationState
 Microsoft.Compute/InGuestPatchVMPreview  NotRegistered
 ```
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 To list all the subscription's preview features, use the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) cmdlet.
 
@@ -185,7 +186,7 @@ az feature register --name InGuestPatchVMPreview --namespace Microsoft.Compute
 
 ```json
 {
-  "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Features/providers/
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Features/providers/
     Microsoft.Compute/features/InGuestPatchVMPreview",
   "name": "Microsoft.Compute/InGuestPatchVMPreview",
   "properties": {
@@ -210,7 +211,7 @@ Microsoft.Compute/InGuestPatchVMPreview  Registered
 > [!NOTE]
 > When the register command runs, a message is displayed that after the feature is registered, to run `az provider register --namespace <provider-name>` to propagate the changes.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 To register a preview feature, use the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) cmdlet.
 
@@ -267,7 +268,7 @@ az feature unregister --name InGuestPatchVMPreview --namespace Microsoft.Compute
 
 ```json
 {
-  "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Features/providers/
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Features/providers/
     Microsoft.Compute/features/InGuestPatchVMPreview",
   "name": "Microsoft.Compute/InGuestPatchVMPreview",
   "properties": {
@@ -306,7 +307,7 @@ Name                                     RegistrationState
 Microsoft.Compute/InGuestPatchVMPreview  Unregistered
 ```
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 To unregister a preview feature, use the [Unregister-AzProviderFeature](/powershell/module/az.resources/unregister-azproviderfeature) cmdlet. The `RegistrationState` state changes to **Unregistered**.
 

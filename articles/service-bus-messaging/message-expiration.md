@@ -1,18 +1,15 @@
 ---
 title: Azure Service Bus - message expiration
 description: This article explains about expiration and time to live (TTL) of Azure Service Bus messages. After such a deadline, the message is no longer delivered.
-ms.topic: conceptual
-ms.date: 10/10/2023
+ms.topic: concept-article
+ms.date: 12/02/2024
+# Customer intent: As an Azure Service Bus user, developer or architect, I want to know whether the message enqueued expires after a certain amount of time. 
 ---
 
 # Azure Service Bus - Message expiration (Time to Live)
-The payload in a message, or a command or inquiry that a message conveys to a receiver, is almost always subject to some form of application-level expiration deadline. After such a deadline, the content is no longer delivered, or the requested operation is no longer executed.
+The payload in a message, or a command or inquiry that a message conveys to a receiver, is almost always subject to some form of application-level expiration deadline. After such a deadline, the content is no longer delivered, or the requested operation is no longer executed. For development and test environments in which queues and topics are often used in the context of partial runs of applications or application parts, it's also desirable for stranded test messages to be automatically garbage collected so that the next test run can start clean.
 
-For development and test environments in which queues and topics are often used in the context of partial runs of applications or application parts, it's also desirable for stranded test messages to be automatically garbage collected so that the next test run can start clean.
-
-> [!NOTE]
-> If you aren't familiar with Service Bus concepts yet, see [Service Bus concepts](service-bus-messaging-overview.md#concepts), and [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md).
-
+## Time to live and expires at UTC
 The expiration for any individual message can be controlled by setting the **time-to-live** system property, which specifies a relative duration. The expiration becomes an absolute instant when the message is enqueued into the entity. At that time, the **expires-at-utc** property takes on the value **enqueued-time-utc** + **time-to-live**. The time-to-live (TTL) setting on a brokered message isn't enforced when there are no clients actively listening.
 
 > [!NOTE]
@@ -22,13 +19,15 @@ Past the **expires-at-utc** instant, messages become ineligible for retrieval. T
 
 Extremely low TTL in the order of milliseconds or seconds might cause messages to expire before receiver applications receive it. Consider the highest TTL that works for your application.
 
-> [!NOTE]
-> For [scheduled messages](message-sequencing.md#scheduled-messages), you specify the enqueue time at which you want the message to materialize in the queue for retrieval. The time at which the message is sent to Service Bus is different from the time at which the message is enqueued. The message expiration time depends on the enqueued time, not on the time at which the message is sent to Service Bus. Therefore, the **expires-at-utc** is still **enqueued time + time-to-live**. 
->
-> For example, if you set the `ScheduledEnqueueTimeUtc` to 5 minutes from `UtcNow`, and `TimeToLive` to 10 minutes, the message will expire after 5 + 10 = 15 minutes from now. The message materializes in the queue after 5 minutes and the 10 minute counter starts from then.
+## Scheduled messages
+For [scheduled messages](message-sequencing.md#scheduled-messages), you specify the enqueue time at which you want the message to materialize in the queue for retrieval. The time at which the message is sent to Service Bus is different from the time at which the message is enqueued. The message expiration time depends on the enqueued time, not on the time at which the message is sent to Service Bus. Therefore, the **expires-at-utc** is still **enqueued time + time-to-live**. 
+
+For example, if you set the `ScheduledEnqueueTimeUtc` to 5 minutes from `UtcNow`, and `TimeToLive` to 10 minutes, the message will expire after 5 + 10 = 15 minutes from now. The message materializes in the queue after 5 minutes and the 10 minute counter starts from then.
 
 ## Entity-level expiration
 All messages sent into a queue or topic are subject to a default expiration that is set at the entity level. It can also be set in the portal during creation and adjusted later. The default expiration is used for all messages sent to the entity where time-to-live isn't explicitly set. The default expiration also functions as a ceiling for the time-to-live value. Messages that have a longer time-to-live expiration than the default value are silently adjusted to the default message time-to-live value before being enqueued.
+
+The **expires-at-utc** is by design. If the message TTL isn't set and only the entity TTL is set then **expires-at-utc**  is a computed value and isn't computed in the Peek path but is computed in the Receive/Peeklock path. If the message has TTL then this **expires-at-utc** is computed at the time message is sent and stored. So in this case Peek will return correct **expires-at-utc** values.
 
 > [!NOTE]
 > - The default time-to-live value for a brokered message is the largest possible value for a signed 64-bit integer if not otherwise specified.
@@ -49,7 +48,7 @@ Service Bus queues, topics, and subscriptions can be created as temporary entiti
  
 Automatic cleanup is useful in development and test scenarios in which entities are created dynamically and aren't cleaned up after use, due to some interruption of the test or debugging run. It's also useful when an application creates dynamic entities, such as a reply queue, for receiving responses back into a web server process, or into another relatively short-lived object where it's difficult to reliably clean up those entities when the object instance disappears.
 
-The feature is enabled using the **auto delete on idle** property on the namespace. This property is set to the duration for which an entity must be idle (unused) before it's automatically deleted. The minimum value for this property is 5 minutes.
+The feature is enabled using the **auto delete on idle** property on the entity. This property is set to the duration for which an entity must be idle (unused) before it's automatically deleted. The minimum value for this property is 5 minutes.
 
 > [!IMPORTANT] 
 > Setting the Azure Resource Manager lock-level to [`CanNotDelete`](../azure-resource-manager/management/lock-resources.md), on the namespace or at a higher level doesn't prevent entities with `AutoDeleteOnIdle` from being deleted. If you don't want the entity to be deleted, set the `AutoDeleteOnIdle` property to `DataTime.MaxValue`.
@@ -66,9 +65,10 @@ Here's what considered idleness of entities (queues, topics, and subscriptions):
 | Subscription | <ul><li>No receives</li><li>No updates to the subscription</li><li>No new rules added to the subscription</li><li>No browse/peek</li></ul> |
 
  > [!IMPORTANT] 
-> If you have auto forwarding setup on the queue or subscription, that is equivalent to having a receiver peform receives on the queue or subscription and they will not be idle.
+> If you have auto forwarding setup on the queue or subscription, that is equivalent to having a receiver perform receives on the queue or subscription and they will not be idle.
  
 ## SDKs
+You can set the time-to-live property using Software Development Kits (SDKs). 
 
 - To set time-to-live on a message: [.NET](/dotnet/api/azure.messaging.servicebus.servicebusmessage.timetolive), [Java](/java/api/com.azure.messaging.servicebus.servicebusmessage.settimetolive), [Python](/python/api/azure-servicebus/azure.servicebus.servicebusmessage), [JavaScript](/javascript/api/@azure/service-bus/servicebusmessage#@azure-service-bus-servicebusmessage-timetolive)
 - To set the default time-to-live on a queue: [.NET](/dotnet/api/azure.messaging.servicebus.administration.createqueueoptions.defaultmessagetimetolive), [Java](/java/api/com.azure.messaging.servicebus.administration.models.createqueueoptions.setdefaultmessagetimetolive), [Python](/python/api/azure-servicebus/azure.servicebus.management.queueproperties), [JavaScript](/javascript/api/@azure/service-bus/queueproperties#@azure-service-bus-queueproperties-defaultmessagetimetolive)
@@ -77,23 +77,9 @@ Here's what considered idleness of entities (queues, topics, and subscriptions):
  
 
 
-## Next steps
+## Related content
 
-To learn more about Service Bus messaging, see the following articles: 
+If you aren't familiar with Service Bus concepts yet, see [Service Bus concepts](service-bus-messaging-overview.md#concepts), and [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md).
 
-- [Message sequencing and time stamps](message-sequencing.md)
-- [Messages, payloads, and serialization](service-bus-messages-payloads.md)
-- [Message sessions](message-sessions.md)
-- [Duplicate message detection](duplicate-detection.md)
-- [Topic filters](topic-filters.md)
-- [Message browsing](message-browsing.md)
-- [Message transfers, locks, and settlement](message-transfers-locks-settlement.md)
-- [Dead-letter queues](service-bus-dead-letter-queues.md)
-- [Message deferral](message-deferral.md)
-- [Prefetch messages](service-bus-prefetch.md)
-- [Autoforward messages](service-bus-auto-forwarding.md)
-- [Transaction support](service-bus-transactions.md)
-- [Geo-disaster recovery](service-bus-geo-dr.md)
-- [Asynchronous messaging patterns and high availability](service-bus-async-messaging.md)
-- [Handling outages and disasters](service-bus-outages-disasters.md)
-- [Throttling](service-bus-throttling.md)
+To learn about advanced features of Azure Service Bus, see [Overview of advanced features](advanced-features-overview.md). 
+

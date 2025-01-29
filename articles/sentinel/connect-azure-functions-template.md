@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: how-to
 ms.date: 06/05/2023
 ms.author: yelevin
+
+
+#Customer intent: As a security engineer, I want to use Azure Functions to connect Microsoft Sentinel to my data sources so that I can automate the ingestion of logs and enhance threat detection capabilities.
+
 ---
 
 # Use Azure Functions to connect Microsoft Sentinel to your data source
@@ -41,7 +45,7 @@ Make sure that you have the following permissions and credentials before using A
 > [!NOTE]
 > - You can securely store workspace and API authorization keys or tokens in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](../app-service/app-service-key-vault-references.md) to use Azure Key Vault with an Azure Function App.
 >
-> - Some data connectors depend on a parser based on a [Kusto Function](/azure/data-explorer/kusto/query/functions/user-defined-functions) to work as expected. See the section for your service in the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page for links to instructions to create the Kusto function and alias.
+> - Some data connectors depend on a parser based on a [Kusto Function](/kusto/query/functions/user-defined-functions?view=microsoft-sentinel&preserve-view=true) to work as expected. See the section for your service in the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page for links to instructions to create the Kusto function and alias.
 
 
 ### Step 1: Get your source system's API credentials

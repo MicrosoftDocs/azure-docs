@@ -26,18 +26,18 @@ A load test configuration uses the following keys:
 | `testName` | string | N |  | **Deprecated**. Unique identifier of the load test. This setting is replaced by `testId`. You can still run existing tests with the `testName` field. |
 | `displayName` | string | N |  | Display name of the test. This value is shown in the list of tests in the Azure portal. If not provided, `testId` is used as the display name. |
 | `description` | string | N |  | Short description of the test. The value has a maximum length of 100 characters. |
-| `testType` | string | Y | | Test type. Possible values:<br/><ul><li>`URL`: URL-based load test</li><li>`JMX`: JMeter-based load test</li></ul> |
-| `testPlan` | string | Y |  | Reference to the test plan file.<br/><ul><li>If `testType: JMX`: relative path to the JMeter test script.</li><li>If `testType: URL`: relative path to the [requests JSON file](./how-to-add-requests-to-url-based-test.md).</li></ul> |
+| `testType` | string | Y | | Test type. Possible values:<br/><ul><li>`URL`: URL-based load test</li><li>`JMX`: JMeter-based load test</li><li>`Locust`: Locust-based load test</li></ul> |
+| `testPlan` | string | Y |  | Reference to the test plan file.<br/><ul><li>If `testType: JMX`: relative path to the JMeter test script.</li><li>If `testType: Locust`: relative path to the Locust test script.</li><li>If `testType: URL`: relative path to the [requests JSON file](./how-to-add-requests-to-url-based-test.md).</li></ul> |
 | `engineInstances` | integer | Y |  | Number of parallel test engine instances for running the test plan. Learn more about [configuring high-scale load](./how-to-high-scale-load.md). |
-| `configurationFiles` | array of string | N |  | List of external files, required by the test script. For example, CSV data files, images, or any other data file.<br/>Azure Load Testing uploads all files in the same folder as the test script. In the JMeter script, only refer to external files using the file name, and remove any file path information. |
+| `configurationFiles` | array of string | N |  | List of external files, required by the test script. For example, CSV data files, images, or any other data file.<br/>Azure Load Testing uploads all files in the same folder as the test script. In the JMeter script or the Locust script, only refer to external files using the file name, and remove any file path information. |
 | `failureCriteria` | object | N |  | List of load test fail criteria. See [failureCriteria](#failurecriteria-configuration) for more details. |
 | `autoStop` | string or object | N |  | Automatically stop the load test when the error percentage exceeds a value.<br/>Possible values:<br/>- `disable`: don't stop a load test automatically.<br/>- *object*: see [autostop](#autostop-configuration) configuration for more details. |
-| `properties` | object | N |  | JMeter user property file references. See [properties](#properties-configuration) for more details. |
-| `zipArtifacts` | array of string| N |  | Specifies the list of zip artifact files. For files other than JMeter scripts and user properties, if the file size exceeds 50 MB, compress them into a ZIP file. Ensure that the ZIP file remains below 50 MB in size. Only 5 ZIP artifacts are allowed with a maximum of 1000 files in each and uncompressed size of 1 GB. Only applies when `testType: JMX`. |
+| `properties` | object | N |  | <ul><li>If `testType: JMX`: JMeter user property file references.</li><li>If `testType: Locust`: Locust configuration file references.</li></ul> See [properties](#properties-configuration) for more details. |
+| `zipArtifacts` | array of string| N |  | Specifies the list of zip artifact files. For files other than JMeter scripts and user properties for JMeter-based tests and Locust script and configuration files for Locust-based tests, if the file size exceeds 50 MB, compress them into a ZIP file. Ensure that the ZIP file remains below 50 MB in size. Only 5 ZIP artifacts are allowed with a maximum of 1000 files in each and uncompressed size of 1 GB. Only applies for `testType: JMX` and `testType: Locust`. |
 | `splitAllCSVs` | boolean | N | False | Split the input CSV files evenly across all test engine instances. For more information, see [Read a CSV file in load tests](./how-to-read-csv-data.md#split-csv-input-data-across-test-engines). |
-| `secrets` | object | N |  | List of secrets that the Apache JMeter script references. See [secrets](#secrets-configuration) for more details. |
-| `env` | object | N |  | List of environment variables that the Apache JMeter script references. See [environment variables](#env-configuration) for more details. |
-| `certificates` | object | N |  | List of client certificates for authenticating with application endpoints in the JMeter script. See [certificates](#certificates-configuration) for more details.|
+| `secrets` | object | N |  | List of secrets that the Apache JMeter or Locust script references. See [secrets](#secrets-configuration) for more details. |
+| `env` | object | N |  | List of environment variables that the Apache JMeter script or Locust references. See [environment variables](#env-configuration) for more details. |
+| `certificates` | object | N |  | List of client certificates for authenticating with application endpoints in the JMeter or Locust script. See [certificates](#certificates-configuration) for more details.|
 | `keyVaultReferenceIdentity` | string | N |  | Resource ID of the user-assigned managed identity for accessing the secrets from your Azure Key Vault. If you use a system-managed identity, this information isn't needed. Make sure to grant this user-assigned identity access to your Azure key vault. Learn more about [managed identities in Azure Load Testing](./how-to-use-a-managed-identity.md). |
 | `subnetId` | string | N |  | Resource ID of the virtual network subnet for testing privately hosted endpoints. This subnet hosts the injected test engine VMs. For more information, see [how to load test privately hosted endpoints](./how-to-test-private-endpoint.md). |
 | `publicIPDisabled` | boolean | N |  | Disable the deployment of a public IP address, load balancer, and network security group while testing a private endpoint. For more information, see [how to load test privately hosted endpoints](./how-to-test-private-endpoint.md). |
@@ -145,7 +145,7 @@ You can specify a JMeter user properties file for your load test. The user prope
 
 | Key | Type | Default value | Description | 
 | ----- | ----- | ----- | ---- |
-| `userPropertyFile` | string |  | File to use as an Apache JMeter [user properties file](https://jmeter.apache.org/usermanual/test_plan.html#properties). The file is uploaded to the Azure Load Testing resource alongside the JMeter test script and other configuration files. If the file is in a subfolder on your local machine, use a path relative to the location of the test script. |
+| `userPropertyFile` | string |  | File to use as an Apache JMeter [user properties file](https://jmeter.apache.org/usermanual/test_plan.html#properties) or a Locust [configuration file](https://docs.locust.io/en/stable/configuration.html#configuration-file). For Locust, files with extensions .conf, .ini and .toml are supported as a configuration file. The file is uploaded to the Azure Load Testing resource alongside the test script and other configuration files. If the file is in a subfolder on your local machine, use a path relative to the location of the test script. |
 
 #### User property file configuration sample
 
@@ -161,6 +161,20 @@ testType: JMX
 engineInstances: 1
 properties:
   userPropertyFile: 'user.properties'
+```
+
+The following code snippet shows a load test configuration, which specifies a Locust configuration file.
+
+```yaml
+version: v0.1
+testId: SampleTest
+displayName: Sample Test
+description: Load test website home page
+testPlan: SampleTest.py
+testType: Locust
+engineInstances: 1
+properties:
+  userPropertyFile: 'locust.conf'
 ```
 
 ### `secrets` configuration

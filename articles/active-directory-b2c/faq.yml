@@ -8,7 +8,7 @@ metadata:
   ms.service: azure-active-directory
   
   ms.topic: faq
-  ms.date: 10/31/2023
+  ms.date: 10/01/2024
   ms.author: godonnell
   ms.subservice: b2c
   ms.custom: b2c-support, has-azure-ad-ps-ref,azure-ad-ref-level-one-done
@@ -22,21 +22,17 @@ sections:
       - question: |
           What is Microsoft Entra External ID?
         answer: |
-          We announced an early preview of our next-generation Microsoft Entra External ID solution. This early preview represents an evolutionary step in unifying secure and engaging experiences across all external identities including partners, customers, citizens, patients, and others within a single, integrated platform. For more information about the preview, see [What is Microsoft Entra External ID for customers?](../active-directory/external-identities/customers/overview-customers-ciam.md). 
+          We have released our next generation Microsoft Entra External ID product which combines powerful solutions for working with people outside of your organization. With External ID capabilities, you can allow external identities to securely access your apps and resources. Whether you’re working with external partners, consumers, or business customers, users can bring their own identities. These identities can range from corporate or government-issued accounts to social identity providers like Google or Facebook. For more information, see [Introduction to Microsoft Entra External ID](/entra/external-id/external-identities-overview)
       - question: |
           How does this preview affect me?
         answer: |
-          No action is required on your part at this time. The next-generation platform is currently in early preview only. We remain fully committed to supporting your current Azure AD B2C solution. There are no requirements for Azure AD B2C customers to migrate at this time and no plans to discontinue the current Azure AD B2C service. As the next generation platform approaches GA, details will be made available to all our valued B2C customers on available options including migration to the new platform.
-      - question: |
-          How do I participate in the preview?
-        answer: |
-          As the next-generation platform represents our future for customer identity and access management (CIAM), we welcome and encourage your participation and feedback during early preview. If you're interested in joining the early preview, contact your sales team for details. 
+          No action is required on your part at this time. We remain fully committed to supporting your current Azure AD B2C solution. There are no requirements for Azure AD B2C customers to migrate at this time and no plans to discontinue the current Azure AD B2C service. 
   - name: General
     questions:
       - question: |
           Why can't I access the Azure AD B2C extension in the Azure portal?
         answer: |
-          There are two common reasons for why the Microsoft Entra extension isn't working for you. Azure AD B2C requires your user role in the directory to be a global administrator. Contact your administrator if you think you should have access. If you have global administrator privileges, make sure that you are in an Azure AD B2C directory and not a Microsoft Entra directory. You can see instructions for [creating an Azure AD B2C tenant](tutorial-create-tenant.md).
+          There are two common reasons for why the Microsoft Entra extension isn't working for you. Azure AD B2C requires your user role in the directory to be a Global administrator. Contact your administrator if you think you should have access. If you have Global administrator privileges, make sure that you are in an Azure AD B2C directory and not a Microsoft Entra directory. You can see instructions for [creating an Azure AD B2C tenant](tutorial-create-tenant.md).
           
       - question: |
           Can I use Azure AD B2C features in my existing, employee-based Microsoft Entra tenant?
@@ -96,7 +92,7 @@ sections:
       - question: |
           Why am I unable to create an Azure AD B2C tenant?
         answer: |
-          You might not have permission to create an Azure AD B2C tenant. Only users with **Global administrator** or **Tenant Creator** roles can create the tenant. You need to contact your **Global administrator**. 
+          You might not have permission to create an Azure AD B2C tenant. Only users with at least **Tenant Creator** roles can create the tenant. 
 
       - question: |
           How do I customize verification emails (the content and the "From:" field) sent by Azure AD B2C?
@@ -119,7 +115,7 @@ sections:
           Currently, you can’t change the "From:" field on the email.
           
           > [!TIP]
-          > With Azure AD B2C [custom policy](custom-policy-overview.md), you can customize the email Azure AD B2C sends to users, including the "From:" field on the email. The custom email verification requires the use of a third-party email provider like [Mailjet](custom-email-mailjet.md), [SendGrid](custom-email-sendgrid.md), or [SparkPost](https://messagebird.com/email/cloud-sending?sp=true).
+          > With Azure AD B2C [custom policy](custom-policy-overview.md), you can customize the email Azure AD B2C sends to users, including the "From:" field on the email. The custom email verification requires the use of a third-party email provider like [Mailjet](custom-email-mailjet.md) or [SendGrid](custom-email-sendgrid.md).
           
       - question: |
           How can I migrate my existing user names, passwords, and profiles from my database to Azure AD B2C?

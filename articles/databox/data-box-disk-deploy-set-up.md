@@ -4,8 +4,7 @@ description: In this tutorial, learn how to unpack your Azure Data Box Disk, con
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: disk
+ms.service: azure-data-box-disk
 ms.custom: linux-related-content
 ms.topic: tutorial
 ms.date: 04/09/2024

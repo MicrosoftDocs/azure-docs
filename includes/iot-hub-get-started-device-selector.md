@@ -1,6 +1,6 @@
 ---
 author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: include
 ms.date: 02/14/2019
 ms.author: kgremban

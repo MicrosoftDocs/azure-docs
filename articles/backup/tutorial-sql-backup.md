@@ -4,8 +4,8 @@ description: In this tutorial, learn how to back up a SQL Server database runnin
 ms.topic: tutorial
 ms.date: 08/09/2022
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up a SQL Server database in an Azure VM

@@ -4,7 +4,7 @@ description: Learn how to design and architect Azure ExpressRoute for resiliency
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/16/2024
 ms.author: duau
 ms.custom: ai-usage
@@ -25,20 +25,20 @@ Users of ExpressRoute rely on the availability and performance of edge sites, WA
 There are three ExpressRoute resiliency architectures that can be utilized to ensure high availability and resiliency in your network connections between on-premises and Azure. These architecture designs include:
 
 * [Maximum resiliency](#maximum-resiliency)
-* [High resiliency](#high-resiliency---in-preview)
+* [High resiliency](#high-resiliency)
 * [Standard resiliency](#standard-resiliency)
 
 ### Maximum resiliency
 
 The Maximum resiliency architecture in ExpressRoute is structured to eliminate any single point of failure within the Microsoft network path. This set up is achieved by configuring a pair of circuits across two distinct locations for site diversity with ExpressRoute. The objective of Maximum resiliency is to enhance reliability, resiliency, and availability, as a result ensuring the highest level of resilience for business and/or mission-critical workloads. For such operations, we recommend that you configure maximum resiliency. This architectural design is recommended as part of the [Well Architected Framework](/azure/well-architected/service-guides/azure-expressroute#reliability) under the reliability pillar. The ExpressRoute engineering team developed a [guided portal experience](expressroute-howto-circuit-portal-resource-manager.md?pivots=expressroute-preview) to assist you in configuring maximum resiliency.
 
-:::image type="content" source="./media/design-architecture-for-resiliency/maximum-resiliency.png" alt-text="Diagram illustrating a pair of ExpressRoute circuits, configured at two distinct peering locations, between an on-premises network and Microsoft.":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/maximum-resiliency.png" alt-text="Diagram of maximum resiliency for an ExpressRoute connection.":::
 
-### High resiliency - In Preview
+### High resiliency
 
 High resiliency, also referred to as ExpressRoute Metro, enables the use of multiple sites within the same metropolitan (Metro) area to connect your on-premises network through ExpressRoute to Azure. High resiliency offers site diversity by splitting a single circuit across two sites. The first connection is established at one site and the second connection at a different site. The objective of ExpressRoute Metro is to mitigate the effect of edge-sites isolation and failures by introducing capabilities to enable site diversity. Site diversity is achieved by using a single circuit across paired sites within a metropolitan city, which offers resiliency to failures between edge and region. ExpressRoute Metro provides a higher level of site resiliency than Standard resiliency, but not as much as Maximum resiliency. ExpressRoute Metro architecture can be used for business and mission-critical workloads within a region. For more information, see [ExpressRoute Metro](metro.md)
 
-:::image type="content" source="./media/design-architecture-for-resiliency/high-resiliency.png" alt-text="Diagram illustrating a single ExpressRoute circuit, with each link configured at two distinct peering locations.":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/high-resiliency.png" alt-text="Diagram of high resiliency for an ExpressRoute connection.":::
 
 ### Standard resiliency
 
@@ -50,7 +50,7 @@ Standard resiliency in ExpressRoute is a single circuit with two connections con
 
 [Azure regions](/azure/cloud-adoption-framework/ready/azure-setup-guide/regions) are an integral part of your ExpressRoute design and resiliency strategy. These regions are geographical locations of data centers that host Azure services. Regions are interconnected through a dedicated low-latency network and are designed to be highly available, fault-tolerant, and scalable.
 
-Azure offers several features to ensure regional resiliency. One such feature is [availability zones](../reliability/availability-zones-overview.md). Availability zones protect applications and data from data center failures by spanning across multiple physical locations within a region. Regions and availability zones are central to your application design and resiliency strategy. By utilizing availability zones, you can achieve higher availability and resilience in your deployments. For more information, see [Regions & availability zones](../reliability/overview.md#regions-and-availability-zones).
+Azure offers several features to ensure regional resiliency. One such feature is [availability zones](../reliability/availability-zones-overview.md). Availability zones protect applications and data from data center failures by spanning across multiple physical locations within a region. Regions and availability zones are central to your application design and resiliency strategy. By utilizing availability zones, you can achieve higher availability and resilience in your deployments. For more information, see [Regions & availability zones](../reliability/overview.md).
 
 We recommend deploying your [ExpressRoute Virtual Network Gateways](expressroute-about-virtual-network-gateways.md) as zone redundant across availability zones within a region. These availability zones are separate physical locations with independent infrastructure (power, cooling, and networking). The purpose is to protect your on-premises network connectivity to Azure from zone level failures. [Zone-redundant ExpressRoute gateways](../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=%2Fazure%2Fexpressroute%2Ftoc.json) provide resiliency, scalability, and higher availability for accessing mission-critical services on Azure. 
 

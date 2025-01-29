@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 10/10/2024
+ms.date: 12/10/2024
 ms.author: cshoe
 zone_pivot_groups: container-apps-jobs-self-hosted-ci-cd
 ---
@@ -125,7 +125,7 @@ $PLACEHOLDER_JOB_NAME="placeholder-agent-job"
 The Azure Container Apps environment acts as a secure boundary around container apps and jobs so they can share the same network and communicate with each other.
 
 > [!NOTE]
-> To create a Container Apps environment that's integrated with an existing virtual network, see [Provide a virtual network to an internal Azure Container Apps environment](vnet-custom-internal.md?tabs=bash).
+> To create a Container Apps environment that's integrated with an existing virtual network, see [Provide a virtual network to an Azure Container Apps environment](vnet-custom.md).
 
 1. Create a resource group using the following command.
 
@@ -138,7 +138,7 @@ The Azure Container Apps environment acts as a secure boundary around container 
 
     # [Azure PowerShell](#tab/azure-powershell)
     ```powershell
-    az group create `
+    New-AzResourceGroup `
         --name "$RESOURCE_GROUP" `
         --location "$LOCATION"
     ```
@@ -156,11 +156,12 @@ The Azure Container Apps environment acts as a secure boundary around container 
     ```
 
     # [Azure PowerShell](#tab/azure-powershell)
+   
     ```powershell
-    az containerapp env create `
-        --name "$ENVIRONMENT" `
-        --resource-group "$RESOURCE_GROUP" `
-        --location "$LOCATION"
+    New-AzContainerAppManagedEnvironment `
+      -Name $ENVIRONMENT `
+      -ResourceGroupName $RESOURCE_GROUP `
+      -Location $LOCATION
     ```
 
     ---
@@ -288,8 +289,7 @@ To create a self-hosted runner, you need to build a container image that execute
         --name "$CONTAINER_REGISTRY_NAME" \
         --resource-group "$RESOURCE_GROUP" \
         --location "$LOCATION" \
-        --sku Basic \
-        --admin-enabled true
+        --sku Basic
     ```
 
     # [Azure PowerShell](#tab/azure-powershell)
@@ -298,8 +298,45 @@ To create a self-hosted runner, you need to build a container image that execute
         --name "$CONTAINER_REGISTRY_NAME" `
         --resource-group "$RESOURCE_GROUP" `
         --location "$LOCATION" `
-        --sku Basic `
-        --admin-enabled true
+        --sku Basic
+    ```
+
+    ---
+
+1. Your container registry must allow Azure Resource Manager (ARM) audience tokens for authentication in order to use managed identity to pull images.
+
+    Use the following command to check if ARM tokens are allowed to access your Azure Container Registry (ACR).
+
+    # [Bash](#tab/bash)
+    ```azurecli
+    az acr config authentication-as-arm show --registry "$CONTAINER_REGISTRY_NAME"
+    ```
+
+    # [Azure PowerShell](#tab/azure-powershell)
+    ```powershell
+    az acr config authentication-as-arm show --registry "$CONTAINER_REGISTRY_NAME"
+    ```
+
+    ---
+
+    If ARM tokens are allowed, the command outputs the following.
+
+    ```
+    {
+      "status": "enabled"
+    }
+    ```
+
+    If the `status` is `disabled`, allow ARM tokens with the following command.
+
+    # [Bash](#tab/bash)
+    ```azurecli
+    az acr config authentication-as-arm update --registry "$CONTAINER_REGISTRY_NAME" --status enabled
+    ```
+
+    # [Azure PowerShell](#tab/azure-powershell)
+    ```powershell
+    az acr config authentication-as-arm update --registry "$CONTAINER_REGISTRY_NAME" --status enabled
     ```
 
     ---
@@ -328,6 +365,59 @@ To create a self-hosted runner, you need to build a container image that execute
 
     The image is now available in the container registry.
 
+## Create a user-assigned managed identity
+
+To avoid using administrative credentials, pull images from private repositories in Microsoft Azure Container Registry using managed identities for authentication. When possible, use a user-assigned managed identity to pull images.
+
+1. Create a user-assigned managed identity. Before you run the following commands, choose a name for your managed identity and replace the `\<PLACEHOLDER\>` with the name.
+
+    # [Bash](#tab/bash)
+    
+    ```bash
+    IDENTITY="<YOUR_IDENTITY_NAME>"
+    ```
+
+    ```azurecli
+    az identity create \
+        --name $IDENTITY \
+        --resource-group $RESOURCE_GROUP
+    ```
+
+    # [Azure PowerShell](#tab/azure-powershell)
+
+    ```powershell
+    $IDENTITY="<YOUR_IDENTITY_NAME>"
+    az identity create `
+        --name $IDENTITY `
+        --resource-group $RESOURCE_GROUP
+    ```
+
+    ---
+
+1. Get the identity's resource ID.
+
+    # [Bash](#tab/bash)
+
+    ```azurecli
+    IDENTITY_ID=$(az identity show \
+        --name $IDENTITY \
+        --resource-group $RESOURCE_GROUP \
+        --query id \
+        --output tsv)
+    ```
+
+    # [Azure PowerShell](#tab/azure-powershell)
+
+    ```powershell
+    IDENTITY_ID=$(az identity show `
+        --name $IDENTITY `
+        --resource-group $RESOURCE_GROUP `
+        --query id `
+        --output tsv)
+    ```
+
+    ---
+
 ## Deploy a self-hosted runner as a job
 
 You can now create a job that uses to use the container image. In this section, you create a job that executes the self-hosted runner and authenticates with GitHub using the PAT you generated earlier. The job uses the [`github-runner` scale rule](https://keda.sh/docs/latest/scalers/github-runner/) to create job executions based on the number of pending workflow runs.
@@ -336,7 +426,10 @@ You can now create a job that uses to use the container image. In this section, 
 
     # [Bash](#tab/bash)
     ```bash
-    az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" \
+    az containerapp job create \
+        --name "$JOB_NAME" \
+        --resource-group "$RESOURCE_GROUP" \
+        --environment "$ENVIRONMENT" \
         --trigger-type Event \
         --replica-timeout 1800 \
         --replica-retry-limit 0 \
@@ -354,12 +447,17 @@ You can now create a job that uses to use the container image. In this section, 
         --memory "4Gi" \
         --secrets "personal-access-token=$GITHUB_PAT" \
         --env-vars "GITHUB_PAT=secretref:personal-access-token" "GH_URL=https://github.com/$REPO_OWNER/$REPO_NAME" "REGISTRATION_TOKEN_API_URL=https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/runners/registration-token" \
-        --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io"
+        --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io" \
+        --mi-user-assigned "$IDENTITY_ID" \
+        --registry-identity "$IDENTITY_ID"
     ```
 
     # [Azure PowerShell](#tab/azure-powershell)
     ```powershell
-    az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" `
+    az containerapp job create `
+        --name "$JOB_NAME" `
+        --resource-group "$RESOURCE_GROUP" `
+        --environment "$ENVIRONMENT" `
         --trigger-type Event `
         --replica-timeout 1800 `
         --replica-retry-limit 0 `
@@ -377,7 +475,9 @@ You can now create a job that uses to use the container image. In this section, 
         --memory "4Gi" `
         --secrets "personal-access-token=$GITHUB_PAT" `
         --env-vars "GITHUB_PAT=secretref:personal-access-token" "GH_URL=https://github.com/$REPO_OWNER/$REPO_NAME" "REGISTRATION_TOKEN_API_URL=https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/runners/registration-token" `
-        --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io"
+        --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io" `
+        --mi-user-assigned "$IDENTITY_ID" `
+        --registry-identity "$IDENTITY_ID"
     ```
 
     ---
@@ -400,8 +500,10 @@ You can now create a job that uses to use the container image. In this section, 
     | `--secrets` | The secrets to use for the job. |
     | `--env-vars` | The environment variables to use for the job. |
     | `--registry-server` | The container registry server to use for the job. For an Azure Container Registry, the command automatically configures authentication. |
+    | `--mi-user-assigned` | The resource ID of the user-assigned managed identity to assign to the job. |
+    | `--registry-identity` | The resource ID of a managed identity to authenticate with the registry server instead of using a username and password. If possible, an 'acrpull' role assignment is created for the identity automatically. |
 
-    The scale rule configuration defines the event source to monitor. It's evaluated on each polling interval and determines how many job executions to trigger. To learn more, see [Set scaling rules](scale-app.md).
+    The scale rule configuration defines the event source to monitor. Rules are evaluated on each polling interval to determine how many job executions to trigger. To learn more, see [Set scaling rules](scale-app.md).
 
 The event-driven job is now created in the Container Apps environment. 
 
@@ -539,6 +641,7 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     AZP_TOKEN="<AZP_TOKEN>"
     ORGANIZATION_URL="<ORGANIZATION_URL>"
     AZP_POOL="container-apps"
+    REGISTRATION_TOKEN_API_URL="<YOUR_REGISTRATION_TOKEN_API_URL>"
     ```
 
     # [Azure PowerShell](#tab/azure-powershell)
@@ -546,6 +649,7 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     $AZP_TOKEN="<AZP_TOKEN>"
     $ORGANIZATION_URL="<ORGANIZATION_URL>"
     $AZP_POOL="container-apps"
+    $REGISTRATION_TOKEN_API_URL="<YOUR_REGISTRATION_TOKEN_API_URL>"
     ```
 
     ---
@@ -556,6 +660,7 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     |---|---|---|
     | `<AZP_TOKEN>` | The Azure DevOps PAT you generated. | |
     | `<ORGANIZATION_URL>` | The URL of your Azure DevOps organization. Make sure no trailing `/` is present at the end of the URL. | For example, `https://dev.azure.com/myorg` or `https://myorg.visualstudio.com`. |
+    | `<YOUR_REGISTRATION_TOKEN_API_URL>` | The registration token API URL in the *entrypoint.sh* file. | For example, 'https://myapi.example.com/get-token' |
 
 ## Build the Azure Pipelines agent container image
 
@@ -808,13 +913,13 @@ The following table describes the scale rule parameters used in the command.
 | `--scale-rule-metadata` | The metadata for the scale rule. |
 | `--scale-rule-auth` | The authentication for the scale rule. |
 
-The scale rule configuration defines the event source to monitor. It's evaluated on each polling interval and determines how many job executions to trigger. To learn more, see [Set scaling rules](scale-app.md).
+The scale rule configuration defines the event source to monitor. Rules are evaluated on each polling interval to determine how many job executions to trigger. To learn more, see [Set scaling rules](scale-app.md).
 
 The event-driven job is now created in the Container Apps environment. 
 
 ## Run a pipeline and verify the job
 
-Now that you've configured a self-hosted agent job, you can run a pipeline and verify it's working correctly.
+Once a self-hosted agent job is configured, you can run a pipeline and verify it's working correctly.
 
 1. In the left-hand navigation of your Azure DevOps project, navigate to **Pipelines**.
 

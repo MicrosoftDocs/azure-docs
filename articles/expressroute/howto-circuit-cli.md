@@ -160,7 +160,7 @@ Your service key is listed in the *ServiceKey* field of the response.
 "circuitProvisioningState": "Enabled",
 "etag": "W/\"1262c492-ffef-4a63-95a8-a6002736b8c4\"",
 "gatewayManagerEtag": null,
-"id": "/subscriptions/81ab786c-56eb-4a4d-bb5f-f60329772466/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
+"id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
 "location": "westus",
 "name": "MyCircuit",
 "peerings": [],
@@ -230,7 +230,7 @@ The response is similar to the following example:
 "circuitProvisioningState": "Enabled",
 "etag": "W/\"1262c492-ffef-4a63-95a8-a6002736b8c4\"",
 "gatewayManagerEtag": null,
-"id": "/subscriptions/81ab786c-56eb-4a4d-bb5f-f60329772466/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
+"id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
 "location": "westus",
 "name": "MyCircuit",
 "peerings": [],
@@ -339,7 +339,7 @@ Review the instructions in [Move ExpressRoute circuits from the classic to the R
 
 To deprovision and delete an ExpressRoute circuit, make sure you understand the following criteria:
 
-* All virtual networks must be unlinked from the ExpressRoute circuit. If this operation fails, check to see if any virtual networks are linked to the circuit.
+* All virtual networks, route filters, authorizations, and global reach associations must be unlinked from the ExpressRoute circuit. If this operation fails, check to see if any virtual networks are linked to the circuit.
 * If the ExpressRoute circuit service provider provisioning state is **Provisioning** or **Provisioned** you must work with your service provider to deprovision the circuit on their side. We continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
 * If the service provider has deprovisioned the circuit meaning the service provider provisioning state gets set to **Not provisioned**, you can delete the circuit. The billing for the circuit stop.
 

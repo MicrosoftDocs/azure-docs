@@ -3,7 +3,7 @@ title: Release notes for Microsoft Azure Data Manager for Energy
 description: This article provides release notes of Azure Data Manager for Energy releases, improvements, bug fixes, and known issues.
 author: nitinnms
 ms.author: nitindwivedi
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: conceptual
 ms.date: 09/20/2022
 ms.custom: template-concept

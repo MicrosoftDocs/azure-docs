@@ -1,12 +1,12 @@
 ---
 title: Discover SQL Server instances in an existing Azure Migrate project
 description: Learn how to discover SQL Server instances in an existing Azure Migrate project. 
-author: v-sreedevank
-ms.author: v-sreedevank
+author: SnehaSudhirG
+ms.author: sudhirsneha 
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 09/27/2023
-ms.custom: engagement-fy23
+ms.date: 10/14/2024
+ms.custom: engagement-fy25
 ---
 
 # Discover web apps and SQL Server instances in an existing project
@@ -56,9 +56,13 @@ This discovery process is agentless that is, nothing is installed on the target 
     - Web apps discovery works with both domain and non-domain Windows OS credentials as long as the account used has local admin privileges on servers.
     You can leverage the automatic credential-mapping feature of the appliance, as highlighted [here](./tutorial-discover-vmware.md#start-continuous-discovery).
 
-    Some points to note:
-    - Ensure that software inventory is enabled already, or provide Domain or Non-domain credentials to enable the same. Software inventory must be performed to discover SQL Server instances and web apps.
-    - The appliance attempts to validate the domain credentials with AD, as they're added. Ensure that appliance server has network line of sight to the AD server associated with the credentials. Non-domain credentials and credentials associated with SQL Server Authentication aren't validated.
+> [!Note]
+> For WebApp discovery, you might need to add credentials in DLL format (`netbiosdomain\user`) so that the discovery can complete successfully.
+
+Some points to note:
+
+- Ensure that software inventory is enabled already, or provide Domain or Non-domain credentials to enable the same. Software inventory must be performed to discover SQL Server instances and web apps.
+- The appliance attempts to validate the domain credentials with AD, as they're added. Ensure that appliance server has network line of sight to the AD server associated with the credentials. Non-domain credentials and credentials associated with SQL Server Authentication aren't validated.
 
 3. Once the desired credentials are added, select Start Discovery, to begin the scan.
 

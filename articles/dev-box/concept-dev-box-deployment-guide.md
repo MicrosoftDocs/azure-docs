@@ -57,7 +57,7 @@ The following table lists requirements that could influence your Microsoft Dev B
 |-|-|-|
 | Development team setup    | Geographically distributed teams. | The Azure region of the [network connection of a dev box pool determines where the dev boxes are hosted](./concept-dev-box-architecture.md#network-connectivity). To optimize latency between the developer's machine and their dev box, host a dev box nearest the location of the dev box user. If you have multiple, geo-distributed teams, you can create multiple network connections and associated dev box pools to accommodate each region.  |
 |                           | Multiple project with different team leads and permissions. | Permissions for development projects are controlled at the level of the project within a dev center. Consider creating a new project when you require separation of control across different development teams.  |
-| Dev box configuration     | Different teams have different software requirements for their dev box. | Create one or more dev box definitions to represent different operating system/software/hardware requirements across your organization. A dev box definition uses a particular VM image, which can be purpose-built. For example, create a dev box definition for data scientists, which has data science tooling, and has GPU resources. Dev box definitions are shared across a dev center. When you create a dev box pool within a project, you can then select from the list of dev box definitions. |
+| Dev box configuration     | Different teams have different software requirements for their dev box. | Create one or more dev box definitions to represent different operating system/software/hardware requirements across your organization. A dev box definition uses a particular VM image, which can be purpose-built. For example, create a dev box definition for data scientists which has data science tooling, and other resources. Dev box definitions are shared across a dev center. When you create a dev box pool within a project, you can then select from the list of dev box definitions. |
 |                           | Multiple compute/resource configurations. | Dev box definitions combine both the VM image and the compute resources that are used for a dev box. Create one or more dev box definitions based on the compute resource requirements across your projects. When you create a dev box pool within a project, you can then select from the list of dev box definitions. |
 |                           | Developers can customize their dev box. | For per-developer customization, for example to configure source control repositories or developer tool settings, you can [enable customizations for dev boxes](./how-to-customize-dev-box-setup-tasks.md). |
 |                           | Standardize on organization-specific VM images. | When you configure a dev center, you can specify one or more Azure compute galleries, which contain VM images that are specific to your organization. With a compute gallery, you can ensure that only approved VM images are used for creating dev boxes. |
@@ -194,14 +194,14 @@ Learn how to [create dev box customizations](./how-to-customize-dev-box-setup-ta
 
 ### Step 8: Create dev box definitions
 
-A dev box definition contains the configuration of a dev box by specifying the VM image, compute resources, such as memory and CPUs/GPUs, and storage.
+A dev box definition contains the configuration of a dev box by specifying the VM image, compute resources, such as memory and CPUs, and storage.
 
 You configure dev box definitions at the level of a dev center. All dev center projects share the dev box definitions in the dev center.
 
 Consider creating one or more dev box definitions in the following cases:
 
 - Development teams require different VM images because they need another operating system version or other applications.
-- Development teams have different compute resource requirements. For example, data science teams might need a dev box with GPUs, and database administrators might need a machine with lots of storage and memory.
+- Development teams have different compute resource requirements. For example, database administrators might need a machine with lots of storage and memory.
 
 Consider the cost of the compute resources associated with a dev box definition to assess to total cost of your deployment.
 

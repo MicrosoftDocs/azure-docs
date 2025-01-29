@@ -14,6 +14,8 @@ ms.date: 06/09/2022
 
 As illustrated by the above workflow graph, and also detailed workflow described in [internals](./concept-service-internals.md), your app server can send messages to clients or to manage the connected clients using REST APIs exposed by Web PubSub service. This article describes the REST APIs in detail.
 
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
+
 ## Using REST API
 
 ### Authenticate via Azure Web PubSub Service AccessKey
@@ -38,6 +40,8 @@ Below claims are required to be included in the JWT token.
 | `exp`      | true        | Epoch time when this token will be expired.                                                                                                                                                 |
 
 A pseudo code in JS:
+
+[!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
 
 ```js
 const bearerToken = jwt.sign({}, connectionString.accessKey, {

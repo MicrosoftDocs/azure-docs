@@ -117,13 +117,9 @@ For more information on configuring floating IP in the virtual machine configura
 
 5. In **Networking**, select the name of the network interface next to **Network interface**. The network interface begins with the name of the VM and has a random number assigned. In this example, **myVM1266**.
 
-    :::image type="content" source="./media/load-balancer-multiple-ip/myvm1-nic.png" alt-text="Screenshot of myVM1 networking configuration in Azure portal.":::
-
 6. In the network interface page, select **IP configurations** in **Settings**.
 
 7. In **IP configurations**, select **ipconfig1**.
-
-    :::image type="content" source="./media/load-balancer-multiple-ip/myvm1-ipconfig1.png" alt-text="Screenshot of myVM1 network interface configuration.":::
 
 8. Select **Static** in **Assignment** in the **ipconfig1** configuration.
 
@@ -134,8 +130,6 @@ For more information on configuring floating IP in the virtual machine configura
 11. Select **Networking** in **Settings**.
 
 12. In the **Networking** page, select **Attach network interface**.
-
-    :::image type="content" source="./media/load-balancer-multiple-ip/myvm1-attach-nic.png" alt-text="Screenshot of myVM1 attach network interface.":::
 
 13. In **Attach network interface**, select **Create and attach network interface**.
 
@@ -429,7 +423,7 @@ During the creation of the load balancer, you configure:
     >
     > For more information on IP prefixes, see [Azure Public IP address prefix](../virtual-network/ip-services/public-ip-address-prefix.md).
     >
-    > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear.</br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
+    > In regions with [Availability Zones](../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear.</br> For more information on availability zones, see [Availability zones overview](../reliability/availability-zones-overview.md).
 
 7. Select **Add**.
 

@@ -6,7 +6,10 @@ ms.author: cwatson
 ms.topic: overview
 ms.service: microsoft-sentinel
 ms.date: 05/13/2024
-#customer intent: As a business decision maker, I want to understand what Microsoft Sentinel offers to determine whether the service meets my organization's requirements.
+
+
+#CustomerIntent: As a business decision maker, I want to understand what Microsoft Sentinel offers so that I can determine whether the service meets my organization's requirements.
+
 ---
 
 # What is Microsoft Sentinel?

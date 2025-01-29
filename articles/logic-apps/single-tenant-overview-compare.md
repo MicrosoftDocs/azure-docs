@@ -1,11 +1,12 @@
 ---
 title: Differences between Standard and Consumption logic apps
 description: Learn the differences between Standard workflows (single-tenant) and Consumption workflows (multitenant) in Azure Logic Apps.
-services: azure-logic-apps
+services: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 09/12/2024
+ms.date: 12/18/2024
 ---
 
 # Differences between Standard single-tenant logic apps versus Consumption multitenant logic apps
@@ -198,7 +199,7 @@ The following table identifies the child workflow's behavior based on whether th
 
 The single-tenant model and **Standard** logic app include many current and new capabilities, for example:
 
-* Create logic apps and their workflows from [hundreds of managed connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
+* Create logic apps and their workflows from [1,400+ managed connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
 
   * More managed connectors are now available as built-in connectors in Standard workflows. The built-in versions run natively on the single-tenant Azure Logic Apps runtime. Some built-in connectors are also informally known as [*service provider* connectors](../connectors/built-in.md#service-provider-interface-implementation). For a list, review [Built-in connectors in Consumption and Standard](../connectors/built-in.md#built-in-connectors).
 
@@ -206,18 +207,19 @@ The single-tenant model and **Standard** logic app include many current and new 
 
   * You can use the following actions for Liquid Operations and XML Operations without an integration account. These operations include the following actions:
 
-    * XML: **Transform XML** and **XML Validation**
+    * XML: **Transform XML**, **XML Validation**, **XML compose with schema**, and **XML parse with schema**
 
     * Liquid: **Transform JSON To JSON**, **Transform JSON To TEXT**, **Transform XML To JSON**, and **Transform XML To Text**
 
     > [!NOTE]
+    >
     > To use these actions in Standard workflows, you need to have Liquid maps, XML maps, or XML schemas. 
     > You can upload these artifacts in the Azure portal from your logic app's resource menu, under **Artifacts**, 
     > which includes the **Schemas** and **Maps** sections. Or, you can add these artifacts to your Visual Studio Code 
     > project's **Artifacts** folder using the respective **Maps** and **Schemas** folders. You can then use these 
     > artifacts across multiple workflows within the *same* logic app.
 
-  * **Standard** logic app workflows can run anywhere because Azure Logic Apps generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. Azure Logic Apps saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy in Azure.
+  * **Standard** logic app workflows can trigger from anywhere because Azure Logic Apps generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. Azure Logic Apps saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy in Azure.
 
   * **Standard** logic app workflows support enabling both the [system-assigned managed identity *and* multiple user-assigned managed identities](create-managed-service-identity.md) at the same time, although you can select only one identity to use at a time. While [built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/) support using the system-assigned identity, most currently don't support selecting user-assigned managed identities for authentication, except for SQL Server and the HTTP connectors.
 
@@ -265,9 +267,9 @@ In single-tenant Azure Logic Apps, [built-in connectors with specific attributes
 
 ## Changed, limited, unavailable, or unsupported capabilities
 
-For the **Standard** logic app workflow, these capabilities have changed, or they're currently limited, unavailable, or unsupported:
+For the **Standard** logic app workflow, the following capabilities are different, currently limited, unavailable, or unsupported:
 
-* **Triggers and actions**: [Built-in triggers and actions](../connectors/built-in.md) run natively in Azure Logic Apps, while managed connectors are hosted and run using shared resources in Azure. For Standard workflows, some built-in triggers and actions are currently unavailable, such as Sliding Window, Azure App Service, and Azure API Management. To start a stateful or stateless workflow, use a built-in trigger such as the Request, Event Hubs, or Service Bus trigger. The Recurrence trigger is available for stateful workflows, but not stateless workflows. In the designer, built-in triggers and actions appear with the **In-App** label, while [managed connector triggers and actions](../connectors/managed.md) appear with the **Shared** label.
+* **Triggers and actions**: [Built-in triggers and actions](../connectors/built-in.md) run natively in Azure Logic Apps, while managed connectors are hosted and run using shared resources in Azure. For Standard workflows, some built-in triggers and actions are currently unavailable, such as Sliding Window and Azure App Service operations. To start a stateful or stateless workflow, use a built-in trigger such as the Request, Event Hubs, or Service Bus trigger. The Recurrence trigger is available for stateful workflows, but not stateless workflows. In the designer, built-in triggers and actions appear with the **In-app** label, while [managed connector triggers and actions](../connectors/managed.md) appear with the **Shared** label.
 
   Stateless workflows can use only [*push* triggers](../connectors/introduction.md#triggers) where you don't specify a schedule for running for your workflow. These webhook-based triggers wait for an event to happen or data to become available. For example, the Recurrence trigger is available only for stateful workflows. To start your workflow, select a push trigger such as the Request, Event Hubs, or Service Bus trigger. Although you can enable managed connectors for stateless workflows, the connector gallery doesn't show any managed connector [*polling* triggers](../connectors/introduction.md#triggers) for you to add.
 
@@ -294,32 +296,22 @@ For the **Standard** logic app workflow, these capabilities have changed, or the
     * The built-in action, [Inline Code](logic-apps-add-run-inline-code.md), is renamed **Inline Code Operations**, no longer requires an integration account, and has [updated limits](logic-apps-limits-and-config.md).
 
     * The built-in action, [Azure Logic Apps - Choose a Logic App workflow](logic-apps-http-endpoint.md) is now **Workflow Operations - Invoke a workflow in this workflow app**.
-
-    * The Gmail connector currently isn't supported.
-  
+ 
     * [Custom managed connectors](../connectors/introduction.md#custom-connectors-and-apis) currently aren't currently supported. However, you can create *custom built-in operations* when you use Visual Studio Code. For more information, review [Create single-tenant based workflows using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
 
-    * A Standard logic app workflow can have only one trigger and doesn't support multiple triggers.
+    * A Standard workflow can have only one trigger and doesn't support multiple triggers.
 
-* **Authentication**: The following authentication types are currently unavailable for **Standard** workflows:
+* **Authentication**
 
-  * Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth) for inbound calls to request-based triggers, such as the Request trigger and HTTP Webhook trigger.
+  * Some request-based triggers that handle inbound calls, such as the Request trigger, currently don't support Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth), while others such as the HTTP Webhook trigger have this support.
 
-  * Managed identity authentication: Both system-assigned and user-assigned managed identity support is available. By default, the system-assigned managed identity is automatically enabled. However, most [built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/) don't currently support selecting user-assigned managed identities for authentication.
-
-* **XML transformation**: Only XSLT 1.0 is currently supported.
+  * Some [built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/) currently don't support selecting the user-assigned managed identity for authentication. However, both system-assigned and user-assigned managed identity support are available in general. By default, the system-assigned managed identity is automatically enabled.
 
 * **Breakpoint debugging in Visual Studio Code**: Although you can add and use breakpoints inside the **workflow.json** file for a workflow, breakpoints are supported only for actions at this time, not triggers. For more information, see [Create single-tenant based workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#manage-breakpoints).
 
-* **Trigger history and run history**: For a **Standard** logic app, trigger history and run history in the Azure portal appears at the workflow level, not the logic app resource level. For more information, review [Create single-tenant based workflows using the Azure portal](create-single-tenant-workflows-azure-portal.md).
-
-* **Backup and restore for workflow run history**: **Standard** logic apps currently don't support backup and restore for workflow run history.
+* **Trigger history and run history**: For a **Standard** logic app workflow, trigger history and run history in the Azure portal appears at the workflow level, not the logic app resource level. For more information, review [Create single-tenant based workflows using the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
 * **Terraform templates**: You can't use these templates with a **Standard** logic app resource for complete infrastructure deployment. For more information, see [What is Terraform on Azure](/azure/developer/terraform/overview)?
-
-* **Azure API Management**: You currently can't import a **Standard** logic app resource into Azure API Management. However, you can import a **Consumption** logic app resource.
-
-* **Authentication to backend storage**: Single-tenant Azure Logic Apps relies only on storage access keys to connect with the backend Azure Storage account. Alternative authentication methods, such as Microsoft Entra ID (Enterprise ID) and managed identity, currently aren't supported. So, when you deploy an Azure storage account alongside a **Standard** logic app, make sure that you enable storage access keys.
 
 <a name="firewall-permissions"></a>
 

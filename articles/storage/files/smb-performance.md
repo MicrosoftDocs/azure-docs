@@ -4,7 +4,7 @@ description: Learn about ways to improve performance and throughput for premium 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 10/03/2024
+ms.date: 01/22/2025
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -41,26 +41,7 @@ Higher I/O sizes drive higher throughput and will have higher latencies, resulti
 
 ## SMB Multichannel
 
-SMB Multichannel enables an SMB 3.x client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on premium file shares (file shares in the FileStorage storage account kind) for Windows clients. On the service side, SMB Multichannel is disabled by default in Azure Files, but there's no additional cost for enabling it.
-
-Beginning in July 2024, SMB Multichannel will be enabled by default for all newly created Azure storage accounts in the following regions:
-
-- Australia Central
-- Brazil Southeast
-- Canada East
-- France South
-- East Asia
-- Southeast Asia
-- Central India (Jio)
-- West India (Jio)
-- West India
-- Japan East
-- Japan West
-- Korea South
-- North Europe
-- West Europe
-- Norway West
-- UK South
+SMB Multichannel enables an SMB client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on premium file shares for Windows clients. On the service side, SMB Multichannel is now enabled by default for all newly created storage accounts in all Azure regions. There's no additional cost for enabling SMB Multichannel.
 
 ### Benefits
 
@@ -86,8 +67,7 @@ This feature provides greater performance benefits to multi-threaded application
 SMB Multichannel for Azure file shares currently has the following restrictions:
 
 - Only available for premium Azure file shares. Not available for standard Azure file shares.
-- Only supported on Windows clients that are using SMB 3.1.1. Ensure SMB client operating systems are patched to recommended levels.
-- Not currently supported or recommended for Linux clients.
+- Only supported on clients that are using SMB 3.1.1. Ensure SMB client operating systems are patched to recommended levels.
 - Maximum number of channels is four, for details see [here](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json#cause-4-number-of-smb-channels-exceeds-four).
 
 ### Configuration
@@ -183,7 +163,8 @@ This preview feature improves the following metadata APIs and can be used from b
 Currently this preview feature is only available for premium SMB file shares (file shares in the FileStorage storage account kind). There are no additional costs associated with using this feature.
 
 ### Register for the feature
-To get started, register for the feature using Azure portal or PowerShell.
+
+To get started, register for the feature using the Azure portal or Azure PowerShell.
 
 # [Azure portal](#tab/portal)
 
@@ -202,24 +183,12 @@ Register-AzProviderFeature -FeatureName AzurePremiumFilesMetadataCacheFeature -P
 ```
 ---
 
+> [!IMPORTANT]
+> Allow 1-2 days for accounts to be onboarded once registration is complete.
+
 ### Regional availability
 
-Currently the metadata caching preview is only available in the following Azure regions. To request additional region support, [sign up for the public preview](https://aka.ms/PremiumFilesMetadataCachingPreview).
-
-- Australia Central
-- Jio India West
-- India South
-- Mexico Central
-- Norway East
-- Poland Central
-- Spain Central
-- Sweden Central
-- Switzerland North
-- UAE North
-- US West 3
-
-> [!TIP]
-> As we extend region support for the Metadata Cache feature, premium file storage accounts in those regions will be automatically onboarded for all subscriptions registered with the Metadata Caching feature.
+Metadata caching preview is supported in all regions.
 
 ### Performance improvements with metadata caching
 

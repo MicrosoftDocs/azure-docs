@@ -228,11 +228,11 @@ Test the new functionality of the function by putting a [Blob storage event](./e
   "subject": "/blobServices/default/containers/testcontainer/blobs/testfile.txt",
   "eventType": "Microsoft.Storage.BlobCreated",
   "eventTime": "2017-06-26T18:41:00.9584103Z",
-  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "id": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
   "data": {
     "api": "PutBlockList",
-    "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
-    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
+    "clientRequestId": "bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f",
+    "requestId": "cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a",
     "eTag": "0x8D4BCC2E4835CD0",
     "contentType": "text/plain",
     "contentLength": 524288,
@@ -240,7 +240,7 @@ Test the new functionality of the function by putting a [Blob storage event](./e
     "url": "https://example.blob.core.windows.net/testcontainer/testfile.txt",
     "sequencer": "00000000000004420000000000028963",
     "storageDiagnostics": {
-      "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+      "batchId": "dddd3d3d-ee4e-ff5f-aa6a-bbbbbb7b7b7b"
     }
   },
   "dataVersion": "",
@@ -253,7 +253,7 @@ You should see the blob URL output in the function log:
 ```
 2022-11-14T22:40:45.978 [Information] Executing 'Function1' (Reason='This function was programmatically called via the host APIs.', Id=8429137d-9245-438c-8206-f9e85ef5dd61)
 2022-11-14T22:40:46.012 [Information] C# HTTP trigger function processed a request.
-2022-11-14T22:40:46.017 [Information] Received events: [{"topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/xstoretestaccount","subject": "/blobServices/default/containers/testcontainer/blobs/testfile.txt","eventType": "Microsoft.Storage.BlobCreated","eventTime": "2017-06-26T18:41:00.9584103Z","id": "831e1650-001e-001b-66ab-eeb76e069631","data": {"api": "PutBlockList","clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760","requestId": "831e1650-001e-001b-66ab-eeb76e000000","eTag": "0x8D4BCC2E4835CD0","contentType": "text/plain","contentLength": 524288,"blobType": "BlockBlob","url": "https://example.blob.core.windows.net/testcontainer/testfile.txt","sequencer": "00000000000004420000000000028963","storageDiagnostics": {"batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"}},"dataVersion": "","metadataVersion": "1"}]
+2022-11-14T22:40:46.017 [Information] Received events: [{"topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/xstoretestaccount","subject": "/blobServices/default/containers/testcontainer/blobs/testfile.txt","eventType": "Microsoft.Storage.BlobCreated","eventTime": "2017-06-26T18:41:00.9584103Z","id": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e","data": {"api": "PutBlockList","clientRequestId": "bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f","requestId": "cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a","eTag": "0x8D4BCC2E4835CD0","contentType": "text/plain","contentLength": 524288,"blobType": "BlockBlob","url": "https://example.blob.core.windows.net/testcontainer/testfile.txt","sequencer": "00000000000004420000000000028963","storageDiagnostics": {"batchId": "dddd3d3d-ee4e-ff5f-aa6a-bbbbbb7b7b7b"}},"dataVersion": "","metadataVersion": "1"}]
 2022-11-14T22:40:46.335 [Information] Got BlobCreated event data, blob URI https://example.blob.core.windows.net/testcontainer/testfile.txt
 2022-11-14T22:40:46.346 [Information] Executed 'Function1' (Succeeded, Id=8429137d-9245-438c-8206-f9e85ef5dd61, Duration=387ms)
 ```

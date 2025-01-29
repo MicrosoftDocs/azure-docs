@@ -97,10 +97,10 @@ echo "Press [ENTER] to continue ..."
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-$resouceGroupName = Read-Host -Prompt "Enter the resource group name"
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
 $vaultName = Read-Host -Prompt "Enter the vault name"
 $vaultBackupConfig = Get-AzRecoveryServicesVault -Name $vaultName
-Get-AzRecoveryServicesVault -ResourceGroupName $resouceGroupName -Name $vaultName
+Get-AzRecoveryServicesVault -ResourceGroupName $resourceGroupName -Name $vaultName
 Get-AzRecoveryServicesBackupProperty -Vault $vaultBackupConfig
 Write-Host "Press [ENTER] to continue..."
 ```
@@ -157,8 +157,8 @@ echo "Press [ENTER] to continue ..."
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-$resouceGroupName = Read-Host -Prompt "Enter the resource group name"
-Remove-AzResourceGroup -Name $resouceGroupName
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
+Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
 

@@ -5,7 +5,7 @@ author: marielgherz
 ms.author: marielherzog
 ms.topic: overview
 ms.date: 09/01/2022
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.custom: template-overview, references_regions  
 ---
 

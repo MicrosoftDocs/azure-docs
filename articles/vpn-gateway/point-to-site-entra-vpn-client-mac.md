@@ -4,7 +4,7 @@ description: Learn how to configure macOS client computers to connect to Azure u
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 10/07/2024
+ms.date: 10/15/2024
 ms.author: cherylmc
 ---
 
@@ -41,6 +41,12 @@ If you used the P2S server configuration steps as mentioned in the [Prerequisite
 When you generate and download a VPN client profile configuration package, all the necessary configuration settings for VPN clients are contained in a VPN client profile configuration zip file. The VPN client profile configuration files are specific to the P2S VPN gateway configuration for the virtual network. If there are any changes to the P2S VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client profile configuration files and apply the new configuration to all of the VPN clients that you want to connect.
 
 Locate and unzip the VPN client profile configuration package you generated and downloaded (listed in the [Prerequisites](#prerequisites)). Open the **AzureVPN** folder. In this folder, you'll see either the **azurevpnconfig_aad.xml** file or the **azurevpnconfig.xml** file, depending on whether your P2S configuration includes multiple authentication types. The .xml file contains the settings you use to configure the VPN client profile.
+
+## <a name="modify"></a>Modify profile configuration files
+
+If your P2S configuration uses a custom audience with your Microsoft-registered App ID, you might receive popups each time you connect that require you to enter your credentials again and complete authentication. Retrying authentication usually resolves the issue. This happens because the VPN client profile needs both the custom audience ID and the Microsoft application ID. To prevent this, modify your profile configuration .xml file to include both the custom application ID and the Microsoft application ID.
+
+[!INCLUDE [custom audience steps](../../includes/vpn-gateway-entra-vpn-client-custom.md)]
 
 ## Import VPN client profile configuration files
 

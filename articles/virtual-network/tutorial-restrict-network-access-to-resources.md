@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Restrict access to PaaS resources with service endpoints - Azure portal'
-description: In this tutorial, you learn how to limit and restrict network access to Azure resources, such as an Azure Storage, with virtual network service endpoints using the Azure portal.
+title: 'Tutorial: Restrict access to PaaS resources with service endpoints'
+description: In this tutorial, you learn how to limit and restrict network access to Azure resources, such as an Azure Storage, with virtual network service endpoints.
 author: asudbring
 ms.author: allensu
 ms.service: azure-virtual-network
@@ -17,7 +17,7 @@ ai-usage: ai-assisted
 # Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ---
 
-# Tutorial: Restrict network access to PaaS resources with virtual network service endpoints using the Azure portal
+# Tutorial: Restrict network access to PaaS resources with virtual network service endpoints
 
 Virtual network service endpoints enable you to limit network access to some Azure service resources to a virtual network subnet. You can also remove internet access to the resources. Service endpoints provide direct connection from your virtual network to supported Azure services, allowing you to use your virtual network's private address space to access the Azure services. Traffic destined to Azure resources through service endpoints always stays on the Microsoft Azure backbone network.
 

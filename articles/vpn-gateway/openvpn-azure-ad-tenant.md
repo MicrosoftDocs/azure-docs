@@ -16,7 +16,10 @@ ms.author: cherylmc
 
 This article helps you configure a point-to-site (P2S) VPN gateway for Microsoft Entra ID authentication and manually register the Azure VPN client. This type of configuration is supported only for OpenVPN protocol connections.
 
-You can also create this type of P2S VPN Gateway configuration using the steps for the new [Microsoft-registered VPN Client app](point-to-site-entra-gateway.md). Using the newer version bypasses the steps to register the Azure VPN Client with your Microsoft Entra tenant. It also supports more client operating systems. However, it might not yet support certain audience values. For more information about point-to-site protocols and authentication, see [About VPN Gateway point-to-site VPN](point-to-site-about.md).
+You can also create this type of P2S VPN Gateway configuration using the steps for the new [Microsoft-registered VPN Client app](point-to-site-entra-gateway.md). Using the newer version bypasses the steps to register the Azure VPN Client with your Microsoft Entra tenant. It also supports more client operating systems. However, not all audience values are supported. For more information about point-to-site protocols and authentication, see [About VPN Gateway point-to-site VPN](point-to-site-about.md). For information about creating and modifying custom audiences, see [Create or modify a custom audience](point-to-site-entra-register-custom-app.md).
+
+> [!NOTE]
+> When possible, we recommend that you use the new [Microsoft-registered VPN Client app](point-to-site-entra-gateway.md) instructions instead.
 
 ## Prerequisites
 
@@ -50,7 +53,7 @@ If you already have an existing P2S gateway, the steps in this article help you 
 
 1. Locate the tenant ID of the directory that you want to use for authentication. It's listed in the properties section of the Active Directory page. For help with finding your tenant ID, see [How to find your Microsoft Entra tenant ID](../active-directory/fundamentals/how-to-find-tenant.md).
 
-1. If you don't already have a functioning point-to-site environment, follow the instruction to create one. See [Create a point-to-site VPN](vpn-gateway-howto-point-to-site-resource-manager-portal.md) to create and configure a point-to-site VPN gateway. When you create a VPN gateway, the Basic SKU isn't supported for OpenVPN.
+1. If you don't already have a functioning point-to-site environment, follow the instruction to create one. See [Create a point-to-site VPN](point-to-site-certificate-gateway.md) to create and configure a point-to-site VPN gateway. When you create a VPN gateway, the Basic SKU isn't supported for OpenVPN.
 
 1. Go to the virtual network gateway. In the left pane, click **Point-to-site configuration**.
 

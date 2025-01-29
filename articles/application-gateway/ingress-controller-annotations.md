@@ -4,7 +4,7 @@ description: This article provides documentation on the annotations that are spe
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 9/17/2024
 ms.author: greglin
 ---
@@ -477,7 +477,7 @@ Use the following annotation to attach an existing web application firewall (WAF
 ### Usage
 
 ```yaml
-appgw.ingress.kubernetes.io/waf-policy-for-path: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SampleRG/providers/Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/AGICWAFPolcy"
+appgw.ingress.kubernetes.io/waf-policy-for-path: "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/SampleRG/providers/Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/AGICWAFPolcy"
 
 ```
 

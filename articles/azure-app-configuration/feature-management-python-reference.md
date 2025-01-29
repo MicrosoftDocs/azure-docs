@@ -9,23 +9,11 @@ ms.service: azure-app-configuration
 ms.devlang: python
 ms.custom: devx-track-python
 ms.topic: tutorial
-ms.date: 09/10/2024
-zone_pivot_groups: feature-management
+ms.date: 11/15/2024
 #Customer intent: I want to control feature availability in my app by using the Feature Management library.
 ---
 
 # Python feature management
-
-:::zone target="docs" pivot="stable-version"
-
-[![Feature Management](https://img.shields.io/pypi/v/FeatureManagement?color=blue)](https://pypi.org/project/FeatureManagement/)<br>
-:::zone-end
-
-:::zone target="docs" pivot="preview-version"
-
-[![Feature Management](https://img.shields.io/pypi/v/FeatureManagement/2.0.0b1?color=blue)](https://pypi.org/project/FeatureManagement/2.0.0b1/)<br>
-
-:::zone-end
 
 Python feature management library provides a way to develop and expose application functionality based on feature flags. Once a new feature is developed, many applications have special requirements, such as when the feature should be enabled and under what conditions. This library provides a way to define these relationships, and also integrates into common Python code patterns to make exposing these features possible.
 
@@ -54,7 +42,7 @@ As an example, a Microsoft Edge browser feature filter could be designed. This f
 
 ### Feature flag configuration
 
-A Python dictionary is used to define feature flags. The dictionary is composed of feature names as keys and feature flag objects as values. The feature flag object is a dictionary that contains an `EnabledFor` key. The `EnabledFor` key is a list of feature filters that are used to determine if the feature should be enabled.
+A Python dictionary is used to define feature flags. The dictionary is composed of feature names as keys and feature flag objects as values. The feature flag object is a dictionary that contains a `conditions` key, which itself contains the `client_filters` key. The `client_filters` key is a list of feature filters that are used to determine if the feature should be enabled.
 
 ### Feature flag declaration
 
@@ -179,7 +167,7 @@ The `feature_flags` provided to `FeatureManager` can either be the `AzureAppConf
 
 Creating a feature filter provides a way to enable features based on criteria that you define. To implement a feature filter, the `FeatureFilter` interface must be implemented. `FeatureFilter` has a single method named `evaluate`. When a feature specifies that it can be enabled for a feature filter, the `evaluate` method is called. If `evaluate` returns `true`, it means the feature should be enabled.
 
-The following snippet demonstrates how to add a customized feature filter `MyCriteriaFilter`.
+The following snippet demonstrates how to add a customized feature filter `MyCustomFilter`.
 
 ```python
 feature_manager = FeatureManager(feature_flags, feature_filters=[MyCustomFilter()])
@@ -276,14 +264,14 @@ This strategy for rolling out a feature is built in to the library through the i
 
 ### Targeting a user
 
-Either a user can be specified directly in the `is_enabled` call or a `TargetingContxt` can be used to specify the user and optional group.
+Either a user can be specified directly in the `is_enabled` call or a `TargetingContext` can be used to specify the user and optional group.
 
 ```python
 # Directly specifying the user
-feature_manager = FeatureManager(feature_flags, "test_user")
+result = is_enabled(feature_flags, "test_user")
 
 # Using a TargetingContext
-feature_manager = FeatureManager(feature_flags, TargetingContext(user_id="test_user", groups=["Ring1"]))
+result = is_enabled(feature_flags, TargetingContext(user_id="test_user", groups=["Ring1"]))
 ```
 
 ### Targeting exclusion
@@ -312,8 +300,6 @@ When defining an audience, users and groups can be excluded from the audience. E
 ```
 
 In the above example, the feature is enabled for users named `Jeff` and `Alicia`. It's also enabled for users in the group named `Ring0`. However, if the user is named `Mark`, the feature is disabled, regardless of if they are in the group `Ring0` or not. Exclusions take priority over the rest of the targeting filter.
-
-:::zone target="docs" pivot="preview-version"
 
 ## Variants
 
@@ -602,8 +588,6 @@ When a feature flag is evaluated and telemetry is enabled, the feature manager c
 | `Variant` | The assigned variant. |
 | `VariantAssignmentReason` | The reason why the variant is assigned. |
 
-:::zone-end
-
 ## Next steps
 
 To learn how to use feature flags in your applications, continue to the following quickstarts.
@@ -621,8 +605,3 @@ To learn how to use feature filters, continue to the following tutorials.
 
 > [!div class="nextstepaction"]
 > [Roll out features to targeted audiences](./howto-targetingfilter.md)
-
-To learn how to run experiments with variant feature flags, continue to the following tutorial.
-
-> [!div class="nextstepaction"]
-> [Run experiments with variant feature flags](./howto-feature-filters.md)

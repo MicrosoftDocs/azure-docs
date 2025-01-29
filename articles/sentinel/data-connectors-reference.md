@@ -3,13 +3,17 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 08/26/2024
+ms.date: 11/18/2024
 ms.custom: linux-related-content
 ms.author: cwatson
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to find and deploy the appropriate data connectors for Microsoft Sentinel so that I can integrate and monitor various security data sources effectively.
+
 ---
 
 # Find your Microsoft Sentinel data connector
@@ -33,6 +37,8 @@ Data connectors are available as part of the following offerings:
 ## Data connector prerequisites
 
 [!INCLUDE [data-connector-prereq](includes/data-connector-prereq.md)]
+
+Azure Monitor agent (AMA) based data connectors require an internet connection from the system where the agent is installed. Enable port 443 outbound to allow a connection between the system where the agent is installed and Microsoft Sentinel.
 
 ## Syslog and Common Event Format (CEF) connectors
 
@@ -100,6 +106,7 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Armis Activities (using Azure Functions)](data-connectors/armis-activities.md)
 - [Armis Alerts (using Azure Functions)](data-connectors/armis-alerts.md)
+- [Armis Alerts Activities (using Azure Functions)](data-connectors/armis-alerts-activities.md)
 - [Armis Devices (using Azure Functions)](data-connectors/armis-devices.md)
 
 ## Armorblox
@@ -167,9 +174,21 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Cohesity (using Azure Functions)](data-connectors/cohesity.md)
 
+## Commvault
+
+- [CommvaultSecurityIQ (using Azure Functions)](data-connectors/commvaultsecurityiq.md)
+
 ## Corelight Inc.
 
 - [Corelight Connector Exporter](data-connectors/corelight-connector-exporter.md)
+
+## Cribl
+
+- [Cribl](data-connectors/cribl.md)
+
+## CTERA Networks Ltd
+
+- [CTERA Syslog](data-connectors/ctera-syslog.md)
 
 ## Crowdstrike
 
@@ -229,6 +248,10 @@ For more information about the codeless connector platform, see [Create a codele
 - [Dynatrace Problems](data-connectors/dynatrace-problems.md)
 - [Dynatrace Runtime Vulnerabilities](data-connectors/dynatrace-runtime-vulnerabilities.md)
 
+## ESET
+
+- [ESET Protect Platform (using Azure Functions)](data-connectors/eset-protect-platform.md)
+
 ## Elastic
 
 - [Elastic Agent (Standalone)](data-connectors/elastic-agent-standalone.md)
@@ -274,6 +297,14 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [GreyNoise Threat Intelligence (using Azure Functions)](data-connectors/greynoise-threat-intelligence.md)
 
+## HYAS Infosec Inc
+
+- [HYAS Protect (using Azure Functions)](data-connectors/hyas-protect.md)
+
+## Illumio, Inc.
+
+- [Illumio SaaS (using Azure Functions)](data-connectors/illumio-saas.md)
+
 ## H.O.L.M. Security Sweden AB
 
 - [Holm Security Asset Data (using Azure Functions)](data-connectors/holm-security-asset-data.md)
@@ -281,6 +312,13 @@ For more information about the codeless connector platform, see [Create a codele
 ## Imperva
 
 - [Imperva Cloud WAF (using Azure Functions)](data-connectors/imperva-cloud-waf.md)
+
+## Infoblox
+
+- [[Recommended] Infoblox Cloud Data Connector via AMA](data-connectors/recommended-infoblox-cloud-data-connector-via-ama.md)
+- [[Recommended] Infoblox SOC Insight Data Connector via AMA](data-connectors/recommended-infoblox-soc-insight-data-connector-via-ama.md)
+- [Infoblox Data Connector via REST API (using Azure Functions)](data-connectors/infoblox-data-connector-via-rest-api.md)
+- [Infoblox SOC Insight Data Connector via REST API](data-connectors/infoblox-soc-insight-data-connector-via-rest-api.md)
 
 ## Infosec Global
 
@@ -344,9 +382,10 @@ For more information about the codeless connector platform, see [Create a codele
 - [Azure Stream Analytics](data-connectors/azure-stream-analytics.md)
 - [Syslog via AMA](data-connectors/syslog-via-ama.md)
 - [Microsoft Defender Threat Intelligence (Preview)](data-connectors/microsoft-defender-threat-intelligence.md)
+- [Premium Microsoft Defender Threat Intelligence (Preview)](data-connectors/premium-microsoft-defender-threat-intelligence.md)
 - [Threat intelligence - TAXII](data-connectors/threat-intelligence-taxii.md)
 - [Threat Intelligence Platforms](data-connectors/threat-intelligence-platforms.md)
-- [Threat Intelligence Upload Indicators API (Preview)](data-connectors/threat-intelligence-upload-indicators-api.md)
+- [Threat Intelligence Upload Indicators API (Preview)](data-connectors/threat-intelligence-upload-api.md)
 - [Microsoft Defender for IoT](data-connectors/microsoft-defender-for-iot.md)
 - [Windows Firewall](data-connectors/windows-firewall.md)
 - [Windows Firewall Events via AMA (Preview)](data-connectors/windows-firewall-events-via-ama.md)
@@ -367,12 +406,20 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Exchange Security Insights Online Collector (using Azure Functions)](data-connectors/exchange-security-insights-online-collector.md)
 - [Exchange Security Insights On-Premises Collector](data-connectors/exchange-security-insights-on-premises-collector.md)
+- [IIS Logs of Microsoft Exchange Servers](data-connectors/iis-logs-of-microsoft-exchange-servers.md)
+- [Microsoft Active-Directory Domain Controllers Security Event Logs](data-connectors/microsoft-active-directory-domain-controllers-security-event-logs.md)
+- [Microsoft Exchange Admin Audit Logs by Event Logs](data-connectors/microsoft-exchange-admin-audit-logs-by-event-logs.md)
+- [Microsoft Exchange HTTP Proxy Logs](data-connectors/microsoft-exchange-http-proxy-logs.md)
 - [Microsoft Exchange Logs and Events](data-connectors/microsoft-exchange-logs-and-events.md)
+- [Microsoft Exchange Message Tracking Logs](data-connectors/microsoft-exchange-message-tracking-logs.md)
 - [Forcepoint DLP](data-connectors/forcepoint-dlp.md)
 - [MISP2Sentinel](data-connectors/misp2sentinel.md)
 
 ## Mimecast North America
 
+- [Mimecast Audit (using Azure Functions)](data-connectors/mimecast-audit.md)
+- [Mimecast Awareness Training (using Azure Functions)](data-connectors/mimecast-awareness-training.md)
+- [Mimecast Cloud Integrated (using Azure Functions)](data-connectors/mimecast-cloud-integrated.md)
 - [Mimecast Audit & Authentication (using Azure Functions)](data-connectors/mimecast-audit-authentication.md)
 - [Mimecast Secure Email Gateway (using Azure Functions)](data-connectors/mimecast-secure-email-gateway.md)
 - [Mimecast Intelligence for Microsoft - Microsoft Sentinel (using Azure Functions)](data-connectors/mimecast-intelligence-for-microsoft-microsoft-sentinel.md)
@@ -419,10 +466,15 @@ For more information about the codeless connector platform, see [Create a codele
 ## Palo Alto Networks
 
 - [Palo Alto Prisma Cloud CSPM (using Azure Functions)](data-connectors/palo-alto-prisma-cloud-cspm.md)
+- [Azure CloudNGFW By Palo Alto Networks](data-connectors/azure-cloudngfw-by-palo-alto-networks.md)
 
 ## Perimeter 81
 
 - [Perimeter 81 Activity Logs](data-connectors/perimeter-81-activity-logs.md)
+
+## Phosphorus Cybersecurity 
+
+- [Phosphorus Devices](data-connectors/phosphorus-devices.md)
 
 ## Prancer Enterprise
 
@@ -437,6 +489,10 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Qualys Vulnerability Management (using Azure Functions)](data-connectors/qualys-vulnerability-management.md)
 - [Qualys VM KnowledgeBase (using Azure Functions)](data-connectors/qualys-vm-knowledgebase.md)
+
+## Radiflow
+
+- [Radiflow iSID via AMA](data-connectors/radiflow-isid-via-ama.md)
 
 ## Rubrik, Inc.
 
@@ -465,6 +521,14 @@ For more information about the codeless connector platform, see [Create a codele
 ## SERAPHIC ALGORITHMS LTD
 
 - [Seraphic Web Security](data-connectors/seraphic-web-security.md)
+
+## Siemens DI Software
+
+- [SINEC Security Guard](data-connectors/sinec-security-guard.md)
+
+## Silverfort Ltd.
+
+- [Silverfort Admin Console](data-connectors/silverfort-admin-console.md)
 
 ## Slack
 
@@ -520,6 +584,10 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [SaaS Security](data-connectors/saas-security.md)
 
+## Varonis
+
+- [Varonis SaaS](data-connectors/varonis-saas.md)
+
 ## Vectra AI, Inc
 
 - [Vectra XDR (using Azure Functions)](data-connectors/vectra-xdr.md)
@@ -540,6 +608,11 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Zero Networks Segment Audit](data-connectors/zero-networks-segment-audit.md)
 - [Zero Networks Segment Audit (Function) (using Azure Functions)](data-connectors/zero-networks-segment-audit.md)
+
+## Zerofox, Inc.
+
+- [ZeroFox CTI (using Azure Functions)](data-connectors/zerofox-cti.md)
+- [ZeroFox Enterprise - Alerts (Polling CCP)](data-connectors/zerofox-enterprise-alerts-polling-ccp.md)
 
 ## Zimperium, Inc.
 

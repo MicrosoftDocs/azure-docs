@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes new features available in Microsoft Defender for IoT, including both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 03/07/2024
+ms.date: 10/14/2024
 ms.custom: enterprise-iot
 ---
 
@@ -17,6 +17,31 @@ Features released earlier than nine months ago are described in the [What's new 
 >
 
 [!INCLUDE [defender-iot-defender-reference](../includes/defender-for-iot-defender-reference.md)]
+
+## On-premises management console retirement
+
+The legacy on-premises management console won't be available for download after **January 1st, 2025**. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
+
+## January 2025
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [Aggregating multiple alerts violations with the same parameters](#aggregating-multiple-alerts-violations-with-the-same-parameters)|
+
+### Aggregating multiple alerts violations with the same parameters
+
+To reduce alert fatigue, multiple versions of the same alert violation and with the same parameters are grouped together and listed in the alerts table as one item. The alert details pane lists each of the identical alert violations in the **Violations** tab and the appropriate remediation actions are listed in the **Take action** tab. For more information, see [aggregating alerts with the same parameters](alerts.md#aggregating-alert-violations).
+
+## December 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [Support Multiple Source Devices in DDoS Attack Alerts](#support-multiple-source-devices-in-ddos-attack-alerts) |
+
+### Support Multiple Source Devices in DDoS Attack Alerts
+
+Alert details now display up to 10 source devices involved in DDoS attack.
+
 
 ## October 2024
 
@@ -244,7 +269,7 @@ The [legacy on-premises management console](legacy-central-management/legacy-air
 
 For more information, see:
 
-- [Transitioning from a legacy on-premises management console](ot-deploy/air-gapped-deploy.md#transitioning-from-a-legacy-on-premises-management-console).
+- [Transitioning from a legacy on-premises management console](ot-deploy/transition-on-premises-management-console-to-cloud.md)
 - [Versioning and support for on-premises software versions](release-notes.md#versioning-and-support-for-on-premises-software-versions)
 
 ### Live statuses for cloud-based sensor updates
@@ -379,9 +404,7 @@ For more information, see [Install and set up your OT sensor](ot-deploy/install-
 
 ### Analyze and fine tune your deployment
 
-After completing the installation and initial setup, analyze the traffic that the sensor detects by default from the sensor settings. On the sensor, select **Sensor settings** > **Basic** > **Deployment** to analyze the current detections. For example:
-
-:::image type="content" source="media/how-to-control-what-traffic-is-monitored/deployment-settings.png" alt-text="Screenshot of the Deployment settings page." lightbox="media/how-to-control-what-traffic-is-monitored/deployment-settings.png":::
+After completing the installation and initial setup, analyze the traffic that the sensor detects by default from the sensor settings. On the sensor, select **Sensor settings** > **Basic** > **Deployment** to analyze the current detections.
 
 You might find that you need to fine tune your deployment, such as changing the sensor's location in the network, or verifying that your monitoring interfaces are connected correctly. Select **Analyze** again after making any changes to see the updated monitoring state. 
 
@@ -1265,8 +1288,6 @@ These features are now Generally Available (GA). Updates include the general loo
 **Simplified workflows include**:
 
 - The **Device inventory** page now includes detailed device pages. Select a device in the table and then select **View full details** on the right.
-
-    :::image type="content" source="media/release-notes/device-inventory-details.png" alt-text="Screenshot of the View full details button." lightbox="media/release-notes/device-inventory-details.png":::
 
 - Properties updated from the sensor's inventory are now automatically updated in the cloud device inventory.
 

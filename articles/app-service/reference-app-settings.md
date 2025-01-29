@@ -2,7 +2,7 @@
 title: Environment variables and app settings reference
 description: Describes the commonly used environment variables, and which ones can be modified with app settings.
 ms.topic: article
-ms.date: 09/27/2024
+ms.date: 10/16/2024
 author: cephalin
 ms.author: cephalin
 ---
@@ -176,7 +176,7 @@ This section shows the configurable runtime settings for each supported language
 | `CATALINA_BASE` | To use a custom Tomcat installation, set to the installation's location. | |
 | `WEBSITE_JAVA_MAX_HEAP_MB` | The Java maximum heap in MB. This setting is effective only when an experimental Tomcat version is used. | |
 | `WEBSITE_DISABLE_JAVA_HEAP_CONFIGURATION` | Manually disable `WEBSITE_JAVA_MAX_HEAP_MB` by setting this variable to `true` or `1`. | |
-| `WEBSITE_AUTH_SKIP_PRINCIPAL` | By default, the following Tomcat [HttpServletRequest interface](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) are hydrated when you enable the built-in [authentication](overview-authentication-authorization.md): `isSecure`, `getRemoteAddr`, `getRemoteHost`, `getScheme`, `getServerPort`. To disable it, set to `1`.  | |
+| `WEBSITE_AUTH_SKIP_PRINCIPAL` | By default, the following Tomcat [HttpServletRequest interface](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) are hydrated when you enable the built-in [authentication](overview-authentication-authorization.md): `isSecure`, `getRemoteAddr`, `getRemoteHost`, `getScheme`, `getServerPort`, `getLocalPort` and `getRequestURL`. To disable it, set to `1`.  | |
 | `WEBSITE_SKIP_FILTERS` | To disable all servlet filters added by App Service, set to `1`. ||
 | `IGNORE_CATALINA_BASE` | By default, App Service checks if the Tomcat variable `CATALINA_BASE` is defined. If not, it looks for the existence of `%HOME%\tomcat\conf\server.xml`. If the file exists, it sets `CATALINA_BASE` to `%HOME%\tomcat`. To disable this behavior and remove `CATALINA_BASE`, set this variable to `1` or `true`. ||
 | `PORT` | Read-only. For Linux apps, port that the Java runtime listens to in the container. | |
@@ -375,7 +375,7 @@ WEBSITE_DISABLE_PRELOAD_HANG_MITIGATION
 | Setting name| Description | Example |
 |-|-|-|
 | `WEBSITE_HTTPLOGGING_ENABLED` | Read-only. Shows whether the web server logging for Windows native apps is enabled (`1`) or not (`0`). ||
-| `WEBSITE_HTTPLOGGING_RETENTION_DAYS` | Retention period in days of web server logs for Windows native apps, if web server logs are enabled. | `10` |
+| `WEBSITE_HTTPLOGGING_RETENTION_DAYS` | Retention period in days of web server logs, if web server logs are enabled for a Windows native or Linux app. | `10` |
 | `WEBSITE_HTTPLOGGING_CONTAINER_URL` | SAS URL of the blob storage container to store web server logs for Windows native apps, if web server logs are enabled. If not set, web server logs are stored in the app's file system (default shared storage). | |
 | `DIAGNOSTICS_AZUREBLOBRETENTIONINDAYS` | Retention period in days of application logs for Windows native apps, if application logs are enabled. | `10` |
 | `DIAGNOSTICS_AZUREBLOBCONTAINERSASURL` | SAS URL of the blob storage container to store application logs for Windows native apps, if application logs are enabled. | |

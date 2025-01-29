@@ -4,8 +4,7 @@ description: Describes safety conventions, guidelines, considerations, and expla
 services: databox
 author:   alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 09/30/2024
 ms.author: alkohli

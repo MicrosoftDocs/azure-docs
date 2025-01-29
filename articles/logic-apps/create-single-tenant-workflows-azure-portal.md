@@ -7,7 +7,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.collection: ce-skilling-ai-copilot
 ms.topic: how-to
-ms.date: 09/27/2024
+ms.date: 01/21/2025
 # Customer intent: As a developer, I want to create my first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
 ---
 
@@ -32,7 +32,7 @@ You can have multiple workflows in a Standard logic app. Workflows in the same l
 >
 > - *What's Azure Logic Apps?*
 > - *What's a Standard logic app workflow?*
-> - *What's the Request triger?*
+> - *What's the Request trigger?*
 > - *What's the Office 365 Outlook connector?*
 >
 > To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
@@ -91,9 +91,7 @@ For optimal designer responsiveness and performance, review and follow these gui
 
 - Consider splitting business logic into multiple workflows where necessary.
 
-- Have no more than 10-15 workflows per logic app resource.
-
-More workflows in your logic app raise the risk of longer load times, which negatively affect performance. If you have mission-critical logic apps that require zero downtime deployments, consider [setting up deployment slots](set-up-deployment-slots.md).
+- When you add more workflows to your logic app resource, you increase cold start times and the risk for longer load times, which negatively affect performance. To reduce these risks or if you have mission-critical logic apps that require zero downtime deployments, [set up deployment slots](set-up-deployment-slots.md).
 
 <a name="create-logic-app-resource"></a>
 
@@ -109,7 +107,7 @@ More workflows in your logic app raise the risk of longer load times, which nega
 
    The **Create Logic App** page appears and shows the following options:
 
-   [!INCLUDE [logic-apps-host-plans](../../includes/logic-apps-host-plans.md)]
+   [!INCLUDE [logic-apps-host-plans](includes/logic-apps-host-plans.md)]
 
 1. On the **Create Logic App** page, select **Standard (Workflow Service Plan)**.
 
@@ -153,7 +151,7 @@ More workflows in your logic app raise the risk of longer load times, which nega
    > be **workflowApp**. However, in some scenarios, this app setting might be missing, for example,
    > due to automation using Azure Resource Manager templates or other scenarios where the setting
    > isn't included. If certain actions don't work, such as the **Execute JavaScript Code** action,
-   > or if the workflow stops working, check that the **APP_KIND** app setting exists and is set to to **workflowApp**.
+   > or if the workflow stops working, check that the **APP_KIND** app setting exists and is set to **workflowApp**.
    > For more information, see the [**APP_KIND** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
 
 1. When you finish, select **Next: Storage**.
@@ -416,6 +414,13 @@ For an existing stateful workflow run, you can rerun the entire workflow with th
 
 By default, your Standard logic app authenticates access to your Azure Storage account by using a connection string. However, you can set up a user-assigned managed identity to authenticate access instead.
 
+> [!NOTE]
+>
+> Currently, you can't disable storage account key access for Standard logic apps that use the 
+> Workflow Service Plan hosting option. However, if your logic app uses the App Service Environment 
+> v3 hosting option, you can disable storage account key access after you finish the steps 
+> to set up managed identity authentication.
+
 1. In the [Azure portal](https://portal.azure.com), [follow these steps to create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
 
 1. From your user-assigned identity, get the resource ID:
@@ -447,7 +452,12 @@ By default, your Standard logic app authenticates access to your Azure Storage a
 
 1. [Follow these steps to add the user-assigned managed identity to your Standard logic app resource](authenticate-with-managed-identity.md?tabs=standard#add-user-assigned-identity-to-logic-app-in-the-azure-portal).
 
-1. On your Standard logic app, enable runtime scale monitoring:
+1. If your Standard logic app uses the hosting option named **Workflow Service Plan**, enable runtime scale monitoring:
+
+   > [!NOTE]
+   >
+   > If your logic app uses the App Service Environment (ASE) v3 hosting option, skip 
+   > the steps for runtime scale monitoring because ASE doesn't support this capability.
 
    1. On the logic app menu, under **Settings**, select **Configuration**.
 

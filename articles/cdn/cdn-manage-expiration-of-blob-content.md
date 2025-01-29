@@ -5,7 +5,6 @@ description: Learn about the options for controlling time to live for blobs in A
 services: cdn
 author: duongau
 manager: kumudd
-ms.assetid: ad4801e9-d09a-49bf-b35c-efdc4e6034e8
 ms.service: azure-cdn
 ms.devlang: csharp
 ms.topic: how-to
@@ -39,9 +38,6 @@ You can also control cache settings from the Azure portal by setting content del
 ## Setting Cache-Control headers by using content delivery network caching rules
 
 The preferred method for setting a blob's `Cache-Control` header is to use caching rules in the Azure portal. For more information about content delivery network caching rules, see [Control Azure Content Delivery Network caching behavior with caching rules](cdn-caching-rules.md).
-
-> [!NOTE]
-> Caching rules are available only for **Azure CDN Standard from Edgio** profiles. For **Azure CDN Premium from Edgio** profiles, you must use the [Azure Content Delivery Network rules engine](./cdn-verizon-premium-rules-engine.md) in the **Manage** portal for similar functionality.
 
 **To navigate to the CDN caching rules page**:
 
@@ -171,7 +167,7 @@ You can use the [Azure Storage services REST API](/rest/api/storageservices/) to
 
 ## Testing the Cache-Control header
 
-You can easily verify the TTL settings of your blobs. With your browser's developer tools, test that your blob includes the `Cache-Control` response header. You can also use a tool such as [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/), or [Fiddler](https://www.telerik.com/fiddler) to examine the response headers.
+You can easily verify the TTL settings of your blobs. With your browser's developer tools, test that your blob includes the `Cache-Control` response header. You can also use a tool such as [Wget](https://www.gnu.org/software/wget/) or [Fiddler](https://www.telerik.com/fiddler) to examine the response headers.
 
 ## Next Steps
 

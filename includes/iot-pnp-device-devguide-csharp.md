@@ -1,7 +1,7 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-develop
+ms.service: azure-iot
 ms.topic: include
 ms.date: 11/17/2022
 ---
@@ -271,7 +271,7 @@ A default component receives the command name as it was invoked by the service.
 A nested component receives the command name prefixed with the component name and the `*` separator.
 
 ```csharp
-await client.SetMethodHandlerAsync("themostat*reboot", (MethodRequest req, object ctx) =>
+await client.SetMethodHandlerAsync("thermostat*reboot", (MethodRequest req, object ctx) =>
 {
   Console.WriteLine("REBOOT");
   return Task.FromResult(new MethodResponse(200));
@@ -306,7 +306,7 @@ The following example shows how to implement a command with complex types define
     }
   },
   "response": {
-    "name": "startReponse",
+    "name": "startResponse",
     "schema": {
       "@type": "Object",
       "fields": [

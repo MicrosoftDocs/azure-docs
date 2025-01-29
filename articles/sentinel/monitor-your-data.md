@@ -9,6 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to create and customize workbooks in Microsoft Sentinel so that I can visualize and monitor security data effectively.
+
 ---
 
 # Visualize and monitor your data by using workbooks in Microsoft Sentinel
@@ -51,7 +55,7 @@ Use a template installed from the content hub to create a workbook.
 
 1. Select the **Edit** button in the workbook toolbar to customize the workbook according to your needs.
 
-    [ ![Screenshot that shows the saved workbook.](media/monitor-your-data/workbook-graph.png) ](media/monitor-your-data/workbook-graph.png#lightbox)
+    :::image type="content" source="media/monitor-your-data/workbook-graph.png" alt-text="Screenshot that shows the saved workbook." lightbox="media/monitor-your-data/workbook-graph.png":::
 
     For example, select the **TimeRange** filter to view data for a different time range than the current selection. To edit a specific workbook area, either select **Edit** or select the ellipsis (**...**) to add elements, or move, clone, or remove the area.
 
@@ -74,7 +78,7 @@ Create a workbook from scratch in Microsoft Sentinel.
 
 1. To edit the workbook, select **Edit**, and then add text, queries, and parameters as necessary. For more information on how to customize the workbook, see how to [Create interactive reports with Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview). 
 
-    [ ![Screenshot that shows a new workbook.](media/monitor-your-data/create-workbook.png) ](media/monitor-your-data/create-workbook.png#lightbox)
+    :::image type="content" source="media/monitor-your-data/create-workbook.png" alt-text="Screenshot that shows a new workbook." lightbox="media/monitor-your-data/create-workbook.png":::
 
 1. When building a query, set the **Data source** to **Logs** and **Resource type** to **Log Analytics**, and then choose one or more workspaces.
 
@@ -88,7 +92,7 @@ Create a workbook from scratch in Microsoft Sentinel.
 
     Select the workbook you want to open:
 
-    [ ![Switch workbooks.](media/monitor-your-data/switch-workbooks.png) ](media/monitor-your-data/switch-workbooks.png#lightbox)
+    :::image type="content" source="media/monitor-your-data/switch-workbooks.png" alt-text="Screenshot that shows how to switch workbooks." lightbox="media/monitor-your-data/switch-workbooks.png":::
 
 ## Create new tiles for your workbooks
 
@@ -179,6 +183,21 @@ AuditLogs
 | project OperationName, RoleAssignmentTime = TimeGenerated, user = Caller) on user
 | project-away user1
 ```
+
+See more information on the following items used in the preceding examples, in the Kusto documentation:
+- [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+- [***extend*** operator](/kusto/query/extend-operator?view=microsoft-sentinel&preserve-view=true)
+- [***project*** operator](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true)
+- [***project-away*** operator](/kusto/query/project-away-operator?view=microsoft-sentinel&preserve-view=true)
+- [***join*** operator](/kusto/query/join-operator?view=microsoft-sentinel&preserve-view=true)
+- [***summarize*** operator](/kusto/query/summarize-operator?view=microsoft-sentinel&preserve-view=true)
+- [***ago()*** function](/kusto/query/ago-function?view=microsoft-sentinel&preserve-view=true)
+- [***bin()*** function](/kusto/query/bin-function?view=microsoft-sentinel&preserve-view=true)
+- [***iff()*** function](/kusto/query/iff-function?view=microsoft-sentinel&preserve-view=true)
+- [***tostring()*** function](/kusto/query/tostring-function?view=microsoft-sentinel&preserve-view=true)
+- [***count()*** aggregation function](/kusto/query/count-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+
+[!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
 
 ## Related articles
 

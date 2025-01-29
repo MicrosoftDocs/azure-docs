@@ -4,7 +4,7 @@ description: This article describes the supported communication protocols for de
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 11/21/2022
 ms.custom:

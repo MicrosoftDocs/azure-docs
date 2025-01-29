@@ -115,7 +115,7 @@ The output should look something like this example:
 
 ```powershell
 StorageAccountId            : 
-/subscriptions/a23279b5-xxxx-xxxx-xxxx-47b7c6d423ea/resourceGroups/awsales_resgroup/providers/Microsoft.Storage/storageAccounts/awsaleslogs
+/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/awsales_resgroup/providers/Microsoft.Storage/storageAccounts/awsaleslogs
 ServiceBusRuleId            :
 EventHubAuthorizationRuleId :
 Metrics                    
@@ -142,7 +142,7 @@ Logs
 
 
 WorkspaceId                 :
-Id                          : /subscriptions/a23279b5-xxxx-xxxx-xxxx-47b7c6d423ea/resourcegroups/awsales_resgroup/providers/microsoft.analysisservic
+Id                          : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/awsales_resgroup/providers/microsoft.analysisservic
 es/servers/awsales/providers/microsoft.insights/diagnosticSettings/service
 Name                        : service
 Type                        :

@@ -61,7 +61,7 @@ show interfaces description
 ```
 
 ```Output
-|Interface  |Status  |Protocol  |Decsription  |
+|Interface  |Status  |Protocol  |Description  |
 |---------|---------|---------|---------|
 |Et1      | admin down        | down          | **"AR-Mgmt2:Et1 to Not-Connected"**          |
 |Et2      | admin down        | down          | **"AR-Mgmt2:Et2 to Not-Connected"**         |
@@ -167,7 +167,7 @@ show interfaces description
 ```
 
 ```Output
-|Interface  |Status  |Protocol  |Decsription  |
+|Interface  |Status  |Protocol  |Description  |
 |---------|---------|---------|---------|
 |Et1      | admin down        | down          | **RW-test1**         |
 |Et2      | admin down        | down          | "AR-Mgmt2:Et2 to Not-Connected"        |
@@ -273,7 +273,7 @@ show interfaces description
 ```
 
 ```Output
-|Interface  |Status  |Protocol  |Decsription  |
+|Interface  |Status  |Protocol  |Description  |
 |---------|---------|---------|---------|
 |Et1      | admin down        | down          | **RW-test1**         |
 |Et2      | admin down        | down          | **RW-test2**         |
@@ -377,7 +377,7 @@ show interfaces description
 ```
 
 ```Output
-|Interface  |Status  |Protocol  |Decsription  |
+|Interface  |Status  |Protocol  |Description  |
 |---------|---------|---------|---------|
 |Et1      | admin down        | down          | "AR-Mgmt2:Et1 to Not-Connected"          |
 |Et2      | admin down        | down          | "AR-Mgmt2:Et2 to Not-Connected"        |
@@ -485,7 +485,7 @@ show interfaces description
 ```
 
 ```Output
-|Interface  |Status  |Protocol  |Decsription  |
+|Interface  |Status  |Protocol  |Description  |
 |---------|---------|---------|---------|
 |Et1      | admin down        | down          | **"AR-Mgmt2:Et1 to Not-Connected"**         |
 |Et2      | admin down        | down          | **"AR-Mgmt2:Et2 to Not-Connected"**         |

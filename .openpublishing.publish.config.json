@@ -129,12 +129,6 @@
             "branch_mapping": {}
         },
         {
-            "path_to_root": "azure-docs-snippets-pr",
-            "url": "https://github.com/MicrosoftDocs/azure-docs-snippets-pr",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
             "path_to_root": "azure-functions-dapr-extension",
             "url": "https://github.com/Azure/azure-functions-dapr-extension",
             "branch": "master",
@@ -587,6 +581,12 @@
         {
             "path_to_root": "msdocs-tomcat-mysql-sample-app",
             "url": "https://github.com/Azure-Samples/msdocs-tomcat-mysql-sample-app",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "msdocs-jboss-mysql-sample-app",
+            "url": "https://github.com/Azure-Samples/msdocs-jboss-mysql-sample-app",
             "branch": "main",
             "branch_mapping": {}
         },

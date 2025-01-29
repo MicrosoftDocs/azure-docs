@@ -5,7 +5,7 @@ titleSuffix: Azure Automation
 services: automation
 ms.subservice: desired-state-config
 ms.custom: linux-related-content
-ms.date: 04/16/2021
+ms.date: 10/22/2024
 ms.topic: how-to
 ms.service: azure-automation
 ---
@@ -13,6 +13,8 @@ ms.service: azure-automation
 # How to remove a configuration and node from Automation State Configuration
 
 [!INCLUDE [azure-automation-dsc-end-of-life](~/includes/dsc-automation/azure-automation-dsc-end-of-life.md)]
+
+[!INCLUDE [automation-dsc-linux-retirement-announcement](../includes/automation-dsc-linux-retirement-announcement.md)]
 
 This article covers how to unregister a node managed by Automation State Configuration, and safely
 removes a PowerShell Desired State Configuration (DSC) configuration from managed nodes. For both
@@ -47,10 +49,6 @@ with Azure PowerShell using the following steps.
 # [Azure PowerShell](#tab/powershell)
 
 You can also unregister a node using the PowerShell cmdlet [Unregister-AzAutomationDscNode][04].
-
->[!NOTE]
-> If your organization still uses the deprecated AzureRM modules, you can use
-> [Unregister-AzureRmAutomationDscNode][05].
 
 ---
 
@@ -134,7 +132,6 @@ dpkg -P <package name>
 [02]: ../automation-dsc-onboarding.md
 [03]: ../tutorial-configure-servers-desired-state.md#register-a-vm-to-be-managed-by-state-configuration
 [04]: /powershell/module/az.automation/unregister-azautomationdscnode
-[05]: /powershell/module/azurerm.automation/unregister-azurermautomationdscnode
 [06]: /powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument
 [07]: #delete-a-configuration-from-the-node
 [08]: #remove-the-dsc-package-from-a-linux-node

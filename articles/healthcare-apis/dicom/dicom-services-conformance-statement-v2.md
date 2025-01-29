@@ -46,7 +46,7 @@ This version of the conformance statement corresponds to the `v2` version of the
 
 For more information on how to specify the version when making requests, see the [API Versioning Documentation](api-versioning-dicom-service.md).
 
-You can find example requests for supported transactions in the [Postman collection](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json).
+You can find example requests for supported transactions in the Postman collection.
 
 ## Preamble Sanitization
 
@@ -124,7 +124,7 @@ If an attribute is padded with nulls, the attribute is indexed when searchable a
 | `500 (Internal Server Error)`  | The server encountered an unknown internal error. Try again later.                                                                                                                                                 |
 | `503 (Service Unavailable)`    | The service is unavailable or busy. Try again later.                                                                                                                                                               |
 
-### Store response paylo
+### Store response payload
 
 The response payload populates a DICOM dataset with the following elements:
 
@@ -496,6 +496,7 @@ We support the following matching types.
 | Range Query | `StudyDate`/`PatientBirthDate` | `{attributeID}={value1}-{value2}`. For date/time values, we support an inclusive range on the tag. This range is mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to, and including `{value2}` are matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times are matched. However, one of these values has to be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` is invalid. |
 | Exact Match | All supported attributes | `{attributeID}={value1}` |
 | Fuzzy Match | `PatientName`, `ReferringPhysicianName` | Matches any component of the name that starts with the value |
+| UID List Match | `StudyInstanceUID` | Matches studies identified by the values provided in the list. Supports comma (,) or a backslash (\\) as a valid separator. `{attributeID}=1.2.3,5.6.7,8.9.0` will return details associated with all the studies, given they exist. |
 
 #### Attribute ID
 
@@ -614,6 +615,7 @@ The query API returns one of the following status codes in the response.
 | `400 (Bad Request)` | The server was unable to perform the query because the query component was invalid. The response body contains details of the failure. |
 | `401 (Unauthorized)` | The client isn't authenticated. |
 | `403 (Forbidden)` | The user isn't authorized. |
+| `414 (URI Too Long)` | URI exceeded maximum supported length of 8192 characters. |
 | `424 (Failed Dependency)` | The DICOM service can't access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | `503 (Service Unavailable)` | The service is unavailable or busy. Try again later. |
 
@@ -903,7 +905,7 @@ The following parameters for each query are supported:
 | --------- | ------------- | ------------ | --------------------------------------------------------------------- |
 | `{attributeID}=` | `{value}` | 0...N | Search for attribute/value matching in query. |
 | `includefield=`  | `{attributeID}`<br/>`all` | 0...N | The other attributes to return in the response. Only top-level attributes can be included - not attributes that are part of sequences. Both public and private tags are supported. When `all` is provided. See [Search Response](#search-response) for more information about which attributes are returned for each query type. If a mixture of `{attributeID}` and `all` is provided, the server defaults to using 'all'. |
-| `limit=`         | `{value}` | 0...1 | Integer value to limit the number of values returned in the response. Value can be between the range `1 >= x <= 200`. Defaulted to `100`. |
+| `limit=`         | `{value}` | 0...1 | Integer value to limit the number of values returned in the response. Value can be between the range `1 >= x <= 4000`. Defaulted to `100`. |
 | `offset=` | `{value}` | 0...1 | Skip {value} results. If an offset is provided larger than the number of search query results, a `204 (no content)` response is returned. |
 | `fuzzymatching=` | `true` \ `false` | 0...1 | If true fuzzy matching is applied to any attributes with the Person Name (PN) Value Representation (VR). It does a prefix word match of any name part inside these attributes. For example, if `PatientName` is `John^Doe`, then `joh`, `do`, `jo do`, `Doe` and `John Doe` all match. However `ohn` doesn't match. |
 
