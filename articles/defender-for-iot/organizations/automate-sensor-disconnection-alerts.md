@@ -84,7 +84,7 @@ To give the playbook permission to run Keyword Query Language (KQL) queries and 
     - The **Managed identity** field is automatically selected.    
     - Under **Select**, select the name of the playbook you created.
 
-    :::image type="content" source="media/automate-sensor-disconnection-alerts/playbook-permissions-managed-identity-members.png" alt-text="Screenshot of a of setting up members for a managed identity while creating a Defender for IoT sensor disconnection alerts playbook." lightbox="media/automate-sensor-disconnection-alerts/playbook-permissions-managed-identity-members.png":::
+    :::image type="content" source="media/automate-sensor-disconnection-alerts/playbook-permissions-managed-identity-members.png" alt-text="Screenshot showing setting up members for a managed identity while creating a Defender for IoT sensor disconnection alerts playbook." lightbox="media/automate-sensor-disconnection-alerts/playbook-permissions-managed-identity-members.png":::
 
 1. In the editor, select **HTTP2** and verify that the **Authentication Type** is set to **Managed Identity**. 
 
