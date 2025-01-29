@@ -60,11 +60,12 @@ For more information on supported STIX objects, see [Understand threat intellige
 
 1. Select **Add and duplicate** if you want to create more items with the same metadata. The following image shows the common section of each STIX object's metadata that is duplicated. 
 
-:::image type="content" source="media/work-with-threat-indicators/" alt-text="{alt-text}":::
+:::image type="content" source="media/work-with-threat-indicators/common-metadata-stix-object.png" alt-text="Screenshot showing new STIX object creation and the common metadata available to all objects.":::
 
 1. Otherwise, select **Add** to create the single item.
 
-Relationship
+## Curate threat intelligence
+
 
 :::image type="content" source="media/work-with-threat-indicators/relationship-example.png" alt-text="Screenshot showing the relationship builder.":::
 
@@ -99,11 +100,11 @@ Here's an example.
 
 ### Find and view your indicators in Logs
 
-This procedure describes how to view your imported threat indicators in the Microsoft Sentinel **Logs** area, together with other Microsoft Sentinel event data, regardless of the source feed or the connector that you used.
+This procedure describes how to view your imported threat indicators in Log Analytics, together with other Microsoft Sentinel event data, regardless of the source feed or method you used to ingest them.
 
 Imported threat indicators are listed in the Microsoft Sentinel `ThreatIntelligenceIndicator` table. This table is the basis for threat intelligence queries run elsewhere in Microsoft Sentinel, such as in **Analytics** or **Workbooks**.
 
-To view your threat intelligence indicators in **Logs**:
+To view your threat intelligence indicators:
 
 1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **General**, select **Logs**.
 
@@ -117,9 +118,9 @@ To view your threat intelligence indicators in **Logs**:
 
     :::image type="content" source="media/work-with-threat-indicators/ti-table-results.png" alt-text="Screenshot that shows sample ThreatIntelligenceIndicator table results with the details expanded." lightbox="media/work-with-threat-indicators/ti-table-results.png":::
 
-### Tag and edit threat indicators
+### Tag and edit threat intelligence
 
-Tagging threat indicators is an easy way to group them together to make them easier to find. Typically, you might apply tags to an indicator related to a particular incident, or if the indicator represents threats from a particular known actor or well-known attack campaign. After you search for the indicators you want to work with, tag them individually. Multiselect indicators and tag them all at once with one or more tags. Because tagging is free-form, we recommend that you create standard naming conventions for threat indicator tags.
+Tagging threat intelligence is an easy way to group them together to make them easier to find. Typically, you might apply tags to an indicator related to a particular incident, or if the indicator represents threats from a particular known actor or well-known attack campaign. After you search for the indicators you want to work with, tag them individually. Multiselect indicators and tag them all at once with one or more tags. Because tagging is free-form, we recommend that you create standard naming conventions for threat indicator tags.
 
 :::image type="content" source="media/work-with-threat-indicators/threat-intel-tagging-indicators.png" alt-text="Screenshot that shows applying tags to threat indicators." lightbox="media/work-with-threat-indicators/threat-intel-tagging-indicators.png":::
 
