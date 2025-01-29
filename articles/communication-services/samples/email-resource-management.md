@@ -65,7 +65,7 @@ $domains = @(
 
 ## Connect to Azure Account
 
-Before performing any actions with Azure resources, authenticate using the `Connect-AzAccount` cmdlet. This process allows you to login and authenticate your Azure account for further tasks:
+Before performing any actions with Azure resources, authenticate using the `Connect-AzAccount` cmdlet. This process allows you to log in and authenticate your Azure account for further tasks:
 
 ```azurepowershell-interactive
 # Attempt to authenticate the Azure session using the Connect-AzAccount cmdlet
