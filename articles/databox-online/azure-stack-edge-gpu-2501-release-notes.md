@@ -46,6 +46,8 @@ You can update to the latest version using the following update paths:
 
 ## What's new
 
+For more information, see [Assign an Azure role for access to blob data](../storage/blobs/assign-azure-role-data-access.md?tabs=portal#assign-an-azure-role).
+
 The 2501 release has the following new features and enhancements:
 
 - Base OS updates for Kubernetes nodes.
