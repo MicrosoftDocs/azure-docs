@@ -331,6 +331,8 @@
           href: /azure/azure-monitor/agents/diagnostics-extension-stream-event-hubs       
     - name: Secure
       items:
+        - name: Enable managed identity for a namespace
+          href: enable-managed-identity.md
         - name: Allow access from specific IP addresses
           href: event-hubs-ip-filtering.md
         - name: Allow access from specific virtual networks
