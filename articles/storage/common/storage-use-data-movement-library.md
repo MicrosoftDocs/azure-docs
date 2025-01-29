@@ -49,6 +49,8 @@ dotnet add package Azure.Identity
 Add these `using` directives to the top of your code file:
 
 ```csharp
+using Azure;
+using Azure.Core;
 using Azure.Identity;
 using Azure.Storage.DataMovement;
 using Azure.Storage.DataMovement.Blobs;
@@ -97,14 +99,14 @@ The following code shows how to create a `StorageResource` object for blob conta
 // Create a token credential
 TokenCredential tokenCredential = new DefaultAzureCredential();
 
-BlobsStorageResourceProvider provider = new(tokenCredential);
+BlobsStorageResourceProvider blobsProvider = new(tokenCredential);
 
 // Get a container resource
-StorageResource container = provider.FromContainer(
+StorageResource container = await blobsProvider.FromContainerAsync(
     new Uri("http://<storage-account-name>.blob.core.windows.net/sample-container"));
 
 // Get a block blob resource - default is block blob
-StorageResource blockBlob = provider.FromBlob(
+StorageResource blockBlob = await blobsProvider.FromBlobAsync(
     new Uri("http://<storage-account-name>.blob.core.windows.net/sample-container/sample-block-blob"),
     new BlockBlobStorageResourceOptions());
 
@@ -117,17 +119,15 @@ You can also create a `StorageResource` object using a client object from **Azur
 // Create a token credential
 TokenCredential tokenCredential = new DefaultAzureCredential();
 
-BlobsStorageResourceProvider provider = new(tokenCredential);
-
 BlobContainerClient blobContainerClient = new(
     new Uri("https://<storage-account-name>.blob.core.windows.net/sample-container"),
     tokenCredential);
-StorageResource containerResource = provider.FromClient(blobContainerClient);
+StorageResource containerResource = BlobsStorageResourceProvider.FromClient(blobContainerClient);
 
 BlockBlobClient blockBlobClient = new(
     new Uri("https://<storage-account-name>.blob.core.windows.net/sample-container/sample-block-blob"),
     tokenCredential);
-StorageResource blockBlobResource = provider.FromClient(blockBlobClient);
+StorageResource blockBlobResource = BlobsStorageResourceProvider.FromClient(blockBlobClient);
 
 // Use a similar approach to get a page blob or append blob resource
 ```
@@ -154,16 +154,14 @@ TokenCredential tokenCredential = new DefaultAzureCredential();
 
 TransferManager transferManager = new(new TransferManagerOptions());
 
-LocalFilesStorageResourceProvider localFilesProvider = new();
-
 BlobsStorageResourceProvider blobsProvider = new(tokenCredential);
 
 string localFilePath = "C:/path/to/file.txt";
 Uri blobUri = new Uri("https://<storage-account-name>.blob.core.windows.net/sample-container/sample-blob");
 
 TransferOperation transferOperation = await transferManager.StartTransferAsync(
-    sourceResource: localFilesProvider.FromFile(localFilePath),
-    destinationResource: blobsProvider.FromBlob(
+    sourceResource: LocalFilesStorageResourceProvider.FromFile(localFilePath),
+    destinationResource: await blobsProvider.FromBlobAsync(
         new Uri(blobUri)));
 await transferOperation.WaitForCompletionAsync();
 ```
@@ -179,11 +177,11 @@ Uri sourceContainerUri = new Uri("https://<storage-account-name>.blob.core.windo
 Uri destinationContainerUri = new Uri("https://<storage-account-name>.blob.core.windows.net/dest-container");
 
 TransferOperation transferOperation = await transferManager.StartTransferAsync(
-    sourceResource: blobsProvider.FromContainer(
+    sourceResource: await blobsProvider.FromContainerAsync(
         sourceContainerUri,
         new BlobStorageResourceContainerOptions()
         {
-            BlobDirectoryPrefix = "source/directory/prefix"
+            BlobPrefix = "source/directory/prefix"
         }),
     destinationResource: blobsProvider.FromContainer(
         destinationContainerUri,
@@ -191,8 +189,8 @@ TransferOperation transferOperation = await transferManager.StartTransferAsync(
         {
             // All source blobs are copied as a single type of destination blob
             // Defaults to block blob, if not specified
-            BlobType = new(BlobType.Block),
-            BlobDirectoryPrefix = "destination/directory/prefix"
+            BlobType = BlobType.Block,
+            BlobPrefix = "destination/directory/prefix"
         }
         )
     );
@@ -208,8 +206,8 @@ Uri destinationBlobUri = new Uri(
     "https://<storage-account-name>.blob.core.windows.net/dest-container/dest-blob");
 
 TransferOperation transferOperation = await transferManager.StartTransferAsync(
-    sourceResource: blobs.FromBlob(sourceBlobUri),
-    destinationResource: blobs.FromBlob(destinationBlobUri, new BlockBlobStorageResourceOptions()));
+    sourceResource: await blobsProvider.FromBlobAsync(sourceBlobUri),
+    destinationResource: await blobsProvider.FromBlobAsync(destinationBlobUri, new BlockBlobStorageResourceOptions()));
 await transferOperation.WaitForCompletionAsync();
 ```
 
@@ -227,15 +225,12 @@ The following code example shows how to initialize a `TransferManager` object th
 // Create a token credential
 TokenCredential tokenCredential = new DefaultAzureCredential();
 
-LocalFilesStorageResourceProvider localFilesProvider = new();
-
 BlobsStorageResourceProvider blobsProvider = new(tokenCredential);
 
 TransferManager transferManager = new(new TransferManagerOptions()
 {
-    ResumeProviders = new List<StorageResourceProvider>()
+    ProvidersForResuming = new List<StorageResourceProvider>()
     {
-        localFilesProvider,
         blobsProvider
     }
 });
@@ -272,7 +267,7 @@ async Task CheckTransfersAsync(TransferManager transferManager)
     await foreach (TransferOperation transfer in transferManager.GetTransfersAsync())
     {
         using StreamWriter logStream = File.AppendText("path/to/log/file");
-        logStream.WriteLine(Enum.GetName(typeof(TransferStatus), transfer.TransferStatus));
+        logStream.WriteLine(Enum.GetName(typeof(TransferStatus), transfer.Status));
     }
 }
 ```
@@ -303,7 +298,7 @@ async Task<TransferOperation> ListenToTransfersAsync(
     {
         using (StreamWriter logStream = File.AppendText("path/to/log/file"))
         {
-            logStream.WriteLine($"File Completed Transfer: {args.SourceResource.Uri.AbsoluteUri}");
+            logStream.WriteLine($"File Completed Transfer: {args.Source.Uri.AbsoluteUri}");
         }
         return Task.CompletedTask;
     };
@@ -317,6 +312,20 @@ async Task<TransferOperation> ListenToTransfersAsync(
 ## Use extension methods for `BlobContainerClient`
 
 For applications with existing code that uses the `BlobContainerClient` class from **Azure.Storage.Blobs**, you can use extension methods to start transfers directly from a `BlobContainerClient` object. The extension methods are provided in the [BlobContainerClientExtensions](/dotnet/api/azure.storage.blobs.blobcontainerclientextensions) class (or [ShareDirectoryClientExtensions](/dotnet/api/azure.storage.files.shares.sharedirectoryclientextensions) for Azure Files), and provide some of the benefits of using `TransferManager` with minimal code changes. In this section, you learn how to use the extension methods to perform transfers from a `BlobContainerClient` object.
+
+Install the **Azure.Storage.Blobs** package if you don't have it already:
+
+```dotnetcli
+dotnet add package Azure.Storage.Blobs
+```
+
+Add the following `using` directives to the top of your code file:
+
+```csharp
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+```
+
 
 The following code example shows how to instantiate a `BlobContainerClient` for a blob container named `sample-container`: 
 
@@ -334,15 +343,17 @@ BlobContainerClient containerClient = client.GetBlobContainerClient("sample-cont
 The following code example shows how to upload local directory contents to `sample-container` using `UploadDirectoryAsync`:
 
 ```csharp
-TransferOperation transfer = await containerClient.UploadDirectoryAsync("local/directory/path");
+TransferOperation transfer = await containerClient
+    .UploadDirectoryAsync(WaitUntil.Started, "local/directory/path");
 
 await transfer.WaitForCompletionAsync();
 ```
 
-The following code example shows how to download the contents of `sample-container` to a local directory using `DownloadDirectoryAsync`:
+The following code example shows how to download the contents of `sample-container` to a local directory using `DownloadToDirectoryAsync`:
 
 ```csharp
-TransferOperation transfer = await containerClient.DownloadToDirectoryAsync("local/directory/path");
+TransferOperation transfer = await containerClient
+    .DownloadToDirectoryAsync(WaitUntil.Started, "local/directory/path");
 
 await transfer.WaitForCompletionAsync();
 ```
