@@ -87,13 +87,13 @@ Before you deploy this template, replace the `<PLACEHOLDERS>` with your values.
 
 ```bicep
 resource environment 'Microsoft.App/managedEnvironments@2024-10-02-preview' = {
-...
+  ...
   properties: {
     appInsightsConfiguration: {
       connectionString: '<APP_INSIGHTS_CONNECTION_STRING>'
     }
     openTelemetryConfiguration: {
-...
+      ...
       tracesConfiguration: {
         destinations: [
           'appInsights'
@@ -105,7 +105,7 @@ resource environment 'Microsoft.App/managedEnvironments@2024-10-02-preview' = {
         ]
       }
     }
-...
+  }
 }
 ```
 
@@ -253,7 +253,7 @@ Create a [parameter file](/azure/azure-resource-manager/bicep/parameter-files) t
 Before you deploy the following files, replace the `<PLACEHOLDERS>` with your values.
 
 ```bicep
-using './main.bicep'
+using '<BICEP_TEMPLATE_FILE>'
 
 param datadogapikey = az.getSecret('<SUBSCRIPTION_ID>', '<RESOURCE_GROUP_NAME>', '<KEY_VAULT_NAME>', '<SECRET_NAME>', '<SECRET_VERSION_ID>')
 ```
@@ -267,7 +267,7 @@ You can now reference the `datadogapikey` parameter in your Bicep template.
 param datadogapikey string
 
 resource environment 'Microsoft.App/managedEnvironments@2024-10-02-preview' = {
-...
+  ...
   properties: {
     openTelemetryConfiguration: {
       destinationsConfiguration: {
@@ -276,6 +276,7 @@ resource environment 'Microsoft.App/managedEnvironments@2024-10-02-preview' = {
           key: datadogapikey
         }
       }
+      ...
       metricsConfiguration: {
         destinations: [
           'dataDog'
@@ -283,7 +284,7 @@ resource environment 'Microsoft.App/managedEnvironments@2024-10-02-preview' = {
         ]
       }
     }
-...
+  }
 }
 ```
 
@@ -395,7 +396,7 @@ While you can set up as many OTLP-configured endpoints as you like, each endpoin
 
 ```bicep
 resource environment 'Microsoft.App/managedEnvironments@2024-10-02-preview' = {
-...
+  ...
   properties: {
     openTelemetryConfiguration: {
       destinationsConfiguration: {
