@@ -21,6 +21,9 @@ A container app has access to different types of storage. A single app can take 
 | [Replica-scoped storage](#replica-scoped-storage) | Ephemeral storage for sharing files between containers in the same replica | Data is available until replica shuts down | The main app container writing log files that a sidecar container processes. |
 | [Azure Files](#azure-files) | Permanent storage | Data is persisted to Azure Files | Writing files to a file share to make data accessible by other systems. |
 
+> [!NOTE]
+> Azure Container Apps does not support mounting file shares from Azure NetApp Files or Azure Blob Storage.
+
 ## Ephemeral storage
 
 A container app can read and write temporary data to ephemeral storage. Ephemeral storage can be scoped to a container or a replica. The total amount of container-scoped and replica-scoped storage available to each replica depends on the total number of vCPUs allocated to the replica.
