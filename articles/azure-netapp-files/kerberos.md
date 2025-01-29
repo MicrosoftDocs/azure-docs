@@ -87,7 +87,7 @@ The following table displays the amount of time a cache entry lives in an Azure 
 | Idle name server connections | 60 seconds |
 | LDAP query timeout | 10 seconds |
 | Local DNS host entry for KDC TTL | 24 hours |
-| Kerberos ticket age | Specified by KDC* and/or client <br></br> *[Defaults to 10 hours](/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/maximum-lifetime-for-user-ticket#default-values) for Windows Active Directory KDCs |
+| Kerberos ticket age | Specified by KDC* and/or client <br></br> *[Defaults to 10 hours](/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/maximum-lifetime-for-user-ticket#default-values) for Windows Active Directory KDCs |
 | User credentials | 24 hours |
 | Kerberos time skew | 5 minutes |
 
@@ -115,7 +115,7 @@ Key considerations for time sync issues:
 - [Time skew errors can be seen in the event viewer](/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4768) on the KDC with the error KRB_AP_ERR_SKEW, as well as in packet captures.
 - [Replay attack attempts get logged](/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4649) in the event viewer with KRB_AP_ERR_REPEAT.
 
-For more information, see [Maximum tolerance for computer clock synchronization](/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/maximum-tolerance-for-computer-clock-synchronization)
+For more information, see [Maximum tolerance for computer clock synchronization](/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/maximum-tolerance-for-computer-clock-synchronization)
 
 ### Domain Name Systems (DNS)
 
@@ -126,7 +126,7 @@ In Windows SMB environments, a backup authentication method may be tried (such a
 In addition to SPN resolution, DNS is heavily utilized to resolve hostnames and IP addresses for domain services, such as LDAP, Kerberos KDCs, etc. via SRV records. For more detailed information on DNS in Azure NetApp Files (including what SRV records are required), see [About DNS in Azure NetApp Files](domain-name-system-concept.md).
 
 >[!NOTE]
->If an IP address is used for Kerberos access, the behavior depends on the NAS protocol (NFS or SMB) in use. See [IP addresses for access with Kerberos](LINK) for more information.
+>If an IP address is used for Kerberos access, the behavior depends on the NAS protocol (NFS or SMB) in use. For more information, see [IP addresses for access with Kerberos](#ip-addresses-for-access-with-kerberos).
 
 ### Lightweight directory access protocol 
 
@@ -281,65 +281,66 @@ When an Azure NetApp Files volume is mounting using Kerberos, a Kerberos ticket 
 <summary>For steps detailing how SMB share is accessed in Azure NetApp Files, expand the list.</summary>
 - The client attempts to access an SMB share using the UNC path shown in Azure NetApp Files. By default, the UNC path would include the SMB server name (such as ANF-XXXX)
 - DNS is queried to map the hostname to an IP address
-- An initial SMB2 “Negotiate Protocol” conversation takes place
-o	A request is sent from the client to discover which SMB dialects are supported by the server and includes what the requesting client supports
-o	The server responds with what it supports, including:
-	Security mode (signing or not)
-	SMB version
-	Server GUID
-	Capabilities supported (DFS, leasing, large MTU, multichannel, persistent handles, directory leasing, encryption)
-	Max transaction size
-	Max read/write size
-	Security blob (Kerberos or NTLM)
-- A 2nd SMB2 “Negotiate Protocol” conversation takes place as “pre-authorization”/login
-o	Request from client includes:
-	Preauthorization hash
-	Supported security modes (signing or not)
-	Capabilities supported (DFS, leasing, large MTU, multichannel, persistent handles, directory leasing, encryption)
-	Client GUID
-	Supported SMB dialects
-o	If the preauthorization hash is accepted, the server responds with:
-	Security mode (signing or not)
-	Capabilities supported (DFS, leasing, large MTU, multichannel, persistent handles, directory leasing, encryption)
-	Max transaction size
-	Max read/write size
-	Security blob (Kerberos or NTLM)
-	SMB preauth integrity and encryption capabilities
-- If the protocol negotiation succeeds, a “Session setup” request is made
-o	Setup uses the preauth hash from the protocol negotiation
-o	Setup informs the SMB server what the requesting client supports, including:
-	StructureSize
-	Session binding flag
-	Security mode (Signing enabled/required)
-	Capabilities
-	Supported Kerberos encryption types
-- A “Session setup” response is sent
-o	SMB credits are granted
-o	Session ID is established
-o	Session flags are set (guest, null, encrypt)
-o	Kerberos encryption type is defined
+- An initial SMB2 "Negotiate Protocol" conversation takes place
+    - A request is sent from the client to discover which SMB dialects are supported by the server and includes what the requesting client supports
+    - The server responds with what it supports, including:
+        * Security mode (signing or not)
+        * SMB version
+        * Server GUID
+        * Capabilities supported (DFS, leasing, large MTU, multichannel, persistent handles, directory leasing, encryption)
+        * Max transaction size
+        * Max read/write size
+        * Security blob (Kerberos or NTLM)
+- A second SMB2 "Negotiate Protocol" conversation takes place as "pre-authorization"/login
+    - Request from client includes:
+        * Preauthorization hash
+        * Supported security modes (signing or not)
+        * Capabilities supported (DFS, leasing, large MTU, multichannel, persistent handles, directory leasing, encryption)
+        * Client GUID
+        * Supported SMB dialects
+    - If the preauthorization hash is accepted, the server responds with:
+        * Security mode (signing or not)
+        * Capabilities supported (DFS, leasing, large MTU, multichannel, persistent handles, directory leasing, encryption)
+        * Max transaction size
+        * Max read/write size
+        * Security blob (Kerberos or NTLM)
+        * SMB preauth integrity and encryption capabilities
+- If the protocol negotiation succeeds, a "Session setup" request is made
+    - Setup uses the preauth hash from the protocol negotiation
+    - Setup informs the SMB server what the requesting client supports, including:
+        * StructureSize
+        * Session binding flag
+        * Security mode (Signing enabled/required)
+        * Capabilities
+        * Supported Kerberos encryption types
+- A "Session setup" response is sent
+
+* SMB credits are granted
+    - Session ID is established
+    - Session flags are set (guest, null, encrypt)
+    - Kerberos encryption type is defined
 - A tree connect request is sent by the client for connection to the SMB share
-o	Share flags/capabilities are sent from server, along with share permissions
+    - Share flags/capabilities are sent from server, along with share permissions
 - The ioctl command FSCTL_QUERY_NETWORK_INTERFACE_INFO is sent to get the IP address of the SMB server
-o	The SMB server in Azure NetApp Files reports back with the network information, including:
-	IP address
-	Interface capability (RSS on or off)
-	RSS queue count
-	Link speed
-- A tree connect request is sent by the client for connection to the IPC$ administrative share
-o	The ipc$ share is a resource that shares the named pipes that are essential for communication between programs. The ipc$ share is used during remote administration of a computer and when viewing a computer's shared resources. You cannot change the share settings, share properties, or ACLs of the ipc$ share. You also cannot rename or delete the ipc$ share.
-o	A file named srvsvc is created in the share as a service handle
+- The SMB server in Azure NetApp Files reports back with the network information, including:
+        * IP address
+        * Interface capability (RSS on or off)
+        * RSS queue count
+        * Link speed
+        - A tree connect request is sent by the client for connection to the IPC$ administrative share
+* The ipc$ share is a resource that shares the named pipes that are essential for communication between programs. The ipc$ share is used during remote administration of a computer and when viewing a computer's shared resources. You cannot change the share settings, share properties, or ACLs of the ipc$ share. You also cannot rename or delete the ipc$ share.
+    - A file named srvsvc is created in the share as a service handle
 - A DCERPC bind is done to the srvsvc file to establish a secure connection
-o	The file is written to with the previously retrieved information 
+    - The file is written to with the previously retrieved information 
 - A Kerberos TGS-REQ is issued by the Windows client to the KDC to get a service ticket (ST) for the SMB service
 - NetShareGetInfo command is run by the SMB client to the server and a response is sent 
 - The SMB service ticket is retrieved from the KDC
 - Azure NetApp Files attempts to map the Windows user requesting access to the share to a valid UNIX user
-o	A Kerberos TGS request is made using the SMB server Kerberos credentials stored with the SMB server’s keytab from initial SMB server creation to use for an LDAP server bind
-o	LDAP is searched for a UNIX user that is mapped to the SMB user requesting share access. If no UNIX user exists in LDAP, then the default UNIX user “pcuser” is used by Azure NetApp Files for name mapping (files/folders written in dual protocol volumes will use the mapped UNIX user as the UNIX owner)
+    - A Kerberos TGS request is made using the SMB server Kerberos credentials stored with the SMB server’s keytab from initial SMB server creation to use for an LDAP server bind
+    - LDAP is searched for a UNIX user that is mapped to the SMB user requesting share access. If no UNIX user exists in LDAP, then the default UNIX user “pcuser” is used by Azure NetApp Files for name mapping (files/folders written in dual protocol volumes will use the mapped UNIX user as the UNIX owner)
 - Another negotiate protocol/session request/tree connect is performed, this time using the SMB server’s Kerberos SPN to the Active Directory DC’s IPC$ share
-o	A named pipe is established to the share via the srvsvc 
-o	A netlogon session is established to the share and the Windows user is authenticated
+    - A named pipe is established to the share via the srvsvc 
+    - A netlogon session is established to the share and the Windows user is authenticated
 - If permissions allow it for the user, the share lists the files and folders contained in the volume
 
 >[!NOTE]
