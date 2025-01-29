@@ -40,7 +40,7 @@ Enhanced threat intelligence capabilities are available in both Microsoft's unif
 
 - Define relationships as you create new STIX objects.
 - Curate existing threat intelligence with the new relationship builder.
-- Create multiple objects quickly by copying common metadata from a new or existing TI object with the duplicate feature.
+- Create multiple objects quickly by copying common metadata from a new or existing TI object using a duplication feature.
 - Use advanced search to sort and filter your threat intelligence objects without even writing a Log Analytics query.
 
 For more information, see the following articles:
@@ -50,7 +50,7 @@ For more information, see the following articles:
 
 ### Unlock advanced hunting with new STIX objects by opting in to new threat intelligence tables
 
-Tables supporting the new STIX object schema aren't available publicly yet. In order to view threat intelligence for STIX objects and unlock the hunting model that uses them, request to opt in with [this form](https://forms.office.com/r/903VU5x3hz?origin=lprLink). Ingest your threat intelligence into the new tables, `ThreatIntelIndicator` and `ThreatIntelObjects` alongside with or instead of the current table, `ThreatIntelligenceIndicator` with this opt-in process.
+Tables supporting the new STIX object schema aren't available publicly yet. In order to view threat intelligence for STIX objects and unlock the hunting model that uses them, request to opt in with [this form](https://forms.office.com/r/903VU5x3hz?origin=lprLink). Ingest your threat intelligence into the new tables, `ThreatIntelIndicator` and `ThreatIntelObjects` alongside with or instead of the current table, `ThreatIntelligenceIndicator`, with this opt-in process.
 
 For more information, see the blog announcement [New STIX objects in Microsoft Sentinel](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/announcing-public-preview-new-stix-objects-in-microsoft-sentinel/4369164).
 

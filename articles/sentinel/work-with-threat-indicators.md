@@ -90,11 +90,14 @@ The following image demonstrates connections made between a threat actor and an 
 Use the management interface to sort, filter, and search your threat intelligence from whatever source they were ingested from without writing a Log Analytics query.
 
 1. From the management interface, expand the **What would you like to search?** menu.
-1. Select the STIX object type or leave the default **All object types**.
+
+1. Select a STIX object type or leave the default **All object types**.
+
 1. Select conditions using logical operators.
+
 1. Select the object you want to see more information about.
 
-In the following image, multiple sources were used to search by placing them in an `OR` group, while multiple conditions were group with the `AND` operator.
+In the following image, multiple sources were used to search by placing them in an `OR` group, while multiple conditions were grouped with the `AND` operator.
 
 :::image type="content" source="media/work-with-threat-indicators/advanced-search.png" alt-text="Screenshot shows an OR operator combined with multiple AND conditions to search threat intelligence.":::
 
@@ -124,9 +127,9 @@ For more information on how threat intel is updated, see [View your threat intel
 
 ### Find and view your indicators with queries
 
-This procedure describes how to view your imported threat indicators in Log Analytics, together with other Microsoft Sentinel event data, regardless of the source feed or method you used to ingest them.
+This procedure describes how to view your threat indicators in Log Analytics, together with other Microsoft Sentinel event data, regardless of the source feed or method you used to ingest them.
 
-Imported threat indicators are listed in the Microsoft Sentinel `ThreatIntelligenceIndicator` table. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features, such as **Analytics**, **Hunting**, and **Workbooks**.
+Threat indicators are listed in the Microsoft Sentinel `ThreatIntelligenceIndicator` table. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features, such as **Analytics**, **Hunting**, and **Workbooks**.
 
 To view your threat intelligence indicators:
 
@@ -141,7 +144,7 @@ To view your threat intelligence indicators:
 
     :::image type="content" source="media/work-with-threat-indicators/ti-table-results.png" alt-text="Screenshot that shows sample ThreatIntelligenceIndicator table results with the details expanded." lightbox="media/work-with-threat-indicators/ti-table-results.png":::
 
-## Visualize your threat intelligence with workbooks
+### Visualize your threat intelligence with workbooks
 
 Use a purpose-built Microsoft Sentinel workbook to visualize key information about your threat intelligence in Microsoft Sentinel, and customize the workbook according to your business needs.
 
