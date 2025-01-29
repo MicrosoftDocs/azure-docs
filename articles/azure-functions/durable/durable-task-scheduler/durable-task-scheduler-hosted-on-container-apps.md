@@ -5,6 +5,8 @@ ms.topic: how-to
 ms.date: 01/29/2025
 ---
 
+# Host a Durable Functions app using the Durable Task Scheduler (preview) on Azure Container Apps
+
 Azure Functions provides integrated support for developing, deploying, and managing containerized function apps on Azure Container Apps. Learn more about [Azure Container apps hosting](../../functions-container-apps-hosting.md).
 
 In this article, you learn how to host a Durable Functions app using Durable Task Scheduler on Azure Container Apps. The sample code will be in .NET 8 (isolated), but other languages are supported.
@@ -16,7 +18,7 @@ In this article, you learn how to host a Durable Functions app using Durable Tas
 - [The latest Azure CLI installed](/cli/azure/install-azure-cli)
 - A Durable Task Scheduler and task hub 
 - [Configure an Azurite storage emulator for local storage](/azure/storage/common/storage-use-azurite).
-- An [Azure Storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal), required by all Azure Function apps.
+- An [Azure Storage account](../../../storage/common/storage-account-create.md), required by all Azure Function apps.
 - [.NET 8.0 SDK installed](https://dotnet.microsoft.com/download/dotnet/8.0)
 - [Docker installed and started](https://docs.docker.com/install/), with a [Docker ID](https://hub.docker.com/signup)
 
@@ -121,7 +123,7 @@ In this article, you learn how to host a Durable Functions app using Durable Tas
 
 Before building and pushing the image to Docker Hub, configure the Durable Functions app to use Durable Task Scheduler. 
 
-1. In `host.json`, add the `storageProvider` property and set type to be `azureManaged`:
+1. In `host.json`, add the `storageProvider` property and set `type` to `azureManaged`:
 
     ```json
     {
@@ -147,7 +149,7 @@ Before building and pushing the image to Docker Hub, configure the Durable Funct
     }
     ```
 
-2. Check your project's `.csproj` to make sure you have these packages:
+1. Verify your project's `.csproj` has these packages:
 
     ```xml
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
@@ -163,55 +165,68 @@ Before building and pushing the image to Docker Hub, configure the Durable Funct
 
 ## Build the image
 
-In the root project folder, run the following `docker build` command, providing a name and tag. 
+In the root project folder, run the following `docker build` command, providing a name and tag. Replace `<DOCKER_ID>` with your Docker Hub account ID.
 
-    ```bash
-    docker build --platform linux --tag <DOCKER_ID>/azuredurablefunctionsimage:v1.0.0 .
-    ```
-> **NOTE:** Add `--platform linux/amd64` if you have an M1 mac. 
-
-Replace `<DOCKER_ID>` with your Docker Hub account ID.
+```bash
+docker build --platform linux --tag <DOCKER_ID>/azuredurablefunctionsimage:v1.0.0 .
+```
 
 ## Push docker image to Docker Hub
+
 Docker Hub is a container registry that hosts images and provides image and container services. To share your image, which includes deploying to Azure, you must push it to a registry.
 
-1. Sign in to Docker with the `docker login` command
-2. Push the image to Docker Hub by using the `docker push` command:
+1. Sign in to Docker.
+
+   ```bash
+   docker login
+   ```   
+
+1. Push the image to Docker Hub by using the `docker push` command:
+
     ```bash
     docker push <docker_id>/azuredurablefunctionsimage:v1.0.0
     ```
-Pushing the image the first time might take a few minutes (pushing subsequent changes is much faster). While you're waiting, you can proceed to the next section to create the required Azure resources in another terminal.
+    
+If you're pushing the image for the first time, it may take a few minutes. While you're waiting, you can proceed to the next section to create the required Azure resources in another terminal.
 
-## Create Azure Container Apps environment and function app
+## Create an Azure Container Apps environment and function app
 
 1. Run the following commands to register the required service providers. 
+
     ```azurecli
     az login
     ```
+
     ```azurecli
     az account set -subscription | -s <subscription_name>
     ```
+
     ```azurecli
     az provider register --namespace Microsoft.Web
     az provider register --namespace Microsoft.App
     az provider register --namespace Microsoft.OperationalInsights
     ```
 
-2. Add the `containerapp` extension:
+1. Add the `containerapp` CLI extension.
+
     ```azurecli
     az upgrade
     ```
+
     ```azurecli
     az extension add --name containerapp --upgrade
     ```
 
-3. Create an Azure Container Apps environment.
+1. Create an Azure Container Apps environment.
+
     ```azurecli
     az group create --name MyResourceGroup --location northcentralus
     az containerapp env create -n MyContainerappEnvironment -g MyResourceGroup --location northcentralus
     ````
 
-4. Check to make sure your image was pushed successfully. Then run the following command deploy that image to a function app hosted in the previously created container apps environment:
+1. Check to make sure your image was pushed successfully. 
+
+1. Deploy the image to a function app hosted in the container apps environment you created.
 
     ```azurecli
     az functionapp create --resource-group MyResourceGroup --name <functionapp_name> \
@@ -225,57 +240,123 @@ Pushing the image the first time might take a few minutes (pushing subsequent ch
 
 ## Set up identity-based authentication for app
 
-Follow all steps in [Run the app on Azure (.NET)](./configure-existing-app.md#run-the-app-on-azure-net) to set up identity-based authentication for the app, including configuring the required environment variables. 
+### Create a user-managed identity
 
-## Test app
+1. [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity). 
 
-You can now test your Durable Functions app that's running inside an Azure Container Apps environment!
+1. In the Azure portal, go to the identity resource and note down its ID: 
 
-Navigate to `https://<function app name>.northcentralus.azurecontainerapps.io/api/HelloOrchestration_HttpStart` to start an orchestration instance:
+    :::image type="content" source="media/configure-durable-task-scheduler/identity_id.png" alt-text="Screenshot of the finding the identity resource ID in the portal.":::
 
-```json
-{
-    "id": "a49573faf8674ee0ab5a66ce4bf1ec79",
-    "purgeHistoryDeleteUri": "http://<function app name>.northcentralus.azurecontainerapps.io/runtime/webhooks/durabletask/instances/a49573faf8674ee0ab5a66ce4bf1ec79?code=<CODE>",
-    "sendEventPostUri": "http://<function app name>.northcentralus.azurecontainerapps.io/runtime/webhooks/durabletask/instances/a49573faf8674ee0ab5a66ce4bf1ec79/raiseEvent/{eventName}?code=<CODE>",
-    "statusQueryGetUri": "http://<function app name>.northcentralus.azurecontainerapps.io/runtime/webhooks/durabletask/instances/a49573faf8674ee0ab5a66ce4bf1ec79?code=<CODE>",
-    "terminatePostUri": "http://<function app name>.northcentralus.azurecontainerapps.io/runtime/webhooks/durabletask/instances/a49573faf8674ee0ab5a66ce4bf1ec79/terminate?reason={{text}}&code=<CODE>",
-    "suspendPostUri": "http://<function app name>.northcentralus.azurecontainerapps.io/runtime/webhooks/durabletask/instances/a49573faf8674ee0ab5a66ce4bf1ec79/suspend?reason={{text}}&code=<CODE>",
-    "resumePostUri": "http://<function app name>.northcentralus.azurecontainerapps.io/runtime/webhooks/durabletask/instances/a49573faf8674ee0ab5a66ce4bf1ec79/resume?reason={{text}}&code=<CODE>"
-}
-```
+### Assign Azure Role-Based Access Control (RBAC) to the user-managed identity
 
-Navigate to `statusQueryGetUri` to get the status of the instance: 
+1. Navigate to the Durable Task Scheduler resource on the portal. 
 
-```json
-{
-    "name": "HelloOrchestration",
-    "instanceId": "a49573faf8674ee0ab5a66ce4bf1ec79",
-    "runtimeStatus": "Completed",
-    "input": null,
-    "customStatus": null,
-    "output": [
-        "Hello Tokyo!",
-        "Hello Seattle!",
-        "Hello London!"
-    ],
-    "createdTime": "2024-10-01T18:57:50Z",
-    "lastUpdatedTime": "2024-10-01T18:57:50Z"
-}
-```
+1. In the left menu, select **Access control (IAM)**.
 
-## A note on configuring scale rules
+1. Click **Add** to add a role assignment.
 
-This tutorial command sets `min-replicas` to 1 when creating the function app. Increase the minimum replica count if your app needs to handle a large number of requests. You can also set `max-replicas` to specify the maximum number of replicas used to run your app. 
+    :::image type="content" source="media/configure-durable-task-scheduler/add-assignment.png" alt-text="Screenshot of the adding the role assignment on the Access Control pane in the portal.":::
 
+1. Search for and select **Durable Task Data Contributor**. Click **Next**.
+
+    :::image type="content" source="media/configure-durable-task-scheduler/data-contributor-role.png" alt-text="Screenshot of selecting the Durable Task Data Contributor role assignment in the portal.":::
+
+1. On the **Members** tab, for **Assign access to**, select **Managed identity**.
+
+1. For **Members**, click **+ Select members**.
+
+1. In the **Select managed identities** pane, expand the **Managed identity** drop down and select **User-assigned managed identity**.
+
+    :::image type="content" source="media/configure-durable-task-scheduler/members-tab.png" alt-text="Screenshot of selecting the user-assigned managed identity type in the portal.":::
+
+1. Pick the user-managed identity you previously created and click the **Select** button.
+
+1. Click **Review + assign** to finish assigning the role. 
+
+### Assign the Storage RBAC to the user-managed identity
+
+1. In the Azure portal, navigate to your Azure Storage account. 
+
+1. Repeat the steps from the [previous section](#assign-azure-role-based-access-control-rbac-to-the-user-managed-identity) to assign the **Storage Blob Data Contributor** role to the identity. 
+
+### Enable user-assigned managed identity on your app
+
+The identity is now created and is set up with the right RBAC access. Now we need to assign the identity to your app:  
+1. From your app in the portal, from the left menu, select **Settings** > **Identity**.
+1. Click the **User assigned** tab.
+1. Click **+ Add**, then pick the identity created in the last section. Click the **Add** button.
+
+    :::image type="content" source="media/configure-durable-task-scheduler/pick-identity.png" alt-text="Screenshot of adding the user-assigned managed identity to your app in the portal.":::
+
+### Add required environment variables to app
+
+1. Navigate to your app on the portal.
+
+1. In the left menu, click **Settings** > **Environment variables**. 
+
+1. Delete the `AzureWebJobsStorage` setting. 
+
+1. Add the following environment variables: 
+    * `AzureWebJobsStorage__accountName`: your storage account name 
+    * `AzureWebJobsStorage__clientId`: the identity ID noted previously
+    * `AzureWebJobsStorage__credential`: `managedidentity`
+    * `TASKHUB_NAME`: name of task hub
+    * `DURABLE_TASK_SCHEDULER_CONNECTION_STRING`: the format of the string is `Endpoint={DTS URL};Authentication=ManagedIdentity;ClientID={client id}`, where *endpoint* is the Durable Task Scheduler URL and *client id* is the ID of the identity ID noted previously
+
+    > [!NOTE]
+    > If you use system-assigned identity, your connection string would be: `Endpoint={DTS URL};Authentication=ManagedIdentity`.
+
+1. Click **Apply** then **Confirm** to add the variables. 
+
+## Test the app
+
+You can now test your Durable Functions app that's running inside an Azure Container Apps environment.
+
+1. Navigate to `https://<function app name>.northcentralus.azurecontainerapps.io/api/HelloOrchestration_HttpStart` to start an orchestration instance.
+
+     ```json
+     {
+         "id": "a49573faf8674ee0ab5a66ce4bf1ec79",
+         "purgeHistoryDeleteUri": "http://<function app name>.northcentralus.azurecontainerapps.io/runtime/webhooks/durabletask/instances/a49573faf8674ee0ab5a66ce4bf1ec79?code=<CODE>",
+         "sendEventPostUri": "http://<function app name>.northcentralus.azurecontainerapps.io/runtime/webhooks/durabletask/instances/a49573faf8674ee0ab5a66ce4bf1ec79/raiseEvent/{eventName}?code=<CODE>",
+         "statusQueryGetUri": "http://<function app name>.northcentralus.azurecontainerapps.io/runtime/webhooks/durabletask/instances/a49573faf8674ee0ab5a66ce4bf1ec79?code=<CODE>",
+         "terminatePostUri": "http://<function app name>.northcentralus.azurecontainerapps.io/runtime/webhooks/durabletask/instances/a49573faf8674ee0ab5a66ce4bf1ec79/terminate?reason={{text}}&code=<CODE>",
+         "suspendPostUri": "http://<function app name>.northcentralus.azurecontainerapps.io/runtime/webhooks/durabletask/instances/a49573faf8674ee0ab5a66ce4bf1ec79/suspend?reason={{text}}&code=<CODE>",
+         "resumePostUri": "http://<function app name>.northcentralus.azurecontainerapps.io/runtime/webhooks/durabletask/instances/a49573faf8674ee0ab5a66ce4bf1ec79/resume?reason={{text}}&code=<CODE>"
+     }
+     ```
+
+1. Navigate to the `statusQueryGetUri` URI to get the status of the instance. 
+
+     ```json
+     {
+         "name": "HelloOrchestration",
+         "instanceId": "a49573faf8674ee0ab5a66ce4bf1ec79",
+         "runtimeStatus": "Completed",
+         "input": null,
+         "customStatus": null,
+         "output": [
+             "Hello Tokyo!",
+             "Hello Seattle!",
+             "Hello London!"
+         ],
+         "createdTime": "2024-10-01T18:57:50Z",
+         "lastUpdatedTime": "2024-10-01T18:57:50Z"
+     }
+     ```
+
+## Configure scale rules
+
+This example sets `min-replicas` to 1 when creating the function app. 
+
+Increase the minimum replica count if your app needs to handle a large number of requests. You can also set `max-replicas` to specify the maximum number of replicas used to run your app. 
 
 The following command sets minimum and maximum replica counts on an existing function app:
 
 ```azurecli
 az functionapp config container set --name <APP_NAME> --resource-group <MY_RESOURCE_GROUP> --max-replicas 15 --min-replicas 1
 ```
-
-> **NOTE:** Support for auto-scaling is on our roadmap. 
 
 ## Related links
 
