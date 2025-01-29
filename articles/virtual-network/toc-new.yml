@@ -1,0 +1,53 @@
+- name: Virtual Network documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Virtual Network?
+    href: virtual-networks-overview.md
+  - name: Accelerated Networking
+    href: accelerated-networking-overview.md
+- name: Reference
+  items:
+  - name: Monitor data reference
+    href: monitor-virtual-network-reference.md
+  - name: Azure CLI
+    href: /cli/azure/azure-cli-reference-for-network
+  - name: Azure PowerShell
+    href: /powershell/module/az.network
+  - name: .NET
+    href: /dotnet/api/overview/azure/virtual-network
+  - name: Java
+    href: /java/api/
+  - name: Node.js
+    href: /javascript/azure#azure-sdk
+  - name: Python
+    href: https://azure.microsoft.com/develop/python/
+  - name: REST
+    href: /rest/api/virtual-network
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.network/allversions
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?service=virtual-network
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
+- name: Resources
+  items:
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Networking blog
+    href: https://azure.microsoft.com/blog/topics/networking
+  - name: Microsoft Q&A question page for Networking
+    href: /answers/topics/azure-virtual-network.html
+  - name: Networking feedback
+    href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/virtual-network
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-virtual-network
+  - name: FAQ
+    href: virtual-networks-faq.md
