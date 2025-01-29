@@ -580,7 +580,7 @@ This example works with the parameter file used to retrieve the [Datadog API](#d
 
 Before you deploy this template, replace the `<PLACEHOLDERS>` with your values.
 
-# [ARM template](#tab/arm)
+# [ARM template](#tab/arm-example)
 
 ```json
 {
@@ -626,7 +626,7 @@ Before you deploy this template, replace the `<PLACEHOLDERS>` with your values.
 }
 ```
 
-# [Bicep](#tab/bicep)
+# [Bicep](#tab/bicep-example)
 
 ```bicep
 @secure()
