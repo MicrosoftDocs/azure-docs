@@ -1,10 +1,8 @@
-- name: Microsoft Azure Functions Migration Guide
-  href: ./index.yml
+- name: Overview
+  href: ./function-placeholder.md
   items:
-  - name: Overview
-    href: ./function-placeholder.md
   - name: Source service evaluation
-    href: ./placeholder.md
+    href: ./function-placeholder.md
     items:
     - name: Governance
       href: ./function-placeholder.md
