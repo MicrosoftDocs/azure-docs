@@ -134,7 +134,7 @@ To specify a straightforward transformation between elements that have the same 
 
 1. On the mapper surface, in the **Source** pane, find the source element that you want to map.
 
-   - By default, parent elements are automatically expanded to show their children. You can't collapse parent elements.
+   - By default, parent elements are automatically expanded to show their children.
 
    - This example starts mapping from the source element, but you can choose to start mapping from the target element.
 
@@ -312,8 +312,6 @@ In the following example, when the purchase quantity exceeds 20 items, the mappi
 | **Comparison** | **If** | Check whether the **Greater** function returns true. |
 | **Math** | **Multiply** | Calculate the discount by multiplying the item price by 10% and the item quantity. |
 
-1. To view what happens in code while you create the mapping, in the mapper's upper right corner, select **View code**.
-
 1. In the **Source** and **Destination** panes, find the elements to map in your scenario.
 
    This example uses the following elements:
@@ -333,12 +331,14 @@ In the following example, when the purchase quantity exceeds 20 items, the mappi
 
    :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/condition-example-functions.png" alt-text="Screenshot shows mapper surface, data elements, and functions for example condition scenario.":::
 
-1. To create the mappings, connect the source elements, functions, and target elements as your scenario requires.
+1. To view what happens in code while you create the mappings, in the mapper's upper right corner, select **View code**.
+
+1. Connect the source elements, functions, and target elements in the specific order as your scenario requires.
 
    This example connects the following items in the specified order to correctly create the mappings:
 
-   | Point 1 | Point 2 |
-   |---------|---------|
+   | Start | End |
+   |-------|-----|
    | **ItemPrice** source element | **ItemPrice** target element |
    | **ItemQuantity** source element | **Greater** function's input on the shape's left edge. This input provides the data for the **Value 1** field in the function details. |
    | **Greater** function's output on the shape's right edge | **If** function's input on the shape's left edge. This input provides the data for the **Condition** field in the function details. |
@@ -356,7 +356,7 @@ In the following example, when the purchase quantity exceeds 20 items, the mappi
    |----------|-----------------------|
    | **Greater** | - **Value 1**: **ItemQuantity** source element <br>- **Value 2**: **20** as a custom value |
    | **Multiply** | - **Multiplicand 1**: **ItemPrice** source element <br>- **Multiplicand 2**: **.10** as a custom value |
-   | **If** | - **Condition**: **is-greater-than(ItemQuantity, [object Object])** <br>- **Value**: **multiply(ItemPrice, [object Object])** |
+   | **If** | - **Condition**: **is-greater-than(ItemQuantity, 20)** <br>- **Value**: **multiply(ItemPrice, .10**) |
 
    The following map shows the finished example:
 
@@ -364,7 +364,7 @@ In the following example, when the purchase quantity exceeds 20 items, the mappi
 
    The **Code** pane shows the mapping that you created:
 
-   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/condition-example-code-view.png" alt-text="Screenshot shows Code pane  with conditional mapping between source and target elements using the functions, Greater, If, and Multiply.":::
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/condition-example-code-view.png" alt-text="Screenshot shows Code pane  with conditional mapping between source and target elements using the functions, Greater, Multiply, and If.":::
 
 <a name="save-map"></a>
 
