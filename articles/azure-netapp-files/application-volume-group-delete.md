@@ -21,7 +21,7 @@ This article describes how to delete an application volume group.
 
 2. To delete the volume group, select **Delete**. If you are prompted, type the volume group name to confirm the deletion.  
 
-    :::image type="content" source="./media/application-volume-group-add-volume-secondary/application-volume-group-create-extension-one.png" alt-text="Screenshot of create application volume group interface for extension one." lightbox="./media/application-volume-group-add-volume-secondary/application-volume-group-create-extension-one.png":::
+    :::image type="content" source="./media/application-volume-group-delete/application-volume-group-delete.png" alt-text="Screenshot of create application volume group without volumes..":::
 
 
 
