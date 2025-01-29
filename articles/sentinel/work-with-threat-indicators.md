@@ -64,7 +64,9 @@ For more information on supported STIX objects, see [Understand threat intellige
 
 1. Otherwise, select **Add** to create the single item.
 
-## Curate threat intelligence
+### Curate threat intelligence with the relationship builder
+
+
 
 
 :::image type="content" source="media/work-with-threat-indicators/relationship-example.png" alt-text="Screenshot showing the relationship builder.":::
