@@ -1,5 +1,5 @@
 ---
-title:  "Set Up Autoscale for Applications"
+title: "Set Up Autoscale for Applications"
 description: This article describes how to set up Autoscale settings for your applications using the Microsoft Azure portal or the Azure CLI.
 author: KarlErickson
 ms.author: karler

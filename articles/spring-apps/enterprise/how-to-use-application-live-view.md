@@ -1,5 +1,5 @@
 ---
-title:  Use Application Live View With the Azure Spring Apps Enterprise Plan
+title: Use Application Live View With the Azure Spring Apps Enterprise Plan
 description: Learn how to use Application Live View for VMware Tanzu.
 author: KarlErickson
 ms.author: yuwzho

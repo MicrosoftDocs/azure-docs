@@ -1,5 +1,5 @@
 ---
-title:  Connect an Azure Cosmos DB to Your Application in Azure Spring Apps
+title: Connect an Azure Cosmos DB to Your Application in Azure Spring Apps
 description: Learn how to connect Azure Cosmos DB to your application in Azure Spring Apps
 author: KarlErickson
 ms.service: azure-spring-apps

@@ -1,5 +1,5 @@
 ---
-title:  Monitor Apps Using Application Live View With the Azure Spring Apps Enterprise Plan
+title: Monitor Apps Using Application Live View With the Azure Spring Apps Enterprise Plan
 description: Learn how to monitor apps using Application Live View with the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: yuwzho

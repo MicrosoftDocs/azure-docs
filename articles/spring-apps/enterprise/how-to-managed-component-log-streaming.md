@@ -1,5 +1,5 @@
 ---
-title:   Stream Azure Spring Apps Managed Component Logs in Real Time
+title:  Stream Azure Spring Apps Managed Component Logs in Real Time
 description: Learn how to use log streaming to view managed component logs in real time.
 author: KarlErickson
 ms.author: karler

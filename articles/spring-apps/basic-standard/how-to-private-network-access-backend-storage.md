@@ -1,5 +1,5 @@
 ---
-title:  Configure Private Network Access for Backend Storage in Your Virtual Network
+title: Configure Private Network Access for Backend Storage in Your Virtual Network
 description: Learn how to configure private network access to backend storage in your virtual network.
 author: KarlErickson
 ms.author: haozhan

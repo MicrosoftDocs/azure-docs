@@ -1,5 +1,5 @@
 ---
-title:  "Quickstart - Automate Deployments"
+title: "Quickstart - Automate Deployments"
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Explains how to automate deployments to the Azure Spring Apps Enterprise plan by using GitHub Actions and Terraform.
 author: KarlErickson

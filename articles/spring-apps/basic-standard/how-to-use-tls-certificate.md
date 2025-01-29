@@ -1,5 +1,5 @@
 ---
-title:  Use TLS/SSL Certificates in Your Application in Azure Spring Apps
+title: Use TLS/SSL Certificates in Your Application in Azure Spring Apps
 titleSuffix: Azure Spring Apps
 description: Use TLS/SSL certificates in an application.
 author: KarlErickson
