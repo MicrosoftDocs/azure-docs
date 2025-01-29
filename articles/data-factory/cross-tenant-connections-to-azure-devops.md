@@ -5,7 +5,7 @@ ms.subservice: ci-cd
 author: kromerm
 ms.author: makromer
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 01/29/2025
 ---
 
 # Cross-tenant connections to Azure DevOps

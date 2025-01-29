@@ -6,8 +6,7 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 05/15/2024 
-ms.custom:
+ms.date: 01/29/2025
 ---
 
 # Manually promote a Resource Manager template to each environment

@@ -4,7 +4,7 @@ description: 'Learn about meta-data redundancy mechanisms in Azure Data Factory'
 author: kromerm
 ms.author: makromer
 ms.topic: conceptual
-ms.date: 10/03/2024
+ms.date: 01/29/2025
 ms.subservice: data-movement
 ---
 

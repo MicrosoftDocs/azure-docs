@@ -5,7 +5,7 @@ ms.subservice: ci-cd
 author: kromerm
 ms.author: makromer
 ms.topic: conceptual
-ms.date: 03/19/2024
+ms.date: 01/29/2025
 ---
 
 # Source control in Azure Data Factory

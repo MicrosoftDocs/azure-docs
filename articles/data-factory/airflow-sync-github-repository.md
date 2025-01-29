@@ -4,7 +4,7 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
 ms.topic: how-to
-ms.date: 09/19/2023
+ms.date: 01/29/2025
 ---
 
 # Sync a GitHub repository in Workflow Orchestration Manager

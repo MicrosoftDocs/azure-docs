@@ -6,7 +6,7 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 09/26/2024
+ms.date: 01/29/2025
 ---
 
 # Use custom parameters with the Resource Manager template

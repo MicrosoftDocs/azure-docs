@@ -6,8 +6,7 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 10/20/2023
-ms.custom:
+ms.date: 01/29/2025
 ---
 
 # Using a hotfix production environment

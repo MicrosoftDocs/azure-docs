@@ -6,7 +6,7 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: susabat
 ms.topic: conceptual
-ms.date: 04/09/2024
+ms.date: 01/29/2025
 ---
 
 # Automated publishing for continuous integration and delivery (CI/CD)
