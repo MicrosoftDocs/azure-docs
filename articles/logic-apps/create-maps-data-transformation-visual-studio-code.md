@@ -128,7 +128,7 @@ The following table describes the possible data types that might appear in a sch
 
 ## Create a direct mapping between elements
 
-For a straightforward transformation between elements with the same type in the source and target schemas, follow these steps:
+To specify a straightforward transformation between elements that have the same type in the source and target schemas, follow these steps:
 
 1. To view what happens in code while you create the mapping, in the mapper's upper right corner, select **View code**.
 
@@ -170,13 +170,13 @@ For a straightforward transformation between elements with the same type in the 
 
 ## Create a complex mapping between elements
 
-For a more complex transformation between elements in the source and target schemas, such as elements that you want to combine or that have different data types, you can use one or more functions to perform tasks for that transformation.
+To specify a more complicated transformation between elements in the source and target schemas, for example, elements that you want to combine or have different data types, you can use one or more *functions* that perform the transformation that you want in your mapping.
 
-On the mapper surface, a function's label is color-coded based on the function group. Next to the function name, the function's symbol appears, for example:
+On the mapper surface, the function label is color-coded based on the function group. Next to the function name, the function's symbol appears, for example:
 
 :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/example-function.png" alt-text="Screenshot shows example function label." border="false":::
 
-The following table lists the available function groups and some example functions that you can use. For the complete list, see the **Functions** list in the Data Mapper tool.
+The following table lists the function groups and some example functions that you can use. For the complete list, see the **Functions** list in Data Mapper.
 
 | Group | Example functions |
 |-------|-------------------|
@@ -188,9 +188,9 @@ The following table lists the available function groups and some example functio
 | **String** | Codepoints to String, Concat, Contains, Ends with, Length, Lowercase, Name, Regular Expression Matches, Regular Expression Replace, Replace, Starts with, String to Codepoints, Substring, Substring after, Substring before, Trim, Trim Left, Trim Right, Uppercase |
 | **Utility** | Copy, Error, Execute XPath, Format DateTime, Format Number, Run XSLT |
 
-### Add a function without a mapping relationship
+### Add a function without a mapping
 
-The example in this section transforms the source element from String type to DateTime type, which is the target element type. The example starts without creating a mapping and uses the **To Date** function, which accepts a single input.
+The example in this section transforms data in the source element from **String** to **DateTime**, which is the target element type. The example starts without first creating a mapping and uses the **To Date** function, which accepts a single input.
 
 1. To view what happens in code while you create the mapping, in the mapper's upper right corner, select **View code**.
 
@@ -231,13 +231,15 @@ The example in this section transforms the source element from String type to Da
 
    Some scenarios require defining a transformation beyond the immediate pair of source and target elements. For example, to define a transformation between a pair of arrays and their items, you need to [create a loop between the arrays](#loop-through-array). Or, to perform a task when an element's value meets a condition, you need to [add a condition between elements](#add-condition).
 
-### Add a function with multiple inputs
+### Add a function that uses multiple inputs
 
-The example in this section concatenates multiple source element types so that you can map the results to the target element type. The example uses the **Concat** function, which accepts multiple inputs.
+The example in this section concatenates multiple source elements as inputs and maps a single output to the target element. The example uses the **Concat** function, which accepts multiple inputs.
 
 1. To view what happens in code while you create the mapping, in the mapper's upper right corner, select **View code**.
 
-1. In the **Functions** list, find and select the function that you want to use, which adds the function to the mapper surface. If the **Functions** list is collapsed, in the mapper's upper left corner, select the function icon (![Icon for Functions list.](media/create-maps-data-transformation-visual-studio-code/function-icon.png)).
+1. In the **Functions** list, find and select the function that you want to use, which adds the function to the mapper surface.
+
+   If the **Functions** list is collapsed, in the mapper's upper left corner, select the function icon (![Icon for Functions list.](media/create-maps-data-transformation-visual-studio-code/function-icon.png)).
 
    This example selects the **Concat** function, which is in the **String** function group.
 
@@ -268,27 +270,27 @@ The example in this section concatenates multiple source element types so that y
 
 <a name="loop-through-array"></a>
 
-## Create loop mapping between arrays
+## Iterate through arrays
 
-If your source and target schemas contain array elements, you can create a loop to iterates through each array's item elements. The example in this section creates a loop through a source **Employee** array and a target **Person** array and mappings between the arrays' items.
+If your source and target schemas contain arrays, you can create a loop to iterates through each array's items. The example in this section creates a loop through an **Employee** source array and a **Person** target array along with mappings between the arrays' items.
 
 1. To view what happens in code while you create the mapping, in the mapper's upper right corner, select **View code**.
 
-1. On the mapper surface, in the **Source** and **Destination** panes, find the array elements that you want to map.
+1. On the mapper surface, in the **Source** and **Destination** panes, find the arrays that you want to map.
 
-1. Drag and draw a line between the pair of array items that you want in the **Source** and **Destination** panes. You can start mapping from either pane.
+1. Drag and draw a line between the pair of array items. You can start from either the **Source** pane or the **Destination** pane.
 
-   The following example starts a mapping between the **Name** items in the source **Employee** parent array and target **Person** parent array:
+   The following example starts from the **Source** pane and maps the **Name** items in the **Employee** source array and the **Person** target array:
 
    :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/loop-example-map-array-items.png" alt-text="Screenshot shows mapper surface and drawing a mapping between the Name items in the source Employee and target Person arrays.":::
 
-   After you complete the mapping between the first pair of array items, the mapper automatically adds a loop mapping between the parent arrays, which have the following connection point type: ![Icon for array element completed connection point.](media/create-maps-data-transformation-visual-studio-code/array-connection-point-complete.png)
+   After you finish mapping the first pair of array items, the mapper automatically adds a loop between the source and target array parent elements, which have the following connection point type: ![Icon for array element completed connection point.](media/create-maps-data-transformation-visual-studio-code/array-connection-point-complete.png)
 
-   The following example shows the automatically added mapping between the source **Employee** and target **Person** parent arrays:
+   The following example highlights the automatically added loop between the source **Employee** and target **Person** parent arrays:
 
    :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/loop-example-automap-arrays.png" alt-text="Screenshot shows loop mapping between source Employee and target Person parent arrays.":::
 
-   The **Code** pane shows the mapping relationship that you created:
+   The **Code** pane shows the mapping and loop that you created:
 
    :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/loop-example-code-view.png" alt-text="Screenshot shows Code pane  with loop mapping between source and target parent arrays plus array items.":::
 
@@ -298,59 +300,71 @@ If your source and target schemas contain array elements, you can create a loop 
 
 <a name="add-condition"></a>
 
-## Set up a condition and task to perform between elements
+## Evaluate a condition to perform a task
 
-To add a mapping relationship that evaluates a condition and performs a task when the condition is met, you can use multiple functions, such as the **If** function, a comparison function such as **Greater**, and the task to perform such as **Multiply**.
+Suppose you want to add a mapping that evaluates a condition and performs a task when the condition is met. For this scenario, you can use multiple functions.
 
-The example in this section calculates a discount to apply when the purchase quantity exceeds 20 items by using the following functions:
+In the following example, when the purchase quantity exceeds 20 items, the mapping calculates a discount to apply by using the following functions:
 
-- **Greater**: Check whether item quantity is greater than 20.
-- **If**: Check whether the **Greater** function returns true.
-- **Multiply**: Calculate the discount by multiplying the item price by 10% and the item quantity.
+| Function group | Function | Purpose in this example |
+|----------------|----------|-------------------------|
+| **Comparison** | **Greater** | Check whether item quantity is greater than 20. |
+| **Comparison** | **If** | Check whether the **Greater** function returns true. |
+| **Math** | **Multiply** | Calculate the discount by multiplying the item price by 10% and the item quantity. |
 
 1. To view what happens in code while you create the mapping, in the mapper's upper right corner, select **View code**.
 
-1. If you haven't already, on the map, [select the target elements and then the source elements that you want to map](#create-direct-mapping).
+1. In the **Source** and **Destination** panes, find the elements to map in your scenario.
 
-   This example selects the following elements:
+   This example uses the following elements:
 
-   ![Screenshot showing the data map and elements to map.](media/create-maps-data-transformation-visual-studio-code/if-condition-example-elements.png)
+   - **Source** pane: **ItemPrice** and **ItemQuantity**
+   - **Destination** pane: **ItemPrice**, **ItemQuantity**, and **ItemDiscount**
 
-1. In the map's upper left corner, select **Show functions** (![Icon for Show functions.](media/create-maps-data-transformation-visual-studio-code/function-icon.png)).
+     :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/condition-example-elements.png" alt-text="Screenshot shows mapper surface and data elements for example condition scenario.":::
 
-1. Add the following functions to the map: **Greater**, **If**, and **Multiply**
+1. In the **Functions** list, find and select the functions that you want to use, which adds the functions to the mapper surface.
 
-1. Expand all the function shapes to show the function details and connection points.
+   - If the **Functions** list is collapsed, in the mapper's upper left corner, select the function icon (![Icon for Functions pane.](media/create-maps-data-transformation-visual-studio-code/function-icon.png)).
 
-1. Connect the source elements, functions, and target elements as follows:
+   - If necessary, move the function shapes on the mapper surface to make them easier to select.
 
-   * The source schema's **ItemPrice** element to the target schema's **ItemPrice** element
-   * The source schema's **ItemQuantity** element to the **Greater** function's **Value** field
-   * The **Greater** function's output to the **If** function's **Condition** field
-   * The source schema's **ItemPrice** element to the **Multiply** function's **Multiplicand 0*** field
-   * The **Multiply** function's output to the **If** function's **Value** field
-   * The **If** function's output to the target schema's **ItemDiscount** element
+   This example adds the following functions to the mapper surface: **Greater**, **If**, and **Multiply**
 
-   > [!NOTE]
-   >
-   > In the **If** function, the word **ANY** appears to the right of the function name, 
-   > indicating that you can assign the output value to anything. 
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/condition-example-functions.png" alt-text="Screenshot shows mapper surface, data elements, and functions for example condition scenario.":::
 
-1. In the following functions, on the **Properties** tab, specify the following values:
+1. To create the mappings, connect the source elements, functions, and target elements as your scenario requires.
 
-   | Function | Input parameter and value |
-   |----------|---------------------------|
-   | **Greater** | - **Value** #1: The source element named **ItemQuantity** <br>- **Value** #2: **20** |
-   | **Multiply** | - **Multiplicand** #1: The source element named **ItemPrice** <br>- **Multiplicand** #2: **.10** |
-   | **If** | - **Condition**: **is-greater-than(ItemQuantity,20)** <br>- **Value**: **multiply(ItemPrice, .10)** |
+   This example connects the following items in the specified order to correctly create the mappings:
+
+   | Point 1 | Point 2 |
+   |---------|---------|
+   | **ItemPrice** source element | **ItemPrice** target element |
+   | **ItemQuantity** source element | **Greater** function's input on the shape's left edge. This input provides the data for the **Value 1** field in the function details. |
+   | **Greater** function's output on the shape's right edge | **If** function's input on the shape's left edge. This input provides the data for the **Condition** field in the function details. |
+   | **ItemPrice** source element | **Multiply** function's input on the shape's left edge. This input provides the data for the **Multiplicand** field in the function details. |
+   | **Multiply** function's output on the shape's right edge. | **If** function's input on the shape's left edge. This input provides the data for the **Value** field in the function details. |
+   | **If** function's output on the shape's right edge. | **ItemDiscount** target element |
+
+   The following example shows the mappings at this point in time:
+
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/condition-example-mappings.png" alt-text="Screenshot shows mapper surface, data elements, and functions with mappings for example condition scenario.":::
+
+1. In the following function details, on the **Input** tab, confirm or provide the following values:
+
+   | Function | Input field and value |
+   |----------|-----------------------|
+   | **Greater** | - **Value 1**: **ItemQuantity** source element <br>- **Value 2**: **20** as a custom value |
+   | **Multiply** | - **Multiplicand 1**: **ItemPrice** source element <br>- **Multiplicand 2**: **.10** as a custom value |
+   | **If** | - **Condition**: **is-greater-than(ItemQuantity, [object Object])** <br>- **Value**: **multiply(ItemPrice, [object Object])** |
 
    The following map shows the finished example:
 
-   ![Screenshot showing finished condition example.](media/create-maps-data-transformation-visual-studio-code/if-condition-example-complete.png)
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/condition-example-complete.png" alt-text="Screenshot shows finished condition example.":::
 
-   The **Code** pane shows the mapping relationship that you created:
+   The **Code** pane shows the mapping that you created:
 
-   ![Screenshot showing Code pane  with conditional mapping between source and target elements using the functions, Greater, If, and Multiply.](media/create-maps-data-transformation-visual-studio-code/if-condition-example-code-view.png)
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/condition-example-code-view.png" alt-text="Screenshot shows Code pane  with conditional mapping between source and target elements using the functions, Greater, If, and Multiply.":::
 
 ## Save your map
 
@@ -358,14 +372,8 @@ When you're done, on the map toolbar, select **Save**.
 
 Visual Studio Code saves your map as the following artifacts:
 
-- A **<*your-map-name*>.yml** file in the **Artifacts** > **MapDefinitions** project folder
+- A **<*your-map-name*>.lml** file in the **Artifacts** > **MapDefinitions** project folder
 - An **<*your-map-name*>.xslt** file in the **Artifacts** > **Maps** project folder
-
-<a name="generate-xslt"></a>
-
-## Generate XSLT file at any time
-
-To generate the **<*your-map-name*>.xslt** file at any time, on the map toolbar, select **Generate XSLT**.
 
 ## Test your map
 
@@ -373,15 +381,15 @@ To confirm that the transformation works as you expect, you'll need sample input
 
 1. Before you test your map, make sure to [generate the latest **<*your-map-name*>.xslt** file](#generate-xslt).
 
-1. On your map toolbar, select **Test**.
+1. On your map toolbar, select **Open test panel**.
 
-1. On the **Test map** pane, in the **Input** window, paste your sample input data, and then select **Test**.
+1. On the **Test map** pane, in the **Sample data** box, paste your sample input, and select **Test**.
 
-   The test pane switches to the **Output** tab and shows the test's status code and response body.
+   The **Result** box shows the test results.
 
 ## Call your map from a workflow in your project
 
-1. On the Visual Studio Code left menu, select **Explorer** (files icon) to view your logic app project structure.
+1. On the Visual Studio Code Activity bar, select **Explorer** (files icon) to view your logic app project structure.
 
 1. Expand the folder that has your workflow name. From the **workflow.json** file's shortcut menu, select **Open Designer**.
 
