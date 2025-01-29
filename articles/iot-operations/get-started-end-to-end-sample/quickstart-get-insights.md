@@ -41,9 +41,9 @@ Start by navigating to the [Real-Time hub in Microsoft Fabric](https://app.power
 
 Add your event hub as a data source for a new eventstream (for detailed instructions, see [Get events from Azure Event Hubs into Real-time hub](/fabric/real-time-hub/add-source-azure-event-hubs#microsoft-sources-page)). As you add the data source, keep the following notes in mind:
 
-* For **Azure Event Hub Key**, use the default selection (*RootManageSharedAccessKey*).
 * You can edit the **Eventstream name** to something friendly in the **Stream details** pane.
-* For **Connection**, create a new connection with Shared Access Key authentication.
+* For **Azure Event Hub Key**, use the default selection (*RootManageSharedAccessKey*).
+* For **Connection**, create a new connection with Shared Access Key authentication. The connection credential details should fill automatically.
     * Make sure local authentication is enabled on your Event Hubs namespace. You can set this from its Overview page in the Azure portal.
 * For **Consumer group**, use the default selection (*$Default*).
 * For **Data format**, use the default selection (*Json*).
@@ -103,9 +103,11 @@ Next, add your eventstream as a data source for your KQL table (for detailed ins
 
 After you complete this setup, data begins to flow through your eventstream and is processed into your KQL table.
 
-Wait a few minutes for data to propagate. Then, select the *OPCUA* table to see a preview of the data from the eventstream appearing in the table.
+Wait a few minutes for data to propagate. Then, select the *OPCUA* table (you may need to refresh the view) to see a preview of the data from the eventstream appearing in the table.
 
 :::image type="content" source="media/quickstart-get-insights/kql-data-preview.png" alt-text="Screenshot of the OPCUA table with data.":::
+
+You can also use the **Query with code** button to open a query window for the *OPCUA* table and run queries to explore the data.
 
 ## Create a Real-Time Dashboard
 
@@ -130,11 +132,13 @@ Then, follow the steps below to upload the dashboard template and connect it to 
     :::image type="content" source="media/quickstart-get-insights/dashboard-upload-errors.png" alt-text="Screenshot of the dashboard with errors in the visuals.":::
 1. From the **Manage** tab, select **Data sources**. This opens the **Data sources** pane with a sample source for your AIO data. Select the pencil icon to edit the *AIOdata* data source.
     :::image type="content" source="media/quickstart-get-insights/dashboard-data-sources.png" alt-text="Screenshot of the buttons to connect a data source.":::
-1. Choose your database (it's under **OneLake data hub**). When you're finished selecting your data source, select **Apply** and close the **Data sources** pane.
+1. Choose your database (it's under **OneLake data hub**). When you're finished connecting your data source, select **Apply** and close the **Data sources** pane.
 
 The visuals should populate with the data from your KQL database.
 
 :::image type="content" source="media/quickstart-get-insights/dashboard.png" alt-text="Screenshot of the dashboard.":::
+
+On the **Home** tab, select **Save** to save your dashboard.
 
 ### Explore dashboard
 
