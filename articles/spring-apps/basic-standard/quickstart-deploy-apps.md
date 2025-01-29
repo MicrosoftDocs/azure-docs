@@ -187,7 +187,7 @@ This response shows that both Spring apps are working. The `SolarSystemWeather` 
 
 ::: zone pivot="programming-language-java"
 
-This article explains how to build and deploy Spring applications to Azure Spring Apps. You can use Azure CLI, the Maven plugin, or Intellij. This article describes each alternative.
+This article explains how to build and deploy Spring applications to Azure Spring Apps. You can use Azure CLI, the Maven plugin, or IntelliJ. This article describes each alternative.
 
 ## Prerequisites
 

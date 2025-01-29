@@ -42,7 +42,7 @@ Use the following resources to get started with Python.
 | **Deploy your app** | - [Configure Python](configure-language-python.md)<br>- [GitHub Actions](./deploy-github-actions.md) |
 | **Monitor your app**| - [Log stream](./troubleshoot-diagnostic-logs.md#stream-logs)<br>- [Diagnose and solve tool](./overview-diagnostics.md)|
 | **Add domains & certificates** |- [Map a custom domain](./app-service-web-tutorial-custom-domain.md?tabs=root%2Cazurecli)<br>- [Add an SSL certificate](./configure-ssl-certificate.md)|
-| **Connect to a database** | - [PostgreSQL - CLI](./tutorial-python-postgresql-app.md?tabs=flask%2Cwindows&pivots=azure-developer-cli)<br>- [PostgreSQL - Azure portal](./tutorial-python-postgresql-app.md?tabs=flask%2Cwindows&pivots=azure-portal)|
+| **Connect to a database** | - [PostgreSQL - CLI](./tutorial-python-postgresql-app-flask.md?pivots=azure-developer-cli)<br>- [PostgreSQL - Azure portal](./tutorial-python-postgresql-app-flask.md?pivots=azure-portal)|
 | **Custom containers** |- [Linux - Visual Studio Code](./quickstart-custom-container.md?tabs=python&pivots=container-linux-vscode)|
 | **Review best practices** | - [Scale your app](./manage-scale-up.md)<br>- [Deployment](./deploy-best-practices.md)<br>- [Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<br>- [Virtual networks](./configure-vnet-integration-enable.md)|
 
