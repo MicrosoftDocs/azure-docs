@@ -308,9 +308,9 @@ In the following example, when the purchase quantity exceeds 20 items, the mappi
 
 | Function group | Function | Purpose in this example |
 |----------------|----------|-------------------------|
-| **Comparison** | **Greater** | Check whether item quantity is greater than 20. |
+| **Comparison** | **Greater** | Check whether purchase quantity is more than 20. |
 | **Comparison** | **If** | Check whether the **Greater** function returns true. |
-| **Math** | **Multiply** | Calculate the discount by multiplying the item price by 10% and the item quantity. |
+| **Math** | **Multiply** | If condition is true, multiply the item price by 10% to calculate the discount. |
 
 1. In the **Source** and **Destination** panes, find the elements to map in your scenario.
 
