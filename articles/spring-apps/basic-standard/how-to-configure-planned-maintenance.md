@@ -12,7 +12,7 @@ ms.date: 11/07/2023
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Standard consumption and dedicated (Preview) ✅ Basic/Standard ✅ Enterprise
 
 This article describes how to configure planned maintenance in Azure Spring Apps. 
 

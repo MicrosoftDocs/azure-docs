@@ -4,26 +4,20 @@ items:
 - name: Overview
   items:
   - name: What is Azure Native New Relic Service?
-    href: new-relic-overview.md
+    href: overview.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a New Relic resource
-    href: new-relic-create.md
-  - name: Link to an existing New Relic account
-    href: new-relic-link-to-existing.md
+  - name: Get started
+    href: create.md
 - name: How to
   items:
-  - name: Configure prerequisites
-    href: new-relic-how-to-configure-prereqs.md
-  - name: Manage Azure Native New Relic service
-    href: new-relic-how-to-manage.md
-  - name: Troubleshoot
-    items:
-    - name: Get support
-      href: new-relic-get-support.md
-    - name: Fix common errors
-      href: new-relic-troubleshoot.md
+  - name: Manage
+    href: manage.md
+  - name: Fix common errors
+    href: troubleshoot.md
+  - name: Get support
+    href: support.md
 - name: Reference
   items:
   - name: REST API

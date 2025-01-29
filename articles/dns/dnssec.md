@@ -1,24 +1,20 @@
 ---
-title: Overview of DNSSEC - Azure Public DNS (Preview)
+title: Overview of DNSSEC - Azure Public DNS
 description: Learn about DNSSEC zone signing for Azure Public DNS.
 author: greg-lindsay
 manager: KumuD
 ms.service: azure-dns
 ms.topic: article
-ms.date: 10/22/2024
+ms.date: 01/27/2025
 ms.author: greglin
 ---
 
-# DNSSEC overview (Preview)
+# DNSSEC overview
 
 This article provides an overview of Domain Name System Security Extensions (DNSSEC) and includes an introduction to [DNSSEC terminology](#dnssec-terminology). Benefits of DNSSEC zone signing are described and examples are provided for viewing DNSSEC related resource records. When you are ready to sign your Azure public DNS zone, see the following how-to guides:
 
-- [How to sign your Azure Public DNS zone with DNSSEC (Preview)](dnssec-how-to.md).
-- [How to unsign your Azure Public DNS zone (Preview)](dnssec-unsign.md)
-
-> [!NOTE]
-> DNSSEC zone signing is currently in PREVIEW.<br> 
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+- [How to sign your Azure Public DNS zone with DNSSEC](dnssec-how-to.md).
+- [How to unsign your Azure Public DNS zone](dnssec-unsign.md)
  
 ## What is DNSSEC?
 
@@ -266,7 +262,7 @@ This list is provided to help understand some of the common terms used when disc
 | Trust anchor | A preconfigured public key that is associated with a particular zone. A trust anchor enables a DNS resolver to validate signed DNSSEC resource records for that zone and to build authentication chains to child zones. |
 | Unsigned zone | Any DNS zone that has not been signed as defined by RFC 4035 [7] Section 2. |
 | Zone signing | Zone signing is the process of creating and adding DNSSEC-related resource records to a zone, making it compatible with DNSSEC validation. |
-| Zone unsigning | Zone unsigning is the process of removing DNSSSEC-related resource records from a zone, restoring it to an unsigned status. |
+| Zone unsigning | Zone unsigning is the process of removing DNSSEC-related resource records from a zone, restoring it to an unsigned status. |
 | Zone signing key (ZSK) | An authentication key that corresponds to a private key that is used to sign a zone. Typically, a zone signing key is part of the same DNSKEY RRSet as the key signing key whose corresponding private key signs this DNSKEY RRSet, but the zone signing key is used for a slightly different purpose and can differ from the key signing key in other ways, such as in validity lifetime. Designating an authentication key as a zone signing key is purely an operational issue; DNSSEC validation doesn't distinguish between zone signing keys and other DNSSEC authentication keys. It's possible to use a single key as both a key signing key and a zone signing key. |
 
 ## Next steps

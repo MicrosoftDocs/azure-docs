@@ -13,7 +13,7 @@ ms.date: 04/23/2024
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic ✔️ Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic ✅ Standard ✅ Enterprise
 
 This quickstart describes how to use Terraform to deploy an Azure Spring Apps cluster into an existing virtual network.
 

@@ -12,7 +12,7 @@ ms.author: marayerm
 
 # Sign in to Storage Explorer
 
-Sign-in is the recommended way to access your Azure storage resources with Storage Explorer. By signing in you take advantage of Microsoft Entra backed permissions, such as RBAC and Azure Data Lake Storage POSIX ACLs.
+Sign-in is the recommended way to access your Azure storage resources with Storage Explorer. By signing in you take advantage of Microsoft Entra backed permissions, such as role based access control and Azure Data Lake Storage POSIX access control lists.
 
 ## How to sign in
 
@@ -28,13 +28,13 @@ At this point, your OS' **default web browser** will launch and a sign-in page w
 
 You can manage and remove Azure accounts that you've signed into from the **Account Panel**. You can open the **Account Panel** by clicking on the **Manage Accounts** button on the left-hand vertical toolbar.
 
-In the **Account Panel** you'll see any accounts that you have signed into. Under each account will be:
+In the **Account Panel**, you'll see any accounts that you have signed into. Under each account will be:
 - The tenants the account belongs to
 - For each tenant, the subscriptions you have access to
 
-By default, Storage Explorer only signs you into your home tenant. If you want to view subscriptions and resources from another tenant, you'll need to activate that tenant. To activate a tenant, check the checkbox next to it. Once you're done working with a tenant, you can uncheck its checkbox to deactivate it. You cannot deactivate your home tenant.
+By default, Storage Explorer only signs you into your home tenant. If you want to view subscriptions and resources from another tenant, you'll need to activate that tenant. To activate a tenant, check the checkbox next to it. Once you're done working with a tenant, you can uncheck its checkbox to deactivate it. You can't deactivate your home tenant.
 
-After activating a tenant, you may need to reenter your credentials before Storage Explorer can load subscriptions or access resources from the tenant. Having to reenter your credentials usually happens because of a conditional access (CA) policy such as multi-factor authentication (MFA). And even though you may have already performed MFA for another tenant, you might still have to do it again. To reenter your credentials, simply click on **Reenter credentials...**. You can also click on **Error details...** to see exactly why subscriptions failed to load.
+After activating a tenant, you may need to reenter your credentials before Storage Explorer can load subscriptions or access resources from the tenant. Having to reenter your credentials usually happens because of a conditional access (CA) policy such as multifactor authentication (MFA). And even though you may have already performed MFA for another tenant, you might still have to do it again. To reenter your credentials, simply click on **Reenter credentials...**. You can also click on **Error details...** to see exactly why subscriptions failed to load.
 
 Once your subscriptions have loaded, you can choose which ones you want to filter in/out by checking or unchecking their checkboxes.
 
@@ -42,10 +42,16 @@ If you want to remove your entire Azure account, then click on the **Remove** ne
 
 ## Changing where sign-in happens
 
-By default sign-in will happen in your OS' **default web browser**. Signing-in with your default web browser streamlines how you access resources secured via CA policies, such as MFA. If for some reason signing in with your OS' **default web browser** isn't working, you can change where or how Storage Explorer performs sign-in.
+By default, sign-in will happen:
+
+- Windows: via your OS' **authentication broker**.
+- macOS and Linux: in your OS' **default web browser**.
+
+If the default does not work for you, then you can change where or how Storage Explorer performs sign-in.
 
 Under **Settings (gear icon on the left)** > **Application** > **Sign-in**, look for the **Sign in with** setting. There are three options:
-- **Default Web Browser**: sign-in will happen in your OS' **default web browser**. This option is recommended.
+- **Authentication Broker**: sign-in will happen via your OS' **authentication broker**. This option is recommended if you are on Windows.
+- **Default Web Browser**: sign-in will happen in your OS' **default web browser**. This option is recommended if you are on macOS or Linux, or if you're having issues with the **authentication broker** option.
 - **Integrated Sign-In**: sign-in will happen in a Storage Explorer window. This option may be useful if you're having issues using your **default web browser** to sign in.
 - **Device Code Flow**: Storage Explorer will give you a code to enter into a browser window. This option isn't recommended. Device code flow isn't compatible with many CA policies.
 

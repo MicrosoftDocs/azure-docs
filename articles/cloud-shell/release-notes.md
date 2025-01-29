@@ -1,19 +1,47 @@
 ---
 title: Azure Cloud Shell release notes
 description: This article lists the new features and changes released in Azure Cloud Shell.
-ms.date: 06/25/2024
+ms.date: 01/24/2025
 ms.topic: release-notes
 ---
 
 # Azure Cloud Shell release notes
 
 The following document outlines the changes to Azure Cloud Shell. The Cloud Shell container image is
-updated on a monthly basis to reflect the latest changes. Changes can include new or updated
-features and tools, security updates, and bug fixes.
+updated on a monthly basis. Changes can include new or updated features and tools, security updates,
+and bug fixes.
+
+## January 2025
+
+Tool changes
+
+- Updated Azure CLI to [v2.68.0](/cli/azure/release-notes-azure-cli)
+- Updated Azure PowerShell to [v13.1.0](/powershell/azure/release-notes-azureps?view=azps-13.1.0&preserve-view=true)
+- Removed guava-android Java library
+
+## December 2024
+
+Tool changes
+
+- The mysql client was replaced with the mariadb client. You can still run `mysql` commands in Cloud
+  Shell, but the client is now the mariadb client.
+- .NET was upgraded from .NET 7 to .NET 8
+- The moby-cli and docker packages were removed since you can't start the daemons in Cloud Shell.
+
+Deprecated Packages
+
+The following packages were removed for compliance with our package inclusion policy.
+
+- [packer](https://developer.hashicorp.com/packer/docs/intro)
+- [sfctl](/azure/service-fabric/service-fabric-cli)
+
+Published policy for inclusion of new tools
+
+- [Package inclusion guide](https://github.com/Azure/CloudShell/blob/master/docs/package-inclusion-guide.md)
 
 ## May 2024
 
-### New features
+New features
 
 - Updated user interface
 
@@ -32,7 +60,7 @@ features and tools, security updates, and bug fixes.
   For more information, see
   [Get started with Azure Cloud Shell ephemeral sessions](./get-started/ephemeral.md?tabs=powershell).
 
-### Deprecated Packages
+Deprecated Packages
 
 The following packages were removed for security compliance. These packages were deprecated by the
 package owners or are no longer maintained. If you need to use these tools, you can install them in

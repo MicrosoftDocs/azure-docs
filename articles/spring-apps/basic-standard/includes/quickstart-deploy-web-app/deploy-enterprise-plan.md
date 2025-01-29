@@ -85,6 +85,8 @@ Use the following steps to connect your service instances:
 
 1. Configure the **Next: Authentication** tab with the following information:
 
+   [!INCLUDE [security-note](../../../includes/security-note.md)]
+
    - **Select the authentication type you'd like to use between your compute service and target service.**: Select **Connection string**.
    - **Continue with...**: Select **Database credentials**
    - **Username**: *myadmin*
@@ -101,6 +103,8 @@ Use the following steps to connect your service instances:
 ### 3.1. Provide names for each resource
 
 Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values.
+
+[!INCLUDE [security-note](../../../includes/security-note.md)]
 
 ```azurecli
 export RESOURCE_GROUP=<resource-group-name>
@@ -178,6 +182,8 @@ The Spring web app uses H2 for the database in localhost, and Azure Database for
 
 Use the following command to create a PostgreSQL instance:
 
+[!INCLUDE [security-note](../../../includes/security-note.md)]
+
 ```azurecli
 az postgres flexible-server create \
     --name ${POSTGRESQL_SERVER} \
@@ -203,6 +209,8 @@ After the application instance and the PostgreSQL instance are created, the appl
    ```
 
 1. Use the following command to provide the `spring.datasource.` properties to the app through environment variables:
+
+   [!INCLUDE [security-note](../../../includes/security-note.md)]
 
    ```azurecli
    az spring app update \

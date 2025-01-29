@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 11/12/2024
+ms.date: 01/29/2025
 ms.author: anfdocs
 ---
 
@@ -28,7 +28,6 @@ The storage with cool access feature provides options for the “coolness period
 * To prevent data retrieval from the cool tier to the hot tier during sequential read operations (for example, antivirus or other file scanning operations), set the cool access retrieval policy to **Default** or **Never**. For more information, see [Enable cool access on a new volume](#enable-cool-access-on-a-new-volume).
 * After the capacity pool is configured with the option to support cool access volumes, the setting can't be disabled at the _capacity pool_ level. You can turn on or turn off the cool access setting at the _volume_ level anytime. Turning off the cool access setting at the volume level stops further tiering of data.  
 * Files moved to the cool tier remains there after you disable cool access on a volume. You must perform an I/O operation on _each_ file to return it to the warm tier. 
-* You can't use [large volumes](large-volumes-requirements-considerations.md) with cool access.
 * For the maximum number of volumes supported for cool access per subscription per region, see [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits).
 * Considerations for using cool access with [cross-region replication](cross-region-replication-requirements-considerations.md) and [cross-zone replication](cross-zone-replication-introduction.md):
     * The cool access setting on the destination volume is updated automatically to match the source volume whenever the setting is changed on the source volume or during authorization. The setting is also updated automatically when a reverse resync of the replication is performed, but only if the destination volume is in a cool access-enabled capacity pool. Changes to the cool access setting on the destination volume don't affect the setting on the source volume.
@@ -43,32 +42,17 @@ The storage with cool access feature provides options for the “coolness period
 
 ## Enable cool access 
 
-You must register for cool access before you can enable it at the capacity pool and volume levels. 
+You must register for cool access with the Premium or Ultra service levels before you can enable it at the capacity pool and volume levels. No registration is required for the Standard service level. 
 
 ### Register the feature 
 
-Azure NetApp Files storage with cool access is generally available. Before you use cool access for the first time, you must register for the feature with the service level for which you intend to use it.
+# [Ultra](#tab/ultra)
 
-# [Standard](#tab/standard)
+You must submit a waitlist request to access this feature by using the [request form](https://aka.ms/ANFcoolaccesssignup). After you submit the waitlist request, it can take approximately one week to enable the feature. Check the status of feature registration by using the command:
 
-After registration, the feature is enabled and works in the background. No user interface control is required. 
-
-1. Register the feature.
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccess
-    ```
-
-1. Check the status of the feature registration.
-
-    > [!NOTE]
-    > The `RegistrationState` property might be in the `Registering` state for up to 60 minutes before it changes to`Registered`. Wait until the status is registered before you continue.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccess
-    ```
-
-You can also use the [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.
+```azurepowershell-interactive
+Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessUltra
+```
 
 # [Premium](#tab/premium)
 
@@ -78,13 +62,9 @@ You must submit a waitlist request to access this feature by using the [request 
 Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessPremium
 ```
 
-# [Ultra](#tab/ultra)
+# [Standard](#tab/standard)
 
-You must submit a waitlist request to access this feature by using the [request form](https://aka.ms/ANFcoolaccesssignup). After you submit the waitlist request, it can take approximately one week to enable the feature. Check the status of feature registration by using the command:
-
-```azurepowershell-interactive
-Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessUltra
-```
+No registration is required to use cool access at the Standard service level.
 
 ---
 

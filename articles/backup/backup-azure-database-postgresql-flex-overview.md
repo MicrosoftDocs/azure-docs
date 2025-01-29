@@ -4,8 +4,10 @@ description: An overview on Azure Database for PostgreSQL Flexible server backup
 ms.topic: overview
 ms.date: 09/09/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.custom:
+  - ignite-2024
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # About Azure Database for PostgreSQL - Flexible server backup (preview)

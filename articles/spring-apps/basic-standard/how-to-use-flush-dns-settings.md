@@ -14,7 +14,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic ✔️ Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic ✅ Standard ✅ Enterprise
 
 > [!NOTE]
 > This feature is only available for virtual-network-injected Azure Spring Apps service instances.

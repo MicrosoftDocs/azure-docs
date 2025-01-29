@@ -10,6 +10,7 @@ ms.author: cshoe
 ms.custom:
   - references_regions
   - ignite-2023
+  - ignite-2024
 ---
 
 # Workload profiles in Azure Container Apps
@@ -21,6 +22,7 @@ Profiles are configured to fit the different needs of your applications.
 | Profile type | Description | Potential use |
 |--|--|--|
 | Consumption | Automatically added to any new environment. | Apps that don't require specific hardware requirements |
+| Consumption GPU (preview) | Scale-to-zero serverless GPUs are available in West US 3, Australia East, and Sweden Central regions. | Apps that require GPU |
 | Dedicated (General purpose) | Balance of memory and compute resources | Apps that require larger amounts of CPU and/or memory |
 | Dedicated (Memory optimized) | Increased memory resources | Apps that need access to large in-memory data, in-memory machine learning models, or other high memory requirements |
 | Dedicated (GPU enabled) (preview) | GPU enabled with increased memory and compute resources available in West US 3 and North Europe regions. | Apps that require GPU |

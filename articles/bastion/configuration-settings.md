@@ -4,9 +4,9 @@ description: Learn about the available configuration settings for Azure Bastion.
 author: cherylmc
 ms.author: cherylmc
 ms.service: azure-bastion
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/17/2024
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2024
 ---
 
 # About Bastion configuration settings

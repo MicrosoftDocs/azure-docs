@@ -2,7 +2,7 @@
 title: Share Windows folder with Azure IoT Edge for Linux on Windows
 description: How to share a Windows folders and files with the Azure IoT Edge for Linux on Windows virtual machine.
 author: PatAltimore
-ms.reviewer: fcabrera
+ms.reviewer: patricka
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
@@ -45,7 +45,7 @@ Before starting with the adding and removing share mechanisms, let's define four
 The following steps provide example EFLOW PowerShell commands to share one or more Windows host OS folders with the EFLOW virtual machine. 
 
 >[!NOTE]
->If you're using Windows 10, ensure to reboot your Windows host OS after your fresh MSI instlalation or update before adding the Windows shared folders to the EFLOW VM.
+>If you're using Windows 10, ensure to reboot your Windows host OS after your fresh MSI installation or update before adding the Windows shared folders to the EFLOW VM.
 
 1. Start by creating a new root shared folder. Go to **File Explorer** and choose a location for the *root folder* and create the folder. 
 

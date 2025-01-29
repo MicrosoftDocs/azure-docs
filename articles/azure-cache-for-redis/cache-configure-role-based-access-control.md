@@ -1,14 +1,10 @@
 ---
 title: Configure role-based access control with Data Access Policy
 description: Learn how to configure role-based access control with Data Access Policy.
-
-
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2024
 
 ms.topic: conceptual
 ms.date: 06/05/2023
-
-
 ---
 
 # Configure role-based access control with Data Access Policy

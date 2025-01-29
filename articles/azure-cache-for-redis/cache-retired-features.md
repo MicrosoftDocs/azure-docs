@@ -6,8 +6,9 @@ description: This article contains information on retirements from Azure Cache f
 
 
 ms.topic: conceptual
+ms.custom:
+  - ignite-2024
 ms.date: 10/17/2023
-
 ---
 
 # What is Retired in Azure Cache for Redis

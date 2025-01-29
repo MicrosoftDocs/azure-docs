@@ -4,8 +4,10 @@ description: In this article, learn how to restore SAP ASE databases that are ru
 ms.topic: how-to
 ms.date: 11/19/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.custom:
+  - ignite-2024
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Restore SAP ASE databases on Azure VMs (preview)

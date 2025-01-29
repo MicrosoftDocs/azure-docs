@@ -162,7 +162,7 @@ The following table indicates which targets are soft, representing the Microsoft
 | Storage Sync Services per region | 100 Storage Sync Services | Yes |
 | Storage Sync Services per subscription | 15 Storage Sync Services | Yes |
 | Sync groups per Storage Sync Service | 200 sync groups | Yes |
-| Registered servers per Storage Sync Service | 99 servers | Yes |
+| Registered servers per Storage Sync Service | 100 servers | Yes |
 | Private endpoints per Storage Sync Service | 100 private endpoints | Yes |
 | Cloud endpoints per sync group | 1 cloud endpoint | Yes |
 | Server endpoints per sync group | 100 server endpoints | Yes |

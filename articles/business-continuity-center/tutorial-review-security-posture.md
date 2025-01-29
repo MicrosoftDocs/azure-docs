@@ -5,9 +5,10 @@ ms.topic: tutorial
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
-ms.date: 05/30/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+  - ignite-2024
+ms.date: 11/19/2024
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Tutorial: Review security posture

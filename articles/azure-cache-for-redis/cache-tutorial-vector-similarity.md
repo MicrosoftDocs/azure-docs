@@ -5,6 +5,8 @@ description: In this tutorial, you learn how to use Azure Cache for Redis to sto
 
 
 ms.topic: tutorial
+ms.custom:
+  - ignite-2024
 ms.date: 09/15/2023
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
@@ -40,7 +42,7 @@ In this tutorial, you learn how to:
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
 * Access granted to Azure OpenAI in the desired Azure subscription
     Currently, you must apply for access to Azure OpenAI. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>.
-* <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>
+* <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>
 * [Jupyter Notebooks](https://jupyter.org/) (optional)
 * An Azure OpenAI resource with the **text-embedding-ada-002 (Version 2)** model deployed. This model is currently only available in [certain regions](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability). See the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource) for instructions on how to deploy the model.
 
@@ -202,7 +204,7 @@ Next, you'll read the csv file into a pandas DataFrame.
    ```
 
    > [!Important]
-   > Refer to [Azure OpenAI Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) to caculate the cost of generating embeddings based on the number of tokens required.
+   > Refer to [Azure OpenAI Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) to calculate the cost of generating embeddings based on the number of tokens required.
 
 ## Load DataFrame into LangChain
 

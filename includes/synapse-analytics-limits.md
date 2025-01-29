@@ -96,4 +96,4 @@ If managed virtual network is enabled, the data integration unit (DIU) in all re
 For details of capacity limits for dedicated SQL pools in Azure Synapse Analytics, see [dedicated SQL pool resource limits](../articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
 ### Azure Resource Manager limits for web service calls
-Azure Resource Manager has limits for API calls. You can make API calls at a rate within the [Azure Resource Manager API limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).
+Azure Resource Manager has limits for API calls. You can make API calls at a rate within the [Azure Resource Manager API limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-group-limits).

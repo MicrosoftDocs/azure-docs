@@ -4,7 +4,7 @@ description: Review connectivity between the customer's network, Microsoft Azure
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/28/2023
 ms.author: duau
 ---

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 11/19/2024
+ms.date: 01/29/2025
 ms.author: anfdocs
 ---
 # Deploy application volume group for Oracle

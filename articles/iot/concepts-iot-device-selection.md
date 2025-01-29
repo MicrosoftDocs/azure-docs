@@ -1,11 +1,11 @@
 ---
 title: Azure IOT prototyping device selection list
 description: This document provides guidance on choosing a hardware device for prototyping IoT Azure solutions.
-author: timlt
-ms.author: timlt
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot
 ms.topic: conceptual
-ms.date: 11/08/2024
+ms.date: 1/10/2025
 ---
 # IoT device selection list
 

@@ -5,7 +5,7 @@ author: eak13
 ms.author: ekarandjeff
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 10/16/2024
+ms.date: 1/17/2025
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -22,23 +22,7 @@ The command produces an output file containing the results of the data extract. 
 - The syntax for these commands is based on the 0.3.0+ version of the `az networkcloud` CLI.
 - Get the Cluster Managed Resource group name (cluster_MRG) that you created for Cluster resource.
 
-## Verify access to the Cluster Manager storage account
-
-> [!NOTE]
-> The Cluster Manager storage account output method will be deprecated in the future once Cluster on-boarding to Trusted Services is complete and the user managed storage option is fully supported.
-
-If using the Cluster Manager storage method, verify you have access to the Cluster Manager's storage account:
-
-1. From Azure portal, navigate to Cluster Manager's Storage account.
-1. In the Storage account details, select **Storage browser** from the navigation menu on the left side.
-1. In the Storage browser details, select on **Blob containers**.
-1. If you encounter a `403 This request is not authorized to perform this operation.` while accessing the storage account, storage account’s firewall settings need to be updated to include the public IP address.
-1. Request access by creating a support ticket via Portal on the Cluster Manager resource. Provide the public IP address that requires access.
-
-## **PREVIEW:** Send command output to a user specified storage account
-
-> [!IMPORTANT]
-> Please note that this method of specifying a user storage account for command output is in preview. **This method should only be used with user storage accounts that do not have firewall enabled.** If your environment requires the storage account firewall be enabled, use the existing Cluster Manager output method.
+## Send command output to a user specified storage account
 
 ### Create and configure storage resources
 
@@ -136,8 +120,8 @@ System-assigned identity example:
 
 ```
     "identity": {
-        "principalId": "2cb564c1-b4e5-4c71-bbc1-6ae259aa5f87",
-        "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
+        "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
         "type": "SystemAssigned"
     },
 ```
@@ -149,19 +133,32 @@ User-assigned identity example:
         "type": "UserAssigned",
         "userAssignedIdentities": {
             "/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<userAssignedIdentityName>": {
-                "clientId": "e67dd610-99cf-4853-9fa0-d236b214e984",
-                "principalId": "8e6d23d6-bb6b-4cf3-a00f-4cd640ab1a24"
+                "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444",
+                "principalId": "bbbbbbbb-cccc-dddd-2222-333333333333"
             }
         }
     },
 ```
+
+## DEPRECATED METHOD: Verify access to the Cluster Manager storage account
+
+> [!IMPORTANT]
+> The Cluster Manager storage account is targeted for removal in April 2025 at the latest. If you're using this method today for command output, consider converting to using a user provided storage account.
+
+If using the Cluster Manager storage method, verify you have access to the Cluster Manager's storage account:
+
+1. From Azure portal, navigate to Cluster Manager's Storage account.
+1. In the Storage account details, select **Storage browser** from the navigation menu on the left side.
+1. In the Storage browser details, select on **Blob containers**.
+1. If you encounter a `403 This request is not authorized to perform this operation.` while accessing the storage account, storage account’s firewall settings need to be updated to include the public IP address.
+1. Request access by creating a support ticket via Portal on the Cluster Manager resource. Provide the public IP address that requires access.
 
 ## Execute a run-data-extract command
 
 The run data extract command executes one or more predefined scripts to extract data from a bare metal machine.
 
 > [!WARNING]
-> Microsoft does not provide or support any Operator Nexus API calls that expect plaintext username and/or password to be supplied. Please note any values sent will be logged and are considered exposed secrets, which should be rotated and revoked. The Microsoft documented method for securely using secrets is to store them in an Azure Key Vault, if you have specific questions or concerns please submit a request via the Azure Portal.
+> Microsoft doesn't provide or support any Operator Nexus API calls that expect plaintext username and/or password to be supplied. Note any values sent are logged and are considered exposed secrets, which should be rotated and revoked. The Microsoft documented method for securely using secrets is to store them in an Azure Key Vault. If you have specific questions or concerns, submit a request via the Azure portal.
 
 The current list of supported commands are
 
@@ -192,7 +189,6 @@ The current list of supported commands are
 - [Collect Helm Releases](#collect-helm-releases)\
   Command Name: `collect-helm-releases`\
   Arguments: None
-  
 - [Collect `systemctl status` Output](#collect-systemctl-status-output)\
   Command Name: `platform-services-status`\
   Arguments: None
@@ -455,7 +451,7 @@ Vulnerability data is collected with the `cluster-cve-report` command and format
 This example executes the `cluster-cve-report` command without arguments.
 
 > [!NOTE]
-> The target machine must be a control-plane node or the action will not execute.
+> The target machine must be a control-plane node or the action doesn't execute.
 
 ```azurecli
 az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
@@ -677,7 +673,7 @@ Helm release data is collected with the `collect-helm-releases` command and form
 This example executes the `collect-helm-releases` command without arguments.
 
 > [!NOTE]
-> The target machine must be a control-plane node or the action will not execute.
+> The target machine must be a control-plane node or the action doesn't execute.
 
 ```azurecli
 az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
@@ -786,7 +782,7 @@ https://cmcr5xp3mbn7st.blob.core.windows.net/bmm-run-command-output/a29dcbdb-552
 ### Collect Systemctl Status Output
 
 Service status is collected with the `platform-services-status` command. The output is in plain text format and
-returns an overview of the status of the services on the host as well as the `systemctl status` for each found service.
+returns an overview of the status of the services on the host and the `systemctl status` for each found service.
 
 This example executes the `platform-services-status` command without arguments.
 
@@ -843,7 +839,7 @@ TriggeredBy: ● atop-rotate.timer
 The command provides a link (if using cluster manager storage) or another command (if using user provided storage) to download the full output. The tar.gz file also contains the zipped extract command file outputs. Download the output file from the storage blob to a local directory by specifying the directory path in the optional argument `--output-directory`.
 
 > [!WARNING]
-> Using the `--output-directory` argument will overwrite any files in the local directory that have the same name as the new files being created.
+> Using the `--output-directory` argument overwrites any files in the local directory that have the same name as the new files being created.
 
 > [!NOTE]
-> Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer to the [cluster manager storage](#verify-access-to-the-cluster-manager-storage-account) or the [user managed storage](#create-and-configure-storage-resources) sections for procedures to verify access.
+> Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer to the [cluster manager storage](#deprecated-method-verify-access-to-the-cluster-manager-storage-account) or the [user managed storage](#create-and-configure-storage-resources) sections for procedures to verify access.

@@ -54,7 +54,7 @@ Your new setting is now listed on the **Sensor settings (Preview)** page under i
 
 > [!TIP]
 > You may want to configure exceptions to your settings for a specific OT sensor or zone. In such cases, create an extra setting for the exception. 
-> 
+>
 > Settings override each other in a hierarchical manner, so that if your setting is applied to a specific OT sensor, it overrides any related settings that are applied to the entire zone or site. To create an exception for an entire zone, add a setting for that zone to override any related settings applied to the entire site.
 >
 
@@ -120,6 +120,7 @@ The **Type** settings are:
 - [Local subnets](#local-subnets)
 - [VLAN naming](#vlan-naming)
 - [Public addresses](#public-addresses)
+- [DHCP ranges](#dhcp-ranges)
 
 To add a new setting **Type**, select **Sites and sensors** > **Sensor settings**. Select the setting from the **Type** drop down, for example:
 
@@ -186,17 +187,30 @@ Select **Add VLAN** to add more VLANs as needed.
 
 ### Public addresses
 
-Add public addresses that might have been used for internal use and shouldn't be included as suspicious IP addresses or tracking the data<!-- Theo is this correct? OR-->.
-Excluded public IP addresses that might have been used for internal use and shouldn't be included as suspicious IP addresses or tracking the data.
+Add public addresses that might have been used for internal use and shouldn't be included as suspicious IP addresses or tracking the data.
 
 1. In the **Settings** tab, type the **IP address** and **Mask** address.
 
     :::image type="content" source="media/configure-sensor-settings-portal/sensor-settings-ip-addresses.png" alt-text="The screenshot shows the Settings tab for adding public addresses to the sensor settings.":::
 
-1. Select **Next**.
+1. Select **Next**
 1. In the **Apply** tab, select sites, and toggle the **Add selection by specific zone/sensor** to optionally apply the IP addresses to specific zones and sensors.
 1. Select **Next**.
 1. Review the details and select **Create** to add the address to the public addresses list.
+
+### DHCP ranges
+
+Add the range of IP addresses to configure the DHCP settings that can apply to a device that might have multiple IP addresses associated with it.
+
+1. In the **Settings** tab, type the **From** and **To** IP addresses, and optionally enter a **Name**.
+
+    :::image type="content" source="media/configure-sensor-settings-portal/dhcp-ranges.png" alt-text="The screenshot shows the Settings tab for adding DHCP IP addresses to the sensor settings.":::
+
+1. To add additional ranges, select **Add range**.
+1. Select **Next: Selection**.
+1. In the **Apply to** tab, select the sites, and toggle the **Add selection by specific zone/sensor** to optionally apply the IP addresses to specific zones and sensors.
+1. Select **Next: Review**.
+1. Review the details and select **Save and assign** to add the range of addresses to the DHCP range list.
 
 ## Next steps
 

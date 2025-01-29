@@ -196,7 +196,7 @@ if (parsedEvent is RecognizeCompleted recognizeCompleted) {
 
   // If choice is detected by phrase, choiceResult.RecognizedPhrase will have the phrase detected,  
   // If choice is detected using dtmf tone, phrase will be null  
-  logger.LogInformation("Recognize completed succesfully, labelDetected={labelDetected}, phraseDetected={phraseDetected}", labelDetected, phraseDetected);
+  logger.LogInformation("Recognize completed successfully, labelDetected={labelDetected}, phraseDetected={phraseDetected}", labelDetected, phraseDetected);
 
   var textToPlay = labelDetected.Equals(ConfirmChoiceLabel, StringComparison.OrdinalIgnoreCase) ? ConfirmedText : CancelText;
 

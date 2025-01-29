@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/28/2024
+ms.date: 01/29/2025
 ms.author: anfdocs
 ---
 # Deploy the first SAP HANA host using application volume group for SAP HANA
@@ -234,7 +234,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     [ ![Screenshot that shows the protocols tags.](./media/application-volume-group-deploy-first-host/application-protocols-tag.png) ](./media/application-volume-group-deploy-first-host/application-protocols-tag.png#lightbox)
 
-7. The **Volumes** tab summarizes the volumes that are being created with proposed volume name, quota, and throughput. 
+7. The **Volumes** tab summarizes the volumes being created, showing protocol, volume name, quota, and throughput. 
 
     The Volumes tab also shows that only the data, log, and shared volumes are created close to the HANA VMs. The other volumes (data-backup and log-backup) are created at a different location within the region.
 
@@ -282,17 +282,11 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     Select **Volumes** to return to the Volume overview page. Select **Next: Review + create**.
 
-11.	The **Review + Create** tab lists all the volumes and their creation method. Select **Create Volume Group** to start the volume group creation.
+11.	The **Review + Create** tab lists all the volumes and their creation method. Select **Create Volume Group** to start the volume group creation. This process can take a few minutes to complete.
 
-12. The **Volume Groups** deployment workflow starts. You can monitor the progress. This process can take a few minutes to complete.
+    A notification confirms when the operation completes successfully. When you see this message, you can select **Go to resource** to view the newly created volume group. 
 
-    :::image type="content" source="./media/application-volume-group-deploy-first-host/volume-group-confirm-extension-one.png" alt-text="Screenshot of the confirmed operation." lightbox="./media/application-volume-group-deploy-first-host/volume-group-confirm-extension-one.png":::
-
-    You can display the list of volume groups to see the new volume group. You can select the new volume group to see the details and status of each of the volumes being created.
-
-    Creating a volume group is an "all-or-none" operation. If one volume cannot be created, all remaining volumes are removed.
-
-    [ ![Screenshot that shows the new volume group.](./media/application-volume-group-deploy-first-host/application-new-volume-group.png) ](./media/application-volume-group-deploy-first-host/application-new-volume-group.png#lightbox)
+    :::image type="content" source="./media/application-volume-group-deploy-first-host/go-to-resource.png" alt-text="Screenshot of a successfully created resource." lightbox="./media/application-volume-group-deploy-first-host/go-to-resource.png":::
 
 ---
 

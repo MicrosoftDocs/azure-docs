@@ -4,14 +4,14 @@ titlesuffix: Azure Virtual Network
 description: Learn about networking as it relates to virtual machines in Azure.
 author: asudbring
 ms.service: azure-virtual-network
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/16/2023
 ms.author: allensu
 ---
 
 # Virtual networks and virtual machines in Azure
 
-When you create a virtual machine (VM), you create a [virtual network](../virtual-network/virtual-networks-overview.md) or use an existing one. Decide how your virtual machines are intended to be accessed on the virtual network. It's important to [plan before creating resources](../virtual-network/virtual-network-vnet-plan-design-arm.md) and make sure you understand the [limits of networking resources](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
+When you create a virtual machine (VM), you create a [virtual network](../virtual-network/virtual-networks-overview.md) or use an existing one. Decide how your virtual machines are intended to be accessed on the virtual network. It's important to [plan before creating resources](../virtual-network/virtual-network-vnet-plan-design-arm.md) and make sure you understand the [limits of networking resources](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-networking-limits).
 
 In the following figure, virtual machines are represented as web servers and application servers. Each set of virtual machines is assigned to separate subnets in the virtual network.
 

@@ -16,9 +16,8 @@ This article will walk you through the process of deploying and accessing Micros
 
 The following known limitations may affect access to your on-premises or Active Directory domain-joined resources and you should consider them when deciding whether Microsoft Entra joined VMs are right for your environment.
 
-- Azure Virtual Desktop (classic) doesn't support Microsoft Entra joined VMs.
 - Microsoft Entra joined VMs don't currently support external identities, such as Microsoft Entra Business-to-Business (B2B) and Microsoft Entra Business-to-Consumer (B2C).
-- Microsoft Entra joined VMs can only access [Azure Files shares](create-profile-container-azure-ad.yml) or [Azure NetApp Files shares](create-fslogix-profile-container.md) for hybrid users using Microsoft Entra Kerberos for FSLogix user profiles.
+- Microsoft Entra joined VMs can only access [Azure Files shares](create-profile-container-azure-ad.yml) for hybrid users using Microsoft Entra Kerberos for FSLogix user profiles.
 - The [Remote Desktop Store app](users/connect-windows.md?pivots=rd-store) for Windows doesn't support Microsoft Entra joined VMs.
 
 <a name='deploy-azure-ad-joined-vms'></a>
@@ -80,7 +79,7 @@ If you're using Microsoft Entra multifactor authentication and you don't want to
 
 ## User profiles
 
-You can use FSLogix profile containers with Microsoft Entra joined VMs when you store them on Azure Files or Azure NetApp Files while using hybrid user accounts. For more information, see [Create a profile container with Azure Files and Microsoft Entra ID](create-profile-container-azure-ad.yml).
+You can use FSLogix profile containers with Microsoft Entra joined VMs when you store them on Azure Files while using hybrid user accounts. For more information, see [Create a profile container with Azure Files and Microsoft Entra ID](create-profile-container-azure-ad.yml).
 
 ## Accessing on-premises resources
 
@@ -94,5 +93,4 @@ Now that you've deployed some Microsoft Entra joined VMs, we recommend enabling 
 - [Create a profile container with Azure Files and Microsoft Entra ID](create-profile-container-azure-ad.yml)
 - [Connect with the Windows Desktop client](users/connect-windows.md)
 - [Connect with the web client](users/connect-web.md)
-- [Troubleshoot connections to Microsoft Entra joined VMs](troubleshoot-azure-ad-connections.md)
-- [Create a profile container with Azure NetApp Files](create-fslogix-profile-container.md)
+- [Troubleshoot connections to Microsoft Entra joined VMs](/troubleshoot/azure/virtual-desktop/troubleshoot-azure-ad-connections)
