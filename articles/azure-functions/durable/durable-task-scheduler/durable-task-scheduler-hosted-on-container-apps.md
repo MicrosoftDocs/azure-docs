@@ -9,7 +9,10 @@ ms.date: 01/29/2025
 
 Azure Functions provides integrated support for developing, deploying, and managing containerized function apps on Azure Container Apps. Learn more about [Azure Container apps hosting](../../functions-container-apps-hosting.md).
 
-In this article, you learn how to host a Durable Functions app using Durable Task Scheduler on Azure Container Apps. The sample code will be in .NET 8 (isolated), but other languages are supported.
+In this article, you learn how to host a .NET (isolated) Durable Functions app using Durable Task Scheduler on Azure Container Apps. 
+
+> [!NOTE]
+> While the sample code is in .NET 8 (isolated), other languages are supported.
 
 ## Prerequisites
 
