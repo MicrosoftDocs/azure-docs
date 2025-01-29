@@ -34,7 +34,7 @@ In some cases, external DNS servers (such as BIND) may be used in lieu of (or in
 
 Azure NetApp Files supports the use of both integrated and external DNS servers, but when using external DNS servers without Active Directory integration, it is important to ensure that the necessary service (SRV) records are added to DNS for proper functionality and redundancy of services. Poor network connectivity between Azure NetApp Files and DNS servers can cause client access interruptions or client timeouts. Incomplete or incorrect DNS records for AD DS or Azure NetApp Files can cause client access interruptions or client timeouts.
 
-See [DNS records in Azure NetApp Files](#dns-records-in-azure-netapp-files) for a list of SRV records the service uses. Also review the [guidelines for DNS with Active Directory](/windows-server/) and [Integrating AD DS into an existing DNS infrastructure](/windows-server/identity/ad-ds/plan/integrating-ad-ds-into-an-existing-dns-infrastructure).
+See [DNS records in Azure NetApp Files](#types-of-dns-records-in-azure-netapp-files) for a list of SRV records the service uses. Also review the [guidelines for DNS with Active Directory](/windows-server/) and [Integrating AD DS into an existing DNS infrastructure](/windows-server/identity/ad-ds/plan/integrating-ad-ds-into-an-existing-dns-infrastructure).
 
 ## Azure DNS integration with Azure NetApp Files
 
