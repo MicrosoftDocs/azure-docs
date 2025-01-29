@@ -143,7 +143,7 @@ Automate domain creation, configuration, and DNS record setup (including Domain,
 # Loop through each domain in the predefined list of domains to create and configure them
 foreach ($domainName in $domains){
     # Extract the subdomain prefix from the fully qualified domain name (e.g., "sales" from "sales.contoso.net")
-    $subdomainPrefix = $domainName.split('.')[0]
+    $subDomainPrefix = $domainName.split('.')[0]
 
     # Output the domain name that is being created
     Write-Host "Creating domain: $domainName"
@@ -158,8 +158,8 @@ foreach ($domainName in $domains){
         continue
     }
 
-    # Wait for 30 seconds before proceeding to allow time for the domain creation to be processed
-    Start-Sleep -Seconds 30
+    # Wait for 5 seconds before proceeding to allow time for the domain creation to be processed
+    Start-Sleep -Seconds 5
 
     # Retrieve the domain details after creation
     # The domain details will be used during the DNS record setting request
@@ -167,7 +167,7 @@ foreach ($domainName in $domains){
     $domainDetails = $domainDetailsJson | ConvertFrom-Json
     
     # Add DNS records for the domain
-    Add-RecordSetToDNS -baseDomain $baseDomain -domainName $domainName -dnsZoneName $dnsZoneName -resourceGroup $resourceGroup -emailServiceName $emailServiceName -domainDetails $domainDetails    
+    Add-RecordSetToDNS -subDomainPrefix $subDomainPrefix -domainName $domainName -dnsZoneName $dnsZoneName -resourceGroup $resourceGroup -emailServiceName $emailServiceName -domainDetails $domainDetails    
     
     # Check if domain details were successfully retrieved
     if ($domainDetails) {
@@ -188,10 +188,56 @@ foreach ($domainName in $domains){
     }
 }
 
+# Function to add DNS records (DKIM, DKIM2) for the domain
+function Add-DkimRecord {
+    param (
+        [string]$dnsZoneName,
+        [string]$resourceGroup,
+        [string]$recordName,
+        [string]$recordValue,
+        [string]$recordType
+    )
+    try {
+        # Output the attempt to check if the DNS record already exists
+        Write-Host "Checking for existing $recordType record: $recordName"
+
+        # Retrieves the DNS record set for the given subdomain prefix and type (CNAME) in the specified DNS zone and resource group. 
+        # The first instance uses -ErrorAction SilentlyContinue to suppress any errors if the record set doesn't exist.
+        $recordSet = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name $recordName -RecordType $recordType -ErrorAction SilentlyContinue
+
+        # If no existing record set is found (i.e., recordSet.Count is 0)
+        if ($recordSet.Count -eq 0) {
+            # Output a message stating that a new record is being created
+            Write-Host "Creating new $recordType record: $recordName"
+
+            # Creates a new DNS record set for the specified record type (CNAME) in the given zone and resource group
+            # The TTL is set to 3600 seconds (1 hour)
+            New-AzDnsRecordSet -Name $recordName -RecordType $recordType -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -Ttl 3600
+            
+            # Retrieve the newly created record set to add the record value
+            $recordSet = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name $recordName -RecordType $recordType
+            
+            # Add the provided record value to the newly created record set (e.g., CNAME)
+            Add-AzDnsRecordConfig -RecordSet $recordSet -Cname $recordValue
+            
+            # Apply the changes and save the updated record set back to Azure DNS
+            Set-AzDnsRecordSet -RecordSet $recordSet
+        }
+        else {
+            # If the record already exists, notify that it has been found
+            Write-Host "$recordType record already exists for: $recordName"
+        }
+    }
+    catch {
+        # If an error occurs during the execution of the try block, output an error message
+        Write-Host "Error adding $recordType record for $recordName"
+    }
+}
+
 # Function to add DNS records (Domain, SPF, DKIM, DKIM2) for the domain
 function Add-RecordSetToDNS {
     param (
-        [string]$baseDomain,
+        [string]$subDomainPrefix,
         [string]$domainName,
         [string]$dnsZoneName,
         [string]$resourceGroup,
@@ -205,12 +251,14 @@ function Add-RecordSetToDNS {
         # Check if domain details are available
         if ($domainDetails) {
             # Retrieve the TXT record set for the domain
-            $recordSetDomain = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name $baseDomain -recordtype txt -ErrorAction SilentlyContinue
+            # Retrieves the DNS record set for the given subdomain prefix and type (TXT) in the specified DNS zone and resource group. 
+            # The first instance uses -ErrorAction SilentlyContinue to suppress any errors if the record set doesn't exist.
+            $recordSetDomain = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name $subDomainPrefix -recordtype txt -ErrorAction SilentlyContinue
 
             # If the TXT record set does not exist, create a new one
             if ($recordSetDomain.Count -eq 0) {
-                New-AzDnsRecordSet -Name $baseDomain -RecordType "TXT" -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -Ttl 3600
-                $recordSetDomain = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name $baseDomain -recordtype txt
+                New-AzDnsRecordSet -Name $subDomainPrefix -RecordType "TXT" -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -Ttl 3600
+                $recordSetDomain = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name $subDomainPrefix -recordtype txt
             }
 
             # Add the Domain verification record to the TXT record set
@@ -221,7 +269,7 @@ function Add-RecordSetToDNS {
             $existingSpfRecord = $recordSetDomain.Records | Where-Object { $_.Value -eq $domainDetails.properties.VerificationRecords.SPF.Value }
             if (-not $existingSpfRecord) {
                 # Create and add the SPF record
-                $RecordSetSPF = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name $baseDomain -recordtype txt
+                $RecordSetSPF = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name $subDomainPrefix -recordtype txt
                 Add-AzDnsRecordConfig -RecordSet $RecordSetSPF -Value $($domainDetails.properties.VerificationRecords.SPF.Value)
                 Set-AzDnsRecordSet -RecordSet $RecordSetSPF                    
             }
@@ -230,35 +278,11 @@ function Add-RecordSetToDNS {
                 Write-Host "SPF record already exists for domain: $domainName"
             }
 
-            # Retrieve the DKIM record set for the domain
-            $recordSetDKIM = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name "$($domainDetails.properties.VerificationRecords.DKIM.Name).$baseDomain" -RecordType CNAME -ErrorAction SilentlyContinue
+            # Call the Add-DkimRecord function for DKIM
+            Add-DkimRecord -dnsZoneName $dnsZoneName -resourceGroup $resourceGroup -recordName "$($domainDetails.properties.VerificationRecords.DKIM.Name).$subDomainPrefix" -recordValue $domainDetails.properties.VerificationRecords.DKIM.Value -recordType "CNAME"
 
-            # If the DKIM record set does not exist, create a new one
-            if ($recordSetDKIM.Count -eq 0) {
-                # Create and add the DKIM record
-                New-AzDnsRecordSet -Name "$($domainDetails.properties.VerificationRecords.DKIM.Name).$baseDomain" -RecordType CNAME -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -Ttl 3600
-                $recordSetDKIM = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name "$($domainDetails.properties.VerificationRecords.DKIM.Name).$baseDomain" -RecordType CNAME
-                Add-AzDnsRecordConfig -RecordSet $recordSetDKIM -Cname $($domainDetails.properties.VerificationRecords.DKIM.Value)
-                Set-AzDnsRecordSet -RecordSet $recordSetDKIM
-            }
-            else {
-                # If DKIM record already exists, notify the user
-                Write-Host "DKIM record already exists for domain: $domainName"
-            }
-
-            # If the DKIM2 record set does not exist, create a new one
-            $recordSetDKIM2 = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name "$($domainDetails.properties.VerificationRecords.DKIM2.Name).$baseDomain" -RecordType CNAME -ErrorAction SilentlyContinue
-            if ($recordSetDKIM2.Count -eq 0) {
-                # Create and add the DKIM2 record
-                New-AzDnsRecordSet -Name "$($domainDetails.properties.VerificationRecords.DKIM2.Name).$baseDomain" -RecordType "CNAME" -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -Ttl 3600
-                $recordSetDKIM2 = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name "$($domainDetails.properties.VerificationRecords.DKIM2.Name).$baseDomain" -RecordType CNAME
-                Add-AzDnsRecordConfig -RecordSet $recordSetDKIM2 -Cname $($domainDetails.properties.VerificationRecords.DKIM2.Value)
-                Set-AzDnsRecordSet -RecordSet $recordSetDKIM2
-            }
-            else {
-                # If DKIM2 record already exists, notify the user
-                Write-Host "DKIM2 record already exists for domain: $domainName"
-            }                
+            # Call the Add-DkimRecord function for DKIM2
+            Add-DkimRecord -dnsZoneName $dnsZoneName -resourceGroup $resourceGroup -recordName "$($domainDetails.properties.VerificationRecords.DKIM2.Name).$subDomainPrefix" -recordValue $domainDetails.properties.VerificationRecords.DKIM2.Value -recordType "CNAME"
         }
         else {
             # If domain details are not found, output an error message
@@ -372,10 +396,56 @@ $domains = @(
     "info.contoso.net"
 )
 
+# Function to add DNS records (DKIM, DKIM2) for the domain
+function Add-DkimRecord {
+    param (
+        [string]$dnsZoneName,
+        [string]$resourceGroup,
+        [string]$recordName,
+        [string]$recordValue,
+        [string]$recordType
+    )
+    try {
+        # Output the attempt to check if the DNS record already exists
+        Write-Host "Checking for existing $recordType record: $recordName"
+
+        # Retrieves the DNS record set for the given subdomain prefix and type (CNAME) in the specified DNS zone and resource group. 
+        # The first instance uses -ErrorAction SilentlyContinue to suppress any errors if the record set doesn't exist.
+        $recordSet = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name $recordName -RecordType $recordType -ErrorAction SilentlyContinue
+
+        # If no existing record set is found (i.e., recordSet.Count is 0)
+        if ($recordSet.Count -eq 0) {
+            # Output a message stating that a new record is being created
+            Write-Host "Creating new $recordType record: $recordName"
+
+            # Creates a new DNS record set for the specified record type (CNAME) in the given zone and resource group
+            # The TTL is set to 3600 seconds (1 hour)
+            New-AzDnsRecordSet -Name $recordName -RecordType $recordType -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -Ttl 3600
+            
+            # Retrieve the newly created record set to add the record value
+            $recordSet = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name $recordName -RecordType $recordType
+            
+            # Add the provided record value to the newly created record set (e.g., CNAME)
+            Add-AzDnsRecordConfig -RecordSet $recordSet -Cname $recordValue
+            
+            # Apply the changes and save the updated record set back to Azure DNS
+            Set-AzDnsRecordSet -RecordSet $recordSet
+        }
+        else {
+            # If the record already exists, notify that it has been found
+            Write-Host "$recordType record already exists for: $recordName"
+        }
+    }
+    catch {
+        # If an error occurs during the execution of the try block, output an error message
+        Write-Host "Error adding $recordType record for $recordName"
+    }
+}
+
 # Function to add DNS records (Domain, SPF, DKIM, DKIM2) for the domain
 function Add-RecordSetToDNS {
     param (
-        [string]$baseDomain,
+        [string]$subDomainPrefix,
         [string]$domainName,
         [string]$dnsZoneName,
         [string]$resourceGroup,
@@ -389,12 +459,14 @@ function Add-RecordSetToDNS {
         # Check if domain details are available
         if ($domainDetails) {
             # Retrieve the TXT record set for the domain
-            $recordSetDomain = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name $baseDomain -recordtype txt -ErrorAction SilentlyContinue
+            # Retrieves the DNS record set for the given subdomain prefix and type (TXT) in the specified DNS zone and resource group. 
+            # The first instance uses -ErrorAction SilentlyContinue to suppress any errors if the record set doesn't exist.
+            $recordSetDomain = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name $subDomainPrefix -recordtype txt -ErrorAction SilentlyContinue
 
             # If the TXT record set does not exist, create a new one
             if ($recordSetDomain.Count -eq 0) {
-                New-AzDnsRecordSet -Name $baseDomain -RecordType "TXT" -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -Ttl 3600
-                $recordSetDomain = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name $baseDomain -recordtype txt
+                New-AzDnsRecordSet -Name $subDomainPrefix -RecordType "TXT" -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -Ttl 3600
+                $recordSetDomain = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name $subDomainPrefix -recordtype txt
             }
 
             # Add the Domain verification record to the TXT record set
@@ -405,7 +477,7 @@ function Add-RecordSetToDNS {
             $existingSpfRecord = $recordSetDomain.Records | Where-Object { $_.Value -eq $domainDetails.properties.VerificationRecords.SPF.Value }
             if (-not $existingSpfRecord) {
                 # Create and add the SPF record
-                $RecordSetSPF = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name $baseDomain -recordtype txt
+                $RecordSetSPF = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name $subDomainPrefix -recordtype txt
                 Add-AzDnsRecordConfig -RecordSet $RecordSetSPF -Value $($domainDetails.properties.VerificationRecords.SPF.Value)
                 Set-AzDnsRecordSet -RecordSet $RecordSetSPF                    
             }
@@ -414,35 +486,11 @@ function Add-RecordSetToDNS {
                 Write-Host "SPF record already exists for domain: $domainName"
             }
 
-            # Retrieve the DKIM record set for the domain
-            $recordSetDKIM = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name "$($domainDetails.properties.VerificationRecords.DKIM.Name).$baseDomain" -RecordType CNAME -ErrorAction SilentlyContinue
+            # Call the Add-DkimRecord function for DKIM
+            Add-DkimRecord -dnsZoneName $dnsZoneName -resourceGroup $resourceGroup -recordName "$($domainDetails.properties.VerificationRecords.DKIM.Name).$subDomainPrefix" -recordValue $domainDetails.properties.VerificationRecords.DKIM.Value -recordType "CNAME"
 
-            # If the DKIM record set does not exist, create a new one
-            if ($recordSetDKIM.Count -eq 0) {
-                # Create and add the DKIM record
-                New-AzDnsRecordSet -Name "$($domainDetails.properties.VerificationRecords.DKIM.Name).$baseDomain" -RecordType CNAME -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -Ttl 3600
-                $recordSetDKIM = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name "$($domainDetails.properties.VerificationRecords.DKIM.Name).$baseDomain" -RecordType CNAME
-                Add-AzDnsRecordConfig -RecordSet $recordSetDKIM -Cname $($domainDetails.properties.VerificationRecords.DKIM.Value)
-                Set-AzDnsRecordSet -RecordSet $recordSetDKIM
-            }
-            else {
-                # If DKIM record already exists, notify the user
-                Write-Host "DKIM record already exists for domain: $domainName"
-            }
-
-            # If the DKIM2 record set does not exist, create a new one
-            $recordSetDKIM2 = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name "$($domainDetails.properties.VerificationRecords.DKIM2.Name).$baseDomain" -RecordType CNAME -ErrorAction SilentlyContinue
-            if ($recordSetDKIM2.Count -eq 0) {
-                # Create and add the DKIM2 record
-                New-AzDnsRecordSet -Name "$($domainDetails.properties.VerificationRecords.DKIM2.Name).$baseDomain" -RecordType "CNAME" -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -Ttl 3600
-                $recordSetDKIM2 = Get-AzDnsRecordSet -ZoneName $dnsZoneName -ResourceGroupName $resourceGroup -name "$($domainDetails.properties.VerificationRecords.DKIM2.Name).$baseDomain" -RecordType CNAME
-                Add-AzDnsRecordConfig -RecordSet $recordSetDKIM2 -Cname $($domainDetails.properties.VerificationRecords.DKIM2.Value)
-                Set-AzDnsRecordSet -RecordSet $recordSetDKIM2
-            }
-            else {
-                # If DKIM2 record already exists, notify the user
-                Write-Host "DKIM2 record already exists for domain: $domainName"
-            }                
+            # Call the Add-DkimRecord function for DKIM2
+            Add-DkimRecord -dnsZoneName $dnsZoneName -resourceGroup $resourceGroup -recordName "$($domainDetails.properties.VerificationRecords.DKIM2.Name).$subDomainPrefix" -recordValue $domainDetails.properties.VerificationRecords.DKIM2.Value -recordType "CNAME"
         }
         else {
             # If domain details are not found, output an error message
@@ -588,8 +636,8 @@ $linkedDomainIds = @()
 # Create domains and DNS records
 # Loop through each domain in the predefined list of domains to create and configure them
 foreach ($domainName in $domains){
-    # Extract the base domain name from the full domain name (e.g., "sales" from "sales.contoso.net")
-    $baseDomain = $domainName.split('.')[0]
+    # Extract the subdomain prefix from the fully qualified domain name (e.g., "sales" from "sales.contoso.net")
+    $subDomainPrefix = $domainName.split('.')[0]
 
     # Output the domain name that is being created
     Write-Host "Creating domain: $domainName"
@@ -604,15 +652,15 @@ foreach ($domainName in $domains){
         continue
     }
 
-    # Wait for 30 seconds before proceeding to allow time for the domain creation to be processed
-    Start-Sleep -Seconds 30
+    # Wait for 5 seconds before proceeding to allow time for the domain creation to be processed
+    Start-Sleep -Seconds 5
 
     # Retrieve the domain details after creation
     $domainDetailsJson = Get-AzEmailServiceDomain -ResourceGroupName $resourceGroup -EmailServiceName $emailServiceName -Name $domainName
     $domainDetails = $domainDetailsJson | ConvertFrom-Json
     
     # Add DNS records for the domain
-    Add-RecordSetToDNS -baseDomain $baseDomain -domainName $domainName -dnsZoneName $dnsZoneName -resourceGroup $resourceGroup -emailServiceName $emailServiceName -domainDetails $domainDetails    
+    Add-RecordSetToDNS -subDomainPrefix $subDomainPrefix -domainName $domainName -dnsZoneName $dnsZoneName -resourceGroup $resourceGroup -emailServiceName $emailServiceName -domainDetails $domainDetails    
     
     # Check if domain details were successfully retrieved
     if ($domainDetails) {
