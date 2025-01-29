@@ -48,6 +48,8 @@ You need to start storing call logs and enable [Copilot in Azure](/azure/copilot
 
 > [!IMPORTANT]
 >You must collect logs to use the dashboard. To enable Voice and Video Insights see: **[How do I set up Voice and Video Insights?](#how-do-i-set-up-voice-and-video-insights)**
+>
+>Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data is not retroactively available. You accumulate data once you setup the Diagnostic Settings. 
 
 ## Accessing Voice and Video Insights
 
