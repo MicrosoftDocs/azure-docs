@@ -19,6 +19,8 @@ The storage with cool access feature provides options for the “coolness period
 
 ## Considerations
 
+There are several considerations to be aware of when enabling cool access and for the impact of cool access on other features in Azure NetApp Files:
+
 * No guarantee is provided for any maximum latency for client workload for any of the service tiers.
 * Although cool access is available for the Standard, Premium, and Ultra service levels, how you're billed for using the feature differs from the hot tier service-level charges. For details and examples, see the [Billing section](cool-access-introduction.md#billing).
 * You can convert an existing capacity pool into a cool-access capacity pool to create cool access volumes. After the capacity pool is enabled for cool access, you can't convert it back to a non-cool-access capacity pool.  
@@ -29,16 +31,30 @@ The storage with cool access feature provides options for the “coolness period
 * After the capacity pool is configured with the option to support cool access volumes, the setting can't be disabled at the _capacity pool_ level. You can turn on or turn off the cool access setting at the _volume_ level anytime. Turning off the cool access setting at the volume level stops further tiering of data.  
 * Files moved to the cool tier remains there after you disable cool access on a volume. You must perform an I/O operation on _each_ file to return it to the warm tier. 
 * For the maximum number of volumes supported for cool access per subscription per region, see [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits).
-* Considerations for using cool access with [cross-region replication](cross-region-replication-requirements-considerations.md) and [cross-zone replication](cross-zone-replication-introduction.md):
-    * The cool access setting on the destination volume is updated automatically to match the source volume whenever the setting is changed on the source volume or during authorization. The setting is also updated automatically when a reverse resync of the replication is performed, but only if the destination volume is in a cool access-enabled capacity pool. Changes to the cool access setting on the destination volume don't affect the setting on the source volume.
-    * In a cross-region or cross-zone replication configuration, you can enable cool access exclusively for destination volumes to enhance data protection and create cost savings without affecting latency in source volumes.
-* Considerations for using cool access with [snapshot restore](snapshots-restore-new-volume.md):
-    * When you restore a snapshot of a cool access-enabled volume to a new volume, the new volume inherits the cool access configuration from the parent volume. After the new volume is created, you can modify the cool access settings.  
-    * You can't restore from a snapshot of a non-cool-access volume to a cool access volume. Likewise, you can't restore from a snapshot of a cool access volume to a non-cool-access volume.
-* Considerations for [moving volumes to another capacity pool](dynamic-change-volume-service-level.md):
-    * If you move a cool access volume to another capacity pool (service level change), you must also enable that pool for cool access.
-    * If you disable cool access and turn off tiering on a cool access volume (that is, the volume no longer uses cool access), you can't move it to a non-cool-access capacity pool. In a cool access capacity pool, you can move all volumes, *whether they're enabled for cool access or not*, only to another cool access capacity pool.  
 * Cool access is supported with large volumes. Confirm that you're [registered to use large volumes](large-volumes-requirements-considerations.md#register-the-feature) before creating a cool-access-enabled large volume. 
+
+### Considerations for cross-region and cross-zone replication 
+
+* The cool access setting on the destination volume is updated automatically to match the source volume whenever the setting is changed on the source volume or during authorization. The setting is also updated automatically when a reverse resync of the replication is performed, but only if the destination volume is in a cool access-enabled capacity pool. Changes to the cool access setting on the destination volume don't affect the setting on the source volume.
+* In a cross-region or cross-zone replication configuration, you can enable cool access exclusively for destination volumes to enhance data protection and create cost savings without affecting latency in source volumes.
+
+### Considerations for snapshot restore
+
+* When you [restore a snapshot of a cool access-enabled volume to a new volume](snapshots-restore-new-volume.md), the new volume inherits the cool access configuration from the parent volume. After the new volume is created, you can modify the cool access settings.  
+* You can't restore from a snapshot of a non-cool-access volume to a cool access volume. Likewise, you can't restore from a snapshot of a cool access volume to a non-cool-access volume.
+
+### Considerations for moving volumes to another capacity pool
+
+* If you [move a cool access volume to another capacity pool (service level change)]((dynamic-change-volume-service-level.md)), you must also enable that pool for cool access.
+* If you disable cool access and turn off tiering on a cool access volume (that is, the volume no longer uses cool access), you can't move it to a non-cool-access capacity pool. In a cool access capacity pool, you can move all volumes, *whether they're enabled for cool access or not*, only to another cool access capacity pool.  
+
+### Considerations for throughput for Premium and Ultra service level volumes
+
+- Enabling cool access on volumes in Premium and Ultra capacity pools results in reduced throughput: 
+    - For the Premium service level, throughput is 36 MiB/s per 1 TiB (compared to 64 MiB/s per 1 TiB without cool access) 
+    - For the Ultra service level, throughput is 68 MiB/second per 1 TiB (compared to 128 MiB/second per 1 TiB without cool access) 
+- This reduced throughput remains in effect even if the cool access feature is subsequently turned off for the volume.  
+- When cool access is enabled on a volume, you benefit from a reduced price. You don't receive additional discounts specifically for the reduced bandwidth. Instead, you pay the cool access price, which inherently includes the reduced throughput. 
 
 ## Enable cool access 
 
