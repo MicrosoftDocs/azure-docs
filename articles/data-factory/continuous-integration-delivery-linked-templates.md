@@ -2,8 +2,8 @@
 title: Using linked Resource Manager templates
 description: Learn how to use linked Resource Manager templates with continuous integration and delivery in Azure Data Factory pipelines.
 ms.subservice: ci-cd
-author: nabhishek
-ms.author: abnarain
+author: kromerm
+ms.author: makromer
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 10/20/2023
