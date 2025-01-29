@@ -39,7 +39,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Common configuration
 
-Follow these steps to add required code snippets to the `messages-quickstart.py` python program.
+Follow these steps to add required code snippets to the main function of your `App.java` file.
 
 - [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 - [Authenticate the client](#authenticate-the-client).

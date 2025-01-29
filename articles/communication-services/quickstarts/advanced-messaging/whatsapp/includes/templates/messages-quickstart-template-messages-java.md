@@ -41,7 +41,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Common configuration
 
-Follow these steps to add the necessary code snippets to the `messages-quickstart.py` python program.
+Follow these steps to add the necessary code snippets to the main function of your `App.java` file.
 - [Create and manage WhatsApp template message](#create-and-manage-whatsapp-template-message).
 - [Authenticate the client](#authenticate-the-client).
 - [Set channel registration ID](#set-channel-registration-id).

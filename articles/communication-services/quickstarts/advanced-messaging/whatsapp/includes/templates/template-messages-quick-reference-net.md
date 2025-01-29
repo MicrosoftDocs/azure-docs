@@ -19,7 +19,7 @@ ms.author: memontic
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Messages SDK for Python.
+The following classes and interfaces handle some of the major features of the Azure Communication Services Messages SDK for .NET.
 
 | Class Name | Description |
 | --- | --- |
@@ -41,7 +41,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Common configuration
 
-Follow these steps to add the necessary code snippets to the `messages-quickstart.py` python program.
+Follow these steps to add the necessary code snippets to the Main function of your `Program.cs` file.
 - [Create and manage WhatsApp template message](#create-and-manage-whatsapp-template-message).
 - [Authenticate the client](#authenticate-the-client).
 - [Set channel registration ID](#set-channel-registration-id).
@@ -65,7 +65,7 @@ For more information about WhatsApp requirements for templates, see the WhatsApp
 
 ##  Code examples
 
-Follow these steps to add required code snippets to the `messages-quickstart.py` python program.
+Follow these steps to add required code snippets to the Main function of your `Program.cs` file.
 - [List WhatsApp templates in Azure portal](#list-whatsapp-templates-in-azure-portal).
 - [Send Template message with no parameters](#send-template-message-with-no-parameters).
 - [Send Template message with text parameters in the body](#send-template-message-with-text-parameters-in-the-body).

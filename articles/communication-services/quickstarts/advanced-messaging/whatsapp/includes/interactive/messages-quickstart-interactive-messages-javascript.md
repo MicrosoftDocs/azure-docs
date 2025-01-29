@@ -51,7 +51,6 @@ Follow these steps to add required code snippets to your `send-messages.js` file
 - [Authenticate the client](#authenticate-the-client).
 - [Set channel registration ID](#set-channel-registration-id).
 - [Set recipient list](#set-recipient-list).
-- [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
 [!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting-javascript.md)]
 
