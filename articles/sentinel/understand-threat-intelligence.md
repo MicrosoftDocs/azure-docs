@@ -153,9 +153,11 @@ Establish connections between objects to enhance threat detection and response. 
 
 | Use case | Description |
 |---|---|
-| Connecting Threat Actor to Attack Pattern | The threat actor "APT29" uses the attack pattern "Phishing via Email" to gain initial access.|
-| Linking Indicator to Threat Actor|  An indicator (malicious domain) is attributed to the threat actor "APT29". |
-| Associating Identity (Victim) with Attack Pattern| The organization "Example Corp" is targeted by the attack pattern "Phishing via Email".|
+| Connecting Threat Actor to Attack Pattern | The threat actor *APT29 uses* the attack pattern *Phishing via Email* to gain initial access.|
+| Linking Indicator to Threat Actor|  An indicator *allyourbase.contoso.com* domain is attributed to the threat actor *APT29*. |
+| Associating Identity (Victim) with Attack Pattern| The *FourthCoffee* organization is targeted by the attack pattern *Phishing via Email*.|
+
+The following image combines all of those connections with the relationship builder.
 
 :::image type="content" source="media/understand-threat-intelligence/relationship-example.png" alt-text="Screenshot showing example relationship being built.":::
 
