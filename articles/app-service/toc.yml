@@ -162,10 +162,14 @@
           href: tutorial-php-mysql-app.md
         - name: Node.js with MongoDB
           href: tutorial-nodejs-mongodb-app.md
-        - name: Python with Postgres (Flask/Django)
-          href: tutorial-python-postgresql-app.md
-        - name: Python with Postgres (FastAPI)
-          href: tutorial-python-postgresql-app-fastapi.md
+        - name: Python with Postgres
+          items:
+            - name: Using Flask
+              href: tutorial-python-postgresql-app-flask.md
+            - name: Using Django
+              href: tutorial-python-postgresql-app-django.md
+            - name: Using FastAPI
+              href: tutorial-python-postgresql-app-fastapi.md
         - name: Spring Boot with MongoDB
           href: tutorial-java-spring-cosmosdb.md
         - name: Tomcat with MySQL
