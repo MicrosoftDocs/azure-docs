@@ -2,7 +2,7 @@
 title: How to deploy a CycleCloud Workspace for Slurm environment using the CLI
 description: How to deploy a CycleCloud Workspace for Slurm environment using the Azure CLI and the Azure Portal UI Sandbox
 author: xpillons
-ms.date: 08/22/2024
+ms.date: 01/29/2025
 ms.author: xpillons
 ---
 
@@ -13,7 +13,9 @@ Prerequisites: Users will need to install the Azure CLI and Git. They will then 
 - Clone the Azure CycleCloud Workspace for Slurm on the latest stable release
 
 ```bash
-git clone https://github.com/Azure/cyclecloud-slurm-workspace.git --branch <release>
+latest=$(curl -s https://api.github.com/repos/azure/cyclecloud-slurm-workspace/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')
+echo "cloning on $latest"
+git clone --depth 1 --branch $latest https://github.com/azure/cyclecloud-slurm-workspace.git
 ```
 
 - Copy the content of the UI definition file `./uidefinitions/createUiDefinition.json`
