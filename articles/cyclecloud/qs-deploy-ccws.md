@@ -168,7 +168,8 @@ Cloud-init v. 23.4-7.el8_10.alma.1 finished at Wed, 12 Jun 2024 10:28:15 +0000. 
 
 Then establish the connectivity between your client machine and the CycleCloud VM. This can be from your corporate IT, a VPN, a Bastion tunnelling, an attached public IP if your company allows it. Connect to the web interface by browsing to [https://<cycleccloud_ip>](), and authenticate with the username and password provided during the deployment. Confirm that both the Scheduler and the Login node are running.
 
-## Connect to the login node
-When using the Bastion, use one of the utility scripts __util/ssh_thru_bastion.sh__ or __util/tunnel_thru_bastion.sh__ to connect, provided [here](https://github.com/Azure/cyclecloud-slurm-workspace/tree/main/util).
-If not using a Bastion, you have to establish the direct connectivity yourself.
+## Further Reading
 
+* [How to connect to the CycleCloud Portal through Bastion](/azure/cyclecloud/how-to/ccws/connect-to-portal-with-bastion)
+* [How to connect to a Login Node through Bastion](/azure/cyclecloud/how-to/ccws/connect-to-login-node-with-bastion)
+* [How to deploy a CycleCloud Workspace for Slurm environment using the CLI](/azure/cyclecloud/how-to/ccws/deploy-with-cli)
