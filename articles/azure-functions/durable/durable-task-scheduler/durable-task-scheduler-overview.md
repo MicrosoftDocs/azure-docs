@@ -56,3 +56,4 @@ The Durable Task SDKs are available in multiple programming languages:
 ## Limitations
 
 - **Durable Entities:** Currently, Durable Task Scheduler does not have support for Durable Entities.
+- **Auto-scaling:** Currently, auto-scaling is not supported when hosted on Azure Container Apps.
