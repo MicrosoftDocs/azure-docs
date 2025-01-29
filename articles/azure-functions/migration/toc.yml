@@ -58,4 +58,6 @@
       - name: Step-by-step process
         href: function-placeholder.md
       - name: End-state evaluation
-        href: function-placeholder.md                 
+        href: function-placeholder.md
+  - name: Azure optimization opportunities
+    href: ./placeholder.md                

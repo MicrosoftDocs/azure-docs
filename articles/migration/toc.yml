@@ -39,8 +39,6 @@
       href: ./placeholder.md    
   - name: Evaluation - End-state on Azure
     href: ./placeholder.md
-  - name: Azure optimization opportunities
-    href: ./placeholder.md
   - name: Case studies
     items:
     - name: Migrate an analytics workload from AWS to Azure
