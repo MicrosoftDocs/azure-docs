@@ -42,15 +42,6 @@ To enable OpenTelemetry output from the Functions host, update the [host.json fi
 ```json
 {
     "version": "2.0",
-    "logging": {
-        "applicationInsights": {
-            "samplingSettings": {
-                "isEnabled": true,
-                "excludedTypes": "Request"
-            },
-            "enableLiveMetricsFilters": true
-        }
-    },
     "telemetryMode": "openTelemetry"
 }
 ```
