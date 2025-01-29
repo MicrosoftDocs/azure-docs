@@ -156,11 +156,11 @@ Use this option unless you need to create an app registration separately. After 
 
 ### <a name="advanced_external"> </a>Option 2: Use an existing registration created separately
 
-1. Select **Provide the details of an existing app registration** and provide:
+- Select **Provide the details of an existing app registration** and provide:
 
-   - **Application (client) ID**
-   - **Client secret**
-   - **Issuer URL**
+  - **Application (client) ID**
+  - **Client secret**
+  - **Issuer URL**
 
 If you need to manually create an app registration in an external tenant, see [Register an app in your external tenant](/entra/external-id/customers/how-to-register-ciam-app?tabs=webapp#register-your-web-app).
 
