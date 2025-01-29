@@ -14,9 +14,9 @@ zone_pivot_groups: support-matrix-updates
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers :heavy_check_mark: Azure VMs.
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Azure Update Manager will soon cease to support it. Please consider your use and planning accordingly. For more information, see the [CentOS End-Of-Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Azure Update Manager will soon cease to support it. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Service guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
-This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by Azure Update Manager
+This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by Azure Update Manager.
 
 ::: zone pivot="azure-vm"
 
