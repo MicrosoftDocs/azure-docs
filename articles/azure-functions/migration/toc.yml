@@ -1,0 +1,63 @@
+- name: Overview
+  href: ./function-placeholder.md
+  items:
+  - name: Evaluation - Source service
+    items:
+    - name: Capability orgranization
+      href: ./function-placeholder.md
+    - name: Identity and access management
+      href: ./function-placeholder.md
+    - name: Deployment
+      href: ./function-placeholder.md
+    - name: Monitoring
+      href: ./function-placeholder.md
+    - name: Dependencies
+      items:
+      - name: Example - Compute
+        href: ./function-placeholder.md
+      - name: Example - Networking
+        href: ./function-placeholder.md
+    - name: Governance
+      href: ./function-placeholder.md                          
+    - name: Measurement - business requirements
+      items:
+      - name: Cost of ownership
+        href: ./function-placeholder.md
+      - name: Reliability objectives
+        href: ./function-placeholder.md
+      - name: Performance targets 
+        href: ./function-placeholder.md
+  - name: Migration approach
+    items:     
+    - name: Strategy and recommendations
+      href: ./function-placeholder.md         
+    - name: Tools
+      href: ./function-placeholder.md
+    - name: Feature portability reference
+      href: ./function-placeholder.md                 
+  - name: Evaluation - Azure Functions
+    href: ./function-placeholder.md              
+  - name: Scenario how-tos
+    items:
+    - name: Scenario - 1
+      items:
+      - name: Overview and current state
+        href: function-placeholder.md
+      - name: Migration strategy
+        href: function-placeholder.md
+      - name: Step-by-step process
+        href: function-placeholder.md
+      - name: End-state evaluation
+        href: function-placeholder.md
+    - name: Scenario - 2
+      items:
+      - name: Overview and current state
+        href: function-placeholder.md
+      - name: Migration strategy
+        href: function-placeholder.md
+      - name: Step-by-step process
+        href: function-placeholder.md
+      - name: End-state evaluation
+        href: function-placeholder.md
+  - name: Azure optimization opportunities
+    href: /azure/well-architected/service-guides/azure-functions-security
