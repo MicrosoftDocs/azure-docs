@@ -6,8 +6,9 @@ author: madsd
 ms.author: madsd
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.date: 02/13/2023
+ms.date: 01/30/2025
 ms.tool: azure-cli, azure-powershell
+#customer intent: As a deployment engineer, I want to integrate web apps in Azure App Service with our Azure virtual networks.
 ---
 
 # Enable virtual network integration in Azure App Service
@@ -27,13 +28,13 @@ If the virtual network is in a different subscription than the app, you must ens
 
 ## Configure in the Azure portal
 
-1. Go to **Networking** in the App Service portal. Under **Outbound traffic configuration**, select **Virtual network integration**.
+1. Go to your app in the Azure portal. Select **Settings** > **Networking**. Under **Outbound traffic configuration**, next to Virtual network integration, select the **Not configured** link.
 
 1. Select **Add virtual network integration**.
 
     :::image type="content" source="./media/configure-vnet-integration-enable/vnetint-app.png" alt-text="Screenshot that shows selecting Virtual network integration.":::
 
-1. The dropdown list contains all the virtual networks in your subscription in the same region. Select an empty pre-existing subnet or create a new subnet.
+1. The dropdown list contains all the virtual networks in your subscription in the same region. Select an empty preexisting subnet or create a new subnet.
 
     :::image type="content" source="./media/configure-vnet-integration-enable/vnetint-add-vnet.png" alt-text="Screenshot that shows selecting the virtual network.":::
 
@@ -94,7 +95,7 @@ $webApp.Properties.vnetRouteAllEnabled = 'true'
 $webApp | Set-AzResource -Force
 ```
 
-## Next steps
+## Related content
 
 - [Configure virtual network integration routing](./configure-vnet-integration-routing.md)
 - [General networking overview](./networking-features.md)
