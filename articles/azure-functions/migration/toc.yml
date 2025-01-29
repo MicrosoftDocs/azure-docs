@@ -1,0 +1,63 @@
+- name: Microsoft Azure Functions Migration Guide
+  href: ./index.yml
+  items:
+  - name: Overview
+    href: ./function-placeholder.md
+  - name: Source service evaluation
+    href: ./placeholder.md
+    items:
+    - name: Governance
+      href: ./function-placeholder.md
+    - name: Capability orgranization
+      href: ./function-placeholder.md
+    - name: Identity and access management
+      href: ./function-placeholder.md
+    - name: Deployment
+      href: ./function-placeholder.md
+    - name: Monitoring
+      href: ./function-placeholder.md
+    - name: Dependencies
+      href: ./function-placeholder.md   
+      items:
+      - name: Example - Compute
+        href: ./function-placeholder.md
+      - name: Example - Networking
+        href: ./function-placeholder.md                  
+    - name: Current state
+      items:
+      - name: Cost of ownership
+        href: ./function-placeholder.md
+      - name: Reliability objectives
+        href: ./function-placeholder.md
+      - name: Performance targets 
+        href: ./function-placeholder.md
+    - name: Migration approach
+      items:  
+      - name: Strategy and recommendations
+        href: ./function-placeholder.md      
+      - name: Tools
+        href: ./function-placeholder.md      
+  - name: Scenario how-tos
+    items:
+    - name: Scenario - 1
+      items:
+      - name: Overview and current state
+        href: function-placeholder.md
+      - name: Migration strategy
+        href: function-placeholder.md
+      - name: Step-by-step process
+        href: function-placeholder.md
+      - name: End-state evaluation
+        href: function-placeholder.md
+    - name: Scenario - 2
+      items:
+      - name: Overview and current state
+        href: function-placeholder.md
+      - name: Migration strategy
+        href: function-placeholder.md
+      - name: Step-by-step process
+        href: function-placeholder.md
+      - name: End-state evaluation
+        href: function-placeholder.md                 
+  - name: Workload migration, the bigger picture
+    href: https://learn.microsoft.com/en-us/azure/migration          

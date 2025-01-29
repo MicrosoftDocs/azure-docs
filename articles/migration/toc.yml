@@ -29,9 +29,19 @@
         href: ./placeholder.md
       - name: Performance targets 
         href: ./placeholder.md
+  - name: Migration design
+    items:
+    - name: Tools
+      href: ./placeholder.md
+    - name: Operations 
+      href: ./placeholder.md
+  - name: End state evaluation
+    href: ./placeholder.md
+  - name: Optimization opportunities
+    href: ./placeholder.md                    
   - name: Service catalog
     items:
     - name: Functions migration guide
-      href: ../azure-functions/toc.yml  
+      href: ../azure-functions/migration/toc.yml
     - name: Virtual Machines migration guide
       href: https://learn.microsoft.com/en-us/azure/virtual-machines/migration-guide?toc=/azure/migration/toc.json&bc=/azure/aks/breadcrumb/toc.json                   
