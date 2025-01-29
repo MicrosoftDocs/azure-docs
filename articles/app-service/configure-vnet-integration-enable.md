@@ -22,23 +22,23 @@ The virtual network integration feature requires:
 - An App Service pricing tier [that supports virtual network integration](./overview-vnet-integration.md).
 - A virtual network in the same region with an empty subnet.
 
-The subnet must be delegated to Microsoft.Web/serverFarms. If the delegation isn't done before integration, the provisioning process configures this delegation. The subnet must be allocated an IPv4 `/28` block (16 addresses). We recommend that you have a minimum of 64 addresses (IPv4 `/26` block) to allow for maximum horizontal scale.
+The subnet must be delegated to Microsoft.Web/serverFarms. If you don't delegate before integration, the provisioning process configures this delegation. The subnet must be allocated an IPv4 `/28` block (16 addresses). We recommend that you have a minimum of 64 addresses (IPv4 `/26` block) to allow for maximum horizontal scale.
 
-If the virtual network is in a different subscription than the app, you must ensure that the subscription with the virtual network is registered for the `Microsoft.Web` resource provider. You can explicitly register the provider [by following this documentation](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider), but it's automatically registered when creating the first web app in a subscription.
+If the virtual network is in a different subscription than the app, ensure that the subscription with the virtual network is registered for the `Microsoft.Web` resource provider. The provider is registered when you create the first web app in a subscription. To explicitly register the provider, see [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 ## Configure in the Azure portal
 
-1. Go to your app in the Azure portal. Select **Settings** > **Networking**. Under **Outbound traffic configuration**, next to Virtual network integration, select the **Not configured** link.
+1. Go to your app in the Azure portal. Select **Settings** > **Networking**. Under **Outbound traffic configuration**, next to **Virtual network integration**, select the **Not configured** link.
 
 1. Select **Add virtual network integration**.
 
-    :::image type="content" source="./media/configure-vnet-integration-enable/vnetint-app.png" alt-text="Screenshot that shows selecting Virtual network integration.":::
+   :::image type="content" source="./media/configure-vnet-integration-enable/vnetint-app.png" alt-text="Screenshot that shows selecting Virtual network integration.":::
 
 1. The dropdown list contains all the virtual networks in your subscription in the same region. Select an empty preexisting subnet or create a new subnet.
 
-    :::image type="content" source="./media/configure-vnet-integration-enable/vnetint-add-vnet.png" alt-text="Screenshot that shows selecting the virtual network.":::
+   :::image type="content" source="./media/configure-vnet-integration-enable/vnetint-add-vnet.png" alt-text="Screenshot that shows selecting the virtual network.":::
 
-During the integration, your app is restarted. When integration is finished, you see details on the virtual network you're integrated with.
+During the integration, your app is restarted. When integration finishes, you see details on the virtual network that you integrated with.
 
 ## Configure with the Azure CLI
 
@@ -49,51 +49,51 @@ az webapp vnet-integration add --resource-group <group-name> --name <app-name> -
 ```
 
 > [!NOTE]
-> The command checks if the subnet is delegated to Microsoft.Web/serverFarms and applies the necessary delegation if it isn't configured. If the subnet was configured, and you don't have permissions to check it, or if the virtual network is in another subscription, you can use the `--skip-delegation-check` parameter to bypass the validation.
+> The command checks if the subnet is delegated to Microsoft.Web/serverFarms. It applies the necessary delegation if it isn't configured. If the subnet was configured and you don't have permissions to check it, or if the virtual network is in another subscription, you can use the `--skip-delegation-check` parameter to bypass the validation.
 
 ## Configure with Azure PowerShell
 
-Prepare parameters.
+1. Prepare parameters.
 
-```azurepowershell
-$siteName = '<app-name>'
-$vNetResourceGroupName = '<group-name>'
-$webAppResourceGroupName = '<group-name>'
-$vNetName = '<vnet-name>'
-$integrationSubnetName = '<subnet-name>'
-$vNetSubscriptionId = '<subscription-guid>'
-```
+   ```azurepowershell
+   $siteName = '<app-name>'
+   $vNetResourceGroupName = '<group-name>'
+   $webAppResourceGroupName = '<group-name>'
+   $vNetName = '<vnet-name>'
+   $integrationSubnetName = '<subnet-name>'
+   $vNetSubscriptionId = '<subscription-guid>'
+   ```
 
-> [!NOTE]
-> If the virtual network is in another subscription than webapp, you can use the *Set-AzContext -Subscription "xxxx-xxxx-xxxx-xxxx"* command to set the current subscription context. Set the current subscription context to the subscription where the virtual network was deployed.
+   > [!NOTE]
+   > If the virtual network is in another subscription than webapp, you can use the `Set-AzContext -Subscription "xxxx-xxxx-xxxx-xxxx"` command to set the current subscription context. Set the current subscription context to the subscription where the virtual network was deployed.
 
-Check if the subnet is delegated to Microsoft.Web/serverFarms.
+1. Check if the subnet is delegated to Microsoft.Web/serverFarms.
 
-```azurepowershell
-$vnet = Get-AzVirtualNetwork -Name $vNetName -ResourceGroupName $vNetResourceGroupName
-$subnet = Get-AzVirtualNetworkSubnetConfig -Name $integrationSubnetName -VirtualNetwork $vnet
-Get-AzDelegation -Subnet $subnet
-```
+   ```azurepowershell
+   $vnet = Get-AzVirtualNetwork -Name $vNetName -ResourceGroupName $vNetResourceGroupName
+   $subnet = Get-AzVirtualNetworkSubnetConfig -Name $integrationSubnetName -VirtualNetwork $vnet
+   Get-AzDelegation -Subnet $subnet
+   ```
 
-If your subnet isn't delegated to Microsoft.Web/serverFarms, add delegation using below commands.
+1. If your subnet isn't delegated to Microsoft.Web/serverFarms, add delegation using below commands.
 
-```azurepowershell
-$subnet = Add-AzDelegation -Name "myDelegation" -ServiceName "Microsoft.Web/serverFarms" -Subnet $subnet
-Set-AzVirtualNetwork -VirtualNetwork $vnet
-```
+   ```azurepowershell
+   $subnet = Add-AzDelegation -Name "myDelegation" -ServiceName "Microsoft.Web/serverFarms" -Subnet $subnet
+   Set-AzVirtualNetwork -VirtualNetwork $vnet
+   ```
 
-Configure virtual network integration.
+1. Configure virtual network integration.
 
-> [!NOTE]
-> If the webapp is in another subscription than virtual network, you can use the *Set-AzContext -Subscription "xxxx-xxxx-xxxx-xxxx"* command to set the current subscription context. Set the current subscription context to the subscription where the web app was deployed.
+   ```azurepowershell
+   $subnetResourceId = "/subscriptions/$vNetSubscriptionId/resourceGroups/$vNetResourceGroupName/providers/Microsoft.Network/virtualNetworks/$vNetName/subnets/$integrationSubnetName"
+   $webApp = Get-AzResource -ResourceType Microsoft.Web/sites -ResourceGroupName $webAppResourceGroupName -ResourceName $siteName
+   $webApp.Properties.virtualNetworkSubnetId = $subnetResourceId
+   $webApp.Properties.vnetRouteAllEnabled = 'true'
+   $webApp | Set-AzResource -Force
+   ```
 
-```azurepowershell
-$subnetResourceId = "/subscriptions/$vNetSubscriptionId/resourceGroups/$vNetResourceGroupName/providers/Microsoft.Network/virtualNetworks/$vNetName/subnets/$integrationSubnetName"
-$webApp = Get-AzResource -ResourceType Microsoft.Web/sites -ResourceGroupName $webAppResourceGroupName -ResourceName $siteName
-$webApp.Properties.virtualNetworkSubnetId = $subnetResourceId
-$webApp.Properties.vnetRouteAllEnabled = 'true'
-$webApp | Set-AzResource -Force
-```
+   > [!NOTE]
+   > If the webapp is in another subscription than virtual network, you can use the `Set-AzContext -Subscription "xxxx-xxxx-xxxx-xxxx"` command to set the current subscription context. Set the current subscription context to the subscription where the web app was deployed.
 
 ## Related content
 
