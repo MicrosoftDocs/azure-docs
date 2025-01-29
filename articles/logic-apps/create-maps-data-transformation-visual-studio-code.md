@@ -34,7 +34,7 @@ This how-to guide shows how to create an empty data map, choose your source and 
 
 - The layout and item positions in Data Mapper are currently automatic and read only.
 
-- When you creating a mapping between parent array elements in the source and target schemas, the mapper automatically adds a loop to iterate through the array item elements. However, you must still explicitly create mappings between the source and target array item elements.
+- When you create a mapping between the parent array elements in the source and target schemas, the mapper automatically adds a loop to iterate through the array item elements. However, you must still explicitly create mappings between the source and target array item elements.
 
 - To call maps created with Data Mapper, you can only use the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**. [For maps created by any other tool, use the **XML Operations** action named **Transform XML**](logic-apps-enterprise-integration-transform.md).
 
@@ -254,9 +254,9 @@ The example in this section concatenates multiple source elements as inputs and 
 
 1. On the mapper surface, select the function shape to view the function details.
 
-1. On the **Input** tab, select the source data elements to use as the inputs.
+1. On the **Input** tab, select the source schema elements to use as the inputs.
 
-   This example selects the **FirstName** and **LastName** elements in the source schema as the function inputs, which automatically adds the respective mappings to the mapper surface.
+   This example selects the **FirstName** and **LastName** source schema elements as the function inputs. The mapper automatically adds the respective mappings between the source elements and the function.
 
    :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/function-multiple-inputs.png" alt-text="Screenshot shows multiple source elements as function inputs.":::
 
@@ -272,7 +272,7 @@ The example in this section concatenates multiple source elements as inputs and 
 
 ## Iterate through arrays
 
-If your source and target schemas contain arrays, you can create a loop to iterates through each array's items. The example in this section creates a loop through an **Employee** source array and a **Person** target array along with mappings between the arrays' items.
+If your source and target schemas contain arrays, you can create a loop to iterate through the arrays' items. The example in this section creates a loop through an **Employee** source array and a **Person** target array along with mappings between the arrays' items.
 
 1. To view what happens in code while you create the mapping, in the mapper's upper right corner, select **View code**.
 
