@@ -6,6 +6,32 @@
     href: virtual-networks-overview.md
   - name: Accelerated Networking
     href: accelerated-networking-overview.md
+  - name: Application security groups
+    href: application-security-groups.md
+  - name: Network security groups
+    href: network-security-groups-overview.md
+  - name: Service endpoints
+    href: virtual-network-service-endpoints-overview.md
+  - name: Service tags
+    href: service-tags-overview.md
+- name: Getting started
+  items:
+  - name: Add, change, or delete a subnet
+    href: virtual-network-manage-subnet.md
+  - name: Create a virtual network
+    href: quick-create-portal.md
+  - name: Monitoring
+    href: monitor-virtual-network.md
+  - name: Plan virtual networks
+    href: virtual-network-vnet-plan-design-arm.md
+  - name: Traffic routing
+    href: virtual-networks-udr-overview.md
+- name: Architecture and concepts
+  items:
+  - name: Azure services network isolation
+    href: vnet-integration-for-azure-services.md
+  - name: Concepts and best practices
+    href: concepts-and-best-practices.md
 - name: Reference
   items:
   - name: Monitor data reference
