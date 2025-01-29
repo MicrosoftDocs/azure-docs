@@ -1,5 +1,5 @@
 ---
-title: Analyze Logs and Metrics in Azure Spring Apps | Microsoft Docs
+title: Analyze Logs and Metrics in Azure Spring Apps
 description: Learn how to analyze diagnostics data in Azure Spring Apps
 author: KarlErickson
 ms.service: azure-spring-apps
