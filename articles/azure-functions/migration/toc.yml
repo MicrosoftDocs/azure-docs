@@ -1,7 +1,7 @@
 - name: Overview
   href: ./function-placeholder.md
   items:
-  - name: Evaluate - Source service
+  - name: Evaluation - Source service
     href: ./function-placeholder.md
     items:
     - name: Governance
@@ -28,16 +28,16 @@
         href: ./function-placeholder.md
       - name: Performance targets 
         href: ./function-placeholder.md
-    - name: Migration approach
-      items:     
-      - name: Strategy and recommendations
-        href: ./function-placeholder.md         
-      - name: Tools
-        href: ./function-placeholder.md
-      - name: Portability reference
-        href: ./function-placeholder.md                 
-    - name: Evaluation - Azure Functions
-      href: ./placeholder.md              
+  - name: Migration approach
+    items:     
+    - name: Strategy and recommendations
+      href: ./function-placeholder.md         
+    - name: Tools
+      href: ./function-placeholder.md
+    - name: Feature portability reference
+      href: ./function-placeholder.md                 
+  - name: Evaluation - Azure Functions
+    href: ./placeholder.md              
   - name: Scenario how-tos
     items:
     - name: Scenario - 1

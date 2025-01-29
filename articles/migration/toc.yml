@@ -54,7 +54,7 @@
       href: ./placeholder.md                           
   - name: Service catalog
     items:
-    - name: Portability reference
+    - name: Service portability reference
       href: ./placeholder.md  
     - name: Azure Functions migration guide
       href: ../azure-functions/migration/toc.yml
