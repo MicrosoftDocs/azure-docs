@@ -42,7 +42,7 @@ In this tutorial, you learn how to:
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
 * Access granted to Azure OpenAI in the desired Azure subscription
     Currently, you must apply for access to Azure OpenAI. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>.
-* <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>
+* <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>
 * [Jupyter Notebooks](https://jupyter.org/) (optional)
 * An Azure OpenAI resource with the **text-embedding-ada-002 (Version 2)** model deployed. This model is currently only available in [certain regions](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability). See the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource) for instructions on how to deploy the model.
 
