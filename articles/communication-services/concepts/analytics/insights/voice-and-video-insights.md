@@ -140,7 +140,7 @@ Since the Voice and Video insights dashboard is integrated with [Copilot in Azur
 
 The Insights Dashboards uses [Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview) which displays call log data from Azure Communication Services. These call logs aren't stored in your Azure account by default so you need to begin storing them for the dashboard to work. To collect these call logs, you need to enable a diagnostic setting that sends call data to a Log Analytics workspace in the same resource group as your calling resource. 
 
-Data isn’t stored retroactively, so you begin capturing call logs only after configuring the diagnostic setting.
+**Data isn’t stored retroactively, so you begin capturing call logs only after configuring the diagnostic setting.**
 
 Follow instructions to add diagnostic settings for your resource in [Enable logs via Diagnostic Settings in Azure Monitor](../enable-logging.md). We recommend that you initially collect all logs. After you understand the capabilities in Azure Monitor, determine which logs you want to retain and for how long. When you add your diagnostic setting, you're prompted to [select logs](../enable-logging.md#adding-a-diagnostic-setting). To collect **all logs**, select **allLogs**.
 
