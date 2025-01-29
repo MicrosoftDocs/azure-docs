@@ -147,10 +147,12 @@ In Azure NetApp Files, dynamic DNS updates send two different requests to the co
 - If a DNS entry created by dynamic DNS is deleted on the DNS server, it's recreated within 24 hours by a new dynamic DNS update from Azure NetApp Files.
 - Secure DDNS gets enabled when SMB or dual protocol volumes are created. NFS volumes don't enable secure DDNS, but do enable DDNS. If secure DDNS is disabled on the DNS server or the Kerberos authentication fails, then DDNS updates don't work.
 
-| Dynamic DNS type | Port |
-| --- | --- |
-| Standard DNS | UDP 53 |
-| Secure DNS | TCP 53 |
+    | Dynamic DNS type | Port |
+    | --- | --- |
+    | Standard DNS | UDP 53 |
+    | Secure DNS | TCP 53 |
+
+- Azure NetApp Files supports secure DDNS only with Microsoft Active Directory DNS servers.
 
 ### Dynamic DNS entry details
 
