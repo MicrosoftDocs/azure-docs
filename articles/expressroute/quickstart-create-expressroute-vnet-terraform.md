@@ -74,13 +74,13 @@ In this article, you learn how to:
 
 1. Get the Azure resource group name.
 
-   ```console
+   ```bash
    resource_group_name=$(terraform output -raw resource_group_name)
    ```
 
 1. Get the gateway name.
 
-   ```console
+   ```bash
    gateway_name=$(terraform output -raw gateway_name)
    ```
 
@@ -94,13 +94,13 @@ In this article, you learn how to:
 
 1. Get the Azure resource group name.
 
-   ```console
+   ```powershell
    $resource_group_name=$(terraform output -raw resource_group_name)
    ```
 
 1. Get the gateway name.
 
-   ```console
+   ```powershell
    $gateway_name=$(terraform output -raw gateway_name)
    ```
 
