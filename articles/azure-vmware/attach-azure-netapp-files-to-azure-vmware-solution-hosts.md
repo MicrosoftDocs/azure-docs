@@ -101,7 +101,7 @@ For performance benchmarks that Azure NetApp Files datastores deliver for VMs on
 
 ### Considerations for Azure NetApp Files storage with cool access
 
-When choosing to use Azure NetApp Files storage with cool access on datastores for AVS, consider the performance characteristics of your workloads. Cool access is best suited for applications and workloads that primarily involve sequential I/O operations or tolerate varying read latency. Workloads with high random I/O and latency sensitivity should avoid using cool access due to an increase in latency when reading data from the cool tier.
+When choosing to use [Azure NetApp Files storage with cool access](../azure-netapp-files/cool-access-introduction.md) on datastores for AVS, consider the performance characteristics of your workloads. Cool access is best suited for applications and workloads that primarily involve sequential I/O operations or tolerate varying read latency. Workloads with high random I/O and latency sensitivity should avoid using cool access due to an increase in latency when reading data from the cool tier.
 
 Also consider adjusting cool access settings for the workload to fit the expected access patterns. For more information, see [Performance considerations for Azure NetApp Files storage with cool access](../azure-netapp-files/performance-considerations-cool-access.md).
 
