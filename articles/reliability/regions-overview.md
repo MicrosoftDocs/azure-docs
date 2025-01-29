@@ -59,6 +59,16 @@ It's common to use multiple Azure regions, paired or nonpaired, when you design 
 
 When you select regions that are geographically far apart, the latency of network connections between those regions increases. Latency can affect how you design a multi-region solution, and it can restrict the types of geo-replication and geo-redundancy you can use. For more information, see [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones).
 
+## Nonregional services
+
+Most Azure services are deployed to a specific region. However, there are some services that aren't tied to a single Azure region. It's important to recognize how *nonregional* services operate in the case of a regional failure, and to take them into account when you design your solutions and business continuity plan.
+
+Nonregional services are deployed by Microsoft across two or more regions. If there's a regional failure, the instance of the service in a healthy region can continues servicing requests. For example, [Azure DNS](https://azure.microsoft.com/products/dns) is a nonregional service.
+
+Some Azure services allow you to specify a region or geography in which your data is stored. For example, with [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id/), you can select the geographic area for your data, such as Europe or North America. For more information about data residency, see [Data residency in Azure](https://azure.microsoft.com/explore/global-infrastructure/data-residency/).
+
+With some nonregional services you can specify the region where certain components are deployed. For example, you can choose which region [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) VMs are to reside.
+
 ## Related resources
 
 For more information on the Azure services available in each region, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region).
