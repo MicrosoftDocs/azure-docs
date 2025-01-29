@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 01/23/2025
+ms.date: 01/29/2025
 ms.author: cshoe
 zone_pivot_groups: arm-azure-cli-portal
 ---
@@ -14,6 +14,9 @@ zone_pivot_groups: arm-azure-cli-portal
 # Use storage mounts in Azure Container Apps
 
 A container app has access to different types of storage. A single app can take advantage of more than one type of storage if necessary.
+
+> [!Note]
+> When naming your volumes, avoid using special characters such as "." in the volume name. Including special characters can cause deployment failures. For example, using a volume name that contains special chanracter such as `credentials.json` results in the error.
 
 | Storage type | Description | Persistence | Usage example |
 |--|--|--|
