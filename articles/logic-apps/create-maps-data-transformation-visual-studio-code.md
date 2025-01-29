@@ -200,7 +200,7 @@ The example in this section transforms data in the source element from **String*
 
    :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/no-mapping-select-function.png" alt-text="Screenshot shows selected function named To Date.":::
 
-   You can also find and select any custom functions in the same way. For more information, see [Create a custom function](#create-custom-function).
+   <!---   You can also find and select any custom functions in the same way. For more information, see [Create a custom function](#create-custom-function).--->
 
    > [!NOTE]
    >
@@ -393,21 +393,23 @@ To confirm that the transformation works as you expect, you'll need sample input
 
 1. Expand the folder that has your workflow name. From the **workflow.json** file's shortcut menu, select **Open Designer**.
 
-1. On the workflow designer, follow these [general steps to add the **Data Mapper Operations** built-in action named **Transform using Data Mapper XSLT**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+1. On the workflow designer, [follow these general steps to add the **Data Mapper Operations** built-in action named **Transform using Data Mapper XSLT**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
 1. On the designer, select the **Transform using Data Mapper XSLT** action.
 
-1. On the action information pane that appears, specify the **Content** value, and leave **Map Source** set to **Logic App**. From the **Map Name** list, select the map file (.xslt) that you want to use.
+1. On the action information pane that appears, specify the **Content** value, and leave **Map Source** set to **LogicApp**.
+
+1. Open the **Map Name** list, and select your map (.xslt file).
 
    :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/transform-data-mapper-xslt-action.png" alt-text="Screenshot shows Visual Studio Code, Standard workflow designer, with selected action named Transform using Data Mapper XSLT and action properties.":::
 
    To use the same **Transform using Data Mapper XSLT** action in the Azure portal, you must [add the map to the Standard logic app resource](logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource).
 
-<a name="create-custom-function"></a>
+<!---<a name="create-custom-function"></a>
 
 ## Create a custom function
 
-To create your own function that you can use with the Data Mapper tool, follow these steps:
+To create your own function that you can use with Data Mapper, follow these steps:
 
 1. Create an XML (.xml) file that has a meaningful name that describes your function's purpose.
 
@@ -477,7 +479,8 @@ To create your own function that you can use with the Data Mapper tool, follow t
 
 1. In the **Functions** folder, save your function's XML file.
 
-1. To find your custom function in the Data Mapper tool's functions list, search for the function, or expand the **Custom functions** collection.
+1. To find your custom function in the Data Mapper **Functions** list, search for the function, or expand the **Custom functions** collection.
+-->
 
 ## Related content
 
