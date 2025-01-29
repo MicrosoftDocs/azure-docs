@@ -262,7 +262,7 @@ The subscription ID has the form `123e4567-e89b-12d3-a456-426614174000`. The sec
 
 You can now reference the `datadogapikey` parameter in your Bicep template.
 
-```json
+```bicep
 @secure()
 param datadogapikey string
 
