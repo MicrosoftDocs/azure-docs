@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: azure-databox
 ms.topic: include
-ms.date: 03/12/2021
+ms.date: 01/29/2025
 ms.author: alkohli
 ---
 
@@ -26,7 +26,7 @@ ms.author: alkohli
    > * Storage File Data Privileged Contributor
    > * Contributor
    > 
-   > For more information, see [Assign an Azure role for access to blob data](../storage/blobs/assign-azure-role-data-access.md?tabs=portal#assign-an-azure-role).
+   > For more information, see [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access.md?tabs=portal#assign-an-azure-role).
 
     4. Create a new container, or select from an existing container in the Azure storage account. Any data from the device that is written to the Edge storage account is automatically uploaded to the selected storage container in the mapped Azure Storage account.
 
