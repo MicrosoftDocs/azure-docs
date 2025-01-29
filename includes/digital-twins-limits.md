@@ -3,7 +3,7 @@ author: baanders
 description: include file for Azure Digital Twins limits
 ms.service: azure-digital-twins
 ms.topic: include
-ms.date: 03/21/2023
+ms.date: 01/27/2025
 ms.author: baanders
 ---
 
@@ -39,7 +39,7 @@ The following table lists the functional limits of Azure Digital Twins.
 
 ### Rate limits
 
-The following table reflects the rate limits of different APIs.
+The following table lists the rate limits of different APIs.
 
 | API | Capability | Default limit | Adjustable? |
 | --- | --- | --- | --- |
@@ -57,6 +57,6 @@ The following table reflects the rate limits of different APIs.
 
 ### Other limits
 
-Limits on data types and fields within DTDL documents for Azure Digital Twins models can be found within its spec documentation in GitHub: [Digital Twins Definition Language (DTDL) - version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md).
+Limits on data types and fields within DTDL documents for Azure Digital Twins models can be found in its spec documentation in GitHub: [Digital Twins Definition Language (DTDL) - version 3](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md).
  
 Query latency details are described in [Query language](/azure/digital-twins/concepts-query-language#considerations-for-querying). Limitations of particular query language features can be found in the [query reference documentation](/azure/digital-twins/concepts-query-language#reference-documentation).

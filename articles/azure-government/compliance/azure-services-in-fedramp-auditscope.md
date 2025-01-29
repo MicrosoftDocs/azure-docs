@@ -7,7 +7,7 @@ ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
 recommendations: false
-ms.date: 01/15/2025
+ms.date: 01/27/2025
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -36,6 +36,7 @@ For current Azure Government regions and available services, see [Products avail
 >
 > - Some Azure services deployed in Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia (US Gov regions) require extra configuration to meet DoD IL5 compute and storage isolation requirements, as explained in **[Isolation guidelines for Impact Level 5 workloads](../documentation-government-impact-level-5.md).**
 > - For DoD IL5 PA compliance scope in Azure Government regions US DoD Central and US DoD East (US DoD regions), see **[US DoD regions IL5 audit scope](../documentation-government-overview-dod.md#us-dod-regions-il5-audit-scope).**
+> - For full list of M365 GCC high services authorized for FedRAMP High, see **[Microsoft Office 365 GCC High FedRAMP Marketplace](https://marketplace.fedramp.gov/products/FR1824057433)**. Azure Communication Services operates under the same infrastructure that powers Microsoft Teams and obtained FedRAMP High accreditation as part of the M365 GCC-High service offering.
 
 **Azure Government Secret** maintains:
 
@@ -50,7 +51,7 @@ For current Azure Government regions and available services, see [Products avail
 This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and Power Platform cloud services in scope for FedRAMP High, DoD IL2, DoD IL4, DoD IL5, and DoD IL6 authorizations across Azure, Azure Government, and Azure Government Secret cloud environments. For other authorization details in Azure Government Secret and Azure Government Top Secret, contact your Microsoft account representative.
 
 ## Azure public services by audit scope
-*Last updated: December 2024*
+*Last updated: January 2025*
 
 ### Terminology used
 
@@ -304,6 +305,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Database for MySQL](/azure/mysql/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Database for PostgreSQL](/azure/postgresql/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Databricks](/azure/databricks/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Azure Fluid Relay](../../azure-fluid-relay/index.yml) | &#x2705; | &#x2705; | |  |  |
 | [Azure Information Protection](/azure/information-protection/) **&ast;&ast;** | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Kubernetes Service (AKS)](/azure/aks/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Managed Grafana](../../managed-grafana/index.yml) | &#x2705; | &#x2705; | |  |  |

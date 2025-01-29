@@ -119,7 +119,7 @@ Use this method for automated deployment of the Mimecast Awareness Training Data
 3. Enter the below information : 
 		Workspace ID 
 		Workspace Key 
-		Base URL (Default: https://api.services.mimecast.com) 
+		Base URL (Default: https://developer.services.mimecast.com/apis) 
 		Mimecast Client ID 
 		Mimecast Client Secret 
 		Log Level (Default: INFO) 

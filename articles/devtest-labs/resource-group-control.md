@@ -20,7 +20,7 @@ By default, Azure DevTest Labs creates a new resource group whenever a new virtu
 With this feature, you can use a script to specify a new or existing resource group within your Azure subscription for all your lab VMs. Currently, Azure DevTest Labs supports this feature through an API.
 
 > [!NOTE]
-> All subscription limits apply when you create labs in DevTest Labs. Think of a lab as any other resource in your subscription. In case of resource groups, the limit is [980 resource groups per subscription](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits). 
+> All subscription limits apply when you create labs in DevTest Labs. Think of a lab as any other resource in your subscription. In case of resource groups, the limit is [980 resource groups per subscription](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-subscription-limits).
 
 ## Use Azure portal
 Follow these steps to specify a resource group for all VMs created in the lab. 
