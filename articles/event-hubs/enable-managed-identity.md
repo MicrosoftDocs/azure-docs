@@ -3,6 +3,7 @@ title: Enable managed identity for a namespace
 description: Learn how to enable a system-assigned or user-assigned managed identity for an Azure Event Hubs namespace. 
 ms.topic: how-to
 ms.date: 01/29/2025
+# Customer intent: As a developer or administrator, I want to learn how to enable managed identity for an Azure Event Hubs namespace. 
 ---
 
 # Enable managed identity for an Azure Event Hubs namespace
@@ -39,4 +40,4 @@ Here are the steps to enable a user-assigned managed identity for an Event Hubs 
     :::image type="content" source="./media/enable-managed-identity/select-user-assigned-identity.png" alt-text="Screenshot that shows the selection of a user assigned identity." :::    
 
 ## Related content
-After you enable managed identity for your Event Hubs namespace, grant the identity appropriate role on a target resource. For example, if you want to enable capturing of event data on an event hub using a managed identity, the managed identity should be added to the **Storage Blob Data Contributor** role on the Azure storage account. For more information on using identities for capturing event data, see [Authenticate modes for capturing events to destinations in Azure Event Hubs](event-hubs-capture-managed-identity.md). 
+After you enable managed identity for your Event Hubs namespace, grant the identity appropriate role on a target resource. For example, if you want to enable capturing of event data on an event hub using a managed identity, the managed identity should be added to the **Storage Blob Data Contributor** role on the Azure storage or Data Lake Store account. For more information on using identities for capturing event data, see [Authenticate modes for capturing events to destinations in Azure Event Hubs](event-hubs-capture-managed-identity.md). 
