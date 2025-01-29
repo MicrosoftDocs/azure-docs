@@ -55,6 +55,15 @@ To create a share, do the following procedure:
     Depending upon whether you choose SMB or NFS shares, the rest of the options vary slightly. 
 
     c. Provide a storage account where the share will reside.
+   
+   > [!IMPORTANT]
+   > Tiering data from an Azure Stack Edge Pro or Data Box Gateway device to the mapped Azure Storage account uses Managed Service Identity to authorize the data access. Make sure that the Azure Storage account that you use has the following roles being assigned to the Managed identities for Azure Stack Edge resource:
+   >
+   > * Storage Blob Data Contributor
+   > * Storage File Data Privileged Contributor
+   > * Contributor
+   > 
+   > For more information, see [Assign an Azure role for access to blob data](../storage/blobs/assign-azure-role-data-access.md?tabs=portal#assign-an-azure-role).
 
     d. In the **Storage service** drop-down list, select **Block Blob**, **Page Blob**, or **Files**.  
     The type of service you select depends on which format you want the data to use in Azure. In this example, because we want to store the data as block blobs in Azure, we select **Block Blob**. If you select **Page Blob**, make sure that your data is 512 bytes aligned. For example, a VHDX is always 512 bytes aligned.
