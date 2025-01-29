@@ -18,7 +18,7 @@ The following table lists the current versions available for the public and Insi
 
 *Date published: January 28, 2025* 
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
 
 - Bug fixes and general improvements.  
 
@@ -26,7 +26,7 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Wi
 
 *Date published: January 21, 2025* 
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139368) 
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139370) 
 
 - Fixed an issue for [CVE-2024-49105](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49105).
 - Added support to optimize screen and app sharing.
