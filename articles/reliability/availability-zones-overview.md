@@ -28,28 +28,35 @@ The following diagram shows several example Azure regions. Regions 1 and 2 suppo
 
 To see which regions support availability zones, see [Azure regions with availability zone support](availability-zones-region-support.md).
 
-## Zonal and zone-redundant services
+## Availability zone deployment options
 
-Many Azure services support availability zones,
-When planning for reliable workloads, you can choose at least one of the following availability zone configurations: 
+Services support availability zones by offering one or both of the following deployment options during set up for the service:
 
-There are two ways that Azure services use availability zones:
+- **Zone-redundant** service resources are spread across multiple availability zones. Microsoft manages spreading requests across zones and the replication of data across zones. If an outage occurs in a single availability zone, Microsoft manages failover automatically.
 
-- **Zone-redundant** resources are spread across multiple availability zones. Microsoft manages spreading requests across zones and the replication of data across zones. If an outage occurs in a single availability zone, Microsoft manages failover automatically.
+    *Platform as a service (PaaS) * services typically support zone-redundant deployments.
 
 - **Zonal** resources are pinned to a specific availability zone. You can combine multiple zonal deployments across different zones to meet high reliability requirements. You're responsible for managing data replication and distributing requests across zones. If an outage occurs in a single availability zone, you're responsible for failover to another availability zone.
 
-Azure services support one or both of these approaches. Platform as a service (PaaS) services typically support zone-redundant deployments. Infrastructure as a service (IaaS) services typically support zonal deployments. For more information about how Azure services work with availability zones, see [Azure regions with availability zone support](availability-zones-region-support.md).
+    *Infrastructure as a service (IaaS)* services typically support zonal deployments.             
+     
 
-Some services don't use availability zones until you configure them to do so. If you don't explicitly configure a service for availability zone support, it's called a *non-zonal* or *regional* deployment. Resources configured in this way might be placed in any availability zone in the region, and might be moved. If any availability zone in the region experiences an outage, non-zonal resources might be in the affected zone and could experience downtime.
+## Configuring services for availability zone support
 
-For information on service-specific reliability support using availability zones as well as recommended disaster recovery guidance see [Reliability guidance overview](./reliability-guidance-overview.md).
+
+Each service has its own method for configuring availability zone support. To learn how to configure a specific service for availability zone support, see [Azure reliability guides by service](overview-reliability-guidance.md).
+.
+
+>[!IMPORTANT]
+>If you don't explicitly configure a service for availability zone support by specifically choosing a *zonal* or *zone-redundant* deployment, the service places the service resources in any availability zone in the region. These services deployments are called *non-zonal* ore *regional* deployments. 
+>
+>If an availability zone in the region experiences an outage, non-zonal resources in that zone may experience downtime.
 
 ## Physical and logical availability zones
 
 Each datacenter is assigned to a physical zone. Physical zones are mapped to logical zones in your Azure subscription, and different subscriptions might have a different mapping order. Azure subscriptions are automatically assigned their mapping at the time the subscription is created. Because of this, the zone mapping for one subscription could be different for other subscriptions.
 
-For example: A subscription named "finance" may have physical zone X mapped to logical zone 1, while another subscription named "engineering" has physical zone X mapped to logical zone 3, instead.
+For example, a subscription named "finance" may have physical zone X mapped to logical zone 1, while another subscription named "engineering" has physical zone X mapped to logical zone 3, instead.
 
 To understand the mapping between logical and physical zones for your subscription, use the [List Locations Azure Resource Manager API](/rest/api/resources/subscriptions/list-locations). You can use the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/what-is-azure-powershell) to retrieve the information from the API.
 
@@ -73,11 +80,11 @@ $locations = ($response.Content | ConvertFrom-Json).value
 
 ## Availability zones and Azure updates
 
-For each region, Microsoft aims to deploy updates to Azure services within a single availability zone at a time. This approach reduces the impact that updates might have on an active workload, because the workload can continue to run in other zones while the update is in process. You need to run your workload across multiple zones to take advantage of this benefit. For more information about how Azure deploys updates, see [Advancing safe deployment practices](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/).
+For each region, Microsoft aims to deploy updates to Azure services within a single availability zone at a time. This approach reduces the impact that updates might have on an active workload, allowing the workload to continue to run in other zones while the update is in process. To take advantage of the single-zone update feature, your workload must be already configured to run across multiple zones. For more information about how Azure deploys updates, see [Advancing safe deployment practices](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/).
 
 ## Availability zone architectural guidance
 
-To achieve more reliable workloads:
+To achieve reliable workloads:
 
 - Production workloads should be configured to use multiple availability zones if the region they are in supports availability zones.
 - For mission-critical workloads, you should consider a solution that is *both* multi-region and multi-zone.
