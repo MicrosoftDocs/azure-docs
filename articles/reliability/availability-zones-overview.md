@@ -1,19 +1,24 @@
 ---
 title: What are Azure availability zones?
-description: Learn about availability zones and how they work to help you achieve reliability
+description: Learn about availability zones and how to use them to design resilient solutions.
 ms.service: azure
 ms.subservice: azure-availability-zones
 ms.topic: conceptual
-ms.date: 11/22/2024
+ms.date: 01/29/2025
 ms.author: anaharris
 author: anaharris-ms
-ms.reviewer: asinghal
 ms.custom: references_regions, subject-reliability
 ---
 
 # What are availability zones?
 
-Many Azure regions provide *availability zones*, which are separated groups of datacenters within a region. Availability zones are close enough to have low-latency connections to other availability zones. They're connected by a high-performance network with a round-trip latency of less than approximately 2 ms. However, availability zones are far enough apart to reduce the likelihood that more than one will be affected by local outages or weather. Availability zones have independent power, cooling, and networking infrastructure. They're designed so that if one zone experiences an outage, then regional services, capacity, and high availability are supported by the remaining zones. They help your data stay synchronized and accessible when things go wrong.
+
+>[!VIDEO https://learn-video.azurefd.net/vod/player?id=d36b5b2d-8bd2-43df-a796-b0c77b2f82fc]
+
+
+Many [Azure regions](./regions-overview.md) provide *availability zones*, which are separated groups of datacenters within a region. Each availability zone has independent power, cooling, and networking infrastructure, so that if one zone experiences an outage, then regional services, capacity, and high availability are supported by the remaining zones. 
+
+Availability zones are connected by a high-performance network with a round-trip latency of less than approximately 2 ms. They are close enough to have low-latency connections to other availability zones, but are far enough apart to reduce the possibility of more than one being affected by a local outage, such as a storm. 
 
 Datacenter locations are selected by using rigorous vulnerability risk assessment criteria. This process identifies all significant datacenter-specific risks and considers shared risks between availability zones.
 
@@ -25,7 +30,8 @@ To see which regions support availability zones, see [Azure regions with availab
 
 ## Zonal and zone-redundant services
 
-When you deploy into an Azure region that contains availability zones, you can use multiple availability zones together. By using multiple availability zones, you can keep separate copies of your application and data within separate physical datacenters in a large metropolitan area.
+Many Azure services support availability zones,
+When planning for reliable workloads, you can choose at least one of the following availability zone configurations: 
 
 There are two ways that Azure services use availability zones:
 
