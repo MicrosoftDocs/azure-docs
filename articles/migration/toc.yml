@@ -3,7 +3,7 @@
   items:
   - name: Migration mindset
     href: ./placeholder.md
-  - name: Source workload evaluation
+  - name: Evaluation - Source workload
     href: ./placeholder.md
     items:
     - name: Governance
@@ -22,7 +22,7 @@
         href: ./placeholder.md  
       - name: Example - External
         href: ./placeholder.md     
-    - name: Current state
+    - name: Measurement - Current state
       items:
       - name: Cost of ownership
         href: ./placeholder.md
@@ -30,15 +30,17 @@
         href: ./placeholder.md
       - name: Performance targets 
         href: ./placeholder.md
-  - name: Migration design
+  - name: Migration operations
     items:
-    - name: Tools
+    - name: Design
+      href: ./placeholder.md    
+    - name: Process
       href: ./placeholder.md
-    - name: Operations 
-      href: ./placeholder.md
-  - name: End state evaluation
+    - name: Tools 
+      href: ./placeholder.md    
+  - name: Evaluation - End-state on Azure
     href: ./placeholder.md
-  - name: Optimization opportunities
+  - name: Azure optimization opportunities
     href: ./placeholder.md
   - name: Case studies
     items:
@@ -52,6 +54,8 @@
       href: ./placeholder.md                           
   - name: Service catalog
     items:
+    - name: Portability reference
+      href: ./placeholder.md  
     - name: Azure Functions migration guide
       href: ../azure-functions/migration/toc.yml
     - name: Virtual Machines migration guide
