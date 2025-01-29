@@ -110,7 +110,7 @@ This script enables you to create users without admin privileges who can read an
 
 ### Create and connect to Spark database with serverless SQL pool
 
-First, create a new Spark database named `mytestdb` using a Spark cluster you have already created in your workspace. You can achieve that, for example, using a Spark C# Notebook with the following .NET for Spark statement:
+First, create a new Spark database named `mytestlakedb` using a Spark cluster you have already created in your workspace. You can achieve that, for example, using a Spark C# Notebook with the following .NET for Spark statement:
 
 ```csharp
 spark.sql("CREATE DATABASE mytestlakedb")
