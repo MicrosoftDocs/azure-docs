@@ -67,9 +67,7 @@ Before you start, make sure you have:
         ```
 
 1. Select **Save**.
-1. Go back to the **Logic app designer** to view the logic that the playbook follows.
-
-    :::image type="content" source="media/automate-sensor-disconnection-alerts/playbook-logic.png" alt-text="Screenshot of a of the playbook logic for Defender for IoT sensor disconnection alerts." lightbox="media/automate-sensor-disconnection-alerts/playbook-logic.png":::    
+1. Go back to the **Logic app designer** to view the logic that the playbook follows.  
 
 ## Set up a managed identity for your subscription
 
@@ -90,9 +88,7 @@ To give the playbook permission to run Keyword Query Language (KQL) queries and 
 
 1. In the editor, select **HTTP2** and verify that the **Authentication Type** is set to **Managed Identity**. 
 
-    :::image type="content" source="media/automate-sensor-disconnection-alerts/playbook-permissions-managed-identity.png" alt-text="Screenshot of sending up a managed identity for the Defender for IoT sensor disconnection alerts playbook." lightbox="media/automate-sensor-disconnection-alerts/playbook-permissions-managed-identity.png":::
-
-## Verify the sensor status 
+## Run a query to confirm that the sensor is offline
 
 If you can't create the playbook successfully, run a KQL query in Azure Resource Graph to confirm that the sensor is offline. 
 
