@@ -37,7 +37,7 @@ any quality investigations, and use Copilot in [Call Diagnostics](../../voice-vi
 
 **Voice and Video Insights** consists of four main sections. 
 - **[Volume](#volume):** Provides general usage numbers.
-- **[Reliability](#reliability):** Aggregates all API functionality and error codes.
+- **[Reliability](#reliability):** Aggregates key calling API scenarios and error codes.
 - **[User Facing Diagnostics (UFD)](#user-facing-diagnostics-ufd):** Summarizes events that can affect user call experiences.
 - **[Quality](#quality):** Provides key media stream measurements.
 
