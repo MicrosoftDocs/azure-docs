@@ -54,7 +54,7 @@ A load balancer device is a way for a single IP address to be used to service mu
 
 :::image type="content" source="media/domain-name-system-concept/load-balancer.png" alt-text="Diagram of a load balancer configuration." lightbox="media/domain-name-system-concept/load-balancer.png":::
 
-A DNS load balancer can service requests and send them to multiple DNS servers designated in a pool. M[icrosoft Azure provides native load balancing services](/solutions/load-balancing-with-azure/) for multiple use cases.
+A DNS load balancer can service requests and send them to multiple DNS servers designated in a pool. [Microsoft Azure provides native load balancing services](https://azure.microsoft.com/solutions/load-balancing-with-azure/) for multiple use cases.
 
 Azure NetApp Files supports the use of DNS load balancers, provided they supply an IP address as an endpoint and that IP address can communicate over port 53 to the Azure NetApp Files networks. For instance, Azure Traffic Manager provides DNS load balancing at layer 7, but only provides a front-end hostname for use. Azure NetApp Files Active Directory connections only allow IP addresses to be specified for DNS servers.
 
@@ -65,9 +65,9 @@ Azure NetApp Files makes use of different types of DNS records for access to fil
 | DNS record type | Definition |
 | -- | ------- |
 | A/AAAA | DNS [A records](https://www.cloudflare.com/learning/dns/dns-records/dns-a-record/) are address records that indicate the IPv4 address for a hostname. AAAA records indicate the IPv6 address for a hostname. Azure NetApp Files uses [A/AAAA records](https://www.cloudflare.com/learning/dns/dns-records/dns-aaaa-record/) in the following ways: <ul><li>Masking IP addresses behind user-friendly hostnames</li><li>Kerberos service principal requests</li><li>Root domain queries</li></ul> |
-| Pointer records (PTR) | A [PTR record](https://www.cloudflare.com/learning/dns/dns-records/dns-ptr-record/) maps an IP address to a hostname by way of a reverse [lookup zone](https://developers.cloudflare.com/dns/additional-options/reverse-zones/). PTR records are primarily used when an IP address is specified for a mount/share in Azure NetApp Files. Use of an IP address in mount/share requests can impact the authentication method used. For more information, see [IP addresses for access with Kerberos](#ip-addresses-for-access-kerberos).
+| Pointer records (PTR) | A [PTR record](https://www.cloudflare.com/learning/dns/dns-records/dns-ptr-record/) maps an IP address to a hostname by way of a reverse [lookup zone](https://developers.cloudflare.com/dns/additional-options/reverse-zones/). PTR records are primarily used when an IP address is specified for a mount/share in Azure NetApp Files. Use of an IP address in mount/share requests can impact the authentication method used. For more information, see [IP addresses for access with Kerberos](kerberos.md#ip-addresses-for-access-with-kerberos).
 | Service records (SRV)	| [SRV records](https://www.cloudflare.com/learning/dns/dns-records/dns-srv-record/) are used to specify which hosts and ports are used for a specific service, such as LDAP, NFS, CIFS, Kerberos, etc. SRV records in Azure NetApp Files are heavily utilized for file service security (such as Kerberos), site discovery in Active Directory, LDAP server queries, and more. It's important to verify the existence of these records for proper functionality of Azure NetApp Files services. <br></br> SRV records can be queried using `nslookup` or `dig` commands. For examples, see [Using nslookup and dig for DNS queries](#using-nslookup-and-dig-for-dns-queries). |
-| Canonical names (CNAME) | A CNAME record is a way to provide DNS aliases for A/AAAA records. CNAME records are optional but can be useful to reduce the complexity of the hostname records provided by Azure NetApp Files. For more information, see [DNS aliases and Canonical Name records](#dns-aliases-and-canonical-name-records). |
+| Canonical names (CNAME) | A CNAME record is a way to provide DNS aliases for A/AAAA records. CNAME records are optional but can be useful to reduce the complexity of the hostname records provided by Azure NetApp Files. For more information, see [DNS aliases and Canonical Name records](#dns-aliases-and-canonical-name-cname-records). |
 | Uniform Resource Identifier (URI) | A [URI record](https://www.rfc-editor.org/rfc/rfc7553) is a way to map hostnames/IP addresses for services to URIs. URIs are presented in a format as such: service://fqdn.contoso.com. <br></br> Azure NetApp Files makes use of queries for URI records only when performing Kerberos KDC lookups for NFS Kerberos requests. URI records aren't created in Active Directory DNS deployments by default. As such, URI lookup requests usually fail and fall back to SRV record lookups. |
 
 ### Service records (SRV) used with Azure NetApp Files
@@ -102,7 +102,7 @@ Azure NetApp Files makes use of the following SRV records:
 
 For more information on how Azure NetApp Files uses SRV records, see:
 
-- [Understand the use of LDAP in Azure NetApp Files](lightweight-directory-access-protocol.,d)
+- [Understand the use of LDAP in Azure NetApp Files](lightweight-directory-access-protocol.md)
 - [About Kerberos in Azure NetApp Files](kerberos.md)
 
 >[!NOTE]
@@ -485,7 +485,7 @@ Ensure you meet the following DNS configuration requirements:
 - Ensure a reverse lookup zone has been created for the Azure NetApp Files subnet to allow dynamic DNS to create PTR records in addition to A/AAAA record.
 - If a DNS alias is required, use a CNAME record. Point the CNAME record to the A/AAAA records for Azure NetApp Files.
 - If you're not using dynamic DNS updates, you must manually create an A record and a PTR record for the AD DS computer accounts created in the AD DS Organizational Unit (specified in the Azure NetApp Files AD connection) to support Azure NetApp Files LDAP Signing, LDAP over TLS, SMB, dual-protocol, or Kerberos NFSv4.1 volumes.
-- For complex or large AD DS topologies, [DNS Policies or DNS subnet prioritization might be required to support LDAP enabled NFS volumes](understand-guidelines-active-directory-domain-service-site#ad-ds-ldap-discover.md).
+- For complex or large AD DS topologies, [DNS Policies or DNS subnet prioritization might be required to support LDAP enabled NFS volumes](understand-guidelines-active-directory-domain-service-site.md#ad-ds-ldap-discover).
 - If DNS scavenging is enabled (where stale DNS entries are automatically pruned based on timestamp/age) and dynamic DNS was used to create the DNS records for the Azure NetApp Files volume, the scavenger process might inadvertently prune the records for the volume. This pruning can lead to a service outage for name-based queries. Until this issue is resolved, manually create DNS A/AAAA and PTR entries for the Azure NetApp Files volume if DNS scavenging is enabled.
 
 ## Next steps
