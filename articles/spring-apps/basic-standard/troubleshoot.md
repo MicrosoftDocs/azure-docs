@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting guide for Azure Spring Apps | Microsoft Docs
+title:  Troubleshooting Guide for Azure Spring Apps | Microsoft Docs
 description: Troubleshooting guide for Azure Spring Apps
 author: KarlErickson
 ms.service: azure-spring-apps

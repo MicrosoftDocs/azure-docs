@@ -1,5 +1,5 @@
 ---
-title: "Quickstart - Integrate Azure OpenAI"
+title:  "Quickstart - Integrate Azure OpenAI"
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Explains how to integrate Azure OpenAI on the Azure Spring Apps Enterprise plan.
 author: KarlErickson  # external contributor maly7

@@ -1,5 +1,5 @@
 ---
-title: Set up a staging environment in Azure Spring Apps
+title:  Set Up a Staging Environment in Azure Spring Apps
 description: Learn how to use blue-green deployment with Azure Spring Apps
 author: KarlErickson
 ms.service: azure-spring-apps

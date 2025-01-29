@@ -1,5 +1,5 @@
 ---
-title: Analyze logs with Elastic Cloud from Azure Spring Apps
+title:  Analyze Logs With Elastic Cloud From Azure Spring Apps
 description: Learn how to analyze diagnostics logs in Azure Spring Apps using Elastic
 author: KarlErickson
 ms.service: azure-spring-apps

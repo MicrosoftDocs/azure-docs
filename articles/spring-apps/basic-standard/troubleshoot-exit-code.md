@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot common exit code issues in Azure Spring Apps
+title:  Troubleshoot Common Exit Code Issues in Azure Spring Apps
 description: Describes how to troubleshoot common exit codes in Azure Spring Apps
 author: KarlErickson
 ms.service: azure-spring-apps
@@ -60,4 +60,3 @@ The exit code indicates the reason the application terminated. The following lis
 
 ## Next steps
 
-- [Troubleshoot common Azure Spring Apps issues](troubleshoot.md)

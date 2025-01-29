@@ -1,5 +1,5 @@
 ---
-title: "Access Config Server and Service Registry"
+title:  "Access Config Server and Service Registry"
 titleSuffix: Azure Spring Apps
 description: How to access Config Server and Service Registry Endpoints with Microsoft Entra role-based access control.
 author: KarlErickson

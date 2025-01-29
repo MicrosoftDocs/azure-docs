@@ -1,5 +1,5 @@
 ---
-title: How to configure Palo Alto for Azure Spring Apps
+title:  How to Configure Palo Alto for Azure Spring Apps
 description: How to configure Palo Alto for Azure Spring Apps
 author: KarlErickson
 ms.author: karler

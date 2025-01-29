@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Provision Azure Spring Apps using an Azure Resource Manager template (ARM template)
+title:  Quickstart - Provision Azure Spring Apps Using an Azure Resource Manager Template (ARM Template)
 description: This quickstart shows you how to use an ARM template to deploy an Azure Spring Apps cluster into an existing virtual network.
 services: azure-resource-manager
 author: KarlErickson

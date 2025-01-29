@@ -1,5 +1,5 @@
 ---
-title:  "Customer responsibilities running Azure Spring Apps in a virtual network"
+title:   "Customer Responsibilities Running Azure Spring Apps in a Virtual Network"
 description: This article describes customer responsibilities running Azure Spring Apps in a virtual network.
 author: KarlErickson
 ms.author: karler

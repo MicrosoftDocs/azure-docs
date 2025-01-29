@@ -1,5 +1,5 @@
 ---
-title: "Quickstart - Integrate with Azure Database for PostgreSQL and Azure Cache for Redis"
+title:  "Quickstart - Integrate With Azure Database for PostgreSQL and Azure Cache for Redis"
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Explains how to provision and prepare an Azure Database for PostgreSQL and an Azure Cache for Redis to be used with apps running the Azure Spring Apps Enterprise plan.
 author: KarlErickson

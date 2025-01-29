@@ -1,5 +1,5 @@
 ---
-title:  Discover and register your Spring Boot applications in Azure Spring Apps
+title:   Discover and Register Your Spring Boot Applications in Azure Spring Apps
 description: Discover and register your Spring Boot applications with managed Spring Cloud Service Registry (OSS) in Azure Spring Apps.
 author: KarlErickson
 ms.author: karler

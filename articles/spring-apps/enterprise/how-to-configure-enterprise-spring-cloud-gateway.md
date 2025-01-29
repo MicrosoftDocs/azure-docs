@@ -1,5 +1,5 @@
 ---
-title: Configure VMware Spring Cloud Gateway
+title:  Configure VMware Spring Cloud Gateway
 description: Learn how to configure VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: xiading
