@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: whyistheinternetbroken
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 01/02/2025
+ms.date: 01/29/2025
 ms.author: anfdocs
 ---
 
