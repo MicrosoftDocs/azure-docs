@@ -39,9 +39,9 @@ The following table outlines the activities required to make the most of threat 
 
 | Action | Description|
 |---|---|
-| **Store threat intelligence in Microsoft Sentinel's workspace** | <ul><li>Import threat intelligence into Microsoft Sentinel by enabling *data connectors* to various threat intelligence [platforms](connect-threat-intelligence-tip.md) and [feeds](connect-threat-intelligence-taxii.md).</li><li>Connect threat intelligence to Microsoft Sentinel by using the upload API to connect various TI [platforms](connect-threat-intelligence-tip.md) or custom applications.</li><li>Create threat intelligence with a streamlined management interface.</li>|
-| **Manage threat intelligence** | <ul><li>View imported threat intelligence in logs or with advanced search.</li><li>Visualize key information about your TI with the threat intelligence workbook.</li>|
-| **Use threat intelligence** | <ul><li>Detect threats and generate security alerts and incidents by using the built-in analytics rule templates based on your threat intelligence.</li><li>Hunt for threats using the threat intel you have to ask the right questions about the signals captured for your organization.</li>|
+| **Store threat intelligence in Microsoft Sentinel's workspace** | <ul><li>Import threat intelligence into Microsoft Sentinel by enabling data connectors to various threat intelligence [platforms](connect-threat-intelligence-tip.md) and [feeds](connect-threat-intelligence-taxii.md).</li><li>Connect threat intelligence to Microsoft Sentinel by using the upload API to connect various TI [platforms](connect-threat-intelligence-tip.md) or custom applications.</li><li>Create threat intelligence with a streamlined management interface.</li>|
+| **Manage threat intelligence** | <ul><li>View imported threat intelligence in logs or with advanced search.</li><li>Curate threat intelligence by establishing relationships between objects or adding tags</li><li>Visualize key information about your TI with the threat intelligence workbook.</li>|
+| **Use threat intelligence** | <ul><li>Detect threats and generate security alerts and incidents by using the built-in analytics rule templates based on your threat intelligence.</li><li>Hunt for threats using your threat intel to ask the right questions about the signals captured for your organization.</li>|
 
 Threat intelligence also provides useful context within other Microsoft Sentinel experiences, such as notebooks. For more information, see [Get started with notebooks and MSTICPy](/azure/sentinel/notebook-get-started). 
 
