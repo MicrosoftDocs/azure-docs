@@ -41,11 +41,13 @@
     href: ./placeholder.md
   - name: Case studies
     items:
-    - name: Migrate an analytics workload from AWS to Azure
+    - name: Migrate an eCommerce workload from AWS to Azure
+      href: ./placeholder.md    
+    - name: Migrate an analytics workload from GCP to Azure
       href: ./placeholder.md
-    - name: Migrate a hybrid workload from AWS to Azure
+    - name: Migrate a hybrid workload from Oracle Cloud to Azure
       href: ./placeholder.md       
-    - name: Migrate a mission-critical workload from GCP to Azure
+    - name: Migrate a mission-critical workload from AWS to Azure
       href: ./placeholder.md
     - name: Migrate a regulatory workload from sovereign cloud to Azure
       href: ./placeholder.md                           

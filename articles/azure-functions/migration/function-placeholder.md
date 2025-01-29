@@ -7,7 +7,7 @@ ms.date: 01/28/2025
 ms.topic: conceptual
 ---
 
-# Microsoft Azure Function Migration Guide
+# Microsoft Azure Functions Migration Guide
 
 **Coming Soon: Migrate to Azure Functions from anywhere**
 
