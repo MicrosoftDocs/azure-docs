@@ -43,10 +43,11 @@ You need an Azure account in an Azure subscription that adheres to one of the fo
    > [!NOTE]
    > - Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts.
    > - Any unused quota expires after 30 days. A new request will need to be submitted for any additional quota.
-   > - **NEW** If requesting quota to leverage Portable [VMware Cloud Foundation (VCF)](/azure/azure-vmware/vmware-cloud-foundations-license-portability) pricing, add the following statement as is, by replacing (<N>) with the Number of VCF cores you have purchased from Broadcom for license portability to Azure VMware Solution. **"I acknowledge that I have procured portable VCF license from Broadcom for (<N>) cores to use with Azure VMware Solution."**  
+   > - **NEW** If requesting quota to leverage Portable [VMware Cloud Foundation (VCF)](/azure/azure-vmware/vmware-cloud-foundations-license-portability) pricing, add the following statement as is, by replacing (N) with the Number of VCF cores you have purchased from Broadcom for license portability to Azure VMware Solution. **"I acknowledge that I have procured portable VCF license from Broadcom for (N) cores to use with Azure VMware Solution."**  
    > - **VCF Disclaimer** Quota allocation will be processed upon request.  If you have not submitted the VCF license through registeravsvcfbyol@microsoft.com and provisioned the hosts, you will be subject to AVS PayGo pricing.
    > - **NEW** If you have an Availability Zone requirement for integrating with other Azure services; for example, Azure NetApp Files, create a technical **[New support request](https://portal.azure.com/#create/Microsoft.Support)** once the quota has been allocated and prior to provisioning.
-
+   >     - Summary: Need a specific availability zone
+   >     - Problem type:  AVS Quota request
 
  
     
@@ -98,11 +99,11 @@ Access the Azure portal using the **Admin On Behalf Of (AOBO)** procedure from P
    > [!NOTE]
    >- Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts.
    >- Any unused quota expires after 30 days. A new request will need to be submitted for any additional quota.
-   >- **NEW** If requesting quota to leverage Portable [VMware Cloud Foundation (VCF)](/azure/azure-vmware/vmware-cloud-foundations-license-portability) pricing, add the following statement as is, by replacing (<N>) with the Number of VCF cores you have purchased from Broadcom for license portability to Azure VMware Solution. **"I acknowledge that I have procured portable VCF license from Broadcom for (<N>) cores to use with Azure VMware Solution."**  
+   >- **NEW** If requesting quota to leverage Portable [VMware Cloud Foundation (VCF)](/azure/azure-vmware/vmware-cloud-foundations-license-portability) pricing, add the following statement as is, by replacing (N) with the Number of VCF cores you have purchased from Broadcom for license portability to Azure VMware Solution. **"I acknowledge that I have procured portable VCF license from Broadcom for (N) cores to use with Azure VMware Solution."**  
    >- **VCF Disclaimer** Quota allocation will be processed upon request.  If you have not submitted the VCF license through registeravsvcfbyol@microsoft.com and provisioned the hosts, you will be subject to AVS PayGo pricing.
-   > - **NEW** If you have an Availability Zone requirement for integrating with other Azure services; for example, Azure NetApp Files, create a technical **[New support request](https://portal.azure.com/#create/Microsoft.Support)** once the quota has been allocated and prior to provisioning.
-   >  - Summary: Need a specific availability zone
-   >  - Problem type:  AVS Quota request
+   >- **NEW** If you have an Availability Zone requirement for integrating with other Azure services; for example, Azure NetApp Files, create a technical **[New support request](https://portal.azure.com/#create/Microsoft.Support)** once the quota has been allocated and prior to provisioning.
+   >     - Summary: Need a specific availability zone
+   >     - Problem type:  AVS Quota request
    
 1. Select **Save and Continue** to submit the request.
 
