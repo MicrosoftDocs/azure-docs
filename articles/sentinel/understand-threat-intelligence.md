@@ -141,9 +141,9 @@ The following STIX objects are available in Microsoft Sentinel:
 
 | STIX object | Description |
 |---|---|
-| Threat actor | From script kiddies to nation states, threat actors objects describe motivations, sophistication, and resourcing levels. |
-| Attack pattern | Also known as techniques, tactics and procedures, attack patterns describe a specific component of an attack and the MITRE ATT&CK stage it's used on. |
-| Indicator | <ul><li>Domain name<li>URL<li>IPv4 and IPv6 addresses<li>File hashes</li></br><li>**X509 certificates** are used to authenticate the identity of devices and servers for  secure communication over the internet.</li><li>**JA3** fingerprints are unique identifiers generated from the TLS/SSL handshake process. They help in identifying specific applications and tools used in network traffic, making it easier to detect malicious activities</li><li>**JA3S** fingerprints extend the capabilities of JA3 by also including server-specific characteristics in the fingerprinting process. This extension provides a more comprehensive view of the network traffic and helps in identifying both client and server-side threats.<li>**User agents** provide information about the client software making requests to a server, such as the browser or operating system. They're useful in identifying and profiling devices and applications accessing a network.</li> |
+| **Threat actor** | From script kiddies to nation states, threat actors objects describe motivations, sophistication, and resourcing levels. |
+| **Attack pattern** | Also known as techniques, tactics and procedures, attack patterns describe a specific component of an attack and the MITRE ATT&CK stage it's used on. |
+| **Indicator** | `Domain name`, `URL`, `IPv4 address`, `IPv6 address`, and `File hashes`<ul><li>`X509 certificates` are used to authenticate the identity of devices and servers for  secure communication over the internet.</li><li>`JA3` fingerprints are unique identifiers generated from the TLS/SSL handshake process. They help in identifying specific applications and tools used in network traffic, making it easier to detect malicious activities</li><li>`JA3S` fingerprints extend the capabilities of JA3 by also including server-specific characteristics in the fingerprinting process. This extension provides a more comprehensive view of the network traffic and helps in identifying both client and server-side threats.<li>`User agents` provide information about the client software making requests to a server, such as the browser or operating system. They're useful in identifying and profiling devices and applications accessing a network.</li> |
 | Identity | Describe victims, organizations, and other groups or individuals along with the business sectors most closely associated with them. |
 | Relationship | The threads that connect threat intelligence, helping to make connections across disparate signals and data points are described with relationships. |
 
@@ -157,7 +157,7 @@ Establish connections between objects to enhance threat detection and response. 
 | Linking Indicator to Threat Actor|  An indicator *allyourbase.contoso.com* domain is attributed to the threat actor *APT29*. |
 | Associating Identity (Victim) with Attack Pattern| The *FourthCoffee* organization is targeted by the attack pattern *Phishing via Email*.|
 
-The following image combines all of those connections with the relationship builder.
+The following image shows how the relationship builder connects all of these use cases.
 
 :::image type="content" source="media/understand-threat-intelligence/relationship-example.png" alt-text="Screenshot showing example relationship being built.":::
 
@@ -181,8 +181,6 @@ For more information, see [Work with threat intelligence in Microsoft Sentinel](
 View your threat intelligence from the management interface. Use advanced search to sort and filter your threat intelligence objects without even writing a Log Analytics query.
 
 :::image type="content" source="media/understand-threat-intelligence/advanced-search.png" alt-text="Screenshot that shows an advanced search interface with source and confidence conditions selected." lightbox="media/understand-threat-intelligence/advanced-search.png":::
-
-Microsoft enriches IPV4 and domain name indicators with [GeoLocation and WhoIs data](#view-your-geolocation-and-whois-data-enrichments-public-preview), which is displayed together with other indicator information.
 
 Validate your indicators and view your successfully imported threat indicators from the Microsoft Sentinel-enabled Log Analytics workspace. The `ThreatIntelligenceIndicator` table under the **Microsoft Sentinel** schema is where all your Microsoft Sentinel threat indicators are stored. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features, such as analytics and workbooks. 
 
