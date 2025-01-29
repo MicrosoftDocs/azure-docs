@@ -17,8 +17,9 @@
     - name: Monitoring
       href: ./placeholder.md
     - name: Dependencies
-      href: ./placeholder.md   
       items:
+      - name: Example - Organizational
+        href: ./placeholder.md  
       - name: Example - External
         href: ./placeholder.md     
     - name: Current state
@@ -38,7 +39,17 @@
   - name: End state evaluation
     href: ./placeholder.md
   - name: Optimization opportunities
-    href: ./placeholder.md                    
+    href: ./placeholder.md
+  - name: Case studies
+    items:
+    - name: Migrate an analytics workload from AWS to Azure
+      href: ./placeholder.md
+    - name: Migrate a hybrid workload from AWS to Azure
+      href: ./placeholder.md       
+    - name: Migrate a mission-critical workload from GCP to Azure
+      href: ./placeholder.md
+    - name: Migrate a regulatory workload from sovereign cloud to Azure
+      href: ./placeholder.md                           
   - name: Service catalog
     items:
     - name: Azure Functions migration guide

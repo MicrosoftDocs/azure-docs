@@ -15,7 +15,6 @@
     - name: Monitoring
       href: ./function-placeholder.md
     - name: Dependencies
-      href: ./function-placeholder.md   
       items:
       - name: Example - Compute
         href: ./function-placeholder.md
