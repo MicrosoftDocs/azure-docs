@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 11/12/2024
+ms.date: 01/29/2025
 ms.author: anfdocs
 ---
 
@@ -42,32 +42,17 @@ The storage with cool access feature provides options for the “coolness period
 
 ## Enable cool access 
 
-You must register for cool access before you can enable it at the capacity pool and volume levels. 
+You must register for cool access with the Premium or Ultra service levels before you can enable it at the capacity pool and volume levels. No registration is required for the Standard service level. 
 
 ### Register the feature 
 
-Azure NetApp Files storage with cool access is generally available. Before you use cool access for the first time, you must register for the feature with the service level for which you intend to use it.
+# [Ultra](#tab/ultra)
 
-# [Standard](#tab/standard)
+You must submit a waitlist request to access this feature by using the [request form](https://aka.ms/ANFcoolaccesssignup). After you submit the waitlist request, it can take approximately one week to enable the feature. Check the status of feature registration by using the command:
 
-After registration, the feature is enabled and works in the background. No user interface control is required. 
-
-1. Register the feature.
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccess
-    ```
-
-1. Check the status of the feature registration.
-
-    > [!NOTE]
-    > The `RegistrationState` property might be in the `Registering` state for up to 60 minutes before it changes to`Registered`. Wait until the status is registered before you continue.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccess
-    ```
-
-You can also use the [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.
+```azurepowershell-interactive
+Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessUltra
+```
 
 # [Premium](#tab/premium)
 
@@ -77,13 +62,9 @@ You must submit a waitlist request to access this feature by using the [request 
 Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessPremium
 ```
 
-# [Ultra](#tab/ultra)
+# [Standard](#tab/standard)
 
-You must submit a waitlist request to access this feature by using the [request form](https://aka.ms/ANFcoolaccesssignup). After you submit the waitlist request, it can take approximately one week to enable the feature. Check the status of feature registration by using the command:
-
-```azurepowershell-interactive
-Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessUltra
-```
+No registration is required to use cool access at the Standard service level.
 
 ---
 
