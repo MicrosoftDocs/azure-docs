@@ -61,7 +61,7 @@ When you select regions that are geographically far apart, the latency of networ
 
 ## Non-regional services
 
-Most Azure services are deployed to a specific regions or regions. However, there are some services that aren't tied to a specific Azure region. It's important to recognize how *non-regional* services operate in the case of a regional failure, and to take them into account when you design your solutions and business continuity plan.
+Most Azure services are deployed to a specific region. However, there are some services that aren't tied to a single Azure region. It's important to recognize how *non-regional* services operate in the case of a regional failure, and to take them into account when you design your solutions and business continuity plan.
 
 Non-regional services are deployed by Microsoft across two or more regions. If there's a regional failure, the instance of the service in a healthy region can continues servicing requests. For example, [Azure DNS](https://azure.microsoft.com/products/dns) is a non-regional service.
 
