@@ -4,7 +4,7 @@ description: This article provides a summary of support for updates, one time up
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 01/06/2025
+ms.date: 01/29/2025
 ms.topic: overview
 zone_pivot_groups: support-matrix-updates
 ---
@@ -12,6 +12,9 @@ zone_pivot_groups: support-matrix-updates
 # Support for Updates/One time Updates/Periodic assessments and Scheduled patching
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers :heavy_check_mark: Azure VMs.
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Azure Update Manager will soon cease to support it. Please consider your use and planning accordingly. For more information, see the [CentOS End-Of-Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by Azure Update Manager
 
