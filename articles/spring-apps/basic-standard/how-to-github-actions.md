@@ -1,5 +1,5 @@
 ---
-title: Use Azure Spring Apps CI/CD With GitHub Actions
+title: Use Azure Spring Apps CI/CD with GitHub Actions
 description: How to build up a CI/CD workflow for Azure Spring Apps with GitHub Actions
 author: KarlErickson
 ms.author: karler

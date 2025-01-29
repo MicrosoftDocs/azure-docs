@@ -1,5 +1,5 @@
 ---
-title: "Tutorial - Use Circuit Breaker Dashboard With Azure Spring Apps"
+title: "Tutorial - Use Circuit Breaker Dashboard with Azure Spring Apps"
 description: Learn how to use circuit Breaker Dashboard with Azure Spring Apps.
 author: KarlErickson
 ms.author: karler
