@@ -168,7 +168,7 @@ The Datadog agent configuration requires a value for `site` and `key` from your 
 | `DD_SITE` | `site` |
 | `DD_API_KEY` | `key` |
 
-Once you have these configuration details, you can configure the agent via your container app's ARM or BICEP template or with Azure CLI commands.
+Once you have these configuration details, you can configure the agent via your container app's ARM or Bicep template or with Azure CLI commands.
 
 Avoid specifying the value of a secret, such as your Datadog API key, directly in a production environment. Instead, use a reference to a secret stored in Azure Key Vault.
 
