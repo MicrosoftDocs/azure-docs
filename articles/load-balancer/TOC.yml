@@ -4,6 +4,8 @@
   items:
   - name: What is Azure Load Balancer?
     href: load-balancer-overview.md
+  - name: Load balancer best practices
+    href: load-balancer-best-practices.md
 - name: Quickstarts
   items:
   - name: Create a public load balancer
@@ -92,6 +94,8 @@
   items:
   - name: What's new?
     href: whats-new.md
+  - name: Load balancer best practices
+    href: load-balancer-best-practices.md
   - name: Portal settings
     href: manage.md
   - name: Components
