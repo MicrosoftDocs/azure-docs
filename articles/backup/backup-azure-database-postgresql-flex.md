@@ -41,7 +41,7 @@ To configure backup on the Azure Database for PostgreSQL Flexible Server databas
 1. Select **Next** then select **Add** to select the Azure Database for PostgreSQL Flexible Server that you want to back up.
    :::image type="content" source="./media/backup-azure-database-postgresql-flex/select-server.png" alt-text="Screenshot showing the select server option.":::
 
-1. Choose one of the Azure Database for PostgreSQL Flexible Servers across subscriptions if they're in the same region as that of the vault. Expand the arrow to see the list of databases within a server.
+1. Choose one of the Azure Databases for PostgreSQL Flexible Servers across subscriptions if they're in the same region as that of the vault. Expand the arrow to see the list of databases within a server.
    :::image type="content" source="./media/backup-azure-database-postgresql-flex/select-resources.png" alt-text="Screenshot showing the select resources option.":::
 
 1. After the selection, the validation starts. The backup readiness check ensures the vault has sufficient permissions for backup operations. Resolve any access issues by granting appropriate [permissions](/azure/backup/backup-azure-database-postgresql-flex-overview) to the vault MSI and re-triggering the validation.
@@ -74,13 +74,7 @@ To create a backup policy, follow these steps:
     >The retention rules are evaluated in a pre-determined order of priority. The priority is the highest for the yearly rule, followed by the monthly, and then the weekly rule. Default retention settings are applied when no other rules qualify. For example, the same recovery point may be the first successful backup taken every week as well as the first successful backup taken every month. However, as the monthly rule priority is higher than that of the weekly rule, the retention corresponding to the first successful backup taken every month applies.
     
 
-## Run an on-demand backup
-
-To trigger a backup not in the schedule specified in the policy, go to **Backup instances** > **Backup Now**.
-Choose from the list of retention rules that were defined in the associated Backup policy.
-
-:::image type="content" source="./media/backup-azure-database-postgresql/navigate-to-retention-rules-inline.png" alt-text="Screenshot showing the option to navigate to the list of retention rules that were defined in the associated Backup policy." lightbox="./media/backup-azure-database-postgresql/navigate-to-retention-rules-expanded.png":::
-
+[!INCLUDE [Run an on-demand backup for Azure Database for PostgreSQL - Flexible Server.](../../includes/postgresql-flexible-server-on-demand-backup.md)]
 
 ## Track a backup job
 
@@ -88,19 +82,15 @@ Azure Backup service creates a job for scheduled backups or if you trigger on-de
 
 To view the backup job status, follow these steps:
 
-1. Go to the **Backup vault**, and then select  **Backup instance**.
+1. Go to **Business Continuity Center** > **Monitoring + Reporting** > **Jobs**.
 
-      The Backup instance pane for the database shows the jobs dashboard with operation and status for the past seven days.
+   The **Jobs** pane appears that shows the operation and status for the past **24 hours**.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql/postgre-jobs-dashboard.png" alt-text="Screenshot showing the Jobs dashboard." lightbox="./media/backup-azure-database-postgresql/postgre-jobs-dashboard.png":::
+   :::image type="content" source="./media/backup-azure-database-postgresql-flex/view-jobs.png" alt-text="screenshot shows how to view the jobs." lightbox="./media/backup-azure-database-postgresql-flex/view-jobs.png":::
 
-1. To view the status of the backup job, select **All** to see ongoing and past jobs of this backup instance.
+2. Review the list of backup and restore jobs and their status. Select a job from the list to view job details.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql/postgresql-jobs-view-all.png" alt-text="Screenshot showing to select the View all option." lightbox="./media/backup-azure-database-postgresql/postgresql-jobs-view-all.png":::
-
-1. Review the list of backup and restore jobs and their status. You can select a job from the list to view the job details.
-
-   :::image type="content" source="./media/backup-azure-database-postgresql-flex/job-details.png" alt-text="Screenshot shows the job details." lightbox="./media/backup-azure-database-postgresql-flex/job-details.png":::
+   :::image type="content" source="./media/backup-azure-database-postgresql-flex/view-job-details.png" alt-text="screenshot shows how to view the job details." lightbox="./media/backup-azure-database-postgresql-flex/view-job-details.png":::
 
 ## Next steps
 
