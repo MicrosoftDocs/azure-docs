@@ -10,6 +10,10 @@ items:
   items:
   - name: Azure portal
     href: storage-tasks/storage-task-quickstart-portal.md
+  - name: PowerShell
+    href: storage-tasks/storage-task-quickstart-powershell.md
+  - name: Azure CLI
+    href: storage-tasks/storage-task-quickstart-cli.md
   - name: ARM
     href: storage-tasks/storage-task-quickstart-arm.md
   - name: Bicep
