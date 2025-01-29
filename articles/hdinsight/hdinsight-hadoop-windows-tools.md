@@ -46,15 +46,15 @@ Examples of tasks you can do with the .NET SDK in Visual Studio:
 * [Run Apache Hive queries using the .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 * [Use C# user-defined functions with Apache Hive and Apache Pig streaming on Apache Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 
-## Intellij IDEA and Eclipse IDE for Spark clusters
+## IntelliJ IDEA and Eclipse IDE for Spark clusters
 
-Both [Intellij IDEA](https://www.jetbrains.com/idea/download) and the [Eclipse IDE](https://www.eclipse.org/downloads/) can be used to:
+Both [IntelliJ IDEA](https://www.jetbrains.com/idea/download) and the [Eclipse IDE](https://www.eclipse.org/downloads/) can be used to:
 * Develop and submit a Scala Spark application on an HDInsight Spark cluster.
 * Access Spark cluster resources.
 * Develop and run a Scala Spark application locally.
 
 These articles show how:
-* Intellij IDEA: [Create Apache Spark applications using the Azure Toolkit for Intellij plug-in and the Scala SDK.](spark/apache-spark-intellij-tool-plugin.md)
+* IntelliJ IDEA: [Create Apache Spark applications using the Azure Toolkit for IntelliJ plug-in and the Scala SDK.](spark/apache-spark-intellij-tool-plugin.md)
 * Eclipse IDE or Scala IDE for Eclipse: [Create Apache Spark applications and the Azure Toolkit for Eclipse](spark/apache-spark-eclipse-tool-plugin.md)
 
 ## Notebooks on Spark for data scientists
