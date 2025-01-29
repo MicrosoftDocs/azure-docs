@@ -57,5 +57,5 @@
       href: ./placeholder.md  
     - name: Azure Functions migration guide
       href: ../azure-functions/migration/toc.yml
-    - name: Virtual Machines migration guide
-      href: https://learn.microsoft.com/en-us/azure/virtual-machines/migration-guide?toc=/azure/migration/toc.json&bc=/azure/aks/breadcrumb/toc.json                   
+    - name: Virtual Machines migration guide 
+      href: /azure/virtual-machines                   

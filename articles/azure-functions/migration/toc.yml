@@ -60,4 +60,4 @@
       - name: End-state evaluation
         href: function-placeholder.md
   - name: Azure optimization opportunities
-    href: ../migration/placeholder.md                
+    href: /azure/well-architected/service-guides/azure-functions-security
