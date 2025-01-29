@@ -36,7 +36,7 @@
     - name: Feature portability reference
       href: ./function-placeholder.md                 
   - name: Evaluation - Azure Functions
-    href: ./placeholder.md              
+    href: ./function-placeholder.md              
   - name: Scenario how-tos
     items:
     - name: Scenario - 1
@@ -60,4 +60,4 @@
       - name: End-state evaluation
         href: function-placeholder.md
   - name: Azure optimization opportunities
-    href: ./placeholder.md                
+    href: ../migration/placeholder.md                
