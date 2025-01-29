@@ -40,7 +40,7 @@ You can create a user-assigned managed identity and use it for authenticate and 
 Then you can select `User Assigned` managed identity option when enabling the capture feature in an event hub and assign the required user assigned identity when enabling the capture feature. 
 
 
-:::image type="content" source="./media/event-hubs-capture-overview/event-hubs-capture-user-assigned.png" alt-text="Image showing capturing of Event Hubs data into Azure Storage or Azure Data Lake Storage" lightbox="./media/event-hubs-capture-overview/event-hubs-capture-user-assigned.png":::
+:::image type="content" source="./media/event-hubs-capture-overview/event-hubs-capture-user-assigned.png" alt-text="Image showing capturing of Event Hubs data into Azure Storage or Azure Data Lake Storage." lightbox="./media/event-hubs-capture-overview/event-hubs-capture-user-assigned.png":::
 
  Then capture agent would use the configured user assigned identity for authentication and authorization with the capture destination. 
 
