@@ -2,7 +2,7 @@
 title: Azure messaging services - Service Manager to Resource Manager
 description: This article provides mapping of deprecated Azure Service Manager REST API & PowerShell cmdlets to Resource Manager REST API & PowerShell cmdlets.
 ms.topic: article
-ms.date: 04/10/2023
+ms.date: 01/16/2025
 ---
 
 # Deprecation of Azure Service Manager support for Azure Service Bus, Relay, and Event Hubs

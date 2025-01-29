@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, laveeshb, azla
 ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 12/06/2023
+ms.date: 01/26/2025
 ---
 
 # Handle errors and exceptions in Azure Logic Apps

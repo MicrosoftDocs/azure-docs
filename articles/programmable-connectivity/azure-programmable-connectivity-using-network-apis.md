@@ -65,7 +65,7 @@ To obtain a token for a Service Principal, follow instructions in the [Entra doc
 
 # [Obtain a token for your own user identity](#tab/user-identity)
 
-Obtain a token for your own user identity using the Azure CLI command [get-access-token](/cli/azure/account?view=azure-cli-latest#az-account-get-access-token&preserve-view=true) or the PowerShell command [Get-AzAccessToken](/powershell/module/az.accounts/get-azaccesstoken). Set the `--resource` parameter (in Azure CLI) or the `-ResourceUrl` parameter (in PowerShell) to `https://management.azure.com/`.
+Obtain a token for your own user identity using the Azure CLI command [az account get-access-token](/cli/azure/account?view=azure-cli-latest#az-account-get-access-token&preserve-view=true) or the PowerShell command [Get-AzAccessToken](/powershell/module/az.accounts/get-azaccesstoken). Set the `--resource` parameter (in Azure CLI) or the `-ResourceUrl` parameter (in PowerShell) to `https://management.azure.com/`.
 
 ---
 

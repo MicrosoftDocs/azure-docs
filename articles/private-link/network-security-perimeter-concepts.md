@@ -23,8 +23,6 @@ Features of a network security perimeter include:
 - Access logs for audit and compliance.
 - Unified experience across PaaS resources.
 
-
-
 :::image type="content" source="media/network-security-perimeter-concepts/network-security-perimeter-overview.png" alt-text="Diagram of securing a service with network security perimeter." lightbox="media/network-security-perimeter-concepts/network-security-perimeter-overview-large.png":::
 
 [!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]

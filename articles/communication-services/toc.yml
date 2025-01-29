@@ -509,6 +509,8 @@ items:
         href: how-tos/calling-sdk/breakoutrooms.md
       - name: Together Mode
         href: how-tos/calling-sdk/together-mode.md
+      - name: Media Access Control
+        href: how-tos/calling-sdk/media-access.md
     - name: Configuring to proxy traffic
       items:
         - name: Proxy your calling traffic
@@ -665,6 +667,8 @@ items:
       href: samples/trusted-auth-sample.md
   - name: Email
     items:
+    - name: Email Resource Management
+      href: samples/email-resource-management.md
     - name: Azure AI to detect sensitive data example
       href: samples/email-detect-sensitive-content.md
   - name: Call Automation
@@ -1055,6 +1059,8 @@ items:
       href: concepts/email/email-smtp-overview.md
     - name: Allowed attachment types
       href: concepts/email/email-attachment-allowed-mime-types.md
+    - name: Reserved Custom Headers
+      href: concepts/email/email-headers.md
     - name: Inline attachments
       href: concepts/email/email-attachment-inline.md
     - name: Managing Opt-outs

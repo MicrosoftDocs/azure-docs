@@ -60,7 +60,7 @@ Investigate SAP incidents just as you would any other incidents in Microsoft Sen
 
 ## Certification
 
-The Microsoft Sentinel **SAP applications** solution is certified for SAP S/4HANA Cloud, Private Edition RISE with SAP, and SAP S/4 on-premises.
+The Microsoft Sentinel **SAP applications** solution is certified for SAP S/4HANA Cloud, Private Edition RISE with SAP, and SAP S/4 on-premises. It's also certified for ECC/Netweaver.
 
 - The integration scenarios include S/4-BC-XAL 1.0/S/4 EXTERNAL ALERT AND MONITORING 1.0 (for S/4).
 - Our certification includes S/4 and SAP Rise S/4 HANA Cloud Private Edition running in any cloud and on-premises.
