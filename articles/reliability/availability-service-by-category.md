@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.service: azure
 ms.subservice: azure-availability-zones
 ms.topic: conceptual
-ms.date: 06/13/2024
+ms.date: 01/22/2025
 ms.author: anaharris
 ms.custom: references_regions, subject-reliability
 ---
@@ -100,12 +100,15 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Azure SignalR Service                                |
 > | Azure Spring Apps                                    |
 > | Azure Storage: Archive Storage                       |
+> | Azure Storage: Azure File Sync                       |
 > | Azure Synapse Analytics                              |
 > | Azure Ultra Disk Storage                             |
 > | Azure VMware Solution                                |
 > | Microsoft Azure Attestation                          |
 > | Microsoft Purview                                    |
+> | SQL Server on Azure Virtual Machines                 |
 > | SQL Server Stretch Database                          |
+> | Virtual Machines: Bsv2-series                        |
 > | Virtual Machines: Dasv5 and Dadsv5-series            |
 > | Virtual Machines: DAv4 and DASv4-series              |
 > | Virtual Machines: DCsv2-series                       |

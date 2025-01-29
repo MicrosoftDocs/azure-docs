@@ -8,8 +8,8 @@ ms.custom:
   - devx-track-azurepowershell
   - ignite-2023
   - engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Restore Azure Kubernetes Service using PowerShell 

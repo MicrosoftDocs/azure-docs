@@ -61,7 +61,7 @@ If you choose to [opt out of Network Watcher automatic enablement](#opt-out-of-n
 
 1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
-    :::image type="content" source="./media/network-watcher-create/portal-search.png" alt-text="Screenshot shows how to search for Network Watcher in the Azure portal." lightbox="./media/network-watcher-create/portal-search.png":::
+    :::image type="content" source="./media/network-watcher-portal-search.png" alt-text="Screenshot shows how to search for Network Watcher in the Azure portal." lightbox="./media/network-watcher-portal-search.png":::
 
 1. On the **Overview** page, select **+ Create**.
 

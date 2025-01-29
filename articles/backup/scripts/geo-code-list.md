@@ -5,8 +5,8 @@ ms.topic: sample
 ms.date: 11/30/2024
 ms.service: azure-backup
 ms.custom: references_regions
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Geo-code mapping

@@ -70,6 +70,8 @@ items:
     href: logic-apps-serverless-overview.md
   - name: Business rules engine integration
     href: rules-engine/rules-engine-overview.md
+  - name: AI playbook and solution development
+    href: ai-resources.md
   - name: B2B integration & EDI processing
     href: logic-apps-enterprise-integration-overview.md
   - name: Mainframe modernization

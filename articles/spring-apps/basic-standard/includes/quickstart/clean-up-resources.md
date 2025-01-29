@@ -39,7 +39,7 @@ az group delete --name ${RESOURCE_GROUP}
 
 Use the following steps to delete the resource group by using IntelliJ:
 
-1. Go to your Intellij IDEA and find the name of your resource group.
+1. Go to your IntelliJ IDEA and find the name of your resource group.
 
 1. Right-click the resource group and select **Delete** to delete all related Azure resources.
 

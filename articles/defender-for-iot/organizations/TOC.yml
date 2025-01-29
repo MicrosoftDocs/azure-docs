@@ -154,6 +154,8 @@
       href: iot-solution.md
     - name: Investigate Defender for IoT incidents with Microsoft Sentinel
       href: iot-advanced-threat-monitoring.md
+  - name: Set up automatic sensor disconnection notifications
+    href: automate-sensor-disconnection-alerts.md
   - name: Monitor with Zero Trust principles
     href: monitor-zero-trust.md
 - name: How-to guides
@@ -299,10 +301,6 @@
           href: how-to-work-with-threat-intelligence-packages.md
         - name: Troubleshoot OT sensors
           href: how-to-troubleshoot-sensor.md
-      - name: Legacy on-premises management
-        items:
-        - name: Deploy air-gapped OT sensor management
-        - name: System maintenance with an on-premises management console
     - name: Maintain IoT on-premises resources
       items:
       - name: Extra deployment steps and samples
@@ -334,8 +332,6 @@
         items:
         - name: HPE ProLiant DL360 Gen11
           href: appliance-catalog/hpe-proliant-dl360-gen11.md
-        - name: HPE ProLiant DL360
-          href: appliance-catalog/hpe-proliant-dl360.md
         - name: Dell PowerEdge R660
           href: appliance-catalog/dell-poweredge-r660.md
       - name: Large enterprises
@@ -364,10 +360,6 @@
           href: appliance-catalog/virtual-sensor-vmware.md
         - name: OT sensor (Hyper-V) Gen 2
           href: appliance-catalog/virtual-sensor-hyper-v.md
-        - name: On-premises management console (VMware ESXi)
-          href: appliance-catalog/virtual-management-vmware.md
-        - name: On-premises management console (Microsoft Hyper-V)
-          href: appliance-catalog/virtual-management-hyper-v.md
       - name: Legacy appliances
         items:
         - name: HPE ProLiant DL20 Gen10 (E1800)
@@ -376,6 +368,8 @@
           href: appliance-catalog/hpe-proliant-dl20-plus-smb.md
         - name: HPE ProLiant DL20 Gen10 Plus (4SFF)
           href: appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
+        - name: HPE ProLiant DL360
+          href: appliance-catalog/hpe-proliant-dl360.md
         - name: Dell PowerEdge R350
           href: appliance-catalog/dell-poweredge-r350-e1800.md
         - name: Dell PowerEdge R340 XL (E1800)
@@ -415,19 +409,6 @@
         href: api/sensor-alert-apis.md
       - name: Vulnerability management
         href: api/sensor-vulnerability-apis.md
-    - name: General management API reference
-      items:
-      - name: Authentication and password management
-        href: api/management-auth-apis.md
-      - name: Appliance management
-        href: api/management-appliances-apis.md
-      - name: Alert management
-        displayName: alerts
-        href: api/management-alert-apis.md
-      - name: Inventory management
-        href: api/management-inventory-apis.md
-      - name: Partner integration
-        href: api/management-integration-apis.md
 - name: Resources
   items:
   - name: Frequently asked questions
