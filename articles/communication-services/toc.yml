@@ -667,6 +667,8 @@ items:
       href: samples/trusted-auth-sample.md
   - name: Email
     items:
+    - name: Email Resource Management
+      href: samples/email-resource-management.md
     - name: Azure AI to detect sensitive data example
       href: samples/email-detect-sensitive-content.md
   - name: Call Automation
