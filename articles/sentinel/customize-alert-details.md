@@ -92,6 +92,8 @@ Follow the procedure detailed below to use the alert details feature. These step
        > - **Do not customize** the *ProductName* field for alerts from Microsoft sources. Doing so will result in these alerts being dropped from Microsoft Defender XDR and no incident being created.
        >
        > - The *ProductComponentName* and *ProviderName* fields are no longer available to be customized.
+       > 
+       > If any of these customizations already exist in any of your rules, remove the customizations to maintain compatibility and avoid unexpected results.
 
     If you change your mind, or if you made a mistake, you can remove an alert detail by clicking the trash can icon next to the **Alert property/Value** pair, or delete the free text from the **Alert Name/Description Format** fields.
 
