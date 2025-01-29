@@ -13,7 +13,7 @@ ms.author: shamkh
 
 ## Prerequisites
 
-- [Register WhatsApp Business Account with your Azure Communication Services resource](./connect-whatsapp-business-account.md).
+- [Register WhatsApp Business Account with your Azure Communication Services resource](../../connect-whatsapp-business-account.md).
 - [Create WhatsApp template message](#create-and-manage-whatsapp-template-message).
 - Active WhatsApp phone number to receive messages.
 - [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (We recommend 8.11.1 and 10.14.1).
@@ -60,7 +60,7 @@ For more information about WhatsApp requirements for templates, see the WhatsApp
 - [Send Template Messages](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates).
 - Businesses must also adhere to [opt-in requirements](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in) before sending messages to WhatsApp users.
 
-[!INCLUDE [Common setting for using Advanced Messages SDK](./includes/common-setting-javascript.md)]
+[!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting-javascript.md)]
 
 ## Setting up
 To set up an environment for sending messages, complete the steps in the following sections.
