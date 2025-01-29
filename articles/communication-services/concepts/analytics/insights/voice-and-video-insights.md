@@ -47,7 +47,7 @@ any quality investigations, and use Copilot in [Call Diagnostics](../../voice-vi
 You need to start storing call logs and enable [Copilot in Azure](/azure/copilot/overview) to start using the Voice and Video Insights dashboards. 
 
 > [!IMPORTANT]
->You must collect logs to use the dashboard. To enable Voice and Video Insights see: [**How do I setup Voice and Video Insights?**](#how-do-i-setup-voice-and-video-insights)
+>You must collect logs to use the dashboard. To enable Voice and Video Insights see: **[How do I set up Voice and Video Insights?](#how-do-i-set-up-voice-and-video-insights)**
 
 ## Accessing Voice and Video Insights
 
