@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure File Sync
 description: This article contains important reference material you need when you monitor Azure File Sync by using Azure Monitor.
-ms.date: 12/12/2024
+ms.date: 01/29/2025
 ms.custom: horz-monitor
 ms.topic: reference
 author: khdownie

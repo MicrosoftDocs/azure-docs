@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure File Sync
 description: Learn how to monitor Azure File Sync using Azure Monitor, including data collection, analysis, and alerting.
-ms.date: 12/12/2024
+ms.date: 01/29/2025
 ms.custom: horz-monitor
 ms.topic: conceptual
 author: khdownie
@@ -12,17 +12,6 @@ ms.service: azure-file-storage
 # Monitor Azure File Sync
 
 Use Azure File Sync to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
-
-## Collect data with Azure Monitor
-
-This table describes how you can collect data to monitor your service, and what you can do with the data once collected:
-
-|Data to collect|Description|How to collect and route the data|Where to view the data|Supported data|
-|---------|---------|---------|---------|---------|
-|Metric data|Metrics are numerical values that describe an aspect of a system at a particular point in time. Metrics can be aggregated using algorithms, compared to other metrics, and analyzed for trends over time.|Collected automatically at regular intervals. |[Metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started)| [Azure File Sync metrics supported by Azure Monitor](monitor-file-sync-reference.md#metrics)|
-|Activity log data|The Azure Monitor activity log provides insight into subscription-level events. The activity log includes information like when a resource is modified or a virtual machine is started.|Collected automatically.|[Activity log](/azure/azure-monitor/essentials/activity-log)|  |
-
-For the list of all of the metrics data supported by Azure Monitor, see [Azure Monitor supported metrics](/azure/azure-monitor/platform/metrics-supported).
 
 ## Built in monitoring for Azure File Sync
 
@@ -173,6 +162,17 @@ The following performance counters for Azure File Sync are available in Performa
 | AFS Sync Operations\Downloaded Sync Files/sec | Number of files downloaded per second. |
 | AFS Sync Operations\Uploaded Sync Files/sec | Number of files uploaded per second. |
 | AFS Sync Operations\Total Sync File Operations/sec | Total number of files synced (upload and download). |
+
+## Collect data with Azure Monitor
+
+This table describes how you can collect data to monitor your service, and what you can do with the data once collected:
+
+|Data to collect|Description|How to collect and route the data|Where to view the data|Supported data|
+|---------|---------|---------|---------|---------|
+|Metric data|Metrics are numerical values that describe an aspect of a system at a particular point in time. Metrics can be aggregated using algorithms, compared to other metrics, and analyzed for trends over time.|Collected automatically at regular intervals. |[Metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started)| [Azure File Sync metrics supported by Azure Monitor](monitor-file-sync-reference.md#metrics)|
+|Activity log data|The Azure Monitor activity log provides insight into subscription-level events. The activity log includes information like when a resource is modified or a virtual machine is started.|Collected automatically.|[Activity log](/azure/azure-monitor/essentials/activity-log)|  |
+
+For the list of all of the metrics data supported by Azure Monitor, see [Azure Monitor supported metrics](/azure/azure-monitor/platform/metrics-supported).
 
 [!INCLUDE [azmon-horz-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-tools.md)]
 
