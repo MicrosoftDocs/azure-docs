@@ -78,7 +78,7 @@ If extension-based Hybrid Worker is using custom Hybrid Worker credentials, then
 
 > [!NOTE]
 > - When a system has UAC/LUA in place, permissions must be granted directly and not through any group membership. [Learn more](troubleshoot/extension-based-hybrid-runbook-worker.md#scenario-runbooks-go-into-a-suspended-state-on-a-hybrid-runbook-worker-when-using-a-custom-account-on-a-server-with-user-account-control-uac-enabled).
-> - Due to a current limitation, these folder permissions are removed from the C:\ProgramData\AzureConnectedMachineAgent\Tokens folder on Azure Arc-enabled machines when the Azure Connected Machine agent is updated. The current resolution is to reapply these permissions to the folder. [Learn more](troubleshoot/extension-based-hybrid-runbook-worker.md#scenario-hybrid-runbook-worker-job-execution-on-azure-arc-enabled-server-which-uses-a-custom-credential-is-unexpectedly-suspended).
+> - Due to a current limitation, these folder permissions are removed from the C:\ProgramData\AzureConnectedMachineAgent\Tokens folder on Azure Arc-enabled machines when the Azure Connected Machine agent is updated. The current resolution is to reapply these permissions to the folder. [Learn more](troubleshoot/extension-based-hybrid-runbook-worker.md#scenario-hybrid-runbook-worker-job-execution-on-azure-arc-enabled-windows-server-that-uses-a-custom-credential-is-unexpectedly-suspended).
 
 
 
