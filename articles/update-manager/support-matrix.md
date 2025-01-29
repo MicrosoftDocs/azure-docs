@@ -4,15 +4,12 @@ description: This article provides a summary of supported regions and operating 
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 01/03/2024
+ms.date: 01/29/2025
 ms.topic: overview
 ms.custom: references_regions
 ---
 
 # Support matrix for Azure Update Manager
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Azure Update Manager will soon cease to support it. Please consider your use and planning accordingly. For more information, see the [CentOS End-Of-Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by Azure Update Manager. The article includes the supported regions and specific versions of the Windows Server and Linux operating systems running on Azure virtual machines (VMs) or machines managed by Azure Arc-enabled servers.
 
