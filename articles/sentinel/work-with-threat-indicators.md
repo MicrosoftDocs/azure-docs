@@ -45,7 +45,6 @@ In the Azure portal, navigate to **Threat management** > **Threat intelligence**
 Use the management interface to create STIX objects and perform other common threat intelligence tasks such as indicator tagging and establishing connections between objects.
 
 - Define relationships as you create new STIX objects.
-- Curate existing TI with the relationship builder.
 - Quickly create multiple objects by using the duplicate feature to copy the metadata from a new or existing TI object.
 
 For more information on supported STIX objects, see [Understand threat intelligence](understand-threat-intelligence.md#create-and-manage-threat-intelligence).
@@ -58,17 +57,17 @@ For more information on supported STIX objects, see [Understand threat intellige
 
 1. Choose the **Object type**, then fill in the form on the **New TI object** page. Required fields are marked with a red asterisk (*).
 1. If you know how this object relates to another threat intelligence object, indicate that connection with the **Relationship type** and the **Target reference**.
-1. Select **Add and duplicate** if you want to create more items with the same metadata. The following image shows the common section of each STIX object's metadata that is duplicated. 
+1. Select **Add** for an individual object, or **Add and duplicate** if you want to create more items with the same metadata. The following image shows the common section of each STIX object's metadata that is duplicated. 
 
-:::image type="content" source="media/work-with-threat-indicators/common-metadata-stix-object.png" alt-text="Screenshot showing new STIX object creation and the common metadata available to all objects.":::
-
-1. Otherwise, select **Add** to create the single item.
+:::image type="content" source="media/work-with-threat-indicators/common-metadata-stix-object-reduced.png" alt-text="Screenshot showing new STIX object creation and the common metadata available to all objects.":::
 
 ## Manage threat intelligence 
 
+Curate existing TI with the relationship builder. Use the management interface to search, filter and sort, then add tags to your threat intelligence.
+
 ### Curate threat intelligence with the relationship builder
 
-Connect threat intelligence objects with the relationship builder. There is a maximum of 20 relationships in the builder at once, but more connections can be created through multiple iterations and by adding relationship target references for new objects.
+Connect threat intelligence objects with the relationship builder. There's a maximum of 20 relationships in the builder at once, but more connections can be created through multiple iterations and by adding relationship target references for new objects.
 
 1. Start with an object like a threat actor or attack pattern where the single object connects to one or more objects, like indicators.
 1. Add the relationship type according to the best practices outlined in the following table and in the [STIX 2.1 reference relationship summary table](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_6n2czpjuie3v):
@@ -82,19 +81,26 @@ Connect threat intelligence objects with the relationship builder. There is a ma
 | **Indicates** | `Indicator` Indicates `Attack pattern` or `Threat actor` |
 | **Impersonates** | `Threat actor` Impersonates `Identity` |
 
-The following image demonstrates connections made between a threat actor and an attack pattern, indicator and identity using the relationship type table.
+The following image demonstrates connections made between a threat actor and an attack pattern, indicator, and identity using the relationship type table.
 
 :::image type="content" source="media/work-with-threat-indicators/relationship-example.png" alt-text="Screenshot showing the relationship builder.":::
 
 ### View your threat intelligence in the management interface
 
-This procedure describes how to view and manage your indicators. Use the **Threat intelligence** page to sort, filter, and search your imported threat indicators without writing a Log Analytics query.
+Use the management interface to sort, filter, and search your threat indicators from whatever source they were ingested from without writing a Log Analytics query.
 
-1. From the grid, select the indicator for which you want to view more information. The indicator's information includes confidence levels, tags, and threat types.
+1. From the management interface, expand the **What would you like to search?** menu.
+1. Select the STIX object type or leave the default **All object types**.
+1. Select conditions using logical operators.
+1. Select the object you want to see more information about.
 
-Microsoft Sentinel only displays the most current version of indicators in this view. For more information on how indicators are updated, see [Understand threat intelligence](understand-threat-intelligence.md#view-your-threat-intelligence).
+In the following image, multiple sources were used to search by placing them in an `OR` group, while multiple conditions were group with the `AND` operator.
 
-IP and domain name indicators are enriched with extra `GeoLocation` and `WhoIs` data. This data provides more context for investigations where the selected indicator is found.
+:::image type="content" source="media/works-with-threat-indicators/advanced-search.png" alt-text="Screenshot shows an OR operator combined with multiple AND conditions to search threat intelligence.":::
+
+Microsoft Sentinel only displays the most current version of your threat intel in this view. For more information on how objects are updated, see [Understand threat intelligence](understand-threat-intelligence.md#view-your-threat-intelligence).
+
+IP and domain name indicators are enriched with extra `GeoLocation` and `WhoIs` data so you can provide more context for any investigations where indicator is found.
 
 Here's an example.
 

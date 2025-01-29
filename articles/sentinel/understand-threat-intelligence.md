@@ -155,9 +155,9 @@ Enhance threat detection and response by establishing connections between object
 
 | Use case | Description |
 |---|---|
-| Connect threat actor to an attack pattern | The threat actor **APT29** *Uses* the attack pattern **Phishing via Email** to gain initial access.|
-| Link an indicator to a threat actor|  A domain indicator **allyourbase.contoso.com** is *Attributed to* the threat actor **APT29**. |
-| Associate an identity (victim) with an attack pattern| The *FourthCoffee* organization is targeted by the attack pattern *Phishing via Email*.|
+| Connect threat actor to an attack pattern | The threat actor `APT29` *Uses* the attack pattern `Phishing via Email` to gain initial access.|
+| Link an indicator to a threat actor|  A domain indicator `allyourbase.contoso.com` is *Attributed to* the threat actor `APT29`. |
+| Associate an identity (victim) with an attack pattern| The attack pattern `Phishing via Email` *Targets* the `FourthCoffee` organization.|
 
 The following image shows how the relationship builder connects all of these use cases.
 
@@ -170,9 +170,9 @@ Designate which TI objects can be shared with appropriate audiences by designati
 | TLP color | Sensitivity |
 |---|---|
 | White | Information can be shared freely and publicly without any restrictions. |
-| Green | Information can be shared with peers and partner organizations within the community, but not publicly. It is intended for a wider audience within the community. |
-| Amber | Information can be shared with members of the organization, but not publicly. It is intended to be used within the organization to protect sensitive information. |
-| Red | Information is highly sensitive and should not be shared outside of the specific group or meeting where it was originally disclosed. |
+| Green | Information can be shared with peers and partner organizations within the community, but not publicly. It's intended for a wider audience within the community. |
+| Amber | Information can be shared with members of the organization, but not publicly. It's intended to be used within the organization to protect sensitive information. |
+| Red | Information is highly sensitive and shouldn't be shared outside of the specific group or meeting where it was originally disclosed. |
 
 Tagging threat intelligence is a quick way to group objects together to make them easier to find. Typically, you might apply tags related to a particular incident. But, if an indicator represents threats from a particular known actor or well-known attack campaign, consider creating a relationship instead of a tag. After you search and filter for the threat intelligence that you want to work with, tag them individually or multiselect and tag them all at once. Because tagging is free-form, we recommend that you create standard naming conventions for threat intelligence tags.
 
@@ -186,7 +186,7 @@ View your threat intelligence from the management interface. Use advanced search
 
 View your indicators stored in the Microsoft Sentinel-enabled Log Analytics workspace. The `ThreatIntelligenceIndicator` table under the **Microsoft Sentinel** schema is where all your Microsoft Sentinel threat indicators are stored. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features, such as analytics and workbooks. 
 
-Tables supporting the new STIX object schema aren't available publicly yet. In order to view threat intelligence for STIX objects and unlock the hunting model that uses them, request to opt in with [this form](https://forms.office.com/r/903VU5x3hz?origin=lprLink). Ingest your threat intelligence into the new tables, `ThreatIntelIndicator` and `ThreatIntelObjects` alongside with or instead of the current table, `ThreatIntelligenceIndicator` with this opt-in process.
+Tables supporting the new STIX object schema aren't available publicly yet. In order to view threat intelligence for STIX objects and unlock the hunting model that uses them, request to opt in with [this form](https://forms.office.com/r/903VU5x3hz?origin=lprLink). Ingest your threat intelligence into the new tables, `ThreatIntelIndicator` and `ThreatIntelObjects`, alongside with or instead of the current table, `ThreatIntelligenceIndicator` with this opt-in process.
 
 Here's an example view of a basic query for just threat indicators using the current table.
 
@@ -194,7 +194,7 @@ Here's an example view of a basic query for just threat indicators using the cur
 
 Threat intelligence indicators are ingested into the `ThreatIntelligenceIndicator` table of your Log Analytics workspace as read-only. Whenever an indicator is updated, a new entry in the `ThreatIntelligenceIndicator` table is created. Only the most current indicator appears on the management interface. Microsoft Sentinel deduplicates indicators based on the `IndicatorId` and `SourceSystem` properties and chooses the indicator with the newest `TimeGenerated[UTC]`.
 
-The `IndicatorId` property is generated using the STIX indicator ID. When indicators are imported or created from non-STIX sources, `IndicatorId` is generated by the source and pattern of the indicator.
+The `IndicatorId` property is generated using the STIX indicator ID. When indicators are imported or created from non-STIX sources, `IndicatorId` is generated from the source and pattern of the indicator.
 
 For more information, see [Work with threat intelligence in Microsoft Sentinel](work-with-threat-indicators.md#find-and-view-your-indicators).
 
@@ -204,11 +204,11 @@ Microsoft enriches IP and domain indicators with extra `GeoLocation` and `WhoIs`
 
 View `GeoLocation` and `WhoIs` data on the **Threat Intelligence** pane for those types of threat indicators imported into Microsoft Sentinel.
 
-For example, use `GeoLocation` data to find information like the organization or country/region for an IP indicator. Use `WhoIs` data to find data like registrar and record creation data from a domain indicator.
+For example, use `GeoLocation` data to find information like the organization or country or region for an IP indicator. Use `WhoIs` data to find data like registrar and record creation data from a domain indicator.
 
 ## Detect threats with threat indicator analytics
 
-The most important use case for threat indicators in SIEM solutions like Microsoft Sentinel is to power analytics rules for threat detection. These indicator-based rules compare raw events from your data sources against your threat indicators to detect security threats in your organization. In Microsoft Sentinel Analytics, you create analytics rules that run on a schedule and generate security alerts. The rules are driven by queries. Along with configurations, they determine how often the rule should run, what kind of query results should generate security alerts and incidents, and, optionally, when to trigger an automated response.
+The most important use case for threat indicators in SIEM solutions like Microsoft Sentinel is to power analytics rules for threat detection. These indicator-based rules compare raw events from your data sources against your threat indicators to detect security threats in your organization. In Microsoft Sentinel Analytics, you create analytics rules powered by queries that run on a schedule and generate security alerts. Along with configurations, they determine how often the rule should run, what kind of query results should generate security alerts and incidents, and, optionally, when to trigger an automated response.
 
 Although you can always create new analytics rules from scratch, Microsoft Sentinel provides a set of built-in rule templates, created by Microsoft security engineers, to take advantage of your threat indicators. These templates are based on the type of threat indicators (domain, email, file hash, IP address, or URL) and data source events that you want to match. Each template lists the required sources that are needed for the rule to function. This information makes it easy to determine if the necessary events are already imported in Microsoft Sentinel.
 
