@@ -166,5 +166,5 @@ The Defender XDR connector also lets you stream **advanced hunting** events&mdas
 In this document, you learned the benefits of enabling the Defender XDR connector in Microsoft Sentinel.
 
 - [Connect data from Microsoft Defender XDR to Microsoft Sentinel](connect-microsoft-365-defender.md)
-- To use Microsoft's unified SecOps platform in the Defender portal, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/defender-xdr/microsoft-sentinel-onboard).
+- To use Microsoft Sentinel in the Defender portal, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/defender-xdr/microsoft-sentinel-onboard).
 - Check [availability of different Microsoft Defender XDR data types](microsoft-365-defender-cloud-support.md) in the different Microsoft 365 and Azure clouds.
