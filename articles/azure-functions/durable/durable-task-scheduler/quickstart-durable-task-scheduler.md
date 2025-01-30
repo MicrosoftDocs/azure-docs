@@ -16,7 +16,7 @@ In this quickstart, you'll:
 > [!div class="checklist"]
 >
 > - Deploy the sample application using the [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd).  
-> - Verify the task hub orchestration status using the [Durable Task Scheduler dashboard](./).
+> - Verify the task hub orchestration status using the [Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md).
 > - Register the Durable Task Scheduler endpoint. 
 
 ## Prerequisites
