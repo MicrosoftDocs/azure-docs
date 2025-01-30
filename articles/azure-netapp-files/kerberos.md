@@ -252,7 +252,7 @@ In most cases, knowing detailed steps in depth isn't necessary for day-to-day ad
     | operatingSystem | NetApp Release |
     | `dnsHostName` | ANF-XXXX.CONTOSO.COM |
   
-    - If the `addRequest` fails, the volume creation fail. An `addRequest` can fail due to [incorrect permissions](create-active-directory-connections#requirements-for-active-directory-connections.md) on the container object.
+    - If the `addRequest` fails, the volume creation fail. An `addRequest` can fail due to [incorrect permissions](create-active-directory-connections.md#requirements-for-active-directory-connections) on the container object.
     - If the `addRequest` succeeds, an LDAP search using the filter (`sAMAccountName=ANF-XXXX$`) is performed to retrieve the objectSid attribute.
     - An SMB2 "Negotiate protocol" conversation is performed to retrieve the supported Kerberos [`mechTypes`](/openspecs/windows_protocols/ms-spng/f663e38f-f4c8-4ed8-9bfe-51772e667116) from the KDC.
     - An SMB2 "Session setup" using the CIFS SPN and highest supported `mechType` and a "Tree connect" to IPC$ is performed.
@@ -351,7 +351,7 @@ When an Azure NetApp Files volume is mounting using Kerberos, a Kerberos ticket 
 When Azure NetApp Files creates an SMB server using a naming convention of [SMB Server prefix specified in AD connection configuration]-[unique numeric identifier]. (For details about the unique numeric identifier, see [SMB Kerberos machine account](#smb-kerberos-machine-account)).
 This formatting means SMB server names aren't constructed in a user-friendly way. For instance, a name of "SMB-7806" is harder to remember than something similar to "AZURE-FILESHARE."
 
-Because of this behavior, administrators may want to create user-friendly alias names for Azure NetApp Files volumes. Doing this requires pointing a [DNS canonical name (CNAME)](/microsoft-365/admin/dns/create-dns-records-using-windows-based-dns?view=o365-worldwide#add-cname-records) to the existing DNS A/AAAA record in the server.
+Because of this behavior, administrators may want to create user-friendly alias names for Azure NetApp Files volumes. Doing this requires pointing a [DNS canonical name (CNAME)](/microsoft-365/admin/dns/create-dns-records-using-windows-based-dns#add-cname-records) to the existing DNS A/AAAA record in the server.
 
 When a CNAME is created and used in UNC path requests (for example, `\\AZURE-FILESHARE` instead of `\\SMB-7806`), DNS redirect the CNAME request (AZURE-FILESHARE.contoso.com) to the proper A/AAAA record (SMB-7806.contoso.com), which is used in the Kerberos SPN retrieval (cifs/SMB-7806). This allows Kerberos access to the SMB share while using the aliased name.
 
@@ -359,7 +359,7 @@ If a DNS A/AAAA record is created (for instance, AZURE-FILESHARE.contoso.com) an
 
 ### Supported SMB server capabilities in Azure NetApp Files
 
-When the SMB "negotiate protocol" request is made, the Azure NetApp Files SMB server is queried for support of specific capabilities. The table below shows the capabilities queried and the response returned from an Azure NetApp Files SMB volume when a [Session Setup/Tree connect](#SMB-share-connection-workflow-Kerberos) is performed.
+When the SMB "negotiate protocol" request is made, the Azure NetApp Files SMB server is queried for support of specific capabilities. The table below shows the capabilities queried and the response returned from an Azure NetApp Files SMB volume when a [Session Setup/Tree connect](#smb-share-connection-workflow-kerberos) is performed.
 
 | SMB capability | Supported by Azure NetApp Files? |
 | - | - |
