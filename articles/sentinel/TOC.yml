@@ -1147,9 +1147,9 @@
       href: sentinel-integration-guide.md
     - name: Partner integrations best practices
       href: partner-integrations.md
-    - name: Creating Workbooks
+    - name: Creating workbooks
       href: sentinel-workbook-creation.md
-    - name: Creating Playbooks
+    - name: Creating playbooks
       href: sentinel-playbook-creation.md
     - name: Publish solutions
       href: publish-sentinel-solutions.md
