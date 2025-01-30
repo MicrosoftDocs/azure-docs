@@ -87,14 +87,13 @@ For example, you can use ARM templates or Bicep to:
 
 | Action | Links |
 |--------|-------|
-| Manage services | [Configure MQTT broker authentication](../iot-operations/manage-mqtt-broker/howto-configure-authentication.md?tabs=bicep) </br> [Configure dataflows in Azure IoT Operations](../iot-operations/connect-to-cloud/howto-create-dataflow.md?tabs=bicep) |
+| Manage services | [Configure MQTT broker authentication](../iot-operations/manage-mqtt-broker/howto-configure-authentication.md?tabs=bicep) </br> [Configure data flows in Azure IoT Operations](../iot-operations/connect-to-cloud/howto-create-dataflow.md?tabs=bicep) |
 
 For ARM templates and Bicep reference documentation, see:
 
 - [IoT Operations](/azure/templates/microsoft.iotoperations/instances)
-- [IoT Operations Data Processor](/azure/templates/microsoft.iotoperationsdataprocessor/instances)
-- [IoT Operations MQ](/azure/templates/microsoft.iotoperationsmq/mq)
-- [IoT Operations Orchestrator](/azure/templates/microsoft.iotoperationsorchestrator/instances)
+- [IoT Operations MQTT broker](/azure/templates/microsoft.iotoperations/instances/brokers)
+- [IoT Operations data flows](/azure/templates/microsoft.iotoperations/instances/dataflowprofiles/dataflows)
 
 # [Cloud-based solution](#tab/cloud)
 
