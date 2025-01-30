@@ -118,6 +118,8 @@ This section shows an example of creating a single-host, secondary SAP HANA syst
 
 1. From your NetApp account, select **Application volume groups**, and select **+Add Group**. In Deployment Type, select **SAP HANA** then **Next**. 
 
+    :::image type="content" source="./media/application-volume-group-add-volume-secondary/extension-one-create.png" alt-text="Screenshot of application volume group creation menu." lightbox="./media/application-volume-group-add-volume-secondary/extension-one-create.png":::
+
 2. In the **SAP HANA** tab, provide HANA-specific information. 
 
     > [!IMPORTANT]
@@ -200,7 +202,7 @@ This section shows an example of creating a single-host, secondary SAP HANA syst
 
     Select **Volumes** to return to the Volumes overview page.  
 
-8. Select **Review + Create** to list all volumes that will be created. Select **Create Volume Group** to start the volume group creation. 
+8. Select **Review + Create** to list all volumes to be created. Select **Create Volume Group** to start the volume group creation. 
 
 
 ---

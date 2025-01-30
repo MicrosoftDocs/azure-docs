@@ -14,6 +14,9 @@ ms.custom: devx-track-java, devx-track-extended-java, engagement-fy23, devx-trac
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
+> [!NOTE]
+> Application Configuration Service for VMware Tanzu reaches the end of support on August 31, 2025. We recommend migrating it to managed [Spring Cloud Config Server](../basic-standard/how-to-config-server.md). For more information on how to perform the migration, see [Migrate Application Configuration Service to managed Spring Cloud Config Server](../migration/migrate-enterprise-application-configuration-service.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
+
 **This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article shows you how to use Application Configuration Service for VMware Tanzu with the Azure Spring Apps Enterprise plan.
@@ -27,7 +30,7 @@ Application Configuration Service is offered in two versions: Gen1 and Gen2. The
 The following table shows the subcomponent relationships:
 
 | Application Configuration Service generation | Subcomponents                                                      |
-| -------------------------------------------- | ------------------------------------------------------------------ |
+|----------------------------------------------|--------------------------------------------------------------------|
 | Gen1                                         | `application-configuration-service`                                |
 | Gen2                                         | `application-configuration-service` <br/> `flux-source-controller` |
 
@@ -60,28 +63,28 @@ To manage the service settings, open the **Settings** section. In this section, 
 
 If your current service generation is **Gen1**, you can upgrade to **Gen2** for better performance. For more information, see the [Upgrade from Gen1 to Gen2](#upgrade-from-gen1-to-gen2) section.
 
-The **Refresh Interval** specifies the frequency (in seconds) for checking updates in the repository. The minimum value is *0*, which disables automatic refresh. For optimal performance, set this interval to a minimum value of 60 seconds.
+The **Refresh Interval** specifies the frequency in seconds for checking updates in the repository. The minimum value is **0**, which disables automatic refresh. For optimal performance, set this interval to a minimum value of 60 seconds.
 
 The following table describes the properties for each repository entry:
 
-| Property      | Required? | Description                                                                                                                                                                                                                                                                                  |
-|---------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Name`        | Yes       | A unique name to label each Git repository.                                                                                                                                                                                                                                                  |
-| `Patterns`    | Yes       | The patterns to search for in Git repositories. For each pattern, use a format such as *{application}* or *{application}/{profile}* rather than *{application}-{profile}.yml*. Separate the patterns with commas. For more information, see the [Pattern](#pattern) section of this article. |
-| `URI`         | Yes       | A Git URI (for example, `https://github.com/Azure-Samples/piggymetrics-config` or `git@github.com:Azure-Samples/piggymetrics-config`)                                                                                                                                                        |
-| `Label`       | Yes       | The branch name to search for in the Git repository.                                                                                                                                                                                                                                         |
-| `Search path` | No        | Optional search paths, separated by commas, for searching subdirectories of the Git repository.                                                                                                                                                                                              |
+| Property      | Required? | Description                                                                                                                                                                                                                                                                                        |
+|---------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Name`        | Yes       | A unique name to label each Git repository.                                                                                                                                                                                                                                                        |
+| `Patterns`    | Yes       | The patterns to search for in Git repositories. For each pattern, use a format such as **{application}** or **{application}/{profile}** rather than **{application}-{profile}.yml**. Separate the patterns with commas. For more information, see the [Pattern](#pattern) section of this article. |
+| `URI`         | Yes       | A Git URI - for example, `https://github.com/Azure-Samples/piggymetrics-config` or `git@github.com:Azure-Samples/piggymetrics-config`.                                                                                                                                                             |
+| `Label`       | Yes       | The branch name to search for in the Git repository.                                                                                                                                                                                                                                               |
+| `Search path` | No        | Optional search paths, separated by commas, for searching subdirectories of the Git repository.                                                                                                                                                                                                    |
 
 ### Pattern
 
-Configuration is pulled from Git backends using what you define in a pattern. A pattern is a combination of *{application}/{profile}* as described in the following guidelines.
+Configuration is pulled from Git backends using what you define in a pattern. A pattern is a combination of **{application}/{profile}** as described in the following guidelines:
 
-- *{application}* - The name of an application whose configuration you're retrieving. The value `application` is considered the default application and includes configuration information shared across multiple applications. Any other value refers to a specific application and includes properties for both the specific application and shared properties for the default application.
-- *{profile}* - Optional. The name of a profile whose properties you can retrieve. An empty value, or the value `default`, includes properties that are shared across profiles. Non-default values include properties for the specified profile and properties for the default profile.
+- **{application}** - The name of an application whose configuration you're retrieving. The value `application` is considered the default application and includes configuration information shared across multiple applications. Any other value refers to a specific application and includes properties for both the specific application and shared properties for the default application.
+- **{profile}** - Optional. The name of a profile whose properties you can retrieve. An empty value, or the value `default`, includes properties that are shared across profiles. Non-default values include properties for the specified profile and properties for the default profile.
 
 ### Authentication
 
-The following screenshot shows the three types of repository authentication supported by Application Configuration Service.
+The following screenshot shows the three types of repository authentication supported by Application Configuration Service:
 
 :::image type="content" source="media/how-to-enterprise-application-configuration-service/configuration-service-authentication.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the Authentication type menu highlighted." lightbox="media/how-to-enterprise-application-configuration-service/configuration-service-authentication.png":::
 
@@ -114,8 +117,8 @@ The following list describes the three authentication types:
    | Property                   | Required?                     | Description                                                                                                                                                                                                                         |
    |----------------------------|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    | `Private key`              | Yes                           | The private key that identifies the Git user. Passphrase-encrypted private keys aren't supported.                                                                                                                                   |
-   | `Host key`                 | No for Gen1 <br> Yes for Gen2 | The host key of the Git server. If you connect to the server via Git on the command line, the host key is in your *.ssh/known_hosts* file. Don't include the algorithm prefix, because it's specified in `Host key algorithm`.      |
-   | `Host key algorithm`       | No for Gen1 <br> Yes for Gen2 | The algorithm for `hostKey`: one of `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, and `ecdsa-sha2-nistp521`. (Required if supplying `Host key`).                                                              |
+   | `Host key`                 | No for Gen1 <br> Yes for Gen2 | The host key of the Git server. If you connect to the server via Git on the command line, the host key is in your **.ssh/known_hosts** file. Don't include the algorithm prefix, because it's specified in `Host key algorithm`.      |
+   | `Host key algorithm`       | No for Gen1 <br> Yes for Gen2 | The algorithm for `hostKey`: one of `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, and `ecdsa-sha2-nistp521`. Required if you supply `Host key`.                                                              |
    | `Strict host key checking` | No                            | Optional value that indicates whether the backend should be ignored if it encounters an error when using the provided `Host key`. Valid values are `true` and `false`. The default value is `true`.                                 |
 
 To validate access to the target URI, select **Validate**. After validation completes successfully, select **Apply** to update the configuration settings.
@@ -128,7 +131,7 @@ Gen2 requires more configuration properties than Gen1 when using SSH authenticat
 
 | Property             | Description                                                                                                                                                                                                                         |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Host key`           | The host key of the Git server. If you connect to the server via Git on the command line, the host key is in your *.ssh/known_hosts* file. Don't include the algorithm prefix, because it's specified in `Host key algorithm`.      |
+| `Host key`           | The host key of the Git server. If you connect to the server via Git on the command line, the host key is in your **.ssh/known_hosts** file. Don't include the algorithm prefix, because it's specified in `Host key algorithm`.      |
 | `Host key algorithm` | The algorithm for `hostKey`: one of `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`.                                                                                                   |
 
 Use the following steps to upgrade from Gen1 to Gen2:
@@ -169,7 +172,7 @@ In Spring applications, properties are held or referenced as beans within the Sp
 
 - Call the `/actuator/refresh` endpoint exposed on the config client via the Spring Actuator.
 
-  To use this method, add the following dependency to your configuration client's *pom.xml* file.
+  To use this method, add the following dependency to your configuration client's **pom.xml** file:
 
   ```xml
   <dependency>
@@ -334,11 +337,11 @@ Use the following steps to create a new app and bind it to the Application Confi
 Use the following command to create a new app and bind it to the Application Configuration Service:
 
 ```azurecli
-az spring app create \ 
-    --resource-group <resource-group> \ 
-    --service <service-name> \ 
-    --name <app-name> \ 
-    --bind-application-configuration-service 
+az spring app create \
+    --resource-group <resource-group> \
+    --service <service-name> \
+    --name <app-name> \
+    --bind-application-configuration-service
 ```
 
 ---
@@ -443,9 +446,9 @@ This command produces JSON output similar to the following example:
 ```
 
 > [!NOTE]
-> The `metadata` and `gitRevisions` properties are not available for the Gen1 version of Application Configuration Service.
+> The `metadata` and `gitRevisions` properties aren't available for the Gen1 version of Application Configuration Service.
 
-You can also use this command with the `--export-path {/path/to/target/folder}` parameter to export the configuration file to the specified folder. It supports both relative paths and absolute paths. If you don't specify the path, the command uses the path of the current directory by default.
+You can also use this command with the `--export-path <path-to-target-folder>` parameter to export the configuration file to the specified folder. It supports both relative paths and absolute paths. If you don't specify the path, the command uses the path of the current directory by default.
 
 ## Examine configuration file in the app
 
@@ -456,14 +459,14 @@ After you bind the app to the Application Configuration Service and set the [Pat
 1. Use the `echo $AZURE_SPRING_APPS_CONFIG_FILE_PATH` command to find the folders containing the configuration files. A list of locations shows up separated by commas, as shown in the following example:
 
    ```output
-     $ echo $AZURE_SPRING_APPS_CONFIG_FILE_PATH
-     /etc/azure-spring-cloud/configmap/acs-default-payment-default-e9d46,/etc/azure-spring-cloud/configmap/acs-default-catalog-default-616f4
+   $ echo $AZURE_SPRING_APPS_CONFIG_FILE_PATH
+   /etc/azure-spring-cloud/configmap/acs-default-payment-default-e9d46,/etc/azure-spring-cloud/configmap/acs-default-catalog-default-616f4
    ```
 
 1. Check the content of the configuration file using commands such as `cat`.
 
 > [!NOTE]
-> The Git revision information is not available in the app.
+> The Git revision information isn't available in the app.
 
 ## Check logs
 
@@ -504,15 +507,10 @@ The following sections show you how to turn on and view System Logs using Log An
 You must turn on System Logs and send the logs to your Log Analytics instance before you query the logs for Application Configuration Service. To enable System Logs in the Azure portal, use the following steps:
 
 1. Open your Azure Spring Apps instance.
-
 1. In the navigation pane, select **Diagnostics settings**.
-
 1. Select **Add diagnostic setting** or select **Edit setting** for an existing setting.
-
 1. In the **Logs** section, select the **System Logs** category.
-
 1. In the **Destination details** section, select **Send to Log Analytics workspace** and then select your workspace.
-
 1. Select **Save** to update the setting.
 
 #### Check logs in Log Analytics
@@ -550,7 +548,7 @@ To check the logs of `application-configuration-service` and `flux-source-contro
      :::image type="content" source="media/how-to-enterprise-application-configuration-service/query-logs-flux-source-controller.png" alt-text="Screenshot of the Azure portal that shows the query result of logs for flux-source-controller." lightbox="media/how-to-enterprise-application-configuration-service/query-logs-flux-source-controller.png":::
 
 > [!NOTE]
-> There might could be a few minutes delay before the logs are available in Log Analytics.
+> There might be a few minutes delay before the logs are available in Log Analytics.
 
 ## Examine Git revisions of the configuration files
 
@@ -560,10 +558,10 @@ You can find the Git revision of the configuration file of the [Pattern](#patter
 Applied ConfigMap ({config-map-name}) for content (payment/default) from Git repositories https://github.com/Azure-Samples/acme-fitness-store-config@main@sha1:{example-commit-id}
 ```
 
-You can also find the Git revision by using the Azure CLI. For more information, see the [Examine configuration file with Azure CLI](#examine-configuration-file-with-the-azure-cli) section.
+You can also find the Git revision by using the Azure CLI. For more information, see the [Examine configuration file with the Azure CLI](#examine-configuration-file-with-the-azure-cli) section.
 
 > [!NOTE]
-> Git revision is not available for the Gen1 version of Application Configuration Service.
+> Git revision isn't available for the Gen1 version of Application Configuration Service.
 
 ## Troubleshoot known issues
 
@@ -575,7 +573,7 @@ If the latest changes aren't reflected in the applications, check the following 
   - Confirm that the application is bound to the Application Configuration Service.
 - Confirm that the Application Configuration Service is using the correct Git revisions as described in the [Examine Git revisions of the configuration files](#examine-git-revisions-of-the-configuration-files) section.
 - Confirm that the `ConfigMap` containing the configuration file for the [Pattern](#pattern) used by the application is updated, as described in the [Examine configuration file in ConfigMap](#examine-configuration-file-in-configmap) section of this article. If it isn't updated, raise a ticket.
-- Confirm that the `ConfigMap` is mounted to the application as a file, as described in the [Examine configuration file in the app](#examine-configuration-file-in-the-app) section of this article. If the file isn't updated, wait for the Kubernetes refresh interval (1 minute), or force a refresh by restarting the application.
+- Confirm that the `ConfigMap` is mounted to the application as a file, as described in the [Examine configuration file in the app](#examine-configuration-file-in-the-app) section of this article. If the file isn't updated, wait for the Kubernetes refresh interval - one minute - or force a refresh by restarting the application.
 
 After checking these items, the applications should be able to read the updated configurations. If the applications still aren't updated, raise a ticket.
 
