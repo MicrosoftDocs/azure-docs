@@ -310,7 +310,7 @@ To run your app on Azure, start by deploying the app, then configure the app to 
 
 This article shows how to set up **user-assigned managed identity**.
 
-[!INCLUDE [assign-rbac-on-scheduler-and-taskhub](./includes/assign-rbac-on-scheduler-and-taskhub.md)]
+[!INCLUDE [assign-rbac-portal](./includes/assign-rbac-portal.md)]
 
 Congratulations! Your Durable Functions app should now be configured to use Durable Task Scheduler! You can test it now. 
 

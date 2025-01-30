@@ -243,7 +243,7 @@ If you're pushing the image for the first time, it may take a few minutes. While
 
 ## Set up identity-based authentication for app
 
-[!INCLUDE [assign-rbac-on-scheduler-and-taskhub](./includes/assign-rbac-on-scheduler-and-taskhub.md)]
+[!INCLUDE [assign-rbac-cli](./includes/assign-rbac-cli.md)]
 
 ## Test the app
 

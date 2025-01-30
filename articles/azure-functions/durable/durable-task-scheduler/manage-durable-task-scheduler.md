@@ -254,10 +254,11 @@ Deployment may take around 15 to 20 minutes.
 
 # [Azure CLI](#tab/cli)
 
+[!INCLUDE [assign-rbac-cli](./includes/assign-rbac-cli.md)]
 
 # [Azure portal](#tab/portal)
 
-[!INCLUDE [assign-rbac-on-scheduler-and-taskhub](./includes/assign-rbac-on-scheduler-and-taskhub.md)]
+[!INCLUDE [assign-rbac-portal](./includes/assign-rbac-portal.md)]
 
 ---
 

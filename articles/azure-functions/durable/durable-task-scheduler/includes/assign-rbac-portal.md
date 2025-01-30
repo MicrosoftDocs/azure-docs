@@ -10,7 +10,7 @@ ms.date: 01/30/2025
 
 1. In the Azure portal, go to the identity resource and note down its ID: 
 
-    :::image type="content" source="./media/configure-durable-task-scheduler/identity_id.png" alt-text="Screenshot of the finding the identity resource ID in the portal.":::
+    :::image type="content" source="/media/configure-durable-task-scheduler/identity_id.png" alt-text="Screenshot of the finding the identity resource ID in the portal.":::
 
 ### Assign Azure Role-Based Access Control (RBAC) to the user-managed identity
 
@@ -20,11 +20,11 @@ ms.date: 01/30/2025
 
 1. Click **Add** to add a role assignment.
 
-    :::image type="content" source="./media/configure-durable-task-scheduler/add-assignment.png" alt-text="Screenshot of the adding the role assignment on the Access Control pane in the portal.":::
+    :::image type="content" source="/media/configure-durable-task-scheduler/add-assignment.png" alt-text="Screenshot of the adding the role assignment on the Access Control pane in the portal.":::
 
 1. Search for and select **Durable Task Data Contributor**. Click **Next**.
 
-    :::image type="content" source="./media/configure-durable-task-scheduler/data-contributor-role.png" alt-text="Screenshot of selecting the Durable Task Data Contributor role assignment in the portal.":::
+    :::image type="content" source="/media/configure-durable-task-scheduler/data-contributor-role.png" alt-text="Screenshot of selecting the Durable Task Data Contributor role assignment in the portal.":::
 
 1. On the **Members** tab, for **Assign access to**, select **Managed identity**.
 
@@ -32,7 +32,7 @@ ms.date: 01/30/2025
 
 1. In the **Select managed identities** pane, expand the **Managed identity** drop down and select **User-assigned managed identity**.
 
-    :::image type="content" source="./media/configure-durable-task-scheduler/members-tab.png" alt-text="Screenshot of selecting the user-assigned managed identity type in the portal.":::
+    :::image type="content" source="/media/configure-durable-task-scheduler/members-tab.png" alt-text="Screenshot of selecting the user-assigned managed identity type in the portal.":::
 
 1. Pick the user-managed identity you previously created and click the **Select** button.
 
@@ -51,7 +51,7 @@ The identity is now created and is set up with the right RBAC access. Now we nee
 1. Click the **User assigned** tab.
 1. Click **+ Add**, then pick the identity created in the last section. Click the **Add** button.
 
-    :::image type="content" source="./media/configure-durable-task-scheduler/pick-identity.png" alt-text="Screenshot of adding the user-assigned managed identity to your app in the portal.":::
+    :::image type="content" source="/media/configure-durable-task-scheduler/pick-identity.png" alt-text="Screenshot of adding the user-assigned managed identity to your app in the portal.":::
 
 ### Add required environment variables to app
 
