@@ -36,7 +36,7 @@ Managing Microsoft Sentinel-powered threat intelligence has moved in the Defende
 
 :::image type="content" source="media/whats-new/intel-management-navigation.png" alt-text="Screenshot showing new menu placement for Microsoft Sentinel threat intelligence.":::
 
-Enhanced threat intelligence capabilities are available in both Microsoft's unified SecOps platform and Microsoft Sentinel in the Azure portal. The management interface streamlines the creation and curation of threat intel with these key features:
+Enhancements to threat intelligence capabilities are available for customers using both Microsoft Sentinel experiences. The management interface streamlines the creation and curation of threat intel with these key features:
 
 - Define relationships as you create new STIX objects.
 - Curate existing threat intelligence with the new relationship builder.
