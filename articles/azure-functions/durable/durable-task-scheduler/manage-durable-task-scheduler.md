@@ -174,18 +174,18 @@ az durabletask taskhub create --resource-group YOUR_RESOURCE_GROUP --scheduler-n
 
 # [Azure portal](#tab/portal)
 
-You can create Durable Task Scheduler via the two following ways:
+You can create Durable Task Scheduler and task hub via the two following ways:
 1. [Function app integrated creation](#function-app-integrated-creation)  
 1. [Top-level creation](#top-level-creation) 
 
-## Function app integrated creation
+### Function app integrated creation
 
 You can create a Durable Task Scheduler and a task hub as part of the existing Function app creation process in the Azure portal. 
 
 > [!NOTE]
 > This experience is only available with Functions hosted in the **App Service** plan. 
 
-### Create a Function app
+#### Create a Function app
 
 Navigate to the Function app creation blade and select **App Service** as a hosting option.
 
@@ -195,7 +195,7 @@ In the **Create Function App (App Service)** blade, [create the function app set
 
 :::image type="content" source="media/create-durable-task-scheduler/function-app-basic-tab.png" alt-text="Screenshot of the Basic tab for creating an App Service plan Function app.":::
 
-### Set Durable Task Scheduler as storage backend
+#### Set Durable Task Scheduler as storage backend
 
 After filling out the appropriate fields in the **Basic** and other necessary tabs, select the **Durable Functions** tab. Choose **Durable Task Scheduler** as your storage backend. 
 
@@ -204,7 +204,7 @@ After filling out the appropriate fields in the **Basic** and other necessary ta
 > [!NOTE]
 > It is recommended that the region chosen for your Durable Task Scheduler matches the region chosen for your Function App. 
 
-### Verify user-managed identity
+#### Verify user-managed identity
 
 Durable Task Scheduler supports only identity-based authentication. Once your function app is deployed, a user-managed identity resource with the necessary RBAC permission is automatically created. 
 
@@ -214,7 +214,7 @@ On the **Review + create** tab, you can find information related to the managed 
 
    :::image type="content" source="media/create-durable-task-scheduler/func-review-create-tab.png" alt-text="Screenshot of fields and properties chosen and in review on the Review + create tab.":::
 
-## Top-level creation  
+### Top-level creation  
 
 In the Azure portal, search for **Durable Task Scheduler** and select it from the results. 
 
@@ -230,15 +230,49 @@ Deployment may take around 15 to 20 minutes.
 
 ---
 
+## List Durable Task Scheduler resources in a subscription
+
+# [Azure CLI](#tab/cli)
+
+
+# [Azure portal](#tab/portal)
+
+
+---
+
+## List task hubs in a Durable Taks Scheduler
+
+# [Azure CLI](#tab/cli)
+
+
+# [Azure portal](#tab/portal)
+
+
+---
+
+## Provide access to a Durable Task Scheduler and task hub
+
+# [Azure CLI](#tab/cli)
+
+
+# [Azure portal](#tab/portal)
+
+[!INCLUDE [assign-rbac-on-scheduler-and-taskhub](./includes/assign-rbac-on-scheduler-and-taskhub.md)]
+
+---
+
+## Delete a Durable Task Scheduler and task hub
+
+# [Azure CLI](#tab/cli)
+
+
+# [Azure portal](#tab/portal)
+
+
+---
+
 ## Next steps
 
-[Configure Durable Task Scheduler for an existing Function app](./configure-durable-task-scheduler.md)
-
-## Related links
-
-- Durable Functions
-  - If you're looking to configure existing Durable Functions app to use Durable Task Scheduler, see tutorial.
-  - If you're starting from scratch, check out [Durable Functions quickstart sample](quickstart-durable-task-scheduler.md)
-  - Did you know that you can host your Durable Functions app inside an Azure Container Apps environment? See tutorial.
-- Durable Task Framework
-  - Your Durable Task Framework app can also configure the Durable Task Scheduler as its backend. See quickstart sample.
+- [Configure Durable Task Scheduler for an existing Function app](./configure-durable-task-scheduler.md)
+- Try out the [Durable Functions quickstart sample](quickstart-durable-task-scheduler.md)
+- [Host your Durable Functions app inside an Azure Container Apps environment](./durable-task-scheduler-hosted-on-container-apps.md)

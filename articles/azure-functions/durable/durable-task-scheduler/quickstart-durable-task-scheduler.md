@@ -7,19 +7,17 @@ ms.date: 01/24/2025
 
 # Quickstart: Configure a Durable Functions app to use the Durable Task Scheduler (preview) storage provider
 
-Let's begin working with Durable Functions using the new Durable Task Scheduler backend provider.
+Let's begin working with Durable Functions using the new Durable Task Scheduler backend provider. The [provided quickstart sample](https://github.com/Azure/Azure-Functions-Durable-Task-Scheduler-Private-Preview/tree/main/quickstarts/HelloCities):
+- Schedules orchestrations that include three activities via an HTTP trigger.
+- Showcases the necessary configuration for using Durable Task Scheduler as the backend provider for your Durable Function app.
 
 In this quickstart, you'll:
 
 > [!div class="checklist"]
 >
 > - Deploy the sample application using the [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd).  
-> - Verify the interaction between the two microservices in the Azure portal.
-
-
-This quickstart, the [provided sample](https://github.com/Azure/Azure-Functions-Durable-Task-Scheduler-Private-Preview/tree/main/quickstarts/HelloCities) uses the [official Durable Functions "hello cities" quickstart](../durable-functions-isolated-create-first-csharp.md). The sample schedules orchestrations that include three activities via an HTTP trigger.
-
-This quickstart showcases the necessary configuration for using Durable Task Scheduler as the backend provider for your Durable Function app.
+> - Verify the task hub orchestration status using the [Durable Task Scheduler dashboard](./).
+> - Register the Durable Task Scheduler endpoint. 
 
 ## Prerequisites
 
@@ -120,7 +118,7 @@ Once your application is deployed, monitor your application using the Durable Ta
 
     :::image type="content" source="media/quickstart-durable-task-scheduler/taskhub-overview.png" alt-text="Screenshot of the task hub page in the Durable Task Scheduler dashboard.":::
 
-### Register the Durable Task Scheduler using the Azure CLI
+### Register the Durable Task Scheduler endpoint
 
 1. Navigate to [https://dashboard.durabletask.io](https://dashboard.durabletask.io) and sign in using your Microsoft Entra ID account. 
 
@@ -138,10 +136,6 @@ Once your application is deployed, monitor your application using the Durable Ta
 1. Click **Add Endpoint**.
 
 1. Once the connection has been successfully added, navigate to the Task Hub overview page in the dashboard to orchestration status within that task hub.
-
-## Demo
-
-
 
 ## Clean up resources
 
