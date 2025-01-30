@@ -4,15 +4,22 @@ description: Reliability guides for Microsoft Azure products and services. View 
 author: anaharris-ms
 ms.service: azure
 ms.topic: reliability-article
-ms.date: 12/03/2024
+ms.date: 01/28/2025
 ms.author: anaharris
 ms.custom: subject-reliability
 ms.subservice: azure-reliability
 ---
 
-# Azure service reliability guides
+# Reliability guides by service
 
-Below is a list of Azure service reliability guides, organized by service category.
+While Azure provides a set of reliability features, the resiliency of your workload is a [shared responsibility between you and Microsoft](./concept-shared-responsibility.md) and depends on how you have designed your business continuity plan to define your expectations for reliability. For this reason, it's important that you understand the reliability features of each service you use, and how to best implement them in your workload. This document provides links to the reliability guidance for each Azure service, detailing how each service supports your reliability requirements through its features and design.
+
+Each service guide generally contains information on how the service supports:
+
+- *Availability zones* such as zonal and zone-redundant deployment options, traffic routing and data replication between zones, what happens if a zone experiences an outage, failback, and how to configure your resources for availability zone support.
+- *Multi-region support* such as how to configure multi-region or geo-disaster support, traffic routing and data replication between regions, region-down experience, failover and failback support, alternative multi-region support.
+- *Backup support* such as who controls backups, where they are stored, how they can be recovered, and whether they are accessible only within a region or across regions.
+
 
 >[!NOTE]
 >Some service documents are in the process of, or are not yet updated into a single reliability guide format. These may contain more than one document that references reliability guidance.

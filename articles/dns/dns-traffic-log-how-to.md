@@ -4,13 +4,13 @@ description: Learn how to filter and view Azure DNS traffic
 author: greg-lindsay
 ms.service: azure-dns
 ms.topic: how-to
-ms.date: 01/06/2025
+ms.date: 01/29/2025
 ms.author: greglin
 ---
 
 # Filter and view DNS traffic (Preview)
 
-This article shows you how to view and filter DNS traffic at the virtual network by with [DNS security policy](dns-security-policy.md).
+This article shows you how to view and filter DNS traffic at the virtual network with [DNS security policy](dns-security-policy.md).
 
 > [!NOTE]
 > DNS security policy is in PREVIEW.<br> 
