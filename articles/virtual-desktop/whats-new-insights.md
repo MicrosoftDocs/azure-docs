@@ -61,14 +61,6 @@ In this update, we made the following changes:
 - Updated the Host Pool Overview view to allow switching between pooled host pool and personal host pool.
 - Added Assigned User column and removed Available Sessions column to the personal host pool view. 
  
-## Version 4.2.0
-
-*Published: November 21, 2024*
-
-In this update, we made the following changes:
-
--
- 
 ## Version 4.1.0
 
 *Published: October 29, 2024*
