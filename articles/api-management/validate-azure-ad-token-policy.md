@@ -33,24 +33,23 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
     failed-validation-httpcode="HTTP status code to return on failure"
     failed-validation-error-message="error message to return on failure"
     output-token-variable-name="name of a variable to receive a JWT object representing successfully validated token">
-    <client-application-ids>
-        <application-id>Client application ID from Microsoft Entra</application-id>
-        <!-- If there are multiple client application IDs, then add additional application-id elements -->
-    </client-application-ids>
     <backend-application-ids>
         <application-id>Backend application ID from Microsoft Entra</application-id>
         <!-- If there are multiple backend application IDs, then add additional application-id elements -->
     </backend-application-ids>
+    <client-application-ids>
+        <application-id>Client application ID from Microsoft Entra</application-id>
+        <!-- If there are multiple client application IDs, then add additional application-id elements -->
+    </client-application-ids>
     <audiences>
         <audience>audience string</audience>
         <!-- if there are multiple possible audiences, then add additional audience elements -->
     </audiences>
     <required-claims>
-        <claim name="name of the claim as it appears in the token" match="all|any" separator="separator character in a multi-valued claim">
+        <claim name="name of the claim as it appears in the token" match="all | any" separator="separator character in a multi-valued claim">
             <value>claim value as it is expected to appear in the token</value>
             <!-- if there is more than one allowed value, then add additional value elements -->
         </claim>
-        <!-- if there are multiple possible allowed values, then add additional value elements -->
     </required-claims>
     <decryption-keys>
         <key certificate-id="mycertificate"/>
@@ -75,9 +74,9 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
 
 | Element             | Description                                                                                                                                                                                                                                                                                                                                           | Required |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| audiences           | Contains a list of acceptable audience claims that can be present on the token. If multiple `audience` values are present, then each value is tried until either all are exhausted (in which case validation fails) or until one succeeds. Policy expressions are allowed.                                                                    | No       |
 | backend-application-ids | Contains a list of acceptable backend application IDs.  This is only required in advanced cases for the configuration of options and can generally be removed. Policy expressions aren't allowed. | No |
 | client-application-ids | Contains a list of acceptable client application IDs. If multiple `application-id` elements are present, then each value is tried until either all are exhausted (in which case validation fails) or until one succeeds. If a client application ID isn't provided, one or more `audience` claims should be specified. Policy expressions aren't allowed. | No |
+| audiences           | Contains a list of acceptable audience claims that can be present on the token. If multiple `audience` values are present, then each value is tried until either all are exhausted (in which case validation fails) or until one succeeds. Policy expressions are allowed.                                                                    | No       |
 | required-claims     | Contains a list of `claim` elements for claim values expected to be present on the token for it to be considered valid. When the `match` attribute is set to `all`, every claim value in the policy must be present in the token for validation to succeed. When the `match` attribute is set to `any`, at least one claim must be present in the token for validation to succeed. Policy expressions are allowed. | No       |
 | decryption-keys     | A list of [`key`](#key-attributes) subelements, used to decrypt a token signed with an asymmetric key. If multiple keys are present, then each key is tried until either all keys are exhausted (in which case validation fails) or a key succeeds.<br/><br/>Specify the public key using a `certificate-id` attribute with value set to the identifier of a certificate uploaded to API Management.         | No       |
 
