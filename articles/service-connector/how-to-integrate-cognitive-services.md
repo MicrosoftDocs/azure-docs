@@ -43,7 +43,7 @@ This table indicates that all combinations of client types and authentication me
 
 Use the connection details below to connect compute services to an Azure AI multi-service resource. For more information about naming conventions, refer to the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
-### System-assigned managed identity
+### System-assigned managed identity (recommended)
 
 | Default environment variable name | Description                  | Sample value                                     |
 | --------------------------------- | ---------------------------- | ------------------------------------------------ |

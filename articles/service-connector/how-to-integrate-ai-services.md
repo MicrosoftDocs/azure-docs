@@ -52,6 +52,7 @@ Use the connection details below to connect compute services to Azure AI Service
 | AZURE_AISERVICES_SPEECH_ENDPOINT | Speech to Text (Standard) API endpoint | `https://<location>.stt.speech.microsoft.com` |
 
 #### Sample code
+
 Refer to the steps and code below to connect to Azure AI Services using a system-assigned managed identity.
 [!INCLUDE [code sample for app config](./includes/code-ai-services-microsoft-entra-id.md)]
 
@@ -65,6 +66,7 @@ Refer to the steps and code below to connect to Azure AI Services using a system
 | AZURE_AISERVICES_CLIENTID   | Your client ID             | `<client-ID>`                                 |
 
 #### Sample code
+
 Refer to the steps and code below to connect to Azure AI Services using a user-assigned managed identity.
 [!INCLUDE [code sample for azure AI Services](./includes/code-ai-services-microsoft-entra-id.md)]
 
@@ -78,7 +80,8 @@ Refer to the steps and code below to connect to Azure AI Services using a user-a
 > | AZURE_AISERVICES_SPEECH_ENDPOINT | Speech to Text (Standard) API endpoint | `https://<location>.stt.speech.microsoft.com` |
 > | AZURE_AISERVICES_KEY | Azure AI Services API key | `<api-key>` |
 
-#### Sample Code 
+#### Sample code
+
 Refer to the steps and code below to connect to Azure AI Services using a connection string.
 [!INCLUDE [code sample for azure AI Services](./includes/code-ai-services-secret.md)]
 
@@ -95,6 +98,7 @@ Refer to the steps and code below to connect to Azure AI Services using a connec
 | AZURE_AISERVICES_TENANTID     | Your tenant ID             | `<tenant-ID>`                                |
 
 #### Sample code
+
 Refer to the steps and code below to connect to Azure AI Services using a service principaL.
 [!INCLUDE [code sample for azure AI Services](./includes/code-ai-services-microsoft-entra-id.md)]
 
@@ -103,4 +107,3 @@ Refer to the steps and code below to connect to Azure AI Services using a servic
 * [Connect to an Azure AI multi-service resource](./how-to-integrate-cognitive-services.md)
 * [Azure OpenAI Service integration](./how-to-integrate-openai.md)
 * [Connect to Azure OpenAI Service in AKS using a Workload Identity](./tutorial-python-aks-openai-workload-identity.md)
-* [Learn about Service Connector concepts](./concept-service-connector-internals.md)
