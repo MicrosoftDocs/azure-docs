@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: article
-ms.date: 07/23/2024
+ms.date: 01/29/2025
 ms.author: danlep
 ---
 
@@ -17,7 +17,7 @@ ms.author: danlep
 The `validate-azure-ad-token` policy enforces the existence and validity of a JSON web token (JWT) that was provided by the Microsoft Entra (formerly called Azure Active Directory) service for a specified set of principals in the directory. The JWT can be extracted from a specified HTTP header, query parameter, or value provided using a policy expression or context variable.
 
 > [!NOTE]
-> To validate a JWT that was provided by an identity provider other than Microsoft Entra, API Management also provides the generic [`validate-jwt`](validate-jwt-policy.md) policy. 
+> Use the generic [`validate-jwt`](validate-jwt-policy.md) policy to validate a JWT that was provided by an identity provider other than Microsoft Entra. 
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -109,13 +109,28 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
 
 ### Simple token validation
 
-The following policy is the minimal form of the `validate-azure-ad-token` policy.  It expects the JWT to be provided in the default `Authorization` header using the `Bearer` scheme. In this example, the Microsoft Entra tenant ID and client application ID are provided using named values.
+The following policy is the minimal form of the `validate-azure-ad-token` policy. It expects the JWT to be provided in the default `Authorization` header using the `Bearer` scheme. In this example, the Microsoft Entra tenant ID and client application ID are provided using named values.
 
 ```xml
 <validate-azure-ad-token tenant-id="{{aad-tenant-id}}">
     <client-application-ids>
         <application-id>{{aad-client-application-id}}</application-id>
     </client-application-ids>
+</validate-azure-ad-token>
+```
+
+### Token validation using decryption key
+
+This example shows how to use the `validate-azure-ad-token` policy to validate a token that is decrypted using a decryption key. The Microsoft Entra tenant ID and client application ID are provided using named values. The key is specified using the ID of an uploaded certificate (in PFX format) that contains the public key.
+
+```xml
+<validate-azure-ad-token tenant-id="{{aad-tenant-id}}">
+    <client-application-ids>
+        <application-id>{{aad-client-application-id}}</application-id>
+    </client-application-ids>
+    <decryption-keys>
+        <key certificate-id="mycertificate"/>
+    </decryption-keys>
 </validate-azure-ad-token>
 ```
 
