@@ -231,7 +231,17 @@
       - name: Certificate authentication clients
         items:
         - name: Windows clients
-          href: vpn-client-certificate-windows.md
+          items:
+          - name: Native VPN client
+            href: vpn-client-certificate-windows.md
+          - name: Azure VPN client
+            href: vpn-client-certificate-windows.md
+          - name: OpenVPN client
+            items:
+            - name: Version 2.x
+              href: point-to-site-vpn-client-certificate-windows-openvpn-client-version-2.md
+            - name: Version 3.x
+              href: point-to-site-vpn-client-certificate-windows-openvpn-client-version-3.md
         - name: macOS and iOS clients
           href: point-to-site-vpn-client-cert-mac.md    
         - name: Install client certificates
