@@ -168,7 +168,7 @@ Cloud-init v. 23.4-7.el8_10.alma.1 finished at Wed, 12 Jun 2024 10:28:15 +0000. 
 
 Then establish the connectivity between your client machine and the CycleCloud VM. This can be from your corporate IT, a VPN, a Bastion tunnelling, an attached public IP if your company allows it. Connect to the web interface by browsing to [https://<cycleccloud_ip>](), and authenticate with the username and password provided during the deployment. Confirm that both the Scheduler and the Login node are running.
 
-## Further Reading
+## Resources
 
 * [How to connect to the CycleCloud Portal through Bastion](/azure/cyclecloud/how-to/ccws/connect-to-portal-with-bastion)
 * [How to connect to a Login Node through Bastion](/azure/cyclecloud/how-to/ccws/connect-to-login-node-with-bastion)
