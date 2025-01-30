@@ -193,6 +193,11 @@ sections:
 
           If your configuration requires forced tunneling to an on-premises network and you can determine the target IP prefixes for your Internet destinations, you can configure these ranges with the on-premises network as the next hop via a user defined route on the AzureFirewallSubnet. Or, you can use BGP to define these routes.
 
+      - question: Does Azure Firewall support BGP peering?
+        answer: |
+          No. Azure Firewall does not natively support BGP peering. However, the [Auto-learn SNAT routes feature](../firewall/snat-private-range.md#auto-learn-snat-routes-preview) leverages BGP indirectly through Azure Route Server.
+      
+          
       - question: Are there any firewall resource group restrictions?
         answer: |
           Yes. 
