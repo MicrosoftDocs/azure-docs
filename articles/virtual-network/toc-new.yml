@@ -26,22 +26,6 @@
     href: virtual-network-vnet-plan-design-arm.md
   - name: Traffic routing
     href: virtual-networks-udr-overview.md
-- name: Planning and design
-  items: 
-  - name: Implement a secure hybrid network
-    href: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json&tabs=portal
-  - name: Name resolution for resources
-    href: virtual-networks-name-resolution-for-vms-and-role-instances.md
-  - name: Network virtual appliances
-    href: virtual-network-scenario-udr-gw-nva.md
-  - name: Optimize network throughput for Azure virtual machines
-    href: virtual-network-optimize-network-bandwidth.md
-  - name: Use dynamic DNS to register hostnames
-    href: virtual-networks-name-resolution-ddns.md
-  - name: View and modify hostnames
-    href: virtual-networks-viewing-and-modifying-hostnames.md
-  - name: Virtual networks and virtual machines in Azure
-    href: 
 - name: Architecture and concepts
   items:
   - name: Azure services network isolation
@@ -60,6 +44,22 @@
     href: virtual-network-peering-overview.md
   - name: What is IP address 168.63.129.16?
     href: what-is-ip-address-168-63-129-16.md
+- name: Planning and design
+  items: 
+  - name: Implement a secure hybrid network
+    href: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json&tabs=portal
+  - name: Name resolution for resources
+    href: virtual-networks-name-resolution-for-vms-and-role-instances.md
+  - name: Network virtual appliances
+    href: virtual-network-scenario-udr-gw-nva.md
+  - name: Optimize network throughput for Azure virtual machines
+    href: virtual-network-optimize-network-bandwidth.md
+  - name: Use dynamic DNS to register hostnames
+    href: virtual-networks-name-resolution-ddns.md
+  - name: View and modify hostnames
+    href: virtual-networks-viewing-and-modifying-hostnames.md
+  - name: Virtual networks and virtual machines in Azure
+    href: network-overview.md
 - name: Deploying virtual network
   items:
   - name: Connect a virtual network to ExpressRoute circuits
