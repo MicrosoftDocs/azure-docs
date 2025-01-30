@@ -1,5 +1,5 @@
 ---
-title: How to flush DNS settings changes in Azure Spring Apps
+title: How to Flush DNS Settings Changes in Azure Spring Apps
 titleSuffix: Azure Spring Apps
 description: How to update DNS settings in a virtual-network-injected Azure Spring Apps service.
 author: KarlErickson

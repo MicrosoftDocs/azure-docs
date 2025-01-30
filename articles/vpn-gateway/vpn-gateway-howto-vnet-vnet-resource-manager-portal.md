@@ -43,7 +43,7 @@ You might want to connect virtual networks by using a VNet-to-VNet connection fo
 
    Within the same region, you can set up multi-tier applications with multiple virtual networks that are connected together because of isolation or administrative requirements. VNet-to-VNet communication can be combined with multi-site configurations. These configurations let you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram:
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections-diagram.png" alt-text="Diagram of a VNet-to-VNet connection showing multiple subscriptions.":::
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections-diagram.png" alt-text="Diagram of a VNet-to-VNet connection showing multiple subscriptions." lightbox="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections-diagram.png":::
 
 ## Create and configure VNet1
 
@@ -142,7 +142,7 @@ You can use the following examples values to configure the VNet4 VPN gateway.
 
 When the VPN gateways for both VNet1 and VNet4 have completed, you can create your virtual network gateway connections.
 
-Virtual networks in the same subscription can be connected using the portal, even if they are in different resource groups. However, if your virtual networks are in different subscriptions, you must use [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) to make the connections.
+Virtual networks in the same subscription can be connected using the portal, even if they are in different resource groups. However, if your virtual networks are in different subscriptions, you must use [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) or CLI to make the connections.
 
 You can create either a bidirectional, or a single direction connection. For this exercise, we'll specify a bidirectional connection. The bidirectional connection value creates two separate connections so that traffic can flow in both directions.
 

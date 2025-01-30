@@ -1,5 +1,5 @@
 ---
-title: Use the diagnostic settings of JVM options for advanced troubleshooting in Azure Spring Apps
+title: Use the Diagnostic Settings of JVM Options for Advanced Troubleshooting in Azure Spring Apps
 description: Describes several best practices with JVM configuration to set heap dump, JFR, and GC logs.
 author: KarlErickson
 ms.author: karler

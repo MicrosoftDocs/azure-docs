@@ -1,5 +1,5 @@
 ---
-title: Configure your managed Spring Cloud Config Server
+title: Configure Your Managed Spring Cloud Config Server
 titleSuffix: Azure Spring Apps
 description: Learn how to configure a managed Spring Cloud Config Server in Azure Spring Apps on the Azure portal
 author: KarlErickson

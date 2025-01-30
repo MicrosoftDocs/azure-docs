@@ -1,6 +1,6 @@
 - name: Azure reliability documentation
   href: index.yml
-- name: What is reliability?
+- name: Overview
   href: overview.md
 - name: Reliability fundamentals
   items:

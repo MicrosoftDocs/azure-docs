@@ -1,5 +1,5 @@
 ---
-title: Azure Spring Apps retirement announcement
+title: Azure Spring Apps Retirement Announcement
 description: Announces the retirement of the Azure Spring Apps service.
 author: KarlErickson
 ms.author: taoxu

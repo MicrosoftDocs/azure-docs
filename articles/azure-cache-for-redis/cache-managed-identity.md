@@ -35,8 +35,8 @@ Managed identity can be enabled either when you create a cache instance or after
 ## Scope of availability
 
 |Tier     | Basic, Standard  | Premium  |Enterprise, Enterprise Flash  |
-|---------|---------|---------|---------|
-|Available  | No         | Yes        |  No  |
+|---------|:---------:|:---------:|:---------:|
+|Available  | Yes         | Yes        |  No  |
 
 ## Prerequisites and limitations
 
