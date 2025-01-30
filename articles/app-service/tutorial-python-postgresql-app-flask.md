@@ -685,7 +685,7 @@ Listed below are issues you might encounter while trying to work through this tu
 
 #### I can't connect to the SSH session
 
-If you can't connect to the SSH session, then the app itself has failed to start. Check the [diagnostic logs](#6-stream-diagnostic-logs) for details. For example, if you see an error like `KeyError: 'AZURE_POSTGRESQL_HOST'`, it might mean that the environment variable is missing (you might have removed the app setting).
+If you can't connect to the SSH session, then the app itself has failed to start. Check the [diagnostic logs](#7-stream-diagnostic-logs) for details. For example, if you see an error like `KeyError: 'AZURE_POSTGRESQL_HOST'`, it might mean that the environment variable is missing (you might have removed the app setting).
 
 #### I get an error when running database migrations
 
