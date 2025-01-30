@@ -4,7 +4,7 @@ description: Learn to record and query data collected using OpenTelemetry in Azu
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.date: 12/02/2024
+ms.date: 01/29/2025
 ms.author: cshoe
 ms.topic: how-to
 ---
@@ -61,7 +61,7 @@ If you want to protect your Application Insights resource from misuse, see [Micr
 
 # [ARM template](#tab/arm)
 
-Before you deploy this template, replace placeholders surrounded by `<>` with your values.
+Before you deploy this template, replace the `<PLACEHOLDERS>` with your values.
 
 ```json
 {
@@ -83,9 +83,35 @@ Before you deploy this template, replace placeholders surrounded by `<>` with yo
 }
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+resource environment 'Microsoft.App/managedEnvironments@2024-10-02-preview' = {
+  ...
+  properties: {
+    appInsightsConfiguration: {
+      connectionString: '<APP_INSIGHTS_CONNECTION_STRING>'
+    }
+    openTelemetryConfiguration: {
+      ...
+      tracesConfiguration: {
+        destinations: [
+          'appInsights'
+        ]
+      }
+      logsConfiguration: {
+        destinations: [
+          'appInsights'
+        ]
+      }
+    }
+  }
+}
+```
+
 # [Azure CLI](#tab/azure-cli)
 
-Before you run this command, replace placeholders surrounded by `<>` with your values.
+Before you run this command, replace the `<PLACEHOLDERS>` with your values.
 
 ```azurecli
 az containerapp env telemetry app-insights set \
@@ -142,7 +168,7 @@ The Datadog agent configuration requires a value for `site` and `key` from your 
 | `DD_SITE` | `site` |
 | `DD_API_KEY` | `key` |
 
-Once you have these configuration details, you can configure the agent via your container app's ARM template or with Azure CLI commands.
+Once you have these configuration details, you can configure the agent via your container app's ARM or Bicep template or with Azure CLI commands.
 
 Avoid specifying the value of a secret, such as your Datadog API key, directly in a production environment. Instead, use a reference to a secret stored in Azure Key Vault.
 
@@ -160,7 +186,7 @@ For more information, see:
 
 Create a [parameter file](/azure/azure-resource-manager/templates/parameter-files) to retrieve your Datadog API key from an Azure Key Vault.
 
-Before you deploy the following files, replace placeholders surrounded by `<>` with your values.
+Before you deploy the following files, replace the `<PLACEHOLDERS>` with your values.
 
 ```json
 {
@@ -179,7 +205,7 @@ Before you deploy the following files, replace placeholders surrounded by `<>` w
 }
 ```
 
-You can now reference the `datadogapikey` parameter in your ARM Template.
+You can now reference the `datadogapikey` parameter in your ARM template.
 
 ```json
 {
@@ -211,7 +237,7 @@ You can now reference the `datadogapikey` parameter in your ARM Template.
 }
 ```
 
-To deploy the resource, run the following Azure CLI command, replacing the placeholders surrounded by `<>` with your values.
+To deploy the resource, run the following Azure CLI command, replacing the `<PLACEHOLDERS>` with your values.
 
 ```azurecli
 az deployment group create \
@@ -220,9 +246,60 @@ az deployment group create \
   --parameters <PARAMETER_FILE>
 ```
 
+# [Bicep](#tab/bicep)
+
+Create a [parameter file](/azure/azure-resource-manager/bicep/parameter-files) to retrieve your Datadog API key from an Azure Key Vault.
+
+Before you deploy the following files, replace the `<PLACEHOLDERS>` with your values.
+
+```bicep
+using '<BICEP_TEMPLATE_FILE>'
+
+param datadogapikey = az.getSecret('<SUBSCRIPTION_ID>', '<RESOURCE_GROUP_NAME>', '<KEY_VAULT_NAME>', '<SECRET_NAME>', '<SECRET_VERSION_ID>')
+```
+
+The subscription ID has the form `123e4567-e89b-12d3-a456-426614174000`. The secret version ID has the form `123e4567e89b12d3a456426614174000`.
+
+You can now reference the `datadogapikey` parameter in your Bicep template.
+
+```bicep
+@secure()
+param datadogapikey string
+
+resource environment 'Microsoft.App/managedEnvironments@2024-10-02-preview' = {
+  ...
+  properties: {
+    openTelemetryConfiguration: {
+      destinationsConfiguration: {
+        dataDogConfiguration: {
+          site: 'datadoghq.com'
+          key: datadogapikey
+        }
+      }
+      ...
+      metricsConfiguration: {
+        destinations: [
+          'dataDog'
+          'customDashboard'
+        ]
+      }
+    }
+  }
+}
+```
+
+To deploy the resource, run the following Azure CLI command, replacing the `<PLACEHOLDERS>` with your values.
+
+```azurecli
+az deployment group create \
+  --resource-group <RESOURCE_GROUP> \
+  --template-file <BICEP_TEMPLATE_FILE> \
+  --parameters <PARAMETER_FILE>
+```
+
 # [Azure CLI](#tab/azure-cli)
 
-Before you run this command, replace placeholders surrounded by `<>` with your values.
+Before you run this command, replace the `<PLACEHOLDERS>` with your values.
 
 ```azurecli
 az containerapp env telemetry data-dog set \
@@ -313,6 +390,49 @@ While you can set up as many OTLP-configured endpoints as you like, each endpoin
   }
 }
 
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+resource environment 'Microsoft.App/managedEnvironments@2024-10-02-preview' = {
+  ...
+  properties: {
+    openTelemetryConfiguration: {
+      destinationsConfiguration: {
+        otlpConfigurations: [
+          {
+            name: 'otlp1'
+            endpoint: 'ENDPOINT_URL_1'
+            insecure: false
+            headers: 'api-key-1=key'
+          }
+          {
+            name: 'otlp2'
+            endpoint: 'ENDPOINT_URL_2'
+            insecure: true
+          },
+        ]
+      }
+      logsConfiguration: {
+        destinations: [
+          'otlp2'
+        ]
+      }
+      tracesConfiguration: {
+        destinations: [
+          'otlp1'
+          'otlp2'
+        ]
+      }
+      metricsConfiguration: {
+        destinations: [
+          'otlp1'
+        ]
+      }
+    }
+  }
+}
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -454,11 +574,13 @@ The following example ARM template shows how to use an OTLP endpoint named `cust
 
 ## Example OpenTelemetry configuration
 
-The following example ARM template shows how you might configure your container app to collect telemetry data using Azure Monitor Application Insights, Datadog, and with a custom OTLP agent named `customDashboard`.
+The following example template shows how you might configure your container app to collect telemetry data using Azure Monitor Application Insights, Datadog, and with a custom OTLP agent named `customDashboard`.
 
 This example works with the parameter file used to retrieve the [Datadog API](#datadog) key from an Azure Key Vault.
 
-Before you deploy this template, replace placeholders surrounded by `<>` with your values.
+Before you deploy this template, replace the `<PLACEHOLDERS>` with your values.
+
+# [ARM template](#tab/arm-example)
 
 ```json
 {
@@ -503,6 +625,58 @@ Before you deploy this template, replace placeholders surrounded by `<>` with yo
   }
 }
 ```
+
+# [Bicep](#tab/bicep-example)
+
+```bicep
+@secure()
+param datadogapikey string
+
+resource environment 'Microsoft.App/managedEnvironments@2024-10-02-preview' = {
+  name: '<ENVIRONMENT_NAME>'
+  location: '<LOCATION>'
+  properties: {
+    appInsightsConfiguration: {
+      connectionString: '<APP_INSIGHTS_CONNECTION_STRING>'
+    }
+    openTelemetryConfiguration: {
+      destinationsConfiguration: {
+        dataDogConfiguration: {
+          site: 'datadoghq.com'
+          key: datadogapikey
+        }
+        otlpConfigurations: [
+          {
+            name: 'customDashboard'
+            endpoint: '<OTLP_ENDPOINT_URL>'
+            insecure: true
+          }
+        ]
+      }
+      tracesConfiguration: {
+        destinations: [
+          'appInsights'
+          'customDashboard'
+        ]
+      }
+      logsConfiguration: {
+        destinations: [
+          'appInsights'
+          'customDashboard'
+        ]
+      }
+      metricsConfiguration: {
+        destinations: [
+          'dataDog'
+          'customDashboard'
+        ]
+      }
+    }
+  }
+}
+```
+
+---
 
 For more information, see [Microsoft.App/managedEnvironments](/azure/templates/microsoft.app/2024-02-02-preview/managedenvironments).
 
