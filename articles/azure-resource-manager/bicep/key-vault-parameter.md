@@ -157,7 +157,7 @@ If you use a key vault with a Bicep file for a [managed application](../managed-
 
 You can use the `getSecret` function in a Bicep file to obtain a key vault secret. The `getSecret` function can be used only with a `Microsoft.KeyVault/vaults` resource. Additionally, it can be used only within the `params` section of a module and only with parameters that have the `@secure()` decorator. For more information, see [Resource functions for Bicep](./bicep-functions-resource.md#getsecret).
 
-You can use another function called `az.getSecret()` in a Bicep parameters file to retrieve key vault secrets. For more information, see [Retrieve secrets in a parameters file](#retrieve-secrets-in-parameters-file).
+You can use another function called `az.getSecret()` in a Bicep parameters file to retrieve key vault secrets. For more information, see [Retrieve secrets in a parameters file](#retrieve-secrets-in-a-parameters-file).
 
 Since the `getSecret` function can be used only in the `params` section of a module, create a _sql.bicep_ file in the same directory as the _main.bicep_ file with the following content:
 
