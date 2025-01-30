@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: whyistheinternetbroken
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 01/22/2025
+ms.date: 01/29/2025
 ms.author: anfdocs
 ---
 # Understand Server Message Block support in Azure NetApp Files 

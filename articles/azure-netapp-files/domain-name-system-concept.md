@@ -10,7 +10,7 @@ ms.author: anfdocs
 ---
 # Understand Domain Name Systems in Azure NetApp Files 
 
-Azure NetApp Files supports the use of Active Directory integrated DNS or standalone DNS servers and requires reliable access to Domain Name System (DNS) services and up-to-date DNS records. Poor network connectivity between Azure NetApp Files and DNS servers can cause client access interruptions or client time outs. Incomplete or incorrect DNS records for Active Directory Domain Services (AD DS) or Azure NetApp Files can cause client access interruptions or client time outs. 
+Azure NetApp Files supports the use of Active Directory integrated DNS or standalone DNS servers and requires reliable access to Domain Name System (DNS) services and up-to-date DNS records. Poor network connectivity between Azure NetApp Files and DNS servers can cause client access interruptions or client time-outs. Incomplete or incorrect DNS records for Active Directory Domain Services (AD DS) or Azure NetApp Files can cause client access interruptions or client time-outs. 
 
 The DNS service is a critical component of data access in Azure NetApp Files. File protocol access over SMB, NFSV4.1 Kerberos, LDAP, and Active Directory Site Discovery all make significant use of DNS for their operations. Using a hostname centrally located in DNS simplifies access to a volume and protects against scenarios when an IP address changes. Rather than an administrator needing to inform users of a new IP address, users can continue using the user-friendly hostname.
 
@@ -31,7 +31,7 @@ In some cases, external DNS servers (such as BIND) may be used in lieu of (or in
 
 :::image type="content" source="media/domain-name-system-concept/external-bind-dns.png" alt-text="Diagram of external bind configuration." lightbox="media/domain-name-system-concept/external-bind-dns.png":::
 
-Azure NetApp Files supports the use of both integrated and external DNS servers, but when using external DNS servers without Active Directory integration, it's important to ensure that the necessary service (SRV) records are added to DNS for proper functionality and redundancy of services. Poor network connectivity between Azure NetApp Files and DNS servers can cause client access interruptions or client time outs. Incomplete or incorrect DNS records for AD DS or Azure NetApp Files can cause client access interruptions or client time outs.
+Azure NetApp Files supports the use of both integrated and external DNS servers, but when using external DNS servers without Active Directory integration, it's important to ensure that the necessary service (SRV) records are added to DNS for proper functionality and redundancy of services. Poor network connectivity between Azure NetApp Files and DNS servers can cause client access interruptions or client time-outs. Incomplete or incorrect DNS records for AD DS or Azure NetApp Files can cause client access interruptions or client time-outs.
 
 See [DNS records in Azure NetApp Files](#types-of-dns-records-in-azure-netapp-files) for a list of SRV records the service uses. Also review the [guidelines for DNS with Active Directory](/windows-server/) and [Integrating AD DS into an existing DNS infrastructure](/windows-server/identity/ad-ds/plan/integrating-ad-ds-into-an-existing-dns-infrastructure).
 
@@ -321,9 +321,9 @@ When secure DNS is enabled, Azure NetApp Files negotiates with the DNS server to
 
 To reduce load on DNS servers, DNS clients make use of caching concepts to store previous queries in memory so that repeat requests for a hostname, IP or service are kept locally for the period of time defined by the DNS record’s TTL.
 
-Azure NetApp Files makes use of DNS caches like any other standard DNS client. When the service requests a DNS record, that record has a TTL defined. By default, Active Directory DNS entries have a TTL of 600 seconds (10 minutes) unless specified otherwise. If a DNS record is updated and lives in the Azure NetApp Files cache and the TTL is 10 minutes, then the new record doesn't update in Azure NetApp Files until the cache is purged after the time out value. There's currently no way to manually purge this cache. If a lower TTL is desired, make the change from the DNS server.
+Azure NetApp Files makes use of DNS caches like any other standard DNS client. When the service requests a DNS record, that record has a TTL defined. By default, Active Directory DNS entries have a TTL of 600 seconds (10 minutes) unless specified otherwise. If a DNS record is updated and lives in the Azure NetApp Files cache and the TTL is 10 minutes, then the new record doesn't update in Azure NetApp Files until the cache is purged after the time-out value. There's currently no way to manually purge this cache. If a lower TTL is desired, make the change from the DNS server.
 
-When using external DNS servers (such as BIND), the default time out values can differ. If undefined, a BIND DNS record's TTL is 604,800 seconds (seven days), too long for effective DNS caching. As such, when creating DNS records manually, it is important to manually set the TTL for the record to a reasonable value. Using the Microsoft default of 10 minutes is recommended for a blend of performance and reliability for DNS lookups.
+When using external DNS servers (such as BIND), the default time-out values can differ. If undefined, a BIND DNS record's TTL is 604,800 seconds (seven days), too long for effective DNS caching. As such, when creating DNS records manually, it is important to manually set the TTL for the record to a reasonable value. Using the Microsoft default of 10 minutes is recommended for a blend of performance and reliability for DNS lookups.
 
 You can manually query a DNS record's TTL using `nslookup` or `dig` commands. For examples, see [Using `nslookup` and `dig` for DNS queries](#using-nslookup-and-dig-for-dns-queries).
 
