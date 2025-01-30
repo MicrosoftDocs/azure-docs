@@ -26,12 +26,70 @@
     href: virtual-network-vnet-plan-design-arm.md
   - name: Traffic routing
     href: virtual-networks-udr-overview.md
+- name: Planning and design
+  items: 
+  - name: Implement a secure hybrid network
+    href: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json&tabs=portal
+  - name: Name resolution for resources
+    href: virtual-networks-name-resolution-for-vms-and-role-instances.md
+  - name: Network virtual appliances
+    href: virtual-network-scenario-udr-gw-nva.md
+  - name: Optimize network throughput for Azure virtual machines
+    href: virtual-network-optimize-network-bandwidth.md
+  - name: Use dynamic DNS to register hostnames
+    href: virtual-networks-name-resolution-ddns.md
+  - name: View and modify hostnames
+    href: virtual-networks-viewing-and-modifying-hostnames.md
+  - name: Virtual networks and virtual machines in Azure
+    href: 
 - name: Architecture and concepts
   items:
   - name: Azure services network isolation
     href: vnet-integration-for-azure-services.md
   - name: Concepts and best practices
     href: concepts-and-best-practices.md
+  - name: Interoperability in Azure
+    href: /azure/networking/connectivity-interoperability-control-plane?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+  - name: IP based access control list (ACL)
+    href: ip-based-access-control-list-overview.md
+  - name: Subnet delegation
+    href: subnet-delegation-overview.md
+  - name: Subnet extension
+    href: subnet-extension.md
+  - name: Virtual network peering
+    href: virtual-network-peering-overview.md
+  - name: What is IP address 168.63.129.16?
+    href: what-is-ip-address-168-63-129-16.md
+- name: Deploying virtual network
+  items:
+  - name: Connect a virtual network to ExpressRoute circuits
+    href: /azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+  - name: Connect an on-premises network to Azure by using ExpressRoute
+    href: /azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+  - name: Connect virtual networks
+    href: tutorial-connect-virtual-networks.md
+  - name: Create a virtual network
+    items:
+    - name: ARM template
+      href: quick-create-template.md
+    - name: Azure CLI
+      href: quick-create-cli.md
+    - name: Bicep
+      href: quick-create-bicep.md
+    - name: Powershell
+      href: quick-create-powershell.md
+    - name: Terraform
+      href: quick-create-terraform.md
+  - name: Create and associate service endpoint policies
+    href: virtual-network-service-endpoint-policies.md
+  - name: Deploy dedicated Azure services
+    href: virtual-network-for-azure-services.md
+  - name: Filter network traffic
+    href: tutorial-filter-network-traffic.md
+  - name: Restrict network access to PaaS resources
+    href: tutorial-restrict-network-access-to-resources.md
+  - name: Route network traffic
+    href: tutorial-create-route-table.md
 - name: Reference
   items:
   - name: Monitor data reference
