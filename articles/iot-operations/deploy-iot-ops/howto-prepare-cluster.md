@@ -199,7 +199,7 @@ Connect your cluster to Azure Arc so that it can be managed remotely.
    ```
 
 > [!NOTE]
->If you receive the error: "Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the feature. Insufficient privileges to complete the operation" then you may be using a service principal that lacks the necessary permissions to retrieve the object ID of the custom location. Log into Azure CLI with a Microsoft Entra user account that meets the prerequisites.
+>If you receive the error: "Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the feature. Insufficient privileges to complete the operation" then you may be using a service principal that lacks the necessary permissions to retrieve the object ID of the custom location. Log into Azure CLI with a Microsoft Entra user account that meets the prerequisites. Refer to: https://aka.ms/enable-cl-sp
 
 1. Use the [az connectedk8s enable-features](/cli/azure/connectedk8s#az-connectedk8s-enable-features) command to enable the custom location feature on your Arc cluster. This command uses the OBJECT_ID environment variable saved from the previous step to set the value for the custom-locations-oid parameter. Run this command on the machine where you deployed the Kubernetes cluster: 
 
@@ -229,7 +229,10 @@ For instructions on running the script, see [Configure an AKS Edge Essentials cl
 
 ### [AKS on Azure Local](#tab/azure-local)
 
-For instructions on creating and Arc-enabling an AKS cluster on Azure Local, see [Create Kubernetes clusters using Azure CLI](/azure/aks/hybrid/aks-create-clusters-cli). By default, a Kubernetes cluster is created with a node pool that can run Linux containers. If you add more node pools after creation, make sure the OS is set to Linux. Azure IoT Operations doesn't support deployment to Windows nodes.
+* For instructions to create and Arc-enable an AKS cluster on Azure Local, see [Create Kubernetes clusters using Azure CLI](/azure/aks/hybrid/aks-create-clusters-cli).
+* For instructions to deploy an AKS cluster on Azure Local with workload identity (preview) enabled for enhanced security, see [Deploy and configure workload identity on an AKS cluster](/azure/aks/aksarc/workload-identity). The workload identity feature can be enabled only during cluster creation. Running Azure IoT Operations with secure settings requires workload identity.
+
+By default, a Kubernetes cluster is created with a node pool that can run Linux containers. If you add more node pools after creation, make sure the OS is set to Linux. Azure IoT Operations doesn't support deployment to Windows nodes.
 
 Then, once you have an Azure Arc-enabled Kubernetes cluster, you can [deploy Azure IoT Operations](howto-deploy-iot-operations.md).
 

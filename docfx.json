@@ -94,12 +94,6 @@
         ]
       }
     ],
-    "groups": {
-      "grp-iot-edge": {
-        "dest": "destiotedge",
-        "moniker_range": ">=iotedge-1.4"
-      }
-    },
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
@@ -248,8 +242,8 @@
         "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "Juliako",
         "articles/azure-video-indexer/*.md": "Juliako",
         "articles/azure-vmware/**/*.md": "jjaygbay1",
-        "articles/backup/**/*.md": "AbhishekMallick-MS",
-        "articles/backup/**/*.yml": "AbhishekMallick-MS",
+        "articles/backup/**/*.md": "jyothisuri",
+        "articles/backup/**/*.yml": "jyothisuri",
         "articles/baremetal-infrastructure/**/*.md": "dineshga",
         "articles/batch/**/*.md": "padmalathas",
         "articles/blockchain/**/*.md": "PatAltimore",
@@ -601,7 +595,6 @@
         "articles/operator-nexus/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/operator-service-manager/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/oracle/**/*": "https://learn.microsoft.com/answers/tags/94/azure-virtual-machines/",
-        "articles/orbital/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/partner-solutions/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/peering-service/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/playwright-testing/**/*": "https://aka.ms/mpt/feedback",
@@ -749,8 +742,8 @@
         "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "juliako",
         "articles/azure-video-indexer/*.md": "Juliako",
         "articles/azure-vmware/**/*.md": "jacobjaygbay",
-        "articles/backup/**/*.md": "v-abhmallick",
-        "articles/backup/**/*.yml": "AbhishekMallick-MS",
+        "articles/backup/**/*.md": "jsuri",
+        "articles/backup/**/*.yml": "jsuri",
         "articles/baremetal-infrastructure/**/*.md": "kalyank",
         "articles/batch/**/*.md": "padmalathas",
         "articles/blockchain/**/*.md": "patricka",
@@ -1000,9 +993,6 @@
         "articles/partner-solutions/split-experimentation/**/*.md": "split-experimentation",
         "articles/partner-solutions/split-experimentation/**/*.yml": "split-experimentation",
         "articles/governance/management-groups/**/*.md": "azure-governance"
-      },
-      "monikerRange": {
-        "articles/iot-edge/**/*.md": ">=iotedge-1.4"
       },
       "recommendations": {
       },

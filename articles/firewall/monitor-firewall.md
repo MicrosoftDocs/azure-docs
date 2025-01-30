@@ -43,6 +43,20 @@ You can also connect to your storage account and retrieve the JSON log entries f
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
+## Change tracking (Preview)  
+
+Azure Resource Graph (ARG) is an Azure service designed to provide efficient and performant resource exploration at scale.  Azure Resource Graph (ARG) provides change analysis data for various management and troubleshooting scenarios. Users can find when changes were detected on an Azure Resource Manager (ARM) property, view property change details and query changes at scale across their subscription, management group, or tenant.  
+
+ARG change analysis recently added support for RuleCollectionGroups. You can now track changes to Azure Firewall Rule Collection Groups using an Azure Resource Graph query from the Azure Portal ResourceGraphExplorer page using a query like this:  
+
+:::image type="content" source="media/monitor-firewall/query.png" alt-text="Screenshot of the Azure Resource Graph query to track changes to Azure Firewall Rule Collection Groups.":::
+
+Below is a sample change output.  
+
+:::image type="content" source="media/monitor-firewall/output.png" alt-text="Screenshot of the output that depicts the change to Azure Firewall Rule Collection Groups.":::
+
+This capability can help you track changes made to your firewall rules helping ensure accountability for a sensitive resource like a firewall.  
+
 ## Structured Azure Firewall logs
 
 Structured logs are a type of log data that are organized in a specific format. They use a predefined schema to structure log data in a way that makes it easy to search, filter, and analyze. Unlike unstructured logs, which consist of free-form text, structured logs have a consistent format that machines can parse and analyze.

@@ -208,8 +208,12 @@
           href: certificates-point-to-site.md
       - name: Microsoft Entra ID authentication
         items:
-        - name: Configure a P2S VPN
+        - name: Configure P2S - Microsoft-registered VPN client
+          href: point-to-site-entra-gateway.md
+        - name: Configure P2S - manually registered VPN client
           href: virtual-wan-point-to-site-azure-ad.md
+        - name: Create or modify custom audience app ID
+          href: point-to-site-entra-register-custom-app.md
         - name: Configure a tenant
           href: openvpn-azure-ad-tenant.md
         - name: Configure multifactor authentication (MFA)
@@ -227,9 +231,25 @@
       - name: Certificate authentication clients
         items:
         - name: Windows clients
-          href: vpn-client-certificate-windows.md
+          items:
+          - name: Native VPN client
+            href: vpn-client-certificate-windows.md
+          - name: Azure VPN client
+            href: vpn-client-certificate-windows.md
+          - name: OpenVPN client
+            items:
+            - name: Version 2.x
+              href: point-to-site-vpn-client-certificate-windows-openvpn-client-version-2.md
+            - name: Version 3.x
+              href: point-to-site-vpn-client-certificate-windows-openvpn-client-version-3.md
         - name: macOS and iOS clients
-          href: point-to-site-vpn-client-cert-mac.md    
+          items:
+          - name: Native VPN client
+            href: point-to-site-vpn-client-cert-mac.md
+          - name: OpenVPN client - macOS
+            href: point-to-site-vpn-client-certificate-openvpn-mac.md
+          - name: OpenVPN client - iOS
+            href: point-to-site-vpn-client-certificate-openvpn-ios.md  
         - name: Install client certificates
           href: install-client-certificates.md
       - name: VPN client profiles

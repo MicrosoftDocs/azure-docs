@@ -46,7 +46,7 @@ Before you do anything else, you should design and build a query in Kusto Query 
 
 For some helpful tips for building Kusto queries, see [Best practices for analytics rule queries](scheduled-rules-overview.md#best-practices-for-analytics-rule-queries).
 
-For more help building Kusto queries, see [Kusto Query Language in Microsoft Sentinel](kusto-overview.md) and [Best practices for Kusto Query Language queries](/azure/data-explorer/kusto/query/best-practices?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json).
+For more help building Kusto queries, see [Kusto Query Language in Microsoft Sentinel](/kusto/query/kusto-sentinel-overview) and [Best practices for Kusto Query Language queries](/kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true) (from the Kusto documentation).
 
 ## Create your analytics rule
 
@@ -78,8 +78,8 @@ In the Azure portal, stages are represented visually as tabs. In the Defender po
 
     | Field | Description |
     | ----- | ----------- |
-    | **Name** | A unique name for your rule. |
-    | **Description** | A free-text description for your rule. |
+    | **Name** | A unique name for your rule. This field supports plain text only. |
+    | **Description** | A free-text description for your rule.<br>If Microsoft Sentinel is onboarded to the Defender portal, this field supports plain text only. |
     | **Severity** | Match the impact the activity triggering the rule might have on the target environment, should the rule be a true positive.<br><br>**Informational**: No impact on your system, but the information might be indicative of future steps planned by a threat actor.<br>**Low**: The immediate impact would be minimal. A threat actor would likely need to conduct multiple steps before achieving an impact on an environment.<br>**Medium**: The threat actor could have some impact on the environment with this activity, but it would be limited in scope or require additional activity.<br> **High**: The activity identified provides the threat actor with wide ranging access to conduct actions on the environment or is triggered by impact on the environment. |
     | **MITRE ATT&CK** | Choose those threat activities which apply to your rule. Select from among the **MITRE ATT&CK** tactics and techniques presented in the drop-down list. You can make multiple selections.<br><br>For more information on maximizing your coverage of the MITRE ATT&CK threat landscape, see [Understand security coverage by the MITRE ATT&CK® framework](mitre-coverage.md). |
     | **Status** | **Enabled**: The rule runs immediately upon creation, or at the [specific date and time you choose to schedule it (currently in PREVIEW)](#schedule-and-scope-the-query).<br>**Disabled**: The rule is created but doesn't run. Enable it later from your **Active rules** tab when you need it. |
@@ -239,15 +239,15 @@ In the **Incident settings** tab, choose whether Microsoft Sentinel turns alerts
 
         - If you still have any playbooks listed here, you should instead create an automation rule based on the **alert created trigger** and invoke the playbook from the automation rule. After you've done that, select the ellipsis at the end of the line of the playbook listed here, and select **Remove**. See [Migrate your Microsoft Sentinel alert-trigger playbooks to automation rules](migrate-playbooks-to-automation-rules.md) for full instructions.
 
-# [Azure portal](#tab/azure-portal)
+    # [Azure portal](#tab/azure-portal)
 
-:::image type="content" source="media/create-analytics-rules/automated-response-tab.png" alt-text="Screenshot of automated response screen of analytics rule wizard in the Azure portal.":::
+    :::image type="content" source="media/create-analytics-rules/automated-response-tab.png" alt-text="Screenshot of automated response screen of analytics rule wizard in the Azure portal.":::
 
-# [Defender portal](#tab/defender-portal)
+    # [Defender portal](#tab/defender-portal)
 
-:::image type="content" source="media/create-analytics-rules/defender-automated-response.png" alt-text="Screenshot of automated response screen of analytics rule wizard in the Defender portal.":::
+    :::image type="content" source="media/create-analytics-rules/defender-automated-response.png" alt-text="Screenshot of automated response screen of analytics rule wizard in the Defender portal.":::
 
----
+    ---
 
 1. Select **Next: Review and create** to review all the settings for your new analytics rule.
 

@@ -51,7 +51,7 @@ Before you create a watchlist, be aware of the following limitations:
 - Using Lighthouse to manage watchlists across different workspaces is not supported at this time.
 - Local file uploads are currently limited to files of up to 3.8 MB in size.
 - File uploads from an Azure Storage account (in preview) are currently limited to files up to 500 MB in size.
-- Watchlists must adhere to the same column and table restrictions as KQL entities. For more information, see [KQL entity names](/azure/data-explorer/kusto/query/schema-entities/entity-names).
+- Watchlists must adhere to the same column and table restrictions as KQL entities. For more information, see [KQL entity names](/kusto/query/schema-entities/entity-names?view=microsoft-sentinel&preserve-view=true).
 
 ## Options to create watchlists
 

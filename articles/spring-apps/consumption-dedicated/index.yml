@@ -6,7 +6,6 @@ summary: "Azure Spring Apps is a managed service for hosting Spring apps. The St
 metadata:
   title: Azure Spring Apps Standard consumption and dedicated plan
   description: Azure Spring Apps is a fully managed service for building and running Spring Boot and Steeltoe apps without needing to manage infrastructure.
-  services: spring-cloud
   ms.service: azure-spring-apps
   ms.custom: devx-track-java
   ms.topic: landing-page
@@ -70,10 +69,6 @@ landingContent:
             url: ../enterprise/quickstart-deploy-restful-api-app.md?pivots=sc-consumption-plan&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
           - text: Launch your first event-driven app
             url: ../basic-standard/quickstart-deploy-event-driven-app.md?pivots=sc-consumption-plan&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
-          - text: Provision a service instance
-            url: quickstart-provision-standard-consumption-service-instance.md
-          - text: Provision in an Azure Container Apps environment with a virtual network
-            url: quickstart-provision-standard-consumption-app-environment-with-virtual-network.md
 
   # Card (optional)
   - title: Develop and deploy apps

@@ -1,5 +1,5 @@
 ---
-title:  "Deploy Azure Spring Apps in a virtual network"
+title:  "Deploy Azure Spring Apps in a Virtual Network"
 description: Deploy Azure Spring Apps in a virtual network (VNet injection).
 author: KarlErickson
 ms.author: karler
@@ -53,7 +53,7 @@ The virtual network to which you deploy your Azure Spring Apps instance must mee
   * One for the service runtime.
   * One for your Spring applications.
   * There's a one-to-one relationship between these subnets and an Azure Spring Apps instance. Use a new subnet for each service instance you deploy. Each subnet can only include a single service instance.
-* Address space: CIDR blocks up to */28* for both the service runtime subnet and the Spring applications subnet.
+* Address space: CIDR blocks up to `/28` for both the service runtime subnet and the Spring applications subnet.
 * Route table: By default the subnets don't need existing route tables associated. You can [bring your own route table](#bring-your-own-route-table).
 
 Use the following steps to set up the virtual network to contain the Azure Spring Apps instance.
