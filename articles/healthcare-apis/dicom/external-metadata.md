@@ -13,9 +13,10 @@ ms.author: kabalas
 
 The external metadata feature allows users to store metadata or additional information about the DICOM files that is not part of the DICOM file. This is accomplished by using STOW-RS to store the metadata by passing the additional information in the header.
 
-## Limiations
+## Limitations
 
 - External metadata is only supported in latest api version. i.e Version 2 or above
+- External metadata is only supported in [DICOM® service with Azure Data Lake Storage](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicom-data-lake)
 - Only tags which don't conform with standard DICOM protocol tags such as [private tags](https://dicom.nema.org/dicom/2013/output/chtml/part05/sect_7.8.html) are supported to be as external metadata.
 - Only study level tags are supported.
 - External metadata tags cannot be updated or deleted. 
