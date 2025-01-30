@@ -2640,6 +2640,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/dns/dns-alerts-metrics.md",
+      "redirect_url": "/azure/dns/monitor-dns",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/docker/index.yml",
       "redirect_url": "/dotnet/architecture/microservices/container-docker-introduction/docker-defined",
       "redirect_document_id": false
