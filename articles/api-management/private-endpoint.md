@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 12/13/2024
+ms.date: 01/30/2025
 ---
 
 # Connect privately to API Management using an inbound private endpoint
@@ -29,10 +29,19 @@ You can configure an inbound [private endpoint](../private-link/private-endpoint
 
 ## Limitations
 
-* Only the API Management instance's Gateway endpoint supports inbound Private Link connections. 
+* Only the API Management instance's **Gateway endpoint** supports inbound Private Link connections. 
 * Each API Management instance supports at most 100 Private Link connections.
 * Connections aren't supported on the [self-hosted gateway](self-hosted-gateway-overview.md) or on a [workspace gateway](workspaces-overview.md#workspace-gateway). 
 * In the classic API Management tiers, private endpoints aren't supported in instances injected in an internal or external virtual network.
+* In the Standard v2 tier, if you plan to configure outbound virtual network integration for your instance, do so *before* configuring the private endpoint. Similarly, if you plan to enable the developer portal, do so before configuring the private endpoint.
+
+## Typical scenarios
+
+Use an inbound private endpoint for your API Management instance in scenarios such as the following:
+
+* Pass client requests through a firewall and configure rules to route requests privately to the API Management gateway.
+* Enable private-only access directly to the gateway to limit exposure of sensitive data or backends.
+* Configure Azure Front Door (or Azure Front Door in front of Azure Application Gateway) to receive external traffic and then route traffic privately to the API Management gateway.
 
 
 ## Prerequisites
