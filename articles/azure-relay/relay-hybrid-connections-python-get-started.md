@@ -2,7 +2,7 @@
 title: Azure Relay Hybrid Connections - WebSocket requests in Python
 description: Write a Python console application for Azure Relay Hybrid Connections WebSocket requests.
 ms.topic: tutorial
-ms.date: 05/16/2024
+ms.date: 01/30/2025
 ms.custom: devx-track-Python, mode-ui, mode-api, devx-track-extended-Python
 ---
 
@@ -23,7 +23,7 @@ In this quickstart, you take the following steps:
 1. Execute the server (listener) script and optionally the client (sender) script.
 
 ## Prerequisites
-- [Python](https://www.Python.com/en/). Ensure that you're running Python 3.10+
+- [Python](https://www.python.org/). Ensure that you're running Python 3.10+
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Create a namespace using the Azure portal
@@ -31,9 +31,6 @@ In this quickstart, you take the following steps:
 
 ## Create a hybrid connection using the Azure portal
 [!INCLUDE [relay-create-hybrid-connection-portal](./includes/relay-create-hybrid-connection-portal.md)]
-
-## Develop helper functions
-[!INCLUDE [relay-python-helper-functions](./includes/relay-python-helper-functions.md)]
 
 ## Create a server application (listener)
 To listen and receive messages from the Relay, write a Python WebSocket Server script.

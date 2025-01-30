@@ -42,18 +42,15 @@ a Hybrid Connections URL with SAS Tokens utilizing WebSockets.
 	- `path` - The name of the hybrid connection.
 	- `keyrule` - Name of your Shared Access Policies key, which is `RootManageSharedAccessKey` by default.
 	- `key` -   The primary key of the namespace you saved earlier.
-
 3. Generate a helper function file for helper functions
 
 	The following file is used as `relaylib.py` and have helper functions for WebSocket URL generation and SAS tokens
 
     [!INCLUDE [relay-python-helper-functions](relay-python-helper-functions.md)]
 
-### Write some code to send messages
+### Write some code to receive messages
 
 1. Ensure your dependency `config.json` and `relaylib.py` are available in your path 
-
-
 2. Here's what your `listener.py` file should look like:
 
     ```python
