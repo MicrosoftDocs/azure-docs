@@ -169,7 +169,6 @@ The following table provides detailed capabilities mapped to the roles. At a hig
 | - Show the reason why a participant left a call | ✔️ | ✔️ | ✔️ |
 | - Start call captions | ✔️ | ✔️ | ✔️ |
 | - Change captions language | ✔️ | ✔️ | ❌ |
-| - End meeting for all participants | ✔️ | ❌ | ❌ |
 | - Invite to join a Virtual Room participant to a call | ✔️ | ❌ | ❌ |
 | **Screen sharing** | | |
 | - Share screen | ✔️ *  | ❌ | ❌ |
