@@ -21,6 +21,8 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 
 |Azure Synapse Component|Status|Issue|
 |:---------|:---------|:---------|
+|Azure Synapse dedicated SQL pool|[Data Factory copy command fails with error "The request could not be performed because of an I/O device error"](#data-factory-copy-command-fails-with-error-the-request-could-not-be-performed-because-of-an-io-device-error)|Has workaround|
+|Azure Synapse dedicated SQL pool|[COPY INTO statement fails with error “An internal DMS error occurred that caused this operation to fail.”  when managed identity is used](#copy-into-statement-fails-with-error-an-internal-dms-error-occurred-that-caused-this-operation-to-fail--when-managed-identity-is-used)|Has workaround|
 |Azure Synapse dedicated SQL pool|[Customers are unable to monitor their usage of dedicated SQL pool by using metrics](#customers-are-unable-to-monitor-their-usage-of-dedicated-sql-pool-by-using-metrics)|Has workaround|
 |Azure Synapse dedicated SQL pool|[Query failure when ingesting a parquet file into a table with AUTO_CREATE_TABLE='ON'](#query-failure-when-ingesting-a-parquet-file-into-a-table-with-auto_create_tableon)|Has workaround|
 |Azure Synapse dedicated SQL pool|[Queries failing with Data Exfiltration Error](#queries-failing-with-data-exfiltration-error)|Has workaround|
@@ -46,7 +48,7 @@ Azure Data Factory pipelines use the COPY INTO statement to ingest data at scale
 
 **Workaround**: Impacted customers may need to disable file split in Azure Data Factory.
 
-### COPY INTO statement fails with error “An internal DMS error occurred that caused this operation to fail.”  when managed identity is used.
+### COPY INTO statement fails with error “An internal DMS error occurred that caused this operation to fail.”  when managed identity is used
 
 when using COPY INTO command with managed identity, the statement can fail after a long-running query with error message “An internal DMS error occurred that caused this operation to fail”.
 
