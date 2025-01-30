@@ -25,7 +25,7 @@ You should understand the [requirements and considerations for application volum
 
 ## Register the feature  
 
-Azure NetApp Files application volume group for Oracle is currently in preview. Before using this feature for the first time, you need to register it. 
+Before using Azure NetApp Files application volume group for Oracle for the first time, you need to register it. 
 
 1. Register the feature: 
 
