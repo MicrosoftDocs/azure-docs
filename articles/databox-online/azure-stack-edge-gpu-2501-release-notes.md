@@ -48,7 +48,7 @@ You can update to the latest version using the following update paths:
 
 The 2501 release has the following new features and enhancements:
 
-- Managed service identity (MSI) is used instead of access keys to tier data from an Azure Stack Edge device to Azure cloud storage.
+- Managed service identity (MSI) is used instead of access keys to tier data from an Azure Stack Edge device to Azure cloud storage. No new user action is required as a result of this change. 
 
 <!--!## Issues fixed in this release
 ==previous==
