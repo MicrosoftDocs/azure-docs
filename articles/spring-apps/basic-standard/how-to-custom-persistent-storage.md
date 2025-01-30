@@ -187,11 +187,11 @@ This section addresses frequently asked questions about using your own persisten
 
 - If I have built-in persistent storage enabled, and then I enabled my own storage as extra persistent storage, is my data migrated into my Azure Storage account?
 
-   No. But we're going to provide a document to help you do the migration yourself soon.
+   *No. But we're going to provide a document to help you do the migration yourself soon.*
 
 - What are the reserved mount paths?
 
-  Azure Spring Apps reserves the following mount paths:
+  *Azure Spring Apps reserves the following mount paths:*
 
   - **/tmp**
   - **/persistent**
