@@ -92,7 +92,7 @@ Refer to the steps and code below to connect to Azure OpenAI Service using a con
 Refer to the steps and code below to connect to Azure OpenAI Service using a service principaL.
 [!INCLUDE [code sample for azure openai service](./includes/code-openai-microsoft-entra-id.md)]
 
-# Related content
+### Related content
 
 * [Connect to Azure OpenAI Service in AKS using Workload Identity](./tutorial-python-aks-openai-workload-identity.md)
 * [Connect to an Azure AI multi-service resource](./how-to-integrate-cognitive-services.md)
