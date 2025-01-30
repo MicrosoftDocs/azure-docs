@@ -1,6 +1,6 @@
 ---
-title: What are Azure availability zones?
-description: Learn about availability zones and how to use them to design resilient solutions.
+title: What's new in Azure Reliability documentation
+description: Learn about what's new in Azure reliability documentation
 ms.service: azure
 ms.subservice: azure-availability-zones
 ms.topic: conceptual
