@@ -49,8 +49,8 @@ After the role is assigned, the assignee can access the Spring Cloud Config Serv
 
 1. Compose the endpoint. We support the default endpoints of the Spring Cloud Config Server and Spring Cloud Service Registry managed by Azure Spring Apps.
 
-    * *'https://SERVICE_NAME.svc.azuremicroservices.io/eureka/{path}'*
-    * *'https://SERVICE_NAME.svc.azuremicroservices.io/config/{path}'*
+    * `https://SERVICE_NAME.svc.azuremicroservices.io/eureka/<path>`
+    * `https://SERVICE_NAME.svc.azuremicroservices.io/config/<path>`
 
     >[!NOTE]
     > If you're using Microsoft Azure operated by 21Vianet, replace `*.azuremicroservices.io` with `*.microservices.azure.cn`. For more information, see the section [Check endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure) in the [Microsoft Azure operated by 21Vianet developer guide](/azure/china/resources-developer-guide).
