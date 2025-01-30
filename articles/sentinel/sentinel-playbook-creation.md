@@ -50,15 +50,15 @@ In the Code view tab of the Azure Logic Apps editor, you can access the JSON ARM
 1. Select a location on your local drive to save the sanitized ARM Template as azuredeploy.json. The tool converts Microsoft Sentinel connections to Microsoft Software Installer (MSI) during export. For more information, see this demonstration video [Export your SOAR playbooks with ease | Microsoft Sentinel in the Field #7 - YouTube](https://www.youtube.com/watch?v=scTtVHVzrQw)
 1. Update the metadata section of the azuredeploy.json file with your playbook's specific details
 
-:::image type="content" source="media/sentinel-playbook-creation/playbook-update-metadata.png" alt-text="Screenshot of playbook metadata that needs to be updated."  lightbox="media/sentinel-playbook-creation/playbook-update-metadata.png" :::   
+   :::image type="content" source="media/sentinel-playbook-creation/playbook-update-metadata.png" alt-text="Screenshot of playbook metadata that needs to be updated."  lightbox="media/sentinel-playbook-creation/playbook-update-metadata.png" :::   
 
 5. It's recommended to use managed service identity rather than user-assigned identity for connecting Azure services (such as Microsoft Sentinel, Key Vault, and Storage Account) with playbooks. Update the authentication type under connectionProperties to "ManagedServiceIdentity".
 
-:::image type="content" source="media/sentinel-playbook-creation/sentinel-playbook-identity.png" alt-text="Screenshot of playbook identity updates."  lightbox="media/sentinel-playbook-creation/sentinel-playbook-identity.png" :::   
+   :::image type="content" source="media/sentinel-playbook-creation/sentinel-playbook-identity.png" alt-text="Screenshot of playbook identity updates."  lightbox="media/sentinel-playbook-creation/sentinel-playbook-identity.png" :::   
 
 6. Update "Microsoft.Web/connections" resources 
  
-:::image type="content" source="media/sentinel-playbook-creation/sentinel-playbook-web-connections.png" alt-text="Screenshot of playbook web connections metadata."  lightbox="media/sentinel-playbook-creation/sentinel-playbook-web-connections.png" :::   
+   :::image type="content" source="media/sentinel-playbook-creation/sentinel-playbook-web-connections.png" alt-text="Screenshot of playbook web connections metadata."  lightbox="media/sentinel-playbook-creation/sentinel-playbook-web-connections.png" :::   
 
 For more information, see https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/ThreatXCloud/playbooks/ThreatXplaybooks/ThreatX-BlockIP-URL/azuredeploy.json
 
