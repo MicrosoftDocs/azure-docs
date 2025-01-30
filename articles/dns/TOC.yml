@@ -119,10 +119,14 @@
       href: private-resolver-reliability.md
 - name: How-to guides
   items:
-  - name: Security policy
+  - name: Monitor and manage DNS traffic
     items:
-    - name: Use DNS security policy
+    - name: Secure and view DNS traffic
       href: dns-traffic-log-how-to.md
+    - name: Monitor Azure DNS
+      href: monitor-dns.md
+    - name: Azure DNS Monitoring data reference
+      href: monitor-dns-reference.md
   - name: Public DNS
     items:
     - name: Alias records for load balanced web apps
@@ -195,10 +199,6 @@
     items:
     - name: Resolve Azure and on-premises domains
       href: private-resolver-hybrid-dns.md
-  - name: Monitor Azure DNS
-    href: monitor-dns.md
-  - name: Azure DNS Monitoring data reference
-    href: monitor-dns-reference.md
   - name: Troubleshoot
     items:
     - name: Troubleshooting guide
