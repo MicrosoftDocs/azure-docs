@@ -6,7 +6,7 @@ ms.service: azure-digital-twins
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
-ms.date: 09/06/2022
+ms.date: 01/27/2025
 ---
 
 # Troubleshoot Azure Digital Twins failed service request: Error 403 (Forbidden)
@@ -25,7 +25,7 @@ Most often, receiving this error in Azure Digital Twins indicates that your Azur
 
 ### Cause #2
 
-If you're using a client app to communicate with Azure Digital Twins that's authenticating with an [app registration](./how-to-create-app-registration.md), this error may happen because your app registration doesn't have permissions set up for the Azure Digital Twins service.
+If you're communicating with Azure Digital Twins through a client app that's authenticating with an [app registration](./how-to-create-app-registration.md), this error may happen because your app registration doesn't have permissions set up for the Azure Digital Twins service.
 
 The app registration must have access permissions configured for the Azure Digital Twins APIs. Then, when your client app authenticates against the app registration, it will be granted the permissions that the app registration has configured.
 
@@ -36,7 +36,7 @@ The app registration must have access permissions configured for the Azure Digit
 The first solution is to verify that your Azure user has the Azure Digital Twins Data Owner role on the instance you're trying to manage. If you don't have this role, set it up.
 
 This role is different from...
-* the former name for this role during preview, Azure Digital Twins Owner (Preview). In this case, the role is the same, but the name has changed.
+* the former name for this role during preview, *Azure Digital Twins Owner (Preview)*. In this case, the role is the same, but the name has changed.
 * the Owner role on the entire Azure subscription. Azure Digital Twins Data Owner is a role within Azure Digital Twins and is scoped to this individual Azure Digital Twins instance.
 * the Owner role in Azure Digital Twins. These are two distinct Azure Digital Twins management roles, and Azure Digital Twins Data Owner is the role that should be used for management.
 
@@ -72,7 +72,7 @@ You should see the app registration you created in the list. Select it to open u
 
 :::image type="content" source="media/troubleshoot-error-403-digital-twins/app-registrations.png" alt-text="Screenshot of the app registrations page in the Azure portal.":::
 
-First, verify that the Azure Digital Twins permissions settings were properly set on the registration: Select **Manifest** from the menu bar to view the app registration's manifest code. Scroll to the bottom of the code window and look for these fields under `requiredResourceAccess`. The values should match the ones in the screenshot below:
+First, verify that the Azure Digital Twins permissions settings were properly set on the registration: Select **Manifest** from the menu bar to view the app registration's manifest code. Scroll to the bottom of the code window and look for these fields under `requiredResourceAccess`. The values should match the ones in the screenshot below (they represent the resource ID for the Azure Digital Twins service endpoint and the permission ID for the Read.Write delegated permission in Azure Digital Twins).
 
 :::image type="content" source="media/troubleshoot-error-403-digital-twins/verify-manifest.png" alt-text="Screenshot of the manifest for the Microsoft Entra app registration in the Azure portal.":::
 

@@ -9,10 +9,10 @@ ms.service: service-connector
 ms.custom: devx-track-python, build-2024, devx-track-azurecli
 ms.collection: ce-skilling-ai-copilot
 ms.topic: tutorial
-ms.date: 05/07/2024
+ms.date: 01/28/2025
 ---
 
-# Tutorial: Connect to Azure OpenAI Service in AKS using Workload Identity (preview)
+# Tutorial: Connect to Azure OpenAI Service in AKS using Workload Identity
 
 In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) cluster, which talks to Azure OpenAI Service using workload identity and Service Connector. In this tutorial, you complete the following tasks:
 
@@ -117,7 +117,7 @@ You start this tutorial by creating several Azure resources.
         --name MyIdentity
     ```
 
-## Create a service connection in AKS with Service Connector (preview)
+## Create a service connection in AKS with Service Connector
 
 Create a service connection between an AKS cluster and Azure OpenAI Service in the Azure portal or the Azure CLI.
 
@@ -148,17 +148,24 @@ Once the connection has been created, you can view its details in the **Service 
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the Azure CLI command to create a service connection to the Azure OpenAI service, providing the following information:
-
-* **Source compute service resource group name:** the resource group name of the AKS cluster.
-* **AKS cluster name:** the name of your AKS cluster that connects to the target service.
-* **Target service resource group name:** the resource group name of the Azure OpenAI service.
-* **OpenAI service name:** the Azure OpenAI service that is connected.
-* **User-assigned identity resource ID:** the resource ID of the user-assigned identity used to create the workload identity.
+Create a service connection in AKS by running the [az aks connection create](/cli/azure/aks/connection/create#az-aks-connection-create-cognitiveservices) command in the Azure CLI. 
 
 ```azurecli
 az aks connection create cognitiveservices \
    --workload-identity <user-identity-resource-id>
+```
+
+When using the above command, Service Connector prompts you to specify the AKS resource group, AKS cluster name, target service resource group, cognitive service account name, and user-assigned identity resource ID step by step.
+
+Alternatively, you can provide the complete command directly:
+
+```azurecli
+az aks connection create cognitiveservices \
+   --workload-identity <user-identity-resource-id> \
+   --resource-group <aks-cluster-resource-group> \
+   --name <aks-cluster-name> \
+   --target-resource-group <target-cognitive-services-resource-group> \
+   --account <target-cognitive-services-account>
 ```
 
 ---

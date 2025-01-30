@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 05/09/2024
 ms.assetid: ecc107c0-311c-42d0-a094-654d7ee30443
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy23
 ---
 

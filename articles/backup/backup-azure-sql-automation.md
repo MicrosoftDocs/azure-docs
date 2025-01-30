@@ -6,8 +6,8 @@ ms.date: 07/30/2024
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1 
 ms.custom: devx-track-azurepowershell, engagement-fy24
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up and restore SQL databases in Azure VMs with PowerShell

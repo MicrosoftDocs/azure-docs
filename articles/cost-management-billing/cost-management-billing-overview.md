@@ -5,7 +5,7 @@ description: You use Billing features to manage billing accounts, invoices, and 
 author: bandersmsft
 ms.author: banders
 ms.reviewer: micfaln
-ms.date: 02/28/2024
+ms.date: 01/22/2025
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
