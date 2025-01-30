@@ -1,21 +1,21 @@
 ---
 title: Create Parameters Files for Bicep Deployment
-description: Create parameters file for passing in values when deploying a Bicep file.
+description: Create parameters files to pass in values when deploying a Bicep file.
 ms.topic: how-to
 ms.date: 01/10/2025
 ms.custom: devx-track-bicep
 ---
 
-# Create parameters files for Bicep deployment
+# Create a parameters file for Bicep deployment
 
-Rather than passing parameters as inline values in your script, you can use a Bicep parameters file with the `.bicepparam` file extension or a JSON parameters file that contains the parameter values. This article shows how to create parameters files.
+This article shows you how to create a parameters file, which you can use instead of passing parameters as inline values in your script. You can use either a Bicep parameters file with the `.bicepparam` file extension or a JSON parameters file that contains the parameter value.
 
 > [!NOTE]
-> The Bicep parameters file is only supported in [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.18.4 or later, [Azure CLI](/cli/azure/install-azure-cli) version 2.47.0 or later, and [Azure PowerShell](/powershell/azure/install-azure-powershell) version 9.7.1 or later.
+> Bicep parameters files are supported only in [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.18.4 or later, [Azure CLI](/cli/azure/install-azure-cli) version 2.47.0 or later, and [Azure PowerShell](/powershell/azure/install-azure-powershell) version 9.7.1 or later.
 
-A single Bicep file can have multiple Bicep parameters files associated with it. However, each Bicep parameters file is intended for one particular Bicep file. This relationship is established with the [using statement](./bicep-using.md) within the Bicep parameters file.
+A single Bicep file can have multiple Bicep parameters files associated with it. However, each Bicep parameters file is associated with only one particular Bicep file. You can establish this relationship by applying the `using` statement within the Bicep parameters file. See [Using statement](./bicep-using.md) for more information.
 
-You can compile Bicep parameters files into JSON parameters files to deploy with a Bicep file. See [build-params](./bicep-cli.md#build-params) for more information. You can also decompile a JSON parameters file into a Bicep parameters file. See [decompile-params](./bicep-cli.md#decompile-params) to learn more.
+You can compile Bicep parameters files into JSON parameters files that you can deploy using a Bicep file. See [build-params](./bicep-cli.md#build-params) for more information. You can also decompile a JSON parameters file into a Bicep parameters file. See [decompile-params](./bicep-cli.md#decompile-params) to learn more.
 
 ## Parameters file
 
@@ -30,7 +30,7 @@ param <first-parameter-name> = <first-value>
 param <second-parameter-name> = <second-value>
 ```
 
-You can use the [using statement](./bicep-using.md) with a Bicep file, JSON Azure Resource Manager templates, Bicep modules, and template specs. For example:
+You can apply the `using` statement by using a Bicep file, JSON Azure Resource Manager templates, Bicep modules, and template specs. See the following example:
 
 ```bicep
 using './main.bicep'
@@ -59,7 +59,7 @@ using 'ts:00000000-0000-0000-0000-000000000000/myResourceGroup/storageSpec:1.0'
 
 For more information, see the [using statement](./bicep-using.md).
 
-You can use expressions with the default value. For example:
+You can use expressions with the default value. See the following example:
 
 ```bicep
 using 'main.bicep'
@@ -68,7 +68,7 @@ param storageName = toLower('MyStorageAccount')
 param intValue = 2 + 2
 ```
 
-You can reference environment variables as parameter values. For example:
+You can reference environment variables as parameter values. See the following example:
 
 ```bicep
 using './main.bicep'
@@ -76,7 +76,7 @@ using './main.bicep'
 param intFromEnvironmentVariables = int(readEnvironmentVariable('intEnvVariableName'))
 ```
 
-You can define and use variables. [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.21.X or later is required for using variables in `.bicepparam` files. Here are some examples:
+You can define and use variables. [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.21.X or later is required to use variables in `.bicepparam` files. See the following examples:
 
 ```bicep
 using './main.bicep'
@@ -125,13 +125,13 @@ param environmentSettings = {
 ---
 
 > [!NOTE]
->A parameters file saves parameter values as plain text. For >security reasons, this approach isn't recommended for sensitive >values such as passwords.
->
->If you need to pass a parameter with a sensitive value, you should keep the value in a key vault. Instead of adding a sensitive value to your parameters file, use the [`getSecret` function](bicep-functions-resource.md#getsecret) to retrieve it. For more information, see [Use Azure Key Vault to pass secure parameter value during Bicep deployment](key-vault-parameter.md).
+>A parameters file saves parameter values as plain text. For security reasons, we don't recommend using this approach with sensitive values such as passwords.
+
+If you need to pass a parameter with a sensitive value, you should keep the value in a key vault. Instead of adding a sensitive value to your parameters file, use the [`getSecret` function](bicep-functions-resource.md#getsecret) to retrieve it. For more information, see [Use Azure Key Vault to pass secure parameter value during Bicep deployment](key-vault-parameter.md).
 
 ## Parameter type formats
 
-The following example shows the formats of different parameter types: string, integer, boolean, array, and object.
+The following example shows the formats of various parameter types: string, integer, Boolean, array, and object.
 
 ### [Bicep parameters file](#tab/Bicep)
 
@@ -191,15 +191,15 @@ Use Bicep syntax to declare [objects](./data-types.md#objects) and [arrays](./da
 
 ### [Bicep parameters file](#tab/Bicep)
 
-Bicep parameters file has the file extension of `.bicepparam`.
+The file extension for a Bicep parameters file is `.bicepparam`.
 
-To deploy to different environments, you create more than one parameters file. When you name multiple parameters files, label their use as development and production. For example, use _main.dev.bicepparam_ for development and _main.prod.bicepparam_ for production to deploy resources.
+In order to deploy to multiple environments, you need to create more than one parameters file.  When you use multiple parameters files, label them according to their use. For example, to deploy resources, use the label _main.dev.bicepparam_ for development and the label _main.prod.bicepparam_ for production.
 
 ### [JSON parameters file](#tab/JSON)
 
-The general naming convention for a parameters file is to include _parameters_ in the Bicep file name. For example, if your Bicep file is named _azuredeploy.bicep_, then your parameters file is named _azuredeploy.parameters.json_. This naming convention helps you see the connection between the Bicep file and the parameters.
+According to the general naming convention for a parameters file, you should include _parameters_ in the Bicep file name. For example, if your Bicep file is named _azuredeploy.bicep_, then your parameters file is named _azuredeploy.parameters.json_. This naming convention helps you see the connection between the Bicep file and the parameters.
 
-To deploy to different environments, you create more than one parameters file. When you name multiple parameters files, label their use as development and production. For example, use _azuredeploy.parameters-dev.json_ for development and _azuredeploy.parameters-prod.json_ for production to deploy resources.
+In order to deploy to different environments, you need to create more than one parameters file. When you use multiple parameters files, label them according to their use. For example, to deploy resources, use the label _azuredeploy.parameters-dev.json_ for development and the label _azuredeploy.parameters-prod.json_ for production.
 
 ---
 
@@ -220,7 +220,7 @@ param storagePrefix string
 param storageAccountType string = 'Standard_LRS'
 ```
 
-In the parameters file, the first detail to notice is the name of each parameter. The parameter names in your parameters file must match the parameter names in your Bicep file.
+In the parameters file, look for the name of each parameter. The parameter names in your parameters file must match the parameter names in your Bicep file.
 
 ### [Bicep parameters file](#tab/Bicep)
 
@@ -231,13 +231,13 @@ param storagePrefix
 param storageAccountType
 ```
 
-The `using` statement ties the Bicep parameters file to a Bicep file. For more information, see [using statement](./bicep-using.md).
+The `using` statement ties the Bicep parameters file to a Bicep file. For more information, see [Using statement](./bicep-using.md).
 
-After typing the keyword `param` in Visual Studio Code, it prompts you the available parameters and their descriptions from the linked Bicep file:
+When you type the keyword `param` in Visual Studio Code, a prompt will give you the available parameters and their descriptions from the linked Bicep file:
 
 :::image type="content" source="./media/parameter-files/bicep-parameters-file-visual-studio-code-prompt.png" alt-text="Screenshot of the prompt of the available parameters.":::
 
-When hovering over a param name, you can see the parameter data type and description.
+When you hover over a `param` name, you can see the parameter data type and description.
 
 :::image type="content" source="./media/parameter-files/bicep-parameters-file-visual-studio-code-hover.png" alt-text="Screenshot of the parameter data type and description.":::
 
@@ -258,7 +258,7 @@ When hovering over a param name, you can see the parameter data type and descrip
 
 ---
 
-Notice the parameter type. The parameter types in your parameters file must use the same types as your Bicep file. In this example, both parameter types are strings.
+Review the parameter type, because the parameter types in your parameters file must use the same types as your Bicep file. In this example, both parameter types are strings:
 
 ### [Bicep parameters file](#tab/Bicep)
 
@@ -288,7 +288,7 @@ param storageAccountType = ''
 
 ---
 
-Check the Bicep file for parameters with a default value. If a parameter has a default value, you can provide a value in the parameters file, but it isn't required. The parameters file value overrides the Bicep file's default value.
+Check the Bicep file for parameters that include a default value. If a parameter has a default value, you can provide a value in the parameters file, but it isn't required. The parameters file value overrides the Bicep file's default value.
 
 ### [Bicep parameters file](#tab/Bicep)
 
@@ -317,11 +317,11 @@ param storageAccountType = '' // This value is optional. Bicep will use default 
 ```
 
 > [!NOTE]
-> For inline comments, you can use either // or /* ... */. In Visual Studio Code, save parameters files with the `JSONC` file type; otherwise, you'll get an error message that says, "Comments not permitted in JSON."
+> For inline comments, you can use either // or /* ... */. In Visual Studio Code, save parameters files with the `JSONC` file type. If you don't, you'll get an error message that says, "Comments not permitted in JSON."
 
 ---
 
-Check the Bicep file's allowed values and any restrictions such as maximum length. Those values specify the range of values you can provide for a parameter. In this example, `storagePrefix` can have a maximum of 11 characters, and `storageAccountType` must specify an allowed value.
+Check the Bicep file's allowed values to see if there are any restrictions like maximum length. The allowed values specify the range of values you can provide for a parameter. In this example, `storagePrefix` can have a maximum of 11 characters, and `storageAccountType` must specify an allowed value.
 
 ### [Bicep parameters file](#tab/Bicep)
 
@@ -350,13 +350,13 @@ param storageAccountType = 'Standard_ZRS'
 ```
 
 > [!NOTE]
-> Your parameters file can only contain values for parameters that are defined in the Bicep file. If your parameters file contains extra parameters that don't match the Bicep file's parameters, you'll receive an error.
+> Your parameters file can contain only values for parameters that are defined in the Bicep file. You will get an error if your parameters file contains extra parameters that don't match the Bicep file's parameters.
 
 ---
 
 ## Generate parameters file
 
-You can create a parameters file two ways: either with Visual Studio Code or the Bicep CLI. Both tools allow you to use a Bicep file to generate a parameters file. See [Generate parameters file](./visual-studio-code.md#generate-parameters-file-command) for the Visual Studio Code method and [Generate parameters file](./bicep-cli.md#generate-params) for the Bicep CLI method.
+You can create a parameters file two ways: by using either Visual Studio Code or the Bicep CLI. Both tools allow you to use a Bicep file to generate a parameters file. See [Generate parameters file](./visual-studio-code.md#generate-parameters-file-command) for the Visual Studio Code method and [Generate parameters file](./bicep-cli.md#generate-params) for the Bicep CLI method.
 
 ## Build Bicep parameters file
 
@@ -366,7 +366,7 @@ From Bicep CLI, you can build a Bicep parameters file into a JSON parameters fil
 
 ### Azure CLI
 
-From Azure CLI, you can pass a parameters file with your Bicep file deployment.
+You can pass a parameters file from Azure CLI with your Bicep file deployment.
 
 ### [Bicep parameters file](#tab/Bicep)
 
@@ -390,7 +390,7 @@ az deployment group create \
 
 ---
 
-You can use inline parameters and a location parameters file in the same deployment operation. For example:
+You can use inline parameters and a location parameters file in the same deployment operation. See the following example:
 
 ### [Bicep parameters file](#tab/Bicep)
 
@@ -415,11 +415,11 @@ az deployment group create \
 
 ---
 
-For more information, see [Deploy Bicep files with the Azure CLI](./deploy-cli.md#parameters).
+For more information, see [Deploy Bicep files by using the Azure CLI](./deploy-cli.md#parameters).
 
 ### Azure PowerShell
 
-From Azure PowerShell, pass a local parameters file using the `TemplateParameterFile` parameter.
+From Azure PowerShell, pass a local parameters file by using the `TemplateParameterFile` parameter.
 
 ### [Bicep parameters file](#tab/Bicep)
 
@@ -443,7 +443,7 @@ New-AzResourceGroupDeployment `
 
 ---
 
-You can use inline parameters and a location parameters file in the same deployment operation. For example:
+You can use inline parameters and a location parameters file in the same deployment operation. See the following example:
 
 ### [Bicep parameters file](#tab/Bicep)
 
@@ -469,19 +469,19 @@ New-AzResourceGroupDeployment `
 
 ---
 
-For more information, see [Deploy Bicep files with Azure PowerShell](./deploy-powershell.md#parameters). To deploy `.bicep` files, you need Azure PowerShell version 5.6.0 or later.
+For more information, see [Deploy Bicep files by using Azure PowerShell](./deploy-powershell.md#parameters). To deploy `.bicep` files, you need Azure PowerShell version 5.6.0 or later.
 
 ## Parameter precedence
 
-You can use inline parameters and a local parameters file in the same deployment operation. For example, you can specify some values in the local parameters file and add other values inline during deployment. If you provide values for a parameter in both the local parameters file and inline, the inline value takes precedence.
+You can use inline parameters and a local parameters file in the same deployment operation. For example, you can specify certain values in the local parameters file and add other values inline during deployment. If you provide values for a parameter in both the local parameters file and inline, the inline value takes precedence.
 
-While external Bicep parameters files aren't currently supported, it's possible to use an external JSON parameters file by providing the URI to the file. When using an external parameters file, provide all parameter values in the external file since you can't pass other values either inline or from a local file, and all inline parameters are ignored.
+While external Bicep parameters files aren't currently supported, you can use an external JSON parameters file when you provide the URI to the file. When you use an external parameters file, you need to provide all parameter values in the external file. When you use an external file, you can't pass other values inline or from a local file, and all inline parameters are ignored.
 
 ## Parameter name conflicts
 
-If your Bicep file includes a parameter with the same name as one of the parameters in the PowerShell command, PowerShell presents the parameter from your Bicep file with the `FromTemplate` postfix. For example, a parameter named `ResourceGroupName` in your Bicep file conflicts with the `ResourceGroupName` parameter in the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet. You're prompted to provide a value for `ResourceGroupNameFromTemplate`. To avoid this confusion, use parameter names that aren't used for deployment commands.
+If your Bicep file includes a parameter with the same name as one of the parameters in the PowerShell command, PowerShell presents the parameter from your Bicep file with the `FromTemplate` postfix. For example, if a parameter named `ResourceGroupName` in your Bicep file conflicts with the `ResourceGroupName` parameter in the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet, you will be prompted to provide a value for `ResourceGroupNameFromTemplate`. You can avoid this confusion by using parameter names that aren't used for deployment commands.
 
-## Related Content
+## Related content
 
 - For more information about how to define parameters in a Bicep file, see [Parameters in Bicep](./parameters.md).
 - To get sensitive values, see [Use Azure Key Vault to pass secure parameter value during deployment](./key-vault-parameter.md).

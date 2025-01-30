@@ -8,10 +8,10 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 
 # Use Azure Key Vault to pass a secret from a key vault as a parameter during Bicep deployment
 
-Instead of entering a secure value like a password directly into your Bicep file or parameters file, you can retrieve the value from an [Azure Key Vault](/azure/key-vault/general/overview) during a deployment. When a [module](./modules.md) expects a `string` parameter with a `secure:true` modifier, you can use the [`getSecret` function](bicep-functions-resource.md#getsecret) to obtain a key vault secret. The value is never exposed because you only reference its key vault ID.
+This article explains how to pass a secret from a key vault as a parameter during Bicep deployment. Instead of entering a secure value like a password directly into your Bicep file or parameters file, you can retrieve the value from an [Azure Key Vault](/azure/key-vault/general/overview) during a deployment. When a [module](./modules.md) expects a string parameter with a `secure:true` modifier applied, you can use the [`getSecret` function](bicep-functions-resource.md#getsecret) to obtain a key vault secret. The value is never exposed because you reference only its key vault ID.
 
 > [!IMPORTANT]
-> This article focuses on how to pass a sensitive value as a template parameter. When the secret is passed as a parameter, the key vault can exist in a different subscription than the resource group to which you're deploying.
+> This article focuses on how to pass a sensitive value as a template parameter. When the secret is passed as a parameter, the key vault can exist in a different subscription than the resource group you're deploying it to.
 >
 > This article doesn't cover how to set a virtual-machine property to a certificate's URL in a key vault. For a quickstart template of that scenario, see [WinRM on a Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-keyvault-windows).
 
@@ -64,7 +64,7 @@ $secret = Set-AzKeyVaultSecret -VaultName ExampleVault -Name 'ExamplePassword' -
 
 ---
 
-As the owner of the key vault, you automatically have access to create secrets. If the user working with secrets isn't the owner of the key vault, grant access with:
+The owner of the key vault automatically has access to create secrets. If the user who is working with secrets isn't the owner of the key vault, you can grant access with:
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -100,9 +100,9 @@ For more information about creating key vaults and adding secrets, see:
 
 The user who deploys the Bicep file must have the `Microsoft.KeyVault/vaults/deploy/action` permission for the scope of the resource group and key vault. The [Owner](../../role-based-access-control/built-in-roles.md#owner) and [Contributor](../../role-based-access-control/built-in-roles.md#contributor) roles both grant this access. If you created the key vault, you're the owner and have the permission.
 
-The following procedure shows how to create a role with the minimum permission and how to assign the user.
+The following procedure demonstrates how to create a role with the minimum permission and how to assign the user.
 
-1. Create a custom JSON file with a role definition:
+1. Create a custom JSON file by using a role definition:
 
     ```json
     {
@@ -123,7 +123,7 @@ The following procedure shows how to create a role with the minimum permission a
 
     Replace "00000000-0000-0000-0000-000000000000" with the subscription ID.
 
-2. USe the JSON file to create the new role:
+2. Use the JSON file to create the new role:
 
     ### [Azure CLI](#tab/azure-cli)
 
@@ -149,15 +149,15 @@ The following procedure shows how to create a role with the minimum permission a
 
     The samples assign the custom role to the user on the resource-group level.
 
-When using a key vault with the Bicep file for a [Managed Application](../managed-applications/overview.md), you must grant access to the **Appliance Resource Provider** service principal. For more information, see [Access Key Vault secret when deploying Azure Managed Applications](../managed-applications/key-vault-access.md).
+If you use a key vault with a Bicep file for a [managed application](../managed-applications/overview.md), you must grant access to the **Appliance Resource Provider** service principal. For more information, see [Access Key Vault secret when deploying Azure Managed Applications](../managed-applications/key-vault-access.md).
 
-## Retrieve secrets in Bicep file
+## Retrieve secrets in a Bicep file
 
-You can use the [`getSecret` function](./bicep-functions-resource.md#getsecret) in Bicep files to obtain a key vault secret. Note that the `getSecret` function is exclusively applicable to a `Microsoft.KeyVault/vaults` resource. Additionally, it's restricted to usage within the `params` section of a module and can only be used with parameters with the `@secure()` decorator.
+You can use the [`getSecret` function](./bicep-functions-resource.md#getsecret) in a Bicep file to obtain a key vault secret. The `getSecret` function can be used with only a `Microsoft.KeyVault/vaults` resource. Additionally, it can be used within only the `params` section of a module and with only parameters that have the `@secure()` decorator.
 
-Another function called `az.getSecret()` function can be used in Bicep parameters files to retrieve key vault secrets. For more information, see [Retrieve secrets in parameters file](#retrieve-secrets-in-parameters-file).
+You can use another function called `az.getSecret()` in Bicep parameters files to retrieve key vault secrets. For more information, see [Retrieve secrets in parameters file](#retrieve-secrets-in-parameters-file).
 
-Since the `getSecret` function can only be used in the `params` section of a module, create a _sql.bicep_ file in the same directory as the _main.bicep_ file with the following content:
+Since the `getSecret` function can be used in only the `params` section of a module, create a _sql.bicep_ file in the same directory as the _main.bicep_ file with the following content:
 
 ```bicep
 param sqlServerName string
@@ -180,7 +180,7 @@ resource sqlServer 'Microsoft.Sql/servers@2023-08-01-preview' = {
 
 The `adminPassword` parameter has a `@secure()` decorator in the preceding file.
 
-The following Bicep file consumes _sql.bicep_ as a module.  The Bicep file references an existing key vault, calls the `getSecret` function to retrieve the key vault secret, and then passes the value as a parameter to the module:
+The following Bicep file consumes _sql.bicep_ as a module. The Bicep file references an existing key vault, calls the `getSecret` function to retrieve the key vault secret, and then passes the value as a parameter to the module:
 
 ```bicep
 param sqlServerName string
@@ -207,7 +207,7 @@ module sql './sql.bicep' = {
 
 ## Retrieve secrets in parameters file
 
-If you don't want to use a module, you can retrieve key vault secrets in a parameters file. However, the approach varies depending on whether you're using a JSON or Bicep parameters file.
+If you don't want to use a module, you can retrieve key vault secrets in a parameters file. However, the approach is different depending on whether you use a JSON or Bicep parameters file.
 
 The following Bicep file deploys a SQL server that includes an administrator password. While the password parameter is set to a secure string, Bicep doesn't specify the origin of that value:
 
@@ -246,7 +246,7 @@ param adminPassword = az.getSecret('<subscription-id>', '<rg-name>', '<key-vault
 
 ### JSON parameters file
 
-In a JSON parameters file, specify a parameter that matches the name of the parameter in the Bicep file. For the parameter value, reference the secret from the key vault; you do this by passing the resource identifier of the key vault and the name of the secret. In the following parameters file, the key vault secret must already exist, and you provide a static value for its resource ID:
+In a JSON parameters file, specify a parameter that matches the name of the parameter in the Bicep file. For the parameter value, reference the secret from the key vault. Pass the resource identifier of the key vault and the name of the secret. In the following parameters file, the key vault secret must already exist. You need to provide a static value for its resource ID:
 
 ```json
 {
@@ -271,7 +271,7 @@ In a JSON parameters file, specify a parameter that matches the name of the para
 }
 ```
 
-If you need to use a version of the secret other than the current one, include a `secretVersion` property:
+If you need to use a version of the secret other than the current one, include the property `secretVersion`:
 
 ```json
 "secretName": "ExamplePassword",
@@ -280,6 +280,6 @@ If you need to use a version of the secret other than the current one, include a
 
 ## Related content
 
-- For general information about key vaults, see [About Azure Key Vault](/azure/key-vault/general/overview)
-- For complete GitHub examples of how to reference key vault secrets, see [keyvaultexamples](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
+- For general information about key vaults, see [About Azure Key Vault](/azure/key-vault/general/overview).
+- For complete GitHub examples that demonstrate how to reference key vault secrets, see [keyvaultexamples](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 - For a Learn module that covers how to use a key vault to pass a secure value, see [Manage complex cloud deployments by using advanced JSON ARM template features](/training/modules/manage-deployments-advanced-arm-template-features/).
