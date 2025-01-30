@@ -33,16 +33,16 @@ If you don't already have a certificate, you can create a sample certificate usi
   ```powershell
   .\step ca init --deployment-type standalone --name MqttAppSamplesCA --dns localhost --address 127.0.0.1:443 --provisioner MqttAppSamplesCAProvisioner
   ```
-1. Using the CA files generated to create certificate for the client.
+2. Using the CA files generated to create certificate for the client.
 
   ```powershell
   .\step certificate create client1-authnID client1-authnID.pem client1-authnID.key --ca .step/certs/intermediate_ca.crt --ca-key .step/secrets/intermediate_ca_key --no-password --insecure --not-after 2400h
   ```
-1. To view the thumbprint, run the Step command.
+3. To view the thumbprint, run the Step command.
 
-    ```powershell
-    step certificate fingerprint client1-authn-ID.pem
-    ```
+  ```powershell
+  step certificate fingerprint client1-authn-ID.pem
+  ```
 
 ## Upload the CA certificate to the namespace
 1. In Azure portal, navigate to your Event Grid namespace.
