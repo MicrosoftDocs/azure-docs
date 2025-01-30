@@ -57,7 +57,7 @@
   - name: Use dynamic DNS to register hostnames
     href: virtual-networks-name-resolution-ddns.md
   - name: View and modify hostnames
-    href: virtual-networks-viewing-and-modifying-hostnames.md
+    href: virtual-networks-viewing-and-modifying-hostnames.yml
   - name: Virtual networks and virtual machines in Azure
     href: network-overview.md
 - name: Deploying virtual network
@@ -90,6 +90,59 @@
     href: tutorial-restrict-network-access-to-resources.md
   - name: Route network traffic
     href: tutorial-create-route-table.md
+- name: Managing connectivity
+  items:
+  - name: Accelerated networking
+    items:
+    - name: Create a VM with Accelerated Networking
+      href: create-virtual-machine-accelerated-networking.md
+    - name: Manage accelerated networking
+      href: manage-accelerated-networking.md
+    - name: Linux and FreeBSD VMs
+      href: accelerated-networking-how-it-works.md
+    - name: DPDK
+      href: setup-dpdk.md
+  - name: Add or remove a subnet delegation
+    href: manage-subnet-delegation.md
+  - name: Containers
+    items: 
+    - name: Container networking
+      href: container-networking-overview.md
+    - name: Deploy container networking
+      href: deploy-container-networking.md
+    - name: Deploy container networking for a stand-alone host
+      href: deploy-container-networking-docker-linux.md
+  - name: Create multiple prefixes for a subnet
+    href: how-to-multiple-prefixes-subnet.md
+  - name: Manage a virtual network
+    href: manage-virtual-network.md
+  - name: Integrate services with Private Link
+    href: /azure/private-link/private-link-overview?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+  - name: Peering
+    items:
+    - name: Create peering
+      items:
+      - name: Different subscriptions and tenants
+        href: create-peering-different-subscriptions.md
+      - name: Different subscriptions with SPNs
+        href: create-peering-different-subscriptions-service-principal.md
+      - name: Different deployment model same subscription
+        href: create-peering-different-deployment-models.md
+      - name: Different deployment model and subscription
+        href: create-peering-different-deployment-models-subscriptions.md
+    - name: Manage a virtual network peering
+      href: virtual-network-manage-peering.md
+    - name: Update the address space for a peered virtual network
+      href: update-virtual-network-peering-address-space.md
+    - name: Routing
+      items: 
+      - name: Manage route tables
+        href: manage-route-table.yml
+      - name: Ansible
+        href: /azure/developer/ansible/route-table-configure?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+    - name: Scenarios
+      items:
+      - name: 
 - name: Reference
   items:
   - name: Monitor data reference
