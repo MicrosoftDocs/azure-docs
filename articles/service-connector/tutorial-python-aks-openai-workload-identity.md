@@ -1,20 +1,20 @@
 ---
 title: Connect to Azure OpenAI Service in AKS using workload identity
 titlesuffix: Service Connector
-description: Learn how to connect to Azure OpenAI Service in Azure Kubernetes Service (AKS) using workload identity and Service Connector.
-#customerintent: As a developer, I want to connect my AKS resource to Azure OpenAI Service using a workload identity.
+description: Learn how to connect to Azure OpenAI Service in Azure Kubernetes Service (AKS) using Service Connector.
+#customerintent: As a developer, I want to connect my AKS resource to Azure OpenAI Service.
 author: houk-ms
 ms.author: honc
 ms.service: service-connector
 ms.custom: devx-track-python, build-2024, devx-track-azurecli
 ms.collection: ce-skilling-ai-copilot
 ms.topic: tutorial
-ms.date: 01/28/2025
+ms.date: 01/29/2025
 ---
 
 # Tutorial: Connect to Azure OpenAI Service in AKS using Workload Identity
 
-In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) cluster that communicates with Azure OpenAI Service using workload identity and Service Connector. In this tutorial, you complete the following tasks:
+In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) cluster that communicates with Azure OpenAI Service using Microsoft Entra Workload ID and Service Connector. In this tutorial, you complete the following tasks:
 
 > [!div class="checklist"]
 >
@@ -141,14 +141,14 @@ Refer to the [AKS service connection quickstart](quickstart-portal-aks-connectio
     | Authentication Setting         | Example value       | Description                                                             |
     |--------------------------------|---------------------|-------------------------------------------------------------------------|
     | **Authentication type**        | *Workload Identity* | Service Connector authentication type.                                  |
-    | **Subscription**               | `<MySubscription>`  | The subscription that contains the user assigned managed identity.                         |
+    | **Subscription**               | `<MySubscription>`  | The subscription that contains the user-assigned managed identity.                         |
     | **User assigned managed identity** | `<MyIdentity>`  | A user assigned managed identity is needed to enable workload identity. |
 
-Once the connection has been created, you can view its details in the **Service Connector** pane.
+Once the connection is created, you can view its details in the **Service Connector** pane.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Create a service connection to the Azure OpenAI service in AKS by running the [az aks connection create](/cli/azure/aks/connection/create#az-aks-connection-create-cognitiveservices) command in the Azure CLI. 
+Create a service connection to the Azure OpenAI service in AKS by running the [az aks connection create cognitiveservices](/cli/azure/aks/connection/create#az-aks-connection-create-cognitiveservices) command in the Azure CLI. 
 
 ```azurecli
 az aks connection create cognitiveservices \
