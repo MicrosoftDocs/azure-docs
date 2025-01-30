@@ -21,7 +21,6 @@ DNS servers are configured under Active Directory connections. A primary and sec
 
 :::image type="content" source="media/domain-name-system-concept/edit-settings.png" alt-text="Screenshot of DNS settings." lightbox="media/domain-name-system-concept/edit-settings.png":::
 
-
 ## About DNS servers
 
 Azure NetApp Files requires an Active Directory connection for SMB and NFSv4.1 Kerberos functionality. Active Directory requires DNS for proper functionality. In most cases, Active Directory deployments are installed with DNS servers integrated with the domain controllers. This configuration is a [Microsoft best practice](/windows-server/identity/ad-ds/plan/dns-and-ad-ds) for both ease of use and to ensure all required DNS records are created for domain services.

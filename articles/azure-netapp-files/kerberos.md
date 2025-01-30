@@ -17,7 +17,6 @@ Key Distribution Centers (KDCs) such as Windows Active Directory maintain a data
 
 Azure NetApp Files supports the use of Kerberos to provide in-flight security for both the SMB and NFS protocols.
 
-
 ## Supported encryption types
 
 Azure NetApp Files supports NFS Kerberos with specific encryption types, depending on the operating mode and the version that you use.
@@ -61,7 +60,7 @@ This section defines key terminology that is used when describing Kerberos proce
 | -- | ------ |
 | Key distribution center (KDC)	| The KDC is the authentication server that includes the ticket-granting service (TGS) and the authentication service (AS). The terms KDC, AS, and TGS are used interchangeably. In Microsoft environments, an Active Directory domain controller is a KDC. |
 | Realm (or Kerberos realm) | A realm (or Kerberos realm) can use any ASCII string. The standard is to use the domain name in uppercase; for example, contoso.com becomes the realm CONTOSO.COM. Kerberos realms usually are configured in krb5.conf files on clients and servers. <br></br> Administratively, each principal@REALM must be unique.To avoid a single point of failure, each realm can have multiple KDCs that share the same database (principals and their passwords) and have the same KDC master keys. Microsoft Windows Active Directory does this natively by way of Active Directory replication, which takes place every 15 minutes by default.
-| Principal	| The term principal refers to every entity within a Kerberos database. Users, computers, and services are all assigned principals for Kerberos authentication. Every principal must be unique within the Kerberos database and is defined by its distinguished name. A principal can be a user principal name (UPN) or a service principal name (SPN). <br></br> A principal name has three parts: <ul><li>**Primary** - The primary part can be a user or a service such as the “nfs” service. It can also be the special service “host,” which signifies that this service principal is set up to provide multiple various network services.</li><li>**Instance** - This part is optional in the case of a user. A user can have more than one principal, but each principal must be unique in the KDC. For example, Fred might have a principal that is for everyday use (fred@contoso.com) and a principal that allows privileged use such as a sysadmin account (admin-fred@contoso.com). The instance is required for service principals and designates the fully qualified domain name (FQDN) of the host that provides the service.</li><li>**Realm** - A Kerberos realm is the set of Kerberos principals that are registered within a Kerberos server. By convention, the realm name is usually the same as the DNS name, but it is converted to uppercase letters. Uppercase letters are not obligatory, but the convention provides easy distinction between the DNS name and the realm name.</li></ul> <!-- image --> |
+| Principal	| The term principal refers to every entity within a Kerberos database. Users, computers, and services are all assigned principals for Kerberos authentication. Every principal must be unique within the Kerberos database and is defined by its distinguished name. A principal can be a user principal name (UPN) or a service principal name (SPN). <br></br> A principal name has three parts: <ul><li>**Primary** - The primary part can be a user or a service such as the “nfs” service. It can also be the special service “host,” which signifies that this service principal is set up to provide multiple various network services.</li><li>**Instance** - This part is optional in the case of a user. A user can have more than one principal, but each principal must be unique in the KDC. For example, Fred might have a principal that is for everyday use (fred@contoso.com) and a principal that allows privileged use such as a sysadmin account (admin-fred@contoso.com). The instance is required for service principals and designates the fully qualified domain name (FQDN) of the host that provides the service.</li><li>**Realm** - A Kerberos realm is the set of Kerberos principals that are registered within a Kerberos server. By convention, the realm name is usually the same as the DNS name, but it's converted to uppercase letters. Uppercase letters aren't obligatory, but the convention provides easy distinction between the DNS name and the realm name.</li></ul> <!-- image --> |
 | Tickets | A ticket is a temporary set of credentials that verifies the identity of a principal for a service and contains the session key. A ticket can be a service, an application ticket, or a ticket-granting ticket (TGT). Tickets are exchanged between client, server and KDC for Kerberos authentication. |
 | Secret keys | Kerberos uses a symmetric key system in which the secret key is used for both encryption and decryption. The secret key is generated from the principal’s Kerberos password with a one-way hash function. The KDC stores the password for each principal and can thus generate the principal’s secret key. For users who request a Kerberos service, the secret key is typically derived from a password presented to the kinit program. Service and daemon principals typically don’t use a password; instead, the result of the one-way hash function is stored in a keytab. |
 | Keytab | A keytab contains a list of principals and their secret keys. The secret keys in a keytab are often created by using a random password and are used mostly for service or daemon principals. |
@@ -101,7 +100,7 @@ Kerberos authentication is highly dependent on external services for proper func
 - Password services/single sign on
 - Identity services (such as LDAP)
 
-When using native Microsoft Active Directory (the only KDC type that Azure NetApp Files currently supports), then most of the external dependencies for Kerberos in Azure NetApp Files are covered, such as DNS, KDC, and password services. In some cases, required services may be hosted outside of the Active Directory domain (such as DNS). In those cases, it's important to ensure the required services are configured properly. 
+When using native Microsoft Active Directory (the only KDC type that Azure NetApp Files currently supports), then most of the external dependencies for Kerberos in Azure NetApp Files are covered, such as DNS, KDC, and password services. In some cases, required services may be hosted outside of the Active Directory domain (such as [DNS](domain-name-system-concept.md)). In those cases, it's important to ensure the required services are configured properly. 
 
 Azure NetApp Files has specific dependencies for properly functioning NFS Kerberos. Continue reading for more information. 
 
@@ -119,30 +118,30 @@ For more information, see [Maximum tolerance for computer clock synchronization]
 
 ### Domain Name Systems (DNS)
 
-Domain Name Systems (DNS) are mandatory for Kerberos as a security feature. Hostname resolution is used to formulate the Kerberos service principals used for authentication. In this process, forward lookups for hostnames (A/AAAA records) are used to connect to shares that leverage Kerberos authentication. That forward lookup is then used to formulate the Service Principal Name (SPN) used in the Kerberos authentication request. If an existing SPN cannot be found in the KDC, then Kerberos authentication will fail. 
+Domain Name Systems (DNS) are mandatory for Kerberos as a security feature. Hostname resolution is used to formulate the Kerberos service principals used for authentication. In this process, forward lookups for hostnames (A/AAAA records) are used to connect to shares that leverage Kerberos authentication. That forward lookup is then used to formulate the Service Principal Name (SPN) used in the Kerberos authentication request. If an existing SPN cannot be found in the KDC, then Kerberos authentication fails. 
 
-In Windows SMB environments, a backup authentication method may be tried (such as NTLM). However, in many cases, NTLM is disabled for security reasons, which would cause an access failure to the share when Kerberos authentication fails. The Windows event viewer will often log the root cause of the failures (such as duplicate/missing SPNs, DNS lookup failures, NTLM failures, etc).
+In Windows SMB environments, a backup authentication method may be tried (such as NTLM). However, in many cases, NTLM is disabled for security reasons, which would cause an access failure to the share when Kerberos authentication fails. The Windows event viewer often logs the root cause of the failures (such as duplicate/missing SPNs, DNS lookup failures, NTLM failures, etc.).
 
 In addition to SPN resolution, DNS is heavily utilized to resolve hostnames and IP addresses for domain services, such as LDAP, Kerberos KDCs, etc. via SRV records. For more detailed information on DNS in Azure NetApp Files (including what SRV records are required), see [About DNS in Azure NetApp Files](domain-name-system-concept.md).
 
 >[!NOTE]
 >If an IP address is used for Kerberos access, the behavior depends on the NAS protocol (NFS or SMB) in use. For more information, see [IP addresses for access with Kerberos](#ip-addresses-for-access-with-kerberos).
 
-### Lightweight directory access protocol 
+### LDAP
 
 The [Lightweight Directory Access Protocol (LDAP)](/previous-versions/windows/desktop/ldap/lightweight-directory-access-protocol-ldap-api) leverages backend identity databases to provide a unified name service source for NAS clients and servers so that all participating devices agree on user authenticity, group memberships and numeric IDs, which are then used for file permissions.
 
-For Kerberos, user and service principals are stored with the entries in the LDAP databases as attributes on the principal accounts. Windows Active Directory supports this by default. In some cases (such as when creating aliases or service principals), users and computers require the addition or modification of service principal names. You can satisfy this requirement using the Active Directory Users and Computers Microsoft Management Console (MMC) or with PowerShell. For more information on managing service principal names, see [Managing service principal names](LINK).
+For Kerberos, user and service principals are stored with the entries in the LDAP databases as attributes on the principal accounts. Windows Active Directory supports this by default. In some cases (such as when creating aliases or service principals), users and computers require the addition or modification of service principal names. You can satisfy this requirement using the Active Directory Users and Computers Microsoft Management Console (MMC) or with PowerShell. For more information on managing service principal names, see [Managing service principal names](#nfs-kerberos-spn-creation-workflow).
 
-In addition to service principal names and numeric IDs for Kerberos authentication, LDAP can also be used for UNIX user and group identities, which are used for name mapping of identities in Azure NetApp Files, as well as initial authentication for NFS Kerberos mounts via an SPN -> UNIX user name mapping. For more details, see [How NFS Kerberos works in Azure NetApp Files](LINK) and [LDAP’s role with Kerberos in Azure NetApp Files](LINK).
+In addition to service principal names and numeric IDs for Kerberos authentication, LDAP can also be used for UNIX user and group identities, which are used for name mapping of identities in Azure NetApp Files, as well as initial authentication for NFS Kerberos mounts via an SPN -> UNIX user name mapping. For more details, see [How NFS Kerberos works in Azure NetApp Files](@how-nfs-kerberos-works-in-azure-netapp-files) and [LDAP's role with Kerberos in Azure NetApp Files](#ldas-role-with-kerberos-in-azure-netapp-files).
 
 ## How SMB Kerberos works in Azure NetApp Files
 
-SMB Kerberos works separately from NFS Kerberos services, as the machine accounts created for each protocol cannot share keytabs because of the potential for changes to the Key Version Number ([kvno](https://web.mit.edu/kerberos/krb5-latest/doc/user/user_commands/kvno.html)) in one keytab impacting the other service. As a result of this, as well as natural differences in the NAS protocols, the workflows for SMB services for Kerberos and NFS for Kerberos will differ in functionality in some areas.
+SMB Kerberos works separately from NFS Kerberos services, as the machine accounts created for each protocol cannot share keytabs because of the potential for changes to the Key Version Number ([kvno](https://web.mit.edu/kerberos/krb5-latest/doc/user/user_commands/kvno.html)) in one keytab impacting the other service. As a result of this, as well as natural differences in the NAS protocols, the workflows for SMB services for Kerberos and NFS for Kerberos differ in functionality in some areas.
 
 ### Initial configuration of SMB services
 
-SMB services in Azure NetApp Files are initially configured by setting up an Active Directory connection, which defines several critical pieces for interaction with domain services, including:
+SMB services in Azure NetApp Files are initially configured by setting up an [Active Directory connection](create-active-directory-connections), which defines several critical pieces for interaction with domain services, including:
 
 - Primary DNS server (required)
 - Secondary DNS
@@ -156,8 +155,6 @@ SMB services in Azure NetApp Files are initially configured by setting up an Act
 - SMB encryption to DC
 - Privileged users
 - Username/password credentials of user with OU permissions
-
-<!-- AD IMAGE -->
 
 >[!NOTE]
 >Only one Active Directory (AD) connection is allowed per account. Once the AD connection is created, any new Azure NetApp Files SMB volume uses the AD connection configuration.
@@ -184,31 +181,32 @@ The SMB machine account created for the Azure NetApp Files SMB (or dual protocol
 For instance, if you've [configured your AD connections](create-active-directory-connections.md) to use the SMB server prefix "AZURE," the SMB machine account that Azure NetApp Files creates resembles "AZURE-7806." That same name is used in the UNC path for the SMB share (for example, \\AZURE-7806) and is the name that dynamic DNS services use to create the A/AAAA record. 
 
 >[!NOTE]
->Because a name like “AZURE-7806” can be hard to remember, it's beneficial to create a CNAME record as a DNS alias for Azure NetApp Files volumes. For more information, see [Creating SMB server aliases](LINK).
+>Because a name like “AZURE-7806” can be hard to remember, it's beneficial to create a CNAME record as a DNS alias for Azure NetApp Files volumes. For more information, see [Creating SMB server aliases](#creating-smb-server-aliases).
 
-<!-- Multiple machine accounts/DNS entries in Azure NetApp Files image -->
+:::image type="content" source="media/kerberos/multiple-dns-smb.png" alt-text="Diagram of multiple machine accounts/DNS entries in Azure NetApp Files." lightbox="media/kerberos/multiple-dns-smb.png":::
 
 In some cases, when creating multiple SMB and/or dual protocol volumes, the configuration can end up with multiple disparate SMB machine accounts and DNS names.
 
-If a single namespace for user access across the volumes is desired, this can present a challenge in configuration, as a single CNAME alias can only point to a single A/AAAA host record, while using multiple identical A/AAAA record aliases can result in unpredictability of data access in accessing volumes across different SMB machine accounts, as there is no guarantee that the endpoint the client selects in the DNS lookup will contain the expected volume due to the round-robin nature of DNS record selection in those configurations. 
+If a single namespace for user access across the volumes is desired, this can present a challenge in configuration, as a single CNAME alias can only point to a single A/AAAA host record, while using multiple identical A/AAAA record aliases can result in unpredictability of data access in accessing volumes across different SMB machine accounts, as there's no guarantee that the endpoint the client selects in the DNS lookup contains the expected volume due to the round-robin nature of DNS record selection in those configurations. 
 
 To address this limitation, [Azure NetApp Files volumes can participate as targets](use-dfs-n-and-dfs-root-consolidation-with-azure-netapp-files.md) in a [Microsoft Distributed File System (DFS)](/windows/win32/dfs/distributed-file-system-dfs-functions) configuration, which can provide a way to associate multiple SMB volumes with a single namespace entry point.
 
-<!-- AD diagram -->
+:::image type="content" source="media/kerberos/distributed-file-system.png" alt-text="Diagram of a distributed file system in Azure NetApp Files." lightbox="media/kerberos/distributed-file-system.png":::
+
 
 ### SMB Kerberos SPN creation workflow
 
 The following diagram illustrates how an SMB Kerberos SPN is created when an Azure NetApp Files SMB or dual protocol volume is created. SMB SPNs are associated with SMB machine account objects in the domain. The SPN can be viewed and managed via the machine account properties using the attribute editor in the Advanced view.
 
-<!-- Azure SMB -->
+:::image type="content" source="media/kerberos/azure-smb-properties.png" alt-text="Screenshot of Azure-SMB properties." lightbox="media/kerberos/azure-smb-properties.png":::
 
 You can also view and manage properties with the [`setspn` command](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc731241(v=ws.11)). 
 
-<!-- setspn command -->
+:::image type="content" source="media/kerberos/set-spn-example.png" alt-text="Screenshot of `setspn` command.":::
 
 This process follows the same steps as when a regular Windows client joins a domain (DNS, LDAP, Kerberos, RPC queries over named pipes). 
 
-<!-- diagram with a lot of bidirectional arrows -->
+:::image type="content" source="media/kerberos/smb-kerberos-machine-account.png" alt-text="Screenshot of Azure-SMB properties." lightbox="media/kerberos/smb-kerberos-machine-account.png":::
 
 In most cases, knowing detailed steps in depth isn't be necessary for day-to-day administration tasks, but is useful in troubleshooting any failures when attempting to create an SMB volume in Azure NetApp Files.
 
@@ -254,21 +252,21 @@ In most cases, knowing detailed steps in depth isn't be necessary for day-to-day
     | operatingSystem | NetApp Release |
     | `dnsHostName` | ANF-XXXX.CONTOSO.COM |
   
-        - If the `addRequest` fails, the volume creation fail. An `addRequest` can fail due to incorrect permissions on the container object.
+        - If the `addRequest` fails, the volume creation fail. An `addRequest` can fail due to [incorrect permissions](create-active-directory-connections#requirements-for-active-directory-connections.md) on the container object.
     - If the `addRequest` succeeds, an LDAP search using the filter (`sAMAccountName=ANF-XXXX$`) is performed to retrieve the the objectSid attribute.
-    - An SMB2 "Negotiate protocol" conversation is performed to retrieve the supported Kerberos mechTypes from the KDC.
+    - An SMB2 "Negotiate protocol" conversation is performed to retrieve the supported Kerberos [`mechTypes`](/openspecs/windows_protocols/ms-spng/f663e38f-f4c8-4ed8-9bfe-51772e667116) from the KDC.
     - An SMB2 "Session setup" using the CIFS SPN and highest supported `mechType` and a "Tree connect" to IPC$ is performed.
-    - An SMB2 `lsarpc` file is created in the IPC$ share.
-    - A bind to DCERPC is performed. The the `lsarpc` file is written then read. 
+    - An SMB2 [`lsarpc`](/openspecs/windows_protocols/ms-lsad/1b5471ef-4c33-4a91-b079-dfcbb82f05cc) file is created in the IPC$ share.
+    - A bind to [DCERPC](/openspecs/windows_protocols/ms-rpce/290c38b1-92fe-4229-91e6-4fc376610c15) is performed. The the `lsarpc` file is written then read. 
     - The following LSA requests are then performed:
-        - `Lsa_openpolicy2`
-        - `Lsa_lookupsids2`
+        - [`Lsa_openpolicy2`](/openspecs/windows_protocols/ms-lsad/9456a963-7c21-4710-af77-d0a2f5a72d6b)
+        - [`Lsa_lookupsids2`](/windows/win32/api/ntsecapi/nf-ntsecapi-lsalookupsids2)
 - A TGS-REQ using the TGT is performed to retrieve the ticket for the `kadmin/changepw` SPN that's associated with the `krbtgt` account.
 - A KPASSWD request is made from the service to the KDC to change the machine account password.
 - An LDAP query is performed with the filter (`sAMAccountName=ANF-XXXX`) for the attributes `distinguishedName` and `isCriticalSystemObject`.
-- If the account's `isCriticalSystemObject` is false (the default), the retrieved DN is used to formulate a `modifyRequest` to the attribute `msDs-SupportedEncryptionTypes`. This value is set to 30, which equates to `DES_CBC_MD5 (2) + RC4 (4) + AES 128 (8) + AES 256 (16)`.
+- If the account's `isCriticalSystemObject` is false (the default), the retrieved DN is used to formulate a `modifyRequest` to the attribute [`msDs-SupportedEncryptionTypes`](https://techcommunity.microsoft.com/blog/coreinfrastructureandsecurityblog/decrypting-the-selection-of-supported-kerberos-encryption-types/1628797). This value is set to 30, which equates to `DES_CBC_MD5 (2) + RC4 (4) + AES 128 (8) + AES 256 (16)`.
 - A second "Negotiate protocol"/Kerberos ticket exchange/"Session setup"/"Tree connect" to IPC$ is performed. The SMB server’s machine account (ANF-XXXX$) serves as the Kerberos principal.
-- NETLOGON, NetrServer ReqChallenge/Authenticate2 communications are completed.
+- [NETLOGON](/openspecs/windows_protocols/ms-nrpc/273b6905-782d-4a7e-a2e4-4337816916e0), NetrServer [ReqChallenge](/openspecs/windows_protocols/ms-nrpc/5ad9db9f-7441-4ce5-8c7b-7b771e243d32)/[Authenticate2](/openspecs/windows_protocols/ms-nrpc/985982ae-9aa8-4565-b30b-33d6353d3355) communications are completed.
 - A third "Negotiate protocol:/Kerberos ticket exchange/"Session setup"/"Tree connect" to IPC$ is performed; the SMB server’s machine account (ANF-XXXX$) is used as the Kerberos principal.
 - Both `lsarpc` and `netlogon` connections are made as a final check of the account.
 </details>
@@ -277,11 +275,13 @@ In most cases, knowing detailed steps in depth isn't be necessary for day-to-day
 
 When an Azure NetApp Files volume is mounting using Kerberos, a Kerberos ticket exchange is used during multiple session setup requests to provide secure access to the share. In most cases, knowing detailed steps in depth isn't necessary for day-to-day administration tasks. This knowledge is useful in troubleshooting failures when attempting to access an SMB volume in Azure NetApp Files.
 
+:::image type="content" source="media/kerberos/smb-share-connection-kerberos.png" alt-text="Diagram of SMB share connction workflow." lightbox="media/kerberos/smb-share-connection-kerberos.png":::
+
 <details>
 <summary>For steps detailing how SMB share is accessed in Azure NetApp Files, expand the list.</summary>
 - The client attempts to access an SMB share using the UNC path shown in Azure NetApp Files. By default, the UNC path would include the SMB server name (such as ANF-XXXX)
 - DNS is queried to map the hostname to an IP address
-- An initial SMB2 "Negotiate Protocol" conversation takes place
+- An initial SMB2 ["Negotiate Protocol"](/openspecs/windows_protocols/ms-smb2/e14db7ff-763a-4263-8b10-0c3944f52fc5) conversation takes place
     - A request is sent from the client to discover which SMB dialects are supported by the server and includes what the requesting client supports
     - The server responds with what it supports, including:
         * Security mode (signing or not)
@@ -304,47 +304,46 @@ When an Azure NetApp Files volume is mounting using Kerberos, a Kerberos ticket 
         * Max transaction size
         * Max read/write size
         * Security blob (Kerberos or NTLM)
-        * SMB preauth integrity and encryption capabilities
-- If the protocol negotiation succeeds, a "Session setup" request is made
-    - Setup uses the preauth hash from the protocol negotiation
+        * SMB preauthorization integrity and encryption capabilities
+- If the protocol negotiation succeeds, a ["Session setup"](/openspecs/windows_protocols/ms-smb2/5a3c2c28-d6b0-48ed-b917-a86b2ca4575f) request is made.
+    - Setup uses the preauthorization hash from the protocol negotiation.
     - Setup informs the SMB server what the requesting client supports, including:
         * StructureSize
         * Session binding flag
         * Security mode (Signing enabled/required)
         * Capabilities
         * Supported Kerberos encryption types
-- A "Session setup" response is sent
-
-* SMB credits are granted
-    - Session ID is established
-    - Session flags are set (guest, null, encrypt)
-    - Kerberos encryption type is defined
-- A tree connect request is sent by the client for connection to the SMB share
-    - Share flags/capabilities are sent from server, along with share permissions
-- The ioctl command FSCTL_QUERY_NETWORK_INTERFACE_INFO is sent to get the IP address of the SMB server
+- A "Session setup" [response](/openspecs/windows_protocols/ms-smb2/0324190f-a31b-4666-9fa9-5c624273a694) is sent.
+    - [SMB credits are granted.](/openspecs/windows_protocols/ms-smb2/46256e72-b361-4d73-ac7d-d47c04b32e4b)
+    - Session ID is established.
+    - Session flags are set (guest, null, encrypt).
+    - Kerberos encryption type is defined.
+- A [tree connect](/openspecs/windows_protocols/ms-smb2/832d2130-22e8-4afb-aafd-b30bb0901798) request is sent by the client for connection to the SMB share.
+    - Share flags/capabilities are sent from server, along with share permissions.
+- The `ioctl` command [`FSCTL_QUERY_NETWORK_INTERFACE_INFO`](/openspecs/windows_protocols/ms-smb2/21176e9a-ec3e-4d54-adde-bed5c13f64b8) is sent to get the IP address of the SMB server.
 - The SMB server in Azure NetApp Files reports back with the network information, including:
         * IP address
         * Interface capability (RSS on or off)
         * RSS queue count
         * Link speed
-        - A tree connect request is sent by the client for connection to the IPC$ administrative share
-* The ipc$ share is a resource that shares the named pipes that are essential for communication between programs. The ipc$ share is used during remote administration of a computer and when viewing a computer's shared resources. You cannot change the share settings, share properties, or ACLs of the ipc$ share. You also cannot rename or delete the ipc$ share.
-    - A file named srvsvc is created in the share as a service handle
-- A DCERPC bind is done to the srvsvc file to establish a secure connection
-    - The file is written to with the previously retrieved information 
-- A Kerberos TGS-REQ is issued by the Windows client to the KDC to get a service ticket (ST) for the SMB service
-- NetShareGetInfo command is run by the SMB client to the server and a response is sent 
-- The SMB service ticket is retrieved from the KDC
-- Azure NetApp Files attempts to map the Windows user requesting access to the share to a valid UNIX user
-    - A Kerberos TGS request is made using the SMB server Kerberos credentials stored with the SMB server’s keytab from initial SMB server creation to use for an LDAP server bind
-    - LDAP is searched for a UNIX user that is mapped to the SMB user requesting share access. If no UNIX user exists in LDAP, then the default UNIX user “pcuser” is used by Azure NetApp Files for name mapping (files/folders written in dual protocol volumes will use the mapped UNIX user as the UNIX owner)
-- Another negotiate protocol/session request/tree connect is performed, this time using the SMB server’s Kerberos SPN to the Active Directory DC’s IPC$ share
-    - A named pipe is established to the share via the srvsvc 
-    - A netlogon session is established to the share and the Windows user is authenticated
-- If permissions allow it for the user, the share lists the files and folders contained in the volume
+- A [tree connect](/openspecs/windows_protocols/ms-smb2/832d2130-22e8-4afb-aafd-b30bb0901798) request is sent by the client for connection to the [IPC$ administrative share](/openspecs/windows_protocols/ms-srvs/5f8329ee-1965-4ea1-ad35-3b29fbb63232).
+    * The IPC$ share is a resource that shares the named pipes that are essential for communication between programs. The IPC$ share is used during remote administration of a computer and when viewing a computer's shared resources. You can't change the share settings, share properties, or ACLs of the IPC$ share. You also can't rename or delete the IPC$ share.
+    - A file named `srvsvc` is created in the share as a [service handle](/openspecs/windows_protocols/ms-srvs/5f8329ee-1965-4ea1-ad35-3b29fbb63232).
+- A DCERPC bind is done to the `srvsvc` file to establish a [secure connection](/openspecs/windows_protocols/ms-rpce/52d5d675-8d9c-4e02-b3fc-7c0eacf41838).
+    - The file is written to with the previously retrieved information.
+- A Kerberos TGS-REQ is issued by the Windows client to the KDC to get a service ticket (ST) for the SMB service.
+- [A `NetShareGetInfo` command](/openspecs/windows_protocols/ms-rap/c4cc274f-81de-4cba-8204-045256c50816) is run by the SMB client to the server and a response is sent.
+- The SMB service ticket is retrieved from the KDC.
+- Azure NetApp Files attempts to map the Windows user requesting access to the share to a valid UNIX user.
+    - A Kerberos TGS request is made using the SMB server Kerberos credentials stored with the SMB server’s keytab from initial SMB server creation to use for an LDAP server bind.
+    - LDAP is searched for a UNIX user that is mapped to the SMB user requesting share access. If no UNIX user exists in LDAP, then the default UNIX user "pcuser" is used by Azure NetApp Files for name mapping (files/folders written in dual protocol volumes use the mapped UNIX user as the UNIX owner).
+- Another negotiate protocol/session request/tree connect is performed, this time using the SMB server’s Kerberos SPN to the Active Directory DC’s IPC$ share.
+    - A named pipe is established to the share via the `srvsvc`. 
+    - A netlogon session is established to the share and the Windows user is authenticated.
+- If permissions allow it for the user, the share lists the files and folders contained in the volume.
 
 >[!NOTE]
->Azure NetApp Files adds entries to the Kerberos context cache for the client. These entries reside in the cache for the duration of the life of the Kerberos ticket (set by the KDC and controlled by the [Kerberos policy](/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/kerberos-policy)).
+>Azure NetApp Files adds entries to the Kerberos context cache for the client. These entries reside in the cache for the duration of the life of the Kerberos ticket (set by the KDC and controlled by the [Kerberos policy](/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/kerberos-policy).
 </details>
 
 ## Creating SMB server aliases
@@ -374,7 +373,7 @@ When the SMB "negotiate protocol" request is made, the Azure NetApp Files SMB se
 
 ### Supported SMB share capabilities and properties in Azure NetApp Files
 
-During SMB share access, a “tree connect” request is performed and the supported SMB share capabilities and properties are queried by the client to the Azure NetApp Files server. The table below shows the share capabilities queried and the response returned from an Azure NetApp Files SMB volume as seen in a packet capture.
+During SMB share access, a "tree connect" request is performed and the supported SMB share capabilities and properties are queried by the client to the Azure NetApp Files server. The table below shows the share capabilities queried and the response returned from an Azure NetApp Files SMB volume as seen in a packet capture.
 
 | SMB share capability | Supported by Azure NetApp Files? |
 | - | - |
@@ -406,13 +405,13 @@ The following table displays the share properties queried and the response retur
 
 ## How NFS Kerberos works in Azure NetApp Files
 
-NFS Kerberos works separately from SMB services, as the machine accounts created for each protocol cannot share keytabs because of the potential for changes to the Key Version Number (kvno) in one keytab impacting the other service. As a result, the workflows for SMB services for Kerberos and NFS for Kerberos will differ in functionality in some areas.
+NFS Kerberos works separately from SMB services, as the machine accounts created for each protocol cannot share keytabs because of the potential for changes to the Key Version Number (kvno) in one keytab impacting the other service. As a result, the workflows for SMB services for Kerberos and NFS for Kerberos differ in functionality in some areas.
 
 ### Initial configuration of Kerberos realm
 
 The NFS Kerberos realm is configured when the Kerberos realm information is filled out in the Azure NetApp Files portal under the Active Directory connections page.
 
-<!-- image -->
+:::image type="content" source="media/kerberos/kerberos-realm.png" alt-text="Screenshot of Kerberos realm configuration." lightbox="media/kerberos/multiple-dns-smb.png":::
  
 The AD Server Name and KDC IP are used to connect to the AD KDC services on the initial machine account creation. The Azure NetApp Files service leverages the existing domain information to fill out the rest of the realm configuration. For example:
 
@@ -436,19 +435,19 @@ Permitted Encryption Types: aes-256
 
 When the NFS Kerberos realm is configured, a local hosts entry is added in the service with the KDC specified in the configuration. When the realm is modified, the local hosts entry is also modified in the service.
 
-<!-- image --> 
+:::image type="content" source="media/kerberos/nfs-kerberos-configuration.png" alt-text="Diagram of Kerberos realm configuration." lightbox="media/kerberos/nfs-kerberos-configuration.png":::
 
 This local host entry acts as a "last resort" in case of a KDC outage on the KDC specified in the realm configuration and failure to query redundant KDCs via DNS. 
 
 >[!NOTE]
->If the KDC in the Kerberos realm needs to be brought down for maintenance (such as for upgrades or decommissioning of a server), it is recommended to configure the realm to use a KDC that is not undergoing maintenance to avoid outages.
+>If the KDC in the Kerberos realm needs to be brought down for maintenance (such as for upgrades or decommissioning of a server), it's recommended to configure the realm to use a KDC that isn't undergoing maintenance to avoid outages.
 
 ### Initial creation of machine account/SPN
 
 When Kerberos is enabled on an Azure NetApp Files volume, a machine account/principal named NFS-{SMB-server-name} is created in the domain in the specified OU in Active Directory connections (Organizational Unit). Machine account names are truncated after 15 characters.
 
 >[!NOTE]
->When adding Linux clients with hostnames greater than 15 characters to an Active Directory domain, their Kerberos machine account SPNs will be truncated. For instance, a Linux client with a name of MORE-THAN-FIFTEEN has a machine account name of MORE-THAN-FIFT$, which becomes an SPN of MORE-THAN-FIFT$@CONTOSO.COM. When DNS looks up a client hostname, it finds the longer name and attempt to use that name in an SPN request ( MORE-THAN-FIFTEEN@CONTOSO.COM). Since that SPN doesn't exist, the client attempt to use the next SPN in the keytab in the request (usually host/hostname). Only machine account name SPNs natively work with Azure NetApp Files NFS Kerberos. As a result, ensure the Linux client hostnames used for NFS Kerberos with Azure NetApp Files do not exceed 15 characters. Alternately, if you want to use the host/hostname SPN, configure a UNIX user in LDAP with the username "host." This configuration provides a krb-unix name mapping for the SPN.
+>When adding Linux clients with hostnames greater than 15 characters to an Active Directory domain, their Kerberos machine account SPNs are truncated. For instance, a Linux client with a name of MORE-THAN-FIFTEEN has a machine account name of MORE-THAN-FIFT$, which becomes an SPN of MORE-THAN-FIFT$@CONTOSO.COM. When DNS looks up a client hostname, it finds the longer name and attempt to use that name in an SPN request ( MORE-THAN-FIFTEEN@CONTOSO.COM). Since that SPN doesn't exist, the client attempt to use the next SPN in the keytab in the request (usually host/hostname). Only machine account name SPNs natively work with Azure NetApp Files NFS Kerberos. As a result, ensure the Linux client hostnames used for NFS Kerberos with Azure NetApp Files do not exceed 15 characters. Alternately, if you want to use the host/hostname SPN, configure a UNIX user in LDAP with the username "host." This configuration provides a krb-unix name mapping for the SPN.
 
 In Azure NetApp Files, Kerberos keyblocks (or keytab entries) are added to the service with the NFS service SPN (nfs/nfs-server-name.contoso.com@CONTOSO.COM). Multiple entries are created: one for each supported encryption type. In Azure NetApp Files, only the AES-256 encryption type is supported for NFS Kerberos.
 
@@ -458,7 +457,7 @@ In most cases, knowing these steps in depth won’t be necessary for day-to-day 
 
 The following diagram shows how an NFS SPN is created when an Azure NetApp Files NFS or dual protocol volume is created with Kerberos enabled. In most cases, knowing detailed steps in depth won’t be necessary for day-to-day administration tasks, but are useful in troubleshooting any failures when attempting to create an SMB volume in Azure NetApp Files.
 
-<!-- diagram -->
+:::image type="content" source="media/kerberos/nfs-keberos-spn.png" alt-text="Diagram of NFS Kerberos SPN creation workflow." lightbox="media/kerberos/nfs-keberos-spn.png":::
 
 <details>
 <summary>For detailed steps about how a NFS Kerberos SPN is created with Azure NetApp Files, expand the list below.</summary>
@@ -470,10 +469,10 @@ The following diagram shows how an NFS SPN is created when an Azure NetApp Files
     - SRV query for _kerberos-master._tcp. CONTOSO.COM
 >[!NOTE]
 >These queries occur multiple times in the same call over different portions of the process. DNS issues can create slowness in these calls or complete failures. These records do not appear to exist by default in Active Directory deployments and must be created manually.
-- If the queries fail to find an entry or if the entries found cannot be contacted or used as the master KDC, then an A record query using the realm name found in the NFS Kerberos realm configuration will be used as a last resort to connect to the KDC over port 88.
+- If the queries fail to find an entry or if the entries found cannot be contacted or used as the master KDC, then an A record query using the realm name found in the NFS Kerberos realm configuration is used as a last resort to connect to the KDC over port 88.
 - During the configuration of NFS Kerberos, a static host entry for the specified KDC is added to the local hosts file as a backup in case DNS lookups fail.
-- If there is a cached DNS entry for the realm, then it will be used. If not, then the local file entry will be used. Cached DNS entries live as long as the Time to Live (TTL) is configured for the DNS record. The local file entry is configured with an 86400 second TTL (24 hours). The ns-switch configuration for host lookups in Azure NetApp Files uses files first and then DNS. When the local entry is found, no more queries are performed.
-- The SMB machine account created when the Active Directory connection is created is used as credentials for an Active Directory LDAP bind using SASL/GSS over port 389 to search for any existing entries of the desired SPN or machine account name. If the SPN or machine account name already exists, an error will be sent. If the SPN does not exist in the LDAP query, then the machine account creation is performed in the designated OU with entries for the following attributes set by Azure NetApp Files:
+- If there's a cached DNS entry for the realm, then it's used. If not, then the local file entry is used. Cached DNS entries live as long as the Time to Live (TTL) is configured for the DNS record. The local file entry is configured with an 86400 second TTL (24 hours). The ns-switch configuration for host lookups in Azure NetApp Files uses files first and then DNS. When the local entry is found, no more queries are performed.
+- The SMB machine account created when the Active Directory connection is created is used as credentials for an Active Directory LDAP bind using SASL/GSS over port 389 to search for any existing entries of the desired SPN or machine account name. If the SPN or machine account name already exists, an error is sent. If the SPN doesn't exist in the LDAP query, then the machine account creation is performed in the designated OU with entries for the following attributes set by Azure NetApp Files:
     - cn (NFS-MACHINE)
     - sAMAcc- untName (NFS-MACHINE$)
     - objectClass (top, person, organizationalPerson, user, computer)
@@ -491,24 +490,24 @@ The following diagram shows how an NFS SPN is created when an Azure NetApp Files
 
 When an Azure NetApp Files volume is mounted using Kerberos security flavors over NFS, the following workflow is performed. For a more detailed account of Kerberos, see [Kerberos Network Authentication Service (V5) Synopsis](/openspecs/windows_protocols/ms-kile/b4af186e-b2ff-43f9-b18e-eedb366abf13).
 
-<!-- image -->
+:::image type="content" source="media/kerberos/kerberos-mount.png" alt-text="Diagram of NFS Kerberos mount workflow." lightbox="media/kerberos/kerberos-mount.png":::
 
 <details>
 <summary>For detailed steps about how a NFS Kerberos volume is mounted with Azure NetApp Files, expand the list.</summary>
 
-- The client attempts a mount to an NFS export path in Azure NetApp Files and specifies the `-o` krb5 (or krb5i or krb5p) security flavor.
+- The client attempts a mount to an NFS export path in Azure NetApp Files and specifies the `-o` [krb5 (or krb5i or krb5p)](#supported-nfs-kerberos-security-modes) security flavor.
 - DNS is used to formulate a request for an NFS service principal to Azure NetApp Files via either A/AAAA record or PTR (depending on how the mount command was issued).
-- The client retrieves a TGT from the KDC via an AS-REQ call using the CLIENT principal name found in the client's keytab.
+- The client retrieves a TGT from the KDC via an [AS-REQ](/openspecs/windows_protocols/ms-kile/e720dd17-0703-4ce4-ab66-7ccf2d72c579#gt_1353e9be-47fd-4284-8e5e-3e82a2738fc9) call using the CLIENT principal name found in the client's keytab.
 - The export path is checked to ensure it exists in the file system.
 - The export policy rule is checked to ensure that Kerberos access is allowed to the export path.
-- The NFS service ticket is requested from the KDC by the client via an AP-REQ call. Azure NetApp Files checks the keytab for a valid entry with a valid encryption type using the TGT from the client acquired from the KDC.
+- The NFS service ticket is requested from the KDC by the client via an [AP-REQ call](/openspecs/windows_protocols/ms-kile/e720dd17-0703-4ce4-ab66-7ccf2d72c579#gt_d3abbc87-7e0b-4ac9-b556-503b0f87a724). Azure NetApp Files checks the keytab for a valid entry with a valid encryption type using the TGT from the client acquired from the KDC.
 - If the TGT is valid, a service ticket is issued.
 - The client SPN (for instance, CLIENT$@CONTOSO.COM) is mapped to the root user via the name mapping rule in Azure NetApp Files.
 - The root user is queried in the name services databases (files and ldap) for existence/group memberships.
 - An LDAP bind using the SMB server machine account is performed to allow an LDAP search for the root user.
 - Since root always exists in Azure NetApp Files, this should not cause any issues, but LDAP queries for root might fail. These failures can be ignored.
 - The NFS service ticket is returned to the client and the mount is successful. The root user has root access to the Kerberos mount by way of the client’s machine account principal (viewable with the `klist -e` command from the client).
-- Azure NetApp Files adds entries to the Kerberos context cache for the client. These entries will reside in cache for the duration of the life of the Kerberos ticket (set by the KDC and controlled by the [Kerberos Policy](/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/kerberos-policy).
+- Azure NetApp Files adds entries to the Kerberos context cache for the client. These entries will reside in cache for the duration of the life of the Kerberos ticket set by the KDC and controlled by the [Kerberos Policy](/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/kerberos-policy).
 - NFSv4.1 periodically (every 20 seconds) sends a Kerberos ticket refresh updates as "keepalives."
 </details>
 
@@ -516,7 +515,7 @@ When an Azure NetApp Files volume is mounted using Kerberos security flavors ove
 
 When an Azure NetApp Files NFS Kerberos mount is accessed by a user (other than the root user, which uses the machine account SPN), the following workflow is performed.
 
-<!-- image -->
+:::image type="content" source="media/kerberos/kerberos-user-access.png" alt-text="Diagram of NFS Kerberos mount access with user principals." lightbox="media/kerberos/kerberos-user-access.png":::
 
 <details>
 <summary>For detailed steps about how a NFS Kerberos volume is accessed with a non-root user with Azure NetApp Files, expand the list.</summary>
@@ -525,10 +524,10 @@ When an Azure NetApp Files NFS Kerberos mount is accessed by a user (other than 
 - The export policy rule is checked to ensure that Kerberos access is allowed to the export path for the client machine
 - Azure NetApp Files checks for a cached NFS service ticket. If none exist, then the NFS service ticket is requested via an AP-REQ call and the service checks the keytab for a valid entry with a valid encryption type using the TGT from the client acquired from the KDC
 - If the TGT is valid, a service ticket is issued
-- The user’s user principal name (UPN) is mapped through implicit mapping. For instance if the UPN is user1@CONTOSO.COM, then the service will query for a UNIX user named user1. Since that UNIX user will not exist in the local files database in Azure NetApp Files, LDAP will be used.
+- The user’s user principal name (UPN) is mapped through implicit mapping. For instance if the UPN is user1@CONTOSO.COM, then the service queries for a UNIX user named user1. Since that UNIX user doesn't exist in the local files database in Azure NetApp Files, LDAP is used.
 - An LDAP bind using the SMB server machine account is attempted to allow an LDAP search for the mapped user. A DNS SRV query is done for Kerberos DNS records (_kerberos and _kerberos-master). If no valid records can be used, then the configuration falls back onto the realm configuration. These KDC DNS SRV queries are *not* site scoped.
 - LDAP SRV records are queried for valid LDAP servers. These are site-scoped.
-- If the user does not exist in LDAP or LDAP cannot be queried (server is down, DNS lookup fails, bind fails, LDAP search times out, user does not exist) then the mapping fails and access is denied.
+- If the user doesn't exist in LDAP or LDAP cannot be queried (server is down, DNS lookup fails, bind fails, LDAP search times out, user doesn't exist) then the mapping fails and access is denied.
 - If the user exists, group memberships are gathered. 
 - The mapping succeeds and an NFS service ticket is issued to the client (seen in klist -e commands). Access is allowed based on the file permissions on the export path.
 
