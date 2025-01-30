@@ -1,5 +1,5 @@
 ---
-title: "Quickstart - Monitor applications end-to-end"
+title: "Quickstart - Monitor Applications End-to-End"
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Explains how to monitor apps running the Azure Spring Apps Enterprise plan by using Application Insights and Log Analytics.
 author: KarlErickson
