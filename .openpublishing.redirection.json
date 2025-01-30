@@ -2536,7 +2536,7 @@
     },
     {
       "source_path_from_root": "/articles/dns/dns-alerts-metrics.md",
-      "redirect_url": "/azure/dns/monitor-dns.md",
+      "redirect_url": "/azure/dns/monitor-dns",
       "redirect_document_id": false
     },    
     {
