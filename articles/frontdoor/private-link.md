@@ -121,7 +121,7 @@ Origin support for direct private endpoint connectivity is currently limited to:
 > [!NOTE]
 > * This feature isn't supported with Azure App Service Slots or Functions.
 
-The Azure Front Door Private Link feature is region agnostic but for the best latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint. If your origin's region is not supported in the list of regions AFD Private Link supports, pick the next nearest region. You can use [Azure network round-trip latency statistics](../networking/azure-network-latency) to determine the next nearest region in terms of latency.
+The Azure Front Door Private Link feature is region agnostic but for the best latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint. If your origin's region is not supported in the list of regions AFD Private Link supports, pick the next nearest region. You can use [Azure network round-trip latency statistics](../networking/azure-network-latency.md) to determine the next nearest region in terms of latency.
 
 ## Next steps
 
