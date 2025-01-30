@@ -10,7 +10,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 
 This article explains how to use Azure Key Vault to pass a secret as a parameter during Bicep deployment. Instead of entering a secure value like a password directly into your Bicep file or parameters file, you can retrieve the value from an [Azure Key Vault](/azure/key-vault/general/overview) during a deployment.
 
-When a [module](./modules.md) expects a string parameter with a `secure:true` modifier applied, you can use the [`getSecret` function](bicep-functions-resource.md#getsecret) to obtain a key vault secret. You don't expose the value because you reference only its key vault ID.
+When a [module](./modules.md) expects a string parameter with a `secure:true` modifier applied, you can use the `getSecret` function to obtain a key vault secret. You don't expose the value because you reference only its key vault ID. For more information, see [Resource functions for Bicep] (bicep-functions-resource.md#getsecret).
 
 > [!IMPORTANT]
 > This article focuses on how to pass a sensitive value as a template parameter. When the secret is passed as a parameter, the key vault can be in a different subscription than the resource group you're deploying it to.
@@ -155,7 +155,7 @@ If you use a key vault with a Bicep file for a [managed application](../managed-
 
 ## Retrieve secrets in a Bicep file
 
-You can use the `getSecret` function in a Bicep file to obtain a key vault secret. The `getSecret` function can be used only with a `Microsoft.KeyVault/vaults` resource. Additionally, it can be used only within the `params` section of a module and only with parameters that have the `@secure()` decorator. For more information, see [getSecret function](./bicep-functions-resource.md#getsecret).
+You can use the `getSecret` function in a Bicep file to obtain a key vault secret. The `getSecret` function can be used only with a `Microsoft.KeyVault/vaults` resource. Additionally, it can be used only within the `params` section of a module and only with parameters that have the `@secure()` decorator. For more information, see [Resource functions for Bicep](./bicep-functions-resource.md#getsecret).
 
 You can use another function called `az.getSecret()` in a Bicep parameters file to retrieve key vault secrets. For more information, see [Retrieve secrets in a parameters file](#retrieve-secrets-in-parameters-file).
 
@@ -236,7 +236,7 @@ Next, create a parameters file for the preceding Bicep file.
 
 ### Bicep parameters file
 
-The [`az.getSecret`](./bicep-functions-parameters-file.md#getsecret) function can be used in a `.bicepparam` file to retrieve the value of a secret from a key vault:
+The `az.getSecret` [function](./bicep-functions-parameters-file.md#getsecret) can be used in a `.bicepparam` file to retrieve the value of a secret from a key vault:
 
 ```bicep
 using './main.bicep'
