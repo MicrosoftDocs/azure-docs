@@ -55,7 +55,7 @@ Volume placement within the application volume group enables administrators to e
 
 #### Data locality and latency optimization
 
-Volume placement within the application volume group allows you to optimize data locality and minimize latency for applications with stringent performance requirements. By deploying volumes closer to compute resources, administrators can reduce data access latency and improve application responsiveness particularly for latency-sensitive workloads such as database applications.
+Optimizing data locality and minimizing latency for applications with stringent performance requirements can be achieved through volume placement using application volume group. By deploying volumes using application volume group rather than individually, you can significantly reduce data access latency and enhance application responsiveness. This approach is particularly beneficial for latency-sensitive workloads, such as database applications.
 
 #### Cost optimization
 
