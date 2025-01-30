@@ -15,8 +15,6 @@ ms.date: 12/17/2021
 
 This article describes the steps for deploying the self-hosted gateway component of Azure API Management to a Kubernetes cluster and automatically send all metrics to an [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/).
 
-[!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-opentelemetry.md)]
-
 You learn how to:
 
 > [!div class="checklist"]
