@@ -1,17 +1,19 @@
 ---
-title: Use Azure Key Vault to Pass a Secret from a Key Vault as a Parameter During Bicep Deployment
-description: Learn how to to pass a secret from a key vault as a parameter during Bicep deployment.
+title: Use Azure Key Vault to Pass a Secret as a Parameter During Bicep Deployment
+description: Learn how to pass a secret from a key vault as a parameter during Bicep deployment.
 ms.topic: conceptual
 ms.date: 01/13/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ---
 
-# Use Azure Key Vault to pass a secret from a key vault as a parameter during Bicep deployment
+# Use Azure Key Vault to pass a secret as a parameter during Bicep deployment
 
-This article explains how to pass a secret from a key vault as a parameter during Bicep deployment. Instead of entering a secure value like a password directly into your Bicep file or parameters file, you can retrieve the value from an [Azure Key Vault](/azure/key-vault/general/overview) during a deployment. When a [module](./modules.md) expects a string parameter with a `secure:true` modifier applied, you can use the [`getSecret` function](bicep-functions-resource.md#getsecret) to obtain a key vault secret. The value is never exposed because you reference only its key vault ID.
+This article explains how to use Azure Key Vault to pass a secret as a parameter during Bicep deployment. Instead of entering a secure value like a password directly into your Bicep file or parameters file, you can retrieve the value from an [Azure Key Vault](/azure/key-vault/general/overview) during a deployment.
+
+When a [module](./modules.md) expects a string parameter with a `secure:true` modifier applied, you can use the [`getSecret` function](bicep-functions-resource.md#getsecret) to obtain a key vault secret. You don't expose the value because you reference only its key vault ID.
 
 > [!IMPORTANT]
-> This article focuses on how to pass a sensitive value as a template parameter. When the secret is passed as a parameter, the key vault can exist in a different subscription than the resource group you're deploying it to.
+> This article focuses on how to pass a sensitive value as a template parameter. When the secret is passed as a parameter, the key vault can be in a different subscription than the resource group you're deploying it to.
 >
 > This article doesn't cover how to set a virtual machine (VM) property to a certificate's URL in a key vault. For a quickstart template of that scenario, see [WinRM on a Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-keyvault-windows).
 
@@ -100,7 +102,7 @@ For more information about creating key vaults and adding secrets, see:
 
 The user who deploys the Bicep file must have the `Microsoft.KeyVault/vaults/deploy/action` permission for the scope of the resource group and key vault. The [Owner](../../role-based-access-control/built-in-roles.md#owner) and [Contributor](../../role-based-access-control/built-in-roles.md#contributor) roles both grant this access. If you created the key vault, you're the owner and have the permission.
 
-The following procedure demonstrates how to create a role with the minimum permission and how to assign the user.
+The following procedure demonstrates how to create a role with the minimum permission and how to assign the user:
 
 1. Create a custom JSON file by using a role definition:
 
