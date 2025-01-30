@@ -1,6 +1,6 @@
 ---
 title: Create Parameters Files for Bicep Deployment
-description: Create parameters files to pass in values when deploying a Bicep file.
+description: Learn how to create parameters files to pass in values to deploy a Bicep file, instead of passing parameters as inline values in your script.
 ms.topic: how-to
 ms.date: 01/10/2025
 ms.custom: devx-track-bicep
