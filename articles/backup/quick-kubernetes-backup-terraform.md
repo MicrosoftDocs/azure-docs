@@ -3,7 +3,7 @@ title: Quickstart - Configure vaulted backup for an Azure Kubernetes Service (AK
 description: Learn how to quickly configure backup for a Kubernetes cluster using Terraform.
 ms.service: azure-backup
 ms.topic: quickstart
-ms.date: 11/04/2024
+ms.date: 01/21/2025
 ms.custom: devx-track-terraform, devx-track-extended-azdevcli
 ms.reviewer: rajats
 ms.author: jsuri
@@ -408,6 +408,7 @@ Learn more about:
 
 > [!div class="nextstepaction"]
 > [Overview of AKS backup](azure-kubernetes-service-backup-overview.md).
+> [Restore AKS Cluster using Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md).
 > [How to use Azure Backup for AKS.][aks-home]
 
 <!-- LINKS - internal -->

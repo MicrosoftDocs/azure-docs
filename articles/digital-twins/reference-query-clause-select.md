@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language SELECT clause
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/25/2022
+ms.date: 01/27/2025
 ms.topic: article
 ms.service: azure-digital-twins
 
@@ -48,7 +48,7 @@ The following query returns all digital twins in the instance.
 
 You can use projections in the SELECT clause to choose which columns a query will return. You can specify named collections of twins and relationships, or properties of twins and relationships.
 
-Projection is now supported for both primitive properties and complex properties.
+Projection is now supported for both [primitive properties and complex properties](concepts-models.md#schema).
 
 ### Syntax
 

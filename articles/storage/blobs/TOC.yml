@@ -1029,48 +1029,12 @@ items:
       href: query-acceleration-sql-reference.md
     - name: AzCopy v10
       items:
+      - name: Command reference
+        href: https://github.com/Azure/azure-storage-azcopy/wiki/azcopy
       - name: Configuration settings
         href: ../common/storage-ref-azcopy-configuration-settings.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Error codes
         href: ../common/storage-ref-azcopy-error-codes.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: azcopy
-        href: ../common/storage-ref-azcopy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: azcopy bench
-        href: ../common/storage-ref-azcopy-bench.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: azcopy copy
-        href: ../common/storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: azcopy doc
-        href: ../common/storage-ref-azcopy-doc.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: azcopy env
-        href: ../common/storage-ref-azcopy-env.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: azcopy jobs
-        href: ../common/storage-ref-azcopy-jobs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: azcopy jobs clean
-        href: ../common/storage-ref-azcopy-jobs-clean.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: azcopy jobs list
-        href: ../common/storage-ref-azcopy-jobs-list.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: azcopy jobs remove
-        href: ../common/storage-ref-azcopy-jobs-remove.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: azcopy jobs resume
-        href: ../common/storage-ref-azcopy-jobs-resume.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: azcopy jobs show
-        href: ../common/storage-ref-azcopy-jobs-show.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: azcopy list
-        href: ../common/storage-ref-azcopy-list.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: azcopy login
-        href: ../common/storage-ref-azcopy-login.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: azcopy login status
-        href: ../common/storage-ref-azcopy-login-status.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: azcopy logout
-        href: ../common/storage-ref-azcopy-logout.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: azcopy make
-        href: ../common/storage-ref-azcopy-make.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: azcopy remove
-        href: ../common/storage-ref-azcopy-remove.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: azcopy sync
-        href: ../common/storage-ref-azcopy-sync.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: azcopy set-properties
-        href: ../common/storage-ref-azcopy-set-properties.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: BlobFuse2
       items:
       - name: Configure settings
@@ -1435,48 +1399,12 @@ items:
     href: query-acceleration-sql-reference.md
   - name: AzCopy v10
     items:
+    - name: Command reference
+      href: https://github.com/Azure/azure-storage-azcopy/wiki/azcopy
     - name: Configuration settings
       href: ../common/storage-ref-azcopy-configuration-settings.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Error codes
       href: ../common/storage-ref-azcopy-error-codes.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: azcopy
-      href: ../common/storage-ref-azcopy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: azcopy bench
-      href: ../common/storage-ref-azcopy-bench.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: azcopy copy
-      href: ../common/storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: azcopy doc
-      href: ../common/storage-ref-azcopy-doc.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: azcopy env
-      href: ../common/storage-ref-azcopy-env.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: azcopy jobs
-      href: ../common/storage-ref-azcopy-jobs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: azcopy jobs clean
-      href: ../common/storage-ref-azcopy-jobs-clean.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: azcopy jobs list
-      href: ../common/storage-ref-azcopy-jobs-list.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: azcopy jobs remove
-      href: ../common/storage-ref-azcopy-jobs-remove.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: azcopy jobs resume
-      href: ../common/storage-ref-azcopy-jobs-resume.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: azcopy jobs show
-      href: ../common/storage-ref-azcopy-jobs-show.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: azcopy list
-      href: ../common/storage-ref-azcopy-list.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: azcopy login
-      href: ../common/storage-ref-azcopy-login.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: azcopy login status
-      href: ../common/storage-ref-azcopy-login-status.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: azcopy logout
-      href: ../common/storage-ref-azcopy-logout.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: azcopy make
-      href: ../common/storage-ref-azcopy-make.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: azcopy remove
-      href: ../common/storage-ref-azcopy-remove.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: azcopy sync
-      href: ../common/storage-ref-azcopy-sync.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: azcopy set-properties
-      href: ../common/storage-ref-azcopy-set-properties.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: BlobFuse2
     items:
     - name: Configure settings

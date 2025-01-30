@@ -42,7 +42,7 @@ Before you can work on a Consumption workflow definition in Visual Studio, make 
 
 1. Open the Visual Studio solution, or [Azure Resource Group](/azure/azure-resource-manager/management/overview) project, that contains your logic app.
 
-1. Find and open your workflow definition, which by default, appears in an [Resource Manager template](/azure/azure-resource-manager/templates/overview), named **LogicApp.json**.
+1. Find and open your workflow definition, which by default, appears in a [Resource Manager template](/azure/azure-resource-manager/templates/overview), named **LogicApp.json**.
 
    You can use and customize this template for deployment to different environments.
 
@@ -133,7 +133,7 @@ These steps describe how this example processes this string, working from the in
 
 ## Map list items to property values, then use maps as parameters
 
-To get different results based a property's value, you can create a map that matches each property value to a result, then use that map as a parameter.
+To get different results based on a property's value, you can create a map that matches each property value to a result, then use that map as a parameter.
 
 For example, this workflow defines some categories as parameters and a map that matches those categories with a specific URL. First, the workflow gets a list of articles. Then, the workflow uses the map to find the URL matching the category for each article.
 
