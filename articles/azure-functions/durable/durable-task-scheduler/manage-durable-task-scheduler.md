@@ -230,9 +230,21 @@ Deployment may take around 15 to 20 minutes.
 
 ---
 
-## List Durable Task Scheduler resources in a subscription
+## View all Durable Task Scheduler resources in a subscription
 
 # [Azure CLI](#tab/cli)
+
+Get a list of all Durable Task Scheduler names within a subscription by running:
+
+```azurecli
+  az durabletask scheduler list --subscription <SUBSCRIPTION_ID>
+```
+
+You can narrow results down to a specific resource group by adding the `--resource-group` flag.
+
+```azurecli
+  az durabletask scheduler list --subscription <SUBSCRIPTION_ID> --resource-group <RESOURCE_GROUP_NAME>
+```
 
 
 # [Azure portal](#tab/portal)
@@ -240,10 +252,15 @@ Deployment may take around 15 to 20 minutes.
 
 ---
 
-## List task hubs in a Durable Taks Scheduler
+## View all task hubs in a Durable Task Scheduler
 
 # [Azure CLI](#tab/cli)
 
+Retrieve a list of task hubs in a specific Durable Task Scheduler by running: 
+
+```azurecli
+  az durabletask taskhub list --resource-group <RESOURCE_GROUP_NAME> --scheduler-name <SCHEDULER_NAME>
+```
 
 # [Azure portal](#tab/portal)
 
@@ -266,6 +283,17 @@ Deployment may take around 15 to 20 minutes.
 
 # [Azure CLI](#tab/cli)
 
+Remove the task hub you created using the `az durabletask` command.
+
+```azurecli
+az durabletask taskhub delete --resource-group YOUR_RESOURCE_GROUP --scheduler-name YOUR_SCHEDULER --name YOUR_TASKHUB
+```
+
+Delete the scheduler that housed that task hub.
+
+```azurecli
+az durabletask scheduler --resource-group YOUR_RESOURCE_GROUP --scheduler-name YOUR_SCHEDULER
+```
 
 # [Azure portal](#tab/portal)
 
