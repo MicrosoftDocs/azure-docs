@@ -317,7 +317,7 @@ param storageAccountType = '' // This value is optional. Bicep uses default valu
 ```
 
 > [!NOTE]
-> For inline comments, you can use either // or /* ... */. In Visual Studio Code, save parameters files with the `JSONC` file type. If you don't, you'll get an error message that says, "Comments not permitted in JSON."
+> For inline comments, you can use either // or /* ... */. In Visual Studio Code, save parameters files with the `JSONC` file type. If you don't, you get an error message that says, "Comments not permitted in JSON."
 
 ---
 
