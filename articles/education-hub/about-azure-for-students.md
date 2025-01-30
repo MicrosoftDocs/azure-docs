@@ -8,6 +8,9 @@ ms.date: 10/20/2023
 ms.service: azure-education
 ---
 
+> [!WARNING]
+> This offer requires assistance from your Microsoft sales representative. Self-service signup is not available.
+
 # What is Azure for Students?
 
 [Azure for Students](https://azure.microsoft.com/free/students/) is a Microsoft program that provides students at higher-education institutions with access to various Azure cloud services and resources.
