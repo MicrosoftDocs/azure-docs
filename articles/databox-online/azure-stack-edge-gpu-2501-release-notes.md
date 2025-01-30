@@ -6,7 +6,7 @@ author: alkohli
  
 ms.service: azure-stack-edge
 ms.topic: article
-ms.date: 01/29/2025
+ms.date: 01/30/2025
 ms.author: alkohli
 ---
 
@@ -46,19 +46,9 @@ You can update to the latest version using the following update paths:
 
 ## What's new
 
-For more information, see [Assign an Azure role for access to blob data](../storage/blobs/assign-azure-role-data-access.md?tabs=portal#assign-an-azure-role).
-
 The 2501 release has the following new features and enhancements:
 
-- Base OS updates for Kubernetes nodes.
-- OpenSSH version update for Kubernetes nodes.
-- Azure Stack Edge Kubernetes v1.28.
-- Azure Arc for Kubernetes v1.16.10.
-- Deprecated support for Ubuntu 18.04 LTS GPU extension. The GPU extension is no longer supported on Ubuntu 18.04 GPU VMs running on Azure Stack Edge devices. If you plan to utilize the Ubuntu version 18.04 LTS distro, see steps for manual GPU driver installation at [CUDA Toolkit 12.1 Update 1 Downloads](https://developer.nvidia.com/cuda-12-1-1-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=18.04&target_type=deb_local).
-
-  You may need to download the CUDA signing key before the installation. 
- 
-  For detailed steps to install the signing key, see [Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md#in-versions-lower-than-2205-linux-gpu-extension-installs-old-signing-keys-signature-andor-required-key-missing).
+- Managed service identity (MSI) is used instead of access keys to tier data from an Azure Stack Edge device to Azure cloud storage.
 
 <!--!## Issues fixed in this release
 ==previous==
@@ -70,7 +60,7 @@ The 2501 release has the following new features and enhancements:
 
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
-|Moved down > **1.**|VM creation | If you have a Marketplace image created with Azure Stack Edge earlier than 2403 and then create a VM from the existing Marketplace image, your VM creation fails because Azure Stack Edge 2407 changed the download path for the Marketplace image. | Delete the Marketplace image and then create a new image from Azure portal. For detailed steps, see [Troubleshoot VM creation issues](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md#vm-creation-fails). |
+|**1.**| Unable to add VM images to Azure Stack Edge| Customers may be unable to add VM images to their Azure Stack Edge due to changes in blob permissions. | To add a VM image to Azure Stack Edge, you must have the `Storage blob data reader` or `Storage blob data contributor` role on the storage account, resource group, or subscription. Alternatively, you can have someone with those permissions perform the operation. |
 
 ## Known issues from previous releases
 
