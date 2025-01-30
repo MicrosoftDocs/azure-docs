@@ -511,7 +511,7 @@ Template definition buttons:
 
 This sample template adds a button with a static URL link to the message. It also uses an image in the header and a text parameter in the body.
 
-:::image type="content" source="../../media/template-messages/purchase_feedback_static_link_template.png" lightbox="../../media/template-messages/purchase_feedback_static_link_template.png" alt-text="Screen capture that shows details for the purchase_feedback_static template.":::
+:::image type="content" source="../../media/template-messages/purchase-feedback-static-link-template.png" lightbox="../../media/template-messages/purchase-feedback-static-link-template.png" alt-text="Screen capture that shows details for the purchase-feedback-static-template.":::
 
 In this sample, the header of the template requires an image:
 
