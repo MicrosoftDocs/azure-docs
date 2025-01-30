@@ -249,7 +249,7 @@ TransferOperation resumedTransfer = await transferManager.ResumeTransferAsync(tr
 ```
 
 > [!NOTE]
-> The location of the persisted transfer data is different than the default location if [TransferCheckpointStoreOptions](/dotnet/api/azure.storage.datamovement.transfercheckpointstoreoptions) is set as part of`TransferManagerOptions`. To resume transfers recorded with a custom checkpoint store, you must provide the same checkpoint store options for the `TransferManager` object that resumes the transfer.
+> The location of the persisted transfer data is different than the default location if [TransferCheckpointStoreOptions](/dotnet/api/azure.storage.datamovement.transfercheckpointstoreoptions) is set as part of `TransferManagerOptions`. To resume transfers recorded with a custom checkpoint store, you must provide the same checkpoint store options for the `TransferManager` object that resumes the transfer.
 
 ## Monitor transfer progress
 
@@ -267,7 +267,7 @@ async Task CheckTransfersAsync(TransferManager transferManager)
     await foreach (TransferOperation transfer in transferManager.GetTransfersAsync())
     {
         using StreamWriter logStream = File.AppendText("path/to/log/file");
-        logStream.WriteLine(Enum.GetName(typeof(TransferStatus), transfer.Status));
+        logStream.WriteLine(Enum.GetName(typeof(TransferState), transfer.Status.State));
     }
 }
 ```
