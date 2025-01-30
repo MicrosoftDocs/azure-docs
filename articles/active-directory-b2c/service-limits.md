@@ -177,6 +177,55 @@ The following table lists the administrative configuration limits in the Azure A
 
 <sup>1</sup> See also [Microsoft Entra service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
 
+## Region specific service limits 
+
+As a protection for our customers, Microsoft places some restrictions on telephony verification for certain region codes. The following table lists the region codes and their corresponding limits.
+
+| Region Code | Region Name                                    | Limit per tenant per 60 minutes | Limit per tenant per 24 hours            |                         
+|:----------- |:---------------------------------------------- |:------------------------------- | :----------------------------------------|
+| 228         |  Togo                                          | 10                              |  30                                      |
+| 257         |  Uzbek                                         | 10                              |  30                                      |
+| 970         |  State of Plaestine                            | 10                              |  30                                      |
+| 249         |  Sudan                                         | 10                              |  30                                      |
+| 226         |  Burina Faso                                   | 10                              |  30                                      |
+| 252         |  Somalia                                       | 10                              |  30                                      |  
+| 501         |  Belize                                        | 10                              |  30                                      |
+| 855         |  Cambodia                                      | 50                              |  200                                     |
+| 84         |  Vietnam                                       | 150                              |  500                                     |
+| 94         |  Sri Lanka                                     | 100                              |  500                                     |
+| 63         |  Philippines                                   | 50                              |  200                                     |
+| 62         |  Indonesia                                     | 50                              |  200                                     |
+| 7         |  Russia                                        | 100                              |  1000                                     |
+| 258         |  Mozambique                                    | 50                              |  200                                     |
+| 92         |  Pakistan                                    | 100                              |  1000                                     |
+| 994 | Azerbaijan | 50 | 200 | 
+| 880 | Bangladesh | 50 | 200 | 
+| 20  | Egypt | 50 | 200 | 
+| 260 | Zambia | 50 | 200 | 
+| 502 | Guatemala | 10 | 50 
+| 255 | Tanzania | 10 | 50 
+| 261 | Madagascar | 10 | 30 
+| 998 | Uzbekistan | 10 | 30 
+| 223 | Mali | 20 | 100 
+| 52 | Mexico | 100 | 500 
+| 60 | Malaysia | 50 | 200 |
+| 221 | Senegal | 10 | 30 |
+| 216 | Tunisia | 20 | 100 |
+| 503 | El Salvador | 10 | 30 |
+| 234 | Nigeria | 20 | 100 |
+| 386 | Slovenia | 10 | 50 |
+| 591 | Bolivia | 10 | 30 |
+| 263 | Zimbabwe | 10 | 30 |
+| 261 | Madagascar | 10 | 30 |
+| 995 | Georgia | 10 | 30 |
+| 993 | Turkmenistan | 10 | 30 |
+| 256 | Uganda | 20 | 100 |
+| 212 | Moroccoa | 20 | 100 |
+| 856 | Laos | 50 | 200 |
+| 224 | Guinea | 20 | 100 |
+| 992 | Tajikistan | 10 | 30 |
+| 238 | Cape Verde | 10 | 30 |
+
 ## Next steps
 
 - Learn about [Microsoft Graph's throttling guidance](/graph/throttling) 

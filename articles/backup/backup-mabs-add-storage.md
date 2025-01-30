@@ -4,8 +4,8 @@ description: Learn about the new features in Azure Backup Server. This article d
 ms.topic: how-to
 ms.date: 03/27/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 

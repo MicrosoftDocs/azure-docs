@@ -1,5 +1,5 @@
 ---
-title: Map an existing custom domain to Azure Spring Apps
+title: Map an Existing Custom Domain to Azure Spring Apps
 description: Learn how to map an existing custom Distributed Name Service (DNS) name to Azure Spring Apps
 author: KarlErickson
 ms.service: azure-spring-apps

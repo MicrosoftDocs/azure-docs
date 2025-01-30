@@ -117,8 +117,6 @@
     href: sentinel-solutions-delete.md
   - name: Manage solution deprecation lifecycle
     href: sentinel-solution-deprecation.md
-  - name: Partner integrations best practices
-    href: partner-integrations.md
   - name: Solution catalog
     items: 
     - name: All solutions
@@ -404,6 +402,8 @@
       href: data-connectors/dynatrace-problems.md
     - name: Dynatrace Runtime Vulnerabilities
       href: data-connectors/dynatrace-runtime-vulnerabilities.md
+    - name: ESET Protect Platform (using Azure Functions)
+      href: data-connectors/eset-protect-platform.md
     - name: Elastic Agent (Standalone)
       href: data-connectors/elastic-agent-standalone.md
     - name: Exchange Security Insights On-Premises Collector
@@ -782,13 +782,13 @@
     href: threat-intelligence-integration.md
   - name: Enable MDTI data connector
     href: connect-mdti-data-connector.md
-  - name: Connect threat intelligence upload API
+  - name: Connect threat intelligence with upload API
     href: connect-threat-intelligence-upload-api.md
   - name: Connect threat intelligence platforms
     href: connect-threat-intelligence-tip.md
   - name: Connect to STIX/TAXII feeds
     href: connect-threat-intelligence-taxii.md
-  - name: Add indicators in bulk by file
+  - name: Add threat intelligence in bulk by file
     href: indicators-bulk-file-import.md
   - name: Work with threat indicators
     href: work-with-threat-indicators.md
@@ -910,7 +910,7 @@
   - name: Kusto Query Language
     items:
     - name: Overview
-      href: kusto-overview.md
+      href: /kusto/query/kusto-sentinel-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Query best practices
       href: /kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: SQL to KQL cheat sheet
@@ -1143,6 +1143,14 @@
     href: sentinel-content-centralize.md
   - name: Build and publish Microsoft Sentinel solutions
     items:
+    - name: Overview
+      href: sentinel-integration-guide.md
+    - name: Partner integrations best practices
+      href: partner-integrations.md
+    - name: Creating workbooks
+      href: sentinel-workbook-creation.md
+    - name: Creating playbooks
+      href: sentinel-playbook-creation.md
     - name: Publish solutions
       href: publish-sentinel-solutions.md
     - name: Solution lifecycle post publish
@@ -1251,7 +1259,9 @@
       href: hunting-with-rest-api.md
     - name: Enrich entities with geolocation data with REST-API
       href: geolocation-data-api.md
-    - name: Upload indicator API reference
+    - name: Threat intelligence upload API reference
+      href: stix-objects-api.md
+    - name: Legacy upload indicator API reference
       href: upload-indicators-api.md
   - name: Compare playbooks, workbooks, and notebooks
     href: resources.md
