@@ -19,7 +19,7 @@ The following table shows the latest available version of Azure Virtual Desktop 
 
 | Release | Latest version | Setup instructions |
 |---------|----------------|----------|
-| Public | 3.5.0 | [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md) |
+| Public | 4.3.1 | [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md) |
 
 ## How to read version numbers
 
