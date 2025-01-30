@@ -476,6 +476,6 @@ if __name__ == '__main__':
     messages.send_video_message()
 ```
 
-### Other Samples
+### Other samples
 
 You can review and download other sample codes for Python Messages SDK on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/messages-quickstart).

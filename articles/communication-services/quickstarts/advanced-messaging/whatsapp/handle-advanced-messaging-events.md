@@ -1,7 +1,7 @@
 ---
 title: Handle Advanced Messaging events
 titleSuffix: Azure Communication Services
-description: "This article dscribes how to subscribe to Advanced Messaging for WhatsApp events."
+description: "This article describes how to subscribe to Advanced Messaging for WhatsApp events."
 author: shamkh
 manager: camilo.ramirez
 services: azure-communication-services
@@ -25,7 +25,7 @@ Azure Communication Services enables you to send and receive WhatsApp messages u
 
 ## About Event Grid
 
-[Event Grid](../../../../event-grid/overview.md) is a cloud-based eventing service. This article describes how to subscribe to [communication service events](../../../../event-grid/event-schema-communication-services.md), and trigger an event to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. In this article, we send the events to a web app that collects and displays the messages.
+[Event Grid](../../../../event-grid/overview.md) is a cloud-based eventing service. This article describes how to subscribe to [communication service events](../../../../event-grid/event-schema-communication-services.md) and trigger an event to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. In this article, we send the events to a web app that collects and displays the messages.
 
 ## Set up Event Grid Viewer
 

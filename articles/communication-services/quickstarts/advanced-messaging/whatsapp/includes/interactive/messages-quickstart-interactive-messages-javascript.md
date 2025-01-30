@@ -70,13 +70,13 @@ The Messages SDK enables Contoso to send interactive WhatsApp messages, when ini
 - Interactive message to be sent.
 
 > [!IMPORTANT]
-> To send a interactive message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+> To send an interactive message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
 In this example, the business sends an interactive shipping options message to the user.
 
 ```javascript
 /**
- * @summary Send a interactive message
+ * @summary Send an interactive message
  */
 
 const { AzureKeyCredential } = require("@azure/core-auth");
@@ -173,13 +173,13 @@ The Messages SDK enables Contoso to send interactive WhatsApp messages, when ini
 - Interactive message to be sent.
 
 > [!IMPORTANT]
-> To send a interactive message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+> To send an interactive message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
 In this example, the business sends a reply button message to the user.
 
 ```javascript
 /**
- * @summary Send a interactive message
+ * @summary Send an interactive message
  */
 
 const { AzureKeyCredential } = require("@azure/core-auth");
@@ -253,13 +253,13 @@ The Messages SDK enables Contoso to send interactive WhatsApp messages, when ini
 - Interactive message to be sent.
 
 > [!IMPORTANT]
-> To send a interactive message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+> To send an interactive message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
 In this example, the business sends a click to a link message to the user.
 
 ```javascript
 /**
- * @summary Send a interactive message
+ * @summary Send an interactive message
  */
 
 const { AzureKeyCredential } = require("@azure/core-auth");

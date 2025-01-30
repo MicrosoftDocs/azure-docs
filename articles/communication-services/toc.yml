@@ -233,21 +233,21 @@ items:
           href: quickstarts/advanced-messaging/whatsapp/connect-whatsapp-business-account.md
         - name: Send WhatsApp Messages
           items:
-            - name: Text And Media Messages
+            - name: Text and Media messages
               href: quickstarts/advanced-messaging/whatsapp/get-started.md
-            - name: Template Messages
+            - name: Template messages
               href: quickstarts/advanced-messaging/whatsapp/send-template-messages.md
-            - name: Interactive Messages
+            - name: Interactive messages
               href: quickstarts/advanced-messaging/whatsapp/send-interactive-messages.md
-            - name: Reaction Messages
+            - name: Reaction messages
               href: quickstarts/advanced-messaging/whatsapp/send-reaction-messages.md
-            - name: Sticker Messages
+            - name: Sticker messages
               href: quickstarts/advanced-messaging/whatsapp/send-sticker-messages.md
-        - name: Handle Advanced Messaging Events
+        - name: Handle Advanced messaging events
           href: quickstarts/advanced-messaging/whatsapp/handle-advanced-messaging-events.md
-        - name: Download Media Payload
+        - name: Download media payload
           href: quickstarts/advanced-messaging/whatsapp/download-media.md
-        - name: WhatsApp Business Account FAQ
+        - name: WhatsApp business account FAQ
           href: quickstarts/advanced-messaging/whatsapp/whatsapp-business-account-faq.md
     - name: Message Analysis
       items:

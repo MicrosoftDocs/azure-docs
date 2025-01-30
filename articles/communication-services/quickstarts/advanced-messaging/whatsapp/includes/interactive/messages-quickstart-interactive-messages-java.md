@@ -74,7 +74,7 @@ The Messages SDK enables Contoso to send interactive WhatsApp messages, when ini
 - Interactive message to be sent.
 
 > [!IMPORTANT]
-> To send a interactive message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+> To send an interactive message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
 In this example, the business sends an interactive shipping options message to the user.
 
@@ -104,7 +104,7 @@ interactiveMessage.setHeader(new TextMessageContent("Shipping Options"));
 
 InteractiveNotificationContent interactiveMessageContent new InteractiveNotificationContent("<CHANNEL_ID>", recipients, interactiveMessage);
 
-// Send a interactive message
+// Send an interactive message
 SendMessageResult textMessageResult = notificationClient.send(interactiveMessageContent);
 
 // Process result
@@ -121,9 +121,9 @@ The Messages SDK enables Contoso to send interactive WhatsApp messages, when ini
 - Interactive message to be sent.
 
 > [!IMPORTANT]
-> To send a interactive message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+> To send an interactive message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
-In this example, the business sends a interactive reply button message to the user.
+In this example, the business sends an interactive reply button message to the user.
 
 ```java
 // Assemble interactive reply button
@@ -135,7 +135,7 @@ InteractiveMessage interactiveMessage = new InteractiveMessage(new TextMessageCo
 
 InteractiveNotificationContent interactiveMessageContent new InteractiveNotificationContent("<CHANNEL_ID>", recipients, interactiveMessage);
 
-// Send a interactive message
+// Send an interactive message
 SendMessageResult textMessageResult = notificationClient.send(interactiveMessageContent);
 
 // Process result
@@ -152,7 +152,7 @@ The Messages SDK enables Contoso to send interactive WhatsApp messages, when ini
 - Interactive message to be sent.
 
 > [!IMPORTANT]
-> To send a interactive message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+> To send an interactive message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
 In this example, the business sends a click to a link message to the user.
 
@@ -164,7 +164,7 @@ interactiveMessage.setFooter(new TextMessageContent("Intergalactic New Ltd"));
 
 InteractiveNotificationContent interactiveMessageContent new InteractiveNotificationContent("<CHANNEL_ID>", recipients, interactiveMessage);
 
-// Send a interactive message
+// Send an interactive message
 SendMessageResult textMessageResult = notificationClient.send(interactiveMessageContent);
 
 // Process result
