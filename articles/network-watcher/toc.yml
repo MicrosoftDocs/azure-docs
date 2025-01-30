@@ -139,12 +139,6 @@
     items:
     - name: Manage packet captures
       href: packet-capture-manage.md
-    - name: Manage packet captures for scale sets
-      items:
-      - name: Azure portal
-        href: network-watcher-packet-capture-manage-portal-vmss.md
-      - name: Azure PowerShell
-        href: network-watcher-packet-capture-manage-powershell-vmss.md
     - name: Analyze a packet capture
       items:
       - name: Inspect to find anomalies

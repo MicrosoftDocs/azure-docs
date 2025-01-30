@@ -359,6 +359,16 @@
             "source_path_from_root": "/articles/frontdoor/waf-overview.md",
             "redirect_url": "/azure/web-application-firewall/afds/afds-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/front-door-diagnostics.md",
+            "redirect_url": "/azure/frontdoor/monitor-front-door",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-monitor-metrics.md",
+            "redirect_url": "/azure/frontdoor/monitor-front-door?pivots=front-door-standard-premium",
+            "redirect_document_id": false
         }
     ]
 }

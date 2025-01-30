@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Deploy your first Spring batch application to Azure Spring Apps
+title: Quickstart - Deploy Your First Spring Batch Application to Azure Spring Apps
 description: Describes how to deploy a Spring batch application to Azure Spring Apps.
 author: KarlErickson
 ms.author: v-muyaofeng
