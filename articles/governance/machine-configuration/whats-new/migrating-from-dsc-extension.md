@@ -49,8 +49,8 @@ The zip file artifact used by DSC Extension is not compatible with Azure machine
 Plan to use the machine configuration authoring tools to repackage the configuration
 and required PowerShell modules and republish to Azure Storage.
 
-Machine configuration uses DSC version 3 with PowerShell version 7. DSC version 3 can coexist with
-older versions of DSC. The implementations are separate. However, there's no
+Machine configuration uses DSC version `2` with PowerShell version `7.x`. DSC Extension uses
+DSC version `1`. The implementations are separate. However, there's no
 conflict detection. Using both platforms to manage the same configuration isn't advised.
 
 ## Understand migration
