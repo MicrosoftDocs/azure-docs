@@ -1,13 +1,17 @@
 ---
-title: System architecture for OT/IoT monitoring - Microsoft Defender for IoT
-description: Learn about the Microsoft Defender for IoT system architecture and data flow.
+title: Defender for IoT - OT architecture and components
+description: Discover the OT architecture and data flow of Microsoft Defender for IoT, providing comprehensive coverage and visibility from diverse data sources.
+author: limwainstein
+ms.author: lwainstein
 ms.topic: conceptual
-ms.date: 01/18/2023
+ms.date: 01/30/2025
 ---
 
-# Microsoft Defender for IoT components
+# Microsoft Defender for IoT architecture and components for your OT environment
 
-The Microsoft Defender for IoT system is built to provide broad coverage and visibility from diverse data sources.
+The Microsoft Defender for IoT system is built to provide broad coverage and visibility from diverse data sources. Review this architecture to understand how to plan your OT architecture accordingly.
+
+## OT architecture overview
 
 The following image shows how data can stream into Defender for IoT from network sensors and third-party sources to provide a unified view of IoT/OT security. Defender for IoT in the Azure portal provides asset inventories, vulnerability assessments, and continuous threat monitoring.
 
