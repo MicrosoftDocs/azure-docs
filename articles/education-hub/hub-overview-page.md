@@ -10,6 +10,9 @@ ms.date: 08/07/2024
 
 # Manage your academic sponsorship in the Azure Education Hub
 
+> [!WARNING]
+> This offer requires assistance from your Microsoft sales representative. Self-service signup is not available.
+
 Your main landing page in the Azure Education Hub is the **Overview** page. This page contains all the relevant information about your academic sponsorship, such as the number of labs that you established and your total running credit allocated and used from those labs. It also displays other resources available to help you get started with allocating credits and tracking your spend.
 
 ## Overview page
