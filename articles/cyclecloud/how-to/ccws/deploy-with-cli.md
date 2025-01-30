@@ -43,3 +43,8 @@ az deployment sub create --template-file ./cyclecloud-slurm-workspace/bicep/main
 ```
 
 - Wait until the shell indicates that the deployment was successful. One can also track the progress of the deployment in the Azure Portal by navigating to the resource group indicated in the UI, selecting `Deployments` from the Settings dropdown menu on the left-hand side menu, and checking the Status of the Deployment Name that begins with “pid-” at the bottom of the displayed list.
+
+## Resources
+
+* [How to connect to the CycleCloud Portal through Bastion](/azure/cyclecloud/how-to/ccws/connect-to-portal-with-bastion)
+* [How to connect to a Login Node through Bastion](/azure/cyclecloud/how-to/ccws/connect-to-login-node-with-bastion)
