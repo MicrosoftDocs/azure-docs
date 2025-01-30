@@ -213,7 +213,7 @@ In most cases, knowing detailed steps in depth isn't necessary for day-to-day ad
 #### Detailed steps
 
 <details>
-<summary>For detailed steps about how an SMB machine account is created in Azure NetApp Files, expand the list below.</summary>
+<summary>For detailed steps about how an SMB machine account is created in Azure NetApp Files, expand the list.</summary>
 
 - DNS lookup is performed using the DNS configuration for the SRV record of a Kerberos KDC. Azure NetApp Files uses the following SRV records in its requests.
     - `_kerberos._tcp.dc._msdcs.CONTOSO.COM`
@@ -360,7 +360,7 @@ If a DNS A/AAAA record is created (for instance, AZURE-FILESHARE.contoso.com) an
 
 ### Supported SMB server capabilities in Azure NetApp Files
 
-When the SMB "negotiate protocol" request is made, the Azure NetApp Files SMB server is queried for support of specific capabilities. The table below shows the capabilities queried and the response returned from an Azure NetApp Files SMB volume when a [Session Setup/Tree connect](#smb-share-connection-workflow-kerberos) is performed.
+When the SMB "negotiate protocol" request is made, the Azure NetApp Files SMB server is queried for support of specific capabilities. The following table shows the capabilities queried and the response returned from an Azure NetApp Files SMB volume when a [Session Setup/Tree connect](#smb-share-connection-workflow-kerberos) is performed.
 
 | SMB capability | Supported by Azure NetApp Files? |
 | - | - |
@@ -374,7 +374,7 @@ When the SMB "negotiate protocol" request is made, the Azure NetApp Files SMB se
 
 ### Supported SMB share capabilities and properties in Azure NetApp Files
 
-During SMB share access, a "tree connect" request is performed and the supported SMB share capabilities and properties are queried by the client to the Azure NetApp Files server. The table below shows the share capabilities queried and the response returned from an Azure NetApp Files SMB volume as seen in a packet capture.
+During SMB share access, a "tree connect" request is performed and the supported SMB share capabilities and properties are queried by the client to the Azure NetApp Files server. The following table shows the share capabilities queried and the response returned from an Azure NetApp Files SMB volume as seen in a packet capture.
 
 | SMB share capability | Supported by Azure NetApp Files? |
 | - | - |
@@ -406,7 +406,7 @@ The following table displays the share properties queried and the response retur
 
 ## How NFS Kerberos works in Azure NetApp Files
 
-NFS Kerberos works separately from SMB services, as the machine accounts created for each protocol can't share keytabs because of the potential for changes to the Key Version Number (kvno) in one keytab impacting the other service. As a result, the workflows for SMB services for Kerberos and NFS for Kerberos differ in functionality in some areas.
+NFS Kerberos works separately from SMB services, as the machine accounts created for each protocol can't share keytabs because of the potential for changes to the Key Version Number (`kvno`) in one keytab impacting the other service. As a result, the workflows for SMB services for Kerberos and NFS for Kerberos differ in functionality in some areas.
 
 ### Initial configuration of Kerberos realm
 
@@ -461,7 +461,7 @@ The following diagram shows how an NFS SPN is created when an Azure NetApp Files
 :::image type="content" source="media/kerberos/nfs-keberos-spn.png" alt-text="Diagram of NFS Kerberos SPN creation workflow." lightbox="media/kerberos/nfs-keberos-spn.png":::
 
 <details>
-<summary>For detailed steps about how an NFS Kerberos SPN is created with Azure NetApp Files, expand the list below.</summary>
+<summary>For detailed steps about how an NFS Kerberos SPN is created with Azure NetApp Files, expand the list.</summary>
 
 - Admin credentials passed to KDC specified in the realm configuration using the username provided for use in the Active Directory connection – user must have permission to view/create objects in the specified OU.
 - The DNS servers specified in the Azure NetApp Files Active Directory connection configuration are queried by Azure NetApp Files for the Kerberos service records (SRV) in the following formats:
