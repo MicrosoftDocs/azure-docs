@@ -61,7 +61,8 @@ The virtual hub router now also exposes the ability to peer with it, thereby exc
 
 * When configuring BGP peering with the hub, you'll see two IP addresses. Peering with both these addresses is required. Not peering with both addresses can cause routing issues. The same routes must be advertised to both of these addresses. Advertising different routes will cause routing issues. 
 
-* The next hop IP address on the routes being advertised from the NVA to the virtual HUB route server has to be the same as the IP address of the NVA, the IP address configured on the BGP peer. Having a different IP address advertised as next hop IS NOT supported for Virtual WAN at the moment.
+* The next hop IP address on the routes being advertised from the NVA to the virtual HUB route server has to be the same as the IP address of the NVA, the IP address configured on the BGP peer. Having a different IP address advertised as next hop IS NOT supported for Virtual WAN at the moment. For this reason, you cannot use Azure Firewall as NVA in this scenario, as it does not support BGP peering.
+
 ## BGP peering scenarios
 
 This section describes scenarios where BGP peering feature can be utilized to configure routing.
@@ -86,6 +87,9 @@ Virtual network configuration
 
 * On VNET5, set up a user-defined route (UDR) to point to VNET2 NVA IP.
 
+See [Scenario: Route traffic through an NVA](../virtual-wan/scenario-route-through-nva.md) for more details on static routing scenario.
+
+
 ### Configuration steps with BGP peering
 
 In the previous configuration, the maintenance of the static routes and UDR can become complex if the VNET5 configuration changes frequently. To address this challenge, the BGP peering with a virtual hub feature can be used and the routing configuration must be changed to the following steps:
@@ -98,6 +102,10 @@ Virtual hub configuration
 Virtual network configuration
 
 * On VNET5, set up a user-defined route (UDR) to point to VNET2 NVA IP.
+
+
+As this scenario does not use static routes, you may use BGP peering together with Routing Intent, as [Routing Intent limitations regarding static routes](../virtual-wan/how-to-routing-policies.md#knownlimitations) are not applicable here.
+
 
 #### Effective routes
 
