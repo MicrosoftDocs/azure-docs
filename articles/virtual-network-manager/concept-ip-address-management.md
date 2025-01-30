@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 1/16/2024
+ms.date: 01/16/2024
 ms.custom:  references_regions
 #customer intent: As a network administrator, I want to learn about IP address management in Azure Virtual Network Manager so that I can manage IP addresses in my virtual networks.
 ---
