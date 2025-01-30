@@ -16,7 +16,7 @@ The external metadata feature allows users to store metadata or additional infor
 ## Limitations
 
 - External metadata is only supported in latest api version. i.e Version 2 or above
-- External metadata is only supported in [DICOM® service with Azure Data Lake Storage](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicom-data-lake)
+- External metadata is only supported in [DICOM&reg; service with Azure Data Lake Storage](dicom-data-lake.md)
 - Only tags which don't conform with standard DICOM protocol tags such as [private tags](https://dicom.nema.org/dicom/2013/output/chtml/part05/sect_7.8.html) are supported to be as external metadata.
 - Only study level tags are supported.
 - External metadata tags cannot be updated or deleted. 
