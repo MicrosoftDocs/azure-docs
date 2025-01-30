@@ -1,5 +1,5 @@
 ---
-title: How to connect an Azure Database for MySQL instance to your application in Azure Spring Apps
+title: How to Connect an Azure Database for MySQL Instance to Your Application in Azure Spring Apps
 description: Learn how to connect an Azure Database for MySQL instance to your application in Azure Spring Apps
 author: KarlErickson
 ms.service: azure-spring-apps

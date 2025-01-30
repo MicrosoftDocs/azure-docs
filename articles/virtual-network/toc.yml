@@ -286,8 +286,6 @@
     href: monitor-virtual-network.md
   - name: Classic deployment
     href: /previous-versions/azure/virtual-network/create-virtual-network-classic
-  - name: Migrate from classic to Resource Manager
-    href: migrate-classic-vnet-powershell.md
 - name: Reference
   items:
   - name: Monitor data reference

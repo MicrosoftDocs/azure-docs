@@ -397,6 +397,22 @@ The Hybrid Runbook Worker machine hasn't pinged Azure Automation for more than 3
 
 Start the worker machine, and then re-register it with Azure Automation. For instructions on how to install the runbook environment and connect to Azure Automation, see [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md).
 
+
+### Scenario: Hybrid Runbook Worker job execution on Azure Arc-enabled Windows server that uses a custom credential is unexpectedly suspended
+
+#### Issue
+
+Runbook jobs executed from an Azure Arc-enabled server that use a custom credential suddenly begin to go into a suspended state.
+
+#### Cause
+
+This is caused by a known issue where folder permissions are removed when the Azure Connected Machine agent is updated. The folder permissions on `C:\ProgramData\AzureConnectedMachineAgent\Tokens` are removed when the Azure Connected Machine agent is updated.
+
+#### Resolution
+
+The current resolution is to reapply the folder permissions to `C:\ProgramData\AzureConnectedMachineAgent\Tokens` when the Azure Connected Machine agent is updated. See [Permissions for Hybrid worker credentials](../extension-based-hybrid-runbook-worker-install.md#permissions-for-hybrid-worker-credentials).
+
+
 ## Next steps
 
 If you don't see your problem here or you can't resolve your issue, try one of the following channels for more support:
