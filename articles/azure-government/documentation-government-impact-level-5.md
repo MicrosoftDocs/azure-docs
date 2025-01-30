@@ -419,5 +419,3 @@ Start using Azure Government:
 
 - [Guidance for developers](./documentation-government-developer-guide.md)
 - [Connect with the Azure Government portal](./documentation-government-get-started-connect-with-portal.md)
-- [Deploy STIG-compliant Linux VMs](./documentation-government-stig-linux-vm.md)
-- [Deploy STIG-compliant Windows VMs](./documentation-government-stig-windows-vm.md)
