@@ -3,7 +3,7 @@ title: Back up Azure Kubernetes Service by using Azure Backup
 description: Learn how to back up Azure Kubernetes Service (AKS) by using Azure Backup.
 ms.topic: how-to
 ms.service: azure-backup
-ms.date: 01/16/2025
+ms.date: 01/30/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -212,6 +212,6 @@ To enable a backup hook as part of the backup configuration flow to back up MySQ
 
 ## Next steps
 
-- [Restore an Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-restore.md)
+- Restore an Azure Kubernetes Service cluster using [Azure portal](azure-kubernetes-service-cluster-restore.md), [Azure PowerShell](azure-kubernetes-service-cluster-restore-using-powershell.md)
 - [Manage Azure Kubernetes Service cluster backups](azure-kubernetes-service-cluster-manage-backups.md)
 - [About Azure Kubernetes Service cluster backup](azure-kubernetes-service-cluster-backup-concept.md)
