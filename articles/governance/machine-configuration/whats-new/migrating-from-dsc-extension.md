@@ -37,6 +37,10 @@ The DSC extension included **privateSettings** where secrets could be passed to 
 such as passwords or shared keys. Secrets management hasn't yet been implemented for machine
 configuration.
 
+Machine configuration runs in PowerShell version 7.x, while the DSC Extension runs in Windows
+PowerShell 5.1. While most resources are expected to work because of [implicit remoting][02]
+it is a good idea to test existing resources before use.
+
 ### Considerations for whether to migrate existing machines or only new machines
 
 Machine configuration uses DSC version 3 with PowerShell version 7. DSC version 3 can coexist with
@@ -75,27 +79,27 @@ sorted. Keep steps in a configuration together in one package if they must happe
 
 ### Test content in Azure machine configuration
 
-Read the page [How to create custom machine configuration package artifacts][02] to evaluate
+Read the page [How to create custom machine configuration package artifacts][03] to evaluate
 whether your content from the DSC extension can be used with machine configuration.
 
-When you reach the step [Author a configuration][03], use the MOF file from the DSC extension
+When you reach the step [Author a configuration][04], use the MOF file from the DSC extension
 package as the basis for creating a new MOF file and custom DSC resources. You must have the custom
 PowerShell modules available in `$env:PSModulePath` before you can create a machine configuration
 package.
 
 #### Update deployment templates
 
-If your deployment templates include the DSC extension (see [examples][04]), there are two changes
+If your deployment templates include the DSC extension (see [examples][05]), there are two changes
 required.
 
 First, replace the DSC extension with the [extension for the machine configuration feature][01].
 
-Then, add a [machine configuration assignment][05] that associates the new configuration package
+Then, add a [machine configuration assignment][06] that associates the new configuration package
 (and hash value) with the machine.
 
 #### Do I need to add the Reasons property to custom resources?
 
-Implementing the [Reasons property][06] provides a better experience when viewing the results of
+Implementing the [Reasons property][07] provides a better experience when viewing the results of
 a configuration assignment from the Azure portal. If the `Get` method in a module doesn't include
 **Reasons**, generic output is returned with details from the properties returned by the `Get`
 method. Therefore, it's optional for migration.
@@ -111,23 +115,24 @@ Configuration Manager (LCM). It's recommended to remove the DSC extension and re
 > to stop managing the assigned configuration. The settings remain in place.
 
 Use the `Remove-DscConfigurationDocument` command as documented in
-[Remove-DscConfigurationDocument][07]
+[Remove-DscConfigurationDocument][08]
 
 ## Next steps
 
-- [Develop a custom machine configuration package][08].
-- Use the **GuestConfiguration** module to [create an Azure Policy definition][09] for at-scale
+- [Develop a custom machine configuration package][09].
+- Use the **GuestConfiguration** module to [create an Azure Policy definition][10] for at-scale
   management of your environment.
-- [Assign your custom policy definition][10] using Azure portal.
+- [Assign your custom policy definition][11] using Azure portal.
 
 <!-- Reference link definitions -->
 [01]: ../overview.md
-[02]: ../how-to/develop-custom-package/2-create-package.md
-[03]: ../how-to/develop-custom-package/2-create-package.md#author-a-configuration
-[04]: /azure/virtual-machines/extensions/dsc-template
-[05]: ../concepts/assignments.md
-[06]: ./psdsc-in-machine-configuration.md#special-requirements-for-get
-[07]: /powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument
-[08]: ../how-to/develop-custom-package/overview.md
-[09]: ../how-to/create-policy-definition.md
-[10]: ../../policy/assign-policy-portal.md
+[02]: /powershell/module/microsoft.powershell.core/about/about_windows_powershell_compatibility
+[03]: ../how-to/develop-custom-package/2-create-package.md
+[04]: ../how-to/develop-custom-package/2-create-package.md#author-a-configuration
+[05]: /azure/virtual-machines/extensions/dsc-template
+[06]: ../concepts/assignments.md
+[07]: ./psdsc-in-machine-configuration.md#special-requirements-for-get
+[08]: /powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument
+[09]: ../how-to/develop-custom-package/overview.md
+[10]: ../how-to/create-policy-definition.md
+[12]: ../../policy/assign-policy-portal.md
