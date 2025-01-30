@@ -22,6 +22,10 @@ Before you begin, it's a good idea to read the conceptual overview information a
 
 ## Major differences
 
+Machine configuration uses DSC version `2`. DSC Extension uses
+DSC version `1`. The implementations are separate. However, there's no
+conflict detection. Using both platforms to manage the same configuration isn't advised.
+
 Configurations are deployed through the DSC extension in a "push" model, where the
 operation is completed asynchronously. The deployment doesn't return until the configuration has
 finished running inside the virtual machine. After deployment, no further information is returned
@@ -48,10 +52,6 @@ Configuration, you will want to manage reboots using Azure Resource Manager.
 The zip file artifact used by DSC Extension is not compatible with Azure machine configuration.
 Plan to use the machine configuration authoring tools to repackage the configuration
 and required PowerShell modules and republish to Azure Storage.
-
-Machine configuration uses DSC version `2` with PowerShell version `7.x`. DSC Extension uses
-DSC version `1`. The implementations are separate. However, there's no
-conflict detection. Using both platforms to manage the same configuration isn't advised.
 
 ## Understand migration
 
