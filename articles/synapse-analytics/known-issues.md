@@ -5,7 +5,7 @@ description: Learn about the currently known issues with Azure Synapse Analytics
 author: charithcaldera
 ms.author: ccaldera
 ms.reviewer: wiassaf, joanpo
-ms.date: 04/08/2024
+ms.date: 01/30/2025
 ms.service: azure-synapse-analytics
 ms.subservice: overview
 ms.topic: troubleshooting-known-issue
@@ -44,13 +44,13 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 
 ### Data Factory copy command fails with error "The request could not be performed because of an I/O device error"
 
-Azure Data Factory pipelines use the COPY INTO statement to ingest data at scale into dedicated SQL Pool tables. In some rare cases, the COPY INTO statement can fail when loading CSV files into dedicated SQL Pool table when file split is used in an Azure Data Factory pipeline. File splitting is a mechanism that improves load performance when a small number of larger (1GB+) files are loaded in a single copy task. When file splitting is enabled, a single file can be loaded by multiple parallel threads, where every thread is assigned a part of the file.
+Azure Data Factory pipelines use the `COPY INTO` Transact-SQL statement to ingest data at scale into dedicated SQL pool tables. In some rare cases, the `COPY INTO` statement can fail when loading CSV files into dedicated SQL pool table when file split is used in an Azure Data Factory pipeline. File splitting is a mechanism that improves load performance when a small number of larger (1 GB+) files are loaded in a single copy task. When file splitting is enabled, a single file can be loaded by multiple parallel threads, where every thread is assigned a part of the file.
 
-**Workaround**: Impacted customers may need to disable file split in Azure Data Factory.
+**Workaround**: Impacted customers should disable file split in Azure Data Factory.
 
 ### COPY INTO statement fails with error “An internal DMS error occurred that caused this operation to fail.”  when managed identity is used
 
-when using COPY INTO command with managed identity, the statement can fail after a long-running query with error message “An internal DMS error occurred that caused this operation to fail”.
+When using `COPY INTO` command with a managed identity, the statement can fail after a long-running query with error message “An internal DMS error occurred that caused this operation to fail”.
 
 **Workaround**: Impacted customers may use an alternative authentication method for the storage account, such as a Shared Access Key. 
 
