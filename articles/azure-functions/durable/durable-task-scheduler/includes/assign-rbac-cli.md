@@ -9,7 +9,7 @@ ms.date: 01/30/2025
 Before running the app, give your developer identity the **Durable Task Data Contributor** role so you have permission to access Durable Task Scheduler. 
 
 > [!NOTE]
-> Learn [how identity-based connection works](../../functions-reference.md#local-development-with-identity-based-connections) during local development. 
+> Learn [how identity-based connection works](../../../functions-reference.md#local-development-with-identity-based-connections) during local development. 
 
 #### Set the assignee
 
