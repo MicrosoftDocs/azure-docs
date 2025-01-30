@@ -33,7 +33,7 @@ You can configure an inbound [private endpoint](../private-link/private-endpoint
 * Each API Management instance supports at most 100 Private Link connections.
 * Connections aren't supported on the [self-hosted gateway](self-hosted-gateway-overview.md) or on a [workspace gateway](workspaces-overview.md#workspace-gateway). 
 * In the classic API Management tiers, private endpoints aren't supported in instances injected in an internal or external virtual network.
-* In the Standard v2 tier, if you plan to configure outbound virtual network integration for your instance, do so *before* configuring the private endpoint. Similarly, if you plan to enable the developer portal, do so before configuring the private endpoint.
+* In the Standard v2 tier, if you plan to configure outbound virtual network integration for your instance, do so *before* configuring private endpoints. Similarly, if you plan to enable the developer portal, do so before configuring private endpoints.
 
 ## Typical scenarios
 
