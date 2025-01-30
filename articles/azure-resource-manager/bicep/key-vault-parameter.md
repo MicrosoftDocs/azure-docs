@@ -10,7 +10,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 
 This article explains how to use Azure Key Vault to pass a secret as a parameter during Bicep deployment. Instead of entering a secure value like a password directly into your Bicep file or parameters file, you can retrieve the value from an [Azure Key Vault](/azure/key-vault/general/overview) during a deployment.
 
-When a [module](./modules.md) expects a string parameter with a `secure:true` modifier applied, you can use the `getSecret` function to obtain a key vault secret. You don't expose the value because you reference only its key vault ID. For more information, see [Resource functions for Bicep] (bicep-functions-resource.md#getsecret).
+When a [module](./modules.md) expects a string parameter with a `secure:true` modifier applied, you can use the `getSecret` function to obtain a key vault secret. You don't expose the value because you reference only its key vault ID. For more information, see [Resource functions for Bicep](bicep-functions-resource.md#getsecret).
 
 > [!IMPORTANT]
 > This article focuses on how to pass a sensitive value as a template parameter. When the secret is passed as a parameter, the key vault can be in a different subscription than the resource group you're deploying it to.
