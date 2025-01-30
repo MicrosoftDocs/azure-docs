@@ -104,6 +104,8 @@
     items:
     - name: Back up the database
       href: tutorial-postgresql-backup.md
+    - name: Create the first backup for  Azure Database for PostgreSQL - Flexible Server
+      href: tutorial-create-first-backup-azure-database-postgresql-flex.md   
     - name: Configure and run Cross Region Restore
       href: tutorial-cross-region-restore.md
   - name: Configure item level backup of an AKS cluster
