@@ -8,9 +8,9 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 
 # Use Azure Key Vault to pass a secret as a parameter during Bicep deployment
 
-This article explains how to use Azure Key Vault to pass a secret as a parameter during Bicep deployment. Instead of entering a secure value like a password directly into your Bicep file or parameters file, you can retrieve the value from an [Azure Key Vault](/azure/key-vault/general/overview) during a deployment.
+This article explains how to use Azure Key Vault to pass a secret as a parameter during Bicep deployment. Instead of entering a secure value like a password directly into your Bicep file or parameters file, you can retrieve the value from [Azure Key Vault](/azure/key-vault/general/overview) during a deployment.
 
-When a [module](./modules.md) expects a string parameter with a `secure:true` modifier applied, you can use the `getSecret` function to obtain a key vault secret. You don't expose the value because you reference only its key vault ID. For more information, see [Resource functions for Bicep](bicep-functions-resource.md#getsecret).
+When a [module](./modules.md) expects a string parameter with a `secure:true` modifier applied, you can use the [`getSecret` function](bicep-functions-resource.md#getsecret) to obtain a key vault secret. You don't expose the value because you reference only its key vault ID. 
 
 > [!IMPORTANT]
 > This article focuses on how to pass a sensitive value as a template parameter. When the secret is passed as a parameter, the key vault can be in a different subscription than the resource group you're deploying it to.
@@ -100,7 +100,7 @@ For more information about creating key vaults and adding secrets, see:
 
 ## Grant access to the secrets
 
-The user who deploys the Bicep file must have the `Microsoft.KeyVault/vaults/deploy/action` permission for the scope of the resource group and key vault. The [owner](../../role-based-access-control/built-in-roles.md#owner) and [contributor](../../role-based-access-control/built-in-roles.md#contributor) roles both grant this access. If you created the key vault, you're the owner and have the permission.
+The user who deploys the Bicep file must have the `Microsoft.KeyVault/vaults/deploy/action` permission for the scope of the resource group and key vault. The [Owner](../../role-based-access-control/built-in-roles.md#owner) and [Contributor](../../role-based-access-control/built-in-roles.md#contributor) roles both grant this access. If you created the key vault, you're the owner and have the permission.
 
 The following procedure demonstrates how to create a role with the minimum permission and how to assign the user:
 
@@ -151,11 +151,11 @@ The following procedure demonstrates how to create a role with the minimum permi
 
     The preceding examples assign the custom role to the user on the resource-group level.
 
-If you use a key vault with a Bicep file for a [managed application](../managed-applications/overview.md), you must grant access to the **Appliance Resource Provider** service principal. For more information, see [Access Key Vault secret when deploying Azure Managed Applications](../managed-applications/key-vault-access.md).
+If you use a key vault with a Bicep file for a [managed application](../managed-applications/overview.md), you must grant access to the **Appliance Resource Provider** service principal. For more information, see [Access Key Vault secret when deploying Azure managed applications](../managed-applications/key-vault-access.md).
 
 ## Retrieve secrets in a Bicep file
 
-You can use the `getSecret` function in a Bicep file to obtain a key vault secret. The `getSecret` function can be used only with a `Microsoft.KeyVault/vaults` resource. Additionally, it can be used only within the `params` section of a module and only with parameters that have the `@secure()` decorator. For more information, see [Resource functions for Bicep](./bicep-functions-resource.md#getsecret).
+You can use the [`getSecret` function](./bicep-functions-resource.md#getsecret) in a Bicep file to obtain a key vault secret. The `getSecret` function can be used only with a `Microsoft.KeyVault/vaults` resource. Additionally, it can be used only within the `params` section of a module and only with parameters that have the `@secure()` decorator.
 
 You can use another function called `az.getSecret()` in a Bicep parameters file to retrieve key vault secrets. For more information, see [Retrieve secrets in a parameters file](#retrieve-secrets-in-a-parameters-file).
 
@@ -236,7 +236,7 @@ Next, create a parameters file for the preceding Bicep file.
 
 ### Bicep parameters file
 
-The `az.getSecret` [function](./bicep-functions-parameters-file.md#getsecret) can be used in a `.bicepparam` file to retrieve the value of a secret from a key vault:
+The [`az.getSecret` function](./bicep-functions-parameters-file.md#getsecret) can be used in a `.bicepparam` file to retrieve the value of a secret from a key vault:
 
 ```bicep
 using './main.bicep'

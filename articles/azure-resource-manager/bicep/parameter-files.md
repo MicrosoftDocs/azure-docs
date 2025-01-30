@@ -13,9 +13,9 @@ This article shows you how to create a parameters file, which you can use instea
 > [!NOTE]
 > Bicep parameters files are supported only in [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.18.4 or later, [Azure CLI](/cli/azure/install-azure-cli) version 2.47.0 or later, and [Azure PowerShell](/powershell/azure/install-azure-powershell) version 9.7.1 or later.
 
-A single Bicep file can have multiple Bicep parameters files associated with it. However, each Bicep parameters file is associated with only one particular Bicep file. You can establish this relationship by applying the `using` statement within the Bicep parameters file. For more information, see [Using statement](./bicep-using.md).
+A single Bicep file can have multiple Bicep parameters files associated with it. However, each Bicep parameters file is associated with only one particular Bicep file. You can establish this relationship by applying the [`using` statement](./bicep-using.md) within the Bicep parameters file.
 
-You can compile Bicep parameters files into JSON parameters files that you can deploy by using a Bicep file. For more information, see [build-params](./bicep-cli.md#build-params). You can also decompile a JSON parameters file into a Bicep parameters file. For more information, see [decompile-params](./bicep-cli.md#decompile-params).
+You can compile Bicep parameters files into JSON parameters files that you can deploy by using a Bicep file. For more information, see [`build-params`](./bicep-cli.md#build-params). You can also decompile a JSON parameters file into a Bicep parameters file. For more information, see [`decompile-params`](./bicep-cli.md#decompile-params).
 
 ## Parameters file
 
@@ -127,7 +127,7 @@ param environmentSettings = {
 > [!NOTE]
 >A parameters file saves parameter values as plain text. For security reasons, we don't recommend using this approach with sensitive values such as passwords.
 
-If you need to pass a parameter with a sensitive value, you should keep the value in a key vault. Instead of adding a sensitive value to your parameters file, use the `getSecret` function to retrieve it. For more information, see [Resource functions for Bicep](bicep-functions-resource.md#getsecret) and [Use Azure Key Vault to pass a secret as a parameter during Bicep deployment](key-vault-parameter.md).
+If you need to pass a parameter with a sensitive value, you should keep the value in a key vault. Instead of adding a sensitive value to your parameters file, use the [`getSecret` function](bicep-functions-resource.md#getsecret) to retrieve it. For more information, see [Use Azure Key Vault to pass a secret as a parameter during Bicep deployment](key-vault-parameter.md).
 
 ## Parameter type formats
 
@@ -479,7 +479,7 @@ While external Bicep parameters files aren't currently supported, you can use an
 
 ## Parameter name conflicts
 
-If your Bicep file includes a parameter with the same name as one of the parameters in the Azure PowerShell command, Azure PowerShell presents the parameter from your Bicep file with the `FromTemplate` postfix. For example, if a parameter named `ResourceGroupName` in your Bicep file conflicts with the `ResourceGroupName` parameter in the `New-AzResourceGroupDeployment` [cmdlet](/powershell/module/az.resources/new-azresourcegroupdeployment), you'll be prompted to provide a value for `ResourceGroupNameFromTemplate`. You can avoid this confusion by using parameter names that aren't used for deployment commands.
+If your Bicep file includes a parameter with the same name as one of the parameters in the Azure PowerShell command, Azure PowerShell presents the parameter from your Bicep file with the `FromTemplate` postfix. For example, if a parameter named `ResourceGroupName` in your Bicep file conflicts with the `ResourceGroupName` parameter in the [`New-AzResourceGroupDeployment` cmdlet](/powershell/module/az.resources/new-azresourcegroupdeployment), you'll be prompted to provide a value for `ResourceGroupNameFromTemplate`. You can avoid this confusion by using parameter names that aren't used for deployment commands.
 
 ## Related content
 
