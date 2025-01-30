@@ -29,7 +29,7 @@ Yes, you must create an Active Directory connection before deploying an SMB volu
 
 ## How many Active Directory connections are supported?
 
-Azure NetApp Files now supports the ability to [create multiple Active Directory configurations in a subscription](create-active-directory-connections.md#multi-ad). 
+Azure NetApp Files now supports the ability to [create multiple Active Directory (AD) configurations in a subscription](create-active-directory-connections.md#multi-ad). 
 
 You can also map multiple NetApp accounts that are under the same subscription and same region to a common AD server created in one of the NetApp accounts. See [Map multiple NetApp accounts in the same subscription and region to an AD connection](create-active-directory-connections.md#shared_ad). 
 
@@ -147,9 +147,9 @@ https://support.microsoft.com/topic/april-12-2022-kb5012670-monthly-rollup-cae43
 
 ## How do Azure NetApp Files Continuous Availability Shares behave when there's an underlying storage hardware maintenance event?
 
-The SMB client detect a TCP reset. There's no disruption if the SMB client reconnects within 60 seconds.
+The SMB client detects a TCP reset. There's no disruption if the SMB client reconnects within 60 seconds.
 
-## Does Azure NetApp Files support Alternate Data Streams (ADS)?
+## Does Azure NetApp Files support Alternate Data Streams?
 
 Yes, Azure NetApp Files supports [Alternate Data Streams (ADS)](/openspecs/windows_protocols/ms-fscc/e2b19412-a925-4360-b009-86e3b8a020c8) by default on [SMB volumes](azure-netapp-files-create-volumes-smb.md) and [dual-protocol volumes configured with NTFS security style](create-volumes-dual-protocol.md#considerations) when accessed via SMB.
 

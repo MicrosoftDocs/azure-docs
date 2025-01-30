@@ -60,7 +60,7 @@ This section defines key terminology that is used when describing Kerberos proce
 | -- | ------ |
 | Key distribution center (KDC)	| The KDC is the authentication server that includes the ticket-granting service (TGS) and the authentication service (AS). The terms KDC, AS, and TGS are used interchangeably. In Microsoft environments, an Active Directory domain controller is a KDC. |
 | Realm (or Kerberos realm) | A realm (or Kerberos realm) can use any ASCII string. The standard is to use the domain name in uppercase; for example, contoso.com becomes the realm CONTOSO.COM. Kerberos realms usually are configured in krb5.conf files on clients and servers. <br></br> Administratively, each principal@REALM must be unique. To avoid a single point of failure, each realm can have multiple KDCs that share the same database (principals and their passwords) and have the same KDC master keys. Microsoft Windows Active Directory does this natively by way of Active Directory replication, which takes place every 15 minutes by default.
-| Principal	| The term principal refers to every entity within a Kerberos database. Users, computers, and services are all assigned principals for Kerberos authentication. Every principal must be unique within the Kerberos database and is defined by it's distinguished name. A principal can be a user principal name (UPN) or a service principal name (SPN). <br></br> A principal name has three parts: <ul><li>**Primary** - The primary part can be a user or a service such as the NFS service. It can also be the special service "host," which signifies that this service principal is set up to provide multiple various network services.</li><li>**Instance** - This part is optional in the case of a user. A user can have more than one principal, but each principal must be unique in the KDC. For example, Fred might have a principal that is for everyday use (fred@contoso.com) and a principal that allows privileged use such as a sysadmin account (admin-fred@contoso.com). The instance is required for service principals and designates the fully qualified domain name (FQDN) of the host that provides the service.</li><li>**Realm** - A Kerberos realm is the set of Kerberos principals that are registered within a Kerberos server. By convention, the realm name is usually the same as the DNS name, but it's converted to uppercase letters. Uppercase letters aren't obligatory, but the convention provides easy distinction between the DNS name and the realm name.</li></ul> <!-- image --> |
+| Principal	| The term principal refers to every entity within a Kerberos database. Users, computers, and services are all assigned principals for Kerberos authentication. Every principal must be unique within the Kerberos database and is defined by its distinguished name. A principal can be a user principal name (UPN) or a service principal name (SPN). <br></br> A principal name has three parts: <ul><li>**Primary** - The primary part can be a user or a service such as the NFS service. It can also be the special service "host," which signifies that this service principal is set up to provide multiple various network services.</li><li>**Instance** - This part is optional in the case of a user. A user can have more than one principal, but each principal must be unique in the KDC. For example, Fred might have a principal that is for everyday use (fred@contoso.com) and a principal that allows privileged use such as a sysadmin account (admin-fred@contoso.com). The instance is required for service principals and designates the fully qualified domain name (FQDN) of the host that provides the service.</li><li>**Realm** - A Kerberos realm is the set of Kerberos principals that are registered within a Kerberos server. By convention, the realm name is usually the same as the DNS name, but it's converted to uppercase letters. Uppercase letters aren't obligatory, but the convention provides easy distinction between the DNS name and the realm name.</li></ul> <!-- image --> |
 | Tickets | A ticket is a temporary set of credentials that verifies the identity of a principal for a service and contains the session key. A ticket can be a service, an application ticket, or a ticket-granting ticket (TGT). Tickets are exchanged between client, server, and KDC for Kerberos authentication. |
 | Secret keys | Kerberos uses a symmetric key system in which the secret key is used for both encryption and decryption. The secret key is generated from the principal’s Kerberos password with a one-way hash function. The KDC stores the password for each principal and can thus generate the principal’s secret key. For users who request a Kerberos service, the secret key is typically derived from a password presented to the kinit program. Service and daemon principals typically don’t use a password; instead, the result of the one-way hash function is stored in a keytab. |
 | Keytab | A keytab contains a list of principals and their secret keys. The secret keys in a keytab are often created by using a random password and are used mostly for service or daemon principals. |
@@ -97,7 +97,7 @@ Kerberos authentication is highly dependent on external services for proper func
 - Time synchronization services
 - DNS
 - Kerberos key distribution
-- Password services/single sign on
+- Password services/single sign-on
 - Identity services (such as LDAP)
 
 When using native Microsoft Active Directory (the only KDC type that Azure NetApp Files currently supports), then most of the external dependencies for Kerberos in Azure NetApp Files are covered, such as DNS, KDC, and password services. In some cases, required services may be hosted outside of the Active Directory domain (such as [DNS](domain-name-system-concept.md)). In those cases, it's important to ensure the required services are configured properly. 
@@ -148,7 +148,7 @@ SMB services in Azure NetApp Files are initially configured by setting up an [Ac
 - Active Directory DNS name*
 - Active Directory site name (for DC discovery) (required)
 - SMB server prefix name
-- Organizational unit (where machine accounts should be stored in the AD domain)
+- Organizational unit (where machine accounts should be stored in the Azure AD domain)
 - AES encryption enable/disable
 - LDAP signing enable/disable
 - LDAP configuration
@@ -157,7 +157,7 @@ SMB services in Azure NetApp Files are initially configured by setting up an [Ac
 - Username/password credentials of user with OU permissions
 
 >[!NOTE]
->Only one Active Directory (AD) connection is allowed per account. Once the AD connection is created, any new Azure NetApp Files SMB volume uses the AD connection configuration.
+>Only one Azure Active Directory (AD) connection is allowed per account. Once the Azure AD connection is created, any new Azure NetApp Files SMB volume uses the Azure AD connection configuration.
 
 ### SMB Kerberos machine account
 
@@ -176,9 +176,9 @@ New machine accounts are created when an Azure NetApp Files SMB volume is provis
 | First SMB volume created after dual protocol volume | New SMB machine account/DNS name |
 | First dual protocol volume created after SMB volume | New SMB machine account/DNS name |
 
-The SMB machine account created for the Azure NetApp Files SMB (or dual protocol) volume uses a naming convention that adheres to the [15-character maximum that is enforced by Active Directory](/troubleshoot/windows-server/active-directory/naming-conventions-for-computer-domain-site-ou). The name uses the structure of [SMB Server prefix specified in AD connection configuration]-[unique numeric identifier].
+The SMB machine account created for the Azure NetApp Files SMB (or dual protocol) volume uses a naming convention that adheres to the [15-character maximum that is enforced by Active Directory](/troubleshoot/windows-server/active-directory/naming-conventions-for-computer-domain-site-ou). The name uses the structure of [SMB Server prefix specified in Azure AD connection configuration]-[unique numeric identifier].
 
-For instance, if you've [configured your AD connections](create-active-directory-connections.md) to use the SMB server prefix "AZURE," the SMB machine account that Azure NetApp Files creates resembles "AZURE-7806." That same name is used in the UNC path for the SMB share (for example, \\AZURE-7806) and is the name that dynamic DNS services use to create the A/AAAA record. 
+For instance, if you've [configured your Azure AD connections](create-active-directory-connections.md) to use the SMB server prefix "AZURE," the SMB machine account that Azure NetApp Files creates resembles "AZURE-7806." That same name is used in the UNC path for the SMB share (for example, \\AZURE-7806) and is the name that dynamic DNS services use to create the A/AAAA record. 
 
 >[!NOTE]
 >Because a name like “AZURE-7806” can be hard to remember, it's beneficial to create a CNAME record as a DNS alias for Azure NetApp Files volumes. For more information, see [Creating SMB server aliases](#creating-smb-server-aliases).
@@ -349,7 +349,7 @@ When an Azure NetApp Files volume is mounting using Kerberos, a Kerberos ticket 
 
 ## Creating SMB server aliases
 
-When Azure NetApp Files creates an SMB server using a naming convention of [SMB Server prefix specified in AD connection configuration]-[unique numeric identifier]. (For details about the unique numeric identifier, see [SMB Kerberos machine account](#smb-kerberos-machine-account)).
+When Azure NetApp Files creates an SMB server using a naming convention of [SMB Server prefix specified in Azure AD connection configuration]-[unique numeric identifier]. (For details about the unique numeric identifier, see [SMB Kerberos machine account](#smb-kerberos-machine-account)).
 This formatting means SMB server names aren't constructed in a user-friendly way. For instance, a name of "SMB-7806" is harder to remember than something similar to "AZURE-FILESHARE."
 
 Because of this behavior, administrators may want to create user-friendly alias names for Azure NetApp Files volumes. Doing this requires pointing a [DNS canonical name (CNAME)](/microsoft-365/admin/dns/create-dns-records-using-windows-based-dns#add-cname-records) to the existing DNS A/AAAA record in the server.
@@ -414,7 +414,7 @@ The NFS Kerberos realm is configured when the Kerberos realm information is fill
 
 :::image type="content" source="media/kerberos/kerberos-realm.png" alt-text="Screenshot of Kerberos realm configuration." lightbox="media/kerberos/multiple-dns-smb.png":::
  
-The AD Server Name and KDC IP are used to connect to the AD KDC services on the initial machine account creation. The Azure NetApp Files service leverages the existing domain information to fill out the rest of the realm configuration. For example:
+The Azure AD Server Name and KDC IP are used to connect to the Azure AD KDC services on the initial machine account creation. The Azure NetApp Files service leverages the existing domain information to fill out the rest of the realm configuration. For example:
 
 ```
 Kerberos Realm: CONTOSO.COM
@@ -536,7 +536,7 @@ When an Azure NetApp Files NFS Kerberos mount is accessed by a user (other than 
 
 Azure NetApp Files relies on LDAP for NFS Kerberos. NFS Kerberos in Azure NetApp Files requires Kerberos for UNIX name mappings for incoming user SPNs. Because Azure NetApp Files doesn't support creation of local UNIX users, LDAP is needed to perform lookups for UNIX users when a name mapping is requested.
 
-- When an AD connection is created, the Active Directory domain name is used to specify the process to look up LDAP servers.
+- When an Azure AD connection is created, the Active Directory domain name is used to specify the process to look up LDAP servers.
 - When an LDAP server is needed, `_ldap.domain.com` is used for the SRV lookup for LDAP servers.
 - Once a list of servers are discovered, the best available server (based on ping response time) is used as the LDAP server for connection over port 389.
 -  An LDAP bind is attempted using the SMB machine account via GSS/Kerberos.
