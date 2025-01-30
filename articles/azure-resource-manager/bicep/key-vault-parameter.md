@@ -14,8 +14,8 @@ When a [module](./modules.md) expects a string parameter with a `secure:true` mo
 
 > [!IMPORTANT]
 > This article focuses on how to pass a sensitive value as a template parameter. When the secret is passed as a parameter, the key vault can be in a different subscription than the resource group you're deploying it to.
->
-> This article doesn't cover how to set a virtual machine (VM) property to a certificate's URL in a key vault. For a quickstart template of that scenario, see [WinRM on a Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-keyvault-windows).
+
+This article doesn't cover how to set a virtual machine (VM) property to a certificate's URL in a key vault. For a quickstart template of that scenario, see [WinRM on a Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-keyvault-windows).
 
 ## Deploy key vaults and secrets
 
