@@ -27,7 +27,7 @@ Azure Stack Edge Pro R has the following capabilities:
 |Rugged hardware| Rugged server class hardware designed for harsh environments. Device contained in a portable transit case. |
 |Cloud-managed     |Device and service are managed via the Azure portal.|
 |Edge compute workloads   |Allows analysis, processing, filtering of data. Supports VMs and containerized workloads. <ul><li>For information on VM workloads, see [VM overview on Azure Stack Edge](azure-stack-edge-gpu-virtual-machine-overview.md).</li> <li>For containerized workloads, see [Kubernetes overview on Azure Stack Edge](azure-stack-edge-gpu-kubernetes-overview.md)</li></ul> |
-|Accelerated AI inferencing| Enabled by an Nvidia T4 GPU. <br> For more information, see [GPU sharing on your Azure Stack Edge device](azure-stack-edge-gpu-sharing.md).|
+|Accelerated AI inferencing| Enabled by an NVIDIA T4 GPU. <br> For more information, see [GPU sharing on your Azure Stack Edge device](azure-stack-edge-gpu-sharing.md).|
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|
 |Disconnected mode| Deploy, run, manage applications in offline mode. <br> Disconnected mode supports offline upload scenarios. For more information, see Use [Azure Stack Edge in disconnected mode](azure-stack-edge-gpu-disconnected-scenario.md)|
 |Supported file transfer protocols     |Support for standard SMB, NFS, and REST protocols for data ingestion. <br> For more information on supported versions, go to [Azure Stack Edge Pro R system requirements](azure-stack-edge-gpu-system-requirements.md).|
