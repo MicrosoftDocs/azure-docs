@@ -33,7 +33,7 @@ To apply the 2501 update, your device must be running version 2403 or later.
 
    *Update package can't be installed as its dependencies aren't met.* 
 
- - You can update to 2403 from 2303 or later, and then update to 2407.
+ - You can update to 2403 from 2303 or later, and then update to 2501.
 
 You can update to the latest version using the following update paths:
 
