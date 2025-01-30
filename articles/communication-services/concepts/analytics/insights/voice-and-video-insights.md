@@ -14,7 +14,7 @@ ms.subservice: data
 
 # Voice and video Insights
 
-This document introduces the Voice and Video section of your Insights dashboard 
+This document introduces the Voice and Video section of your Insights dashboard. 
 
 <!-- and how to use Copilot in Azure to monitor and improve your call quality.  -->
 
@@ -59,7 +59,7 @@ You need to start storing call logs to start using the Voice and Video Insights 
 > [!IMPORTANT]
 >You must collect logs to use the dashboard. To enable Voice and Video Insights see: **[How do I set up Voice and Video Insights?](#how-do-i-set-up-voice-and-video-insights)**
 >
->Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data is not retroactively available. You accumulate data once you setup the Diagnostic Settings. 
+>Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data is not retroactively available. You accumulate data once you set up the Diagnostic Settings. 
 
 ## Accessing Voice and Video Insights
 
