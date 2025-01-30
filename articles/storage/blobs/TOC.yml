@@ -217,9 +217,20 @@ items:
       - name: Use blob index tags
         href: storage-blob-index-how-to.md
     - name: Lifecycle management policies
-      href: lifecycle-management-overview.md
       items:
-      - name: Configure lifecycle management policies
+      - name: Overview
+        href: lifecycle-management-overview.md
+      - name: Best practices
+        href: lifecycle-management-overview.md
+      - name: Create and manage a policy
+        href: lifecycle-management-policy-configure.md
+      - name: Enable last access time tracking
+        href: lifecycle-management-policy-configure.md
+      - name: Move blobs between tiers
+        href: lifecycle-management-policy-configure.md
+      - name: Delete blobs
+        href: lifecycle-management-policy-configure.md
+      - name: Monitor policy runs
         href: lifecycle-management-policy-configure.md
     - name: Full text search
       href: /azure/search/search-blob-storage-integration?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
