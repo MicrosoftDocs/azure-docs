@@ -40,7 +40,7 @@ The following table outlines the activities required to make the most of threat 
 | Action | Description|
 |---|---|
 | **Store threat intelligence in Microsoft Sentinel's workspace** | <ul><li>Import threat intelligence into Microsoft Sentinel by enabling data connectors to various threat intelligence platforms and feeds.</li><li>Connect threat intelligence to Microsoft Sentinel by using the upload API to connect various TI platforms or custom applications.</li><li>Create threat intelligence with a streamlined management interface.</li>|
-| **Manage threat intelligence** | <ul><li>View imported threat intelligence using queries or advanced search.</li><li>Curate threat intelligence with relationships or tags</li><li>Visualize key information about your TI with workbooks.</li>|
+| **Manage threat intelligence** | <ul><li>View imported threat intelligence using queries or advanced search.</li><li>Curate threat intelligence with relationships, ingestion rules or tags</li><li>Visualize key information about your TI with workbooks.</li>|
 | **Use threat intelligence** | <ul><li>Detect threats and generate security alerts and incidents with built-in analytics rule templates based on your threat intelligence.</li><li>Hunt for threats using your threat intel to ask the right questions about the signals captured for your organization.</li>|
 
 Threat intelligence also provides useful context within other Microsoft Sentinel experiences, such as notebooks. For more information, see [Get started with notebooks and MSTICPy](/azure/sentinel/notebook-get-started). 
@@ -49,7 +49,7 @@ Threat intelligence also provides useful context within other Microsoft Sentinel
 
 ## Import and connect threat intelligence
 
-Most threat intelligence is imported using data connectors or an API. Here are the solutions available for Microsoft Sentinel.
+Most threat intelligence is imported using data connectors or an API. Configure ingestion rules to reduce noise and ensure your intelligence feeds are optimized. Here are the solutions available for Microsoft Sentinel.
 
 - **Microsoft Defender Threat Intelligence** data connector to ingest Microsoft's threat intelligence 
 - **Threat Intelligence - TAXII** data connector for industry-standard STIX/TAXII feeds
