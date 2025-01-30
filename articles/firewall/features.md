@@ -37,7 +37,7 @@ Azure Firewall includes the following features:
 - Web categories
 - Certifications
 
-To compare Azure Firewall features for all Firewall SKUs, see [Choose the right Azure Firewall version to meet your needs](choose-firewall-sku.md).
+To compare Azure Firewall features for all Firewall versions, see [Choose the right Azure Firewall version to meet your needs](choose-firewall-sku.md).
 
 ## Built-in high availability
 
