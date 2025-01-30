@@ -1,23 +1,18 @@
 ---
-title: How to sign your Azure Public DNS zone with DNSSEC (Preview)
+title: How to sign your Azure Public DNS zone with DNSSEC
 description: Learn how to sign your Azure public DNS zone with DNSSEC. 
 author: greg-lindsay
 ms.service: azure-dns
 ms.topic: how-to
-ms.date: 10/30/2024
+ms.date: 01/27/2025
 ms.author: greglin
 ---
 
-# How to sign your Azure Public DNS zone with DNSSEC (Preview)
+# How to sign your Azure Public DNS zone with DNSSEC
 
 This article shows you how to sign your DNS zone with [Domain Name System Security Extensions (DNSSEC)](dnssec.md). 
 
 To remove DNSSEC signing from a zone, see [How to unsign your Azure Public DNS zone](dnssec-unsign.md).
-
-> [!NOTE]
-> DNSSEC zone signing is currently in PREVIEW.<br> 
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.<br>
-> This DNSSEC preview is offered without a requirement to enroll in a preview. You can use Cloud Shell to sign or unsign a zone with Azure PowerShell or Azure CLI. Signing a zone by using the Azure portal is available in the next portal update. 
 
 ## Prerequisites
 

@@ -25,7 +25,7 @@ The discovery source might vary for different workloads depending on the data re
    - Deploying a light-weight Azure Migrate appliance to perform agentless discovery. 
    - Importing the workload information using predefined templates. 
 
-The recommended discovery source is the Azure Migrate appliance as it provides an in-depth view of your machines and ensures regular flow of configuration and performance data, and accounts for changes in the source environment.  
+The recommended discovery source is the Azure Migrate appliance as it provides an in-depth view of your machines and ensures regular flow of configuration and performance data and accounts for changes in the source environment.  
 
 ## What data does the appliance collect? 
 
