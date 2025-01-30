@@ -111,17 +111,13 @@ Access the Azure portal using the **Admin On Behalf Of (AOBO)** procedure from P
 
 
 ## Request host quota for Azure Government Customers
-1. In the Azure portal, under **Help + Support**, create a [New support request](https://portal.azure.com/#create/Microsoft.Support) and provide the following information:
+In the Azure portal, under **Help + Support**, create a [New support request](https://portal.azure.com/#create/Microsoft.Support) and provide the following information:
 - **Issue type:** Technical
-   - **Subscription:** Select your subscription
-   
-   - **Service:** All services > Azure VMware Solution
-   
-   - **Resource:** General question
-   
-   - **Summary:** Need capacity
-   
-   - **Problem type:** AVS Quota request
+ - **Subscription:** Select your subscription
+ - **Service:** All services > Azure VMware Solution  
+ - **Resource:** General question
+ - **Summary:** Need capacity
+ - **Problem type:** AVS Quota request
    
 ## Next steps
 
