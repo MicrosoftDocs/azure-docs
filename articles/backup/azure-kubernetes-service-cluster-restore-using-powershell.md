@@ -79,9 +79,9 @@ To fetch the relevant recovery points, run the following cmdlets:
 
  To search across instances in multiple vaults and subscriptions, use `Az.Resourcegraph` and `Search-AzDataProtectionBackupInstanceInAzGraph` cmdlets.
 
-    ```azurepowershell
+   ```azurepowershell
     $AllInstances = Search-AzDataProtectionBackupInstanceInAzGraph -Subscription $vaultSubId -ResourceGroup $vaultRgName -Vault $vaultName -DatasourceType AzureKubernetesService  -ProtectionStatus ProtectionConfigured
-    ```
+   ```
 
 2. Once the instance is identified, fetch the relevant recovery point. From the output array of the given cmdlet, third backup instance is to be restored.
 
