@@ -29,11 +29,11 @@ a Hybrid Connections URL with SAS Tokens utilizing WebSockets.
 2. Generate a `config.json` file to store your connection details
 
     ```json
-	{
-    "namespace": "HYBRID_CONNECTION_NAMESPACE",
-    "path": "HYBRID_CONNECTION_ENTITY_NAME",
-    "keyrule": "SHARED_ACCESS_KEY_NAME",
-    "key": "SHARED_ACCESS_PRIMARY_KEY"
+    {
+        "namespace": "HYBRID_CONNECTION_NAMESPACE",
+        "path": "HYBRID_CONNECTION_ENTITY_NAME",
+        "keyrule": "SHARED_ACCESS_KEY_NAME",
+        "key": "SHARED_ACCESS_PRIMARY_KEY"
 	}
 	```
 	Replace the placeholders in brackets with the values you obtained when you created the hybrid connection.
@@ -54,39 +54,39 @@ a Hybrid Connections URL with SAS Tokens utilizing WebSockets.
 2. Here's what your `listener.py` file should look like:
 
     ```python
-	import asyncio
-	import json
-	import logging
-	import relaylib
-	import websockets
+    import asyncio
+    import json
+    import logging
+    import relaylib
+    import websockets
 
-	async def run_application(config):
-	    serviceNamespace = config["namespace"]
-	    entityPath = config["path"]
-	    sasKeyName = config["keyrule"]
-	    sasKey = config["key"]
-	    serviceNamespace += ".servicebus.windows.net"
-	    # Configure logging
-	    logging.basicConfig(level=logging.INFO)  # Enable DEBUG/INFO logging as appropriate
+    async def run_application(config):
+        serviceNamespace = config["namespace"]
+        entityPath = config["path"]
+        sasKeyName = config["keyrule"]
+        sasKey = config["key"]
+        serviceNamespace += ".servicebus.windows.net"
+        # Configure logging
+        logging.basicConfig(level=logging.INFO)  # Enable DEBUG/INFO logging as appropriate
 
-	    try:
-	        logging.debug("Generating SAS Token for: %s", serviceNamespace)
-		token = relaylib.createSasToken(serviceNamespace, entityPath, sasKeyName, sasKey)
-		logging.debug("Generating WebSocket URI")
-		wssUri = relaylib.createListenUrl(serviceNamespace, entityPath, token)
-		async with websockets.connect(wssUri) as websocket:
-		    logging.info("Listening for messages on Azure Relay WebSocket...")
-		    while True:
-			message = await websocket.recv()
-			logging.info("Received message: %s", message)
-		    except KeyboardInterrupt:
-			logging.info("Exiting listener.")
+        try:
+            logging.debug("Generating SAS Token for: %s", serviceNamespace)
+            token = relaylib.createSasToken(serviceNamespace, entityPath, sasKeyName, sasKey)
+            logging.debug("Generating WebSocket URI")
+            wssUri = relaylib.createListenUrl(serviceNamespace, entityPath, token)
+            async with websockets.connect(wssUri) as websocket:
+                logging.info("Listening for messages on Azure Relay WebSocket...")
+                while True:
+                    message = await websocket.recv()
+                    logging.info("Received message: %s", message)
+        except KeyboardInterrupt:
+            logging.info("Exiting listener.")
 
-	if __name__ == "__main__":
-	    # Load configuration from JSON file
-	    with open("config.json") as config_file:
+        if __name__ == "__main__":
+            # Load configuration from JSON file
+            with open("config.json") as config_file:
             config = json.load(config_file)
 
-	    asyncio.run(run_application(config))
+        asyncio.run(run_application(config))
     ```
 
