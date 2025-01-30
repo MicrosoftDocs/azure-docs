@@ -37,21 +37,21 @@ The DSC extension included **privateSettings** where secrets could be passed to 
 such as passwords or shared keys. Secrets management hasn't yet been implemented for machine
 configuration.
 
-Machine configuration runs in PowerShell version 7.x, while the DSC Extension runs in Windows
-PowerShell 5.1. While most resources are expected to work because of [implicit remoting][02]
+Machine configuration runs in PowerShell version `7.x`, while the DSC Extension runs in Windows
+PowerShell `5.1`. While most resources are expected to work because of [implicit remoting][02]
 it is a good idea to test existing resources before use.
 
-### Considerations for whether to migrate existing machines or only new machines
-
-Machine configuration uses DSC version 3 with PowerShell version 7. DSC version 3 can coexist with
-older versions of DSC. The implementations are separate. However, there's no
-conflict detection.
+Because DSC Extension manages Local Configuration Manager service in Windows, control over whether
+reboots are allowed can be set in properties of the extension. As part of the shift to Machine
+Configuration, you will want to manage reboots using Azure Resource Manager.
 
 The zip file artifact used by DSC Extension is not compatible with Azure machine configuration.
 Plan to use the machine configuration authoring tools to repackage the configuration
 and required PowerShell modules and republish to Azure Storage.
 
-Using both platforms to manage the same configuration isn't advised.
+Machine configuration uses DSC version 3 with PowerShell version 7. DSC version 3 can coexist with
+older versions of DSC. The implementations are separate. However, there's no
+conflict detection. Using both platforms to manage the same configuration isn't advised.
 
 ## Understand migration
 
