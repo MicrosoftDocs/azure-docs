@@ -1,5 +1,5 @@
 ---
-title: Connect to Azure OpenAI in AKS using workload identity.
+title: Connect to Azure OpenAI Service in AKS using workload identity
 titlesuffix: Service Connector
 description: Learn how to connect to Azure OpenAI Service in Azure Kubernetes Service (AKS) using workload identity and Service Connector.
 #customerintent: As a developer, I want to connect my AKS resource to Azure OpenAI Service using a workload identity.
@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.date: 01/28/2025
 ---
 
-# Tutorial: Connect to Azure OpenAI Service in AKS using Workload Identity (preview)
+# Tutorial: Connect to Azure OpenAI Service in AKS using Workload Identity
 
 In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) cluster that communicates with Azure OpenAI Service using workload identity and Service Connector. In this tutorial, you complete the following tasks:
 
@@ -117,7 +117,7 @@ You start this tutorial by creating several Azure resources.
         --name MyIdentity
     ```
 
-## Create a service connection in AKS with Service Connector (preview)
+## Create a service connection in AKS with Service Connector
 
 Create a service connection between an AKS cluster and Azure OpenAI Service in the Azure portal or the Azure CLI.
 
@@ -230,6 +230,6 @@ az group delete \
 
 ## Related content
 
-* [Integrate Azure AI services with Service Connector](./how-to-integrate-ai-services.md)
-* [Integrate Azure OpenAI Service with Service Connector](./how-to-integrate-openai.md)
+* [Connect to Azure AI services](./how-to-integrate-ai-services.md)
+* [Connect to Azure OpenAI Service with Service Connector](./how-to-integrate-openai.md)
 * [Azure AI multi-service resource integration](./how-to-integrate-cognitive-services.md)

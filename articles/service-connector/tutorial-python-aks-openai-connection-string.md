@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.date: 01/29/2025
 ---
 
-# Tutorial: Connect to Azure OpenAI Service in AKS using a connection string (preview)
+# Tutorial: Connect to Azure OpenAI Service in AKS using a connection string
 
 In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) cluster that communicates with Azure OpenAI Service using a connection string. You complete the following tasks:
 
@@ -109,7 +109,7 @@ In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) clu
         --anonymous-pull-enabled
     ```
 
-## Create a service connection in AKS with Service Connector (preview)
+## Create a service connection in AKS with Service Connector
 
 Create a service connection between an AKS cluster and Azure OpenAI Service in the Azure portal or the Azure CLI.
 
@@ -217,6 +217,6 @@ az group delete \
 
 ## Related content
 
+* [Connect to Azure OpenAI Service](./how-to-integrate-openai.md)
 * [Connect to Azure OpenAI Service in AKS using Workload Identity](./tutorial-python-aks-openai-workload-identity.md)
-* [Integrate Azure OpenAI Service with Service Connector](./how-to-integrate-openai.md)
-* [Azure AI multi-service resource integration](./how-to-integrate-cognitive-services.md)
+* [Connect to an Azure AI multi-service resource](./how-to-integrate-cognitive-services.md)
