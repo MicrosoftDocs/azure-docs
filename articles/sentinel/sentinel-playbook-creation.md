@@ -52,11 +52,11 @@ In the Code view tab of the Azure Logic Apps editor, you can access the JSON ARM
 
    :::image type="content" source="media/sentinel-playbook-creation/playbook-update-metadata.png" alt-text="Screenshot of playbook metadata that needs to be updated."  lightbox="media/sentinel-playbook-creation/playbook-update-metadata.png" :::   
 
-5. It's recommended to use managed service identity rather than user-assigned identity for connecting Azure services (such as Microsoft Sentinel, Key Vault, and Storage Account) with playbooks. Update the authentication type under connectionProperties to "ManagedServiceIdentity".
+7. It's recommended to use managed service identity rather than user-assigned identity for connecting Azure services (such as Microsoft Sentinel, Key Vault, and Storage Account) with playbooks. Update the authentication type under connectionProperties to "ManagedServiceIdentity".
 
    :::image type="content" source="media/sentinel-playbook-creation/sentinel-playbook-identity.png" alt-text="Screenshot of playbook identity updates."  lightbox="media/sentinel-playbook-creation/sentinel-playbook-identity.png" :::   
 
-6. Update "Microsoft.Web/connections" resources 
+8. Update "Microsoft.Web/connections" resources 
  
    :::image type="content" source="media/sentinel-playbook-creation/sentinel-playbook-web-connections.png" alt-text="Screenshot of playbook web connections metadata."  lightbox="media/sentinel-playbook-creation/sentinel-playbook-web-connections.png" :::   
 
@@ -95,16 +95,15 @@ In the Code view tab of the Azure Logic Apps editor, you can access the JSON ARM
 
 :::image type="content" source="media/sentinel-playbook-creation/playbook-update-metadata.png" alt-text="Screenshot of playbook metadata that needs to be updated."  lightbox="media/sentinel-playbook-creation/playbook-update-metadata.png" :::   
 
-5. It's recommended to use managed service identity rather than user-assigned identity for connecting Azure services (such as Microsoft Sentinel, Key Vault, and Storage Account) with playbooks. Update the authentication type under connectionProperties to "ManagedServiceIdentity".
+7. It's recommended to use managed service identity rather than user-assigned identity for connecting Azure services (such as Microsoft Sentinel, Key Vault, and Storage Account) with playbooks. Update the authentication type under connectionProperties to "ManagedServiceIdentity".
 
 :::image type="content" source="media/sentinel-playbook-creation/sentinel-playbook-identity.png" alt-text="Screenshot of playbook identity updates."  lightbox="media/sentinel-playbook-creation/sentinel-playbook-identity.png" :::   
 
-6. Update "Microsoft.Web/connections" resources 
+8. Update "Microsoft.Web/connections" resources 
  
 :::image type="content" source="media/sentinel-playbook-creation/sentinel-playbook-web-connections.png" alt-text="Screenshot of playbook web connections metadata."  lightbox="media/sentinel-playbook-creation/sentinel-playbook-web-connections.png" :::   
 
 For more information, see https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/ThreatXCloud/playbooks/ThreatXplaybooks/ThreatX-BlockIP-URL/azuredeploy.json
-
 
 **Step 3: Generate the ARM template for the Logic app Custom Connector**
 1. Navigate to Azure portal
@@ -139,4 +138,4 @@ Readme.md file references -
 - [Custom connector Readme.md file](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Minemeld/playbooks/CustomConnector/MinemeldCustomConnector)
 - [playbook Readme.md file](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Minemeld/playbooks/Minemeldplaybooks/Minemeld-CreateIndicator)
 
-:::image type="content" source="media/sentinel-playbook-creation/playbook-folder-structure.png" alt-text="Screenshot of playbook folder structure in GitHub."  Lightbox="media/sentinel-playbook-creation/playbook-folder-structure.png" :::   
+:::image type="content" source="media/sentinel-playbook-creation/playbook-folder-structure.png" alt-text="Screenshot of playbook folder structure in GitHub."  Lightbox="media/sentinel-playbook-creation/playbook-folder-structure.png" :::
