@@ -22,8 +22,8 @@ Before you begin, it's a good idea to read the conceptual overview information a
 
 ## Major differences
 
-Machine configuration uses DSC version `2`. DSC Extension uses
-DSC version `1`. The implementations are separate. However, there's no
+Machine configuration uses DSC version 2. DSC Extension uses
+DSC version 1. The implementations are separate. However, there's no
 conflict detection. Using both platforms to manage the same configuration isn't advised.
 
 Configurations are deployed through the DSC extension in a "push" model, where the
@@ -41,8 +41,8 @@ The DSC extension included **privateSettings** where secrets could be passed to 
 such as passwords or shared keys. Secrets management hasn't yet been implemented for machine
 configuration.
 
-Machine configuration runs in PowerShell version `7.x`, while the DSC Extension runs in Windows
-PowerShell `5.1`. While most resources are expected to work because of [implicit remoting][02]
+Machine configuration runs in PowerShell version 7.2, while the DSC Extension runs in Windows
+PowerShell 5.1. While most resources are expected to work because of [implicit remoting][02]
 it is a good idea to test existing resources before use.
 
 Because DSC Extension manages Local Configuration Manager service in Windows, control over whether
