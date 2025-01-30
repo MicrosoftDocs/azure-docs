@@ -184,7 +184,7 @@ Manage access to Azure resources by assigning roles using Azure RBAC. This role 
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/write | Create a role assignment at the specified scope. |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/delete | Delete a role assignment at the specified scope. |
-> | */read | Global read of all Azure resources and all types, except for secrets. |
+> | */read | Read control plane information for all Azure resources. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
@@ -231,7 +231,7 @@ Lets you manage user access to Azure resources.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | */read | Global read of all Azure resources and all types, except for secrets. |
+> | */read | Read control plane information for all Azure resources. |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/* | Manage authorization |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
