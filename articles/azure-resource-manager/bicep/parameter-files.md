@@ -479,7 +479,7 @@ While external Bicep parameters files aren't currently supported, you can use an
 
 ## Parameter name conflicts
 
-If your Bicep file includes a parameter with the same name as one of the parameters in the Azure PowerShell command, Azure PowerShell presents the parameter from your Bicep file with the `FromTemplate` postfix. For example, if a parameter named `ResourceGroupName` in your Bicep file conflicts with the `ResourceGroupName` parameter in the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet, you'll be prompted to provide a value for `ResourceGroupNameFromTemplate`. You can avoid this confusion by using parameter names that aren't used for deployment commands.
+If your Bicep file includes a parameter with the same name as one of the parameters in the Azure PowerShell command, Azure PowerShell presents the parameter from your Bicep file with the `FromTemplate` postfix. For example, if a parameter named `ResourceGroupName` in your Bicep file conflicts with the `ResourceGroupName` parameter in the `New-AzResourceGroupDeployment` [cmdlet](/powershell/module/az.resources/new-azresourcegroupdeployment), you'll be prompted to provide a value for `ResourceGroupNameFromTemplate`. You can avoid this confusion by using parameter names that aren't used for deployment commands.
 
 ## Related content
 
