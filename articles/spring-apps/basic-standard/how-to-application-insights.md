@@ -133,7 +133,7 @@ To check and update the current settings for the Application Insights buildpack 
 1. Choose your builder.
 1. Select **Edit** under the Bindings column.
 
-Application Insights settings are found in the **ApplicationInsights** item listed under the *Binding type* column.
+Application Insights settings are found in the **ApplicationInsights** item listed under the **Binding type** column.
 
 1. Select the **Bound** hyperlink, or select **Edit Binding** under the ellipse, to open and edit the Application Insights buildpack bindings.
 
