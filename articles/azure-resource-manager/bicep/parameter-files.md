@@ -57,7 +57,7 @@ using 'ts:00000000-0000-0000-0000-000000000000/myResourceGroup/storageSpec:1.0'
 ...
 ```
 
-For more information, see the [using statement](./bicep-using.md).
+For more information, see [Using statement](./bicep-using.md).
 
 You can use expressions with the default value. See the following example:
 
@@ -76,7 +76,7 @@ using './main.bicep'
 param intFromEnvironmentVariables = int(readEnvironmentVariable('intEnvVariableName'))
 ```
 
-You can define and use variables. [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.21.X or later is required to use variables in `.bicepparam` files. See the following examples:
+You can define and use variables. You must use [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.21.X or later to use variables in `.bicepparam` files. See the following examples:
 
 ```bicep
 using './main.bicep'
@@ -360,13 +360,13 @@ You can create a parameters file two ways: by using either Visual Studio Code or
 
 ## Build Bicep parameters file
 
-From Bicep CLI, you can build a Bicep parameters file into a JSON parameters file. For more information, see [Build parameters file](./bicep-cli.md#build-params).
+From the Bicep CLI, you can build a Bicep parameters file into a JSON parameters file. For more information, see [Build parameters file](./bicep-cli.md#build-params).
 
 ## Deploy Bicep file with parameters file
 
 ### Azure CLI
 
-You can pass a parameters file from Azure CLI with your Bicep file deployment.
+You can pass a parameters file from the Azure CLI with your Bicep file deployment.
 
 ### [Bicep parameters file](#tab/Bicep)
 
@@ -479,7 +479,7 @@ While external Bicep parameters files aren't currently supported, you can use an
 
 ## Parameter name conflicts
 
-If your Bicep file includes a parameter with the same name as one of the parameters in the PowerShell command, PowerShell presents the parameter from your Bicep file with the `FromTemplate` postfix. For example, if a parameter named `ResourceGroupName` in your Bicep file conflicts with the `ResourceGroupName` parameter in the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet, you'll be prompted to provide a value for `ResourceGroupNameFromTemplate`. You can avoid this confusion by using parameter names that aren't used for deployment commands.
+If your Bicep file includes a parameter with the same name as one of the parameters in the Azure PowerShell command, Azure PowerShell presents the parameter from your Bicep file with the `FromTemplate` postfix. For example, if a parameter named `ResourceGroupName` in your Bicep file conflicts with the `ResourceGroupName` parameter in the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet, you'll be prompted to provide a value for `ResourceGroupNameFromTemplate`. You can avoid this confusion by using parameter names that aren't used for deployment commands.
 
 ## Related content
 

@@ -90,8 +90,8 @@ Set-AzKeyVaultAccessPolicy `
 
 For more information about creating key vaults and adding secrets, see:
 
-- [Set and retrieve a secret by using CLI](/azure/key-vault/secrets/quick-create-cli)
-- [Set and retrieve a secret by using PowerShell](/azure/key-vault/secrets/quick-create-powershell)
+- [Set and retrieve a secret by using a CLI](/azure/key-vault/secrets/quick-create-cli)
+- [Set and retrieve a secret by using Azure PowerShell](/azure/key-vault/secrets/quick-create-powershell)
 - [Set and retrieve a secret by using the Azure portal](/azure/key-vault/secrets/quick-create-portal)
 - [Set and retrieve a secret by using .NET](/azure/key-vault/secrets/quick-create-net)
 - [Set and retrieve a secret by using Node.js](/azure/key-vault/secrets/quick-create-node)
@@ -153,11 +153,11 @@ If you use a key vault with a Bicep file for a [managed application](../managed-
 
 ## Retrieve secrets in a Bicep file
 
-You can use the [`getSecret` function](./bicep-functions-resource.md#getsecret) in a Bicep file to obtain a key vault secret. The `getSecret` function can be used with only a `Microsoft.KeyVault/vaults` resource. Additionally, it can be used within only the `params` section of a module and with only parameters that have the `@secure()` decorator.
+You can use the [`getSecret` function](./bicep-functions-resource.md#getsecret) in a Bicep file to obtain a key vault secret. The `getSecret` function can be used only with a `Microsoft.KeyVault/vaults` resource. Additionally, it can be used only within the `params` section of a module and only with parameters that have the `@secure()` decorator.
 
 You can use another function called `az.getSecret()` in Bicep parameters files to retrieve key vault secrets. For more information, see [Retrieve secrets in parameters file](#retrieve-secrets-in-parameters-file).
 
-Since the `getSecret` function can be used in only the `params` section of a module, create a _sql.bicep_ file in the same directory as the _main.bicep_ file with the following content:
+Since the `getSecret` function can be used only in the `params` section of a module, create a _sql.bicep_ file in the same directory as the _main.bicep_ file with the following content:
 
 ```bicep
 param sqlServerName string
