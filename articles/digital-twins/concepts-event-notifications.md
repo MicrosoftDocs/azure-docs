@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn to interpret various event types and their different notification messages.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 11/10/2022
+ms.date: 01/27/2025
 ms.topic: conceptual
 ms.service: azure-digital-twins
 

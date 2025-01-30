@@ -29,7 +29,7 @@ For more information on supported scenarios, limitations, and availability, see 
 
 ## Create a Backup vault
 
-A Backup vault is a management entity that stores recovery points treated over time. A Backup vault also provides an interface to do the backup operations. Operations include taking on-demand backups, doing restores, and creating backup policies. AKS Backup requires the Backup vault and the AKS cluster to be in the same region. Learn [how to create a Backup vault](create-manage-backup-vault.md#create-a-backup-vault).
+A Backup vault is a management entity that stores recovery points treated over time. A Backup vault also provides an interface to do the backup operations. Operations include taking on-demand backups, doing restores, and creating backup policies. AKS Backup requires the Backup Vault and the AKS cluster to be located in the same region. However, they can reside in different subscriptions as long as they are within the same tenant.  Learn [how to create a Backup vault](create-manage-backup-vault.md#create-a-backup-vault).
 
 > [!NOTE]
 > A Backup vault is a new resource that's used to back up newly supported datasources. A Backup vault is different from a Recovery Services vault.
