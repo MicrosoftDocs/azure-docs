@@ -9,12 +9,12 @@ ms.service: service-connector
 ms.custom: devx-track-python, build-2024, devx-track-azurecli
 ms.collection: ce-skilling-ai-copilot
 ms.topic: tutorial
-ms.date: 05/07/2024
+ms.date: 01/29/2025
 ---
 
 # Tutorial: Connect to Azure OpenAI Service in AKS using a connection string (preview)
 
-In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) cluster, which talks to Azure OpenAI Service using a connection string. You complete the following tasks:
+In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) cluster that communicates with Azure OpenAI Service using a connection string. You complete the following tasks:
 
 > [!div class="checklist"]
 >
@@ -140,14 +140,13 @@ Once the connection has been created, you can view its details in the **Service 
 
 Use the Azure CLI command to create a service connection to the Azure OpenAI service, providing the following information:
 
-* **Source compute service resource group name:** the resource group name of the AKS cluster.
-* **AKS cluster name:** the name of your AKS cluster that connects to the target service.
-* **Target service resource group name:** the resource group name of the Azure OpenAI service.
+* **Source compute service resource group name:** the name of the resource group containing the AKS cluster.
+* **AKS cluster name:** the name of the AKS cluster that connects to the target service.
+* **Target service resource group name:** the name of the resource group containing the Azure OpenAI service.
 * **OpenAI service name:** the Azure OpenAI service that is connected.
 
 ```azurecli
 az aks connection create cognitiveservices --secret
-
 ```
 
 ---
@@ -216,12 +215,8 @@ az group delete \
     --resource-group MyResourceGroup
 ```
 
-## Next steps
+## Related content
 
-Read the following articles to learn more about Service Connector concepts and how it helps AKS connect to Azure services.
-
-> [!div class="nextstepaction"]
-> [Learn about Service Connector concepts](./concept-service-connector-internals.md)
-
-> [!div class="nextstepaction"]
-> [Use Service Connector to connect an AKS cluster to other cloud services](./how-to-use-service-connector-in-aks.md)
+* [Connect to Azure OpenAI Service in AKS using Workload Identity](./tutorial-python-aks-openai-workload-identity.md)
+* [Integrate Azure OpenAI Service with Service Connector](./how-to-integrate-openai.md)
+* [Azure AI multi-service resource integration](./how-to-integrate-cognitive-services.md)

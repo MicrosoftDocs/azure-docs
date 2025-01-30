@@ -5,13 +5,13 @@ author: wchigit
 ms.author: wchi
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 06/14/2024
+ms.date: 01/29/2025
 ms.collection: ce-skilling-ai-copilot
 ---
 
 # Integrate an Azure AI multi-service resource with Service Connector
 
-This page shows supported authentication methods and clients, and shows sample code you can use to connect an Azure AI multi-service resource to other cloud services using Service Connector. You might still be able to connect to an Azure AI multi-service resource using other methods. This page also shows default environment variable names and values you get when you create the service connection. 
+This page provides information on supported authentication methods and clients, along with sample code for connecting an Azure AI multi-service resource to other cloud services using Service Connector. This page also lists default environment variable names and values obtained when creating the service connection. 
 
 ## Supported compute services
 
@@ -25,7 +25,7 @@ Service Connector can be used to connect the following compute services to an Az
 
 ## Supported authentication types and client types
 
-The table below shows which combinations of authentication methods and clients are supported for connecting your compute service to an Azure AI multi-service resource using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
+The table below indicates which combinations of authentication methods and clients are supported for connecting your compute service to an Azure AI multi-service resource using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
 
 
 | Client type | System-assigned managed identity | User-assigned managed identity | Secret/connection string | Service principal |
@@ -40,7 +40,7 @@ This table indicates that all combinations of client types and authentication me
 
 ## Default environment variable names or application properties and sample code
 
-Use the connection details below to connect compute services to an Azure AI multi-service resource. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+Use the connection details below to connect compute services to an Azure AI multi-service resource. For more information about naming conventions, refer to the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
 ### System-assigned managed identity
 
@@ -89,9 +89,8 @@ Refer to the steps and code below to connect to an Azure AI multi-service resour
 Refer to the steps and code below to connect to an Azure AI multi-service resource using a service principaL.
 [!INCLUDE [code sample for an Azure AI multi-service resource](./includes/code-cognitive-microsoft-entra-id.md)]
 
-## Next steps
+## Related content
 
-Follow the tutorial listed below to learn more about Service Connector.
-
-> [!div class="nextstepaction"]
-> [Learn about Service Connector concepts](./concept-service-connector-internals.md)
+* [Integrate Azure AI services with Service Connector](./how-to-integrate-ai-services.md)
+* [Integrate Azure OpenAI Service with Service Connector](./how-to-integrate-openai.md)
+* [Connect to Azure OpenAI Service in AKS using Workload Identity](./tutorial-python-aks-openai-workload-identity.md)
