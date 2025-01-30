@@ -80,12 +80,12 @@ For each region, Microsoft aims to deploy updates to Azure services within a sin
 
 ## Inter-zone latency
 
-Within each region, availability zones are connected through a high-performance network. Microsoft strives for inter-zone communication to have a round-trip latency of less than approximately 2 milliseconds. Such a low latency allows for high-performance communication within a region, and for synchronous replication of data across multiple availability zones.
+Within each region, availability zones are connected through a high-performance network. Microsoft strives to achieve an inter-zone communication with round-trip latency of less than approximately 2 milliseconds. Low latency allows for high-performance communication within a region, and for synchronous replication of data across multiple availability zones.
 
 > [!NOTE]
 > The target latency refers to the latency of the network links. Depending on the communication protocol you use and the network hops required for any specific network flow, the latency you observe might be different.
 
-In most workloads, you can distribute components of your solution across availability zones without a noticeable effect on your performance. If you have a workload with a high degree of sensitivity to inter-zone latency, it's important to test the latency between your selected availability zones, using your actual protocols and configuration. You can use [zonal deployments](#zonal-and-zone-redundant-services) to reduce inter-zone traffic, but you should plan your reliability strategy to use multiple availability zones.
+In most workloads, you can distribute components of your solution across availability zones without a noticeable effect on your performance. If you have a workload with a high degree of sensitivity to inter-zone latency, it's important to test the latency between your selected availability zones with your actual protocols and configuration. To reduce inter-zone traffic, it's possible to use [zonal deployments](#zonal-and-zone-redundant-services), but optimally, you should use multiple availability zones in your reliability strategy plan. 
 
 ## Availability zone architectural guidance
 
