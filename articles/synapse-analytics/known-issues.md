@@ -40,6 +40,18 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 
 ## Azure Synapse Analytics dedicated SQL pool active known issues summary
 
+### Data Factory copy command fails with error "The request could not be performed because of an I/O device error"
+
+Azure Data Factory pipelines use the COPY INTO statement to ingest data at scale into dedicated SQL Pool tables. In some rare cases, the COPY INTO statement can fail when loading CSV files into dedicated SQL Pool table when file split is used in an Azure Data Factory pipeline. File splitting is a mechanism that improves load performance when a small number of larger (1GB+) files are loaded in a single copy task. When file splitting is enabled, a single file can be loaded by multiple parallel threads, where every thread is assigned a part of the file.
+
+**Workaround**: Impacted customers may need to disable file split in Azure Data Factory.
+
+### COPY INTO statement fails with error “An internal DMS error occurred that caused this operation to fail.”  when managed identity is used.
+
+when using COPY INTO command with managed identity, the statement can fail after a long-running query with error message “An internal DMS error occurred that caused this operation to fail”.
+
+**Workaround**: Impacted customers may use an alternative authentication method for the storage account, such as a Shared Access Key. 
+
 ### Customers are unable to monitor their usage of dedicated SQL pool by using metrics
 
 An internal upgrade of our telemetry emission logic, which was meant to enhance the performance and reliability of our telemetry data, caused an unexpected issue that affected some customers' ability to monitor their dedicated SQL pool, `tempdb`, and Data Warehouse Data IO metrics.
