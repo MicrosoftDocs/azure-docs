@@ -7,7 +7,7 @@ ms.service: azure-expressroute
 ms.custom:
   - ignite-2023
 ms.topic: concept-article
-ms.date: 01/31/20255
+ms.date: 01/31/2025
 ms.author: duau
 ---
 

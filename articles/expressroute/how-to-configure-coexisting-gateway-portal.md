@@ -64,7 +64,7 @@ There are two different sets of procedures to choose from. The configuration pro
 
 * **I already have a Resource Manager deployment model VNet.**
   
-    If you already have a virtual network with an existing Site-to-Site VPN connection or ExpressRoute connection, and the gateway subnet prefix is /28 or longer (/29, /30, etc.), you need to delete the existing gateway. Follow the steps in [To configure coexisting connections for an already existing virtual network](#to-configure-coexisting-connections-for-an-already-existing-vnet) to delete the gateway and create new ExpressRoute and Site-to-Site VPN connections.
+    If you already have a virtual network with an existing Site-to-Site VPN connection or ExpressRoute connection, and the gateway subnet prefix is /28 or longer (/29, /30, etc.), you need to delete the existing gateway. Follow the steps in [To configure coexisting connections for an already existing virtual network](#to-configure-coexisting-connections-for-an-already-existing-virtual-network) to delete the gateway and create new ExpressRoute and Site-to-Site VPN connections.
   
     Deleting and recreating your gateway will result in downtime for your cross-premises connections. However, your VMs and services can still communicate out through the load balancer during this process if they're configured to do so.
 
