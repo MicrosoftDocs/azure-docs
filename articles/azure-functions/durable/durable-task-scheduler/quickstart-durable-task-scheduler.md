@@ -1,160 +1,253 @@
 ---
-title: "Quickstart: Configure a Durable Functions app to use the Durable Task Scheduler (preview) storage provider"
-description: Learn how to configure the Durable Task Scheduler as your Durable Function app backend provider.
-ms.topic: quickstart
-ms.date: 01/24/2025
+title: "Quickstart: Set a Durable Functions app to use the Durable Task Scheduler storage provider (preview)"
+description: Learn how to configure an existing Durable Functions app to use Durable Task Scheduler.
+ms.topic: how-to
+ms.date: 01/27/2025
+zone_pivot_groups: dts-lanugages
 ---
 
-# Quickstart: Configure a Durable Functions app to use the Durable Task Scheduler (preview) storage provider
+# Quickstart: Set a Durable Functions app to use the Durable Task Scheduler storage provider (preview)
 
-Let's begin working with Durable Functions using the new Durable Task Scheduler backend provider. The [provided quickstart sample](https://github.com/Azure/Azure-Functions-Durable-Task-Scheduler-Private-Preview/tree/main/quickstarts/HelloCities):
-- Schedules orchestrations that include three activities via an HTTP trigger.
-- Showcases the necessary configuration for using Durable Task Scheduler as the backend provider for your Durable Function app.
+You can switch and configure an existing Durable Functions app to use Durable Task Scheduler without changing any of your code. 
 
-In this quickstart, you'll:
-
-> [!div class="checklist"]
->
-> - Deploy the sample application using the [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd).  
-> - Verify the task hub orchestration status using the [Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md).
-> - Register the Durable Task Scheduler endpoint. 
+Choose your programming language scenario at the top of the article.
 
 ## Prerequisites
 
-- An Azure subscription. [Don't have one? Create a free account.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [The latest Azure Functions Core Tools installed](../../functions-run-local.md)
-- [The Azure Developer CLI installed](/azure/developer/azure-developer-cli/install-azd)
-- [Install .NET Core SDK](https://dotnet.microsoft.com/download) version 6 or later installed.
-- [The latest Visual Studio Code installed](https://code.visualstudio.com/download) with the following extensions:
-  - [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
-  - [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-- [Configure an Azurite storage emulator for local storage](/azure/storage/common/storage-use-azurite).
+Before continuing with the tutorial, make sure you have:
 
-## Set up the CLI
+::: zone pivot="csharp"  
 
-1. Login to the Azure CLI and make sure you have the latest installed.
+- [A Durable Task Scheduler and task hub](./manage-durable-task-scheduler.md) 
+- [A Durable Functions app](../durable-functions-isolated-create-first-csharp.md) with an Azure Storage account for deployment to Azure
+- [Azurite](../../../storage/common/storage-use-azurite.md) (Azure Storage emulator) for testing locally
+- [DurableTask CLI](./manage-durable-task-scheduler.md#set-up-the-cli) enabled 
 
-   ```azurecli
-   az login
-   az upgrade
-   ```
+::: zone-end 
 
-1. Install the Durable Task Scheduler CLI extension.
+::: zone pivot="other"  
 
-   ```azurecli
-   az extension add --name durabletask
-   ```
+- [A Durable Task Scheduler and task hub](./manage-durable-task-scheduler.md) 
+- [A Durable Functions app](../quickstart-js-vscode.md) with an Azure Storage account for deployment to Azure
+- [Azurite](../../../storage/common/storage-use-azurite.md) (Azure Storage emulator) for testing locally
+- [DurableTask CLI](./manage-durable-task-scheduler.md#set-up-the-cli) enabled 
 
-1. If you've already installed the Durable Task Scheduler CLI extension, upgrade to the latest version.
+::: zone-end 
 
-   ```azurecli
-   az extension add --upgrade --name durabletask
-   ```
+::: zone pivot="csharp"  
 
-## Clone the project
+## Configure .NET (isolated) applications
 
-1. Clone the sample [`HelloCities`](https://github.com/Azure/Azure-Functions-Durable-Task-Scheduler-Private-Preview/tree/main/quickstarts/HelloCities) repo to your developer machine:
+### Add and update NuGet packages
 
-    ```shell
-    git clone https://github.com/Azure/Azure-Functions-Durable-Task-Scheduler-Private-Preview.git
-    ```
+In your Durable Functions app, add the following Durable Task NuGet package reference to your application's `.csproj` file.
 
-1. Navigate to the `HelloCities` source code directory:
+```xml
+<PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged" Version="0.3.0-alpha" />
+```
 
-    ```shell
-    cd Azure-Functions-Durable-Task-Scheduler-Private-Preview/quickstarts/HelloCities
-    ```
+Update existing NuGet package references in your `.csproj` file to the following versions:
 
-1. Open the Application in Visual Studio Code:
+```xml
+<PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.22.0" />
+<PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.DurableTask" Version="1.2.2" />
+<PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.17.4" />
+```
+::: zone-end 
 
-    ```shell
-    code .
-    ```
+::: zone pivot="other"  
 
-## Deploy the app to Azure
+## Configure non-.NET applications
 
-This quickstart uses the [Azure Developer CLI (`azd`)](https://aka.ms/azd) to easily deploy the app.
+::: zone-end 
+
+### Update host.json to use Durable Task Scheduler as storage backend
+
+::: zone pivot="csharp"  
+
+Change the `storageProvider` type to be `azureManaged`:
+
+```json
+{
+  "version": "2.0",
+  "extensions": {
+    "durableTask": {
+      "hubName": "%TASKHUB_NAME%",
+      "storageProvider": {
+        "type": "azureManaged",
+        "connectionStringName": "DURABLE_TASK_SCHEDULER_CONNECTION_STRING"
+      }
+    }
+  }
+}
+```
+
+::: zone-end 
+
+::: zone pivot="other"  
+
+Change the `storageProvider` type to be `azureManaged` and remove the existing `Microsoft.Azure.Functions.ExtensionBundle` reference from the `host.json` file.
+
+```json
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      }
+    }
+  },
+  // Remove this extensionBundle property.  
+  // "extensionBundle": {
+  //   "id": "Microsoft.Azure.Functions.ExtensionBundle",
+  //   "version": "[4.*, 5.0.0)"
+  // },
+  "extensions": {
+    "durableTask": {
+      "storageProvider": {
+        "type": "azureManaged",
+        "connectionStringName": "DURABLE_TASK_SCHEDULER_CONNECTION_STRING"
+      }
+    }
+  }
+}
+```
+
+::: zone-end 
 
 > [!NOTE]
-> If you open the repo in GitHub CodeSpaces, the `azd` tooling is already installed.
+> If you're using Azure Storage as the storage backend for Durable Functions, you may or may not see the `storageProvider` property in your `host.json` file. This is because Azure Storage is currently the default backend, so it's optional to specify it. 
 
-1. From the `HelloCities` directory, run the following command to provision.
+::: zone pivot="other"  
 
-    ```bash
-    azd up
-    ```
+### Install the required packages
 
-1. When prompted in the terminal, provide:
-   - A name for your [Azure Developer CLI environment](/azure/developer/azure-developer-cli/faq#what-is-an-environment-name).
-   - The Azure subscription you'd like to use.
-   - The Azure location to use. This location is related to the location in which you created the resource group, scheduler, and task hub.
+Run the following commands:
 
-   > [!NOTE]
-   > This template defaults to **Elastic Premium EP1 sku plan on Linux**.
+```sh
+  func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask.AzureManaged --version 0.3.0-alpha
+```
 
-1. Track the deployment process in the terminal, or in the portal using the link provided in the terminal.
+```sh
+  func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask --version 2.13.7
+```
 
-## View the app on the Durable Task Scheduler dashboard
+This creates an `extensions.csproj` file in your application folder because all Azure Function extensions are C# packages. In this case, you've explicitly installed an extension so a `.csproj` file is created automatically, along with the *bin* and *obj* directories.  
 
-Once your application is deployed, monitor your application using the Durable Task Scheduler dashboard.
+> [!NOTE]
+> Remember to install any other Azure Function extensions your app needs! 
 
-### Navigate to the dashboard
+::: zone-end 
 
-1. In the portal, navigate to the `rg-<YOUR_AZD_ENVIRONMENT_NAME>` overview page.
+## Test the app locally 
 
-1. Select the scheduler resource, with the `dts-<randomGUID>` naming convention.
+### Provide connection string and task hub information
 
-    :::image type="content" source="media/quickstart-durable-task-scheduler/dts-dashboard-resource.png" alt-text="Screenshot of selecting the Durable Task Scheduler resource from the resource group you created.":::
+To test the app locally, provide the connection string and task hub information in the `local.settings.json` file:
 
-1. On the Scheduler resource overview page, select the **Task hub name**.
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "DURABLE_TASK_SCHEDULER_CONNECTION_STRING": "Endpoint={DTS URL};Authentication=DefaultAzure",
+    "TASKHUB_NAME": "<TASKHUB NAME>"
+  }
+}
+```
 
-    :::image type="content" source="media/quickstart-durable-task-scheduler/dts-overview-portal.png" alt-text="Screenshot of selecting the task hub resource from the scheduler resource overview page.":::
+Get the Durable Task Scheduler URL by running:
 
-1. On the Taskhub resource overview page, select the **Dashboard Url**.
+```azurecli
+  az durabletask scheduler list -g <RESOURCE_GROUP_NAME>
+```
+Take note of the namepace name and dashboard URL for later use. 
 
-    :::image type="content" source="media/quickstart-durable-task-scheduler/taskhub-overview-portal.png" alt-text="Screenshot of finding and selecting the dashboard URL from the task hub resource overview page.":::
+Retrieve the task hub name by running: 
+```azurecli
+  az durabletask taskhub list -g <RESOURCE_GROUP_NAME> -s <SCHEDULER_NAME>
+```
 
-1. On the Durable Task Scheduler dashboard, browse and verify the orchestration state and history from within the task hub:
+[!INCLUDE [assign-rbac-cli](./includes/assign-rbac-cli.md)]
 
-    :::image type="content" source="media/quickstart-durable-task-scheduler/taskhub-overview.png" alt-text="Screenshot of the task hub page in the Durable Task Scheduler dashboard.":::
+### Run the app locally
 
-### Register the Durable Task Scheduler endpoint
+Start [Azurite](../../../storage/common/storage-use-azurite.md#run-azurite). 
 
-1. Navigate to [https://dashboard.durabletask.io](https://dashboard.durabletask.io) and sign in using your Microsoft Entra ID account. 
+Once you've started Azurite, go to the root directory of your app and run the application:
 
-1. Add a new connection to the Durable Task Scheduler and fill in the following fields:
+```sh
+func start
+```
 
-    :::image type="content" source="media/quickstart-durable-task-scheduler/connecting-dts.png" alt-text="Screenshot of the new connection fields in the Durable Task Scheduler dashboard.":::
+Running into issues? [See the troubleshooting guide.](./troubleshoot-durable-task-scheduler.md)
 
-   | Field              | Description | Example |
-   | ------------------ | ----------- | ------- |
-   | Subscription       | Your Azure subscription ID. | Run `az account show` to verify you're in the right subscription. |
-   | Scheduler          | Your Durable Task Scheduler resource name (`dts-<randomGUID>`). | Run `az durabletask taskhub list -s "SCHEDULER-NAME" -g "RESOURCE-GROUP"` to find the scheduler name. | 
-   | Scheduler Endpoint | Your Durable Task Scheduler endpoint (`https://SCHEDULER-NAME.LOCATION.durabletask.io`). | Run `az durabletask taskhub list -s "SCHEDULER-NAME" -g "RESOURCE-GROUP"` to find the scheduler endpoint. |
-   | Task Hub           | Your task hub resource name (`taskhub-<randomGUID>`). | Run `az durabletask taskhub list -s "SCHEDULER-NAME" -g "RESOURCE-GROUP"` to find the task hub name. |
+::: zone pivot="csharp"  
 
-1. Click **Add Endpoint**.
+> [!NOTE] 
+> For Mx Mac (ARM64) users, you may run into gRPC runtime issues with Durable Functions. As a workaround:
+> 1. Reference the `2.41.0` version of the `Contrib.Grpc.Core.M1` NuGet package.
+> 1. Add a custom after-build target that ensures the correct ARM64 version of the gRPC libraries can be found.
+> 
+> ```xml
+><Project>
+>  <ItemGroup>
+>    <PackageReference Include="Contrib.Grpc.Core.M1" Version="2.41.0" />
+>  </ItemGroup>
+>
+>  <Target Name="CopyGrpcNativeAssetsToOutDir" AfterTargets="Build">
+>    <ItemGroup>
+>       <NativeAssetToCopy Condition="$([MSBuild]::IsOSPlatform('OSX'))" Include="$(OutDir)runtimes/osx-arm64/native/*"/>
+>    </ItemGroup>
+>    <Copy SourceFiles="@(NativeAssetToCopy)" DestinationFolder="$(OutDir).azurefunctions/runtimes/osx-arm64/native"/>
+>  </Target>
+></Project>     
+>``` 
 
-1. Once the connection has been successfully added, navigate to the Task Hub overview page in the dashboard to orchestration status within that task hub.
+::: zone-end 
+
+::: zone pivot="other"  
+
+> [!NOTE] 
+> If you have a Python app, remember to create a virtual environment and install packages in `requirements.txt` before running `func start`. The packages you need are `azure-functions` and `azure-functions-durable`.  
+
+::: zone-end 
+
+## Run the app on Azure
+
+Durable Task Scheduler supports identity-based authentication only. You can use an identity managed by the Azure platform, so you do not need to provision or rotate any secrets. 
+
+To run your app on Azure, start by deploying the app, then configure the app to use a *system-assigned* or a *user-assigned* managed identity for authentication. 
+
+- **User-assigned identity** (recommended) isn't tied to the lifecycle of the app. You can re-use that identity even if the app is de-provisioned. 
+- **System-assigned identity** is deleted if the app is de-provisioned. 
+
+This article shows how to set up **user-assigned managed identity**.
+
+[!INCLUDE [assign-rbac-portal](./includes/assign-rbac-portal.md)]
+
+Congratulations! Your Durable Functions app should now be configured to use Durable Task Scheduler! You can test it now. 
 
 ## Clean up resources
 
-1. Remove the task hub you created.
+Remove the task hub you created. 
 
-    ```azurecli
-    az durabletask taskhub delete --resource-group YOUR_RESOURCE_GROUP --scheduler-name YOUR_SCHEDULER --name YOUR_TASKHUB
-    ```
+```azurecli
+az durabletask taskhub delete --resource-group YOUR_RESOURCE_GROUP --scheduler-name YOUR_SCHEDULER --name YOUR_TASKHUB
+```
 
-    Successful deletion doesn't return any output.
+Successful deletion doesn't return any output. 
 
-1. Delete the scheduler that housed that task hub.
+Next, delete the scheduler that housed that task hub.
 
-    ```azurecli
-    az durabletask scheduler --resource-group YOUR_RESOURCE_GROUP --scheduler-name YOUR_SCHEDULER 
-    ```
-
-[See the troubleshooting guide](./troubleshoot-durable-task-scheduler.md) if you receive an error message while removing resources.
+```azurecli
+az durabletask scheduler delete --resource-group YOUR_RESOURCE_GROUP --scheduler-name YOUR_SCHEDULER 
+```
 
 ## Next steps
 
-- [Configure an existing application to use the Durable Task Scheduler.](./configure-durable-task-scheduler.md)
+- Learn more about the [Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md).
+- [Troubleshoot any errors you may encounter](./troubleshoot-durable-task-scheduler.md) while using Durable Task Scheduler.
