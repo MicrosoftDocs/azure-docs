@@ -3,7 +3,7 @@ title: Quickstart - Resource Manager template VM Backup
 description: Learn how to back up your virtual machines with Azure Resource Manager template
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 11/15/2021
+ms.date: 01/30/2025
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 ms.service: azure-backup
 author: jyothisuri
@@ -92,3 +92,4 @@ In this quickstart, you created a Recovery Services vault, enabled protection on
 - [Learn how](tutorial-backup-vm-at-scale.md) to back up VMs in the Azure portal.
 - [Learn how](tutorial-restore-disk.md) to quickly restore a VM
 - [Learn how](../azure-resource-manager/templates/template-tutorial-create-first-template.md) to create ARM templates.
+- Learn how to [restore an Azure VM using REST API](backup-azure-arm-userestapi-restoreazurevms.md)

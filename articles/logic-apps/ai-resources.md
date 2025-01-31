@@ -33,7 +33,7 @@ For more information, see the following resources:
 
 | Resource type | Link |
 |---------------|------|
-| **Video overview** | - [Integrate AI into your workflows with Azure Logic Apps](https://www.youtube.com/live/Lxw9epgl_FM) <br><br>- [Accelerate generative AI development with Azure Logic Apps - Integrate 2024](https://youtu.be/HSl8OI-aT3A) |
+| **Video overview** | - [Modernize enterprise integration with Azure Integration Services](https://ignite.microsoft.com/sessions/BRK150) <br><br>- [Integrate AI into your workflows with Azure Logic Apps](https://www.youtube.com/live/Lxw9epgl_FM) <br><br>- [Accelerate generative AI development with Azure Logic Apps - Integrate 2024](https://youtu.be/HSl8OI-aT3A) |
 
 #### Prep your content
 
@@ -161,7 +161,7 @@ For more information, see the following resources:
 
 ## Ingest documents and chat with data
 
-Data is the cornerstone for any AI application and unique for each organization. When you build any AI application, efficient data ingestion is critical for success. Regardless where your data resides and with little or no code, you can more easily integrate AI into new and existing business processes by building Standard workflows with Azure Logic Apps.
+Data is the cornerstone for any AI application and unique for each organization. When you build any AI application, efficient data ingestion is critical for success. No matter where your data resides, you can integrate AI into new and existing business processes using little or no code by building Standard workflows with Azure Logic Apps.
 
 With over 1,400 enterprise connectors and operations, Azure Logic Apps makes it possible for you to quickly access and perform tasks with a wide range of services, systems, applications, and databases. When you use these connectors alongside AI services, such as Azure OpenAI and Azure AI Search, your organization can transform workloads such as automating routine tasks, enhancing customer interactions with chat capabilities, providing access to organizational data when necessary, and generating intelligent insights or responses. Along with these operations, Azure Logic Apps also offers prebuilt workflow templates that ingest data from many common data sources, such as SharePoint, Azure File Storage, Blob Storage, SFTP, and more, to help you quickly build and your applications.
 
