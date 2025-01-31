@@ -25,7 +25,7 @@ This documentation provides a detailed guide on using Azure CLI Python to automa
 - The latest [Python.org](https://www.python.org/downloads/).
 - The latest [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli).
 
-### Prerequisite check
+## Prerequisite check
 
 - In a command prompt, run the `python --version` command to check whether Python is installed or not.
 
@@ -293,7 +293,7 @@ Once the domains are verified and DNS records are configured, you can link the d
 runCommand(f"az communication update --name {commServiceName} --resource-group {resourceGroup} --linked-domains {' '.join(linkedDomainIds)}")
 ```
 
-### Complete Python Script with Azure CLI Commands for Automating End-to-End Resource Creation
+## Complete Python Script with Azure CLI Commands for Automating End-to-End Resource Creation
 
 ```python
 import subprocess
