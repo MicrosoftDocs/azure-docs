@@ -1,6 +1,6 @@
 ---
 title: Store external metadata in the DICOM service in Azure Health Data Services
-description: Learn how to store, retrieve and query external metadata that are not part of the DICOM files in the DICOM service
+description: Learn how to store, retrieve, and query external metadata that are not part of the DICOM files in the DICOM service
 author: kabalas
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
@@ -11,11 +11,11 @@ ms.author: kabalas
 
 # External metadata
 
-The external metadata feature allows users to store metadata or additional information about the DICOM files that is not part of the DICOM file. This is accomplished by using STOW-RS to store the metadata by passing the additional information in the header.
+The external metadata feature allows users to store metadata or additional information about the DICOM files that is not part of the DICOM file. This fuctionality is accomplished by using STOW-RS to store the metadata by passing the additional information in the header.
 
 ## Limitations
 
-- External metadata is only supported in latest api version. i.e Version 2 or above
+- External metadata is only supported in latest api version. i.e. Version 2 or above
 - External metadata is only supported in [DICOM&reg; service with Azure Data Lake Storage](dicom-data-lake.md)
 - Only tags which don't conform with standard DICOM protocol tags such as [private tags](https://dicom.nema.org/dicom/2013/output/chtml/part05/sect_7.8.html) are supported to be as external metadata.
 - Only study level tags are supported.
@@ -65,9 +65,9 @@ Body:
 
 > [!NOTE]
 > Only study level tags are supported.
-> If the tag already exists, it will update the value of the existing tag for the study.
+> If the tag already exists, it updates the value of the existing tag for the study.
 > If the tag already exists with different VR, then it will results in an error.
-> Once a tag is created, its Value Representation (VR) is fixed and must comply with the standard for that specific VR. If there is an issue with one of the tags, then it will fail the whole transaction.
+> Once a tag is created, its Value Representation (VR) is fixed and must comply with the standard for that specific VR. If there is an issue with one of the tags, then it fails the whole transaction.
 
 ### Retrieve metadata (for study, series, or instance)
 
@@ -81,7 +81,7 @@ Content-Type: application/dicom
  ```
 
 > [!NOTE]
-> The `json` response will include a standard private creator tag that follows the [DICOM standard](https://dicom.nema.org/dicom/2013/output/chtml/part05/sect_7.8.html).
+> The `json` response includes a standard private creator tag that follows the [DICOM standard](https://dicom.nema.org/dicom/2013/output/chtml/part05/sect_7.8.html).
 > The default value of the private creator tag will be `Microsoft`.
 > For e.g if the private tag is `001910FF` then the private creator tag will be `00190010`.
 
@@ -97,10 +97,10 @@ Content-Type: application/dicom
 
 > [!NOTE]
 > Only study level tags are supported.
-> If there is an extended query tag with the same tagPath, but if the header `msdicom-request-meta` is set to `true`, then value from the external metadata is used to filter or to included as part of response data.
+> If there is an extended query tag with the same tagPath, but if the header `msdicom-request-meta` is set to `true`, then value from the external metadata is used to filter or to be included as part of response data.
 
 ## Other transaction
 
-There are no changes to other transactions like WADO-RS, Delete, ChangeFeed and Update.
+There are no changes to other transactions like WADO-RS, Delete, ChangeFeed, and Update.
 
 [!INCLUDE [DICOM trademark statements](../includes/healthcare-apis-dicom-trademark.md)]
