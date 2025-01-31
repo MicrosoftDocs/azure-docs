@@ -63,7 +63,11 @@ For more information on supported STIX objects, see [Understand threat intellige
 
 ## Manage threat intelligence 
 
-Curate existing TI with the relationship builder. Use the management interface to search, filter and sort, then add tags to your threat intelligence.
+Optimize TI from your sources with ingestion rules. Curate existing TI with the relationship builder. Use the management interface to search, filter and sort, then add tags to your threat intelligence.
+
+### Optimize threat intelligence feeds with ingestion rules
+
+Reduce noise from your TI feeds, extend validity 
 
 ### Curate threat intelligence with the relationship builder
 
