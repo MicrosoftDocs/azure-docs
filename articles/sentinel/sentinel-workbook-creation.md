@@ -24,9 +24,9 @@ This article walks you through the process of creating and publishing workbooks 
 
 - **Threat hunting**: Threat hunting involves proactively searching for signs of malicious activity within an organization's environment. Microsoft Sentinel workbooks aid threat hunters by providing visual representations of anomalous behaviors, attack patterns, and indicators of compromise (IOCs). Hunters can use these insights to uncover hidden threats, investigate suspicious activities, and take preventive actions before incidents escalate.
 
-## Create your workbook
+## Create a workbook
 
-1. Go to the [Azure portal](https://ms.portal.azure.com/) and select Microsoft Sentinel from the list of available services.
+1. Go to the [Azure portal](https://ms.portal.azure.com/) and select **Microsoft Sentinel** from the list of available services.
 
 1. Ensure that you have a designated workspace for your Microsoft Sentinel instance. You can either create a new workspace or select an existing one.
 
@@ -52,7 +52,7 @@ This article walks you through the process of creating and publishing workbooks 
 
 1. Copy the gallery template and save it as JSON file on your machine.
 
-1. Add the following properties to your gallery template. These properties identify the specific Microsoft Sentinel workbook that was opened. Use the format `sentinel-"workbookName"` for consistency.
+1. Add the following properties to your gallery template. These properties identify the specific Microsoft Sentinel workbook that was opened. Use the format `sentinel-<workbookName>` for consistency.
 
    ```json
     "styleSettings": {},
@@ -62,7 +62,7 @@ This article walks you through the process of creating and publishing workbooks 
 
 1. Save the JSON file and upload it to the **Workbooks** folder under your solution repository in GitHub. If the **Workbooks** folder doesn't exist, create it.
 
-1. Capture two screenshots of your workbook: one in dark theme and one in light theme. The images are used as preview images for your workbook.
+1. Capture two screenshots of your workbook: one in dark theme and one in light theme. They're used as preview images for your workbook.
 
    Be consistent with the file name conventions. The file name for the dark-theme image should contain the word *black*. The file name for the light-theme image should contain the word *white*.
 
@@ -100,4 +100,4 @@ This article walks you through the process of creating and publishing workbooks 
 
 ## Related content
 
-[Publish solutions to Microsoft Sentinel](/azure/sentinel/publish-sentinel-solutions)
+- [Publish solutions to Microsoft Sentinel](/azure/sentinel/publish-sentinel-solutions)

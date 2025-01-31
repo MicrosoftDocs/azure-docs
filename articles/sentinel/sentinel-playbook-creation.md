@@ -14,14 +14,14 @@ ms.date: 1/23/2025
 
 Playbooks in Microsoft Sentinel are sets of procedures that can respond to incidents, alerts, or specific entities. They help automate responses and can be set to run automatically when certain alerts or incidents occur. Playbooks can also be run manually.
 
-This article walks you through the process of creating and publishing playbooks for Microsoft Sentinel solutions.
+This article uses example scenarios to walk you through the process of creating and publishing playbooks for Microsoft Sentinel solutions.
 
 ## Use cases for Microsoft Sentinel playbooks
 
 Due to the growing number of alerts and incidents, security operations center (SOC) analysts can't manually handle everything. To maximize the benefits of Microsoft Sentinel, it's crucial to determine which automations help SOC analysts with each detection in your solution. Here are some of the common scenarios for playbooks:
 
 - **Incident enrichment**: Enhance alerts with additional information for efficient investigation and resolution. Example: Collect more data on IP addresses associated with an incident.
-- **Sync with ticketing systems**: Synchronize Microsoft Sentinel incidents with other systems (like ServiceNow) bidirectionally. Example: On incident creation, sync details with a ServiceNow ticket. For more information, see [ServiceNow connector](/connectors/service-now/).
+- **Sync with ticketing systems**: Synchronize Microsoft Sentinel incidents with other systems (like ServiceNow) bidirectionally. Example: On incident creation, sync details with a ServiceNow ticket. For more information, see the [ServiceNow connector reference](/connectors/service-now/).
 - **Automated response**: Take automated actions in response to suspicious activities. Example: Send a Teams message to the user for confirmation if a suspicious action is detected.
 
 To understand more about potential use cases for playbooks, see [Recommended playbook use cases, templates, and examples](/azure/sentinel/automation/playbook-recommendations).
@@ -30,7 +30,7 @@ To understand more about potential use cases for playbooks, see [Recommended pla
 
 Microsoft Sentinel playbooks are based on Azure Logic Apps, a cloud platform that enables the creation and execution of automated workflows with minimal to no coding. You can use the visual designer and select prebuilt operations to efficiently build workflows that integrate and manage your applications, data, services, and systems. For more information, see [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview).
 
-Logic Apps includes numerous out-of-the-box connectors, such as Salesforce, Office 365, and SQL Server, which offer no-code options for various functions. For example, the Office 365 Outlook connector includes built-in actions for sending emails without needing any code. If the out-of-the-box connectors don't cover specific actions that a playbook requires, you need to create a custom connector.
+Logic Apps includes numerous out-of-the-box connectors, such as Salesforce, Office 365, and SQL Server. These connectors offer no-code options for various functions. For example, the Office 365 Outlook connector includes built-in actions for sending emails without needing any code. If the out-of-the-box connectors don't cover specific actions that a playbook requires, you need to create a custom connector.
 
 ### Scenario: Playbook that uses built-in connectors
 
@@ -42,7 +42,7 @@ For detailed instructions on how to create playbooks from the Azure portal or th
 
 #### Generate the ARM template for the playbook
 
-On the **Code view** tab of the Logic Apps editor, you can access the JSON Azure Resource Manager template (ARM template). Remove any organizational details like tenant ID and subscription info for privacy and security. Follow these steps to get a sanitized version of your playbook ARM template:  
+On the **Code view** tab of the Logic Apps editor, you can access the JSON Azure Resource Manager template (ARM template). Remove any organizational details, like tenant ID and subscription info, for privacy and security. Follow these steps to get a sanitized version of your playbook ARM template:  
 
 1. [Download the PowerShell script](https://aka.ms/playbook-ARM-Template-Generator).
 
@@ -79,17 +79,17 @@ Custom connectors extend Azure Logic Apps by integrating with APIs or services t
 - Third-party services that Azure doesn't directly support.
 - Custom-built applications with a REST or SOAP API.
 
-For more information, see [Custom connectors](/connectors/custom-connectors).
+For more information, see [Custom connectors overview](/connectors/custom-connectors).
 
 #### Create the playbook
 
-To create a custom connector, describe the API so that the connector understands its operations and data structures. This example uses an OpenAPI definition for the Cognitive Services Text Analytics Sentiment API. For more details on creating custom connectors, see [Create a custom connector from an OpenAPI definition](/connectors/custom-connectors/define-openapi-definition).
+To create a custom connector, describe the API so that the connector understands its operations and data structures. This example uses an OpenAPI definition for the Cognitive Services Text Analytics Sentiment API. For more information on creating custom connectors, see [Create a custom connector from an OpenAPI definition](/connectors/custom-connectors/define-openapi-definition).
 
 After you create the custom connector, you can use it to build a playbook by using Azure Logic Apps. For step-by-step instructions on how to use custom connectors in a playbook, see [Use a custom connector in a logic app workflow](/connectors/custom-connectors/use-custom-connector-logic-apps).
 
 #### Generate the ARM template for the playbook
 
-On the **Code view** tab of the Azure Logic Apps editor, you can access the JSON ARM template. Remove any organizational details like tenant ID and subscription info for privacy and security. Follow these steps to get a sanitized version of your playbook ARM template:  
+On the **Code view** tab of the Azure Logic Apps editor, you can access the JSON ARM template. Remove any organizational details, like tenant ID and subscription info, for privacy and security. Follow these steps to get a sanitized version of your playbook ARM template:  
 
 1. [Download the PowerShell script](https://aka.ms/playbook-ARM-Template-Generator).
 
