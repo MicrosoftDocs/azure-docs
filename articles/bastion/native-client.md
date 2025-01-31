@@ -5,20 +5,20 @@ description: Learn how to configure Bastion for native client connections.
 author: cherylmc
 ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 01/24/2025
+ms.date: 01/28/2025
 ms.author: cherylmc
 ---
 
 # Configure Bastion for native client connections
 
-This article helps you configure your Bastion deployment to accept connections from the native client (SSH or RDP) on your local computer to VMs located in the virtual network. The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Microsoft Entra ID. Additionally, you can also upload or download files, depending on the connection type and client.
+This article helps you configure your Bastion deployment to accept connections from the native client (SSH or RDP) on your local computer to VMs located in the virtual network. The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Microsoft Entra ID. Additionally, you can also transfer files, depending on the connection type and client.
 
 :::image type="content" source="./media/native-client/native-client-architecture.png" alt-text="Diagram shows a connection via native client." lightbox="./media/native-client/native-client-architecture.png":::
 
 You can configure this feature by modifying an existing Bastion deployment, or you can deploy Bastion with the feature configuration already specified. Your capabilities on the VM when connecting via native client are dependent on what is enabled on the native client.
 
->[!NOTE]
->[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
+> [!NOTE]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 ## Deploy Bastion with the native client feature
 
@@ -69,4 +69,4 @@ Use the following table to understand how to connect from native clients. Notice
 
 * [Connect from a Windows native client](connect-vm-native-client-windows.md)
 * [Connect using the az network bastion tunnel command](connect-vm-native-client-linux.md)
-* [Upload or download files](vm-upload-download-native.md)
+* [Transfer files](vm-upload-download-native.md)
