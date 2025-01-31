@@ -107,7 +107,7 @@ You will then need to create a CycleCloud admin user for the application server.
 
 Once you have created your user, you may want to set your SSH key so that you can more easily access any Linux VMs created by CycleCloud. To add an SSH key, edit your profile by clicking on your name in the upper right hand corner of the screen.
 
-You will need to set up you Azure provider account in CycleCloud. You can either use [Managed Identities](./how-to/managed-identities.md) or [Service Principals](./how-to/service-principals.md).
+You will need to set up your Azure provider account in CycleCloud. You can either use [Managed Identities](./how-to/managed-identities.md) or [Service Principals](./how-to/service-principals.md).
 
 You should now have a running CycleCloud application that allows you to create and run clusters.
 

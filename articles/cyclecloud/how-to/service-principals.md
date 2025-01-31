@@ -2,19 +2,15 @@
 title: Using a Service Principal
 description: How to use a Service Principal with Azure CycleCloud.
 author: rokeptne
-ms.date: 02/05/2019
+ms.date: 01/27/2025
 ms.author: rokeptne
 ---
 
 # Using Service Principal
 
-An Azure AD Service Principal may be used to permission Azure CycleCloud to manage clusters in your subscription (as an alternative to using a [Managed Identity](managed-identities.md)).  
+An Azure AD Service Principal may be used to permission Azure CycleCloud to manage clusters in your subscription (as an alternative to using a [Managed Identity](managed-identities.md)).
 
-## Choosing between a Service Principal and a Managed Identity
-
-If CycleCloud will only manage clusters in a single subscription, then consider using a Managed Identity rather than a Service Principal.
-
-However, since CycleCloud can only use a single Managed Identity, using Service Principals is required when managing clusters in multiple subscriptions or tenants.
+It is generally recommended to use either a [System-Assigned](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) or [User-Assigned Managed Identity](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity) to grant those permissions rather than a Service Principal. 
 
 ## Create a Service Principal
 
@@ -45,8 +41,8 @@ However, the Contributor Role has a higher privilege level than CycleCloud requi
 
 The [Managed Identity Guide](managed-identities.md) has details on creating an appropriate lower-privilege AD Role for the Service Principal.
 
-To use a Service Principle to give permissions to CycleCloud, ensure that the "Manage Identity" checkbox is unchecked.
+To use a Service Principle to give permissions to CycleCloud, ensure that the "App Registration" radio button is selected.
 
 ::: moniker range=">=cyclecloud-8"
-![Add Subscription Managed Identities](../images/version-8/add-subscription-service-principle.png)
+![Add Subscription Managed Identities](../images/version-8/add-subscription-service-principle-8.7.png)
 ::: moniker-end

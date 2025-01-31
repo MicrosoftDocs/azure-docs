@@ -15,8 +15,8 @@ ms.author: mirequa
 
 Cyclecloud nodes use [custom script extension](/azure/virtual-machines/extensions/custom-script-linux)
 to install jetpack. The jetpack installer is staged into the locker during the initial node phase
-and downloaded by the node at start time. Cyclecloud transmits the blob url and the access key to 
-the node via the script extension.
+and downloaded by the node at start time. Cyclecloud transmits the blob url and the chosen authentication
+method to the node via the script extension.
 
 The installer is downloaded to the following location on the node:
 

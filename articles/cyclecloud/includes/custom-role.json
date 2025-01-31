@@ -50,11 +50,21 @@
           "Microsoft.Storage/*/read",
           "Microsoft.Storage/checknameavailability/read",
           "Microsoft.Storage/register/action",
+          "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
+          "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+          "Microsoft.Storage/storageAccounts/blobServices/containers/write",
+          "Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action",
           "Microsoft.Storage/storageAccounts/read",
           "Microsoft.Storage/storageAccounts/listKeys/action",
           "Microsoft.Storage/storageAccounts/write"
         ],
-        "dataActions": [],
+        "dataActions": [
+          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
+          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
+          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action",
+          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action"
+        ],
         "notActions": [],
         "notDataActions": []
       }
