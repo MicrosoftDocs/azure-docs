@@ -11,7 +11,7 @@ ms.custom: references_regions
 
 This article describes the changes we make to each new version of Azure Virtual Desktop Insights.
 
-If you're not sure which version of Azure Virtual Desktop Insights you're currently using, you can find it in the bottom-right corner of your Insights page or configuration workbook. To access your workbook, go to [https://aka.ms/azmonwvdi](https://aka.ms/azmonwvdi).
+If you're not sure which version of Azure Virtual Desktop Insights you're currently using, you can find it in the bottom-right corner of your **Insights** page or configuration workbook. To access your workbook, go to [https://aka.ms/azmonwvdi](https://aka.ms/azmonwvdi).
 
 ## Latest available version
 
@@ -83,7 +83,7 @@ In this update, we made the following change:
 
 In this update, we made the following change:
 
-- Updated the banner text under the **Connection Performance* tab and moved them to the top of each section.
+- Updated the banner text under the **Connection Performance** page and moved them to the top of each section.
  
 ## Version 4.0.3
 
@@ -224,7 +224,7 @@ In this update, we've made the following change:
 
 In this update, we've made the following change:
 
-- Fixed reporting inconsistencies with Overview and User tabs.
+- Fixed reporting inconsistencies with **Overview** and **User** tabs.
 
 ## Version 2.0.1
 
@@ -232,7 +232,7 @@ In this update, we've made the following change:
 
 In this update, we've made the following change:
 
-- Improved visualization for the Connection Time graph in the Utilization tab.
+- Improved visualization for the Connection Time graph in the **Utilization** tab.
 
 ## Version 2.0.0
 
@@ -258,7 +258,7 @@ In this release, we've made the following changes:
 
 In this release, we've made the following change:
 
-- Added idle session reporting to the **Utilization** tab that visualizes sessions with no active connections.
+- Added idle session reporting to the **Utilization** page that visualizes sessions with no active connections.
 
 ## Version 1.5.0
 
@@ -266,7 +266,7 @@ In this release, we've made the following change:
 
 In this release, we've made the following change:
 
-- Added a preview of FSLogix compaction information to the **Utilization** tab for reporting as well as a User search capability to the *at scale*.
+- Added a preview of FSLogix compaction information to the **Utilization** page for reporting as well as a User search capability to the *at scale*.
 
 ## Version 1.4.0
 
