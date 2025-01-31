@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: article
-ms.date: 07/23/2024
+ms.date: 01/30/2025
 ms.author: danlep
 ---
 
@@ -73,9 +73,9 @@ For more information about custom CA certificates and certificate authorities, s
 | thumbprint | Certificate thumbprint. | No | N/A |
 | serial-number | Certificate serial number. | No | N/A |
 | common-name | Certificate common name (part of Subject string). | No | N/A |
-| subject | Subject string. Must follow format of Distinguished Name. | No | N/A |
+| subject | Subject string. Must follow format of Distinguished Name, which consists of comma-separated name attributes, for example, *"CN=MyName, OU=MyOrgUnit, C=US..."*.| No | N/A |
 | dns-name | Value of dnsName entry inside Subject Alternative Name claim. | No | N/A |
-| issuer-subject | Issuer's subject. Must follow format of Distinguished Name. | No | N/A |
+| issuer-subject | Issuer's subject. Must follow format of Distinguished Name, which consists of comma-separated name attributes, for example, *"CN=MyName, OU=MyOrgUnit, C=US..."*. | No | N/A |
 | issuer-thumbprint | Issuer thumbprint. | No | N/A |
 | issuer-certificate-id | Identifier of existing certificate entity representing the issuer's public key. Mutually exclusive with other issuer attributes.  | No | N/A |
 
@@ -84,6 +84,11 @@ For more information about custom CA certificates and certificate authorities, s
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 - [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
+
+
+### Usage notes
+
+* You must use double quotes to enclose values of name attributes in the `subject` and `issuer-subject` attributes when they contain certain special characters such as ",". For example, specify `O="Contoso, Inc."` instead of `O=Contoso, Inc.` for the organization name. [Learn more](/windows/win32/api/wincrypt/nf-wincrypt-certnametostra#remarks)
 
 ## Example
 
@@ -98,7 +103,7 @@ The following example validates a client certificate to match the policy's defau
     ignore-error="false">
     <identities>
         <identity
-            subject="C=US, ST=Illinois, L=Chicago, O=Contoso Corp., CN=*.contoso.com"
+            subject="C=US, ST=Illinois, L=Chicago, O="Contoso, Inc.", CN=*.contoso.com"
             issuer-subject="C=BE, O=FabrikamSign nv-sa, OU=Root CA, CN=FabrikamSign Root CA" />
     </identities>
 </validate-client-certificate> 
