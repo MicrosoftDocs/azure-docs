@@ -54,7 +54,7 @@ az network watcher flow-log create --location 'eastus' --resource-group 'myResou
 
 ```azurecli-interactive
 # Create a VNet flow log (storage account is in a different resource group from the virtual network).
-az network watcher flow-log create --location 'eastus' --resource-group 'myResourceGroup' --name 'myVNetFlowLog' --vnet myVNet --storage-account '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup2/providers/Microsoft.Storage/storageAccounts/myStorageAccount'
+az network watcher flow-log create --location 'eastus' --resource-group 'myResourceGroup' --name 'myVNetFlowLog' --vnet myVNet --storage-account '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/StorageRG/providers/Microsoft.Storage/storageAccounts/myStorageAccount'
 ```
 
 ## Enable virtual network flow logs and traffic analytics
@@ -74,7 +74,7 @@ az network watcher flow-log create --location 'eastus' --name 'myVNetFlowLog' --
 az monitor log-analytics workspace create --name 'myWorkspace' --resource-group 'myResourceGroup' --location 'eastus'
 
 # Create a VNet flow log (storage account and traffic analytics workspace are in different resource groups from the virtual network).
-az network watcher flow-log create --location 'eastus' --name 'myVNetFlowLog' --resource-group 'myResourceGroup' --vnet 'myVNet' --storage-account '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/myStorageAccount' --workspace '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/WorkspaceRG/providers/Microsoft.OperationalInsights/workspaces/myWorkspace' --interval 10 --traffic-analytics true
+az network watcher flow-log create --location 'eastus' --name 'myVNetFlowLog' --resource-group 'myResourceGroup' --vnet 'myVNet' --storage-account '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/StorageRG/providers/Microsoft.Storage/storageAccounts/myStorageAccount' --workspace '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/WorkspaceRG/providers/Microsoft.OperationalInsights/workspaces/myWorkspace' --interval 10 --traffic-analytics true
 ```
 
 ## List all flow logs in a region 
@@ -126,7 +126,7 @@ To delete a virtual network flow log resource, use [az network watcher flow-log 
 az network watcher flow-log delete --name 'myVNetFlowLog' --location 'eastus'
 ```
 
-## Next steps
+## Related content
 
 - To learn about traffic analytics, see [Traffic analytics](traffic-analytics.md).
 - To learn how to use Azure built-in policies to audit or enable traffic analytics, see [Manage traffic analytics using Azure Policy](traffic-analytics-policy-portal.md).
