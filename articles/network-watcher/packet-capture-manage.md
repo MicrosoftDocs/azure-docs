@@ -163,7 +163,7 @@ az network watcher packet-capture create --name 'myVM_1' --resource-group 'myRes
 ```
 
 ```azurecli-interactive
-# Start the Network Watcher capture session (storage account is in different resource group than the VM).
+# Start the Network Watcher capture session (storage account is in different resource group from the VM).
 az network watcher packet-capture create --name 'myVM_1' --resource-group 'myResourceGroup' --vm 'myVM' --storage-account '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup2/providers/Microsoft.Storage/storageAccounts/mystorageaccount'
 ```
 
