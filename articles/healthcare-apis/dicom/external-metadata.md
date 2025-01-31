@@ -66,7 +66,8 @@ Body:
 > [!NOTE]
 > Only study level tags are supported.
 > If the tag already exists, it updates the value of the existing tag for the study.
-> If the tag already exists with different VR, then the transaction will results in an error.
+> If the tag already exists with a different VR, the transaction will result in an error.
+
 > Once a tag is created, its Value Representation (VR) is fixed and must comply with the standard for that specific VR. If there's an issue with one of the tags, then it fails the whole transaction.
 
 ### Retrieve metadata (for study, series, or instance)
