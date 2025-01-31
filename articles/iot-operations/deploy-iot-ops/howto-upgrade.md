@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 11/11/2024
+ms.date: 01/31/2025
 
 #CustomerIntent: As an OT professional, I want to manage Azure IoT Operations instances.
 ---
@@ -32,7 +32,7 @@ Upgrade and rollback are supported between N+3 or N-3 minor versions of Azure Io
 | ------- | ------------- | --------------- |
 | 1.0.0   | 1.0.1 through 1.3.x | None      |
 | 1.1.0   | 1.1.1 through 1.4.x | 1.0.x     |
-| 1.4.4   | 1.4.5 through 1.7.x | 1.1.0 through 1.4.3 |
+| 1.4.4   | 1.4.5 through 1.7.x | 1.1.x through 1.4.3 |
 
 ## Upgrade
 
