@@ -302,6 +302,4 @@ az durabletask scheduler --resource-group YOUR_RESOURCE_GROUP --scheduler-name Y
 
 ## Next steps
 
-- [Configure Durable Task Scheduler for an existing Function app](./configure-durable-task-scheduler.md)
-- Try out the [Durable Functions quickstart sample](quickstart-durable-task-scheduler.md)
-- [Host your Durable Functions app inside an Azure Container Apps environment](./durable-task-scheduler-hosted-on-container-apps.md)
+Try out the [Durable Functions quickstart sample](quickstart-durable-task-scheduler.md)

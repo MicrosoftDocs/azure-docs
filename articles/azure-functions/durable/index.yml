@@ -27,7 +27,7 @@ landingContent:
           - text: Compare serverless options
             url: ../functions-compare-logic-apps-ms-flow-webjobs.md  
           - text: Usage scenarios
-            url: functions-scenarios.md#build-a-serverless-workflow
+            url: ../functions-scenarios.md#build-a-serverless-workflow
       - linkListType: concept
         links:
           - text: Durable function types
