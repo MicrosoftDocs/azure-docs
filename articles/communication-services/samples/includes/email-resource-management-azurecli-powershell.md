@@ -25,7 +25,7 @@ This documentation provides a detailed guide on using Azure CLI PowerShell to au
 - The latest [Azure PowerShell](/powershell/azure/install-azps-windows).
 - The latest [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli).
 
-### Prerequisite check
+## Prerequisite check
 
 - In a command prompt, run the `powershell -command $PSVersionTable.PSVersion` command to check whether the PowerShell is installed or not.
 
@@ -325,7 +325,7 @@ if ($linkedDomainIds.Count -gt 0) {
 }
 ```
 
-### Complete PowerShell script with Azure CLI Commands for Automating End-to-End Resource Creation
+## Complete PowerShell script with Azure CLI Commands for Automating End-to-End Resource Creation
 
 ```azurepowershell-interactive
 # Variables
