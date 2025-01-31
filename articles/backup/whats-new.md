@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 11/21/2024
+ms.date: 02/17/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -18,6 +18,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- February 2025
+  - [Azure Backup for Azure Database for PostgreSQL – Flexible Server is now generally available](#azure-backup-for-azure-database-for-postgresql--flexible-server-is-now-generally-available)
 - November 2024
   - [Secure by Default with Vault soft delete (preview)](#secure-by-default-with-vault-soft-delete-preview)
   - [WORM enabled Immutable Storage for Recovery Services vaults is now generally available](#worm-enabled-immutable-storage-for-recovery-services-vaults-is-now-generally-available)
@@ -99,6 +101,23 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+## Azure Backup for Azure Database for PostgreSQL – Flexible Server is now generally available
+
+Azure Backup now provides improved backup and restore processes, reduced downtime, and increased efficiency for Azure Database for PostgreSQL - Flexible Server. This feature is now available in all Azure regions. You can manage the protection of the database by using the [Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md) in the Azure portal.
+
+The robust, scalable backup solution for Azure Database for PostgreSQL – Flexible Server allows you to meet  the needs of enterprises and developers alike, emphasizing comprehensive data protection and management.
+
+This release includes the following key features:
+
+- **Managed Service**: Ensures safety and integrity of PostgreSQL servers.
+- **Automated Backups**: Policy-based management eliminates manual intervention.
+- **Long-term Retention**: Meets regulatory and compliance requirements.
+- **Cyber Resiliency**: Features immutability for enhanced protection.
+- **High Performance**: Built on Azure's scalable infrastructure.
+- **Strong Security**: Encryption at rest and in transit.
+
+For more information, see [Azure Backup for PostgreSQL Flexible Server overview](backup-azure-database-postgresql-flex-overview.md).
 
 ## Secure by Default with Vault soft delete (preview)
  
