@@ -91,7 +91,7 @@ There are some important considerations when defining your resource group:
 
 * You can move a resource from one resource group to another group. For more information, see [Move Azure resources to new resource group or subscription](move-resource-group-and-subscription.md).
 
-* The resources in a resource group can be located in different regions than the resource group, but we recommend that you use the same location. See [What location should I use for my resource group?](#what-location-should-i-use-for-my-resource-group).
+* The resources in a resource group can be located in different regions than the resource group, but we recommend that you use the same location. See [What location should I use for my resource group?](#which-location-should-i-use-for-my-resource-group).
 
 * A resource group can be used to scope access control for administrative actions. You can use Azure [policies](../../governance/policy/overview.md), [roles](../../role-based-access-control/role-assignments-portal.yml), or [resource locks](lock-resources.md) to manage a resource group.
 
@@ -99,7 +99,7 @@ There are some important considerations when defining your resource group:
 
 * A resource can connect to resources in other resource groups. This scenario is common when the two resources are related but don't share the same lifecycle. For example, you can have a web app that connects to a database in a different resource group.
 
-* When you delete a resource group, all resources in the resource group are also deleted. For information about how Azure Resource Manager orchestrates those deletions, see [Azure Resource Manager resource group and resource deletion](delete-resource-group.md).
+* When you delete a resource group, all resources in the resource group are also deleted. For information about how Resource Manager orchestrates those deletions, see [Azure Resource Manager resource group and resource deletion](delete-resource-group.md).
 
 * You can deploy up to 800 instances of a resource type in each resource group. Some resource types are [exempt from the 800 instance limit](resources-without-resource-group-limit.md). For more information, see [resource group limits](azure-subscription-service-limits.md#azure-resource-group-limits).
 

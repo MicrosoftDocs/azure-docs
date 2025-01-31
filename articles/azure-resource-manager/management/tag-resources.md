@@ -74,7 +74,7 @@ The following limitations apply to tags:
 
 * Classic resources such as Cloud Services don't support tags.
 
-* Azure IP Groups and Azure Firewall policies don't support PATCH operations. Therefore, PATCH API method operations can't update tags through the Azure portal. Instead, use the update commands for those resources. For example, you can update tags for an IP group with the [`az network ip-group update`](/cli/azure/network/ip-group?view=azure-cli-latest) command.
+* Azure IP Groups and Azure Firewall policies don't support PATCH operations. Therefore, PATCH API method operations can't update tags through the Azure portal. Instead, use the update commands for those resources. For example, you can update tags for an IP group with the [`az network ip-group update`](/cli/azure/network/ip-group?view=azure-cli-latest#az-network-ip-group-create) command.
 
 * Tag names can't contain these characters: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
