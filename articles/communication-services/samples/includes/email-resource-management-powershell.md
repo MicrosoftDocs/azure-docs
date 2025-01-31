@@ -24,7 +24,7 @@ This documentation provides a detailed guide on using Azure PowerShell to automa
 - A DNS zone in Azure to manage your domains.
 - The latest [Azure PowerShell](/powershell/azure/install-azps-windows).
 
-### Prerequisite check
+## Prerequisite check
 
 - In a command prompt, run the `powershell -command $PSVersionTable.PSVersion` command to check whether the PowerShell is installed or not.
 
@@ -364,7 +364,7 @@ else {
 }
 ```
 
-### Complete PowerShell Script for Automating end to end resource creation
+## Complete PowerShell Script for Automating end to end resource creation
 
 ```azurepowershell-interactive
 # Parameters for configuration
