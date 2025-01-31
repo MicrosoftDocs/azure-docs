@@ -398,7 +398,7 @@ This section describes how to create a managed identity and assign a role as par
             "retentionInterval": "P1D"
           },
     "dependsOn": [
-            " myManagedIdentity"
+            "myManagedIdentity"
           ]
     }
     ```
@@ -417,7 +417,7 @@ This section describes how to create a managed identity and assign a role as par
     "delegatedManagedIdentityResourceId": "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities','myManagedIdentity')]"
           },
     "dependsOn": [
-            " myManagedIdentity",
+            "myManagedIdentity",
     "sleepScript"
           ]
         }
