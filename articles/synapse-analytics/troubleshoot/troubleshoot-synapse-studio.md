@@ -53,7 +53,7 @@ Running the query with "serverless SQL pool" gives you the "Failed to establish 
 ### Troubleshooting steps
 
 > [!NOTE] 
->    The following troubleshooting steps are for Chromium Edge and Chrome. You may use other browsers (such as FireFox) with the same troubleshooting steps, but the "Developer Tool" window may have different layout from the screenshots in this TSG. If possible, DO NOT use classical Edge for troubleshooting, as it may show inaccurate information in certain situation.
+>    The following troubleshooting steps are for Chromium Edge and Chrome. You may use other browsers (such as Firefox) with the same troubleshooting steps, but the "Developer Tool" window may have different layout from the screenshots in this TSG. If possible, DO NOT use classical Edge for troubleshooting, as it may show inaccurate information in certain situation.
 
 Open the "Diagnostic Info" panel, select the "Download Diagnostic" button. Keep the downloaded information for error reporting. You can instead, copy the "Session ID" and attach it when opening the support ticket.
 
