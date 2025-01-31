@@ -57,14 +57,14 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |37|billingCurrency|Currency associated with the billing account.|
 |38|pricingCurrency|Currency used when rating based on negotiated prices.|
 |39|costInBillingCurrency|Cost of the charge in the billing currency before credits or taxes.|
-|40|costInUsd|  |
+|40|costInUsd| Cost of the charge in USD currency before credits or taxes. |
 |41|exchangeRatePricingToBilling|Exchange rate used to convert the cost in the pricing currency to the billing currency.|
 |42|exchangeRateDate|Date the exchange rate was established.|
 |43|serviceInfo1|Service-specific metadata.|
 |44|serviceInfo2|Legacy field with optional service-specific metadata.|
 |45|additionalInfo|Service-specific metadata. For example, an image type for a virtual machine.|
 |46|tags|Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](../../azure-resource-manager/management/tag-resources.md).|
-|47|PayGPrice|Retail price for the resource.|
+|47|PayGPrice|The market price, also referred to as retail or list price, for a given product or service. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 |48|frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
 |49|term|Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption.|
 |50|reservationId|Unique identifier for the purchased reservation instance.|
@@ -118,14 +118,14 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |37|billingCurrency|Currency associated with the billing account.|
 |38|pricingCurrency|Currency used when rating based on negotiated prices.|
 |39|costInBillingCurrency|Cost of the charge in the billing currency before credits or taxes.|
-|40|costInUsd|  |
+|40|costInUsd| Cost of the charge in USD currency before credits or taxes. |
 |41|exchangeRatePricingToBilling|Exchange rate used to convert the cost in the pricing currency to the billing currency.|
 |42|exchangeRateDate|Date the exchange rate was established.|
 |43|serviceInfo1|Service-specific metadata.|
 |44|serviceInfo2|Legacy field with optional service-specific metadata.|
 |45|additionalInfo|Service-specific metadata. For example, an image type for a virtual machine.|
 |46|tags|Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](../../azure-resource-manager/management/tag-resources.md).|
-|47|PayGPrice|Retail price for the resource.|
+|47|PayGPrice|The market price, also referred to as retail or list price, for a given product or service. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 |48|frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
 |49|term|Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption.|
 |50|reservationId|Unique identifier for the purchased reservation instance.|
@@ -179,14 +179,14 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |37|billingCurrency|Currency associated with the billing account.|
 |38|pricingCurrency|Currency used when rating based on negotiated prices.|
 |39|costInBillingCurrency|Cost of the charge in the billing currency before credits or taxes.|
-|40|costInUsd|  |
+|40|costInUsd| Cost of the charge in USD currency before credits or taxes. |
 |41|exchangeRatePricingToBilling|Exchange rate used to convert the cost in the pricing currency to the billing currency.|
 |42|exchangeRateDate|Date the exchange rate was established.|
 |43|serviceInfo1|Service-specific metadata.|
 |44|serviceInfo2|Legacy field with optional service-specific metadata.|
 |45|additionalInfo|Service-specific metadata. For example, an image type for a virtual machine.|
 |46|tags|Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](../../azure-resource-manager/management/tag-resources.md).|
-|47|PayGPrice|Retail price for the resource.|
+|47|PayGPrice|The market price, also referred to as retail or list price, for a given product or service. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 |48|frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
 |49|term|Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption.|
 |50|reservationId|Unique identifier for the purchased reservation instance.|
@@ -237,14 +237,14 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |37|billingCurrency|Currency associated with the billing account.|
 |38|pricingCurrency|Currency used when rating based on negotiated prices.|
 |39|costInBillingCurrency|Cost of the charge in the billing currency before credits or taxes.|
-|40|costInUsd|  |
+|40|costInUsd| Cost of the charge in USD currency before credits or taxes. |
 |41|exchangeRatePricingToBilling|Exchange rate used to convert the cost in the pricing currency to the billing currency.|
 |42|exchangeRateDate|Date the exchange rate was established.|
 |43|serviceInfo1|Service-specific metadata.|
 |44|serviceInfo2|Legacy field with optional service-specific metadata.|
 |45|additionalInfo|Service-specific metadata. For example, an image type for a virtual machine.|
 |46|tags|Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](../../azure-resource-manager/management/tag-resources.md).|
-|47|payGPrice|Retail price for the resource.|
+|47|payGPrice|The market price, also referred to as retail or list price, for a given product or service. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 |48|reservationId|Unique identifier for the purchased reservation instance.|
 |49|reservationName|Name of the purchased reservation instance.|
 |50|frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
