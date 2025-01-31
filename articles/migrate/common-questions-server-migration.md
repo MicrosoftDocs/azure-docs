@@ -12,7 +12,7 @@ ms.custom: engagement-fy25
 
 # Migration and modernization: Common questions
 
-This article answers common questions about the Migration and modernization tool. If you've other questions, check these resources:
+This article answers common questions about the Migration and modernization tool. If you have other questions, check these resources:
 
 - [General questions](resources-faq.md) about Azure Migrate
 - Questions about the [Azure Migrate appliance](common-questions-appliance.md)
