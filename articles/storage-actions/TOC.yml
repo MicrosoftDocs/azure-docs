@@ -21,14 +21,26 @@ items:
   expanded: true
 - name: Concepts
   items: 
+  - name: Storage task best practices
+    href: storage-tasks/storage-task-best-practices.md
+  - name: Storage task scenarios
+    href: storage-tasks/storage-task-scenarios.md
   - name: Storage task conditions
     href: storage-tasks/storage-task-conditions.md
   - name: Storage task operations
     href: storage-tasks/storage-task-operations.md
-  - name: Storage task authorization
-    href: storage-tasks/storage-task-authorization-roles.md
+  - name: Storage task assignment
+    href: storage-tasks/storage-task-assignment.md
+  - name: Authorization
+    items:
+    - name: Azure roles
+      href: storage-tasks/storage-task-authorization-roles.md
+    - name: Network access
+      href: storage-tasks/storage-task-network-access.md
   - name: Reliability in Azure Storage Actions
     href: ../reliability/reliability-storage-actions.md?toc=/azure/storage-actions/toc.json
+  - name: Plan and manage costs
+    href: storage-tasks/storage-task-plan-manage-costs.md 
   expanded: true
 - name: How-to
   items: 
@@ -66,4 +78,6 @@ items:
   items:
     - name: Known issues and limitations
       href: storage-tasks/storage-task-known-issues.md
+    - name: Troubleshooting
+      href: storage-tasks/storage-task-troubleshooting.md
   expanded: true
