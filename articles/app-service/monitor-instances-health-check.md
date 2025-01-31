@@ -74,16 +74,18 @@ If you're using your own authentication system, the Health check path must allow
 
 ```C#
 using System;
+using System.Security.Cryptography;
 using System.Text;
 
 /// <summary>
 /// Method <c>HeaderMatchesEnvVar</c> returns true if <c>headerValue</c> matches WEBSITE_AUTH_ENCRYPTION_KEY.
 /// </summary>
-public Boolean HeaderMatchesEnvVar(string headerValue) {
-    var sha = System.Security.Cryptography.SHA256.Create();
-    String envVar = Environment.GetEnvironmentVariable("WEBSITE_AUTH_ENCRYPTION_KEY");
-    String hash = System.Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(envVar)));
-    return hash == headerValue;
+public bool HeaderMatchesEnvVar(string headerValue)
+{
+    var sha = SHA256.Create();
+    string envVar = Environment.GetEnvironmentVariable("WEBSITE_AUTH_ENCRYPTION_KEY");
+    string hash = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(envVar)));
+    return string.Equals(hash, headerValue, StringComparison.Ordinal);
 }
 ```
 
