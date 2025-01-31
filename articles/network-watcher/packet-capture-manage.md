@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 01/24/2025
+ms.date: 01/31/2025
 
 #CustomerIntent: As an administrator, I want to capture IP packets to and from a virtual machine (VM) so I can review and analyze the data to help diagnose and solve network problems.
 ---
@@ -164,6 +164,44 @@ az network watcher packet-capture create --name 'myVM_1' --resource-group 'myRes
 
 > [!NOTE]
 > If the storage account is in a different resource group than the virtual machine, use the full resource ID of the storage account instead of its name such as: `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup2/providers/Microsoft.Storage/storageAccounts/mystorageaccount`.
+
+Once the capture session is started, you see the following output:
+
+```output
+{
+  "bytesToCapturePerPacket": 0,
+  "etag": "W/\"aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb\"",
+  "filters": [],
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatchers/NetworkWatcher_eastus/packetCaptures/myVM_1",
+  "name": "myVM_1",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "NetworkWatcherRG",
+  "scope": {
+    "exclude": [],
+    "include": []
+  },
+  "storageLocation": {
+    "storageId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
+    "storagePath": "https://nwteststorageaccount.blob.core.windows.net/network-watcher-logs/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm/2025/01/31/packetcapture_16_39_41_077.cap"
+  },
+  "target": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+  "targetType": "AzureVM",
+  "timeLimitInSeconds": 18000,
+  "totalBytesPerSession": 1073741824
+}
+```
+
+The following table describes the optional parameters that you can use with the `az network watcher packet-capture create` command:
+
+| Parameter | description |
+| --- | --- |
+| `--filters` | Add filter(s) to capture only the traffic you want. For example, you can capture only TCP traffic from a specific IP address to a specific port. |
+| `--time-limit` | Set the maximum duration of the capture session. The default value is 18000 seconds (5 hours). |
+| `--capture-size` | Set the maximum number of bytes to be captured per each packet. All bytes are captured if not used or 0 entered. |
+| `--capture-limit` | Set the total number of bytes that are captured. Once the value is reached the packet capture stops. Up to 1 GB (1,073,741,824 bytes) is captured if not used. |
+| `--file-path` | Enter a valid local file path if you want the capture to be saved in the target virtual machine (For example, C:\Capture\myVM_1.cap). If you're using a Linux machine, the path must start with /var/captures. |
+
+The packet capture stops once the time limit or the file size (maximum bytes per session) is reached.
 
 ---
 
