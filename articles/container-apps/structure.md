@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 01/24/2025
+ms.date: 01/31/2025
 ms.author: cshoe
 ---
 
@@ -26,6 +26,9 @@ The default environment type, **Workload profiles (v2)** environment allows you 
 
 A *Workload profiles (v2)* environment allows you to select the type of compute profiles used in your environment, and different profiles run on different plans.
 
+> [!NOTE]
+> Any new Azure Container Apps environments you create should be a *Workload profiles (v2)* environment. The *v2* environment type gives you the maximum flexibility for consumption and dedicated compute options. A *v2* environment gives you all the consumption functionality you need along with access to more robust networking features. 
+
 The following diagram shows how you can have different workload profiles in an environment, and how each profile is supported by either the dedicated or consumption plan.
 
 :::image type="content" source="media/structure/azure-container-apps-structure.png" alt-text="Diagram of Azure Container Apps architecture structure.":::
@@ -41,24 +44,12 @@ Each *Workload profiles (v2)* environment automatically comes with a consumption
 Depending on the needs of your app, you can opt to use a specialized workload profile that is best tailored for your application's needs. The consumption profile is well suited if:
 
 - You need up to 4 vCPUs with 8 GB of memory
-- You don't need access to GPUs
 
-If your application requires capabilities outside these parameters, then run your apps on dedicated workload profile.
+If your application requires capabilities outside these parameters, then run your apps on dedicated workload profile. To best suit your needs, you can add as many dedicated workload profiles to your environment as necessary.
 
-When you choose to use a dedicated workload profile, you can select the allocated amount of memory and compute resources available to your apps. Further, you can add as many dedicated workload profiles to your environment as necessary.
+When you choose to use a dedicated workload profile, you can select the allocated amount of memory and compute resources available to your apps. For more information on available virtual machine sizes, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes/overview).
 
-As you add a dedicated workload profile to your environment, you select the memory and vCPU size you want assigned to the profile. Resource availability is categorized into different series of compute capacities.
-
-The following table lists the different compute capacity options available as you create a new workload profile.
-
-| Type | Classification | Possible use cases | vCPU-to-RAM ratio |
-|---|---|---|---|
-| **D series** | General purpose | ▪️ TODO | 2x |
-| **E series** | Memory optimized | ▪️ GPU intensive processing<br><br>▪️ TODO | 8x |
-
-The different series of workload profile sizes use different vCPU-to-RAM ratios. With the *D series*, you get double the amount of RAM in GiB in relation to the number of vCPUs selected for the profile. For example, if you select a size with 2 vCPUs, then 6 GiB of RAM is allocated to your profile. The *E series* is calculated the same way except you get eight times more RAM in relation to your vCPUs.
-
-The consumption profile works on the consumption plan while dedicated workload profiles use the dedicated plan.
+Regardless of what type of profile you decide to run, each profile runs on a plan. The consumption profile works on the consumption plan while dedicated workload profiles use the dedicated plan.
 
 ## Plans
 
@@ -68,7 +59,7 @@ There are two types of plans:
 
 | Plan type | Unique features | Billing method |
 |---|---|---|---|
-| **Dedicated plan** | Compute resources (vCPUs and RAM) dedicated to your environment<br><br>Optimized networking stack <-- TODO: elaborate | Dependent on the compute resources you make available to your workload profiles. The more vCPUs and RAM you allocate, the more you pay per month. |
+| **Dedicated plan** | Compute resources (vCPUs and RAM) dedicated to your environment | Dependent on the compute resources you make available to your workload profiles. The more vCPUs and RAM you allocate, the more you pay per month. |
 | **Consumption plan** | Allows your apps to scale to zero. | Billed as your application consumes resources. |
 
 Each plan is paired with one or more workload profiles.
@@ -76,6 +67,8 @@ Each plan is paired with one or more workload profiles.
 ## Making a selection
 
 Any new Azure Container Apps environments you create should be a *Workload profiles (v2)* environment. The *v2* environment type gives you the maximum flexibility to use both the dedicated and consumption model.
+
+*Workload profiles v2* environments have access to an extensive networking stack which includes firewall support, native private endpoints, and optimized IP address allocation.
 
 Use this table to further help you determine which profile type is best in your situation:
 
@@ -85,8 +78,6 @@ Use this table to further help you determine which profile type is best in your 
 | Scale to zero capability | Consumption |
 | Zero cold start | Dedicated |
 | Access to GPU processing | Dedicated |
-| TODO |  |
-| TODO |  |
 
 ## FAQ
 
@@ -100,7 +91,7 @@ No. If you don't need the consumption profile, just don't use it. As typical wit
 
 ### Does the consumption plan work the same way in a Workload profiles (v2) environment vs. a Consumption-only (v1) environment?
 
-No. There are some distinctions between how the consumption plan operates among the workload profiles and consumption-only plans. Some networking features are different in a workload profiles environment. For instance, user defined routes (UDR) are only available in a workload profiles environment, and subnet sizes differ, and IP addresses are assigned differently depending on the environment type.
+Yes, but there are some distinctions between how the consumption plan operates among the workload profiles and consumption-only plans. Some networking features are different in a workload profiles environment. For instance, user defined routes (UDR) are only available in a workload profiles environment, and subnet sizes differ, and IP addresses are assigned differently depending on the environment type.
 
 ### I need consumption pricing. Should I use a Consumption-only (v1) environment, or a Workload profiles (v2) environment with the consumption profile?
 
