@@ -81,12 +81,22 @@ items:
   items:
   - name: SMS
     items:
-    - name: Get a phone number
-      href: quickstarts/telephony/get-phone-number.md
     - name: Send an SMS message
       href: quickstarts/sms/send.md
     - name: Receive and reply to SMS
       href: quickstarts/sms/receive-sms.md
+    - name: Get a phone number
+      href: quickstarts/telephony/get-phone-number.md
+    - name: Apply for a short code
+      href: quickstarts/sms/apply-for-short-code.md
+    - name: Apply for toll-free verification
+      href: quickstarts/sms/apply-for-toll-free-verification.md
+    - name: Apply for 10 digit long codes Registration
+      href: quickstarts/sms/apply-for-ten-digit-long-code.md
+    - name: Enable alphanumeric sender ID
+      href: quickstarts/sms/enable-alphanumeric-sender-id.md
+    - name: Use the Opt-Out API
+      href: quickstarts/sms/opt-out-api-quickstart.md
   - name: Voice and Video
     items:
     - name:  Connect to a call
@@ -265,12 +275,6 @@ items:
       items:
       - name: Port a phone number into Azure
         href: quickstarts/telephony/port-phone-number.md
-      - name: Apply for a short code
-        href: quickstarts/sms/apply-for-short-code.md
-      - name: Apply for toll-free verification
-        href: quickstarts/sms/apply-for-toll-free-verification.md
-      - name: Enable alphanumeric sender ID
-        href: quickstarts/sms/enable-alphanumeric-sender-id.md
       - name: Look up a recipient phone number
         href: quickstarts/telephony/number-lookup.md
     - name: Events
@@ -353,6 +357,8 @@ items:
         href: how-tos/calling-sdk/transfer-calls.md
       - name: Subscribe to SDK events
         href: how-tos/calling-sdk/events.md
+      - name: Enable Real Time Text
+        href: quickstarts/voice-video-calling/get-started-with-real-time-text.md
       - name: Enable Closed captions
         href: quickstarts/voice-video-calling/get-started-with-closed-captions.md
       - name: Enable Closed captions for Teams Interoperability
@@ -377,17 +383,17 @@ items:
         href: tutorials/add-video-augmented-reality-tutorial.md
     - name: Diagnostics
       items:
-      - name: Diagnose your network
-        href: concepts/developer-tools/network-diagnostic.md
-        displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Diagnose client issues
         href: concepts/voice-video-calling/user-facing-diagnostics.md
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Diagnose media quality issues
         href: concepts/voice-video-calling/media-quality-sdk.md
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-      - name: Ensure precall readiness
+      - name: Ensure pre-call readiness
         href: concepts/voice-video-calling/pre-call-diagnostics.md
+        displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+      - name: Add pre-call diagnostics
+        href: quickstarts/voice-video-calling/get-started-pre-call-diagnostics.md
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Check if user is running supported browser
         href: how-tos/calling-sdk/browser-support.md
@@ -481,6 +487,8 @@ items:
       items:
       - name: Enable logging with Azure Monitor
         href: concepts/analytics/enable-logging.md
+      - name: Insights dashboard
+        href: concepts/analytics/insights/insights-dashboard.md
       - name: Voice and Video insights
         href: concepts/analytics/insights/voice-and-video-insights.md
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
@@ -503,6 +511,8 @@ items:
         href: how-tos/calling-sdk/breakoutrooms.md
       - name: Together Mode
         href: how-tos/calling-sdk/together-mode.md
+      - name: Media Access Control
+        href: how-tos/calling-sdk/media-access.md
     - name: Configuring to proxy traffic
       items:
         - name: Proxy your calling traffic
@@ -659,11 +669,13 @@ items:
       href: samples/trusted-auth-sample.md
   - name: Email
     items:
+    - name: Email Resource Management
+      href: samples/email-resource-management.md
     - name: Azure AI to detect sensitive data example
       href: samples/email-detect-sensitive-content.md
   - name: Call Automation
     items:
-    - name: Call Automation Azure Open AI sample
+    - name: Call Automation Azure OpenAI sample
       href: samples/call-automation-azure-openai-sample.md
     - name: Call Automation AI sample
       href: samples/call-automation-ai.md
@@ -691,8 +703,12 @@ items:
     items:
     - name: Overview
       href: concepts/sms/concepts.md
+    - name: SMS Number Types
+      href: concepts/sms/sms-number-types.md
     - name: SDK features
       href: concepts/sms/sdk-features.md
+    - name: Opt-Out API
+      href: concepts/sms/opt-out-api-concept.md
     - name: Pricing
       href: concepts/sms-pricing.md
     - name: Messaging policy
@@ -705,6 +721,8 @@ items:
         href: concepts/sms/program-brief-guidelines.md
       - name: Toll-free verification guidelines
         href: concepts/sms/toll-free-verification-guidelines.md
+      - name: 10 Digit Long Codes Registration Guidelines
+        href: concepts/sms/ten-digit-long-code-guidelines.md
     - name: Events
       items:
       - name: Overview
@@ -759,8 +777,10 @@ items:
         items:
           - name: Overview
             href: concepts/interop/guest/overview.md
+          - name: Calling capabilities
+            href: concepts/interop/guest/calling-capabilities.md
           - name: Meeting capabilities
-            href: concepts/interop/guest/capabilities.md
+            href: concepts/interop/guest/meeting-capabilities.md
           - name: Teams client experience
             href: concepts/interop/guest/teams-client-experience.md
           - name: Teams controls
@@ -773,7 +793,7 @@ items:
             href: concepts/interop/guest/government-cloud.md
           - name: Security
             href: concepts/interop/guest/security.md
-          - name: Known issues
+          - name: Teams interop known issues
             href: concepts/interop/guest/limitations.md
       - name: Communication as Teams user
         items:
@@ -799,8 +819,6 @@ items:
             href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
           - name: Government clouds
             href: concepts/interop/teams-user/government-cloud.md
-          - name: Teams users in Azure Communication Services calls
-            href: concepts/interop/teams-interop-group-calls.md
       - name: Virtual visits
         items:
           - name: Overview
@@ -883,12 +901,16 @@ items:
         href: concepts/analytics/rooms-metrics.md
       - name: Closed captions logs
         href: concepts/analytics/logs/closed-captions-logs.md
-    - name: Service events via EventGrid
+    - name: Service events via Event Grid
       items:
       - name: Overview
         href: ../event-grid/event-schema-communication-services.md
       - name: Voice and Video events
         href: ../event-grid/communication-services-voice-video-events.md
+    - name: Real Time Text
+      items:
+      - name: Real Time Text overview
+        href: concepts/voice-video-calling/real-time-text.md
     - name: Closed captions
       items:
       - name: Closed captions overview
@@ -1039,6 +1061,8 @@ items:
       href: concepts/email/email-smtp-overview.md
     - name: Allowed attachment types
       href: concepts/email/email-attachment-allowed-mime-types.md
+    - name: Reserved Custom Headers
+      href: concepts/email/email-headers.md
     - name: Inline attachments
       href: concepts/email/email-attachment-inline.md
     - name: Managing Opt-outs
@@ -1331,6 +1355,8 @@ items:
       href: https://azure.github.io/azure-sdk-for-android/azure-communication-calling/index.html
     - name: Calling (iOS)
       href: /objectivec/communication-services/calling/
+    - name: Calling (.NET)
+      href: /dotnet/api/azure-communication-services/calling/
   - name: Call Automation
     items:
     - name: Call Automation (JavaScript)

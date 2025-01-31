@@ -2,11 +2,11 @@
 title: Automated publishing for continuous integration and delivery
 description: Learn how to publish for continuous integration and delivery automatically.
 ms.subservice: ci-cd
-author: nabhishek
-ms.author: abnarain
+author: kromerm
+ms.author: makromer
 ms.reviewer: susabat
 ms.topic: conceptual
-ms.date: 04/09/2024
+ms.date: 01/29/2025
 ---
 
 # Automated publishing for continuous integration and delivery (CI/CD)
@@ -160,7 +160,7 @@ Follow these steps to get started:
      displayName: 'Install npm package'
    
    # Validates all of the Data Factory resources in the repository. You'll get the same validation errors as when "Validate All" is selected.
-   # Enter the appropriate subscription and name for the source factory. Either of the "Validate" or "Validate and Generate ARM temmplate" options are required to perform validation. Running both is unnecessary.
+   # Enter the appropriate subscription and name for the source factory. Either of the "Validate" or "Validate and Generate ARM template" options are required to perform validation. Running both is unnecessary.
    
    - task: Npm@1
      inputs:

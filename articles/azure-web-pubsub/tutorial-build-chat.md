@@ -38,6 +38,8 @@ In this tutorial, you learn how to:
 
 ### Get the ConnectionString for future use
 
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
+
 [!INCLUDE [Get the connection string](includes/cli-awps-connstr.md)]
 
 Copy the fetched **ConnectionString** and set it into environment variable `WebPubSubConnectionString`, which the tutorial later reads. Replace `<connection-string>` below with the **ConnectionString** you fetched.

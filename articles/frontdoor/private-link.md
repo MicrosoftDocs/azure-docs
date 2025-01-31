@@ -4,7 +4,7 @@ description: This page provides information about how to secure connectivity to 
 services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/12/2024
 ms.author: duau
 ms.custom: references_regions, ignite-2024
@@ -99,8 +99,9 @@ Azure Front Door private link is available in the following regions:
 | Central US | North Europe | | Japan East |
 | East US | Norway East | | Korea Central |
 | East US 2 | UK South | | East Asia |
-| South Central US | West Europe | | |
-| West US 3 | Sweden Central | | |
+| South Central US | West Europe | | South East Asia |
+| West US 2 | Sweden Central | | |
+| West US 3 | | | |
 | US Gov Arizona | | | |
 | US Gov Texas | | | |
 | US Gov Virginia | | | |
@@ -113,15 +114,14 @@ Origin support for direct private endpoint connectivity is currently limited to:
 * Web App
 * Internal load balancers, or any services that expose internal load balancers such as Azure Kubernetes Service, Azure Container Apps or Azure Red Hat OpenShift
 * Storage Static Website
-* Application Gateway (Preview only in PowerShell and CLI. Don't use in production environments)
-* API Management (Preview only in PowerShell and CLI. Don't use in production environments)
-* Azure Container Apps (Preview only in Powershell and CLI. Don't use in production environments)
+* Application Gateway (Public Preview. Don't use in production environments)
+* API Management (Public Preview. Don't use in production environments)
+* Azure Container Apps (Public Preview. Don't use in production environments)
 
 > [!NOTE]
 > * This feature isn't supported with Azure App Service Slots or Functions.
-> * Azure Application Gateway, APIM Management, and Azure Container Apps integrations are currently not supported using the Azure portal.
 
-The Azure Front Door Private Link feature is region agnostic but for the best latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint.
+The Azure Front Door Private Link feature is region agnostic but for the best latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint. If your origin's region is not supported in the list of regions AFD Private Link supports, pick the next nearest region. You can use [Azure network round-trip latency statistics](../networking/azure-network-latency.md) to determine the next nearest region in terms of latency.
 
 ## Next steps
 

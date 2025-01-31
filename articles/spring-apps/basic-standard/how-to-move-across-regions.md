@@ -1,5 +1,5 @@
 ---
-title: Move an Azure Spring Apps service instance to another region
+title: Move an Azure Spring Apps Service Instance to Another Region
 description: Learn how to move an Azure Spring Apps service instance to another region.
 author: KarlErickson
 ms.author: wepa
@@ -40,7 +40,7 @@ Use the following steps to export the template:
 1. Select **All resources** in the left menu, and then select your Azure Spring Apps instance.
 1. Under **Automation**, select **Export template**.
 1. Select **Download** on the **Export template** pane.
-1. Locate the *.zip* file, unzip it, and get the *template.json* file. This file contains the resource template.
+1. Locate the **.zip** file, unzip it, and get the **template.json** file. This file contains the resource template.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -58,9 +58,9 @@ az group export \
 
 ## Modify the template
 
-Use the following steps to modify the *template.json* file. In the following examples, the new Azure Spring Apps instance name is *new-service-name*. The previous instance name is *old-service-name*.
+Use the following steps to modify the **template.json** file. In the following examples, the new Azure Spring Apps instance name is `new-service-name`. The previous instance name is `old-service-name`.
 
-1. The following example shows how to change all `name` instances in the template from *old-service-name* to *new-service-name*:
+1. The following example shows how to change all `name` instances in the template from `old-service-name` to `new-service-name`:
 
    ```json
    {
@@ -169,7 +169,7 @@ After you modify the template, use the following steps to deploy the template an
 1. In the top search box, search for *Deploy a custom template*.
 1. Under **Services**, select **Deploy a custom template**.
 1. Go to the **Select a template** tab, and then select **Build your own template in the editor**.
-1. In the template editor, paste in the *template.json* file you modified earlier, and then select **Save**.
+1. In the template editor, paste in the **template.json** file you modified earlier, and then select **Save**.
 1. In the **Basics** tab, fill in the following information:
 
     - The target subscription.

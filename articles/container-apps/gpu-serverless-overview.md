@@ -59,7 +59,7 @@ Keep in mind the following items as you use serverless GPUs:
 - **CUDA version**: Serverless GPUs support the latest CUDA version
 
 - **Support limitations**:
-  - Only one container in an app can use the GPU at a time.
+  - Only one container in an app can use the GPU at a time. If you have multiple containers in an app, the first container gets access to the GPU.
   - Multiple apps can share the same GPU workload profile but each requires their own replica.
   - Multi and fractional GPU replicas aren't supported.
   - The first container in your application gets access to the GPU.
@@ -68,14 +68,14 @@ Keep in mind the following items as you use serverless GPUs:
 
 ## Request serverless GPU quota
 
-Access to this feature is only available after you have serverless GPU quota. You can submit your GPU quota request via a [customer support case](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Access to this feature is only available after you have serverless GPU quota. You can submit your GPU quota request via a [customer support case](/azure/azure-portal/supportability/how-to-create-azure-support-request). When opening a support case for a GPU quota request, select issue type "Technical."
 
 > [!NOTE]
 > Customers with enterprise agreements have a single T4 GPU quota enabled by default.
 
 ## Supported regions
 
-Serverless GPUs are available in preview in the *West US 3* and *Australia East* regions.
+Serverless GPUs are available in preview in the *West US 3*, *Australia East*, and *Sweden Central* regions.
 
 ## Use serverless GPUs
 

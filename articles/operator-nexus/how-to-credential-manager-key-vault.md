@@ -134,7 +134,7 @@ The Nexus Cluster _secret-archive-settings_ specify the Azure Key Vault URI wher
 These examples describe how to configure a managed identity for a Nexus Cluster and configure it as part of _secret-archive-settings_.
 
 > [!NOTE]
-> Secret archive settings specify the Key Vault URI, not the Key Vault resource ID, and the managed identity specfied must be configured for the Nexus Cluster.
+> Secret archive settings specify the Key Vault URI, not the Key Vault resource ID, and the managed identity specified must be configured for the Nexus Cluster.
 
 - Create Nexus Cluster with system-assigned identity to access Key Vault for rotated credentials.
 ```azurecli-interactive

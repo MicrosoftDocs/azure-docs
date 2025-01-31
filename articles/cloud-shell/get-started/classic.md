@@ -1,7 +1,7 @@
 ---
 description: Learn how to start using Azure Cloud Shell.
 ms.contributor: jahelmic
-ms.date: 01/22/2024
+ms.date: 01/28/2025
 ms.topic: how-to
 tags: azure-resource-manager
 title: Get started with Azure Cloud Shell
@@ -20,10 +20,10 @@ To see all resource providers, and the registration status for your subscription
 
 1. Sign in to the [Azure portal][04].
 1. On the Azure portal menu, search for **Subscriptions**. Select it from the available options.
-1. Select the subscription you want to view.
-1. On the left menu, under **Settings**, select **Resource providers**.
-1. In the search box, enter `cloudshell` to search for the resource provider.
-1. Select the **Microsoft.CloudShell** resource provider register from the provider list.
+1. On the **Subscriptions** page, select the subscription your subscription.
+1. On your subscription page, expand **Settings** in left menu and select **Resource providers**.
+1. In the **Filter by name...** box, enter `cloudshell` to search for the resource provider.
+1. Select the **Microsoft.CloudShell** resource provider from the provider list.
 1. Select **Register** to change the status from **unregistered** to **Registered**.
 
    ![Screenshot of selecting resource providers in the Azure portal.][07]

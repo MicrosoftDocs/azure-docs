@@ -4,16 +4,12 @@ description: Learn how to encrypt data in Azure NetApp Files with customer-manag
 services: azure-netapp-files
 documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 09/27/2024
+ms.date: 12/06/2024
 ms.author: anfdocs
 ---
 # Configure customer-managed keys with managed Hardware Security Module for Azure NetApp Files volume encryption 
@@ -55,6 +51,7 @@ Azure NetApp Files volume encryption with customer-managed keys with the managed
 * Japan East
 * Japan West
 * Korea Central
+* Korea South
 * North Central US
 * North Europe
 * Norway East

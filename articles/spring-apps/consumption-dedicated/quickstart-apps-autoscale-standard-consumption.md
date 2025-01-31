@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Set up autoscale for applications in Azure Spring Apps Standard consumption and dedicated plan
+title: Quickstart - Set Up Autoscale for Applications in Azure Spring Apps Standard Consumption and Dedicated Plan
 description: Learn how to set up autoscale for applications in Azure Spring Apps Standard consumption and dedicated plan.
 author: KarlErickson
 ms.author: haojianzhong
@@ -25,7 +25,7 @@ For more information, see [Azure Container Apps documentation](../../container-a
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, see [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- An Azure Spring Apps Standard consumption and dedicated plan service instance. For more information, see [Quickstart: Provision an Azure Spring Apps Standard consumption and dedicated plan service instance](quickstart-provision-standard-consumption-service-instance.md).
+- An Azure Spring Apps Standard consumption and dedicated plan service instance.
 - A Spring app deployed to Azure Spring Apps.
 
 ## Scale definition

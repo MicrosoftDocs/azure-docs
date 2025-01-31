@@ -22,7 +22,7 @@ Any application that runs on Azure compute services and requires a backing servi
 
 * **Database:** Use Service Connector to connect databases, such as PostgreSQL, MySQL, or Azure Cosmos DB, to your apps.
 * **Storage:** Use Service Connector to use your preferred storage products, such as Azure Storage for any of your apps.
-* **Messaging Service:** User Service Connector to connect your cloud apps to messaging services, such as Service Bus, Event Hubs, and Apache Kafka on Confluent Cloud.
+* **Messaging Service:** Use Service Connector to connect your cloud apps to messaging services, such as Service Bus, Event Hubs, and Apache Kafka on Confluent Cloud.
 
 See [what services are supported in Service Connector](#what-services-are-supported-by-service-connector) to see more supported services and application patterns.
 
@@ -75,7 +75,7 @@ What's more, Service Connector is also supported in the following client tools w
 * **Azure Powershell:** manage connections with commands in Azure PowerShell.
 * **Terraform:** create and delete connections with infrastructure as code tool (be aware of the [limitations](known-limitations.md)).
 * **Visual Studio:** manage connections of a project by integrating with [Connected Services](/visualstudio/azure/overview-connected-services) feature in Visual Studio.
-* **Intellij:** list connections of Azure compute services in [Azure Toolkit for Intellij](/azure/developer/java/toolkit-for-intellij/install-toolkit).
+* **IntelliJ:** list connections of Azure compute services in [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/install-toolkit).
 
 Finally, you can also use Azure SDKs and API calls to interact with Service Connector. And you're recommended to read [how to provide correct parameters](how-to-provide-correct-parameters.md) before starting if using these ways.
 

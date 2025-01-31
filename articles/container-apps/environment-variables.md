@@ -30,7 +30,7 @@ If you're creating a new Container App through the [Azure portal](https://portal
 
 ### [Azure CLI](#tab/cli)
 
-You can create your Container App with enviroment variables using the [az containerapp create](/cli/azure/containerapp#az-containerapp-create) command by passing the environment variables as space-separated 'key=value' entries using the `--env-vars` parameter.
+You can create your Container App with environment variables using the [az containerapp create](/cli/azure/containerapp#az-containerapp-create) command by passing the environment variables as space-separated 'key=value' entries using the `--env-vars` parameter.
 
 ```azurecli
 az containerapp create -n my-containerapp -g MyResourceGroup \

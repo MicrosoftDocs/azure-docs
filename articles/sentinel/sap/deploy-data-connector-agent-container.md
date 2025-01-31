@@ -1,5 +1,5 @@
 ---
-title: Connect your SAP system by deploying your data connector agent container | Microsoft Sentinel
+title: Connect your SAP system to Microsoft Sentinel | Microsoft Sentinel
 description: This article describes how to connect your SAP system to Microsoft Sentinel by deploying the container that that hosts the SAP data connector agent.
 author: batamig
 ms.author: bagol
@@ -10,30 +10,65 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+zone_pivot_groups: sentinel-sap-connection
 
-#Customer intent: As a security, infrastructure, or SAP BASIS team member, I want to deploy and configure a containerized SAP data connector agent so that I can ingest SAP data into Microsoft Sentinel for enhanced monitoring and threat detection.
+#Customer intent: As a security, infrastructure, or SAP BASIS team member, I want to connect my SAP system to Microsoft Sentinel so that I can ingest SAP data into Microsoft Sentinel for enhanced monitoring and threat detection.
 
 ---
 
-# Connect your SAP system by deploying your data connector agent container
+# Connect your SAP system to Microsoft Sentinel
 
-For the Microsoft Sentinel solution for SAP applications to operate correctly, you must first get your SAP data into Microsoft Sentinel. To accomplish this, you need to deploy the solution's SAP data connector agent.
+For the Microsoft Sentinel solution for SAP applications to operate correctly, you must first get your SAP data into Microsoft Sentinel. Do this by either deploying the Microsoft Sentinel SAP data connector agent, or by connecting the Microsoft Sentinel agentless data connector for SAP. Select the option at the top of the page that matches your environment.
 
-This article describes how to deploy the container that hosts the SAP data connector agent and connect to your SAP system, and is the third step in deploying the Microsoft Sentinel solution for SAP applications. Make sure to perform the steps in this article in the order that they're presented.
+This article describes the third step in deploying one of the Microsoft Sentinel solutions for SAP applications.
 
-:::image type="content" source="media/deployment-steps/deploy-data-connector.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Deploy your data agent container step." border="false" :::
+:::zone pivot="connection-agent"
 
-Content in this article is relevant for your **security**, **infrastructure**, and  **SAP BASIS** teams.
+:::image type="content" source="media/deployment-steps/deploy-data-connector.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Connect your SAP system step." border="false" :::
+
+Content in this article is relevant for your **security**, **infrastructure**, and  **SAP BASIS** teams. Make sure to perform the steps in this article in the order that they're presented.
+
+:::zone-end
+
+:::zone pivot="connection-agentless"
+
+:::image type="content" source="media/deployment-steps/deploy-data-connector-agentless.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Connect your SAP system step."  :::
+
+Content in this article is relevant for your **security** team, using information provided by your **SAP BASIS** teams.
+
+:::zone-end
+
+
+> [!IMPORTANT]
+> Microsoft Sentinel's **Agentless solution** is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here. Access to the **Agentless solution** also [requires registration](https://aka.ms/SentinelSAPAgentlessSignUp) and is only available to approved customers and partners during the preview period. For more information, see [Microsoft Sentinel for SAP goes agentless ](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/microsoft-sentinel-for-sap-goes-agentless/ba-p/13960238).
 
 ## Prerequisites
 
-Before you deploy the data connector agent:
+Before you connect your SAP system to Microsoft Sentinel:
 
 - Make sure that all of the deployment prerequisites are in place. For more information, see [Prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 
-- Make sure that you have the [Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md) installed in your Microsoft Sentinel workspace.
+:::zone pivot="connection-agent"
 
-- Make sure that your SAP system is fully [prepared for the deployment](preparing-sap.md). If you're deploying the data connector agent to communicate with Microsoft Sentinel over SNC, make sure that you completed [Configure your system to use SNC for secure connections](preparing-sap.md#configure-your-system-to-use-snc-for-secure-connections).
+- Make sure that you have the Microsoft Sentinel solution for **SAP applications** [installed in your Microsoft Sentinel workspace](deploy-sap-security-content.md)
+
+- Make sure that your SAP system is fully [prepared for the deployment](preparing-sap.md).
+
+- If you're deploying the data connector agent to communicate with Microsoft Sentinel over SNC, make sure that you completed [Configure your system to use SNC for secure connections](preparing-sap.md#configure-your-system-to-use-snc-for-secure-connections).
+
+:::zone-end
+
+:::zone pivot="connection-agentless"
+
+- Make sure that you have the Microsoft Sentinel **SAP Agentless** solution [installed in your Microsoft Sentinel workspace](deploy-sap-security-content.md)
+
+- Make sure that your SAP system is fully [prepared for the deployment](preparing-sap.md).
+
+- Make sure your DCR is configured as described in [Install the solution from the content hub](deploy-sap-security-content.md#install-the-solution-from-the-content-hub).
+
+:::zone-end
+
+:::zone pivot="connection-agent"
 
 ## Watch a demo video
 
@@ -49,7 +84,7 @@ Includes more details about using Azure KeyVault. No audio, demonstration only w
 
 ## Create a virtual machine and configure access to your credentials
 
-We recommend creating a dedicated virtual machine for your data connector agent container to ensure optimal performance and avoid potential conflicts. For more information, see [System prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#system-prerequisites).
+We recommend creating a dedicated virtual machine for your data connector agent container to ensure optimal performance and avoid potential conflicts. For more information, see [System prerequisites for the data connector agent container](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#system-prerequisites-for-the-data-connector-agent-container).
 
 We recommend that you store your SAP and authentication secrets in an [Azure key vault](/azure/key-vault/general/authentication). How you access your key vault depends on where your virtual machine (VM) is deployed:
 
@@ -154,76 +189,12 @@ This procedure describes how to create a key vault to store your agent configura
 
 ### Assign key vault access permissions
 
-1. In your key vault, assign the following Azure role-based access control or vault access policy permissions on the secrets scope to the [identity that you created and copied earlier](#create-a-virtual-machine-and-configure-access-to-your-credentials).
+1. In your key vault, assign the Azure **Key Vault Secrets Reader** role to the [identity that you created and copied earlier](#create-a-virtual-machine-and-configure-access-to-your-credentials).
 
-    |Permission model  |Permissions required  |
-    |---------|---------|
-    |**Azure role-based access control**     |  Key Vault Secrets User       |
-    |**Vault access policy**     |  `get`, `list`       |
+1. In the same key vault, assign the following Azure roles to the user configuring the data connector agent:
 
-    Use the options in the portal to assign the permissions, or run one of the following commands to assign key vault secrets permissions to your identity, substituting actual names for the `<placeholder>` values. Select the tab for the type of identity you created.
-
-    The policy specified in the commands allows the VM to list and read secrets from the key vault.
-
-    - **Azure role-based access control permission model**:
-
-        #### [Managed identity](#tab/managed-identity)
-
-        ```Azure CLI
-        az role assignment create --assignee-object-id <ManagedIdentityId> --role "Key Vault Secrets User" --scope /subscriptions/<KeyVaultSubscriptionId>/resourceGroups/<KeyVaultResourceGroupName> /providers/Microsoft.KeyVault/vaults/<KeyVaultName>
-        ```
-
-        #### [Registered application](#tab/registered-application)
-
-        ```Azure CLI
-        az role assignment create --assignee-object-id <ServicePrincipalObjectId> --role "Key Vault Secrets User" --scope /subscriptions/<KeyVaultSubscriptionId>/resourceGroups/<KeyVaultResourceGroupName>/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
-        ```
-
-        To find the object ID of the app registration’s service principal, go to the Microsoft Entra ID portal's **Enterprise applications** page. Search for the name of the app registration there, and copy the **Object ID** value.
-
-        > [!IMPORTANT]
-        > Do not confuse the object ID from the **Enterprise Applications** page with the app registration's object ID found on the **App registrations** page. Only the object ID from the **Enterprise applications** page will work.
-
-        ---
-
-    - **Vault access policy permission model**:
-
-        #### [Managed identity](#tab/managed-identity)
-
-        ```Azure CLI
-        az keyvault set-policy -n <KeyVaultName> -g <KeyVaultResourceGroupName> --object-id <ManagedIdentityId> --secret-permissions get list
-        ```
-
-        #### [Registered application](#tab/registered-application)
-
-        ```Azure CLI
-        az keyvault set-policy -n <KeyVaultName> -g <KeyVaultResourceGroupName> --spn <ApplicationId> --secret-permissions get list
-        ```
-
-        To find the object ID of the app registration, go to the Microsoft Entra ID portal's **App registrations** page. Search for name of the app registration and copy the **Application (client) ID** value.
-
-        ---
-
-1. In the same key vault, assign the following Azure role-based access control or vault access policy permissions on the secrets scope to the user configuring the data connector agent:
-
-    |Permission model  |Permissions required  |
-    |---------|---------|
-    |**Azure role-based access control**     |  Key Vault Secrets Officer    |
-    |**Vault access policy**     |  `get`, `list`, `set`, `delete`     |
-
-    Use the options in the portal to assign the permissions, or run one of the following commands to assign key vault secrets permissions to the user, substituting actual names for the `<placeholder>` values:
-
-    - **Azure role-based access control permission model**:
-
-        ```Azure CLI
-        az role assignment create --role "Key Vault Secrets Officer" --assignee <UserPrincipalName> --scope /subscriptions/<KeyVaultSubscriptionId>/resourceGroups/<KeyVaultResourceGroupName>/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
-        ```
-
-    - **Vault access policy permission model**:
-
-        ```Azure CLI
-        az keyvault set-policy -n <KeyVaultName> -g <KeyVaultResourceGroupName> --upn <UserPrincipalName>--secret-permissions get list set delete
-        ```
+    - **Key Vault Contributor**, to deploy the agent
+    - **Key Vault Secrets Officer**, to add new systems
 
 ## Deploy the data connector agent from the portal (Preview)
 
@@ -233,7 +204,7 @@ This procedure describes how to create a new agent and connect it to your SAP sy
 
 Deploying the data connector agent from the portal is supported from both the Azure portal, and the Defender portal if you onboarded your workspace to the unified security operations platform.
 
-While deployment is also supported from the command line, we recommend that you use the portal for typical deployments. Data connector agents deployed using the command line can be managed only via the command line, and not via the portal. For more information, see [Deploy a SAP data connector agent from the command line](deploy-command-line.md).
+While deployment is also supported from the command line, we recommend that you use the portal for typical deployments. Data connector agents deployed using the command line can be managed only via the command line, and not via the portal. For more information, see [Deploy an SAP data connector agent from the command line](deploy-command-line.md).
 
 > [!IMPORTANT]
 > Deploying the container and creating connections to SAP systems from the portal is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -371,9 +342,31 @@ The system configuration you defined is deployed into the Azure key vault you de
 
 At this stage, the system's **Health** status is **Pending**. If the agent is updated successfully, it pulls the configuration from Azure Key vault, and the status changes to **System healthy**. This update can take up to 10 minutes.
 
+:::zone-end
+
+:::zone pivot="connection-agentless"
+
+## Connect your agentless data connector
+
+1. In Microsoft Sentinel, go to the **Configuration > Data connectors** page and locate the **SAP ABAP and S/4 via cloud connector (Preview)** data connector.
+
+1. In the **Configuration** area, under **Connect an SAP integration suite to Microsoft Sentinel**, select **Add connection**.
+
+1. In the **Agentless connection** side pane, enter the following details:
+
+    | Field        | Description                      |
+    |-------------------------------|---------------------------------------|
+    | **RFC destination name**      | The name of the RFC destination, taken from your BTP destination.                |
+    | **SAP Agentless Client ID**   | The *clientid* value taken from the Process Integration Runtime service key JSON file.                 |
+    | **SAP Agentless Client Secret** | The *clientsecret* value taken from the Process Integration Runtime service key JSON file.             |
+    | **Authorization server URL**  | The *tokenurlurl* value taken from the Process Integration Runtime service key JSON file. For example: `https://your-tenant.authentication.region.hana.ondemand.com/oauth/token` |
+    | **Integration Suite Endpoint** | The *url* value taken from the Process Integration Runtime service key JSON file. For example: `https://your-tenant.it-account-rt.cfapps.region.hana.ondemand.com` |
+
+:::zone-end
+
 ## Check connectivity and health
 
-After you deploy the SAP data connector agent, check your agent's health and connectivity. For more information, see [Monitor the health and role of your SAP systems](../monitor-sap-system-health.md).
+After you deploy the SAP data connector, check your agent's health and connectivity. For more information, see [Monitor the health and role of your SAP systems](../monitor-sap-system-health.md).
 
 ## Next step
 

@@ -75,7 +75,7 @@ New-AzEventGridSubscription `
 To turn off dead-lettering, rerun the command to create the event subscription but don't provide a value for `DeadLetterEndpoint`. You don't need to delete the event subscription.
 
 > [!NOTE]
-> If you are using Azure Poweshell on your local machine, use Azure PowerShell version 1.1.0 or greater. Download and install the latest Azure PowerShell from [Azure downloads](https://azure.microsoft.com/downloads/).
+> If you are using Azure PowerShell on your local machine, use Azure PowerShell version 1.1.0 or greater. Download and install the latest Azure PowerShell from [Azure downloads](https://azure.microsoft.com/downloads/).
 
 ## Set retry policy
 

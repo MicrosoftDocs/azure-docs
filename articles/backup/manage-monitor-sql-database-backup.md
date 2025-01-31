@@ -2,10 +2,10 @@
 title: Manage and monitor SQL Server DBs on an Azure VM
 description: This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 11/30/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Manage and monitor backed up SQL Server databases
@@ -35,7 +35,7 @@ Azure Backup raises built-in alerts via Azure Monitor for the following SQL data
 - Workload extension unhealthy
 - Deletion of backup data
 
-For more information on the supported alert scenarios, see [Azure Monitor alerts for Azure Backup](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#azure-monitor-alerts-for-azure-backup).
+For more information on the supported alert scenarios, see [Azure Monitor alerts for Azure Backup](monitoring-and-alerts-overview.md#azure-monitor-alerts-for-azure-backup).
 
 To monitor database backup alerts, follow these steps:
 
@@ -49,7 +49,7 @@ To monitor database backup alerts, follow these steps:
 
 1. To configure notifications for these alerts, you must create an alert processing rule.
 
-   Learn about [Configure notifications for alerts](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#configuring-notifications-for-alerts).
+   Learn about [Configure notifications for alerts](backup-azure-monitor-alerts-notification.md#configure-notifications-for-alerts).
 
 ## Stop protection for a SQL Server database
 
