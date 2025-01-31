@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: troubleshooting
-ms.date: 01/231/202
+ms.date: 01/31/2025
 ms.author: duau
 ---
 # Troubleshooting network performance
