@@ -39,7 +39,19 @@ The source code for the DTFx components of the Azure Storage storage provider ca
 
 ## <a name="dts"></a>Durable Task Scheduler (preview)
 
-TODO
+The Durable Task Scheduler is a fully managed backend for running code that handles failures and interruptions through automatic retries and state persistence. Coupled with the Durable Functions framework, the Durable Task Scheduler enables developers to write stateful orchestrations within compute environments, without the need to architect for fault tolerance.
+
+The key benefits of the Durable Task Scheduler storage provider include:
+
+* A cloud-native solution outside of the Functions host/programming model.
+* Significantly reduced operation overhead.
+* An efficient and fast backend with high throughput for scheduling orchestrations and associated activities.
+* Adherence to Azure security best practices by enabling developers to manage authorization and access through Managed Identity.
+* [The Durable Task Scheduler dashboard](./durable-task-scheduler/durable-task-scheduler-dashboard.md), from which developers can track, debug, and manage the state and progress of orchestrations.
+
+Learn more about [the technical details of the Durable Task Scheduler (TODO)](), and [how to get started using it](./durable-task-scheduler/manage-durable-task-scheduler.md). 
+
+The source code for the Durable Task Scheduler storage provider can be found in the [TODO]() GitHub repo.
 
 ## <a name="netherite"></a>Netherite
 
