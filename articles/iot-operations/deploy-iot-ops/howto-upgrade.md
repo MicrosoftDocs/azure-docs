@@ -10,24 +10,62 @@ ms.date: 11/11/2024
 #CustomerIntent: As an OT professional, I want to manage Azure IoT Operations instances.
 ---
 
-# Upgrade or rollback between versions
+# Upgrade or downgrade between versions
 
 Upgrade an Azure IoT Operations instance to a newer version or rollback to a previous version. Azure IoT Operations supports upgrade and rollback from version 1.0.x onwards. There is no support for upgrading from any preview version of Azure IoT Operations to any generally available (GA) version.
 
->[!NOTE]
->Currently, Azure IoT Operations has only one generally available version. Upgrade and rollback will be available once there are additional versions to upgrade or rollback between.
+## Prerequisites
 
 ## Understand upgrade support
 
-Upgrade and rollback are supported between N+2 or N-2 minor versions of Azure IoT Operations, or between any patch versions of the same minor version. The following table provides examples:
+Upgrade and rollback are supported between N+3 or N-3 minor versions of Azure IoT Operations, or between any patch versions of the same minor version. The following table provides examples:
 
-| Current version | Upgrade range | Rollback range |
-| --------------- | ------------- | -------------- |
-| 1.0.0           | 1.0.1 through 1.2.x | None     |
-| 1.1.0           | 1.1.1 through 1.3.x | 1.0.x    |
+| Version | Upgrade range | Rollback range |
+| ------- | ------------- | -------------- |
+| 1.0.0   | 1.0.1 through 1.2.x | None     |
+| 1.1.0   | 1.1.1 through 1.3.x | 1.0.x    |
 
 ## Upgrade
 
 Azure IoT Operations supports upgrading instances to new GA versions as they're released.
 
 You can't upgrade from a preview installation to a GA version. To move to version 1.0.x, [uninstall Azure IoT Operations](howto-manage-update-uninstall.md#uninstall) and reinstall the new version.
+
+### [Azure portal](#tab/portal)
+
+If your instance is eligible for an upgrade, the Azure portal displays an **Upgrade** option.
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your Azure IoT Operations instance.
+1. Select **Upgrade** on the **Overview** page of your instance.
+
+   :::image type="content" source="./media/howto-upgrade/instance-upgrade.png" alt-text="Screenshot that shows the upgrade button enabled in the Azure portal.":::
+
+1. The portal presents the Azure CLI command to upgrade your instance, prepopulated with your subscription, resource group, and instance details. Select the copy icon next to the CLI command.
+
+1. Run the copied `az iot ops upgrade` command in any environment where you have the Azure CLI installed.
+
+1. After the upgrade command completes successfully, refresh your instance to see the changes.
+
+The **Version** value displayed on your instance's overview page reflects the version of the Azure IoT Operations instance. However, you may be prompted to upgrade if a required Arc extension has an available upgrade. You can tell that an upgrade was successful if the **Upgrade** option disappears from the instance overview page, even if it doesn't look like anything changed. You can check the versions of the Arc extensions for your Azure IoT Operation deployment on the **Extensions** page of your Arc-enabled cluster in the Azure portal.
+
+### [Azure CLI](#tab/cli) 
+
+Use the [az iot ops upgrade](/cli/azure/iot/ops#az-iot-ops-upgrade) command to upgrade an existing Azure IoT Operations deployment to a newer version.
+
+The upgrade command evaluates the entire Azure IoT Operations deployment for available updates, including the arc extensions that are installed in the `az iot ops init` command as well as the Azure IoT Operations instance.
+
+---
+
+## Downgrade
+
+
+
+### [Azure portal](#tab/portal)
+
+The Azure portal doesn't offer a version downgrade option. Instead, use the Azure CLI.
+
+### [Azure CLI](#tab/cli) 
+
+Use the [az iot ops upgrade](/cli/azure/iot/ops#az-iot-ops-upgrade) command to roll back an existing Azure IoT Operations instance to a previous version.
+
+---
