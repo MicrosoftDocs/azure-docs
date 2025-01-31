@@ -46,13 +46,13 @@ Then you can select `User Assigned` managed identity option when enabling the ca
 
 
 #### Capturing events to a capture destination in a different subscription 
-The Event Hubs Capture feature also support capturing data to a capture destination in a different subscription with the use of managed identity. 
+The Event Hubs Capture feature also support capturing data to a capture destination in a different subscription with the use of managed identity.
 
-> [!IMPORTANT]
-> Azure portal doesn't support the selection of a capture destination from a different subscription. You need to use ARM templates for that purpose. 
+> [!NOTE]
+> To enable capture with a storage account in a different subscription, the Microsoft.EventHub resource provider should be registered for a subscription which owns the storage account.
+>
 
-For that you can use the same ARM templates given in [enabling capture with ARM template guide](./event-hubs-resource-manager-namespace-event-hub-enable-capture.md) with corresponding managed identity. 
-
+You may use the portal or use the same ARM templates given in [enabling capture with ARM template guide](./event-hubs-resource-manager-namespace-event-hub-enable-capture.md) with corresponding managed identity.
 
 ## Related content
 
