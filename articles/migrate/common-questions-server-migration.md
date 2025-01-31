@@ -1,5 +1,5 @@
 ---
-title: Common questions about the Migration and modernization tool
+title: Common Questions About the Migration and Modernization Tool
 description: Get answers to common questions about using Migration and modernization to migrate machines.
 author: piyushdhore-microsoft
 ms.author: piyushdhore
@@ -29,7 +29,7 @@ This article answers common questions about the Migration and modernization tool
 
 The Migration and modernization tool offers two options for migrating your source servers and virtual machines to Azure: agentless migration and agent-based migration.
 
-Regardless of the migration option chosen, the first step to migrate a server using the Migration and modernization tool is to start replication for the server. This performs an initial replication of your VM/server data to Azure. After the initial replication is completed, an ongoing replication (ongoing delta-sync) is established to migrate incremental data to Azure. Once the operation reaches the delta-sync stage, you can choose to migrate to Azure at any time.
+Regardless of the migration option chosen, the first step to migrate a server by using the Migration and modernization tool is to start replication for the server. This performs an initial replication of your VM/server data to Azure. After the initial replication is completed, an ongoing replication (ongoing delta-sync) is established to migrate incremental data to Azure. Once the operation reaches the delta-sync stage, you can choose to migrate to Azure at any time.
 
 Here are some considerations to keep in mind while deciding on the migration option.
 
@@ -40,7 +40,7 @@ The Agentless replication options are available for [VMware VMs](tutorial-migrat
 
 Agent-based migration option can be used for [VMware VMs](tutorial-migrate-vmware-agent.md), [Hyper-V VMs](./tutorial-migrate-physical-virtual-machines.md), [physical servers](./tutorial-migrate-physical-virtual-machines.md), [VMs running on AWS](./tutorial-migrate-aws-virtual-machines.md), VMs running on GCP, or VMs running on a different virtualization provider. The agent-based migration treats your machines as physical servers for migration.
 
-While the agentless migration offers another convenience and simplicity over the agent-based replication options for the supported scenarios (VMware and Hyper-V), you may want to consider using the agent-based scenario for the following use cases:
+While the agentless migration offers another convenience and simplicity over the agent-based replication options for the supported scenarios (VMware and Hyper-V), you might want to consider using the agent-based scenario for the following use cases:
 
 - IOPS constrained environment: Agentless replication uses snapshots and consumes storage IOPS/bandwidth. We recommend the agent-based migration method if there are constraints on storage/IOPS in your environment.
 - If you don't have a vCenter Server, you can treat your VMware VMs as physical servers and use the agent-based migration workflow.
@@ -144,7 +144,7 @@ Migration and modernization tool migrates all the UEFI-based machines to Azure a
 
 ### Can I migrate Active Directory domain-controllers using Azure Migrate?
 
-The Migration and modernization tool is application agnostic and works for most applications. When you migrate a server using the Migration and modernization tool, all the applications installed on the server are migrated along with it. However, for some applications, alternate migration methods other than Migration and modernization may be better suited for the migration.  For Active Directory, if hybrid environments where the on-premises site is connected to your Azure environment, you can extend your Directory into Azure by adding extra domain controllers in Azure and setting up Active Directory replication. If you're migrating into an isolated environment in Azure requiring its own domain controllers (or testing applications in a sandbox environment), you can migrate servers using the Migration and modernization tool.
+The Migration and modernization tool is application agnostic and works for most applications. When you migrate a server by using the Migration and modernization tool, all the applications installed on the server are migrated along with it. However, for some applications, alternate migration methods other than Migration and modernization might be better suited for the migration.  For Active Directory, if hybrid environments where the on-premises site is connected to your Azure environment, you can extend your Directory into Azure by adding extra domain controllers in Azure and setting up Active Directory replication. If you're migrating into an isolated environment in Azure requiring its own domain controllers (or testing applications in a sandbox environment), you can migrate servers by using the Migration and modernization tool.
 
 
 ### Can I upgrade my OS while migrating?
@@ -153,7 +153,7 @@ The Migration and modernization tool now supports Windows OS upgrade during Migr
 
 ### Do I need VMware vCenter to migrate VMware VMs?
 
-To [migrate VMware VMs](server-migrate-overview.md) using VMware agent-based or agentless migration, ESXi hosts on which VMs are located must be managed by vCenter Server. If you don't have vCenter Server, you can migrate VMware VMs by migrating them as physical servers. [Learn more](migrate-support-matrix-physical-migration.md).
+To [migrate VMware VMs](server-migrate-overview.md) by using VMware agent-based or agentless migration, ESXi hosts on which VMs are located must be managed by vCenter Server. If you don't have vCenter Server, you can migrate VMware VMs by migrating them as physical servers. [Learn more](migrate-support-matrix-physical-migration.md).
 
 ### Can I consolidate multiple source VMs into one VM while migrating?
 
@@ -192,13 +192,13 @@ When replication starts for a VM, an initial replication cycle occurs in which f
 
 You can work out the bandwidth requirement based on the volume of data needed to be moved in the wave and time within which you would like initial replication to complete (ideally you’d want initial replication to have completed at least 3-4 days prior to the actual migration window to give you sufficient time to perform a test migration prior to the actual window and to keep downtime to a minimum during the window).
 
-You can estimate the bandwidth or time needed for agentless VMware VM migration using the following formula:
+You can estimate the bandwidth or time needed for agentless VMware VM migration by using the following formula:
 
 Time to complete initial replication =  {size of disks (or used size if available) * 0.7 (assuming a 30 percent compression average – conservative estimate)}/bandwidth available for replication.
 
 ### How do I throttle replication in using Azure Migrate appliance for agentless VMware replication?
 
-You can throttle using NetQosPolicy. Note that this throttling is applicable only to the outbound connections from the Azure Migrate appliance. For example:
+You can throttle by using NetQosPolicy. Note that this throttling is applicable only to the outbound connections from the Azure Migrate appliance. For example:
 
 The AppNamePrefix to use in the NetQosPolicy is "GatewayWindowsService.exe". You could create a policy on the Azure Migrate appliance to throttle replication traffic from the appliance by creating a policy such as this one:
 
@@ -293,12 +293,12 @@ Note: The replication appliance is different from the Azure Migrate discovery ap
 
 ### Where should I install the replication appliance for agent-based migrations?
 
-The replication appliance should be installed on a dedicated machine. The replication appliance shouldn't be installed on a source machine that you want to replicate or on the Azure Migrate appliance (used for discovery and assessment) you may have installed before. Follow the [tutorial](./tutorial-migrate-physical-virtual-machines.md) for more details.
+The replication appliance should be installed on a dedicated machine. The replication appliance shouldn't be installed on a source machine that you want to replicate or on the Azure Migrate appliance (used for discovery and assessment) you might have installed before. Follow the [tutorial](./tutorial-migrate-physical-virtual-machines.md) for more details.
 
 ### Can I migrate AWS VMs running Amazon Linux Operating system?
 
 VMs running Amazon Linux can't be migrated as-is as Amazon Linux OS is only supported on AWS.
-To migrate workloads running on Amazon Linux, you can spin up a CentOS/RHEL VM in Azure and migrate the workload running on the AWS Linux machine using a relevant workload migration approach. For example, depending on the workload, there may be workload-specific tools to aid the migration – such as for databases or deployment tools in case of web servers.
+To migrate workloads running on Amazon Linux, you can spin up a CentOS/RHEL VM in Azure and migrate the workload running on the AWS Linux machine by using a relevant workload migration approach. For example, depending on the workload, there might be workload-specific tools to aid the migration – such as for databases or deployment tools in case of web servers.
 
 ### How do I gauge the bandwidth requirement for my migrations?
 
