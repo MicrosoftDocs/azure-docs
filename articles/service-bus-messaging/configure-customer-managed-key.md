@@ -55,6 +55,8 @@ For more information about importing existing keys, see [About keys, secrets, an
 ```azurecli-interactive
 az keyvault create --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
 ```
+
+After creation you will need to [activate the Managed HSM](/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm).
  
 3. To add purge protection to an existing vault (that already has soft delete enabled), use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command.
         
