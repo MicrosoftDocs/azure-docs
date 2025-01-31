@@ -12,13 +12,17 @@ ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: email
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
-zone_pivot_groups: acs-ps-azclipython
+zone_pivot_groups: acs-ps-azclips-azclipython
 ---
 
 # Email Resource Management: Automating end to end resource creation
 
 ::: zone pivot="platform-powershell"
 [!INCLUDE [Email Resource Managemnt with Azure PowerShell](./includes/email-resource-management-powershell.md)]
+::: zone-end
+
+::: zone pivot="platform-azclips"
+[!INCLUDE [Email Resource Managemnt with Azure CLI PowerShell](./includes/email-resource-management-azurecli-powershell.md)]
 ::: zone-end
 
 ::: zone pivot="platform-azclipython"
