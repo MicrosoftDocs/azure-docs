@@ -78,7 +78,7 @@
       href: quick-create-cli.md
     - name: Bicep
       href: quick-create-bicep.md
-    - name: Powershell
+    - name: PowerShell
       href: quick-create-powershell.md
     - name: Terraform
       href: quick-create-terraform.md
@@ -220,7 +220,7 @@
     href: virtual-network-troubleshoot-peering-issues.md
   - name: Troubleshoot connectivity problems between Azure VMs
     href: virtual-network-troubleshoot-connectivity-problem-between-vms.md
-  - name: Troubleshoot failure to delete a virtual network
+  - name: Troubleshoot virtual network deletion failures
     href: virtual-network-troubleshoot-cannot-delete-vnet.md
 - name: Security and compliance
   items:
