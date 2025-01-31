@@ -108,7 +108,7 @@ Once the command finishes, traffic sent to port 9876 on the local computer is ro
 ## Use the tunnel from your browser
 
 > [!IMPORTANT]  
-> The steps in this section use the Mozilla FireFox browser, as it provides the same proxy settings across all platforms. Other modern browsers, such as Google Chrome, may require an extension such as FoxyProxy to work with the tunnel.
+> The steps in this section use the Mozilla Firefox browser, as it provides the same proxy settings across all platforms. Other modern browsers, such as Google Chrome, may require an extension such as FoxyProxy to work with the tunnel.
 
 1. Configure the browser to use **localhost** and the port you used when creating the tunnel as a **SOCKS v5** proxy. Here's what the Firefox settings look like. If you used a different port than 9876, change the port to the one you used:
 

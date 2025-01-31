@@ -106,8 +106,6 @@
     items:
     - name: Azure HDInsight
       href: reliability-hdinsight.md
-    - name: Azure HDInsight on AKS
-      href: reliability-hdinsight-on-aks.md
     - name: Azure Machine Learning
       href: /azure/machine-learning/how-to-high-availability-machine-learning?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Stream Analytics

@@ -11,6 +11,9 @@ ms.custom: mode-other
 
 # Quickstart: Create a lab
 
+> [!WARNING]
+> This offer requires assistance from your Microsoft sales representative. Self-service signup is not available.
+
 In this quickstart, you create a lab in the Azure Education Hub and choose the method of adding students to it.
 
 ## Prerequisites
