@@ -359,6 +359,70 @@ The response contains an array of tokens under the `value` property:
 | `resourceId` | The Azure resource ID for the issued token. This value is either the managed application ID or the user-assigned managed identity ID. |
 | `token_type` | The type of the token. |
 
+## Create a managed identity and role assignment for managed applications
+
+This section describes how to create a managed identity and assign a role as part of a managed application using publisher access mode. 
+
+1. Create a managed identity using an Azure Resource Manager template.
+
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "resources": [
+        {
+          "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+          "apiVersion": "2018-11-30",
+          "name": "myManagedIdentity",
+          "location": "[resourceGroup().location]"
+        }
+      ]
+    }
+    ```
+
+1. To allow for managed identity propagation, create a sleep time of 30 seconds.
+
+    Since the managed identity is not in the home tenant of the target scope, you must apply a delay between creating the managed identity and assigning the role to allow the managed identity to propagate between tenants. Without this delay, Azure Resource Manager might not recognize this identity when used in the template and fail within a future deployment script.
+
+    ```json
+        {
+          "type": "Microsoft.Resources/deploymentScripts",
+          "apiVersion": "2020-10-01",
+          "name": "sleepScript",
+          "location": "[resourceGroup().location]",
+          "properties": {
+            "azPowerShellVersion": "2.0",
+            "scriptContent": "Start-Sleep -Seconds 30",
+            "timeout": "PT1H",
+            "cleanupPreference": "OnSuccess",
+            "retentionInterval": "P1D"
+          },
+    "dependsOn": [
+            "myManagedIdentity"
+          ]
+    }
+    ```
+
+1. Assign the Contributor role to the managed identity at the scope of the managed resource group.
+
+    ```json
+        {
+          "type": "Microsoft.Authorization/roleAssignments",
+          "apiVersion": "2020-04-01-preview",
+          "name": "[guid(resourceGroup().id, 'Contributor')]",
+          "properties": {
+            "roleDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]",
+            "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', 'myManagedIdentity'), '2018-11-30').principalId]",
+            "scope": "[resourceGroup().id]",
+    "delegatedManagedIdentityResourceId": "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities','myManagedIdentity')]"
+          },
+    "dependsOn": [
+            "myManagedIdentity",
+    "sleepScript"
+          ]
+        }
+    ```
+
 ## Next steps
 
 > [!div class="nextstepaction"]
