@@ -18,21 +18,69 @@ the most recent developments, this article provides you with information about:
 For information on release notes for the connected machine agent, see
 [What's new with the connected machine agent][01].
 
-## Release notes
+## Windows extension release notes
+
+### Version 1.29.85.0 - October 2024
+
+#### Updated
+
+- Updated OpenSSL from version 3.3.1 to 3.3.2.
+
+#### Fixed
+
+- Added time-outs to address an issue that caused the agent to become unresponsive when
+  trying to read a response from the service. If the agent takes more than 3 minutes to
+  read a response or send a request to the service, it will now time out and continue
+  execution.
+
+### Version 1.29.82.0 - September 2024
+
+#### New Features
+
+- Announcing the general availability of User Assigned Identities for Azure Machine Configuration,
+  enhancing security and simplifying at-scale server management by allowing private access to
+  configuration packages in Azure Storage. For more information, see
+  [User-Assigned Identity-based Access for Machine Configuration Packages][10].
+
+
+## Extension for Linux extension release notes
+
+### Version 1.26.79 - October 2024
+
+##### Fixed
+
+- Added time-outs to address an issue that caused the agent to become unresponsive when
+  trying to read a response from the service. If the agent takes more than 3 minutes to
+  read a response or send a request to the service, it will now time out and continue
+  execution.
+
+### Version 1.26.77 - September 2024
+
+#### Updated
+
+- Updated OpenSSL from version 3.0.14 to 3.0.15.
+
+### Version 1.26.76 - September 2024
+
+#### New Features
+
+- Announcing the general availability of User Assigned Identities for Azure Machine Configuration,
+  enhancing security and simplifying at-scale server management by allowing private access to
+  configuration packages in Azure Storage. For more information, see
+  [User-Assigned Identity-based Access for Machine Configuration Packages][10].
 
 ### Version 1.26.48 - January 2023
 
 #### New Features
 
-- In this release, we've added support for Linux distributions such as Red Hat Enterprise Linux
-  (RHEL) 9, Mariner 1&2, Alma 9, and Rocky 9.
+- Added support for Linux distributions such as Red Hat Enterprise Linux (RHEL) 9, Mariner 1 and 2,
+  Alma 9, and Rocky 9.
 
 #### Fixed
 
-- Reliability improvements were made to the guest configuration policy engine
+- Improved reliability for the guest configuration policy engine.
 
-
-### Guest Configuration Linux Extension version 1.26.38
+### Version 1.26.38
 
 In this release, various improvements were made.
 
@@ -41,7 +89,7 @@ In this release, various improvements were made.
   URL patterns to allow. If the tag exists, the agent only allows custom packages to be
   downloaded from the specified URLs. Built-in packages are unaffected by this feature.
 
-## Fixed
+#### Fixed
 
 - Resolves local elevation of privilege vulnerability [CVE-2022-38007][03].
 - If you're currently running an older version of the AzurePolicyforLinux extension, use the
@@ -92,3 +140,4 @@ az vm extension set \
 [07]: ../how-to/create-policy-definition.md
 [08]: ../../policy/assign-policy-portal.md
 [09]: ../../policy/how-to/determine-non-compliance.md
+[10]: https://techcommunity.microsoft.com/blog/azuregovernanceandmanagementblog/user-assigned-identity-based-access-for-machine-configuration-packages-%E2%80%93-general/4305594
