@@ -157,10 +157,17 @@ Take full control of threat intelligence feeds by filtering and optimizing the i
 | Ingestion rule use case | Description |
 |---|---|
 | Reduce noise | Filter out old threat intelligence not updated for 6 months that also has low confidence. |
-| Extend validity date | Promote high fidelity IOCs from trusted source by extending their `Valid until` by 30 days. |
+| Extend validity date | Promote high fidelity IOCs from trusted sources by extending their `Valid until` by 30 days. |
 | Remember the old days | The new threat actor taxonomy is great, but some of the analysts want to be sure to tag the old names. |
 
-For more information, see [Work with threat intelligence ingestion rules](work-with-threat-indicators.md#curate-threat-intelligence-with-ingestion-rules).
+:::image type="content" source="media/understand-threat-intelligence/ingestion-rules-overview.png" alt-text="Screenshot shows four ingestion rules matching the use cases.":::
+
+Keep in mind the following tips for using ingestion rules:
+- All rules apply in order. Threat intelligence objects being ingested will get processed by each rule until a `Delete` action is taken.
+- The `Delete` action means the threat intelligence object is skipped for ingestion, meaning it's removed from the pipeline. Any previous versions of the object already ingested aren't affected.
+- New and edited rules take up to 15 minutes to take effect.
+
+For more information, see [Work with threat intelligence ingestion rules](work-with-threat-indicators.md#optimize-threat-intelligence-feeds-with-ingestion-rules).
 
 ### Create relationships
 
