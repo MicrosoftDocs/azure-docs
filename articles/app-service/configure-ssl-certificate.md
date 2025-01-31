@@ -146,6 +146,18 @@ The service principal app ID or assignee value is the ID for the App Service res
 > [!NOTE]
 > Do not delete these RBAC permissions from key vault. If you do, App Service will not be able to sync your web app with the latest key vault certificate version.
 
+#### Azure CLI Command
+
+```azurecli-interactive
+az role assignment create --role "Key Vault Certificate User" --assignee "abfa0a7c-a6b6-4736-8310-5855508787cd" --scope "/subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}"
+```
+
+#### Azure Powershell Command
+```azurepowershell
+#Assign by Service Principal ApplicationId
+New-AzRoleAssignment -RoleDefinitionName "Key Vault Certificate User" -ApplicationId "abfa0a7c-a6b6-4736-8310-5855508787cd" -Scope "/subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}"
+```
+
 ### [Access policy permissions](#tab/accesspolicy)
 
 | Resource provider | Service principal app ID | Key vault secret permissions | Key vault certificate permissions |
