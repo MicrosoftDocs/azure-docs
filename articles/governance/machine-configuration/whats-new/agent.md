@@ -49,9 +49,9 @@ For information on release notes for the connected machine agent, see
 
 ##### Fixed
 
-- Added timeouts to address an issue that caused the agent to become unresponsive when
+- Added time-outs to address an issue that caused the agent to become unresponsive when
   trying to read a response from the service. If the agent takes more than 3 minutes to
-  read a response or send a request to the service, it will now timeout and continue
+  read a response or send a request to the service, it will now time out and continue
   execution.
 
 ### Version 1.26.77 - September 2024
