@@ -80,7 +80,7 @@ Azure Virtual Desktop on Azure Local has the following limitations:
 
 - You can only join session hosts on Azure Local to an Active Directory Domain Services (AD DS) domain. This includes using [Microsoft Entra hybrid join](/entra/identity/devices/concept-hybrid-join), where you can benefit from some of the functionality provided by Microsoft Entra ID.
 
-- Azure Virtual Desktop on Azure Local isn't supported in disconnected scenarios.
+- Azure Local isn't supported for disconnected Azure Virtual Desktop sessions.
 
 ## Next step
 
