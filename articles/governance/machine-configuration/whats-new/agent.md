@@ -28,16 +28,16 @@ For information on release notes for the connected machine agent, see
 
 #### Fixed
 
-- Added timeouts to address an issue that caused the agent to become unresponsive when
+- Added time-outs to address an issue that caused the agent to become unresponsive when
   trying to read a response from the service. If the agent takes more than 3 minutes to
-  read a response or send a request to the service, it will now timeout and continue
+  read a response or send a request to the service, it will now time out and continue
   execution.
 
 ### Version 1.29.82.0 - September 2024
 
 #### New Features
 
-- Announcing the general availability of User Asigned Identities for Azure Machine Configuration,
+- Announcing the general availability of User Assigned Identities for Azure Machine Configuration,
   enhancing security and simplifying at-scale server management by allowing private access to
   configuration packages in Azure Storage. For more information, see
   [User-Assigned Identity-based Access for Machine Configuration Packages][10].
@@ -64,7 +64,7 @@ For information on release notes for the connected machine agent, see
 
 #### New Features
 
-- Announcing the general availability of User Asigned Identities for Azure Machine Configuration,
+- Announcing the general availability of User Assigned Identities for Azure Machine Configuration,
   enhancing security and simplifying at-scale server management by allowing private access to
   configuration packages in Azure Storage. For more information, see
   [User-Assigned Identity-based Access for Machine Configuration Packages][10].
