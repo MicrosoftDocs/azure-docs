@@ -11,7 +11,7 @@ ms.author: kabalas
 
 # External metadata
 
-The external metadata feature allows users to store metadata or additional information about the DICOM files that isn't part of the DICOM file. This fuctionality is accomplished by using STOW-RS to store the metadata by passing the additional information in the header.
+The external metadata feature allows users to store metadata or additional information about the DICOM files that isn't part of the DICOM file. This functionality is accomplished by using STOW-RS to store the metadata by passing the additional information in the header.
 
 ## Limitations
 
@@ -66,7 +66,7 @@ Body:
 > [!NOTE]
 > Only study level tags are supported.
 > If the tag already exists, it updates the value of the existing tag for the study.
-> If the tag already exists with different VR, then it will results in an error.
+> If the tag already exists with different VR, then the transaction will results in an error.
 > Once a tag is created, its Value Representation (VR) is fixed and must comply with the standard for that specific VR. If there's an issue with one of the tags, then it fails the whole transaction.
 
 ### Retrieve metadata (for study, series, or instance)
