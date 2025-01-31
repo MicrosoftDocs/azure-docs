@@ -141,7 +141,7 @@ ProvisioningState Name   BytesToCapturePerPacket TotalBytesPerSession TimeLimitI
 Succeeded         myVM_1 0                       1073741824           18000
 ```
 
-The following table describes the optional parameters that you can use with the `New-AzNetworkWatcherPacketCapture` cmdlet:
+The following table describes the optional parameters that you can use with the [New-AzNetworkWatcherPacketCapture](/powershell/module/az.network/new-aznetworkwatcherpacketcapture) cmdlet:
 
 | Parameter | description |
 | --- | --- |
@@ -162,8 +162,10 @@ To start a capture session, use [az network watcher packet-capture create](/cli/
 az network watcher packet-capture create --name 'myVM_1' --resource-group 'myResourceGroup' --vm 'myVM' --storage-account 'mystorageaccount'
 ```
 
-> [!NOTE]
-> If the storage account is in a different resource group than the virtual machine, use the full resource ID of the storage account instead of its name such as: `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup2/providers/Microsoft.Storage/storageAccounts/mystorageaccount`.
+```azurecli-interactive
+# Start the Network Watcher capture session (storage account is in different resource group than the VM).
+az network watcher packet-capture create --name 'myVM_1' --resource-group 'myResourceGroup' --vm 'myVM' --storage-account '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup2/providers/Microsoft.Storage/storageAccounts/mystorageaccount'
+```
 
 Once the capture session is started, you see the following output:
 
@@ -191,7 +193,7 @@ Once the capture session is started, you see the following output:
 }
 ```
 
-The following table describes the optional parameters that you can use with the `az network watcher packet-capture create` command:
+The following table describes the optional parameters that you can use with the [az network watcher packet-capture create](/cli/azure/network/watcher/packet-capture#az-network-watcher-packet-capture-create) command:
 
 | Parameter | description |
 | --- | --- |
@@ -272,6 +274,7 @@ Succeeded         myVM_1 /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/res
 Use [az network watcher packet-capture show-status](/cli/azure/network/watcher/packet-capture#az-network-watcher-packet-capture-show-status) command to retrieve the status of a packet capture (running or completed).
 
 ```azurecli-interactive
+# Get information, properties, and status of a packet capture.
 az network watcher packet-capture show-status --location 'eastus' --name 'myVM_1'
 ```
 
