@@ -69,11 +69,11 @@ Optionally, to optionally configure the WattTime service for a more accurate car
 
 The Eclipse Dataspace Components (EDC) is designed to support secure and sovereign data sharing between organizations. Here are the main components:
 
-1. **Connector**: Facilitates data exchange between participants such as the manufacturer of products and the customer of the manufactured products. Two connectors, a *provider* connector and a *consumer* connector, are automatically deployed in this reference solution.
-1. **Federated Catalog**: Enables participants to discover and publish data offerings.
-1. **Identity Hub**: Manages identities and ensures secure access.
-1. **Registration Service**: Handles the registration of participants and their data assets.
-1. **Data Dashboard (Management UI)**: Provides a user interface for managing and monitoring the dataspace.
+* **Connector**: Facilitates data exchange between participants such as the manufacturer of products and the customer of the manufactured products. Two connectors, a *provider* connector and a *consumer* connector, are automatically deployed in this reference solution.
+* **Federated Catalog**: Enables participants to discover and publish data offerings.
+* **Identity Hub**: Manages identities and ensures secure access.
+* **Registration Service**: Handles the registration of participants and their data assets.
+* **Data Dashboard (Management UI)**: Provides a user interface for managing and monitoring the dataspace.
 
 These components are open source, designed to be extensible and interoperable, and support various protocols and standards.
 
