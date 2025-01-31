@@ -108,7 +108,7 @@ az network application-gateway waf-policy custom-rule match-condition add --matc
 1. In the **Match variables** section, select **RequestUri** for **Match variable**. 
 1. Select **Is not** for **Operation**.
 1. For **Operator** select **Contains**.
-1. Selecting a transformation optional. 
+1. Selecting a transformation is optional. 
 1. Enter Login page path for match Value.  In this example we use **/login**.
 1. Leave action setting to **Deny traffic**.  
 1. Select **Add** to add the custom rule to the policy 

@@ -5,7 +5,7 @@ summary: Azure networking services enable you to access connect Azure resources 
 metadata:
   title: Azure Networking Fundamentals Documentation
   description: Learn about networking services in Azure that provide connectivity between Azure resources, connectivity from an on-premises network to Azure resources, help protect your network resources, scale application delivery, and help monitor your network.
-  ms.service: networking
+  ms.service: azure-virtual-network
   ms.topic: landing-page
 
   author: mbender-ms
