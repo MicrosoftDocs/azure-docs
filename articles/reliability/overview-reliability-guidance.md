@@ -38,7 +38,6 @@ Each service guide generally contains information on how the service supports:
 | Product| Guidance |
 |----------|---------|
 |Azure HDInsight| [Reliability in Azure HDInsight](reliability-hdinsight.md)|
-|Azure HDInsight on AKS| [Reliability in Azure HDInsight on AKS](reliability-hdinsight-on-aks.md)|
 |Azure Machine Learning Service| [Failover for business continuity and disaster recovery](/azure/machine-learning/how-to-high-availability-machine-learning?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Stream Analytics| [Achieve geo-redundancy for Azure Stream Analytics jobs](../stream-analytics/geo-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Event Hubs| [Reliability in Azure Event Hubs](reliability-event-hubs.md)|
