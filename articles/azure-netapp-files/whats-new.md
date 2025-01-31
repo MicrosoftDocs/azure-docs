@@ -18,7 +18,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Application volume group for Oracle](application-volume-group-oracle-introduction.md) and [application volume group for SAP HANA extension one](application-volume-group-introduction.md) now support customer-managed keys. (Preview)
 
-Azure NetApp Files application volume groups for SAP HANA and Oracle now support customer managed keys. Customers will benefit from increased security and compliance. This feature is now in preview.
+    Azure NetApp Files application volume groups for SAP HANA and Oracle now support customer managed keys. Customers will benefit from increased security and compliance. This feature is now in preview.
 
 ## December 2024
 
