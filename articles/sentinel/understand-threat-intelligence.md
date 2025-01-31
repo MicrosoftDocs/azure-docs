@@ -132,7 +132,8 @@ Threat intelligence powered by Microsoft Sentinel is managed next to Microsoft D
 >[!NOTE]
 > Threat intelligence in the Azure portal is still accessed from **Microsoft Sentinel** > **Threat management** > **Threat intelligence**.
 
-Two of the most common threat intelligence tasks are creating new threat intelligence related to security investigations and adding tags. The management interface streamlines the manual process of creating individual threat intel with a few key features.
+Two of the most common threat intelligence tasks are creating new threat intelligence related to security investigations and adding tags. The management interface streamlines the manual process of curating individual threat intel with a few key features.
+- Configure ingestion rules to optimize threat intel from incoming sources.
 - Define relationships as you create new STIX objects.
 - Curate existing TI with the relationship builder.
 - Copy common metadata from a new or existing TI object with the duplicate feature.
@@ -149,11 +150,23 @@ The following STIX objects are available in Microsoft Sentinel:
 | **Identity** | Describe victims, organizations, and other groups or individuals along with the business sectors most closely associated with them. |
 | **Relationship** | The threads that connect threat intelligence, helping to make connections across disparate signals and data points are described with relationships. |
 
+### Configure ingestion rules
+
+Take full control of threat intelligence feeds by filtering and optimizing the intel before it's delivered to your workspace. Ingestion rules update attributes, or filter objects out all together. The following table lists some use cases:
+
+| Ingestion rule use case | Description |
+|---|---|
+| Reduce noise | Filter out old threat intelligence not updated for 6 months that also has low confidence. |
+| Extend validity date | Promote high fidelity IOCs from trusted source by extending their `Valid until` by 30 days. |
+| Remember the old days | The new threat actor taxonomy is great, but some of the analysts want to be sure to tag the old names. |
+
+For more information, see [Work with threat intelligence ingestion rules](work-with-threat-indicators.md#curate-threat-intelligence-with-ingestion-rules).
+
 ### Create relationships
 
-Enhance threat detection and response by establishing connections between objects with the relationship builder. The following table lists some of its use cases.
+Enhance threat detection and response by establishing connections between objects with the relationship builder. The following table lists some of its use cases:
 
-| Use case | Description |
+| Relationship use case | Description |
 |---|---|
 | Connect a threat actor to an attack pattern | The threat actor `APT29` *Uses* the attack pattern `Phishing via Email` to gain initial access.|
 | Link an indicator to a threat actor|  A domain indicator `allyourbase.contoso.com` is *Attributed to* the threat actor `APT29`. |
