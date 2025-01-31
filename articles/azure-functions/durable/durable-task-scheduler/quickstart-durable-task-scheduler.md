@@ -8,64 +8,74 @@ zone_pivot_groups: dts-lanugages
 
 # Quickstart: Set a Durable Functions app to use the Durable Task Scheduler storage provider (preview)
 
-You can switch and configure an existing Durable Functions app to use Durable Task Scheduler without changing any of your code. 
+Use Durable Functions, a feature of [Azure Functions](../functions-overview.md), to write stateful functions in a serverless environment. Durable Functions manages state, checkpoints, and restarts in your application.
 
-Choose your programming language scenario at the top of the article.
+Durable Functions supports several [storage providers](durable-functions-storage-providers.md), also known as _back ends_, for storing orchestration and entity runtime state. By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this quickstart, you configure a Durable Functions app to use the [Durable Task Scheduler storage provider](durable-functions-storage-providers.md#dts).
+
+> [!NOTE]
+>
+> - The Durable Task Scheduler backend was designed to  To learn more about when to use the Durable Task Scheduler storage provider, see the [storage providers overview](durable-functions-storage-providers.md).
+>
+> - Migrating [task hub data](durable-functions-task-hubs.md) across storage providers currently isn't supported. Function apps that have existing runtime data start with a fresh, empty task hub after they switch to the Durable Task Scheduler back end. Similarly, the task hub contents that are created by using Durable Task Scheduler can't be preserved if you switch to a different storage provider.
+>
+> - The Durable Task Scheduler backend currently isn't supported by Durable Functions when running on the [Flex Consumption plan](../flex-consumption-plan.md). 
 
 ## Prerequisites
 
 Before continuing with the tutorial, make sure you have:
 
-::: zone pivot="csharp"  
+The following steps assume that you have an existing Durable Functions app and that you're familiar with how to operate it.
 
-- [A Durable Task Scheduler and task hub](./manage-durable-task-scheduler.md) 
-- [A Durable Functions app](../durable-functions-isolated-create-first-csharp.md) with an Azure Storage account for deployment to Azure
-- [Azurite](../../../storage/common/storage-use-azurite.md) (Azure Storage emulator) for testing locally
-- [DurableTask CLI](./manage-durable-task-scheduler.md#set-up-the-cli) enabled 
+Specifically, this quickstart assumes that you have already:
 
-::: zone-end 
+- Created an Azure Functions project on your local computer.
+- Added Durable Functions to your project with an [orchestrator function](durable-functions-bindings.md#orchestration-trigger) and a [client function](durable-functions-bindings.md#orchestration-client) that triggers the Durable Functions app.
 
-::: zone pivot="other"  
+If you don't meet these prerequisites, we recommend that you begin with one of the following quickstarts:
 
-- [A Durable Task Scheduler and task hub](./manage-durable-task-scheduler.md) 
-- [A Durable Functions app](../quickstart-js-vscode.md) with an Azure Storage account for deployment to Azure
-- [Azurite](../../../storage/common/storage-use-azurite.md) (Azure Storage emulator) for testing locally
-- [DurableTask CLI](./manage-durable-task-scheduler.md#set-up-the-cli) enabled 
+- [Create a Durable Functions app - C#](durable-functions-isolated-create-first-csharp.md)
+- [Create a Durable Functions app - JavaScript](quickstart-js-vscode.md)
+- [Create a Durable Functions app - Python](quickstart-python-vscode.md)
+- [Create a Durable Functions app - PowerShell](quickstart-powershell-vscode.md)
+- [Create a Durable Functions app - Java](quickstart-java.md)
 
-::: zone-end 
+## Add the Durable Task Scheduler extension (.NET only)
 
-::: zone pivot="csharp"  
+> [!NOTE]
+> If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), skip this section. Extension Bundles removes the need for manual extension management.
 
-## Configure .NET (isolated) applications
+First, install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged) Durable Task Scheduler storage provider extension from NuGet. For .NET, you add a reference to the extension in your _.csproj_ file and then build the project. You can also use the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command to add extension packages.
 
-### Add and update NuGet packages
+You can install the extension by using the following [Azure Functions Core Tools CLI](../functions-run-local.md#install-the-azure-functions-core-tools) command:
 
-In your Durable Functions app, add the following Durable Task NuGet package reference to your application's `.csproj` file.
-
-```xml
-<PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged" Version="0.3.0-alpha" />
+```cmd
+func extensions install --package <package name depending on your worker model> --version <latest version>
 ```
 
-Update existing NuGet package references in your `.csproj` file to the following versions:
+For more information about installing Azure Functions extensions via the Core Tools CLI, see [func extensions install](../functions-core-tools-reference.md#func-extensions-install).
 
-```xml
-<PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.22.0" />
-<PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.DurableTask" Version="1.2.2" />
-<PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.17.4" />
+## Configure local.settings.json for local development
+
+The Durable Task Scheduler backend r
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "<DEPENDENT ON YOUR PROGRAMMING LANGUAGE>",
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "DURABLE_TASK_SCHEDULER_CONNECTION_STRING": "Endpoint={DTS URL};Authentication=DefaultAzure",
+    "TASKHUB_NAME": "<TASKHUB NAME>"
+  }
+}
 ```
-::: zone-end 
 
-::: zone pivot="other"  
+> [!NOTE]
+> The value of `FUNCTIONS_WORKER_RUNTIME` depends on the programming language you use. For more information, see the [runtime reference](../functions-app-settings.md#functions_worker_runtime).
 
-## Configure non-.NET applications
+## Update host.json
 
-::: zone-end 
-
-### Update host.json to use Durable Task Scheduler as storage backend
-
-::: zone pivot="csharp"  
-
-Change the `storageProvider` type to be `azureManaged`:
+Change the `storageProvider` type to `azureManaged`:
 
 ```json
 {
@@ -82,98 +92,7 @@ Change the `storageProvider` type to be `azureManaged`:
 }
 ```
 
-::: zone-end 
-
-::: zone pivot="other"  
-
-Change the `storageProvider` type to be `azureManaged` and remove the existing `Microsoft.Azure.Functions.ExtensionBundle` reference from the `host.json` file.
-
-```json
-{
-  "version": "2.0",
-  "logging": {
-    "applicationInsights": {
-      "samplingSettings": {
-        "isEnabled": true,
-        "excludedTypes": "Request"
-      }
-    }
-  },
-  // Remove this extensionBundle property.  
-  // "extensionBundle": {
-  //   "id": "Microsoft.Azure.Functions.ExtensionBundle",
-  //   "version": "[4.*, 5.0.0)"
-  // },
-  "extensions": {
-    "durableTask": {
-      "storageProvider": {
-        "type": "azureManaged",
-        "connectionStringName": "DURABLE_TASK_SCHEDULER_CONNECTION_STRING"
-      }
-    }
-  }
-}
-```
-
-::: zone-end 
-
-> [!NOTE]
-> If you're using Azure Storage as the storage backend for Durable Functions, you may or may not see the `storageProvider` property in your `host.json` file. This is because Azure Storage is currently the default backend, so it's optional to specify it. 
-
-::: zone pivot="other"  
-
-### Install the required packages
-
-Run the following commands:
-
-```sh
-  func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask.AzureManaged --version 0.3.0-alpha
-```
-
-```sh
-  func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask --version 2.13.7
-```
-
-This creates an `extensions.csproj` file in your application folder because all Azure Function extensions are C# packages. In this case, you've explicitly installed an extension so a `.csproj` file is created automatically, along with the *bin* and *obj* directories.  
-
-> [!NOTE]
-> Remember to install any other Azure Function extensions your app needs! 
-
-::: zone-end 
-
-## Test the app locally 
-
-### Provide connection string and task hub information
-
-To test the app locally, provide the connection string and task hub information in the `local.settings.json` file:
-
-```json
-{
-  "IsEncrypted": false,
-  "Values": {
-    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
-    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "DURABLE_TASK_SCHEDULER_CONNECTION_STRING": "Endpoint={DTS URL};Authentication=DefaultAzure",
-    "TASKHUB_NAME": "<TASKHUB NAME>"
-  }
-}
-```
-
-Get the Durable Task Scheduler URL by running:
-
-```azurecli
-  az durabletask scheduler list -g <RESOURCE_GROUP_NAME>
-```
-Take note of the namepace name and dashboard URL for later use. 
-
-Retrieve the task hub name by running: 
-```azurecli
-  az durabletask taskhub list -g <RESOURCE_GROUP_NAME> -s <SCHEDULER_NAME>
-```
-
-[!INCLUDE [assign-rbac-cli](./includes/assign-rbac-cli.md)]
-
-### Run the app locally
+## Test locally 
 
 Start [Azurite](../../../storage/common/storage-use-azurite.md#run-azurite). 
 
@@ -185,51 +104,43 @@ func start
 
 Running into issues? [See the troubleshooting guide.](./troubleshoot-durable-task-scheduler.md)
 
-::: zone pivot="csharp"  
-
-> [!NOTE] 
-> For Mx Mac (ARM64) users, you may run into gRPC runtime issues with Durable Functions. As a workaround:
-> 1. Reference the `2.41.0` version of the `Contrib.Grpc.Core.M1` NuGet package.
-> 1. Add a custom after-build target that ensures the correct ARM64 version of the gRPC libraries can be found.
-> 
-> ```xml
-><Project>
->  <ItemGroup>
->    <PackageReference Include="Contrib.Grpc.Core.M1" Version="2.41.0" />
->  </ItemGroup>
->
->  <Target Name="CopyGrpcNativeAssetsToOutDir" AfterTargets="Build">
->    <ItemGroup>
->       <NativeAssetToCopy Condition="$([MSBuild]::IsOSPlatform('OSX'))" Include="$(OutDir)runtimes/osx-arm64/native/*"/>
->    </ItemGroup>
->    <Copy SourceFiles="@(NativeAssetToCopy)" DestinationFolder="$(OutDir).azurefunctions/runtimes/osx-arm64/native"/>
->  </Target>
-></Project>     
->``` 
-
-::: zone-end 
-
-::: zone pivot="other"  
-
 > [!NOTE] 
 > If you have a Python app, remember to create a virtual environment and install packages in `requirements.txt` before running `func start`. The packages you need are `azure-functions` and `azure-functions-durable`.  
 
-::: zone-end 
-
 ## Run the app on Azure
 
-Durable Task Scheduler supports identity-based authentication only. You can use an identity managed by the Azure platform, so you do not need to provision or rotate any secrets. 
+To deploy your app on Azure, start by creating a Function app hosted on App Service.
 
-To run your app on Azure, start by deploying the app, then configure the app to use a *system-assigned* or a *user-assigned* managed identity for authentication. 
+### Create a Function app
 
-- **User-assigned identity** (recommended) isn't tied to the lifecycle of the app. You can re-use that identity even if the app is de-provisioned. 
-- **System-assigned identity** is deleted if the app is de-provisioned. 
+Navigate to the Function app creation blade and select **App Service** as a hosting option.
 
-This article shows how to set up **user-assigned managed identity**.
+:::image type="content" source="media/create-durable-task-scheduler/function-app-hosted-app-service.png" alt-text="Screenshot of hosting options for Function apps and selecting App Service.":::
 
-[!INCLUDE [assign-rbac-portal](./includes/assign-rbac-portal.md)]
+In the **Create Function App (App Service)** blade, [create the function app settings as specified in the Azure Functions documentation](../../functions-create-function-app-portal.md)
 
-Congratulations! Your Durable Functions app should now be configured to use Durable Task Scheduler! You can test it now. 
+:::image type="content" source="media/create-durable-task-scheduler/function-app-basic-tab.png" alt-text="Screenshot of the Basic tab for creating an App Service plan Function app.":::
+
+### Set Durable Task Scheduler as storage backend
+
+After filling out the appropriate fields in the **Basic** and other necessary tabs, select the **Durable Functions** tab. Choose **Durable Task Scheduler** as your storage backend. 
+
+:::image type="content" source="media/create-durable-task-scheduler/durable-func-tab.png" alt-text="Screenshot of creating an App Service plan Function app.":::
+
+> [!NOTE]
+> It is recommended that the region chosen for your Durable Task Scheduler matches the region chosen for your Function App. 
+
+### Verify user-managed identity
+
+Durable Task Scheduler supports only identity-based authentication. Once your function app is deployed, a user-managed identity resource with the necessary RBAC permission is automatically created. 
+
+On the **Review + create** tab, you can find information related to the managed identity resource, such as:
+- The RBAC assigned to it (*Durable Task Data Contributor*) 
+- The scope of the assignment (on the scheduler level):
+
+   :::image type="content" source="media/create-durable-task-scheduler/func-review-create-tab.png" alt-text="Screenshot of fields and properties chosen and in review on the Review + create tab.":::
+
+Click **Create** to deploy the app.
 
 ## Clean up resources
 
