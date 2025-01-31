@@ -72,8 +72,8 @@ Follow the procedure detailed below to use the alert details feature. These step
 
         | Name | Description |
         | ---- | ----------- |
-        | **AlertName**                      | String |
-        | **Description**                    | String |
+        | **AlertName**                      | String. Supports plain text only. |
+        | **Description**                    | String. Supports plain text only, if Microsoft Sentinel is onboarded to Defender portal. |
         | **AlertSeverity**                  | One of the following values: <br>- **Informational**<br>- **Low**<br>- **Medium**<br>- **High** |
         | **Tactics**                        | One of the following values: <br>- **Reconnaissance**<br>- **ResourceDevelopment**<br>- **InitialAccess**<br>- **Execution**<br>- **Persistence**<br>- **PrivilegeEscalation**<br>- **DefenseEvasion**<br>- **CredentialAccess**<br>- **Discovery**<br>- **LateralMovement**<br>- **Collection**<br>- **Exfiltration**<br>- **CommandAndControl**<br>- **Impact**<br>- **PreAttack**<br>- **ImpairProcessControl**<br>- **InhibitResponseFunction** |
         | **Techniques** (Preview)           | A string that matches the following regular expression: `^T(?<Digits>\d{4})$`. <br>For example: **T1234** |

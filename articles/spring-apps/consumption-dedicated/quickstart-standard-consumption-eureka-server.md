@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Enable and disable Eureka Server in Azure Spring Apps
+title: Quickstart - Enable and Disable Eureka Server in Azure Spring Apps
 description: Learn how to enable and disable Eureka Server in Azure Spring Apps.
 author: KarlErickson
 ms.author: CaihuaRui
