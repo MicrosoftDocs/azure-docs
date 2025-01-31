@@ -60,7 +60,7 @@ az network watcher flow-log create --name 'myFlowLog' --nsg 'myNSG' --resource-g
 ```
 
 > [!NOTE]
-> - If the storage account is in a different subscription, the network security group and storage account must be associated with the same Azure Active Directory tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
+> If the storage account is in a different subscription, the network security group and storage account must be associated with the same Azure Active Directory tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
 
 ## Create a flow log and traffic analytics workspace
 
