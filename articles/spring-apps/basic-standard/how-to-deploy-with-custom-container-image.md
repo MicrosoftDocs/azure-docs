@@ -150,7 +150,7 @@ Option 2: Manual installation in the image
 
 To trust a CA in the image, set the following variables depending on your environment:
 
-* You must import Java applications into the trust store by adding the following lines into your Dockerfile:
+* You must import Java applications into the trust store by adding the following lines into your **Dockerfile**:
 
   ```dockerfile
   ADD EnterpriseRootCA.crt /opt/
@@ -193,7 +193,7 @@ If you deployed the instance to a VNet, make sure you allow the network traffic 
 
 The installation steps vary on different application performance monitors (APMs) and languages. The following steps are for New Relic with Java applications. You must modify the **Dockerfile** using the following steps:
 
-1. Download and install the agent file into the image by adding the following to the Dockerfile:
+1. Download and install the agent file into the image by adding the following to the **Dockerfile**:
 
    ```dockerfile
    ADD newrelic-agent.jar /opt/agents/newrelic/java/newrelic-agent.jar
