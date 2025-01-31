@@ -58,10 +58,10 @@ For issues that aren't urgent, get involved with the Microsoft Developer Communi
 #### Find similar issues
 The Microsoft Developer Community can provide useful information on non-urgent issues. 
 
-Start by exploring existing feedback for the issue you’re experiencing: [Search Microsoft Developer Community](https://developercommunity.microsoft.com/devbox).
+Start by exploring existing feedback for the issue you're experiencing: [Search Microsoft Developer Community](https://developercommunity.microsoft.com/devbox).
 
 #### Report an issue to the product team
-If you don’t see your issue in the discussion forum, you can report it to the product team through the Microsoft Developer Community portal: [Report to Microsoft Developer Community](https://developercommunity.microsoft.com/devbox/report).
+If you don't see your issue in the discussion forum, you can report it to the product team through the Microsoft Developer Community portal: [Report to Microsoft Developer Community](https://developercommunity.microsoft.com/devbox/report).
 
 ## Next steps
 
