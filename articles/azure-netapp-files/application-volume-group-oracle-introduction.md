@@ -50,6 +50,10 @@ Application volume group for Oracle helps you simplify the deployment process an
 * Creation of separate storage endpoints (with different IP addresses) for data and log volumes.   
     This deployment method provides better performance and throughput for the Oracle database.
 
+## Application volume group for Oracle now supports customer managed keys (CMK) (Preview)
+
+Azure NetApp Files application group for Oracle extension 1 now supports volume deployments with customer-managed keys. Customers will benefit from increased security and compliance. This feature is now in preview.
+
 ## Application volume group layout
 
 Application volume group for Oracle deploys multiple volumes based on your input and on resource availability in the selected region and zone, subject to the following rules:
