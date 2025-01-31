@@ -35,7 +35,7 @@ There are many new features that are only supported in the Azure WAF engine. The
 * [DRS 2.1](application-gateway-crs-rulegroups-rules.md#drs-21) and later DRS versions
 * [WAF v2 metrics](application-gateway-waf-metrics.md#application-gateway-waf-v2-metrics)
 * [Per rule exclusions](application-gateway-waf-configuration.md#per-rule-exclusions) and support for [exclusion attributes by name](application-gateway-waf-configuration.md#request-attributes-by-keys-and-values).
-* [Increased scale limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits)
+* [Increased scale limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-application-gateway-limits)
   * HTTP listeners limit
   * WAF IP address ranges per match condition
   * Exclusions limit

@@ -4,7 +4,7 @@ description: Learn how to configure a custom container in Azure App Service. Thi
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: how-to
-ms.date: 10/25/2023
+ms.date: 01/23/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
 zone_pivot_groups: app-service-containers-windows-linux
 ---
@@ -21,7 +21,7 @@ This guide provides key concepts and instructions for containerization of Window
 
 ::: zone pivot="container-linux"
 
-This guide provides key concepts and instructions for containerization of Linux apps in App Service. If are new to Azure App Service, follow the [custom container quickstart](quickstart-custom-container.md) and [tutorial](tutorial-custom-container.md) first. For sidecar containers (preview), see [Tutorial: Configure a sidecar container for custom container in Azure App Service (preview)](tutorial-custom-container-sidecar.md).
+This guide provides key concepts and instructions for containerization of Linux apps in App Service. If you're new to Azure App Service, follow the [custom container quickstart](quickstart-custom-container.md) and [tutorial](tutorial-custom-container.md) first. For sidecar containers (preview), see [Tutorial: Configure a sidecar container for custom container in Azure App Service (preview)](tutorial-custom-container-sidecar.md).
 
 ::: zone-end
 
@@ -214,7 +214,7 @@ Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WE
 
 ::: zone pivot="container-linux"
 
-You can use the */home* directory in your custom container file system to persist files across restarts and share them across instances. The `/home` directory is provided to enable your custom container to access persistent storage. Saving data within `/home` contributes to the [storage space quota](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) included with your App Service Plan.
+You can use the */home* directory in your custom container file system to persist files across restarts and share them across instances. The `/home` directory is provided to enable your custom container to access persistent storage. Saving data within `/home` contributes to the [storage space quota](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits) included with your App Service Plan.
 
 When persistent storage is disabled, then writes to the `/home` directory aren't persisted across app restarts or across multiple instances. When persistent storage is enabled, all writes to the `/home` directory are persisted and can be accessed by all instances of a scaled-out app. Additionally, any contents inside the `/home` directory of the container are overwritten by any existing files already present on the persistent storage when the container starts.
 

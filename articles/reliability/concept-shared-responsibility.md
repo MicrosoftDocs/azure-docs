@@ -28,7 +28,7 @@ The shared responsibility model for resiliency is composed of three levels:
 
 Microsoft is solely responsible for core platform reliability. Microsoft is also responsible for providing resilience-enhancing capabilities that you can use. You're responsible for selecting and using the appropriate components.
 
-Whether you choose SaaS, PaaS, or IaaS service categories determines what kind of decisions you make. For example, if you use an SaaS service, you typically don't need to opt into using availability zones. If you use PaaS services for your data tier, you might have automated capabilities for backup available to you. If you use IaaS services, you typically need to plan and implement many resiliency capabilities yourself.
+Whether you choose SaaS, PaaS, or IaaS service categories determines what kind of decisions you make. For example, if you use a SaaS service, you typically don't need to opt into using availability zones. If you use PaaS services for your data tier, you might have automated capabilities for backup available to you. If you use IaaS services, you typically need to plan and implement many resiliency capabilities yourself.
 
 > [!NOTE]
 > Service categories (SaaS, PaaS, and IaaS) are useful as a broad grouping of services, but it's important to understand your responsibilities for each individual service you use.

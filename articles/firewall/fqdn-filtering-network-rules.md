@@ -29,7 +29,7 @@ When a new DNS resolution takes place, new IP addresses are added to firewall ru
 
    Always use application rules when possible:
   - If the protocol is HTTP/S or MSSQL, use application rules for FQDN filtering.
-  - For services like AzureBackup, HDInsight, etc., use application rules with FQDN tags.
+  - For services like AzureBackup and HDInsight, use application rules with FQDN tags.
   - For any other protocols, you can use network rules for FQDN filtering.
 
 ## Next steps

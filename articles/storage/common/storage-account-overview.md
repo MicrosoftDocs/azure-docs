@@ -88,7 +88,7 @@ The table below illustrates Microsoft's suggested storage account configurations
 |Backup and archive |General purpose v2 |Standard |ZRS, RA-GRS |No |Cool<sup>3</sup> |Yes |
 |Machine learning and artificial intelligence |General purpose v2 |Standard |ZRS, RA-GRS |Yes |Hot |No |
 
-<sup>1</sup> Zone Redundant Storage (ZRS) is a good default for analytics workloads because ZRS offers additional redundancy compared to Locally Redundant Storage (LRS), protecting against zonal failures while remaining fully compatible with analytics frameworks. Customers that require additional redundancy can also leverage Geo-redundant Storage (GRS/RA-GRS) if additional redundancy is required for an Analytics workload.
+<sup>1</sup> Zone Redundant Storage (ZRS) is a good default for analytics workloads because ZRS offers additional redundancy compared to Locally Redundant Storage (LRS), protecting against zonal failures while remaining fully compatible with analytics frameworks. Customers that require additional redundancy can also leverage Geo-redundant Storage (GRS/RA-GRS) if additional redundancy is required for an analytics workload.
 <br/><br/><sup>2</sup> As a core capability of Azure Data Lake Storage (ADLS), the [hierarchical namespace](../blobs/data-lake-storage-namespace.md) enhances data organization and access efficiency for large amounts of data, making it ideal for analytics workloads.
 <br/><br/><sup>3</sup> The cool access tier offers a cost-effective solution for storing infrequently accessed data, which is typical for a backup and archive workload. Customers can also consider the cold access tier after evaluating costs.
 
@@ -99,7 +99,7 @@ A storage account provides a unique namespace in Azure for your data. Every obje
 There are two types of service endpoints available for a storage account:
 
 - [Standard endpoints](#standard-endpoints) (recommended). By default, you can create up to 250 storage accounts per region with standard endpoints in a given subscription. With a quota increase, you can create up to 500 storage accounts with standard endpoints per region. For more information, see [Increase Azure Storage account quotas](/azure/quotas/storage-account-quota-requests).
-- [Azure DNS zone endpoints](#azure-dns-zone-endpoints-preview) (preview). You can create up to 5000 storage accounts per region with Azure DNS zone endpoints in a given subscription.
+- [Azure DNS zone endpoints](#azure-dns-zone-endpoints-preview) (preview). You can create up to 5000 storage accounts per region per subscription with Azure DNS zone endpoints in a given subscription.
 
 Within a single subscription, you can create accounts with either standard or Azure DNS Zone endpoints, for a maximum of 5250 accounts per region per subscription. With a quota increase, you can create up to 5500 storage accounts per region per subscription.
 
@@ -151,7 +151,7 @@ The following table lists the format for Azure DNS Zone endpoints for each of th
 | Table Storage | `https://<storage-account>.z[00-50].table.storage.azure.net` |
 
 > [!IMPORTANT]
-> You can create up to 5000 accounts with Azure DNS Zone endpoints per subscription. However, you may need to update your application code to query for the account endpoint at runtime. You can call the [Get Properties](/rest/api/storagerp/storage-accounts/get-properties) operation to query for the storage account endpoints.
+> You can create up to 5000 accounts with Azure DNS Zone endpoints per region per subscription. However, you may need to update your application code to query for the account endpoint at runtime. You can call the [Get Properties](/rest/api/storagerp/storage-accounts/get-properties) operation to query for the storage account endpoints.
 
 Azure DNS zone endpoints are supported for accounts created with the Azure Resource Manager deployment model only. For more information, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
 

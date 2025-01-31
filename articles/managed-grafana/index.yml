@@ -81,7 +81,7 @@ landingContent:
             url: how-to-set-up-private-access.md
           - text: Call Grafana APIs programmatically
             url: how-to-api-calls.md
-          - text: Grafana settings
+          - text: Configure Grafana settings
             url: grafana-settings.md
           - text: Use deterministic outbound IPs
             url: how-to-deterministic-ip.md

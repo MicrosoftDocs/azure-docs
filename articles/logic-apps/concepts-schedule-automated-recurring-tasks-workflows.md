@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 06/11/2024
+ms.date: 01/27/2025
 ---
 
 # Schedules for recurring triggers in Azure Logic Apps workflows
@@ -253,12 +253,6 @@ If these logic apps use the UTC-6:00 Central Time (US & Canada) zone, this simul
     | 11/02/2019 | 2:30:00 AM | 7:30:00 AM ||
     | 11/03/2019 | 2:30:00 AM | 8:30:00 AM ||
     | 11/04/2019 | 2:30:00 AM | 8:30:00 AM ||
-
-<a name="run-once"></a>
-
-## Run one time only
-
-To only run your workflow once in the future, you can [use the **Scheduler: Run once jobs** workflow template](../connectors/connectors-native-recurrence.md#run-once).
 
 <a name="run-once-last-day-of-the-month"></a>
 

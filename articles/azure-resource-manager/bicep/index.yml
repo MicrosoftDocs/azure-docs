@@ -8,7 +8,7 @@ metadata:
   description: "Learn how to develop Bicep files and use them to deploy Azure resources"
   ms.service: azure-resource-manager
   ms.author: jgao
-  ms.subservice: Bicep
+  ms.subservice: bicep
   ms.topic: landing-page
   ms.date: 05/21/2024
 
