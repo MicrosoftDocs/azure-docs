@@ -99,7 +99,7 @@ Content-Type: application/dicom
 > Only study level tags are supported.
 > If there is an extended query tag with the same tagPath, but if the header `msdicom-request-meta` is set to `true`, then value from the external metadata is used to filter or to included as part of response data.
 
-## Other Transaction
+## Other transaction
 
 There are no changes to other transactions like WADO-RS, Delete, ChangeFeed and Update.
 
