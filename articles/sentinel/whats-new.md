@@ -32,11 +32,11 @@ Get notified when this page is updated by copying and pasting the following URL 
 
 ### Threat intelligence management interface has moved
 
-Managing Microsoft Sentinel-powered threat intelligence has moved in the Defender portal to **Intel management**. In the Azure portal, the location remains unchanged.
+Threat intelligence for Microsoft Sentinel in the Defender portal has changed! We've renamed the page **Intel management** and moved it with other threat intelligence workflows. There's no change for customers using Microsoft Sentinel in the Azure experience.
 
 :::image type="content" source="media/whats-new/intel-management-navigation.png" alt-text="Screenshot showing new menu placement for Microsoft Sentinel threat intelligence.":::
 
-Enhanced threat intelligence capabilities are available in both Microsoft's unified SecOps platform and Microsoft Sentinel in the Azure portal. The management interface streamlines the creation and curation of threat intel with these key features:
+Enhancements to threat intelligence capabilities are available for customers using both Microsoft Sentinel experiences. The management interface streamlines the creation and curation of threat intel with these key features:
 
 - Define relationships as you create new STIX objects.
 - Curate existing threat intelligence with the new relationship builder.
@@ -50,7 +50,7 @@ For more information, see the following articles:
 
 ### Unlock advanced hunting with new STIX objects by opting in to new threat intelligence tables
 
-Tables supporting the new STIX object schema aren't available publicly yet. In order to view threat intelligence for STIX objects and unlock the hunting model that uses them, request to opt in with [this form](https://forms.office.com/r/903VU5x3hz?origin=lprLink). Ingest your threat intelligence into the new tables, `ThreatIntelIndicator` and `ThreatIntelObjects` alongside with or instead of the current table, `ThreatIntelligenceIndicator`, with this opt-in process.
+Tables supporting the new STIX object schema are in private preview. In order to view threat intelligence for STIX objects and unlock the hunting model that uses them, request to opt in with [this form](https://forms.office.com/r/903VU5x3hz?origin=lprLink). Ingest your threat intelligence into the new tables, `ThreatIntelIndicator` and `ThreatIntelObjects` alongside with or instead of the current table, `ThreatIntelligenceIndicator`, with this opt-in process.
 
 For more information, see the blog announcement [New STIX objects in Microsoft Sentinel](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/announcing-public-preview-new-stix-objects-in-microsoft-sentinel/4369164).
 

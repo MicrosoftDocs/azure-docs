@@ -54,7 +54,7 @@ az ad sp show --id <identity-object-ID> --query displayName
 
 ### Configure your Java app to use a managed identity
 
-Open the *src/main/resources/application.properties* file, then add `Authentication=ActiveDirectoryMSI;` at the end of the `spring.datasource.url` line, as shown in the following example. Be sure to use the correct value for the $AZ_DATABASE_NAME variable.
+Open the **src/main/resources/application.properties** file, then add `Authentication=ActiveDirectoryMSI;` at the end of the `spring.datasource.url` line, as shown in the following example. Be sure to use the correct value for the $AZ_DATABASE_NAME variable.
 
 ```properties
 spring.datasource.url=jdbc:sqlserver://$AZ_DATABASE_NAME.database.windows.net:1433;database=demo;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;Authentication=ActiveDirectoryMSI;
