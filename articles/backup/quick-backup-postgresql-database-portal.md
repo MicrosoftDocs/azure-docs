@@ -15,7 +15,7 @@ Azure Database for PostgreSQL is a managed service that you use to run, manage, 
 
 ## Prerequisites
 
-Before you start back up of Azure PostgreSQL database:
+Before you start backup of Azure PostgreSQL database:
 
 - Identify or [create a Backup Vault](tutorial-postgresql-backup.md#create-a-backup-vault) in the same region where you want to back up the Azure Database for PostgreSQL server instance.
 - Check that Azure Database for PostgreSQL server is named in accordance with naming guidelines for Azure Backup. [Learn more](/azure/postgresql/tutorial-design-database-using-azure-portal#create-an-azure-database-for-postgresql)
