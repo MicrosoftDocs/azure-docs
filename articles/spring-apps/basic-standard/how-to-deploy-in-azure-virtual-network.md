@@ -72,16 +72,16 @@ If you already have a virtual network to host an Azure Spring Apps instance, ski
    |-----------------|--------------------------------------------------|
    | Subscription    | Select your subscription.                        |
    | Resource group  | Select your resource group, or create a new one. |
-   | Name            | Enter *azure-spring-apps-vnet*.                  |
+   | Name            | Enter **azure-spring-apps-vnet**.                  |
    | Location        | Select **East US**.                              |
 
 1. Select **Next: IP Addresses**.
 
-1. For the IPv4 address space, enter *10.1.0.0/16*.
+1. For the IPv4 address space, enter **10.1.0.0/16**.
 
-1. Select **Add subnet**. Then enter *service-runtime-subnet* for **Subnet name** and enter *10.1.0.0/24* for **Subnet address range**. Then select **Add**.
+1. Select **Add subnet**. Then enter **service-runtime-subnet** for **Subnet name** and enter **10.1.0.0/24** for **Subnet address range**. Then select **Add**.
 
-1. Select **Add subnet** again, and then enter the subnet name and subnet address range. For example, enter *apps-subnet* and *10.1.1.0/24*. Then select **Add**.
+1. Select **Add subnet** again, and then enter the subnet name and subnet address range. For example, enter **apps-subnet** and **10.1.1.0/24**. Then select **Add**.
 
 1. Select **Review + create**. Leave the rest as defaults, and select **Create**.
 
@@ -258,7 +258,7 @@ Those network resources are connected to your virtual network created in the pre
 :::image type="content" source="./media/how-to-deploy-in-azure-virtual-network/vnet-with-connected-device.png" alt-text="Screenshot of the Azure portal showing the Connected devices page for a virtual network." lightbox="./media/how-to-deploy-in-azure-virtual-network/vnet-with-connected-device.png":::
 
 > [!IMPORTANT]
-> The resource groups are fully managed by the Azure Spring Apps service. Do *not* manually delete or modify any resource inside.
+> The resource groups are fully managed by the Azure Spring Apps service. Do not manually delete or modify any resource inside.
 
 ## Using smaller subnet ranges
 

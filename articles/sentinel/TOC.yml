@@ -790,7 +790,7 @@
     href: connect-threat-intelligence-taxii.md
   - name: Add threat intelligence in bulk by file
     href: indicators-bulk-file-import.md
-  - name: Work with threat indicators
+  - name: Work with threat intelligence
     href: work-with-threat-indicators.md
   - name: Add entity to threat indicators
     href: add-entity-to-threat-intelligence.md
