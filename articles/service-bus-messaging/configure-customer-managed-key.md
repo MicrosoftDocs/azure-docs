@@ -67,7 +67,7 @@ az keyvault update --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --
 2. To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command.
         
 ```azurecli-interactive
-az keyvault create --hsm-name contoso-SB-BYOK-keyvault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
+az keyvault create --hsm-name contoso-SB-BYOK-keyvault --resource-group ContosoRG --location westus --enable-purge-protection true --retention-days 90 --administrators 86a8f506-bb1c-4964-839a-78287daf85b1
 ```    
 
 3. To add purge protection to an existing vault (that already has soft delete enabled), use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command.
