@@ -78,11 +78,11 @@ Using the template reference, you can find out whether you're using the latest A
 1. Select **ARM template**.
 1. A resource type usually has several API versions. This page shows the latest template schema version by default. Select the **Latest** dropdown box to see the versions. The latest version is **2022-09-01**. Select either **Latest** or the version right beneath **Latest** to see the latest version. Make sure this version matches the version used for the storage account resource in your template. If you update the API version, verify the resource definition matches the template reference.
 
-![Resource Manager template reference storage account versions](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-versions.png)
+    ![Resource Manager template reference storage account versions](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-versions.png)
 
 1. This page lists the details of the storageAccount resource type. For example, it lists the allowed values for the **Sku** object. There are eight SKUs, and they match the ones listed in the quickstart template that you opened earlier.
 
-    ![Resource Manager template reference storage account skus](./media/template-tutorial-use-template-reference/resource-manager-resources-reference-storage-accounts-skus.png)
+    ![Resource Manager template reference storage account skus](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-skus.png)
 
 ## Deploy the template
 
