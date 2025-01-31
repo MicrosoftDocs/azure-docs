@@ -1,6 +1,6 @@
 ---
 title: Store external metadata in the DICOM service in Azure Health Data Services
-description: Learn how to store, retrieve, and query external metadata that are not part of the DICOM files in the DICOM service
+description: Learn how to store, retrieve, and query external metadata that aren't part of the DICOM files in the DICOM service
 author: kabalas
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
@@ -11,7 +11,7 @@ ms.author: kabalas
 
 # External metadata
 
-The external metadata feature allows users to store metadata or additional information about the DICOM files that is not part of the DICOM file. This fuctionality is accomplished by using STOW-RS to store the metadata by passing the additional information in the header.
+The external metadata feature allows users to store metadata or additional information about the DICOM files that isn't part of the DICOM file. This fuctionality is accomplished by using STOW-RS to store the metadata by passing the additional information in the header.
 
 ## Limitations
 
@@ -19,7 +19,7 @@ The external metadata feature allows users to store metadata or additional infor
 - External metadata is only supported in [DICOM&reg; service with Azure Data Lake Storage](dicom-data-lake.md)
 - Only tags which don't conform with standard DICOM protocol tags such as [private tags](https://dicom.nema.org/dicom/2013/output/chtml/part05/sect_7.8.html) are supported to be as external metadata.
 - Only study level tags are supported.
-- External metadata tags cannot be updated or deleted. 
+- External metadata tags can't be updated or deleted. 
 - The following VR types are supported:
 
     | VR   | Description           | Single Value Matching | Range Matching | Fuzzy Matching |
@@ -44,8 +44,8 @@ The external metadata feature allows users to store metadata or additional infor
 
     > [!NOTE]
     > Sequential tags, which are tags under a tag of type Sequence of Items (SQ), are currently not supported.
-    > We do not index external metadata tags if the value is null or empty.
-    > There is no ability to add private creator as part of external metadata tags.
+    > We don't index external metadata tags if the value is null or empty.
+    > There's no ability to add private creator as part of external metadata tags.
 
 ### Store (STOW-RS)
 
@@ -67,7 +67,7 @@ Body:
 > Only study level tags are supported.
 > If the tag already exists, it updates the value of the existing tag for the study.
 > If the tag already exists with different VR, then it will results in an error.
-> Once a tag is created, its Value Representation (VR) is fixed and must comply with the standard for that specific VR. If there is an issue with one of the tags, then it fails the whole transaction.
+> Once a tag is created, its Value Representation (VR) is fixed and must comply with the standard for that specific VR. If there's an issue with one of the tags, then it fails the whole transaction.
 
 ### Retrieve metadata (for study, series, or instance)
 
@@ -97,7 +97,7 @@ Content-Type: application/dicom
 
 > [!NOTE]
 > Only study level tags are supported.
-> If there is an extended query tag with the same tagPath, but if the header `msdicom-request-meta` is set to `true`, then value from the external metadata is used to filter or to be included as part of response data.
+> If there's an extended query tag with the same tagPath, but if the header `msdicom-request-meta` is set to `true`, then value from the external metadata is used to filter or to be included as part of response data.
 
 ## Other transaction
 
