@@ -112,9 +112,9 @@ You can delete dev boxes after you finish your tasks. Suppose you finish fixing 
 
 Dependent on how your dev box is configured, you can perform more actions on a dev box in the Microsoft Dev Box developer portal. For example, you can:
 
-**Hibernate or resume:**If your dev box has hibernation enabled, you can hibernate or resume the dev box. Hibernation is useful when you want to save the current state of your dev box and resume it later. For more information, see [Hibernate a dev box in Microsoft Dev Box](how-to-hibernate-your-dev-box.md).
+**Hibernate or resume:** If your dev box has hibernation enabled, you can hibernate or resume the dev box. Hibernation is useful when you want to save the current state of your dev box and resume it later. For more information, see [Hibernate a dev box in Microsoft Dev Box](how-to-hibernate-your-dev-box.md).
 
-**Troubleshoot & repair:**If you encounter issues connecting to your dev box, you can use the Troubleshoot and repair to relsove the issue. For more information, see [Troubleshoot and repair a dev box in Microsoft Dev Box](how-to-troubleshoot-repair-dev-box.md).
+**Troubleshoot & repair:** If you encounter issues connecting to your dev box, you can use the Troubleshoot and repair to relsove the issue. For more information, see [Troubleshoot and repair a dev box in Microsoft Dev Box](how-to-troubleshoot-repair-dev-box.md).
 
 ## Related content
 
