@@ -11,6 +11,9 @@ ms.custom: template-how-to
 
 # Run a script to create a lab and call other dependent APIs
 
+> [!WARNING]
+> This offer requires assistance from your Microsoft sales representative. Self-service signup is not available.
+
 With the public APIs in the Azure Education Hub, you can deploy labs through APIs alone. However, there are a few more APIs that you need to call. The PowerShell script in this article includes those APIs.
 
 ## Prerequisites
