@@ -203,7 +203,7 @@
   - name: Diagnose a virtual machine network traffic filter problem
     href: diagnose-network-traffic-filter-problem.md
   - name: Diagnose a virtual machine routing problem
-    href: diagnose-network-routing-problem
+    href: diagnose-network-routing-problem.md
   - name: Network virtual appliance issues in Azure
     href: virtual-network-troubleshoot-nva.md
   - name: Resource logging for a network security group
@@ -211,11 +211,11 @@
   - name: Test network latency between Azure VMs
     href: virtual-network-test-latency.md
   - name: Test VM network throughput by using NTTTCP
-    href: virtual-network-bandwidth-testing
+    href: virtual-network-bandwidth-testing.md
   - name: Troubleshoot Azure VM connectivity problems
     href: troubleshoot-vm-connectivity.md
   - name: Troubleshoot outbound SMTP connectivity problems
-    href: troubleshoot-outbound-smtp-connectivity
+    href: troubleshoot-outbound-smtp-connectivity.md
   - name: Troubleshoot virtual network peering issues
     href: virtual-network-troubleshoot-peering-issues.md
   - name: Troubleshoot connectivity problems between Azure VMs
@@ -227,7 +227,7 @@
   - name: Azure Kubernetes network policies
     href: kubernetes-network-policies.md
   - name: Azure Policy Regulatory Compliance controls
-    href: security-controls-policy
+    href: ./security-controls-policy.md
   - name: Azure security baseline for Virtual Network
     href: /azure/baselines/virtual-network-security-baseline?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
   - name: DDoS protection
