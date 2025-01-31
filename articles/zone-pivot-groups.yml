@@ -1829,3 +1829,12 @@ groups:
     title: Azure portal
   - id: platform-nocode
     title: Power Platform
+# Owner: Deepika0530
+- id: acs-ps-azclipython
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: platform-powershell
+    title: Azure PowerShell
+  - id: platform-azclipython
+    title: AzureCLI Python
