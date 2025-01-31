@@ -73,6 +73,6 @@ You might find the following commands useful as you work with Dev Box.
     az devcenter admin --help
     ```
 
-## Next steps
+## Related content
 
 For complete command listings, refer to the [Microsoft Dev Box and Azure Deployment Environments Azure CLI documentation](https://aka.ms/CLI-reference).
