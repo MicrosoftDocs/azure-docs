@@ -107,40 +107,11 @@ Running into issues? [See the troubleshooting guide.](./troubleshoot-durable-tas
 > [!NOTE] 
 > If you have a Python app, remember to create a virtual environment and install packages in `requirements.txt` before running `func start`. The packages you need are `azure-functions` and `azure-functions-durable`.  
 
+[!INCLUDE [assign-rbac-cli](./includes/assign-rbac-cli.md)]
+
 ## Run the app on Azure
 
-To deploy your app on Azure, start by creating a Function app hosted on App Service.
-
-### Create a Function app
-
-Navigate to the Function app creation blade and select **App Service** as a hosting option.
-
-:::image type="content" source="media/create-durable-task-scheduler/function-app-hosted-app-service.png" alt-text="Screenshot of hosting options for Function apps and selecting App Service.":::
-
-In the **Create Function App (App Service)** blade, [create the function app settings as specified in the Azure Functions documentation](../../functions-create-function-app-portal.md)
-
-:::image type="content" source="media/create-durable-task-scheduler/function-app-basic-tab.png" alt-text="Screenshot of the Basic tab for creating an App Service plan Function app.":::
-
-### Set Durable Task Scheduler as storage backend
-
-After filling out the appropriate fields in the **Basic** and other necessary tabs, select the **Durable Functions** tab. Choose **Durable Task Scheduler** as your storage backend. 
-
-:::image type="content" source="media/create-durable-task-scheduler/durable-func-tab.png" alt-text="Screenshot of creating an App Service plan Function app.":::
-
-> [!NOTE]
-> It is recommended that the region chosen for your Durable Task Scheduler matches the region chosen for your Function App. 
-
-### Verify user-managed identity
-
-Durable Task Scheduler supports only identity-based authentication. Once your function app is deployed, a user-managed identity resource with the necessary RBAC permission is automatically created. 
-
-On the **Review + create** tab, you can find information related to the managed identity resource, such as:
-- The RBAC assigned to it (*Durable Task Data Contributor*) 
-- The scope of the assignment (on the scheduler level):
-
-   :::image type="content" source="media/create-durable-task-scheduler/func-review-create-tab.png" alt-text="Screenshot of fields and properties chosen and in review on the Review + create tab.":::
-
-Click **Create** to deploy the app.
+To deploy your app on Azure, TODO
 
 ## Clean up resources
 
