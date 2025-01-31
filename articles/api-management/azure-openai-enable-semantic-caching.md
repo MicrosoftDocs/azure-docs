@@ -127,6 +127,7 @@ Configure the following policies to enable semantic caching for Azure OpenAI API
     <azure-openai-semantic-cache-lookup
         score-threshold="0.8"
         embeddings-backend-id="embeddings-deployment"
+        embeddings-backend-auth="system-assigned"
         ignore-system-messages="true"
         max-message-count="10">
         <vary-by>@(context.Subscription.Id)</vary-by>
