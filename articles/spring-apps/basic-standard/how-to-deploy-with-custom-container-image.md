@@ -191,7 +191,7 @@ If you deployed the instance to a VNet, make sure you allow the network traffic 
 
 ### Install an APM into the image manually
 
-The installation steps vary on different application performance monitors (APMs) and languages. The following steps are for New Relic with Java applications. You must modify the Dockerfile using the following steps:
+The installation steps vary on different application performance monitors (APMs) and languages. The following steps are for New Relic with Java applications. You must modify the **Dockerfile** using the following steps:
 
 1. Download and install the agent file into the image by adding the following to the Dockerfile:
 

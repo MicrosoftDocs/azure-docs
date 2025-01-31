@@ -60,7 +60,7 @@ You can enable system-assigned managed identity during app creation or on an exi
 
 ### Enable system-assigned managed identity during creation of an app
 
-The following example creates an app named **app_name** with a system-assigned managed identity, as requested by the `--assign-identity` parameter.
+The following example creates an app named `app_name` with a system-assigned managed identity, as requested by the `--assign-identity` parameter.
 
 ```azurecli
 az spring app create \
