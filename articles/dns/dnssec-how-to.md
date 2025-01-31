@@ -45,7 +45,7 @@ To sign your zone with DNSSEC using the Azure portal:
     [ ![Screenshot of a signed zone with DS record missing.](./media/dnssec-how-to/ds-missing.png) ](./media/dnssec-how-to/ds-missing.png#lightbox)
 
     > [!NOTE]
-    > If your Azure network configuration doesn't allow delegation checking, the delegation message shown here is supressed. In this case, you can use a public [DNSSEC debugger](https://aka.ms/DNSSECdebugger) to verify delegation status.
+    > If your Azure network configuration doesn't allow delegation checking, the delegation message shown here is suppressed. In this case, you can use a public [DNSSEC debugger](https://aka.ms/DNSSECdebugger) to verify delegation status.
 
 6. Copy the delegation information and use it to create a DS record in the parent zone. 
 
@@ -70,7 +70,7 @@ To sign your zone with DNSSEC using the Azure portal:
     [ ![Screenshot of a fully signed and delegated zone.](./media/dnssec-how-to/delegated.png) ](./media/dnssec-how-to/delegated.png#lightbox)
 
     > [!NOTE]
-    > If your Azure network configuration doesn't allow delegation checking, the delegation message shown here is supressed. In this case, you can use a public [DNSSEC debugger](https://aka.ms/DNSSECdebugger) to verify delegation status.
+    > If your Azure network configuration doesn't allow delegation checking, the delegation message shown here is suppressed. In this case, you can use a public [DNSSEC debugger](https://aka.ms/DNSSECdebugger) to verify delegation status.
 
 ## [Azure CLI](#tab/sign-cli)
 
