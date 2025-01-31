@@ -7,7 +7,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.collection: ce-skilling-ai-copilot
 ms.topic: how-to
-ms.date: 01/21/2025
+ms.date: 01/31/2025
 # Customer intent: As a developer, I want to create my first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
 ---
 
@@ -161,7 +161,7 @@ For optimal designer responsiveness and performance, review and follow these gui
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
    | **Storage type** | Yes | - **Azure Storage** <br>- **SQL and Azure Storage** | The storage type that you want to use for workflow-related artifacts and data. <br><br>- To deploy only to Azure, select **Azure Storage**. <br><br>- To use SQL as primary storage and Azure Storage as secondary storage, select **SQL and Azure Storage**, and review [Set up SQL database storage for Standard logic apps in single-tenant Azure Logic Apps](set-up-sql-db-storage-single-tenant-standard-workflows.md). <br><br>**Note**: If you're deploying to an Azure region, you still need an Azure storage account, which is used to complete the one-time hosting of the logic app's configuration on the Azure Logic Apps platform. The workflow's state, run history, and other runtime artifacts are stored in your SQL database. <br><br>For deployments to a custom location that is hosted on an Azure Arc cluster, you only need SQL as your storage provider. |
-   | **Storage account** | Yes | <*Azure-storage-account-name*> | The [Azure Storage account](../storage/common/storage-account-overview.md) to use for storage transactions. <br><br>This resource name must be unique across regions and have 3-24 characters with only numbers and lowercase letters. Either select an existing account or create a new account. <br><br>This example creates a storage account named **mystorageacct**. |
+   | **Storage account** | Yes | <*Azure-storage-account-name*> | The [Azure Storage account](../storage/common/storage-account-overview.md) to use for storage transactions. <br><br>This resource name must be unique across regions and have 3-24 characters with only numbers and lowercase letters. Either select an existing account or create a new account. <br><br>This example creates a storage account named **mystorageacct**.  <br><br>**Note**: Make sure that **Maximum Compatibility** is the default security setting for the storage account file share. Otherwise, your logic app and workflows might fail to start, and you get the following error: **The user name or password is incorrect: 'C:\home\data\Functions\secrets\Sentinels'**. |
 
 1. On the **Networking** tab, you can leave the default options to follow the example. However, for specific, real-world scenarios, make sure to review and select the following appropriate options. You can also change this configuration after you deploy your logic app resource. For more information, see [Secure traffic between Standard logic apps and Azure virtual networks using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
 
