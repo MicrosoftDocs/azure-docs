@@ -19,7 +19,7 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |Column order|Fields|Description|
 |------|------|------|
 |1|billingAccountName|Name of the billing account.|
-|2|partnerName|    |
+|2|partnerName|  Name of the partner Microsoft Entra directory tenant.  |
 |3|resellerName|The name of the reseller associated with the subscription.|
 |4|resellerMpnId|ID for the reseller associated with the subscription.|
 |5|customerTenantId|  Identifier of the Microsoft Entra tenant of the customer's subscription.  |
@@ -80,7 +80,7 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |Column order|Fields|Description|
 |------|------|------|
 |1|billingAccountName|Name of the billing account.|
-|2|partnerName|    |
+|2|partnerName|  Name of the partner Microsoft Entra directory tenant.  |
 |3|resellerName|The name of the reseller associated with the subscription.|
 |4|resellerMpnId|ID for the reseller associated with the subscription.|
 |5|customerTenantId| Identifier of the Microsoft Entra tenant of the customer's subscription.   |
@@ -141,7 +141,7 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |Column order|Fields|Description|
 |------|------|------|
 |1|billingAccountName|Name of the billing account.|
-|2|partnerName|    |
+|2|partnerName| Name of the partner Microsoft Entra directory tenant.   |
 |3|resellerName|The name of the reseller associated with the subscription.|
 |4|resellerMpnId|ID for the reseller associated with the subscription.|
 |5|customerTenantId| Identifier of the Microsoft Entra tenant of the customer's subscription.   |
@@ -199,7 +199,7 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |Column order|Fields|Description|
 |------|------|------|
 |1|billingAccountName|Name of the billing account.|
-|2|partnerName|    |
+|2|partnerName|  Name of the partner Microsoft Entra directory tenant.  |
 |3|resellerName|The name of the reseller associated with the subscription.|
 |4|resellerMpnId|ID for the reseller associated with the subscription.|
 |5|customerTenantId|  Identifier of the Microsoft Entra tenant of the customer's subscription.  |
