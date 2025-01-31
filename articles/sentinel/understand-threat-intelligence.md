@@ -187,7 +187,7 @@ View your threat intelligence from the management interface. Use advanced search
 View your indicators stored in the Microsoft Sentinel-enabled Log Analytics workspace. The `ThreatIntelligenceIndicator` table under the **Microsoft Sentinel** schema is where all your Microsoft Sentinel threat indicators are stored. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features, such as analytics, hunting queries, and workbooks. 
 
 >[!IMPORTANT]
->Tables supporting the new STIX object schema aren't available publicly yet. In order to view threat intelligence for STIX objects and unlock the hunting model that uses them, request to opt in with [this form](https://forms.office.com/r/903VU5x3hz?origin=lprLink). Ingest your threat intelligence into the new tables, `ThreatIntelIndicator` and `ThreatIntelObjects`, alongside with or instead of the current table, `ThreatIntelligenceIndicator` with this opt-in process.
+>Tables supporting the new STIX object schema are in private preview. In order to view the STIX objects in queries and unlock the hunting model that uses them, request to opt in with [this form](https://forms.office.com/r/903VU5x3hz?origin=lprLink). Ingest your threat intelligence into the new tables, `ThreatIntelIndicator` and `ThreatIntelObjects`, alongside or instead of the current table, `ThreatIntelligenceIndicator`, with this opt-in process.
 >
 
 Here's an example view of a basic query for just threat indicators using the current table.
