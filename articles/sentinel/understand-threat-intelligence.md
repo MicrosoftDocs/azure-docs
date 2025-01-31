@@ -152,7 +152,7 @@ The following STIX objects are available in Microsoft Sentinel:
 
 ### Configure ingestion rules
 
-Take full control of threat intelligence feeds by filtering and optimizing the intel before it's delivered to your workspace. Ingestion rules update attributes, or filter objects out all together. The following table lists some use cases:
+Optimize threat intelligence feeds by filtering and enhancing objects before they're delivered to your workspace. Ingestion rules update attributes, or filter objects out all together. The following table lists some use cases:
 
 | Ingestion rule use case | Description |
 |---|---|
@@ -163,7 +163,7 @@ Take full control of threat intelligence feeds by filtering and optimizing the i
 :::image type="content" source="media/understand-threat-intelligence/ingestion-rules-overview.png" alt-text="Screenshot shows four ingestion rules matching the use cases.":::
 
 Keep in mind the following tips for using ingestion rules:
-- All rules apply in order. Threat intelligence objects being ingested will get processed by each rule until a `Delete` action is taken.
+- All rules apply in order. Threat intelligence objects being ingested will get processed by each rule until a `Delete` action is taken. If no action is taken on an object, it is ingested from the source as is.
 - The `Delete` action means the threat intelligence object is skipped for ingestion, meaning it's removed from the pipeline. Any previous versions of the object already ingested aren't affected.
 - New and edited rules take up to 15 minutes to take effect.
 

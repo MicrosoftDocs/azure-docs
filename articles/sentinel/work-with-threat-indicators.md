@@ -89,6 +89,8 @@ Reduce noise from your TI feeds, extend the validity of high value indicators, a
 
 :::image type="content" source="media/work-with-threat-indicators/new-ingestion-rule.png" alt-text="Screenshot showing new ingestion rule creation for extending valid until date.":::
 
+For more information, see [Understand threat intelligence ingestion rules](understand-threat-intelligence.md#configure-ingestion-rules).
+
 ### Curate threat intelligence with the relationship builder
 
 Connect threat intelligence objects with the relationship builder. There's a maximum of 20 relationships in the builder at once, but more connections can be created through multiple iterations and by adding relationship target references for new objects.

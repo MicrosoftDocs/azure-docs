@@ -4,7 +4,7 @@ titleSuffix: Microsoft Sentinel
 description: This article explains how to detect threats with Microsoft-generated threat intelligence in Microsoft Sentinel.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 3/14/2024
+ms.date: 01/28/2025
 ms.author: austinmc
 appliesto:
     - Microsoft Sentinel in the Azure portal
@@ -19,10 +19,6 @@ ms.collection: usx-security
 # Use matching analytics to detect threats
 
 Take advantage of threat intelligence produced by Microsoft to generate high-fidelity alerts and incidents with the **Microsoft Defender Threat Intelligence Analytics** rule. This built-in rule in Microsoft Sentinel matches indicators with Common Event Format (CEF) logs, Windows DNS events with domain and IPv4 threat indicators, syslog data, and more.
-
-> [!IMPORTANT]
-> Matching analytics is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for more legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ## Prerequisites
 
