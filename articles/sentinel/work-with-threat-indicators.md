@@ -103,7 +103,8 @@ Use the management interface to sort, filter, and search your threat intelligenc
 
 In the following image, multiple sources were used to search by placing them in an `OR` group, while multiple conditions were grouped with the `AND` operator.
 
-:::image type="content" source="media/work-with-threat-indicators/advanced-search.png" alt-text="Screenshot shows an OR operator combined with multiple AND conditions to search threat intelligence.":::
+:::image type="content" source="media/work-with-threat-indicators/advanced-search.png" alt-text="Screenshot shows an OR operator combined with multiple AND conditions to search threat intelligence." lightbox="media/work-with-threat-indicators/advanced-search.png":::
+
 
 Microsoft Sentinel only displays the most current version of your threat intel in this view. For more information on how objects are updated, see [Understand threat intelligence](understand-threat-intelligence.md#view-your-threat-intelligence).
 

@@ -29,7 +29,7 @@ With Azure Spring Apps, you can connect selected Azure services to your applicat
 
 ### [Java](#tab/Java)
 
-1. In your project's *pom.xml* file, add the following dependency:
+1. In your project's **pom.xml** file, add the following dependency:
 
    ```xml
    <dependency>
@@ -42,7 +42,7 @@ With Azure Spring Apps, you can connect selected Azure services to your applicat
    </dependency>
    ```
 
-1. In the *application.properties* file, remove any `spring.datasource.*` properties.
+1. In the **application.properties** file, remove any `spring.datasource.*` properties.
 
 1. Update the current app by running `az spring app deploy`, or create a new deployment for this change by running `az spring app deployment create`.
 
