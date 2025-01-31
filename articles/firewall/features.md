@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 08/30/2023
+ms.date: 01/30/2025
 ms.author: victorh
 ---
 
@@ -37,7 +37,7 @@ Azure Firewall includes the following features:
 - Web categories
 - Certifications
 
-To compare Azure Firewall features for all Firewall SKUs, see [Choose the right Azure Firewall SKU to meet your needs](choose-firewall-sku.md).
+To compare Azure Firewall features for all Firewall versions, see [Choose the right Azure Firewall version to meet your needs](choose-firewall-sku.md).
 
 ## Built-in high availability
 
@@ -49,7 +49,7 @@ Azure Firewall can be configured during deployment to span multiple Availability
 
 You can also associate Azure Firewall to a specific zone just for proximity reasons, using the service standard 99.95% SLA.
 
-There's no extra cost for a firewall deployed in more than one Availability Zone. Also, Microsoft has announced that Azure won't charge for the data transfer across availability zones, regardless of whether you use private or public IPs on your [Azure resources](https://azure.microsoft.com/updates/update-on-interavailability-zone-data-transfer-pricing/).
+There's no extra cost for a firewall deployed in more than one Availability Zone. Also, Microsoft announced that Azure doesn't charge for the data transfer across availability zones, regardless of whether you use private or public IPs on your [Azure resources](https://azure.microsoft.com/updates/update-on-interavailability-zone-data-transfer-pricing/).
 
 As the firewall scales, it creates instances in the zones it's in. So, if the firewall is in Zone 1 only, new instances are created in Zone 1. If the firewall is in all three zones, then it creates instances across the three zones as it scales.
 
@@ -92,11 +92,11 @@ A [service tag](service-tags.md) represents a group of IP address prefixes to he
 
 ## DNS proxy
 
-With DNS proxy enabled, Azure Firewall can process and forward DNS queries from a Virtual Network(s) to your desired DNS server. This functionality is crucial and required to have reliable FQDN filtering in network rules. You can enable DNS proxy in Azure Firewall and Firewall Policy settings. To learn more about DNS proxy, see [Azure Firewall DNS settings](dns-settings.md).
+With DNS proxy enabled, Azure Firewall can process and forward DNS queries from virtual networks to your desired DNS server. This functionality is crucial and required to have reliable FQDN filtering in network rules. You can enable DNS proxy in Azure Firewall and Firewall Policy settings. To learn more about DNS proxy, see [Azure Firewall DNS settings](dns-settings.md).
 
 ## Custom DNS
 
-Custom DNS allows you to configure Azure Firewall to use your own DNS server, while ensuring the firewall outbound dependencies are still resolved with Azure DNS. You can configure a single DNS server or multiple servers in Azure Firewall and Firewall Policy DNS settings. Learn more about Custom DNS, see [Azure Firewall DNS settings](dns-settings.md).
+Custom DNS allows you to configure Azure Firewall to use your own DNS server, while ensuring the firewall outbound dependencies are still resolved with Azure DNS. You can configure a single DNS server or multiple servers in Azure Firewall and Firewall Policy DNS settings. To learn more about Custom DNS, see [Azure Firewall DNS settings](dns-settings.md).
 
 Azure Firewall can also resolve names using Azure Private DNS. The virtual network where the Azure Firewall resides must be linked to the Azure Private Zone. To learn more, see [Using Azure Firewall as DNS Forwarder with Private Link](https://github.com/adstuart/azure-privatelink-dns-azurefirewall).
 
@@ -116,9 +116,9 @@ Forced Tunnel mode can't be configured at run time. You can either redeploy the 
 
 ## Outbound SNAT support
 
-All outbound virtual network traffic IP addresses are translated to the Azure Firewall public IP (Source Network Address Translation). You can identify and allow traffic originating from your virtual network to remote Internet destinations. When Azure Firewall has multiple public IPs configured for providing outbound connectivity, any public IP may be chosen and we do not recommend building any dependencies on which public IP may be used for outbound connections. 
+All outbound virtual network traffic IP addresses are translated to the Azure Firewall public IP (Source Network Address Translation). You can identify and allow traffic originating from your virtual network to remote Internet destinations. When Azure Firewall has multiple public IPs configured for providing outbound connectivity, any public IP can be chosen and we don't recommend building any dependencies on which public IP can be used for outbound connections. 
 
-In scenarios where you have high throughput or dynamic traffic patterns, it is recommended to use an [Azure NAT Gateway](/azure/nat-gateway/nat-overview). Azure NAT Gateway dynamically selects public IPs for providing outbound connectivity. To learn more about how to integrate NAT Gateway with Azure Firewall, see [Scale SNAT ports with Azure NAT Gateway](/azure/firewall/integrate-with-nat-gateway).
+In scenarios where you have high throughput or dynamic traffic patterns, it's recommended to use an [Azure NAT Gateway](/azure/nat-gateway/nat-overview). Azure NAT Gateway dynamically selects public IPs for providing outbound connectivity. To learn more about how to integrate NAT Gateway with Azure Firewall, see [Scale SNAT ports with Azure NAT Gateway](/azure/firewall/integrate-with-nat-gateway).
 
 Azure NAT Gateway can be used with Azure Firewall by associating NAT Gateway to the Azure Firewall subnet. See the [Integrate NAT gateway with Azure Firewall](/azure/nat-gateway/tutorial-hub-spoke-nat-firewall) tutorial for guidance on this configuration. 
 
@@ -160,7 +160,7 @@ You can configure Azure Firewall to route all Internet-bound traffic to a design
 
 ## Web categories
 
-Web categories let administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. Web categories are included in Azure Firewall Standard, but it's more fine-tuned in Azure Firewall Premium. As opposed to the Web categories capability in the Standard SKU that matches the category based on an FQDN, the Premium SKU matches the category according to the entire URL for both HTTP and HTTPS traffic. For more information about Azure Firewall Premium, see [Azure Firewall Premium features](premium-features.md).
+Web categories let administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. Web categories are included in Azure Firewall Standard, but it's more fine-tuned in Azure Firewall Premium. As opposed to the Web categories capability in the Standard version that matches the category based on an FQDN, the Premium version matches the category according to the entire URL for both HTTP and HTTPS traffic. For more information about Azure Firewall Premium, see [Azure Firewall Premium features](premium-features.md).
 
 For example, if Azure Firewall intercepts an HTTPS request for `www.google.com/news`, the following categorization is expected: 
 

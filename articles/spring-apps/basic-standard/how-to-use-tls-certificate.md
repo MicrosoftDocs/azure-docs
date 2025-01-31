@@ -1,5 +1,5 @@
 ---
-title: Use TLS/SSL certificates in your application in Azure Spring Apps
+title: Use TLS/SSL Certificates in Your Application in Azure Spring Apps
 titleSuffix: Azure Spring Apps
 description: Use TLS/SSL certificates in an application.
 author: KarlErickson
@@ -23,7 +23,7 @@ When you let Azure Spring Apps manage your TLS/SSL certificates, you can maintai
 ## Prerequisites
 
 - An application deployed to Azure Spring Apps. See [Quickstart: Deploy your first application in Azure Spring Apps](./quickstart.md), or use an existing app.
-- Either a certificate file with *.crt*, *.cer*, *.pem*, or *.der* extension, or a deployed instance of Azure Key Vault with a private certificate.
+- Either a certificate file with **.crt**, **.cer**, **.pem**, or **.der** extension, or a deployed instance of Azure Key Vault with a private certificate.
 
 ## Import a certificate
 
@@ -57,7 +57,7 @@ Use the following steps to grant access:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Key vaults**, then select the key vault you import your certificate from.
 1. In the navigation pane, select **Access control (IAM)**, then select **Add role assignment**.
-1. Search for *Certificate*, then select the role named **Key Vault Certificate User**.
+1. Search for **Certificate**, then select the role named **Key Vault Certificate User**.
 
    :::image type="content" source="media/how-to-use-tls-certificate/grant-key-vault-permission-rbac.png" alt-text="Screenshot of the Azure portal that shows the Add role assignment page with Key Vault Certificate User highlighted." lightbox="media/how-to-use-tls-certificate/grant-key-vault-permission-rbac.png":::
 
@@ -108,7 +108,7 @@ To load a certificate into your application in Azure Spring Apps, start with the
 
 ### Load a certificate from code
 
-Your loaded certificates are available in the */etc/azure-spring-cloud/certs/public* folder. Use the following Java code to load a public certificate in an application in Azure Spring Apps.
+Your loaded certificates are available in the **/etc/azure-spring-cloud/certs/public** folder. Use the following Java code to load a public certificate in an application in Azure Spring Apps.
 
 ```java
 CertificateFactory factory = CertificateFactory.getInstance("X509");
