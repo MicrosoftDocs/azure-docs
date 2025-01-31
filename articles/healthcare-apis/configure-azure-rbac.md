@@ -62,8 +62,6 @@ In the **Select** box, search for a user, service principal, or group that you w
 
 ## Next steps
 
-[Access by using Postman](./fhir/use-postman.md)
-
 [Access by using the REST Client](./fhir/using-rest-client.md)
 
 [Access by using cURL](./fhir/using-curl.md)

@@ -36,11 +36,11 @@ There's an example published in the [Azure Data Factory template gallery](../../
 >
 > In a scenario with batch processing of HL7v2 messages, this template doesn't take sequencing into account. Post processing is needed if sequencing is a requirement. 
 
-## How can I persist the converted data into the FHIR service by using Postman?
+## How can I persist the converted data into the FHIR service?
 
 You can use the FHIR service's APIs to persist the converted data into the FHIR service by using `POST {{fhirUrl}}/{{FHIR resource type}}` with the request body containing the FHIR resource to be persisted in JSON format. 
 
-For more information, see [Access the FHIR service in Azure Health Data Services by using Postman](use-postman.md).
+For more information, see [Access the FHIR service in Azure Health Data Services by using REST Client](using-rest-client.md).
 
 ## What's the difference between the $convert-data endpoint in Azure API for FHIR versus the FHIR service in Azure Health Data Services?
 

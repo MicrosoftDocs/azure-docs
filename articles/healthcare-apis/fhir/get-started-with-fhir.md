@@ -57,9 +57,9 @@ You can obtain a Microsoft Entra access token by using PowerShell, Azure CLI, RE
 
 #### Access using existing tools
 
-- [Postman](../fhir/use-postman.md)
 - [REST Client](../fhir/using-rest-client.md)
 - [cURL](../fhir/using-curl.md)
+- There are tools available online offering intuitive interfaces for API testing and development such as Postman for example. To use tools for accessing the FHIR service, refer to the open-source sample. [Starter collection of Postman sample queries](https://github.com/Azure-Samples/azure-health-data-services-samples/tree/main/samples/sample-postman-queries) 
 
 #### Load data
 
