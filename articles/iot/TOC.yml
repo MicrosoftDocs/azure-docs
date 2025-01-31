@@ -43,6 +43,8 @@ items:
           href: howto-convert-to-pnp.md
       - name: Connect an on-premises SAP system to Azure
         href: howto-connect-on-premises-sap-to-azure.md
+      - name: Enable an industrial dataspace in Azure
+        href: howto-iot-industrial-dataspaces.md
 
   - name: Tutorials
     items:
