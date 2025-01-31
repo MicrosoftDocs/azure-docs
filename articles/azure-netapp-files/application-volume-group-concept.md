@@ -69,6 +69,10 @@ After deployment, volume sizes and throughput settings can be adjusted like any 
 
 Volume placement within the application volume group enables organizations to address compliance and data residency requirements by specifying the geographical location or Azure region where data should be stored. You can ensure that volumes are provisioned in compliance with regulatory mandates or organizational policies governing data sovereignty, privacy, and residency, thereby mitigating compliance risks and ensuring data governance.
 
+#### Customer managed key support
+
+Azure NetApp Files application volume group for Oracle and SAP HANA extension 1 now support volume deployments with customer-managed keys. Customers will benefit from increased security and compliance. This feature is now in preview.
+
 #### Constrained zone resource availability
 
 Upon execution of volume deployment, application volume group detects available resources and applies logic to place volumes in the most optimal locations. In resource-constrained zones, volumes can share storage endpoints:
