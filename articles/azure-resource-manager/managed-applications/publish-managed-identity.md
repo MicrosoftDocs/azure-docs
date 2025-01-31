@@ -414,7 +414,7 @@ This section describes how to create a managed identity and assign a role as par
             "roleDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]",
             "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', 'myManagedIdentity'), '2018-11-30').principalId]",
             "scope": "[resourceGroup().id]",
-    "delegatedManagedIdentityResourceId": "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities',’myManagedIdentity’)]"
+    "delegatedManagedIdentityResourceId": "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities','myManagedIdentity')]"
           },
     "dependsOn": [
             " myManagedIdentity",
