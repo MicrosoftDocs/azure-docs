@@ -159,7 +159,7 @@ The run-read command lets you run a command on the BMM that doesn't change anyth
 than one word, or need an argument to work. These commands are made like this to separate them from the ones
 that can change things. For example, run-read-command can use `kubectl get` but not `kubectl apply`. When you
 use these commands, you have to put all the words in the "command" field. For example,
-`{"command":"kubectl get","arguments":["nodes"]}` is right; `{"command":"kubectl","arguments":["get","nodes"]}`
+`{command:'kubectl get',arguments:[nodes]}` is right; `{command:'kubectl',arguments:[get,nodes]}`
 is wrong.
 
 Also note that some commands begin with `nc-toolbox nc-toolbox-runread` and must be entered as shown.
@@ -339,19 +339,26 @@ This list shows the commands you can use. Commands in `*italics*` can't have `ar
 - `nc-toolbox nc-toolbox-runread mstfwmanager` (requires `query` arg)
 - `nc-toolbox nc-toolbox-runread mlx_temp`
 
-The command syntax is:
+The command syntax for a single command with no arguments is as follows, using `hostname` as an example:
 
 ```azurecli
 az networkcloud baremetalmachine run-read-command --name "<machine-name>"
     --limit-time-seconds "<timeout>" \
-    --commands '[{"command":"<command1>"},{"command":"<command2>","arguments":["<arg1>","<arg2>"]}]' \
+    --commands "[{command:hostname}]" \
     --resource-group "<cluster_MRG>" \
     --subscription "<subscription>"
 ```
 
-Multiple commands can be provided in json format to `--commands` option.
+- The `--commands` parameter always takes a list of commands, even if there's only one command.
+- Multiple commands can be provided in json format using [Azure CLI Shorthand](https://aka.ms/cli-shorthand) notation.
+- Any whitespace must be enclosed in single quotes.
+- Any arguments for each command must also be provided as a list, as shown in the following examples.
 
-For a command with multiple arguments, provide as a list to `arguments` parameter. See [Azure CLI Shorthand](https://github.com/Azure/azure-cli/blob/dev/doc/shorthand_syntax.md) for instructions on constructing the `--commands` structure.
+```
+--commands "[{command:hostname},{command:'nc-toolbox nc-toolbox-runread racadm ifconfig'}]"
+--commands "[{command:hostname},{command:'nc-toolbox nc-toolbox-runread racadm getsysinfo',arguments:[-c]}]"
+--commands "[{command:ping,arguments:[198.51.102.1,-c,3]}]"
+```
 
 These commands can be long running so the recommendation is to set `--limit-time-seconds` to at least 600 seconds (10 minutes). Running multiple commands might take longer than 10 minutes.
 
@@ -377,7 +384,7 @@ az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>
 ```azurecli
 az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>" \
     --limit-time-seconds 60 \
-    --commands '[{"command":"hostname"},{"command":"ping","arguments":["198.51.102.1","-c","3"]}]' \
+    --commands "[{command:hostname},{command:ping,arguments:[198.51.102.1,-c,3]}]" \
     --resource-group "<cluster_MRG>" \
     --subscription "<subscription>"
 ```
@@ -387,7 +394,7 @@ az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>
 ```azurecli
 az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>" \
     --limit-time-seconds 60 \
-    --commands '[{"command":"nc-toolbox nc-toolbox-runread racadm getsysinfo","arguments":["-c"]}]' \
+    --commands "[{command:'nc-toolbox nc-toolbox-runread racadm getsysinfo',arguments:[-c]}]" \
     --resource-group "<cluster_MRG>" \
     --subscription "<subscription>"
 ```
