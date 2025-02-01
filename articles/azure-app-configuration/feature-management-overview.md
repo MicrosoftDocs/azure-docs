@@ -28,6 +28,13 @@ Module | Platform | Sample | Release Notes
 
 ## Feature Development Status
 
+Below is an overview of each feature and its current status for different frameworks or programming languages.  
+
+- **GA (General Availability)**: The feature is fully released, considered stable, and ready for production use.  
+- **Preview**: The feature is available for early testing and feedback, but not yet fully stable or recommended for production use.  
+- **WIP (Work in Progress)**: The feature is actively being developed and not yet ready for release.
+- **N/A (Not Available)**: This feature is not currently planned to be offered for the specified framework or language.
+
 Feature | .NET | Spring | Python | JavaScript
 ------- | ---- | ------ | ------ | ----------
 Targeting Fitler | GA | GA | GA | GA
@@ -36,5 +43,3 @@ Recurring Time Window Filter | GA | GA | WIP | WIP
 Variant Feature Flag | GA | GA | GA | GA
 Feature Flag Telemetry | GA | GA | GA | GA
 Application Insights Integration | GA | GA | GA | GA
-
-

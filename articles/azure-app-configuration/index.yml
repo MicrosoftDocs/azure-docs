@@ -166,6 +166,8 @@ landingContent:
           url: howto-variant-feature-flags.md
       - linkListType: reference
         links:
+        - text: Overview
+          url: feature-management-overview.md
         - text: .NET feature management
           url: feature-management-dotnet-reference.md
         - text: .NET feature management API reference
@@ -181,6 +183,8 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
+        - text: Overview
+          url: configuration-provider-overview.md
         - text: .NET provider
           url: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
         - text: Java Spring provider
