@@ -4,9 +4,8 @@ description: This page provides instructions on getting the Address Resolution P
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.custom:
 ms.topic: troubleshooting
-ms.date: 01/31/2025git 
+ms.date: 01/31/2025
 ms.author: duau
 ---
 # Getting ARP tables in the Resource Manager deployment model
