@@ -77,7 +77,10 @@ For more information on these features, email the Azure Container Storage team a
 
 Until now, providing cloud storage for containers required using individual container storage interface (CSI) drivers to use storage services intended for IaaS-centric workloads and make them work for containers. While CSI drivers are useful in certain scenarios, relying on them can create operational overhead and increase the risk of issues with application availability, scalability, performance, usability, and cost.
 
-Despite its name, Azure Container Storage doesn't use CSI drivers. Instead, it is derived from [OpenEBS](https://openebs.io/), an open-source solution that provides container storage capabilities for Kubernetes. By offering a managed volume orchestration solution via microservice-based storage controllers in a Kubernetes environment, Azure Container Storage enables true container-native storage.
+Although Azure Container Storage is derived from [OpenEBS](https://openebs.io/), an open-source solution that provides container storage capabilities for Kubernetes, you'll still need the Azure Disk CSI driver to use Azure Disks in your storage pool. By offering a managed volume orchestration solution via microservice-based storage controllers in a Kubernetes environment, Azure Container Storage enables true container-native storage.
+
+> [!NOTE]
+> Azure Container Storage with Azure Disks works out of the box in AKS because the Azure Disk CSI driver is enabled by default.
 
 You can use Azure Container Storage to:
 
