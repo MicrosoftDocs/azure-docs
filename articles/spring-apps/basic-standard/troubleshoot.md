@@ -36,7 +36,7 @@ Service bindings might also cause application start failures. To query the logs,
 
 > "java.sql.SQLException: The server time zone value 'Coordinated Universal Time' is unrecognized or represents more than one time zone."
 
-To fix this error, go to the `server parameters` of your MySQL instance, and change the `time_zone` value from `SYSTEM` to `+0:00`.
+To fix this error, go to the **server parameters** of your MySQL instance, and change the **time_zone** value from **SYSTEM** to **+0:00**.
 
 ### My application crashes or throws an unexpected error
 
@@ -56,7 +56,7 @@ When you're debugging application crashes, start by checking the running status 
 
   * `jvm.memory.used`:
 
-    The amount of memory in bytes that's currently used by the application. For a normal load Java application, this metric series forms a **sawtooth** pattern, where the memory usage steadily increases and decreases in small increments and suddenly drops a lot, and then the pattern recurs. This metric series occurs because of garbage collection inside Java virtual machine, where collection actions represent drops on the sawtooth pattern.
+    The amount of memory in bytes that's currently used by the application. For a normal load Java application, this metric series forms a *sawtooth* pattern, where the memory usage steadily increases and decreases in small increments and suddenly drops a lot, and then the pattern recurs. This metric series occurs because of garbage collection inside Java virtual machine, where collection actions represent drops on the sawtooth pattern.
 
     This metric is important to help identify memory issues, such as:
 
