@@ -34,10 +34,6 @@ To connect to Microsoft cloud services using ExpressRoute, ensure the following 
 * **QoS**: Skype for Business services (e.g., voice, video, text) requires differentiated QoS treatment. Follow the [QoS requirements](expressroute-qos.md) with your provider.
 * **Network Security**: Consider [network security](/azure/cloud-adoption-framework/reference/networking-vdc) when connecting to the Microsoft Cloud via ExpressRoute.
 
-## Microsoft 365
-
-If you plan to enable Microsoft 365 on ExpressRoute, review the following documents for more information about Microsoft 365 requirements.
-
 ## Microsoft 365 requirements
 
 If you plan to use Microsoft 365 with ExpressRoute, review the following resources for detailed requirements and guidelines:
