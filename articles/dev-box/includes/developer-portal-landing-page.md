@@ -20,6 +20,6 @@ ms.service: dev-box
 
 1. Select **New** > **New dev box**.
  
-   :::image type="content" source="../media/developer-portal-landing-page/developer-portal-new-menu.png" alt-text="Screenshot of the developer portal with the New menu and Dev box option highlighted" lightbox="../media/developer-portal-landing-page/developer-portal-new-menu.png":::
+   :::image type="content" source="../media/developer-portal-landing-page/developer-portal-new-menu.png" alt-text="Screenshot of the developer portal with the New menu and Dev box option highlighted." lightbox="../media/developer-portal-landing-page/developer-portal-new-menu.png":::
  
 ---
