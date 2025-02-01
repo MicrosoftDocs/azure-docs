@@ -136,46 +136,46 @@
       href: virtual-network-manage-peering.md
     - name: Update the address space for a peered virtual network
       href: update-virtual-network-peering-address-space.yml
-    - name: Routing
+  - name: Routing
+    items: 
+    - name: Manage route tables
+      href: manage-route-table.yml
+    - name: Ansible
+      href: /azure/developer/ansible/route-table-configure?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+  - name: Scenarios
+    items:
+    - name: Configure a VNet-to-VNet VPN gateway connection
+      href: /azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+    - name: Connect virtual networks from different deployment models
+      href: /azure/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+    - name: Create a site-to-site VPN connection
+      href: /azure/vpn-gateway/tutorial-site-to-site-portal?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+  - name: Virtual machines
+    items:
+    - name: Add or remove network interfaces
+      href: virtual-network-network-interface-vm.yml
+    - name: Configure MTU for virtual machines
+      href: how-to-virtual-machine-mtu.md
+    - name: Linux VM with multiple NICs
+      href: /azure/virtual-machines/linux/multiple-nics?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+    - name: Windows VM with multiple NICs
+      href: /azure/virtual-machines/windows/multiple-nics?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+    - name: Manage a network interface
+      href: virtual-network-network-interface.md
+    - name: Microsoft Azure Network Adapter (MANA)
       items: 
-      - name: Manage route tables
-        href: manage-route-table.yml
-      - name: Ansible
-        href: /azure/developer/ansible/route-table-configure?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-    - name: Scenarios
-      items:
-      - name: Configure a VNet-to-VNet VPN gateway connection
-        href: /azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-      - name: Connect virtual networks from different deployment models
-        href: /azure/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-      - name: Create a site-to-site VPN connection
-        href: /azure/vpn-gateway/tutorial-site-to-site-portal?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-    - name: Virtual machines
-      items:
-      - name: Add or remove network interfaces
-        href: virtual-network-network-interface-vm.yml
-      - name: Configure MTU for virtual machines
-        href: how-to-virtual-machine-mtu.md
-      - name: Linux VM with multiple NICs
-        href: /azure/virtual-machines/linux/multiple-nics?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-      - name: Windows VM with multiple NICs
-        href: /azure/virtual-machines/windows/multiple-nics?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-      - name: Manage a network interface
-        href: virtual-network-network-interface.md
-      - name: Microsoft Azure Network Adapter (MANA)
-        items: 
-        - name: Overview
-          href: accelerated-networking-mana-overview.md
-        - name: Linux VMs
-          href: accelerated-networking-mana-linux.md
-        - name: Windows VMs
-          href: accelerated-networking-mana-windows.md
-      - name: Migrate a VM public IP address to a NAT gateway
-        href: /azure/nat-gateway/tutorial-migrate-ilip-nat?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-      - name: Network bandwidth
-        href: virtual-machine-network-throughput.md
-      - name: TCP/IP performance tuning
-        href: virtual-network-tcpip-performance-tuning.md
+      - name: Overview
+        href: accelerated-networking-mana-overview.md
+      - name: Linux VMs
+        href: accelerated-networking-mana-linux.md
+      - name: Windows VMs
+        href: accelerated-networking-mana-windows.md
+    - name: Migrate a VM public IP address to a NAT gateway
+      href: /azure/nat-gateway/tutorial-migrate-ilip-nat?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+    - name: Network bandwidth
+      href: virtual-machine-network-throughput.md
+    - name: TCP/IP performance tuning
+      href: virtual-network-tcpip-performance-tuning.md
 - name: Reliability and availability
   items: 
   - name: Business continuity
