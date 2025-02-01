@@ -295,7 +295,7 @@ Multi-personal desktop assignment is a feature that allows you to assign more th
 
 ### Enable multi-personal desktop assignment 
 
-You can enable multi-personal desktop assignment when you create a personal host pool or configure an existing personal host pool. Here's how to enable the multi-personal desktop assignment feature on an existing personal host pool. To learn how to create a personal host pool, see [Create a host pool](deploy-azure-virtual-desktop.md#create-a-host-pool).
+You can enable multi-personal desktop assignment when you create a personal host pool or configure an existing personal host pool. Here's how to enable the multi-personal desktop assignment feature on an existing personal host pool. To learn how to create a personal host pool, see [Create a host pool](deploy-azure-virtual-desktop.md#create-a-host-pool-with-standard-management).
 
 #### [Azure portal](#tab/azure2)
 
