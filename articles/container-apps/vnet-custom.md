@@ -146,7 +146,7 @@ $vnet = New-AzVirtualNetwork @VnetArgs
 
 ---
 
-When using the Workload profiles environment, you need to update the VNet to delegate the subnet to `Microsoft.App/environments`. This delegation is not needed for the Consumption-only environment.
+When using the Workload profiles environment, you need to update the VNet to delegate the subnet to `Microsoft.App/environments`. Do not delegate the subnet when using the Consumption-only environment.
 
 # [Bash](#tab/bash)
 
@@ -348,7 +348,7 @@ New-AzPrivateDnsRecordSet @DnsRecordArgs
 
 #### Networking parameters
 
-There are three optional networking parameters you can choose to define when calling `containerapp env create`. Use these options when you have a peered VNet with separate address ranges. Explicitly configuring these ranges ensures the addresses used by the Container Apps environment don't conflict with other ranges in the network infrastructure.
+When using the Consumption-only environment, there are three optional networking parameters you can choose to define when calling `containerapp env create`. Use these options when you have a peered VNet with separate address ranges. Explicitly configuring these ranges ensures the addresses used by the Container Apps environment don't conflict with other ranges in the network infrastructure.
 
 You must either provide values for all three of these properties, or none of them. If they aren’t provided, the values are generated for you.
 
