@@ -92,7 +92,7 @@ Set-AzKeyVaultAccessPolicy `
 
 For more information about creating key vaults and adding secrets, see:
 
-- [Set and retrieve a secret by using a CLI](/azure/key-vault/secrets/quick-create-cli)
+- [Set and retrieve a secret by using the Azure CLI](/azure/key-vault/secrets/quick-create-cli)
 - [Set and retrieve a secret by using Azure PowerShell](/azure/key-vault/secrets/quick-create-powershell)
 - [Set and retrieve a secret by using the Azure portal](/azure/key-vault/secrets/quick-create-portal)
 - [Set and retrieve a secret by using .NET](/azure/key-vault/secrets/quick-create-net)
