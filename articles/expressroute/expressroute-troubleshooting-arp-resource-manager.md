@@ -6,7 +6,7 @@ author: duongau
 ms.service: azure-expressroute
 ms.custom:
 ms.topic: troubleshooting
-ms.date: 01/31/20255
+ms.date: 01/31/2025git 
 ms.author: duau
 ---
 # Getting ARP tables in the Resource Manager deployment model
