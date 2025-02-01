@@ -9,6 +9,8 @@ ms.date: 01/31/2025
 ms.author: duau
 ---
 
+# Configure Connection Monitor for Azure ExpressRoute
+
 This article guides you through configuring a Connection Monitor extension to monitor ExpressRoute. Connection Monitor is a cloud-based network monitoring solution that tracks connectivity between Azure cloud deployments and on-premises locations (such as branch offices). It's part of Azure Monitor logs and allows you to monitor network connectivity for both private and Microsoft peering connections. By configuring Connection Monitor for ExpressRoute, you can identify and resolve network issues.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-log-analytics-rebrand.md)]
