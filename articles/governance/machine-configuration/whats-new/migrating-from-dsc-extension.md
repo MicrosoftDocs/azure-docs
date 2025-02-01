@@ -135,4 +135,4 @@ Use the `Remove-DscConfigurationDocument` command as documented in
 [08]: /powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument
 [09]: ../how-to/develop-custom-package/overview.md
 [10]: ../how-to/create-policy-definition.md
-[12]: ../../policy/assign-policy-portal.md
+[11]: ../../policy/assign-policy-portal.md
