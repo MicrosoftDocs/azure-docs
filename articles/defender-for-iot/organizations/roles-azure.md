@@ -47,7 +47,7 @@ For an overview on creating new Azure custom roles, see [Azure custom roles](/az
 
 >[!Important]
 >
-> Whenever a new subscription is on-boarded to Defender for IoT, the first time login for that subscription must be performed using either the Owner or Contributor Admin roles. For all subsequent logins the Security Admin role is enough.
+> Whenever a new subscription is added to Defender for IoT, the first time login for that subscription must be performed using either the Owner or Contributor Admin roles. For all subsequent logins the Security Admin role is enough.
 >
 
 ## Next steps
