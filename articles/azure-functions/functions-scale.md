@@ -3,7 +3,7 @@ title: Azure Functions scale and hosting
 description: Compare the various options you need to consider when choosing a hosting plan in which to run your function app in Azure Functions.
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: limits-and-quotas
-ms.date: 11/04/2024
+ms.date: 02/02/2025
 ms.custom: H1Hack27Feb2017, devdivchpfy22, build-2023, build-2024, ignite-2024
 ---
 # Azure Functions hosting options
@@ -67,11 +67,11 @@ For details on current native language stack support in Functions, see [Supporte
 ## Scale
 
 The following table compares the scaling behaviors of the various hosting plans.  
-Maximum instances are given on a per-function app (Consumption) or per-plan (Premium/Dedicated) basis, unless otherwise indicated. 
+Maximum instances are given on a per-function app (Consumption) or per-plan (Flex/Premium/Dedicated) basis, unless otherwise indicated. 
 
 | Plan | Scale out | Max # instances | 
 | --- | --- | --- |
-| **[Flex Consumption plan]** | [Per-function scaling](./flex-consumption-plan.md#per-function-scaling). Event-driven scaling decisions are calculated on a per-function basis, which provides a more deterministic way of scaling the functions in your app. With the exception of HTTP, Blob storage (Event Grid), and Durable Functions, all other function trigger types in your app scale on independent instances. All HTTP triggers in your app scale together as a group on the same instances, as do all Blob storage (Event Grid) triggers. All Durable Functions triggers also share instances and scale together. | 1000, but limited by the [Regional subscription memory quotas](./flex-consumption-plan?#regional-subscription-memory-quotas).| 
+| **[Flex Consumption plan]** | [Per-function scaling](./flex-consumption-plan.md#per-function-scaling). Event-driven scaling decisions are calculated on a per-function basis, which provides a more deterministic way of scaling the functions in your app. With the exception of HTTP, Blob storage (Event Grid), and Durable Functions, all other function trigger types in your app scale on independent instances. All HTTP triggers in your app scale together as a group on the same instances, as do all Blob storage (Event Grid) triggers. All Durable Functions triggers also share instances and scale together. | 1000<sup>5</sup> | 
 | **[Premium plan]** | [Event driven](event-driven-scaling.md). Scale out automatically, even during periods of high load. Azure Functions infrastructure scales CPU and memory resources by adding more instances of the Functions host, based on the number of events that its functions are triggered on. | **Windows:** 100<br/>**Linux:** 20-100<sup>2</sup>| 
 | **[Dedicated plan]**<sup>3</sup> | Manual/autoscale |10-30<br/>100 (ASE)| 
 | **[Container Apps]** | [Event driven](event-driven-scaling.md). Scale out automatically, even during periods of high load. Azure Functions infrastructure scales CPU and memory resources by adding more instances of the Functions host, based on the number of events that its functions are triggered on. | 300-1000<sup>4</sup>  |
@@ -81,6 +81,7 @@ Maximum instances are given on a per-function app (Consumption) or per-plan (Pre
 2. In some regions, Linux apps on a Premium plan can scale to 100 instances. For more information, see the [Premium plan article](functions-premium-plan.md#region-max-scale-out). <br/>
 3. For specific limits for the various App Service plan options, see the [App Service plan limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits).
 4. On Container Apps, the default is 10 instances, but you can set the [maximum number of replicas](../container-apps/scale-app.md#scale-definition), which has an overall maximum of 1000. This setting is honored as long as there's enough cores quota available. When you create your function app from the Azure portal you're limited to 300 instances.
+5. Total instances in a given region are imited by [regional subscription memory quotas](./flex-consumption-plan.md#regional-subscription-memory-quotas).
 
 ## Cold start behavior
 
