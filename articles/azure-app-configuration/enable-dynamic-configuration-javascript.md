@@ -21,6 +21,7 @@ Before you continue, finish [Create a JavaScript app with Azure App Configuratio
 ## Prerequisites
 
 - Finish the quickstart [Create a JavaScript app with Azure App Configuration](./quickstart-javascript-provider.md).
+- Update the [`@azure/app-configuration-provider`](https://www.npmjs.com/package/@azure/app-configuration-provider) package to version **2.0.0** or later.
 
 ## Add key-values
 
@@ -29,12 +30,6 @@ Add the following key-value to your Azure App Configuration store. For more info
 | Key            | Value             | Label       | Content type       |
 |----------------|-------------------|-------------|--------------------|
 | *message*      | *Hello World!*    | Leave empty | Leave empty        |
-| *sentinel*     | *1*               | Leave empty | Leave empty        |
-
-A *sentinel key* is a key that you update after you complete the change of all other keys. Your app monitors the sentinel key. When a change is detected, your app refreshes all configuration values. This approach helps to ensure the consistency of configuration in your app and reduces the overall number of requests made to your Azure App Configuration store, compared to monitoring all keys for changes.
-
-> [!NOTE]
-> If you use version **2.0.0-preview.2** or later of [@azure/app-configuration-provider](https://www.npmjs.com/package/@azure/app-configuration-provider), the App Configuration provider will by default refresh based on monitoring the key-value collection. Sentinel key is not needed for refresh. For more information, please go to [Monitor key-value collection for refresh](#monitor-key-value-collection-for-refresh)
 
 ## Console applications
 
@@ -52,10 +47,9 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
     ```javascript
     // Connecting to Azure App Configuration using endpoint and token credential
     const appConfig = await load(endpoint, credential, {
-        // Setting up to refresh when the sentinel key is changed
+        // Enabling the dynamic refresh
         refreshOptions: {
-            enabled: true,
-            watchedSettings: [{ key: "sentinel" }] // Watch for changes to the key "sentinel" and refreshes the configuration when it changes
+            enabled: true
         }
     });
     ```
@@ -68,10 +62,9 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
     ```javascript
     // Connecting to Azure App Configuration using endpoint and token credential
     const appConfig = await load(endpoint, credential, {
-        // Setting up to refresh when the sentinel key is changed
+        // Enabling the dynamic refresh
         refreshOptions: {
-            enabled: true,
-            watchedSettings: [{ key: "sentinel" }] // Watch for changes to the key "sentinel" and refreshes the configuration when it changes
+            enabled: true
         }
     });
 
@@ -85,6 +78,9 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
 
     ```
     ---
+
+> [!NOTE]
+> If you get the error: "Refresh is enabled but no watched settings are specified.", please update the [`@azure/app-configuration-provider`](https://www.npmjs.com/package/@azure/app-configuration-provider) package to version **2.0.0** or later.
 
 1. Setting up `refreshOptions` alone won't automatically refresh the configuration. You need to call the `refresh` method to trigger a refresh. This design prevents unnecessary requests to App Configuration when your application is idle. You should include the `refresh` call where your application activity occurs. This is known as **activity-driven configuration refresh**. For example, you can call `refresh` when processing an incoming message or an order, or inside an iteration where you perform a complex task. Alternatively, you can use a timer if your application is always active. In this example, `refresh` is called in a loop for demonstration purposes. Even if the `refresh` call fails for any reason, your application will continue to use the cached configuration. Another attempt will be made when the configured refresh interval has passed and the `refresh` call is triggered by your application activity. Calling `refresh` is a no-op before the configured refresh interval elapses, so its performance impact is minimal even if it's called frequently.
 
@@ -128,10 +124,9 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
     async function run() {
         // Connecting to Azure App Configuration using endpoint and token credential
         const appConfig = await load(endpoint, credential, {
-            // Setting up to refresh when the sentinel key is changed
+            // Enabling the dynamic refresh
             refreshOptions: {
-                enabled: true,
-                watchedSettings: [{ key: "sentinel" }] // Watch for changes to the key "sentinel" and refreshes the configuration when it changes
+                enabled: true
             }
         });
 
@@ -157,10 +152,9 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
     async function run() {
         // Connecting to Azure App Configuration using endpoint and token credential
         const appConfig = await load(endpoint, credential, {
-            // Setting up to refresh when the sentinel key is changed
+            // Enabling the dynamic refresh
             refreshOptions: {
-                enabled: true,
-                watchedSettings: [{ key: "sentinel" }] // Watch for changes to the key "sentinel" and refreshes the configuration when it changes
+                enabled: true
             }
         });
 
@@ -200,35 +194,17 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
     ```
     It continues to print "Hello World!" in a new line every 5 seconds.
 
-1. Update the following key-values to the Azure App Configuration store. Update value of the key `message` first and then `sentinel`.
+1. Update the following key-values to the Azure App Configuration store. Update value of the key `message`.
 
     | Key            | Value                     | Label       | Content type       |
     |----------------|---------------------------|-------------|--------------------|
     | *message*      | *Hello World - Updated!*  | Leave empty | Leave empty        |
-    | *sentinel*     | *2*                       | Leave empty | Leave empty        |
 
 1. Once the values are updated, the updated value is printed after the refresh interval.
 
     ```console
     Hello World - Updated!
     ```
-
-## Monitor key-value collection for refresh
-
-Instead of monitoring any sentinel key, the App Configuration provider supports for monitoring all selected key-values. Configuration will be refreshed if any of key-values are updated. Watching the sentinel key for refresh helps ensure data integrity of configuration changes, but it is now optional. This behavior is activated when you enable the refresh but do not specify any watched keys in `AzureAppConfigurationOptions.refreshOptions`
-
-```javascript
-const appConfig = await load(endpoint, credential, {
-    refreshOptions: {
-        enabled: true,
-        // watchedSettings: []
-    }
-});
-
-appConfig.refresh(); // Configuration will be refreshed if any of key-values are updated.
-```
-
-This feature is available for version **2.0.0-preview.2** or later of [@azure/app-configuration-provider](https://www.npmjs.com/package/@azure/app-configuration-provider).
 
 ## Server application
 
@@ -284,8 +260,7 @@ The following example shows how to update an existing http server to use refresh
         appConfig = await load(endpoint, credential, {
             refreshOptions: {
                 enabled: true,
-                // without registering any watched setting/sentinel key, the provider will monitor the key-value collection for refresh
-                refreshIntervalInMs: 15_000 // Set the refresh interval
+                refreshIntervalInMs: 15_000 // set the refresh interval
             }
         });
     }
