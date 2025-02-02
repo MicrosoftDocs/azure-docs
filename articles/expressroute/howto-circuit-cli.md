@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: quickstart
-ms.date: 06/30/2023
+ms.date: 01/31/2025
 ms.author: duau
 ms.custom: devx-track-azurecli, mode-api
 ---
@@ -191,7 +191,7 @@ az network express-route list -h
 
 ### Send the service key to your connectivity provider for provisioning
 
-'ServiceProviderProvisioningState' provides information about the current state of provisioning on the service-provider side. The status provides the state on the Microsoft side. For more information, see the [Workflows article](expressroute-workflows.md#expressroute-circuit-provisioning-states).
+'ServiceProviderProvisioningState' provides information about the current state of provisioning on the service-provider side. The status provides the state on the Microsoft side. For more information, see the [Workflows article](expressroute-workflows.md#expressroute-partner-circuit-provisioning-states).
 
 When you create a new ExpressRoute circuit, the circuit is in the following state:
 
