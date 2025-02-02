@@ -242,6 +242,8 @@
     items: 
     - name: Overview
       href: virtual-network-encryption-overview.md
+    - name: Create a virtual network with encryption
+      href: how-to-create-encryption.md
     - name: FAQ
       href: virtual-network-encryption-faq.yml
   - name: Network security groups
