@@ -45,6 +45,11 @@ Permissions are applied to user roles across an entire Azure subscription, or in
 
 For an overview on creating new Azure custom roles, see [Azure custom roles](/azure/role-based-access-control/custom-roles). To set up a role, you need to add permissions from the actions listed in the [Internet of Things security permissions table](/azure/role-based-access-control/permissions/internet-of-things#microsoftiotsecurity).
 
+>[!Important]
+>
+> Whenever a new subscription is on-boarded to Defender for IoT, the first time login for that subscription must be performed using either the Owner or Contributor Admin roles. For all subsequent logins the Security Admin role is enough.
+>
+
 ## Next steps
 
 For more information, see:
