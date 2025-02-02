@@ -115,7 +115,7 @@ You can view the properties of the circuit by selecting it. On the Overview page
 
 ### Send the service key to your connectivity provider for provisioning
 
-On this page, **Provider status** gives you the current state of provisioning on the service-provider side. **Circuit status** provides you with the state on the Microsoft side. For more information about circuit provisioning states, see the [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states) article.
+On this page, **Provider status** gives you the current state of provisioning on the service-provider side. **Circuit status** provides you with the state on the Microsoft side. For more information about circuit provisioning states, see the [Workflows](expressroute-workflows.md#expressroute-partner-circuit-provisioning-states) article.
 
 When you create a new ExpressRoute circuit, the circuit is in the following state:
 
