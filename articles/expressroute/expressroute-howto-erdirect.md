@@ -106,7 +106,7 @@ Once enrolled, verify the **Microsoft.Network** resource provider is registered 
                         ]
    ```
    > [!NOTE]
-   > If bandwidth is unavailable in the target location, open a [support request in the Azure Portal](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) and select the ExpressRoute Direct Support Topic. 
+   > If bandwidth is unavailable in the target location, open a [support request in the Azure portal](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) and select the ExpressRoute Direct Support Topic. 
    >
 5. Create an ExpressRoute Direct resource based on the location in the previous step.
 
