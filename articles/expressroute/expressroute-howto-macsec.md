@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 01/31/2024
+ms.date: 01/31/2025
 ms.author: duau 
 ms.custom: devx-track-azurepowershell
 ---
