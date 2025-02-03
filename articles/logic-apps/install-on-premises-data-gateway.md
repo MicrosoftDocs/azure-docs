@@ -1,15 +1,15 @@
 ---
-title: Install on-premises data gateway
-description: Download and install the on-premises data gateway to access on-premises data in Azure Logic Apps.
+title: Install on-premises data gateway for logic app workflows
+description: Install the on-premises data gateway to access on-premises data data sources from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: mideboer, azla
 ms.topic: how-to
-ms.date: 01/26/2025
-#Customer intent: As a logic apps developer, I want to create workflows that can access data in on-premises systems, which require that I install and set up the on-premises data gateway.
+ms.date: 02/04/2025
+#Customer intent: As an integration developer, I want to create workflows that can access data in on-premises systems, which require that I install and set up the on-premises data gateway.
 ---
 
-# Install on-premises data gateway for Azure Logic Apps
+# Install on-premises data gateway for workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
