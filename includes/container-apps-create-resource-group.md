@@ -2,7 +2,7 @@
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: include
-ms.date: 04/30/2024
+ms.date: 02/03/2025
 ms.author: cshoe
 ---
 
@@ -18,7 +18,7 @@ az group create \
   --location "$LOCATION"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 New-AzResourceGroup -Location $Location -Name $ResourceGroupName

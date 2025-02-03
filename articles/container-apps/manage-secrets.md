@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 1/13/2025
+ms.date: 02/03/2025
 ms.author: cshoe
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, build-2023
 ---
@@ -82,7 +82,7 @@ When you create a container app, secrets are defined using the `--secrets` param
 - The parameter accepts a space-delimited set of name/value pairs.
 - An equals sign (`=`) delimits each pair.
 
-```azurecli-interactive
+```azurecli
 az containerapp create \
   --resource-group "my-resource-group" \
   --name queuereader \
@@ -97,7 +97,7 @@ Here, a connection string to a queue storage account is declared in the `--secre
 
 When you create a container app, secrets are defined as one or more Secret objects that are passed through the `ConfigurationSecrets` parameter.
 
-```azurepowershell-interactive
+```azurepowershell
 $EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName my-resource-group -EnvName my-environment-name).Id
 $TemplateObj = New-AzContainerAppTemplateObject -Name queuereader -Image demos/queuereader:v1
 $SecretObj = New-AzContainerAppSecretObject -Name queue-connection-string -Value $QueueConnectionString
@@ -187,7 +187,7 @@ When you create a container app, secrets are defined using the `--secrets` param
 - An equals sign (`=`) delimits each pair.
 - To specify a Key Vault reference, use the format `<SECRET_NAME>=keyvaultref:<KEY_VAULT_SECRET_URI>,identityref:<MANAGED_IDENTITY_ID>`. For example, `queue-connection-string=keyvaultref:https://mykeyvault.vault.azure.net/secrets/queuereader,identityref:/subscriptions/ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0/resourcegroups/my-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-identity`.
 
-```azurecli-interactive
+```azurecli
 az containerapp create \
   --resource-group "my-resource-group" \
   --name queuereader \
@@ -272,7 +272,7 @@ To avoid committing secret values to source control with your ARM template, pass
 
 In this example, you create a container app using the Azure CLI with a secret that's referenced in an environment variable. To reference a secret in an environment variable in the Azure CLI, set its value to `secretref:`, followed by the name of the secret.
 
-```azurecli-interactive
+```azurecli
 az containerapp create \
   --resource-group "my-resource-group" \
   --name myQueueApp \
@@ -291,7 +291,7 @@ Secrets Key Vault references aren't supported in PowerShell.
 
 In this example, you create a container using Azure PowerShell with a secret that referenced in an environment variable. To reference the secret in an environment variable in PowerShell, set its value to `secretref:`, followed by the name of the secret.
 
-```azurepowershell-interactive
+```azurepowershell
 $EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName my-resource-group -EnvName my-environment-name).Id
 
 $SecretObj = New-AzContainerAppSecretObject -Name queue-connection-string -Value $QueueConnectionString
@@ -487,7 +487,7 @@ In your app, you can read the secret from a file located at `/mnt/secrets/connec
 
 In this example, two secrets are declared at the application level. These secrets are mounted in a volume named `mysecrets` of type `Secret`. The volume is mounted at the path `/mnt/secrets`. The application can then read the secrets as files in the volume mount.
 
-```azurecli-interactive
+```azurecli
 az containerapp create \
   --resource-group "my-resource-group" \
   --name myQueueApp \

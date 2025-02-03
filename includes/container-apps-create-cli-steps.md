@@ -2,7 +2,7 @@
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: include
-ms.date: 04/30/2024
+ms.date: 02/03/2025
 ms.author: cshoe
 ---
 
@@ -16,7 +16,7 @@ To sign in to Azure from the CLI, run the following command and follow the promp
 az login
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 Connect-AzAccount
@@ -32,7 +32,7 @@ To ensure you're running the latest version of the CLI, run the upgrade command.
 az upgrade
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
@@ -44,7 +44,7 @@ Ignore any warnings about modules currently in use.
 
 Next, install or update the Azure Container Apps extension for the CLI.
 
-If you receive errors about missing parameters when you run `az containerapp` commands in Azure CLI or cmdlets from the `Az.App` module in Azure PowerShell, be sure you have the latest version of the Azure Container Apps extension installed.
+If you receive errors about missing parameters when you run `az containerapp` commands in Azure CLI or cmdlets from the `Az.App` module in PowerShell, be sure you have the latest version of the Azure Container Apps extension installed.
 
 # [Bash](#tab/bash)
 
@@ -58,7 +58,7 @@ az extension add --name containerapp --upgrade
 > az extension add --name containerapp --upgrade --allow-preview true
 > ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 Install-Module -Name Az.App
@@ -84,7 +84,7 @@ az provider register --namespace Microsoft.App
 az provider register --namespace Microsoft.OperationalInsights
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.App

@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 07/12/2024
+ms.date: 02/03/2025
 ms.author: cshoe
 ---
 
@@ -41,7 +41,7 @@ az containerapp exec \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp exec `
   --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP>
@@ -70,7 +70,7 @@ az containerapp revision list \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp revision list `
   --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP> `
@@ -93,7 +93,7 @@ az containerapp replica list \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp replica list `
   --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP> `
@@ -118,7 +118,7 @@ az containerapp exec \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp exec `
   --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP> `

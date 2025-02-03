@@ -7,7 +7,7 @@ services: container-apps
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 11/25/2024
+ms.date: 02/03/2025
 ms.author: kuzhong
 author: KarlErickson
 ---
@@ -72,7 +72,7 @@ Use the following steps to define environment variables and ensure your Containe
 
     # [PowerShell](#tab/powershell)
 
-    ```azurepowershell
+    ```powershell
     az login
     az account set --subscription $SUBSCRIPTION_ID
     ```
@@ -88,7 +88,7 @@ Use the following steps to define environment variables and ensure your Containe
 
     # [PowerShell](#tab/powershell)
 
-    ```azurepowershell
+    ```powershell
     az extension add --name containerapp --upgrade
     az extension add --name application-insights --upgrade
     ```
@@ -105,7 +105,7 @@ Use the following steps to define environment variables and ensure your Containe
 
     # [PowerShell](#tab/powershell)
 
-    ```azurepowershell
+    ```powershell
     $CONNECTION_STRING=(az monitor app-insights component show `
         --ids $APP_INSIGHTS_RESOURCE_ID `
         --query connectionString)
@@ -170,7 +170,7 @@ To build a setup image for the Application Insights Java agent, use the followin
 
     # [PowerShell](#tab/powershell)
 
-    ```azurepowershell
+    ```powershell
     az acr login --name $CONTAINER_REGISTRY_NAME
     docker push "$CONTAINER_REGISTRY_NAME.azurecr.io/samples/java-agent-setup:1.0.0"
     ```
@@ -196,7 +196,7 @@ To create a Container Apps environment and a container app as the target Java ap
 
     # [PowerShell](#tab/powershell)
 
-    ```azurepowershell
+    ```powershell
     az containerapp env create `
         --name $ENVIRONMENT_NAME `
         --resource-group $RESOURCE_GROUP `
@@ -222,7 +222,7 @@ To create a Container Apps environment and a container app as the target Java ap
 
     # [PowerShell](#tab/powershell)
 
-    ```azurepowershell
+    ```powershell
     az containerapp create `
         --name $CONTAINER_APP_NAME `
         --environment $ENVIRONMENT_NAME `
@@ -252,7 +252,7 @@ Use the following steps to configure your init container with secrets, environme
 
     # [PowerShell](#tab/powershell)
 
-    ```azurepowershell
+    ```powershell
     az containerapp show `
         --resource-group $RESOURCE_GROUP `
         --name $CONTAINER_APP_NAME `
@@ -334,7 +334,7 @@ Use the following steps to configure your init container with secrets, environme
 
     # [PowerShell](#tab/powershell)
 
-    ```azurepowershell
+    ```powershell
     az containerapp update `
         --resource-group $RESOURCE_GROUP `
         --name $CONTAINER_APP_NAME `
@@ -357,7 +357,8 @@ az group delete --resource-group $RESOURCE_GROUP
 ```
 
 # [PowerShell](#tab/powershell)
-```azurepowershell
+
+```powershell
 az group delete --resource-group $RESOURCE_GROUP
 ```
 

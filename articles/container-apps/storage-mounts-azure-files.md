@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 07/19/2022
+ms.date: 02/03/2025
 ms.author: cshoe
 ---
 
@@ -45,7 +45,7 @@ The following commands help you define  variables and ensure your Container Apps
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az login
     ```
 
@@ -81,7 +81,7 @@ The following commands help you define  variables and ensure your Container Apps
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az extension add -n containerapp --upgrade
     ```
 
@@ -97,7 +97,7 @@ The following commands help you define  variables and ensure your Container Apps
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az provider register --namespace Microsoft.App
     ```
 
@@ -113,7 +113,7 @@ The following commands help you define  variables and ensure your Container Apps
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az provider register --namespace Microsoft.OperationalInsights
     ```
 
@@ -163,7 +163,7 @@ The following steps create a resource group and a Container Apps environment.
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az containerapp env create `
       --name $ENVIRONMENT_NAME `
       --resource-group $RESOURCE_GROUP `
@@ -216,7 +216,7 @@ Next, create a storage account and establish a file share to mount to the contai
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az storage account create `
       --resource-group $RESOURCE_GROUP `
       --name $STORAGE_ACCOUNT_NAME `
@@ -263,7 +263,7 @@ Next, create a storage account and establish a file share to mount to the contai
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az storage share-rm create `
       --resource-group $RESOURCE_GROUP `
       --storage-account $STORAGE_ACCOUNT_NAME `
@@ -333,7 +333,7 @@ Now you can update the container app configuration to support the storage mount.
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az containerapp env storage set `
       --access-mode ReadWrite `
       --azure-file-account-name $STORAGE_ACCOUNT_NAME `
@@ -386,7 +386,7 @@ Now you can update the container app configuration to support the storage mount.
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az containerapp create `
       --name $CONTAINER_APP_NAME `
       --resource-group $RESOURCE_GROUP `
@@ -422,7 +422,7 @@ Now you can update the container app configuration to support the storage mount.
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az containerapp show `
       --name $CONTAINER_APP_NAME `
       --resource-group $RESOURCE_GROUP `
@@ -506,7 +506,7 @@ Now you can update the container app configuration to support the storage mount.
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az containerapp update `
       --name $CONTAINER_APP_NAME `
       --resource-group $RESOURCE_GROUP `
@@ -532,7 +532,7 @@ Now that the storage mount is established, you can manipulate files in Azure Sto
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az containerapp exec `
       --name $CONTAINER_APP_NAME `
       --resource-group $RESOURCE_GROUP

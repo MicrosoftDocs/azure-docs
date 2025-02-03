@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2024
 ms.topic:  how-to
-ms.date: 1/14/2025
+ms.date: 02/03/2025
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -421,7 +421,7 @@ If you're not going to continue to use this application, you can remove the **my
 > [!CAUTION]
 > The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this guide exist in the specified resource group, they will also be deleted.
 
-```azurecli-interactive
+```azurecli
 az group delete --name $RESOURCE_GROUP
 ```
 
