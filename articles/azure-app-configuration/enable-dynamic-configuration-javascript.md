@@ -221,3 +221,8 @@ In this tutorial, you enabled your JavaScript app to dynamically refresh configu
 
 > [!div class="nextstepaction"]
 > [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)
+
+For the full feature rundown of the JavaScript configuration provider library, continue to the following document.
+
+> [!div class="nextstepaction"]
+> [JavaScript configuration provider](./reference-javascript-provider.md)

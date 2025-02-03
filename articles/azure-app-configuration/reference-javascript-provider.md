@@ -17,23 +17,118 @@ ms.date: 02/02/2025
 
 [![configuration-provider-npm-package](https://img.shields.io/npm/v/@azure/app-configuration-provider?label=@azure/app-configuration-provider)](https://www.npmjs.com/package/@azure/app-configuration-provider)
 
+Azure App Configuration is a managed service that helps developers centralize their application configurations simply and securely. The JavaScript configuration provider library enables loading configuration from an Azure App Configuration store in a managed way. This client library adds additional functionality above the Azure sdk for JavaScript.
+
 ## Load configuration
 
-### Connect to Azure App Configuration
+The `load` method exported in the `@azure/app-configuration-provider` package is used to load configuration from the Azure App Configuration. The `load` method allows you to either use Microsoft Entra ID or connection string to connect to the App Configuration store.
+
+### [Microsoft Entra ID](#tab/entra-id)
+
+You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role.
+
+```javascript
+const { load } = require("@azure/app-configuration-provider");
+const { DefaultAzureCredential } = require("@azure/identity");
+const endpoint = process.env.AZURE_APPCONFIG_ENDPOINT;
+const credential = new DefaultAzureCredential(); // For more information, see https://learn.microsoft.com/azure/developer/javascript/sdk/credential-chains#use-defaultazurecredential-for-flexibility
+
+async function run() {
+    // Connect to Azure App Configuration using a token credential and load all key-values with null label.
+    const settings = await load(endpoint, credential);
+    console.log('settings.get("message"):', settings.get("message"));
+}
+
+run();
+```
+
+### [Connection string](#tab/connection-string)
+
+```javascript
+const { load } = require("@azure/app-configuration-provider");
+const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
+
+async function run() {
+    // Connect to Azure App Configuration using a connection string and load all key-values with null label.
+    const settings = await load(connectionString);
+    console.log('settings.get("message"):', settings.get("message"));
+}
+
+run();
+```
+
+---
+
+The `load` method returns an instance of `AzureAppConfiguration` type which is defined as follows:
+
+```typescript
+type AzureAppConfiguration = {
+    refresh(): Promise<void>;
+    onRefresh(listener: () => any, thisArg?: any): Disposable;
+} & IGettable & ReadonlyMap<string, any> & IConfigurationObject;
+```
+
+For more information about `refresh` and `onRefresh` methods, see the [Dynamic refresh](#dynamic-refresh) section.
+
+### Consume configuration
+
+The `AzureAppConfiguration` type extends the following interfaces:
+
+- `IGettable`
+
+    ```typescript
+    interface IGettable {
+        get<T>(key: string): T | undefined;
+    }
+    ```
+
+    The `IGettable` interface provides `get` method to retrieve the value of a key-value from the Map-styled data structure.
+
+    ```typescript
+    const settings = await load(endpoint, credential);
+    const fontSize = settings.get("app:font:size"); // value of the key "app:font:size" from the App Configuration store
+    ```
+
+- `ReadonlyMap`
+
+    The `AzureAppConfiguration` type also extends the [`ReadonlyMap`](https://typestrong.org/typedoc-auto-docs/typedoc/interfaces/TypeScript.ReadonlyMap.html) interface, providing read-only access to key-value pairs.
+
+- `IConfigurationObject`
+
+    ```typescript
+    interface IConfigurationObject {
+        constructConfigurationObject(options?: ConfigurationObjectConstructionOptions): Record<string, any>;
+    }
+    ```
+
+    The `IConfigurationObject` interface provides `constructConfigurationObject` method to construct a configuration object based on a Map-styled data structure and hierarchical keys. The optional `ConfigurationObjectConstructionOptions` parameter can be used to specify the separator for converting hierarchical keys to object properties. By default, the separator is `"."`.
+
+    ```typescript
+    interface ConfigurationObjectConstructionOptions {
+        separator?: "." | "," | ";" | "-" | "_" | "__" | "/" | ":"; // supported separators
+    }
+    ```
+
+   In JavaScript, objects or maps are commonly used as the primary data structures to represent configurations. The JavaScript configuration provider library supports both of the configuration approaches, providing developers with the flexibility to choose the option that best fits their needs.
+
+    ```typescript
+    const settings = await load(endpoint, credential);
+    const settingsObj = settings.constructConfigurationObject({separator: ":"});
+    const fontSize1 = settings.get("app:font:size"); // map-style configuration representation
+    const fontSize2 = settingsObj.app.font.size; // object-style configuration representation
+    ```
 
 ### Load specific key-values using selectors
 
-### Load key-values and trim prefix from keys
+### Load feature flag
+
+### Trim prefix from keys
 
 ## Use Key Vault reference
 
-## Use feature flag
 
 
-
-
-
-## Refresh configuration
+## Dynamic refresh
 
 ### Watch sentinel key for refresh
 

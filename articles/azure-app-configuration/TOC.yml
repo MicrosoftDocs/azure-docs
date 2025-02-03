@@ -310,6 +310,8 @@
       href: https://go.microsoft.com/fwlink/?linkid=2180917
     - name: Python provider
       href: https://pypi.org/project/azure-appconfiguration-provider/
+    - name: JavaScript provider
+      href: ./reference-javascript-provider.md
     - name: Azure SDK for .NET
       href: https://go.microsoft.com/fwlink/?linkid=2092056
     - name: Azure SDK for Java

@@ -1191,8 +1191,6 @@ ActivitySource.AddActivityListener(new ActivityListener()
 
 For more information, please go to [Collect a distributed trace](/dotnet/core/diagnostics/distributed-tracing-collection-walkthroughs).
 
-
-
 ### Application Insights Telemetry
 
 The `Microsoft.FeatureManagement.Telemetry.ApplicationInsights` package provides a built-in telemetry publisher that sends feature flag evaluation data to [Application Insights](/azure/azure-monitor/app/app-insights-overview). The `Microsoft.FeatureManagement.Telemetry.ApplicationInsights` package also provides a telemetry initializer that automatically tags all events with `TargetingId` so that events may be linked to flag evaluations. To take advantage of this, add a reference to the package and register the Application Insights telemetry as in the following example.
