@@ -1,5 +1,5 @@
 ---
-title: About Helm package requirements for Azure Operator Service Manager
+title: Helm package requirements for Azure Operator Service Manager
 description: Learn about the Helm package requirements for  Azure Operator Service Manager.
 author: msftadam
 ms.author: adamdor
@@ -9,14 +9,14 @@ ms.service: azure-operator-service-manager
 ---
 
 # Helm requirements overview
-Helm is a package manager for Kubernetes that helps to simplify application lifecycle management. Helm packages are called charts and consist of YAML configuration and template files. Upon execution of a Helm operation, the charts are rendered into Kubernetes manifest files to trigger the appropriate application lifecycle action. For most efficient integration with Azure Operator Service Manager (AOSM), publisher should consider certain best-practice considerations when developing Helm charts.
+Helm is a package manager for Kubernetes that helps to simplify application lifecycle management. Helm packages are called charts and consist of YAML configuration and template files. Upon execution of a Helm operation, the charts are rendered into Kubernetes manifest files to trigger the appropriate application lifecycle action. For most efficient integration with Azure Operator Service Manager (AOSM), publisher's should consider certain best-practice considerations when developing Helm charts.
 
 ## Considerations for registryUrl and imagePullSecrets
 Every Helm chart generally requires a declared registryUrl and imagePullSecrets. Best practice recommends that the publisher define these two parameters consistently as variables in the values.yaml. At first, AOSM depended upon the publisher exposing these values in a strict manner, so they could be ingested and then injected during deployment. This approach is known as the legacy method. Overtime, many complications arose, as not all publishers charts complied with the strict definition of registryUrl and imagePullSecrets required by AOSM. 
-* Some charts hid registryUrl and/or imagePullSecrets behind conditionals, or other values restrictions, which were not always met.
+* Some charts hide registryUrl and/or imagePullSecrets behind conditionals, or other values restrictions, which were not always met.
 * Some charts didnt declare registryUrl and/or imagePullSecrets as the expected named string, instead as an array.
 
-To reduce the strict compliance requirements on publishers for registryUrl and imagePullSecrets, AOSM later introduced two improved methods of handling these values. First injectArtifactStoreDetail and finally Cluster Registry. These two methods do not depend upon the registryUrl or imagePullSecrets appearing in the Helm package, instead AOSM derives and injects these values on behalf of the network function.
+To reduce the strict compliance requirements on publishers for registryUrl and imagePullSecrets, AOSM later introduced two improved methods of handling these values. First injectArtifactStoreDetail and finally Cluster Registry. These two newer methods do not depend upon the registryUrl or imagePullSecrets appearing in the Helm package, at all. Instead these methods derive and inject these values on behalf of the network function.
 
 ### Method summary for registryUrl and imagePullSecrets
 
@@ -25,17 +25,17 @@ To reduce the strict compliance requirements on publishers for registryUrl and i
 * Images hosted in publisher Azure Container Registry (ACR).
 
 **InjectArtifactStoreDetail.**  
-* Uses a webhook to inject registryUrl & imagePullSecrets directly into pod w/o helm dependency.
-* Images hosted in publisher ACR.
+* Uses a webhook to inject registryUrl & imagePullSecrets directly into pod without any dependancy on helm.
+* Images still hosted in publisher ACR.
 
 **Cluster Registry.** 
-* Same as InjectArtifactStoreDetail except now the images are now hosted in a local cluster registry.
+* Same as InjectArtifactStoreDetail, except now the images are hosted in the local cluster registry.
 
 > [!NOTE]
 > In all three cases, AOSM is substituting AOSM derived secrets with whatever secrets a publisher exposes in templates. The only difference is Legacy and InjectArtifactStoreDetail, the secret is bound to publisher ACR, while in Cluster Registry, the secret is bound to cluster registry. 
 
 ## Legacy requirements for registryUrl and imagePullSecrets 
-Azure Operator Service Manager (AOSM) uses the Network Function Manager (NFM) service to deploy Containerized Network Function (CNF). The Network Function Manager (NFM) contains features to inject container registryUrl and imagePullSecrets dynamically into the helm values during Network Function (NF) deployment. The following helm deployment template shows an example of how a publisher should expose registryPath and imagePullSecrets for compatibility with AOSM legacy approach.
+Azure Operator Service Manager (AOSM) uses the Network Function Manager (NFM) service to deploy Containerized Network Function (CNF). The NFM injects container registryUrl and imagePullSecrets dynamically into the helm values during Network Function (NF) deployment. The following helm deployment template shows an example of how a publisher should expose registryPath and imagePullSecrets for compatibility with AOSM legacy approach.
 
 ```json
 apiVersion: apps/v1 
@@ -92,7 +92,8 @@ The following `NFDVersion request payload` shows an example of how a publisher c
 "registryValuesPaths": [ "global.registryPath" ], 
 "imagePullSecretsValuesPaths": [ "global.imagePullSecrets" ], 
 ```
-The following `values.yaml` shows an example of how a publisher can provide the registryPath and imagePullSecretsvalue values for compatibility with AOSM legacy approach. This file contains the default values for a Helm chart. Two types of variables must be present; imagePullSecrets and registryPath. 
+
+The following `values.yaml` shows an example of how a publisher can provide the registryPath and imagePullSecretsvalue values for compatibility with AOSM legacy approach. 
 
 ```json
 global: 
@@ -127,9 +128,9 @@ OR
 ```
 
 ### Static image repository and tags
-Each helm chart should contain static image repository and tags. Users should set the image repository and tag to static values. The static values are set as follows:
+Each helm chart should contain static image repository and tags. The static values are set as follows:
 - Setting them in the image line or,
-- Setting the Values in values.yaml and not exposing these values in the Network Function Design Version (NFDV). 
+- Setting them in values.yaml and not exposing these values in the Network Function Design Version (NFDV). 
 
 A Network Function Design Version (NFDV) should map to a static set of helm charts and images. The charts and images are only updated by publishing a new Network Function Design Version (NFDV).
 
@@ -148,13 +149,12 @@ image:
   tag: 1.14.2
 ```
 
-
 ```json
  image: http://myURL/{{ .Values.image.repository }}:{{ .Values.image.tag}}
 ```
 
 ## injectArtifactStoreDetails requirements for registryUrl and imagePullSecrets 
-In some cases, third-party helm charts may not be fully compliant with AOSM requirements for registryURL. In this case, the injectArtifactStoreDetails feature can be used to avoid making changes to helm packages. To use injectArtifactStoreDetails, set the installOptions parameter in the NF resource roleOverrides section to true, then use whatever registryURL value is needed to keep the registry URL valid. See following example of injectArtifactStoreDetails parameter enabled.
+In some cases, third-party helm charts may not be fully compliant with AOSM requirements for registryURL. In this case, the injectArtifactStoreDetails feature can be used to avoid making changes to helm packages. To use injectArtifactStoreDetails, set the installOptions parameter in the NF resource roleOverrides section to true, then, in the helm chart package, use whatever registryURL value is needed to keep the registry URL valid. See following example of injectArtifactStoreDetails parameter enabled.
 
 ```bash
 resource networkFunction 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = {
@@ -177,13 +177,13 @@ resource networkFunction 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' =
   }
 }
 ```
+
 ## Chart immutability restrictions
-Immutability restrictions prevent changes to a file or directory. For example, an immutable file can't be changed or renamed, and a file that allows append operations can't be deleted, modified, or renamed. Users should avoid using mutable tags such as latest, dev, or stable. For example, if deployment.yaml used 'latest' for the .Values.image.tag the deployment would fail.
+Immutability restrictions prevent changes to a file or directory. For example, an immutable file can't be changed or renamed. Users should avoid using mutable tags such as latest, dev, or stable. For example, if deployment.yaml used 'latest' for the .Values.image.tag the deployment would fail.
 
 ```json
  image: "{{ .Values.global.registryPath }}/{{ .Values.image.repository }}:{{ .Values.image.tag}}“
 ```
 
 ## Chart CRD declaration and usage split 
-We recommend splitting the declaration and usage of CRDs into separate helm charts to support
-updates. For detailed information see: [method-2-separate-charts](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/#method-2-separate-charts)
+We recommend splitting the declaration and usage of CRDs into separate helm charts to support updates. For detailed information see: [method-2-separate-charts](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/#method-2-separate-charts)
