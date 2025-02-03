@@ -209,7 +209,7 @@ Then select **Next**.
 > [!NOTE]
 > You can update replication settings any time before replication starts in **Manage** > **Replicated machines**. Settings can't be changed after replication starts.
 >
-> Enable replication and migrate Hyper-v virtual machines (VMs) using Azure PowerShell. [More details](https://learn.microsoft.com/en-us/azure/site-recovery/hyper-v-azure-powershell-resource-manager#step-7-enable-vm-protection).
+> Enable replication and migrate Hyper-v virtual machines (VMs) using Azure PowerShell. [More details](../site-recovery/hyper-v-azure-powershell-resource-manager.md#step-7-enable-vm-protection).
 
 ## Provision for the first time
 
