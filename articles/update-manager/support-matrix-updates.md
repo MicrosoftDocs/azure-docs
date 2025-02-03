@@ -259,27 +259,6 @@ Following is the list of supported images and no other marketplace images releas
 
 Custom images (including images uploaded to [Azure Compute gallery](/azure/virtual-machines/linux/tutorial-custom-images#overview))  are supported for Azure Update Manager operations (on-demand operations and customer managed schedules) if the base OS in the supported list and the customizations applied to create the custom images doesn't interfere with Azure Update Manager's patch operations. For more information, see how to use Azure Update Manager to [manage updates on VMs created from custom images](manage-updates-customized-images.md). 
 
-
-#### [Windows operating system](#tab/ci-win)
-
-| Windows operating systems |
-| --- |
-| Windows Server 2022 |
-| Windows Server 2019 |
-| Windows Server 2016 |
-| Windows Server 2012 R2 |
-| Windows Server 2012 |
-  
-#### [Linux operating system](#tab/ci-lin)
-
-| Linux operating systems |
-| --- |
-| Oracle Linux 7.x, 8x |
-| Red Hat Enterprise 7, 8, 9 |
-| SUSE Linux Enterprise Server 12.x, 15.0-15.4 |
-| Ubuntu 16.04 LTS, 18.04 LTS, 20.04 LTS, 22.04 LTS |
- 
----
 :::zone-end
 
 ::: zone pivot="azure-arc-enabled-servers"
