@@ -46,7 +46,7 @@ To configure backup on the Azure Database for PostgreSQL - Flexible Server via A
 
    :::image type="content" source="./media/configure-postgresql-flexible-server-backup/choose-database-for-backup.png" alt-text="Screenshot shows the database selection for backup." lightbox="./media/configure-postgresql-flexible-server-backup/choose-database-for-backup.png":::
 
-   Once you're on the **Datasources** tab,  the backup service validates if it has all the necessary access permissions to connect to the server. If one or more access permissions are missing, one of the following  error messages appears – **Role assignment not done** or **User cannot assign roles**.
+   Once you're on the **Datasources** tab,  the Azure Backup service validates if it has all the necessary access permissions to connect to the server. If one or more access permissions are missing, one of the following  error messages appears – **Role assignment not done** or **User cannot assign roles**.
 
    - **User cannot assign roles**: This message appears when you (the backup admin) don’t have the **write access** on the PostgreSQL - flexible Server as listed under **View details**. To assign the necessary permissions on the required resources, select **Download the assignment template** to fetch the ARM template,  and run the template as a PostgreSQL database administrator. Once the template is run successfully, select **Re-validate**.
 
