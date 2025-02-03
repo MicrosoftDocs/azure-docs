@@ -49,14 +49,12 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
 
 ## Create the Quote of the Day app
 
-1. Create a new file named *app.py* in the *QuoteOfTheDay* folder. 
+1. Create a new file named `app.py` in the `QuoteOfTheDay` folder with the following content. It sets up a basic Flask web application with user authentication.
 
     ```python
     from flask_bcrypt import Bcrypt
-    
     from flask_sqlalchemy import SQLAlchemy
     from flask_login import LoginManager
-    
     from flask import Flask
     
     app = Flask(__name__, template_folder="../templates", static_folder="../static")
@@ -84,7 +82,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     app.register_blueprint(routes.bp)
     ```
 
-1. Create a new file called *model.py* in the *QuoteOfTheDay* folder.
+1. Create a new file named *model.py* in the *QuoteOfTheDay* folder with the following content. It defines a `Quote` data class and a user model for the Flask web application.
 
     ```python
     from dataclasses import dataclass
@@ -180,37 +178,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
         return redirect(url_for("pages.index"))
     ```
 
-1. Create a new folder named *templates* in the *QuoteOfTheDay* folder.
-
-1. Create a new file named *index.html* in the *templates* folder.
-
-    ```html
-    {% extends 'base.html' %}
-    
-    {% block content %}
-    <div class="quote-container">
-        <div class="quote-content">
-           {% if model.greeting_message %}
-                <h3 class="greeting-content">{{model.greeting_message}}</h3>
-            {% endif %}
-            <br />
-            <p class="quote">“{{model.quote.message}}”</p>
-            <p>- <b>{{model.quote.author}}</b></p>
-        </div>
-    
-        <div class="vote-container">
-            <button class="btn btn-primary" onclick="heartClicked(this)">
-                <i class="far fa-heart"></i> <!-- Heart icon -->
-            </button>
-        </div>
-    
-        <form action="/" method="post">
-        </form>
-    </div>
-    {% endblock %}
-    ```
-     
-1. Create a new file named *base.html* in the *templates* folder.
+1. Create a new folder named *templates* in the *QuoteOfTheDay* folder and add a new file named *base.html* in it with the following content. It defines the layout page for the web application.
 
     ```html
     <!DOCTYPE html>
@@ -282,7 +250,35 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     </html>
     ```
 
-1. Create a new file named *sign_up.html* in the *templates* folder.
+1. Create a new file named *index.html* in the *templates* folder with the following content. It extends the base template and adds the content block.
+
+    ```html
+    {% extends 'base.html' %}
+    
+    {% block content %}
+    <div class="quote-container">
+        <div class="quote-content">
+           {% if model.greeting_message %}
+                <h3 class="greeting-content">{{model.greeting_message}}</h3>
+            {% endif %}
+            <br />
+            <p class="quote">“{{model.quote.message}}”</p>
+            <p>- <b>{{model.quote.author}}</b></p>
+        </div>
+    
+        <div class="vote-container">
+            <button class="btn btn-primary" onclick="heartClicked(this)">
+                <i class="far fa-heart"></i> <!-- Heart icon -->
+            </button>
+        </div>
+    
+        <form action="/" method="post">
+        </form>
+    </div>
+    {% endblock %}
+    ```
+
+1. Create a new file named *sign_up.html* in the *templates* folder with the following content. It defines the template for the user registration page.
 
     ```html
     {% extends 'base.html' %}
@@ -301,7 +297,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     {% endblock %}
     ```
 
-1. Create a new file named *login.html* in the *templates* folder.
+1. Create a new file named *login.html* in the *templates* folder with the following content. It defines the template for the user login page.
 
     ```html
     {% extends 'base.html' %}
@@ -320,7 +316,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     {% endblock %}
     ```
 
-1. Create a new folder named *static* in the *QuoteOfTheDay* folder and add a new file named *site.css* in it.
+1. Create a new folder named *static* in the *QuoteOfTheDay* folder and add a new file named *site.css* in it with the following content. It adds CSS styles for the web application.
 
     ```css
     html {
@@ -422,7 +418,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     pip install featuremanagement[AzureMonitor]
     ```
 
-1. Open `app.py` to connect to App Configuration and set up feature management.
+1. Open `app.py` and add the following code to connect to App Configuration and set up feature management.
 
    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
 
@@ -453,7 +449,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     feature_manager = FeatureManager(azure_app_config)
     ```
 
-1. Open `routes.py` to refresh configuration and get the feature variant.
+1. Open `routes.py` and add the following code to refresh configuration and get the feature variant.
 
     ```python
     from featuremanagement.azuremonitor import track_event
@@ -475,7 +471,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
 
 ## Build and run the app
 
-1. Set an environment variable. Set the environment variable named **AzureAppConfigurationEndpoint** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
+1. Set an environment variable named **AzureAppConfigurationEndpoint** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
 
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
@@ -516,7 +512,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
 
 1. Register a second user named *userb@contoso.com*.
 
-1. You're' automatically logged in. You should see that userb@contoso.com sees the short message when viewing the app.
+1. You're automatically logged in. You should see that userb@contoso.com sees the short message when viewing the app.
 
     :::image type="content" source="media/use-variant-feature-flags-python/message.png" alt-text="Screenshot of the Quote of the day app, showing a message for the user.":::
 
