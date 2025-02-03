@@ -123,7 +123,7 @@
         - name: Azure portal
           href: expressroute-howto-circuit-portal-resource-manager.md#modify
         - name: Azure PowerShell
-          href: expressroute-howto-circuit-arm?tabs=maximum.md#to-update-the-expressroute-circuit-bandwidth
+          href: expressroute-howto-circuit-arm.md#to-update-the-expressroute-circuit-bandwidth
         - name: Azure CLI
           href: howto-circuit-cli.md#to-update-the-expressroute-circuit-bandwidth
   - name: Global Reach
@@ -330,7 +330,7 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates
-    href: https://azure.microsoft.com/en-us/updates/?product=expressroute&filters=%5B%22Azure+ExpressRoute%22%5D
+    href: https://azure.microsoft.com/updates/?product=expressroute&filters=%5B%22Azure+ExpressRoute%22%5D
   - name: SLA
     href: https://azure.microsoft.com/support/legal/sla/
   - name: ExpressRoute for Cloud Solution Providers (CSP)
