@@ -198,40 +198,38 @@ const settings = await load(endpoint, credential, {
 
 ## Configuration refresh
 
-You can enable the dynamic refresh for the configuration through the `AzureAppConfigurationOptions.refreshOptions` property. Dynamic refresh for the configurations lets you pull their latest values from the App Configuration store without having to restart the application.
+Dynamic refresh for the configurations lets you pull their latest values from the App Configuration store without having to restart the application.You can set `AzureAppConfigurationOptions.refreshOptions` to enable the refresh and configure refresh options. The loaded configuration will be updated when any change of selected key-values is detected on the server. By default, a refresh interval of 30 seconds is used, but you can override it with the `refreshIntervalInMs` property.
 
 ```typescript
 const settings = await load(endpoint, credential, {
     refreshOptions: {
-        enabled: true
+        enabled: true,
+        refreshIntervalInMs: 15_000
     }
 });
-// this call s not blocking, the configuration will be updated asynchronously
+```
+
+Setting up `refreshOptions` alone won't automatically refresh the configuration. You need to call the `refresh` method on `AzureAppConfiguration` instance returned by the `load` method to trigger a refresh. 
+
+``` typescript
+// this call is not blocking, the configuration will be updated asynchronously
 settings.refresh();
 ```
 
-Setting up `refreshOptions` alone won't automatically refresh the configuration. You need to call the `refresh` method on `AzureAppConfiguration` instance returned by the `load` method to trigger a refresh. This design prevents unnecessary requests to App Configuration when your application is idle. You should include the `refresh` call where your application activity occurs. This is known as **activity-driven configuration refresh**. For example, you can call `refresh` when processing an incoming request or inside an iteration where you perform a complex task. Calling `refresh` is a no-op before the configured refresh interval elapses, so its performance impact is minimal even if it's called frequently.
+This design prevents unnecessary requests to App Configuration when your application is idle. You should include the `refresh` call where your application activity occurs. This is known as **activity-driven configuration refresh**. For example, you can call `refresh` when processing an incoming request or inside an iteration where you perform a complex task.
 
 ```typescript
-const settings = await load(endpoint, credential, {
-    refreshOptions: {
-        enabled: true
-    }
-});
-
 const server = express();
-// Use an express middleware to achieve request-driven configuration refresh
+// Use an express middleware to refresh configuration whenever a request comes in
 server.use((req, res, next) => {
     settings.refresh();
     next();
 })
 ```
 
-By default, a refresh interval of 30 seconds is used, but you can override it with the `refreshIntervalInMs` property.
+Even if the refresh call fails for any reason, your application will continue to use the cached configuration. Another attempt will be made when the configured refresh interval has passed and the refresh call is triggered by your application activity. Calling `refresh` is a no-op before the configured refresh interval elapses, so its performance impact is minimal even if it's called frequently.
 
-This is done by providing a refresh_on to the provider, which is a list of key(s) that will be watched for changes, and when they do change a refresh can happen. refresh_interval is the period of time in seconds between refreshes. on_refresh_success is a callback that will be called only if a change is detected and no error happens. on_refresh_error is a callback that will be called when a refresh fails.
-
-For information about refresh configuration, please go to [Use dynamic configuration in JavaScript](./enable-dynamic-configuration-javascript.md).
+For more information about refresh configuration, please go to [Use dynamic configuration in JavaScript](./enable-dynamic-configuration-javascript.md).
 
 ## Feature flag
 
