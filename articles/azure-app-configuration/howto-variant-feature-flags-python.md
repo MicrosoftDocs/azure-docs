@@ -1,7 +1,7 @@
 ---
 title: 'Use variant feature flags in a Python application'
 titleSuffix: Azure App configuration
-description: In this tutorial, you learn how to use variant feature flags in an Python application
+description: In this tutorial, you learn how to use variant feature flags in a Python application
 #customerintent: As a user of Azure App Configuration, I want to learn how I can use variants and variant feature flags in my python application.
 author: mrm9084
 ms.author: mametcal
