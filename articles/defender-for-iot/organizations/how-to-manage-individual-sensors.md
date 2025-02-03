@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Maintain OT network sensors from the sensor console
 
-This article describes extra OT sensor maintenance activities that you might perform outside of a larger deployment process.
+This article describes extra Operational Technology (OT) sensor maintenance activities that you might perform outside of a larger deployment process.
 
 OT sensors can also be maintained from the OT sensor [CLI](cli-ot-sensor.md) or the [Azure portal](how-to-manage-sensors-on-the-cloud.md).
 
@@ -17,7 +17,7 @@ OT sensors can also be maintained from the OT sensor [CLI](cli-ot-sensor.md) or 
 
 Before performing the procedures in this article, make sure that you have:
 
-- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [configured, and activated](ot-deploy/activate-deploy-sensor.md) and [onboarded](onboard-sensors.md) to Defender for IoT in the Azure portal.
+- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [configured, and activated](ot-deploy/activate-deploy-sensor.md) and [onboarded](onboard-sensors.md) to Microsoft Defender for IoT in the Azure portal.
 
 - Access to the OT sensor as an **Admin** user. Selected procedures and CLI access also requires a privileged user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
@@ -216,31 +216,35 @@ You'd configured your OT sensor network configuring during [installation](ot-dep
 
 1. Select **Save** to save your changes.
 
-### Turn off learning mode manually
+## Turn off learning mode manually
 
-A Microsoft Defender for IoT OT network sensor starts monitoring your network automatically as soon as it's connected to your network and you've [signed in](ot-deploy/activate-deploy-sensor.md#sign-in-to-the-sensor-console-and-change-the-default-password). Network devices start appearing in your [device inventory](device-inventory.md), and [alerts](alerts.md) are triggered for any security or operational incidents that occur in your network.
+An OT network sensor starts monitoring your network automatically as soon as it connects to your network and you [sign in](ot-deploy/activate-deploy-sensor.md#sign-in-to-the-sensor-console-and-change-the-default-password). Network devices start appearing in your [device inventory](device-inventory.md), and [alerts](alerts.md) are triggered for any security or operational incidents that occur in your network.
 
-Initially, this activity happens in *learning* mode, which instructs your OT sensor to learn your network's usual activity, including the devices and protocols in your network, and the regular file transfers that occur between specific devices. Any regularly detected activity becomes your network's [baseline traffic](ot-deploy/create-learned-baseline.md).
+There are three stages to the monitoring process. For more information, see [overview of the multi stage monitoring process](ot-deploy/create-learned-baseline.md).
 
-This procedure describes how to turn off learning mode manually when the current alerts accurately reflect your network activity.
+Two to six weeks after deploying your sensor the detection levels should accurately reflect your network activity. At this stage we recommend turning off learning mode.
 
 **To turn off learning mode**:
 
 1. Sign into your OT network sensor and select **System settings > Network monitoring > Detection engines and network modeling**.
 
-1. Toggle off one or both of the following options:
+1. In **Network modeling**, toggle off **Learning**.
 
-    - **Learning**. Toggle off this option about two-six weeks after you've deployed your sensor, when you feel that the OT sensor detections accurately reflect your network activity.
+1. Select **OK** in the confirmation message, and then select **Close** to save your changes.
 
-    - **Smart IT Learning**. Keep this option toggled on to keep the number of *nondeterministic* alerts and notifications low. 
-  
-    Nondeterministic behavior includes changes that are the result of normal IT activity, such as DNS and HTTP requests. Toggling off the **Smart IT Learning** option can trigger many false positive policy violation alerts.
+Once learning mode is turned off, the sensor starts to generate **Policy Violation** alerts and this setting is now available by selecting **Support** in the side menu. We recommend leaving the mode settings for each alert to automatically update from dynamic to operational. For testing or other reasons, you could manually change the mode setting, however, this isn't recommended as it can produce a large number of alerts.
 
-1. In the confirmation message, select **OK**, and then select **Close** to save your changes.
+**Manually change a Policy Violations setting**:
+
+1. In the main sensor menu, select **Support**. The **Engines** table shows the list of all the Defender for IoT alerts.
+
+1. In the **Learning Mode** column, change the mode for any **Policy Violation** alert by selecting **Learning**, **Dynamic** or **Operational** from the dropdown box.
+
+    When selecting **Learning**, you must enter the length of time, in hours, to maintain this setting. Select **Submit**.
 
 ## Update a sensor's monitoring interfaces (configure ERSPAN)
 
-You may want to change the interfaces used by your sensor to monitor traffic. You originally configured these details as part of your [initial sensor setup](ot-deploy/activate-deploy-sensor.md#define-the-interfaces-you-want-to-monitor), but may need to modify the settings as part of system maintenance, such as configuring ERSPAN monitoring.
+You might want to change the interfaces used by your sensor to monitor traffic. You originally configured these details as part of your [initial sensor setup](ot-deploy/activate-deploy-sensor.md#define-the-interfaces-you-want-to-monitor), but might need to modify the settings as part of system maintenance, such as configuring ERSPAN monitoring.
 
 For more information, see [ERSPAN ports](best-practices/traffic-mirroring-methods.md#erspan-ports).
 
@@ -255,7 +259,7 @@ For more information, see [ERSPAN ports](best-practices/traffic-mirroring-method
 
     - Select the **Enable/Disable** toggle for any interfaces you want the sensor to monitor. You must have at least one interface enabled for each sensor.
 
-        If you're not sure about which interface to use, select the :::image type="icon" source="media/install-software-ot-sensor/blink-interface.png" border="false"::: **Blink physical interface LED** button to have the selected port blink on your machine. 
+        If you're not sure about which interface to use, select the :::image type="icon" source="media/install-software-ot-sensor/blink-interface.png" border="false"::: **Blink physical interface LED** button to have the selected port blink on your machine.
 
         > [!TIP]
         > We recommend that you optimize performance on your sensor by configuring your settings to monitor only the interfaces that are actively in use. 
@@ -273,7 +277,6 @@ For more information, see [ERSPAN ports](best-practices/traffic-mirroring-method
     :::image type="content" source="media/how-to-manage-individual-sensors/configure-erspan.png" alt-text="Screenshot of how to configure ERSPAN on the Interface configurations page.":::
 
 1. Select **Save** to save your changes. Your sensor software restarts to implement your changes.
-
 
 ## Synchronize time zones on an OT sensor
 
