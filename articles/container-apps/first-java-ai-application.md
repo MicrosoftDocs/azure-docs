@@ -116,7 +116,7 @@ The PetClinic page and AI assistant appear. You can get help by having a natural
 
 The following image shows a chat where the user asks the AI assistant to register a new owner with a pet. The AI assistant then performs these tasks.
 
-:::image type="content" source="media/first-java-ai-application/add-new-item.png" alt-text="Screenshot of AI chat assistant adding new item." lightbox="media/first-java-ai-application/add-new-item.png":::
+:::image type="content" source="media/first-java-ai-application/add-new-item.png" alt-text="Screenshot of AI chat assistant adding a new owner, complete with address and other information, and information about his pet." lightbox="media/first-java-ai-application/add-new-item.png":::
 
 The capabilities of the AI assistant depend on the model you deploy in Azure OpenAI and the implementation of the defined functions.
 
