@@ -143,6 +143,17 @@ const settings = await load(endpoint, credential, {
 
 ### Trim prefix from keys
 
+You can trim the prefix off of keys by providing a list of trimmed key prefixes to the `AzureAppConfigurationOptions.trimKeyPrefixes` property.
+
+``` typescript
+const settings = await load(endpoint, credential, {
+    selectors: [{
+        keyFilter: "app.*"
+    }],
+    trimKeyPrefixes: ["app."]
+});
+```
+
 ## Use Key Vault reference
 
 ## Dynamic refresh
@@ -171,11 +182,13 @@ const settings = await load(endpoint, credential, {
 
 ### Feature management
 
-Feature management library provides a way to develop and expose application functionality based on feature flags. The feature management libary is designed to work in conjunction with configuration provider library. It consumes the feature flags loaded from Azure App Configuration store and manage the feature flags for your application. For more information about how to use JavaScript feature management library, please go to the [quickstart](./quickstart-feature-flag-javascript.md).
+Feature management library provides a way to develop and expose application functionality based on feature flags. The feature management libary is designed to work in conjunction with configuration provider library. The configuration provider will load all selected feature flags into the configuration under the `feature_flags` list of `feature_management` section. The feature management library will consume and manage the loaded feature flags for your application. 
 
-## Enable failover with geo replicas
+For more information about how to use JavaScript feature management library, please go to the [quickstart](./quickstart-feature-flag-javascript.md).
 
-### Enable load balancing
+## Geo replication
+
+For more information, please go to [Enable geo-replication](./howto-geo-replication.md).
 
 ## Next steps
 
