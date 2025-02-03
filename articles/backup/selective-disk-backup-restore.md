@@ -2,7 +2,7 @@
 title: Selective disk backup and restore for Azure virtual machines
 description: In this article, learn about selective disk backup and restore using the Azure virtual machine backup solution.
 ms.topic: how-to
-ms.date: 08/21/2024
+ms.date: 02/10/2025
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
@@ -14,9 +14,6 @@ ms.author: jsuri
 Azure Backup supports backing up all the disks (operating system and data) in a VM together using the virtual machine backup solution. Now, using the selective disks backup and restore functionality, you can back up a subset of the data disks in a VM.
 
 This is supported both for Enhanced Policy as well as Standard Policy.          This provides an efficient and cost-effective solution for your backup and restore needs. Each recovery point contains only the disks that are included in the backup operation. This further allows you to have a subset of disks restored from the given recovery point during the restore operation. This applies to both restore from snapshots and the vault.
-
->[!Important]
-> [Enhanced policy](backup-azure-vms-enhanced-policy.md) now supports protecting Ultra SSD (preview). To enroll your subscription for this feature, [fill this form](https://forms.office.com/r/1GLRnNCntU).
 
 >[!Note]
 >- This is supported for both backup policies - [Enhanced policy](backup-azure-vms-enhanced-policy.md) and [Standard policy](backup-during-vm-creation.md#create-a-vm-with-backup-configured).
