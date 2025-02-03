@@ -55,4 +55,4 @@ The full schema can be found [here](https://github.com/microsoft/FeatureManageme
 
 ## Next steps
 
-In this document, you learned about how to enable telemetry for feature flags in Azure App Configuration. To learn about how to use the telemetry data in your applications, continue to the following document for your language or platform.
+In this document, you learned about the telemetry data available for feature flags. To learn about how to use the telemetry data in your applications, continue to the following document for your language or platform.
