@@ -406,7 +406,7 @@ Hyperconvergence in Azure Container Storage enables pods to run on the same host
 
 When hyperconvergence is enabled for multi-replica volumes, the workload is scheduled on the same host as one of the volume replicas, optimizing data access while still maintaining redundancy. 
 
-### Hyperconvergence Behavior for Non-Replicated vs. Replicated Volumes 
+### Hyperconvergence behavior for non-replicated vs. replicated volumes 
 
 Non-Replicated NVMe/TempSSD Volumes:
 
