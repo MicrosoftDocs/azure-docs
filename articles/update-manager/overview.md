@@ -5,7 +5,7 @@ ms.service: azure-update-manager
 ms.custom: linux-related-content, ignite-2024
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 01/27/2025
+ms.date: 02/03/2025
 ms.topic: overview
 ---
 
@@ -41,6 +41,7 @@ You can use Update Manager for:
     - [VMware machines](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/)
     - [System Center Virtual Machine Manager (SCVMM) machines](https://learn.microsoft.com/azure/azure-arc/system-center-virtual-machine-manager/) 
     - [Azure Local clusters](https://learn.microsoft.com/azure/azure-local/)
+    - [Cross-subscription-patching](cross-subscription-patching.md)
 
 These features make Azure Update Manager a powerful tool for maintaining the security and performance of your IT infrastructure. 
 
