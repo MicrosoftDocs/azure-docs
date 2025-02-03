@@ -32,7 +32,7 @@ In Azure Data Factory, tumbling window triggers and execution activities support
 
 [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
-Azure Data Factory supports *zone redundancy*, which spreads compute resources across multiple [availability zones](../reliability/availability-zones-overview.md). For more information about zone redundancy, including region exceptions see [Azure Data Factory data redundancy](/data-factory/concepts-data-redundancy).
+Azure Data Factory supports *zone redundancy*, which spreads compute resources across multiple [availability zones](../reliability/availability-zones-overview.md). For more information about zone redundancy, including region exceptions see [Azure Data Factory data redundancy](../data-factory/concepts-data-redundancy).
 
 ## Multi-region support
 
