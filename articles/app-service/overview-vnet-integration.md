@@ -154,7 +154,7 @@ App settings using Key Vault references attempt to get secrets over the public r
 
 > [!NOTE]
 > * Configure SSL/TLS certificates from private Key Vaults is currently not supported.
-> * App Service Logs to private storage accounts is currently not supported. We recommend using Diagnostics Logging and allowing Trusted Services for the storage account.
+
 
 ### Routing app settings
 
@@ -221,6 +221,7 @@ There are some limitations with using virtual network integration:
 * You can't delete a virtual network with an integrated app. Remove the integration before you delete the virtual network.
 * You can't have more than two virtual network integrations per App Service plan. Multiple apps in the same App Service plan can use the same virtual network integration.
 * You can't change the subscription of an app or a plan while there's an app that's using virtual network integration.
+* App Service Logs to private storage accounts is currently not supported. We recommend using Diagnostics Logging and allowing Trusted Services for the storage account.
 
 ## Access on-premises resources
 
