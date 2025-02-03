@@ -92,11 +92,11 @@ The request body consists of the export source and destination.
 
 #### Source settings
 
-The only setting is the list of identifiers to export.
+Source settings is an optional field. If Source settings is provided, only the identifiers listed here are exported. If the source setting is not provided, it will export all the instances that is stored in the DICOM to the destination blob. Export all feature is not supported for DICOM service with Azure Data Lake Storage enabled.
 
 | Property | Required | Default | Description |
 | -------- | -------- | ------- | ----------- |
-| `Values` | Yes      |         | A list of one or more DICOM studies, series, and/or SOP instance identifiers in the format of `"<StudyInstanceUID>[/<SeriesInstanceUID>[/<SOPInstanceUID>]]"` |
+| `Values` | No      |         | A list of one or more DICOM studies, series, and/or SOP instance identifiers in the format of `"<StudyInstanceUID>[/<SeriesInstanceUID>[/<SOPInstanceUID>]]"` |
 
 #### Destination settings
 
@@ -130,6 +130,23 @@ Content-Type: application/json
             ]
         }
     },
+    "destination": {
+        "type": "azureblob",
+        "settings": {
+            "blobContainerUri": "https://dicomexport.blob.core.windows.net/export",
+            "UseManagedIdentity": true
+        }
+    }
+}
+```
+
+The following example requests the export everything to the blob container named `export` in the storage account named `dicomexport`:
+
+```http
+POST /export HTTP/1.1
+Accept: */*
+Content-Type: application/json
+{
     "destination": {
         "type": "azureblob",
         "settings": {
