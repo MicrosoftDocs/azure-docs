@@ -43,9 +43,15 @@ For k3s clusters on Kubernetes, you can update an existing cluster. To enable an
 
 1. Update the cluster to enable OIDC issuer and workload identity.
 
-   ```azurecli
-   az connectedk8s update -n <CLUSTER_NAME> -g <RESOURCE_GROUP> --enable-oidc-issuer --enable-workload-identity
-   ```
+    ```azurecli
+    az connectedk8s update -n <CLUSTER_NAME> -g <RESOURCE_GROUP> --enable-oidc-issuer --enable-workload-identity
+    ```
+
+    If you enabled the OIDC issuer and workload identity features when you created the cluster, you don't need to run the previous command again. Use the following command to check the status of the OIDC issuer and workload identity features for your cluster:
+
+    ```azurecli
+    az connectedk8s show -g <RESOURCE_GROUP> -n <CLUSTER_NAME> --query "{ClusterName:name, OIDCIssuerEnabled:oidcIssuerProfile.enabled, WorkloadIdentityEnabled:securityProfile.workloadIdentity.enabled}"
+    ```
 
 1. Get the cluster's issuer URL.
 

@@ -20,6 +20,8 @@ This article lists the Azure built-in roles in the Security category.
 
 Create, read, download, modify and delete reports objects and related other resource objects.
 
+[!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
+
 [Learn more](/microsoft-365-app-certification/docs/automate-certification-with-acat)
 
 > [!div class="mx-tableFixed"]
@@ -52,7 +54,7 @@ Create, read, download, modify and delete reports objects and related other reso
 > | [Microsoft.Security](../permissions/security.md#microsoftsecurity)/automations/write | Creates or updates the automation for the scope |
 > | [Microsoft.Security](../permissions/security.md#microsoftsecurity)/register/action | Registers the subscription for Azure Security Center |
 > | [Microsoft.Security](../permissions/security.md#microsoftsecurity)/unregister/action | Unregisters the subscription from Azure Security Center |
-> | */read | Read resources of all types, except secrets. |
+> | */read | Read control plane information for all Azure resources. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -115,12 +117,14 @@ Create, read, download, modify and delete reports objects and related other reso
 
 Read, download the reports objects and related other resource objects.
 
+[!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
+
 [Learn more](/microsoft-365-app-certification/docs/automate-certification-with-acat)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | */read | Read resources of all types, except secrets. |
+> | */read | Read control plane information for all Azure resources. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |

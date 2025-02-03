@@ -271,7 +271,7 @@ To create an Azure Managed Grafana service, and configure it with permissions to
 
 1. To grant permission for the managed identity to access the ontologies database in Azure Data Explorer:
 
-    1. Navigate to the **Permissions** blade of the ontologies database in your Azure Data Explorer instance in the Azure portal.
+    1. Navigate to the **Permissions** blade in your Azure Data Explorer instance in the Azure portal.
     1. Select **Add > AllDatabasesViewer**.
     1. Search for and select the **Object (principal) ID** value, you made a note of previously.
 
@@ -299,7 +299,17 @@ Now you're ready to import the sample dashboard.
 
 1. Select **Upload dashboard JSON file** and select the *samplegrafanadashboard.json* file that you downloaded previously. Select **Import**.
 
-1. For each of the panels in the dashboard, select **Edit** and then select the **Data source** you setup previously.
+1. On the **OEE Station** panel, select **Edit** and then select the Azure Data Explorer **Data source** you setup previously. Then select **KQL** in the query panel and add the following query: `print round (CalculateOEEForStation('${Station}', '${Location}', '${CycleTime}', '${__from:date:iso}', '${__to:date:iso}') * 100, 2)`. Select **Apply** to apply your changes and go back to the dashboard.
+
+1. On the **OEE Line** panel, select **Edit** and then select the Azure Data Explorer **Data source** you setup previously. Then select **KQL** in the query panel and add the following query: `print round(CalculateOEEForLine('${Location}', '${CycleTime}', '${__from:date:iso}', '${__to:date:iso}') * 100, 2)`. Select **Apply** to apply your changes and go back to the dashboard.
+
+1. On the **Discarded products** panel, select **Edit** and then select the Azure Data Explorer **Data source** you setup previously. Then select **KQL** in the query panel and add the following query: `opcua_metadata_lkv| where Name contains '${Station}'| where Name contains '${Location}'| join kind=inner (opcua_telemetry| where Name == "NumberOfDiscardedProducts"| where Timestamp > todatetime('${__from:date:iso}') and Timestamp < todatetime('${__to:date:iso}')) on DataSetWriterID| extend numProd = toint(Value)| summarize max(numProd)`. Select **Apply** to apply your changes and go back to the dashboard.
+
+1. On the **Manufactured products** panel, select **Edit** and then select the Azure Data Explorer **Data source** you setup previously. Then select **KQL** in the query panel and add the following query: `opcua_metadata_lkv| where Name contains '${Station}'| where Name contains '${Location}'| join kind=inner (opcua_telemetry| where Name == "NumberOfManufacturedProducts"| where Timestamp > todatetime('${__from:date:iso}') and Timestamp < todatetime('${__to:date:iso}')) on DataSetWriterID| extend numProd = toint(Value)| summarize max(numProd)`. Select **Apply** to apply your changes and go back to the dashboard.
+
+1. On the **Energy Consumption** panel, select **Edit** and then select the Azure Data Explorer **Data source** you setup previously. Then select **KQL** in the query panel and add the following query: `opcua_metadata_lkv| where Name contains '${Station}'| where Name contains '${Location}'| join kind=inner (opcua_telemetry    | where Name == "Pressure"    | where Timestamp > todatetime('${__from:date:iso}') and Timestamp < todatetime('${__to:date:iso}')) on DataSetWriterID| extend energy = todouble(Value)| summarize avg(energy)); print round(toscalar(averageEnergyConsumption) * 1000, 2)`. Select **Apply** to apply your changes and go back to the dashboard.
+
+1. On the **Pressure** panel, select **Edit** and then select the Azure Data Explorer **Data source** you setup previously. Then select **KQL** in the query panel and add the following query: `opcua_metadata_lkv| where Name contains '${Station}'| where Name contains '${Location}'| join kind=inner (opcua_telemetry    | where Name == "Pressure"    | where Timestamp > todatetime('${__from:date:iso}') and Timestamp < todatetime('${__to:date:iso}')) on DataSetWriterID| extend NodeValue = toint(Value)| project Timestamp1, NodeValue`. Select **Apply** to apply your changes and go back to the dashboard.
 
 ### Configure alerts
 
