@@ -3,10 +3,10 @@ title: CRS and DRS rule groups and rules
 titleSuffix: Azure Web Application Firewall
 description: This page provides information on web application firewall CRS and DRS rule groups and rules.
 services: web-application-firewall
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.date: 10/23/2024
-ms.author: victorh
 ms.topic: conceptual
 ---
 

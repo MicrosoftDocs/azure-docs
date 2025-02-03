@@ -63,13 +63,40 @@ For more information on supported STIX objects, see [Understand threat intellige
 
 ## Manage threat intelligence 
 
-Curate existing TI with the relationship builder. Use the management interface to search, filter and sort, then add tags to your threat intelligence.
+Optimize TI from your sources with ingestion rules. Curate existing TI with the relationship builder. Use the management interface to search, filter and sort, then add tags to your threat intelligence.
+
+### Optimize threat intelligence feeds with ingestion rules
+
+Reduce noise from your TI feeds, extend the validity of high value indicators, and add meaningful tags to incoming objects. These are just some of the use cases for ingestion rules. Here are the steps for extending the validity date on high value indicators.
+
+1. Select **Ingestion rules** to open a whole new page to view existing rules and construct new rule logic.
+
+   :::image type="content" source="media/work-with-threat-indicators/select-ingestion-rules.png" alt-text="Screenshot showing threat intelligence management menu hovering on ingestion rules.":::
+
+1. Enter a descriptive name for your rule. The ingestion rules page has ample rule for the name, but it's the only text description available to differentiate your rules without editing them.
+
+1. Select the **Object type**. This use case is based on extending the `Valid from` property which is only available for `Indicator` object types.
+
+1. **Add condition** for `Source` `Equals` and select your high value `Source`.
+1. **Add condition** for `Confidence` `Greater than or equal` and enter a `Confidence` score.
+
+1. Select the **Action**. Since we want to modify this indicator, select `Edit`.
+1. Select the **Add action** for `Valid until`, `Extend by`, and select a time span in days.
+1. Consider adding a tag to indicate the high value placed on these indicators, like `Extended`. The modified date is not updated by ingestion rules.
+1. Select the **Order** you want the rule to run. Rules run from lowest order number to highest. Each rule evaluates every object ingested.
+1. If the rule is ready to be enabled, toggle **Status** to on.
+1. Select **Add** to create the ingestion rule.
+
+:::image type="content" source="media/work-with-threat-indicators/new-ingestion-rule.png" alt-text="Screenshot showing new ingestion rule creation for extending valid until date.":::
+
+For more information, see [Understand threat intelligence ingestion rules](understand-threat-intelligence.md#configure-ingestion-rules).
 
 ### Curate threat intelligence with the relationship builder
 
 Connect threat intelligence objects with the relationship builder. There's a maximum of 20 relationships in the builder at once, but more connections can be created through multiple iterations and by adding relationship target references for new objects.
 
 1. Start with an object like a threat actor or attack pattern where the single object connects to one or more objects, like indicators.
+
 1. Add the relationship type according to the best practices outlined in the following table and in the [STIX 2.1 reference relationship summary table](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_6n2czpjuie3v):
 
 | Relationship type | Description |
@@ -100,6 +127,7 @@ Use the management interface to sort, filter, and search your threat intelligenc
 In the following image, multiple sources were used to search by placing them in an `OR` group, while multiple conditions were grouped with the `AND` operator.
 
 :::image type="content" source="media/work-with-threat-indicators/advanced-search.png" alt-text="Screenshot shows an OR operator combined with multiple AND conditions to search threat intelligence." lightbox="media/work-with-threat-indicators/advanced-search.png":::
+
 
 Microsoft Sentinel only displays the most current version of your threat intel in this view. For more information on how objects are updated, see [Understand threat intelligence](understand-threat-intelligence.md#view-your-threat-intelligence).
 
