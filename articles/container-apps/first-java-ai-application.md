@@ -52,13 +52,13 @@ To deploy your application, use the following steps:
 
 1. Log in to `azd` by using the following command:
 
-    ```azurecli
+    ```azdeveloper
     azd auth login
     ```
 
 1. Autodeploy by using the following command:
 
-    ```azurecli
+    ```azdeveloper
     azd up
     ```
 
@@ -102,8 +102,8 @@ SUCCESS: Your up workflow to provision and deploy to Azure completed in 17 minut
 To start using your app, select the URL from the following deployment output:
 
 ```output
-   INFO: Deploy finish succeed!
-   INFO: App url: https://petclinic-ai.<cluster>.<region>.azurecontainerapps.io
+INFO: Deploy finish succeed!
+INFO: App url: https://petclinic-ai.<cluster>.<region>.azurecontainerapps.io
 ```
 
 The PetClinic page and AI assistant appear. You can get help by having a natural language chat with the AI assistant, which can assist you with the following tasks:
@@ -114,7 +114,7 @@ The PetClinic page and AI assistant appear. You can get help by having a natural
 - Adding a new pet.
 - Querying a vet's information.
 
-The following image shows a chat where the user asks the AI assistant to register to the PetClinic a new owner with a pet. The AI assistant then performs these tasks.
+The following image shows a chat where the user asks the AI assistant to register a new owner with a pet. The AI assistant then performs these tasks.
 
 :::image type="content" source="media/first-java-ai-application/add-new-item.png" alt-text="Screenshot of AI chat assistant adding new item." lightbox="media/first-java-ai-application/add-new-item.png":::
 
@@ -130,10 +130,10 @@ To delete the resources, use the Azure portal to find the resource group of this
 
 ### [Azure CLI](#tab/azure-cli)
 
-To delete the resource group, use following command:
+To delete the resource group, use the following command:
 
 ```azurecli
-   az group delete --name rg-first-ai
+az group delete --name rg-first-ai
 ```
 
 ---
