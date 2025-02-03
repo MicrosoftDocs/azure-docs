@@ -376,3 +376,20 @@ Check is screen sharing is on. It returns `Boolean`.
 ```js
 const isScreenSharingOn = call.isScreenSharingOn;
 ```
+
+## Hang up
+
+There are two ways how you can hang up the call. You can leave the call and keep other participants in the call or terminate the call for all participants. If you want to leave the call, then just use
+
+```js
+call.hangUp();
+```
+
+You can also end the call for all participants if you provide  `HangUpOptions`.
+
+> [!NOTE]
+> This API is not available in rooms.
+
+```js
+call.hangUp( forEveryone: true);
+```
