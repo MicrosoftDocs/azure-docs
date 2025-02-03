@@ -1,11 +1,10 @@
 ---
 title: Azure Web Application Firewall (WAF) rate limiting
 description: This article is an overview of Azure Web Application Firewall (WAF) on Application Gateway rate limiting.
-services: web-application-firewall
-ms.topic: overview
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
+ms.topic: overview
 ms.date: 11/01/2023
 ---
 
