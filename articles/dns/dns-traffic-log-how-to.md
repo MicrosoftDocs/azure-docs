@@ -1,16 +1,16 @@
 ---
-title: Filter and view DNS traffic - Azure DNS (Preview)
+title: Secure and view DNS traffic - Azure DNS (Preview)
 description: Learn how to filter and view Azure DNS traffic
 author: greg-lindsay
 ms.service: azure-dns
 ms.topic: how-to
-ms.date: 01/06/2025
+ms.date: 01/29/2025
 ms.author: greglin
 ---
 
-# Filter and view DNS traffic (Preview)
+# Secure and view DNS traffic (Preview)
 
-This article shows you how to view and filter DNS traffic at the virtual network by with [DNS security policy](dns-security-policy.md).
+This article shows you how to view and filter DNS traffic at the virtual network with [DNS security policy](dns-security-policy.md).
 
 > [!NOTE]
 > DNS security policy is in PREVIEW.<br> 
@@ -239,7 +239,8 @@ Set up a local PowerShell repository and install the Az.DnsResolver PowerShell m
     $domainListName = "domainlist-$($nameSuffix)"
     $securityRuleName = "securityrule-$($nameSuffix)"
     $resolverPolicyLinkName = "dnsresolverpolicylink"
-    $storageAccountName = "stor-$($name)" # Customize this, taking care that the name is not too long
+    $storageAccountName = "stor$($name.ToLower())"  # Customize this, taking care that the name is not too long
+    $storageAccountName = $storageAccountName.Substring(0, [Math]::Min(24, $storageAccountName.Length)) # Storage account names must be 3-24 characters long
     $diagnosticSettingName = "diagnosticsetting-$($nameSuffix)"
     $vnetId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Network/virtualNetworks/$virtualNetworkName"
 

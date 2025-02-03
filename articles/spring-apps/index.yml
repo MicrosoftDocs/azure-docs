@@ -22,13 +22,14 @@ highlightedContent:
     - title: Retirement announcement
       itemType: overview
       url: basic-standard/retirement-announcement.md
+    # Card
+    - title: Migrate off Azure Spring Apps
+      itemType: overview
+      url: migration/index.yml
+    # Card
     - title: What is Azure Spring Apps?
       itemType: overview
       url: basic-standard/overview.md
-    # Card
-    - title: Basic/Standard plan
-      itemType: overview
-      url: basic-standard/index.yml
     # Card
     - title: Version support for Java, Spring Boot, and more
       itemType: reference

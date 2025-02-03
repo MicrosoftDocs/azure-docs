@@ -1,5 +1,5 @@
 ---
-title: Map DNS names to applications in multiple Azure Spring Apps service instances in the same virtual network
+title: Map DNS Names to Applications in Multiple Azure Spring Apps Service Instances in the Same Virtual Network
 description: Learn how to map DNS names to applications in multiple Azure Spring Apps service instances in the same virtual network.
 author: KarlErickson
 ms.author: wenhaozhang
@@ -60,7 +60,7 @@ Both approaches require the IP address for each application in the Azure Spring 
 
 1. Navigate to the virtual network you created for an Azure Spring Apps instance, and then select **Connected devices** in the navigation pane.
 
-1. On the **Connected devices** page, search for *kubernetes-internal*.
+1. On the **Connected devices** page, search for **kubernetes-internal**.
 
 1. In the search results, find each **Device** connected to a service runtime **Subnet** of an Azure Spring Apps service instance, and copy its **IP Address**. In the following screenshot example, the IP address of `azure-spring-apps-1` is `10.1.0.6`, and the IP address of `azure-spring-apps-2` is `10.1.2.6`.
 
@@ -146,7 +146,7 @@ Use the following steps to create this link:
 
 1. On the navigation pane, select **Virtual network links**, then select **Add**.
 
-1. For the **Link name**, enter *azure-spring-apps-dns-link*.
+1. For the **Link name**, enter **azure-spring-apps-dns-link**.
 
 1. For **Virtual network**, select the virtual network you created for [Prerequisites](#prerequisites).
 
@@ -226,7 +226,7 @@ Use the following steps to create a DNS record:
 
    | Setting    | Value                            |
    |------------|----------------------------------|
-   | Name       | *azure-spring-apps-1-hello-vnet* |
+   | Name       | **azure-spring-apps-1-hello-vnet** |
    | Type       | **A**                            |
    | TTL        | 1                                |
    | TTL unit   | **Hours**                        |
@@ -360,7 +360,7 @@ Use the following steps to create the A record in your DNS zone:
 
    | Setting    | Value                            |
    |------------|----------------------------------|
-   | Name       | *\*.azure-spring-apps-1*         |
+   | Name       | **\*.azure-spring-apps-1**         |
    | Type       | **A**                            |
    | TTL        | 1                                |
    | TTL unit   | **Hours**                        |

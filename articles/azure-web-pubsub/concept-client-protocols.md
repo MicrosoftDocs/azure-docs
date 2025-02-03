@@ -37,7 +37,7 @@ You could also configure properties for the client connection when generating th
 | The `userId` for the client connection | `sub` | the userId | Only one `sub` claim is allowed. |
 | The lifetime of the token | `exp` | the expiration time | The `exp` (expiration time) claim identifies the expiration time on or after which the token MUST NOT be accepted for processing. |
 | The [permissions](#permissions) the client connection initially has | `role` | the role value defined in [permissions](#permissions) | Specify multiple `role` claims if the client has multiple permissions. |
-| The initial groups that the client connection joins once it connects to Azure Web PubSub | `group` | the group to join | Specify multiple `group` claims if the client joins multiple groups. |
+| The initial groups that the client connection joins once it connects to Azure Web PubSub | `webpubsub.group` | the group to join | Specify multiple `webpubsub.group` claims if the client joins multiple groups. |
 
 You could also add custom claims into the access token, and these values are preserved as the `claims` property in [connect upstream request body](./reference-cloud-events.md#system-connect-event).
 
@@ -57,6 +57,25 @@ var client1 = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1');
 
 // simple WebSocket client2 with some custom subprotocol
 var client2 = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'custom.subprotocol')
+```
+
+Simple WebSocket client has two modes: `sendEvent` and `sendToGroup`. The mode is determined once the connection is established and cannot be changed later.
+
+`sendEvent` is the default mode for the simple WebSocket client. In `sendEvent` mode, every WebSocket frame the client sent is considered as a `message` event. Users can configure [event handlers](./concept-service-internals.md#event-handler) or [event listeners](./concept-service-internals.md#event-listener) to handle these `message` events. 
+
+```javascript
+// Every data frame is considered as a `message` event
+var client3 = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1');
+
+// Or explicitly set the mode
+var client4 = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1?webpubsub_mode=sendEvent');
+```
+
+In `sendToGroup` mode, every WebSocket frame the client sent is considered as a message to be published to a specific group. `group` is a required query parameter in this mode, and only a single value is allowed. The connection should also have corresponding [permissions](#permissions) to send messages to the target group. Both `webpubsub.sendToGroup.<group>` and `webpubsub.sendToGroup` roles work for it.
+
+For example, in JavaScript, you can create a simple WebSocket client in `sendToGroup` mode with `group=group1` by using the following code:
+```javascript
+var client5 = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1?webpubsub_mode=sendToGroup&group=group1');
 ```
 
 ## The PubSub WebSocket client

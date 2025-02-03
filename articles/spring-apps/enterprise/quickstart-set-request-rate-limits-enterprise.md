@@ -1,5 +1,5 @@
 ---
-title: "Quickstart - Set request rate limits"
+title: "Quickstart - Set Request Rate Limits"
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Explains how to set request rate limits by using Spring Cloud Gateway on the Azure Spring Apps Enterprise plan.
 author: KarlErickson

@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 08/21/2024
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell, engagement-fy24
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
  
 # Selective disk backup and restore for Azure virtual machines

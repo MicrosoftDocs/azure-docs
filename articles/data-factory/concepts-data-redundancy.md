@@ -1,23 +1,23 @@
 ---
 title: Data redundancy in Azure Data Factory | Microsoft Docs
 description: 'Learn about meta-data redundancy mechanisms in Azure Data Factory'
-author: nabhishek
+author: kromerm
+ms.author: makromer
 ms.topic: conceptual
-ms.date: 10/03/2024
+ms.date: 01/29/2025
 ms.subservice: data-movement
-ms.author: abnarain
 ---
 
-# **Azure Data Factory data redundancy**
+# Azure Data Factory data redundancy
 
 Azure Data Factory data includes metadata (pipeline, datasets, linked services, integration runtime, and triggers) and monitoring data (pipeline, trigger, and activity runs). 
 
-In all regions (except Brazil South and Southeast Asia), Azure Data Factory data is stored and replicated in the [paired region](../reliability/cross-region-replication-azure.md#azure-paired-regions) to protect against metadata loss. During regional datacenter failures, Microsoft may initiate a regional failover of your Azure Data Factory instance. In most cases, no action is required on your part. When the Microsoft-managed failover has completed, you'll be able to access your Azure Data Factory in the failover region.
+In all regions (except Brazil South and Southeast Asia), Azure Data Factory data is stored and replicated in the [paired region](../reliability/cross-region-replication-azure.md#azure-paired-regions) to protect against metadata loss. During regional datacenter failures, Microsoft might initiate a regional failover of your Azure Data Factory instance. In most cases, no action is required on your part. When the Microsoft-managed failover has completed, you are able to access your Azure Data Factory in the failover region.
 
 Due to data residency requirements in Brazil South, and Southeast Asia, Azure Data Factory data is stored on [local region only](../storage/common/storage-redundancy.md#locally-redundant-storage). For Southeast Asia, all the data are stored in Singapore. For Brazil South, all data are stored in Brazil. When the region is lost due to a significant disaster, Microsoft won't be able to recover your Azure Data Factory data.  
 
 > [!NOTE]
-> Microsoft-managed failover does not apply to self-hosted integration runtime (SHIR) since this infrastructure is typically customer-managed. If the SHIR is set up on Azure VM, then the recommendation is to leverage [Azure site recovery](../site-recovery/site-recovery-overview.md) for handling the [Azure VM failover](../site-recovery/azure-to-azure-architecture.md) to another region.
+> Microsoft-managed failover doesn't apply to self-hosted integration runtime (SHIR) since this infrastructure is typically customer-managed. If the SHIR is set up on Azure VM, then the recommendation is to use [Azure Site Recovery](../site-recovery/site-recovery-overview.md) for handling the [Azure VM failover](../site-recovery/azure-to-azure-architecture.md) to another region.
 
 
 
@@ -28,7 +28,7 @@ To ensure you can track and audit the changes made to your metadata, you should 
  Learn how to set up [source control in Azure Data Factory](./source-control.md). 
 
 > [!NOTE]
-> In case of a disaster (loss of region), new data factory can be provisioned manually or in an automated fashion. Once the new data factory has been created, you can restore your pipelines, datasets and linked services JSON from the existing Git repository. 
+> If there is a disaster (loss of region), new data factory can be provisioned manually or in an automated fashion. Once the new data factory has been created, you can restore your pipelines, datasets, and linked services JSON from the existing Git repository. 
 
 
 

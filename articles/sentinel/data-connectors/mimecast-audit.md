@@ -80,7 +80,7 @@ Use this method for automated deployment of the Mimecast Audit Data connector.
 3. Enter the below information : 
 		Workspace ID 
 		Workspace Key 
-		Base URL (Default: https://api.services.mimecast.com) 
+		Base URL (Default: https://developer.services.mimecast.com/apis) 
 		Start Date 
 		Mimecast Client ID 
 		Mimecast Client Secret 

@@ -6,8 +6,8 @@ ms.date: 07/18/2024
 ms.reviewer: sooryar
 ms.service: azure-backup
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Save and manage MARS agent passphrase securely in Azure Key Vault

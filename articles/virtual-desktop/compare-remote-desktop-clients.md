@@ -5,7 +5,7 @@ ms.topic: concept-article
 zone_pivot_groups: remote-desktop-clients
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 11/19/2024
+ms.date: 01/15/2025
 ---
 
 # Compare Remote Desktop app features across platforms and devices
@@ -641,26 +641,21 @@ The following table shows which security features are available on each platform
 
 | Feature | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| Screen capture protection | ✅ | ✅ |  ❌ | ✅ | ❌ | ❌ | ❌ |
+| Screen capture protection | ✅ | ✅ |  ❌ | ✅ | <sup>&#8197;&#8197;</sup>✅&sup1; | <sup>&#8197;&#8197;</sup>✅&sup1; | ❌ |
 | Watermarking | ✅ | ✅ |  ❌ | ✅ | ✅ | ✅ | ✅ |
 
+1. Requires [Microsoft Intune to configure client device redirection settings](/azure/virtual-desktop/client-device-redirection-intune).
+
 ::: zone-end
 
-::: zone pivot="windows-365"
+::: zone pivot="windows-365,dev-box"
 
 | Feature | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|
-| Screen capture protection | ✅ | ✅ | ❌ | ❌ | ❌ |
+| Screen capture protection | ✅ | ✅ | <sup>&#8197;&#8197;</sup>✅&sup1; | <sup>&#8197;&#8197;</sup>✅&sup1; | ❌ |
 | Watermarking | ✅ | ✅ | ✅ | ✅ | ✅ |
 
-::: zone-end
-
-::: zone pivot="dev-box"
-
-| Feature | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
-|--|:-:|:-:|:-:|:-:|:-:|
-| Screen capture protection | ✅ | ✅ | ❌ | ❌ | ❌ |
-| Watermarking | ✅ | ✅ | ✅ | ❌ | ✅ |
+1. Requires [Microsoft Intune to configure client device redirection settings](/azure/virtual-desktop/client-device-redirection-intune).
 
 ::: zone-end
 
