@@ -257,7 +257,7 @@ Following is the list of supported images and no other marketplace images releas
 
 ### Custom images
 
-Custom images (including images uploaded to [Azure Compute gallery](/azure/virtual-machines/linux/tutorial-custom-images#overview))  are supported for Azure Update Manager operations (on-demand operations and customer managed schedules) if the base OS in the supported list and the customizations applied to create the custom images doesn't interfere with Azure Update Manager's patch operations. For more information on how to use Azure Update Manager to manage updates on VMs created from custom images, see [Manage updates for custom images](manage-updates-customized-images.md). 
+Custom images (including images uploaded to [Azure Compute gallery](/azure/virtual-machines/linux/tutorial-custom-images#overview))  are supported for Azure Update Manager operations (on-demand operations and customer managed schedules) if the base OS in the supported list and the customizations applied to create the custom images doesn't interfere with Azure Update Manager's patch operations. For more information, see how to use Azure Update Manager to [manage updates on VMs created from custom images](manage-updates-customized-images.md). 
 
 
 #### [Windows operating system](#tab/ci-win)
