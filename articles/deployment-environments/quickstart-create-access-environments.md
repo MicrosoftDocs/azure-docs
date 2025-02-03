@@ -28,13 +28,9 @@ An environment in Azure Deployment Environments is a collection of Azure resourc
 
 [!INCLUDE [note-deployment-environments-user](includes/note-deployment-environments-user.md)]
 
-1. Sign in to the [developer portal](https://devportal.microsoft.com).
-
-1. From the **New** menu at the top left, select **New environment**.
+[!INCLUDE [developer-portal-landing-page](includes/developer-portal-landing-page.md)]
  
-   :::image type="content" source="media/quickstart-create-access-environments/dev-new-environment.png" alt-text="Screenshot showing the new menu with new environment highlighted." lightbox="media/quickstart-create-access-environments/dev-new-environment-expanded.png":::
- 
-1. In the **Add an environment** pane, select the following information:
+3. In the **Add an environment** pane, select the following information:
 
    |Field  |Value  |
    |---------|---------|
@@ -47,7 +43,7 @@ An environment in Azure Deployment Environments is a collection of Azure resourc
 
    If your environment is configured to accept parameters, you can enter them on a separate pane. In this example, you don't need to specify any parameters.
 
-1. Select **Create**. You see your environment in the developer portal immediately, with an indicator that shows creation in progress.
+4. Select **Create**. You see your environment in the developer portal immediately, with an indicator that shows creation in progress.
 
 ## Access an environment
 
