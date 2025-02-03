@@ -328,6 +328,10 @@
       items:
       - name: Azure SDK for JavaScript
         href: https://go.microsoft.com/fwlink/?linkid=2103664
+    - name: Kubernetes
+      items:
+      - name: Feature reference
+        href: ./reference-kubernetes-provider.md
     - name: Go
       items:
       - name: Azure SDK for Go
@@ -365,8 +369,6 @@
     href: /cli/azure/appconfig
   - name: Azure PowerShell
     href: /powershell/module/az.appconfiguration/
-  - name: Kubernetes provider
-    href: reference-kubernetes-provider.md
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
