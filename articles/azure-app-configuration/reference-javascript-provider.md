@@ -145,7 +145,7 @@ const settings = await load(endpoint, credential, {
 
 You can trim the prefix off of keys by providing a list of trimmed key prefixes to the `AzureAppConfigurationOptions.trimKeyPrefixes` property.
 
-``` typescript
+```typescript
 const settings = await load(endpoint, credential, {
     selectors: [{
         keyFilter: "app.*"
@@ -154,13 +154,53 @@ const settings = await load(endpoint, credential, {
 });
 ```
 
-## Use Key Vault reference
+## Key Vault reference
+
+Azure App Configuration supports referencing secrets stored in Azure Key Vault. In App Configuration, keys can be created which have values that map to a secret stored in a Key Vault. The secrets are securely stored in Key Vault, but can be accessed the same as any other configuration once loaded.
+
+The configuration provider library retrieves Key Vault references, just as it does for any other keys stored in App Configuration. Because the client recognizes the keys as Key Vault references, they have a unique content-type, and the client will connect to Key Vault to retrieve their values for your application. You need to configure `AzureAppConfigurationOptions.KeyVaultOptions` property with the propert credential to allow the configuration provider to connect to Azure Key Vault.
+
+```typescript
+const credential = new DefaultAzureCredential();
+const settings = await load(endpoint, credential, {
+    keyVaultOptions: {
+        credential: credential
+    }
+});
+```
+
+You can also provide `SecretClient` instance directly to `KeyVaultOptions`. In this way, you can customize the options while creating `SecretClient`.
+
+```typescript
+const { SecretClient } = require("@azure/keyvault-secrets");
+
+const credential = new DefaultAzureCredential();
+const secretClient = new SecretClient(keyVaultUrl, credential, {
+    serviceVersion: "7.0",
+});
+const settings = await load(endpoint, credential, {
+    keyVaultOptions: {
+        secretClients: [ secretClient ]
+    }
+});
+```
+
+You can also set `secretResolver` property to locally resolve secrets that don’t have a Key Vault associated with them.
+
+```typescript
+const resolveSecret = (url) => "From Secret Resolver";
+const settings = await load(endpoint, credential, {
+    keyVaultOptions: {
+        secretResolver: resolveSecret
+    }
+});
+```
 
 ## Dynamic refresh
 
 ### Watch sentinel key for refresh (Deprecated)
 
-## Use feature flag
+## Feature flag
 
 You can [create feature flags](./manage-feature-flags.md#create-a-feature-flag) in the Azure App Configuration. By default, the feature flags will not be loaded by configuration provider. You can enable loading and refreshing feature flags through `AzureAppConfigurationOptions.featureFlagOptions` property when calling the `load` method.
 
@@ -186,9 +226,9 @@ Feature management library provides a way to develop and expose application func
 
 For more information about how to use JavaScript feature management library, please go to the [quickstart](./quickstart-feature-flag-javascript.md).
 
-## Geo replication
+## Geo-replication
 
-For more information, please go to [Enable geo-replication](./howto-geo-replication.md).
+For information about use geo-replication, please go to [Enable geo-replication](./howto-geo-replication.md).
 
 ## Next steps
 
