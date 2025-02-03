@@ -120,18 +120,66 @@ The `AzureAppConfiguration` type extends the following interfaces:
 
 ### Load specific key-values using selectors
 
-### Load feature flag
+By default, the `load` method will load all configurations with null label from the configuration store. You can configure the behavior of the `load` method through the optional parameter of [`AzureAppConfigurationOptions`](https://github.com/Azure/AppConfiguration-JavaScriptProvider/blob/main/src/AzureAppConfigurationOptions.ts) type.
+
+To refine or expand the configurations loaded from the App Configuration store, you can specify the key or label selectors under the `AzureAppConfigurationOptions.selectors` property.
+
+```typescript
+const settings = await load(endpoint, credential, {
+    selectors: [
+        { // load the subset of keys starting with "app1." prefix and "test" label
+            keyFilter: "app1.*",
+            labelFilter: "test"
+        },
+        { // load the subset of keys starting with "dev" label"
+            labelFilter: "dev*"
+        }
+    ]
+});
+```
+
+> [!NOTE]
+> Key-values are loaded in the order the selectors are listed. If multiple selectors retrieve key-values with the same key, the value from the last one will override any previously loaded value.
 
 ### Trim prefix from keys
 
 ## Use Key Vault reference
 
-
-
 ## Dynamic refresh
 
-### Watch sentinel key for refresh
+### Watch sentinel key for refresh (Deprecated)
+
+## Use feature flag
+
+You can [create feature flags](./manage-feature-flags.md#create-a-feature-flag) in the Azure App Configuration. By default, the feature flags will not be loaded by configuration provider. You can enable loading and refreshing feature flags through `AzureAppConfigurationOptions.featureFlagOptions` property when calling the `load` method.
+
+```typescript
+const settings = await load(endpoint, credential, {
+    featureFlagOptions: {
+        enabled: true,
+        selectors: [ { keyFilter: "*" } ],
+        refresh: {
+            enabled: true,
+            refreshIntervalInMs: 10_000
+        }
+    }
+});
+```
+
+> [!NOTE]
+> Selectors for feature flags must be explicitly provided. Otherwise, an exception will be thrown.
+
+### Feature management
+
+Feature management library provides a way to develop and expose application functionality based on feature flags. The feature management libary is designed to work in conjunction with configuration provider library. It consumes the feature flags loaded from Azure App Configuration store and manage the feature flags for your application. For more information about how to use JavaScript feature management library, please go to the [quickstart](./quickstart-feature-flag-javascript.md).
 
 ## Enable failover with geo replicas
 
 ### Enable load balancing
+
+## Next steps
+
+To learn how to use JavaScript configuration provider, continue to the following tutorials.
+
+> [!div class="nextstepaction"]
+> [Use dynamic configuration in JavaScript](./enable-dynamic-configuration-javascript.md)
