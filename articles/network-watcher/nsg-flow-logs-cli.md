@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 09/26/2024
+ms.date: 01/31/2025
 ms.custom: devx-track-azurecli
 
 #CustomerIntent: As an Azure administrator, I want to log my virtual network IP traffic using Network Watcher NSG flow logs so that I can analyze it later.
@@ -54,17 +54,13 @@ Create a flow log using [az network watcher flow-log create](/cli/azure/network/
 az network watcher flow-log create --name 'myFlowLog' --nsg 'myNSG' --resource-group 'myResourceGroup' --storage-account 'myStorageAccount'
 ```
 
-> [!NOTE]
-> - If the storage account is in a different subscription, the network security group and storage account must be associated with the same Azure Active Directory tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
-> - If the storage account is in a different resource group or subscription, you must specify the full ID of the storage account instead of only its name. For example, if **myStorageAccount** storage account is in a resource group named **StorageRG** while the network security group is in the resource group **myResourceGroup**, you must use `/subscriptions/{SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/myStorageAccount` for `--storage-account` parameter instead of `myStorageAccount`.
-
 ```azurecli-interactive
-# Place the storage account resource ID into a variable.
-sa=$(az storage account show --name 'myStorageAccount' --query 'id' --output 'tsv')
-
-# Create a version 1 NSG flow log (the storage account is in a different resource group).
-az network watcher flow-log create --name 'myFlowLog' --nsg 'myNSG' --resource-group 'myResourceGroup' --storage-account $sa
+# Create a version 1 NSG flow log (the storage account is in a different resource group from the network security group).
+az network watcher flow-log create --name 'myFlowLog' --nsg 'myNSG' --resource-group 'myResourceGroup' --storage-account '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/StorageRG/providers/Microsoft.Storage/storageAccounts/myStorageAccount'
 ```
+
+> [!NOTE]
+> If the storage account is in a different subscription, the network security group and storage account must be associated with the same Azure Active Directory tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
 
 ## Create a flow log and traffic analytics workspace
 
@@ -82,21 +78,14 @@ az network watcher flow-log create --name 'myFlowLog' --nsg 'myNSG' --resource-g
     az network watcher flow-log create --name 'myFlowLog' --nsg 'myNSG' --resource-group 'myResourceGroup' --storage-account 'myStorageAccount' --traffic-analytics 'true' --workspace 'myWorkspace'
     ```
 
+    ```azurecli-interactive
+    # Create a version 1 NSG flow log and enable traffic analytics for it (storage account and traffic analytics workspace are in different resource groups from the network security group).
+    az network watcher flow-log create --name 'myFlowLog' --nsg 'myNSG' --resource-group 'myResourceGroup' --storage-account '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/StorageRG/providers/Microsoft.Storage/storageAccounts/myStorageAccount' --traffic-analytics 'true' --workspace '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/WorkspaceRG/providers/Microsoft.OperationalInsights/workspaces/myWorkspace'
+    ```
+
 > [!NOTE]
 > - The storage account can't have network rules that restrict network access to only Microsoft services or specific virtual networks.
 > - If the storage account is in a different subscription, the network security group and storage account must be associated with the same Azure Active Directory tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
-> - If the storage account is in a different resource group or subscription, the full ID of the storage account must be used. For example, if **myStorageAccount** storage account is in a resource group named **StorageRG** while the network security group is in the resource group **myResourceGroup**, you must use `/subscriptions/{SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/myStorageAccount` for `--storage-account` parameter instead of `myStorageAccount`.
-
-```azurecli-interactive
-# Place the storage account resource ID into a variable.
-sa=$(az storage account show --name 'myStorageAccount' --query 'id' --output 'tsv')
-
-# Create a Log Analytics workspace.
-az monitor log-analytics workspace create --name 'myWorkspace' --resource-group 'myResourceGroup'
-
-# Create a version 1 NSG flow log and enable traffic analytics for it (the storage account is in a different resource group).
-az network watcher flow-log create --name 'myFlowLog' --nsg 'myNSG' --resource-group 'myResourceGroup' --storage-account $sa --traffic-analytics 'true' --workspace 'myWorkspace'
-```
 
 ## Change a flow log
 

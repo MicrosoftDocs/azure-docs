@@ -19,7 +19,7 @@ During an investigation, you examine entities and their context as an important 
 
 For example, you might discover an IP address that performs port scans across your network or functions as a command and control node by sending and/or receiving transmissions from large numbers of nodes in your network.
 
-With Microsoft Sentinel, you can flag these types of entities from within your incident investigation and add them to your threat intelligence. You can view the added indicators in **Logs** and **Threat Intelligence** and use them across your Microsoft Sentinel workspace.
+With Microsoft Sentinel, you can flag these types of entities from within your incident investigation and add them to your threat intelligence. You can view the added indicators by querying them or searching for them in the threat intelligence management interface and use them across your Microsoft Sentinel workspace.
 
 ## Add an entity to your threat intelligence
 
@@ -129,7 +129,7 @@ Whichever of the two interfaces you choose, you end up here.
 
 1. When all the fields are filled in to your satisfaction, select **Apply**. A message appears in the upper-right corner to confirm that your indicator was created.
 
-1. The entity is added as a threat indicator in your workspace. You can find it [in the list of indicators on the Threat intelligence page](work-with-threat-indicators.md#find-and-view-your-indicators-on-the-threat-intelligence-page). You can also find it [in the ThreatIntelligenceIndicators table in Logs](work-with-threat-indicators.md#find-and-view-your-indicators-in-logs).
+1. The entity is added as threat intelligence in your workspace. You can find it [in threat intelligence management interface](work-with-threat-indicators.md#view-your-threat-intelligence-in-the-management-interface). You can also query it [using the ThreatIntelligenceIndicators table](work-with-threat-indicators.md#find-and-view-your-indicators-with-queries).
 
 ## Related content
 

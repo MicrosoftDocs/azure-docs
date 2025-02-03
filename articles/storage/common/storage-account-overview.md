@@ -99,7 +99,7 @@ A storage account provides a unique namespace in Azure for your data. Every obje
 There are two types of service endpoints available for a storage account:
 
 - [Standard endpoints](#standard-endpoints) (recommended). By default, you can create up to 250 storage accounts per region with standard endpoints in a given subscription. With a quota increase, you can create up to 500 storage accounts with standard endpoints per region. For more information, see [Increase Azure Storage account quotas](/azure/quotas/storage-account-quota-requests).
-- [Azure DNS zone endpoints](#azure-dns-zone-endpoints-preview) (preview). You can create up to 5000 storage accounts per region with Azure DNS zone endpoints in a given subscription.
+- [Azure DNS zone endpoints](#azure-dns-zone-endpoints-preview) (preview). You can create up to 5000 storage accounts per region per subscription with Azure DNS zone endpoints in a given subscription.
 
 Within a single subscription, you can create accounts with either standard or Azure DNS Zone endpoints, for a maximum of 5250 accounts per region per subscription. With a quota increase, you can create up to 5500 storage accounts per region per subscription.
 
@@ -151,7 +151,7 @@ The following table lists the format for Azure DNS Zone endpoints for each of th
 | Table Storage | `https://<storage-account>.z[00-50].table.storage.azure.net` |
 
 > [!IMPORTANT]
-> You can create up to 5000 accounts with Azure DNS Zone endpoints per subscription. However, you may need to update your application code to query for the account endpoint at runtime. You can call the [Get Properties](/rest/api/storagerp/storage-accounts/get-properties) operation to query for the storage account endpoints.
+> You can create up to 5000 accounts with Azure DNS Zone endpoints per region per subscription. However, you may need to update your application code to query for the account endpoint at runtime. You can call the [Get Properties](/rest/api/storagerp/storage-accounts/get-properties) operation to query for the storage account endpoints.
 
 Azure DNS zone endpoints are supported for accounts created with the Azure Resource Manager deployment model only. For more information, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
 

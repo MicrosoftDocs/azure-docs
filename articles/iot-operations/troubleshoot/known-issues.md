@@ -6,7 +6,7 @@ ms.author: dobett
 ms.topic: troubleshooting-known-issue
 ms.custom:
   - ignite-2023
-ms.date: 01/07/2025
+ms.date: 01/28/2025
 ---
 
 # Known issues: Azure IoT Operations
@@ -26,6 +26,8 @@ This article lists the known issues for Azure IoT Operations.
 - If your deployment fails with the message `Error occurred while creating custom resources needed by system extensions`, you have encountered a known sporadic failure that will be fixed in a future release. As a work around, use the [az iot ops delete](/cli/azure/iot/ops#az-iot-ops-delete) command with the `--include-deps` flag to delete Azure IoT Operations from your cluster. When Azure IoT Operations and its dependencies are deleted from your cluster, retry the deployment.
 
 - If you deploy Azure IoT Operations in GitHub Codespaces, shutting down and restarting the Codespace causes a `This codespace is currently running in recovery mode due to a configuration error.` issue. Currently, there's no workaround for the issue. If you need a cluster that supports shutting down and restarting, choose one of the options in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
+
+- Downgrading the Azure Container Storage extension from 2.2.3 to 2.2.2 causes a logging loop that leads to high CPU usage warnings. To resolve, upgrade the extension back to 2.2.3. For more information, see [Upgrade or downgrade between versions](../deploy-iot-ops/howto-upgrade.md).
 
 ## MQTT broker
 
@@ -112,3 +114,5 @@ kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
 - When connecting multiple IoT Operations instances to the same Event Grid MQTT namespace, connection failures may occur due to client ID conflicts. Client IDs are currently derived from dataflow resource names, and when using Infrastructure as Code (IaC) patterns for deployment, the generated client IDs may be identical. As a temporary workaround, add randomness to the dataflow names in your deployment templates.
 
 - When network connection is disrupted, Dataflows may encounter errors sending messages due to a mismatched producer ID. If you experience this issue, restart your Dataflows pods.
+
+- When using control characters in Kafka headers, you might encounter disconnections. Control characters in Kafka headers such as `0x01`, `0x02`, `0x03`, `0x04` are UTF-8 compliant but the IoT Operations MQTT broker rejects them. This issue happens during the data flow process when Kafka headers are converted to MQTT properties using a UTF-8 parser. Packets with control characters might be treated as invalid and rejected by the broker and lead to data flow failures.

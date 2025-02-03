@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Provision Azure Spring Apps using Azure CLI
+title: Quickstart - Provision Azure Spring Apps Using Azure CLI
 description: This quickstart shows you how to use Azure CLI to deploy an Azure Spring Apps cluster into an existing virtual network.
 services: azure-cli
 author: KarlErickson
