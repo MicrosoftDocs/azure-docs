@@ -416,7 +416,7 @@ Non-Replicated NVMe/TempSSD Volumes:
 
 * This strict enforcement prevents a non-replicated volume-consuming application from running on a different node than where its storage is provisioned. 
 
-Replicated NVMe/TempSSD Volumes:  
+Replicated NVMe/TempSSD volumes:  
 
 * Hyperconvergence is **best effort**. 
 
