@@ -120,7 +120,7 @@ The following steps help you create an ExpressRoute circuit from the ExpressRout
 
 3. Complete the fields on the **Configuration** page.
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration2.png" alt-text="Configuration page - ExpressRoute Direct":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration2.png" alt-text="Screenshot of the configuration page of an ExpressRoute Direct resource.":::
 
     - **Port type**: Select **Direct** as the port type to create a circuit with ExpressRoute Direct.
     - **ExpressRoute Direct resource**: Select the ExpressRoute Direct resource you created in the previous section.

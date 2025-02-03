@@ -31,8 +31,8 @@ Once the new capacity is provisioned, you can follow the methods in the [Upgrade
 
 If ExpressRoute Direct lacks sufficient capacity, you have two options: 
 
-1. Delete any unnecessary circuits associated with the ExpressRoute Direct resource.
-2. Create a new ExpressRoute Direct resource.
+- Delete any unnecessary circuits associated with the ExpressRoute Direct resource.
+- Create a new ExpressRoute Direct resource.
 
 For detailed guidance on managing ExpressRoute Direct resources, see [How to configure ExpressRoute Direct](how-to-expressroute-direct-portal.md).
 
