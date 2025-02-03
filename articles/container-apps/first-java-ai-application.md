@@ -21,11 +21,11 @@ In this quickstart, you deploy your first Java AI application to Azure Container
 
 - An Azure account. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). To perform this quickstart, you need the `Contributor` and `User Access Administrator` roles, or the `Owner` role. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current).
 - A GitHub account. Get one for [free](https://github.com/join).
-- [git](https://git-scm.com/downloads).
-- [The Azure CLI](/cli/azure/install-azure-cli).
+- [git](https://git-scm.com/downloads)
+- [The Azure CLI](/cli/azure/install-azure-cli)
 - The [Microsoft Build of Open JDK](/java/openjdk/install). We recommend version 17.
-- [Maven](https://maven.apache.org/download.cgi).
-- [`azd`](/azure/developer/azure-developer-cli/install-azd).
+- [Maven](https://maven.apache.org/download.cgi)
+- [`azd`](/azure/developer/azure-developer-cli/install-azd)
 
 ## Install the Azure CLI extensions
 
@@ -99,7 +99,7 @@ SUCCESS: Your up workflow to provision and deploy to Azure completed in 17 minut
 
 ## Try your application
 
-To start using your app, select the URL from the following deployment output:
+To start using your app, select the URL from the deployment output, which looks like the following code example:
 
 ```output
 INFO: Deploy finish succeed!
@@ -126,7 +126,7 @@ If you plan to continue working with subsequent tutorials, you might want to ret
 
 ### [Azure portal](#tab/azure-portal)
 
-To delete the resources, use the Azure portal to find the resource group of this sample and delete it.
+To delete the resources, use the Azure portal to find the resource group of this sample, and then delete it.
 
 ### [Azure CLI](#tab/azure-cli)
 
