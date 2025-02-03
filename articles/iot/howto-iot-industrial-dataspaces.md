@@ -67,7 +67,7 @@ Optionally, to optionally configure the WattTime service for a more accurate car
 
 ## ISO 20151 Eclipse Dataspace Components
 
-The Eclipse Dataspace Components (EDC) is designed to support secure and sovereign data sharing between organizations. Here are the main components:
+The [Eclipse Dataspace Components (EDC)](https://eclipse-edc.github.io) is designed to support secure and sovereign data sharing between organizations. Here are the main components:
 
 * **Connector**: Facilitates data exchange between participants such as the manufacturer of products and the customer of the manufactured products. Two connectors, a *provider* connector and a *consumer* connector, are automatically deployed in this reference solution.
 * **Federated Catalog**: Enables participants to discover and publish data offerings.
