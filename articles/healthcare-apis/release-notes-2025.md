@@ -26,6 +26,9 @@ Added validation to ensure the HTTP method in the Request component of the trans
 
 CMK Error Handling: Improved error handling for operations dependent on customer-managed keys. Users will now see a more specific error message and a link to [Microsoft's troubleshooting guide](fhir/configure-customer-managed-keys.md) if issues occur related to CMK.
 
+### Bug Fixes
+- Billing in Sweden Central region: An issue was discovered where subscriptions in the Sweden Central region were not being billed correctly. We corrected the error, and billing has now been enabled in Sweden Central region. If you were affected by this error, you will not be responsible for any missed charged prior to your January bill.
+
 ## Related content
 
 [Release notes 2021](release-notes-2021.md)
