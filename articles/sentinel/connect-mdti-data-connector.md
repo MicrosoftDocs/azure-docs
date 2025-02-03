@@ -13,7 +13,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: As a security administrator, I want to enable the data connector for Microsoft Defender Threat Intelligence so that I can ingest high fidelity indicators of compromise into my Microsoft Sentinel workspace for enhanced threat monitoring and response.
+#Customer intent: As a security administrator, I want to enable the data connector for Microsoft Defender Threat Intelligence so that I can ingest high fidelity threat intelligence into my Microsoft Sentinel workspace for enhanced threat monitoring and response.
 
 ---
 
@@ -23,7 +23,7 @@ Bring public, open-source and high-fidelity indicators of compromise (IOCs) gene
 
 > [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
 
-For more information about the benefits of the standard and premium Defender Threat Intelligence data connectors, see [Understand threat intelligence](understand-threat-intelligence.md#add-threat-indicators-to-microsoft-sentinel-with-the-defender-threat-intelligence-data-connector).
+For more information about the benefits of the standard and premium Defender Threat Intelligence data connectors, see [Understand threat intelligence](understand-threat-intelligence.md#add-threat-intelligence-to-microsoft-sentinel-with-the-defender-threat-intelligence-data-connector).
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ For more information on how to get a premium license and explore all the differe
 
 ## Install the threat intelligence solution in Microsoft Sentinel
 
-To import threat indicators into Microsoft Sentinel from standard and premium Defender Threat Intelligence, follow these steps:
+To import threat intelligence into Microsoft Sentinel from standard and premium Defender Threat Intelligence, follow these steps:
 
 1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**.
 
@@ -59,11 +59,11 @@ For more information about how to manage the solution components, see [Discover 
 
     :::image type="content" source="media/connect-mdti-data-connector/premium-connect.png" alt-text="Screenshot that shows the Defender Threat Intelligence Data connector page and the Connect button." lightbox="media/connect-mdti-data-connector/premium-connect.png"::: 
 
-1. When Defender Threat Intelligence indicators start populating the Microsoft Sentinel workspace, the connector status displays **Connected**.
+1. When Defender Threat Intelligence starts populating the Microsoft Sentinel workspace, the connector status displays **Connected**.
 
-At this point, the ingested indicators are now available for use in the `TI map...` analytics rules. For more information, see [Use threat indicators in analytics rules](use-threat-indicators-in-analytics-rules.md). 
+At this point, the ingested intelligence is now available for use in the `TI map...` analytics rules. For more information, see [Use threat indicators in analytics rules](use-threat-indicators-in-analytics-rules.md). 
 
-Find the new indicators on the **Threat intelligence** pane or directly in **Logs** by querying the `ThreatIntelligenceIndicator` table. For more information, see [Work with threat indicators](work-with-threat-indicators.md).
+Find the new intelligence in the management interface or directly in **Logs** by querying the `ThreatIntelligenceIndicator` table. For more information, see [Work with threat intelligence](work-with-threat-indicators.md).
 
 ## Related content
 

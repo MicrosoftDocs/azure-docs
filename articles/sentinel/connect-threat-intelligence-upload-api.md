@@ -20,7 +20,7 @@ Many organizations use threat intelligence platform (TIP) solutions to aggregate
 
 The upload API ingests threat intelligence into Microsoft Sentinel without the need for a data connector. This article describes what you need to connect. For more information on the API details, see the reference document [Microsoft Sentinel upload API](stix-objects-api.md).
 
-:::image type="content" source="media/connect-threat-intelligence-upload-api/threat-intel-stix-objects-api.png" alt-text="Screenshot that shows the threat intelligence import path.":::
+:::image type="content" source="media/connect-threat-intelligence-upload-api/threat-intel-upload-api.png" alt-text="Screenshot that shows the threat intelligence import path.":::
 
 For more information about threat intelligence, see [Threat intelligence](understand-threat-intelligence.md).
 

@@ -152,6 +152,7 @@ App Service Environment v3 is available in the following regions:
 | Korea Central        | ✅                           | ✅                          |
 | Korea South          | ✅                           |                             |
 | Mexico Central       | ✅                           | ✅**                        |
+| New Zealand North    | ✅                           | ✅                          |
 | North Central US     | ✅                           |                             |
 | North Europe         | ✅                           | ✅                          |
 | Norway East          | ✅                           | ✅                          |
@@ -243,6 +244,7 @@ The following sections list the regional pricing tiers (SKUs) availability for A
 | Korea Central        | ✅          | ✅          |                   | 
 | Korea South          | ✅          | ✅          | ✅               |
 | Mexico Central       | ✅          | ✅          |                   | 
+| New Zealand North    | ✅          | ✅          |                   | 
 | North Central US     | ✅          | ✅          | ✅               | 
 | North Europe         | ✅          | ✅          | ✅               |
 | Norway East          | ✅          | ✅          | ✅               | 

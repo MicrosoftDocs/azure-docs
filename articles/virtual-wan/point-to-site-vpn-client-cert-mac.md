@@ -33,7 +33,7 @@ The following example uses **TunnelBlick**.
 
 ##  <a name="OpenVPN-iOS"></a>OpenVPN Client - iOS steps
 
-The following example uses **OpenVPN Connect** from the App store.
+The following example uses **OpenVPN Connect** from the App Store.
 
 [!INCLUDE [OpenVPN iOS](../../includes/vpn-gateway-vwan-config-openvpn-ios.md)]
 

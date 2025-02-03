@@ -122,7 +122,7 @@ This section compares Storage queues and Service Bus queues from the perspective
 
 | Comparison Criteria | Storage queues | Service Bus queues |
 | --- | --- | --- |
-| Maximum queue size |500 TB<br/><br/>(limited to a [single storage account capacity](../storage/common/storage-introduction.md#queue-storage)) |1 GB to 80 GB<br/><br/>(Premium or Standard tier with partitioning)|
+| Maximum queue size |5 PiB<br/><br/>(limited to a [single storage account capacity](../storage/common/storage-introduction.md#queue-storage)) |1 GB to 80 GB<br/><br/>(Premium or Standard tier with partitioning)|
 | Maximum message size |64 KB<br/><br/>(48 KB when using Base 64 encoding)<br/><br/>Azure supports large messages by combining queues and blobs – at which point you can enqueue up to 200 GB for a single item. |256 KB, 1 MB or 100 MB<br/><br/>(including both header and body, maximum header size: 64 KB).<br/><br/>Depends on the [service tier](service-bus-premium-messaging.md). |
 | Maximum message TTL |Infinite (api-version 2017-07-27 or later) |TimeSpan.MaxValue |
 | Maximum number of queues |Unlimited |10,000 (Standard tier)<br/>1000 / Messaging Unit (Premium tier)<br/>(per service namespace) |
