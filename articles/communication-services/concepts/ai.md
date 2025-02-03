@@ -37,7 +37,7 @@ This section summarizes features for integrating AI into Azure Communication mes
 - **[Azure Bot Service: Chat channel integration](../quickstarts/chat/quickstart-botframework-integration.md)** - The Azure Communication Services chat system is directly integrated with Azure Bot Service. This integration simplifies creating chat bots that engage with human users.
 
 ### Accessors
-All Azure Communication Services messaging capabilities are accessible through REST APIs, server-oriented SDKs, and EventGrid notifications. You can use these SDKs to export content to an external datastore and attach a language model to summarize conversations. Or you can use the SDKs to integrate a bot that directly engages with human users. For example, this [GitHub sample](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/chat-nlp-analysis) shows how Azure Communication Services APIs for chat can be accessed through REST APIs and then analyzed by Azure OpenAI.
+All Azure Communication Services messaging capabilities are accessible through REST APIs, server-oriented SDKs, and Event Grid notifications. You can use these SDKs to export content to an external datastore and attach a language model to summarize conversations. Or you can use the SDKs to integrate a bot that directly engages with human users. For example, this [GitHub sample](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/chat-nlp-analysis) shows how Azure Communication Services APIs for chat can be accessed through REST APIs and then analyzed by Azure OpenAI.
 
 ## Voice, video, and telephony
 
