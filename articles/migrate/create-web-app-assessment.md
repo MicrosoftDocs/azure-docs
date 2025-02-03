@@ -30,29 +30,11 @@ In this article, you learn how to:
 To create an assessment, follow these steps.
 
 1. On the Azure Migrate project **Overview** page, under **Decide and Plan**, select **Assessments**. 
-
-   :::image type="content" source="./media/create-web-app-assessment/overview.png" alt-text="Screenshot of Overview screen.":::
-
 1. Select **Create assessment**.
-
-   :::image type="content" source="./media/create-web-app-assessment/assessments.png" alt-text="Screenshot of Assessments screen with Create assessment selected.":::
-
 1. Provide a suitable name for the assessment and select **Add workloads**. 
- 
-   :::image type="content" source="./media/create-web-app-assessment/create-assessment.png" alt-text="Screenshot of Create assessment screen."::: 
-
 1. Using the filters, select **web apps**, and select **Add**. 
- 
-   :::image type="content" source="./media/create-web-app-assessment/select-workloads.png" alt-text="Screenshot of adding selected workloads."::: 
-
 1. Review the selected workloads and select **Next**. 
- 
-   :::image type="content" source="./media/create-web-app-assessment/review-workloads.png" alt-text="Screenshot of Review workloads screen."::: 
-
 1. On the **General settings** tab, modify the assessment settings that are applicable across all Azure targets. 
-
-   :::image type="content" source="./media/create-web-app-assessment/general-settings.png" alt-text="Screenshot of General settings screen."::: 
-
  
     | **Setting**  | **Possible Values**  | **Description**  |
     |----------|-------|---|
@@ -66,9 +48,6 @@ To create an assessment, follow these steps.
     | Microsoft Defender for Cloud | -                                                 | Includes Microsoft Defender for App Service cost in the month over month cost estimate.                                |
  
 1. On the **Advanced settings** tab, select **Edit defaults** to choose the preferred Azure targets and target-specific settings. 
- 
-    :::image type="content" source="./media/create-web-app-assessment/web-app-settings.png" alt-text="Screenshot of Web app settings screen."::: 
-
 
    **AKS Settings**
 
@@ -87,8 +66,6 @@ To create an assessment, follow these steps.
 
 1. Review and create the assessment. 
  
-   :::image type="content" source="./media/create-web-app-assessment/assessment-create.png" alt-text="Screenshot of Review + Create assessment screen."::: 
-
 
 ## Next steps 
 
