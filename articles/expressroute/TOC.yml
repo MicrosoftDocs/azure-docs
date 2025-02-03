@@ -2,49 +2,48 @@
   href: index.yml
 - name: Get started
   items:
-  - name: Overview
-    items:
-      - name: What is ExpressRoute?
-        href: expressroute-introduction.md
-      - name: Well-Architected for ExpressRoute
-        href: /azure/well-architected/service-guides/azure-expressroute
-      - name: Before you start using ExpressRoute
-        items:
-        - name: Prerequisites
-          href: expressroute-prerequisites.md
-        - name: Connectivity models
-          href: expressroute-connectivity-models.md
-        - name: Workflows
-          href: expressroute-workflows.md
-        - name: Routing requirements
-          href: expressroute-routing.md
-      - name: Locations and partners
-        items:
-        - name: Providers by location
-          href: expressroute-locations-providers.md
-        - name: Locations by provider
-          href: expressroute-locations.md
-      - name: FAQ
-        href: expressroute-faqs.md
-      - name: Service limitations
-        href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/expressroute/toc.json#azure-expressroute-limits
-    expanded: true
-  - name: Quickstarts
-    items:
-    - name: Create an ExpressRoute circuit - Portal
-      href: expressroute-howto-circuit-portal-resource-manager.md
-    - name: Create an ExpressRoute circuit - PowerShell
-      href: expressroute-howto-circuit-arm.md
-    - name: Create an ExpressRoute circuit - CLI
-      href: howto-circuit-cli.md
-    - name: Create an ExpressRoute circuit - Bicep
-      displayName: ARM, Resource Manager, Template
-      href: quickstart-create-expressroute-vnet-bicep.md
-    - name: Create an ExpressRoute circuit - ARM template
-      displayName: Resource Manager
-      href: quickstart-create-expressroute-vnet-template.md
-    - name: Create an ExpressRoute circuit - Terraform
-      href: quickstart-create-expressroute-vnet-terraform.md
+    - name: What is ExpressRoute?
+      href: expressroute-introduction.md
+    - name: Well-Architected for ExpressRoute
+      href: /azure/well-architected/service-guides/azure-expressroute
+    - name: Before you start using ExpressRoute
+      items:
+      - name: Prerequisites
+        href: expressroute-prerequisites.md
+      - name: Understand connectivity models
+        href: expressroute-connectivity-models.md
+      - name: Workflows
+        href: expressroute-workflows.md
+      - name: Connect Azure to public cloud
+        href: expressroute-connect-azure-to-public-cloud.md
+      - name: Routing requirements
+        href: expressroute-routing.md
+    - name: Peering locations and partners
+      items:
+      - name: Providers by location
+        href: expressroute-locations-providers.md
+      - name: Locations by provider
+        href: expressroute-locations.md
+    - name: FAQ
+      href: expressroute-faqs.md
+    - name: Service limitations
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/expressroute/toc.json#azure-expressroute-limits
+    - name: Quickstarts
+      items:
+      - name: Create an ExpressRoute circuit - Portal
+        href: expressroute-howto-circuit-portal-resource-manager.md
+      - name: Create an ExpressRoute circuit - PowerShell
+        href: expressroute-howto-circuit-arm.md
+      - name: Create an ExpressRoute circuit - CLI
+        href: howto-circuit-cli.md
+      - name: Create an ExpressRoute circuit - Bicep
+        displayName: ARM, Resource Manager, Template
+        href: quickstart-create-expressroute-vnet-bicep.md
+      - name: Create an ExpressRoute circuit - ARM template
+        displayName: Resource Manager
+        href: quickstart-create-expressroute-vnet-template.md
+      - name: Create an ExpressRoute circuit - Terraform
+        href: quickstart-create-expressroute-vnet-terraform.md
   expanded: true
 - name: Configure
   items:
@@ -172,7 +171,7 @@
       href: expressroute-howto-macsec.md
     - name: Rate limit for ExpressRoute Direct circuit
       href: rate-limit.md
-  - name: ExpressRoute gateways
+  - name: ExpressRoute gateway
     items:
     - name: Overview
       href: expressroute-about-virtual-network-gateways.md
@@ -182,7 +181,7 @@
         href: expressroute-howto-add-gateway-portal-resource-manager.md
       - name: Azure PowerShell
         href: expressroute-howto-add-gateway-resource-manager.md
-  - name: Zone-redundant gateways
+  - name: Zone-redundant gateway
     items:
     - name: Overview
       href: ../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/expressroute/toc.json
@@ -240,8 +239,6 @@
         href: expressroute-howto-ipsec-transport-private-windows.md
 - name: Operational excellence
   items:
-  - name: Connect Azure to public cloud
-    href: expressroute-connect-azure-to-public-cloud.md
   - name: Plan and manage costs
     href: plan-manage-cost.md
   - name: Rate limit for service provider ports
