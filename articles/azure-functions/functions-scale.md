@@ -35,7 +35,7 @@ The following is a summary of the benefits of the various options for Azure Func
 
 | Option | Benefits |
 | --- | --- |  
-|**[Flex Consumption plan]**| Get rapid horizontal scaling with compute choices, virtual networking, and pay-as-you-go billing.<br/><br/>On the Flex Consumption plan, instances of the Functions host are dynamically added and removed based on the configured per instance concurrency and the number of incoming events. <br/><br/> ✔ Reduce cold starts by specifying a number of pre-provisioned (always ready) instances.<br/> ✔ Supports virtual networking for added security.<br/>✔ Pay when your functions are running.<br/>✔ Scales automatically, even during periods of high load.| 
+|**[Flex Consumption plan]**| Get rapid horizontal scaling with compute choices, virtual networking, and pay-as-you-go billing.<br/><br/>On the Flex Consumption plan, instances of the Functions host are dynamically added and removed based on the configured per instance concurrency and the number of incoming events. <br/><br/> ✔ Reduce cold starts by specifying one or more pre-provisioned (always ready) instances.<br/> ✔ Supports virtual networking for added security.<br/>✔ Pay when your functions are running.<br/>✔ Scales automatically, even during periods of high load.| 
 |**[Premium plan]**|Automatically scales based on demand using prewarmed workers, which run applications with no delay after being idle, runs on more powerful instances, and connects to virtual networks. <br/><br/>Consider the Azure Functions Premium plan in the following situations: <br/><br/>✔ Your function apps run continuously, or nearly continuously.<br/>✔ You want more control of your instances and want to deploy multiple function apps on the same plan with event-driven scaling.<br/>✔ You have a high number of small executions and a high execution bill, but low GB seconds in the Consumption plan.<br/>✔ You need more CPU or memory options than are provided by consumption plans.<br/>✔ Your code needs to run longer than the maximum execution time allowed on the Consumption plan.<br/>✔ You require virtual network connectivity.<br/>✔ You want to provide a custom Linux image in which to run your functions. |  
 |**[Dedicated plan]** |Run your functions within an App Service plan at regular [App Service plan rates](https://azure.microsoft.com/pricing/details/app-service/windows/).<br/><br/>Best for long-running scenarios where [Durable Functions](durable/durable-functions-overview.md) can't be used. Consider an App Service plan in the following situations:<br/><br/>✔ You have existing and underutilized virtual machines that are already running other App Service instances.<br/>✔ You must have fully predictable billing, or you need to manually scale instances.<br/>✔ You want to run multiple web apps and function apps on the same plan<br/>✔ You need access to larger compute size choices.<br/>✔ Full compute isolation and secure network access provided by an App Service Environment (ASE).<br/>✔ Very high memory usage and high scale (ASE).|  
 | **[Container Apps]** | Create and deploy containerized function apps in a fully managed environment hosted by Azure Container Apps.<br/><br/>Use the Azure Functions programming model to build event-driven, serverless, cloud native function apps. Run your functions alongside other microservices, APIs, websites, and workflows as container-hosted programs. Consider hosting your functions on Container Apps in the following situations:<br/><br/>✔ You want to package custom libraries with your function code to support line-of-business apps.<br/>✔ You need to migrate code execution from on-premises or legacy apps to cloud native microservices running in containers.<br/>✔ When you want to avoid the overhead and complexity of managing Kubernetes clusters and dedicated compute.<br/>✔ Your functions need high-end processing power provided by dedicated GPU compute resources. |  
@@ -67,7 +67,7 @@ For details on current native language stack support in Functions, see [Supporte
 ## Scale
 
 The following table compares the scaling behaviors of the various hosting plans.  
-Maximum instances are given on a per-function app (Consumption) or per-plan (Flex/Premium/Dedicated) basis, unless otherwise indicated. 
+Maximum instances are given on a per-function app (Consumption) or per-plan (Premium/Dedicated) basis, unless otherwise indicated. 
 
 | Plan | Scale out | Max # instances | 
 | --- | --- | --- |
@@ -81,12 +81,12 @@ Maximum instances are given on a per-function app (Consumption) or per-plan (Fle
 2. In some regions, Linux apps on a Premium plan can scale to 100 instances. For more information, see the [Premium plan article](functions-premium-plan.md#region-max-scale-out). <br/>
 3. For specific limits for the various App Service plan options, see the [App Service plan limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits).
 4. On Container Apps, the default is 10 instances, but you can set the [maximum number of replicas](../container-apps/scale-app.md#scale-definition), which has an overall maximum of 1000. This setting is honored as long as there's enough cores quota available. When you create your function app from the Azure portal you're limited to 300 instances.
-5. Total instances in a given region are imited by [regional subscription memory quotas](./flex-consumption-plan.md#regional-subscription-memory-quotas).
+5. Total instances in a given region are effectively limited by [regional subscription memory quotas](./flex-consumption-plan.md#regional-subscription-memory-quotas).
 
 ## Cold start behavior
 
 | Plan | Details | 
-| -- | -- |
+| ---- | ---- |
 | **[Flex Consumption plan]** | Supports [always ready instances](./flex-consumption-plan.md#always-ready-instances) to reduce the delay when provisioning new instances. |
 | **[Premium plan]** | Supports [always ready instances](./functions-premium-plan.md#always-ready-instances) to avoid cold starts by letting you maintain one or more _perpetually warm_ instances. |
 | **[Dedicated plan]** | When running in a Dedicated plan, the Functions host can run continuously on a prescribed number of instances, which means that cold start isn't really an issue. |
@@ -118,8 +118,8 @@ For a direct cost comparison between dynamic hosting plans (Consumption, Flex Co
 
 In some cases, when trying to create a new hosting plan for your function app in an existing resource group you might receive one of the following errors:
 
-* The pricing tier is not allowed in this resource group
-* <SKU_name> workers are not available in resource group <resource_group_name>
+* The pricing tier isn't allowed in this resource group
+* <SKU_name> workers aren't available in resource group <resource_group_name>
 
 This can happen when the following conditions are met:
 
@@ -127,7 +127,7 @@ This can happen when the following conditions are met:
 * Your new function app is created in the same region as the previous app.
 * The previous app is in some way incompatible with your new app. This error can happen between SKUs, operating systems, or due to other platform-level features, such as availability zone support.
 
-The reason this happens is due to how function app and web app plans are mapped to different pools of resources when being created. Different SKUs require a different set of infrastructure capabilities. When you create an app in a resource group, that resource group is mapped and assigned to a specific pool of resources. If you try to create another plan in that resource group and the mapped pool does not have the required resources, this error occurs.
+The reason this happens is due to how function app and web app plans are mapped to different pools of resources when being created. Different SKUs require a different set of infrastructure capabilities. When you create an app in a resource group, that resource group is mapped and assigned to a specific pool of resources. If you try to create another plan in that resource group and the mapped pool doesn't have the required resources, this error occurs.
 
 When this error occurs, instead create your function app and hosting plan in a new resource group.
 
