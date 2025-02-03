@@ -445,7 +445,7 @@ Consider enabling hyperconvergence for replicated volumes when:
 ### When to Not Use Hyperconvergence 
 **Note**: This section applies only to replicated volumes because hyperconvergence is always enforced for non-replicated volumes. 
 
-Hyperconvergence can improve performance by co-locating workloads with their storage, but there are scenarios where it may not be ideal: 
+Hyperconvergence can improve performance by co-locating workloads with their storage, but there are scenarios where it might not be ideal: 
 
 * **Potential Resource Imbalance**: While hyperconvergence itself does not limit the number of applications on a node, if multiple workloads create replicas on the same node and that node runs out of resources (CPU, memory, or storage bandwidth), some workloads may not be able to schedule there. As a result, they may end up running **without hyperconvergence**, despite it being enabled.
 
