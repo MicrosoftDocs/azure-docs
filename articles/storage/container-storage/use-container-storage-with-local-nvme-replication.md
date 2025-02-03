@@ -447,7 +447,7 @@ Consider enabling hyperconvergence for replicated volumes when:
 
 Hyperconvergence can improve performance by co-locating workloads with their storage, but there are scenarios where it might not be ideal: 
 
-* **Potential Resource Imbalance**: While hyperconvergence itself does not limit the number of applications on a node, if multiple workloads create replicas on the same node and that node runs out of resources (CPU, memory, or storage bandwidth), some workloads may not be able to schedule there. As a result, they may end up running **without hyperconvergence**, despite it being enabled.
+* **Potential resource imbalance**: While hyperconvergence itself doesn't limit the number of applications on a node, if multiple workloads create replicas on the same node and that node runs out of resources (CPU, memory, or storage bandwidth), some workloads might not be able to schedule there. As a result, they might end up running **without hyperconvergence**, despite it being enabled.
 
 ### Enable hyperconvergence in Azure Container Storage  
 
