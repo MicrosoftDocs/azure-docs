@@ -408,7 +408,7 @@ When hyperconvergence is enabled for multi-replica volumes, the workload is sche
 
 ### Hyperconvergence behavior for non-replicated vs. replicated volumes 
 
-Non-Replicated NVMe/TempSSD Volumes:
+Non-replicated NVMe/TempSSD volumes:
 
 * Hyperconvergence is **enabled by default**. 
 
