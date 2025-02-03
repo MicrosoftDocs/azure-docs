@@ -73,6 +73,8 @@
   items:
   - name: Security
     items:
+    - name: DNS security policy
+      href: dns-security-policy.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-dns-security-baseline?toc=/azure/dns/TOC.json
   - name: Public DNS
@@ -87,8 +89,6 @@
       href: dnssec.md
     - name: FAQ
       href: dns-faq.yml
-    - name: DNS metrics and alerts
-      href: dns-alerts-metrics.md
     - name: Reverse DNS
       href: dns-reverse-dns-overview.md
   - name: Private DNS
@@ -119,6 +119,14 @@
       href: private-resolver-reliability.md
 - name: How-to guides
   items:
+  - name: Monitor and manage DNS traffic
+    items:
+    - name: Secure and view DNS traffic
+      href: dns-traffic-log-how-to.md
+    - name: Monitor Azure DNS
+      href: monitor-dns.md
+    - name: Azure DNS Monitoring data reference
+      href: monitor-dns-reference.md
   - name: Public DNS
     items:
     - name: Alias records for load balanced web apps
@@ -185,6 +193,8 @@
       href: private-reverse-dns.md
     - name: Use Azure Resource Graph Explorer
       href: private-dns-arg.md
+    - name: Fallback to internet resolution
+      href: private-dns-fallback.md
   - name: Private Resolver
     items:
     - name: Resolve Azure and on-premises domains

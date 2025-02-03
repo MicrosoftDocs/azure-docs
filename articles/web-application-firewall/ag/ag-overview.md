@@ -3,10 +3,10 @@ title: What is Azure Web Application Firewall on Azure Application Gateway?
 titleSuffix: Azure Web Application Firewall
 description: This article provides an overview of Web Application Firewall (WAF) on Application Gateway
 services: web-application-firewall
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.date: 01/26/2024
-ms.author: victorh
 ms.topic: conceptual
 ---
 
@@ -262,7 +262,7 @@ The pricing models are different for the WAF_v1 and WAF_v2 SKUs. See the [Applic
 
 ## What's new
 
-To learn what's new with Azure Web Application Firewall, see [Azure updates](https://azure.microsoft.com/updates/?category=networking&query=Web%20Application%20Firewall).
+To learn what's new with Azure Web Application Firewall, see [Azure updates](https://azure.microsoft.com/updates?filters=%5B%22Web+Application+Firewall%22%5D).
 
 ## Next steps
 

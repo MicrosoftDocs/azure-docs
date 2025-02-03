@@ -9,7 +9,7 @@ ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024
 ms.topic: article
-ms.date: 06/25/2024
+ms.date: 12/13/2024
 ms.author: danlep
 ---
 
@@ -62,7 +62,7 @@ Use the `azure-openai-semantic-cache-lookup` policy to perform cache lookup of r
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) v2
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption
 
 ### Usage notes
 

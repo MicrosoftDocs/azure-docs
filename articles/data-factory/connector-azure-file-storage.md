@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/13/2024
+ms.date: 12/16/2024
 ---
 
 # Copy data from or to Azure Files by using Azure Data Factory
@@ -485,6 +485,9 @@ The following properties are supported for Azure Files under `storeSettings` set
     }
 ]
 ```
+
+>[!NOTE]
+>You can copy up to 4 MB of data to the sink when using system-assigned or user-assigned managed identity as the authentication type.
 
 ### Folder and file filter examples
 

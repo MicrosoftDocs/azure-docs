@@ -163,6 +163,9 @@
     - name: Securely access Key Vault with Batch
       displayName: credential, certificate
       href: credential-access-key-vault.md
+    - name: Role-based access control for Azure Batch service
+      displayName: rbac, access control
+      href: batch-role-based-access-control.md      
   - name: Copy files and applications to pool nodes
     items:
     - name: Copying applications and data to pool nodes
@@ -238,6 +241,8 @@
     - name: Job preparation and completion tasks
       displayName: release, job release
       href: batch-job-prep-release.md
+    - name: Configure Container Data Isolation Task
+      href: batch-container-isolation-task.md  
     - name: Concurrent node tasks
       displayName: variable, maximize
       href: batch-parallel-node-tasks.md

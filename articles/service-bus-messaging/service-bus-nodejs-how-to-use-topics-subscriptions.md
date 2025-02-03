@@ -31,7 +31,7 @@ In this tutorial, you complete the following steps:
 
 ## Prerequisites
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- [Node.js LTS](https://nodejs.org/en/download/)
+- [Node.js LTS](https://nodejs.org/en/download/package-manager/)
 - Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md). You will use only one subscription for this quickstart.
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Quickstart - Monitor applications end-to-end"
+title: "Quickstart - Monitor Applications End-to-End"
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Explains how to monitor apps running the Azure Spring Apps Enterprise plan by using Application Insights and Log Analytics.
 author: KarlErickson
@@ -14,7 +14,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This quickstart shows you how monitor apps running the Azure Spring Apps Enterprise plan by using Application Insights and Log Analytics.
 

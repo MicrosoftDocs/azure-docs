@@ -210,7 +210,7 @@ Peerings                         : []
 
 ### Send the service key to your connectivity provider for provisioning
 
-*ServiceProviderProvisioningState* provides you with information about the current state of provisioning on the service-provider side. *CircuitProvisioningState* provides you with the status on the Microsoft side. For more information about circuit provisioning states, see [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states).
+*ServiceProviderProvisioningState* provides you with information about the current state of provisioning on the service-provider side. *CircuitProvisioningState* provides you with the status on the Microsoft side. For more information about circuit provisioning states, see [Workflows](expressroute-workflows.md#expressroute-partner-circuit-provisioning-states).
 
 When you create a new ExpressRoute circuit, the circuit is in the following state:
 
@@ -445,7 +445,7 @@ Review the instructions in [Move ExpressRoute circuits from the classic to the R
 
 Note the following information:
 
-* All virtual networks must be unlinked from the ExpressRoute circuit. If this operation fails, check to see if any virtual networks are linked to the circuit.
+* All virtual networks, route filters, authorizations, and global reach associations must be unlinked from the ExpressRoute circuit. If this operation fails, check to see if any virtual networks are linked to the circuit.
 * If the ExpressRoute circuit service provider provisioning state is **Provisioning** or **Provisioned** you must work with your service provider to deprovision the circuit on their side. We continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
 * If the service provider deprovisioned the circuit, meaning the service provider provisioning state gets set to **Not provisioned**, you can delete the circuit. The billing for the circuit stops.
 

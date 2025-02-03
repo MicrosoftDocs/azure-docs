@@ -6,7 +6,7 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: primittal
 ms.topic: how-to
-ms.date: 06/28/2024
+ms.date: 12/06/2024
 ms.author: banders
 ---
 
@@ -14,12 +14,12 @@ ms.author: banders
 
 Cloud Solution Providers can access reservations that are purchased for their customers. Use the following information to view reservations in the Azure portal.
 
-Reservations don't support roles assigned with Azure Lighthouse. To view reservations, you need to be a global admin or an admin agent in the customer's tenant.
+Reservations don't support roles assigned with Azure Lighthouse. To view reservations, you need to be a admin agent or [billing admin](/partner-center/account-settings/permissions-overview#billing-admin-role) in the customer's tenant.
 
 ## View reservations
 
-1. Contact your global admin to get yourself added as an **admin agent** in your tenant.
-    The option is available to global admins in the Partner Center. It's under **Settings** (the gear symbol on the top right of the page) > **User management**.  
+1. Contact your [billing admin](/partner-center/account-settings/permissions-overview#billing-admin-role) to get yourself added as an **admin agent** in your tenant.
+    The option is available to billing admins in the Partner Center. It's under **Settings** (the gear symbol on the top right of the page) > **User management**.  
 1. After you have admin agent privilege, go to the Azure portal using the **Admin on Behalf Of** link.
 1. Navigate to Partner Center > **Customers** > expand customer details > **Microsoft Azure Management Portal**.
 1. In the Azure portal, go to **Reservations**.

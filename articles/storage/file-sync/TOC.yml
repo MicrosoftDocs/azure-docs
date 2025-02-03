@@ -189,6 +189,14 @@
     href: /troubleshoot/azure/azure-storage/file-sync-troubleshoot-cloud-tiering?toc=/azure/storage/file-sync/toc.json
   - name: Troubleshoot managed identities
     href: /troubleshoot/azure/azure-storage/files/file-sync/file-sync-troubleshoot-managed-identities?toc=/azure/storage/file-sync/toc.json
+- name: Training
+  items:
+  - name: Extend share capacity with Azure File Sync
+    href: /training/modules/extend-share-capacity-with-azure-file-sync/
+  - name: Configure Azure Files and Azure File Sync
+    href: /training/modules/configure-azure-files-file-sync/
+  - name: Implement a hybrid file server infrastructure
+    href: /training/modules/implement-hybrid-file-server-infrastructure/    
 - name: Reference
   items:
   - name: Azure File Sync agent silent installation
@@ -199,8 +207,10 @@
     href: ../files/storage-files-faq.md?toc=/azure/storage/file-sync/toc.json
   - name: Compliance offerings
     href: ../common/storage-compliance-offerings.md?toc=/azure/storage/file-sync/toc.json
-  - name: Monitoring Azure Files reference
+  - name: Monitoring Azure Files data reference
     href: ../files/storage-files-monitoring-reference.md?toc=/azure/storage/file-sync/toc.json
+  - name: Monitoring Azure File Sync data reference
+    href: monitor-file-sync-reference.md
   - name: Resource Manager template
     displayName: arm
     href: /azure/templates/microsoft.storage/allversions
@@ -257,7 +267,7 @@
       - name: Data Movement library
         href: https://github.com/Azure/azure-storage-net-data-movement
       - name: Storage Resource Provider library
-        href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.Management.Storage
+        href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.ResourceManager.Storage
     - name: Java
       items:
       - name: Azure Storage client library version 12.x (preview)

@@ -1,14 +1,9 @@
 ---
 title: Managed identity for storage accounts
-titleSuffix: Azure Cache for Redis
 description: Learn to Azure Cache for Redis
-
-
-
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2024
 ms.topic: conceptual
 ms.date: 08/29/2022
-
 ---
 
 # Managed identity for storage
@@ -40,14 +35,12 @@ Managed identity can be enabled either when you create a cache instance or after
 ## Scope of availability
 
 |Tier     | Basic, Standard  | Premium  |Enterprise, Enterprise Flash  |
-|---------|---------|---------|---------|
-|Available  | No         | Yes        |  No  |
+|---------|:---------:|:---------:|:---------:|
+|Available  | Yes         | Yes        |  No  |
 
 ## Prerequisites and limitations
 
 Managed identity for storage is only used with the import/export feature and persistence feature now, which limits its use to the Premium tier of Azure Cache for Redis.
-
-Managed identity for storage isn't supported on caches that have a dependency on Cloud Services (classic). For more information on how to check on whether your cache is using Cloud Services (classic), see [How do I know if a cache is affected?](cache-faq.yml#how-do-i-know-if-a-cache-is-affected).
 
 ## Create a new cache with managed identity using the portal
 

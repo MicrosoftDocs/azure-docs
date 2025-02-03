@@ -37,7 +37,7 @@ After the disks are connected and unlocked, you can copy data from your source d
 > [!IMPORTANT]
 > Azure Data Box now supports access tier assignment at the blob level. The steps contained within this tutorial reflect the updated data copy process and are specific to block blobs.
 >
-> Access tier assignment is not supported when copying data using the Data Box Split Copy Tool. If your use case requires access tier assignment, follow the steps containined within the [Copy data to disks](#copy-data-to-disks) section to copy your data to the appropriate access tier using the Robocopy utility.
+> Access tier assignment is not supported when copying data using the Data Box Split Copy Tool. If your use case requires access tier assignment, follow the steps contained within the [Copy data to disks](#copy-data-to-disks) section to copy your data to the appropriate access tier using the Robocopy utility.
 >
 > For help with determining the appropriate access tier for your block blob data, refer to the [Determine appropriate access tiers for block blobs](#determine-appropriate-access-tiers-for-block-blobs) section.
 >
@@ -148,7 +148,7 @@ Perform the following steps to connect and copy data from your computer to the D
     `Robocopy <source> <destination>  * /MT:64 /E /R:1 /W:1 /NFL /NDL /FFT /Log:c:\RobocopyLog.txt`
 
     >[!NOTE]
-    > The parameters used in this example are based on the environment used during in-house testing. Your paramters and values are likely different.
+    > The parameters used in this example are based on the environment used during in-house testing. Your parameters and values are likely different.
 
     The parameters and options for the command are used as follows:
 
@@ -252,7 +252,7 @@ The Data Box Split Copy tool helps split and copy data across two or more Azure 
 >[!IMPORTANT]
 > The Data Box Split Copy tool can also validate your data. If you use Data Box Split Copy tool to copy data, you can skip the [validation step](#validate-data).
 >
-> Access tier assignment is not supported when copying data using the Data Box Split Copy Tool. If your use case requires access tier assignment, follow the steps containined within the [Copy data to disks](#copy-data-to-disks) section to copy your data to the appropriate access tier using the Robocopy utility.
+> Access tier assignment is not supported when copying data using the Data Box Split Copy Tool. If your use case requires access tier assignment, follow the steps contained within the [Copy data to disks](#copy-data-to-disks) section to copy your data to the appropriate access tier using the Robocopy utility.
 >
 > The Data Box Split Copy tool is not supported with managed disks.
 

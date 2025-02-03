@@ -1,5 +1,5 @@
 ---
-title: "Quickstart - Build and deploy apps to Azure Spring Apps"
+title: "Quickstart - Build and Deploy Apps to Azure Spring Apps"
 description: Describes app deployment to Azure Spring Apps.
 author: KarlErickson
 ms.author: karler
@@ -14,7 +14,7 @@ zone_pivot_groups: programming-languages-spring-apps
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ❌ Enterprise
+**This article applies to:** ✅ Basic/Standard ❎ Enterprise
 
 ::: zone pivot="programming-language-csharp"
 
@@ -187,7 +187,7 @@ This response shows that both Spring apps are working. The `SolarSystemWeather` 
 
 ::: zone pivot="programming-language-java"
 
-This article explains how to build and deploy Spring applications to Azure Spring Apps. You can use Azure CLI, the Maven plugin, or Intellij. This article describes each alternative.
+This article explains how to build and deploy Spring applications to Azure Spring Apps. You can use Azure CLI, the Maven plugin, or IntelliJ. This article describes each alternative.
 
 ## Prerequisites
 

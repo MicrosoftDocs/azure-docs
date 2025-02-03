@@ -4,7 +4,7 @@ description: Understand how to develop, validate, and deploy your Python code pr
 ms.topic: article
 ms.date: 07/30/2024
 ms.devlang: python
-ms.custom: devx-track-python, devdivchpfy22
+ms.custom: devx-track-python, devdivchpfy22, ignite-2024
 zone_pivot_groups: python-mode-functions
 ---
 
@@ -46,7 +46,7 @@ As a Python developer, you might also be interested in these topics:
 
 ## [Hosting options](#tab/hosting)
 
-+ [Flex Consumption plan](./flex-consumption-plan.md): Linux-based serverless hosting option that features full support for managed identities, virtual networks, and flexible deployments. This plan is currently in preview.
++ [Flex Consumption plan](./flex-consumption-plan.md): Linux-based serverless hosting option that features full support for managed identities, virtual networks, and flexible deployments. 
 + [Container hosting options](container-concepts.md): Run and deploy your Python functions on Linux in a Docker container, including integrated [Azure Container Apps hosting](functions-container-apps-hosting.md).
 + [Compare hosting options...](functions-scale.md) 
 
@@ -66,7 +66,7 @@ Python v1 programming model:
 + [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-configuration)
 + [Terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-configuration)
 
-You can also create Python v1 functions in the Azure portal.
+You can also create Python functions in the Azure portal.
 
 > [!TIP]
 > Although you can develop your Python-based Azure functions locally on Windows, Python is supported only on a Linux-based hosting plan when it's running in Azure. For more information, see the [list of supported operating system/runtime combinations](functions-scale.md#operating-systemruntime).

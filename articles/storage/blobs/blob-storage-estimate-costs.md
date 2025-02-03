@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 09/10/2024
+ms.date: 01/06/2025
 ms.author: normesta
 ms.custom: subject-cost-optimization
 ---
@@ -78,13 +78,13 @@ The number of operations required to download a blob depends on which endpoint y
 
 Using the [Sample prices](#sample-prices) that appear in this article, the following table estimates the cost to download **1,000** blobs that are **5 GiB** each in size from the cool tier by using the Blob Storage endpoint. 
 
-| Price factor                                         | Value      |
-|------------------------------------------------------|------------|
-| Price of a single read operation (price / 10,000)    | $0.000001  |
-| **Cost of read operations (1000 * operation price)** | **$0.001** |
-| Price of data retrieval (per GiB)                    | $0.01      |
-| **Cost of data retrieval (5 * price of data retrieval)**     | **$0.05**  |
-| **Total cost (read + retrieval)**                    | **$0.051** |
+| Price factor                                                    | Value      |
+|-----------------------------------------------------------------|------------|
+| Price of a single read operation (price / 10,000)               | $0.000001  |
+| **Cost of read operations (1000 * operation price)**            | **$0.001** |
+| Price of data retrieval (per GiB)                               | $0.01      |
+| **Cost of data retrieval 1000 * (5 * price of data retrieval)** | **$50.00** |
+| **Total cost (read + retrieval)**                               | **$50.01** |
 
 Utilities such as AzCopy also use list operations and operations to obtain blob properties. As a proportion of the overall bill, these charges are relatively small. For examples, see [Estimate the cost to download](azcopy-cost-estimation.md#the-cost-to-download). 
 
@@ -134,7 +134,7 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 | Price factor                                                                                | Hot        | Cool       | Cold       |
 |---------------------------------------------------------------------------------------------|------------|------------|------------|
 | Price of a single write operation to the Blob Service endpoint (price / 10,000)             | $0.0000055 | $0.00001   | $0.000018  |
-| **Cost to rename blob virtual directories (1000 * (1000 * price of a single operation)**               | **$5.50**  | **$10.00** | **$18.00** |
+| **Cost to rename blob virtual directories (1000 * price of a single operation)**               | **$5.50**  | **$10.00** | **$18.00** |
 | Price of a single iterative write operation to the Data Lake Storage endpoint (price / 100) | $0.000715  | $0.000715  | $0.000715  |
 | **Cost to rename Data Lake Storage directories (1000 * price of a single operation)**                   | **$0.715** | **$0.715** | **0.715**  |
 

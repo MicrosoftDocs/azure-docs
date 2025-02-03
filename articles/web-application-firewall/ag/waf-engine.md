@@ -4,9 +4,9 @@ titleSuffix: Azure Web Application Firewall
 description: This article provides an overview of the Azure WAF engine.
 services: web-application-firewall
 author: johndowns
+ms.author: jodowns
 ms.service: azure-web-application-firewall
 ms.date: 03/05/2024
-ms.author: jodowns
 ms.topic: conceptual
 ---
 
@@ -32,9 +32,10 @@ There are many new features that are only supported in the Azure WAF engine. The
 * [CRS 3.2](application-gateway-crs-rulegroups-rules.md#owasp-crs-32)
   * Increased request body size limit to 2 MB
   * Increased file upload limit to 4 GB
+* [DRS 2.1](application-gateway-crs-rulegroups-rules.md#drs-21) and later DRS versions
 * [WAF v2 metrics](application-gateway-waf-metrics.md#application-gateway-waf-v2-metrics)
 * [Per rule exclusions](application-gateway-waf-configuration.md#per-rule-exclusions) and support for [exclusion attributes by name](application-gateway-waf-configuration.md#request-attributes-by-keys-and-values).
-* [Increased scale limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits)
+* [Increased scale limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-application-gateway-limits)
   * HTTP listeners limit
   * WAF IP address ranges per match condition
   * Exclusions limit

@@ -1,5 +1,5 @@
 ---
-title: How to set up single sign-on with Microsoft Entra ID for Spring Cloud Gateway and API Portal for Tanzu
+title: How to Set Up Single Sign-on with Microsoft Entra ID for Spring Cloud Gateway and API Portal for Tanzu
 titleSuffix: Azure Spring Apps Enterprise plan
 description: How to set up single sign-on with Microsoft Entra ID for Spring Cloud Gateway and API Portal for Tanzu with the Azure Spring Apps Enterprise plan.
 author: KarlErickson
@@ -14,7 +14,7 @@ ms.custom: devx-track-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article shows you how to configure single sign-on (SSO) for Spring Cloud Gateway or API Portal using the Microsoft Entra ID as an OpenID identify provider.
 

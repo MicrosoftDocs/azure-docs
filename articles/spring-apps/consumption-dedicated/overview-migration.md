@@ -1,5 +1,5 @@
 ---
-title: Migrate Azure Spring Apps Standard consumption and dedicated plan to Azure Container Apps
+title: Migrate Azure Spring Apps Standard Consumption and Dedicated Plan to Azure Container Apps
 description: The complete overview guide for migrating Azure Spring Apps Standard consumption and dedicated plan to Azure Container Apps, including steps, benefits, and frequently asked questions.
 author: KarlErickson
 ms.service: azure-spring-apps
@@ -21,8 +21,6 @@ We've introduced a migration feature to ease the transition from the Azure Sprin
 :::image type="content" source="media/overview-migration/consumption-plan-migration-button.png" alt-text="Screenshot of the Azure portal that shows the Migrate button." lightbox="media/overview-migration/consumption-plan-migration-button.png":::
 
 :::image type="content" source="media/overview-migration/consumption-plan-migration-confirmation.png" alt-text="Screenshot of the Migrate to Azure Container Apps dialog box." lightbox="media/overview-migration/consumption-plan-migration-confirmation.png":::
-
-This feature will be available mid-October 2024 and you can start the migration process as soon as it's available.
 
 After the migration finishes, the app appears as a standard app inside Azure Container Apps, with the Java development stack turned on. With this option enabled, you get access to Java specific metrics and logs to monitor and troubleshoot your apps. For more information, see [Java metrics for Java apps in Azure Container Apps](../../container-apps/java-metrics.md) and [Set dynamic logger level to troubleshoot Java applications in Azure Container Apps](../../container-apps/java-dynamic-log-level.md).
 

@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -369,12 +369,12 @@ Grants a user/group the ability to create, delete and manage clusters within a g
 > | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/jobs/read | List HDInsight on AKS Cluster Jobs |
 > | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/runjob/action | Run HDInsight on AKS Cluster Job |
 > | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterpools/clusters/serviceconfigs/read | Get details about HDInsight on AKS Cluster Service Configurations |
-> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/availableupgrades/read | Get Avaliable Upgrades for HDInsight on AKS Cluster |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/availableupgrades/read | Get Available Upgrades for HDInsight on AKS Cluster |
 > | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/upgrade/action | Upgrade HDInsight on AKS Cluster |
 > | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/rollback/action | Rollback HDInsight on AKS Cluster Upgrade |
 > | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/upgradehistories/read | Read HDInsight on AKS Cluster Upgrade Histories |
-> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/libraries/read | Read HDInsight on AKS Cluster Libaries |
-> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/managelibraries/action | Manage HDInsight on AKS Cluster Libaries |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/libraries/read | Read HDInsight on AKS Cluster Libraries |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/managelibraries/action | Manage HDInsight on AKS Cluster Libraries |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/*/read |  |
@@ -475,7 +475,7 @@ Can read, create, modify and delete HDInsight on AKS cluster pools and create cl
 > | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/delete | Delete a HDInsight on AKS Cluster Pool |
 > | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/read | Get details about HDInsight on AKS Cluster Pool |
 > | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/write | Create or Update HDInsight on AKS Cluster Pool |
-> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterpools/availableupgrades/read | Get Avaliable Upgrades for HDInsight on AKS Cluster Pool |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterpools/availableupgrades/read | Get Available Upgrades for HDInsight on AKS Cluster Pool |
 > | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterpools/upgrade/action | Upgrade HDInsight on AKS Cluster Pool |
 > | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/upgradehistories/read | Read HDInsight on AKS Cluster Pool Upgrade Histories |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
@@ -563,12 +563,14 @@ Can read, create, modify and delete HDInsight on AKS cluster pools and create cl
 
 Log Analytics Contributor can read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs; reading storage account keys to be able to configure collection of logs from Azure Storage; adding solutions; and configuring Azure diagnostics on all Azure resources.
 
+[!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
+
 [Learn more](/azure/azure-monitor/logs/manage-access)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | */read | Read resources of all types, except secrets. |
+> | */read | Read control plane information for all Azure resources. |
 > | [Microsoft.ClassicCompute](../permissions/compute.md#microsoftclassiccompute)/virtualMachines/extensions/* |  |
 > | [Microsoft.ClassicStorage](../permissions/storage.md#microsoftclassicstorage)/storageAccounts/listKeys/action | Lists the access keys for the storage accounts. |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/extensions/* |  |
@@ -628,12 +630,14 @@ Log Analytics Contributor can read all monitoring data and edit monitoring setti
 
 Log Analytics Reader can view and search all monitoring data as well as and view monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources.
 
+[!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
+
 [Learn more](/azure/azure-monitor/logs/manage-access)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | */read | Read resources of all types, except secrets. |
+> | */read | Read control plane information for all Azure resources. |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/analytics/query/action | Search using new engine. |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/search/action | Executes a search query |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |

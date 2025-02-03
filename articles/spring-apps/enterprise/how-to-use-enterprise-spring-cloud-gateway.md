@@ -1,5 +1,5 @@
 ---
-title: How to use VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise plan
+title: How to Use VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise Plan
 description: Shows you how to use VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise plan to route requests to your applications.
 author: KarlErickson
 ms.author: xiading
@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article shows you how to use VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise plan to route requests to your applications.
 

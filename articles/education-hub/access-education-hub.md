@@ -11,6 +11,9 @@ ms.custom: mode-other
 
 # Access the Azure Education Hub
 
+> [!WARNING]
+> This offer requires assistance from your Microsoft sales representative. Self-service signup is not available.
+
 The email that you received to confirm your approval for an academic sponsorship includes a [link to the Azure Education Hub](https://aka.ms/startedu) and an approved credit amount. Most sponsored academic offers include a Developer tier of Azure support for free.
 
 To use your academic sponsorship, you must create a lab in the Education Hub and use subscriptions within the lab that will access your Azure credit. Start by signing in to the [Azure portal](https://portal.azure.com) so you can access the Education Hub.

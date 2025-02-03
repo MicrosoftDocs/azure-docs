@@ -31,6 +31,7 @@ Here are the error messages that occur if the FHIR service SMART identity provid
 | **One or more SMART application `audience` values are null, empty, or invalid.** | The `audience` string in one or more application configurations is null, empty, or malformed. | Ensure the `audience` string isn't null or empty and that the value is a string type. |
 | **All SMART identity provider application client ids must be unique.** | The `clientId` value in one or more application configurations is the same value as another `clientId` value. | Ensure all `clientId` values are unique (including across identity provider configurations). |
 | **One or more SMART application client id values are null, empty, or invalid.** | The `clientId` string in one or more application configurations is null, empty, or malformed. | Ensure the `clientId` string isn't null or empty and that the value is a string type. |
+| **An authorization failure with the Azure Health Data Services FHIR API using third party identity provider.** | FHIR SMART user role will cause this issue as it adds an authentication layer. | Ensure that the FHIR SMART user role is not assigned. |
 
 ## FHIR API request errors
 

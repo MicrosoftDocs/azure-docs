@@ -23,6 +23,8 @@
         href: network-attached-storage-concept.md 
       - name: Understand NAS protocols
         href: network-attached-storage-protocols.md
+      - name: Understand SMB support 
+        href: sever-message-block-support.md
       - name: Understand NAS permissions 
         items:
         - name: Understand NAS share permissions 
@@ -43,6 +45,8 @@
         href: dual-protocol-permission-behaviors.md
       - name: Understand data encryption 
         href: understand-data-encryption.md
+      - name: Understand Kerberos
+        href: kerberos.md 
       - name: Understand guidelines for Active Directory Domain Services
         href: understand-guidelines-active-directory-domain-service-site.md
       - name: Understand DNS 
@@ -67,6 +71,10 @@
       href: azure-netapp-files-network-topologies.md
     - name: Resource limits for Azure NetApp Files
       href: azure-netapp-files-resource-limits.md
+    - name: Understand large volumes 
+      href: large-volumes.md
+    - name: Requirements and considerations for large volumes
+      href: large-volumes-requirements-considerations.md
     - name: High file counts 
       items: 
         - name: Understand maxfiles 
@@ -99,10 +107,6 @@
       href: regional-capacity-quota.md
     - name: Understand default and individual user and group quotas
       href: default-individual-user-group-quotas-introduction.md
-    - name: Understand large volumes 
-      href: large-volumes.md
-    - name: Requirements and considerations for large volumes
-      href: large-volumes-requirements-considerations.md
   - name: Performance
     items:
     - name: Best practices and considerations

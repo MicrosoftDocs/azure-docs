@@ -2,10 +2,10 @@
 title: Troubleshoot Azure file share backup
 description: This article is troubleshooting information about issues occurring when protecting your Azure file shares.
 ms.service: azure-backup
-ms.date: 07/18/2024
+ms.date: 01/15/2025
 ms.topic: troubleshooting
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 
@@ -135,7 +135,7 @@ Error Code: UserErrorStorageAccountInternetRoutingNotSupported
 
 Error Message: Storage accounts with Internet routing configuration are not supported by Azure Backup
 
-Ensure that the routing preference set for the storage account hosting backed up file share is Microsoft network routing.
+Ensure that the routing preference set for the storage account hosting backed-up file share is Microsoft network routing.
 
 ### FileshareBackupFailedWithAzureRpRequestThrottling/ FileshareRestoreFailedWithAzureRpRequestThrottling- File share backup or restore operation failed due to storage service throttling. This may be because the storage service is busy processing other requests for the given storage account
 
@@ -290,6 +290,22 @@ Recommended Actions: Ensure that the following configurations in the storage acc
 
   :::image type="content" source="./media/troubleshoot-azure-files/target-storage-account-configuration.png" alt-text="Screenshot shows the target storage account configuration." lightbox="./media/troubleshoot-azure-files/target-storage-account-configuration.png":::
 
+### DatamoverGenericError
+
+**Error Code**: `DatamoverGenericError`
+ 
+**Error Message**: Failed to transfer data to vault.
+ 
+**Recommended action**: Wait for a few minutes and then retry the operation. If the issue persists, contact Microsoft support.
+ 
+### DatamoverInsufficientVaultStorage
+
+**Error Code**: `DatamoverInsufficientVaultStorage`
+ 
+**Error Message**: Current operation has failed due to insufficient vault storage.
+ 
+**Recommended action**: The next backup will be automatically triggered with increased vault storage.
+
 
 ## Common policy modification errors
 
@@ -328,7 +344,7 @@ Error Message: Listed restore points are not available as the associated file sh
 Check if the backed-up file share is deleted. If it was in soft deleted state, check if the soft delete retention period is over and it wasn't recovered back. In either of these cases, you'll lose all your snapshots permanently and won’t be able to recover the data.
 
 >[!NOTE]
-> We recommend you don't delete the backed up file share, or if it's in soft deleted state, undelete before the soft delete retention period ends, to avoid losing all your restore points.
+> We recommend you don't delete the backed-up file share, or if it's in soft deleted state, undelete before the soft delete retention period ends, to avoid losing all your restore points.
 
 ### UserErrorBackupAFSInSoftDeleteState - Backup failed as the Azure File Share is in soft-deleted state
 

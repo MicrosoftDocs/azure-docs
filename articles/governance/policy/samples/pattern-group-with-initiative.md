@@ -42,5 +42,5 @@ passthrough of values improves reuse.
 ## Next steps
 
 - Review other [patterns and built-in definitions](./index.md).
-- Review the [Azure Policy definition structure](../concepts/definition-structure.md).
-- Review [Understanding policy effects](../concepts/effects.md).
+- Review the [Azure Policy definition structure](../concepts/definition-structure-basics.md).
+- Review [Understanding policy effects](../concepts/effect-basics.md).

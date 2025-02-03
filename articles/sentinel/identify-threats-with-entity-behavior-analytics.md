@@ -4,7 +4,7 @@ description: Create behavioral baselines for entities (users, hostnames, IP addr
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 03/19/2024
+ms.date: 10/16/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -25,7 +25,7 @@ The UEBA capability in Microsoft Sentinel eliminates the drudgery from your anal
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
-All the benefits of UEBA are available in the unified security operations platform in the Microsoft Defender portal.
+All the benefits of UEBA are available in the Microsoft Defender portal.
 
 ## What is User and Entity Behavior Analytics (UEBA)?
 
@@ -57,7 +57,7 @@ Microsoft Sentinel presents artifacts that help your security analysts get a cle
 The user entity information that Microsoft Sentinel uses to build its user profiles comes from your Microsoft Entra ID (and/or your on-premises Active Directory, now in Preview). When you enable UEBA, it synchronizes your Microsoft Entra ID with Microsoft Sentinel, storing the information in an internal database visible through the *IdentityInfo* table.
 
 - In Microsoft Sentinel in the Azure portal, you query the *IdentityInfo* table in Log Analytics on the **Logs** page.
-- In the unified security operations platform in Microsoft Defender, you query this table in **Advanced hunting**.
+- In the Defender portal, you query this table in **Advanced hunting**.
 
 Now in preview, you can also sync your on-premises Active Directory user entity information as well, using Microsoft Defender for Identity.
 
@@ -77,7 +77,7 @@ Information about **entity pages** can now be found at [Entity pages in Microsof
 
 ## Querying behavior analytics data
 
-Using [KQL](/azure/data-explorer/kusto/query/), we can query the **BehaviorAnalytics** table.
+Using [KQL](/kusto/query/?view=microsoft-sentinel&preserve-view=true), we can query the **BehaviorAnalytics** table.
 
 For example – if we want to find all the cases of a user that failed to sign in to an Azure resource, where it was the user's first attempt to connect from a given country/region, and connections from that country/region are uncommon even for the user's peers, we can use the following query:
 
@@ -89,7 +89,7 @@ BehaviorAnalytics
 ```
 
 - In Microsoft Sentinel in the Azure portal, you query the *BehaviorAnalytics* table in Log Analytics on the **Logs** page.
-- In the unified security operations platform in Microsoft Defender, you query this table in **Advanced hunting**.
+- In the Defender portal, you query this table in **Advanced hunting**.
 
 ### User peers metadata - table and notebook
 
@@ -97,7 +97,7 @@ User peers' metadata provides important context in threat detections, in investi
 
 Microsoft Sentinel calculates and ranks a user's peers, based on the user’s Microsoft Entra security group membership, mailing list, et cetera, and stores the peers ranked 1-20 in the **UserPeerAnalytics** table. The screenshot below shows the schema of the UserPeerAnalytics table, and displays the top eight-ranked peers of the user Kendall Collins. Microsoft Sentinel uses the *term frequency-inverse document frequency* (TF-IDF) algorithm to normalize the weighing for calculating the rank: the smaller the group, the higher the weight. 
 
-:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-peers-metadata.png" alt-text="Screen shot of user peers metadata table":::
+:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-peers-metadata.png" alt-text="Screen shot of user peers metadata table" lightbox="./media/identify-threats-with-entity-behavior-analytics/user-peers-metadata.png":::
 
 You can use the [Jupyter notebook](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/scenario-notebooks/UserSecurityMetadata) provided in the Microsoft Sentinel GitHub repository to visualize the user peers metadata. For detailed instructions on how to use the notebook, see the [Guided Analysis - User Security Metadata](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/scenario-notebooks/UserSecurityMetadata/Guided%20Analysis%20-%20User%20Security%20Metadata.ipynb) notebook.
 

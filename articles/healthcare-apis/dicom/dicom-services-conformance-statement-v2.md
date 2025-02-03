@@ -46,7 +46,7 @@ This version of the conformance statement corresponds to the `v2` version of the
 
 For more information on how to specify the version when making requests, see the [API Versioning Documentation](api-versioning-dicom-service.md).
 
-You can find example requests for supported transactions in the [Postman collection](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json).
+You can find example requests for supported transactions in the Postman collection.
 
 ## Preamble Sanitization
 
@@ -108,6 +108,10 @@ When a sequence contains an attribute that fails validation, or when there are m
 
 If an attribute is padded with nulls, the attribute is indexed when searchable and is stored as is in dicom+json metadata. No validation warning is provided.
 
+#### Store DICOM file with external metadata
+
+The [external metadata](external-metadata.md#store-stow-rs) documentation explains the ability to store DICOM file with external metadata.
+
 #### Store response status codes
 
 | Code                           | Description                                                                                                                                                                                                        |
@@ -124,7 +128,7 @@ If an attribute is padded with nulls, the attribute is indexed when searchable a
 | `500 (Internal Server Error)`  | The server encountered an unknown internal error. Try again later.                                                                                                                                                 |
 | `503 (Service Unavailable)`    | The service is unavailable or busy. Try again later.                                                                                                                                                               |
 
-### Store response paylo
+### Store response payload
 
 The response payload populates a DICOM dataset with the following elements:
 
@@ -377,6 +381,9 @@ Retrieving metadata doesn't return attributes with the following value represent
 
 Retrieved metadata includes the null character when the attribute was padded with nulls and stored as is.
 
+> [!NOTE]
+> The [external metadata](external-metadata.md#store-stow-rs) documentation explains the ability to retrieve DICOM file with external metadata.
+
 ### Retrieve metadata cache validation (for study, series, or instance)
 
 Cache validation is supported using the `ETag` mechanism. In the response to a metadata request, ETag is returned as one of the headers. This ETag can be cached and added as an `If-None-Match` header in the later requests for the same metadata. Two types of responses are possible if the data exists.
@@ -510,6 +517,9 @@ Tags can be encoded in several ways for the query parameter. We partially implem
 Example query searching for instances:
 
 `../instances?Modality=CT&00280011=512&includefield=00280010&limit=5&offset=0`
+
+> [!NOTE]
+> The [external metadata](external-metadata.md#store-stow-rs) documentation explains the ability to query DICOM file with external metadata.
 
 ### Search response
 
@@ -905,7 +915,7 @@ The following parameters for each query are supported:
 | --------- | ------------- | ------------ | --------------------------------------------------------------------- |
 | `{attributeID}=` | `{value}` | 0...N | Search for attribute/value matching in query. |
 | `includefield=`  | `{attributeID}`<br/>`all` | 0...N | The other attributes to return in the response. Only top-level attributes can be included - not attributes that are part of sequences. Both public and private tags are supported. When `all` is provided. See [Search Response](#search-response) for more information about which attributes are returned for each query type. If a mixture of `{attributeID}` and `all` is provided, the server defaults to using 'all'. |
-| `limit=`         | `{value}` | 0...1 | Integer value to limit the number of values returned in the response. Value can be between the range `1 >= x <= 200`. Defaulted to `100`. |
+| `limit=`         | `{value}` | 0...1 | Integer value to limit the number of values returned in the response. Value can be between the range `1 >= x <= 4000`. Defaulted to `100`. |
 | `offset=` | `{value}` | 0...1 | Skip {value} results. If an offset is provided larger than the number of search query results, a `204 (no content)` response is returned. |
 | `fuzzymatching=` | `true` \ `false` | 0...1 | If true fuzzy matching is applied to any attributes with the Person Name (PN) Value Representation (VR). It does a prefix word match of any name part inside these attributes. For example, if `PatientName` is `John^Doe`, then `joh`, `do`, `jo do`, `Doe` and `John Doe` all match. However `ohn` doesn't match. |
 

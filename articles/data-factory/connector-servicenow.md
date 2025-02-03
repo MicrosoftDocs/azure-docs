@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/16/2024
+ms.date: 10/23/2024
 ---
 
 # Copy data from ServiceNow using Azure Data Factory or Synapse Analytics
@@ -147,9 +147,9 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **ServiceNowV2Source** | Yes |
-| expression| Use the expression to read data. You can configure the expression in **Query builder**. It has the same usage as the condition builder in ServiceNow. For instructions on how to use it, see this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/concept/c_ConditionBuilder.html). | No |
+| expression| Use the expression to read data. You can configure the expression in **Query builder**. It has the same usage as the condition builder in ServiceNow. For instructions on how to use it, see this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/concept/c_ConditionBuilder.html). You can also [use expression parameters](#using-expression-parameters).| No |
 | *Under `expression`* |  |  |
-| type | The expression type. Values can be Constant (default), Unary, Binary, and Field.  | No  |
+| type | The expression type. Values can be Constant (default), Unary, Binary, Field and Nary.  | No  |
 | value | The constant value. |Yes when the expression type is Constant or Field |
 | operators | The operator value. For more information about operators, see *Operators available for choice fields containing strings* section in this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/reference/r_OpAvailableFiltersQueries.html).| Yes when the expression type is Unary or Binary |
 | operands | List of expressions on which operator is applied.| Yes when the expression type is Unary or Binary |
@@ -191,6 +191,64 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
                             "value": "2000"
                         }
                     ]
+                }
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+### Using expression parameters
+
+You can configure the expression parameter in **Query builder** by selecting **Add dynamic content**. The parameter type should be **Object**, and the value should follow the format shown in the example JSON below:
+
+```json
+ {
+	"type": "Nary",
+	"operators": [
+		"="
+	],
+	"operands": [
+		{
+			"type": "Field",
+			"value": "col"
+		},
+		{
+			"type": "Constant",
+			"value": "val"
+		}
+	]
+}
+```
+
+Here is an example of the source JSON using the expression parameter:
+
+```json
+"activities": [
+    {
+        "name": "CopyFromServiceNow",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<ServiceNow input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "ServiceNowV2Source",
+                "expression": {
+                    "type": "Expression",
+                    "value": "@pipeline().parameters.expressionParameter"
                 }
             },
             "sink": {

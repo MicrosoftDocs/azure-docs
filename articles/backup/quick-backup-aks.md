@@ -2,10 +2,12 @@
 title: "Quickstart: Configure an Azure Kubernetes Services cluster backup"
 description: Learn how to configure backup for an Azure Kubernetes Service (AKS) cluster, and then use Azure Backup to back up specific items in the cluster.
 ms.topic: quickstart
-ms.date: 11/04/2024
+ms.date: 01/21/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.custom:
+  - ignite-2024
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Quickstart: Configure backup for an AKS cluster
@@ -33,13 +35,19 @@ Before you configure vaulted backup for AKS cluster, ensure the following prereq
   
     :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-vault.png" alt-text="Screenshot that shows the Configure Backup page." lightbox="./media/azure-kubernetes-service-cluster-backup/select-vault.png":::
 
-    The Backup vault must have Trusted Access enabled for the AKS cluster that you want to back up. To enable Trusted Access, select **Grant permission**. If it's already enabled, select **Next**.
+    The Backup vault must have Trusted Access enabled for the AKS cluster that you want to back up. To enable Trusted Access, select **Grant permission**. Once enabled, select **Next**.
 
     :::image type="content" source="./media/quick-backup-aks/backup-vault-review.png" alt-text="Screenshot that shows the review page for Configure Backup." lightbox="./media/quick-backup-aks/backup-vault-review.png":::
 
-1. Select a backup policy, which defines the schedule for backups and their retention period in both Operation and Vault-standard. Then select **Next**.
+   > [!NOTE]
+   > In case you are looking to backup you AKS clusters in a secondary region, select a Backup vault with Storage Redundancy set as Globally redundant and Cross Region Restore enabled.
+
+1. Select a backup policy, which defines the schedule for backups and their retention period. Then select **Next**.
 
     :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-backup-policy.png" alt-text="Screenshot that shows the Backup policy tab." lightbox="./media/azure-kubernetes-service-cluster-backup/select-backup-policy.png":::
+
+   > [!NOTE]
+   > Please add a retention rule for Vault Tier if you are looking to store backups for long term for compliance reasons, enable ransomware protection features or use them for regional disaster recovery. 
 
 1. On the **Datasources** tab, select **Add/Edit** to define the backup instance configuration.
 
@@ -53,7 +61,7 @@ Before you configure vaulted backup for AKS cluster, ensure the following prereq
 
     :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/validate-snapshot-resource-group-selection.png" alt-text="Screenshot that shows the Snapshot resource group dropdown." lightbox="./media/azure-kubernetes-service-cluster-backup/validate-snapshot-resource-group-selection.png":::
 
-When validation is finished, if required roles aren't assigned to the vault in the snapshot resource group, an error appears.
+1. When validation is finished, if required roles aren't assigned to the vault in the snapshot resource group, an error appears.
      :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/validation-error-permissions-not-assigned.png" alt-text="Screenshot that shows a validation error." lightbox="./media/azure-kubernetes-service-cluster-backup/validation-error-permissions-not-assigned.png":::  
 
 1. To resolve the error, under **Datasource name**, select the datasource, and then select **Assign missing roles**.
@@ -76,5 +84,8 @@ When validation is finished, if required roles aren't assigned to the vault in t
 
 ## Next step
 
+Restore a backup for an AKS cluster using:
+
 > [!div class="nextstepaction"]
-> [Restore a backup for an AKS cluster](./azure-kubernetes-service-cluster-restore.md)
+>- [Azure portal](./azure-kubernetes-service-cluster-restore.md)
+>- [Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md)
