@@ -29,9 +29,9 @@ Azure Update Management offers a straightforward and efficient solution for mana
 
 # [Supported OS type](#tab/sup-os)
 
-- **Windows**: Cross-subscription patching supports various versions of Windows Server and Windows operating systems. Ensure that your Windows devices are up-to-date and compatible with the patching process. For more information, see [support matrix for Arc-connected hosts](support-matrix-updates#azure-arc-enabled-servers)and [Azure VM for supported images](support-matrix-updates.md#supported-windows-os-images). 
+- **Windows**: Cross-subscription patching supports various versions of Windows Server and Windows operating systems. Ensure that your Windows devices are up-to-date and compatible with the patching process. For more information, see [support matrix for Arc-connected hosts](support-matrix-updates.md#azure-arc-enabled-servers)and [Azure VM for supported images](support-matrix-updates.md#supported-windows-os-images). 
 
-- **Linux**: Cross-subscription patching also supports multiple Linux distributions, including most mainstream distributions like Ubuntu, CentOS, and Red Hat Enterprise Linux (RHEL) etc. Make sure that your Linux devices meet the necessary requirements for patching. For more information, see[support matrix for Arc-connected hosts](support-matrix-updates#azure-arc-enabled-servers) and [Azure VM for supported images](support-matrix-updates.md#supported-linux-os-images). 
+- **Linux**: Cross-subscription patching also supports multiple Linux distributions, including most mainstream distributions like Ubuntu, CentOS, and Red Hat Enterprise Linux (RHEL) etc. Make sure that your Linux devices meet the necessary requirements for patching. For more information, see[support matrix for Arc-connected hosts](support-matrix-updates.md#azure-arc-enabled-servers) and [Azure VM for supported images](support-matrix-updates.md#supported-linux-os-images). 
 
 ---
 

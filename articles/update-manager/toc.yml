@@ -95,7 +95,7 @@ items:
     - name: Schedule updates
       href: scheduled-patching.md
     - name: Manage cross-subscription patching
-      href: enable-cross-subscription patching.md
+      href: enable-cross-subscription-patching.md
     - name: Dynamic scope
       items:
       - name: Overview
