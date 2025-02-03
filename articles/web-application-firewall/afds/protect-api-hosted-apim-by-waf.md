@@ -5,7 +5,6 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
-ms.reviewer: vhorne
 ms.date: 07/13/2023
 ---
 
