@@ -453,7 +453,7 @@ Hyperconvergence can improve performance by co-locating workloads with their sto
 
 Hyperconvergence is enabled by default for NVMe and temporary disk storage pools with only one replica. This ensures optimized data locality and improved performance for single-replica configurations. For multi-replica setups, hyperconvergence is not enabled by default but can be configured using the ```hyperconverged``` parameter in the StoragePool specification. 
 
-Below is an example YAML template to enable hyperconvergence for multi-replica configurations: 
+The following is an example YAML template to enable hyperconvergence for multi-replica configurations: 
 
 ```
 apiVersion: containerstorage.azure.com/v1 
