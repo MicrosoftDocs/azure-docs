@@ -6,7 +6,7 @@ services: web-application-firewall
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
-ms.author: victorh
+ms.date: 11/14/2019
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ---
