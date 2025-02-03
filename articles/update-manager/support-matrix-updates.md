@@ -282,6 +282,7 @@ Custom images (including images uploaded to [Azure Compute gallery](/azure/virtu
 | Rocky Linux 9|
 | Debian 10,11|
 | Alma Linux 8, 9|
+
 ---
 
 :::zone-end
