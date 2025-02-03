@@ -15,45 +15,52 @@ The following article shows you how to reimage Network Virtual Appliances (NVAs)
 
 ## Operation overview
 
-> [!NOTE]
-> The reimage operation results in downtime for the reimaged instance as it requires the NVA instance to restart and requires reconfiguration of the reimaged NVA instance. Reimage is typically used for in scenarios where an NVA VM instance is used as a last-resort recovery mechanism when an NVA instance is inaccessible, unreachable or otherwise non-functioning.  The reimage operation is targeted to one NVA instance and **does not** impact other NVA VM instances in the same deployment.  
+Reimage is an option is executed on Virtual WAN NVA Virtual Machine (VM) instances. The reimage operation incurrs downtime. As part of the operation, Azure restarts the VM instance and removes the existing operating system (OS) disk associated with an NVA VM and replaces it with a new OS disk. The new OS disk is deployed from Azure Marketplace and runs the same initial software version that the NVA was deployed with. For example, if your NVA device was deployed with NVA OS version 10, and you subsequently upgraded the NVA version to version 12 as part of an out-of-band upgrade workflow initiated from the command line or NVA orchestration software, Azure Virtual WAN reimages your NVA instance to version 10 and not version 12. As a result, you may have to manually execute an OS software version upgrade after performing the reimage operation.
 
-Reimage is an option is executed on Virtual WAN NVA Virtual Machine (VM) instances. The reimage operation removes the existing operating system (OS) disk associated with an NVA VM and replaces it with a new OS disk. The new OS disk is deployed from Azure Marketplace and runs the same initial software version that the NVA was deployed with. For example, if your NVA device was deployed with NVA OS version 10, and you subsequently upgraded the NVA version to version 12 as part of an out-of-band upgrade workflow initiated from the command line or NVA orchestration software, Azure Virtual WAN reimages your NVA instance to version 10 and not version 12. As a result, you may have to manually execute an OS software version upgrade after performing the reimage operation.  
+A reimage operation is targeted to one NVA instance and **does not** impact other NVA VM instances in the same deployment. The operation removes any existing NVA configurations stored on the OS disk and re-runs the cloudinit script that was specified when the NVA was initially deployed.
 
-The reimage operation also removes any existing NVA configurations stored on the OS disk and re-runs the cloudinit script that was specified when the NVA was initially deployed.
-  
+### Use cases
+
+ Reimage is a fast, self-serve way to restore access without going through Azure Support for access to your NVA instance's serial console. You may find the reimage operation useful under the following circumstances:
+
+* [Restarting the NVA](how-to-network-virtual-appliance-restart.md) does not restore an NVA instance to a working state.
+* Network connectivity to the NVA is lost due to an issue with the NVA operating system or a misconfiguration.
+* On-going NVA operating system upgrade renders the NVA unresponsive or unusable. Reimage can be used to apply a fresh OS disk.
+
 ## Prerequisites
 
 Verify that your deployment meets the following prerequisites before attempting to reimage the NVA instances:
+
 * A Network Virtual Appliance is deployed in a Virtual WAN hub. For more information on NVAs deployed in the Virtual WAN hub, see [Integrated NVA documentation](../../articles/virtual-wan/about-nva-hub.md).
 * The Network Virtual Appliance's provisioning state is "Succeeded."
 
 ## Considerations
 
 * Only one instance of a Virtual WAN NVA can be reimaged at a time from Azure portal. If you need to reimage multiple NVA instances, wait for an NVA instance to finish reimaging before proceeding to the next instance. 
-* You can only reimage an NVA if the provisioning state of the NVA is succeeded. Wait for any ongoing operations to finish before reimaging an NVA instance.  
+* You can only reimage an NVA if the provisioning state of the NVA is succeeded. Wait for any ongoing operations to finish before reimaging an NVA instance.
 * You can't select the OS version Azure platform reimages your NVA.
 * IP addresses for NVA instances are preserved during reimage operations.
+
 
 ## Reimage the NVA
 
 1. Navigate to your Virtual WAN hub and select **Network Virtual Appliances** under Third-party providers.
-:::image type="content" source="./media/network-virtual-appliance-reimage/find-network-virtual-appliance.png"alt-text="Screenshot showing how to find NVA in Azure portal."lightbox="./media/network-virtual-appliance-reimage/find-network-virtual-appliance.png":::
 
-2. Select **Manage configurations** for the NVA you want to reimage.
-:::image type="content" source="./media/network-virtual-appliance-reimage/manage-configurations.png"alt-text="Screenshot showing how to manage configurations for NVA."lightbox="./media/network-virtual-appliance-reimage/manage-configurations.png":::
+   :::image type="content" source="./media/network-virtual-appliance-reimage/find-network-virtual-appliance.png"alt-text="Screenshot showing how to find NVA in Azure portal."lightbox="./media/network-virtual-appliance-reimage/find-network-virtual-appliance.png":::
 
-3. Select **Instances** under Settings.
-:::image type="content" source="./media/network-virtual-appliance-reimage/find-instances.png"alt-text="Screenshot showing instance level settings for NVA."lightbox="./media/network-virtual-appliance-reimage/find-instances.png":::
+1. Select **Manage configurations** for the NVA you want to reimage.
 
-4. Select the instance of the NVA you want to reimage.
-:::image type="content" source="./media/network-virtual-appliance-reimage/select-instance.png"alt-text="Screenshot showing how to select an NVA instance."lightbox="./media/network-virtual-appliance-reimage/select-instance.png":::
+   :::image type="content" source="./media/network-virtual-appliance-reimage/manage-configurations.png"alt-text="Screenshot showing how to manage configurations for NVA."lightbox="./media/network-virtual-appliance-reimage/manage-configurations.png":::
 
-5. Select **Reimage**.
-:::image type="content" source="./media/network-virtual-appliance-reimage/execute-reimage.png"alt-text="Screenshot showing how to reimage an NVA instance."lightbox="./media/network-virtual-appliance-reimage/execute-reimage.png":::
+1. In the left pane, select **Instances** .
 
-6. Read the disclosure on the screen and note the OS software version that the post-reimage NVA instance will be running. Confirm the reimage by selecting **Yes**. 
-:::image type="content" source="./media/network-virtual-appliance-reimage/confirm-reimage.png"alt-text="Screenshot showing how to confirm you want to reimage an NVA instance."lightbox="./media/network-virtual-appliance-reimage/confirm-reimage.png":::
+1. Select the instance of the NVA you want to reimage.
+
+   :::image type="content" source="./media/network-virtual-appliance-reimage/select-instance.png"alt-text="Screenshot showing how to select an NVA instance."lightbox="./media/network-virtual-appliance-reimage/select-instance.png":::
+
+1. Select **Reimage** and read the disclosure on the screen and note the OS software version that the post-reimage NVA instance will be running. Confirm the reimage by selecting **Yes**. 
+
+   :::image type="content" source="./media/network-virtual-appliance-reimage/confirm-reimage.png"alt-text="Screenshot showing how to confirm you want to reimage an NVA instance."lightbox="./media/network-virtual-appliance-reimage/confirm-reimage.png":::
 
 ## Troubleshooting
 
