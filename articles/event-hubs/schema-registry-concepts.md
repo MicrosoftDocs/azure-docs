@@ -7,7 +7,7 @@ author: spelluru
 ms.author: spelluru
 ---
 
-# Schema registry concepts in Azure Event Hubs
+# Schema Registry in Azure Event Hubs
 
 Schema Registry in Azure Event Hubs has many benefits. Schema Registry helps maintain data consistency, simplify schema evolution, enhance interoperability, and reduce development effort in loosely coupled and event-streaming workflows. Large distributed organizations that employ a centralized repository for schemas can use Schema Registry to achieve highly reliable data processing and governance with little operational overhead.
 
