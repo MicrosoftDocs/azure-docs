@@ -33,7 +33,14 @@ To purchase Oracle Database@Azure, contact [Oracle's sales team](https://go.orac
 
 Billing and payment for the service is done through Azure. Payment for Oracle Database@Azure counts toward your Microsoft Azure Consumption Commitment (MACC). Existing Oracle Database software customers can use the Bring Your Own License (BYOL) option or Unlimited License Agreements (ULAs). On your regular Microsoft Azure invoices, you can see charges for Oracle Database@Azure alongside charges for your other Azure Marketplace services.
 
+## Integration with Azure Monitor 
 
+Metrics monitoring for Oracle databases running on Exadata Infrastructure and Autonomous databases is now available through Azure Monitor. This powerful capability enables comprehensive monitoring and insights to ensure optimal performance and reliability.
+
+For detailed information on the list of supported metrics, please refer to the following:
+- [Databases running on ExaData Infrastructure](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/supported-metrics/oracle-database-cloudvmclusters-metrics).
+- [Autonomous Databases](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-supported-metrics-oracle#autonomousdatabases).
+  
 ## Compliance
 
 Oracle Database@Azure is an Oracle Cloud database service that runs Oracle Database workloads in a customer's Azure environment. Oracle Database@Azure offers various Oracle Database Services through customer’s Microsoft Azure environment. This service allows customers to monitor database metrics, audit logs, events, logging data, and telemetry natively in Azure. It runs on infrastructure managed by Oracle's Cloud Infrastructure operations team who performs software patching, infrastructure updates, and other operations through a connection to Oracle Cloud.  
