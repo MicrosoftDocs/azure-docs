@@ -4,7 +4,7 @@ description: When and how to run custom Apache MapReduce programs on Azure HDIns
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 02/12/2024
+ms.date: 02/03/2025
 ---
 
 # Run custom MapReduce programs
