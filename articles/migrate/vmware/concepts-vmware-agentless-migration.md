@@ -207,7 +207,7 @@ Azure Migrate provides a configuration-based mechanism through which customers c
 
 > [!NOTE]
 > - The existing replication cycles at the start of the blackout window will complete before the replication pauses.
-> - For any migration initiated during the blackout window, the final replication will not run, causing the migration to fail.
+> - For any migration initiated during the blackout window, the final replication won't run, causing the migration to fail.
 
 A blackout window can be specified for the appliance by creating/updating the file GatewayDataWorker.json in C:\ProgramData\Microsoft Azure\Config. A typical file would be of the form:
 
