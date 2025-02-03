@@ -36,20 +36,6 @@ After you enable customer-managed keys, you need to associate the customer manag
 # [Key Vault](#tab/Key-Vault)
         
 1. To create a new Key Vault, follow the Azure Key Vault [Quickstart](/azure/key-vault/general/quick-create-cli).
-        
-# [Key Vault Managed HSM](#tab/Key-Vault-Managed-HSM)
-
-1. To create a new Managed HSM, follow the Managed HSM [Quickstart](/azure/key-vault/managed-hsm/quick-create-cli).
-
----
-
-For more information about importing existing keys, see [About keys, secrets, and certificates](/azure/key-vault/general/about-keys-secrets-certificates).
-
-> [!IMPORTANT]
-> Using customer-managed keys with Azure Service Bus requires that the vault have two required properties configured. They are:  **Soft Delete** and **Do Not Purge**. The Soft Delete property is enabled by default when you create a new vault in the Azure portal whereas the Purge Protection is optional so make sure to select it when creating the vault. Also, if you need to enable these properties on an existing key vault, you must use either PowerShell or Azure CLI.
-
-# [Key Vault](#tab/Key-Vault)
-        
 2. To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command.
         
 ```azurecli-interactive
@@ -63,11 +49,12 @@ az keyvault update --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --
 ```
         
 # [Key Vault Managed HSM](#tab/Key-Vault-Managed-HSM)
-        
+
+1. To create a new Managed HSM, follow the Managed HSM [Quickstart](/azure/key-vault/managed-hsm/quick-create-cli).
 2. To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command.
         
 ```azurecli-interactive
-az keyvault create --hsm-name contoso-SB-BYOK-keyvault --resource-group ContosoRG --location westus --enable-purge-protection true --retention-days 90 --administrators 86a8f506-bb1c-4964-839a-78287daf85b1
+az keyvault create --hsm-name contoso-SB-BYOK-keyvault --resource-group ContosoRG --location westus --enable-purge-protection true --retention-days 90 --administrators aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 ```
 
 After creation, you need to [activate the Managed HSM](/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm) and ensure that you have the correct permissions to generate keys by [assigning an RBAC role and local RBAC role](/azure/key-vault/managed-hsm/secure-your-managed-hsm) with the correct permissions.
@@ -77,7 +64,13 @@ After creation, you need to [activate the Managed HSM](/azure/key-vault/managed-
 ```azurecli-interactive
 az keyvault update --hsm-name contoso-SB-BYOK-keyvault --resource-group ContosoRG --enable-purge-protection true
 ```
+
 ---
+
+For more information about importing existing keys, see [About keys, secrets, and certificates](/azure/key-vault/general/about-keys-secrets-certificates).
+
+> [!IMPORTANT]
+> Using customer-managed keys with Azure Service Bus requires that the vault have two required properties configured. They are:  **Soft Delete** and **Do Not Purge**. The Soft Delete property is enabled by default when you create a new vault in the Azure portal whereas the Purge Protection is optional so make sure to select it when creating the vault. Also, if you need to enable these properties on an existing key vault, you must use either PowerShell or Azure CLI.
 
 Create keys by following these steps:
 
