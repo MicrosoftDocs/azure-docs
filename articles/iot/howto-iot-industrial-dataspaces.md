@@ -79,17 +79,17 @@ These components are open source, designed to be extensible and interoperable, a
 
 ### Configure the Eclipse Dataspace Connectors
 
-The two EDC Connectors *provider* and *consumer* automatically deployed in this solution are provided as an open source reference implementation by [Fraunhofer IOSB](https://www.iosb.fraunhofer.de/en.html) and contain an extension for accessing an AAS repository like the one deployed in this solution. To configure the connectors, follow these steps:
+The two EDC Connectors *provider* and *consumer* automatically deployed are provided as an open-source reference implementation by [Fraunhofer IOSB](https://www.iosb.fraunhofer.de/projects-and-products/faaast-tools-digital-twins-asset-administration-shell-industrie40.html) as part of the FA³ST ecosystem for AAS management. The connectors contain an extension for accessing an Asset Admin Shell repository like the one deployed in this reference solution. To configure the connectors, follow these steps:
 
 1. From the Azure portal, navigate to the overview page of your **AAS repository** instance. Copy the **Application URL** displayed.
 
-1. From a web browser, navigate to the [online URL encoder](https://www.urlencoder.org) and copy the AAS repository application URL into the text box and select **> Encode <**. Then copy the encoded URL.
+1. From a web browser, navigate to the [online URL encoder](https://www.urlencoder.org) and copy the AAS repository application URL into the text box, add `/api/v3.0` at the end of the URL and select **Encode**. Then copy the encoded URL.
 
 1. From the Azure portal, navigate to the overview page of your **EDC provider** instance. Copy the **Application URL** displayed.
 
 1. From a Windows command prompt, enter `wsl` to start the Windows Subsystem for Linux. If WSL isn't yet installed on your computer, install it by running `wsl --install` and reboot your computer.
 
-1. To register the AAS repository with the EDC provider, enter `curl -L '<EDC provider URL>:8281/api/service?url=<URL-encoded AAS repository URL' -d '{"type":"basic","username":"admin","password":"<deployment password>"}' --header 'Content-Type: application/json' --header 'x-api-key: password'`. Replace the `<EDC provider URL>` with the previously copied EDC provider URL but change `https` to `http`, replace the `<URL-encoded AAS repository URL>` with the previously copied URL-encoded AAS repository URL and replace the `<deployment password>` with the password you picked during deployment of this reference solution. The message **Registered new AAS Service at EDC** confirms a successful registration.
+1. To register the AAS repository with the EDC provider, enter `curl -L '<EDC provider URL>:8281/api/service?url=<URL-encoded AAS repository URL>' -d '{"type":"basic","username":"admin","password":"<deployment password>"}' --header 'Content-Type: application/json' --header 'x-api-key: password'`. Replace the `<EDC provider URL>` with the previously copied EDC provider URL but change `https` to `http`, replace the `<URL-encoded AAS repository URL>` with the previously copied URL-encoded AAS repository URL and replace the `<deployment password>` with the password you picked during deployment of this reference solution. The message **Registered new AAS Service at EDC** confirms a successful registration.
 
 1. To display the metadata provided to the EDC provider from the AAS repository, navigate to `<EDC provider URL>:8281/api/selfDescription` in your web browser. Replace the `<EDC provider URL>` with the previously copied EDC provider URL but change `https` to `http`. You might need to check the **Pretty-print** checkbox in your browser, if available, to read the formatted version of the returned data. From the **submodels** section, copy one of the **id** values displayed, you need this value in the next section of this guide.
 
@@ -99,7 +99,7 @@ The EDC Connector supports an automated EDC digital contract negotiation where t
 
 1. In the Azure portal, navigate to the overview page of your **EDC provider** instance. Copy the **Application URL** displayed.
 
-1. In a web browser, navigate to the [online URL encoder](https://www.urlencoder.org) and copy the EDC provider application URL into the text box, but change `https` to `http`, and select **> Encode <**. Then copy the encoded URL.
+1. In a web browser, navigate to the [online URL encoder](https://www.urlencoder.org) and copy the EDC provider application URL into the text box, but change `https` to `http`, and select **Encode**. Then copy the encoded URL.
 
 1. In the Azure portal, navigate to the overview page of your **EDC consumer** instance. Copy the **Application URL** displayed.
 
