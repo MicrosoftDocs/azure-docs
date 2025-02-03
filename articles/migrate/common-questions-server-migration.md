@@ -12,7 +12,7 @@ ms.custom: engagement-fy25
 
 # Migration and modernization: Common questions
 
-This article answers common questions about the Migration and modernization tool. If you have other questions, check these resources:
+This article answers common questions about the Azure Migrate Migration and modernization tool. If you have other questions, check these resources:
 
 - [General questions](resources-faq.md) about Azure Migrate
 - Questions about the [Azure Migrate appliance](common-questions-appliance.md)
@@ -34,6 +34,7 @@ Regardless of the migration option chosen, the first step to migrate a server by
 Here are some considerations to keep in mind while deciding on the migration option.
 
 **Agentless migrations** don't require any software (agents) to be deployed on the source VMs/servers being migrated. The agentless option orchestrates replication by integrating with the functionality provided by the virtualization provider.
+
 The Agentless replication options are available for [VMware VMs](tutorial-migrate-vmware.md) and [Hyper-V VMs](./tutorial-migrate-hyper-v.md).
 
 **Agent-based migrations** require Azure Migrate software (agents) to be installed on the source VMs/machines to be migrated. The agent-based option doesn’t rely on the virtualization platform for the replication functionality. Therefore, it can be used with any server running an x86/x64 architecture and a version of an operating system supported by the agent-based replication method.
@@ -49,14 +50,14 @@ To learn more, review this [article](./server-migrate-overview.md) to compare mi
 
 ### What geographies are supported for migration with Azure Migrate?
 
-Review the supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
+Review the supported geographies for [public clouds](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
 
 ### Can I use the same Azure Migrate project to migrate to multiple regions?
 
 While you can create assessments for multiple regions in an Azure Migrate project, one Azure Migrate project can be used to migrate servers to one Azure region only. You can create additional Azure Migrate projects for each region that you need to migrate to.
 
 - For agentless VMware migrations, the target region is locked once you enable the first replication.
-- For agent-based migrations (VMware, physical servers, and servers from other clouds), the target region is locked once the “Create Resources” button is selected on the portal while setting up the replication appliance.
+- For agent-based migrations (VMware, physical servers, and servers from other clouds), the target region is locked once the **Create Resources** button is selected on the portal while setting up the replication appliance.
 - For agentless Hyper-V migrations, the target region is locked once the “Create Resources” button is selected on the portal while setting up the Hyper-V replication provider.
 
 ### Can I use the same Azure Migrate project to migrate to multiple subscriptions?
@@ -66,9 +67,9 @@ Yes, you can migrate to multiple subscriptions (same Azure tenant) in the same t
 ### Does Azure Migrate support Azure Resource Graph?
 Currently, Azure Migrate isn't integrated with Azure Resource Graph. It does support performing ARG-related queries.
 
-### How is the data transmitted from on-premises environment to Azure? Is it encrypted before transmission?
+### How is the data transmitted from an on-premises environment to Azure? Is it encrypted before transmission?
 
-The Azure Migrate appliance in the agentless replication case  compresses data and encrypts before uploading. Data is transmitted over a secure communication channel over https and uses TLS 1.2 or later. Additionally, Azure Storage automatically encrypts your data when it's persisted it to the cloud (encryption-at-rest).
+The Azure Migrate appliance in the agentless replication case compresses data and encrypts before uploading. Data is transmitted over a secure communication channel over https and uses TLS 1.2 or later. Additionally, Azure Storage automatically encrypts your data when it's persisted it to the cloud (encryption-at-rest).
 
 ### Can I use the recovery services vault created by Azure Migrate for Disaster Recovery scenarios?
 We don't recommend using the recovery services vault created by Azure Migrate for Disaster Recovery scenarios. Doing so can result in start replication failures in Azure Migrate.
@@ -79,7 +80,7 @@ Test migration provides a way to test and validate migrations prior to the actua
 
 The applications can continue to run at the source while letting you perform tests on a cloned copy in an isolated sandbox environment. You can perform multiple tests, as needed, to validate the migration, perform app testing, and address any issues before the actual migration.
 
-:::image type="content" source="./media/common-questions-server-migration/difference-migration-test-migration.png" alt-text="Screenshot shows the difference in test migration and actual migration.":::
+:::image type="content" source="./media/common-questions-server-migration/difference-migration-test-migration.png" alt-text="Screenshot     shows the difference in test migration and actual migration.":::
 
 ### Is there a Rollback option for Azure Migrate?
 
