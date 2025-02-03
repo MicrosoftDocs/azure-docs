@@ -528,9 +528,9 @@ The following table shows which credential types are available for each platform
 | Password | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Smart card with Active Directory Federation Services | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ |
 | Smart card with Microsoft Entra certificate-based authentication | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
-| Windows Hello for Business certificate trust | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup2; |
-| Windows Hello for Business cloud trust | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup2; |
-| Windows Hello for Business key trust | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup2; |
+| Windows Hello for Business certificate trust | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup3; |
+| Windows Hello for Business cloud trust | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup3; |
+| Windows Hello for Business key trust | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup3; |
 
 ::: zone-end
 
