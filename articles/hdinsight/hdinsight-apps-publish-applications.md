@@ -4,7 +4,7 @@ description: Learn how to create an HDInsight application, and then publish it i
 ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 02/12/2024
+ms.date: 02/03/2025
 
 ---
 # Publish an HDInsight application in the Azure Marketplace
@@ -47,7 +47,7 @@ When an application is installed on a cluster (either on an existing cluster, or
   > [!IMPORTANT]  
   > The name of the application installation script must be unique for a specific cluster. The script name must have the following format:
   > 
-  > "name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
+  > `"name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"`
   > 
   > The script name has three parts:
   > 
@@ -60,9 +60,9 @@ When an application is installed on a cluster (either on an existing cluster, or
 
 The installation script must have the following characteristics:
 * The script is idempotent. Multiple calls to the script produce the same result.
-* The script is properly versioned. Use a different location for the script when you are upgrading or testing changes. This ensures that customers who are installing the application are not affected by your updates or testing. 
+* The script is properly versioned. Use a different location for the script when you're upgrading or testing changes. This ensures that customers who are installing the application aren't affected by your updates or testing. 
 * The script has adequate logging at each point. Usually, script logs are the only way to debug application installation issues.
-* Calls to external services or resources have adequate retries so that the installation is not affected by transient network issues.
+* Calls to external services or resources have adequate retries so that the installation isn't affected by transient network issues.
 * If your script starts services on the nodes, services are monitored and configured to start automatically if a node reboot occurs.
 
 ## Package the application
@@ -83,7 +83,7 @@ To publish an HDInsight application:
 2. In the left menu, select **Solution templates**.
 3. Enter a title, and then select **Create a new solution template**.
 4. If you haven't already registered your organization, select **Create Dev Center account and join the Azure program**.  For more information, see [Create a Microsoft Developer account](../marketplace/overview.md).
-5. Select **Define some Topologies to get Started**. A solution template is a "parent" to all its topologies. You can define multiple topologies in one offer or solution template. When an offer is pushed to staging, it is pushed with all its topologies. 
+5. Select **Define some Topologies to get Started**. A solution template is a "parent" to all its topologies. You can define multiple topologies in one offer or solution template. When an offer is pushed to staging, it's pushed with all its topologies. 
 6. Enter a topology name, and then select **+**.
 7. Enter a new version, and then select **+**.
 8. Upload the .zip file you created when you packaged the application.  

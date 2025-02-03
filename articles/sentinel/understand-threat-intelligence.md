@@ -40,7 +40,7 @@ The following table outlines the activities required to make the most of threat 
 | Action | Description|
 |---|---|
 | **Store threat intelligence in Microsoft Sentinel's workspace** | <ul><li>Import threat intelligence into Microsoft Sentinel by enabling data connectors to various threat intelligence platforms and feeds.</li><li>Connect threat intelligence to Microsoft Sentinel by using the upload API to connect various TI platforms or custom applications.</li><li>Create threat intelligence with a streamlined management interface.</li>|
-| **Manage threat intelligence** | <ul><li>View imported threat intelligence using queries or advanced search.</li><li>Curate threat intelligence with relationships or tags</li><li>Visualize key information about your TI with workbooks.</li>|
+| **Manage threat intelligence** | <ul><li>View imported threat intelligence using queries or advanced search.</li><li>Curate threat intelligence with relationships, ingestion rules or tags</li><li>Visualize key information about your TI with workbooks.</li>|
 | **Use threat intelligence** | <ul><li>Detect threats and generate security alerts and incidents with built-in analytics rule templates based on your threat intelligence.</li><li>Hunt for threats using your threat intel to ask the right questions about the signals captured for your organization.</li>|
 
 Threat intelligence also provides useful context within other Microsoft Sentinel experiences, such as notebooks. For more information, see [Get started with notebooks and MSTICPy](/azure/sentinel/notebook-get-started). 
@@ -49,7 +49,7 @@ Threat intelligence also provides useful context within other Microsoft Sentinel
 
 ## Import and connect threat intelligence
 
-Most threat intelligence is imported using data connectors or an API. Here are the solutions available for Microsoft Sentinel.
+Most threat intelligence is imported using data connectors or an API. Configure ingestion rules to reduce noise and ensure your intelligence feeds are optimized. Here are the solutions available for Microsoft Sentinel.
 
 - **Microsoft Defender Threat Intelligence** data connector to ingest Microsoft's threat intelligence 
 - **Threat Intelligence - TAXII** data connector for industry-standard STIX/TAXII feeds
@@ -132,7 +132,8 @@ Threat intelligence powered by Microsoft Sentinel is managed next to Microsoft D
 >[!NOTE]
 > Threat intelligence in the Azure portal is still accessed from **Microsoft Sentinel** > **Threat management** > **Threat intelligence**.
 
-Two of the most common threat intelligence tasks are creating new threat intelligence related to security investigations and adding tags. The management interface streamlines the manual process of creating individual threat intel with a few key features.
+Two of the most common threat intelligence tasks are creating new threat intelligence related to security investigations and adding tags. The management interface streamlines the manual process of curating individual threat intel with a few key features.
+- Configure ingestion rules to optimize threat intel from incoming sources.
 - Define relationships as you create new STIX objects.
 - Curate existing TI with the relationship builder.
 - Copy common metadata from a new or existing TI object with the duplicate feature.
@@ -149,11 +150,30 @@ The following STIX objects are available in Microsoft Sentinel:
 | **Identity** | Describe victims, organizations, and other groups or individuals along with the business sectors most closely associated with them. |
 | **Relationship** | The threads that connect threat intelligence, helping to make connections across disparate signals and data points are described with relationships. |
 
+### Configure ingestion rules
+
+Optimize threat intelligence feeds by filtering and enhancing objects before they're delivered to your workspace. Ingestion rules update attributes, or filter objects out all together. The following table lists some use cases:
+
+| Ingestion rule use case | Description |
+|---|---|
+| Reduce noise | Filter out old threat intelligence not updated for 6 months that also has low confidence. |
+| Extend validity date | Promote high fidelity IOCs from trusted sources by extending their `Valid until` by 30 days. |
+| Remember the old days | The new threat actor taxonomy is great, but some of the analysts want to be sure to tag the old names. |
+
+:::image type="content" source="media/understand-threat-intelligence/ingestion-rules-overview.png" alt-text="Screenshot shows four ingestion rules matching the use cases.":::
+
+Keep in mind the following tips for using ingestion rules:
+- All rules apply in order. Threat intelligence objects being ingested will get processed by each rule until a `Delete` action is taken. If no action is taken on an object, it is ingested from the source as is.
+- The `Delete` action means the threat intelligence object is skipped for ingestion, meaning it's removed from the pipeline. Any previous versions of the object already ingested aren't affected.
+- New and edited rules take up to 15 minutes to take effect.
+
+For more information, see [Work with threat intelligence ingestion rules](work-with-threat-indicators.md#optimize-threat-intelligence-feeds-with-ingestion-rules).
+
 ### Create relationships
 
-Enhance threat detection and response by establishing connections between objects with the relationship builder. The following table lists some of its use cases.
+Enhance threat detection and response by establishing connections between objects with the relationship builder. The following table lists some of its use cases:
 
-| Use case | Description |
+| Relationship use case | Description |
 |---|---|
 | Connect a threat actor to an attack pattern | The threat actor `APT29` *Uses* the attack pattern `Phishing via Email` to gain initial access.|
 | Link an indicator to a threat actor|  A domain indicator `allyourbase.contoso.com` is *Attributed to* the threat actor `APT29`. |

@@ -3,7 +3,7 @@ title: Transport Layer Security (TLS) overview
 description: Learn about Transport Layer Security (TLS) on App Service.
 keywords: app service, azure app service, tls, transport layer security, support, web app, troubleshooting, 
 ms.topic: article
-ms.date: 07/29/2024
+ms.date: 01/31/2025
 ms.author: msangapu
 author: msangapu-msft
 ms.custom: UpdateFrequency3
