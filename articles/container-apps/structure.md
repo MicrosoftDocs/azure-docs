@@ -41,11 +41,9 @@ To better understand these relationships, start by considering the differences b
 
 Each *Workload profiles (v2)* environment automatically comes with a consumption profile. The consumption profile allows you to run applications which scale to zero, and where you only want to pay for usage. Ultimately, you decide whether or not to use the consumption profile since you only incur costs as when apps are running in the consumption workload profile.
 
-Depending on the needs of your app, you can opt to use a specialized workload profile that is best tailored for your application's needs. The consumption profile is well suited if:
+By default, every *v2* environment only comes with a consumption workload profile. Depending on the needs of your app, you can choose to add any other specialized workload profiles that are best tailored for your application's needs.
 
-- You need up to 4 vCPUs with 8 GB of memory
-
-If your application requires capabilities outside these parameters, then run your apps on dedicated workload profile. To best suit your needs, you can add as many dedicated workload profiles to your environment as necessary.
+The consumption profile makes 4 vCPUs with 8 GB of memory available to your apps. If you require more resources, then run your apps on dedicated workload profile. You can add as many dedicated workload profiles to your environment as necessary.
 
 When you choose to use a dedicated workload profile, you can select the allocated amount of memory and compute resources available to your apps. For more information on available virtual machine sizes, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes/overview).
 
