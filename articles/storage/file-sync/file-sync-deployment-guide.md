@@ -427,11 +427,13 @@ In the pane that opens, enter the following information to create a sync group w
 Post creation, you should see a Healthy status on the Sync Groups page.
 ![Sync Group page with Healthy Status](media/storage-sync-files-deployment-guide/create-sync-group-3.png)
 
+A cloud endpoint gets automatically created with a sync group. On clicking the recently created sync group, you should be able to view a cloud endpoint. In case you do not see any cloud endpoint, it means that cloud endpoint creation might have failed due to insufficient permissions. To troubleshoot this, try creating a cloud endpoint and see [Cloud Endpoint Creation Troubleshooting](/troubleshoot/azure/azure-storage/files/file-sync/file-sync-troubleshoot-sync-group-management#cloud-endpoint-creation-errors).
+
 Click on the Sync Group Name and click **+ Add Cloud Endpoint** to add a cloud endpoint to the sync group.
-![Create a new cloud endpoint in the Azure Portal](media/storage-sync-files-deployment-guide/create-cloud-endpoint-1.png)
+![Create a new cloud endpoint in the Azure Portal](media/storage-sync-files-deployment-guide/add-cloud-endpoint-1.png)
 
 In the pane that opens, enter the subscription, storage account and file share with which you want to sync.
-![Create a new cloud endpoint Information](media/storage-sync-files-deployment-guide/create-cloud-endpoint-2.png)
+![Create a new cloud endpoint Information](media/storage-sync-files-deployment-guide/add-cloud-endpoint-2.png)
 
 # [PowerShell](#tab/azure-powershell)
 
