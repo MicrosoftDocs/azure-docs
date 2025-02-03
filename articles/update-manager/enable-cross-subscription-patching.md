@@ -22,8 +22,8 @@ This article describes how to enable cross-subscription patching either through 
 
     Open your Azure CLI and enter the following commands:
 
-    az provider register --namespace "Microsoft.Insights"
-    az provider register --namespace "Microsoft.Maintenance"
+    az provider register--namespace "Microsoft.Insights"
+    az provider register--namespace "Microsoft.Maintenance"
 
     # [Using Azure portal](#tab/az-portal)
 
@@ -39,8 +39,8 @@ This article describes how to enable cross-subscription patching either through 
    - Assign the appropriate roles to your Azure VM and Arc assets to ensure scheduled patching can be managed effectively. The required roles are:
         - Scheduled patching contributor
         - Reader
-   - These roles can be granted on the Resource Group or Subscription level if you have resources spread amongst multiple resource groups and want to include them all at once.
-   - If you have a smaller scope and plan to manage it with a dedicated admin or group, these two roles can be granted to an user or a security group (SG). If you are envisioning a larger scope with automation in place, grant these roles to the API and Service Principal Name (SPN) you use.
+   - These roles can be granted on the Resource Group or Subscription level if you have resources spread among multiple resource groups and want to include them all at once.
+   - If you have a smaller scope and plan to manage it with a dedicated admin or group, these two roles can be granted to a user or a security group (SG). If you're envisioning a larger scope with automation in place, grant these roles to the API and Service Principal Name (SPN) you use.
 
 3. Scheduling
    
@@ -55,7 +55,7 @@ This article describes how to enable cross-subscription patching either through 
    # [Using API](#tab/az-patch-cli)
     
      - Use the API to programmatically schedule the patching.
-     - For schedule patching on VM or Arc assets, locate the assets by using the *resourceId* and *subscription* that they are attached to.
+     - For schedule patching on VM or Arc assets, locate the assets by using the *resourceId* and *subscription* that they're attached to.
 
 ---
 ## Next steps
