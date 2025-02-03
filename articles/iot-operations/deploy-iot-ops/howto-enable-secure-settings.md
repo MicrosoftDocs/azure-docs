@@ -35,13 +35,23 @@ This article provides instructions for enabling secure settings if you didn't do
 
 ## Enable the cluster for secure settings
 
-Before you enable secrets synchronization for your Azure IoT Operations instance, enable your cluster as an OIDC issuer and for workload identity federation. This step is required for the Secret Store extension to sync the secrets from an Azure key vault and store them on the edge as Kubernetes secrets.
+To enable secrets synchronization for your Azure IoT Operations instance, your cluster must be enabled as an OIDC issuer and for workload identity federation. This configuration is required for the Secret Store extension to sync the secrets from an Azure key vault and store them on the edge as Kubernetes secrets.
 
-```azurecli
-az connectedk8s update -n <CLUSTER_NAME> -g <RESOURCE_GROUP> --enable-oidc-issuer --enable-workload-identity
-```
+For Azure Kubernetes Service (AKS) clusters, the OIDC issuer and workload identity features can be enabled only at the time of cluster creation. For clusters on AKS Edge Essentials, the automated script enables these features by default. For AKS clusters on Azure Local, follow the steps to [Deploy and configure workload identity on an AKS enabled by Azure Arc cluster](/azure/aks/aksarc/workload-identity) to create a new cluster if you don't have one with the required features.
 
-If you're using the k3s distribution of Kubernetes, you need to add the `service-account-issuer` and `service-account-max-token-expiration` arguments to the kube-apiserver. To add these settings, follow these steps:
+For k3s clusters on Kubernetes, you can update an existing cluster. To enable and configure these features, use the following steps:
+
+1. Update the cluster to enable OIDC issuer and workload identity.
+
+    ```azurecli
+    az connectedk8s update -n <CLUSTER_NAME> -g <RESOURCE_GROUP> --enable-oidc-issuer --enable-workload-identity
+    ```
+
+    If you enabled the OIDC issuer and workload identity features when you created the cluster, you don't need to run the previous command again. Use the following command to check the status of the OIDC issuer and workload identity features for your cluster:
+
+    ```azurecli
+    az connectedk8s show -g <RESOURCE_GROUP> -n <CLUSTER_NAME> --query "{ClusterName:name, OIDCIssuerEnabled:oidcIssuerProfile.enabled, WorkloadIdentityEnabled:securityProfile.workloadIdentity.enabled}"
+    ```
 
 1. Get the cluster's issuer URL.
 
