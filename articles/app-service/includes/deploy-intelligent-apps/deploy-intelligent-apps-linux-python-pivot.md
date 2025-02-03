@@ -105,7 +105,7 @@ Next, we can use Key Vault references as app settings in our App Service resourc
 Then, go to the portal Environment Variables blade in your resource and add the following app settings:
 
 | Setting name| Value |
-|-|-|-|
+|:-----------------:|:------------------------------------------------------------------------------------------:|
 | `OPENAI_API_KEY` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/openaikey/) |
 
 #### Store your app settings
@@ -114,18 +114,18 @@ The remaining app settings can be stored as standard environment variables. Go t
 
 For Azure OpenAI:
 
-| Setting name| Value |
-|-|-|-|
-| `OPENAI_MODEL_NAME` | Model name |
+| Setting name                | Value            |
+|----------------------------|------------------|
+| `OPENAI_MODEL_NAME`        | Model name       |
 | `AZURE_OPENAI_DEPLOYMENT_NAME` | Deployment name |
-| `AZURE_OPENAI_ENDPOINT` | Endpoint |
-| `AZURE_OPENAI_API_VERSION` | API version |
+| `AZURE_OPENAI_ENDPOINT`    | Endpoint         |
+| `AZURE_OPENAI_API_VERSION` | API version      |
 
 For OpenAI, you only need one environment variable:
 
-| Setting name| Value |
-|-|-|-|
-| `OPENAI_MODEL_NAME` | Model name |
+| Setting name         | Value       |
+|---------------------|-------------|
+| `OPENAI_MODEL_NAME` | Model name  |
 
 Once your app settings are saved, you can access the app settings in your code by referencing them in your application. Add the following to the *app.py* file:
 
