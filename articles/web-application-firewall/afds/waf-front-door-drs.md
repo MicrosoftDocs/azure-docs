@@ -2,8 +2,8 @@
 title: Azure Web Application Firewall DRS rule groups and rules
 description: This article provides information on Azure Web Application Firewall DRS rule groups and rules.
 ms.service: azure-web-application-firewall
-author: sowmyam2019
-ms.author: victorh
+author: halkazwini
+ms.author: halkazwini
 ms.topic: conceptual
 ms.date: 05/30/2024
 ---
