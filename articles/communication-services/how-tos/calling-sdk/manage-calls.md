@@ -47,7 +47,7 @@ The following table show support for individual APIs in the calling SDK related 
 |Start a call	to Communication Services user	| ✔️	|   |  		
 |Start a call	to Microsoft 365 user	| ✔️	| ✔️  |  		
 |Start a call	to phone number	| ✔️	| ✔️  |  		
-|Join a room	      |✔️ 	| ✔️  | 
+|Join a room	      |✔️ 	|   | 
 |Joina Teams meeting           | ✔️	| ✔️ |
 |Join a call based on groupId | ✔️     |    |
 |Accept or reject incoming call | ✔️     | ✔️   |
@@ -61,8 +61,8 @@ The following table show support for individual APIs in the calling SDK related 
 |Hang up | ✔️ | ✔️ |
 |End the call for everyone | ✔️[2] | ✔️ |
 
-[1] The API is only supported in group call, room or Teams meeting.
-[2] The API is not supported in room.
+[1] The API is only supported in group calls, rooms and Teams meetings.
+[2] The API is not supported in rooms.
 
 
 ### SDKs
