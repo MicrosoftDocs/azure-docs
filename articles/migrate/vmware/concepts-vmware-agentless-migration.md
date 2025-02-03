@@ -6,7 +6,7 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 10/18/2023
+ms.date: 02/03/2025
 ms.custom: vmware-scenario-422, engagement-fy24
 ---
 # Agentless migration architecture

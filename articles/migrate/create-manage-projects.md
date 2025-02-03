@@ -5,7 +5,7 @@ author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 05/22/2023
+ms.date: 02/03/2025
 ms.custom: engagement-fy23
 ---
 
@@ -62,23 +62,19 @@ In the portal, you can select the geography in which you want to create the proj
 ```rest
 PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}"
 ```
-After you have created the project, perform the following steps to try out the new agentless dependency analysis enhancements: 
+After you create the project, perform the following steps to try out the new agentless dependency analysis enhancements: 
 
-Ensure that you have installed Az CLI to execute the required commands by following the steps provided in the documentation [here](https://learn.microsoft.com/cli/azure/install-azure-cli)
+Ensure that you install Az CLI to execute the required commands by following the steps provided in the documentation [here](https://learn.microsoft.com/cli/azure/install-azure-cli)
 
 After you install the Az CLI (in PowerShell), open PowerShell on your system as an Administrator and execute the following commands:
 
 1. Login to the Azure tenant and set the Subscription.  
-   - az login --tenant <TENANT_ID>
+   - az log in --tenant <TENANT_ID>
    - az account set --subscription <SUBSCRIPTION_ID> 
-2. Register the Dependency Map private preview feature on the Subscription. 
-   - **az feature registration create --name PrivatePreview --namespace Microsoft.DependencyMap**
-3. Ensure that the feature is in registered state.   
-   - **az feature registration show --name PrivatePreview --provider-namespace Microsoft.DependencyMap**
    - Output contains - **"state": "Registered"**
-4. Register the new Dependency Map resource provider.  
+1. Register the new Dependency Map resource provider.  
    - **az provider register --namespace Microsoft.DependencyMap**
-5. Ensure that the provider is in registered state. 
+1. Ensure that the provider is in registered state. 
     - **az provider show -n Microsoft.DependencyMap**
     - Output contains - **"registrationState": "Registered"**
  
@@ -88,7 +84,7 @@ If you already have a project and you want to create an additional project, do t
 
 1. In the [Azure public portal](https://portal.azure.com) or [Azure Government](https://portal.azure.us), search for **Azure Migrate**.
    
-3. On the Azure Migrate dashboard, select **Servers, databases and web apps** > **Create project** on the top left.
+2. On the Azure Migrate dashboard, select **Servers, databases and web apps** > **Create project** on the top left.
 
     :::image type="content" source="./media/create-manage-projects/switch-project.png" alt-text="Screenshot containing Create Project button.":::
 
@@ -129,14 +125,13 @@ To delete a project, follow these steps:
     - The resource type is **Microsoft.Migrate/migrateprojects**.
     - If the resource group is exclusively used by the project, you can delete the entire resource group.
 
-Note that:
-
-- When you delete, both the project and the metadata about discovered servers are deleted.
-- If you're using the older version of Azure Migrate, open the Azure resource group in which the project was created. Select the project you want to delete (the resource type is **Migration project**).
-- If you're using dependency analysis with an Azure Log Analytics workspace:
-    - If you've attached a Log Analytics workspace to the Server Assessment tool, the workspace isn't automatically deleted. The same Log Analytics workspace can be used for multiple scenarios.
-    - If you want to delete the Log Analytics workspace, do that manually.
-- Project deletion is irreversible. Deleted objects can't be recovered.
+> [!NOTE]
+> - When you delete, both the project and the metadata about discovered servers are deleted.
+> - If you're using the older version of Azure Migrate, open the Azure resource group in which the project was created. Select the project you want to delete (the resource type is **Migration project**).
+> - If you're using dependency analysis with an Azure Log Analytics workspace:
+    > - If you've attached a Log Analytics workspace to the Server Assessment tool, the workspace isn't automatically deleted. The same Log Analytics workspace can be used for multiple scenarios.
+    > - If you want to delete the Log Analytics workspace, do that manually.
+> - Project deletion is irreversible. Deleted objects can't be recovered.
 
 ### Delete a workspace manually
 
