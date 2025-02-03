@@ -449,7 +449,7 @@ Hyperconvergence can improve performance by co-locating workloads with their sto
 
 * **Potential Resource Imbalance**: While hyperconvergence itself does not limit the number of applications on a node, if multiple workloads create replicas on the same node and that node runs out of resources (CPU, memory, or storage bandwidth), some workloads may not be able to schedule there. As a result, they may end up running **without hyperconvergence**, despite it being enabled.
 
-### Enable Hyperconvergence in Azure Container Storage  
+### Enable hyperconvergence in Azure Container Storage  
 
 Hyperconvergence is enabled by default for NVMe and temporary disk storage pools with only one replica. This ensures optimized data locality and improved performance for single-replica configurations. For multi-replica setups, hyperconvergence isn't enabled by default but can be configured using the `hyperconverged` parameter in the StoragePool specification. 
 
