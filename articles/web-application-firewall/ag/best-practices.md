@@ -1,7 +1,6 @@
 ---
 title: Best practices for Azure Web Application Firewall (WAF) on Azure Application Gateway
 description: In this article, you learn about the best practices for using the Azure Web Application Firewall (WAF) on Azure Application Gateway.
-services: web-application-firewall
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
