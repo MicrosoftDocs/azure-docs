@@ -33,20 +33,20 @@ To enable customer-managed keys in the Azure portal, follow these steps:
 
 After you enable customer-managed keys, you need to associate the customer managed key with your Azure Service Bus namespace. Service Bus supports only Azure Key Vault. If you enable the **Encryption with customer-managed key** option in the previous section, you need to have the key imported into Azure Key Vault. Also, the keys must have **Soft Delete** and **Do Not Purge** configured for the key. These settings can be configured using [PowerShell](/azure/key-vault/general/key-vault-recovery) or [CLI](/azure/key-vault/general/key-vault-recovery).
 
-### Creaet a keyvault or keyvault managed HSM
+### Create key vault or key vault managed HSM
 
 > [!IMPORTANT]
 > Using customer-managed keys with Azure Service Bus requires that the vault have two required properties configured. They are:  **Soft Delete** and **Do Not Purge**. The Soft Delete property is enabled by default when you create a new vault in the Azure portal whereas the Purge Protection is optional so make sure to select it when creating the vault. Also, if you need to enable these properties on an existing key vault, you must use either PowerShell or Azure CLI.
 
 # [Key Vault](#tab/Key-Vault)
 
-1. To create a new Key Vault, follow the Azure Key Vault [Quickstart](/azure/key-vault/general/quick-create-cli). For information about Azure KeyVault, see [About Azure KeyVault](/azure/key-vault/general/overview).
-2. To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command.
+- To create a new Key Vault, follow the Azure Key Vault [Quickstart](/azure/key-vault/general/quick-create-cli). For information about Azure KeyVault, see [About Azure KeyVault](/azure/key-vault/general/overview).
+- To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command.
         
     ```azurecli-interactive
     az keyvault create --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
     ```    
-3. To add purge protection to an existing vault (that already has soft delete enabled), use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command.
+- To add purge protection to an existing vault (that already has soft delete enabled), use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command.
         
     ```azurecli-interactive
     az keyvault update --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --enable-purge-protection true
@@ -54,15 +54,15 @@ After you enable customer-managed keys, you need to associate the customer manag
         
 # [Key Vault Managed HSM](#tab/Key-Vault-Managed-HSM)
 
-1. To create a new Managed HSM, follow the Managed HSM [Quickstart](/azure/key-vault/managed-hsm/quick-create-cli). For information about Azure KeyVault, see [About Azure KeyVault](/azure/key-vault/general/overview).
-2. To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command.
+- To create a new Managed HSM, follow the Managed HSM [Quickstart](/azure/key-vault/managed-hsm/quick-create-cli). For information about Azure KeyVault, see [About Azure KeyVault](/azure/key-vault/general/overview).
+- To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command.
         
     ```azurecli-interactive
     az keyvault create --hsm-name contoso-SB-BYOK-keyvault --resource-group ContosoRG --location westus --enable-purge-protection true --retention-days 90 --administrators aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
     ```
 
     After creation, you need to [activate the Managed HSM](/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm) and ensure that you have the correct permissions to generate keys by [assigning an RBAC role and local RBAC role](/azure/key-vault/managed-hsm/secure-your-managed-hsm) with the correct permissions.
-3. To add purge protection to an existing vault (that already has soft delete enabled), use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command.
+- To add purge protection to an existing vault (that already has soft delete enabled), use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command.
         
     ```azurecli-interactive
     az keyvault update --hsm-name contoso-SB-BYOK-keyvault --resource-group ContosoRG --enable-purge-protection true
