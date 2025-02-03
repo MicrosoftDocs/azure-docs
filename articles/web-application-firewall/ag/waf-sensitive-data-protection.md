@@ -4,7 +4,7 @@ description: Learn about Azure Web Application Firewall Sensitive Data Protectio
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/10/2024
 ---
 

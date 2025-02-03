@@ -4,10 +4,9 @@ description: Learn about Azure Web Application Firewall in Azure Front Door moni
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
-ms.custom: devx-track-js
 ms.topic: how-to
-services: web-application-firewall
 ms.date: 05/23/2024
+ms.custom: devx-track-js
 zone_pivot_groups: front-door-tiers
 ---
 
