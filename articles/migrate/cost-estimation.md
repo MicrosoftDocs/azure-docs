@@ -1,11 +1,11 @@
----
-title: Cost estimation
-description: Learn how costs are estimated during assessments in Azure Migrate.
+--- 
+title: Cost estimation of assessments in Azure Migrate  
+description: Learn about cost estimation in assessments in Azure Migrate  
 author: ankitsurkar06
-ms.author: ankitsurkar
-ms.service: azure-migrate
-ms.topic: conceptual
-ms.date: 11/05/2024
+ms.service: azure-migrate 
+ms.topic: conceptual 
+ms.date: 02/03/2025 
+ms.custom: engagement-fy24 
 ---
 
 # Cost estimation 
