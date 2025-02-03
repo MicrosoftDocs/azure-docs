@@ -16,7 +16,7 @@
     href: virtual-network-service-endpoints-overview.md
   - name: Service tags
     href: service-tags-overview.md
-- name: Getting started
+- name: Get started
   items:
   - name: Add, change, or delete a subnet
     href: virtual-network-manage-subnet.md
@@ -46,7 +46,7 @@
     href: virtual-network-peering-overview.md
   - name: What is IP address 168.63.129.16?
     href: what-is-ip-address-168-63-129-16.md
-- name: Planning and design
+- name: Plan and design
   items: 
   - name: Implement a secure hybrid network
     href: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json&tabs=portal
@@ -62,7 +62,7 @@
     href: virtual-networks-viewing-and-modifying-hostnames.yml
   - name: Virtual networks and virtual machines in Azure
     href: network-overview.md
-- name: Deploying virtual network
+- name: Deploy virtual network
   items:
   - name: Connect a virtual network to ExpressRoute circuits
     href: /azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
@@ -92,7 +92,7 @@
     href: tutorial-restrict-network-access-to-resources.md
   - name: Route network traffic
     href: tutorial-create-route-table.md
-- name: Managing connectivity
+- name: Manage connectivity
   items:
   - name: Accelerated networking
     items:
@@ -196,7 +196,7 @@
       href: /azure/resource-mover/tutorial-move-region-virtual-machines?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
     - name: Virtual networks
       href: /azure/resource-mover/tutorial-move-region-virtual-machines?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-- name: Monitoring and troubleshooting
+- name: Troubleshoot
   items:
   - name: Configure reverse lookup zones for an SMTP banner check
     href: create-ptr-for-smtp-service.md
