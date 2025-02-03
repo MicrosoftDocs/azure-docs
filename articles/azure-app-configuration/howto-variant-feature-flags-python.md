@@ -106,7 +106,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
             self.password_hash = password
     ```
 
-1. Create a new file called *routes.py* in the *QuoteOfTheDay* folder.
+1. Create a new file named *routes.py* in the *QuoteOfTheDay* folder with the following content. It defines routes for the Flask web application, handling user authentication and displaying a homepage with a random quote.
 
     ```python
     import random
@@ -275,6 +275,13 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
         <form action="/" method="post">
         </form>
     </div>
+    <script>
+        function heartClicked(button) {
+            var icon = button.querySelector('i');
+            icon.classList.toggle('far');
+            icon.classList.toggle('fas');
+        }
+    </script>
     {% endblock %}
     ```
 
@@ -418,7 +425,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     pip install featuremanagement[AzureMonitor]
     ```
 
-1. Open `app.py` and add the following code to connect to App Configuration and set up feature management.
+1. Open the `app.py` file and add the following code to the end of the file. It connects to App Configuration and sets up feature management.
 
    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
 
@@ -449,7 +456,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     feature_manager = FeatureManager(azure_app_config)
     ```
 
-1. Open `routes.py` and add the following code to refresh configuration and get the feature variant.
+1. Open `routes.py` and add the following code to the end of it to refresh configuration and get the feature variant.
 
     ```python
     from featuremanagement.azuremonitor import track_event
