@@ -396,7 +396,7 @@ kubectl get pvc <persistent-volume-claim-name>
 
 ## Enable hyperconvergence (optional) 
 
-### What is Hyperconvergence?  
+### What is hyperconvergence?  
 
 Hyperconvergence in Azure Container Storage enables pods to run on the same host as their corresponding volumes, reducing network overhead and significantly improving read performance. 
 
