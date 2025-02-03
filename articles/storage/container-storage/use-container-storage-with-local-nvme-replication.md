@@ -394,7 +394,7 @@ To check which persistent volume a persistent volume claim is bound to, run:
 kubectl get pvc <persistent-volume-claim-name>
 ```
 
-## Enabling Hyperconvergence (Optional) 
+## Enable hyperconvergence (optional) 
 
 ### What is Hyperconvergence?  
 
