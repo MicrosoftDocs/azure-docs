@@ -1837,6 +1837,6 @@ groups:
   - id: platform-powershell
     title: Azure PowerShell
   - id: platform-azclips
-    title: AzureCLI PowerShell
+    title: Azure CLI with PowerShell Commandlets
   - id: platform-azclipython
-    title: AzureCLI Python
+    title: Azure CLI with Python Script
