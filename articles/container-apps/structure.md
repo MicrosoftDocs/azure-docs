@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 01/31/2025
+ms.date: 02/03/2025
 ms.author: cshoe
 ---
 
@@ -46,6 +46,7 @@ By default, every *v2* environment only comes with a consumption workload profil
 The consumption profile makes 4 vCPUs with 8 GB of memory available to your apps. If you require more resources, then run your apps on dedicated workload profile. You can add as many dedicated workload profiles to your environment as necessary.
 
 When you choose to use a dedicated workload profile, you can select the allocated amount of memory and compute resources available to your apps. For more information on available virtual machine sizes, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes/overview).
+If your application requires capabilities outside these parameters, then run your apps on dedicated workload profiles.
 
 Regardless of what type of profile you decide to run, each profile runs on a plan. The consumption profile works on the consumption plan while dedicated workload profiles use the dedicated plan.
 
