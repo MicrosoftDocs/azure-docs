@@ -4,10 +4,10 @@ titleSuffix: Azure Web Application Firewall
 description: This article provides information on how to create Web Application Firewall (WAF) v2 custom rules in Azure Application Gateway.
 services: web-application-firewall
 ms.topic: how-to
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.date: 04/06/2023
-ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
 

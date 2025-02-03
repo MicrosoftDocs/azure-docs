@@ -184,7 +184,7 @@ Once the capture session is started, you see the following output:
   },
   "storageLocation": {
     "storageId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
-    "storagePath": "https://nwteststorageaccount.blob.core.windows.net/network-watcher-logs/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm/2025/01/31/packetcapture_16_39_41_077.cap"
+    "storagePath": "https://mystorageaccount.blob.core.windows.net/network-watcher-logs/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm/2025/01/31/packetcapture_16_39_41_077.cap"
   },
   "target": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
   "targetType": "AzureVM",

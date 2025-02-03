@@ -3,10 +3,10 @@ title: Configure WAF exclusion lists for Azure Front Door
 description: Learn how to configure a web application firewall (WAF) exclusion list for an existing Azure Front Door endpoint.
 services: web-application-firewall
 author: johndowns
+ms.author: jodowns
 ms.service: azure-web-application-firewall
 ms.custom: devx-track-azurepowershell, devx-track-bicep
 ms.date: 10/18/2022
-ms.author: jodowns
 ms.topic: conceptual
 zone_pivot_groups: web-application-firewall-configuration
 ---
