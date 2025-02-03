@@ -1,6 +1,6 @@
 ---
 title: Azure Schema Registry Concepts
-description: This article explains concepts for using Azure schema registries in Azure Event Hubs. 
+description: This article explains concepts for using Azure Schema Registry in Azure Event Hubs. 
 ms.topic: conceptual
 ms.date: 04/26/2023
 author: spelluru
@@ -9,17 +9,17 @@ ms.author: spelluru
 
 # Schema registry concepts in Azure Event Hubs
 
-Schema registries in Azure Event Hubs have many benefits. They help maintain data consistency, simplify schema evolution, enhance interoperability, and reduce development effort in loosely coupled and event-streaming workflows. Large distributed organizations that employ a centralized repository for schemas can use schema registries to achieve highly reliable data processing and governance with little operational overhead.
+Schema Registry in Azure Event Hubs has many benefits. Schema Registry helps maintain data consistency, simplify schema evolution, enhance interoperability, and reduce development effort in loosely coupled and event-streaming workflows. Large distributed organizations that employ a centralized repository for schemas can use Schema Registry to achieve highly reliable data processing and governance with little operational overhead.
 
-Azure Event Hubs schema registries fulfill many roles in schema-driven event-streaming scenarios:
+Azure Event Hubs Schema Registry fulfills many roles in schema-driven event-streaming scenarios:
 
-* They provide a repository where multiple schemas can be registered, managed, and evolved.
-* They manage schema evolution with multiple compatibility rules.
-* They perform data validation for all schematized data.
-* They provide client-side libraries (serializers and deserializers) for producers and consumers.
-* They improve network throughput efficiency by passing the schema ID instead of the schema definition for every payload.
+* Provides a repository where multiple schemas can be registered, managed, and evolved
+* Manages schema evolution with multiple compatibility rules
+* Performs data validation for all schematized data
+* Provides client-side libraries (serializers and deserializers) for producers and consumers
+* Improves network throughput efficiency by passing the schema ID instead of the schema definition for every payload
 
-Azure Event Hubs schema registries are supported on Standard, Premium, and Dedicated tiers.
+Azure Event Hubs Schema Registry is supported on Standard, Premium, and Dedicated tiers.
 
 ## Schema registry components
 
@@ -37,7 +37,7 @@ A schema definition includes:
 * Data types: The type of data that can be stored, like string, date-time, or array.
 * Structure: How the fields are organized, like nested structures or arrays.
 
-Schemas define the contract between producers and consumers. A schema defined in an Event Hubs schema registry helps manage the contract outside event data, which removes the payload overhead.
+Schemas define the contract between producers and consumers. A schema defined in an Event Hubs Schema Registry helps manage the contract outside event data, which removes the payload overhead.
 
 #### Schema formats
 
@@ -49,8 +49,8 @@ Schema formats are used to determine the manner in which a schema is structured 
 
 To learn more about using Avro schema format with an Event Hubs schema registry, see:
   
-* [How to use a schema registry with Kafka and Avro](schema-registry-kafka-java-send-receive-quickstart.md)
-* [How to use a schema registry with Event Hubs, .NET, an SDK (Advanced Message Queuing Protocol or AMQP), and Avro.](schema-registry-dotnet-send-receive-quickstart.md)
+* [How to use Schema Registry with Kafka and Avro](schema-registry-kafka-java-send-receive-quickstart.md)
+* [How to use Schema Registry with Event Hubs, .NET, an SDK (Advanced Message Queuing Protocol or AMQP), and Avro.](schema-registry-dotnet-send-receive-quickstart.md)
 
 ##### JSON schema
 
@@ -74,11 +74,11 @@ You can think of a schema group as a subset of the schema registry that aligns w
 
 ## Schema evolution
 
-Schemas need to evolve with the business requirement of producers and consumers. Azure schema registries support schema evolution by introducing compatibility modes at the schema group level. When you create a schema group, you can specify the compatibility mode of the schemas that you include in that schema group. When you update a schema, the change needs to comply with the assigned compatibility mode so that it can create a new version of the schema.
+Schemas need to evolve with the business requirement of producers and consumers. Azure Schema Registry supports schema evolution by introducing compatibility modes at the schema group level. When you create a schema group, you can specify the compatibility mode of the schemas that you include in that schema group. When you update a schema, the change needs to comply with the assigned compatibility mode so that it can create a new version of the schema.
 
 Schema evolution is supported for Avro schema format only.
 
-Azure Event Hubs schema registries are supported in the following compatibility modes.
+Azure Event Hubs Schema Registry is supported in the following compatibility modes.
 
 ### Backward compatibility
 
@@ -96,7 +96,7 @@ Forward compatibility allows the consumer code to use an old schema version and 
 
 ### No compatibility
 
-When the ``None`` compatibility mode is used, the schema registry doesn't do any compatibility checks when you update schemas.
+When the ``None`` compatibility mode is used, Schema Registry doesn't do any compatibility checks when you update schemas.
 
 ## Client SDKs
 
@@ -106,7 +106,7 @@ You can use one of the following libraries to include an Avro serializer. You ca
 * **Java**: [azure-data-schemaregistry-avro](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/schemaregistry/azure-data-schemaregistry-apacheavro)
 * **Python**: [azure-schemaregistry-avroserializer](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/schemaregistry/azure-schemaregistry-avroencoder/)
 * **JavaScript**: [@azure/schema-registry-avro](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/schemaregistry/schema-registry-avro)
-* **Apache Kafka**: Run [Kafka-integrated Avro](https://github.com/Azure/azure-schema-registry-for-kafka/) serializers and deserializers backed by Azure schema registries. The Java client's Apache Kafka client serializer for Azure schema registries can be used in any Apache Kafka scenario and with any Apache Kafka-based deployment or cloud service.
+* **Apache Kafka**: Run [Kafka-integrated Avro](https://github.com/Azure/azure-schema-registry-for-kafka/) serializers and deserializers backed by Azure Schema Registry. The Java client's Apache Kafka client serializer for Azure Schema Registry can be used in any Apache Kafka scenario and with any Apache Kafka-based deployment or cloud service.
 * **Azure CLI**: For an example of adding a schema to a schema group by using the Azure CLI, see [Adding a schema to a schema group by using the Azure CLI](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/CLI/AddschematoSchemaGroups).
 * **PowerShell**: For an example of adding a schema to a schema group by using PowerShell, see [Adding a schema to a schema group by using PowerShell](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/PowerShell/AddingSchematoSchemagroups).
 
@@ -138,4 +138,4 @@ To learn how to create and register an application by using the Azure portal, se
 * [Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/schemaregistry/azure-data-schemaregistry-apacheavro/src/samples)
 * [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/schemaregistry/schema-registry-avro/samples)
 * [Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/schemaregistry/azure-schemaregistry-avroencoder/samples)
-* [Kafka Avro Integration for Azure schema registries](https://github.com/Azure/azure-schema-registry-for-kafka/tree/master/csharp/avro/samples)
+* [Kafka Avro Integration for Azure Schema Registry](https://github.com/Azure/azure-schema-registry-for-kafka/tree/master/csharp/avro/samples)
