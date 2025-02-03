@@ -276,7 +276,21 @@ The Azure File Sync agent is a downloadable package that enables Windows Server 
 
 # [Portal](#tab/azure-portal)
 
-You can download the agent from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). When the download is finished, double-click the MSI package to start the Azure File Sync agent installation or to silently install the agent, see [How to perform a silent installation for a new Azure File Sync agent installation](file-sync-agent-silent-installation.md). 
+You can download the agent from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). When the download is finished, double-click the MSI package to start the Azure File Sync agent installation or to silently install the agent, see [How to perform a silent installation for a new Azure File Sync agent installation](file-sync-agent-silent-installation.md).
+1. Click **Next** to start installation.
+   ![The File Sync Agent Setup Wizard welcome screen with Next and Cancel Buttons](media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-1.png)
+2. Click the checkbox once you have reviewed and accepted the end-user license agreement. Click **Next** to proceed.
+   ![The File Sync Agent Setup Wizard License Agreeement Acceptance](media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-2.png)
+3. The path for installation of the storage sync agent will be filled in by default. You may change it to a location of your choice. Click **Next** to proceed.
+   ![The File Sync Agent Setup Wizard Path Selection](media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-3.png)
+4. Select the proxy setting and click **Next**.
+   ![The File Sync Agent Setup Wizard Proxy Settings](media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-4.png)
+5. Choose whether you want to use Microsoft Update to update the File Sync Agent and click **Next**.
+    ![The File Sync Agent Setup Wizard with Windows Update](media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-5.png)
+6. Select the options for automatically updating the agent and data collection for troubleshooting, as required. Click **Install** to start the installation process.
+    ![The File Sync Agent Setup Wizard Troubleshooting](media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-6.png)
+7. Once installed, click **Finish** to exit the Setup Wizard.
+    ![The File Sync Agent Setup Wizard Installation Complete](media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-7.png)
 
 > [!IMPORTANT]
 > If you're using Azure File Sync with a Failover Cluster, the Azure File Sync agent must be installed on every node in the cluster. Each node in the cluster must be registered to work with Azure File Sync. 
@@ -353,11 +367,17 @@ It's also possible to differentiate administrators able to register servers from
 
 # [Portal](#tab/azure-portal)
 
-The Server Registration UI should open automatically after the Azure File Sync agent installs. If it doesn't, you can open it manually from its file location: `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`. When the Server Registration UI opens, select **Sign-in** to begin.
+The Server Registration UI should open automatically after the Azure File Sync agent installs. If it doesn't, you can open it manually from its file location: `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`. When the Server Registration UI opens, you can choose your Azure Environment from the options given. 
+![Server Registration UI Sign In Regular](media/storage-sync-files-deployment-guide/register-sync-server-1.png)
+
+If you are a Cloud Solution Provider, toggle the switch for **I am signing in as a Cloud Solution Provider** and enter the **Tenant ID**. 
+![Server Registration UI Sign In Cloud Solution Provider](media/storage-sync-files-deployment-guide/register-sync-server-2.png)
+
+Select **Sign in** in to begin.
 
 After you sign in, you're prompted for the following information:
 
-![A screenshot of the Server Registration UI](media/storage-sync-files-deployment-guide/register-server-scubed-1.png)
+![Server Registration for Storage Sync Service with details for Subscription, Resource Group and Sync Service](media/storage-sync-files-deployment-guide/register-sync-server-3.png)
 
 - **Azure Subscription**: The subscription that contains the Storage Sync Service (see [Deploy the Storage Sync Service](#deploy-the-storage-sync-service)).
 - **Resource Group**: The resource group that contains the Storage Sync Service.
@@ -392,16 +412,26 @@ The administrator creating the cloud endpoint must be a member of the management
 
 # [Portal](#tab/azure-portal)
 
-To create a sync group, in the [Azure portal](https://portal.azure.com/), go to your Storage Sync Service, and then select **+ Sync group**:
+To create a sync group, in the [Azure portal](https://portal.azure.com/), go to your Storage Sync Service, and then select **+ Create a sync group**:
 
-![Create a new sync group in the Azure portal](media/storage-sync-files-deployment-guide/create-sync-group-part-1.png)
+![Create a new sync group in the Azure portal](media/storage-sync-files-deployment-guide/create-sync-group-1.png)
 
 In the pane that opens, enter the following information to create a sync group with a cloud endpoint:
+![Create a new sync group in the Azure portal information](media/storage-sync-files-deployment-guide/create-sync-group-2.png)
 
 - **Sync group name**: The name of the sync group to be created. This name must be unique within the Storage Sync Service, but can be any name that is logical for you.
 - **Subscription**: The subscription where you deployed the Storage Sync Service in [Deploy the Storage Sync Service](#deploy-the-storage-sync-service).
 - **Storage account**: If you select **Select storage account**, another pane appears in which you can select the storage account that has the Azure file share that you want to sync with.
 - **Azure file share**: The name of the Azure file share with which you want to sync.
+
+Post creation, you should see a Healthy status on the Sync Groups page.
+![Sync Group page with Healthy Status](media/storage-sync-files-deployment-guide/create-sync-group-3.png)
+
+Click on the Sync Group Name and click **+ Add Cloud Endpoint** to add a cloud endpoint to the sync group.
+![Create a new cloud endpoint in the Azure Portal](media/storage-sync-files-deployment-guide/create-cloud-endpoint-1.png)
+
+In the pane that opens, enter the subscription, storage account and file share with which you want to sync.
+![Create a new cloud endpoint Information](media/storage-sync-files-deployment-guide/create-cloud-endpoint-2.png)
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -490,13 +520,13 @@ A server endpoint represents a specific location on a registered server, such as
 If you'd like to configure Azure File Sync to work with firewall and virtual network settings, do the following:
 
 1. From the Azure portal, navigate to the storage account you want to secure.
-1. Select **Networking** on the left menu.
-1. Under **Selected networks** under **Allow access from**.
-1. Make sure your servers IP or virtual network is listed under the **Address range** section.
-1. Make sure **Allow trusted Microsoft services to access this storage account** is checked.
-1. Select **Save** to save your settings.
+2. Select **Networking** on the left menu.
+3. Under Public network access, click **Enabled from selected virtual networks and IP addresses**.
+4. Make sure your servers IP or virtual network is listed under the **Address range** section.
+5. Make sure **Allow Azure services on the trusted services list to access this storage account** is checked.
+6. Select **Save** to save your settings.
 
-    ![Configuring firewall and virtual network settings to work with Azure File sync](media/storage-sync-files-deployment-guide/firewall-and-vnet.png)
+    ![Configuring firewall and virtual network settings to work with Azure File sync](media/storage-sync-files-deployment-guide/update-firewall-and-vnet-settings.png)
 
 ## Optional: Self-service restore through Previous Versions and VSS (Volume Shadow Copy Service)
 
