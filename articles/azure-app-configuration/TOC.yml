@@ -303,7 +303,7 @@
   - name: Client libraries
     items:
     - name: Overview
-      href: configuration-provider-overview.md
+      href: ./configuration-provider-overview.md
     - name: .NET
       items:
       - name: API reference
@@ -336,7 +336,7 @@
   - name: Feature management
     items:
     - name: Overview
-      href: configuration-provider-overview.md
+      href: ./feature-management-overview.md
     - name: .NET
       items:
       - name: Feature reference
