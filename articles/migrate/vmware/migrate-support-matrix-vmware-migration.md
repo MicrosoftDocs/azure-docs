@@ -175,6 +175,9 @@ The table summarizes VMware vSphere VM support for VMware vSphere VMs you want t
 **Storage vMotion** | Supported
 **Teamed NICs** | Not supported.
 **IPv6** | Not supported.
+**Guest/server disk with 4K logical and 4k physical sector size** |	Not supported.
+**Guest/server disk with 4K logical and 512-bytes physical sector size** |	Not supported.
+
 
 
 
