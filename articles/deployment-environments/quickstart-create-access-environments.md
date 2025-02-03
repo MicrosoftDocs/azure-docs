@@ -30,7 +30,7 @@ An environment in Azure Deployment Environments is a collection of Azure resourc
 
 [!INCLUDE [developer-portal-landing-page](includes/developer-portal-landing-page.md)]
  
-1. In the **Add an environment** pane, select the following information:
+3. In the **Add an environment** pane, select the following information:
 
    |Field  |Value  |
    |---------|---------|
@@ -43,7 +43,7 @@ An environment in Azure Deployment Environments is a collection of Azure resourc
 
    If your environment is configured to accept parameters, you can enter them on a separate pane. In this example, you don't need to specify any parameters.
 
-1. Select **Create**. You see your environment in the developer portal immediately, with an indicator that shows creation in progress.
+4. Select **Create**. You see your environment in the developer portal immediately, with an indicator that shows creation in progress.
 
 ## Access an environment
 

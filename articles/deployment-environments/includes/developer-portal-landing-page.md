@@ -12,14 +12,14 @@ ms.service: dev-box
 
 #### [No existing environments](#tab/no-existing-environments)
 
-1. If you don't have any dev boxes, you see this screen. Select **New environment**.
+2. If you don't have any dev boxes, you see this screen. Select **New environment**.
 
    :::image type="content" source="../media/developer-portal-landing-page/developer-portal-new-deployment-environment.png" alt-text="Screenshot of the developer portal with new environment highlighted." lightbox="../media/developer-portal-landing-page/developer-portal-new-deployment-environment.png":::
 
 #### [Existing environments](#tab/existing-environments)
 
-1. Select **New** > **New environment**.
+2. Select **New** > **New environment**.
  
-   :::image type="content" source="../media/developer-portal-landing-page/developer-portal-new-environment-menu.png" alt-text="Screenshot of the developer portal with the New menu and Dev box option highlighted" lightbox="../media/developer-portal-landing-page/developer-portal-new-environment-menu.png":::
+   :::image type="content" source="../media/developer-portal-landing-page/developer-portal-new-environment-menu.png" alt-text="Screenshot of the developer portal with the New menu and Dev box option highlighted." lightbox="../media/developer-portal-landing-page/developer-portal-new-environment-menu.png":::
  
 ---
