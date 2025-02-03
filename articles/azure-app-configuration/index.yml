@@ -188,7 +188,7 @@ landingContent:
         - text: Python provider
           url: https://pypi.org/project/azure-appconfiguration-provider/
         - text: JavaScript provider
-          url: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/app-configuration
+          url: reference-javascript-provider.md
         - text: Kubernetes provider
           url: reference-kubernetes-provider.md
       - linkListType: reference
