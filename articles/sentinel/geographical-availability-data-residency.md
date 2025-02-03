@@ -78,8 +78,9 @@ Customer data is kept and is available while the license is under a grace period
 
 Microsoft Sentinel may share data, including customer data, among the following Microsoft products:
 
-- Microsoft Defender XDR / Microsoft's unified security operations platform
+- Microsoft Defender XDR
 - Azure Log Analytics
+
 ## Related content
 
 For more information, see details about [Azure regions](/azure/azure-monitor/logs/workspace-design#azure-regions?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) when designing your workspace architecture.
