@@ -34,7 +34,7 @@ This section summarizes features for integrating AI into Azure Communication mes
 ### Direct Integrations 
 
 - **[Advanced message analysis](../concepts/advanced-messaging/message-analysis/message-analysis.md)** The Azure Communication Services messaging APIs for WhatsApp provide a built-in integration with Azure OpenAI that analyzes and annotates messages. This integration can detect the user's language, recognize their intent, and extract key phrases. 
-- **[Azure Bot Service: Chat channel integration](../quickstarts/chat/quickstart-botframework-integration.md)** - The Azure Communication Services chat system is directly integrated with Azure Bot Service. This integration simplifies creating chat bots that engage with human users.|
+- **[Azure Bot Service: Chat channel integration](../quickstarts/chat/quickstart-botframework-integration.md)** - The Azure Communication Services chat system is directly integrated with Azure Bot Service. This integration simplifies creating chat bots that engage with human users.
 
 ### Accessors
 All Azure Communication Services messaging capabilities are accessible through REST APIs and server-oriented SDKs. You can use these SDKs to export content to an external datastore and attach a language model to summarize conversations. Or you can use the SDKs to integrate a bot that directly engages with human users.
@@ -46,7 +46,7 @@ This section summarizes features for integrating AI into Azure Communication voi
 
 ### Direct Integrations 
 
-- **[Call Automation REST APIs and SDKs](../concepts/call-automation/call-automation.md)**- Azure Communication Services has simple APIs for [synthesizing](../concepts/call-automation/play-action) and [recognizing](../concepts/call-automation/recognize-action) speech. The most common scenario for these APIs is implementing voice bots, which is sometimes called interactive voice response (IVR).
+- **[Call Automation REST APIs and SDKs](../concepts/call-automation/call-automation.md)**- Azure Communication Services has simple APIs for [synthesizing](../concepts/call-automation/play-action.md) and [recognizing](../concepts/call-automation/recognize-action.md) speech. The most common scenario for these APIs is implementing voice bots, which is sometimes called interactive voice response (IVR).
 - **[Microsoft Copilot Studio](/microsoft-copilot-studio/voice-overview)** - Copilot Studio is directly integrated with Azure Communication Services telephony. This integration is designed for voice bots and IVR.
 - **[Client captions](../concepts/voice-video-calling/closed-captions.md)** The Calling client SDK provides APIs for real-time closed captions, optimized for accessibility.
 - **[Copilot in the Azure portal](/azure/communication-services/concepts/voice-video-calling/call-diagnostics#copilot-in-azure-for-call-diagnostics)** - You can use Copilot in the Azure portal to ask questions about Azure Communication Services. Copilot uses Azure technical documentation to answer your questions and is best used for asking questions about error codes and API behavior.
