@@ -77,16 +77,88 @@ There are multiple ways to turn off default outbound access. The following secti
     > Certain services won't function on a virtual machine in a Private Subnet without an explicit method of egress (examples are Windows Activation and Windows Updates).
  
 #### Add the Private subnet feature
- 
-* From the Azure portal, ensure the option to enable Private subnet is selected as part of the Virtual Network subnet create/modify experience as shown below:
- 
-:::image type="content" source="./media/default-outbound-access/private-subnet-portal.png"  alt-text="Screenshot of Azure portal showing Private subnet option.":::
- 
-* Using PowerShell, when creating a subnet with [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig), use the `DefaultOutboundAccess` option and choose "$false". After creation, a subnet can be set using [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig).
 
-* Using CLI, when creating a subnet with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create), use the `--default-outbound` option and choose "false". After creation, a subnet can be set using [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update).
+ * From the Azure portal, select the subnet and select the checkbox to enable Private subnet as shown below:
+
+:::image type="content" source="./media/default-outbound-access/private-subnet-portal.png"  alt-text="Screenshot of Azure portal showing Private subnet option.":::
+
+* Using Powershell, the following script takes the names of the Resource Group and Virtual Network and loops through each subnet to enable private subnet.
+
+```
+$resourceGroupName = ""
+$vnetName = ""
  
-* Using an Azure Resource Manager template, set the value of `defaultOutboundAccess` parameter to be "false".
+$vnet = Get-AzVirtualNetwork -ResourceGroupName $resourceGroupName -Name $vnetName
+ 
+foreach ($subnet in $vnet.Subnets) {
+    if ($subnet.DefaultOutboundAccess -eq $null) {
+        $subnet.DefaultOutboundAccess = $false
+        Write-Output "Set 'defaultoutboundaccess' to \$false for subnet: $($subnet.Name)"
+    } 
+    elseif ($subnet.DefaultOutboundAccess -eq $false) {
+        # Output message if the value is already $false
+        Write-Output "already private for subnet: $($subnet.Name)"
+    }
+}
+Set-AzVirtualNetwork -VirtualNetwork $vnet
+```
+
+* Using CLI, update the subnet with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) and set `--default-outbound` to "false"
+
+```
+az network vnet subnet update --resource-group rgname --name subnetname --vnet-name vnetname --default-outbound false
+```
+
+* Using an Azure Resource Manager template, set the value of `defaultOutboundAccess` parameter to be "false"
+
+```
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vnetName": {
+      "type": "string",
+      "defaultValue": "testvm-vnet"
+    },
+    "subnetName": {
+      "type": "string",
+      "defaultValue": "default"
+    },
+    "subnetPrefix": {
+      "type": "string",
+      "defaultValue": "10.1.0.0/24"
+    },
+    "vnetAddressPrefix": {
+      "type": "string",
+      "defaultValue": "10.1.0.0/16"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2023-11-01",
+      "name": "[parameters('vnetName')]",
+      "location": "westus2",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('vnetAddressPrefix')]"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "[parameters('subnetName')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnetPrefix')]",
+              "defaultoutboundaccess": false
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+```
 
 #### Private subnet limitations
  

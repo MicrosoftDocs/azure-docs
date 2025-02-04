@@ -35,8 +35,6 @@ landingContent:
         links:
           - text: Create a dashboard
             url: how-to-create-dashboard.md
-          - text: Manage data sources
-            url: how-to-data-source-plugins-managed-identity.md
           - text: Share a dashboard
             url: how-to-share-dashboard.md
           - text: Use reporting and image rendering

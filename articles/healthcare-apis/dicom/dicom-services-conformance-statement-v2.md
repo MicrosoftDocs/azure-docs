@@ -108,6 +108,10 @@ When a sequence contains an attribute that fails validation, or when there are m
 
 If an attribute is padded with nulls, the attribute is indexed when searchable and is stored as is in dicom+json metadata. No validation warning is provided.
 
+#### Store DICOM file with external metadata
+
+The [external metadata](external-metadata.md#store-stow-rs) documentation explains the ability to store DICOM file with external metadata.
+
 #### Store response status codes
 
 | Code                           | Description                                                                                                                                                                                                        |
@@ -377,6 +381,9 @@ Retrieving metadata doesn't return attributes with the following value represent
 
 Retrieved metadata includes the null character when the attribute was padded with nulls and stored as is.
 
+> [!NOTE]
+> The [external metadata](external-metadata.md#store-stow-rs) documentation explains the ability to retrieve DICOM file with external metadata.
+
 ### Retrieve metadata cache validation (for study, series, or instance)
 
 Cache validation is supported using the `ETag` mechanism. In the response to a metadata request, ETag is returned as one of the headers. This ETag can be cached and added as an `If-None-Match` header in the later requests for the same metadata. Two types of responses are possible if the data exists.
@@ -510,6 +517,9 @@ Tags can be encoded in several ways for the query parameter. We partially implem
 Example query searching for instances:
 
 `../instances?Modality=CT&00280011=512&includefield=00280010&limit=5&offset=0`
+
+> [!NOTE]
+> The [external metadata](external-metadata.md#store-stow-rs) documentation explains the ability to query DICOM file with external metadata.
 
 ### Search response
 

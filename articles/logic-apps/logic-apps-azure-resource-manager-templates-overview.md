@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 06/12/2024
+ms.date: 01/27/2025
 ---
 
 # Overview: Automate deployment for Azure Logic Apps by using Azure Resource Manager templates
@@ -206,7 +206,7 @@ Here is the structure inside the parameters file, which includes a key vault ref
             "keyVault": {
                "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/Microsoft.KeyVault/vaults/<key-vault-name>"
             },
-            "secretName: "<secret-name>"
+            "secretName": "<secret-name>"
          }
       },
       <other-parameter-values>
@@ -405,7 +405,7 @@ This syntax shows where you can declare parameters at both the template and work
                      "type": "<trigger-type>",
                      "inputs": {
                          // Workflow definition parameter reference
-                         "<attribute-name>": "@parameters('<workflow-definition-parameter-name')"
+                         "<attribute-name>": "@parameters('<workflow-definition-parameter-name>')"
                      }
                   }
                },

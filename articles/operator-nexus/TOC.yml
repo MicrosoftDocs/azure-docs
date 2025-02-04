@@ -147,6 +147,8 @@
                 href: howto-configure-network-fabric.md
               - name: Cluster
                 href: howto-configure-cluster.md
+              - name: Cluster Creation With Managed Identity
+                href: howto-create-cluster-with-user-assigned-managed-identity.md
               - name: Cluster Template JSON Example
                 href: cluster-jsonc-example.md
               - name: Cluster Parameters JSON Example
