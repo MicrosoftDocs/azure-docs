@@ -101,14 +101,17 @@ Detailed steps follow.
     }
     ```
 
-    > NOTE:  The `apiId` can only be only be pulled from the full resource ID, not the name displayed in the portal.
+    > [!NOTE]
+    > The `apiId` can only be pulled from the full resource ID, not the name displayed in the portal.
 
     Get apiId:
-    ```sh
+
+    
+    ```azurecli
     az apim api list --resource-group <resource-group> --service-name <service-name> -o table
     ```
         
-    The token credential is returned in the response, similar to the following:
+    The debug credential is returned in the response, similar to the following:
 
     ```json
     {
@@ -150,19 +153,22 @@ Detailed steps follow.
     
     The response body contains the trace data for the previous API request to the gateway. The trace is similar to the trace you can see by tracing a call in the portal's test console.
 
-Below is an example `.http` file for the VSCode http client extension:
+
+### Example `.http` file for VSCode REST Client extension
+
+To help automate these steps with the [Visual Studio Code REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension, you can use the following example `.http` file:
 
 ```http
-@subscriptionId = // Your subscription Id
+@subscriptionId = // Your subscription ID
 @resourceGroup = // Your resource group
-@apimName = // Your APIM Serviuce name
-@clientId = // Client id from an app registration for authentication
-@clientSecret = // Client Secret
+@apimName = // Your API Management Service name
+@clientId = // Client ID from an app registration for authentication
+@clientSecret = // Client secret
 @externalHost = // The host name of the APP Gateway or the fully qualified gateway URL
-@subscriptionKey = // Subscription key
+@subscriptionKey = //API Management subscription key
 @apiEndPoint = // API URL
 @requestBody = // Data to send
-@tenantId = // Tenant Id
+@tenantId = // Tenant ID
  
 POST https://login.microsoftonline.com/{{tenandId}}/oauth2/token
 content-type: application/x-www-form-urlencoded
