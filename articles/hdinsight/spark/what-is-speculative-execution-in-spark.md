@@ -34,7 +34,7 @@ In the below chart, lets consider total 10 tasks in a stage but task 5 takes mor
 When the `spark.speculation.minTaskRuntime` is set to 5 seconds, it starts a new task `SP-task5` on a new node. 
 When job the finished, the original task 5 is killed by the driver.
 
-:::image type="content" source="./media/what-is-speculative-execution-in-spark/runtime-chart.png" alt-text="How to view runtime chart?" lightbox="./media/what-is-speculative-execution-in-spark/runtime-shart.png":::
+:::image type="content" source="./media/what-is-speculative-execution-in-spark/runtime-chart.png" alt-text="How to view runtime chart?" lightbox="./media/what-is-speculative-execution-in-spark/runtime-chart.png":::
 
 ## When not to run a speculative execution?
 
