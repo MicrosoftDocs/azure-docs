@@ -51,11 +51,16 @@ For example, the following JSON shows a sample policy assignment request in _DoN
         "value": "-LC"
       }
     },
-    "identity": {
-      "type": "SystemAssigned"
+    "identity":  {
+      "principalId":  "<PrincipalId>",
+      "tenantId":  "<TenantId>",
+      "identityType":  "SystemAssigned",
+      "userAssignedIdentities":  null
     },
+    "location":  "westus",
     "resourceSelectors": [],
-    "overrides": []
+    "overrides": [],
+    {
   }
 }
 ```
@@ -343,19 +348,25 @@ In this example, the parameters previously defined in the policy definition are 
 
 ## Identity
 
-Policy assignments with effect set to `deployIfNotExists` or `modify` must have an identity property to do remediation on non-compliant resources. Assignments using an identity must also have a top-level location property specified. This location property determines where both the assignment and its corresponding system-assigned managed identity will be deployed. It cannot be set to `global`, and it cannot be changed.
+Policy assignments with effect set to `deployIfNotExists` or `modify` must have an identity property to do remediation on non-compliant resources. A single policy assignment can be associated with only one system-assigned or user-assigned managed identity. However, that identity can be assigned more than one role if necessary.
 
-> [!NOTE]
-> A single policy assignment can be associated with only one system- or user-assigned managed identity. However, that identity can be assigned more than one role if necessary.
+Assignments using a system-assigned managed identity must also specify a top-level `location` property to determine where it will be deployed. The location cannot be set to `global`, and it cannot be changed. The `location` property is only specified in [Rest API](https://learn.microsoft.com/rest/api/policy/policy-assignments/create?view=rest-policy-2023-04-01&tabs=HTTP) versions 2018-05-01 and later. If a location is specified in an assignment that doesn't use an identity, then the location will be ignored.
+
 
 ```json
 # System-assigned identity
- "identity": {
-  "type": "SystemAssigned"
-}
+  "identity":  {
+    "principalId":  "<PrincipalId>",
+    "tenantId":  "<TenantId>",
+    "identityType":  "SystemAssigned",
+    "userAssignedIdentities":  null
+  },
+  "location":  "westus",
+  ...
+
 # User-assigned identity
   "identity": {
-  "type": "UserAssigned",
+  "identityType": "UserAssigned",
   "userAssignedIdentities": {
     "/subscriptions/SubscriptionID/resourceGroups/{rgName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-identity": {}
   }
