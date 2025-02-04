@@ -391,6 +391,8 @@ items:
     items:
     - name: Rooms API for structured meetings
       href: concepts/rooms/room-concept.md
+    - name: Data channel
+      href: concepts/voice-video-calling/data-channel.md
     - name: Music mode
       href: concepts/voice-video-calling/music-mode.md
       displayName: music mode, audio filters, calling
@@ -456,8 +458,6 @@ items:
       href: concepts/call-flows.md
     - name: Call flow topologies
       href: concepts/detailed-call-flows.md
-    - name: Data channel
-      href: concepts/voice-video-calling/data-channel.md
   - name: Events
     items:
     - name: Overview
