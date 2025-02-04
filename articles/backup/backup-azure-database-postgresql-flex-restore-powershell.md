@@ -26,7 +26,7 @@ $TestBkpVault = Get-AzDataProtectionBackupVault -VaultName TestBkpVault -Resourc
 
 Backup vault uses managed identity to access other Azure resources. To restore from backup, Backup vault’s managed identity requires a set of permissions on the Azure PostgreSQL – Flexible Server to which the database should be restored.
 
-To assign the relevant permissions for vault's system-assigned managed identity on the target PostgreSQL – Flexible Server, check the [set of permissions](//azure/backup/backup-azure-database-postgresql-overview#set-of-permissions-needed-for-azure-postgresql-database-restore) needed to backup Azure PostgreSQL – Flexible Server database.
+To assign the relevant permissions for vault's system-assigned managed identity on the target PostgreSQL – Flexible Server, check the [set of permissions](backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-restore) needed to backup Azure PostgreSQL – Flexible Server database.
 
 To restore the recovery point as files to a storage account, the [Backup vault's system-assigned managed identity needs access on the target storage account](./restore-azure-database-postgresql.md#restore-permissions-on-the-target-storage-account).
 
