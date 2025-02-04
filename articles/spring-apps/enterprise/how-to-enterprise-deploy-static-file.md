@@ -228,7 +228,7 @@ The [Paketo buildpacks samples](https://github.com/paketo-buildpacks/samples/tre
 
 - Serving static files with a default server configuration file using `BP_WEB_SERVER` to select either [HTTPD](https://github.com/paketo-buildpacks/samples/blob/main/web-servers/no-config-file-sample/HTTPD.md) or [NGINX](https://github.com/paketo-buildpacks/samples/blob/main/web-servers/no-config-file-sample/NGINX.md).
 - Using Node Package Manager to build a [React app](https://github.com/paketo-buildpacks/samples/tree/main/web-servers/react-frontend-sample) into static files that a web server can serve. Use the following steps:
-  1. Define a script under the `scripts` property of the *package.json* file that builds your production-ready static assets. For React, it's `build`.
+  1. Define a script under the `scripts` property of the **package.json** file that builds your production-ready static assets. For React, it's `build`.
   1. Find out where static assets are stored after the build script runs. For React, static assets are stored in `./build` by default.
   1. Set `BP_NODE_RUN_SCRIPTS` to the name of the build script.
   1. Set `BP_WEB_SERVER_ROOT` to the build output directory.

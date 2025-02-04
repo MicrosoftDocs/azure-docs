@@ -72,7 +72,7 @@ az containerapp revision label add \
     --revision <APP_NAME>--<GREEN_SUFFIX>
 ```
 
-Initially, the revision with the *blue* `commitId` takes 100% of production traffic, while the newly deployed revision with the *green* `commitId` doesn't take any production traffic.
+Initially, the revision with the `commitId` that is `blue` takes 100% of production traffic, while the newly deployed revision with the `commitId` that is `green` doesn't take any production traffic.
 
 In Azure Spring Apps, you can deploy at most two revisions of one app: one set as Production and the other as Staging. However, Azure Container Apps supports deploying multiple revisions for a single app.
 

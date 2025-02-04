@@ -101,7 +101,7 @@ Both Azure Spring Apps and Azure Container Apps offer ways to control outbound t
 
 For more information, see the [Routes](../../container-apps/networking.md#routes) section of [Subnet configuration with CLI](../../container-apps/networking.md) and [Control outbound traffic in Azure Container Apps with user defined routes](../../container-apps/user-defined-routes.md).
 
-In Azure Container Apps, only workload profiles of the *environment* type support UDR. Additionally, Azure Container Apps support egress through NAT Gateway and the creation of private endpoints on the container app environment.
+In Azure Container Apps, only workload profiles of the `environment` type support UDR. Additionally, Azure Container Apps support egress through NAT Gateway and the creation of private endpoints on the container app environment.
 
 To create an Azure Container Apps environment that supports UDR, use the following command:
 
