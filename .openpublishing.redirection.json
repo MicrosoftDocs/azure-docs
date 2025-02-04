@@ -5185,6 +5185,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-wan/howto-openvpn-clients.md",
+      "redirect_url": "/azure/virtual-wan/point-to-site-vpn-client-certificate-windows-openvpn-client-version-3",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-wan/logs-metrics.md",
       "redirect_url": "/azure/virtual-wan/monitor-virtual-wan",
       "redirect_document_id": false
