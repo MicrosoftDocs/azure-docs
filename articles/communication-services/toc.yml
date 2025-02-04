@@ -92,10 +92,7 @@ items:
     href: concepts/chat/government-cloud.md
   - name: Translate chats
     href: how-tos/chat-sdk/translating-chats.md
-  - name: Chat metrics
-    href: concepts/analytics/chat-metrics.md
-  - name: Chat logs
-    href: concepts/analytics/logs/chat-logs.md
+
   - name: Events
     items:
     - name: Chat events
@@ -104,6 +101,10 @@ items:
       href: concepts/chat/concepts.md#server-events
   - name: Logging and analytics
     items:
+    - name: Chat metrics
+      href: concepts/analytics/chat-metrics.md
+    - name: Chat logs
+      href: concepts/analytics/logs/chat-logs.md
     - name: Enable logging with Azure Monitor
       href: concepts/analytics/enable-logging.md
     - name: Chat insights
