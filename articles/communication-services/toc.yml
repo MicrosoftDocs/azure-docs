@@ -877,6 +877,10 @@ items:
       href: concepts/telephony/direct-routing-provisioning.md
     - name: Direct routing infrastructure requirements
       href: concepts/telephony/direct-routing-infrastructure.md
+    - name: Configure direct routing
+      href: quickstarts/telephony/voice-routing-sdk-config.md
+    - name: Validate a domain for direct routing
+      href: how-tos/telephony/domain-validation.md
     - name: Certified session border controllers
       href: concepts/telephony/certified-session-border-controllers.md
     - name: Monitor direct routing
@@ -911,12 +915,8 @@ items:
       href: how-tos/call-automation/teams-interop-call-automation.md
     - name: Add outbound phone calling to your app
       href: quickstarts/telephony/pstn-call.md
-    - name: Configure direct routing
-      href: quickstarts/telephony/voice-routing-sdk-config.md
     - name: Add emergency calling to your app
       href: quickstarts/telephony/emergency-calling.md
-    - name: Validate a domain for direct routing
-      href: how-tos/telephony/domain-validation.md
     - name: Port a phone number into Azure
       href: quickstarts/telephony/port-phone-number.md
   - name: References
