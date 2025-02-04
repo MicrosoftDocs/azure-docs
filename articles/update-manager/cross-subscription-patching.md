@@ -12,7 +12,9 @@ ms.author: sudhirsneha
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-Azure Update Management offers a straightforward and efficient solution for managing asset patching within a subscription. However, its capabilities extend far beyond that. With proper configuration, you can manage and apply patches across multiple Azure subscriptions from a centralized location. The capability is beneficial for organizations with resources distributed across various subscriptions, ensuring consistent and streamlined patch management.
+Azure Update Management offers a straightforward and efficient solution for managing asset patching within a subscription. The capability is beneficial for organizations with resources distributed across various subscriptions, ensuring consistent and streamlined patch management.
+
+However, its capabilities go well beyond this. With proper configuration, you can manage and apply patches across multiple Azure subscriptions from a centralized location. 
 
 ## Key benefits of Cross-subscription patching
 

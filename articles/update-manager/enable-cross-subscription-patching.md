@@ -14,17 +14,18 @@ ms.topic: how-to
 
 This article describes how to enable cross-subscription patching either through Azure CLI or Azure portal.
 
-## Enable resource providers in subscription
+## Enable resource providers in your subscription
 
-1. Register the necessary resource providers to your subscription either through Azure CLI or manually via the Azure portal.
+1. You can register the necessary resource providers to your subscription through Azure CLI or manually via the Azure portal.
 
     # [Azure CLI](#tab/az-cli)
 
     Open your Azure CLI and run the following commands:
 
-    az provider register--namespace "Microsoft.Insights"
-    az provider register--namespace "Microsoft.Maintenance"
-
+    ```azurecli-interactive
+      az provider register--namespace "Microsoft.Insights"
+      az provider register--namespace "Microsoft.Maintenance"
+   ```
     # [Azure portal](#tab/az-portal)
 
     1. Sign in to the [Azure portal](https://portal.azure.com) and go to your subscription.
@@ -36,15 +37,15 @@ This article describes how to enable cross-subscription patching either through 
 ---
 2. Grant necessary roles to your managed identity
 
-   - Assign the appropriate roles to your Azure VM and Arc assets to ensure scheduled patching can be managed effectively. The required roles are:
+   - Assign the appropriate roles to your Azure VM and Arc assets to ensure scheduled patching is managed effectively. The required roles are:
         - Scheduled patching contributor
         - Reader
-   - These roles can be granted on the Resource Group or Subscription level if you have resources spread among multiple resource groups and want to include them all at once.
+   - These roles can be granted on the Resource Group or at the Subscription level if you have resources spread among multiple resource groups and want to include them all at once.
    - If you have a smaller scope and plan to manage it with a dedicated admin or group, these two roles can be granted to a user or a security group (SG). If you are envisioning a larger scope with automation in place, ensure to grant these roles to the API and Service Principal Name (SPN) you use.
 
 3. Scheduling using maintenance configurations
    
-   To create maintenance configurations in Azure Update Manager, there are two ways you can set it up
+   To create maintenance configurations in Azure Update Manager, you can set it up as follows:
 
    # [Using Azure portal](#tab/az-patch-portal)
       
@@ -55,7 +56,7 @@ This article describes how to enable cross-subscription patching either through 
    # [Using API](#tab/az-patch-cli)
     
    - Use the API to programmatically schedule the patching.
-   - For schedule patching on VM or Arc assets, locate the assets by using the *resourceId* and *subscription* that they're attached to.
+   - For scheduled patching on VM or Arc assets, locate the assets by using the *resourceId* and *subscription* that they're attached to.
 
 ---
 
