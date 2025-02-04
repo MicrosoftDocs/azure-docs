@@ -265,7 +265,7 @@ const state = remoteParticipant.state;
 > [!NOTE]
 > To use this API please use Azure Communication Services Calling Web SDK version 1.26.1 or higher. 
 
-To mute all other participants or mute a specific participant who are connected to a call, you can use the asynchronous APIs `muteAllRemoteParticipants` on the call and `mute` on the remote participant. The `mutedByOthers` event from Call is raised when the local participant has been muted by others.
+To mute all other participants or mute a specific participant who is connected to a call, you can use the asynchronous APIs `muteAllRemoteParticipants` on the call and `mute` on the remote participant. The `mutedByOthers` event from Call is raised when the local participant has been muted by others.
 
  *Note: The scenarios to mute PSTN (phone number) participants or 1:1 call participants are not supported.* 
 
