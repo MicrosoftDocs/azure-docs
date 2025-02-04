@@ -243,7 +243,13 @@
             - name: Version 3.x
               href: point-to-site-vpn-client-certificate-windows-openvpn-client-version-3.md
         - name: macOS and iOS clients
-          href: point-to-site-vpn-client-cert-mac.md    
+          items:
+          - name: Native VPN client
+            href: point-to-site-vpn-client-cert-mac.md
+          - name: OpenVPN client - macOS
+            href: point-to-site-vpn-client-certificate-openvpn-mac.md
+          - name: OpenVPN client - iOS
+            href: point-to-site-vpn-client-certificate-openvpn-ios.md  
         - name: Install client certificates
           href: install-client-certificates.md
       - name: VPN client profiles

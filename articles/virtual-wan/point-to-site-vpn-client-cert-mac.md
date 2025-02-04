@@ -4,7 +4,7 @@ description: Learn how to configure the VPN client for Virtual WAN User VPN conf
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 01/30/2025
+ms.date: 02/04/2025
 ms.author: cherylmc
 ---
 
