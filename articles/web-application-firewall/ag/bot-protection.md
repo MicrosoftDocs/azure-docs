@@ -1,11 +1,10 @@
 ---
 title: Configure bot protection for Azure Web Application Firewall (WAF)
 description: Learn how to configure bot protection for Web Application Firewall (WAF) on Azure Application Gateway.
-services: web-application-firewall
-ms.topic: how-to
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
+ms.topic: how-to
 ms.date: 06/01/2023
 ---
 
