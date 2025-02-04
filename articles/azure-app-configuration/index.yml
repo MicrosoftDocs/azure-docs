@@ -152,8 +152,6 @@ landingContent:
           url: quickstart-feature-flag-javascript.md
       - linkListType: tutorial
         links: 
-        - text: Use feature flags in ASP.NET Core
-          url: use-feature-flags-dotnet-core.md
         - text: Use feature flags in Spring Boot
           url: use-feature-flags-spring-boot.md
         - text: Enable conditional features with feature filters
