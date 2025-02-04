@@ -88,6 +88,10 @@ Follow the guidelines to set up and run the snapshots and disaster-recovery comm
     DB20000I  The QUIT command completed successfully.
     ```
 
+    # [Microsoft SQL Server](#tab/mssql)
+
+    There are no specific database connection requirements for MS SQL Server as AzAcSnap has built-in connectivity to MS SQL Server.
+   
     ---
 ## Install the snapshot tools
 
