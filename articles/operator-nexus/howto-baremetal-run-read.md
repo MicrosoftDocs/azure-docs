@@ -159,7 +159,7 @@ The run-read command lets you run a command on the BMM that doesn't change anyth
 than one word, or need an argument to work. These commands are made like this to separate them from the ones
 that can change things. For example, run-read-command can use `kubectl get` but not `kubectl apply`. When you
 use these commands, you have to put all the words in the "command" field. For example,
-`{command:'kubectl get',arguments:[nodes]}` is right; `{command:'kubectl',arguments:[get,nodes]}`
+`{command:'kubectl get',arguments:[nodes]}` is right; `{command:kubectl,arguments:[get,nodes]}`
 is wrong.
 
 Also note that some commands begin with `nc-toolbox nc-toolbox-runread` and must be entered as shown.
