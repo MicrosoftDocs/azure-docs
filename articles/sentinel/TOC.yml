@@ -1142,6 +1142,8 @@
       href: sentinel-integration-guide.md
     - name: Partner integrations best practices
       href: partner-integrations.md
+    - name: Creating analytics rules
+      href: sentinel-analytic-rules-creation.md
     - name: Creating workbooks
       href: sentinel-workbook-creation.md
     - name: Creating playbooks
