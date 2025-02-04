@@ -25,7 +25,7 @@ More examples include:
 This article summarizes the availability of AI and AI-adjacent features in Azure Communication Services. There are two broad categories of AI functionality:
 
 - **Integrated AI**: Azure Communication Services is directly integrated with Azure AI and Microsoft Copilot Studio. Generally these features require you to create and link both Azure Communication Services and Azure AI resources in the Azure portal. After this one-time linking, using these AI features is as straightforward as a single API call.
-- **Accessors**: Azure Communication Services provides various APIs that give you raw and transformed access to your communication data making it easy for you to internal your own external services and AI systems. 
+- **Accessors**: Azure Communication Services provides various APIs that give you raw and transformed access to your communication data making it easy for you to connect your own external services and AI systems. 
 
 ## Messaging: SMS, chat, email, WhatsApp
 
