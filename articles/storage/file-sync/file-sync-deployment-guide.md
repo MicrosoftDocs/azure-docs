@@ -285,11 +285,11 @@ You can download the agent from the [Microsoft Download Center](https://go.micro
    ![The File Sync Agent Setup Wizard Path Selection](media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-3.png)
 4. Select the proxy setting and then select **Next**.
    ![The File Sync Agent Setup Wizard Proxy Settings](media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-4.png)
-5. Choose whether you want to use Microsoft Update to update the File Sync Agent and click **Next**.
+5. Choose whether you want to use Microsoft Update to update the File Sync Agent and then select **Next**.
     ![The File Sync Agent Setup Wizard with Windows Update](media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-5.png)
-6. Select the options for automatically updating the agent and data collection for troubleshooting, as required. Click **Install** to start the installation process.
+6. Select the options for automatically updating the agent and data collection for troubleshooting as required. Select **Install** to start the installation process.
     ![The File Sync Agent Setup Wizard Troubleshooting](media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-6.png)
-7. Once installed, click **Finish** to exit the Setup Wizard.
+7. When the installation completes, select **Finish** to exit the Setup Wizard.
     ![The File Sync Agent Setup Wizard Installation Complete](media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-7.png)
 
 > [!IMPORTANT]
@@ -370,7 +370,7 @@ It's also possible to differentiate administrators able to register servers from
 The Server Registration UI should open automatically after the Azure File Sync agent installs. If it doesn't, you can open it manually from its file location: `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`. When the Server Registration UI opens, you can choose your Azure Environment from the options given. 
 ![Server Registration UI Sign In Regular](media/storage-sync-files-deployment-guide/register-sync-server-1.png)
 
-If you are a Cloud Solution Provider, toggle the switch for **I am signing in as a Cloud Solution Provider** and enter the **Tenant ID**. 
+If you're a Cloud Solution Provider, toggle the switch for **I am signing in as a Cloud Solution Provider** and enter the **Tenant ID**. 
 ![Server Registration UI Sign In Cloud Solution Provider](media/storage-sync-files-deployment-guide/register-sync-server-2.png)
 
 Select **Sign in** in to begin.
@@ -427,12 +427,12 @@ In the pane that opens, enter the following information to create a sync group w
 Post creation, you should see a Healthy status on the Sync Groups page.
 ![Sync Group page with Healthy Status](media/storage-sync-files-deployment-guide/create-sync-group-3.png)
 
-A cloud endpoint gets automatically created with a sync group. On clicking the recently created sync group, you should be able to view a cloud endpoint. In case you do not see any cloud endpoint, it means that cloud endpoint creation might have failed due to insufficient permissions. To troubleshoot this, try creating a cloud endpoint and see [Cloud Endpoint Creation Troubleshooting](/troubleshoot/azure/azure-storage/files/file-sync/file-sync-troubleshoot-sync-group-management#cloud-endpoint-creation-errors).
+A cloud endpoint is automatically created with a sync group. Select the recently created sync group. You should be able to view a cloud endpoint. If you don't see a cloud endpoint, then cloud endpoint creation might have failed due to insufficient permissions. To troubleshoot this, try creating a cloud endpoint and see [Cloud Endpoint Creation Troubleshooting](/troubleshoot/azure/azure-storage/files/file-sync/file-sync-troubleshoot-sync-group-management#cloud-endpoint-creation-errors).
 
-Click on the Sync Group Name and click **+ Add Cloud Endpoint** to add a cloud endpoint to the sync group.
+Click on the Sync Group name and select **+ Add Cloud Endpoint** to add a cloud endpoint to the sync group.
 ![Create a new cloud endpoint in the Azure Portal](media/storage-sync-files-deployment-guide/add-cloud-endpoint-1.png)
 
-In the pane that opens, enter the subscription, storage account and file share with which you want to sync.
+In the pane that opens, enter the subscription, storage account, and file share with which you want to sync.
 ![Create a new cloud endpoint Information](media/storage-sync-files-deployment-guide/add-cloud-endpoint-2.png)
 
 # [PowerShell](#tab/azure-powershell)
@@ -522,9 +522,9 @@ A server endpoint represents a specific location on a registered server, such as
 If you'd like to configure Azure File Sync to work with firewall and virtual network settings, do the following:
 
 1. From the Azure portal, navigate to the storage account you want to secure.
-2. Select **Networking** on the left menu.
+2. From the service menu, under **Security + networking**, select **Networking**.
 3. Under Public network access, click **Enabled from selected virtual networks and IP addresses**.
-4. Make sure your servers IP or virtual network is listed under the **Address range** section.
+4. Make sure your server's IP address or virtual network is listed under the **Address range** section.
 5. Make sure **Allow Azure services on the trusted services list to access this storage account** is checked.
 6. Select **Save** to save your settings.
 
