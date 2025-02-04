@@ -72,9 +72,9 @@ Use the following resources to get started with Java.
 
 | Action | Resources |
 | --- | --- |
-| **Create your first Java app** | Use one of the following tools:<br><br>- [Maven deploy with an embedded web server](./quickstart-java.md?pivots=java-javase)<br>- [Maven deploy to a Tomcat server](./quickstart-java.md?pivots=java-tomcat)<br>- [Maven deploy to a JBoss server](./quickstart-java.md?pivots=java-jboss) |
-| **Deploy your app** | - [With Maven](configure-language-java-deploy-run.md?pivots=platform-linux#maven)<br>- [With Gradle](configure-language-java-deploy-run.md?pivots=platform-linux#gradle)<br>- [With popular IDEs (Visual Studio Code, IntelliJ, and Eclipse)](configure-language-java-deploy-run.md?pivots=platform-linux#ides)<br>- [Deploy WAR or JAR packages directly](./deploy-zip.md?tabs=cli#deploy-warjarear-packages)<br>- [With GitHub Actions](./deploy-github-actions.md) |
-| **Monitor your app**| - [Log stream](./troubleshoot-diagnostic-logs.md#stream-logs)<br>- [Diagnose and solve tool](./overview-diagnostics.md)|
+| **Create your first Java app** | Use one of the following tools:<br><br>- [Maven deploy with an embedded web server](./quickstart-java.md?pivots=java-javase)<br>- [Maven deploy to a Tomcat server](./quickstart-java.md?pivots=java-tomcat)<br>- [Maven deploy to a JBoss EAP server](./quickstart-java.md?pivots=java-jboss) |
+| **Deploy your app** | - [With Maven](configure-language-java-deploy-run.md?pivots=platform-linux#maven)<br>- [With Gradle](configure-language-java-deploy-run.md?pivots=platform-linux#gradle)<br>- [With popular IDEs (Visual Studio Code, IntelliJ, and Eclipse)](configure-language-java-deploy-run.md?pivots=platform-linux#ides)<br>- [Deploy JAR, WAR, or EAR packages directly](./deploy-zip.md?tabs=cli#deploy-warjarear-packages)<br>- [With GitHub Actions](./deploy-github-actions.md)<br>- [With Azure DevOps](./deploy-azure-pipelines.md)|
+| **Monitor your app**| - [Monitoring overview](./monitor-app-service.md)<br>- [Log stream](./troubleshoot-diagnostic-logs.md#stream-logs)<br>- [Diagnose and solve tool](./overview-diagnostics.md)|
 | **Add domains & certificates** |- [Map a custom domain](./app-service-web-tutorial-custom-domain.md?tabs=root%2Cazurecli)<br>- [Add an SSL certificate](./configure-ssl-certificate.md)|
 | **Connect to a database** |- [Java Spring with Azure Cosmos DB](./tutorial-java-spring-cosmosdb.md)|
 | **Custom containers** |- [Linux - Visual Studio Code](./quickstart-custom-container.md?tabs=python&pivots=container-linux-vscode)|
