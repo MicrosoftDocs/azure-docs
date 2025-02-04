@@ -37,7 +37,7 @@ A schema definition includes:
 * Data types: The type of data that can be stored, like string, date-time, or array.
 * Structure: How the fields are organized, like nested structures or arrays.
 
-Schemas define the contract between producers and consumers. A schema defined in an Event Hubs Schema Registry helps manage the contract outside event data, which removes the payload overhead.
+Schemas define the contract between producers and consumers. A schema defined in an Event Hubs schema registry helps manage the contract outside event data, which removes the payload overhead.
 
 #### Schema formats
 
@@ -50,7 +50,7 @@ Schema formats are used to determine the manner in which a schema is structured 
 To learn more about using Avro schema format with an Event Hubs schema registry, see:
   
 * [How to use Schema Registry with Kafka and Avro](schema-registry-kafka-java-send-receive-quickstart.md)
-* [How to use Schema Registry with Event Hubs, .NET, an SDK (Advanced Message Queuing Protocol or AMQP), and Avro.](schema-registry-dotnet-send-receive-quickstart.md)
+* [How to use Schema Registry with Event Hubs, .NET, an SDK (AMQP), and Avro](schema-registry-dotnet-send-receive-quickstart.md)
 
 ##### JSON schema
 
@@ -133,9 +133,9 @@ To learn how to create and register an application by using the Azure portal, se
 ## Related content
 
 * To learn how to create a schema registry by using the Azure portal, see [Create an Event Hubs schema registry by using the Azure portal](create-schema-registry.md).
-* See the following **schema registry Avro client library** samples.
-* [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro/tests/Samples)
-* [Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/schemaregistry/azure-data-schemaregistry-apacheavro/src/samples)
-* [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/schemaregistry/schema-registry-avro/samples)
-* [Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/schemaregistry/azure-schemaregistry-avroencoder/samples)
-* [Kafka Avro Integration for Azure Schema Registry](https://github.com/Azure/azure-schema-registry-for-kafka/tree/master/csharp/avro/samples)
+* See the following samples from the Schema Registry Avro client library:
+  * [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro/tests/Samples)
+  * [Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/schemaregistry/azure-data-schemaregistry-apacheavro/src/samples)
+  * [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/schemaregistry/schema-registry-avro/samples)
+  * [Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/schemaregistry/azure-schemaregistry-avroencoder/samples)
+  * [Kafka Avro Integration for Azure Schema Registry](https://github.com/Azure/azure-schema-registry-for-kafka/tree/master/csharp/avro/samples)
