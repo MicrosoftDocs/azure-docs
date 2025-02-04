@@ -6,6 +6,8 @@ items:
     items:
     - name: What is Event Grid?
       href: overview.md
+    - name: Use cases
+      href: use-cases.md
     - name: What's new?
       href: whats-new.md
     - name: Choose the right tier
