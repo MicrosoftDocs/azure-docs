@@ -2,7 +2,7 @@
 title: 'Quickstart: Use Terraform to configure a virtual network in Azure'
 description: In this quickstart, you create a virtual network, subnets, private DNS zones, network interfaces, Windows virtual machines, a private DNS A record, network security groups, and a network security rule in Azure.
 ms.topic: quickstart
-ms.date: 2/3/2025
+ms.date: 2/4/2025
 ms.custom: devx-track-terraform
 ms.service: azure-virtual-network
 author: greg-lindsay
@@ -85,7 +85,7 @@ In addition to the Azure virtual network, this code also creates:
 
 1. Run `az network private-dns zone list` to view all DNS zones and find yours.
 
-   ```azurecli
+   ```bash
    az network private-dns zone list --output table
    ```
 
