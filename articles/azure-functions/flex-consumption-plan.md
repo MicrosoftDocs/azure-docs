@@ -121,7 +121,7 @@ Currently, each region in a given subscription has a memory limit of `512,000 MB
 + You have one 4,096 MB app that scaled out to 125 instances
 + You have one 4,096 MB app scaled to 100 and one 2,048 MB app scaled to 50 instances
 
-This quota can be increased to allow your Flex Consumption apps to scale further, depending on your requirements. If your apps require a larger quota please create a support ticket.
+Flex Consumption apps scaled to zero, or instances marked to be scaled in and deleted, do not count against the quota. This quota can be increased to allow your Flex Consumption apps to scale further, depending on your requirements. If your apps require a larger quota please create a support ticket.
 
 ## Deprecated properties and settings
 
