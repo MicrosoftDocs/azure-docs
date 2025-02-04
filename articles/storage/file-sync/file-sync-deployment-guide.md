@@ -276,14 +276,14 @@ The Azure File Sync agent is a downloadable package that enables Windows Server 
 
 # [Portal](#tab/azure-portal)
 
-You can download the agent from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). When the download is finished, double-click the MSI package to start the Azure File Sync agent installation or to silently install the agent, see [How to perform a silent installation for a new Azure File Sync agent installation](file-sync-agent-silent-installation.md).
-1. Click **Next** to start installation.
+You can download the agent from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). When the download is finished, double-click the MSI package to start the Azure File Sync agent installation. Alternatively, to silently install the agent, see [How to perform a silent installation for a new Azure File Sync agent installation](file-sync-agent-silent-installation.md).
+1. Select **Next** to start the installation.
    ![The File Sync Agent Setup Wizard welcome screen with Next and Cancel Buttons](media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-1.png)
-2. Click the checkbox once you have reviewed and accepted the end-user license agreement. Click **Next** to proceed.
+2. Tick the checkbox once you've reviewed and accepted the end-user license agreement. Select **Next** to proceed.
    ![The File Sync Agent Setup Wizard License Agreeement Acceptance](media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-2.png)
-3. The path for installation of the storage sync agent will be filled in by default. You may change it to a location of your choice. Click **Next** to proceed.
+3. The installation path of the storage sync agent will be filled in by default. You may change it to a location of your choice. Select **Next** to proceed.
    ![The File Sync Agent Setup Wizard Path Selection](media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-3.png)
-4. Select the proxy setting and click **Next**.
+4. Select the proxy setting and then select **Next**.
    ![The File Sync Agent Setup Wizard Proxy Settings](media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-4.png)
 5. Choose whether you want to use Microsoft Update to update the File Sync Agent and click **Next**.
     ![The File Sync Agent Setup Wizard with Windows Update](media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-5.png)
