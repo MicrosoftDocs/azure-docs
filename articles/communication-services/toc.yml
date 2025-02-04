@@ -46,20 +46,18 @@ items:
   items:
   - name: Overview
     href: concepts/identity-model.md
-  - name: Concepts
-    items:
-    - name: Authenticate services
-      href: concepts/authentication.md
-    - name: Authenticate participants
-      href: quickstarts/identity/access-tokens.md
-    - name: Understand identifiers
-      href: concepts/identifiers.md
-    - name: Credentials best practices
-      href: concepts/credentials-best-practices.md
-    - name: Use cases for string identifiers
-      href: concepts/raw-id-use-cases.md
-    - name: Presence events
-      href: ../event-grid/communication-services-presence-events.md
+  - name: Authenticate services
+    href: concepts/authentication.md
+  - name: Authenticate participants
+    href: quickstarts/identity/access-tokens.md
+  - name: Understand identifiers
+    href: concepts/identifiers.md
+  - name: Credentials best practices
+    href: concepts/credentials-best-practices.md
+  - name: Use cases for string identifiers
+    href: concepts/raw-id-use-cases.md
+  - name: Presence events
+    href: ../event-grid/communication-services-presence-events.md
   - name: References
     items:
     - name: Identity (JavaScript)
@@ -1028,56 +1026,54 @@ items:
   items:
   - name: Overview
     href: concepts/teams-interop.md
-  - name: Concepts
+  - name: Communication as external user
     items:
-    - name: Communication as external user
-      items:
-      - name: Overview
-        href: concepts/interop/guest/overview.md
-      - name: Calling capabilities
-        href: concepts/interop/guest/calling-capabilities.md
-      - name: Meeting capabilities
-        href: concepts/interop/guest/meeting-capabilities.md
-      - name: Teams client experience
-        href: concepts/interop/guest/teams-client-experience.md
-      - name: Teams controls
-        href: concepts/interop/guest/teams-administration.md
-      - name: Logs & metrics
-        href: concepts/interop/guest/monitor-logs-metrics.md
-      - name: User privacy
-        href: concepts/interop/guest/privacy.md
-      - name: Government clouds
-        href: concepts/interop/guest/government-cloud.md
-      - name: Security
-        href: concepts/interop/guest/security.md
-      - name: Known issues
-        href: concepts/interop/guest/limitations.md
-    - name: Communication as Teams user
-      items:
-      - name: Overview
-        href: concepts/teams-endpoint.md
-      - name: Use cases
-        href: concepts/interop/custom-teams-endpoint-use-cases.md
-      - name: Authentication overview
-        href: concepts/interop/custom-teams-endpoint-authentication-overview.md
-      - name: Calling capabilities
-        href: concepts/interop/teams-user-calling.md
-      - name: Phone capabilities
-        href: concepts/interop/teams-user/phone-capabilities.md
-      - name: Meeting capabilities
-        href: concepts/interop/teams-user/meeting-capabilities.md
-      - name: Teams client experience
-        href: concepts/interop/teams-user/teams-client-experience.md
-      - name: Teams license requirements
-        href: quickstarts/eligible-teams-licenses.md
-      - name: Microsoft Entra API permissions
-        href: concepts/interop/teams-user/azure-ad-api-permissions.md
-      - name: Firewall configuration
-        href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
-      - name: Government clouds
-        href: concepts/interop/teams-user/government-cloud.md
-      - name: Teams users in Azure Communication Services calls
-        href: concepts/interop/teams-interop-group-calls.md
+    - name: Overview
+      href: concepts/interop/guest/overview.md
+    - name: Calling capabilities
+      href: concepts/interop/guest/calling-capabilities.md
+    - name: Meeting capabilities
+      href: concepts/interop/guest/meeting-capabilities.md
+    - name: Teams client experience
+      href: concepts/interop/guest/teams-client-experience.md
+    - name: Teams controls
+      href: concepts/interop/guest/teams-administration.md
+    - name: Logs & metrics
+      href: concepts/interop/guest/monitor-logs-metrics.md
+    - name: User privacy
+      href: concepts/interop/guest/privacy.md
+    - name: Government clouds
+      href: concepts/interop/guest/government-cloud.md
+    - name: Security
+      href: concepts/interop/guest/security.md
+    - name: Known issues
+      href: concepts/interop/guest/limitations.md
+  - name: Communication as Teams user
+    items:
+    - name: Overview
+      href: concepts/teams-endpoint.md
+    - name: Use cases
+      href: concepts/interop/custom-teams-endpoint-use-cases.md
+    - name: Authentication overview
+      href: concepts/interop/custom-teams-endpoint-authentication-overview.md
+    - name: Calling capabilities
+      href: concepts/interop/teams-user-calling.md
+    - name: Phone capabilities
+      href: concepts/interop/teams-user/phone-capabilities.md
+    - name: Meeting capabilities
+      href: concepts/interop/teams-user/meeting-capabilities.md
+    - name: Teams client experience
+      href: concepts/interop/teams-user/teams-client-experience.md
+    - name: Teams license requirements
+      href: quickstarts/eligible-teams-licenses.md
+    - name: Microsoft Entra API permissions
+      href: concepts/interop/teams-user/azure-ad-api-permissions.md
+    - name: Firewall configuration
+      href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
+    - name: Government clouds
+      href: concepts/interop/teams-user/government-cloud.md
+    - name: Teams users in Azure Communication Services calls
+      href: concepts/interop/teams-interop-group-calls.md
   - name: Samples and tutorials
     items:
     - name: Connect to a Teams call
