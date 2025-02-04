@@ -333,7 +333,7 @@ Indicates the timeout duration for all function executions. It follows the times
 }
 ```
 
-For more information on the default and maximum values for specific plans, see [Function app timeout duration](./functions-scale.md#function-app-timeout-duration).
+For more information on the default and maximum values for specific plans, see [Function app timeout duration](./functions-scale.md#timeout).
 
 ## healthMonitor
 
