@@ -2,6 +2,8 @@
   href: index.yml
 - name: Overview
   href: overview.md
+- name: What's new
+  href: whats-new.md
 - name: Reliability fundamentals
   items:
   - name: Business continuity, high availability, and disaster recovery
@@ -106,8 +108,6 @@
     items:
     - name: Azure HDInsight
       href: reliability-hdinsight.md
-    - name: Azure HDInsight on AKS
-      href: reliability-hdinsight-on-aks.md
     - name: Azure Machine Learning
       href: /azure/machine-learning/how-to-high-availability-machine-learning?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Stream Analytics
