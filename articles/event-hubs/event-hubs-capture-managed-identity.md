@@ -51,7 +51,7 @@ The Event Hubs Capture feature also support capturing data to a capture destinat
 > [!IMPORTANT]
 > To enable capture with a storage account in a different subscription, the **Microsoft.EventHub Resource Provider must be registered for the subscription** which owns the storage account.
 >
-> To learn more about registering a Resource Provider with a specific Azure Subscription, refer to the [documentation](../azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
+> To learn more about registering a Resource Provider with a specific Azure Subscription, refer to the [documentation](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 >
 
 You may use the portal or use the ARM templates in [guide](./event-hubs-resource-manager-namespace-event-hub-enable-capture.md) with corresponding managed identity.
