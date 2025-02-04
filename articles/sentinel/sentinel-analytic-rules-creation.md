@@ -31,13 +31,11 @@ Microsoft Sentinel analytics Rules can be applied to a wide range of scenarios t
 - **Privilege Escalation:** Monitoring for attempts to gain elevated privileges within the network, which can be a precursor to further malicious activity.
 - **Endpoint Security:** Ensuring that endpoints are secure by detecting deviations from normal behavior or the presence of unauthorized software.
 
-To understand more about potential playbook use cases, see [Recommended Microsoft Sentinel playbook use cases, templates, and examples | Microsoft Learn](/azure/sentinel/automation/playbook-recommendations).
-
 ## Creating and publishing analytics rules
 
 Analytics rules should be created in [YAML](https://yaml.org/) format. You can use this analytics rule as reference for creating your own detections - [Sample analytics rule in GitHub](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Microsoft Microsoft Entra ID/analytics Rules/FailedLogonToAzurePortal.yaml). In this section, we provide a detailed walkthrough of various attributes in the analytics rule.
 
-1. **ID** - ID is a standard GUID. Generate it using any development tool, online generator, or PowerShell's [New-GUID cmdlet](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/new-guid?view=powershell-6). It must be unique among other GUIDs. **This field is mandatory**.
+1. **ID** - ID is a standard GUID. Generate it using any development tool, online generator, or PowerShell's [New-GUID cmdlet](/powershell/module/microsoft.powershell.utility/new-guid?view=powershell-6&preserve-view=true). It must be unique among other GUIDs. **This field is mandatory**.
 1. **kind** - Represents the type of rule. **This field is mandatory**. Accepted values are:
     1. "scheduled" - requires defining other properties - queryFrequency, queryPeriod, triggerThreshold, and triggerOperator
     1. "NRT" - Near Real Time
@@ -85,7 +83,7 @@ Analytics rules should be created in [YAML](https://yaml.org/) format. You can u
     2. MUST match MITRE Tactics
     3. Names MUST NOT have any spaces. Example – T1078 or T1078.001
 1. **query** - This is the Kusto query that defines the detection logic. It should be written in Kusto Query Language (KQL) and should be well-structured and easy to understand. The query should be efficient and optimized for performance to ensure it can be run against large datasets without impacting performance. **This field is mandatory**.
-    1. The query is limited to 10,000 characters. If the query section exceeds this limit, consider reducing the number of characters. This is typically due to including a static list of items used for comparison within the query body. It's recommended to move these lists to use a [Watchlist function](https://docs.microsoft.com/en-us/azure/sentinel/watchlists),[custom JSON/CSV](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ExchangeServerVulnerabilitiesMarch2021IoCs.yaml) with your list, or a [custom function](https://techcommunity.microsoft.com/t5/azure-sentinel/using-kql-functions-to-speed-up-analysis-in-azure-sentinel/ba-p/712381) with your list.
+    1. The query is limited to 10,000 characters. If the query section exceeds this limit, consider reducing the number of characters. This is typically due to including a static list of items used for comparison within the query body. It's recommended to move these lists to use a [Watchlist function](/azure/sentinel/watchlists),[custom JSON/CSV](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ExchangeServerVulnerabilitiesMarch2021IoCs.yaml) with your list, or a [custom function](https://techcommunity.microsoft.com/t5/azure-sentinel/using-kql-functions-to-speed-up-analysis-in-azure-sentinel/ba-p/712381) with your list.
     1. Each line in the query body must have at least one space at the beginning; we standardized on two spaces for readability. 
     1. If submitting a query for a datatype not present in the Detections or Hunting Queries folder, name the subfolder containing the YAML files after the table being queried. 
         1. For instance, if your query pertains to the AzureDevOpsAuditing table, create a folder named AzureDevOpsAuditing.
