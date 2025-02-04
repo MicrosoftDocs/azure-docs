@@ -16,7 +16,7 @@ content_well_notification:
 
 In this quickstart, you use Terraform to create a virtual network, subnets, private DNS zones, network interfaces, Windows virtual machines, a private DNS A record, network security groups, and a network security rule in Azure.
 
-An Azure virtual network is a fundamental component of the Azure networking model, providing isolation and protection for your virtual machines. It's used to control and manage traffic between resources such as virtual machines within a network. 
+An Azure virtual network is a fundamental component of the Azure networking model, providing isolation and protection for your virtual machines. It's used to control and manage traffic between resources such as virtual machines within a network.
 
 In addition to the Azure virtual network, this code also creates:
 
@@ -50,7 +50,7 @@ In addition to the Azure virtual network, this code also creates:
 
 > [!NOTE]
 > The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-dns-private-zone). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-dns-private-zone/TestRecord.md).
-> 
+>
 > See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform).
 
 1. Create a directory in which to test and run the sample Terraform code, and make it the current directory.
@@ -85,7 +85,7 @@ In addition to the Azure virtual network, this code also creates:
 
 1. Run `az network private-dns zone list` to view all DNS zones and find yours.
 
-   ```bash
+   ```azurecli
    az network private-dns zone list --output table
    ```
 
@@ -94,6 +94,20 @@ In addition to the Azure virtual network, this code also creates:
    ```azurecli
    az network private-dns zone show --name $dnsZoneName --resource-group $resourceGroupName
    ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+1. Run `Get-AzPrivateDnsZone` to view all DNS zones and find yours.
+
+    ```azurepowershell
+    Get-AzPrivateDnsZone | Format-Table
+    ```
+
+2. Run `Get-AzPrivateDnsZone` to view the resource group associated with your DNS zone.
+
+    ```azurepowershell
+    Get-AzPrivateDnsZone -Name $dnsZoneName -ResourceGroupName $resourceGroupName
+    ```
 
 ---
 
