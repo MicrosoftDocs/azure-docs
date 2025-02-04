@@ -2,7 +2,7 @@
 title: 'Quickstart: Use Terraform to configure a virtual network in Azure'
 description: In this quickstart, you create a virtual network, subnets, private DNS zones, network interfaces, Windows virtual machines, a private DNS A record, network security groups, and a network security rule in Azure.
 ms.topic: quickstart
-ms.date: 12/13/2024
+ms.date: 2/3/2025
 ms.custom: devx-track-terraform
 ms.service: azure-virtual-network
 author: greg-lindsay
@@ -29,21 +29,15 @@ In addition to the Azure virtual network, this code also creates:
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
 > [!div class="checklist"]
-> * Specify the required version and providers for Terraform.
-> * Define variables for the resource group location, name prefix, address space, address prefixes, private DNS zone name, and admin username.
-> * Generate a random pet name for the resource group.
 > * Create an Azure resource group with a unique name.
-> * Generate a random string for unique naming.
-> * Create a virtual network with a unique name.
-> * Create a subnet within the virtual network.
-> * Create a private DNS zone.
-> * Link the private DNS zone to the virtual network.
+> * Establish a virtual network with a specified name and address.
+> * Set up a subnet specifically within the created virtual network.
+> * Create a private DNS zone, and link it to the virtual network.
 > * Generate random passwords for the virtual machines.
 > * Create two network interfaces.
 > * Create two Windows virtual machines, and attach the network interfaces.
 > * Create a private DNS A record.
-> * Create a network security group.
-> * Create a network security rule to allow ICMP traffic.
+> * Create a network security group and a network security rule to allow ICMP traffic.
 > * Output the names and admin credentials of the virtual machines.
 
 ## Prerequisites
@@ -61,16 +55,16 @@ In addition to the Azure virtual network, this code also creates:
 
 1. Create a directory in which to test and run the sample Terraform code, and make it the current directory.
 
-1. Create a file named `main.tf`, and insert the following code.
+1. Create a file named `main.tf`, and insert the following code:
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-dns-private-zone/main.tf":::
 
-1. Create a file named `outputs.tf`, and insert the following code.
+1. Create a file named `outputs.tf`, and insert the following code:
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-dns-private-zone/outputs.tf":::
 
-1. Create a file named `providers.tf`, and insert the following code.
+1. Create a file named `providers.tf`, and insert the following code:
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-dns-private-zone/providers.tf":::
 
-1. Create a file named `variables.tf`, and insert the following code.
+1. Create a file named `variables.tf`, and insert the following code:
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-dns-private-zone/variables.tf":::
 
 ## Initialize Terraform
