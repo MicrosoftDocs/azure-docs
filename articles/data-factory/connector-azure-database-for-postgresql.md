@@ -210,7 +210,10 @@ To copy data to Azure Database for PostgreSQL, the following properties are supp
 |:--- |:--- |:--- |
 | type | The type property of the copy activity sink must be set to **AzurePostgreSQLSink**. | Yes |
 | preCopyScript | Specify a SQL query for the copy activity to execute before you write data into Azure Database for PostgreSQL in each run. You can use this property to clean up the preloaded data. | No |
-| writeMethod | The method used to write data into Azure Database for PostgreSQL.<br>Allowed values are: **CopyCommand** (default, which is more performant), **BulkInsert**. | No |
+| writeMethod | The method used to write data into Azure Database for PostgreSQL.<br>Allowed values are: **CopyCommand** (default, which is more performant), **BulkInsert** and **Upsert**. | No |
+| upsertSettings | Specify the group of the settings for write behavior. <br/> Apply when the WriteBehavior option is `Upsert`. | No |
+| ***Under `upsertSettings`:*** | | |
+| keys | Specify the column names for unique row identification. Either a single key or a series of keys can be used. | No |
 | writeBatchSize | The number of rows loaded into Azure Database for PostgreSQL per batch.<br>Allowed value is an integer that represents the number of rows. | No (default is 1,000,000) |
 | writeBatchTimeout | Wait time for the batch insert operation to complete before it times out.<br>Allowed values are Timespan strings. An example is 00:30:00 (30 minutes). | No (default is 00:30:00) |
 
@@ -247,6 +250,51 @@ To copy data to Azure Database for PostgreSQL, the following properties are supp
     }
 ]
 ```
+
+**Example 2: Upsert data**
+
+```json
+"activities":[
+    {
+        "name": "CopyToAzureDatabaseForPostgreSQL",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<Azure PostgreSQL output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "AzurePostgreSQLSink",
+                "writeMethod": "Upsert",
+                "upsertSettings": {
+                    "keys": [
+                        "<column name>"
+                    ]
+                },
+            }
+        }
+    }
+]
+```
+
+### Append data
+
+Appending data is the default behavior of this Azure Database for PostgreSQL sink connector. The service does a bulk insert to write to your table efficiently. You can configure the source and sink accordingly in the copy activity.
+
+### Upsert data
+
+Copy activity now supports natively upsert, it will update the data in sink table if key exists and otherwise insert new data. To learn more about upsert settings in copy activities.
 
 ## Parallel copy from Azure Database for PostgreSQL
 
