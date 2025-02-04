@@ -54,9 +54,9 @@ Go to the [Azure portal](https://portal.azure.com/) and enter your credentials t
 
 8. Select **Queues** on the navigation menu, then select **Queue**.
 
-1. On the **Create Queue** page, enter *lower-case* for **Name** and then select **Create**.
+1. On the **Create Queue** page, enter **lower-case** for **Name** and then select **Create**.
 
-1. Create another queue by repeating the previous step using *upper-case* for **Name**.
+1. Create another queue by repeating the previous step using **upper-case** for **Name**.
 
 ### 3.3. Create an Azure Spring Apps instance
 
@@ -70,7 +70,7 @@ Use the following steps to connect your service instances:
 
 1. From the navigation pane, open the **Apps** pane and then select **Create App**.
 
-1. On the **Create App** page, for the app name, use *simple-event-driven-app* and leave all the other fields with their default values.
+1. On the **Create App** page, for the app name, use **simple-event-driven-app** and leave all the other fields with their default values.
 
 1. Select **Create** to finish creating the app and then select the app to view the details.
 
