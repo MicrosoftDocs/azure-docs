@@ -1,6 +1,6 @@
 ---
 title: Overview of DNS security policy (Preview)
-description: Learn how to DNS security policy to filter and log DNS queries in your Azure Virtual Network. Display, save, and review DNS queries and responses from VNET. Block malicious domains and optimize DNS query traffic.
+description: Learn how to configure DNS security policy to filter and log DNS queries in your Azure Virtual Network. Display, save, and review DNS queries and responses from VNET. Block malicious domains and optimize DNS query traffic.
 author: greg-lindsay
 manager: KumuD
 ms.service: azure-dns
