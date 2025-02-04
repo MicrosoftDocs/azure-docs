@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 02/01/2025
 ms.author: phjensen
 ---
 
@@ -60,11 +60,13 @@ AzAcSnap is a single binary. It doesn't need additional agents or plug-ins to in
   - SAP HANA (see the [support matrix](#snapshot-support-matrix-from-sap) for details)
   - Oracle Database release 12 or later (see [Oracle VM images and their deployment on Microsoft Azure](/azure/virtual-machines/workloads/oracle/oracle-vm-solutions) for details)
   - IBM Db2 for LUW on Linux-only version 10.5 or later (see [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload](/azure/virtual-machines/workloads/sap/dbms_guide_ibm) for details)
+  - MS SQL Server 2022+
 
 - **Operating systems**
   - SUSE Linux Enterprise Server 12+
-  - Red Hat Enterprise Linux 7+
-  - Oracle Linux 7+
+  - Red Hat Enterprise Linux 8+
+  - Oracle Linux 8+
+  - Windows Server 2016+
 
 - **Azure platforms**
   - Azure Virtual Machines with Azure NetApp Files storage
