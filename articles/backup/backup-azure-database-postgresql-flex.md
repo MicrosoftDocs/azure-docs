@@ -35,9 +35,10 @@ To create a backup policy, follow these steps:
    >[!Note]
    >The **Weekly backup** option is currently available. However, you can schedule the backups on multiple days of the week.
 
+5. Under **Retention rules**, select **Add retention rule**.
+
    :::image type="content" source="./media/backup-azure-database-postgresql-flex/define-backup-schedule.png" alt-text="Screenshot shows how to define the backup schedule in the Backup policy." lightbox="./media/backup-azure-database-postgresql-flex/define-backup-schedule.png":::
 
-5. Under **Retention rules**, select **Add retention rule**.
 6. On the **Add retention** pane, define the retention period, and then select **Add**.
 
 
