@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 08/24/2023
+ms.date: 02/04/2025
 ms.author: cherylmc
 
 ---
@@ -20,7 +20,15 @@ You can use the steps in the [Download profiles](global-hub-profile.md) article 
 
 [!INCLUDE [client profiles](../../includes/vpn-gateway-vwan-vpn-profile-download.md)]
 
-* The **OpenVPN folder** contains the *ovpn* profile that needs to be modified to include the key and the certificate. For more information, see [Configure OpenVPN clients](../virtual-wan/howto-openvpn-clients.md#windows).
+* The **OpenVPN folder** contains the *ovpn* profile that needs to be modified to include the key and the certificate. For information about configuring OpenVPN clients, see the following articles:
+
+   | Client OS| Article |
+   |---|---|
+   | Windows | [OpenVPN 2.x](point-to-site-vpn-client-certificate-windows-openvpn-client-version-2.md) |
+   | Windows | [OpenVPN 3.x](point-to-site-vpn-client-certificate-windows-openvpn-client-version-3.md) |
+   | macOS | [OpenVPN](point-to-site-vpn-client-certificate-openvpn-mac.md) |
+   | iOS | [OpenVPN](point-to-site-vpn-client-certificate-openvpn-ios.md) |
+   | Linux | [OpenVPN](../vpn-gateway/point-to-site-vpn-client-certificate-openvpn-linux.md) |
 
 ## Next steps
 
