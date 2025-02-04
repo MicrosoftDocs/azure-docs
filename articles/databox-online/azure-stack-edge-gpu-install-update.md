@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: azure-stack-edge
 ms.topic: how-to
-ms.date: 08/14/2024
+ms.date: 02/04/2025
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU
@@ -119,7 +119,7 @@ We recommend that you install updates through Azure portal. The device automatic
 
 > [!NOTE]
 > - Make sure that the device is healthy and status shows as **Your device is running fine!** before you proceed to install the updates.
-> - Tiering data from an Azure Stack Edge Pro or Data Box Gateway device to the mapped Azure Storage account uses Managed Service Identity to authorize the data access. Make sure that the Azure Storage account that you use has the following roles being assigned to the Managed identities for Azure Stack Edge resource:
+> - Tiering data from an Azure Stack Edge Pro device to the mapped Azure Storage account uses Managed Service Identity to authorize the data access. Make sure that the Azure Storage account that you use has the following roles being assigned to the Managed identities for Azure Stack Edge resource:
 > 
 >   - Storage Blob Data Contributor
 >   - Storage File Data Privileged Contributor

@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: azure-stack-edge
 ms.topic: tutorial
-ms.date: 05/09/2022
+ms.date: 02/04/2025
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ---
@@ -57,7 +57,7 @@ To create a share, do the following procedure:
     c. Provide a storage account where the share will reside.
    
    > [!IMPORTANT]
-   > Tiering data from an Azure Stack Edge Pro or Data Box Gateway device to the mapped Azure Storage account uses Managed Service Identity to authorize the data access. Make sure that the Azure Storage account that you use has the following roles being assigned to the Managed identities for Azure Stack Edge resource:
+   > Tiering data from an Azure Stack Edge Pro device to the mapped Azure Storage account uses Managed Service Identity to authorize the data access. Make sure that the Azure Storage account that you use has the following roles being assigned to the Managed identities for Azure Stack Edge resource:
    >
    > * Storage Blob Data Contributor
    > * Storage File Data Privileged Contributor

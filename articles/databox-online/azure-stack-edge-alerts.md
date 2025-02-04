@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: azure-stack-edge
 ms.custom: devx-track-arm-template
 ms.topic: how-to
-ms.date: 01/29/2025
+ms.date: 02/04/2025
 ms.author: alkohli
 ---
 # Review alerts on Azure Stack Edge

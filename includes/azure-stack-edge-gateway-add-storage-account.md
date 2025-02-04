@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: azure-databox
 ms.topic: include
-ms.date: 01/29/2025
+ms.date: 02/04/2025
 ms.author: alkohli
 ---
 
@@ -20,7 +20,7 @@ ms.author: alkohli
     
     3. By default, the Edge storage account is mapped to an Azure Storage account in the cloud, and the data from the storage account is automatically pushed to the cloud. Specify the Azure storage account that your Edge storage account is mapped to.
    > [!IMPORTANT]
-   > Tiering data from an Azure Stack Edge Pro or Data Box Gateway device to the mapped Azure Storage account uses Managed Service Identity to authorize the data access. Make sure that the Azure Storage account that you use has the following roles being assigned to the Managed identities for Azure Stack Edge resource:
+   > Tiering data from an Azure Stack Edge Pro device to the mapped Azure Storage account uses Managed Service Identity to authorize the data access. Make sure that the Azure Storage account that you use has the following roles being assigned to the Managed identities for Azure Stack Edge resource:
    >
    > * Storage Blob Data Contributor
    > * Storage File Data Privileged Contributor
