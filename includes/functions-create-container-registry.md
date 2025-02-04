@@ -165,6 +165,7 @@ func new --name HttpExample --template "HTTP trigger"
 ```
 ::: zone-end  
 To test the function locally, start the local Azure Functions runtime host in the root of the project folder.
+To ensure the function can be called later when hosted in Docker, check that the authorization level is set to AuthorizationLevel.Anonymous, or set it if not already configured.
 ::: zone pivot="programming-language-csharp"  
 ```console
 func start  
