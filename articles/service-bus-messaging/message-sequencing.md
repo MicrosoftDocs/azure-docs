@@ -40,7 +40,10 @@ Scheduled messages don't materialize in the queue until the defined enqueue time
 You can schedule messages using any of our clients in two ways:
 
 - Use the regular send API, but set the `Scheduled​Enqueue​Time​Utc` property on the message before sending.
-- Use the schedule message API, pass both the normal message and the scheduled time. The API returns the scheduled message's `SequenceNumber`, which you can later use to cancel the scheduled message if needed. 
+- Use the schedule message API, pass both the normal message and the scheduled time. The API returns the scheduled message's `SequenceNumber`, which you can later use to cancel the scheduled message if needed.
+
+> [!NOTE]
+> Messages that are larger then 1MB can only be scheduled using the regular API and setting the `Scheduled​Enqueue​Time​Utc` property.
 
 Scheduled messages and their sequence numbers can also be discovered using [message browsing](message-browsing.md).
 
