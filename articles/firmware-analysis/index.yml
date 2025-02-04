@@ -6,11 +6,11 @@ summary: Analyze your firmware images for security vulnerabilities
 metadata:
   title: Firmware analysis (preview)
   description: Analyze your firmware images for security vulnerabilities
-  ms.service: firmware-analysis
   ms.topic: landing-page
   author: karengu0
   ms.author: karenguo
   ms.date: 11/11/2024
+  ms.service: azure
 
 
 landingContent:
