@@ -152,7 +152,7 @@ Since the Voice and Video insights dashboard is powered by [Azure Monitor Workbo
 
 #### Collect Call Logs
 
-The Insights Dashboards uses [Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview) which displays call log data from Azure Communication Services. These call logs aren't stored in your Azure account by default so you need to begin storing them for the dashboard to work. To collect these call logs, you need to enable a diagnostic setting that sends call data to a Log Analytics workspace in the same resource group as your calling resource. 
+The Insights Dashboards uses [Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview) which displays call log data from Azure Communication Services. These call logs aren't stored in your Azure account by default so you need to begin storing them for the dashboard to work. To collect these call logs, you need to enable a diagnostic setting that directs the call data to a Log Analytics workspace. 
 
 **Data isn’t stored retroactively, so you begin capturing call logs only after configuring the diagnostic setting.**
 

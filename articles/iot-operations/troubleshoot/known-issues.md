@@ -27,6 +27,8 @@ This article lists the known issues for Azure IoT Operations.
 
 - If you deploy Azure IoT Operations in GitHub Codespaces, shutting down and restarting the Codespace causes a `This codespace is currently running in recovery mode due to a configuration error.` issue. Currently, there's no workaround for the issue. If you need a cluster that supports shutting down and restarting, choose one of the options in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
 
+- Downgrading the Azure Container Storage extension from 2.2.3 to 2.2.2 causes a logging loop that leads to high CPU usage warnings. To resolve, upgrade the extension back to 2.2.3. For more information, see [Upgrade or downgrade between versions](../deploy-iot-ops/howto-upgrade.md).
+
 ## MQTT broker
 
 - MQTT broker resources created in your cluster using Kubernetes aren't visible Azure portal. This is expected because [managing Azure IoT Operations components using Kubernetes is in preview](../deploy-iot-ops/howto-manage-update-uninstall.md#preview-manage-components-using-kubernetes-deployment-manifests), and synchronizing resources from the edge to the cloud isn't currently supported.

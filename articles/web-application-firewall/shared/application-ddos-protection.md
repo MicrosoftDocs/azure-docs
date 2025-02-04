@@ -5,7 +5,7 @@ description: This article explains how you can use Azure Web Application Firewal
 author: duongau
 ms.author: duau
 ms.service: azure-web-application-firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/16/2023
 ---
 
