@@ -35,7 +35,7 @@ The associated versions for this update are:
 - GPU driver version: 535.183.06.
 - CUDA version: 12.2.
 
-For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2407-release-notes.md).
+For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2501-release-notes.md).
 
 **To apply the 2501 update, your device must be running version 2403 or later.**
 
@@ -275,7 +275,7 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
 5. The update starts. After the device is successfully updated, it restarts. The local UI isn't accessible in this duration.
    
-6. After the restart is complete, you're taken to the **Sign in** page. To verify that the device software has been updated, in the local web UI, go to **Maintenance** > **Software update**. For the current release, the displayed software version should be **Azure Stack Edge 2403**. 
+6. After the restart is complete, you're taken to the **Sign in** page. To verify that the device software has been updated, in the local web UI, go to **Maintenance** > **Software update**. For the current release, the displayed software version should be **Azure Stack Edge 2501**. 
 
 
 7. You'll now update the Kubernetes software version. Select the remaining two Kubernetes files together (file with the *Kubernetes_Package.0.exe* and *Kubernetes_Package.1.exe* suffix) and repeat the above steps to apply update.   
