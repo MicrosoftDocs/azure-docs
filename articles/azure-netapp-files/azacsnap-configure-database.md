@@ -784,7 +784,7 @@ global.ini,SYSTEM,,,persistence,basepath_logbackup,/hana/logbackups/H80
 global.ini,SYSTEM,,,persistence,basepath_logvolumes,/hana/log/H80
 ```
 
-### Configure the log backup timeout
+### Configure the log backup time-out
 
 The default setting for SAP HANA to perform a log backup is `900` seconds (15 minutes). We recommend that you reduce this value to `300` seconds (5 minutes). Then it's possible to run regular backups of these files (for example, every 10 minutes). You can take these backups by adding the `log_backup` volumes to the `OTHER` volume section of the
 configuration file.
@@ -793,9 +793,9 @@ configuration file.
 hdbsql -jaxC -n <HANA_ip_address>:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD> "ALTER SYSTEM ALTER CONFIGURATION ('global.ini', 'SYSTEM') SET ('persistence', 'log_backup_timeout_s') = '300' WITH RECONFIGURE"
 ```
 
-### Check the log backup timeout
+### Check the log backup time-out
 
-After you make the change to the log backup timeout, ensure that the timeout is set by using the following command.
+After you make the change to the log backup time-out, ensure that the time-out is set by using the following command.
 
 In this example, the settings are displayed as `SYSTEM` settings. This query also returns the `DEFAULT` settings for comparison.
 
