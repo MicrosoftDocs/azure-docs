@@ -33,9 +33,8 @@ After you enable customer-managed keys, you need to associate the customer manag
 
 ### Create key vault or key vault managed HSM
 
-
-    > [!IMPORTANT]
-    > Using customer-managed keys with Azure Event Hubs requires that the key vault have two required properties configured. They are:  **Soft Delete** and **Do Not Purge**. These properties are enabled by default when you create a new key vault in the Azure portal. However, if you need to enable these properties on an existing key vault, you must use either PowerShell or Azure CLI.
+> [!IMPORTANT]
+> Using customer-managed keys with Azure Event Hubs requires that the key vault have two required properties configured. They are:  **Soft Delete** and **Do Not Purge**. These properties are enabled by default when you create a new key vault in the Azure portal. However, if you need to enable these properties on an existing key vault, you must use either PowerShell or Azure CLI.
 
 # [Key Vault](#tab/Key-Vault)
 
@@ -671,10 +670,10 @@ You can rotate your key in the key vault by using the Azure Key Vaults rotation 
 ### Revoke access to keys
 Revoking access to the encryption keys won't purge the data from Event Hubs. However, the data can't be accessed from the Event Hubs namespace. You can revoke the encryption key through access policy or by deleting the key. Learn more about access policies and securing your key vault from [Secure access to a key vault](/azure/key-vault/general/security-features).
 
-Once the encryption key is revoked, the Event Hubs service on the encrypted namespace becomes inoperable. If the access to the key is enabled or the delete key is restored, Event Hubs service will pick the key so you can access the data from the encrypted Event Hubs namespace.
+Once the encryption key is revoked, the Event Hubs service on the encrypted namespace becomes inoperable. If the access to the key is enabled or the delete key is restored, Event Hubs service picks the key so you can access the data from the encrypted Event Hubs namespace.
 
 ### Caching of keys
-The Event Hubs instance (event hub) polls its listed encryption keys every 5 minutes. It caches and uses them until the next poll, which is after 5 minutes. As long as at least one key is available, the event hub is accessible. If all listed keys are inaccessible when it polls, all event hubs will become unavailable. 
+The Event Hubs instance (event hub) polls its listed encryption keys every 5 minutes. It caches and uses them until the next poll, which is after 5 minutes. As long as at least one key is available, the event hub is accessible. If all listed keys are inaccessible when it polls, all event hubs become unavailable. 
 
 Here are more details: 
 
@@ -693,12 +692,12 @@ To enable encryption of Microsoft-managed key with a customer managed key, an [a
 
 Due to this:
 
-- If [Geo disaster recovery](event-hubs-geo-dr.md) is already enabled for the Event Hubs namespace and you are looking to enable customer managed key, then
+- If [Geo disaster recovery](event-hubs-geo-dr.md) is already enabled for the Event Hubs namespace and you're looking to enable customer managed key, then
     - Break the pairing.
     - [Set up the access policy](/azure/key-vault/general/assign-access-policy-portal) for the system-assigned managed identity for both the primary and secondary namespaces to the key vault.
     - Set up encryption on the primary namespace.
     - Re-pair the primary and secondary namespaces.
-- If you are looking to enable Geo-DR on an Event Hubs namespace where customer-managed key is already set up, then follow these steps: 
+- If you're looking to enable Geo-DR on an Event Hubs namespace where customer-managed key is already set up, then follow these steps: 
     - [Set up the access policy](/azure/key-vault/general/assign-access-policy-portal) for the managed identity for the secondary namespace to the key vault.
     - Pair the primary and secondary namespaces.
 
@@ -711,7 +710,7 @@ Here are a few recommendations:
 
 Conditions for enabling Geo-DR and Encryption with User-Assigned Identities:
 
-1.	Secondary namespace must already have Encryption enabled with a User-Assigned identity if it is to be paired with a primary namespace that has Encryption enabled. 
+1.	Secondary namespace must already have Encryption enabled with a User-Assigned identity if it's to be paired with a primary namespace that has Encryption enabled. 
 2.	It isn't possible to enable Encryption on an already paired primary, even if the secondary has a User-Assigned identity associated with the namespace.
 
 ## Set up diagnostic logs 
