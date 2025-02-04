@@ -3,7 +3,7 @@ title: 'Deploy an application that uses OpenAI on Azure App Service'
 description: Get started with OpenAI on Azure App Service
 author: jefmarti
 ms.author: jefmarti
-ms.date: 04/10/2024
+ms.date: 01/31/2025
 ms.topic: article
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python, linux-related-content
 ms.collection: ce-skilling-ai-copilot

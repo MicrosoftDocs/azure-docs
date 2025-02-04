@@ -1,9 +1,10 @@
 ---
 title: How to filter events for Azure Event Grid
 description: This article shows how to filter events (by event type, by subject, by operators and data, etc.) when creating an Event Grid subscription. 
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 09/25/2023
+ms.date: 01/22/2025
+# Customer intent: I want to know how to subscribe for a subset of events from a source by filtering them. 
 ---
 
 # Filter events for Event Grid
@@ -150,7 +151,7 @@ az eventgrid event-subscription create \
 For an existing event subscription: 
 
 1. On the **Event Subscription** page, select **Enable subject filtering**. 
-1. Enter values for one or more of the following fields: **Subject begins with** and **Subject ends with**. In the following options both options are selected. 
+1. Enter values for one or more of the following fields: **Subject begins with** and **Subject ends with**. In the following example, both options are selected. 
 
     :::image type="content" source="./media/how-to-filter-events/subject-filter-example.png" alt-text="Screenshot of Event Subscription page with subject filtering example.":::
 1. Select **Case-sensitive subject matching** option if you want the subject of the event to match the case of the filters specified. 
@@ -360,5 +361,5 @@ event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/
 curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 ```
 
-## Next steps
+## Related content
 To learn more about filters (event types, subject, and advanced), see [Understand event filtering for Event Grid subscriptions](event-filtering.md). 

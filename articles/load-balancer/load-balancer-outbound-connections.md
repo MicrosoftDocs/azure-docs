@@ -86,7 +86,7 @@ For more information about outbound rules, see [Outbound rules](outbound-rules.m
 
 ## 4. Use the frontend IP address(es) of a load balancer for outbound without outbound rules
 
-This option is similar to the previous one, except when no outbound rules are created. In this case, the load balancer frontend(s) are still used for outbound, but this is done implicitly without rules that specify which frontend would be used.  Not using outbound rules also decreases scalability of outbound, as implicit outbound connectivity has a fixed number of SNAR ports per frontend IP address, which could lead to port exhaustion in high-traffic scenarios.
+This option is similar to the previous one, except when no outbound rules are created. In this case, the load balancer frontend(s) are still used for outbound, but this is done implicitly without rules that specify which frontend would be used.  Not using outbound rules also decreases scalability of outbound, as implicit outbound connectivity has a fixed number of SNAT ports per frontend IP address, which could lead to port exhaustion in high-traffic scenarios.
 
 ## 5. Default outbound access
 

@@ -58,7 +58,7 @@ Azure API Center is currently available in the following Azure regions:
 * UK South
 * West Europe 
 
-API Center is offered in a Free plan and a Standard plan. [Learn more](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#api-center-limits).
+API Center is offered in a Free plan and a Standard plan. [Learn more](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#azure-api-center-limits).
              
 ## Azure API Center and the API ecosystem
 

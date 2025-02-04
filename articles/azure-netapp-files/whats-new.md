@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 12/20/2024
+ms.date: 01/29/2025
 ms.author: anfdocs
 ---
 
@@ -44,7 +44,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Azure NetApp Files now supports the ability to edit network features (that is, upgrade from Basic to Standard network features) with no downtime for Azure NetApp Files volumes. Standard Network Features provide you with an enhanced virtual networking experience for a seamless and consistent experience along with security posture for Azure NetApp Files. 
 
-    This feature is currently in preview in the Australia East, Central India, East Asia, North Central US, and Switzerland North regions. 
+    This feature is currently in preview in the Australia East, Central India, East Asia, North Central US, Switzerland North, UK South, US Central, US East, US East 2, and US South, US West and US West 2 regions.
   
 ## September 2024 
 
@@ -417,7 +417,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     * Restore (`-c restore`) improvements
     * Test (`-c test`) improvements
     * Validation improvements
-    * Timeout improvements
+    * Time-out improvements
     * Azure Backup integration improvements
     * Features moved to GA (generally available):
         None

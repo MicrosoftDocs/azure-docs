@@ -143,6 +143,8 @@
       href: devtest-lab-resize-vm.md
     - name: Redeploy a VM
       href: devtest-lab-redeploy-vm.md
+    - name: Create a VM with Generation 2 base image
+      href: devtest-lab-gen2-vm.md
     - name: Create and manage claimable VMs
       href: devtest-lab-add-claimable-vm.md
     - name: Configure secrets

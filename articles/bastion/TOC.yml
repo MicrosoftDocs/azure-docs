@@ -13,6 +13,8 @@
     href: quickstart-developer-sku.md
   - name: Deploy Bastion - ARM template
     href: quickstart-host-arm-template.md
+  - name: Deploy Bastion - Terraform
+    href: quickstart-deploy-terraform.md
 - name: Tutorials
   items:
   - name: Deploy Bastion using manually specified settings

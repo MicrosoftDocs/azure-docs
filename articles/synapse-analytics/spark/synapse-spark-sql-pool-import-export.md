@@ -5,7 +5,7 @@ author: kalyankadiyala-Microsoft
 ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: spark
-ms.date: 05/10/2022
+ms.date: 01/22/2025
 ms.author: kakadiya
 ms.reviewer: ktuckerdavis, aniket.adnaik
 --- 
@@ -46,9 +46,9 @@ At a high-level, the connector provides the following capabilities:
 
 ![A high-level data flow diagram to describe the connector's orchestration of a write request.](./media/synapse-spark-sql-pool-import-export/synapse-dedicated-sql-pool-spark-connector-write-orchestration.png)
 
-## Pre-requisites
+## Prerequisites
 
-Pre-requisites such as setting up required Azure resources and steps to configure them are discussed in this section.
+Prerequisites such as setting up required Azure resources and steps to configure them are discussed in this section.
 
 ### Azure resources
 
@@ -94,7 +94,7 @@ A basic authentication approach requires user to configure `username` and `passw
 There are two ways to grant access permissions to Azure Data Lake Storage Gen2 - Storage Account:
 
 * Role based Access Control role - [Storage Blob Data Contributor role](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
-  * Assigning the `Storage Blob Data Contributor Role` grants the User permissions to read, write and delete from the Azure Storage Blob Containers.
+  * Assigning the `Storage Blob Data Contributor Role` grants the User permissions to read, write, and delete from the Azure Storage Blob Containers.
   * RBAC offers a coarse control approach at the container level.
 * [Access Control Lists (ACL)](../../storage/blobs/data-lake-storage-access-control.md)
   * ACL approach allows for fine-grained controls over specific paths and/or files under a given folder.
@@ -152,7 +152,7 @@ To successfully bootstrap and orchestrate the read or write operation, the Conne
 Following is the list of configuration options based on usage scenario:
 
 * **Read using Microsoft Entra ID based authentication**
-  * Credentials are auto-mapped, and user isn't required to provide specific configuration options.
+  * Credentials are automapped, and user isn't required to provide specific configuration options.
   * Three-part table name argument on `synapsesql` method is required to read from respective table in Azure Synapse Dedicated SQL Pool.
 * **Read using basic authentication**
   * Azure Synapse Dedicated SQL End Point
@@ -281,7 +281,7 @@ dfToReadFromTable.show()
 > * Table name and query cannot be specified at the same time.
 > * Only select queries are allowed. DDL and DML SQLs are not allowed.
 > * The select and filter options on dataframe are not pushed down to the SQL dedicated pool when a query is specified.
-> * Read from a query is only available in Spark 3.1 and 3.2. 
+> * Read from a query is only available in Spark 3.
 
 ##### [Scala](#tab/scala2)
 
@@ -568,18 +568,6 @@ dfToReadFromQueryAsArgument.show()
 ### Write to Azure Synapse Dedicated SQL Pool
 
 #### Write Request - `synapsesql` method signature
-
-The method signature for the Connector version built for [Spark 2.4.8](./apache-spark-24-runtime.md) has one less argument, than that applied to the Spark 3.1.2 version. Following are the two method signatures:
-
-* Spark Pool Version 2.4.8
-
-```Scala
-synapsesql(tableName:String, 
-           tableType:String = Constants.INTERNAL, 
-           location:Option[String] = None):Unit
-```
-
-* Spark Pool Version 3.1.2
 
 ##### [Scala](#tab/scala3)
 
@@ -974,7 +962,7 @@ By default, a write response is printed to the cell output. On failure, the curr
   * When writing large data sets, it's important to factor in the impact of [DWU Performance Level](../../synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal.md) setting that limits [transaction size](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-transactions.md#transaction-size).
 * Monitor [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-best-practices.md) utilization trends to spot throttling behaviors that can [impact](../../storage/common/scalability-targets-standard-account.md) read and write performance.
 
-## References
+## Related content
 
 * [Runtime library versions](../../synapse-analytics/spark/apache-spark-3-runtime.md)
 * [Azure Storage](../../storage/blobs/data-lake-storage-introduction.md)
