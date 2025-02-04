@@ -32,7 +32,7 @@ Follow these steps to generate an OpenAPI specification using natural language p
     If no style guide is set, the default `spectral:oas` ruleset is used. Learn more about [API specification linting](govern-apis-vscode-extension.md#api-design-conformance) using the API Center extension.
 1. In the chat panel, make a request in natural language to the `@azure` agent to describe what the API does. Example:
 
-    ```vscode
+    ```copilot-prompt
     @azure Generate OpenAPI spec: An API that allows customers to pay for an order using various payment methods such as cash, checks, credit cards, and debit cards.
     ```  
 
