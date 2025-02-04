@@ -12,19 +12,9 @@ ms.date: 02/04/2025
 ---
 
 # Use cases
+This article provides you a few sample use cases for using Azure Event Grid. 
 
-Event Grid supports the following use cases:
-
-## MQTT messaging
-
-Event Grid enables your clients to communicate on [custom MQTT topic names](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901107) using a publish-subscribe messaging model. Event Grid supports clients that publish and subscribe to messages over MQTT v3.1.1, MQTT v3.1.1 over WebSockets, MQTT v5, and MQTT v5 over WebSockets. Event Grid allows you to send MQTT messages to the cloud for data analysis, storage, and visualizations, among other use cases.
-
-Event Grid integrates with [Azure IoT MQ](../iot-operations/manage-mqtt-broker/overview-broker.md) to bridge its MQTT broker capability on the edge with Event Grid’s MQTT broker capability in the cloud. Azure IoT MQ is a new distributed MQTT broker for edge computing, running on Arc enabled Kubernetes clusters. It's now available in [public preview](../iot-operations/manage-mqtt-broker/overview-broker.md) as part of Azure IoT Operations.
-
-The MQTT broker feature in Azure Event Grid is ideal for the implementation of automotive and mobility scenarios, among others. See [the reference architecture](mqtt-automotive-connectivity-and-data-solution.md) to learn how to build secure and scalable solutions for connecting millions of vehicles to the cloud, using Azure’s messaging and data analytics services.
-
-:::image type="content" source="media/overview/mqtt-messaging.png" alt-text="High-level diagram of Event Grid that shows bidirectional MQTT communication with publisher and subscriber clients." lightbox="media/overview/mqtt-messaging-high-res.png" border="false":::
-
+## MQTT messaging use cases
 Azure Event Grid’s MQTT broker feature enables you to accomplish the following scenarios.
 
 ### Ingest IoT telemetry
@@ -47,14 +37,8 @@ Broadcast alerts to a fleet of clients using the **one-to-many** messaging patte
 
 Integrate data from your MQTT clients by routing MQTT messages to Azure services and custom endpoints through [push delivery](#push-delivery-of-events) or [pull delivery](#pull-delivery-of-discrete-events). For example, use Event Grid to route telemetry from your IoT devices to Event Hubs and then to Azure Stream Analytics to gain insights from your device telemetry.
 
-## Push delivery of events
-
-Event Grid can be configured to send events to a diverse set of Azure services or webhooks using push event delivery. Event sources include your custom applications, Azure services, and partner (SaaS) services that publish events announcing system state changes (also known as "discrete" events). In turn, Event Grid delivers those events to configured subscribers’ destinations.
-
+## Push delivery use cases
 Event Grid’s push delivery allows you to realize the following use cases.
-
-> [!NOTE]
-> Push delivery is available in Event Grid basic tier and Event Grid standard tier, to learn more about the differences see [choose the right Event Grid tier for your solution](choose-right-tier.md).
 
 ### Build event-driven serverless solutions
 :::image type="content" source="media/overview/build-event-serverless.png" alt-text="Diagram that shows Azure Functions publishing events to Event Grid using HTTP. Event Grid then sends those events to Azure Logic Apps." lightbox="media/overview/build-event-serverless-high-res.png" border="false":::
@@ -81,15 +65,7 @@ A multitenant SaaS provider or platform can publish their events to Event Grid t
 - [Tribal Group](subscribe-to-tribal-group-events.md)
 - [SAP](subscribe-to-sap-events.md)
 
-### Event Handlers
-
-An event subscription is a generic configuration resource that allows you to define the event handler or destination to which events are sent using push delivery. For example, you can send data to a Webhook, Azure Function, or Event Hubs. For a complete list of event handlers supported, see:
-
-- [Event handlers](namespace-topics-event-handlers.md) supported on namespace topics.
-- [Event handlers](event-handlers.md) supported on custom, system, domain, and partner topics.
-
-## Pull delivery of discrete events
-
+## Pull delivery use cases
 Azure Event Grid features [pull CloudEvents delivery](pull-delivery-overview.md#push-and-pull-delivery). With this delivery mode, clients connect to Event Grid to read events. The following use cases can be realized using pull delivery.
 
 ### Receive events at your own pace
