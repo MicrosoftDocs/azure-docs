@@ -18,6 +18,12 @@ items:
     href: storage-tasks/storage-task-quickstart-arm.md
   - name: Bicep
     href: storage-tasks/storage-task-quickstart-bicep.md
+  - name: Terraform
+    href: storage-tasks/storage-task-quickstart-terraform.md
+  - name: .NET
+    href: storage-tasks/storage-task-quickstart-dotnet.md
+  - name: Python
+    href: storage-tasks/storage-task-quickstart-python.md
   expanded: true
 - name: Concepts
   items: 
@@ -33,9 +39,11 @@ items:
     href: storage-tasks/storage-task-assignment.md
   - name: Authorization
     items:
-    - name: Azure roles
+    - name: Azure roles required to view and edit a task
       href: storage-tasks/storage-task-authorization-roles.md
-    - name: Network access
+    - name: Azure roles required to assign a task
+      href: storage-tasks/storage-task-authorization-roles-assign.md
+    - name: Grant access to a storage account network
       href: storage-tasks/storage-task-network-access.md
   - name: Reliability in Azure Storage Actions
     href: ../reliability/reliability-storage-actions.md?toc=/azure/storage-actions/toc.json
