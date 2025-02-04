@@ -3,6 +3,7 @@ title: 'Quickstart: Create a storage task by using Python'
 titleSuffix: Azure Storage Actions
 description: Learn how to create a storage task by using Python.
 ms.service: azure-storage-actions
+ms.topic: quickstart
 author: normesta
 ms.author: normesta
 ms.date: 02/04/2025

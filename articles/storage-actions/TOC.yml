@@ -27,37 +27,39 @@ items:
   expanded: true
 - name: Concepts
   items: 
-  - name: Storage task best practices
+  - name: Best practices
     href: storage-tasks/storage-task-best-practices.md
-  - name: Storage task scenarios
+  - name: Scenarios
     href: storage-tasks/storage-task-scenarios.md
-  - name: Storage task conditions
-    href: storage-tasks/storage-task-conditions.md
-  - name: Storage task operations
-    href: storage-tasks/storage-task-operations.md
-  - name: Storage task assignment
-    href: storage-tasks/storage-task-assignment.md
-  - name: Authorization
+  - name: Storage task composition
     items:
-    - name: Azure roles required to view and edit a task
+    - name: Azure roles required to edit a task
       href: storage-tasks/storage-task-authorization-roles.md
+    - name: Conditions
+      href: storage-tasks/storage-task-conditions.md
+    - name: Operations
+      href: storage-tasks/storage-task-operations.md
+  - name: Storage task assignment
+    items:
+    - name: Storage task assignment
+      href: storage-tasks/storage-task-assignment.md
     - name: Azure roles required to assign a task
       href: storage-tasks/storage-task-authorization-roles-assign.md
-    - name: Grant access to a storage account network
-      href: storage-tasks/storage-task-network-access.md
-  - name: Reliability in Azure Storage Actions
+  - name: Reliability
     href: ../reliability/reliability-storage-actions.md?toc=/azure/storage-actions/toc.json
-  - name: Plan and manage costs
+  - name: Costs and billing
     href: storage-tasks/storage-task-plan-manage-costs.md 
   expanded: true
 - name: How-to
   items: 
   - name: Create a storage task
     href: storage-tasks/storage-task-create.md
-  - name: Define conditions & operations
+  - name: Compose a condition
     href: storage-tasks/storage-task-conditions-operations-edit.md
   - name: Create and manage an assignment
     href: storage-tasks/storage-task-assignment-create.md
+  - name: Grant access to a storage account network
+    href: storage-tasks/storage-task-network-access.md
   - name: Monitor storage tasks
     href: storage-tasks/monitor-storage-tasks.md
   - name: Analyze storage task runs
