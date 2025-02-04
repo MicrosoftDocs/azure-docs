@@ -96,7 +96,7 @@ This guide assumes you have provisioned the prerequisite resources before procee
 
     > [!NOTE]
     > Storage accounts that are in the same resource group have resource records in the same Private DNS zone.<br>
-    > Storage accounts that are in different resource groups have resource records in different (identically-named) Private DNS zones.
+    > Storage accounts that are in different resource groups have resource records in different (identically named) Private DNS zones.
 
 ## Demonstrate DNS resolution failure
 
