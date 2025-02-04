@@ -28,8 +28,8 @@ This page is updated with the details about the upcoming release approximately a
 ### OSDU Reservoir DDMS preview 
 OSDU Reservoir DDMS (M23 version) is available as an opt-in feature on Developer tier as a fully integrated offering for customers and partners. See link for more details.
 
-### Wellbore workers service 
-Wellbore workers service is introduced on WDDMS to enhance read performance of large bulk data. See [ADR: Worker Service for Wellbore Bulk Data Access](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/wellbore/wellbore-domain-services/-/issues/73) for more details.
+### Wellbore domain services worker
+The Wellbore domain services worker is currently available on Azure Data Manager for Energy. It is a Python back-end service used internally by the OSDU&reg; Wellbore Domain Data Management Service (WDDMS). It provides an internal API for accessing Wellbore bulk data, facilitating efficient data management and processing. See [ADR: Worker Service for Wellbore Bulk Data Access](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/wellbore/wellbore-domain-services/-/issues/73) for more details.
 
 ### Airflow performance enhancements 
 Airflow infrastructure has been upgraded to support ingestion and conversion DAGs for seismic datasets with high number vertical samples.
