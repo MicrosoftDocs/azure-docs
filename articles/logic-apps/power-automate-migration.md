@@ -7,7 +7,7 @@ services: logic-apps
 author: kewear
 ms.author: kewear
 ms.reviewer: estfan, azla
-ms.date: 01/21/2025
+ms.date: 02/04/2025
 ms.topic: conceptual
 ---
 
@@ -127,7 +127,7 @@ Azure Logic Apps excels at helping you integrate your workflows with an expansiv
   - [Add and run C# scripts inline with Standard workflows](/azure/logic-apps/add-run-csharp-scripts)
   - [Add and run PowerShell scripts in Standard workflows](/azure/logic-apps/add-run-powershell-scripts)
 
-- Development tools and reusability 
+- Development tools and reusability
 
   Locally create, debug, run, and manage workflows within Visual Studio Code when you use the Azure Logic Apps (Standard) extension.
 
