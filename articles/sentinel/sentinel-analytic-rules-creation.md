@@ -140,7 +140,7 @@ Analytics rules should be created in [YAML](https://yaml.org/) format. You can u
               columnName: Name    
 
         ```
-1. **customDetails** - Custom Details integrate event data into alerts, making it visible in security incidents for faster triaging, investigation, and response. Defined as key-value pairs of property and column names, more information on Custom Details is available [here](\azure\sentinel\surface-custom-details-in-alerts). Up to 20 custom details (that is, key-value pairs) can be defined per template.
+1. **customDetails** - Custom Details integrate event data into alerts, making it visible in security incidents for faster triaging, investigation, and response. Defined as key-value pairs of property and column names, more information on Custom Details is available [here](/azure/sentinel/surface-custom-details-in-alerts). Up to 20 custom details (that is, key-value pairs) can be defined per template.
     ```json
         customDetails:
           Computers: Computer
