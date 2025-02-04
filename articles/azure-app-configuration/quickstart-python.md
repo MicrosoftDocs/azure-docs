@@ -192,113 +192,113 @@ The following code snippet deletes a configuration setting by `key` name.
 
 ## Run the app
 
-1. In this example, you created a Python app that uses the Azure App Configuration client library to retrieve a configuration setting created through the Azure portal, add a new setting, retrieve a list of existing settings, lock and unlock a setting, update a setting, and finally delete a setting.
-    
-    At this point, your *app-configuration-example.py* file should have the following code:
-    
-    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
-    
-    ```python
-    import os
-    from azure.identity import DefaultAzureCredential
-    from azure.appconfiguration import AzureAppConfigurationClient, ConfigurationSetting
-    
-    try:
-        print("Azure App Configuration - Python example")
-        # Example code goes here
-    
-        credential = DefaultAzureCredential()
-        endpoint = os.getenv('AZURE_APPCONFIG_ENDPOINT')
-        app_config_client = AzureAppConfigurationClient(base_url=endpoint, credential=credential)
-    
-        retrieved_config_setting = app_config_client.get_configuration_setting(key='TestApp:Settings:Message')
-        print("\nRetrieved configuration setting:")
-        print("Key: " + retrieved_config_setting.key + ", Value: " + retrieved_config_setting.value)
-    
-        config_setting = ConfigurationSetting(
-            key='TestApp:Settings:NewSetting',
-            value='New setting value'
-        )
-        added_config_setting = app_config_client.add_configuration_setting(config_setting)
-        print("\nAdded configuration setting:")
-        print("Key: " + added_config_setting.key + ", Value: " + added_config_setting.value)
-    
-        filtered_settings_list = app_config_client.list_configuration_settings(key_filter="TestApp*")
-        print("\nRetrieved list of configuration settings:")
-        for item in filtered_settings_list:
-            print("Key: " + item.key + ", Value: " + item.value)
-    
-        locked_config_setting = app_config_client.set_read_only(added_config_setting, read_only=True)
-        print("\nRead-only status for " + locked_config_setting.key + ": " + str(locked_config_setting.read_only))
-    
-        unlocked_config_setting = app_config_client.set_read_only(locked_config_setting, read_only=False)
-        print("\nRead-only status for " + unlocked_config_setting.key + ": " + str(unlocked_config_setting.read_only))
-    
-        added_config_setting.value = "Value has been updated!"
-        updated_config_setting = app_config_client.set_configuration_setting(added_config_setting)
-        print("\nUpdated configuration setting:")
-        print("Key: " + updated_config_setting.key + ", Value: " + updated_config_setting.value)
-    
-        deleted_config_setting = app_config_client.delete_configuration_setting(key="TestApp:Settings:NewSetting")
-        print("\nDeleted configuration setting:")
-        print("Key: " + deleted_config_setting.key + ", Value: " + deleted_config_setting.value)
-    
-    except Exception as ex:
-        print('Exception:')
-        print(ex)
-    ```
-    
-    ### [Connection string](#tab/connection-string)
-    
-    ```python
-    import os
-    from azure.appconfiguration import AzureAppConfigurationClient, ConfigurationSetting
-    
-    try:
-        print("Azure App Configuration - Python example")
-        # Example code goes here
-    
-        connection_string = os.getenv('AZURE_APPCONFIG_CONNECTION_STRING')
-        app_config_client = AzureAppConfigurationClient.from_connection_string(connection_string)
-    
-        retrieved_config_setting = app_config_client.get_configuration_setting(key='TestApp:Settings:Message')
-        print("\nRetrieved configuration setting:")
-        print("Key: " + retrieved_config_setting.key + ", Value: " + retrieved_config_setting.value)
-    
-        config_setting = ConfigurationSetting(
-            key='TestApp:Settings:NewSetting',
-            value='New setting value'
-        )
-        added_config_setting = app_config_client.add_configuration_setting(config_setting)
-        print("\nAdded configuration setting:")
-        print("Key: " + added_config_setting.key + ", Value: " + added_config_setting.value)
-    
-        filtered_settings_list = app_config_client.list_configuration_settings(key_filter="TestApp*")
-        print("\nRetrieved list of configuration settings:")
-        for item in filtered_settings_list:
-            print("Key: " + item.key + ", Value: " + item.value)
-    
-        locked_config_setting = app_config_client.set_read_only(added_config_setting, read_only=True)
-        print("\nRead-only status for " + locked_config_setting.key + ": " + str(locked_config_setting.read_only))
-    
-        unlocked_config_setting = app_config_client.set_read_only(locked_config_setting, read_only=False)
-        print("\nRead-only status for " + unlocked_config_setting.key + ": " + str(unlocked_config_setting.read_only))
-    
-        added_config_setting.value = "Value has been updated!"
-        updated_config_setting = app_config_client.set_configuration_setting(added_config_setting)
-        print("\nUpdated configuration setting:")
-        print("Key: " + updated_config_setting.key + ", Value: " + updated_config_setting.value)
-    
-        deleted_config_setting = app_config_client.delete_configuration_setting(key="TestApp:Settings:NewSetting")
-        print("\nDeleted configuration setting:")
-        print("Key: " + deleted_config_setting.key + ", Value: " + deleted_config_setting.value)
-    
-    except Exception as ex:
-        print('Exception:')
-        print(ex)
-    ```
-    
-    ---
+In this example, you created a Python app that uses the Azure App Configuration client library to retrieve a configuration setting created through the Azure portal, add a new setting, retrieve a list of existing settings, lock and unlock a setting, update a setting, and finally delete a setting.
+
+At this point, your *app-configuration-example.py* file should have the following code:
+
+### [Microsoft Entra ID (recommended)](#tab/entra-id)
+
+```python
+import os
+from azure.identity import DefaultAzureCredential
+from azure.appconfiguration import AzureAppConfigurationClient, ConfigurationSetting
+
+try:
+    print("Azure App Configuration - Python example")
+    # Example code goes here
+
+    credential = DefaultAzureCredential()
+    endpoint = os.getenv('AZURE_APPCONFIG_ENDPOINT')
+    app_config_client = AzureAppConfigurationClient(base_url=endpoint, credential=credential)
+
+    retrieved_config_setting = app_config_client.get_configuration_setting(key='TestApp:Settings:Message')
+    print("\nRetrieved configuration setting:")
+    print("Key: " + retrieved_config_setting.key + ", Value: " + retrieved_config_setting.value)
+
+    config_setting = ConfigurationSetting(
+        key='TestApp:Settings:NewSetting',
+        value='New setting value'
+    )
+    added_config_setting = app_config_client.add_configuration_setting(config_setting)
+    print("\nAdded configuration setting:")
+    print("Key: " + added_config_setting.key + ", Value: " + added_config_setting.value)
+
+    filtered_settings_list = app_config_client.list_configuration_settings(key_filter="TestApp*")
+    print("\nRetrieved list of configuration settings:")
+    for item in filtered_settings_list:
+        print("Key: " + item.key + ", Value: " + item.value)
+
+    locked_config_setting = app_config_client.set_read_only(added_config_setting, read_only=True)
+    print("\nRead-only status for " + locked_config_setting.key + ": " + str(locked_config_setting.read_only))
+
+    unlocked_config_setting = app_config_client.set_read_only(locked_config_setting, read_only=False)
+    print("\nRead-only status for " + unlocked_config_setting.key + ": " + str(unlocked_config_setting.read_only))
+
+    added_config_setting.value = "Value has been updated!"
+    updated_config_setting = app_config_client.set_configuration_setting(added_config_setting)
+    print("\nUpdated configuration setting:")
+    print("Key: " + updated_config_setting.key + ", Value: " + updated_config_setting.value)
+
+    deleted_config_setting = app_config_client.delete_configuration_setting(key="TestApp:Settings:NewSetting")
+    print("\nDeleted configuration setting:")
+    print("Key: " + deleted_config_setting.key + ", Value: " + deleted_config_setting.value)
+
+except Exception as ex:
+    print('Exception:')
+    print(ex)
+```
+
+### [Connection string](#tab/connection-string)
+
+```python
+import os
+from azure.appconfiguration import AzureAppConfigurationClient, ConfigurationSetting
+
+try:
+    print("Azure App Configuration - Python example")
+    # Example code goes here
+
+    connection_string = os.getenv('AZURE_APPCONFIG_CONNECTION_STRING')
+    app_config_client = AzureAppConfigurationClient.from_connection_string(connection_string)
+
+    retrieved_config_setting = app_config_client.get_configuration_setting(key='TestApp:Settings:Message')
+    print("\nRetrieved configuration setting:")
+    print("Key: " + retrieved_config_setting.key + ", Value: " + retrieved_config_setting.value)
+
+    config_setting = ConfigurationSetting(
+        key='TestApp:Settings:NewSetting',
+        value='New setting value'
+    )
+    added_config_setting = app_config_client.add_configuration_setting(config_setting)
+    print("\nAdded configuration setting:")
+    print("Key: " + added_config_setting.key + ", Value: " + added_config_setting.value)
+
+    filtered_settings_list = app_config_client.list_configuration_settings(key_filter="TestApp*")
+    print("\nRetrieved list of configuration settings:")
+    for item in filtered_settings_list:
+        print("Key: " + item.key + ", Value: " + item.value)
+
+    locked_config_setting = app_config_client.set_read_only(added_config_setting, read_only=True)
+    print("\nRead-only status for " + locked_config_setting.key + ": " + str(locked_config_setting.read_only))
+
+    unlocked_config_setting = app_config_client.set_read_only(locked_config_setting, read_only=False)
+    print("\nRead-only status for " + unlocked_config_setting.key + ": " + str(unlocked_config_setting.read_only))
+
+    added_config_setting.value = "Value has been updated!"
+    updated_config_setting = app_config_client.set_configuration_setting(added_config_setting)
+    print("\nUpdated configuration setting:")
+    print("Key: " + updated_config_setting.key + ", Value: " + updated_config_setting.value)
+
+    deleted_config_setting = app_config_client.delete_configuration_setting(key="TestApp:Settings:NewSetting")
+    print("\nDeleted configuration setting:")
+    print("Key: " + deleted_config_setting.key + ", Value: " + deleted_config_setting.value)
+
+except Exception as ex:
+    print('Exception:')
+    print(ex)
+```
+
+---
 
 1. Configure an environment variable
     
