@@ -44,7 +44,7 @@ This article describes how to enable cross-subscription patching either through 
 
 3. Scheduling using maintenance configurations
    
-  To create maintenance configurations in Azure Update Manager, there are two ways you can set it up
+   To create maintenance configurations in Azure Update Manager, there are two ways you can set it up
 
    # [Using Azure portal](#tab/az-patch-portal)
       
