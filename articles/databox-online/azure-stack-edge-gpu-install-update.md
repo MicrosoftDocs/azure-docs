@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: azure-stack-edge
 ms.topic: how-to
-ms.date: 02/03/2025
+ms.date: 02/04/2025
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU
@@ -27,12 +27,12 @@ The current version is Update 2501. This update installs two updates, the device
 The associated versions for this update are:
 
 - Device software version: Azure Stack Edge 2501 (3.3.2501.1176).
-- Device Kubernetes version: Azure Stack Kubernetes Edge 2407 (3.2.2754.1029).
+- Device Kubernetes version: Azure Stack Kubernetes Edge 2501 (3.3.2501.1176).
 - Device Kubernetes workload profile: Other workloads.
-- Kubernetes server version: v1.28.5.
+- Kubernetes server version: v1.29.4.
 - IoT Edge version: 0.1.0-beta15.
-- Azure Arc version: 1.16.10.
-- GPU driver version: 535.161.08.
+- Azure Arc version: 1.19.2.
+- GPU driver version: 535.183.06.
 - CUDA version: 12.2.
 
 For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2407-release-notes.md).
