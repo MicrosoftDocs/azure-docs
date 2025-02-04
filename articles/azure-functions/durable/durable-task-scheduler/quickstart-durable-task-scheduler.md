@@ -3,7 +3,6 @@ title: "Quickstart: Set a Durable Functions app to use the Durable Task Schedule
 description: Learn how to configure an existing Durable Functions app to use Durable Task Scheduler.
 ms.topic: how-to
 ms.date: 01/27/2025
-zone_pivot_groups: dts-lanugages
 ---
 
 # Quickstart: Set a Durable Functions app to use the Durable Task Scheduler storage provider (preview)
