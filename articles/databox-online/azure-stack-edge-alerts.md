@@ -22,7 +22,7 @@ The Alerts blade for an Azure Stack Edge device lets you review Azure Stack Edge
 
 The initial display is a high-level summary of alerts at each severity level. You can drill down to see individual alerts at each severity level.
 
-[ ![Screenshot of the Alerts blade for an Azure Stack Edge device in the Azure portal. Alert details are overlaid. The Alerts menu item is highlighted.](media/azure-stack-edge-alerts/azure-stack-edge-alerts-summary-and-detail.png) ](media/azure-stack-edge-alerts/azure-stack-edge-alerts-summary-and-detail.png#lightbox)
+[![Screenshot of the Alerts blade for an Azure Stack Edge device in the Azure portal. Alert details are overlaid. The Alerts menu item is highlighted.](media/azure-stack-edge-alerts/azure-stack-edge-alerts-summary-and-detail.png)](media/azure-stack-edge-alerts/azure-stack-edge-alerts-summary-and-detail.png#lightbox)
 
 
 ### Alert severity levels
@@ -73,7 +73,7 @@ The following alerts are raised for Edge compute or the compute acceleration car
 |-----------|---------|---------------------------------|
 |Edge compute is unhealthy. |Critical | Restart your device to resolve the issue. In the local web UI of your device, go to **Maintenance** > **Power settings** and select **Restart**.<br>If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 |Edge compute ran into an issue with name resolution. |Critical |Ensure that your DNS server {15} is online and reachable. If the problem persists, contact your network administrator. |
-|Compute acceleration card configuration has an issue.<sup>*</sup> |Critical |We've detected an unsupported compute acceleration card configuration.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
+|Compute acceleration card configuration has an issue.<sup>*</sup> |Critical |We detected an unsupported compute acceleration card configuration.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
 |Compute acceleration card configuration has an issue.<sup>*</sup> |Critical |We detected an unsupported compute acceleration card.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li><li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
 |Compute acceleration card configuration has an issue.<sup>*</sup> |Critical |This may be due to one of the following reasons:<ol><li>If the card is an FPGA, the image isn't valid.</li><li>Compute acceleration card isn't seated properly.</li><li>Underlying issues with the compute acceleration driver.</li></ol>To resolve the issue, redeploy the Azure IoT Edge module. Once the issue is resolved, the alert goes away.<br>If the issue persists, do the following: <ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
 |Compute acceleration card configuration has an issue.<sup>*</sup> |Critical |This is due to an internal error.<br>Before you contact Microsoft Support, follow these steps:<ol><li>In the local web UI, go to **Troubleshooting** > **Support**.</li><li>Create and download a support package.</li>[Create a Support request](azure-stack-edge-contact-microsoft-support.md#create-a-support-request).</li><li>Attach the package to the support request.</li></ol> |
@@ -89,7 +89,7 @@ The following alerts are raised for Edge compute or the compute acceleration car
 |IoT Edge service isn't running. |Warning |Restart your device to resolve the issue. In the local web UI of your device, go to **Maintenance** > **Power settings** and select **Restart**. <br> If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md).md). |
 |Storage used by Edge compute is getting full. | Warning | [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) for next steps. |
 |Your Edge compute module {20} is disconnected from IoT Edge |Warning |Restart your device to resolve the issue. In the local web UI of your device, go to **Maintenance** > **Power settings** and select **Restart**. <br> If the problem persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
-|Your Edge compute module(s) may be using a local mount point {15} that is different than the local mountpoint used by a share. |Warning |Ensure that the local mountpoint {15} used is the one that is mapped to the share.<ul><li>In the Azure portal, go to **Shares** in your Data Box Edge resource.</li><li>Select a share to view the local mount point for Edge compute module.</li><li>Ensure that this path is used in the module and deploy the module again.</li></ol>Restart the device. In the local web UI of your device, go to **Maintenance** > **Power settings** and select **Restart**. <br> If the alert persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
+|Your Edge compute module(s) may be using a local mount point {15} that is different than the local mountpoint used by a share. |Warning |Ensure that the local mountpoint {15} used is the one that is mapped to the share.<ul><li>In the Azure portal, go to **Shares** in your Azure Stack Edge resource.</li><li>Select a share to view the local mount point for Edge compute module.</li><li>Ensure that this path is used in the module and deploy the module again.</li></ol>Restart the device. In the local web UI of your device, go to **Maintenance** > **Power settings** and select **Restart**. <br> If the alert persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 
 <sup>*</sup> This alert is triggered by more than one event type, with different recommended actions.
 
@@ -146,7 +146,7 @@ The following alerts are for issues that occur when accessing or uploading data 
 |Couldn't find volume {0}.<sup>*</sup> |Critical<br>Warning |Expand the volume or migrate workloads to other volumes. |
 |Some data on this volume {0} isn't fully resilient. It remains accessible. |Informational |Restoring resiliency of the data. |
 |Couldn't upload {0} files(s) from share {1}. |Critical |This could be due to one of the following reasons:<ol><li>Due to violations of Azure Storage naming and sizing conventions. For more information, go to [Naming conventions](../azure-resource-manager/management/resource-name-rules.md).</li><li>Because the uploaded files were modified in the cloud by other applications outside of the device.<ul><li>{2} inside the {1} share, or</li><li>{3} inside the {4} account.</li></ol></ul> |
-|Couldn't connect to the storage account '{0}'.<sup>*</sup> |Critical |This may be because the storage account access keys have been regenerated. If the keys have been regenerated, you will need to synchronize the new keys.<br>To fix the issue, in the Azure portal go to **Shares**, select the share, and refresh the storage keys. |
+|Couldn't connect to the storage account '{0}'.<sup>*</sup> |Critical |This may be because the storage account access keys have been regenerated. If the keys have been regenerated, you'll need to synchronize the new keys.<br>To fix the issue, in the Azure portal go to **Shares**, select the share, and refresh the storage keys. |
 |Couldn't connect to the storage account '{0}'.<sup>*</sup> |Critical |This may be due to Internet connectivity issues. The device isn't able to communicate with the storage account service. In the local web UI of the device, go to **Troubleshooting** > **Diagnostic tests** and select **Run diagnostic tests**. Resolve the reported issues. |
 |The device has {0} files. A maximum of {1} files are supported. |Critical |Consider deleting some files from the device. |
 |Low throughput to and from Azure Storage detected. |Warning  |In the local web UI of the device, go to **Troubleshooting** > **Diagnostic tests** and select **Run diagnostic tests**. Resolve the reported issues. If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
@@ -165,7 +165,7 @@ The following alerts signal access issues related to passwords, certificates, or
 |{0} from {1} expires in {2} days. |Critical<br>Warning |Check your certificate and upload a new certificate before the expiration date. |
 |{0} of type {1} isn't valid. |Critical |Check your certificate. If the certificate isn't valid, upload a new certificate. |
 |Internal certificate rotation failure |Critical |Couldn't rotate the internal certificates. If services are impaired, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
-|Couldn't login '{0}'. Number of failed attempts: '{1}'. |Critical<br>Warning<br>Informational |Make sure that you have entered the correct password.<br>An authorized user may be attempting to connect to your device with an incorrect password. Verify that these attempts were from a legitimate source.<br>If you continue to see failed login attempts, contact your network administrator. |
+|Couldn't login '{0}'. Number of failed attempts: '{1}'. |Critical<br>Warning<br>Informational |Make sure that you entered the correct password.<br>An authorized user may be attempting to connect to your device with an incorrect password. Verify that these attempts were from a legitimate source.<br>If you continue to see failed login attempts, contact your network administrator. |
 |Rotate SED key protector on node {0}, didn't complete in time. |Warning |The attempt to rotate SED key protector to the new default hasn't completed in time. Check if node and physical disks are in healthy state. System retries again. |
 |Device password has changed |Informational |The device administrator password has changed. This is a required action as part of the first-time device setup or regular password reset. No further action is required. |
 |A support session is enabled. |Informational |This is an information alert to ensure that administrators can ensure that the enabling the support session is legitimate. No action is needed. |
@@ -196,36 +196,36 @@ The following alerts indicate an issue with a hardware component, such as physic
 |{0} on {1} has failed. |Critical |This is because the power supply isn't connected properly or has failed. Take the following steps to resolve this issue:<ol><li>Make sure that the power supply connection is proper.</li><li>[Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) to order a replacement power supply unit. |
 |Couldn't reach {1}. |Critical      |If the controller is turned off, restart the controller.<br>Make sure that the power supply is functional. For information on monitoring the power supply LEDs, go to https://www.microsoft.com/.<!--Need new link target. This one goes nowhere--><br>If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 |{0} is powered off. |Warning |Connect the Power Supply Unit to a Power Distribution Unit. |
-|One or more device components are not working properly. |Critical |[Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) for next steps. |
+|One or more device components aren't working properly. |Critical |[Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) for next steps. |
 |Couldn't replace {0}. |Warning |[Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) for next steps. |
 |Started the replacement of {0}. |Informational |No action is required from you. |
 |Successfully replaced {0} |Informational |No action is required from you. |
 |{0} is disconnected. |Warning |Verify that '{0}' is cabled properly and the network interface is up. |
-|{0} has failed.<sup>*</sup> |Critical |The device needs to be replaced. [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) to replace the device. |
+|{0} failed.<sup>*</sup> |Critical |The device needs to be replaced. [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) to replace the device. |
 |{0} has failed.<sup>*</sup> |Critical |Verify that '{0}' is cabled properly and the network interface is up.<br>In the local web UI of the device, go to **Troubleshooting** > **Diagnostic tests** and select **Run diagnostic tests**. Resolve the reported issues.<br>If the issue persists, contact Microsoft Support at [https://aka.ms/getazuresupport](azure-stack-edge-contact-microsoft-support.md). |
 |Some data on the cache physical disk {0} on node {1} can't be read, preventing us from moving it onto capacity drives. |Warning |Replace the physical disk. |
-|The cache physical disk {0} on node {1} failed some reads or writes, so to protect your data we've moved it onto capacity drives. |Warning | Replace the physical disk. |
+|The cache physical disk {0} on node {1} failed some reads or writes, so to protect your data we moved it onto capacity drives. |Warning | Replace the physical disk. |
 |The physical disk {0} on node {1} failed to read or write multiple times in the last couple of days. If this keeps happening, it could mean that the drive is malfunctioning, damaged, or beginning to fail. |Warning |If the issue persists, consider replacing the physical disk. |
 |The physical disk {0} on node {1} has issues with reads or writes. |Warning |If the issue persists, consider replacing the physical disk. |
-|The physical disk {0} on node {1} has reached 100% of its rated write endurance and is now read-only, meaning it cannot perform any more writes. |Warning |Consider replacing the physical disk. |
-|The physical disk {0} on node {1} has failed. |Warning |Replace the physical disk. |
-|The physical disk {0} on node {1} has issues.<sup>*</sup> |Warning |The physical disk has encountered multiple bad blocks during writes in the last couple of days. This could mean that the drive is malfunctioning, damaged, or beginning to fail.<br>If the issue persists, consider replacing the physical disk. |
+|The physical disk {0} on node {1} has reached 100% of its rated write endurance and is now read-only, meaning it can't perform any more writes. |Warning |Consider replacing the physical disk. |
+|The physical disk {0} on node {1} failed. |Warning |Replace the physical disk. |
+|The physical disk {0} on node {1} has issues.<sup>*</sup> |Warning |The physical disk encountered multiple bad blocks during writes in the last couple of days. This could mean that the drive is malfunctioning, damaged, or beginning to fail.<br>If the issue persists, consider replacing the physical disk. |
 |The physical disk {0} on node {1} has issues.<sup>*</sup> |Warning |The physical disk {0} on node {1} encountered multiple bad blocks during writes in the last couple of days. This could mean that the drive is malfunctioning, damaged, or beginning to fail.<br>If the issue persists, consider replacing the physical disk. |
 |The physical disk {0} on node {1} has problems. |Warning |If the issue persists, consider replacing the physical disk. |
-|The physical disk {0} on node {1} is wearing out. It may become read-only, meaning it cannot perform any more writes, when it reaches 100% of its rated endurance. |Warning |Consider replacing the physical disk. |
+|The physical disk {0} on node {1} is wearing out. It may become read-only, meaning it can't perform any more writes, when it reaches 100% of its rated endurance. |Warning |Consider replacing the physical disk. |
 |The physical disk {0} on node {1} is performing slowly. |Warning |If the issue persists, consider replacing the physical disk. |
-|There is no connectivity to the physical disk {0} on node {1}. |Warning |Make sure that the physical disk is working and is properly connected.| 
-|{0} has failed or is missing. |Critical |Your device is degraded. The device will become unhealthy if one more disk fails. [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) to order a replacement disk. Replace the disk. |
+|There's no connectivity to the physical disk {0} on node {1}. |Warning |Make sure that the physical disk is working and is properly connected.| 
+|{0} failed or is missing. |Critical |Your device is degraded. The device becomes unhealthy if one more disk fails. [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) to order a replacement disk. Replace the disk. |
 |The physical disk {0} on node {1} could fail soon. |Warning |Replace the physical disk. |
 |A disk replacement operation is being performed. PercentComplete = {0}, Disk = {2}. |Critical |This is an informational event. No action is required at this time. |
 |The physical disk {0} on node {1} has failed. |Warning |Replace the physical disk. |
 |The physical disk {0} on node {1} isn't responding intermittently. |Warning |Replace the physical disk. |
-|The physical disk {0} on node {1} doesn't have current default SED key protector set on it. |Warning |System will attempt to update the SED key protector to latest. If issue persists, check if drive is in healthy state. |
-|The physical disk {0} on node {1} has failed rotation of SED key protector. |Warning |The attempt to rotate SED key protector to the new default has failed. Please check if physical disk is in healthy state. System will retry again, if issue persists, please replace the drive. |
+|The physical disk {0} on node {1} doesn't have current default SED key protector set on it. |Warning |System attempts to update the SED key protector to latest. If issue persists, check if drive is in healthy state. |
+|The physical disk {0} on node {1} failed rotation of SED key protector. |Warning |The attempt to rotate SED key protector to the new default failed. Check if physical disk is in healthy state. System retries again, if issue persists, replace the drive. |
 |The physical disk {0} on node {1} has unrecognized metadata. |Critical |The disk may contain data from an unknown storage pool. Replace this disk with a Microsoft supported disk for your device that doesn't contain any data. |
 |The physical disk {0} on node {1} is running an unsupported firmware version. |Warning |[Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 |The physical disk {0} on node {1} isn't a supported disk. |Warning |Replace the physical disk with supported hardware. |
-|The temperature sensor on the motherboard of server {0} has raised a warning. |Warning |Check the node temperature. |
+|The temperature sensor on the motherboard of server {0} raised a warning. |Warning |Check the node temperature. |
 
 <sup>*</sup> This alert is triggered by more than one event type, with different recommended actions.
 
@@ -236,10 +236,10 @@ The following alerts relate to Microsoft updates and firmware updates for physic
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
-|Couldn't download the updates. Error message : '{0}'. |Critical |{0} |
-|Couldn't install the updates. Error message : '{0}'. |Critical |Resolve the error : {0} |
-|Couldn't scan for updates. Error message : '{0}'. |Critical |Resolve the error : {0} |
-|{0} update(s) available. |Informational |We strongly recommend that you install these updates. For more information, refer [How to install updates](azure-stack-edge-gpu-install-update.md). |
+|Couldn't download the updates. Error message: '{0}'. |Critical |{0} |
+|Couldn't install the updates. Error message: '{0}'. |Critical |Resolve the error: {0} |
+|Couldn't scan for updates. Error message: '{0}'. |Critical |Resolve the error: {0} |
+|{0} update is available. |Informational |We strongly recommend that you install these updates. For more information, refer [How to install updates](azure-stack-edge-gpu-install-update.md). |
 |Couldn't update the disk firmware. |Critical |[Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) for next steps. |
 |Couldn't update the firmware on physical disk {0} on node {1}. |Warning |[Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 |Couldn't make progress as a firmware rollout is in progress. |Warning |Verify all storage spaces are healthy, and that no fault domain is currently in maintenance mode. |
