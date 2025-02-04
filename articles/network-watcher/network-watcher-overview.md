@@ -74,7 +74,7 @@ Network Watcher offers seven network diagnostic tools that help troubleshoot and
 
 ### Packet capture
 
-**Packet capture** allows you to remotely create packet capture sessions to track traffic to and from a virtual machine (VM) or a virtual machine scale set. For more information, see [packet capture](packet-capture-overview.md) and [Manage packet captures for virtual machines](packet-capture-vm-portal.md).
+**Packet capture** allows you to remotely create packet capture sessions to track traffic to and from a virtual machine (VM) or a virtual machine scale set. For more information, see [Packet capture overview](packet-capture-overview.md) and [Manage packet captures](packet-capture-manage.md).
 
 ### VPN troubleshoot
 
@@ -123,11 +123,11 @@ For service level agreement details, see [Service Level Agreements (SLA) for Onl
 
 ## Frequently asked questions (FAQ)
 
-To get answers to most frequently asked questions about Network Watcher, see [Azure Network Watcher frequently asked questions (FAQ)](frequently-asked-questions.yml).
+To get answers to most frequently asked questions about Network Watcher, see [Network Watcher frequently asked questions (FAQ)](frequently-asked-questions.yml).
 
 ## What's new? 
 
-To view the latest Network Watcher feature updates, see [Service updates](https://azure.microsoft.com/updates/?query=network%20watcher).
+To view the latest Network Watcher feature updates, see [Service updates](https://azure.microsoft.com/updates/?filters=%5B"Network+Watcher"%5D).
 
 ## Related content
 
