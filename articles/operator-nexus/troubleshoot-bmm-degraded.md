@@ -2,7 +2,7 @@
 title: Troubleshoot BMM Degraded issues in Azure Operator Nexus
 description: Troubleshooting guide for Bare Metal Machines in 'Degraded' status in Azure Operator Nexus.
 ms.service: azure-operator-nexus
-ms.custom: troubleshooting
+ms.custom: azure-operator-nexus
 ms.topic: troubleshooting
 ms.date: 02/03/2025
 author: robertstarling
@@ -10,7 +10,7 @@ ms.author: robstarling
 ms.reviewer: ekarandjeff
 ---
 
-# Troubleshoot _Degraded_ status errors on an Azure Operator Nexus cluster Bare Metal Machine
+# Troubleshoot _Degraded_ status errors on an Azure Operator Nexus Cluster Bare Metal Machine
 
 This document provides basic troubleshooting information for Bare Metal Machine (BMM) resources which are reporting a _Degraded_ status in the BMM detailed status message.
 
@@ -29,7 +29,7 @@ Bare Metal Machines (BMM) which are in _Degraded_ state exhibit the following sy
 | `Degraded: LACP status is down`                          | Yes                   | [Degraded: `LACP status is down`](#degraded-lacp-status-is-down)                                                  |
 | `Degraded: BMM power state doesn't match expected state` | No                    | [Degraded: `BMM power state doesn't match expected state`](#degraded-bmm-power-state-doesnt-match-expected-state) |
 
-_Degraded_ status messages and associated automatic cordoning behavior are present in Azure Operator Nexus version 4.1 and higher.
+_Degraded_ status messages and associated automatic cordoning behavior are present in Azure Operator Nexus version 2502.1 and higher.
 
 ## Troubleshooting
 
@@ -126,7 +126,7 @@ If an uncordoned BMM is in a _Degraded_ state for 15 minutes or more, the node m
 - To uncordon a BMM manually, use the `az networkcloud baremetalmachine uncordon` command or execute the _Uncordon_ action from the Azure portal.
 - Manually uncordoning a BMM which still has a degraded condition has no effect. The _Uncordon_ request will execute successfully, but the node will immediately be automatically cordoned again until 2 hours after the underlying conditions are resolved.
 
-To investigate whether a currently cordoned node is due to a recent _Degraded_ state:
+To investigate whether a currently cordoned BMM is due to a recent _Degraded_ state:
 
 - Review the `lastTransitionTime` in the `conditions` for the kubernetes `bmm` resource, as described in the [Troubleshooting](#troubleshooting) section, to identify any recently resolved _Degraded_ conditions.
 - Review the Activity Logs for the BMM resource in the Azure portal to check for any user initiated cordon requests.
@@ -171,7 +171,7 @@ To troubleshoot this issue:
 - for more information about diagnosing and fixing LACP issues, see [Troubleshoot LACP Bonding](./troubleshoot-lacp-bonding.md).
 
 > [!WARNING]
-> As of version 4.1, there's a known issue where `LACP status is down` can be incorrectly reported in addition to the `port is not functioning as expected` message during a port down scenario. This issue can happen when a BMM is restarted or reimaged while the physical port is down. This issue will be fixed in a future release. In the meantime, the `LACP status is down` warning can be safely ignored if the physical port is also down.
+> As of version 2502.1, there's a known issue where `LACP status is down` can be incorrectly reported in addition to the `port is not functioning as expected` message during a port down scenario. This issue can happen when a BMM is restarted or reimaged while the physical port is down. This issue will be fixed in a future release. In the meantime, the `LACP status is down` warning can be safely ignored if the physical port is also down.
 
 **Example `conditions` output for unexpected LACP state**
 
