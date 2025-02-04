@@ -194,6 +194,8 @@ Diagnostics for your Azure Communication Services Resource. [Learn more about Ca
 | `AggregationIntervalSeconds` | The time interval for aggregating the media statistics. Currently in the Calling SDK, media metrics are sampled every 1 second, and when we report in the log we aggregate all samples every 10 seconds. So each row in this table has, at most, 10 sampling points. |
 
 
+
+
 ### P2P vs. group calls
 
 There are two types of calls, as represented by `callType`:
