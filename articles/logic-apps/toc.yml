@@ -109,8 +109,6 @@ items:
       href: workflow-assistant-standard.md
     - name: Create Standard workflows - Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
-    - name: Power Automate migration to Azure Logic Apps
-      href: power-automate-migration.md
     - name: Create and run .NET code
       href: create-run-custom-code-functions.md
     - name: Add and run C# scripts
@@ -179,7 +177,9 @@ items:
       href: azure-arc-enabled-logic-apps-create-deploy-workflows.md
   - name: Migrate
     items:
-    - name: Migrate from BizTalk to Azure Logic Apps
+    - name: Migration from Power Automate
+      href: power-automate-migration.md
+    - name: Migration from BizTalk Server
       items:
       - name: Why migrate from BizTalk Server?
         href: biztalk-server-migration-overview.md
