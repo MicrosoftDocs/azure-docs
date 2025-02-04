@@ -1,5 +1,5 @@
 ---
-title:  "Expose applications to the internet using Application Gateway with TLS termination"
+title:  "Expose Applications to the Internet Using Application Gateway with TLS Termination"
 titleSuffix: Azure Spring Apps
 description: How to expose applications to internet using Application Gateway with TLS termination
 author: KarlErickson

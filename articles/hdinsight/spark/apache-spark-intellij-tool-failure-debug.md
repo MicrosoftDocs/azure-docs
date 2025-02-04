@@ -34,13 +34,13 @@ Create a spark2.3.2 project to continue failure debug, take failure task​ debu
 
    b. Select **Spark Project with Failure Task Debugging Sample(Preview)(Scala)** from the main window.
 
-     :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-projectfor-failure-debug.png" alt-text="Intellij Create a debug project." border="true":::
+     :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-projectfor-failure-debug.png" alt-text="IntelliJ Create a debug project." border="true":::
 
    c. Select **Next**.
 
 2. In the **New Project** window, do the following steps:
 
-   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-project.png" alt-text="Intellij New Project select Spark version." border="true":::
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-project.png" alt-text="IntelliJ New Project select Spark version." border="true":::
 
    a. Enter a project name and project location.
 
@@ -58,25 +58,25 @@ Create a spark Scala​/Java application, then run the application on a Spark cl
 
 1. Click **Add Configuration** to open **Run/Debug Configurations** window.
 
-   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-add-new-configuration.png" alt-text="HDI Intellij Add configuration." border="true":::
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-add-new-configuration.png" alt-text="HDI IntelliJ Add configuration." border="true":::
 
 2. In the **Run/Debug Configurations** dialog box, select the plus sign (**+**). Then select the **Apache Spark on HDInsight** option.
 
-   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-01.png" alt-text="Intellij Add new configuration." border="true":::
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-01.png" alt-text="IntelliJ Add new configuration." border="true":::
 
 3. Switch to **Remotely Run in Cluster** tab. Enter information for **Name**, **Spark cluster**, and **Main class name**. Our tools support debug with **Executors**. The **numExecutors**, the default value is 5, and you'd better not set higher than 3. To reduce the run time, you can add **spark.yarn.maxAppAttempts** into **job Configurations** and set the value to 1. Click **OK** button to save the configuration.
 
-   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-002.png" alt-text="Intellij Run debug configurations new." border="true":::
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-002.png" alt-text="IntelliJ Run debug configurations new." border="true":::
 
 4. The configuration is now saved with the name you provided. To view the configuration details, select the configuration name. To make changes, select **Edit Configurations**.
 
 5. After you complete the configurations settings, you can run the project against the remote cluster.
 
-   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-local-run-configuration.png" alt-text="Intellij Debug Remote Spark Job Remote run button." border="true":::
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-local-run-configuration.png" alt-text="IntelliJ Debug Remote Spark Job Remote run button." border="true":::
 
 6. You can check the application ID from the output window.
 
-   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-remotely-run-result.png" alt-text="Intellij Debug Remote Spark Job Remote run result." border="true":::
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-remotely-run-result.png" alt-text="IntelliJ Debug Remote Spark Job Remote run result." border="true":::
 
 ## Download failed job profile
 

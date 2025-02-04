@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 12/20/2024
+ms.date: 01/29/2025
 ms.author: anfdocs
 ---
 
@@ -417,7 +417,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     * Restore (`-c restore`) improvements
     * Test (`-c test`) improvements
     * Validation improvements
-    * Timeout improvements
+    * Time-out improvements
     * Azure Backup integration improvements
     * Features moved to GA (generally available):
         None

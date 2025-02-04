@@ -139,7 +139,6 @@
     items:
     - name: Manage packet captures
       href: packet-capture-manage.md
-    - name: Manage packet captures for scale sets
     - name: Analyze a packet capture
       items:
       - name: Inspect to find anomalies
