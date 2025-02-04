@@ -43,7 +43,7 @@ To sync your GitHub repository by using the Workflow Orchestration Manager UI:
    - **GitHub**
    - **ADO**
    - **GitLab**
-   - **BitBucket**
+   - **Bitbucket**
 
    :::image type="content" source="media/airflow-git-sync-repository/git-service-type.png" alt-text="Screenshot that shows the Git service type selection dropdown in the  environment setup dialog that appears during creation of an Workflow Orchestration Manager integration runtime.":::
 
@@ -57,7 +57,7 @@ To sync your GitHub repository by using the Workflow Orchestration Manager UI:
      - GitHub personal access token
      - ADO personal access token
      - GitLab personal access token
-     - BitBucket personal access token
+     - Bitbucket personal access token
 
      :::image type="content" source="media/airflow-git-sync-repository/git-pat-credentials.png" alt-text="Screenshot that shows the Git PAT credential options in the Airflow environment setup dialog that appears during creation of an AWorkflow Orchestration Manager integration runtime.":::
    - **SPN** ([service principal name](https://devblogs.microsoft.com/devops/introducing-service-principal-and-managed-identity-support-on-azure-devops/)): Only ADO supports this credential type.
@@ -134,7 +134,7 @@ To sync your GitHub repository by using the Rest API:
 
   |Name  |Type  |Description  |
   |---------|---------|---------|
-  |gitServiceType | string | The Git service where your desired repository is located. Values are GitHub, ADO, GitLab, or BitBucket. |
+  |gitServiceType | string | The Git service where your desired repository is located. Values are GitHub, ADO, GitLab, or Bitbucket. |
   |gitCredentialType | string | Type of Git credential. Values are PAT (for personal access token), SPN (supported only by ADO), and None. |
   |repo | string | Repository link. |
   |branch | string | Branch to use in the repository. |
