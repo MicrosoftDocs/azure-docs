@@ -36,7 +36,7 @@
     displayName: get started, chaining
     href: quickstart-java.md
   - name: Configure a storage provider - Durable Task Scheduler
-    href: quickstart-durable-task-scheduler.md
+    href: ./durable-task-scheduler/quickstart-durable-task-scheduler.md
   - name: Configure a storage provider - Netherite
     href: quickstart-netherite.md
   - name: Configure a storage provider - MSSQL
@@ -150,7 +150,7 @@
     - name: Durable entities in .NET
       href: durable-functions-dotnet-entities.md
     - name: Manage the Durable Task Scheduler
-      href: manage-durable-task-scheduler.md
+      href: ./durable-task-scheduler/manage-durable-task-scheduler.md
     - name: Guide to the standalone DF PowerShell SDK
       href: durable-functions-powershell-v2-sdk-migration-guide.md
     - name: Upgrade to Node.js model v4
@@ -174,7 +174,7 @@
     - name: App diagnostics in Azure portal 
       href: function-app-diagnostics.md
     - name: Monitor using the Durable Task Scheduler dashboard
-      href: durable-task-scheduler-dashboard.md
+      href: ./durable-task-scheduler/durable-task-scheduler-dashboard.md
     - name: Pricing
       href: durable-functions-billing.md
   - name: Debug
@@ -184,7 +184,7 @@
     - name: Durable Functions Troubleshooting Guide
       href: durable-functions-troubleshooting-guide.md
     - name: Durable Task Scheduler Troublesthooting Guide
-      href: troubleshoot-durable-task-scheduler.md
+      href: ./durable-task-scheduler/troubleshoot-durable-task-scheduler.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn training
