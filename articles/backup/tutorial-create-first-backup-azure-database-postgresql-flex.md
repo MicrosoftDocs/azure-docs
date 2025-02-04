@@ -2,7 +2,7 @@
 title: Tutorial - Create the first full backup for Azure Database for PostgreSQL Flexible Server via Azure Backup
 description: Learn how to create the first full backup for Azure Database for PostgreSQL Flexible Server.
 ms.topic: tutorial
-ms.date: 02/17/2025
+ms.date: 02/18/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024

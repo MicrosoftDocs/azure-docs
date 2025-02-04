@@ -2,7 +2,7 @@
 title: Back up Azure Database for PostgreSQL Flexible server with long-term retention
 description: Learn about Azure Database for PostgreSQL Flexible server backup with long-term retention.
 ms.topic: how-to
-ms.date: 02/17/2025
+ms.date: 02/18/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
@@ -26,7 +26,7 @@ To create a backup policy, follow these steps:
 
 1. On the **Configure Backup** pane, select the **Backup policy** tab.
 2. On the **Backup policy** tab, select **Create new** under **Backup policy**.
-3. On the **Create Backup Policy** pane, select the **Basics** tab, and then  provide a name for the new policy on **Policy name**.
+3. On the **Create Backup Policy** pane, on the **Basics** tab,  provide a name for the new policy on **Policy name**.
 
    :::image type="content" source="./media/backup-azure-database-postgresql-flex/enter-policy-name.png" alt-text="Screenshot sows how to provide the Backup policy name.":::
 

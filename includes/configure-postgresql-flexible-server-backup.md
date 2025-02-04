@@ -3,7 +3,7 @@ title: Include file
 description: Include file
 ms.service: azure-backup
 ms.topic: include
-ms.date: 02/17/2025
+ms.date: 02/18/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -18,15 +18,15 @@ For long-term retention of Azure PostgreSQL – Flexible Server backups using Az
 
 To configure backup on the Azure Database for PostgreSQL - Flexible Server via Azure Business Continuity Center, follow these steps:
 
-1. Go to **Business Continuity Center**, and then select **Overview** > **Configure Protection**.
+1. Go to **Business Continuity Center**, and then select **Overview** > **+ Configure protection**.
 
    :::image type="content" source="./media/configure-postgresql-flexible-server-backup/start-configure-protection-for-database.png" alt-text="Screenshot shows how to initiate the database protection. " lightbox="./media/configure-postgresql-flexible-server-backup/start-configure-protection-for-database.png":::
 
-2. On the **Configure protection** pane, select **Resource managed by** as **Azure**, **Datasource type** as **Azure Database for PostgreSQL flexible servers**, and **Solution details** as **Azure Backup**, and then select **Continue**.
+2. On the **Configure protection** pane, select **Resource managed by** as **Azure**, **Datasource type** as **Azure Database for PostgreSQL flexible servers**, and **Solution** as **Azure Backup**, and then select **Continue**.
 
    :::image type="content" source="./media/configure-postgresql-flexible-server-backup/configure-protection-pane.png" alt-text="Screenshot shows the datasource and solution selection." lightbox="./media/configure-postgresql-flexible-server-backup/configure-protection-pane.png":::
 
-3. On the **Configure Backup** pane, on the **Basics** tab, check datasource type, choose an existing Backup vault from the **Select a Vault** box, and then select **Next**.
+3. On the **Configure Backup** pane, on the **Basics** tab, check if **Datasource type** appears as **Azure Database for PostgreSQL flexible servers**, choose an existing Backup vault from the **Select a Vault** dropdown list, and then select **Next**.
 
    If you don't have a Backup vault, [create a new one](../articles/backup/create-manage-backup-vault.md#create-a-backup-vault). 
 
@@ -46,7 +46,7 @@ To configure backup on the Azure Database for PostgreSQL - Flexible Server via A
 
    :::image type="content" source="./media/configure-postgresql-flexible-server-backup/choose-database-for-backup.png" alt-text="Screenshot shows the database selection for backup." lightbox="./media/configure-postgresql-flexible-server-backup/choose-database-for-backup.png":::
 
-   Once you're on the **Datasources** tab,  the Azure Backup service validates if it has all the necessary access permissions to connect to the server. If one or more access permissions are missing, one of the following  error messages appears – **Role assignment not done** or **User cannot assign roles**.
+   Once you're on the **Datasources** tab,  the Azure Backup service validates if it has all the necessary access permissions to connect to the server. If one or more access permissions are missing, one of the following  error messages appears – **User cannot assign roles** or **Role assignment not done**.
 
    - **User cannot assign roles**: This message appears when you (the backup admin) don’t have the **write access** on the PostgreSQL - flexible Server as listed under **View details**. To assign the necessary permissions on the required resources, select **Download the assignment template** to fetch the ARM template,  and run the template as a PostgreSQL database administrator. Once the template is run successfully, select **Re-validate**.
 
@@ -56,7 +56,7 @@ To configure backup on the Azure Database for PostgreSQL - Flexible Server via A
 
      :::image type="content" source="./media/configure-postgresql-flexible-server-backup/role-assignment-not-done.png" alt-text="Screenshot shows the role assignment using the Azure portal." lightbox="./media/configure-postgresql-flexible-server-backup/role-assignment-not-done.png":::
 
-     Once the process starts, the [missing access permissions](../articles/backup/backup-azure-database-postgresql-overview.md#azure-backup-authentication-with-the-postgresql-server) on the PostgreSQL – flexible servers are granted to the backup vault. You can define the scope at which the access permissions should be granted. When the action is complete, revalidation starts.
+     Once the process starts, the [missing access permissions](../articles/backup/backup-azure-database-postgresql-overview.md#azure-backup-authentication-with-the-postgresql-server) on the PostgreSQL – flexible servers are granted to the backup vault. You can define the scope at which the access permissions must be granted. When the action is complete, revalidation starts.
  
 7. Once the role assignment validation shows **Success**,  select **Next** to proceed to last step of submitting the operation.
 

@@ -5,7 +5,7 @@ ms.devlang: terraform
 ms.custom:
   - ignite-2024
 ms.topic: quickstart
-ms.date: 02/17/2025
+ms.date: 02/18/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -13,7 +13,7 @@ ms.author: jsuri
 
 #  Quickstart: Configure backup for Azure Database for PostgreSQL - Flexible Server using a Terraform template
 
-This quickstart describes how to deploy a Terraform template to create a Backup vault and then configure backup for the Azure Database for PostgreSQL - Flexible Server. 
+This quickstart describes how to configure backup for the Azure Database for PostgreSQL - Flexible Server using the Terraform template. 
 
 [Azure Backup](backup-azure-database-postgresql-flex-overview.md) allows you to back up your Azure PostgreSQL - Flexible servers using multiple clients, such as Azure portal, PowerShell, CLI, Azure Resource Manager, Bicep, and so on.
 

@@ -4,7 +4,7 @@ description: Learn how to back up Azure Database for PostgreSQL - Flexible serve
 ms.topic: conceptual
 ms.custom:
   - ignite-2024
-ms.date: 02/17/2025
+ms.date: 02/18/2025
 ms.assetid: 759ee63f-148b-464c-bfc4-c9e640b7da6b
 author: jyothisuri
 ms.author: jsuri

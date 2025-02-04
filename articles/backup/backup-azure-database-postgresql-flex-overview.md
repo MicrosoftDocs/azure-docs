@@ -2,7 +2,7 @@
 title: About Azure Database for PostgreSQL Flexible server backup
 description: An overview on Azure Database for PostgreSQL Flexible server backup
 ms.topic: overview
-ms.date: 02/17/2025
+ms.date: 02/18/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
@@ -27,7 +27,7 @@ To perform the backup operation:
 1. Grant permissions to the backup vault MSI on the target ARM resource (PostgreSQL-Flexible server), establishing access, and control. 
 1. Configure backup policies, specify scheduling, retention, and other parameters. 
 
-Once the configuration is complete:
+Once the configuration is successful:
 
 1. The Backup service invokes the backup based on the policy schedules on the ARM API of PostgresFlex server, writing data to a secure blob-container with a SAS for enhanced security. 
 1. Backup runs independently preventing disruptions during long-running tasks. 

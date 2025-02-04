@@ -3,14 +3,14 @@ title: Include file
 description: Include file
 ms.service: azure-backup
 ms.topic: include
-ms.date: 02/17/2025
+ms.date: 02/18/2025
 author: jyothisuri
 ms.author: jsuri
 ---
 
 ## Prerequisites
 
-Before you configure backup for Azure Database for PostgreSQL Flexible Server, ensure that the following prerequisites are met:
+Before configuring backup for Azure Database for PostgreSQL - Flexible Server, ensure the following prerequisites are met:
 
 - [Review the supported scenarios and known limitations](../articles/backup/backup-azure-database-postgresql-flex-support-matrix.md) of Azure Database for PostgreSQL Flexible server backup.
 - Identify or [create a Backup vault](../articles/backup/create-manage-backup-vault.md#create-a-backup-vault) in the same region where you want to back up the Azure Database for PostgreSQL Server instance.

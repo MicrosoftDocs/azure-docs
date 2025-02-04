@@ -5,7 +5,7 @@ ms.devlang: terraform
 ms.custom:
   - ignite-2024
 ms.topic: quickstart
-ms.date: 02/17/2025
+ms.date: 02/18/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
