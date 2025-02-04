@@ -60,7 +60,9 @@ After you enable customer-managed keys, you need to associate the customer manag
 
    ```azurecli-interactive
    az keyvault create --hsm-name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
-   ```    
+   ```
+
+   After creation, you need to [activate the Managed HSM](/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm) and ensure that you have the correct permissions to generate keys by [assigning an RBAC role and local RBAC role](/azure/key-vault/managed-hsm/secure-your-managed-hsm) with the correct permissions.
 
 3. To add purge protection to an existing vault (that already has soft delete enabled), use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command.
 
@@ -69,20 +71,22 @@ After you enable customer-managed keys, you need to associate the customer manag
    ```
 ---
 
-4. Create keys by following these steps:
-    1. To create a new key, select **Generate/Import** from the **Keys** menu under **Settings**.
+## Create Keys
+
+Create keys by following these steps:
+   1. To create a new key, select **Generate/Import** from the **Keys** menu under **Settings**.
         
         ![Select Generate/Import button](./media/configure-customer-managed-key/select-generate-import.png)
-    1. Set **Options** to **Generate** and give the key a name.
+   2. Set **Options** to **Generate** and give the key a name.
 
         ![Create a key](./media/configure-customer-managed-key/create-key.png) 
-    1. You can now select this key to associate with the Event Hubs namespace for encrypting from the drop-down list. 
+   3. You can now select this key to associate with the Event Hubs namespace for encrypting from the drop-down list. 
 
         ![Select key from key vault](./media/configure-customer-managed-key/select-key-from-key-vault.png)
 
         > [!NOTE]
         > For redundancy, you can add up to three keys. If one of the keys has expired, or isn't accessible, the other keys are used for encryption.
-    1. Fill in the details for the key and click **Select**. This enables the encryption of the Microsoft-managed key with your key (customer-managed key). 
+   4. Fill in the details for the key and click **Select**. This enables the encryption of the Microsoft-managed key with your key (customer-managed key). 
 
 ## Managed identities
 There are two types of managed identities that you can assign to an Event Hubs namespace.
