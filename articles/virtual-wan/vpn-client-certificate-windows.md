@@ -5,7 +5,7 @@ description: Learn how to configure VPN clients on Windows computers for User VP
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 01/28/2025
+ms.date: 02/04/2025
 ms.author: cherylmc
 ---
 
@@ -17,7 +17,7 @@ The VPN client configuration files that you generate are specific to the P2S Use
 
 This article applies to Windows operating system clients. For more information about other VPN client configuration articles, see the following table:
 
-[!INCLUDE [P2S client configuration articles](virtual-wan-vpn-client-install-articles.md)]
+[!INCLUDE [P2S client configuration articles](../../includes/virtual-wan-vpn-client-install-articles.md)]
 
 ## <a name="generate"></a>Before you begin
 

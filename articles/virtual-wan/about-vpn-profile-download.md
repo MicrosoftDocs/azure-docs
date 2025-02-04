@@ -20,15 +20,11 @@ You can use the steps in the [Download profiles](global-hub-profile.md) article 
 
 [!INCLUDE [client profiles](../../includes/vpn-gateway-vwan-vpn-profile-download.md)]
 
-* The **OpenVPN folder** contains the *ovpn* profile that needs to be modified to include the key and the certificate. For information about configuring OpenVPN clients, see the following articles:
+* The **OpenVPN folder** contains the *ovpn* profile that needs to be modified to include the key and the certificate.
 
-   | Client OS| Article |
-   |---|---|
-   | Windows | [OpenVPN 2.x](point-to-site-vpn-client-certificate-windows-openvpn-client-version-2.md) |
-   | Windows | [OpenVPN 3.x](point-to-site-vpn-client-certificate-windows-openvpn-client-version-3.md) |
-   | macOS | [OpenVPN](point-to-site-vpn-client-certificate-openvpn-mac.md) |
-   | iOS | [OpenVPN](point-to-site-vpn-client-certificate-openvpn-ios.md) |
-   | Linux | [OpenVPN](../vpn-gateway/point-to-site-vpn-client-certificate-openvpn-linux.md) |
+For information about how to configure a VPN client, select the article from the following table that corresponds to you P2S gateway configuration and client.
+
+[!INCLUDE [P2S client configuration articles](../../includes/virtual-wan-vpn-client-install-articles.md)]
 
 ## Next steps
 

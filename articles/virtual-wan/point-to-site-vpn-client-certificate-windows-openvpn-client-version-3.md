@@ -5,7 +5,7 @@ description: Learn how to configure VPN clients for P2S User VPN configurations 
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 01/28/2025
+ms.date: 02/04/2025
 ms.author: cherylmc
 ---
 
@@ -18,7 +18,7 @@ If your point-to-site (P2S) VPN gateway is configured to use OpenVPN and certifi
 
 For other VPN client configuration articles, see the following table:
 
-[!INCLUDE [P2S client configuration articles](virtual-wan-vpn-client-install-articles.md)]
+[!INCLUDE [P2S client configuration articles](../../includes/virtual-wan-vpn-client-install-articles.md)]
 
 ## Before you begin
 
