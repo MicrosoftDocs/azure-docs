@@ -130,8 +130,6 @@
     items:
     - name: Use feature flags
       items:
-      - name: ASP.NET Core
-        href: use-feature-flags-dotnet-core.md
       - name: Spring Boot
         href: use-feature-flags-spring-boot.md
     - name: Enable conditional features with feature filters
