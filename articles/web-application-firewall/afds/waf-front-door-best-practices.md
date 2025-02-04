@@ -1,13 +1,11 @@
 ---
 title: Best practices for Azure Web Application Firewall in Azure Front Door
 description: In this article, you learn about the best practices for using Azure Web Application Firewall in Azure Front Door.
-services: web-application-firewall
 author: johndowns
 ms.author: jodowns
 ms.service: azure-web-application-firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/12/2023
-
 ---
 
 # Best practices for Azure Web Application Firewall in Azure Front Door

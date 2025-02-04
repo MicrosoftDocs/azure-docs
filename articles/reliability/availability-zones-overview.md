@@ -24,7 +24,7 @@ Datacenter locations are selected by using rigorous vulnerability risk assessmen
 
 The following diagram shows several example Azure regions. Regions 1 and 2 support availability zones, and regions 3 and 4 don't have availability zones.
 
-:::image type="content" source="media/regions-availability-zones.png" alt-text="Screenshot of physically separate availability zone locations within an Azure region.":::
+:::image type="content" source="media/regions-availability-zones.png" alt-text="Diagram of physically separate availability zone locations within an Azure region." border="false":::
 
 To see which regions support availability zones, see [Azure regions with availability zone support](availability-zones-region-support.md).
 
@@ -54,7 +54,9 @@ Each service has its own method for configuring availability zone support. To le
 
 Each datacenter is assigned to a physical zone. Physical zones are mapped to logical zones in your Azure subscription, and different subscriptions might have a different mapping order. Azure subscriptions are automatically assigned their mapping at the time the subscription is created. Because of this, the zone mapping for one subscription could be different for other subscriptions.
 
-For example, a subscription named "finance" may have physical zone X mapped to logical zone 1, while another subscription named "engineering" has physical zone X mapped to logical zone 3, instead.
+For example, subscription A may have physical zone 1 mapped to logical zone 2, while subscription B has physical zone 1 mapped to logical zone 3:
+
+:::image type="content" source="media/availability-zones-logical-physical.svg" alt-text="Diagram of logical to physical availability zone mapping." border="false":::
 
 To understand the mapping between logical and physical zones for your subscription, use the [List Locations Azure Resource Manager API](/rest/api/resources/subscriptions/list-locations). You can use the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/what-is-azure-powershell) to retrieve the information from the API.
 
