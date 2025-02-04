@@ -72,7 +72,7 @@ Use the following steps to create an Azure Spring Apps instance:
 
 1. Select **Apps** in the navigation menu, then select **Create App**.
 
-1. On the **Create App** page, enter **simple-event-driven-app** for **App name** and select *Java 17* for **Runtime platform**.
+1. On the **Create App** page, enter **simple-event-driven-app** for **App name** and select **Java 17** for **Runtime platform**.
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/basic-app-creation.png" alt-text="Screenshot of the Azure portal showing the Create App pane with App name and Runtime platform options selected." lightbox="../../media/quickstart-deploy-event-driven-app/basic-app-creation.png":::
 
