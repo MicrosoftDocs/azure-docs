@@ -18,7 +18,7 @@ To help you better understand how shared responsibility works, especially when c
 
 ## Shared responsibility model for resiliency
 
-The shared responsibility model for resiliency is comprised of three levels:
+The shared responsibility model for resiliency is composed of three levels:
 
 - [Core platform reliability](#core-platform-reliability). The Azure platform provides a base level of reliability for all customers and all services through the underlying infrastructure, services, and processes.
 - [Resilience-enhancing capabilities](#resilience-enhancing-capabilities) Azure offers a suite of built-in features and services that enhance resiliency, such as using availability zones, deploying across multiple regions, and implementing backup strategies. While Azure provides these capabilities, it's your responsibility to evaluate and configure them to align with your specific requirements. Requirements can include reliability, cost, performance, and compliance with regulatory standards.
@@ -56,7 +56,7 @@ All Azure services benefit from these core platform reliability capabilities, an
 
 Azure provides many different resilience-enhancing capabilities. Although Microsoft is responsible for providing these capabilities, you are entirely responsible for selecting and using the appropriate ones for your needs. Some examples of these capabilities include:
 
-- **Regions.** Azure has over 60 regions, and you can use multiple regions in a single solution to achieve geo-redundancy, meet your data residency needs, and enable low-latency communication to users globally.
+- **Regions.** Azure has over 60 regions, and you can use multiple regions in a single solution to achieve geo-redundancy, meet your data residency needs, and enable low-latency communication to users globally. To learn more about regions, see [What are Azure regions?](./regions-overview.md).
 
 - **Availability zones.** Many Azure regions support availability zones, which enable you to distribute your workloads across multiple independent sets of datacenters. Azure services support availability zones in a way that suits their intended purpose, usually by supporting zonal deployments (pinned to a single zone) and/or zone-redundant deployments (spread across multiple zones). To learn more about availability zones, see [What are availability zones?](./availability-zones-overview.md).
 

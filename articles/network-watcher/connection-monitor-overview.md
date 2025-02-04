@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 12/13/2024
+ms.date: 12/29/2024
 
 #CustomerIntent: As an Azure administrator, I need to monitor communication between one VM and another. If the communication fails, I need to know why so that I can resolve the problem. 
 ---
@@ -21,7 +21,7 @@ Connection monitor tests measure aggregated packet loss and network latency metr
 
 :::image type="content" source="./media/connection-monitor-overview/connection-monitor-diagram.png" alt-text="Diagram showing how Connection monitor interacts with Azure VMs, non-Azure hosts, endpoints, and data storage locations.":::
 
-## Connection monitor use cases
+## Use cases
 
 Here are some use cases of Connection monitor:
 
@@ -52,79 +52,48 @@ Here are some of the benefits of using Connection monitor:
 
 - Metrics with Azure Monitor and logs with Azure Log Analytics.
 
-## Install monitoring agents
+## Monitoring agents
 
 Connection monitor relies on lightweight executable files to run connectivity checks. It supports connectivity checks from both Azure environments and on-premises environments. The executable file that you use depends on whether your VM is hosted on Azure or on-premises.
 
 > [!NOTE]
 > Monitoring extensions for Azure and non-Azure endpoints are automatically enabled when you use the Azure portal to create a connection monitor.
 
-### Agents for Azure virtual machines and virtual machine scale sets 
+### Monitoring connectivity from Azure virtual machines and virtual machine scale sets
 
-To make Connection monitor recognize your Azure VMs or virtual machine scale sets as monitoring sources, install the Network Watcher Agent virtual machine extension on them. This extension is also known as the *Network Watcher extension*. Azure virtual machines and scale sets require the extension to trigger end-to-end monitoring and other advanced functionality. 
+To monitor connectivity from an Azure virtual machine or virtual machine scale set, Connection monitor must recognize these resources as monitoring sources. To achieve this, you need to install the Network Watcher Agent virtual machine extension, also known as the Network Watcher extension, on your Azure VMs or scale sets. This extension is required for enabling end-to-end monitoring and accessing other advanced functionalities. For more information, see [Manage Network Watcher extension for Windows](network-watcher-agent-windows.md) or [Manage Network Watcher extension for Linux](network-watcher-agent-linux.md).
 
-You can install the Network Watcher extension when you create a virtual machine or a scale set. You can also separately install, configure, and troubleshoot the Network Watcher extension for [Linux](network-watcher-agent-linux.md) and [Windows](network-watcher-agent-windows.md).
+### Monitoring connectivity from on-premises hosts
 
-Rules for a network security group (NSG) or firewall can block communication between the source and destination. Connection monitor detects this issue and shows it as a diagnostics message in the topology. To enable connection monitoring, ensure that the NSG and firewall rules allow packets over TCP or ICMP between the source and destination.
+To monitor connectivity from the on-premises host, it must be enabled with Arc agent. To learn more about enabling the Arc agent, see [Connect hybrid machines with Azure Arc-enabled servers](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm). The agent is supported on both Windows and Linux machines. 
 
-If you wish to escape the installation process for enabling the Network Watcher extension, you can proceed with the creation of Connection monitor and allow auto enablement of Network Watcher extensions on your Azure VMs and scale sets.
+Once the Azure Arc agent is enabled, proceed to enable the Azure Monitor Agent. For more information, see [Install and manage Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-manage).
+
+> [!TIP]
+You can escape the installation process of the Azure Monitor Agent extension if you use the Azure Portal to create your connection monitor. However, you still need to enable the Azure Arc agent on the on-premises host machines. 
 
 > [!NOTE]
-> If the Automatic Extension Upgrade isn't enabled on the virtual machine scale sets, then you have to manually upgrade the Network Watcher extension whenever a new version is released.
-> 
-> As Connection monitor now supports unified auto enablement of monitoring extensions, user can consent to auto upgrade of the virtual machine scale set with auto enablement of Network Watcher extension during the creation of Connection monitor for virtual machine scale sets with manual upgrade.
+> Currently, Connection monitor only supports Arc-enabled on-premises hosts as source endpoints. Log Analytics agent is no longer supported for monitoring on-premises machines with Connection monitor.
 
-### Agents for on-premises machines
+### Log Analytics workspace monitoring solution
 
-To make Connection monitor recognize your on-premises machines as sources for monitoring, install the Log Analytics agent on the machines. Then, enable the [Network Performance Monitor solution](../network-watcher/connection-monitor-overview.md#enable-the-network-performance-monitor-solution-for-on-premises-machines). These agents are linked to Log Analytics workspaces, so you need to set up the workspace ID and primary key before the agents can start monitoring.
-
-To install the Log Analytics agent for Windows machines, see [Install Log Analytics agent on Windows](/azure/azure-monitor/agents/agent-windows).
-
-If the path includes firewalls or network virtual appliances (NVAs), make sure that the destination is reachable.
-
-To open the port:
-
-* For Windows machines, run the [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell script without any parameters in a PowerShell window with administrator privileges.
-
-* For Linux machines, change the PortNumber value manually. To do so:
-   1. Go to */var/opt/microsoft/omsagent/npm_state*. 
-   1. Open the *npmdregistry* file.
-   1. Change the PortNumber value: ```“PortNumber:<port of your choice>”```.
-
-   > [!NOTE]
-   > The port numbers that you're using should be the same across all the agents used in a workspace. 
-
-The script creates the registry keys that are required by the solution. It also creates Windows Firewall rules to allow agents to create TCP connections with each other. The registry keys that are created by the script specify whether to log the debug logs and the path for the logs file. The script also defines the agent TCP port that's used for communication. The values for these keys are automatically set by the script. Don't manually change these keys. By default, the port that's opened is 8084. You can use a custom port by providing the parameter portNumber to the script. Use the same port on all the computers where the script is run. 
-
-For more information, see the "Network requirements" section of [Log Analytics agent overview](/azure/azure-monitor/agents/log-analytics-agent#network-requirements).
-
-The script configures only Windows Firewall locally. If you have a network firewall, make sure that it allows traffic destined for the TCP port that's used by Network Performance Monitor.
-
-The Log Analytics Windows agent can be multi-homed to send data to multiple workspaces and System Center Operations Manager management groups. The Linux agent can send data only to a single destination, either a workspace or management group.
-
-#### Enable the Network Performance Monitor solution for on-premises machines 
+To ensure monitoring logs are accurately uploaded in the Log Analytics workspace, make sure the Network Performance Monitoring solution is enabled in the workspace before creating a connection monitor: 
 
 To enable the Network Performance Monitor solution for on-premises machines, follow these steps: 
 
 1. In the Azure portal, go to **Network Watcher**.
 
-1. Under **Monitoring**, select **Connection Monitor**.  
+1. Under **Monitoring**, select **Connection monitor**.  
 
 1. Select **+ Enable Non-Azure**. 
 
-1. In **Enable Non-Azure**, select the subscription and workspace in which you want to enable the solution, and then select **Create**.
-   
-   After you enable the solution, the workspace takes a few minutes to be displayed.
+1. In **Enable Non-Azure**, select the subscription and Log Analytics workspace in which you want to enable the solution, and then select **Create**.
 
-Unlike Log Analytics agents, the Network Performance Monitor solution can be configured to send data only to a single Log Analytics workspace.
+1. Go to the Log Analytics workspace.
 
-If you wish to escape the installation process for enabling the Network Watcher extension, you can proceed with the creation of Connection monitor and allow auto enablement of monitoring solution on your on-premises machines. 
+1. Under **Classic**, select **Legacy solutions**.
 
-## Enable Network Watcher on your subscription
-
-All subscriptions that have a virtual network are enabled with Network Watcher. When you create a virtual network in your subscription, Network Watcher is automatically enabled in the virtual network's region and subscription. This automatic enabling doesn't affect your resources or incur a charge. Ensure that Network Watcher isn't explicitly disabled on your subscription. 
-
-Make sure that Network Watcher is [available for your region](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher&regions=all). For more information, see [Enable Network Watcher](./network-watcher-create.md).
+1. Select **NetworkMonitoring(yourWorkspace)**
 
 ## Create a connection monitor 
 

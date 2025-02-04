@@ -28,11 +28,11 @@ You then need to configure managed identity for the app and assign it the proper
         --resource-group $RESOURCE_GROUP_NAME \
         --location $SESSION_POOL_LOCATION \
         --environment $ENVIRONMENT_NAME \
-        --env-vars "AZURE_OPENAI_ENDPOINT=<OPEN_AI_ENDPOINT>" "POOL_MANAGEMENT_ENDPOINT=<SESSION_POOL_MANAGMENT_ENDPOINT>" \
+        --env-vars "AZURE_OPENAI_ENDPOINT=<OPEN_AI_ENDPOINT>" "POOL_MANAGEMENT_ENDPOINT=<SESSION_POOL_MANAGEMENT_ENDPOINT>" \
         --source .
     ```
 
-    Replace `<OPEN_AI_ENDPOINT>` with the Azure OpenAI account endpoint and `<SESSION_POOL_MANAGMENT_ENDPOINT>` with the session pool management endpoint.
+    Replace `<OPEN_AI_ENDPOINT>` with the Azure OpenAI account endpoint and `<SESSION_POOL_MANAGEMENT_ENDPOINT>` with the session pool management endpoint.
 
 1. Enable the system-assigned managed identity for the app:
 

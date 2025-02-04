@@ -97,7 +97,7 @@ Each dataflow source can optionally specify a message schema. Currently, dataflo
 
 Asset sources have a predefined message schema that was created by the connector for OPC UA.
 
-Schemas can be uploaded for MQTT sources. Currently, Azure IoT Operations supports JSON for source schemas, also known as input schemas. In the operations experience, you can select an existing schema or upload one while defining an MQTT source:
+Schemas can be uploaded for message broker sources. Currently, Azure IoT Operations supports JSON for source schemas, also known as input schemas. In the operations experience, you can select an existing schema or upload one while defining a message broker source:
 
 :::image type="content" source="./media/concept-schema-registry/upload-schema.png" alt-text="Screenshot that shows uploading a message schema in the operations experience portal.":::
 

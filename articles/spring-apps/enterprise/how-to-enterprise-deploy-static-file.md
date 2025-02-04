@@ -1,5 +1,5 @@
 ---
-title: Deploy web static files
+title: Deploy Web Static Files
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Learn how to deploy web static files.
 author: KarlErickson

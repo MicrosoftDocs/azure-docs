@@ -4,7 +4,6 @@ description: Learn how to purge all cached content from an Azure Content Deliver
 services: cdn
 author: duongau
 manager: kumud
-ms.assetid: 0b50230b-fe82-4740-90aa-95d4dde8bd4f
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
@@ -56,10 +55,6 @@ This guide walks you through purging assets from all edge nodes of an endpoint.
 5. Select the **Purge** button.
 
     ![Purge button](./media/cdn-purge-endpoint/cdn-purge-button.png)
-
-> [!IMPORTANT]
-> Purge requests take approximately 2 minutes with **Azure CDN from Edgio** (standard and premium). Azure Content Delivery Network has a limit of 100 concurrent purge requests at any given time at the profile level.
->
 
 ## Next steps
 

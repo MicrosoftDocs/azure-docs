@@ -49,6 +49,15 @@ Before defining the Stream Analytics job, you should prepare the input data. The
 
     :::image type="content" source="./media/stream-analytics-quick-create-portal/save-iot-device-connection-string.png" lightbox="./media/stream-analytics-quick-create-portal/save-iot-device-connection-string.png" alt-text="Screenshot showing the copy button next to device connection string.":::    
 
+## Run the IoT simulator
+
+1. Open the [Raspberry Pi Azure IoT Online Simulator](https://azure-samples.github.io/raspberry-pi-web-simulator/).
+2. Replace the placeholder in Line 15 with the Azure IoT Hub device connection string you saved in a previous section.
+3. Select **Run**. The output should show the sensor data and messages that are being sent to your IoT Hub.
+
+   :::image type="content" source="./media/stream-analytics-quick-create-portal/ras-pi-connection-string.png" lightbox="./media/stream-analytics-quick-create-portal/ras-pi-connection-string.png" alt-text="Screenshot showing the **Raspberry Pi Azure IoT Online Simulator** page with the sample query."::: 
+
+
 ## Create blob storage
 
 1. From the upper left-hand corner of the Azure portal, select **Create a resource**. Select **Storage** under **Categories** on the left menu, and then select **Storage account**.
@@ -128,14 +137,6 @@ In this section, you configure an IoT Hub device input to the Stream Analytics j
 1. Select **Save query** on the toolbar. 
 
    :::image type="content" source="./media/stream-analytics-quick-create-portal/add-asa-query.png" lightbox="./media/stream-analytics-quick-create-portal/add-asa-query.png" alt-text="Screenshot showing the **Query** page with the sample query."::: 
-
-## Run the IoT simulator
-
-1. Open the [Raspberry Pi Azure IoT Online Simulator](https://azure-samples.github.io/raspberry-pi-web-simulator/).
-2. Replace the placeholder in Line 15 with the Azure IoT Hub device connection string you saved in a previous section.
-3. Select **Run**. The output should show the sensor data and messages that are being sent to your IoT Hub.
-
-   :::image type="content" source="./media/stream-analytics-quick-create-portal/ras-pi-connection-string.png" lightbox="./media/stream-analytics-quick-create-portal/ras-pi-connection-string.png" alt-text="Screenshot showing the **Raspberry Pi Azure IoT Online Simulator** page with the sample query."::: 
 
 ## Start the Stream Analytics job and check the output
 

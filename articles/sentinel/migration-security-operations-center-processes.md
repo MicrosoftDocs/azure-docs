@@ -117,7 +117,7 @@ Use this table to compare the main concepts of your legacy SIEM to Microsoft Sen
 |  | Jupyter Notebooks | Jupyter Notebooks | Microsoft Sentinel notebooks |
 | Dashboards | Dashboards | Dashboards | Workbooks |
 | Correlation rules | Building blocks | Correlation rules | Analytics rules |
-|Incident queue |Offences tab |Incident review |**Incident** page |
+|Incident queue |Offenses tab |Incident review |**Incident** page |
 
 ## Next steps
 

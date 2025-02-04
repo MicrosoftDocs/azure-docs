@@ -5,7 +5,7 @@ description: Learn about how Virtual WAN routing works in detail.
 services: virtual-wan
 author: erjosito
 ms.service: azure-virtual-wan
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/24/2023
 ms.author: jomore
 ---

@@ -61,8 +61,6 @@
     items:
     - name: Overview
       href: traffic-analytics.md
-    - name: Supported regions
-      href: supported-region-traffic-analytics.md
     - name: Usage scenarios
       href: traffic-analytics-usage-scenarios.md
     - name: Schema and data aggregation
@@ -139,20 +137,8 @@
       href: network-watcher-diagnose-on-premises-connectivity.md
   - name: Capture and analyze packets
     items:
-    - name: Manage packet captures for VMs
-      items:
-      - name: Azure portal
-        href: packet-capture-vm-portal.md
-      - name: Azure PowerShell
-        href: packet-capture-vm-powershell.md
-      - name: Azure CLI
-        href: packet-capture-vm-cli.md
-    - name: Manage packet captures for scale sets
-      items:
-      - name: Azure portal
-        href: network-watcher-packet-capture-manage-portal-vmss.md
-      - name: Azure PowerShell
-        href: network-watcher-packet-capture-manage-powershell-vmss.md
+    - name: Manage packet captures
+      href: packet-capture-manage.md
     - name: Analyze a packet capture
       items:
       - name: Inspect to find anomalies
@@ -207,10 +193,6 @@
       href: network-watcher-delete-nsg-flow-log-blobs.md
     - name: Enable traffic analytics using Azure policy
       href: traffic-analytics-policy-portal.md
-    - name: Perform compliance and audit your network
-      href: network-watcher-nsg-auditing-powershell.md
-  - name: Determine relative latency between a location and Azure region
-    href: view-relative-latencies.md
 - name: Reference
   items:
   - name: Azure CLI

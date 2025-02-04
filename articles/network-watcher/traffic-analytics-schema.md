@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 07/11/2024
+ms.date: 12/22/2024
 
 #CustomerIntent: As a administrator, I want learn about traffic analytics schema so I can easily use the queries and understand their output.
 ---
@@ -272,8 +272,8 @@ The following table details public IP schema:
 | **ThreatType** | Threat posed by malicious IP | **For Malicious IPs only**: One of the threats from the list of currently allowed values (described in the next table). |
 | **ThreatDescription** | Description of the threat | *For Malicious IPs only*. Description of the threat posed by the malicious IP. |
 | **DNSDomain** | DNS domain | *For Malicious IPs only*. Domain name associated with the malicious IP. |
-| **Url** | URL corresponding to the malicious IP | *For Malicious IPs only* |
-| **Port** | Port corresponding to the malicious IP | *For Malicious IPs only* |
+| **Url** | URL corresponding to the malicious IP | *For Malicious IPs only*. |
+| **Port** | Port corresponding to the malicious IP | *For Malicious IPs only*. |
 
 # [**Virtual network flow logs**](#tab/vnet)
 
@@ -291,14 +291,17 @@ The following table details public IP schema:
 | **DNSDomain** | DNS domain | *For Malicious IPs only*. Domain name associated with this IP. |
 | **ThreatDescription** | Description of the threat | *For Malicious IPs only*. Description of the threat posed by the malicious IP. |
 | **Location** | Location of the IP | **For Azure Public IP**: Azure region of virtual network / network interface / virtual machine to which the IP belongs or Global for IP 168.63.129.16. <br> **For External Public IP and Malicious IP**: two-letter country code (ISO 3166-1 alpha-2) where IP is located. |
-| **Url** | URL corresponding to the malicious IP | *For Malicious IPs only* . |
+| **Url** | URL corresponding to the malicious IP | *For Malicious IPs only*. |
 | **Port** | Port corresponding to the malicious IP | *For Malicious IPs only*. |
 
 > [!NOTE]
-> *NTAIPDetails* in virtual network flow logs replaces *AzureNetworkAnalyticsIPDetails_CL* used in network security group flow logs.
+> - *NTAIPDetails* in virtual network flow logs replaces *AzureNetworkAnalyticsIPDetails_CL* used in network security group flow logs.
+> 
+> - Traffic analytics can log any malicious FQDN associated to the IP for malicious flows. To filter out, use the port, URL and domain fields as needed. 
 
 ---
 
+<br>
 List of threat types:
 
 | Value | Description |
@@ -307,7 +310,7 @@ List of threat types:
 | C2 | Indicator detailing a Command & Control node of a botnet. |
 | CryptoMining | Traffic involving this network address / URL is an indication of CyrptoMining / Resource abuse. |
 | DarkNet | Indicator of a Darknet node/network. |
-| DDos | Indicators relating to an active or upcoming DDoS campaign. |
+| DDoS | Indicators relating to an active or upcoming DDoS campaign. |
 | MaliciousUrl | URL that is serving malware. |
 | Malware | Indicator describing a malicious file or files. |
 | Phishing | Indicators relating to a phishing campaign. |

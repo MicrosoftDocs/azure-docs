@@ -52,7 +52,7 @@ You can also authenticate using SAP's Secure Network Communication (SNC) and X.5
 
 The Microsoft Sentinel agentless data connector for SAP uses the SAP Cloud Connector and SAP Integration Suite to connect to your SAP system and pull logs from it, as shown in the following image:
 
-:::image type="content" source="media/deployment-overview/agentless-connector.png" alt-text="Diagram that shows the Microsoft Sentinel agentless data connector in an SAP environment." border="false":::
+:::image type="content" source="media/deployment-overview/agentless-connector.png" alt-text="Diagram that shows the Microsoft Sentinel agentless data connector in an SAP environment." border="false" lightbox="media/deployment-overview/agentless-connector.png":::
 
 By using the SAP Cloud Connector, the **Agentless solution** profits from already existing setups and established integration processes. This means you don't have to tackle network challenges again, as the people running your SAP Cloud Connector have already gone through that process.
 

@@ -30,9 +30,9 @@ The table below summarizes all the observability capabilities supported by API M
 | Tool        | Useful for    | Data lag | Retention | Sampling | Data kind | Supported Deployment Model(s) |
 |:------------- |:-------------|:---- |:----|:---- |:--- |:---- |
 | **[API Inspector](api-management-howto-api-inspector.md)** | Testing and debugging | Instant | Last 100 traces | Turned on per request | Request traces | Managed, Self-hosted, Azure Arc, Workspace |
-| **[Built-in Analytics](howto-use-analytics.md)** | Reporting and monitoring | Minutes | Lifetime | 100% | Reports and logs | Managed |
-| **[Azure Monitor Metrics](api-management-howto-use-azure-monitor.md)** | Reporting and monitoring | Minutes | 90 days (upgrade to extend) | 100% | Metrics | Managed, Self-hosted<sup>2</sup>, Azure Arc |
-| **[Azure Monitor Logs](api-management-howto-use-azure-monitor.md)** | Reporting, monitoring, and debugging | Minutes | 31 days/5GB (upgrade to extend) | 100% (adjustable) | Logs | Managed<sup>1</sup>, Self-hosted<sup>3</sup>, Azure Arc<sup>3</sup> |
+| **[Built-in Analytics](monitor-api-management.md#get-api-analytics-in-azure-api-management)** | Reporting and monitoring | Minutes | Lifetime | 100% | Reports and logs | Managed |
+| **[Azure Monitor Metrics](monitor-api-management-reference.md#metrics)** | Reporting and monitoring | Minutes | 90 days (upgrade to extend) | 100% | Metrics | Managed, Self-hosted<sup>2</sup>, Azure Arc |
+| **[Azure Monitor Logs](monitor-api-management-reference.md#resource-logs)** | Reporting, monitoring, and debugging | Minutes | 31 days/5GB (upgrade to extend) | 100% (adjustable) | Logs | Managed<sup>1</sup>, Self-hosted<sup>3</sup>, Azure Arc<sup>3</sup> |
 | **[Azure Application Insights](api-management-howto-app-insights.md)** | Reporting, monitoring, and debugging | Seconds | 90 days/5GB (upgrade to extend) | Custom | Logs, metrics | Managed<sup>1</sup>, Self-hosted<sup>1</sup>, Azure Arc<sup>1</sup>, Workspace<sup>1</sup> |
 | **[Logging through Azure Event Hubs](api-management-howto-log-event-hubs.md)** | Custom scenarios | Seconds | User managed | Custom | Custom | Managed<sup>1</sup>, Self-hosted<sup>1</sup>, Azure Arc<sup>1</sup> |
 | **[OpenTelemetry](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md#introduction-to-opentelemetry)** | Monitoring | Minutes | User managed | 100% | Metrics | Self-hosted<sup>2</sup> |
@@ -45,7 +45,7 @@ The table below summarizes all the observability capabilities supported by API M
 
 ## Next Steps
 
-- Get started with [Azure Monitor metrics and logs](api-management-howto-use-azure-monitor.md)
+- Get started with [Azure Monitor for API Management](monitor-api-management.md)
 - Learn how to log requests with [Application Insights](api-management-howto-app-insights.md)
 - Learn how to log events through [Event Hubs](api-management-howto-log-event-hubs.md) 
-- Learn about visualizing Azure Monitor data using [Azure Managed Grafana](visualize-using-managed-grafana-dashboard.md)
+- Learn about visualizing Azure Monitor data using [Azure Managed Grafana](monitor-api-management.md#visualize-api-management-monitoring-data-using-a-managed-grafana-dashboard)

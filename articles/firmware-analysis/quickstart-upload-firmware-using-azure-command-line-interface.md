@@ -6,6 +6,7 @@ ms.author: karenguo
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
 ms.date: 01/29/2024
+ms.service: azure
 ---
 
 # Quickstart: Upload firmware images to Firmware Analysis using Azure CLI

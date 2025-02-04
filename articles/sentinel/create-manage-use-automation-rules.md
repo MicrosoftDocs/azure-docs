@@ -94,7 +94,7 @@ Use the options in the **Conditions** area to define conditions for your automat
 
     Analytic rule name values include only analytics rules, and don't include other types of rules, such as threat intelligence or anomaly rules.
 
-- Rules you create for when an incident is created or updated support a large variety of conditions, depending on your environment. These options start with whether your workspace is onboarded to the Defender portal:
+- Rules you create for when an incident is created or updated support a large variety of conditions, depending on your environment. These options start with whether your workspace is onboarded to the unified security operations (SecOps) platform:
 
     #### [Onboarded workspaces](#tab/onboarded)
 
@@ -145,7 +145,7 @@ Use the options in the **Conditions** area to define conditions for your automat
 1. Select an operator from the next drop-down box to the right.
     :::image type="content" source="media/create-manage-use-automation-rules/select-operator.png" alt-text="Screenshot of selecting a condition operator for automation rules.":::
 
-    The list of operators you can choose from varies according to the selected trigger and property. 
+    The list of operators you can choose from varies according to the selected trigger and property. When working with the unified SecOps platform recommend that you use the **Analytic rule name** condition instead of an incident title.
 
     #### Conditions available with the create trigger
 
@@ -164,7 +164,7 @@ Use the options in the **Conditions** area to define conditions for your automat
     | - **Tag** (See [individual vs. collection](automate-incident-handling-with-automation-rules.md#tag-property-individual-vs-collection)) | **Any individual tag:**<br>- Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with<br><br>**Collection of all tags:**<br>- Contains/Does not contain |
     | - **Tag** (in addition to above)<br>- **Alerts**<br>- **Comments** | - Added |
     | - **Severity**<br>- **Status** | - Equals/Does not equal<br>- Changed<br>- Changed from<br>- Changed to |
-    | - **Owner** | - Changed |
+    | - **Owner** | - Changed. If an incident's owner is updated via API, you must include the [*userPrincipalName* or *ObjectID*](/rest/api/securityinsights/automation-rules/get#incidentownerinfo) for the change to be detected by automation rules. |
     | - **Updated by**<br>- **Custom details key** | - Equals/Does not equal |
     | - **Tactics** | - Contains/Does not contain<br>- Added |
     | - **Alert product names**<br>- **Custom details value**<br>- **Analytic rule name** | - Contains/Does not contain |

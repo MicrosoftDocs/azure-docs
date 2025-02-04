@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article helps you better understand data included in Cost Management. It also explains how frequently data is processed, collected, shown, and closed.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/16/2024
+ms.date: 01/08/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -80,7 +80,9 @@ Your billing account type, and subscriptions created under it, is based on your 
 
 ## Costs included in Cost Management
 
-The following table shows included and not included data in Cost Management. All costs are estimated until an invoice is generated. Costs shown don't include free and prepaid credits.
+The following table shows included and not included data in Cost Management. Costs shown don't include free and prepaid credits.
+
+All included costs are estimated until an invoice is generated. Estimated costs shown in Cost Management during the open month, before invoice generation, don't consider tiered pricing plans. The cost estimates calculated in this situation are based on the highest tier for a product. After an invoice is issued, charges in Cost Management are updated and they should match the invoice.
 
 | **Included** | **Not included** |
 | --- | --- |

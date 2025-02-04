@@ -3,7 +3,7 @@ title: Turn on public IP addresses to an NSX Edge node for VMware NSX
 description: Learn how to turn on internet access for NSX in Azure VMware Solution. Learn how to turn on public IP addresses to an NSX Edge node and set internet access rules.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 3/22/2024
+ms.date: 01/08/2025
 ms.custom: engagement-fy23
 ---
 
@@ -110,7 +110,7 @@ A Source Network Address Translation (SNAT) service with Port Address Translatio
 Logging is turned on via the logging slider.
 
 For more information on VMware NSX NAT configuration and options, see the
-[NSX Data Center NAT Administration Guide](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-7AD2C384-4303-4D6C-A44A-DEF45AA18A92.html).
+[NSX Data Center NAT Administration Guide](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-1-1/administration-guide/network-address-translation.html).
 
 #### Create a No-NAT rule
 
@@ -169,8 +169,8 @@ You can provide security protection for your network traffic in and out of the p
 
 If **Match Internal Address** was specified, the destination is the internal or private IP address of the VM.
 
-For more information on the NSX gateway firewall, see the [NSX Gateway Firewall Administration Guide]( https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-A52E1A6F-F27D-41D9-9493-E3A75EC35481.html).
-The distributed firewall can be used to filter traffic to VMs. For more information, see [NSX Distributed Firewall Administration Guide]( https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-6AB240DB-949C-4E95-A9A7-4AC6EF5E3036.html).
+For more information on the NSX gateway firewall, see the [NSX Gateway Firewall Administration Guide](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-1-1/administration-guide/security/gateway-firewall.html).
+The distributed firewall can be used to filter traffic to VMs. For more information, see [NSX Distributed Firewall Administration Guide](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-1-1/administration-guide/security/distributed-firewall.html).
 
 ## Related content
 

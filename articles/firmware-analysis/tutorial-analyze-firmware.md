@@ -5,6 +5,7 @@ ms.topic: tutorial
 ms.date: 06/15/2023
 author: karengu0
 ms.author: karenguo
+ms.service: azure-iot-operations
 #Customer intent: As a device builder, I want to see what vulnerabilities or weaknesses might exist in my firmware image.
 ---
 

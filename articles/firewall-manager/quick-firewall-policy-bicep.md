@@ -4,7 +4,7 @@ description: In this quickstart, you deploy an Azure Firewall and a firewall pol
 services: firewall-manager
 author: vhorne
 ms.author: victorh
-ms.date: 09/28/2023
+ms.date: 01/08/2025
 ms.topic: quickstart
 ms.service: azure-firewall-manager
 ms.custom: subject-armqs, mode-arm, devx-track-bicep

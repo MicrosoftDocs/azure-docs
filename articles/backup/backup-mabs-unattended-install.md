@@ -4,8 +4,8 @@ description: Use a PowerShell script to silently install Azure Backup Server V4.
 ms.service: azure-backup
 ms.topic: how-to
 ms.date: 09/18/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Run an unattended installation of Azure Backup Server
 

@@ -167,6 +167,8 @@ items:
        href: premium-deploy-certificates-enterprise-ca.md
      - name: Use Azure Policy
        href: firewall-azure-policy.md
+     - name: Secured hub customer public IP
+       href: secured-hub-customer-public-ip.md
   - name: Protect
     items:
     - name: Protect Azure Virtual Desktop

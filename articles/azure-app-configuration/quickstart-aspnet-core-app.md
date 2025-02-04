@@ -64,12 +64,6 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
     ```
     ---
 
-1. Run the following command to restore packages for your project:
-
-    ```dotnetcli
-    dotnet restore
-    ```
-
 1. Create a user secret for the application by navigating into the *TestAppConfig* folder and running the following command.
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
@@ -83,11 +77,11 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
     
     ### [Connection string](#tab/connection-string)
 
-    The command uses [Secret Manager](/aspnet/core/security/app-secrets) to store a secret named `ConnectionStrings:AppConfig`, which stores the connection string for your App Configuration store. Replace the `<your_connection_string>` placeholder with your App Configuration store's connection string. You can find the connection string in your App Configuration store's **Access settings** in the Azure portal.
+    The command uses [Secret Manager](/aspnet/core/security/app-secrets) to store a secret named `ConnectionStrings:AppConfiguration`, which stores the connection string for your App Configuration store. Replace the `<your-App-Configuration-connection-string>` placeholder with your App Configuration store's read-only connection string. You can find the connection string in your App Configuration store's **Access settings** in the Azure portal.
 
     ```dotnetcli
     dotnet user-secrets init
-    dotnet user-secrets set ConnectionStrings:AppConfig "<your_connection_string>"
+    dotnet user-secrets set ConnectionStrings:AppConfiguration "<your-App-Configuration-connection-string>"
     ```
 
     > [!TIP]
@@ -124,15 +118,16 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
     var builder = WebApplication.CreateBuilder(args); 
     
     // Retrieve the endpoint
-    string endpoint = builder.Configuration.Get("Endpoints:AppConfiguration");
-    
+    string endpoint = builder.Configuration.GetValue<string>("Endpoints:AppConfiguration")
+        ?? throw new InvalidOperationException("The setting `Endpoints:AppConfiguration` was not found.");
+
     // Load configuration from Azure App Configuration 
     builder.Configuration.AddAzureAppConfiguration(options =>
     {
         options.Connect(new Uri(endpoint), new DefaultAzureCredential());
     });
     
-     // The rest of existing code in program.cs
+    // The rest of existing code in program.cs
     // ... ...    
     ```
 
@@ -142,7 +137,8 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
     var builder = WebApplication.CreateBuilder(args);
 
     // Retrieve the connection string
-    string connectionString = builder.Configuration.GetConnectionString("AppConfig");
+    string connectionString = builder.Configuration.GetConnectionString("AppConfiguration")
+        ?? throw new InvalidOperationException("The connection string 'AppConfiguration' was not found.");
 
     // Load configuration from Azure App Configuration
     builder.Configuration.AddAzureAppConfiguration(connectionString);

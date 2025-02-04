@@ -30,7 +30,7 @@ To enable resource logs, you need to set up a place to store your log data, such
 
 ## Enable resource logs
 
-Azure SignalR Service supports connectivity logs, messaging logs, and Http request logs. For more details about these types of logs, see [Resource log categories](monitor-signalr.md#resource-log-categories). Logs are stored in the Storage account configured in the **Diagnostics logs** pane. For more details about the storage format and fields, see [Data storage](monitor-signalr.md#data-storage).
+Azure SignalR Service supports connectivity logs, messaging logs, and HTTP request logs. For more details about these types of logs, see [Resource log categories](monitor-signalr.md#resource-log-categories). Logs are stored in the Storage account configured in the **Diagnostics logs** pane. For more details about the storage format and fields, see [Data storage](monitor-signalr.md#data-storage).
 
 ### Create diagnostic settings
 

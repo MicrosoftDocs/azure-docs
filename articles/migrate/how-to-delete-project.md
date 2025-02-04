@@ -1,8 +1,8 @@
 ---
 title: Delete an Azure Migrate project
 description: In this article, learn how you can delete an Azure Migrate project by using the Azure portal.
-author: v-sreedevank
-ms.author: v-sreedevank
+author: SnehaSudhirG
+ms.author: sudhirsneha 
 ms.topic: how-to
 ms.date: 09/09/2024
 ms.custom: engagement-fy23

@@ -4,8 +4,8 @@ description: Learn how to use REST API to back up SQL server databases in Azure 
 ms.topic: how-to
 ms.date: 07/30/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up SQL server databases in Azure VMs using Azure Backup via REST API

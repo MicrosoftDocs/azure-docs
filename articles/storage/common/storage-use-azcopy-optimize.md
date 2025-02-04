@@ -40,7 +40,7 @@ azcopy benchmark 'https://mystorageaccount.blob.core.windows.net/mycontainer/myB
 
 This command runs a performance benchmark by uploading test data to a specified destination. The test data is generated in memory, uploaded to the destination, then deleted from the destination after the test is complete. You can specify how many files to generate and what size you'd like them to be by using optional command parameters.
 
-If you prefer to run this test by downloading data, set the `mode` parameter to `download`. For detailed reference docs, see [azcopy benchmark](storage-ref-azcopy-bench.md).
+If you prefer to run this test by downloading data, set the `mode` parameter to `download`. For detailed reference docs, see [azcopy benchmark](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_bench).
 
 ## Optimize for large numbers of files
 
@@ -52,7 +52,7 @@ To maximize performance, you can reduce the size of each job by limiting the num
 
 To achieve optimal performance, ensure that each jobs transfers fewer than 10 million files. Jobs that transfer more than 50 million files can perform poorly because the AzCopy job tracking mechanism incurs a significant amount of overhead. To reduce overhead, consider dividing large jobs into smaller ones.
 
-One way to reduce the size of a job is to limit the number of files affected by a job. You can use command parameters to do that. For example, a job can copy only a subset of directories by using the `include path` parameter as part of the [azcopy copy](storage-ref-azcopy-copy.md) command.
+One way to reduce the size of a job is to limit the number of files affected by a job. You can use command parameters to do that. For example, a job can copy only a subset of directories by using the `include path` parameter as part of the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command.
 
 Use the `include-pattern` parameter to copy files that have a specific extension (for example: `*.pdf`). In a separate job, use the `exclude-pattern` parameter to copy all files that don't have `*.pdf` extension. See [Upload specific files](storage-use-azcopy-blobs-upload.md#upload-specific-files) and [Download specific blobs](storage-use-azcopy-blobs-download.md#download-specific-blobs) for examples.
 
@@ -117,9 +117,9 @@ Set the `AZCOPY_BUFFER_GB` environment variable to specify the maximum amount of
 
 The [sync](storage-ref-azcopy-sync.md) command identifies all files at the destination, and then compares file names and last modified timestamps before the starting the sync operation. If you have a large number of files, then you can improve performance by eliminating this up-front processing.
 
-To accomplish this, use the [azcopy copy](storage-ref-azcopy-copy.md) command instead, and set the `--overwrite` flag to `ifSourceNewer`. AzCopy will compare files as they are copied without performing any up-front scans and comparisons. This provides a performance edge in cases where there are a large number of files to compare.
+To accomplish this, use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command instead, and set the `--overwrite` flag to `ifSourceNewer`. AzCopy will compare files as they are copied without performing any up-front scans and comparisons. This provides a performance edge in cases where there are a large number of files to compare.
 
-The [azcopy copy](storage-ref-azcopy-copy.md) command doesn't delete files from the destination, so if you want to delete files at the destination when they no longer exist at the source, then use the [azcopy sync](storage-ref-azcopy-sync.md) command with the `--delete-destination` flag set to a value of `true` or `prompt`.
+The [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command doesn't delete files from the destination, so if you want to delete files at the destination when they no longer exist at the source, then use the [azcopy sync](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_sync) command with the `--delete-destination` flag set to a value of `true` or `prompt`.
 
 ## Use multiple clients to run jobs in parallel
 

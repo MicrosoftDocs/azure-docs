@@ -10,7 +10,7 @@ ms.date: 04/29/2024
 This article provides detail on how to use the [Apache Kafka](https://kafka.apache.org/) transactional API with Azure Event Hubs.
 
 ## Overview
-Event Hubs provides a Kafka endpoint that can be used by your existing Kafka client applications as an alternative to running your own Kafka cluster. Event Hubs works with many of your existing Kafka applications. For more information, see [Event Hubs for Apache Kafka](azure-event-hubs-kafka-overview.md).
+Event Hubs provides a Kafka endpoint that can be used by your existing Kafka client applications as an alternative to running your own Kafka cluster. Event Hubs works with many of your existing Kafka applications. For more information, see [Event Hubs for Apache Kafka](azure-event-hubs-apache-kafka-overview.md).
 
 This document focuses on how to use Kafka’s transactional API with Azure Event Hubs seamlessly.
 

@@ -357,6 +357,8 @@ items:
         href: how-tos/calling-sdk/transfer-calls.md
       - name: Subscribe to SDK events
         href: how-tos/calling-sdk/events.md
+      - name: Enable Real Time Text
+        href: quickstarts/voice-video-calling/get-started-with-real-time-text.md
       - name: Enable Closed captions
         href: quickstarts/voice-video-calling/get-started-with-closed-captions.md
       - name: Enable Closed captions for Teams Interoperability
@@ -381,9 +383,6 @@ items:
         href: tutorials/add-video-augmented-reality-tutorial.md
     - name: Diagnostics
       items:
-      - name: Diagnose your network
-        href: concepts/developer-tools/network-diagnostic.md
-        displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Diagnose client issues
         href: concepts/voice-video-calling/user-facing-diagnostics.md
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
@@ -488,6 +487,8 @@ items:
       items:
       - name: Enable logging with Azure Monitor
         href: concepts/analytics/enable-logging.md
+      - name: Insights dashboard
+        href: concepts/analytics/insights/insights-dashboard.md
       - name: Voice and Video insights
         href: concepts/analytics/insights/voice-and-video-insights.md
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
@@ -510,6 +511,8 @@ items:
         href: how-tos/calling-sdk/breakoutrooms.md
       - name: Together Mode
         href: how-tos/calling-sdk/together-mode.md
+      - name: Media Access Control
+        href: how-tos/calling-sdk/media-access.md
     - name: Configuring to proxy traffic
       items:
         - name: Proxy your calling traffic
@@ -666,6 +669,8 @@ items:
       href: samples/trusted-auth-sample.md
   - name: Email
     items:
+    - name: Email Resource Management
+      href: samples/email-resource-management.md
     - name: Azure AI to detect sensitive data example
       href: samples/email-detect-sensitive-content.md
   - name: Call Automation
@@ -788,7 +793,7 @@ items:
             href: concepts/interop/guest/government-cloud.md
           - name: Security
             href: concepts/interop/guest/security.md
-          - name: Known issues
+          - name: Teams interop known issues
             href: concepts/interop/guest/limitations.md
       - name: Communication as Teams user
         items:
@@ -1056,6 +1061,8 @@ items:
       href: concepts/email/email-smtp-overview.md
     - name: Allowed attachment types
       href: concepts/email/email-attachment-allowed-mime-types.md
+    - name: Reserved Custom Headers
+      href: concepts/email/email-headers.md
     - name: Inline attachments
       href: concepts/email/email-attachment-inline.md
     - name: Managing Opt-outs
@@ -1348,6 +1355,8 @@ items:
       href: https://azure.github.io/azure-sdk-for-android/azure-communication-calling/index.html
     - name: Calling (iOS)
       href: /objectivec/communication-services/calling/
+    - name: Calling (.NET)
+      href: /dotnet/api/azure-communication-services/calling/
   - name: Call Automation
     items:
     - name: Call Automation (JavaScript)

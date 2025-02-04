@@ -11,9 +11,9 @@ ms.date: 11/14/2024
 
 ---
 
-# Deploy Microsoft Sentinel solution for Dynamics 365 Finance and Operations
+# Deploy for Dynamics 365 Finance and Operations
 
-This article describes how to deploy the Microsoft Sentinel solution for Dynamics 365 Finance and Operations. The solution monitors and protects your Dynamics 365 Finance and Operations system: It collects audits and activity logs from the Dynamics 365 Finance and Operations environment, and detects threats, suspicious activities, illegitimate activities, and more. [Read more about the solution](dynamics-365-finance-operations-solution-overview.md).
+This article describes how to deploy the Dynamics 365 Finance and Operations content within the Microsoft Sentinel solution for Microsoft Business Applications. The solution monitors and protects your Dynamics 365 Finance and Operations system: It collects audits and activity logs from the Dynamics 365 Finance and Operations environment, and detects threats, suspicious activities, illegitimate activities, and more. [Read more about the solution](dynamics-365-finance-operations-solution-overview.md).
 
 > [!IMPORTANT]
 > - The Microsoft Sentinel solution for Dynamics 365 Finance and Operations is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -23,7 +23,8 @@ This article describes how to deploy the Microsoft Sentinel solution for Dynamic
 
 Before you begin, verify that:
 
-- The Microsoft Sentinel solution is enabled. 
+- The Microsoft Sentinel solution for Microsoft Business Applications solution is enabled. 
+
 - You have a defined Microsoft Sentinel workspace and have read and write permissions to the workspace.
 - [Microsoft Dynamics 365 Finance version 10.0.33 or above](/dynamics365/finance/get-started/whats-new-changed-changed-10-0-33) is enabled and you have administrative access to the monitored environments.  
 - You can create [Data Collection Rules/Endpoints](/azure/azure-monitor/essentials/data-collection-rule-overview) with the permissions:
@@ -46,8 +47,8 @@ Before you begin, verify that:
 ## Deploy the solution and enable the data connector
 
 1. Navigate to the **Microsoft Sentinel** service.
-1. Select **Content hub**, and in the search bar, search for *Dynamics 365 Finance and Operations*.
-1. Select **Dynamics 365 Finance and Operations**.
+1. Select **Content hub**, and in the search bar, search for *Microsoft Business Applications*.
+1. Select **Microsoft Business Applications**.
 1. Select **Install**.
 
     For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](../sentinel-solutions-deploy.md).
@@ -153,8 +154,8 @@ To verify that log ingestion is working:
 
 ## Related content
 
-In this article, you learned how to deploy the Microsoft Sentinel solution for Dynamics 365 Finance and Operations.
- 
+In this article, you learned how to deploy Dynamics 365 Finance and Operations features included in the Microsoft Sentinel solution for Microsoft Business Applications.
+
 - [Learn how to enable the security content](../sentinel-solutions-deploy.md#analytics-rule)
 - [Review the solution's security content](dynamics-365-finance-operations-security-content.md)
 

@@ -5,6 +5,7 @@ author: karengu0
 ms.author: karenguo
 ms.topic: conceptual
 ms.date: 01/10/2024
+ms.service: azure
 ---
 
 # Overview of Azure Role-Based Access Control for Firmware analysis

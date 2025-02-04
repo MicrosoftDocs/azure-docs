@@ -166,6 +166,6 @@ Use metrics from the ExpressRoute gateway to monitor the health of connections d
 
 During the update, you may observe a temporary dip in the count of routes learned. The count of routes learned should recover once the update is complete.
 
-Each connection has 2 peers. By filtering metrics for BGP (Border Gateway Protocol) peers, you can confirm the specific connections impacted during the update
+Each connection has 2 peers. By filtering metrics for BGP (Border Gateway Protocol) peers, you can confirm the specific connections impacted during the update. [For more details on monitoring](../expressroute/monitor-expressroute-reference.md).
 
-For more details on monitoring, refer to the [Monitoring data reference for Azure ExpressRoute](../expressroute/monitor-expressroute.md).
+:::image type="content" source="media/routes-learned-expressroute-gateway.png" lightbox="media/routes-learned-expressroute-gateway.png"  alt-text="Screenshot of sample routes learned on ExpressRoute Gateway.":::

@@ -1,15 +1,19 @@
 ---
 title: Authenticate to Azure Deployment Environments REST APIs
-description: Learn how to authenticate to Azure Deployment Environments REST APIs by using Microsoft Entra ID.
+description: Learn how to authenticate to Azure Deployment Environments REST APIs as administrator or developer, by using the Azure CLI.
 ms.service: azure-deployment-environments
 ms.custom: build-2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 11/22/2023
+ms.date: 01/31/2025
+
+#customer intent: As a developer, I want to learn how to authenticate to Microsoft Dev Box REST APIs, so that I can securely interact with Microsoft Dev Box services.
 ---
 
 # Authenticate to Azure Deployment Environments REST APIs
+
+In this article, you'll learn how to authenticate to Microsoft Dev Box REST APIs using the Azure CLI. Authentication is a crucial step for accessing both administrator (control plane) and developer (data plane) APIs. This guide walks you through retrieving an access token from Microsoft Entra ID, understanding the token's structure and validity, and using the bearer token to access REST APIs. By following these steps, you can securely interact with Microsoft Dev Box services.
 
 > [!TIP]
 > Before authenticating, ensure that the user or identity has the appropriate permissions to perform the desired action. For more information, see [Provide access for dev team leads](./how-to-configure-project-admin.md) and [Provide access for developers](./how-to-configure-deployment-environments-user.md).
@@ -30,7 +34,7 @@ az login
 
 The command opens a browser window to the Microsoft Azure authentication page, where you can choose an account. The page requires you to give your Microsoft Entra ID username and password.
 
-Next, set the correct subscription context. If you authenticate from an incorrect subscription or tenant, you might receive unexpected **403 Forbidden** errors.
+Next, set the correct subscription context. If you authenticate from an incorrect subscription or tenant, you might receive unexpected *403 Forbidden* errors.
 
 ```azurecli
 az account set --subscription <subscription_id>
@@ -74,6 +78,6 @@ The token is a Base64 string. The token is valid for at least five minutes. The 
 
 To access REST APIs, you must set the authorization header on your request. The header value should be the string `Bearer` followed by a space and the token you received in the previous step.
 
-## Next steps
+## Related content
 
-- [Review Microsoft Entra ID fundamentals](../../articles/active-directory/fundamentals/whatis.md)
+- Review [Microsoft Entra ID fundamentals](../../articles/active-directory/fundamentals/whatis.md)

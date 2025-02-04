@@ -240,7 +240,7 @@ The attribute for trigger binding is `[SocketIOTrigger]`.
 
 #### SocketIOAttribute
 
-`SocketIOAttribute` is an alternative of `ParameterNames`, which simplifies the function definition. For example, the following two definitions have the same effection:
+`SocketIOAttribute` is an alternative of `ParameterNames`, which simplifies the function definition. For example, the following two definitions have the same effect:
 
 ```cs
 [FunctionName("SocketIOTriggerMessage")]
