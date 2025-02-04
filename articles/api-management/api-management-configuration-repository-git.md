@@ -14,7 +14,7 @@ ms.author: danlep
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 > [!IMPORTANT]
-> Effective March 15, 2025, Azure API Management will [retire](breaking-changes/git-configuration-retirement-march-2025.md) the ability to manage the configuration of your service instance using the built-in Git repository. If you plan to continue using a Git repository to manage the configuration of your service instance after the retirement date, you must update your configuration management to use a different solution such as APIOps and your own Git repository implementation.
+> Starting March 15, 2025, Azure API Management will [retire](breaking-changes/git-configuration-retirement-march-2025.md) the ability to manage the configuration of your service instance using the built-in Git repository. If you plan to continue using a Git repository to manage the configuration of your service instance after the retirement date, update your configuration management to use a different solution such as APIOps and your own Git repository implementation.
 
 Each API Management service instance maintains a configuration database that contains information about the configuration and metadata for the service instance. Changes can be made to the service instance by changing a setting in the Azure portal, using Azure tools such as Azure PowerShell or the Azure CLI, or making a REST API call. In addition to these methods, you can manage your service instance configuration using Git, enabling scenarios such as:
 
