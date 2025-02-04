@@ -24,9 +24,9 @@ they receive the 'ephemeral storage' error message because Cloud Shell is unable
 5-GiB image file. Also, notice that Cloud Shell created a 0-byte image file for the failed attempt.
 
 To support multiple users, you need to increase the file share quota to accommodate the number of
-users that share the same storage account. Increase the quota by 5 GiB per user.
+users that share the same storage account. Increase the quota by 5-GiB per user.
 
-Here are the steps to perform
+Use the following steps to change the file share quota:
 
 1. Sign in to the Azure portal.
 1. Use the search bar to find your storage accounts
