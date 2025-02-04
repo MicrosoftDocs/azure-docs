@@ -15,7 +15,7 @@ This is how Spark completes the job as soon as possible. If either of the tasks 
 
 You can monitor this from the spark UI, where a task ID shown Speculative as true.
 
-:::image type="content" source="./media/what-is-speculative-execution-in-spark/how-to-monitor.png" alt-text="How to monitor Spark job." lightbox="./media/what-is-speculative-execution-in-spark/how-to-monitor.png":::
+:::image type="content" source="./media/what-is-speculative-execution-in-spark/how-to-monitor.png" alt-text="How to monitor Spark job.":::
 
 ## Configurations that affect this speculative behavior
 
