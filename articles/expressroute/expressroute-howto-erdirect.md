@@ -8,7 +8,7 @@ ms.custom:
   - devx-track-azurepowershell
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 01/31/2025
 ms.author: duau
 ---
 
@@ -19,6 +19,7 @@ ExpressRoute Direct gives you the ability to directly connect to Microsoft's glo
 ## Before you begin
 
 Before using ExpressRoute Direct, you must first enroll your subscription. To enroll, run the following command using Azure PowerShell:
+
 1.  Sign in to Azure and select the subscription you wish to enroll.
 
     ```azurepowershell-interactive
@@ -105,7 +106,7 @@ Once enrolled, verify the **Microsoft.Network** resource provider is registered 
                         ]
    ```
    > [!NOTE]
-   > If bandwidth is unavailable in the target location, open a [support request in the Azure Portal](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) and select the ExpressRoute Direct Support Topic. 
+   > If bandwidth is unavailable in the target location, open a [support request in the Azure portal](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) and select the ExpressRoute Direct Support Topic. 
    >
 5. Create an ExpressRoute Direct resource based on the location in the previous step.
 
@@ -114,7 +115,7 @@ Once enrolled, verify the **Microsoft.Network** resource provider is registered 
    If Dot1Q encapsulation is selected, you must manage uniqueness of the C-Tag (VLAN) across the entire ExpressRoute Direct resource.  
 
    > [!IMPORTANT]
-   > ExpressRoute Direct can only be one encapsulation type. Encapsulation cannot be changed after ExpressRoute Direct creation.
+   > ExpressRoute Direct can only be one encapsulation type. Encapsulation can't be changed after ExpressRoute Direct creation.
    > 
  
    ```powershell 
@@ -332,7 +333,7 @@ You can delete the ExpressRoute Direct resource by running the following command
 
 ## Enable ExpressRoute Direct and circuits in different subscriptions
 
-ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Microsoft Entra tenants. You create an authorization for your ExpressRoute Direct resource, and redeem the authorization to create an ExpressRoute circuit in a different subscription or Microsoft Entra tenant.
+You can create an authorization for your ExpressRoute Direct resource, and redeem the authorization to create an ExpressRoute circuit in a different subscription or Microsoft Entra tenant.
 
 1. Sign in to Azure and select the ExpressRoute Direct subscription. 
 
@@ -342,7 +343,7 @@ ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Mi
    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
    ```
 
-1. . Get ExpressRoute Direct details 
+1. Get ExpressRoute Direct details:
 
    ```powershell
    Get-AzExpressRoutePort 
@@ -392,6 +393,7 @@ ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Mi
     
     New-AzExpressRouteCircuit -Name $Name -ResourceGroupName $RGName -Location $Location -SkuTier $SkuTier -SkuFamily $SkuFamily -BandwidthInGbps $BandwidthInGbps -ExpressRoutePort $ERPort -AuthorizationKey $ERDirectAuthorization.AuthorizationKey
     ```
+
 ## Next steps
 
 For more information about ExpressRoute Direct, see the [ExpressRoute Direct overview](expressroute-erdirect-about.md).
