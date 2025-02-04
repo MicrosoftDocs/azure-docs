@@ -25,7 +25,7 @@ Azure Logic Apps (Standard) provides the following benefits by providing capabil
 
 | Benefits | Capabilities |
 |----------|--------------|
-| Flexible integration and development tools | - 1,400+ connectors for Microsoft, Azure, and other services, systems, apps, and data <br><br>- Browser-based development using the Azure portal <br><br>- Local development and testing with Visual Studio Code <br><br>For more information, see [Integration and development](#integration-development). |
+| Flexible integration and development tools | - Browser-based development using the Azure portal <br>- Local development and testing with Visual Studio Code <br>- 1,400+ connectors for Microsoft, Azure, and other services, systems, apps, and data <br><br>For more information, see [Integration and development](#integration-development). |
 | Enhanced security and compliance | - Virtual network integration <br>- Private endpoints <br>- Microsoft Entra ID <br>- Managed identity authentication <br>- Role-based access control (RBAC) <br><br>For more information, see [Security and compliance first](#security-compliance). |
 | Improved performance and scalability | - Dedicated compute resources <br>- Elastic scaling <br>- Parallel processing <br>- Low latency <br><br>For more information, see [Performance and scalability](#performance-scalability). |
 | Robust business continuity and disaster recovery (BCDR) capabilities | - Geo-redundancy <br>- Automated backups <br>- High availability with built-in redundancy <br><br>For more information, see [Business continuity and disaster recovery](#business-continuity-disaster-recovery). |
@@ -45,9 +45,13 @@ Azure Logic Apps excels at helping you integrate your workflows with an expansiv
 
 - Development tools and reusability
 
-  - Visually build workflows using a browser-based designer that includes an expression editor, or use the JSON code editor in the Azure portal
+  - Visually build workflows using a browser-based designer that includes an expression editor, or use the JSON code editor in the Azure portal.
+
+    :::image type="content" source="media/power-automate-migration/workflow-designer.png" alt-text="Screenshot shows Azure portal and workflow designer.":::
 
   - Build modular, reusable components with logic app projects in Visual Studio Code when you use the Azure Logic Apps (Standard) extension. These components help you reduce development time and make sure that you have consistency across projects.
+
+    :::image type="content" source="media/power-automate-migration/logic-app-project.png" alt-text="Screenshot shows Visual Studio Code, Standard logic app project, and workflow designer.":::
 
   - Locally create, debug, run, and manage workflows managed by your logic app project in Visual Studio Code when you use the Azure Logic Apps (Standard) extension.
 
