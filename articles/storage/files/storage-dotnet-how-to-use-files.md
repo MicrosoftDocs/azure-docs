@@ -37,14 +37,34 @@ To learn more about Azure Files, see [What is Azure Files?](storage-files-introd
 | Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
-## Understanding the .NET APIs
+## Choose between SMB and REST for Azure Files in .NET
 
-Azure Files provides two broad approaches to client applications: Server Message Block (SMB) and REST. Within .NET, the `System.IO` and `Azure.Storage.Files.Shares` APIs abstract these approaches.
+Azure Files provides two broad approaches to client applications: Server Message Block (SMB) and FileREST. Within .NET, the `System.IO` and `Azure.Storage.Files.Shares` APIs abstract these approaches. Here's a detailed look at when to use each approach:
 
-API | When to use | Notes
-----|-------------|------
-[System.IO](/dotnet/api/system.io) | Your application: <ul><li>Needs to read/write files by using SMB</li><li>Is running on a device that has access over port 445 to your Azure Files account</li><li>Doesn't need to manage any of the administrative settings of the file share</li></ul> | File I/O implemented with Azure Files over SMB is generally the same as I/O with any network file share or local storage device. For an introduction to a number of features in .NET, including file I/O, see the [Console Application](/dotnet/csharp/tutorials/console-teleprompter) tutorial.
-[Azure.Storage.Files.Shares](/dotnet/api/azure.storage.files.shares) | Your application: <ul><li>Can't access Azure Files by using SMB on port 445 because of firewall or ISP constraints</li><li>Requires administrative functionality, such as the ability to set a file share's quota or create a shared access signature</li></ul> | This article demonstrates the use of `Azure.Storage.Files.Shares` for file I/O using REST instead of SMB and management of the file share.
+### When to Use SMB (`System.IO`)
+
+- **File operations**: Ideal for applications that need to perform read/write operations on files.
+- **Network access**: Suitable for devices that have access over port 445 to your Azure Files account.
+- **Simple use cases**: Best for scenarios where you don't need to manage administrative settings of the file share.
+
+For an introduction to a number of features in .NET, including file I/O, see the [Console Application](/dotnet/csharp/tutorials/console-teleprompter) tutorial.
+
+[File and Stream I/O](/dotnet/standard/io/) overview.
+[Common I/O tasks](/dotnet/standard/io/common-i-o-tasks)
+
+### When to Use NFS
+
+- **Linux/UNIX-based applications**: Suitable for applications that require POSIX-compliant file shares, case sensitivity, or Unix style permissions (UID/GID).
+- **High-performance workloads**: Ideal for workloads that require high throughput and low latency.
+
+### When to Use REST (`Azure.Storage.Files.Shares`)
+
+- **Firewall/ISP constraints**: Use this approach if your application can't access Azure Files by using SMB on port 445 due to firewall or ISP constraints.
+- **Administrative functionality**: Required for applications that need to manage administrative settings, such as setting a file share's quota or creating a shared access signature.
+
+This article demonstrates the use of `Azure.Storage.Files.Shares` for file I/O using REST instead of SMB and management of the file share.
+
+For more details, refer to the [Azure.Storage.Files.Shares](/dotnet/api/azure.storage.files.shares) documentation.
 
 ## Create the console application and obtain the assembly
 
