@@ -2,7 +2,7 @@
 title: 'Quickstart: Use Terraform to create an Azure Recovery Services vault'
 description: In this quickstart, you learn how to create a resource group, an Azure Recovery Services vault, and a backup policy to share files in the Azure environment.
 ms.topic: quickstart
-ms.date: 01/17/2025
+ms.date: 02/4/2025
 ms.custom: devx-track-terraform
 ms.service: azure-site-recovery
 author: ankitaduttaMSFT
