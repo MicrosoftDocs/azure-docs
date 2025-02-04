@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 09/12/2024
+ms.date: 02/04/2025
 ms.author: anfdocs
 ---
 
@@ -23,7 +23,7 @@ This article describes requirements and considerations about [using the volume c
     >Failover is a manual process. When you need to activate the destination volume (for example, when you want to fail over to the destination region), you need to break replication peering then mount the destination volume. For more information, see [fail over to the destination volume](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume)
     >[!IMPORTANT]
     > A volume with an active backup policy enabled can't be the destination volume in a reverse resync operation. You must suspend the backup policy on the volume prior to starting the reverse resync then resume when the reverse resync completes. 
-* Azure NetApp Files replication doesn't currently support multiple subscriptions; all replications must be performed under a single subscription.
+* Azure NetApp Files replication is supported within a subscription and between subscriptions under the same tenant.
 * See [resource limits](azure-netapp-files-resource-limits.md) for the maximum number of cross-region replication destination volumes. You can open a support ticket to [request a limit increase](azure-netapp-files-resource-limits.md#request-limit-increase) in the default quota of replication destination volumes (per subscription in a region).
 * There can be a delay up to five minutes for the interface to reflect a newly added snapshot on the source volume.  
 * Cascading and fan in/out topologies aren't supported.
