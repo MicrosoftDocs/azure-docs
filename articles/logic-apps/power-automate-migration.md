@@ -25,10 +25,10 @@ Azure Logic Apps (Standard) provides the following benefits by providing capabil
 
 | Benefits | Capabilities |
 |----------|--------------|
+| Flexible integration and development tools | - 1,400+ connectors for Microsoft, Azure, and other services, systems, apps, and data <br><br>- Browser-based development using the Azure portal <br><br>- Local development and testing with Visual Studio Code <br><br>For more information, see [Integration and development](#integration-development). |
 | Enhanced security and compliance | - Virtual network integration <br>- Private endpoints <br>- Microsoft Entra ID <br>- Managed identity authentication <br>- Role-based access control (RBAC) <br><br>For more information, see [Security and compliance first](#security-compliance). |
 | Improved performance and scalability | - Dedicated compute resources <br>- Elastic scaling <br>- Parallel processing <br>- Low latency <br><br>For more information, see [Performance and scalability](#performance-scalability). |
 | Robust business continuity and disaster recovery (BCDR) capabilities | - Geo-redundancy <br>- Automated backups <br>- High availability with built-in redundancy <br><br>For more information, see [Business continuity and disaster recovery](#business-continuity-disaster-recovery). |
-| Flexible integration and development tools | - 1,400+ connectors for Microsoft, Azure, and other services, systems, apps, and data <br><br>- Browser-based development with Azure portal <br><br>- Local development and testing with Visual Studio Code <br><br>For more information, see [Integration and development](#integration-development). |
 | Version control with CI/CD <br>(continuous integration and deployment) | - Seamless integration with Git repositories, which provide change tracking, branching, and team collaboration <br><br>- Automate deployment with CI/CD pipelines and infrastructure as code (ARM templates and Bicep templates) <br><br>For more information, see [Version control with CI/CD](#version-control-ci-cd). |
 
 <!--
@@ -36,6 +36,41 @@ Azure Logic Apps (Standard) provides the following benefits by providing capabil
 -->
 
 For more detailed capability information and comparisons, see [Compare capability details](#compare-capabilities).
+
+<a name="integration-development"></a>
+
+#### Integration and development
+
+Azure Logic Apps excels at helping you integrate your workflows with an expansive range of services, systems, apps, and data and by supporting tools that help speed your development process.
+
+- Development tools and reusability
+
+  - Visually build workflows using a browser-based designer that includes an expression editor, or use the JSON code editor in the Azure portal
+
+  - Build modular, reusable components with logic app projects in Visual Studio Code when you use the Azure Logic Apps (Standard) extension. These components help you reduce development time and make sure that you have consistency across projects.
+
+  - Locally create, debug, run, and manage workflows managed by your logic app project in Visual Studio Code when you use the Azure Logic Apps (Standard) extension.
+
+- Extensive connector library
+
+  Choose from over 1,400 Azure-hosted connectors to access cloud services, on-premises systems, apps, and other data sources. Connect even more securely to key services such as SQL Server and Azure Key Vault and in more scalable ways by using built-in operations powered by the Azure Logic Apps runtime.
+
+  For more information, see the following documentation:
+
+  - [Azure-hosted and managed connectors](/connectors/connector-reference/connector-reference-logicapps-connectors)
+  - [Runtime-powered, built-in operations](/azure/connectors/built-in)
+
+- Workflow templates gallery
+
+  Create workflows even faster by starting with prebuilt templates for commonly used workload patterns, including ones that support AI data processing and chat completion scenarios.
+
+- Add and run your own code snippets
+
+  Write and run .NET code, C# scripts, or PowerShell scripts from Standard workflows. For more information, see the following resources:
+
+  - [Create and run .NET code from Standard workflows](/azure/logic-apps/create-run-custom-code-functions)
+  - [Add and run C# scripts inline with Standard workflows](/azure/logic-apps/add-run-csharp-scripts)
+  - [Add and run PowerShell scripts in Standard workflows](/azure/logic-apps/add-run-powershell-scripts)
 
 <a name="security-compliance"></a>
 
@@ -104,34 +139,6 @@ To make sure that workflow operations run without interruption, Azure Logic Apps
 - High availability
 
   Azure Logic Apps (Standard) includes built-in redundancy, which provides high availability to keep your workflows operational even during infrastructure failures.
-
-<a name="integration-development"></a>
-
-#### Integration and development
-
-Azure Logic Apps excels at helping you integrate your workflows with an expansive range of services, systems, apps, and data and by supporting tools that help speed your development process.
-
-- Extensive connector library
-
-  Choose from over 1,400 Azure-hosted connectors to access cloud services, on-premises systems, apps, and other data sources. Connect even more securely to key services such as SQL Server and Azure Key Vault and in more scalable ways by using built-in operations powered by the Azure Logic Apps runtime.
-
-- Workflow templates gallery
-
-  Create workflows even faster by starting with prebuilt templates for commonly used workload patterns, including ones that support AI data processing and chat completion scenarios.
-
-- Add and run your own code snippets
-
-  Write and run .NET code, C# scripts, or PowerShell scripts from Standard workflows. For more information, see the following resources:
-
-  - [Create and run .NET code from Standard workflows](/azure/logic-apps/create-run-custom-code-functions)
-  - [Add and run C# scripts inline with Standard workflows](/azure/logic-apps/add-run-csharp-scripts)
-  - [Add and run PowerShell scripts in Standard workflows](/azure/logic-apps/add-run-powershell-scripts)
-
-- Development tools and reusability
-
-  Locally create, debug, run, and manage workflows within Visual Studio Code when you use the Azure Logic Apps (Standard) extension.
-
-  Build modular, reusable components with logic app projects in Visual Studio Code. These components help you reduce development time and make sure that you have consistency across projects.
 
 <a name="version-control-ci-cd"></a>
 
