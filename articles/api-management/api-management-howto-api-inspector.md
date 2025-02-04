@@ -161,11 +161,11 @@ To help automate these steps with the [Visual Studio Code REST Client](https://m
 ```http
 @subscriptionId = // Your subscription ID
 @resourceGroup = // Your resource group
-@apimName = // Your API Management Service name
+@apimName = // Your API Management service name
 @clientId = // Client ID from an app registration for authentication
-@clientSecret = // Client secret
-@externalHost = // The host name of the APP Gateway or the fully qualified gateway URL
-@subscriptionKey = //API Management subscription key
+@clientSecret = // Client secret from app registration
+@externalHost = // The host name of the App Gateway or the fully qualified gateway URL
+@subscriptionKey = // API Management subscription key
 @apiEndPoint = // API URL
 @requestBody = // Data to send
 @tenantId = // Tenant ID
