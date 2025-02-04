@@ -3,7 +3,7 @@ title: Use compute-intensive Azure VMs with Batch
 description: How to take advantage of HPC and GPU virtual machine sizes in Azure Batch pools. Learn about OS dependencies and see several scenario examples.
 ms.topic: how-to
 ms.custom: linux-related-content
-ms.date: 06/07/2024
+ms.date: 02/04/2025
 ---
 # Use RDMA or GPU instances in Batch pools
 
