@@ -1,0 +1,55 @@
+---
+title: Azure Communication Services Call Diagnostic Log Schema
+titleSuffix: An Azure Communication Services concept article
+description: Learn about the Voice and Video Call Diagnostic Logs.
+author:  amagginetti
+services: azure-communication-services
+
+ms.author: amagginetti
+ms.date: 02/04/2025
+ms.topic: conceptual
+ms.service: azure-communication-services
+ms.subservice: calling
+---
+
+# Call Diagnostic Log Schema
+
+Call diagnostic logs provide important information about the endpoints and the media transfers for each participant. They also provide measurements that help you understand quality problems.
+
+For each endpoint within a call, a distinct call diagnostic log is created for outbound media streams (audio or video, for example) between endpoints. In a P2P call, each log contains data that relates to each of the outbound streams associated with each endpoint. In group calls, `participantId` serves as a key identifier to join the related outbound logs into a distinct participant connection. Call diagnostic logs remain intact and are the same regardless of the participant tenant.
+
+> [!NOTE]
+> In this article, P2P and group calls are within the same tenant, by default, for all call scenarios that are cross-tenant. They're specified accordingly throughout the article.
+
+| Property | Description |
+|--- |--- |
+| `operationName` | The operation associated with the log record. |
+| `operationVersion` | The `api-version` value associated with the operation, if the `operationName` operation was performed through an API. If no API corresponds to this operation, the version represents the version of the operation, in case the properties associated with the operation change in the future. |
+| `category` | The log category of the event. This property is the granularity at which you can enable or disable logs on a resource. The properties that appear within the `properties` blob of an event are the same within a log category and resource type. |
+| `correlationId` | The unique ID for a call. It identifies correlated events from all of the participants and endpoints that connect during a single call. If you ever need to open a support case with Microsoft, you can use the `correlationId` value to easily identify the call that you're troubleshooting. |
+| `participantId` | ID generated to represent the two-way connection between a `"Participant"` endpoint (`endpointType` =  `"Server"`) and the server. When `callType` = `"P2P"`, there's a direct connection between two endpoints, and no `participantId` value is generated. |
+| `identifier` | The unique ID for the user. The identity can be an Azure Communication Services user, a Microsoft Entra user ID, a Teams object ID, or a Teams bot ID. You can use this ID to correlate user events across logs. |
+| `endpointId` | The unique ID that represents each endpoint connected to the call, where `endpointType` defines the endpoint type. When the value is `null`, the connected entity is the Communication Services server. `EndpointId` can persist for the same user across multiple calls (`correlationId`) for native clients but is unique for every call when the client is a web browser. |
+| `endpointType` | The value that describes the properties of each `endpointId` instance. It can contain  `"Server"`, `"VOIP"`, `"PSTN"`, `"BOT"`, `"Voicemail"`, `"Anonymous"`, or `"Unknown"`. |
+| `mediaType` | The string value that describes the type of media that's being transmitted between endpoints within each stream. Possible values include `"Audio"`, `"Video"`, `"VBSS"` (screen sharing), and `"AppSharing"` (data channel).|
+| `streamId` | A nonunique integer that, together with `mediaType`, you can use to uniquely identify streams of the same `participantId` value. |
+| `transportType` | The string value that describes the network transport protocol for each `participantId` value. It can contain `"UDP"`, `"TCP"`, or `"Unrecognized"`. `"Unrecognized"` indicates that the system couldn't determine if the transport type was TCP or UDP. |
+| `roundTripTimeAvg` | The average time that it takes to get an IP packet from one endpoint to another within a `participantDuration` period. This network propagation delay is related to the physical distance between the two points, the speed of light, and any overhead that the various routers take in between. <br><br>The latency is measured as one-way time or round-trip time (RTT). Its value expressed in milliseconds. An RTT greater than 500 ms is negatively affecting the call quality. |
+| `roundTripTimeMax` | The maximum RTT (in milliseconds) measured fo reach media stream during a `participantDuration` period in a group call or during a `callDuration` period in a P2P call. |
+| `jitterAvg` | The average change in delay between successive packets. Azure Communication Services can adapt to some levels of jitter through buffering. When the jitter exceeds the buffering, which is approximately at a `jitterAvg` time greater than 30 ms, it can negatively affect quality. The packets arriving at different speeds cause a speaker's voice to sound robotic. <br><br> This metric is measured for each media stream over the `participantDuration` period in a group call or over the `callDuration` period in a P2P call. |
+| `jitterMax` | The maximum jitter value measured between packets for each media stream. Bursts in network conditions can cause problems in the audio/video traffic flow.  |
+| `packetLossRateAvg` | The average percentage of packets that are lost. Packet loss directly affects audio quality. Small, individual lost packets have almost no impact, whereas back-to-back burst losses cause audio to cut out completely. The packets being dropped and not arriving at their intended destination cause gaps in the media. This situation results in missed syllables and words, along with choppy video and sharing. <br><br> A packet loss rate of greater than 10% (0.1) is likely having a negative quality impact. This metric is measured for each media stream over the `participantDuration` period in a group call or over the `callDuration` period in a P2P call.    |
+| `packetLossRateMax` | This value represents the maximum packet loss rate (percentage) for each media stream over the `participantDuration` period in a group call or over the `callDuration` period in a P2P call. Bursts in network conditions can cause problems in the audio/video traffic flow. |
+| `JitterBufferSizeAvg` | The average size of jitter buffer over the duration of each media stream. A jitter buffer is a shared data area where voice packets can be collected, stored, and sent to the voice processor in evenly spaced intervals. Jitter buffer is used to counter the effects of jitter. <br><br> Jitter buffers can be either static or dynamic. Static jitter buffers are set to a fixed size, while dynamic jitter buffers can adjust their size based on network conditions. The goal of the jitter buffer is to provide a smooth and uninterrupted stream of audio and video data to the user. <br><br> In the web SDK, this `JitterBufferSizeAvg` is the average value of the `jitterBufferDelay` during the call. The `jitterBufferDelay` is the duration of an audio sample or a video frame that stays in the jitter buffer. <br><br> Normally when `JitterBufferSizeAvg` value is greater than 200 ms, it negatively impacts quality. |
+| `JitterBufferSizeMax` | The maximum jitter buffer size measured during the duration of each media stream.  <br><br> Normally when this value is greater than 200 ms, it negatively impacts quality. |
+| `HealedDataRatioAvg` | The average percentage of lost or damaged data packets successfully reconstructed or recovered by the healer over the duration of audio stream. Healed data ratio is a measure of the effectiveness of error correction techniques used in VoIP systems.  <br><br> When this value is greater than 0.1 (10%), we consider the stream as bad quality. |
+| `HealedDataRatioMax` | The maximum healed data ratio measured during the duration of each media stream. <br><br> When this value is greater than 0.1 (10%),  we consider the stream as bad quality. |
+| `VideoFrameRateAvg` | The average number of video frames that are transmitted per second during a video/screensharing call. The video frame rate can impact the quality and smoothness of the video stream, with higher frame rates generally resulting in smoother and more fluid motion. The standard frame rate for WebRTC video is typically 30 frames per second (fps), although frame rate can vary depending on the specific implementation and network conditions. <br><br> The stream quality is considered poor when this value is less than 7 for video stream, or less than 1 for screen sharing stream. |
+| `RecvResolutionHeight` | The average of vertical size of the incoming video stream that is transmitted during a video/screensharing call. It's measured in pixels and is one of the factors that determines the overall resolution and quality of the video stream. The specific resolution used may depend on the capabilities of the devices and network conditions involved in the call.  <br><br> The stream quality is considered poor when this value is less than 240 for video stream, or less than 768 for screen sharing stream. |
+| `RecvFreezeDurationPerMinuteInMs` | The average freeze duration in milliseconds per minute for incoming video/screensharing stream. Freezes are typically due to bad network condition and can degrade the stream quality.  <br><br> The stream quality is considered poor when this value is greater than 6,000 ms for video stream, or greater than 25,000 ms for screen sharing stream. |
+| `PacketUtilization` | The packets sent or received for a given media stream.  <br><br> Usually the longer the call, the higher the value is. If this value is zero, it could indicate that media is not flowing. |
+| `VideoBitRateAvg` | The average bitrate (bits per second) for a video or screenshare stream.  <br><br> A low bitrate value could indicate poor network issue. The minimum bitrate (bandwidth) required can be found here: [Network bandwidth](../../voice-video-calling/network-requirements.md#network-bandwidth). |
+| `VideoBitRateMax` | The maximum bitrate (bits per second) for a video or screenshare stream.  <br><br> A low bitrate value could indicate poor network issue. The minimum bitrate (bandwidth) required can be found here: [Network bandwidth](../../voice-video-calling/network-requirements.md#network-bandwidth). |
+| `StreamDirection` | The direction of the media stream. It is either Inbound or Outbound. |
+| `CodecName` | The name of the codec used for processing media streams. It can be OPUS, G722, H264S, SATIN, and so on. |
+
