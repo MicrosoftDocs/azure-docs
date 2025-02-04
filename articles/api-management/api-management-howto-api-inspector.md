@@ -154,7 +154,7 @@ Detailed steps follow.
     The response body contains the trace data for the previous API request to the gateway. The trace is similar to the trace you can see by tracing a call in the portal's test console.
 
 
-### Example `.http` file for VSCode REST Client extension
+### Example `.http` file for VS Code REST Client extension
 
 To help automate these steps with the [Visual Studio Code REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension, you can use the following example `.http` file:
 
