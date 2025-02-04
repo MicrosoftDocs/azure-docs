@@ -2,7 +2,7 @@
 title: Cross subscription patching in Azure Update Manager
 description: Learn about the overview, benefits, and limitations of cross-subscription patching in Azure Update Manager. Centralize and streamline patch management across multiple Azure subscriptions.
 ms.service: azure-update-manager
-ms.date: 02/01/2025
+ms.date: 02/04/2025
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -12,7 +12,7 @@ ms.author: sudhirsneha
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-Azure Update Management offers a straightforward and efficient solution for managing asset patching within a subscription. However, its capabilities extend far beyond that. With proper configuration, users can manage and apply patches across multiple Azure subscriptions from a centralized location. The capability is beneficial for organizations with resources distributed across various subscriptions, ensuring consistent and streamlined patch management.
+Azure Update Management offers a straightforward and efficient solution for managing asset patching within a subscription. However, its capabilities extend far beyond that. With proper configuration, you can manage and apply patches across multiple Azure subscriptions from a centralized location. The capability is beneficial for organizations with resources distributed across various subscriptions, ensuring consistent and streamlined patch management.
 
 ## Key benefits of Cross-subscription patching
 
@@ -25,23 +25,23 @@ Azure Update Management offers a straightforward and efficient solution for mana
 
 - **Azure Resource Manager (Arc)-connected hosts**: Non-Azure hosts connected to Azure through Arc, subject to [Arc prerequisites](https://learn.microsoft.com/azure/azure-arc/servers/prerequisites) and Azure Update Manager [supported regions](support-matrix.md#azure-arc-enabled-servers)
 
-- **Azure VM** - Native virtual machines created in Azure
+- **Azure VM** - Native virtual machines created in Azure.
 
 # [Supported OS type](#tab/sup-os)
 
 - **Windows**: Cross-subscription patching supports various versions of Windows Server and Windows operating systems. Ensure that your Windows devices are up-to-date and compatible with the patching process. For more information, see [support matrix for Arc-connected hosts](support-matrix-updates.md#azure-arc-enabled-servers)and [Azure VM for supported images](support-matrix-updates.md#supported-windows-os-images). 
 
-- **Linux**: Cross-subscription patching also supports multiple Linux distributions, including most mainstream distributions like Ubuntu, CentOS, and Red Hat Enterprise Linux (RHEL) etc. Make sure that your Linux devices meet the necessary requirements for patching. For more information, see[support matrix for Arc-connected hosts](support-matrix-updates.md#azure-arc-enabled-servers) and [Azure VM for supported images](support-matrix-updates.md#supported-linux-os-images). 
+- **Linux**: Cross-subscription patching also supports multiple Linux distributions, including most mainstream distributions like Ubuntu, CentOS, and Red Hat Enterprise Linux (RHEL) etc. Ensure that your Linux devices meet the necessary requirements for patching. For more information, see[support matrix for Arc-connected hosts](support-matrix-updates.md#azure-arc-enabled-servers) and [Azure VM for supported images](support-matrix-updates.md#supported-linux-os-images). 
 
 ---
 
 > [!NOTE]
-> If VMs running unsupported images are included in the schedule, the maintenance configuration (that is, patch job) scheduled fails.
+> If VMs running unsupported images are included in the schedule, the maintenance configuration (i.e., patch job) will fail.
 
 
 ## Limitations
 
-**Rate limits** - For managing a large number of assets through API/SPN (Service Principal Name), be mindful of rate limits and distribute the load among multiple Service Principals to avoid throttling issues.
+**Rate limits** - For managing a large number of assets through API/SPN (Service Principal Name), be mindful of rate limits and distribute the load among multiple Service principals to avoid throttling issues.
 
 
 ## Next steps

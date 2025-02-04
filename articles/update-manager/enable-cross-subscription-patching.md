@@ -4,7 +4,7 @@ description: Learn how to enable cross-subscription patching in Azure Update Man
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 08/22/2024
+ms.date: 02/04/2025
 ms.topic: how-to
 ---
 
@@ -12,20 +12,20 @@ ms.topic: how-to
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-This article describes how to enable cross-subscription patching either through Azure CLI or portal.
+This article describes how to enable cross-subscription patching either through Azure CLI or Azure portal.
 
 ## Enable resource providers in subscription
 
-1. Register the necessary resource providers to your subscription either through Azure CLI or manually via the Azure portal
+1. Register the necessary resource providers to your subscription either through Azure CLI or manually via the Azure portal.
 
-    # [Using Azure CLI](#tab/az-cli)
+    # [Azure CLI](#tab/az-cli)
 
-    Open your Azure CLI and enter the following commands:
+    Open your Azure CLI and run the following commands:
 
     az provider register--namespace "Microsoft.Insights"
     az provider register--namespace "Microsoft.Maintenance"
 
-    # [Using Azure portal](#tab/az-portal)
+    # [Azure portal](#tab/az-portal)
 
     1. Sign in to the [Azure portal](https://portal.azure.com) and go to your subscription.
     1. Under **Settings**, select **Resource providers**.
@@ -40,11 +40,11 @@ This article describes how to enable cross-subscription patching either through 
         - Scheduled patching contributor
         - Reader
    - These roles can be granted on the Resource Group or Subscription level if you have resources spread among multiple resource groups and want to include them all at once.
-   - If you have a smaller scope and plan to manage it with a dedicated admin or group, these two roles can be granted to a user or a security group (SG). If you're envisioning a larger scope with automation in place, grant these roles to the API and Service Principal Name (SPN) you use.
+   - If you have a smaller scope and plan to manage it with a dedicated admin or group, these two roles can be granted to a user or a security group (SG). If you are envisioning a larger scope with automation in place, ensure to grant these roles to the API and Service Principal Name (SPN) you use.
 
-3. Scheduling
+3. Scheduling using maintenance configurations
    
-   There are two methods for schedule patching.
+  To create maintenance configurations in Azure Update Manager, there are two ways you can set it up
 
    # [Using Azure portal](#tab/az-patch-portal)
       
@@ -58,6 +58,7 @@ This article describes how to enable cross-subscription patching either through 
      - For schedule patching on VM or Arc assets, locate the assets by using the *resourceId* and *subscription* that they're attached to.
 
 ---
+
 ## Next steps
 
 * Overview on [cross-subscription patching](cross-subscription-patching.md)
