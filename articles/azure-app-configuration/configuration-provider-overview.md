@@ -43,7 +43,7 @@ Connection String Authentication | GA | GA | GA | GA | GA
 Entra ID Authentication | GA | GA | GA | GA | GA
 Dynamic Refresh (Poll Mode) | GA | GA | GA | GA | GA
 Dynamic Refresh (Push Mode) | GA | GA | N/A | N/A | N/A
-Dynamic Refresh (Collection Monitoring) | WIP | WIP | GA | WIP | Preview
+Dynamic Refresh (Collection Monitoring) | WIP | WIP | GA | WIP | GA
 JSON Content Type Handling | GA | GA | GA | GA | GA
 Custom Configuration Setting Mapping | GA | N/A | N/A | N/A | N/A
 Key Vault Reference | GA | GA | GA | GA | GA
@@ -53,7 +53,7 @@ Variant Feature Flag | GA | GA | GA | GA | GA
 Feature Flag Telemetry Metadata | GA | GA | WIP | GA | GA
 Key Prefix Trim | GA | GA | GA | GA | GA
 Configurable Startup Timeout | GA | WIP | N/A | N/A | N/A
-Replica Auto Discovery | GA | GA | GA | WIP | Preview
-Replica Failover | GA | GA | GA | WIP | Preview
-Replica Load Balancing | GA | WIP | GA | WIP | Preview
+Replica Auto Discovery | GA | GA | GA | WIP | GA
+Replica Failover | GA | GA | GA | WIP | GA
+Replica Load Balancing | GA | WIP | GA | WIP | GA
 Snapshot | GA | GA | GA | WIP | WIP
