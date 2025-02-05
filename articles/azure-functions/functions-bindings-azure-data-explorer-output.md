@@ -874,6 +874,8 @@ The attribute's constructor takes the database and the attributes `TableName`, `
 
 ::: zone-end
 
+[!INCLUDE [functions-azure-data-explorer-authentication-note](../../includes/functions-azure-data-explorer-authentication-note.md)]
+
 ## Next steps
 
 [Read data from a table (input binding)](functions-bindings-azure-data-explorer-input.md)
