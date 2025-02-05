@@ -257,11 +257,11 @@ Azure Migrate maps each disk attached to a server to an Azure disk. The sizing p
    - If there is no disk that meets the required IOPS and throughput, the server is marked as unsuitable for Azure.
    - If suitable disks are found, the assessment selects disks that support the specified location in the assessment settings.
    - Among multiple eligible disks, the assessment selects the disk with the lowest cost.
-   - If the performance data for any disk is unavailable, the configured disk size is used to find a based on your preference.
+   - If the performance data for any disk is unavailable, the configured disk size is used to find a disk based on your preference.
    > [!NOTE]
-   >- For all the new assessments that are created after **February  3rd, 2025**, we recommend, Premium managed disks for your OS disks and Premium V2 SSD for your data disks (if you have opted for Premium disks while creating assessments). 
-   >- If you don't see Premium V2 SSD recommendations for data disks, we recommend that you recalculate your assessment and check the assessment settings for Storage type. 
-   >- Though the assessments are previewed for all environments. Currently, migration is only applicable for VMware environments.
+   >- For all the new assessments that are created after **February  3rd, 2025**,and if Premium disks while creating assessments are selected, we recommend using Premium managed disks for your OS disks and Premium V2 SSD (preview) for your data disks. 
+   >- If you don't see Premium V2 SSD (preview) recommendations for data disks, recalculate your assessment and check the assessment settings for Storage type. 
+   >- Currently, migration is applicable only for VMware environments even though, the assessments are previewed for all environments.
 
 ##### Ultra disk sizing
 
