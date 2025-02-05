@@ -161,7 +161,7 @@ The table summarizes VMware vSphere VM support for VMware vSphere VMs you want t
 **Mobility service** | The Mobility service agent must be installed on each VM you want to migrate.
 **UEFI boot** | Supported. UEFI-based VMs will be migrated to Azure generation 2 VMs.
 **UEFI - Secure boot**         | Not supported for migration.
-**Target disk** | VMs can only be migrated to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
+**Target disk** | VMs can only be migrated to managed disks (standard HDD, standard SSD, Premium V2 SSD (preview) for data disks) in Azure.
 **Disk size** | up to 2-TB OS disk for gen 1 VM; up to 4-TB OS disk for gen 2 VM; 32 TB for data disks.
 **Disk limits** |  Up to 63 disks per VM.
 **Encrypted disks/volumes** | VMs with encrypted disks/volumes aren't supported for migration.
