@@ -94,7 +94,7 @@ This update contains the following enhancement to improve the backup time. For m
 
 Microsoft Azure Backup Server (MABS) version 3 UR2 supports the following new features/feature updates.
 
-For information about the UR2 issues fixes and the installation instructions, see the [KB article](backup-mabs-release-notes-v3.md).
+For information about the UR2 issues fixes and the installation instructions, see the [Release notes for Microsoft Azure Backup Server v3](backup-mabs-release-notes-v3.md).
 
 ### Support for Azure Stack HCI
 
