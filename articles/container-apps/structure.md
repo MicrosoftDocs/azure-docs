@@ -1,6 +1,6 @@
 ---
 title: Compute and billing structures in Azure Container Apps
-description: Learn how compute and networking features and billing methods are structured in Azure Container Apps 
+description: Learn how compute and networking features and billing methods are structured in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
