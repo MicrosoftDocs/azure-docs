@@ -25,6 +25,9 @@ This log provides detailed information on actions taken during a call and can be
 
 ## Log structure
 
+The table below describes each property.
+
+
 | Property | Description |
 |--- |--- |
 |     `CallClientTimeStamp`         |     The timestamp for when on operation occurred on the SDK in UTC.   |

@@ -34,6 +34,9 @@ Diagnostics for your Azure Communication Services Resource. [Learn more about Ca
 
 ## Log structure
 
+The table below describes each property.
+
+
 | Property | Description |
 |--- |--- |
 | `OperationName` | The operation associated with the log record. |

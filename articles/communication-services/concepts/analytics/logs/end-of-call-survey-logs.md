@@ -56,6 +56,9 @@ Communication Services offers the following types of logs that you can enable:
 
 ## **Properties** ##
 
+The table below describes each property.
+
+
 | Property | Description |
 | -------- | ---------------|
 |`Timegenerated` |	This field represents the timestamp (UTC) of when the log was generated|

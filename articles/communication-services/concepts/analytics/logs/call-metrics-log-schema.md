@@ -12,11 +12,15 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
+This document is intended as a reference for the ACSCallingMetrics logs. Use these logs to gain a clearer understanding of daily aggregated calling metrics across various dimensions for your communication workloads.
+
 # Call Metrics Log Schema
 
 This log contains aggregated calling metrics in daily bins based on attributes such as SDK Version, OS name, and Error Subcode. These logs are used in the **[Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)** to visualize long term graphs of reliability, quality, and performance based on count of succeeded and failed Calling SDK api calls of various operations. You can also set up automated alerts when a metric falls. **ankesh please explain how to do alerts**
 
 EXPLAIN METRICS CONCEPTUALLY
+
+
 
 a separate page that explains "metrics" conceptually
 what is metric - Based on thresholds defined in ACSCallingMetrics.Goal how many distinct api calls succeded or failed in a daily bucket for dimentions liek SDK version, make model, subcode etc
@@ -32,6 +36,7 @@ failure - an api call failing with unexpected error or a complex condition faili
 
 ## Log structure
 
+The table below describes each property.
 
 | Property                     | Description                                                                                                                |
 |----------------------------|----------------------------------------------------------------------------------------------------------------------------|

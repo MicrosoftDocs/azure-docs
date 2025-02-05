@@ -22,6 +22,9 @@ The usage log schema is used to.....
 
 ## Log structure
 
+The table below describes each property.
+
+
 | Property | Description |
 | -------- | ---------------|
 | `Timestamp` | The time stamp (UTC) when the log was generated. |

@@ -27,6 +27,9 @@ For each endpoint within a call, a distinct call diagnostic log is created for o
 
 ## Log structure
 
+The table below describes each property.
+
+
 | Property | Description |
 |--- |--- |
 | `operationName` | The operation associated with the log record. |

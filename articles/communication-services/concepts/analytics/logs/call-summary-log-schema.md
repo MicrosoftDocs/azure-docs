@@ -28,6 +28,8 @@ The call summary log contains data to help you identify key properties of all ca
 > [!IMPORTANT]
 > Participant information in the call summary log varies based on the participant tenant. The SDK version and OS version are redacted if the participant is not within the same tenant (also called *cross-tenant*) as the Communication Services resource. Cross-tenant participants are classified as external users invited by a resource tenant to join and collaborate during a call.
 
+The table below describes each property.
+
 | Property | Description |
 |--- |--- |
 | `time` | The time stamp (UTC) when the log was generated. |
