@@ -113,12 +113,9 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
 
 Starting with the 2024-07-01 API version, a customer can assign managed identity to a Cluster. Both System-assigned and User-Assigned managed identities are supported.
 
-Managed Identity can be assigned to the Cluster during creation or update operations by providing the following parameters:
+Once added, the Identity can only be removed via the API call at this time.
 
-- **--mi-system-assigned** - Enable System-assigned managed identity. Once added, the Identity can only be removed via the API call at this time.
-- **--mi-user-assigned** - Space-separated resource IDs of the User-assigned managed identities to be added. Once added, the Identity can only be removed via the API call at this time.
-
-[Azure Operator Nexus Cluster Support for Managed Identities and User Provided Resources](./howto-managed-identity-user-provided-resources.md)
+See [Azure Operator Nexus Cluster Support for Managed Identities and User Provided Resources](./howto-cluster-managed-identity-user-provided-resources.md) for more information on managed identities for Operator Nexus Clusters.
 
 ### Create the Cluster using Azure Resource Manager template editor
 
@@ -428,71 +425,6 @@ Cluster create Logs can be viewed in the following locations:
 2. Azure CLI with `--debug` flag passed on command-line.
 
 :::image type="content" source="./media/nexus-deploy-activity-log.png" lightbox="./media/nexus-deploy-activity-log.png" alt-text="Screenshot of Azure portal showing cluster deploy progress activity log.":::
-
-## Update Cluster Identities via APIs
-
-Cluster managed identities can be assigned via CLI. The unassignment of the identities can be done via API calls.
-Note, `<APIVersion>` is the API version 2024-07-01 or newer.
-
-- To remove all managed identities, execute:
-
-  ```azurecli
-  az rest --method PATCH --url /subscriptions/$SUB_ID/resourceGroups/$CLUSTER_RG/providers/Microsoft.NetworkCloud/clusters/$CLUSTER_NAME?api-version=<APIVersion> --body "{\"identity\":{\"type\":\"None\"}}"
-  ```
-
-- If both User-assigned and System-assigned managed identities were added, the User-assigned can be removed by updating the `type` to `SystemAssigned`:
-
-  ```azurecli
-  az rest --method PATCH --url /subscriptions/$SUB_ID/resourceGroups/$CLUSTER_RG/providers/Microsoft.NetworkCloud/clusters/$CLUSTER_NAME?api-version=<APIVersion> --body @~/uai-body.json
-  ```
-
-  The request body (uai-body.json) example:
-
-  ```azurecli
-  {
-  "identity": {
-        "type": "SystemAssigned"
-  }
-  }
-  ```
-
-- If both User-assigned and System-assigned managed identities were added, the System-assigned can be removed by updating the `type` to `UserAssigned`:
-
-  ```azurecli
-  az rest --method PATCH --url /subscriptions/$SUB_ID/resourceGroups/$CLUSTER_RG/providers/Microsoft.NetworkCloud/clusters/$CLUSTER_NAME?api-version=<APIVersion> --body @~/uai-body.json
-  ```
-
-  The request body (uai-body.json) example:
-
-  ```azurecli
-  {
-  "identity": {
-        "type": "UserAssigned",
-  	"userAssignedIdentities": {
-  		"/subscriptions/$SUB_ID/resourceGroups/$UAI_RESOURCE_GROUP/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$UAI_NAME": {}
-  	}
-  }
-  }
-  ```
-
-- If multiple User-assigned managed identities were added, one of them can be removed by executing:
-
-  ```azurecli
-  az rest --method PATCH --url /subscriptions/$SUB_ID/resourceGroups/$CLUSTER_RG/providers/Microsoft.NetworkCloud/clusters/$CLUSTER_NAME?api-version=<APIVersion> --body @~/uai-body.json
-  ```
-
-  The request body (uai-body.json) example:
-
-  ```azurecli
-  {
-  "identity": {
-        "type": "UserAssigned",
-  	"userAssignedIdentities": {
-  		"/subscriptions/$SUB_ID/resourceGroups/$UAI_RESOURCE_GROUP/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$UAI_NAME": null
-  	}
-  }
-  }
-  ```
 
 ## Delete a cluster
 

@@ -24,7 +24,7 @@ The command produces an output file containing the results of the run-read comma
 
 ## Send command output to a user specified storage account
 
-See [Azure Operator Nexus Cluster support for managed identities and user provided resources](./howto-managed-identity-user-provided-resources.md)
+See [Azure Operator Nexus Cluster support for managed identities and user provided resources](./howto-cluster-managed-identity-user-provided-resources.md)
 
 ### Clear the cluster's CommandOutputSettings
 

@@ -23,6 +23,8 @@ To learn more about managed identities in Azure, see [Managed identities for Azu
 
 While a user can choose to use either managed identity type, UAMIs are recommended. They allow users to preconfigure resources with the appropriate access to the UAMI in advance of Operator Nexus Cluster creation or updating. The same UAMI can be used for all resources, or if users want fine grained access, they can define UAMIs for each resource.
 
+Once added, the Identity can only be removed via the API call at this time. For information on using the API to update Cluster managed identities, see [Update Cluster Identities](#update-cluster-identities-via-apis). This section includes information on deleting the managed identities.
+
 ## Prerequisites
 
 - [Install Azure CLI](https://aka.ms/azcli).
@@ -53,25 +55,32 @@ The following steps should be followed for using UAMIs with Nexus Clusters and a
 
 1. Create the UAMI or UAMIs for the resources in question. For more information on creating the managed identities, see [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities).
 
-### Create the resources and assign the UAMI to the resources:
+### Create the resources and assign the UAMI to the resources
 
 #### Storage Accounts
 
 1. Create a storage account, or identify an existing storage account that you want to use. See [Create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal).
 1. Create a blob storage container in the storage account. See [Create a container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
-1. Assign the "Storage Blob Data Contributor" role to users and the UAMI which need access to the run-\* command output. See [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).
+1. Assign the `Storage Blob Data Contributor` role to users and the UAMI which need access to the run-\* command output. See [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).
 
 #### Log Analytics Workspaces
 
 1. Create a Log Analytics Workspace (LAW), or identify an existing LAW that you want to use. See [Create a Log Analytics Workspace](/azure/azure-monitor/logs/quick-create-workspace).
-1. Assign the "Log Analytics Contributor" role to the UAMI for the log analytics workspace. See [Manage access to Log Analytics workspaces](/azure/azure-monitor/logs/manage-access?tabs=portal).
+1. Assign the `Log Analytics Contributor` role to the UAMI for the log analytics workspace. See [Manage access to Log Analytics workspaces](/azure/azure-monitor/logs/manage-access?tabs=portal).
 
 #### Key Vault
 
-1. Create a Key Vault, or identify an existing Key Vault that you want to use. See [Create a Key Vault](azure/key-vault/general/quick-create-cli).
+1. Create a Key Vault, or identify an existing Key Vault that you want to use. See [Create a Key Vault](/azure/key-vault/general/quick-create-cli).
 1. Enable the Key Vault for Role Based Access Control (RBAC). See [Enable Azure RBAC permissions on Key Vault](/azure/key-vault/general/rbac-guide?tabs=azure-cli#enable-azure-rbac-permissions-on-key-vault).
-1. Assign the "Operator Nexus Key Vault Writer Service Role (Preview)" role to the UAMI for the Key Vault. See [Assign role](/azure/key-vault/general/rbac-guide?tabs=azure-cli#assign-role).
+1. Assign the `Operator Nexus Key Vault Writer Service Role (Preview)` role to the UAMI for the Key Vault. See [Assign role](/azure/key-vault/general/rbac-guide?tabs=azure-cli#assign-role).
    1. The role definition ID for the Operator Nexus Key Vault Writer Service Role is `44f0a1a8-6fea-4b35-980a-8ff50c487c97`. This format is required if using the Azure command line to do the role assignment.
+1. When using a UAMI to access a Key Vault, access to that identity must be provisioned for the Nexus platform. Specifically, `Microsoft.ManagedIdentity/userAssignedIdentities/assign/action` permission needs to be added to the User-assigned identity for the `AFOI-NC-MGMT-PME-PROD` Microsoft Entra ID. It's a known limitation of the platform that will be addressed in the future.
+   1. Open the Azure portal and locate the User-assigned identity in question.
+   1. Under **Access control (IAM)**, select **Add role assignment**.
+   1. Select **Role**: Managed Identity Operator. (See the permissions that the role provides [managed-identity-operator](/azure/role-based-access-control/built-in-roles/identity#managed-identity-operator)).
+   1. Assign access to: **User, group, or service principal**.
+   1. Select **Member**: AFOI-NC-MGMT-PME-PROD application.
+   1. Review and assign.
 
 ### Create or update the Cluster to use User Assigned Managed Identities and user provided resources
 
@@ -112,16 +121,16 @@ az networkcloud cluster create --name "clusterName" -g "resourceGroupName" \
 
     ...
 
-    --mi-user-assigned "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUAI" \
+    --mi-user-assigned "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUAMI" \
     --command-output-settings identity-type="UserAssignedIdentity" \
-    identity-resource-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUAI" \
+    identity-resource-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUAMI" \
     container-url="https://myaccount.blob.core.windows.net/mycontainer?restype=container" \
     --analytics-output-settings analytics-workspace-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/microsoft.operationalInsights/workspaces/logAnalyticsWorkspaceName" \
     identity-type="UserAssignedIdentity" \
-    identity-resource-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUAI" \
+    identity-resource-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUAMI" \
     --secret-archive-settings vault-uri="https://mykv.vault.azure.net/"
     identity-type="UserAssignedIdentity" \
-    identity-resource-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUAI" \
+    identity-resource-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUAMI" \
 ```
 
 _Example 2:_ This example is an abbreviated Cluster create command which uses two UAMIs. The Storage Account and LAW use the first UAMI and the Key Vault uses the second.
@@ -131,7 +140,7 @@ az networkcloud cluster create --name "clusterName" -g "resourceGroupName" \
 
     ...
 
-    --mi-user-assigned "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUAI" "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/mySecondUAMI" \
+    --mi-user-assigned "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myFirstUAMI" "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/mySecondUAMI" \
     --command-output-settings identity-type="UserAssignedIdentity" \
     identity-resource-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myFirstUAMI" \
     container-url="https://myaccount.blob.core.windows.net/mycontainer?restype=container" \
@@ -279,26 +288,19 @@ System-assigned identity example:
 
 1. Create a storage account, or identify an existing storage account that you want to use. See [Create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal).
 1. Create a blob storage container in the storage account. See [Create a container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
-1. Assign the "Storage Blob Data Contributor" role to users and the SAMI which need access to the run-\* command output. See [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).
+1. Assign the `Storage Blob Data Contributor` role to users and the SAMI which need access to the run-\* command output. See [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).
 
 #### Log Analytics Workspaces
 
 1. Create a Log Analytics Workspace (LAW), or identify an existing LAW that you want to use. See [Create a Log Analytics Workspace](/azure/azure-monitor/logs/quick-create-workspace).
-1. Assign the "Log Analytics Contributor" role to the SAMI for the log analytics workspace. See [Manage access to Log Analytics workspaces](/azure/azure-monitor/logs/manage-access?tabs=portal).
+1. Assign the `Log Analytics Contributor` role to the SAMI for the log analytics workspace. See [Manage access to Log Analytics workspaces](/azure/azure-monitor/logs/manage-access?tabs=portal).
 
 #### Key Vault
 
-1. Create a Key Vault, or identify an existing Key Vault that you want to use. See [Create a Key Vault](azure/key-vault/general/quick-create-cli).
+1. Create a Key Vault, or identify an existing Key Vault that you want to use. See [Create a Key Vault](/azure/key-vault/general/quick-create-cli).
 1. Enable the Key Vault for Role Based Access Control (RBAC). See [Enable Azure RBAC permissions on Key Vault](/azure/key-vault/general/rbac-guide?tabs=azure-cli#enable-azure-rbac-permissions-on-key-vault).
-1. Assign the "Operator Nexus Key Vault Writer Service Role (Preview)" role to the SAMI for the Key Vault. See [Assign role](/azure/key-vault/general/rbac-guide?tabs=azure-cli#assign-role).
+1. Assign the `Operator Nexus Key Vault Writer Service Role (Preview)` role to the SAMI for the Key Vault. See [Assign role](/azure/key-vault/general/rbac-guide?tabs=azure-cli#assign-role).
    1. The role definition ID for the Operator Nexus Key Vault Writer Service Role is `44f0a1a8-6fea-4b35-980a-8ff50c487c97`. This format is required if using the Azure command line to do the role assignment.
-1. When using a UAMI to access a Key Vault, access to that identity must be provisioned for the Nexus platform. Specifically, `Microsoft.ManagedIdentity/userAssignedIdentities/assign/action` permission needs to be added to the User-assigned identity for the `AFOI-NC-MGMT-PME-PROD` Microsoft Entra ID. It's a known limitation of the platform that will be addressed in the future.
-   1. Open the Azure portal and locate the User-assigned identity in question.
-   1. Under **Access control (IAM)**, select **Add role assignment**.
-   1. Select **Role**: Managed Identity Operator. (See the permissions that the role provides [managed-identity-operator](/azure/role-based-access-control/built-in-roles/identity#managed-identity-operator)).
-   1. Assign access to: **User, group, or service principal**.
-   1. Select **Member**: AFOI-NC-MGMT-PME-PROD application.
-   1. Review and assign.
 
 ### Update the Cluster with the user provided resources information
 
@@ -370,3 +372,68 @@ az networkcloud cluster update --name "clusterName" --resource-group "resourceGr
     --secret-archive-settings identity-type="SystemAssignedIdentity" \
     vault-uri="https://keyvaultname.vault.azure.net/"
 ```
+
+## Update Cluster Identities via APIs
+
+Cluster managed identities can be assigned via CLI. The unassignment of the identities can be done via API calls.
+Note, `<APIVersion>` is the API version 2024-07-01 or newer.
+
+- To remove all managed identities, execute:
+
+  ```azurecli
+  az rest --method PATCH --url /subscriptions/$SUB_ID/resourceGroups/$CLUSTER_RG/providers/Microsoft.NetworkCloud/clusters/$CLUSTER_NAME?api-version=<APIVersion> --body "{\"identity\":{\"type\":\"None\"}}"
+  ```
+
+- If both User-assigned and System-assigned managed identities were added, the User-assigned can be removed by updating the `type` to `SystemAssigned`:
+
+  ```azurecli
+  az rest --method PATCH --url /subscriptions/$SUB_ID/resourceGroups/$CLUSTER_RG/providers/Microsoft.NetworkCloud/clusters/$CLUSTER_NAME?api-version=<APIVersion> --body @~/uai-body.json
+  ```
+
+  The request body (uai-body.json) example:
+
+  ```azurecli
+  {
+  "identity": {
+        "type": "SystemAssigned"
+  }
+  }
+  ```
+
+- If both User-assigned and System-assigned managed identities were added, the System-assigned can be removed by updating the `type` to `UserAssigned`:
+
+  ```azurecli
+  az rest --method PATCH --url /subscriptions/$SUB_ID/resourceGroups/$CLUSTER_RG/providers/Microsoft.NetworkCloud/clusters/$CLUSTER_NAME?api-version=<APIVersion> --body @~/uai-body.json
+  ```
+
+  The request body (uai-body.json) example:
+
+  ```azurecli
+  {
+  "identity": {
+        "type": "UserAssigned",
+  	"userAssignedIdentities": {
+  		"/subscriptions/$SUB_ID/resourceGroups/$UAI_RESOURCE_GROUP/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$UAI_NAME": {}
+  	}
+  }
+  }
+  ```
+
+- If multiple User-assigned managed identities were added, one of them can be removed by executing:
+
+  ```azurecli
+  az rest --method PATCH --url /subscriptions/$SUB_ID/resourceGroups/$CLUSTER_RG/providers/Microsoft.NetworkCloud/clusters/$CLUSTER_NAME?api-version=<APIVersion> --body @~/uai-body.json
+  ```
+
+  The request body (uai-body.json) example:
+
+  ```azurecli
+  {
+  "identity": {
+        "type": "UserAssigned",
+  	"userAssignedIdentities": {
+  		"/subscriptions/$SUB_ID/resourceGroups/$UAI_RESOURCE_GROUP/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$UAI_NAME": null
+  	}
+  }
+  }
+  ```

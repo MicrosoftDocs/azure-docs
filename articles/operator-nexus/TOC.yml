@@ -148,7 +148,7 @@
             - name: Cluster
               href: howto-configure-cluster.md
             - name: Cluster Managed Identity and User Provided Resources
-              href: howto-managed-identity-user-provided-resources.md
+              href: howto-cluster-managed-identity-user-provided-resources.md
             - name: Cluster Template JSON Example
               href: cluster-jsonc-example.md
             - name: Cluster Parameters JSON Example

@@ -27,54 +27,16 @@ Azure Operator Nexus utilizes secrets and certificates to manage component secur
 > [!NOTE]
 > The managed identity functionality for Key Vault and Cluster managed identity exists with the 2024-10-01-preview API and will be available with the 2025-02-01 GA API.
 
-See [Azure Operator Nexus Cluster support for managed identities and user provided resources](./howto-managed-identity-user-provided-resources.md)
+See [Azure Operator Nexus Cluster support for managed identities and user provided resources](./howto-cluster-managed-identity-user-provided-resources.md)
 
 ## Configure Key Vault Using Managed Identity for Cluster Manager
 
 > [!NOTE]
 > This method is deprecated with the roll out of the 2025-02-01 GA API. A transition period is in place to support migration, but existing users should look to migrate to using the Cluster managed identity.
 
-Beginning with the 2024-06-01-public-preview API version, managed identities in the Cluster Manager are used for write access to deliver rotated credentials to a key vault. The Cluster Manager identity can be system-assigned or [user-assigned](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities), and can be managed directly via APIs or via CLI.
+Beginning with the 2024-07-01 API version, managed identities in the Cluster Manager are used for write access to deliver rotated credentials to a key vault. The Cluster Manager identity can be system-assigned or [user-assigned](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities), and can be managed directly via APIs or via CLI.
 
-These examples describe how to configure a managed identity for a Cluster Manager.
-
-- Create or update Cluster Manager with system-assigned identity
-
-```
-        az networkcloud clustermanager create --name "clusterManagerName" --location "location" \
-        --analytics-workspace-id "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/microsoft.operationalInsights/workspaces/logAnalyticsWorkspaceName" \
-        --fabric-controller-id "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/fabricControllerName" \
-        --managed-resource-group-configuration name="my-managed-rg" --tags key1="myvalue1" key2="myvalue2" --resource-group "resourceGroupName" --mi-system-assigned
-```
-
-<br/>
-
-- Create or update Cluster Manager with user-assigned identity
-
-```
-        az networkcloud clustermanager create --name <Cluster Manager Name> --location <Location> \
-        --analytics-workspace-id "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/microsoft.operationalInsights/workspaces/logAnalyticsWorkspaceName" \
-        --fabric-controller-id "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/fabricControllerName" \
-        --managed-resource-group-configuration name="my-managed-rg" --tags key1="myvalue1" key2="myvalue2" \
-        --resource-group <Resource Group Name> --mi-user-assigned "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUAI"
-```
-
-<br/>
-
-- Add system-assigned identity to Cluster Manager
-
-```
-        az networkcloud clustermanager update --name <Cluster Manager Name> --resource-group <Resource Group Name> --mi-system-assigned
-```
-
-<br/>
-
-- Add user-assigned identity to Cluster Manager
-
-```
-        az networkcloud clustermanager update --name <Cluster Manager Name> --resource-group <Resource Group Name> \
-        --mi-user-assigned "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUAI"
-```
+For information on assigning managed identities to the Cluster Manager, see [Cluster Manager Identity](./howto-cluster-manager#cluster-manager-identity)
 
 ### Configure Nexus Cluster Secret Archive
 
