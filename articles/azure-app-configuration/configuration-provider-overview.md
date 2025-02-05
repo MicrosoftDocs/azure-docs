@@ -45,7 +45,7 @@ Dynamic Refresh (Poll Mode) | GA | GA | GA | GA | GA
 Dynamic Refresh (Push Mode) | GA | GA | N/A | N/A | N/A
 Dynamic Refresh (Collection Monitoring) | WIP | WIP | GA | WIP | Preview
 JSON Content Type Handling | GA | GA | GA | GA | GA
-Custom Configuration Setting Mapper | GA | N/A | N/A | N/A | N/A
+Custom Configuration Setting Mapping | GA | N/A | N/A | N/A | N/A
 Key Vault Reference | GA | GA | GA | GA | GA
 Custom Key Vault Secret Resolution | GA | GA | GA | GA | GA
 Feature Flag | GA | GA | GA | GA | GA
