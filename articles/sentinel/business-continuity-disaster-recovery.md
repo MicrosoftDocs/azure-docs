@@ -49,10 +49,15 @@ To support BCDR in a regional outage, Microsoft Sentinel uses a customer-enabled
 
 Customer-enabled BCDR involves:
 
-- Creating two identical Log Analytics workspaces enabled for Microsoft Sentinel in the appropriate regions. For more information, see [Quickstart: Onboard Microsoft Sentinel](quickstart-onboard.md).
-- Ensuring that the same data sources, analytic rules, and all other settings and configurations are mirrored between the regions, and maintained consistently throughout the continuous operations of these workspaces.
+- Creating two identical Log Analytics workspaces that are enabled for Microsoft Sentinel in the appropriate regions. For more information, see [Quickstart: Onboard Microsoft Sentinel](quickstart-onboard.md).
 
-These activities must be done manually by the customer and don't happen automatically.
+    In the backup workspace, focus on the data sources, analytic rules, and other configurations that are critical for your business continuity.
+
+- Ensuring that your business-critical data sources are configured to ingest data into both workspaces. For more information, see [Connect your data sources to Microsoft Sentinel by using data connectors](configure-data-connector.md).
+
+- Manually defining your business-critical analytic rules and other configurations in both workspaces, maintaining them consistently throughout the continuous operations.
+
+These activities must be configured manually by the customer and don't happen automatically. No future actions during an actual outage is required or expected.
 
 A customer-enabled BCDR setup ensures that if an Azure regional outage occurs in one of the customer's regions, the other paired region, which is geographically and physically separate from the impacted region, remains unaffected. As a result, continuous business operations can proceed without any downtime or data loss.
 
