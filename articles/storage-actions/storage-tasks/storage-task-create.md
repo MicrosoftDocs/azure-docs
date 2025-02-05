@@ -16,6 +16,8 @@ A storage task can perform operations on blobs in an Azure Storage account. As y
 
 In this how-to article, you'll learn how to create a storage task.
 
+# [Portal](#tab/azure-portal)
+
 ## Create a task
 
 In the Azure portal, search for _Storage Tasks_. Then, under **Services**, select **Storage tasks - Azure Storage Actions**.
@@ -111,6 +113,64 @@ The following image shows the **Review** tab data prior to the creation of a new
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of review and create tab of the storage task create experience.](../media/storage-tasks/storage-task-create/storage-task-validation-tab.png)
+
+# [PowerShell](#tab/azure-powershell)
+
+1. Define a _condition_ by using JSON. A condition a collection of one or more clauses. Each clause contains a property, a value, and an operator. To learn more, see [Storage task conditions](storage-tasks/storage-task-conditions.md).
+
+   ```powershell
+   $condition = "<condition-json>"
+   ```
+2. Define each operation by using the [New-AzStorageActionTaskOperationObject](/powershell/module/az.storageaction/new-azstorageactiontaskoperationobject) command. To learn more, see [Storage task operations](storage-tasks/storage-task-operations.md)
+
+   ```powershell
+    $operation = New-AzStorageActionTaskOperationObject `
+    -Name "<operation-name>" `
+    -Parameter @{"<parameter-name>"= "<parameter-value"} `
+    -OnFailure break `
+    -OnSuccess continue
+
+   ```
+
+3. Create a storage task by using the [New-AzStorageActionTask](/powershell/module/az.storageaction/new-azstorageactiontask) command, and pass in any conditions and operations that you define. 
+
+   ```powershell
+   $task = New-AzStorageActionTask `
+   -Name "<storage-task-name>" `
+   -ResourceGroupName "<resource-group>" `
+   -Location "<location>" `
+   -Enabled `
+   -Description "<description>" `
+   -IfCondition $condition `
+   -IfOperation $operation `
+   -EnableSystemAssignedIdentity:$true
+   ```
+To learn how to create an assignment by using PowerShell, see [Create and manage a storage task assignment](storage-task-assignment-create.md?tabs=azure-powershell).
+
+# [Azure CLI](#tab/azure-cli)
+
+1. Define a _condition_ by using JSON. A condition a collection of one or more clauses. Each clause contains a property, a value, and an operator. To learn more, see [Storage task conditions](storage-tasks/storage-task-conditions.md).
+
+   ```azurecli
+   conditionclause="<condition-json>"
+   ```
+2. Create a storage task by using the [az storage-actions task create](/cli/azure/storage-actions/task#az-storage-actions-task-create) command, and pass in a JSON-formatted expression of the conditions and operations. This example finds blobs in the cool tier and moves them to the hot tier. All other blobs are deleted.
+
+   ```azurecli
+   az storage-actions task create -g myresourcegroup -n mystoragetask \ 
+   --identity "{type:SystemAssigned}" \
+   --action "{if:{condition:'[[equals(AccessTier,'/Cool'/)]]',operations:[{name:'SetBlobTier',parameters:{tier:'Hot'},onSuccess:'continue',onFailure:'break'}]},else:{operations:[{name:'DeleteBlob',onSuccess:'continue',onFailure:'break'}]}}" --description myStorageTask --enabled true
+   ```
+
+To learn how to create an assignment by using Azure CLI, see [Create and manage a storage task assignment](storage-task-assignment-create.md?tabs=azure-cli).
+
+# [Bicep](#tab/bicep)
+
+# [Template](#tab/template)
+
+---
+
+
 
 ## See also
 

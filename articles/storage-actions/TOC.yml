@@ -24,7 +24,6 @@ items:
     href: storage-tasks/storage-task-quickstart-dotnet.md
   - name: Python
     href: storage-tasks/storage-task-quickstart-python.md
-  expanded: true
 - name: Concepts
   items: 
   - name: Best practices
@@ -49,7 +48,6 @@ items:
     href: ../reliability/reliability-storage-actions.md?toc=/azure/storage-actions/toc.json
   - name: Costs and billing
     href: storage-tasks/storage-task-plan-manage-costs.md 
-  expanded: true
 - name: How-to
   items: 
   - name: Create a storage task
@@ -64,15 +62,18 @@ items:
     href: storage-tasks/monitor-storage-tasks.md
   - name: Analyze storage task runs
     href: storage-tasks/storage-task-runs.md
-  expanded: true
 - name: Reference
   items:
   - name: Azure Storage Actions REST API
     href: /rest/api/storageactions/operation-groups
+  - name: Azure Storage task assignments REST API
+    href: /rest/api/storagerp/storage-task-assignments
   - name: Azure Storage Actions cmdlets (PowerShell)
     href: /powershell/module/az.storageaction
   - name: Azure Storage Actions extension (Azure CLI)
     href: /cli/azure/storage-actions
+  - name: Azure Storage task assignments (Azure CLI)
+    href: /cli/azure/storage/task/assignment  
   - name: Monitoring data Reference
     href: storage-tasks/storage-tasks-monitor-data-reference.md
   - name: Storage Tasks events
@@ -83,11 +84,9 @@ items:
       href: /azure/templates/microsoft.storageactions/allversions
     - name: Storage task assignment
       href: /azure/templates/microsoft.storage/storageaccounts/storagetaskassignments
-  expanded: true
 - name: Resources
   items:
     - name: Known issues and limitations
       href: storage-tasks/storage-task-known-issues.md
     - name: Troubleshooting
       href: storage-tasks/storage-task-troubleshooting.md
-  expanded: true

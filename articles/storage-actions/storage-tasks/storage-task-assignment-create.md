@@ -14,16 +14,19 @@ ms.date: 01/17/2024
 
 An _assignment_ identifies a storage account and a subset of objects in that account that the task will target. An assignment also defines when the task runs and where execution reports are stored.
 
+
 This article helps you create an assignment, and then enable that assignment to run.
 
-## Create an assignment
+## [Portal](#tab/azure-portal)
+
+### Create an assignment by using Azure portal
 
 Create an assignment for each storage account you want to target. A storage task can contain up to 50 assignments.
 
 > [!NOTE] 
-> During the public, you can target only storage accounts that are in the same region as the storage tasks.
+> In the current release, you can target only storage accounts that are in the same region as the storage tasks.
 
-### Create an assignment from the storage task menu
+#### Create an assignment from the storage task menu
 
 You can create an assignment in the context of a storage task. This option can be convenient if you're the task author and you want to target multiple storage accounts. For each assignment you'll identify the storage account that you want to target.
 
@@ -34,7 +37,7 @@ Navigate to the storage task in the Azure portal and then under **Storage task m
 
 In the **Assignments** page, select **+ Add assignment** and the **Add assignment** pane will appear.
 
-### Create an assignment from the storage account menu
+#### Create an assignment from the storage account menu
 
 You can also create an assignment in the context of a storage account. This option can be convenient if you want to use an existing task to process objects in your storage account. For each assignment you'll identify the storage task that you want to assign to your account.
 
@@ -47,7 +50,7 @@ In the **Storage tasks** page, select the **Task assignment** tab, select **+ Cr
 
 The **Add assignment** pane appears.
 
-## Select a scope
+### Select a scope
 
 In the **Select scope** section, select a subscription and name the assignment. Then, select the storage account that you want to target.
 
@@ -62,14 +65,14 @@ The following table describes each field in the **Select Scope** section:
 | Select scope | Select a storage task | Required | The storage task to which you would like to assign your storage account. This field appears only if you create the assignment in the context of a storage account.|  
 | Select scope | Assignment name | Required | The name of the assignment. Assignment names must be between 2 and 62 characters in length and may contain only letters and numbers. |
 
-## Add a role assignment
+### Add a role assignment
 
 In the **Role assignment** section, in the **Role** drop-down list, select the role that you want to assign to the system-assigned managed identity of the storage task. To ensure a successful task assignment, use roles that have the Blob Data Owner permissions. To learn more, see [Azure roles for storage tasks](storage-task-authorization-roles.md)
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Role assignment section of the assignment pane.](../media/storage-tasks/storage-task-assignment-create/assignment-role.png)
 
-## Add a filter
+### Add a filter
 
 In the **Filter objects** section, choose whether you want to target a subset of blobs based on a filter. Filters help you narrow the scope of execution. If you want the task to evaluate all of the containers and blobs in an account, then you can select the **Do not filter** option. The following example uses a filter to target only blobs that exist in a container that is named `mycontainer`.
 
@@ -83,7 +86,7 @@ The following table describes each field:
 | Filter objects | Filter by | Required | Option to either filter objects by using a prefix or to run the task against the entire storage account. |
 | Filter objects | Blob prefixes | Optional | The string prefix that is used to narrow the scope of blobs that are evaluated by the task. This field is required only if you choose to filter by using a blob prefix. |
 
-## Define the trigger
+### Define the trigger
 
 In the **Trigger details** section, select how often you'd like this task to run. You can choose to run this task only once, or run the task recurring. If you decide to run this task on a recurring basis, choose a start and end time and specify the number of days in between each run. You can also specify where you'd like to store the execution reports.
 
@@ -100,7 +103,7 @@ The following table describes each field:
 | Trigger details | Repeat very (in days) | Required | The interval in days between each run. |
 | Trigger details | Report export container | Required | The container where task execution reports are stored. |
 
-## Save the assignment
+### Save the assignment
 
 Select the **Add** button to create the assignment.
 
@@ -109,7 +112,7 @@ The **Add assignment pane** closes. When deployment is complete, the assignment 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the assignment appearing in the Assignments page.](../media/storage-tasks/storage-task-assignment-create/assignment-refresh.png)
 
-## Enable an assignment
+### Enable an assignment
 
 The assignment is disabled by default. To enable the assignment so that it will be scheduled to run, select the checkbox that appears beside the assignment, and then select **Enable**.
 
@@ -118,13 +121,110 @@ The assignment is disabled by default. To enable the assignment so that it will 
 
 After the task runs, an execution report is generated and then stored in the container that you specified when you created the assignment. For more information about that report as well as how to view metrics that capture the number of objects targeted, the number of operations attempted, and the number of operations that succeeded, see [Analyze storage task runs](storage-task-runs.md).
 
-## Edit an assignment
+### Edit an assignment
 
 An assignment becomes a sub resource of the targeted storage account. Therefore, after you create the assignment, you can edit only it's run frequency. The other fields of an assignment become read only. The **Single run (only once)** option becomes read only as well.
 
 - To edit the run frequency of an assignment in the context of a storage task, navigate to the storage task in the Azure portal and then under **Storage task management**, select **Assignments**.
 
 - To edit the run frequency of an assignment in the context of a storage account, navigate to the storage account in the Azure portal and then under **Data management**, select **Storage tasks**.
+
+## [PowerShell](#tab/azure-powershell)
+
+1. Specify how often you'd like the task to run. You can choose to run a task only once, or run the task recurring. If you decide to run this task on a recurring basis, specify a start and end time and specify the number of days in between each run. You can also specify where you'd like to store the execution reports. The following example creates variable for trigger values. 
+
+   ```powershell
+   $startTime = $startTime = (Get-Date).AddMinutes(10) 
+   $reportPrefix = "my-storage-task-report"
+   $triggerType = RunOnce
+   $targetPrefix = "mycontainer/"
+   ```
+
+2. Get the storage task that you want to include in your assignment by using the [Get-AzStorageActionTask](/powershell/module/az.storageaction/get-azstorageactiontask) command.
+   
+   ```powershell
+   $task = Get-AzStorageActionTask -Name <"storage-task-name"> -ResourceGroupName "<resource-group>"
+   ```
+
+1. Create a storage task assignment by using the `New-AzStorageTaskAssignment` command. The following assignment targets the `mycontainer` container of an account named `mystorageaccount`. This assignment specifies that the task will run only one time, and will save execution reports to a folder named `storage-tasks-report`. The task is scheduled to run `10` minutes from the present time. 
+
+   ```powershell
+   New-AzStorageTaskAssignment `
+   -ResourceGroupName "<resource-group>" `
+   -AccountName "<storage-account-name>" `
+   -name "<storage-task-assignment-name>" `
+   -TaskId $task.ID `
+   -ReportPrefix $reportPrefix `
+   -TriggerType $triggerType `
+   -StartOn $startTime.ToUniversalTime() `
+   -Description "<description>" `
+   -Enabled:$true `
+   -TargetPrefix $targetPrefix `
+   -TargetExcludePrefix ""
+   ```
+
+   > [!NOTE]
+   > A storage task can contain up to 50 assignments. In the current release, you can target only storage accounts that are in the same region as the storage tasks.
+
+2. Give the storage task permission to perform operations on the target storage account. Assign the role of `Storage Blob Data Owner` to the system-assigned managed identity of the storage task by using the `New-AzRoleAssignment` command.
+
+   ```powershell
+   New-AzRoleAssignment `
+   -ResourceGroupName "<resource-group>" `
+   -ResourceName "<storage-account-name>" `
+   -ResourceType "Microsoft.Storage/storageAccounts" `
+   -ObjectId $task.IdentityPrincipalId  `
+   -RoleDefinitionName "Storage Blob Data Owner"
+
+## [Azure CLI](#tab/azure-cli)
+
+1. Specify how often you'd like the task to run. You can choose to run a task only once, or run the task recurring. If you decide to run this task on a recurring basis, specify a start and end time and specify the number of days in between each run. You can also specify where you'd like to store the execution reports. The following creates a JSON-formatted string variable which specifies the container name, the task run frequency (`RunOnce`), and the time to run the report.  
+
+   ```azurecli
+      current_datetime=$(date +"%Y-%m-%dT%H:%M:%S")
+      executioncontextvariable="{target:{prefix:[mycontainer/],excludePrefix:[]},trigger:{type:'RunOnce',parameters:{startOn:'"${current_datetime}"'}}}"
+   ```
+2.  Get the ID of the storage task that you want to include in your assignment by using the [az storage-actions task show](/cli/azure/storage-actions/task#az-storage-actions-task-show) command, and then querying for the `id` property.
+
+   ```azurecli
+    id=$(az storage-actions task show -g "<resource-group>" -n "<storage-task-name>" --query "id")
+   ```
+
+3. Create a storage task assignment by using the `az storage account task-assignment create` command. 
+
+   ```azurecli
+   az storage account task-assignment create \
+      -g '<resource-group>' \
+      -n '<storage-task-assignment-name>' \
+      --account-name '<storage-account-name>' \
+      --description '<description>' \
+      --enabled true \
+      --task-id $id \
+      --execution-context $executioncontextvariable \
+      --report "{prefix:storage-tasks-report}"
+   ```
+
+2. Give the storage task permission to perform operations on the target storage account. Assign the role of `Storage Blob Data Owner` to the system-assigned managed identity of the storage task.
+
+   ```azurecli
+   $roleDefinitionId="b7e6dc6d-f1e8-4753-8033-0f276bb0955b" \
+   $principalID=az storage-actions task show -g '<resource-group>' -n '<storage-task-name>' --query "identity.principalId"
+   $storageAccountID=az storage account show --name <storage-account-name> --resource-group <resource-group> --query "id"
+
+   az role assignment create \
+      --assignee-object-id $principalID \
+      --scope $storageAccountID \
+      --role $roleDefinitionId \
+      --description "My role assignment" 
+   ```
+
+## [Bicep](#tab/bicep)
+
+## [Template](#tab/template)
+
+---
+
+
 
 ## See also
 
