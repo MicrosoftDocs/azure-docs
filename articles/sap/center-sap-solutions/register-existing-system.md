@@ -42,8 +42,8 @@ When you register a system with Azure Center for SAP solutions, the following re
     - Use a [**Service tags**](../../virtual-network/service-tags-overview.md) to allow connectivity
     - Use a [Service tags with regional scope](../../virtual-network/service-tags-overview.md) to allow connectivity to resources in the same region as the VMs.
     - Allowlist the region-specific IP addresses for Azure Storage, ARM and Microsoft Entra ID.
-- For Windows system, ACSS requires outbound connectivity to wwww.microsoft.com
-    - Allow outbound connectivity for virtual machines
+- For Windows system, ACSS requires outbound connectivity to www.microsoft.com
+    - ACSS Health and Status script are signed with a certificate whose certificate revocation list URL points to www.microsoft.com therefore for windows system, ACSS requires outbound connectivity to www.microsoft.com
     - If you use a firewall, you can add an outbound rule to an endpoint wwww.microsoft.com port 80
 - ACSS deploys a **managed storage account** into your subscription, for each SAP system being registered. You have the option to choose [**network access**](#managed-storage-account-network-access-settings) setting for the storage account.
     - If you choose network access from specific Virtual Networks option, then you need to make sure **Microsoft.Storage** service endpoint is enabled on all subnets in which the SAP system Virtual Machines exist. This service endpoint is used to enable access from the SAP virtual machine to the managed storage account, to access the scripts that ACSS runs on the VM extension.
