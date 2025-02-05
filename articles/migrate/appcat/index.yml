@@ -6,7 +6,7 @@ summary: Tools to assess application binaries and source code for cloud readines
 metadata:
   title: Azure Migrate application and code assessment
   description: Learn about Azure Migrate application and code assessment.
-  ms.service: appcat
+  ms.service: azure-migrate
   author: SnehaSudhirG
   ms.author: sudhirsneha 
   ms.topic: landing-page

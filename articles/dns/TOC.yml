@@ -89,8 +89,6 @@
       href: dnssec.md
     - name: FAQ
       href: dns-faq.yml
-    - name: DNS metrics and alerts
-      href: dns-alerts-metrics.md
     - name: Reverse DNS
       href: dns-reverse-dns-overview.md
   - name: Private DNS
@@ -121,10 +119,14 @@
       href: private-resolver-reliability.md
 - name: How-to guides
   items:
-  - name: DNS security policy
+  - name: Monitor and manage DNS traffic
     items:
-    - name: Filter and view DNS traffic
+    - name: Secure and view DNS traffic
       href: dns-traffic-log-how-to.md
+    - name: Monitor Azure DNS
+      href: monitor-dns.md
+    - name: Azure DNS Monitoring data reference
+      href: monitor-dns-reference.md
   - name: Public DNS
     items:
     - name: Alias records for load balanced web apps

@@ -83,7 +83,7 @@ param trunkedNetworks array = []
 //   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN'
 // }
 
-resource agentPools 'Microsoft.NetworkCloud/kubernetesClusters/agentPools@2024-07-01' = {
+resource agentPools 'Microsoft.NetworkCloud/kubernetesClusters/agentPools@2025-02-01' = {
   name: '${kubernetesClusterName}/${kubernetesClusterName}-${agentPoolName}'
   location: location
   tags: tags

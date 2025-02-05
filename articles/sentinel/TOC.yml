@@ -500,7 +500,7 @@
       href: data-connectors/microsoft-defender-for-iot.md
     - name: Microsoft Defender for Office 365 (Preview)
       href: data-connectors/microsoft-defender-for-office-365.md
-    - name: Microsoft Defender Threat Intelligence (Preview)
+    - name: Microsoft Defender Threat Intelligence
       href: data-connectors/microsoft-defender-threat-intelligence.md
     - name: Microsoft Defender XDR
       href: data-connectors/microsoft-defender-xdr.md
@@ -582,7 +582,7 @@
       href: data-connectors/phosphorus-devices.md
     - name: Prancer Data Connector
       href: data-connectors/prancer-data-connector.md
-    - name: Premium Microsoft Defender Threat Intelligence (Preview)
+    - name: Premium Microsoft Defender Threat Intelligence
       href: data-connectors/premium-microsoft-defender-threat-intelligence.md
     - name: Proofpoint On Demand Email Security (using Azure Functions)
       href: data-connectors/proofpoint-on-demand-email-security.md
@@ -752,8 +752,6 @@
     href: configure-connector-login-detection.md        
   - name: Create a custom connector
     href: create-custom-connector.md
-  - name: Create a codeless connector
-    href: create-codeless-connector.md
   - name: Normalize data
     items:
     - name: ASIM overview
@@ -766,8 +764,6 @@
       href: normalization-ingest-time.md
     - name: Use ASIM
       href: normalization-about-parsers.md
-    - name: Develop ASIM parsers
-      href: normalization-develop-parsers.md
     - name: Manage ASIM parsers
       href: normalization-manage-parsers.md
     - name: Modify content to use ASIM
@@ -790,7 +786,7 @@
     href: connect-threat-intelligence-taxii.md
   - name: Add threat intelligence in bulk by file
     href: indicators-bulk-file-import.md
-  - name: Work with threat indicators
+  - name: Work with threat intelligence
     href: work-with-threat-indicators.md
   - name: Add entity to threat indicators
     href: add-entity-to-threat-intelligence.md
@@ -1147,10 +1143,16 @@
       href: sentinel-integration-guide.md
     - name: Partner integrations best practices
       href: partner-integrations.md
-    - name: Creating Workbooks
+    - name: Creating codeless data connectors (CCP)
+      href: create-codeless-connector.md
+    - name: Creating analytics rules
+      href: sentinel-analytic-rules-creation.md
+    - name: Creating workbooks
       href: sentinel-workbook-creation.md
-    - name: Creating Playbooks
+    - name: Creating playbooks
       href: sentinel-playbook-creation.md
+    - name: Creating ASIM parsers
+      href: normalization-develop-parsers.md
     - name: Publish solutions
       href: publish-sentinel-solutions.md
     - name: Solution lifecycle post publish

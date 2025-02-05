@@ -2,7 +2,7 @@
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: include
-ms.date: 04/30/2024
+ms.date: 02/03/2025
 ms.author: cshoe
 ---
 
@@ -18,7 +18,7 @@ LOCATION="<LOCATION>"
 CONTAINERAPPS_ENVIRONMENT="<CONTAINERAPPS_ENVIRONMENT>"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 $ResourceGroupName = '<RESOURCE_GROUP>'

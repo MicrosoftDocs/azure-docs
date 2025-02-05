@@ -1,5 +1,5 @@
 ---
-title:  How to monitor Spring Boot apps with Dynatrace Java OneAgent
+title:  How to Monitor Spring Boot Apps with Dynatrace Java OneAgent
 description: How to use Dynatrace Java OneAgent to monitor Spring Boot applications in Azure Spring Apps
 author:  KarlErickson
 ms.author: karler
@@ -43,7 +43,7 @@ The following sections describe how to activate Dynatrace OneAgent.
 ### Prepare your Azure Spring Apps environment
 
 1. Create an instance of Azure Spring Apps.
-1. Create an application that you want to report to Dynatrace by running the following command. Replace the placeholders *\<...>* with your own values.
+1. Create an application that you want to report to Dynatrace by running the following command. Replace the placeholders `<...>` with your own values.
    ```azurecli
    az spring app create \
        --resource-group <your-resource-group-name> \
@@ -64,7 +64,7 @@ You can add the environment variable key/value pairs to your application using e
 
 #### Option 1: Azure CLI
 
-To add the key/value pairs using the Azure CLI, run the following command, replacing the placeholders *\<...>* with the values determined in the previous steps.
+To add the key/value pairs using the Azure CLI, run the following command, replacing the placeholders `<...>` with the values determined in the previous steps.
 
 ```azurecli
 az spring app deploy \
@@ -98,7 +98,7 @@ Using Terraform, Bicep, or Azure Resource Manager template (ARM template), you c
 
 ### Automate provisioning using Terraform
 
-To configure the environment variables in a Terraform template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Manages an Active Azure Spring Apps Deployment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_active_deployment).
+To configure the environment variables in a Terraform template, add the following code to the template, replacing the `<...>` placeholders with your own values. For more information, see [Manages an Active Azure Spring Apps Deployment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_active_deployment).
 
 ```terraform
 environment_variables = {
@@ -111,7 +111,7 @@ environment_variables = {
 
 ### Automate provisioning using a Bicep file
 
-To configure the environment variables in a Bicep file, add the following code to the file, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=bicep).
+To configure the environment variables in a Bicep file, add the following code to the file, replacing the `<...>` placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=bicep).
 
 ```bicep
 environmentVariables: {
@@ -124,7 +124,7 @@ environmentVariables: {
 
 ### Automate provisioning using an ARM template
 
-To configure the environment variables in an ARM template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json).
+To configure the environment variables in an ARM template, add the following code to the template, replacing the `<...>` placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json).
 
 ```json
 "environmentVariables": {

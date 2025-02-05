@@ -19,10 +19,6 @@ In this article, you learn how to schedule load tests with Azure Load Testing. S
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - An Azure load testing resource and test. If you need to create an Azure Load Testing resource and test, see the quickstart [Create and run a load test](./quickstart-create-and-run-load-test.md).
 
-> [!IMPORTANT]
-> Scheduling tests in Azure Load Testing is currently in limited preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Sign up [here](https://aka.ms/alt/test-scheduling-signup) to onboard your Azure subscription for the preview. 
-
 ## Add a schedule to a test
 
 1. In the Azure portal, navigate to your load testing resource.

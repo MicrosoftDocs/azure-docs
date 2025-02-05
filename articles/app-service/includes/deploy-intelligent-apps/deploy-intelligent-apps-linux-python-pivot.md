@@ -8,7 +8,7 @@ ms.date: 04/10/2024
 ms.author: jefmarti
 ---
 
-You can use Azure App Service to work with popular AI frameworks like LangChain and Semantic Kernel connected to OpenAI for creating intelligent apps. In the following tutorial, we are adding an Azure OpenAI service using LangChain to a Python (Flask) application.
+You can use Azure App Service to work with popular AI frameworks like LangChain and Semantic Kernel, and connect them to OpenAI for creating intelligent apps. In the following tutorial, we are using LangChain to connect to Azure OpenAI in a Python (Flask) application.
 
 #### Prerequisites
 
@@ -24,7 +24,7 @@ First, copy, and replace the *index.html* file with the following code:
 ```html
 <!doctype html>
 <head>
-    <title>Hello Azure - Python Quickstart</title>
+    <title>Hello Azure - Python AI App</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
@@ -33,14 +33,12 @@ First, copy, and replace the *index.html* file with the following code:
      <main>
         <div class="px-4 py-3 my-2 text-center">
             <img class="d-block mx-auto mb-4" src="{{ url_for('static', filename='images/azure-icon.svg') }}" alt="Azure Logo" width="192" height="192"/>
-            <!-- <img  src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
             <h1 class="display-6 fw-bold text-primary">Welcome to Azure</h1>            
           </div>
         <form method="post" action="{{url_for('hello')}}">
             <div class="col-md-6 mx-auto text-center">
                 <label for="req" class="form-label fw-bold fs-5">Input query below:</label>
 
-                <!-- <p class="lead mb-2">Could you please tell me your name?</p> -->
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center align-items-center my-1">
                     <input type="text" class="form-control" id="req" name="req" style="max-width: 456px;">
                   </div>            
@@ -59,7 +57,7 @@ Next, copy, and replace the *hello.html* file with the following code:
 ```html
 <!doctype html>
 <head>
-    <title>Hello Azure - Python Quickstart</title>
+    <title>Hello Azure - Python AI App</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
@@ -68,7 +66,6 @@ Next, copy, and replace the *hello.html* file with the following code:
      <main>
         <div class="px-4 py-3 my-2 text-center">
             <img class="d-block mx-auto mb-4" src="{{ url_for('static', filename='images/azure-icon.svg') }}" alt="Azure Logo" width="192" height="192"/>
-            <!-- <img  src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
             <h1 class="display-6 fw-bold">OpenAI response:</h1>
             <p class="fs-5">
                 {{req}}
@@ -84,57 +81,70 @@ After the files are updated, we can start preparing our environment variables to
 
 ### API Keys and Endpoints
 
-In order to make calls to OpenAI with your client, you need to first grab the Keys and Endpoint values from Azure OpenAI, or OpenAI and add them as secrets for use in your application. Retrieve and save the values for later use.
+In order to make calls to OpenAI with your client, you need to first grab the Keys and Endpoint values from Azure OpenAI, or OpenAI, and add them as secrets for use in your application. Retrieve and save the values for later use.
 
-For Azure OpenAI, see [this documentation](/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. If you're planning to use [managed identity](../../overview-managed-identity.md) to secure your app you'll only need the `api_version` and `azure__endpoint` values.  Otherwise, you need each of the following:
+For Azure OpenAI, see [this documentation](/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the following values. If you're planning to use [managed identity](../../overview-managed-identity.md) to secure your app, you won't need the API key value.
 
-- `api_key`
-- `api_version`
-- `azure_deployment`
-- `azure_endpoint`
-- `model_name`
+- API key: Make sure to save this value as a secret. Only needed if you're not using managed identity.
+- Model name: The name of the chat completion model, like "gpt-4o".
+- Deployment name: This is sometimes the same as the model name, but you may have chosen to use a different name. This differentiates between different deployments of the same model.
+- Endpoint: A URL like "https://cog-xxk4qzq3tahic.openai.azure.com/"
+- API version: The desired API version, like "2024-10-21". See the [version history documentation](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation) for the latest version.
 
 For OpenAI, see this [documentation](https://platform.openai.com/docs/api-reference) to retrieve the API keys. For our application, you need the following values:
 
-- `apiKey`
+- API key: Make sure to save this value as a secret.
+- Model name: The name of the chat completion model, like "gpt-4o".
 
-Since we are deploying to App Service, we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your Key Vault and add the secrets you saved from earlier.
+#### Secure your API keys in KeyVault
+
+Since we are deploying to App Service, we can secure the API key in **Azure Key Vault** for protection. Follow the [Quickstart](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your Key Vault and add the key as a secret named 'openaikey'.
 
 Next, we can use Key Vault references as app settings in our App Service resource to reference in our application. Follow the instructions in the [documentation](../../app-service-key-vault-references.md?source=recommendations&tabs=azure-cli) to grant your app access to your Key Vault and to set up Key Vault references.
 
 Then, go to the portal Environment Variables blade in your resource and add the following app settings:
 
-For Azure OpenAI, use the following:
-
 | Setting name| Value |
-|-|-|-|
-| `DEPLOYMENT_NAME` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
-| `ENDPOINT` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
-| `API_KEY` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
-| `MODEL_ID` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
+|:-----------------:|:------------------------------------------------------------------------------------------:|
+| `OPENAI_API_KEY` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/openaikey/) |
 
+#### Store your app settings
 
-For OpenAI, use the following:
-
-| Setting name| Value |
-|-|-|-|
-| `OPENAI_API_KEY` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
-
-Once your app settings are saved, you can access the app settings in your code by referencing them in your application. Add the following to the *app.py `http://app.py` file:*
+The remaining app settings can be stored as standard environment variables. Go to the portal Environment Variables blade in your resource and add the following app settings:
 
 For Azure OpenAI:
+
+| Setting name                | Value            |
+|----------------------------|------------------|
+| `OPENAI_MODEL_NAME`        | Model name       |
+| `AZURE_OPENAI_DEPLOYMENT_NAME` | Deployment name |
+| `AZURE_OPENAI_ENDPOINT`    | Endpoint         |
+| `AZURE_OPENAI_API_VERSION` | API version      |
+
+For OpenAI, you only need one environment variable:
+
+| Setting name         | Value       |
+|---------------------|-------------|
+| `OPENAI_MODEL_NAME` | Model name  |
+
+Once your app settings are saved, you can access the app settings in your code by referencing them in your application. Add the following to the *app.py* file:
+
+For Azure OpenAI:
+
 ```python
-# Azure OpenAI
-api_key = os.environ['API_KEY']
-api_version = os.environ['API_VERSION']
-azure_deployment = os.environ['AZURE_DEPLOYMENT']
-model_name = os.environ['MODEL_NAME']
+azure_endpoint = os.environ['AZURE_OPENAI_ENDPOINT']
+azure_deployment = os.environ['AZURE_OPENAI_DEPLOYMENT_NAME']
+model_name = os.environ['OPENAI_MODEL_NAME']
+api_version = os.environ['AZURE_OPENAI_API_VERSION']
+# Only needed if you're not using managed identity
+api_key = os.environ['OPENAI_API_KEY']
 ```
 
-For OpenAI: 
+For OpenAI:
+
 ```python
-# OpenAI
-openai_api_key = os.environ['OPENAI_API_KEY']
+api_key = os.environ['OPENAI_API_KEY']
+model_name = os.environ['OPENAI_MODEL_NAME']
 ```
 
 ### LangChain
@@ -143,13 +153,13 @@ LangChain is a framework that enables easy development with OpenAI for your appl
 
 To create the OpenAI client, we'll first start by installing the LangChain library.
 
-To install LangChain, navigate to your application using Command Line or PowerShell and run the following pip command:
+To install LangChain, open the `requirements.txt` file and add `langchain-openai` to the file. Then, run the following command to install the package:
 
 ```python
-pip install langchain-openai
+pip install -r requirements.txt
 ```
 
-Once the package is installed, you can import and use LangChain. Update the * app.py `http://app.py`* file with the following code:
+Once the package is installed, you can import and use LangChain. Update the *app.py* file with the following code:
 
 ```python
 import os
@@ -157,27 +167,26 @@ import os
 # OpenAI
 from langchain_openai import ChatOpenAI
 
-~~# Azure OpenAI
-from langchain_openai import AzureOpenAI~~
-
+# Azure OpenAI
+from langchain_openai import AzureChatOpenAI
 ```
 
-After LangChain is imported into our file, you can add the code that will call to OpenAI with the LangChain invoke chat method. Update *app.py `http://app.py`* to include the following code:
+After LangChain is imported into our file, you can add the code that will call OpenAI with LangChain's `invoke` method. Update *app.py* to include the following code:
 
-For Azure OpenAI, use the following code. If you plan to use managed identity you can use the credentials outlined in the following section for the Azure OpenAI parameters. 
+For Azure OpenAI, use the following code. If you plan to use managed identity, you can use the credentials outlined in the following section for the Azure OpenAI parameters. 
 
 ```python
 @app.route('/hello', methods=['POST'])
 def hello():
    req = request.form.get('req')
 
-   llm = AzureOpenAI(
+   llm = AzureChatOpenAI(
        api_key=api_key,
        api_version=api_version,
        azure_deployment=azure_deployment,
        model_name=model_name,
    )
-   text = llm.invoke(req)
+   text = llm.invoke(req).content
 ```
 
 For OpenAI, use the following code:
@@ -185,11 +194,10 @@ For OpenAI, use the following code:
 ```python
 @app.route('/hello', methods=['POST'])
 def hello():
-   req = request.form.get('name')
+   req = request.form.get('req')
 
-   llm = ChatOpenAI(openai_api_key=openai_api_key)
-   text = llm.invoke(req)
-
+   llm = ChatOpenAI(openai_api_key=api_key)
+   text = llm.invoke(req).content
 ```
 
 Here's the example in its completed form. In this example, use the Azure OpenAI chat completion service OR the OpenAI chat completion service, not both.
@@ -197,7 +205,7 @@ Here's the example in its completed form. In this example, use the Azure OpenAI 
 ```python
 import os
 # Azure OpenAI
-from langchain_openai import AzureOpenAI
+from langchain_openai import AzureChatOpenAI
 # OpenAI
 from langchain_openai import ChatOpenAI
 
@@ -205,6 +213,17 @@ from flask import (Flask, redirect, render_template, request,
                    send_from_directory, url_for)
 
 app = Flask(__name__)
+
+# Azure OpenAI
+azure_endpoint = os.environ['AZURE_OPENAI_ENDPOINT']
+azure_deployment = os.environ['AZURE_OPENAI_DEPLOYMENT_NAME']
+model_name = os.environ['OPENAI_MODEL_NAME']
+api_version = os.environ['AZURE_OPENAI_API_VERSION']
+# Only needed if you're not using managed identity
+api_key = os.environ['OPENAI_API_KEY']
+
+# OpenAI
+# api_key = os.environ['OPENAI_API_KEY']
 
 @app.route('/')
 def index():
@@ -216,45 +235,37 @@ def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
-# Azure OpenAI
-api_key = os.environ['API_KEY']
-api_version = os.environ['API_VERSION']
-azure_deployment = os.environ['AZURE_DEPLOYMENT']
-model_name = os.environ['MODEL_NAME']
-
-# OpenAI
-# openai_api_key = os.environ['OPENAI_API_KEY']
-
 @app.route('/hello', methods=['POST'])
 def hello():
-   req = request.form.get('req')
+    req = request.form.get('req')
 
-   # Azure OpenAI
-   llm = AzureOpenAI(
-       api_key=api_key,
-       api_version=api_version,
-       azure_deployment=azure_deployment,
-       model_name=model_name,
-   )
-   text = llm.invoke(req)
+    # Azure OpenAI
+    llm = AzureChatOpenAI(
+        azure_endpoint=azure_endpoint,
+        azure_deployment=azure_deployment,
+        model_name=model_name,
+        api_version=api_version,
+        api_key=api_key
+    )
+    text = llm.invoke(req).content
 
-   # OpenAI
-	 # llm = ChatOpenAI(openai_api_key=openai_api_key)
-	 # text = llm.invoke(req)
+    # OpenAI
+    #llm = ChatOpenAI(openai_api_key=api_key)
+    #text = llm.invoke(req).content
 
-   if req:
-       print('Request for hello page received with req=%s' % req)
-       return render_template('hello.html', req = text)
-   else:
-       print('Request for hello page received with no name or blank name -- redirecting')
-       return redirect(url_for('index'))
+    if req:
+        print('Request for hello page received with req=%s' % req)
+        return render_template('hello.html', req=text)
+    else:
+        print('Request for hello page received with no name or blank name -- redirecting')
+        return redirect(url_for('index'))
 
 if __name__ == '__main__':
-   app.run()
-
+    app.run()
 ```
 
-Now save the application and follow the next steps to deploy it to App Service. If you would like to test it locally first at this step, you can swap out the key and endpoint values with the literal string values of your OpenAI service. For example: model_name = 'gpt-4-turbo';
+Now save the application and either follow the [deployment steps](#deploy-to-app-service) to deploy the application to Azure App Service, or [run the application locally](#local-development-server) to test it.
+
 
 ### Secure your app with managed identity
 
@@ -262,27 +273,35 @@ Although optional, it's highly recommended to secure your application using [man
 
 Follow the steps below to secure your application:
 
-Add the identity package `Azure.Identity`. This package enables using Azure credentials in your app.  Install the package and import the default credential and bearer token provider.
+1. Add the identity package `azure-identity` to your `requirements.txt` file and reinstall the packages:
 
-```python
-from azure.identity import DefaultAzureCredential, get_bearer_token_provider
-```
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-Next, include the default Azure credentials and token provider in the AzureOpenAI options.
+2. Import the default credential and bearer token provider.
 
-```python
-token_provider = get_bearer_token_provider(
-    DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default"
-)
+    ```python
+    from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+    ```
 
-client = AzureOpenAI(
-    api_version="2024-02-15-preview",
-    azure_endpoint="https://{your-custom-endpoint}.openai.azure.com/",
-    azure_ad_token_provider=token_provider
-)
-```
+3. Create a token provider based off of `DefaultAzureCredential`, and pass that to the `AzureChatOpenAI` options.
 
-Once the credentials are added to the application, you'll then need to enable managed identity in your application and grant access to the resource.
+    ```python
+    token_provider = get_bearer_token_provider(
+        DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default"
+    )
+
+    llm = AzureChatOpenAI(
+        api_version=api_version,
+        azure_deployment=azure_deployment,
+        azure_endpoint=azure_endpoint,
+        model_name=model_name,
+        azure_ad_token_provider=token_provider
+    )
+    ```
+
+Once the credential code is added to the application, you'll then need to enable managed identity in your application and grant access to the resource.
 
 1. In your web app resource, navigate to the **Identity** blade and turn on **System assigned** and click **Save**
 2. Once System assigned identity is turned on, it registers the web app with Microsoft Entra ID and the web app can be granted permissions to access protected resources.  
@@ -293,26 +312,63 @@ Once the credentials are added to the application, you'll then need to enable ma
 7. Next, click on **+Select Members**  and find your web app
 8. Click **Review + assign**
 
-Your web app is now added as a cognitive service OpenAI user and can communicate to your Azure OpenAI resource.
+Your web app is now added as a "Cognitive Service OpenAI User" and can communicate to your Azure OpenAI resource.
 
 ### Deploy to App Service
 
-Before deploying to App Service, you need to edit the *requirements.txt* file and add an environment variable to your web app so it recognizes the LangChain library and build properly.
+Go to the Azure portal and navigate to the Environment variables. If you're using Visual Studio to deploy, this app setting enables the same build automation as Git deploy. 
+Add the following App setting to your web app:
 
-First, add the following package to your *requirements.txt* file:
+| Setting name| Value |
+|-|-|
+| `SCM_DO_BUILD_DURING_DEPLOYMENT` | true |
 
-```python
-langchain-openai
+You're ready to deploy to App Service and you can deploy as you normally would. If you run into any issues remember that you need to have done the following: grant your app access to your Key Vault, add the app settings with key vault references as your values. App Service resolves the app settings in your application that match what you've added in the portal.
+
+## Local development server
+
+If you would like to test the app locally, create a `.env` file with the appropriate values:
+
+Azure OpenAI:
+
+```bash
+OPENAI_MODEL_NAME=gpt-4o
+AZURE_OPENAI_DEPLOYMENT_NAME=chat
+AZURE_OPENAI_ENDPOINT=https://cog-xxk4qzq3tahic.openai.azure.com/
+AZURE_OPENAI_API_VERSION=2024-10-21
+# Only needed if you're not using managed identity
+OPENAI_API_KEY=keyhere
 ```
 
-Then, go to the Azure portal and navigate to the Environment variables. If you're using Visual Studio to deploy, this app setting enables the same build automation as Git deploy. Add the following App setting to your web app:
+OpenAI:
 
-- `SCM_DO_BUILD_DURING_DEPLOYMENT` = true
+```bash
+OPENAI_MODEL_NAME=gpt-4o
+OPENAI_API_KEY=keyhere
+```
 
-If you have followed the steps above, you're ready to deploy to App Service and you can deploy as you normally would. If you run into any issues remember that you need to have done the following: grant your app access to your Key Vault, add the app settings with key vault references as your values. App Service resolves the app settings in your application that match what you've added in the portal.
+Add the `python-dotenv` package to `requirements.txt` and reinstall the packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+Then, update the *app.py* file to include the following code:
+
+```python
+from dotenv import load_dotenv
+
+load_dotenv()
+```
+
+Now you can run the application locally using the following command:
+
+```bash
+python app.py
+```
 
 ### Authentication
 
 Although optional, it's highly recommended that you also add authentication to your web app when using an Azure OpenAI or OpenAI service. This can add a level of security with no other code. Learn how to enable authentication for your web app [here](../../scenario-secure-app-authentication-app-service.md).
 
-Once deployed, browse to the web app and navigate to the OpenAI tab. Enter a query to the service and you should see a populated response from the server. The tutorial is now complete and you now know how to use OpenAI services to create intelligent applications.
+Once deployed, browse to the web app and navigate to the OpenAI tab. Enter a query to the service and you should see a populated response from the server.
