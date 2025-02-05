@@ -306,7 +306,7 @@ This guide walks you through accessing the output file that is created in the Cl
 
 1. Select the baremetal-run-command-output blob container.
 
-1. Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer to the [cluster manager storage](#deprecated-method-verify-access-to-the-cluster-manager-storage-account) or the [customer-managed storage](#create-and-configure-storage-resources) sections for procedures to verify access.
+1. Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer to the [cluster manager storage](#deprecated-method-verify-access-to-the-cluster-manager-storage-account) or the [customer-managed storage](#send-command-output-to-a-user-specified-storage-account) sections for procedures to verify access.
 
 1. Select the output file from the run-read command. The file name can be identified from the `az rest --method get` command. Additionally, the **Last modified** timestamp aligns with when the command was executed.
 

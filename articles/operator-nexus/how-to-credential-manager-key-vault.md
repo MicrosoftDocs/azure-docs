@@ -138,4 +138,4 @@ User-assigned identity example:
 
 <br/>
 
-Refer to [_Grant Managed Identity Access to a Key Vault for Credential Rotation_](#grant-managed-identity-access-to-a-key-vault-for-credential-rotation) to assign the appropriate role to the Managed Identity Principal ID.
+Refer to [_Configure Key Vault Using Managed Identity for the Cluster_](#configure-key-vault-using-managed-identity-for-the-cluster) to assign the appropriate role to the Managed Identity Principal ID.
