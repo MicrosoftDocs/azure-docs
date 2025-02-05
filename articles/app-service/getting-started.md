@@ -34,7 +34,7 @@ Use the following resources to get started with .NET.
 
 ## Java
 
-App Service aims to provide robust support for Java. To cover the depth and breadth of Java applications, App Service supports the Java SE, Tomcat, and JBoss EAP technology stacks. At the base of these stacks, App Service supports all recent Java LTS versions. There are several key scenarios for which you should consider adopting App Service for your Java applications.
+App Service aims to provide robust support for Java. To cover the depth and breadth of Java applications, App Service supports the Java Standard Edition (Java SE), Tomcat, and JBoss Enterprise Application Platform (JBoss EAP) technology stacks. At the base of these stacks, App Service supports all recent Java LTS versions. There are several key scenarios for which you should consider adopting App Service for your Java applications.
 
 ### Java SE on App Service
 Java SE on App Service allows you to effortlessly deploy your applications to fully managed JVM instances. You should consider this stack if you have Spring Boot and Quarkus web applications. However, you can use this stack for any application that can be started directly from a JVM and includes an embedded HTTP server. You can simply deploy your JAR file and let App Service do the rest.
