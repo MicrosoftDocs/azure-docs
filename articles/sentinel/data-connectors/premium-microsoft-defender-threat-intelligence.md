@@ -3,7 +3,7 @@ title: "Premium Microsoft Defender Threat Intelligence connector for Microsoft S
 description: "Learn how to install the connector Premium Microsoft Defender Threat Intelligence to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 10/15/2024
+ms.date: 02/05/2025
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ms.collection: sentinel-data-connector
