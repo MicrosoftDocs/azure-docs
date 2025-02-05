@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: article
-ms.date: 09/27/2024
+ms.date: 01/27/2025
 ms.author: danlep
 ---
 
@@ -14,10 +14,10 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-The `validate-jwt` policy enforces existence and validity of a supported JSON web token (JWT) extracted from a specified HTTP header, extracted from a specified query parameter, or matching a specific value.
+The `validate-jwt` policy enforces existence and validity of a supported JSON web token (JWT) that was provided by an identity provider. The JWT can be extracted from a specified HTTP header, extracted from a specified query parameter, or matching a specific value.
 
 > [!NOTE]
->  To validate a JWT that was provided by the Microsoft Entra service, API Management also provides the [`validate-azure-ad-token`](validate-azure-ad-token-policy.md) policy. 
+>  Use the [`validate-azure-ad-token`](validate-azure-ad-token-policy.md) policy to validate a JWT that was provided by Microsoft Entra. 
 
 [!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
@@ -206,6 +206,32 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 </validate-jwt>
 ```
 
+### Token validation using decryption key
+
+This example shows how to use the `validate-jwt` policy to validate a token that is decrypted using a decryption key. The key is specified using the ID of an uploaded certificate (in PFX format) that contains the public key.
+
+```xml
+<validate-jwt header-name="Authorization" require-scheme="Bearer" output-token-variable-name="jwt">
+    <issuer-signing-keys>
+        <key>{{jwt-signing-key}}</key> <!-- signing key is stored in a named value -->
+    </issuer-signing-keys>
+    <audiences>
+        <audience>@(context.Request.OriginalUrl.Host)</audience>
+    </audiences>
+    <issuers>
+        <issuer>contoso.com</issuer>
+    </issuers>
+    <required-claims>
+        <claim name="group" match="any">
+            <value>finance</value>
+            <value>logistics</value>
+        </claim>
+    </required-claims>
+    <decryption-keys>
+        <key certificate-id="my-certificate-in-api-management" /> <!-- decryption key specified as certificate ID -->
+    </decryption-keys>
+</validate-jwt>
+```
 
 ### Authorize access to operations based on token claims
 

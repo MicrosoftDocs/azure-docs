@@ -209,6 +209,8 @@ You can complete your own identity validation by filling in the request form wit
 
 > [!NOTE]
 > You can't create an identity validation request if you aren't assigned the appropriate role. If the **New identity** button on the menu bar appears dimmed in the Azure portal, ensure that you are assigned the Trusted Signing Identity Verifier role to proceed with identity validation.
+> [!NOTE]
+> At this time Trusted Signing can only onboard organizations that were incorporated more than 3 years ago.
 
 # [Identity Validation - Organization](#tab/orgvalidation)
 

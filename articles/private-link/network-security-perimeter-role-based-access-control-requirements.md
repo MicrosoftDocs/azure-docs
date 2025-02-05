@@ -63,7 +63,7 @@ In this article, you learn about the Azure role-based access control (RBAC) perm
 >
 > - *Microsoft.Network/networkSecurityPerimeters/resourceAssociations/write* is required at the network security perimeter resource.
 > - *Microsoft.Network/networkSecurityPerimeters/profiles/join/action* is required on the profile.
-> - *Microsoft.Network/networkSecurityPerimeters/joinPerimeter/action* is required on the respective PaaS resource.
+> - *{providerNamespace}/{resourceType}/joinPerimeter/action* is required on the respective PaaS resource.
 
 ## Next steps
 

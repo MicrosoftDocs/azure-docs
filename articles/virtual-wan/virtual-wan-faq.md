@@ -391,7 +391,7 @@ A minimum version of 05-01-2022 (May 1, 2022) is required.
 
 ### Are there any Virtual WAN limits?
 
-See the [Virtual WAN limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-wan-limits) section on the Subscription and service limits page.
+See the [Virtual WAN limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-virtual-wan-limits) section on the Subscription and service limits page.
 
 ### What are the differences between the Virtual WAN types (Basic and Standard)?
 

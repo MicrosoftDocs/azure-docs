@@ -27,6 +27,9 @@
   - name: Create a vault - ARM template
     displayName: Resource Manager
     href: quickstart-create-vault-template.md
+  - name: Create a vault - Terraform
+    displayName: ARM, Resource Manager
+    href: quickstart-create-vault-terraform.md
 - name: Tutorials
   items:
   - name: Azure VM disaster recovery to Azure
@@ -161,6 +164,8 @@
       href: azure-to-azure-architecture.md
     - name: Azure trusted launch VMs
       href: concepts-trusted-vm.md
+    - name: Azure to Azure - Costs
+      href: site-recovery-cost.md
     - name: Configure Failover for Multiple IP addresses
       href: concepts-multiple-ip-address-failover.md
     - name: Configure Mobility Service Proxy Settings
@@ -495,7 +500,7 @@
           href: hyper-v-deployment-planner-cost-estimation.md
   - name: Azure Stack VM disaster recovery
     items:
-    - name: Walkthrough-Set up disaster recovery for Azure Stack VMs
+    - name: Walkthrough-Set up disaster recovery for Azure Stack Hub
       href: azure-stack-site-recovery.md
   - name: Disaster recovery for apps
     items:

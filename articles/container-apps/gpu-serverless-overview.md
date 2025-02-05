@@ -75,7 +75,7 @@ Access to this feature is only available after you have serverless GPU quota. Yo
 
 ## Supported regions
 
-Serverless GPUs are available in preview in the *West US 3* and *Australia East* regions.
+Serverless GPUs are available in preview in the *West US 3*, *Australia East*, and *Sweden Central* regions.
 
 ## Use serverless GPUs
 

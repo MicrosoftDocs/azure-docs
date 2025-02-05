@@ -4,8 +4,8 @@ description: In this article, learn about the metrics available for Azure Backup
 ms.topic: overview
 ms.date: 09/11/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Monitor the health of your backups using Azure Backup Metrics (preview)

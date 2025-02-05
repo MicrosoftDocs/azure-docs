@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 07/18/2024
 ms.service: azure-backup
 ms.assetid: 55fa0a81-018f-4843-bef8-609a44c97dcd
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up Azure PostgreSQL databases using Azure data protection via REST API

@@ -4,8 +4,8 @@ description: This article summarizes automation tasks related to Azure Backup su
 ms.date: 09/11/2024
 ms.topic: reference
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 
