@@ -336,9 +336,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
 
     :::image type="content" source="./media/import-export/continue-export-file-prompt.png" alt-text="Screenshot of the CLI. Export to a file confirmation prompt.":::
 
-By default, feature flags exported to a file will use the [.NET Feature Management schema](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureManagement.v2.0.0.schema.json). If there are variant flags, they will use the Microsoft Feature Management schema.
-
-To export feature flags using only the [Microsoft Feature Management schema](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/schemas/FeatureManagement.Dotnet.v1.0.0.schema.json), set the environment variable `AZURE_APPCONFIG_FM_COMPATIBLE` to `False`.
+Variant feature flags are exported to a file using the [Microsoft Feature Management schema](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureManagement.v2.0.0.schema.json), while other feature flags are exported using the [.NET Feature Management schema](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/schemas/FeatureManagement.Dotnet.v1.0.0.schema.json) for compatibility. To export feature flags exclusively using the Microsoft Feature Management schema, set the environment variable AZURE_APPCONFIG_FM_COMPATIBLE to False.
 
 You've exported key-values and feature flags that have the "prod" label to a configuration file, and have trimmed the prefix "TestApp". Values are separated by ";" in the file.
 
