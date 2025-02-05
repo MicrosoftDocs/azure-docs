@@ -104,7 +104,7 @@ For more information, see the following articles:
 ### Get the Azure container instance ID
 
 The Azure container instance ID is a unique value for every tenant. You use this identifier in the
-[quickstart templates][12] to configure a virtual network for Cloud Shell. To get the Id from the
+[quickstart templates][12] to configure a virtual network for Cloud Shell. To get the ID from the
 command line, see [Alternate way to get the Azure Container Instance ID][10].
 
 1. Sign in to the [Azure portal][14]. From the home page, select **Microsoft Entra ID**. If the icon
