@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 02/05/2025
 ms.author: azfuncdf
 author: hhunter-ms
-ms.subservice: durable-functions
+ms.subservice: durable
 ---
 
 # Durable Task Scheduler storage provider for Durable Functions (preview)
@@ -13,7 +13,7 @@ ms.subservice: durable-functions
 Todo
 
 > [!NOTE]
-> For more information on the supported storage providers for Durable Functions and how they compare, see the [Durable Functions storage providers](durable-functions-storage-providers.md) documentation.
+> For more information on the supported storage providers for Durable Functions and how they compare, see the [Durable Functions storage providers](../durable-functions-storage-providers.md) documentation.
 
 ## Pricing model
 
