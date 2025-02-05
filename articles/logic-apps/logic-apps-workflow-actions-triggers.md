@@ -800,7 +800,7 @@ Here are some commonly used action types:
 | Action type | Description |
 |-------------|-------------|
 | [**Compose**](#compose-action) | Creates a single output from inputs, which can have various types. |
-| [**Execute JavaScript Code**](#run-javascript-code) | Run JavaScript code snippets that fit within specific criteria. For code requirements and more information, see [Add and run code snippets with inline code](../logic-apps/logic-apps-add-run-inline-code.md). |
+| [**Execute JavaScript Code**](#run-javascript-code) | Run JavaScript code snippets that fit within specific criteria. For code requirements and more information, see [Add and run JavaScript in workflows](../logic-apps/add-run-javascript.md). |
 | [**Function**](#function-action) | Calls an Azure Function. |
 | [**HTTP**](#http-action) | Calls an HTTP endpoint. |
 | [**Join**](#join-action) | Creates a string from all the items in an array and separates those items with a specified delimiter character. |
@@ -1044,12 +1044,12 @@ This action runs a JavaScript code snippet and returns the results through a tok
 
 | Value | Type | Description |
 |-------|------|-------------|
-| <*JavaScript-code-snippet*> | Varies | The JavaScript code that you want to run. For code requirements and more information, see [Run code snippets in workflows](logic-apps-add-run-inline-code.md). <br><br>In the `code` attribute, your code snippet can use the read-only `workflowContext` object as input. This object has subproperties that give your code access to the outputs from the trigger and any preceding actions in your workflow. For more information about the `workflowContext` object, see [Reference trigger and action results using the workflowContext object](logic-apps-add-run-inline-code.md#workflowcontext). |
+| <*JavaScript-code-snippet*> | Varies | The JavaScript code that you want to run. For code requirements and more information, see [Add and run JavaScript in workflows](add-run-javascript.md). <br><br>In the `code` attribute, your code snippet can use the read-only `workflowContext` object as input. This object has subproperties that give your code access to the outputs from the trigger and any preceding actions in your workflow. For more information about the `workflowContext` object, see [Reference trigger and action outputs using the workflowContext object](add-run-javascript.md#workflowcontext). |
 
 
 *Required in some cases*
 
-The `explicitDependencies` attribute specifies that you want to explicitly include results from the trigger, previous actions, or both as dependencies for your code snippet. For more information about adding these dependencies, see [Add dependencies as parameters to an Inline Code action](logic-apps-add-run-inline-code.md#add-parameters).
+The `explicitDependencies` attribute specifies that you want to explicitly include results from the trigger, previous actions, or both as dependencies for your code snippet. For more information about adding these dependencies, see [Add dependencies as parameters to an Execute JavaScript Code action](add-run-javascript.md#add-parameters).
 
 For the `includeTrigger` attribute, you can specify `true` or `false` values.
 
@@ -1059,7 +1059,7 @@ For the `includeTrigger` attribute, you can specify `true` or `false` values.
 
 *Example 1*
 
-This action runs code that gets your logic app workflow's name and returns the text "Hello world from \<logic-app-name>" as the result. In this example, the code references the workflow's name by accessing the `workflowContext.workflow.name` property through the read-only `workflowContext` object. For more information about using the `workflowContext` object, see [Reference trigger and action results in your code](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext).
+This action runs code that gets your logic app workflow's name and returns the text "Hello world from \<logic-app-name>" as the result. In this example, the code references the workflow's name by accessing the `workflowContext.workflow.name` property through the read-only `workflowContext` object. For more information about using the `workflowContext` object, see [Reference trigger and action results using the workflowContext object](../logic-apps/add-run-javascript.md#workflowcontext).
 
 ```json
 "Execute_JavaScript_Code": {

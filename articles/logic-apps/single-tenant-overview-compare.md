@@ -293,7 +293,7 @@ For the **Standard** logic app workflow, the following capabilities are differen
       > in the portal, the function action no longer works due to the invalid key. To fix this problem, you need 
       > to recreate the connection to the function that you want to call or update your app's settings with the new key.
 
-    * The built-in action, [Inline Code](logic-apps-add-run-inline-code.md), is renamed **Inline Code Operations**, no longer requires an integration account, and has [updated limits](logic-apps-limits-and-config.md).
+    * The built-in action, [Execute JavaScript Code](add-run-javascript.md), is renamed **Inline Code Operations**, no longer requires an integration account, and has [updated limits](logic-apps-limits-and-config.md).
 
     * The built-in action, [Azure Logic Apps - Choose a Logic App workflow](logic-apps-http-endpoint.md) is now **Workflow Operations - Invoke a workflow in this workflow app**.
  

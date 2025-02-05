@@ -21,8 +21,10 @@ To run code that performs a specific job in your logic app workflow, you don't h
 
 This how-to guide shows how to call an existing Azure function from your Consumption or Standard workflow. To run code without using Azure Functions, see the following documentation:
 
-- [Run code snippets in workflows](logic-apps-add-run-inline-code.md)
-- [Create and run .NET Framework code from Standard workflows](create-run-custom-code-functions.md)
+- [Add and run C# scripts in Standard workflows](add-run-csharp-scripts.md)
+- [Add and run JavaScript in workflows](add-run-javascript.md)
+- [Add and run PowerShell in Standard workflows](add-run-powershell-scripts.md)
+- [Create and run .NET code from Standard workflows](create-run-custom-code-functions.md)
 
 ## Limitations
 

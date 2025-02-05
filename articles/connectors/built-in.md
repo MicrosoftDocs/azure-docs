@@ -293,9 +293,9 @@ Azure Logic Apps provides the following built-in actions for running your own co
         <br><br>Call [Azure-hosted functions](../azure-functions/functions-overview.md) to run your own code (C# or Node.js) from your workflow.
     :::column-end:::
     :::column:::
-        [![Inline Code action icon][inline-code-icon]][inline-code-doc]
-        <br><br>[**Inline Code**][inline-code-doc]
-        <br><br>- [**Execute JavaScript code**](../logic-apps/logic-apps-add-run-inline-code.md) from your Consumption or Standard workflow.
+        ![Inline Code action icon][inline-code-icon]
+        <br><br>**Inline Code**
+        <br><br>- [**Execute JavaScript code**](../logic-apps/add-run-javascript.md) from your Consumption or Standard workflow.
         <br><br>- [**Execute C# script code**](../logic-apps/add-run-csharp-scripts.md) from your Standard workflow.
         <br><br>- [**Execute PowerShell script code**](../logic-apps/add-run-powershell-scripts.md) from your Standard workflow.
     :::column-end:::
@@ -586,7 +586,6 @@ For more information, review the following documentation:
 [ibm-host-file-doc]: /azure/logic-apps/connectors/built-in/reference/hostfile/ "Connect to your IBM host to work with offline files"
 [ibm-ims-doc]: /azure/connectors/integrate-ims-apps-ibm-mainframe "Integrate IMS programs on IBM mainframes with Azure"
 [ibm-mq-doc]: /azure/logic-apps/connectors/built-in/reference/mq/ "Connect to IBM MQ on-premises or in Azure to send and receive messages"
-[inline-code-doc]: ../logic-apps/logic-apps-add-run-inline-code.md "Add and run JavaScript code snippets from your logic app workflows"
 [jdbc-doc]: /azure/logic-apps/connectors/built-in/reference/jdbc/ "Connect to a relational database using JDBC drivers"
 [local-function-doc]: ../logic-apps/create-run-custom-code-functions.md "Create and run .NET Framework code from your workflow"
 [nested-logic-app-doc]: ../logic-apps/logic-apps-http-endpoint.md "Integrate logic app workflows with nested workflows"
