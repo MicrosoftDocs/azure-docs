@@ -1,7 +1,7 @@
 ---
-title: Azure Communication Services Call Summary Log Schema
+title: Azure Communication Services Call Summary Updates Log Schema
 titleSuffix: An Azure Communication Services concept article
-description: Learn about the Voice and Video Call Summary Logs.
+description: Learn about the Voice and Video Call Summary Updates Logs.
 author:  amagginetti
 services: azure-communication-services
 
@@ -12,12 +12,12 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-# Call Summary Log Schema
+# Call Summary Updates Log Schema
 
-The call summary log contains data to help you identify key properties of all calls. A different call summary log is created for each `participantId` (or `endpointId` for peer-to-peer [P2P] calls) value in the call.
+The call summary updates log contains data to help you identify key properties of all calls. A different call summary updates log is created for each `participantId` (or `endpointId` for peer-to-peer [P2P] calls) value in the call.
 
 
-For each participant within a call, Communication Services creates a distinct call summary log. If someone rejoins a call, that participant has the same `EndpointId` value but a different `ParticipantId` value. That endpoint can then have two call summary logs.
+For each participant within a call, Communication Services creates a distinct call summary updates log. If someone rejoins a call, that participant has the same `EndpointId` value but a different `ParticipantId` value. That endpoint can then have two call summary updates logs.
 
 
 ## Data Concepts
@@ -30,10 +30,10 @@ For each participant within a call, Communication Services creates a distinct ca
 
 ## Data Definitions
 
-### Call summary log schema
+### Call summary updates log schema
 
 > [!IMPORTANT]
-> Participant information in the call summary log varies based on the participant tenant. The SDK version and OS version are redacted if the participant is not within the same tenant (also called *cross-tenant*) as the Communication Services resource. Cross-tenant participants are classified as external users invited by a resource tenant to join and collaborate during a call.
+> Participant information in the call summary updates log varies based on the participant tenant. The SDK version and OS version are redacted if the participant is not within the same tenant (also called *cross-tenant*) as the Communication Services resource. Cross-tenant participants are classified as external users invited by a resource tenant to join and collaborate during a call.
 
 The table below describes each property.
 
@@ -83,9 +83,9 @@ Here are shared fields for all logs in a P2P call:
 "correlationId":            "aaaa0000-bb11-2222-33cc-444444dddddd",
 ```
 
-#### Call summary logs 
+#### Call summary updates logs 
 
-Call summary logs share operation and category information:
+Call summary updates logs share operation and category information:
 
 ```json
 "operationName":            "CallSummary",
@@ -134,7 +134,7 @@ Here's a call summary for VoIP user 2:
 }
 ```
 
-Here's a cross-tenant call summary log for VoIP user 1:
+Here's a cross-tenant call summary updates log for VoIP user 1:
 
 ```json
 "properties": {
@@ -179,7 +179,7 @@ Here's a call summary for a PSTN call:
 ```
 ### Group calls 
 
-Data for a group call is generated in three call summary logs and six call diagnostics logs. Here are shared fields for all logs in the call:
+Data for a group call is generated in three call summary updates logs and six call diagnostics logs. Here are shared fields for all logs in the call:
 
 ```json
 "time":                     "2021-07-05T06:30:06.402Z",
@@ -189,9 +189,9 @@ Data for a group call is generated in three call summary logs and six call diagn
 
 
 
-#### Call summary logs
+#### Call summary updates logs
 
-Call summary logs share operation and category information:
+Call summary updates logs share operation and category information:
 
 ```json
 "operationName":            "CallSummary",
@@ -259,7 +259,7 @@ Here's a call summary for PSTN endpoint 2:
 }
 ```
 
-Here's a cross-tenant call summary log:
+Here's a cross-tenant call summary updates log:
 
 ```json
 "properties": {
@@ -280,7 +280,7 @@ Here's a cross-tenant call summary log:
 }
 ```
 
-Here's a cross-tenant call summary log with a bot as a participant:
+Here's a cross-tenant call summary updates log with a bot as a participant:
 
 ```json
 
