@@ -7,7 +7,7 @@ ms.service: dev-box
 ms.custom:
   - ignite-2024
 ms.topic: how-to
-ms.date: 11/05/2024
+ms.date: 02/05/2025
 
 #customer intent: As a Dev Center Admin or Project Admin, I want to configure dev box pools to use image definition files so that my development teams can create customized dev boxes.
 ---
