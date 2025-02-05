@@ -480,6 +480,8 @@ items:
       href: concepts/analytics/logs/closed-captions-logs.md
     - name: Enable logging with Azure Monitor
       href: concepts/analytics/enable-logging.md
+    - name: Insights dashboard
+      href: concepts/analytics/insights/insights-dashboard.md
     - name: Voice and video insights
       href: concepts/analytics/insights/voice-and-video-insights.md
       displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
@@ -1105,7 +1107,7 @@ items:
       href: how-tos/calling-sdk/breakoutrooms.md
     - name: Enable Together Mode
       href: how-tos/calling-sdk/together-mode.md
-    - name: Media Access Control
+    - name: Control media access
       href: how-tos/calling-sdk/media-access.md
 - name: Job Router
   items:
