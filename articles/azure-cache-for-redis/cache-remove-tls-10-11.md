@@ -4,7 +4,7 @@ description: Learn how to remove TLS 1.0 and 1.1 from your application when comm
 
 
 ms.topic: conceptual
-ms.date: 12/09/2024
+ms.date: 02/05/2025
 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
@@ -26,7 +26,6 @@ As a part of this effort, you can expect the following changes to Azure Cache fo
 
 - _Phase 1_: Azure Cache for Redis stops offering TLS 1.0/1.1 as an option for _MinimumTLSVersion_ setting for new cache creates. Existing cache instances won't be updated at this point. You can't set the _MinimumTLSVersion_ to 1.0 or 1.1 for your existing cache.
 - _Phase 2_: Azure Cache for Redis stops supporting TLS 1.1 and TLS 1.0 starting April 1, 2025. After this change, your application must use TLS 1.2 or later to communicate with your cache. The Azure Cache for Redis service remains available while we update the _MinimumTLSVersion_ for all caches to 1.2.
-
 
 | Date | Description |
 |--|--|
@@ -105,8 +104,6 @@ You can configure TLS 1.2 on the cache by setting the **Minimum TLS version** va
 1. To configure your cache to use TLS 1.2, first select **Advanced settings** from the Resource menu of your cache.
 
 1. Select **1.2** in the **Minimum TLS version** in the working pane. Then, select **Save**.
-
-  :::image type="content" source="media/cache-remove-tls-10-11/change-redis-tls-version.png" alt-text="Screenshot showing the Set TLS 1.2 for cache on Azure portal":::
 
 You can also do the same using PowerShell. You need the Az.RedisCache module already installed before running the command.
 
