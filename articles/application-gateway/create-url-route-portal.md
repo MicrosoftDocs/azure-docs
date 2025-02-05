@@ -185,7 +185,7 @@ Review the settings on the **Review + create** tab, and then select **Create** t
 
 1. Select **All resources**, and then select **myAppGateway**.
 
-    ![Screenshot of record application gateway public IP address.](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
+    :::image type="content" source="./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png" alt-text="Screenshot of record application gateway public IP address.":::
 
 2. Copy the public IP address, and then paste it into the address bar of your browser. Such as, http:\//203.0.113.10:8080.
 
