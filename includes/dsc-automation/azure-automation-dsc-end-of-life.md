@@ -17,8 +17,8 @@ ms.author: sewhee
 > [Arc-enabled servers][arc].
 
 > [!IMPORTANT]
-> The Portal navigation links "Add", "Compose configuration", and "Gallery" will be removed beginning
-> March 31, 2025.
+> The **Add**, **Compose configuration**, and **Gallery** navigation links will be removed from the
+> portal on March 31, 2025.
 
 <!-- link references -->
 [blog]: https://azure.microsoft.com/updates/v2/Planned-Service-Retirement-Azure-Automation-State-Configuration-16-September-2027
