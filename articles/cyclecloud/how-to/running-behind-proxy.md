@@ -51,12 +51,20 @@ If the nodes started by CycleCloud also need to have traffic routed through a pr
 [node scheduler]
 CloudInit = '''#cloud-config
 write_files:
-- content: |
-    export http_proxy=10.12.0.5:3128
-    export https_proxy=10.12.0.5:3128
-    export no_proxy=169.254.169.254  # special rule exempting Azure metadata URL from proxy
+- path: /etc/profile.d/proxy.sh
   owner: root:root
   permissions: '0644'
-  path: /etc/profile.d/proxy.sh
+  content: |
+    export http_proxy=10.12.0.5:3128
+    export https_proxy=10.12.0.5:3128
+    export no_proxy=127.0.0.1,169.254.169.254  # special rule exempting Azure metadata URL from proxy
+- path: /etc/systemd/system/jetpackd.service.d/env.conf
+  owner: root:root
+  permissions: '0644'
+  content: |
+    [Service]
+    Environment="http_proxy=10.12.0.5:3128"
+    Environment="https_proxy=10.12.0.5:3128"
+    Environment="no_proxy=127.0.0.1,169.254.169.254"
 '''
 ```
