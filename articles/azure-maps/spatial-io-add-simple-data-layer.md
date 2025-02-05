@@ -236,12 +236,12 @@ Learn more about the classes and methods in this article:
 See the following articles to get more code samples to add to your maps:
 
 - [Read and write spatial data]
-- [Add an OGC map layer]
+- [Add a map layer from the Open Geospatial Consortium]
 - [Connect to a WFS service]
 - [Core IO operations]
-- [Get details about supported data formats]
+- [Supported data format details]
 
-[Add an OGC map layer]: spatial-io-add-ogc-map-layer.md
+[Add a map layer from the Open Geospatial Consortium]: spatial-io-add-ogc-map-layer.md
 [Connect to a WFS service]: spatial-io-connect-wfs-service.md
 [GitHub's GeoJSON map support]: https://docs.github.com/en/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojsontopojson-files-on-github
 [Core IO operations]: spatial-io-core-operations.md
@@ -251,4 +251,4 @@ See the following articles to get more code samples to add to your maps:
 [Simple data layer options]: https://samples.azuremaps.com/spatial-io-module/simple-data-layer-options
 [SimpleDataLayer]: /javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer
 [SimpleDataLayerOptions]: /javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions
-[Get details about supported data formats]: spatial-io-supported-data-format-details.md
+[Supported data format details]: spatial-io-supported-data-format-details.md

@@ -242,7 +242,7 @@ This article describes only one of the many features available in the Spatial IO
 - [Add a map layer from the Open Geospatial Consortium (OGC)]
 - [Connect to a WFS service]
 - [Core IO operations]
-- [Learn about supported data formats]
+- [Supported data format details]
 - [Get documentation for the Azure Maps Spatial IO package]
 
 [Add a simple data layer]: spatial-io-add-simple-data-layer.md
@@ -250,7 +250,7 @@ This article describes only one of the many features available in the Spatial IO
 [Add a map layer from the Open Geospatial Consortium]: spatial-io-add-ogc-map-layer.md
 [Connect to a WFS service]: spatial-io-connect-wfs-service.md
 [Use core operations]: spatial-io-core-operations.md
-[Learn about supported data formats]: spatial-io-supported-data-format-details.md
+[Supported data format details]: spatial-io-supported-data-format-details.md
 [Get documentation for the Azure Maps Spatial IO package]: /javascript/api/azure-maps-spatial-io
 [Add a map layer from the Open Geospatial Consortium (OGC)]: spatial-io-add-ogc-map-layer.md
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
