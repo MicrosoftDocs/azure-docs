@@ -12,7 +12,7 @@ ms.date: 01/27/2025
 
 # Reliability in Azure Data Factory
 
-This article describes reliability support in [Azure Data Factory](/data-factory/introduction.md), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
+This article describes reliability support in [Azure Data Factory](../data-factory/introduction.md), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
 Resiliency is a shared responsibility between you and Microsoft, and so this article also covers ways for you to create a resilient solution that meets your needs.
 
@@ -26,20 +26,20 @@ Azure Data Factory helps you more easily integrate and orchestrate data between 
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
-In Azure Data Factory, tumbling window triggers and execution activities support *retry policies*, which retry requests that fail due to transient faults. To learn how to change or disable retry policy for your data factory triggers and activities, refer to [Pipeline execution and triggers](/data-factory/concepts-pipeline-execution-triggers) and [Execution Activities](/data-factory/concepts-pipelines-activities?tabs=data-factory#execution-activities).
+In Azure Data Factory, tumbling window triggers and execution activities support *retry policies*, which retry requests that fail due to transient faults. To learn how to change or disable retry policy for your data factory triggers and activities, refer to [Pipeline execution and triggers](../data-factory/concepts-pipeline-execution-triggers.md) and [Execution Activities](../data-factory/concepts-pipelines-activities.md?tabs=data-factory#execution-activities).
 
 ## Availability zone support
 
 [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
-Azure Data Factory supports *zone redundancy*, which spreads compute resources across multiple [availability zones](../reliability/availability-zones-overview.md). For more information about zone redundancy, including region exceptions see [Azure Data Factory data redundancy](../data-factory/concepts-data-redundancy.md).
+Azure Data Factory supports *zone redundancy*, which spreads compute resources across multiple [availability zones](availability-zones-overview.md). For more information about zone redundancy, including region exceptions see [Azure Data Factory data redundancy](../data-factory/concepts-data-redundancy.md).
 
 ## Multi-region support
 
 Each data factory is deployed into a single Azure region. If the region becomes unavailable, your data factory is also unavailable.
 
 > [!NOTE]
-> If there's a disaster (loss of region), a new data factory can be provisioned manually or in an automated fashion. Once you create the new data factory, you can restore your pipelines, datasets, and linked services JSON from an existing Git repository if you have setup [source control in Azure Data Factory](/data-factory/source-control).
+> If there's a disaster (loss of region), a new data factory can be provisioned manually or in an automated fashion. Once you create the new data factory, you can restore your pipelines, datasets, and linked services JSON from an existing Git repository if you have setup [source control in Azure Data Factory](../data-factory/source-control.md).
 
 ### Alternative multi-region approaches 
 
@@ -50,12 +50,12 @@ For higher resiliency, you can deploy a standby or backup data factory in a seco
 * Configure load balancing and failover policies.
 * Plan to monitor the primary instance health and initiate failover.
 
-For more information on multi-region deployments for your data factory pipelines, see [Set up automated recovery](/analytics/pipelines-disaster-recovery#set-up-automated-recovery).
+For more information on multi-region deployments for your data factory pipelines, see [Set up automated recovery](../analytics/pipelines-disaster-recovery.md#set-up-automated-recovery).
 
 ## Backup and restore
 
-Azure Data Factory supports Continuous Integration and Delivery (CI/CD) through source control integration, which allows you to backup metadata associated with a data factory instance and deploy it into a new environment easily. Learn more about using CI/CD to manage your resources in the [Azure Data Factory CI/CD documentation](/data-factory/continuous-integration-delivery).
+Azure Data Factory supports Continuous Integration and Delivery (CI/CD) through source control integration, which allows you to backup metadata associated with a data factory instance and deploy it into a new environment easily. Learn more about using CI/CD to manage your resources in the [Azure Data Factory CI/CD documentation](../data-factory/continuous-integration-delivery.md).
 
 ## Related content
 
-[BCDR for Azure Data Factory](/architecture/example-scenario/analytics/pipelines-disaster-recovery)
+[BCDR for Azure Data Factory](../architecture/example-scenario/analytics/pipelines-disaster-recovery.md)
