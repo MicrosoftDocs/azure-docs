@@ -3,7 +3,7 @@ title: Turn on public IP addresses to an NSX Edge node for VMware NSX
 description: Learn how to turn on internet access for NSX in Azure VMware Solution. Learn how to turn on public IP addresses to an NSX Edge node and set internet access rules.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 02/04/2025
+ms.date: 2/4/2025
 ms.custom: engagement-fy23
 ---
 
