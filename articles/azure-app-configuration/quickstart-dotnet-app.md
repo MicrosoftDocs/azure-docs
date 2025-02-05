@@ -65,7 +65,7 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
 
     <configBuilders>
         <builders>
-            <add name="MyConfigStore" mode="Greedy" connectionString="${ConnectionString}" type="Microsoft.Configuration.ConfigurationBuilders.AzureAppConfigurationBuilder, Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration" />
+            <add name="MyConfigStore" mode="Greedy" endpoint="${Endpoint}" type="Microsoft.Configuration.ConfigurationBuilders.AzureAppConfigurationBuilder, Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration" />
             <add name="Environment" mode="Greedy" type="Microsoft.Configuration.ConfigurationBuilders.EnvironmentConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Environment" />
         </builders>
     </configBuilders>
@@ -76,7 +76,7 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
     </appSettings>
     ```
 
-   The connection string of your App Configuration store is read from the environment variable `ConnectionString`. Add the `Environment` configuration builder before the `MyConfigStore` in the `configBuilders` property of the `appSettings` section.
+   The endpoint value of your App Configuration store is read from the environment variable `Endpoint`. You also add the `Environment` configuration builder before the `MyConfigStore` in the `configBuilders` property of the `appSettings` section.
 
 1. Open *Program.cs*, and update the `Main` method to use App Configuration by calling `ConfigurationManager`.
 
@@ -118,7 +118,7 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
     </appSettings>
     ```
 
-   The connection string of your App Configuration store is read from the environment variable `ConnectionString`. Add the `Environment` configuration builder before the `MyConfigStore` in the `configBuilders` property of the `appSettings` section.
+   The connection string of your App Configuration store is read from the environment variable `ConnectionString`. You also add the `Environment` configuration builder before the `MyConfigStore` in the `configBuilders` property of the `appSettings` section.
 
 1. Open *Program.cs*, and update the `Main` method to use App Configuration by calling `ConfigurationManager`.
 
@@ -140,24 +140,24 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
-    Set the environment variable named **APP_CONFIGURATION_ENDPOINT** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
+    Set the environment variable named **Endpoint** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
 
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx APP_CONFIGURATION_ENDPOINT "<endpoint-of-your-app-configuration-store>"
+    setx Endpoint "<endpoint-of-your-app-configuration-store>"
     ```
 
     If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:APP_CONFIGURATION_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
+    $Env:Endpoint = "<endpoint-of-your-app-configuration-store>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export APP_CONFIGURATION_ENDPOINT='<endpoint-of-your-app-configuration-store>'
+    export Endpoint='<endpoint-of-your-app-configuration-store>'
     ```
 
     ### [Connection string](#tab/connection-string)
@@ -174,6 +174,12 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
 
     ```powershell
     $Env:ConnectionString = "<connection-string-of-your-app-configuration-store>"
+    ```
+
+    If you use macOS or Linux, run the following command:
+
+    ```bash
+    export ConnectionString='<connection-string-of-your-app-configuration-store>'
     ```
     ---
 
