@@ -128,9 +128,9 @@ In the following steps, you change the private IP address **static** for the VM 
 
 2. In **Virtual machines**, select **myVM** from the list.
 
-3. On the **myVM** page, under **Settings**, select **Networking**.
+3. On the **myVM** page, select **Network settings** under **Networking**.
 
-4. In **Networking**, select the name of the network interface next to **Network interface**.
+4. On the **Network settings** page, select the name of the network interface next to **Network interface**.
 
 5. On the **Network interface** page, under **Settings**, select **IP configurations**.
 
