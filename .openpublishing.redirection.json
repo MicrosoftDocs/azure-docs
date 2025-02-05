@@ -26,6 +26,11 @@
        "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/hdinsight-aks/index.yml",
+      "redirect_url": "/previous-versions/azure/hdinsight",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/hdinsight-aks/flink/index.md",
       "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/flink-overview",
       "redirect_document_id": false
