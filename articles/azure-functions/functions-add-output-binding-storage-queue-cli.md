@@ -11,7 +11,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Connect Azure Functions to Azure Storage using command line tools
 
-In this article, you integrate an Azure Storage queue with the function and storage account you created in the previous quickstart article. You achieve this integration by using an *output binding* that writes data from an HTTP request to a message in the queue. Completing this article incurs no additional costs beyond the few USD cents of the previous quickstart. To learn more about bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+In this article, you integrate an Azure Storage queue with the function and storage account you created in the previous quickstart article. You achieve this integration by using an *output binding* that writes data from an HTTP request to a message in the queue. Completing this article incurs no extra costs beyond the few USD cents of the previous quickstart. To learn more about bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
 ## Configure your local environment
 
@@ -41,7 +41,7 @@ Before you begin, you must complete the article, [Quickstart: Create an Azure Fu
 
 Earlier, you created an Azure Storage account for function app's use. The connection string for this account is stored securely in app settings in Azure. By downloading the setting into the *local.settings.json* file, you can use the connection to write to a Storage queue in the same account when running the function locally.
 
-1. From the root of the project, run the following command, replace `<APP_NAME>` with the name of your function app from the previous step. This command overwrites any existing values in the file.
+1. From the root of the project, run the following command, replacing `<APP_NAME>` with the name of your function app from the previous step. This command overwrites any existing values in the file.
 
     ```
     func azure functionapp fetch-app-settings <APP_NAME>
@@ -112,7 +112,7 @@ Observe that you *don't* need to write any code for authentication, getting a qu
 
 ## Redeploy the project to Azure
 
-Now that you've verified locally that the function wrote a message to the Azure Storage queue, you can redeploy your project to update the endpoint running on Azure.
+After you verify locally that the function wrote a message to the Azure Storage queue, you can redeploy your project to update the endpoint running on Azure.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-csharp" 
 In the *LocalFunctionsProj* folder, use the [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) command to redeploy the project, replacing`<APP_NAME>` with the name of your app.
@@ -148,7 +148,7 @@ mvn azure-functions:deploy
 
 ## Clean up resources
 
-After you've finished, use the following command to delete the resource group and all its contained resources to avoid incurring further costs.
+After you finish, use the following command to delete the resource group and all its contained resources to avoid incurring further costs.
 
 ```azurecli
 az group delete --name AzureFunctionsQuickstart-rg

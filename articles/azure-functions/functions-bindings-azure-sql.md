@@ -247,10 +247,10 @@ Azure SQL bindings for Azure Functions have a required property for the connecti
 
 Notable keywords include:
 
-- `Authentication` allows a function to connect to Azure SQL with Microsoft Entra IDand managed Identities. For more information, see [Connect a function app to Azure SQL with managed identity and SQL bindings](functions-identity-access-azure-sql-with-managed-identity.md).
-- `Command Timeout` allows a function to wait for specified amount of time in seconds before terminating a query (default 30 seconds)
-- `ConnectRetryCount` allows a function to automatically make additional reconnection attempts, especially applicable to Azure SQL Database serverless tier (default 1)
-- `Pooling` allows a function to reuse connections to the database, which can improve performance (default `true`). Additional settings for connection pooling include `Connection Lifetime`, `Max Pool Size`, and `Min Pool Size`. Learn more about connection pooling in the [ADO.NET documentation](/sql/connect/ado-net/sql-server-connection-pooling)
+- `Authentication`: allows a function to connect to Azure SQL with Microsoft Entra ID and managed identities. For more information, see [Connect a function app to Azure SQL with managed identity and SQL bindings](functions-identity-access-azure-sql-with-managed-identity.md).
+- `Command timeout`: allows a function to wait for specified amount of time in seconds before terminating a query (default 30 seconds)
+- `ConnectRetryCount`: allows a function to automatically make additional reconnection attempts, especially applicable to Azure SQL Database serverless tier (default 1)
+- `Pooling`: allows a function to reuse connections to the database, which can improve performance (default `true`). Additional settings for connection pooling include `Connection Lifetime`, `Max Pool Size`, and `Min Pool Size`. Learn more about connection pooling in the [ADO.NET documentation](/sql/connect/ado-net/sql-server-connection-pooling)
 
 ## Considerations
 
