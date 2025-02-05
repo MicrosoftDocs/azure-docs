@@ -179,7 +179,9 @@ items:
       href: azure-arc-enabled-logic-apps-create-deploy-workflows.md
   - name: Migrate
     items:
-    - name: Migrate from BizTalk to Azure Logic Apps
+    - name: Migration from Power Automate
+      href: power-automate-migration.md
+    - name: Migration from BizTalk Server
       items:
       - name: Why migrate from BizTalk Server?
         href: biztalk-server-migration-overview.md

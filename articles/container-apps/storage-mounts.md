@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 01/23/2025
+ms.date: 01/31/2025
 ms.author: cshoe
 zone_pivot_groups: arm-azure-cli-portal
 ---
@@ -14,6 +14,9 @@ zone_pivot_groups: arm-azure-cli-portal
 # Use storage mounts in Azure Container Apps
 
 A container app has access to different types of storage. A single app can take advantage of more than one type of storage if necessary.
+
+> [!Note]
+> Avoid using special characters in volume names to prevent deployment failures. For example, a volume named `credentials.json` contains a special character (`.`) which results in a deployment error.
 
 | Storage type | Description | Persistence | Usage example |
 |--|--|--|
@@ -288,12 +291,16 @@ For a step-by-step tutorial on mounting an SMB file share, refer to [Create an A
         --storage-type NfsAzureFile \
         --server <NFS_SERVER> \
         --azure-file-share-name <STORAGE_SHARE_NAME> \
+        --azure-file-account-name <STORAGE_ACCOUNT_NAME> \
+        --azure-file-account-key <STORAGE_ACCOUNT_KEY> \
         --access-mode ReadWrite
     ```
 
     Replace `<NFS_SERVER>` with the NFS server address in the format `<STORAGE_ACCOUNT_NAME>.file.core.windows.net`. For example, if your storage account name is `mystorageaccount`, the NFS server address is `mystorageaccount.file.core.windows.net`.
     
     Replace `<STORAGE_SHARE_NAME>` with the name of the file share in the format `/<STORAGE_ACCOUNT_NAME>/<STORAGE_SHARE_NAME>`. For example, if your storage account name is `mystorageaccount` and the file share name is `myshare`, the share name is `/mystorageaccount/myshare`.
+
+    Replace `<STORAGE_ACCOUNT_NAME>` with the name of your Azure Storage account and `<STORAGE_ACCOUNT_KEY>` with the key for your Azure Storage account, which can be found in the Azure portal.
 
     Valid values for `--access-mode` are `ReadWrite` and `ReadOnly`.
 

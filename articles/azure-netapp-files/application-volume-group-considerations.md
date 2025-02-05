@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 08/13/2024
+ms.date: 01/29/2025
 ms.author: anfdocs
 ---
 # Requirements and considerations for application volume group for SAP HANA 
@@ -32,7 +32,7 @@ This article describes the requirements and considerations you need to be aware 
     It is recommended that you lay out the VNet and delegated subnet at design time. 
 
     Application volume group for SAP HANA creates multiple IP addresses, up to six IP addresses for larger-sized estates. Ensure that the delegated subnet has sufficient free IP addresses. Consider using a delegated subnet with a minimum of 251 IP addresses with a subnet size of /24. See [Considerations about delegating a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations).
-* Application volume group for SAP HANA only supports platform-managed keys for Azure NetApp Files volume encryption at volume creation at this time. Contact your Azure NetApp Files specialist or CSA if you have any questions about transitioning volumes from platform-managed keys to customer-managed keys after volume creation. 
+* Application volume group for SAP HANA only supports platform-managed keys for Azure NetApp Files volume encryption at volume creation at this time. Contact your Azure NetApp Files specialist or CSA if you have any questions about transitioning volumes from platform-managed keys to customer-managed keys after volume creation. Alternately, you can use customer-managed keys with extension 1.  
 
 >[!IMPORTANT]
 >The use of application volume group for SAP HANA for applications other than SAP HANA is not supported. Reach out to your Azure NetApp Files specialist for guidance on using Azure NetApp Files multi-volume layouts with other database applications.
@@ -43,6 +43,7 @@ This article describes the requirements and considerations you need to be aware 
 * Application volume group supports Basic network features. If you're registered for extension 1, application volume group also supports [Standard network features](azure-netapp-files-network-topologies.md).
 * Extension 1 supports [availability zone volume placement](use-availability-zones.md) as the new default method for placement. This upgrade mitigates the need for AVset pinning and eliminates the need for proximity placement groups. With support for availability zone volume placement, you only need to select the same availability zone as the database servers. Using availability zone volume placement aligns with the Microsoft recommendation on how to deploy SAP HANA infrastructures to achieve best performance with high-availability, maximum flexibility, and simplified deployment. 
     If regions do not support availability zones, you can select a regional deployment or choose proximity placement groups.
+* Extension one supports [customer-managed-keys](configure-customer-managed-keys.md).
 
 ## Best practices about proximity placement
 

@@ -790,7 +790,7 @@
     href: connect-threat-intelligence-taxii.md
   - name: Add threat intelligence in bulk by file
     href: indicators-bulk-file-import.md
-  - name: Work with threat indicators
+  - name: Work with threat intelligence
     href: work-with-threat-indicators.md
   - name: Add entity to threat indicators
     href: add-entity-to-threat-intelligence.md
@@ -1147,9 +1147,9 @@
       href: sentinel-integration-guide.md
     - name: Partner integrations best practices
       href: partner-integrations.md
-    - name: Creating Workbooks
+    - name: Creating workbooks
       href: sentinel-workbook-creation.md
-    - name: Creating Playbooks
+    - name: Creating playbooks
       href: sentinel-playbook-creation.md
     - name: Publish solutions
       href: publish-sentinel-solutions.md

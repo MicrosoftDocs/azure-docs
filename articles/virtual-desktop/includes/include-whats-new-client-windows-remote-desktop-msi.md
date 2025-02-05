@@ -2,7 +2,7 @@
 ms.topic: include
 author: sipastak
 ms.author: sipastak
-ms.date: 01/24/2025
+ms.date: 01/29/2025
 ---
 
 ## Supported client versions
@@ -11,14 +11,22 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |--|--|--|
-| Public | 1.2.5807 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.5910 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Public | 1.2.5910 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Insider | 1.2.6013 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
-## Updates for version 1.2.5910 (Insider) 
+## Updates for version 1.2.6013 (Insider) 
+
+*Date published: January 28, 2025* 
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
+
+- Bug fixes and general improvements.  
+
+## Updates for version 1.2.5910  
 
 *Date published: January 21, 2025* 
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139368) 
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139370) 
 
 - Fixed an issue for [CVE-2024-49105](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49105).
 - Added support to optimize screen and app sharing.
@@ -47,23 +55,17 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Wi
 
 *Date published: December 10, 2024*
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139370) 
-
 - Fixed an issue for [CVE-2024-49105](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49105). 
 
 ## Updates for version 1.2.5713
 
 *Date published: November 12, 2024*   
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139370) 
-
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 
 ## Updates for version 1.2.5709
 
 *Date published: October 8, 2024*
-
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139370) 
 
 - Fixed an issue for [CVE-2024-43533](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-43533).
 - Multimedia redirection call redirection is now generally available.
