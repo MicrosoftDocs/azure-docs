@@ -1,6 +1,31 @@
 {
   "redirections": [
     {
+      "source_path": "articles/partner-solutions/logzio/create.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/logzio/create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/logzio/manage.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/logzio/manage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/logzio/overview.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/logzio/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/logzio/setup-sso.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/logzio/setup-sso",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/logzio/troubleshoot.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/logzio/troubleshoot",
+       "redirect_document_id": false
+    },
+    {
       "source_path": "articles/hdinsight-aks/cluster-storage.md",
       "redirect_url": "/previous-versions/azure/hdinsight-aks/cluster-storage",
       "redirect_document_id": false
@@ -1018,6 +1043,11 @@
     {
       "source_path_from_root": "/articles/migrate/replicate-using-expressroute.md",
       "redirect_url": "/azure/migrate/discover-and-assess-using-private-endpoints",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-call-protection/index.yml",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
@@ -5157,6 +5187,11 @@
     {
       "source_path_from_root": "/articles/virtual-wan/high-availability-vpn-client.md",
       "redirect_url": "/azure/virtual-wan/global-hub-profile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-wan/howto-openvpn-clients.md",
+      "redirect_url": "/azure/virtual-wan/point-to-site-vpn-client-certificate-windows-openvpn-client-version-3",
       "redirect_document_id": false
     },
     {

@@ -262,8 +262,6 @@
           href: vpn-profile-intune.md
       - name: Azure VPN client optional settings
         href: azure-vpn-client-optional-configurations-windows.md
-      - name: OpenVPN client software configuration
-        href: howto-openvpn-clients.md
     - name: Configure Always On tunnels
       items:
       - name: User tunnel
