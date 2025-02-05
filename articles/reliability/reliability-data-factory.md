@@ -18,7 +18,7 @@ Resiliency is a shared responsibility between you and Microsoft, and so this art
 
 Azure Data Factory helps you more easily integrate and orchestrate data between apps, cloud services, and on-premises systems by reducing how much code that you have to write. When you plan for resiliency, make sure that you consider not just your data factory, but also these Azure resources that you use with your data factory:
 
-* [Connections](/data-factory/connector-overview.md) that you create from data factory to other apps, services, and systems. 
+* [Connections](../data-factory/connector-overview.md) that you create from data factory to other apps, services, and systems. 
 
 * [On-premises data gateways](/data-integration/gateway/service-gateway-onprem), which are Azure resources that you create and use in your data factory to access data in on-premises systems. Each gateway resource represents a separate [data gateway installation](/data-integration/gateway/service-gateway-install) on a local computer. You can configure an on-premises data gateway for high availability by using multiple computers. For more information, see [High availability support](/data-integration/gateway/plan-scale-maintain).
 
@@ -50,7 +50,7 @@ For higher resiliency, you can deploy a standby or backup data factory in a seco
 * Configure load balancing and failover policies.
 * Plan to monitor the primary instance health and initiate failover.
 
-For more information on multi-region deployments for your data factory pipelines, see [Set up automated recovery](../analytics/pipelines-disaster-recovery.md#set-up-automated-recovery).
+For more information on multi-region deployments for your data factory pipelines, see [Set up automated recovery](/analytics/pipelines-disaster-recovery#set-up-automated-recovery).
 
 ## Backup and restore
 
@@ -58,4 +58,4 @@ Azure Data Factory supports Continuous Integration and Delivery (CI/CD) through 
 
 ## Related content
 
-[BCDR for Azure Data Factory](../architecture/example-scenario/analytics/pipelines-disaster-recovery.md)
+[BCDR for Azure Data Factory](/architecture/example-scenario/analytics/pipelines-disaster-recovery)
