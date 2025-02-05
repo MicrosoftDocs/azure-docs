@@ -1,12 +1,11 @@
 ---
 title: Azure Web Application Firewall (WAF) v2 custom rules on Application Gateway  
 description: This article provides an overview of Web Application Firewall (WAF) v2 custom rules on Azure Application Gateway.
-services: web-application-firewall
-ms.topic: concept-article
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
+ms.topic: concept-article
 ms.date: 01/30/2024
-ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
 
