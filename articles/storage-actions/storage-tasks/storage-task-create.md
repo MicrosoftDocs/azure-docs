@@ -116,12 +116,12 @@ The following image shows the **Review** tab data prior to the creation of a new
 
 # [PowerShell](#tab/azure-powershell)
 
-1. Define a _condition_ by using JSON. A condition a collection of one or more clauses. Each clause contains a property, a value, and an operator. To learn more, see [Storage task conditions](storage-tasks/storage-task-conditions.md).
+1. Define a _condition_ by using JSON. A condition a collection of one or more clauses. Each clause contains a property, a value, and an operator. To learn more, see [Storage task conditions](storage-task-conditions.md).
 
    ```powershell
    $condition = "<condition-json>"
    ```
-2. Define each operation by using the [New-AzStorageActionTaskOperationObject](/powershell/module/az.storageaction/new-azstorageactiontaskoperationobject) command. To learn more, see [Storage task operations](storage-tasks/storage-task-operations.md)
+2. Define each operation by using the [New-AzStorageActionTaskOperationObject](/powershell/module/az.storageaction/new-azstorageactiontaskoperationobject) command. To learn more, see [Storage task operations](storage-task-operations.md)
 
    ```powershell
     $operation = New-AzStorageActionTaskOperationObject `
@@ -149,7 +149,7 @@ To learn how to create an assignment by using PowerShell, see [Create and manage
 
 # [Azure CLI](#tab/azure-cli)
 
-1. Define a _condition_ by using JSON. A condition a collection of one or more clauses. Each clause contains a property, a value, and an operator. To learn more, see [Storage task conditions](storage-tasks/storage-task-conditions.md).
+1. Define a _condition_ by using JSON. A condition a collection of one or more clauses. Each clause contains a property, a value, and an operator. To learn more, see [Storage task conditions](storage-task-conditions.md).
 
    ```azurecli
    conditionclause="<condition-json>"
@@ -161,6 +161,7 @@ To learn how to create an assignment by using PowerShell, see [Create and manage
    --identity "{type:SystemAssigned}" \
    --action "{if:{condition:'[[equals(AccessTier,'/Cool'/)]]',operations:[{name:'SetBlobTier',parameters:{tier:'Hot'},onSuccess:'continue',onFailure:'break'}]},else:{operations:[{name:'DeleteBlob',onSuccess:'continue',onFailure:'break'}]}}" --description myStorageTask --enabled true
    ```
+To learn more about operations, see [Storage task operations](storage-task-operations.md).
 
 To learn how to create an assignment by using Azure CLI, see [Create and manage a storage task assignment](storage-task-assignment-create.md?tabs=azure-cli).
 

@@ -131,6 +131,13 @@ An assignment becomes a sub resource of the targeted storage account. Therefore,
 
 ## [PowerShell](#tab/azure-powershell)
 
+### Create an assignment by using PowerShell
+
+Create an assignment for each storage account you want to target. A storage task can contain up to 50 assignments.
+
+> [!NOTE] 
+> In the current release, you can target only storage accounts that are in the same region as the storage tasks.
+
 1. Specify how often you'd like the task to run. You can choose to run a task only once, or run the task recurring. If you decide to run this task on a recurring basis, specify a start and end time and specify the number of days in between each run. You can also specify where you'd like to store the execution reports. The following example creates variable for trigger values. 
 
    ```powershell
@@ -163,9 +170,6 @@ An assignment becomes a sub resource of the targeted storage account. Therefore,
    -TargetExcludePrefix ""
    ```
 
-   > [!NOTE]
-   > A storage task can contain up to 50 assignments. In the current release, you can target only storage accounts that are in the same region as the storage tasks.
-
 2. Give the storage task permission to perform operations on the target storage account. Assign the role of `Storage Blob Data Owner` to the system-assigned managed identity of the storage task by using the `New-AzRoleAssignment` command.
 
    ```powershell
@@ -177,6 +181,13 @@ An assignment becomes a sub resource of the targeted storage account. Therefore,
    -RoleDefinitionName "Storage Blob Data Owner"
 
 ## [Azure CLI](#tab/azure-cli)
+
+### Create an assignment by using Azure CLI
+
+Create an assignment for each storage account you want to target. A storage task can contain up to 50 assignments.
+
+> [!NOTE] 
+> In the current release, you can target only storage accounts that are in the same region as the storage tasks.
 
 1. Specify how often you'd like the task to run. You can choose to run a task only once, or run the task recurring. If you decide to run this task on a recurring basis, specify a start and end time and specify the number of days in between each run. You can also specify where you'd like to store the execution reports. The following creates a JSON-formatted string variable which specifies the container name, the task run frequency (`RunOnce`), and the time to run the report.  
 
@@ -220,7 +231,106 @@ An assignment becomes a sub resource of the targeted storage account. Therefore,
 
 ## [Bicep](#tab/bicep)
 
+### Create an assignment by using Bicep
+
+Create an assignment for each storage account you want to target. A storage task can contain up to 50 assignments.
+
+> [!NOTE] 
+> In the current release, you can target only storage accounts that are in the same region as the storage tasks.
+
+Include a snippet similar to the following in your Bicep template.
+
+```Bicep
+resource storageAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+  name: 'mystorageaccount'
+  location: 'westus'
+  kind: 'StorageV2'
+  sku: {
+    name: 'Standard_LRS'
+  }
+}
+
+resource storageAccountName_storageTaskAssignment 'Microsoft.Storage/storageAccounts/storageTaskAssignments@2023-05-01' = {
+  parent: storageAccount
+  name: 'mystoragetaskassignment'
+  properties: {
+    taskId: '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myresourcegroup/providers/Microsoft.StorageActions/storageTasks/mystoragetask'
+    enabled: true
+    executionContext: {
+      target: {
+        prefix: [
+          'mycontainer/'
+        ]
+        excludePrefix: []
+      }
+      trigger: {
+        type: 'RunOnce'
+        parameters: {
+          startOn: '2025-04-20T21:34:00'
+        }
+      }
+    }
+    report: {
+      prefix: 'storage-tasks-report'
+    }
+    description: 'mystoragetaskassignment'
+  }
+}
+```
+
 ## [Template](#tab/template)
+
+Create an assignment for each storage account you want to target. A storage task can contain up to 50 assignments.
+
+> [!NOTE] 
+> In the current release, you can target only storage accounts that are in the same region as the storage tasks.
+
+Include a JSON snippet similar to the following in your Azure Resource Manager template.
+
+```JSON
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2021-02-01",
+      "name": "mystorageaccount",
+      "location": "westus",
+      "kind": "StorageV2",
+      "sku": {
+        "name": "Standard_LRS"
+      }
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/storageTaskAssignments",
+      "apiVersion": "2023-05-01",
+      "name": "storagetaskassignmentname",
+      "properties": {
+        "taskId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myresourcegroup/providers/Microsoft.StorageActions/storageTasks/mystoragetask",
+        "enabled": true,
+        "executionContext": {
+          "target": {
+            "prefix": [
+              "mycontainer/"
+            ],
+            "excludePrefix": []
+          },
+          "trigger": {
+            "type": "RunOnce",
+            "parameters": {
+              "startOn": "2025-04-20T21:34:00"
+            }
+          }
+        },
+        "report": {
+          "prefix": "storage-tasks-report"
+        },
+        "description": "[parameters('storageTaskAssignmentDescription')]"
+      },
+      "dependsOn": [
+        "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
+      ]
+    }
+  ]
+```
 
 ---
 
