@@ -1,6 +1,6 @@
 ---
 title: Define storage task conditions & operations
-titleSuffix: Azure Storage Actions Preview
+titleSuffix: Azure Storage Actions
 description: Learn how to define the conditions and operations of a storage task by using a visual editor.
 author: normesta
 ms.service: azure-storage-actions
@@ -13,10 +13,6 @@ ms.date: 01/17/2024
 # Define storage task conditions and operations
 
 You can use a visual editor to define the conditions and operations of a storage task.
-
-> [!IMPORTANT]
-> Azure Storage Actions is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 An _operation_ is an action taken on each object that meets the conditions defined in the task. A _condition_ contains one or more conditional _clauses_. Each clause defines the relationship between a property and a value. To execute an operation defined in the storage task, the terms of that relationship must be met by each object.
 
@@ -123,17 +119,17 @@ The following example shows two conditions grouped together. In this example, th
 
 To ungroup clauses, select the ungroup icon (:::image type="icon" source="../media/storage-tasks/storage-task-conditions-operations-edit/ungroup-icon.png":::) or select each clause in the group, and select **Ungroup**.
 
-## Preview the effect of conditions
+## the effect of conditions
 
 You can view a list of blobs that would be impacted by the conditions that you've defined. In the conditions editor, select **Preview conditions**.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the Preview Conditions button.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-preview-conditions-button.png)
+> ![Screenshot of the Conditions button.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-preview-conditions-button.png)
 
-In the **Preview Conditions**, you can specify a target subscription, storage account and container. Because a preview can only show up to 5000 blobs, you can also specify a prefix to narrow the list.
+In the **Preview Conditions**, you can specify a target subscription, storage account and container. Because a can only show up to 5000 blobs, you can also specify a prefix to narrow the list.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the Preview Conditions page.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-preview-conditions.png)
+> ![Screenshot of the Conditions page.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-preview-conditions.png)
 
 ## Define operations
 

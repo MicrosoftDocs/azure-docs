@@ -43,7 +43,7 @@ items:
     items:
     - name: Storage task assignment
       href: storage-tasks/storage-task-assignment.md
-    - name: Azure roles required to assign a task
+    - name: Azure roles for assignments
       href: storage-tasks/storage-task-authorization-roles-assign.md
   - name: Reliability
     href: ../reliability/reliability-storage-actions.md?toc=/azure/storage-actions/toc.json

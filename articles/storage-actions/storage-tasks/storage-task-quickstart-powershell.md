@@ -1,6 +1,6 @@
 ---
 title: 'Create and run a storage task (PowerShell)'
-titleSuffix: Azure Storage Actions Preview
+titleSuffix: Azure Storage Actions
 description: Learn how to create your first storage task by using PowerShell. You'll also assign that task to a storage account, queue the task to run, and then view the results of the run.
 services: storage
 author: normesta
@@ -20,7 +20,7 @@ In this quickstart, you learn how to use Azure PowerShell to create a storage ta
 
 - An Azure storage account. See [create a storage account](../../storage/common/storage-account-create.md). As you create the account, make sure to enable version-level immutability support and that you don't enable the hierarchical namespace feature.
   
-  During the public preview, you can target only storage accounts that are in the same region as the storage tasks.
+  During the public, you can target only storage accounts that are in the same region as the storage tasks.
 
 - The [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role is assigned to your user identity in the context of the storage account or resource group.
 

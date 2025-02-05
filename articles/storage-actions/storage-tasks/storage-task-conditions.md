@@ -1,6 +1,6 @@
 ---
 title: Storage task conditions
-titleSuffix: Azure Storage Actions Preview
+titleSuffix: Azure Storage Actions
 description: Learn about the elements of a storage task condition.
 services: storage
 author: normesta
@@ -17,10 +17,6 @@ ms.author: normesta
 A storage task contains a set of conditions and operations. This article describes the JSON format of a condition.  Understanding that format is important if you plan to create a storage task by using a tool other than the Azure portal (For example: Azure PowerShell, or Azure CLI). This article also lists the properties and operators that you can use to compose the clauses of a condition. 
 
 This article focuses on **conditions**. To learn more about **operations**, see [Storage task operations](storage-task-operations.md). 
-
-> [!IMPORTANT]
-> Azure Storage Actions is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Condition format
 

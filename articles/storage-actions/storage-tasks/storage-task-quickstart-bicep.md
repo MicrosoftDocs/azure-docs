@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a storage task by using Bicep'
-titleSuffix: Azure Storage Actions Preview
+titleSuffix: Azure Storage Actions
 description: Learn how to create a storage task by using Bicep.
 ms.service: azure-storage-actions
 author: normesta
@@ -87,4 +87,4 @@ Replace `<resource-group-name>` with the name of your resource group.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Read more about Azure Storage Actions. See [What is Azure Storage Actions Preview?](../overview.md).
+> Read more about Azure Storage Actions. See [What is Azure Storage Actions?](../overview.md).

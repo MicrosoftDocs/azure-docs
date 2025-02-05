@@ -1,6 +1,6 @@
 ---
 title: Create and manage a storage task assignment
-titleSuffix: Azure Storage Actions Preview
+titleSuffix: Azure Storage Actions
 description: Learn how to create an assignment, and then enable that assignment to run.
 author: normesta
 ms.service: azure-storage-actions
@@ -16,16 +16,12 @@ An _assignment_ identifies a storage account and a subset of objects in that acc
 
 This article helps you create an assignment, and then enable that assignment to run.
 
-> [!IMPORTANT]
-> Azure Storage Actions is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## Create an assignment
 
 Create an assignment for each storage account you want to target. A storage task can contain up to 50 assignments.
 
 > [!NOTE] 
-> During the public preview, you can target only storage accounts that are in the same region as the storage tasks.
+> During the public, you can target only storage accounts that are in the same region as the storage tasks.
 
 ### Create an assignment from the storage task menu
 

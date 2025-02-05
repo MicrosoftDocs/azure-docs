@@ -1,6 +1,6 @@
 ---
 title: Storage task operations
-titleSuffix: Azure Storage Actions Preview
+titleSuffix: Azure Storage Actions
 description: Learn about the elements of a storage task operation.
 services: storage
 author: normesta
@@ -17,10 +17,6 @@ A storage task contains a set of conditions and operations. An operation is an a
 
 This article focuses on **operations**. To learn more about **conditions**, see [Storage task conditions](storage-task-conditions.md). 
 
-> [!IMPORTANT]
-> Azure Storage Actions is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## Operation format 
 
 An operation has a name along with zero, one, or multiple parameters. The following image shows how these elements appear for an operation in the JSON template of a storage task.
@@ -34,8 +30,8 @@ The following table describes each element.
 |---|--|
 | `name` | The name of the operation.<sup>1</sup> |
 | `parameters` | A collection of one or more parameters. Each parameter has parameter name and a parameter value.<sup>1</sup> |
-| `onSuccess` | The action to take when the operation is successful for an object. `continue` is the only allowable value during the preview. |
-| `onFailure` | The action to take when the operation fails for an object. `break` is the only allowable value during the preview. |
+| `onSuccess` | The action to take when the operation is successful for an object. `continue` is the only allowable value during the. |
+| `onFailure` | The action to take when the operation fails for an object. `break` is the only allowable value during the. |
 
 <sup>1</sup>    For a complete list of operation names, operation parameters, and parameter values, see the [Supported operations](#supported-operations) section of this article.
  

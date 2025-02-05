@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a storage task by using an Azure Resource Manager template (ARM template)'
-titleSuffix: Azure Storage Actions Preview
+titleSuffix: Azure Storage Actions
 description: Learn how to create a storage task by using Azure Resource Manager template (ARM template).
 ms.service: azure-storage-actions
 author: normesta
@@ -13,10 +13,6 @@ ms.date: 01/09/2025
 # Create a storage task by using Azure Resource Manager template (ARM template)
 
 This quickstart describes how to create a storage task by using an Azure Resource Manager template (ARM template).
-
-> [!IMPORTANT]
-> Azure Storage Actions is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
@@ -81,4 +77,4 @@ Replace `<resource-group-name>` with the name of your resource group.
 For a step-by-step tutorial that guides you through the process of creating a template, see:
 
 > [!div class="nextstepaction"]
-> Read more about Azure Storage Actions. See [What is Azure Storage Actions Preview?](../overview.md).
+> Read more about Azure Storage Actions. See [What is Azure Storage Actions?](../overview.md).

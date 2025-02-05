@@ -1,6 +1,6 @@
 ---
 title: Azure roles for storage tasks
-titleSuffix: Azure Storage Actions Preview
+titleSuffix: Azure Storage Actions
 description: Learn about the least privileged built-in Azure roles or RBAC actions required to read, update, delete and assign a storage task.
 services: storage
 author: normesta
@@ -16,10 +16,6 @@ ms.author: normesta
 # Azure roles for storage tasks
 
 This article describes the least privileged built-in Azure roles or RBAC actions required to read, update, delete and assign a storage task.
-
-> [!IMPORTANT]
-> Azure Storage Actions is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Permission to read, edit, or delete a task
 

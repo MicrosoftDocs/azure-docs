@@ -47,4 +47,4 @@ Replace `<resource-group-name>` with the name of your resource group.
 For a step-by-step tutorial that guides you through the process of creating a template, see:
 
 > [!div class="nextstepaction"]
-> Read more about Azure Storage Actions. See [What is Azure Storage Actions Preview?](../overview.md).
+> Read more about Azure Storage Actions. See [What is Azure Storage Actions?](../overview.md).
