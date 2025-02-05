@@ -89,7 +89,7 @@ This command creates a session pool with the following settings:
 | `--memory` | `0.5Gi` | The required memory. |
 | `--target-port` | `80` | The session port used for ingress traffic. |
 | `--cooldown-period` | `300` | The number of seconds that a session can be idle before the session is terminated. The idle period is reset each time the session's API is called. Value must be between `300` and `3600`. |
-| `--network-status` | Designates whether outbound network traffic is allowed from the session. Valid values are `EgressDisabled` (default) and `EgressEnabled`. |
+| `--network-status` | `EgressDisabled` |Designates whether outbound network traffic is allowed from the session. Valid values are `EgressDisabled` (default) and `EgressEnabled`. |
 | `--max-sessions` | `10` | The maximum number of sessions that can be allocated at the same time. |
 | `--ready-sessions` | `5` | The target number of sessions that are ready in the session pool all the time. Increase this number if sessions are allocated faster than the pool is being replenished. |
 | `--env-vars` | `"key1=value1" "key2=value2"` | The environment variables to set in the container. |

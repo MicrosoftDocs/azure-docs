@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Deploy a local Azure Resource Manager template
-description: Learn how to deploy an Azure Resource Manager template (ARM template) from your local computer
-ms.date: 09/26/2024
+description: Learn how to deploy an Azure Resource Manager template (ARM template) from your local computer.
+ms.date: 01/29/2025
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
 ---
@@ -10,30 +10,30 @@ ms.custom: devx-track-arm-template
 
 Learn how to deploy an Azure Resource Manager template (ARM template) from your local machine. It takes about **8 minutes** to complete.
 
-This tutorial is the first of a series. As you progress through the series, you modularize the template by creating a linked template, you store the linked template in a storage account, and secure the linked template by using SAS token, and you learn how to create a DevOps pipeline to deploy templates. This series focuses on template deployment. If you want to learn template development, see the [beginner tutorials](./template-tutorial-create-first-template.md).
+This tutorial is the first of a series. As you progress through the series, you modularize the template by creating a linked template, store the linked template in a storage account, secure the linked template by using SAS token, and learn how to create a DevOps pipeline to deploy templates. This series focuses on template deployment. If you want to learn template development, see the [beginner tutorials](./template-tutorial-create-first-template.md).
 
 ## Get tools
 
-Let's start by making sure you have the tools you need to deploy templates.
+Make sure you have the tools you need to deploy templates.
 
 ### Command-line deployment
 
-You  need either Azure PowerShell or Azure CLI to deploy the template. For the installation instructions, see:
+To deploy the template, you need either Azure PowerShell or Azure CLI. For the installation instructions, see:
 
 - [Install Azure PowerShell](/powershell/azure/install-azure-powershell)
 - [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows)
 - [Install Azure CLI on Linux](/cli/azure/install-azure-cli-linux)
 - [Install Azure CLI on macOS](/cli/azure/install-azure-cli-macos)
 
-After installing either Azure PowerShell or Azure CLI, make sure you sign in for the first time. For help, see [Sign in - PowerShell](/powershell/azure/install-az-ps#sign-in) or [Sign in - Azure CLI](/cli/azure/get-started-with-azure-cli#sign-in).
+After installing either Azure PowerShell or Azure CLI, sign in for the first time. For help, see [Sign in - PowerShell](/powershell/azure/install-az-ps#sign-in) or [Sign in - Azure CLI](/cli/azure/get-started-with-azure-cli#sign-in).
 
 ### Editor (Optional)
 
-Templates are JSON files. To review/edit templates, you need a good JSON editor. We recommend Visual Studio Code with the Resource Manager Tools extension. If you need to install these tools, see [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+Templates are JSON files. To review or edit templates, you need a good JSON editor. We recommend using Visual Studio Code with the Resource Manager Tools extension. If you need to install these tools, see [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## Review template
 
-The template deploys a storage account, app service plan, and web app. If you're interested in creating the template, you can go through [tutorial about Quickstart templates](template-tutorial-quickstart-template.md). However it's not required for completing this tutorial.
+The template deploys a storage account, app service plan, and web app. If you're interested in creating the template, see [Quickstart templates tutorial](template-tutorial-quickstart-template.md). However, you don't need to create the template to complete this tutorial.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 
@@ -78,7 +78,7 @@ az account set --subscription [SubscriptionID/SubscriptionName]
 
 ## Create resource group
 
-When you deploy a template, you specify a resource group that will contain the resources. Before running the deployment command, create the resource group with either Azure CLI or Azure PowerShell. Select the tabs in the following code section to choose between Azure PowerShell and Azure CLI. The CLI examples in this article are written for the Bash shell.
+When you deploy a template, you specify a resource group for the resources. Before running the deployment command, create the resource group with either Azure CLI or Azure PowerShell. To choose between Azure PowerShell and Azure CLI, select the tabs in the following code section. The CLI examples in this article are written for the Bash shell.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -149,7 +149,7 @@ To learn more about deploying template by using Azure CLI, see [Deploy resources
 
 ## Clean up resources
 
-Clean up the resources you deployed by deleting the resource group.
+To clean up the resources you deployed, delete the resource group.
 
 1. From the Azure portal, select **Resource group** from the left menu.
 2. Enter the resource group name in the **Filter by name** field.
@@ -158,7 +158,7 @@ Clean up the resources you deployed by deleting the resource group.
 
 ## Next steps
 
-You learned how to deploy a local template. In the next tutorial, you separate the template into a main template and a linked template, and learn how to store and secure the linked template.
+You learned how to deploy a local template. In the next tutorial, you separate the template into a main template and a linked template. You also learn how to store and secure the linked template.
 
 > [!div class="nextstepaction"]
 > [Deploy a linked template](./deployment-tutorial-linked-template.md)

@@ -25,12 +25,8 @@ items:
       href: oracle-db/onboard-oracle-database.md
   - name: Design considerations 
     items:
-    - name: Groups and roles
-      href: oracle-db/oracle-database-groups-roles.md
-    - name: Plan IP address space
-      href: oracle-db/oracle-database-plan-ip.md
-    - name: Delegated subnet limits
-      href: oracle-db/oracle-database-delegated-subnet-limits.md      
+    - name: Design considerations for Oracle Database@Azure
+      href: https://docs.oracle.com/en-us/iaas/Content/database-at-azure/odbaa-design.htm      
   - name: FAQs
     href: oracle-db/faq-oracle-database-azure.md
   - name: References

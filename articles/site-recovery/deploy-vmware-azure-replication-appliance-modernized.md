@@ -1,9 +1,9 @@
 ---
 title: Deploy Azure Site Recovery replication appliance - Modernized
-description: This article describes how to replicate appliance for VMware disaster recovery to Azure with Azure Site Recovery - Modernized
+description: This article describes how to replicate appliance for VMware disaster recovery to Azure with Azure Site Recovery - Modernized.
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 11/06/2024
+ms.date: 01/24/2025
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -38,10 +38,6 @@ If you just created a free Azure account, you're the owner of your subscription.
 **Here are the required key vault permissions**:
 
 - Microsoft.OffAzure/*
-- Microsoft.KeyVault/register/action
-- Microsoft.KeyVault/vaults/read
-- Microsoft.KeyVault/vaults/keys/read
-- Microsoft.KeyVault/vaults/secrets/read
 - Microsoft.Recoveryservices/*
 
 **Follow these  steps to assign the required permissions**:

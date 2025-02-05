@@ -1,15 +1,15 @@
 - name: Azure reliability documentation
   href: index.yml
-- name: What is reliability?
+- name: Overview
   href: overview.md
+- name: What's new
+  href: whats-new.md
 - name: Reliability fundamentals
   items:
   - name: Business continuity, high availability, and disaster recovery
     href: concept-business-continuity-high-availability-disaster-recovery.md
-  - name: Shared responsibility for resiliency
+  - name: Shared responsibility for reliability
     href: concept-shared-responsibility.md
-  - name: Azure service incident response
-    href: incident-response.md
 - name: Azure regions
   items:
   - name: What are Azure regions?
@@ -17,8 +17,8 @@
   - name: Paired and nonpaired regions
     href: regions-paired.md
   - name: Multi-region solutions in nonpaired regions
-    href: cross-region-replication-azure-no-pair.md
-- name: Availability zones
+    href: regions-multi-region-nonpaired.md
+- name: Azure availability zones
   items:
   - name: What are Azure availability zones?
     href: availability-zones-overview.md
@@ -108,8 +108,6 @@
     items:
     - name: Azure HDInsight
       href: reliability-hdinsight.md
-    - name: Azure HDInsight on AKS
-      href: reliability-hdinsight-on-aks.md
     - name: Azure Machine Learning
       href: /azure/machine-learning/how-to-high-availability-machine-learning?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Stream Analytics
@@ -424,6 +422,8 @@
       href: ../azure-signalr/signalr-concept-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
 - name: Resources
   items:
+  - name: Azure service incident response
+    href: incident-response.md
   - name: Service availability
     items:
     - name: Service availability by region
