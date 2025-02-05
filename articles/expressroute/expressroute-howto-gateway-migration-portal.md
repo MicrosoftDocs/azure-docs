@@ -73,6 +73,11 @@ Here are the steps to migrate to a new gateway in Azure portal.
 > - Before running this step, verify that the new virtual network gateway has a working ExpressRoute connection.
 > - When migrating your gateway, you can expect possible interruption for a maximum of 30 seconds.
 
+In addition to Express route gateway migration from non zonal to zone reduandant, from gateway wizard, this can be done manually as well.
+
+You can now have two Express Route gateways in the same vnet. Customers can create the second Express Route gateway with the admin state as disabled. And then customer can run prepare on the gateway migration tool found on the gateway which will only create the connection since the gateway is already created. 
+Once customer runs migrate traffic will mark the new gateway as enabled. This helps reduce the time spent in the migration of the gateway from non zonal to zone redundant gateway.
+
 ## Next steps
 
 * Learn more about [designing for high availability](designing-for-high-availability-with-expressroute.md).
