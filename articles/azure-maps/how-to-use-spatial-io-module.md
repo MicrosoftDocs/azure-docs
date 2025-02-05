@@ -239,10 +239,10 @@ This article describes only one of the many features available in the Spatial IO
 
 - [Add a simple data layer]
 - [Read and write spatial data]
-- [Add an OGC map layer]
+- [Add a map layer from the Open Geospatial Consortium (OGC)]
 - [Connect to a WFS service]
 - [Core IO operations]
-- [Supported data format details]
+- [Learn about supported data formats]
 - [Get documentation for the Azure Maps Spatial IO package]
 
 [Add a simple data layer]: spatial-io-add-simple-data-layer.md
