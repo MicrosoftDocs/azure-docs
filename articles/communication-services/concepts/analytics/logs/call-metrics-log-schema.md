@@ -31,6 +31,9 @@ what is success/what is failure
 explain failures - high level - that somebody should review subcodes and go to subcode page etc..
 failure - an api call failing with unexpected error or a complex condition failing like getting a bd UFD in a call.
 
+To learn more about UFDs please see: [User Facing Diagnostics](../../voice-video-calling/user-facing-diagnostics.md)
+
+
 > [!IMPORTANT]
 >You must collect logs if you want to analyze them. To learn more see: **[How do I store logs?](#how-do-i-store-logs)**
 >
@@ -84,8 +87,8 @@ For the call metric log, there's no difference between P2P and group call scenar
 
 Here's a sample of the Call Metrics log: **Ankesh explain each part what they are**
 
-
-{
+```json
+"properties": {
   "TenantId": "4e7403f8-515a-4df5-8e13-59f0e2b76e3a",
   "TimeGenerated": "2025-02-03T05:17:39.1840000Z",
   "OperationName": "CallingMetrics",
@@ -120,9 +123,10 @@ Here's a sample of the Call Metrics log: **Ankesh explain each part what they ar
   "Type": "ACSCallingMetrics",
   "_ResourceId": "/subscriptions/50ad1522-5c2c-4d9a-a6c8-67c11ecb75b8/resourcegroups/calling-sample-apps/providers/microsoft.communication/communicationservices/corertc-test-apps"
 }
+```
 
-
-{
+```json
+"properties": {
   "TenantId": "4e7403f8-515a-4df5-8e13-59f0e2b76e3a",
   "TimeGenerated": "2025-02-03T05:17:39.1840000Z",
   "OperationName": "CallingMetrics",
@@ -157,7 +161,7 @@ Here's a sample of the Call Metrics log: **Ankesh explain each part what they ar
   "Type": "ACSCallingMetrics",
   "_ResourceId": "/subscriptions/50ad1522-5c2c-4d9a-a6c8-67c11ecb75b8/resourcegroups/calling-sample-apps/providers/microsoft.communication/communicationservices/corertc-test-apps"
 }
-
+```
 
  
 
