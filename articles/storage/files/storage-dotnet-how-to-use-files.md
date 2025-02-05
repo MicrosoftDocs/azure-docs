@@ -44,6 +44,7 @@ Azure Files provides two broad approaches to client applications: Server Message
 ### When to Use SMB (`System.IO`)
 
 - **File operations**: Ideal for applications that need to perform read/write operations on files.
+- **Application compatibility**: Suitable for applications that are already built to use the `System.IO` namespace.
 - **Network access**: Suitable for devices that have access over port 445 to your Azure Files account.
 - **Simple use cases**: Best for scenarios where you don't need to manage administrative settings of the file share.
 
