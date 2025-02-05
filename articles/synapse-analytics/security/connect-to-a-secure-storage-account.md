@@ -5,7 +5,7 @@ author: ashinMSFT
 ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: security 
-ms.date: 02/14/2025 
+ms.date: 02/05/2025 
 ms.author: seshin
 ms.reviewer: whhender
 ---
@@ -32,13 +32,11 @@ If you *do* enable managed virtual network when you create the workspace, then y
 
 Synapse operates from networks that can't be included in your network rules. Use the following steps to enable access from your workspace to your secure storage account.
 
-1. Create an Azure Synapse workspace with a managed virtual network associated with it, and create managed private endpoints from it to the secure storage account.
-
-    If you use the Azure portal to create your workspace, you can enable **Managed virtual network** under the **Networking** tab.
+1. Create an Azure Synapse workspace with a managed virtual network associated with it, and create managed private endpoints from it to the secure storage account. If you use the Azure portal to create your workspace, you can enable **Managed virtual network** under the **Networking** tab.
 
     :::image type="content" source="media/connect-to-a-secure-storage-account/enable-managed-virtual-network-managed-private-endpoint.png" alt-text="Screenshot that shows the Manage virtual network option under the Networking tab.":::
 
-    If you enable **Managed virtual network** or if Synapse determines that the primary storage account is a secure storage account, then you have the option to **Create managed private endpoint to primary storage account**, as shown. The storage account owner needs to approve the connection request to establish the private link. Alternatively, Synapse approves this connection request if the user creating an Apache Spark pool in the workspace has sufficient privileges to approve the connection request.
+1. If you enable **Managed virtual network** or if Synapse determines that the primary storage account is a secure storage account, then you have the option to **Create managed private endpoint to primary storage account**, as shown. The storage account owner needs to approve the connection request to establish the private link. Alternatively, Synapse approves this connection request if the user creating an Apache Spark pool in the workspace has sufficient privileges to approve the connection request.
 
 1. Grant your Azure Synapse workspace access to your secure storage account as a trusted Azure service. As a trusted service, Azure Synapse then uses strong authentication to securely connect to your storage account.
 
@@ -54,7 +52,7 @@ Analytic capabilities such as dedicated SQL pool and serverless SQL pool use mul
 
 1. In the Azure portal, navigate to your secured storage account and select **Networking** from the left navigation pane.
 
-    :::image type="content" source="media/connect-to-a-secure-storage-account/secured-storage-access.png" alt-text="Screenshot of the storage account network configuration.":::
+    :::image type="content" source="media/connect-to-a-secure-storage-account/secured-storage-access.png" alt-text="Screenshot of the storage account network configuration." lightbox="media/connect-to-a-secure-storage-account/secured-storage-access.png":::
 
 1. In the **Resource instances** section, select *Microsoft.Synapse/workspaces* as the **Resource type** and enter your workspace name for **Instance name**. Select **Save**.
 
