@@ -115,8 +115,8 @@ command line, see [Alternate way to get the Azure Container Instance ID][10].
    [![Screenshot of searching for Azure Container Instance Service.][95a]][95b]
 
 1. In the results, under **Enterprise applications**, select **Azure Container Instance Service**.
-1. On the **Overview** page for **Azure Container Instance Service**, find the **Object ID** value
-   that's listed as a property.
+1. On the **Overview** page for **Azure Container Instance Service**, locate the **Object ID** value
+   listed under **Properties**.
 
    You use this ID in the quickstart template for the virtual network.
 
@@ -124,13 +124,17 @@ command line, see [Alternate way to get the Azure Container Instance ID][10].
 
 ## 3. Create the required network resources by using the ARM template
 
-Use the [Azure Cloud Shell - VNet][12] template to create Cloud Shell resources in a virtual
-network. The template creates three subnets under the virtual network that you created earlier. You
-might choose to change the supplied names of the subnets or use the defaults.
+To create Cloud Shell resources in a virtual network, use the ARM template named
+[Azure Cloud Shell - VNet][12]. The template creates three subnets under the virtual network that
+you created earlier. You might choose to change the supplied names of the subnets or use the
+defaults.
 
-The virtual network, along with the subnets, requires valid IP address assignments. You need at
-least one IP address for the Relay subnet and enough IP addresses in the container subnet to support
-the number of concurrent sessions that you expect to use.
+The virtual network and the subnets require valid IP address assignments. You need enough addresses
+to support the following resources:
+
+- At least one IP address for the Relay subnet
+- Enough IP addresses in the container subnet to support the number of concurrent sessions that you
+  expect to use
 
 The ARM template requires specific information about the resources that you created earlier, along
 with naming information for new resources. This information is filled out along with the prefilled
@@ -176,8 +180,9 @@ subscription.
 
 ## 4. Create the virtual network storage by using the ARM template
 
-Use the [Azure Cloud Shell - VNet storage][13] template to create Cloud Shell resources in a virtual
-network. The template creates the storage account and assigns it to the private virtual network.
+To create Cloud Shell resources in a virtual network, use the ARM template named
+[Azure Cloud Shell - VNet storage][13]. The template creates the storage account and assigns it to
+the private virtual network.
 
 The ARM template requires specific information about the resources that you created earlier, along
 with naming information for new resources.

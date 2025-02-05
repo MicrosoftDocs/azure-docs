@@ -6,19 +6,18 @@ ms.date: 02/04/2025
 ---
 # Allow multiple users to use a single storage account and file share
 
-By default, the storage resources created by Azure Cloud Shell are designed to be used by a single
-user. A single-user deployment is the most secure configuration because each user can only access
-their own file share. However, you might have a need to allow multiple users access to a single
-deployment. To support access for multiple users, you need to make the following changes:
+By default, the storage resources created by Azure Cloud Shell are intended for a single user. A
+single-user deployment is the most secure configuration because each user can only access their own
+file share. However, you might have a need to allow multiple users access to a single deployment. To
+support access for multiple users, you need to make the following changes:
 
-- Increase File Share quota
+- Increase the Azure File share quota
 - Assign roles to the users that allow access to the storage resources
 
 > [!WARNING]
-> While it's possible to allow multiple users to share a single storage account and file share, it's
-> not recommended. Using the configuration steps in this article grants each of the configured users
-> access to the all the files in the file share. If you need to support multiple users, consider
-> creating a separate storage account and file share for each user.
+> Using the configuration steps in this article grants each user you configure access to the all the
+> files in the file share. For the best security, create separate storage accounts and file shares
+> for each user.
 
 ## Increase File Share quota
 
@@ -39,7 +38,7 @@ Use the following steps to change the file share quota:
    Cloud Shell environment and view the details.
 1. From the left-hand menu, expand **Data storage** and select **File shares**.
 1. Locate the file share that you're using for the Azure Cloud Shell environment.
-1. On the file share for Cloud Shell, select the 3-dots menu.
+1. On the file share for Cloud Shell, select the triple-dot menu.
 1. Select **Edit quota** from the menu.
 1. Change the **Quota** amount to the desired size.
 1. Select **OK** to save the change.
