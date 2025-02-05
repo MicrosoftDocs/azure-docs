@@ -5,7 +5,7 @@ description: Learn how to configure VPN clients on Windows computers for User VP
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 08/24/2023
+ms.date: 01/28/2025
 ms.author: cherylmc
 ---
 
@@ -74,29 +74,11 @@ For more information about User VPN client profile files, see [Working with User
 
 ### Download the Azure VPN Client
 
-[!INCLUDE [Download the Azure VPN Client](../../includes/vpn-gateway-download-vpn-client.md)]
+[!INCLUDE [Download the Azure VPN client](../../includes/vpn-gateway-download-vpn-client.md)]
 
 ### Configure the Azure VPN Client
 
-1. Open the Azure VPN Client.
-
-1. Click **+** on the bottom left of the page, then select **Import**.
-
-1. In the window, navigate to the **azurevpnconfig.xml** file, select it, then click **Open**.
-
-1. From the **Certificate Information** dropdown, select the name of the child certificate (the client certificate). For example, **P2SChildCert**.
-
-   :::image type="content" source="./media/vpn-client-certificate-windows/configure-certificate.png" alt-text="Screenshot showing Azure VPN Client profile configuration page." lightbox="./media/vpn-client-certificate-windows/configure-certificate.png":::
-
-   If you don't see a client certificate in the **Certificate Information** dropdown, you'll need to cancel the profile configuration import and fix the issue before proceeding. It's possible that one of the following things is true:
-
-   * The client certificate isn't installed locally on the client computer.
-   * There are multiple certificates with exactly the same name installed on your local computer (common in test environments).
-   * The child certificate is corrupt.
-
-1. After the import validates (imports with no errors), click **Save**.
-
-1. In the left pane, locate the **VPN connection**, then click **Connect**.
+[!INCLUDE [Configure the Azure VPN client](../../includes/vpn-gateway-vwan-configure-azure-vpn-client-certificate.md)]
 
 ## Next steps
 

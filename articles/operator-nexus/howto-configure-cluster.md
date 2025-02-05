@@ -507,3 +507,5 @@ Deleting a cluster deletes the resources in Azure and the cluster that resides i
 ```azurecli
 az networkcloud cluster delete --name "$CLUSTER_NAME" --resource-group "$CLUSTER_RG"
 ```
+>[!NOTE]
+>It is recommended to wait for 20 minutes after deleting cluster before trying to create a new cluster with the same name.

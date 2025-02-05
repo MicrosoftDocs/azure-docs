@@ -157,7 +157,7 @@ Once diagnostic collection is enabled, you can create a storage account or choos
 
 ## Monitoring
 
-After providing your application's Health check path, you can monitor the health of your site using Azure Monitor. From the **Health check** blade in the portal, select **Metrics** in the top toolbar. This opens a new blade where you can see the site's health status history and create a new alert rule. Health check metrics aggregate the successful pings and display failures only when the instance was deemed unhealthy based on the Health check configuration. For more information on monitoring your sites, see [Azure App Service quotas and alerts](web-sites-monitor.md).
+After providing your application's Health check path, you can monitor the health of your site using Azure Monitor. From the **Health check** blade in the portal, select **Metrics** in the top toolbar. This opens a new blade where you can see the site's health check status history and create a new alert rule. Health check status metric aggregate the successful pings and display failures only when the instance was deemed unhealthy based on the Health Check Load balancing threshold value configured. By default this value is set to 10 minutes, so it takes 10 consecutive pings (1 per minute) for a given instance to be deemed unhealthy and only then will it be reflected on the metric. For more information on monitoring your sites, see [Azure App Service quotas and alerts](web-sites-monitor.md).
 
 ## Limitations
 

@@ -89,8 +89,8 @@ Call Automation SDK empowers developers to manage Virtual Rooms calls from the s
 | Send announcements to specific call participants | ✔️ |
 | Add/Remove a VoIP participant from an ongoing call | ✔️ |
 | End call for all users | ✔️ |
-| Call transcriptions | ❌ |
-| Audio media streaming | ❌ |
+| Call transcriptions* | ✔️ |
+| Audio media streaming* | ✔️ |
 
 \* Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
