@@ -11,7 +11,7 @@
       - name: Key concepts
         href: key-concepts.md  
       - name: Service limits
-        href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#api-center-limits
+        href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#azure-api-center-limits
       - name: Frequently asked questions
         href: frequently-asked-questions.yml    
     - name: Quickstarts

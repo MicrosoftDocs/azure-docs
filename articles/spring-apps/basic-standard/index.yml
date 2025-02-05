@@ -6,9 +6,8 @@ summary: "Azure Spring Apps is a managed service for hosting Spring apps. The Ba
 metadata:
   title: Azure Spring Apps Basic/Standard plan
   description: Azure Spring Apps is a fully managed service for building and running Spring Boot and Steeltoe apps without needing to manage infrastructure.
-  services: spring-cloud
   ms.service: azure-spring-apps
-  ms.custom: devx-track-java
+  ms.custom: devx-track-java, devx-track-extended-java
   ms.topic: landing-page
   author: KarlErickson
   ms.author: karler
@@ -26,6 +25,10 @@ landingContent:
         links:
           - text: Azure Spring Apps retirement announcement
             url: retirement-announcement.md
+          - text: Migrate to Azure Container Apps
+            url: ../migration/migrate-to-azure-container-apps-overview.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+          - text: Migrate to Azure Kubernetes Service
+            url: ../migration/migrate-to-aks-overview.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
 
   # Card (optional)
   - title: Documentation for other plans
@@ -36,7 +39,7 @@ landingContent:
             url: ../enterprise/index.yml
           - text: Consumption and dedicated plan
             url: ../consumption-dedicated/index.yml
-  
+
   # Card (optional)
   - title: About Azure Spring Apps
     linkLists:

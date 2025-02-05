@@ -658,6 +658,7 @@ The following table explains the binding configuration properties that you set i
 | **name** | n/a | Variable name used in function code for input Web PubSub request. |
 | **connection** | Connection | Optional - the name of an app settings or setting collection that specifies the upstream Azure Web PubSub service. The value is used for [Abuse Protection](https://github.com/cloudevents/spec/blob/v1.0.1/http-webhook.md#4-abuse-protection) and Signature validation. The value is auto resolved with "WebPubSubConnectionString" by default. And `null` means the validation isn't needed and always succeed. |
 
+[!INCLUDE [functions-azure-web-pubsub-authorization-note](../../includes/functions-azure-web-pubsub-authorization-note.md)]
 
 ### Usage
 
@@ -682,4 +683,4 @@ For `WebPubSubEventRequest`, it's deserialized to different classes that provide
 | `DisconnectedEventRequest` | Used in system `Disconnected` event type | Reason |
 
 > [!NOTE]
-> Though the `WebPubSubContext` is a input binding provides similar request deserialize way under `HttpTrigger` comparing to `WebPubSubTrigger`, there's limitations, i.e. connection state post merge isn't supported. The return response is still respected by the service side, but users require to build the response themselves. If users have needs to set the event response, you should return a `HttpResponseMessage` contains `ConnectEventResponse` or messages for user event as **response body** and put connection state with key `ce-connectionstate` in **response header**.
+> Though the `WebPubSubContext` is an input binding provides similar request deserialize way under `HttpTrigger` comparing to `WebPubSubTrigger`, there's limitations, i.e. connection state post merge isn't supported. The return response is still respected by the service side, but users require to build the response themselves. If users have needs to set the event response, you should return a `HttpResponseMessage` contains `ConnectEventResponse` or messages for user event as **response body** and put connection state with key `ce-connectionstate` in **response header**.

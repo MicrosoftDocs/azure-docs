@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 01/21/2025
+ms.date: 01/22/2025
 ms.author: derekol
 ms.custom: template-concept, references_regions, engagement-fy23
 ---
@@ -38,7 +38,7 @@ For the FastPath feature to function correctly, the hub virtual network and any 
 
 While FastPath supports many configurations, it doesn't support the following features:
 
-* Load Balancers: If you deploy an Azure internal load balancer in your virtual network or the Azure PaaS service you deploy in your virtual network, the network traffic from your on-premises network to the virtual IPs hosted on the load balancer is sent to the virtual network gateway.
+* Load Balancers: If you deploy an Azure internal load balancer in your spoke virtual network or the Azure PaaS service you deploy in your spoke virtual network, the network traffic from your on-premises network to the virtual IPs hosted on the load balancer is sent through the virtual network gateway. Load balancers within the hub virtual network are supported with FastPath.
 
 * Gateway Transit: If you deploy two peered hub virtual networks connected to one circuit, you need to make sure to set the *Allow Gateway Transit* on the virtual network peering to false, otherwise you experience connectivity issues.
 
@@ -46,7 +46,7 @@ While FastPath supports many configurations, it doesn't support the following fe
 
 * Private Link: FastPath Connectivity to a private endpoint or Private Link service over an ExpressRoute Direct circuit is supported for limited scenarios. For more information, see [enable FastPath and Private Link for 100-Gbps ExpressRoute Direct](expressroute-howto-linkvnet-arm.md#fastpath-virtual-network-peering-user-defined-routes-udrs-and-private-link-support-for-expressroute-direct-connections). FastPath connectivity to a Private endpoint/Private Link service isn't supported for ExpressRoute partner provider circuits.
 
-* DNS Private Resolver: Azure ExpressRoute FastPath doesn't support connectivity to [DNS Private Resolver](../dns/dns-private-resolver-overview.md).
+* DNS Private Resolver: Azure ExpressRoute FastPath is not supported to a DNS Private Resolver in a spoke virtual network and will go through the virtual network gateway. DNS Private Resolvers within a hub virtual network are supported by FastPath. [DNS Private Resolver](../dns/dns-private-resolver-overview.md).
 
 * For Azure NetApp Files, customers should upgrade their volumes from Basic to Standard for FastPath to work. [Supported Network Topologies](../azure-netapp-files/azure-netapp-files-network-topologies.md#supported-network-topologies).
 

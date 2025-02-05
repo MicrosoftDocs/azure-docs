@@ -4,7 +4,7 @@ description: Enable secure settings in your Azure IoT Operations instance for de
 author: asergaz
 ms.author: sergaz
 ms.topic: how-to
-ms.date: 11/19/2024
+ms.date: 01/21/2025
 
 #CustomerIntent: I deployed Azure IoT Operations with test settings, and now I want to enable secure settings to use the full feature set.
 ---
@@ -21,11 +21,67 @@ This article provides instructions for enabling secure settings if you didn't do
 
 * Azure CLI installed on your development machine. This scenario requires Azure CLI version 2.64.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
+* The latest version of the **connectedk8s** extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
+
+  ```bash
+  az extension add --upgrade --name connectedk8s
+  ```
+
 * The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
 
   ```azurecli
   az extension add --upgrade --name azure-iot-ops
   ```
+
+## Enable the cluster for secure settings
+
+To enable secrets synchronization for your Azure IoT Operations instance, your cluster must be enabled as an OIDC issuer and for workload identity federation. This configuration is required for the Secret Store extension to sync the secrets from an Azure key vault and store them on the edge as Kubernetes secrets.
+
+For Azure Kubernetes Service (AKS) clusters, the OIDC issuer and workload identity features can be enabled only at the time of cluster creation. For clusters on AKS Edge Essentials, the automated script enables these features by default. For AKS clusters on Azure Local, follow the steps to [Deploy and configure workload identity on an AKS enabled by Azure Arc cluster](/azure/aks/aksarc/workload-identity) to create a new cluster if you don't have one with the required features.
+
+For k3s clusters on Kubernetes, you can update an existing cluster. To enable and configure these features, use the following steps:
+
+1. Update the cluster to enable OIDC issuer and workload identity.
+
+    ```azurecli
+    az connectedk8s update -n <CLUSTER_NAME> -g <RESOURCE_GROUP> --enable-oidc-issuer --enable-workload-identity
+    ```
+
+    If you enabled the OIDC issuer and workload identity features when you created the cluster, you don't need to run the previous command again. Use the following command to check the status of the OIDC issuer and workload identity features for your cluster:
+
+    ```azurecli
+    az connectedk8s show -g <RESOURCE_GROUP> -n <CLUSTER_NAME> --query "{ClusterName:name, OIDCIssuerEnabled:oidcIssuerProfile.enabled, WorkloadIdentityEnabled:securityProfile.workloadIdentity.enabled}"
+    ```
+
+1. Get the cluster's issuer URL.
+
+    ```azurecli
+    az connectedk8s show -g <RESOURCE_GROUP> -n <CLUSTER_NAME> --query oidcIssuerProfile.issuerUrl --output tsv
+    ```
+
+    Make a note of the output from this command to use in the next steps.
+
+1. Create the k3s config file:
+
+    ```bash
+    sudo nano /etc/rancher/k3s/config.yaml
+    ```
+
+1. Add the following content to the `config.yaml` file, replacing the `<SERVICE_ACCOUNT_ISSUER>` placeholder with the cluster issuer URL you made a note of previously:
+
+    ```yml
+    kube-apiserver-arg:
+    - service-account-issuer=<SERVICE_ACCOUNT_ISSUER>
+    - service-account-max-token-expiration=24h
+    ```
+
+    Save the file and exit the nano editor.
+
+1. Restart the k3s service:
+
+    ```bash
+    sudo systemctl restart k3s
+    ```
 
 ## Set up secrets management
 
@@ -67,7 +123,7 @@ To set up secrets management:
 
     ```azurecli
     # Variable block
-    AIO_INSTANCE_NAME="<AIO_INSTANCE_NAME>"
+    $AIO_INSTANCE_NAME="<AIO_INSTANCE_NAME>"
     $RESOURCE_GROUP="<RESOURCE_GROUP>"
     $USER_ASSIGNED_MI_NAME="<USER_ASSIGNED_MI_NAME>"
     $KEYVAULT_NAME="<KEYVAULT_NAME>"

@@ -1,12 +1,11 @@
 ---
 title: Azure Web Application Firewall (WAF) v2 custom rules on Application Gateway  
 description: This article provides an overview of Web Application Firewall (WAF) v2 custom rules on Azure Application Gateway.
-services: web-application-firewall
-ms.topic: concept-article
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
+ms.topic: concept-article
 ms.date: 01/30/2024
-ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -27,7 +26,7 @@ If you want to use **or** between two different conditions,then the two conditio
 Regular expressions are also supported in custom rules, just like in the CRS rulesets. For examples, see Examples 3 and 5 in [Create and use custom web application firewall rules](create-custom-waf-rules.md).
 
 > [!NOTE]
-> The maximum number of WAF custom rules is 100. For more information about Application Gateway limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
+> The maximum number of WAF custom rules is 100. For more information about Application Gateway limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-application-gateway-limits).
 
 > [!CAUTION]
 > Any redirect rules applied at the application gateway level will bypass WAF custom rules. See [Application Gateway redirect overview](../../application-gateway/redirect-overview.md) for more information about redirect rules.

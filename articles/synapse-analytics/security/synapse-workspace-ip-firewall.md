@@ -5,7 +5,7 @@ author: ashinMSFT
 ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: security 
-ms.date: 09/16/2022
+ms.date: 01/22/2025
 ms.author: danzhang 
 ms.reviewer: wiassaf
 ---
@@ -23,14 +23,14 @@ IP firewall rules grant or deny access to your Azure Synapse workspace based on 
 There are two ways IP firewall rules are added to an Azure Synapse workspace. To add an IP firewall to your workspace, select **Networking** and check **Allow connections from all IP addresses** during workspace creation.
 
 > [!Important]
-> This feature is only available to Azure Synapse workspaces not associated with a Managed VNet.
+> This feature is only available to Azure Synapse workspaces not associated with a Managed Virtual Network.
 
 :::image type="content" source="./media/synpase-workspace-ip-firewall/azure-synapse-workspace-networking-connections-all-ip-addresses.png" lightbox="./media/synpase-workspace-ip-firewall/azure-synapse-workspace-networking-connections-all-ip-addresses.png" alt-text="Screenshot that highlights the Security tab, and the 'Allow connections from all IP addresses' checkbox.":::
 
 You can also add IP firewall rules to a Synapse workspace after the workspace is created. Select **Firewalls** under **Security** from Azure portal. To add a new IP firewall rule, give it a name, Start IP, and End IP. Select **Save** when done.
 
 > [!NOTE]
-> The Public network access feature is only available to Azure Synapse workspaces associated with Azure Synapse Analytics Managed Virtual Network. However, you can still open your Azure Synapse workspaces to the public network regardless of its association with managed VNet. For more information, see [Public network access](connectivity-settings.md#public-network-access).
+> The Public network access feature is only available to Azure Synapse workspaces associated with Azure Synapse Analytics Managed Virtual Network. However, you can still open your Azure Synapse workspaces to the public network regardless of its association with managed virtual network. For more information, see [Public network access](connectivity-settings.md#public-network-access).
 
 :::image type="content" source="./media/synpase-workspace-ip-firewall/azure-synapse-workspace-networking-firewalls-add-client-ip.png" lightbox="./media/synpase-workspace-ip-firewall/azure-synapse-workspace-networking-firewalls-add-client-ip.png" alt-text="Screenshot of the Networking page of a Synapse Workspace, highlighting the Add client IP button and rules fields.":::
 
@@ -55,7 +55,7 @@ For more information on the methods to manage the firewall programmatically, see
 - [PowerShell](/powershell/module/az.synapse/new-azsynapsefirewallrule)
 - [Azure CLI](/cli/azure/sql/server/firewall-rule)
 
-## Next steps
+## Related content
 
 - Create an [Azure Synapse Workspace](../quickstart-create-workspace.md)
 - Create an Azure Synapse workspace with a [Managed workspace Virtual Network](./synapse-workspace-managed-vnet.md)

@@ -22,7 +22,7 @@ sections:
 
       - question: What are the known limits of Azure NAT Gateway?
         answer: |
-          See [Azure NAT Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md#nat-gateway-limits). 
+          See [Azure NAT Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-nat-gateway-limits). 
 
       - question: How many NAT gateway resources are allowed per subscription?
         answer: | 

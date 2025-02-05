@@ -6,7 +6,7 @@ ms.reviewer: sgautam
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 11/05/2024
+ms.date: 01/22/2025
 ms.author: banders
 # customer intent: As a billing administrator, I want to learn about transferring subscriptions so that I can transfer one.
 ---

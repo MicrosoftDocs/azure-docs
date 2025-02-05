@@ -1431,5 +1431,5 @@ items:
   - name: Request quota increases from support
     href: quota-increase.md
   - name: Limits
-    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-data-factory-limits
 
