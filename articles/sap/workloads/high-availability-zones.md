@@ -117,9 +117,6 @@ The following considerations apply for this configuration:
 - To achieve run time consistency for critical business processes, you can try directing certain batch jobs and users to application instances that are in-zone with the active database instance by using SAP batch server groups, SAP logon groups, or RFC groups. However, in zonal failover process, you would need to manually move these groups to instances running on VMs that are in-zone with the active DB VM.  
 - You might want to deploy dormant dialog instances in each of the zones. 
 
-> [!IMPORTANT]
-> In this active/active scenario charges for cross zone traffic apply. Check the document [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/). The data transfer between the SAP application layer and SAP database layer is quite intensive. Therefore the active/active scenario can contribute to costs.
-
 ## Active/Passive deployment
 
 If you can't find a configuration that mitigates the potential delta in runtime of SAP business processes or if you want to deploy a short distance disaster recovery configuration, you can deploy an architecture that has an active/passive character from the SAP application layer point of view. You define an *active* zone, which is the zone where you deploy the complete application layer and where you attempt to run both the active database instance and the SAP Central Services instance. With such a configuration, you need to make sure you don't have extreme run time variations, depending on whether a job runs in-zone with the active database instance or not, in business transactions and batch jobs.
