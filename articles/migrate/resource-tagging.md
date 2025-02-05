@@ -1,15 +1,16 @@
 ---
-title: Resource tagging
-description: Learn how to tag resources to manage their migration journey using Azure Migrate.
+title: Tagging in Azure Migrate
+description: Learn how to tag resources with relevant attributes.
 author: ankitsurkar06
 ms.author: ankitsurkar
+ms.topic: how-to
 ms.service: azure-migrate
-ms.topic: conceptual
-ms.date: 11/05/2024
-monikerRange: migrate
+ms.date: 11/14/2024
 ---
 
 # Tagging in Azure Migrate
+
+## Overview
 
 In any cloud transformation journey, a comprehensive current-state analysis of the IT landscape—including infrastructure, workloads, applications, and dependencies—is essential. Azure Migrate's new tagging feature enhances this analysis by enabling customers to group and visualize related resources based on specific properties. Tags, such as environment, department, or criticality, allow customers to create meaningful groupings known as **tags** to manage resources throughout their migration journey and beyond.
 
@@ -35,21 +36,13 @@ In any cloud transformation journey, a comprehensive current-state analysis of t
 
 1.	Select the workload(s) that you intend to tag from the inventory.
 
-   ![Screenshot of workloads.](./media/resource-tagging/workloads.png)
-
 2.	Select **Tags** > **Add and edit tags**.
-    
-    ![Screenshot of Add tags screen.](./media/resource-tagging/add-tags.png)
 
 3.	Assign a tag by adding the key and value details.
-
-    ![Screenshot of Manage tags screen.](./media/resource-tagging/manage-tags.png)
 
 ## View tags 
 
 Choose the workload for which you wish to view the tags assigned.
-
-![Screenshot of choose workloads screen.](./media/resource-tagging/choose-workload.png)
 
 ## Filter using tags
 
@@ -61,12 +54,8 @@ Choose the workload for which you wish to view the tags assigned.
 
 ## Import tags
 
-1.	Select **Tags > Import tags**.
-    
-    ![Screenshot of Import tags.](./media/resource-tagging/import-tags.png)
+1.	Select **Tags > Import tags**
 
 2.	Choose the file with the tags that you want to import.
-    
-    ![Screenshot of Import file screen.](./media/resource-tagging/import-file.png)
 
 
