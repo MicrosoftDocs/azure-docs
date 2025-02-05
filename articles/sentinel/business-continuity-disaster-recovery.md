@@ -69,9 +69,9 @@ For more information, see [Geographical availability and data residency in Micro
 
 The following geographical regions aren't currently supported for the customer-enabled BCDR approach described in this article:
 
-- EU customers due to EUDB compliance limitations.
-- Israel.
-- Azure China 21Vianet.
+- EU customers, due to EUDB compliance limitations
+- Israel
+- Azure China 21Vianet
 
 ## Related content
 
