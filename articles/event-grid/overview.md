@@ -66,7 +66,7 @@ For more information, see the following articles:
 ## Event messaging (HTTP)
 Event Grid supports push and pull event delivery using HTTP. With **push delivery**, you define a destination in an event subscription, a webhook, or an Azure service, to which Event Grid sends events. With **pull delivery**, subscriber applications connect to Event Grid to consume events. Pull delivery is supported for topics in an Event Grid namespace. 
 
-:::image type="content" source="./media/differences-between-consumption-modes/push-pull-delivery-mechanism.png" alt-text="High-level diagram showing push delivery and pull delivery with the kind of resources involved." lightbox="media/differences-between-consumption-modes/push-pull-delivery-mechanism.png" border="false":::
+:::image type="content" source="./includes/media/differences-between-consumption-modes/push-pull-delivery-mechanism.png" alt-text="High-level diagram showing push delivery and pull delivery with the kind of resources involved." lightbox="./includes/media/differences-between-consumption-modes/push-pull-delivery-mechanism.png" border="false":::
 
 ### When to use push delivery vs. pull delivery
 
@@ -76,7 +76,7 @@ The following are general guidelines to help you decide when to use pull or push
 
 - You need full control as to when to receive events. For example, your application might not be up all the time, not stable enough, or you process data at certain times.
 - You need full control over event consumption. For example, a downstream service or layer in your consumer application has a problem that prevents you from processing events. In that case, the pull delivery API allows the consumer app to release an already read event back to the broker so that it can be delivered later.
-- You want to use [private links](../../private-link/private-endpoint-overview.md) when receiving events, which is possible only with the pull delivery, not the push delivery.
+- You want to use [private links](../private-link/private-endpoint-overview.md) when receiving events, which is possible only with the pull delivery, not the push delivery.
 - You don't have the ability to expose an endpoint and use push delivery, but you can connect to Event Grid to consume events.
 
 #### Push delivery
