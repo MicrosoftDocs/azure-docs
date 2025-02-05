@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 01/24/2025
+ms.date: 02/05/2025
 ms.author: cshoe
 ---
 
@@ -29,11 +29,11 @@ If your application requires any capability outside these parameters, then run y
 
 ### Does the consumption plan work the same way in a Workload profiles (v2) environment vs. a Consumption-only (v1) environment?
 
-No. There are some distinctions between how the consumption plan operates among the workload profiles and consumption-only plans. Some networking features are different in a workload profiles environment. For instance, user defined routes (UDR) are only available in a workload profiles environment, and subnet sizes differ, and IP addresses are assigned differently depending on the environment type.
+Yes, but there are some distinctions between how the consumption plan operates among the workload profiles and consumption-only plans. Some networking features are different in a workload profiles environment. For instance, user defined routes (UDR) are only available in a workload profiles environment, and subnet sizes differ, and IP addresses are assigned differently depending on the environment type.
 
 ### I need consumption pricing. Should I use a Consumption-only (v1) environment, or a Workload profiles (v2) environment with the consumption profile?
 
-If you need the features of a consumption model, and you're creating a new Azure Container Apps environment, use the Workload profiles (v2) environment with the consumption profile. Using this approach gives you the flexibility to add dedicated resources to your environment should you need them in the future.
+If you need the features of a consumption model, and you're creating a new Azure Container Apps environment, use the *Workload profiles (v2)* environment with the consumption profile. Using this approach gives you the flexibility to add dedicated resources to your environment should you need them in the future.
 
 ## Related content
 
