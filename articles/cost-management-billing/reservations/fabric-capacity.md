@@ -15,7 +15,7 @@ ms.custom: ignite-2023
 
 You can save money with Fabric capacity reservation by committing to a reservation for your Fabric capacity usage for a duration of one year. This article explains how you can save money with Fabric capacity reservations.
 
-To purchase a Fabric capacity reservation, you choose an Azure region, billing frequency, the quantity of capacity units (CUs) that you want to purchase. Then you add the Fabric capacity reservation to your cart.
+To purchase a Fabric capacity reservation, you choose an Azure region, billing frequency, and the quantity of capacity units (CUs) that you want to purchase. Then you add the Fabric capacity reservation to your cart.
 
 When you purchase a reservation, the Fabric capacity usage that matches the reservation attributes is no longer charged at the pay-as-you-go rates.
 
