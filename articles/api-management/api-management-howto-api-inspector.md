@@ -95,8 +95,8 @@ Detailed steps follow.
 
     ```json
     {
-        "credentialsExpireAfter": PT1H,
-        "apiId": ""/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}",
+        "credentialsExpireAfter": "PT1H",
+        "apiId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}",
         "purposes": ["tracing"]
     }
     ```
