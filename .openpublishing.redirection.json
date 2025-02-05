@@ -1046,6 +1046,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/operator-call-protection/index.yml",
+      "redirect_url": "https://learn.microsoft.com",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/operator-5g-core/index.yml",
       "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
@@ -5182,6 +5187,11 @@
     {
       "source_path_from_root": "/articles/virtual-wan/high-availability-vpn-client.md",
       "redirect_url": "/azure/virtual-wan/global-hub-profile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-wan/howto-openvpn-clients.md",
+      "redirect_url": "/azure/virtual-wan/point-to-site-vpn-client-certificate-windows-openvpn-client-version-3",
       "redirect_document_id": false
     },
     {
