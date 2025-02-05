@@ -43,9 +43,9 @@ Azure Communication Services creates six types of call logs:
 
 [Call Summary Log Schema](call-summary-log-schema.md)
 
-- **Call Diagnostic Logs**: Contain information about the stream, along with a set of metrics that indicate quality of experience measurements. For each `EndpointId` within a call (including the server), Azure Communication Services creates a distinct call diagnostic log for each media stream (audio or video, for example) between endpoints.
+- **Call Diagnostics Logs**: Contain information about the stream, along with a set of metrics that indicate quality of experience measurements. For each `EndpointId` within a call (including the server), Azure Communication Services creates a distinct call diagnostics log for each media stream (audio or video, for example) between endpoints.
 
-To learn more see: [Call Diagnostic Log Schema](call-diagnostics-log-schema.md)
+To learn more see: [Call Diagnostics Log Schema](call-diagnostics-log-schema.md)
 
 - **Call Client Operations Logs**: Contain detailed call client events. These log events are generated for each `EndpointId` in a call and the number of event logs generated depends on the operations the participant performed during the call. 
 
@@ -111,7 +111,7 @@ There are two types of calls, as represented by `callType`:
 
 ### Example: P2P call
 
-The following diagram represents two endpoints connected directly in a P2P call. In this example, Communication Services creates two call summary logs (one for each `participantID` value) and four call diagnostic logs (one for each media stream). 
+The following diagram represents two endpoints connected directly in a P2P call. In this example, Communication Services creates two call summary logs (one for each `participantID` value) and four call diagnostics logs (one for each media stream). 
 
 For Azure Communication Services call client participants, there are also a series of call client operations logs and call client media statistics time series logs. The exact number of these logs depend on what kind of SDK operations are called and call duration. 
 
@@ -119,7 +119,7 @@ For Azure Communication Services call client participants, there are also a seri
 
 ### Example: Group call
 
-The following diagram represents a group call example with three `participantId` values (which means three participants) and a server endpoint. Multiple values for `endpointId` can potentially appear in multiple participants--for example, when they rejoin a call from the same device. Communication Services creates one call summary log for each `participantId` value. It creates four call diagnostic logs: one for each media stream per `participantId`. 
+The following diagram represents a group call example with three `participantId` values (which means three participants) and a server endpoint. Multiple values for `endpointId` can potentially appear in multiple participants--for example, when they rejoin a call from the same device. Communication Services creates one call summary log for each `participantId` value. It creates four call diagnostics logs: one for each media stream per `participantId`. 
 
 For Azure Communication Services call client participants, the call client operations logs are the same as P2P calls. For each participant using calling SDK, there are a series of call client operations logs. 
 
@@ -129,18 +129,18 @@ For Azure Communication Services call client participants, the call client opera
 
 ### Example: Cross-tenant P2P call 
 
-The following diagram represents two participants across multiple tenants that are connected directly in a P2P call. In this example, Communication Services creates one call summary log (one for each participant) with redacted OS and SDK versions. Communication Services also creates four call diagnostic logs (one for each media stream). Each log contains data that relates to the outbound stream of `participantID`.
+The following diagram represents two participants across multiple tenants that are connected directly in a P2P call. In this example, Communication Services creates one call summary log (one for each participant) with redacted OS and SDK versions. Communication Services also creates four call diagnostics logs (one for each media stream). Each log contains data that relates to the outbound stream of `participantID`.
 
 :::image type="content" source="../media/call-logs-azure-monitor/example-3-p2p-call-cross-tenant.png" alt-text="Diagram showing a cross-tenant P2P call.":::
 
 ### Example: Cross-tenant group call 
 
-The following diagram represents a group call example with three `participantId` values across multiple tenants. Communication Services creates one call summary log for each participant with redacted OS and SDK versions. Communication Services also creates four call diagnostic logs that relate to each `participantId` value (one for each media stream).
+The following diagram represents a group call example with three `participantId` values across multiple tenants. Communication Services creates one call summary log for each participant with redacted OS and SDK versions. Communication Services also creates four call diagnostics logs that relate to each `participantId` value (one for each media stream).
 
 :::image type="content" source="../media/call-logs-azure-monitor/example-4-group-call-cross-tenant.png" alt-text="Diagram showing a cross-tenant group call.":::
 
 > [!NOTE]
-> This release supports only outbound diagnostic logs.
+> This release supports only outbound diagnostics logs.
 > OS and SDK versions associated with the bot and the participant can be redacted because Communication Services treats identities of participants and bots the same way.
 
 

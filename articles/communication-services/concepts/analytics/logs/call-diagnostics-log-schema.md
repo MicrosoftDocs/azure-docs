@@ -1,7 +1,7 @@
 ---
-title: Azure Communication Services Call Diagnostic Log Schema
+title: Azure Communication Services Call Diagnostics Log Schema
 titleSuffix: An Azure Communication Services concept article
-description: Learn about the Voice and Video Call Diagnostic Logs.
+description: Learn about the Voice and Video Call Diagnostics Logs.
 author:  amagginetti
 services: azure-communication-services
 
@@ -12,20 +12,23 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-# Call Diagnostic Log Schema
+# Call Diagnostics Log Schema
 
 
-Call diagnostic logs provide important information about the endpoints and the media transfers for each participant. They also provide measurements that help you understand quality problems.
+Call diagnostics logs provide important information about the endpoints and the media transfers for each participant. They also provide measurements that help you understand quality problems.
 
-For each endpoint within a call, a distinct call diagnostic log is created for outbound media streams (audio or video, for example) between endpoints. In a P2P call, each log contains data that relates to each of the outbound streams associated with each endpoint. In group calls, `participantId` serves as a key identifier to join the related outbound logs into a distinct participant connection. Call diagnostic logs remain intact and are the same regardless of the participant tenant.
+For each endpoint within a call, a distinct call diagnostics log is created for outbound media streams (audio or video, for example) between endpoints. In a P2P call, each log contains data that relates to each of the outbound streams associated with each endpoint. In group calls, `participantId` serves as a key identifier to join the related outbound logs into a distinct participant connection. Call diagnostics logs remain intact and are the same regardless of the participant tenant.
 
+## Data Concepts
 
 > [!IMPORTANT]
 >You must collect logs if you want to analyze them. To learn more see: **[How do I store logs?](#how-do-i-store-logs)**
 >
 >Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data is not retroactively available. You accumulate data once you set up the Diagnostic Settings.
 
-## Log structure
+## Data Definitions
+
+### Call diagnostics log schema
 
 The table below describes each property.
 
@@ -77,9 +80,9 @@ Here are shared fields for all logs in a P2P call:
 "correlationId":            "aaaa0000-bb11-2222-33cc-444444dddddd",
 ```
 
-#### Call diagnostic logs 
+#### Call diagnostics logs 
 
-Call diagnostic logs share operation information:
+Call diagnostics logs share operation information:
 
 ```json
 "operationName":            "CallDiagnostics",
@@ -87,7 +90,7 @@ Call diagnostic logs share operation information:
 "category":                 "CallDiagnostics",
 ```
 
-Here's a diagnostic log for an audio stream from VoIP endpoint 1 to VoIP endpoint 2:
+Here's a diagnostics log for an audio stream from VoIP endpoint 1 to VoIP endpoint 2:
 
 ```json
 "properties": {
@@ -107,7 +110,7 @@ Here's a diagnostic log for an audio stream from VoIP endpoint 1 to VoIP endpoin
 }
 ```
 
-Here's a diagnostic log for an audio stream from VoIP endpoint 2 to VoIP endpoint 1:
+Here's a diagnostics log for an audio stream from VoIP endpoint 2 to VoIP endpoint 1:
 
 ```json
 "properties": {
@@ -127,7 +130,7 @@ Here's a diagnostic log for an audio stream from VoIP endpoint 2 to VoIP endpoin
 }
 ```
 
-Here's a diagnostic log for a video stream from VoIP endpoint 1 to VoIP endpoint 2:
+Here's a diagnostics log for a video stream from VoIP endpoint 1 to VoIP endpoint 2:
 
 ```json
 "properties": {
@@ -149,7 +152,7 @@ Here's a diagnostic log for a video stream from VoIP endpoint 1 to VoIP endpoint
 
 ### Group call
 
-Data for a group call is generated in three call summary logs and six call diagnostic logs. Here are shared fields for all logs in the call:
+Data for a group call is generated in three call summary logs and six call diagnostics logs. Here are shared fields for all logs in the call:
 
 ```json
 "time":                     "2021-07-05T06:30:06.402Z",
@@ -159,9 +162,9 @@ Data for a group call is generated in three call summary logs and six call diagn
 
 
 
-#### Call diagnostic logs
+#### Call diagnostics logs
 
-Call diagnostic logs share operation information:
+Call diagnostics logs share operation information:
 
 ```json
 "operationName":            "CallDiagnostics",
@@ -169,7 +172,7 @@ Call diagnostic logs share operation information:
 "category":                 "CallDiagnostics",
 ```
 
-Here's a diagnostic log for an audio stream from VoIP endpoint 1 to a server endpoint:
+Here's a diagnostics log for an audio stream from VoIP endpoint 1 to a server endpoint:
 
 ```json
 "properties": {
@@ -189,7 +192,7 @@ Here's a diagnostic log for an audio stream from VoIP endpoint 1 to a server end
 }
 ```
 
-Here's a diagnostic log for an audio stream from a server endpoint to VoIP endpoint 1:
+Here's a diagnostics log for an audio stream from a server endpoint to VoIP endpoint 1:
 
 ```json
 "properties": {
@@ -209,7 +212,7 @@ Here's a diagnostic log for an audio stream from a server endpoint to VoIP endpo
 }
 ```
 
-Here's a diagnostic log for an audio stream from VoIP endpoint 3 to a server endpoint:
+Here's a diagnostics log for an audio stream from VoIP endpoint 3 to a server endpoint:
 
 ```json
 "properties": {
@@ -229,7 +232,7 @@ Here's a diagnostic log for an audio stream from VoIP endpoint 3 to a server end
 }
 ```
 
-Here's a diagnostic log for an audio stream from a server endpoint to VoIP endpoint 3:
+Here's a diagnostics log for an audio stream from a server endpoint to VoIP endpoint 3:
 
 ```json
 "properties": {

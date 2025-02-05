@@ -49,6 +49,7 @@ In addition to the above, the optional tags in the responses offer further insig
 
 By analyzing the data captured in the End of Call Survey logs, you can pinpoint areas that require improvement, thereby enhancing the overall user experience. 
 
+
 ## Resource log categories
 
 Communication Services offers the following types of logs that you can enable:

@@ -17,13 +17,17 @@ ms.subservice: calling
 The call summary log contains data to help you identify key properties of all calls. A different call summary log is created for each `participantId` (or `endpointId` for peer-to-peer [P2P] calls) value in the call.
 
 
+## Data Concepts
+
 > [!IMPORTANT]
 >You must collect logs if you want to analyze them. To learn more see: **[How do I store logs?](#how-do-i-store-logs)**
 >
 >Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data is not retroactively available. You accumulate data once you set up the Diagnostic Settings.
 
 
-## Log Structure
+## Data Definitions
+
+### Call summary log schema
 
 > [!IMPORTANT]
 > Participant information in the call summary log varies based on the participant tenant. The SDK version and OS version are redacted if the participant is not within the same tenant (also called *cross-tenant*) as the Communication Services resource. Cross-tenant participants are classified as external users invited by a resource tenant to join and collaborate during a call.
@@ -172,7 +176,7 @@ Here's a call summary for a PSTN call:
 ```
 ### Group calls 
 
-Data for a group call is generated in three call summary logs and six call diagnostic logs. Here are shared fields for all logs in the call:
+Data for a group call is generated in three call summary logs and six call diagnostics logs. Here are shared fields for all logs in the call:
 
 ```json
 "time":                     "2021-07-05T06:30:06.402Z",

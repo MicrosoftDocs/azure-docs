@@ -15,12 +15,16 @@ ms.subservice: calling
 # Usage Log Schema
 The usage log schema is used to.....
 
+## Data Concepts
+
 > [!IMPORTANT]
 >You must collect logs if you want to analyze them. To learn more see: **[How do I store logs?](#how-do-i-store-logs)**
 >
 >Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data is not retroactively available. You accumulate data once you set up the Diagnostic Settings.
 
-## Log structure
+## Data Definitions
+
+### Usage log schema
 
 The table below describes each property.
 

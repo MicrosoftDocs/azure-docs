@@ -14,16 +14,21 @@ ms.subservice: calling
 
 # Call Client Operations Log Schema
 
+
 The **call client operations** log provides client-side information about the calling endpoints and participants involved in a call. These logs are currently in preview and show client events that occurred in a call and which actions a customer takes during a call.  
 
 This log provides detailed information on actions taken during a call and can be used to visualize and investigate call issues by using Call Diagnostics for your Azure Communication Services Resource. [Learn more about Call Diagnostics](../../voice-video-calling/call-diagnostics.md)
+
+## Data Concepts
 
 > [!IMPORTANT]
 >You must collect logs if you want to analyze them. To learn more see: **[How do I store logs?](#how-do-i-store-logs)**
 >
 >Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data is not retroactively available. You accumulate data once you set up the Diagnostic Settings.
 
-## Log structure
+## Data Definitions
+
+### Call client operations log schema
 
 The table below describes each property.
 
@@ -32,7 +37,7 @@ The table below describes each property.
 |--- |--- |
 |     `CallClientTimeStamp`         |     The timestamp for when on operation occurred on the SDK in UTC.   |
 |     `OperationName`         |    The name of the operation triggered on the calling SDK.   |
-|     `CallId`    |              The unique ID for a call. It identifies correlated events from all of the participants and endpoints that connect during a single call, and you can use it to join data from different logs. It's similar to the correlationId in call summary log and call diagnostic log.               |
+|     `CallId`    |              The unique ID for a call. It identifies correlated events from all of the participants and endpoints that connect during a single call, and you can use it to join data from different logs. It's similar to the correlationId in call summary log and call diagnostics log.               |
 |     `ParticipantId`    |            The unique identifier for each call leg (in Group calls) or call participant (in Peer to Peer calls). This ID is the main correlation point between CallSummary, CallDiagnostic, CallClientOperations, and CallClientMediaStats logs.             |
 |     `OperationType`    |              Call Client Operation.               |
 |     `OperationId`    |             A unique GGUID identifying an SDK operation.                 |

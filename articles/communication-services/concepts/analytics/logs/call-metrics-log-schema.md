@@ -12,13 +12,16 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-This document is intended as a reference for the ACSCallingMetrics logs. Use these logs to gain a clearer understanding of daily aggregated calling metrics across various dimensions for your communication workloads.
 
 # Call Metrics Log Schema
 
-This log contains aggregated calling metrics in daily bins based on attributes such as SDK Version, OS name, and Error Subcode. These logs are used in the **[Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)** to visualize long term graphs of reliability, quality, and performance based on count of succeeded and failed Calling SDK api calls of various operations. You can also set up automated alerts when a metric falls. **ankesh please explain how to do alerts**
+This document explains the ACSCallingMetrics logs available to you through Azure Monitor in the form of [Resource Logs](/azure/azure-monitor/data-sources.md#azure-resources). 
 
-EXPLAIN METRICS CONCEPTUALLY
+Call Metrics logs are used in the **[Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)** to visualize long term graphs of reliability, quality, and performance based on count of succeeded and failed Calling SDK api calls of various operations. Use these logs to gain a clearer understanding of daily aggregated calling metrics across various dimensions for your communication workloads. You can also set up automated alerts when a metric falls. **ankesh please explain how to do alerts**
+
+Call Metrics logs contain aggregated calling metrics in daily bins based on attributes such as SDK Version, OS name, and Error Subcode.
+
+## Data Concepts
 
 
 
@@ -34,7 +37,9 @@ failure - an api call failing with unexpected error or a complex condition faili
 >
 >Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data is not retroactively available. You accumulate data once you set up the Diagnostic Settings.
 
-## Log structure
+## Data Definitions
+
+### Call metrics log schema
 
 The table below describes each property.
 

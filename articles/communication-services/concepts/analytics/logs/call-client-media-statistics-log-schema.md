@@ -21,18 +21,22 @@ data on the audio, video, and screen share media steams between
 participants with a default 10-seconds aggregation interval. The logs contain granular time series information about media stream type, direction, codec, and bitrate properties (for example, max, min, average).
 
 
-This log provides more detailed information than the Call Diagnostic log
+This log provides more detailed information than the Call Diagnostics log
 to understand the quality of media steams between participants. It can be used to
 visualize and investigate quality issues for your calls through Call
 Diagnostics for your Azure Communication Services Resource. [Learn more about Call Diagnostics](../../voice-video-calling/call-diagnostics.md)
 
+
+## Data Concepts
 
 > [!IMPORTANT]
 >You must collect logs if you want to analyze them. To learn more see: **[How do I store logs?](#how-do-i-store-logs)**
 >
 >Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data is not retroactively available. You accumulate data once you set up the Diagnostic Settings.
 
-## Log structure
+## Data Definitions
+
+### Call client metrics log schema
 
 The table below describes each property.
 
@@ -40,7 +44,7 @@ The table below describes each property.
 | Property | Description |
 |--- |--- |
 | `OperationName` | The operation associated with the log record. |
-| `CallId` | The unique ID for a call. It identifies correlated events from all of the participants and endpoints that connect during a single call, and you can use it to join data from different logs. It's similar to the correlationId in call summary log and call diagnostic log. |
+| `CallId` | The unique ID for a call. It identifies correlated events from all of the participants and endpoints that connect during a single call, and you can use it to join data from different logs. It's similar to the correlationId in call summary log and call diagnostics log. |
 | `CallClientTimeStamp` | The timestamp when the media stats is recorded. |
 | `MetricName` | The name of the media statistics, such as `Bitrate`, `JitterInMs`, `PacketsPerSecond`, and so on.  |
 | `Count`| The number of data points sampled at a given timestamp. |
