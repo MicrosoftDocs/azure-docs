@@ -333,7 +333,7 @@ Application Insights (part of Azure Monitor) enables the same features in both A
 >[!NOTE]
 >Although these addresses are static, it's possible that we'll need to change them from time to time. All Application Insights traffic represents outbound traffic except for availability monitoring and webhooks, which require inbound firewall rules.
 
-To send data to the portal, you need to open the **outgoing port** 443 in your server's firewall for the regional endpoint you're using, which is part of your connection string. To learn more about the endpoint suffix, see [Connection strings in Application Insights](/azure/azure-monitor/app/connection-strings#connection-string-with-an-endpoint-suffix).
+To allow the Application Insights SDK/agent to send data to the Application Insights resource, you need to allow access to the regional endpoint defined in your connection string and open the **outgoing port 443** in your firewall. To learn more about the endpoint suffix, see [Connection strings in Application Insights](/azure/azure-monitor/app/connection-strings#connection-string-with-an-endpoint-suffix).
 
 ### [Cost Management and Billing](../cost-management-billing/index.yml)
 
