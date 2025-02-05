@@ -90,8 +90,8 @@ Maximum instances are given on a per-function app (Consumption) or per-plan (Pre
 | **[Flex Consumption plan]** | Supports [always ready instances](./flex-consumption-plan.md#always-ready-instances) to reduce the delay when provisioning new instances. |
 | **[Premium plan]** | Supports [always ready instances](./functions-premium-plan.md#always-ready-instances) to avoid cold starts by letting you maintain one or more _perpetually warm_ instances. |
 | **[Dedicated plan]** | When running in a Dedicated plan, the Functions host can run continuously on a prescribed number of instances, which means that cold start isn't really an issue. |
-| **[Container Apps]** | Depends on the [minimum number of replicas](../container-apps/scale-app.md#scale-definition):<br/> • When set to zero: apps can scale to zero when idle and some requests might have more latency at startup.<br/>• When set to one or more: the host process runs continuously, which means that cold start isn't an issue.  | 
-| **[Consumption plan]** | Apps can scale to zero when idle, meaning some requests might have more latency at startup. The consumption plan does have some optimizations to help decrease cold start time, including pulling from prewarmed placeholder functions that already have the host and language processes running. |
+| **[Container Apps]** | Depends on the [minimum number of replicas](../container-apps/scale-app.md#scale-definition):<br/> • When set to zero: apps can scale to zero when idle and some requests might have more latencies at startup.<br/>• When set to one or more: the host process runs continuously, which means that cold start isn't an issue.  | 
+| **[Consumption plan]** | Apps can scale to zero when idle, meaning some requests might have more latencies at startup. The consumption plan does have some optimizations to help decrease cold start time, including pulling from prewarmed placeholder functions that already have the host and language processes running. |
 
 ## Service limits
 
