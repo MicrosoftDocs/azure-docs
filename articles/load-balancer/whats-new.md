@@ -45,6 +45,14 @@ You can also find the latest Azure Load Balancer updates and subscribe to the RS
 | Feature| IPv6 support for Azure Load Balancer (generally available) | You can have IPv6 addresses as your frontend for your Azure Load Balancers. Learn how to [create a dual stack application here](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) |April 2020|
 | Feature| TCP Resets on Idle Timeout (generally available)| Use TCP resets to create a more predictable application behavior. [Learn more](load-balancer-tcp-reset.md)| February 2020 |
 
+## Retirements
+
+| Name |Description  | Retirement Date  |
+|---------|---------|---------|
+| [Azure Load Balancer numberOfProbes property](https://azure.microsoft.com/updates/?id=end-of-support-announcement-for-azure-load-balancer-numberofprobes-property-on-1-september-2027) | Support for [Azure Load Balancer numberOfProbes property](https://aka.ms/VersionHowTo) ends on September 1, 2027. To avoid service disruption, upgrade your apps to API version 2022-05-01 or higher and start using Azure Load Balancer probeThreshold property. We will not be supporting the property numberOfProbes after September 1, 2027. | September 2027 |
+| [Inbound NAT rule V1 for Azure Virtual Machines and Azure Virtual Machine Scale Sets](https://azure.microsoft.com/updates/?id=retirement-notice-azure-load-balancer-inbound-nat-rule-v1-for-azure-vms-and-azure-vmss-will-be-retired) | On September 30, 2027, Inbound NAT rule V1 for Azure Virtual Machines and Azure Virtual Machine Scale Sets in Azure Load Balancer will be retired. To avoid service disruptions, you’ll need to [migrate](https://go.microsoft.com/fwlink/?linkid=2286671) to Inbound NAT rule V2 by that date. | September 2027 |
+| [Azure Basic Load Balancer](https://azure.microsoft.com/updates/?id=azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer) | On 30 September 2025, Azure Basic Load Balancer will be [retired](https://aka.ms/lbbasictostandard). You can continue to use your existing Basic Load Balancers until then, but you'll no longer be able to deploy new ones after 31 March 2025. | September 2025 |
+
 ## Known issues
 
 The product group is actively working on resolutions for the following known issues:

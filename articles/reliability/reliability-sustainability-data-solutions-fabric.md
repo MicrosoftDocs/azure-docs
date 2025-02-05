@@ -22,7 +22,7 @@ The reliability guidance for most of these capabilities are covered by the [Micr
 
 ## Transient faults
 
-[!INCLUDE[introduction to transient faults](includes/reliability-transient-faults-description-include.md)]
+[!INCLUDE[introduction to transient faults](includes/reliability-transient-fault-description-include.md)]
 
 If a transient fault occurs during ingestion of emissions data, you must manually trigger the job again. You can monitor the ingestion job from the Microsoft Fabric monitoring hub.
 

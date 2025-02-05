@@ -8,18 +8,14 @@
       href: front-door-overview.md
     - name: What is Azure Front Door (classic)?
       href: classic-overview.md
-    - name: Choosing the right load balancer
-      href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=/azure/frontdoor/standard-premium/toc.json
-  - name: CDN
-    items:
     - name: What is Azure Content Delivery Network (Azure CDN)?
       href: ../cdn/cdn-overview.md?toc=/azure/frontdoor/TOC.json
-    - name: Compare product features
-      href: ../cdn/cdn-features.md?toc=/azure/frontdoor/TOC.json
   - name: Front Door and CDN comparison
     href: front-door-cdn-comparison.md
   - name: Well-Architected review of Front Door
     href: /azure/well-architected/service-guides/azure-front-door
+  - name: Choosing the right load balancer
+  href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=/azure/frontdoor/standard-premium/toc.json
 - name: Quickstarts
   items:
   - name: Front Door
@@ -162,8 +158,6 @@
         href: billing.md
       - name: Price comparison between tiers
         href: understanding-pricing.md
-      - name: Logs and metrics
-        href: front-door-diagnostics.md?pivots=front-door-standard-premium
       - name: Best practices
         href: best-practices.md
       - name: Scenarios
@@ -332,8 +326,6 @@
         items:
         - name: Configure diagnostic logs
           href: standard-premium/how-to-logs.md
-        - name: Access metrics and create alerts
-          href: standard-premium/how-to-monitor-metrics.md
         - name: View Front Door reports
           href: standard-premium/how-to-reports.md
       - name: Integrations
@@ -370,8 +362,6 @@
         href: front-door-tutorial-rules-engine.md
       - name: Configure HTTP to HTTPS redirect
         href: front-door-how-to-redirect-https.md
-      - name: Configure classic diagnostics
-        href: front-door-diagnostics.md
     - name: Secure with Web Application Firewall
       items:
       - name: Configure a security policy
@@ -382,6 +372,12 @@
         href: ../web-application-firewall/afds/waf-front-door-rate-limit-configure.md?toc=%2fazure%2ffrontdoor%2ftoc.json
       - name: Configure IP restriction
         href: ../web-application-firewall/afds/waf-front-door-configure-ip-restriction.md?toc=/azure/frontdoor/toc.json
+    - name: Monitor
+      items:
+      - name: Monitor Front Door
+        href: monitor-front-door.md    
+      - name: Front Door monitoring data reference
+        href: monitor-front-door-reference.md 
     - name: Troubleshoot
       items:
       - name: Troubleshooting with RefString
@@ -427,8 +423,6 @@
           href: ../cdn/cdn-standard-rules-engine.md?toc=/azure/frontdoor/TOC.json
         - name: Control caching behavior
           items:
-          - name: Cache content by query strings
-            href: ../cdn/cdn-query-string.md?toc=/azure/frontdoor/TOC.json
           - name: Purge cached assets
             href: ../cdn/cdn-purge-endpoint.md?toc=/azure/frontdoor/TOC.json
         - name: Shared access signature storage support
@@ -452,14 +446,12 @@
           href: ../cdn/cdn-app-dev-net.md?toc=/azure/frontdoor/TOC.json
         - name: Node.js
           href: ../cdn/cdn-app-dev-node.md?toc=/azure/frontdoor/TOC.json
-    - name: Edgio
+    - name: Migrate to Azure Front Door
       items:
-      - name: Migrate to Azure Front Door
-        items:
-        - name: Custom domain
-          href: migrate-cdn-to-front-door.md
-        - name: Retain *.azureedge.net domain
-          href: ../cdn/migrate-cdn-to-front-door-retain-edge-domain.md?toc=/azure/frontdoor/TOC.json
+      - name: Custom domain
+        href: migrate-cdn-to-front-door.md
+      - name: Retain *.azureedge.net domain
+        href: ../cdn/migrate-cdn-to-front-door-retain-edge-domain.md?toc=/azure/frontdoor/TOC.json
     - name: Troubleshoot
       items:
       - name: 404 status
@@ -526,8 +518,6 @@
         items:
         - name: Microsoft (classic)
           href: ../cdn/microsoft-pop-abbreviations.md?toc=/azure/frontdoor/TOC.json
-        - name: Edgio
-          href: ../cdn/cdn-pop-abbreviations.md?toc=/azure/frontdoor/TOC.json
     - name: Standard rules engine
       href: ../cdn/cdn-standard-rules-engine-reference.md?toc=/azure/frontdoor/TOC.json
       items:

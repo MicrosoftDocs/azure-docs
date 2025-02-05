@@ -23,7 +23,7 @@ items:
         href: deploy-iot-ops/howto-deploy-iot-operations.md
       - name: Manage, update, or uninstall
         href: deploy-iot-ops/howto-manage-update-uninstall.md
-      - name: Upgrade or rollback versions
+      - name: Upgrade versions
         href: deploy-iot-ops/howto-upgrade.md
       - name: Enable secure settings
         href: deploy-iot-ops/howto-enable-secure-settings.md

@@ -5,7 +5,7 @@ ms.topic: how-to
 zone_pivot_groups: azure-virtual-desktop-host-pool-management-approaches
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 10/01/2024
+ms.date: 01/28/2025
 ---
 
 # Add session hosts to a host pool
@@ -335,7 +335,7 @@ Select the relevant tab for your scenario and follow the steps.
 
 1. Download the installation files for the Agent and the Agent Boot Loader by using the following links. If you need to unblock them, right-click each file, select **Properties**, select **Unblock**, and finally select **OK**.
 
-   - [Azure Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv)
+   - [Azure Virtual Desktop Agent](https://res.cdn.office.net/s01-remote-desktop-agent/cdafac14-d9c8-43f6-a2c6-62d46ff4e722/Microsoft.RDInfra.RDAgent.Installer-x64-1.0.10004.2100.msi)
    - [Azure Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)
 
    > [!TIP]
@@ -371,7 +371,7 @@ You can use `msiexec` to install the agent and the boot loader from the command 
 
    ```powershell
    $uris = @(
-       "https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv"
+       "https://res.cdn.office.net/s01-remote-desktop-agent/cdafac14-d9c8-43f6-a2c6-62d46ff4e722/Microsoft.RDInfra.RDAgent.Installer-x64-1.0.10004.2100.msi"
        "https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH"
    )
 
