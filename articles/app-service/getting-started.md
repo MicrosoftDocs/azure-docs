@@ -46,7 +46,7 @@ Java SE on App Service allows you to effortlessly deploy your applications to fu
 managed Java Virtual Machine (JVM) instances. You should consider this stack if you 
 have Spring Boot and Quarkus web applications. However, you can use this stack for any 
 application that can be started directly from a JVM and includes an embedded 
-HyperText Transfer Protocol (HTTP) server. You can simply deploy your 
+HyperText Transfer Protocol (HTTP) server. You can deploy your 
 Java archive (JAR) file and let App Service do the rest.
 
 ### Tomcat on App Service
@@ -54,8 +54,8 @@ This App Service stack supports all recent major and minor versions of Tomcat.
 You should consider migrating on-premises Tomcat web applications to App Service using 
 this stack. Such applications often use technologies such as the Spring Framework and 
 Hibernate. The stack is also suitable for applications currently running on servers such 
-as WebLogic or WebSphere that can be easily migrated to Tomcat. You can simply deploy 
-your web application achive (WAR) file and let App Service do the rest.
+as WebLogic or WebSphere that can be easily migrated to Tomcat. You can deploy 
+your web application archive (WAR) file and let App Service do the rest.
 
 ### JBoss EAP on App Service
 You can effortlessly run any JBoss EAP version currently supported by Red Hat on this 
@@ -64,7 +64,7 @@ and Jakarta EE standards. The stack can optionally support any application that 
 JBoss EAP clustering. You should consider migrating applications currently running 
 on-premises on JBoss EAP and WildFly to this stack. The stack is also suitable for 
 applications running on servers such as WebLogic or WebSphere that can be easily migrated 
-to JBoss EAP. You can simply deploy your web application archive (WAR) or 
+to JBoss EAP. You can deploy your web application archive (WAR) or 
 enterprise archive (EAR) file and let App Service do the rest.
 
 Use the following resources to get started with Java.
