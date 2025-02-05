@@ -163,7 +163,7 @@ Before you can configure redirection settings on a client device using Microsoft
    - [Use app-based Conditional Access policies with Intune](/mem/intune/protect/app-based-conditional-access-intune).
    
 > [!IMPORTANT]
-> Intune mobile application management (MAM) functionality isn't currently supported on Android 15 by Remote Desktop or Windows App (preview). MAM runs on older versions of Android. Support for MAM on Android 15 for Windows App (preview) will be supported in an upcoming release.
+> Intune mobile application management (MAM) functionality for Windows App is now supported for Azure operated by 21Vianet (Azure in China) and Azure Government.
 
 ## Create a managed app filter
 
