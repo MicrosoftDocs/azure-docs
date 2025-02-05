@@ -14,12 +14,18 @@ ms.subservice: calling
 
 # Call Diagnostic Log Schema
 
+
 Call diagnostic logs provide important information about the endpoints and the media transfers for each participant. They also provide measurements that help you understand quality problems.
 
 For each endpoint within a call, a distinct call diagnostic log is created for outbound media streams (audio or video, for example) between endpoints. In a P2P call, each log contains data that relates to each of the outbound streams associated with each endpoint. In group calls, `participantId` serves as a key identifier to join the related outbound logs into a distinct participant connection. Call diagnostic logs remain intact and are the same regardless of the participant tenant.
 
-> [!NOTE]
-> In this article, P2P and group calls are within the same tenant, by default, for all call scenarios that are cross-tenant. They're specified accordingly throughout the article.
+
+> [!IMPORTANT]
+>You must collect logs if you want to analyze them. To learn more see: **[How do I store logs?](#how-do-i-store-logs)**
+>
+>Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data is not retroactively available. You accumulate data once you set up the Diagnostic Settings.
+
+## Log structure
 
 | Property | Description |
 |--- |--- |
@@ -53,3 +59,213 @@ For each endpoint within a call, a distinct call diagnostic log is created for o
 | `StreamDirection` | The direction of the media stream. It is either Inbound or Outbound. |
 | `CodecName` | The name of the codec used for processing media streams. It can be OPUS, G722, H264S, SATIN, and so on. |
 
+## Sample data for various call types
+
+> [!NOTE]
+> In this article, P2P and group calls are within the same tenant by default. All call scenarios that are cross-tenant are specified accordingly throughout the article.
+
+### P2P call 
+
+Here are shared fields for all logs in a P2P call:
+
+```json
+"time":                     "2021-07-19T18:46:50.188Z",
+"resourceId":               "SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/ACS-TEST-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-PROD-CCTS-TESTS",
+"correlationId":            "aaaa0000-bb11-2222-33cc-444444dddddd",
+```
+
+#### Call diagnostic logs 
+
+Call diagnostic logs share operation information:
+
+```json
+"operationName":            "CallDiagnostics",
+"operationVersion":         "1.0",
+"category":                 "CallDiagnostics",
+```
+
+Here's a diagnostic log for an audio stream from VoIP endpoint 1 to VoIP endpoint 2:
+
+```json
+"properties": {
+    "identifier":           "acs:61fddbe3-0003-4066-97bc-6aaf143bbb84_0000000b-4fee-66cf-ac00-343a0d003158",
+    "participantId":        "null",
+    "endpointId":           "570ea078-74e9-4430-9c67-464ba1fa5859",
+    "endpointType":         "VoIP",
+    "mediaType":            "Audio",
+    "streamId":             "1000",
+    "transportType":        "UDP",
+    "roundTripTimeAvg":     "82",
+    "roundTripTimeMax":     "88",
+    "jitterAvg":            "1",
+    "jitterMax":            "1",
+    "packetLossRateAvg":    "0",
+    "packetLossRateMax":    "0"
+}
+```
+
+Here's a diagnostic log for an audio stream from VoIP endpoint 2 to VoIP endpoint 1:
+
+```json
+"properties": {
+    "identifier":           "acs:7af14122-9ac7-4b81-80a8-4bf3582b42d0_06f9276d-8efe-4bdd-8c22-ebc5434903f0",
+    "participantId":        "null",
+    "endpointId":           "a5bd82f9-ac38-4f4a-a0fa-bb3467cdcc64",
+    "endpointType":         "VoIP",
+    "mediaType":            "Audio",
+    "streamId":             "1363841599",
+    "transportType":        "UDP",
+    "roundTripTimeAvg":     "78",
+    "roundTripTimeMax":     "84",
+    "jitterAvg":            "1",
+    "jitterMax":            "1",
+    "packetLossRateAvg":    "0",
+    "packetLossRateMax":    "0"
+}
+```
+
+Here's a diagnostic log for a video stream from VoIP endpoint 1 to VoIP endpoint 2:
+
+```json
+"properties": {
+    "identifier":           "acs:61fddbe3-0003-4066-97bc-6aaf143bbb84_0000000b-4fee-66cf-ac00-343a0d003158",
+    "participantId":        "null",
+    "endpointId":           "570ea078-74e9-4430-9c67-464ba1fa5859",
+    "endpointType":         "VoIP",
+    "mediaType":            "Video",
+    "streamId":             "2804",
+    "transportType":        "UDP",
+    "roundTripTimeAvg":     "103",
+    "roundTripTimeMax":     "143",
+    "jitterAvg":            "0",
+    "jitterMax":            "4",
+    "packetLossRateAvg":    "3.146336E-05",
+    "packetLossRateMax":    "0.001769911"
+}
+```
+
+### Group call
+
+Data for a group call is generated in three call summary logs and six call diagnostic logs. Here are shared fields for all logs in the call:
+
+```json
+"time":                     "2021-07-05T06:30:06.402Z",
+"resourceId":               "SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/ACS-TEST-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-PROD-CCTS-TESTS",
+"correlationId":            "bbbb1111-cc22-3333-44dd-555555eeeeee",
+```
+
+
+
+#### Call diagnostic logs
+
+Call diagnostic logs share operation information:
+
+```json
+"operationName":            "CallDiagnostics",
+"operationVersion":         "1.0",
+"category":                 "CallDiagnostics",
+```
+
+Here's a diagnostic log for an audio stream from VoIP endpoint 1 to a server endpoint:
+
+```json
+"properties": {
+    "identifier":           "acs:1797dbb3-f982-47b0-b98e-6a76084454f1_0000000b-1531-729f-ac00-343a0d00d975",
+    "participantId":        "04cc26f5-a86d-481c-b9f9-7a40be4d6fba",
+    "endpointId":           "5ebd55df-ffff-ffff-89e6-4f3f0453b1a6",
+    "endpointType":         "VoIP",
+    "mediaType":            "Audio",
+    "streamId":             "14884",
+    "transportType":        "UDP",
+    "roundTripTimeAvg":     "46",
+    "roundTripTimeMax":     "48",
+    "jitterAvg":            "0",
+    "jitterMax":            "1",
+    "packetLossRateAvg":    "0",
+    "packetLossRateMax":    "0"
+}
+```
+
+Here's a diagnostic log for an audio stream from a server endpoint to VoIP endpoint 1:
+
+```json
+"properties": {
+    "identifier":           null,
+    "participantId":        "04cc26f5-a86d-481c-b9f9-7a40be4d6fba",
+    "endpointId":           null,
+    "endpointType":         "Server",
+    "mediaType":            "Audio",
+    "streamId":             "2001",
+    "transportType":        "UDP",
+    "roundTripTimeAvg":     "42",
+    "roundTripTimeMax":     "44",
+    "jitterAvg":            "1",
+    "jitterMax":            "1",
+    "packetLossRateAvg":    "0",
+    "packetLossRateMax":    "0"
+}
+```
+
+Here's a diagnostic log for an audio stream from VoIP endpoint 3 to a server endpoint:
+
+```json
+"properties": {
+    "identifier":           "acs:1797dbb3-f982-47b0-b98e-6a76084454f1_0000000b-1531-57c6-ac00-343a0d00d972",
+    "participantId":        "1a9cb3d1-7898-4063-b3d2-26c1630ecf03",
+    "endpointId":           "5ebd55df-ffff-ffff-ab89-19ff584890b7",
+    "endpointType":         "VoIP",
+    "mediaType":            "Audio",
+    "streamId":             "13783",
+    "transportType":        "UDP",
+    "roundTripTimeAvg":     "45",
+    "roundTripTimeMax":     "46",
+    "jitterAvg":            "1",
+    "jitterMax":            "2",
+    "packetLossRateAvg":    "0",
+    "packetLossRateMax":    "0"
+}
+```
+
+Here's a diagnostic log for an audio stream from a server endpoint to VoIP endpoint 3:
+
+```json
+"properties": {
+    "identifier":           "null",
+    "participantId":        "1a9cb3d1-7898-4063-b3d2-26c1630ecf03",
+    "endpointId":           null,
+    "endpointType":         "Server"    
+    "mediaType":            "Audio",
+    "streamId":             "1000",
+    "transportType":        "UDP",
+    "roundTripTimeAvg":     "45",
+    "roundTripTimeMax":     "46",
+    "jitterAvg":            "1",
+    "jitterMax":            "4",
+    "packetLossRateAvg":    "0",
+```
+
+## Frequently asked questions
+
+### How do I store logs?
+The following section explains this requirement.
+
+Azure Communication Services logs are not stored in your Azure account by default so you need to begin storing them in order for tools like [Voice and video Insights Dashboard](../insights/voice-and-video-insights.md) and [Call Diagnostics](../../voice-video-calling/call-diagnostics.md) to work. To collect these call logs, you need to enable a diagnostic setting that directs the call data to a Log Analytics workspace. 
+
+**Data isn’t stored retroactively, so you begin capturing call logs only after configuring the diagnostic setting.**
+
+Follow instructions to add diagnostic settings for your resource in [Enable logs via Diagnostic Settings in Azure Monitor](../enable-logging.md). We recommend that you initially **collect all logs**. After you understand the capabilities in Azure Monitor, determine which logs you want to retain and for how long. When you add your diagnostic setting, you're prompted to [select logs](../enable-logging.md#adding-a-diagnostic-setting). To collect **all logs**, select **allLogs**.
+
+Your data volume, retention, and usage in Log Analytics within Azure Monitor is billed through existing Azure data meters. We recommend that you monitor your data usage and retention policies for cost considerations as needed. For more information, see [Controlling costs](/azure/azure-monitor/essentials/diagnostic-settings#controlling-costs).
+
+If you have multiple Azure Communications Services resource IDs, you must enable these settings for each resource ID.  
+
+## Next steps
+
+- Review the overview of all Voice and Video logs, see: [Overview of Azure Communication Services Voice Calling and Video Call logs](voice-and-video-logs.md)
+
+- Learn best practices to manage your call quality and reliability, see: [Improve and manage call quality](../../voice-video-calling/manage-call-quality.md)
+
+- Learn about the [insights dashboard to monitor Voice Calling and Video Calling logs](/azure/communication-services/concepts/analytics/insights/voice-and-video-insights).
+
+- Learn how to use call logs to diagnose call quality and reliability
+  issues with Call Diagnostics, see: [Call Diagnostics](../../voice-video-calling/call-diagnostics.md)

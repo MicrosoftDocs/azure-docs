@@ -18,6 +18,11 @@ Azure Communication Services provides logging capabilities that you can use to m
 
 The content in this article refers to logs enabled through [Azure Monitor](/azure/azure-monitor/overview) (see also [FAQ](/azure/azure-monitor/overview#frequently-asked-questions)). To enable these logs for Communication Services, see [Enable logging in diagnostic settings](../enable-logging.md).
 
+> [!IMPORTANT]
+>You must collect logs if you want to analyze them. To learn more see: **[How do I store logs?](#how-do-i-store-logs)**
+>
+>Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data is not retroactively available. You accumulate data once you set up the Diagnostic Settings.
+
 ## How to use Call Logs
 By collecting call logs in a log analytics resource you can monitor your call usage and improve your call quality. 
 
@@ -50,6 +55,9 @@ Become familiar with the following terms:
 
 
 ### P2P vs. group calls
+
+> [!NOTE]
+> In this article, P2P and group calls are within the same tenant by default. All call scenarios that are cross-tenant are specified accordingly throughout the article.
 
 There are two types of calls, as represented by `callType`:
 
@@ -97,6 +105,9 @@ To learn more see: [Call Metrics Log Schema](call-metrics-log-schema.md)
 
 ## Examples of various call types
 
+> [!NOTE]
+> In this article, P2P and group calls are within the same tenant by default. All call scenarios that are cross-tenant are specified accordingly throughout the article.
+
 ### Example: P2P call
 
 The following diagram represents two endpoints connected directly in a P2P call. In this example, Communication Services creates two call summary logs (one for each `participantID` value) and four call diagnostic logs (one for each media stream). 
@@ -131,106 +142,27 @@ The following diagram represents a group call example with three `participantId`
 > This release supports only outbound diagnostic logs.
 > OS and SDK versions associated with the bot and the participant can be redacted because Communication Services treats identities of participants and bots the same way.
 
-## Sample data for various call types
 
-### P2P call 
+## Frequently asked questions
 
-Here are shared fields for all logs in a P2P call:
+### How do I store logs?
+The following section explains this requirement.
 
-```json
-"time":                     "2021-07-19T18:46:50.188Z",
-"resourceId":               "SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/ACS-TEST-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-PROD-CCTS-TESTS",
-"correlationId":            "aaaa0000-bb11-2222-33cc-444444dddddd",
-```
+Azure Communication Services logs are not stored in your Azure account by default so you need to begin storing them in order for tools like [Voice and video Insights Dashboard](../insights/voice-and-video-insights.md) and [Call Diagnostics](../../voice-video-calling/call-diagnostics.md) to work. To collect these call logs, you need to enable a diagnostic setting that directs the call data to a Log Analytics workspace. 
 
-### Group call
+**Data isn’t stored retroactively, so you begin capturing call logs only after configuring the diagnostic setting.**
 
-Data for a group call is generated in three call summary logs and six call diagnostic logs. Here are shared fields for all logs in the call:
+Follow instructions to add diagnostic settings for your resource in [Enable logs via Diagnostic Settings in Azure Monitor](../enable-logging.md). We recommend that you initially **collect all logs**. After you understand the capabilities in Azure Monitor, determine which logs you want to retain and for how long. When you add your diagnostic setting, you're prompted to [select logs](../enable-logging.md#adding-a-diagnostic-setting). To collect **all logs**, select **allLogs**.
 
-```json
-"time":                     "2021-07-05T06:30:06.402Z",
-"resourceId":               "SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/ACS-TEST-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-PROD-CCTS-TESTS",
-"correlationId":            "bbbb1111-cc22-3333-44dd-555555eeeeee",
-```
+Your data volume, retention, and usage in Log Analytics within Azure Monitor is billed through existing Azure data meters. We recommend that you monitor your data usage and retention policies for cost considerations as needed. For more information, see [Controlling costs](/azure/azure-monitor/essentials/diagnostic-settings#controlling-costs).
 
-
-
-
-### Call client operations log and call client media statistics logs for P2P and group calls
-
-For call client operations log and call client media stats time series log, there's no difference between P2P and group call scenarios and the number of logs depends on the SDK operations and call duration. The following code is a generic sample showing the schema of these logs.
-
-#### Call client operations log
-
-Here's a call client operations log for "CreateView" operation:
-
-```json
-"properties": {
-    "TenantId":               "aaaabbbb-0000-cccc-1111-dddd2222eeee",
-    "TimeGenerated":          "2024-01-09T17:06:50.3Z",
-    "CallClientTimeStamp":    "2024-01-09T15:07:56.066Z",
-    "OperationName":          "CreateView" ,   
-    "CallId":                 "92d800c4-abde-40be-91e9-3814ee786b19",
-    "ParticipantId":          "2656fd6c-6d4a-451d-a1a5-ce1baefc4d5c",
-    "OperationType":          "client-api-request",
-    "OperationId":            "0d987336-37e0-4acc-aba3-e48741d88103",
-    "DurationMs":             "577",
-    "ResultType":             "Succeeded",
-    "ResultSignature":        "200",
-    "SdkVersion":             "1.19.2.2_beta",
-    "UserAgent":              "azure-communication-services/1.3.1-beta.1 azsdk-js-communication-calling/1.19.2-beta.2 (javascript_calling_sdk;#clientTag:904f667c-5f25-4729-9ee8-6968b0eaa40b). Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-    "ClientInstanceId":       "d08a3d05-db90-415f-88a7-87ae74edc1dd",
-    "OperationPayload":       "{"StreamType":"Video","StreamId":"2.0","Source":"remote","RemoteParticipantId":"remote"}",
-    "Type":                   "ACSCallClientOperations"
-}
-```
-
-Each participant can have many different metrics for a call. You can run the following query in Log Analytics in the Azure portal to list all the possible Operations in the call client operations log:
-
-`ACSCallClientOperations | distinct OperationName`
-
-#### Call client media statistics time series log
-
-Here's an example of media statistics time series log. It shows the participant's Jitter metric for receiving an audio stream at a specific timestamp.
-
-```json
-"properties": {
-    "TenantId":                     "aaaabbbb-0000-cccc-1111-dddd2222eeee",
-    "TimeGenerated":                "2024-01-10T07:36:51.771Z",
-    "OperationName":                "CallClientMediaStatsTimeSeries" ,  
-    "CallId":                       "92d800c4-abde-40be-91e9-3814ee786b19", 
-    "CallClientTimeStamp":          "2024-01-09T15:07:56.066Z",
-    "MetricName":                   "JitterInMs",
-    "Count":                        "2",
-    "Sum":                          "34",
-    "Average":                      "17",
-    "Minimum":                      "10",
-    "Maximum":                      "25",
-    "MediaStreamDirection":         "recv",
-    "MediaStreamType":              "audio",
-    "MediaStreamCodec":             "OPUS",
-    "ParticipantId":                "2656fd6c-6d4a-451d-a1a5-ce1baefc4d5c",
-     "ClientInstanceId":            "d08a3d05-db90-415f-88a7-87ae74edc1dd",
-    "AggregationIntervalSeconds":   "10",
-    "Type":                         "ACSCallClientMediaStatsTimeSeries"
-}
-```
-
-Each participant can have many different media statistics metrics for a call. The following query can be run in Log Analytics in Azure portal to show all possible metrics in this log:
-
-`ACSCallClientMediaStatsTimeSeries | distinct MetricName`
-
-### Error codes 
-
-The `participantEndReason` property contains a value from the set of Calling SDK error codes. You can refer to these codes to troubleshoot issues during the call, for each endpoint. See [Troubleshooting call end response codes for Calling SDK, Call Automation SDK, PSTN, Chat SDK, and SMS SDK](../../../resources/troubleshooting/voice-video-calling/troubleshooting-codes.md).
-
+If you have multiple Azure Communications Services resource IDs, you must enable these settings for each resource ID.  
 
 ## Next steps
 
-- Learn about the [insights dashboard to monitor Voice Calling and Video Calling logs and metrics](/azure/communication-services/concepts/analytics/insights/voice-and-video-insights).
-
 - Learn best practices to manage your call quality and reliability, see: [Improve and manage call quality](../../voice-video-calling/manage-call-quality.md)
- 
+- 
+- Learn about the [insights dashboard to monitor Voice Calling and Video Calling logs](/azure/communication-services/concepts/analytics/insights/voice-and-video-insights).
 
 - Learn how to use call logs to diagnose call quality and reliability
   issues with Call Diagnostics, see: [Call Diagnostics](../../voice-video-calling/call-diagnostics.md)
