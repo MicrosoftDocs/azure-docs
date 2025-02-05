@@ -110,9 +110,8 @@ You can enable Azure NetApp Files storage with cool access during the creation o
         The following list describes the data retrieval behavior with the **Cool Access Retrieval Policy** settings:
 
         * Cool access is **enabled**:  
-            * If no value is set for **Cool Access Retrieval Policy**:  
-                The retrieval policy is set to **Default**. Cool data is retrieved to the hot tier only when random reads are performed. Sequential reads are served directly from the cool tier.
-            * If **Cool Access Retrieval Policy** is set to **Default**: Cold data is retrieved only by performing random reads.
+            * If **Cool Access Retrieval Policy** is set to **Default**: Cold data is retrieved only by performing random reads. Sequential reads are served directly from the cool tier.
+            * If no value is set for **Cool Access Retrieval Policy**: The active retrieval policy is **Default**.
             * If **Cool Access Retrieval Policy** is set to **On-Read**: Cold data is retrieved by performing both sequential and random reads.
             * If **Cool Access Retrieval Policy** is set to **Never**: Cold data is served directly from the cool tier and isn't retrieved to the hot tier.
         * Cool access is **disabled**:
@@ -123,7 +122,7 @@ You can enable Azure NetApp Files storage with cool access during the creation o
 
         Select either `SnapshotOnly` or `Auto`. 
         
-        * The `SnapshotOnly` policy limits cool-tiered data to snapshot copies not associated with the active file system. 
+        * The `SnapshotOnly` policy limits data tiering to data in snapshots, while all data blocks associated with files in the active file system remain in the hot tier.
         * The `Auto` policy encompasses both snapshot copy data and data in the active file system. 
 
     :::image type="content" source="./media/manage-cool-access/cool-access-new-volume.png" alt-text="Screenshot that shows the Create a volume page. On the Basics tab, the Enable Cool Access checkbox is selected. The options for the cool access retrieval policy are displayed. " lightbox="./media/manage-cool-access/cool-access-new-volume.png"::: 
