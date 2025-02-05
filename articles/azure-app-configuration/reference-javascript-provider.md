@@ -17,7 +17,7 @@ ms.date: 02/02/2025
 
 [![configuration-provider-npm-package](https://img.shields.io/npm/v/@azure/app-configuration-provider?label=@azure/app-configuration-provider)](https://www.npmjs.com/package/@azure/app-configuration-provider)
 
-Azure App Configuration is a managed service that helps developers centralize their application configurations simply and securely. The JavaScript configuration provider library enables loading configuration from an Azure App Configuration store in a managed way. This client library adds additional functionality above the Azure sdk for JavaScript.
+Azure App Configuration is a managed service that helps developers centralize their application configurations simply and securely. The JavaScript configuration provider library enables loading configuration from an Azure App Configuration store in a managed way. This client library adds additional functionality above the Azure SDK for JavaScript.
 
 ## Load configuration
 
@@ -139,7 +139,7 @@ const settings = await load(endpoint, credential, {
 ```
 
 > [!NOTE]
-> Key-values are loaded in the order the selectors are listed. If multiple selectors retrieve key-values with the same key, the value from the last one will override any previously loaded value.
+> Key-values are loaded in the order in which the selectors are listed. If multiple selectors retrieve key-values with the same key, the value from the last one will override any previously loaded value.
 
 ### Trim prefix from keys
 
@@ -156,9 +156,9 @@ const settings = await load(endpoint, credential, {
 
 ## Key Vault reference
 
-Azure App Configuration supports referencing secrets stored in Azure Key Vault. In App Configuration, keys can be created which have values that map to a secret stored in a Key Vault. The secrets are securely stored in Key Vault, but can be accessed the same as any other configuration once loaded.
+Azure App Configuration supports referencing secrets stored in Azure Key Vault. In App Configuration, you can create keys that map to secrets stored in Key Vault. The secrets are securely stored in Key Vault, but can be accessed like any other configuration once loaded.
 
-The configuration provider library retrieves Key Vault references, just as it does for any other keys stored in App Configuration. Because the client recognizes the keys as Key Vault references, they have a unique content-type, and the client will connect to Key Vault to retrieve their values for your application. You need to configure `AzureAppConfigurationOptions.KeyVaultOptions` property with the propert credential to allow the configuration provider to connect to Azure Key Vault.
+The configuration provider library retrieves Key Vault references, just as it does for any other keys stored in App Configuration. Because the client recognizes the keys as Key Vault references, they have a unique content-type, and the client will connect to Key Vault to retrieve their values for your application. You need to configure `AzureAppConfigurationOptions.KeyVaultOptions` property with the proper credential to allow the configuration provider to connect to Azure Key Vault.
 
 ```typescript
 const credential = new DefaultAzureCredential();
@@ -198,7 +198,7 @@ const settings = await load(endpoint, credential, {
 
 ## Configuration refresh
 
-Dynamic refresh for the configurations lets you pull their latest values from the App Configuration store without having to restart the application.You can set `AzureAppConfigurationOptions.refreshOptions` to enable the refresh and configure refresh options. The loaded configuration will be updated when any change of selected key-values is detected on the server. By default, a refresh interval of 30 seconds is used, but you can override it with the `refreshIntervalInMs` property.
+Dynamic refresh for the configurations lets you pull their latest values from the App Configuration store without having to restart the application. You can set `AzureAppConfigurationOptions.refreshOptions` to enable the refresh and configure refresh options. The loaded configuration will be updated when any change of selected key-values is detected on the server. By default, a refresh interval of 30 seconds is used, but you can override it with the `refreshIntervalInMs` property.
 
 ```typescript
 const settings = await load(endpoint, credential, {
@@ -229,11 +229,11 @@ server.use((req, res, next) => {
 
 Even if the refresh call fails for any reason, your application will continue to use the cached configuration. Another attempt will be made when the configured refresh interval has passed and the refresh call is triggered by your application activity. Calling `refresh` is a no-op before the configured refresh interval elapses, so its performance impact is minimal even if it's called frequently.
 
-For more information about refresh configuration, please go to [Use dynamic configuration in JavaScript](./enable-dynamic-configuration-javascript.md).
+For more information about refresh configuration, go to [Use dynamic configuration in JavaScript](./enable-dynamic-configuration-javascript.md).
 
 ## Feature flag
 
-You can [create feature flags](./manage-feature-flags.md#create-a-feature-flag) in the Azure App Configuration. By default, the feature flags will not be loaded by configuration provider. You can enable loading and refreshing feature flags through `AzureAppConfigurationOptions.featureFlagOptions` property when calling the `load` method.
+You can [create feature flags](./manage-feature-flags.md#create-a-feature-flag) in Azure App Configuration. By default, the feature flags will not be loaded by configuration provider. You can enable loading and refreshing feature flags through `AzureAppConfigurationOptions.featureFlagOptions` property when calling the `load` method.
 
 ```typescript
 const settings = await load(endpoint, credential, {
@@ -253,17 +253,17 @@ const settings = await load(endpoint, credential, {
 
 ### Feature management
 
-Feature management library provides a way to develop and expose application functionality based on feature flags. The feature management libary is designed to work in conjunction with configuration provider library. The configuration provider will load all selected feature flags into the configuration under the `feature_flags` list of `feature_management` section. The feature management library will consume and manage the loaded feature flags for your application. 
+Feature management library provides a way to develop and expose application functionality based on feature flags. The feature management library is designed to work in conjunction with the configuration provider library. The configuration provider will load all selected feature flags into the configuration under the `feature_flags` list of the `feature_management` section. The feature management library will consume and manage the loaded feature flags for your application. 
 
-For more information about how to use JavaScript feature management library, please go to the [quickstart](./quickstart-feature-flag-javascript.md).
+For more information about how to use the JavaScript feature management library, go to the [feature flag quickstart](./quickstart-feature-flag-javascript.md).
 
 ## Geo-replication
 
-For information about use geo-replication, please go to [Enable geo-replication](./howto-geo-replication.md).
+For information about using geo-replication, go to [Enable geo-replication](./howto-geo-replication.md).
 
 ## Next steps
 
-To learn how to use JavaScript configuration provider, continue to the following tutorials.
+To learn how to use the JavaScript configuration provider, continue to the following tutorial.
 
 > [!div class="nextstepaction"]
 > [Use dynamic configuration in JavaScript](./enable-dynamic-configuration-javascript.md)
