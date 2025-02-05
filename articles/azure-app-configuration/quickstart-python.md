@@ -98,19 +98,18 @@ You use the `DefaultAzureCredential` to authenticate to your App Configuration s
 
 ```python
 from azure.identity import DefaultAzureCredential
-from azure.appconfiguration import AzureAppConfigurationClient
 
 credential = DefaultAzureCredential()
 
 endpoint = os.getenv('AZURE_APPCONFIG_ENDPOINT')
-client = AzureAppConfigurationClient(base_url=endpoint, credential=credential)
+app_config_client = AzureAppConfigurationClient(base_url=endpoint, credential=credential)
 ```
 
 ### [Connection string](#tab/connection-string)
 
 ```python
-    connection_string = os.getenv('AZURE_APPCONFIG_CONNECTION_STRING')
-    app_config_client = AzureAppConfigurationClient.from_connection_string(connection_string)
+connection_string = os.getenv('AZURE_APPCONFIG_CONNECTION_STRING')
+app_config_client = AzureAppConfigurationClient.from_connection_string(connection_string)
 ```
 ---
 
@@ -119,9 +118,9 @@ client = AzureAppConfigurationClient(base_url=endpoint, credential=credential)
 The following code snippet retrieves a configuration setting by `key` name.
 
 ```python
-    retrieved_config_setting = app_config_client.get_configuration_setting(key='TestApp:Settings:Message')
-    print("\nRetrieved configuration setting:")
-    print("Key: " + retrieved_config_setting.key + ", Value: " + retrieved_config_setting.value)
+retrieved_config_setting = app_config_client.get_configuration_setting(key='TestApp:Settings:Message')
+print("\nRetrieved configuration setting:")
+print("Key: " + retrieved_config_setting.key + ", Value: " + retrieved_config_setting.value)
 ```
 
 ### Add a configuration setting
@@ -130,13 +129,13 @@ The following code snippet creates a `ConfigurationSetting` object with `key` an
 This method will throw an exception if you try to add a configuration setting that already exists in your store. If you want to avoid this exception, the [set_configuration_setting](#update-a-configuration-setting) method can be used instead.
 
 ```python
-    config_setting = ConfigurationSetting(
-        key='TestApp:Settings:NewSetting',
-        value='New setting value'
-    )
-    added_config_setting = app_config_client.add_configuration_setting(config_setting)
-    print("\nAdded configuration setting:")
-    print("Key: " + added_config_setting.key + ", Value: " + added_config_setting.value)
+config_setting = ConfigurationSetting(
+    key='TestApp:Settings:NewSetting',
+    value='New setting value'
+)
+added_config_setting = app_config_client.add_configuration_setting(config_setting)
+print("\nAdded configuration setting:")
+print("Key: " + added_config_setting.key + ", Value: " + added_config_setting.value)
 ```
 
 ### Get a list of configuration settings
@@ -144,10 +143,10 @@ This method will throw an exception if you try to add a configuration setting th
 The following code snippet retrieves a list of configuration settings. The `key_filter` and `label_filter` arguments can be provided to filter key-values based on `key` and `label` respectively. For more information on filtering, see how to [query configuration settings](./concept-key-value.md#query-key-values).
 
 ```python
-    filtered_settings_list = app_config_client.list_configuration_settings(key_filter="TestApp*")
-    print("\nRetrieved list of configuration settings:")
-    for item in filtered_settings_list:
-        print("Key: " + item.key + ", Value: " + item.value)
+filtered_settings_list = app_config_client.list_configuration_settings(key_filter="TestApp*")
+print("\nRetrieved list of configuration settings:")
+for item in filtered_settings_list:
+    print("Key: " + item.key + ", Value: " + item.value)
 ```
 
 ### Lock a configuration setting
@@ -155,8 +154,8 @@ The following code snippet retrieves a list of configuration settings. The `key_
 The lock status of a key-value in App Configuration is denoted by the `read_only` attribute of the `ConfigurationSetting` object. If `read_only` is `True`, the setting is locked. The `set_read_only` method can be invoked with `read_only=True` argument to lock the configuration setting.
 
 ```python
-    locked_config_setting = app_config_client.set_read_only(added_config_setting, read_only=True)
-    print("\nRead-only status for " + locked_config_setting.key + ": " + str(locked_config_setting.read_only))
+locked_config_setting = app_config_client.set_read_only(added_config_setting, read_only=True)
+print("\nRead-only status for " + locked_config_setting.key + ": " + str(locked_config_setting.read_only))
 ```
 
 ### Unlock a configuration setting
@@ -164,8 +163,8 @@ The lock status of a key-value in App Configuration is denoted by the `read_only
 If the `read_only` attribute of a `ConfigurationSetting` is `False`, the setting is unlocked. The `set_read_only` method can be invoked with `read_only=False` argument to unlock the configuration setting.
 
 ```python
-    unlocked_config_setting = app_config_client.set_read_only(locked_config_setting, read_only=False)
-    print("\nRead-only status for " + unlocked_config_setting.key + ": " + str(unlocked_config_setting.read_only))
+unlocked_config_setting = app_config_client.set_read_only(locked_config_setting, read_only=False)
+print("\nRead-only status for " + unlocked_config_setting.key + ": " + str(unlocked_config_setting.read_only))
 ```
 
 ### Update a configuration setting
@@ -173,10 +172,10 @@ If the `read_only` attribute of a `ConfigurationSetting` is `False`, the setting
 The `set_configuration_setting` method can be used to update an existing setting or create a new setting. The following code snippet changes the value of an existing configuration setting.
 
 ```python
-    added_config_setting.value = "Value has been updated!"
-    updated_config_setting = app_config_client.set_configuration_setting(added_config_setting)
-    print("\nUpdated configuration setting:")
-    print("Key: " + updated_config_setting.key + ", Value: " + updated_config_setting.value)
+added_config_setting.value = "Value has been updated!"
+updated_config_setting = app_config_client.set_configuration_setting(added_config_setting)
+print("\nUpdated configuration setting:")
+print("Key: " + updated_config_setting.key + ", Value: " + updated_config_setting.value)
 ```
 
 ### Delete a configuration setting
@@ -184,10 +183,9 @@ The `set_configuration_setting` method can be used to update an existing setting
 The following code snippet deletes a configuration setting by `key` name.
 
 ```python
-
-    deleted_config_setting = app_config_client.delete_configuration_setting(key="TestApp:Settings:NewSetting")
-    print("\nDeleted configuration setting:")
-    print("Key: " + deleted_config_setting.key + ", Value: " + deleted_config_setting.value)
+deleted_config_setting = app_config_client.delete_configuration_setting(key="TestApp:Settings:NewSetting")
+print("\nDeleted configuration setting:")
+print("Key: " + deleted_config_setting.key + ", Value: " + deleted_config_setting.value)
 ```
 
 ## Run the app
