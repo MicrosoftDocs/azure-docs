@@ -189,6 +189,19 @@ This error happens when the Database identifier is incorrectly configured on the
 
 To fix the Windows VM Agent, follow [Troubleshooting Azure Windows VM Agent](/troubleshoot/azure/virtual-machines/windows-azure-guest-agent).
 
+### Error - Misconfigured SAP System
+**Cause:** This issue occurs when multiple ASCS (MESSAGESERVER and/or ENQREP) instances present in the configured SAP, which is not a valid configuration. Ensure that there exists only one ASCS instance for the SID. 
+
+**Solution:** To fix the issue, you will need to reconfigure the SAP system so that there is only one ASCS instance present for the SID. Perform below steps:
+1. Logon to the affected server, at operating system level, as "<sid>adm";
+2. Run "ps -ef | grep sapstartsrv", and take note of the command line related to the sapstartsrv process from the affected instance;
+3. Run "sapcontrol -nr <$$> -function StopService". Run the "ps" command again (see the previous step), and ensure that the sapstartsrv process was stopped (<$$> is the number of the affected instance);
+4. Access the folder "/usr/sap/<SID>/SYS/global/sapcontrol".
+5. If you list the files with "ls -l", you will notice that there is more than one file for the affected server.
+6. The name of the files consists of a few numbers separated by the "underscore" ("_") character, and the last field is the hostname of the server related to that particular file;
+7. Delete (you can move or rename, if you prefer) all the conflicting files with the command "rm *hostname" (where "hostname" is the actual name of the server, not the word "hostname" itself);
+8. Manually start the sapstartsrv process again, using the command line you took note at the step #2; 
+
 ## Next steps
 
 - [Monitor SAP system from Azure portal](monitor-portal.md)
