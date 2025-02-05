@@ -45,12 +45,12 @@ Dynamic Refresh (Poll Mode) | GA | GA | GA | GA | GA
 Dynamic Refresh (Push Mode) | GA | GA | N/A | N/A | N/A
 Dynamic Refresh (Collection Monitoring) | WIP | WIP | GA | WIP | Preview
 JSON Content Type Handling | GA | GA | GA | GA | GA
-Custom Map Callback | GA | N/A | N/A | N/A | N/A
+Custom Configuration Setting Mapper | GA | N/A | N/A | N/A | N/A
 Key Vault Reference | GA | GA | GA | GA | GA
-Custom Key Vault Resolution | GA | GA | GA | GA | GA
+Custom Key Vault Secret Resolution | GA | GA | GA | GA | GA
 Feature Flag | GA | GA | GA | GA | GA
 Variant Feature Flag | GA | GA | GA | GA | GA
-Feature Flag Telemetry - Allocation ID | GA | GA | WIP | GA | GA
+Feature Flag Telemetry Metadata | GA | GA | WIP | GA | GA
 Key Prefix Trim | GA | GA | GA | GA | GA
 Configurable Startup Timeout | GA | WIP | N/A | N/A | N/A
 Replica Auto Discovery | GA | GA | GA | WIP | Preview
