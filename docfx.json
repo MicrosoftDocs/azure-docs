@@ -287,6 +287,8 @@
         "articles/logic-apps/**/.md": "ecfan",
         "articles/media-services/**/*.md": "Juliako",
         "articles/media-services/**/**/*.md": "Juliako",
+        "articles/network-watcher/**/*.md": "halkazwini",
+        "articles/network-watcher/**/*.yml": "halkazwini",
         "articles/notebooks/*.md": "j-martens",
         "articles/openshift/**/*.md": "johnmarco",
         "articles/openshift/**/*.yml": "johnmarco",
@@ -299,6 +301,8 @@
         "articles/playwright-testing/**/*.md": "vvs11",
         "articles/quotas/**/*.md": "JnHs",
         "articles/quotas/**/*.yml": "JnHs",
+        "articles/route-server/*.md": "halkazwini",
+        "articles/route-server/*.yml": "halkazwini",
         "articles/sap/**/*.md": "lauradolan",
         "articles/service-bus-messaging/*.md": "spelluru",
         "articles/service-health/*.md": "rboucher",
@@ -307,7 +311,9 @@
         "articles/terraform/**/*.md": "TomArcherMsft",
         "articles/update-center/**/*.md": "SnehaSudhirG",
         "articles/virtual-network-manager/*.md": "mbender-ms",
-        "articles/virtual-network-manager/*.yml": "mbender-ms"
+        "articles/virtual-network-manager/*.yml": "mbender-ms",
+        "articles/web-application-firewall/**/*.md": "halkazwini",
+        "articles/web-application-firewall/**/*.yml": "halkazwini"
       },
       "featureFlags": {
         "articles/**/*.md": [

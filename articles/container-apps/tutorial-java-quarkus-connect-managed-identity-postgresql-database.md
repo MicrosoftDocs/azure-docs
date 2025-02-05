@@ -6,7 +6,7 @@ author: KarlErickson
 ms.topic: tutorial
 ms.author: edburns
 ms.service: azure-container-apps
-ms.date: 12/09/2024
+ms.date: 02/03/2025
 ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, passwordless-java, service-connector, devx-track-javaee-quarkus-aca
 ---
 
@@ -41,7 +41,7 @@ Create a resource group with the [az group create](/cli/azure/group#az-group-cre
 
 The following example creates a resource group named `myResourceGroup` in the East US Azure region.
 
-```azurecli-interactive
+```azurecli
 RESOURCE_GROUP="myResourceGroup"
 LOCATION="eastus"
 
@@ -50,7 +50,7 @@ az group create --name $RESOURCE_GROUP --location $LOCATION
 
 Create an Azure container registry instance using the [az acr create](/cli/azure/acr#az-acr-create) command and retrieve its login server using the [az acr show](/cli/azure/acr#az-acr-show) command. The registry name must be unique within Azure and contain 5-50 alphanumeric characters. All letters must be specified in lower case. In the following example, `mycontainerregistry007` is used. Update this to a unique value.
 
-```azurecli-interactive
+```azurecli
 REGISTRY_NAME=mycontainerregistry007
 az acr create \
     --resource-group $RESOURCE_GROUP \
@@ -163,7 +163,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
 
    Before pushing container images, you must log in to the registry. To do so, use the [az acr login][az-acr-login] command.
 
-   ```azurecli-interactive
+   ```azurecli
    az acr login --name $REGISTRY_NAME
    ```
 
@@ -181,7 +181,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
 
 1. Create a Container Apps instance by running the following command. Make sure you replace the value of the environment variables with the actual name and location you want to use.
 
-   ```azurecli-interactive
+   ```azurecli
    CONTAINERAPPS_ENVIRONMENT="my-environment"
 
    az containerapp env create \
@@ -192,7 +192,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
 
 1. Create a container app with your app image by running the following command:
 
-   ```azurecli-interactive
+   ```azurecli
    APP_NAME=my-container-app
    az containerapp create \
        --resource-group $RESOURCE_GROUP \
@@ -215,7 +215,7 @@ Next, create a PostgreSQL Database and configure your container app to connect t
 
 1. Create the database service.
 
-   ```azurecli-interactive
+   ```azurecli
    DB_SERVER_NAME='msdocs-quarkus-postgres-webapp-db'
 
    az postgres flexible-server create \
@@ -243,7 +243,7 @@ Next, create a PostgreSQL Database and configure your container app to connect t
 
 1. Create a database named `fruits` within the PostgreSQL service with this command:
 
-   ```azurecli-interactive
+   ```azurecli
    DB_NAME=fruits
    az postgres flexible-server db create \
        --resource-group $RESOURCE_GROUP \
@@ -253,13 +253,13 @@ Next, create a PostgreSQL Database and configure your container app to connect t
 
 1. Install the [Service Connector](../service-connector/overview.md) passwordless extension for the Azure CLI:
 
-   ```azurecli-interactive
+   ```azurecli
    az extension add --name serviceconnector-passwordless --upgrade --allow-preview true
    ```
 
 1. Connect the database to the container app with a system-assigned managed identity, using the connection command.
 
-   ```azurecli-interactive
+   ```azurecli
    az containerapp connection create postgres-flexible \
        --resource-group $RESOURCE_GROUP \
        --name $APP_NAME \
@@ -274,7 +274,7 @@ Next, create a PostgreSQL Database and configure your container app to connect t
 
 You can find the application URL(FQDN) by using the following command:
 
-```azurecli-interactive
+```azurecli
 echo https://$(az containerapp show \
     --name $APP_NAME \
     --resource-group $RESOURCE_GROUP \

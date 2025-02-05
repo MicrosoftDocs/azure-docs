@@ -3,7 +3,7 @@ title: What's new in the Azure Virtual Desktop Agent? - Azure
 description: New features and product updates for the Azure Virtual Desktop Agent.
 author: sipastak
 ms.topic: release-notes
-ms.date: 02/03/2025
+ms.date: 02/04/2025
 ms.author: sipastak
 ms.custom: references_regions
 ---
@@ -30,11 +30,21 @@ Here's information about the Azure Virtual Desktop Agent.
 
 | Release | Latest version |
 |--|--|
-| Production | 1.0.10159.600 |
+| Production | 1.0.10292.900 |
 | Validation | 1.0.10648.200 |
 
 > [!TIP]
 > The Azure Virtual Desktop Agent is automatically installed when adding session hosts in most scenarios. If you need to install the agent manually, you can download it at [Register session hosts to a host pool](add-session-hosts-host-pool.md#register-session-hosts-to-a-host-pool), together with the steps to install it.
+
+## Version 1.0.10292.900
+*Published: January 2025*
+
+In this update, we made the following changes:
+
+- Improved RD Agent reconnection on machines with active sessions using throttling delay logic.
+- Added support for App Attach third party client connections regardless of previous client connection status.
+- Improved App Attach third party telemetry.
+- General improvements and bug fixes. 
 
 ## Version 1.0.10648.200 (validation) 
 
