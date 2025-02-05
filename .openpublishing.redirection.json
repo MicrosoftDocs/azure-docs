@@ -27,7 +27,7 @@
     },
     {
       "source_path_from_root": "/articles/hdinsight-aks/index.yml",
-      "redirect_url": "/previous-versions/azure/hdinsight",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks",
       "redirect_document_id": false
     },
     {
