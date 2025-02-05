@@ -53,7 +53,7 @@ Once the Azure Event Hubs namespace and event hub is configured, you can create 
 
 # [Portal](#tab/portal)
 
-1. In the [operations experience](https://iotoperations.azure.com/), select the **Dataflow endpoints** tab.
+1. In the [operations experience](https://iotoperations.azure.com/), select the **Data flow endpoints** tab.
 1. Under **Create new data flow endpoint**, select **Azure Event Hubs** > **New**.
 
     :::image type="content" source="media/howto-configure-kafka-endpoint/create-event-hubs-endpoint.png" alt-text="Screenshot using operations experience to create an Azure Event Hubs data flow endpoint.":::

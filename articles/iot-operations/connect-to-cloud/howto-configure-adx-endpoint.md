@@ -67,7 +67,7 @@ If using system-assigned managed identity, in Azure portal, go to your Azure IoT
 
 # [Portal](#tab/portal)
 
-1. In the operations experience, select the **Dataflow endpoints** tab.
+1. In the operations experience, select the **Data flow endpoints** tab.
 1. Under **Create new data flow endpoint**, select **Azure Data Explorer** > **New**.
 
     :::image type="content" source="media/howto-configure-adx-endpoint/create-adx-endpoint.png" alt-text="Screenshot using operations experience to create an Azure Data Explorer data flow endpoint.":::

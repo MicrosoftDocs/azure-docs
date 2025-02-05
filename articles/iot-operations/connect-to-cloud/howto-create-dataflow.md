@@ -66,7 +66,7 @@ Once you have the prerequisites, you can start to create a data flow.
 
 # [Portal](#tab/portal)
 
-To create a data flow in [operations experience](https://iotoperations.azure.com/), select **Dataflow** > **Create data flow**. Then, you see the page where you can configure the source, transformation, and destination for the data flow.
+To create a data flow in [operations experience](https://iotoperations.azure.com/), select **Data flow** > **Create data flow**. Then, you see the page where you can configure the source, transformation, and destination for the data flow.
 
 :::image type="content" source="media/howto-create-dataflow/create-dataflow.png" alt-text="Screenshot using operations experience to create a data flow.":::
 
@@ -185,7 +185,7 @@ If the default endpoint isn't used as the source, it must be used as the [destin
 
     | Setting              | Description                                                                                       |
     | -------------------- | ------------------------------------------------------------------------------------------------- |
-    | Dataflow endpoint    | Select *default* to use the default MQTT message broker endpoint. |
+    | Data flow endpoint    | Select *default* to use the default MQTT message broker endpoint. |
     | Topic                | The topic filter to subscribe to for incoming messages. See [Configure MQTT or Kafka topics](#configure-data-sources-mqtt-or-kafka-topics). |
     | Message schema       | The schema to use to deserialize the incoming messages. See [Specify schema to deserialize data](#specify-source-schema). |
 
@@ -251,7 +251,7 @@ Configuring an asset as a source is only available in the operations experience.
 
 When using an asset as the source, the asset definition is used to infer the schema for the data flow. The asset definition includes the schema for the asset's datapoints. To learn more, see [Manage asset configurations remotely](../discover-manage-assets/howto-manage-assets-remotely.md).
 
-Once configured, the data from the asset reaches the dataflow via the local MQTT broker. So, when using an asset as the source, the data flow uses the local MQTT broker default endpoint as the source in actuality.
+Once configured, the data from the asset reaches the data flow via the local MQTT broker. So, when using an asset as the source, the data flow uses the local MQTT broker default endpoint as the source in actuality.
 
 ### Option 3: Use custom MQTT or Kafka data flow endpoint as source
 
@@ -267,7 +267,7 @@ If you created a custom MQTT or Kafka data flow endpoint (for example, to use wi
 
     | Setting              | Description                                                                                       |
     | -------------------- | ------------------------------------------------------------------------------------------------- |
-    | Dataflow endpoint    | Use the **Reselect** button to select a custom MQTT or Kafka dataflow endpoint. For more information, see [Configure MQTT dataflow endpoints](howto-configure-mqtt-endpoint.md) or [Configure Azure Event Hubs and Kafka dataflow endpoints](howto-configure-kafka-endpoint.md).|
+    | Data flow endpoint    | Use the **Reselect** button to select a custom MQTT or Kafka data flow endpoint. For more information, see [Configure MQTT data flow endpoints](howto-configure-mqtt-endpoint.md) or [Configure Azure Event Hubs and Kafka data flow endpoints](howto-configure-kafka-endpoint.md).|
     | Topic                | The topic filter to subscribe to for incoming messages. See [Configure MQTT or Kafka topics](#configure-data-sources-mqtt-or-kafka-topics). |
     | Message schema       | The schema to use to deserialize the incoming messages. See [Specify schema to deserialize data](#specify-source-schema). |
 
@@ -399,7 +399,7 @@ sourceSettings:
 ---
 
 
-If the instance count in the [data flow profile](howto-configure-dataflow-profile.md) is greater than one, shared subscription is automatically enabled for all data flows that use a message broker source. In this case, the `$shared` prefix is added and the shared subscription group name automatically generated. For example, if you have a dataflow profile with an instance count of 3, and your dataflow uses a message broker endpoint as source configured with topics `topic1` and `topic2`, they are automatically converted to shared subscriptions as `$shared/<GENERATED_GROUP_NAME>/topic1` and `$shared/<GENERATED_GROUP_NAME>/topic2`. 
+If the instance count in the [data flow profile](howto-configure-dataflow-profile.md) is greater than one, shared subscription is automatically enabled for all data flows that use a message broker source. In this case, the `$shared` prefix is added and the shared subscription group name automatically generated. For example, if you have a data flow profile with an instance count of 3, and your data flow uses a message broker endpoint as source configured with topics `topic1` and `topic2`, they are automatically converted to shared subscriptions as `$shared/<GENERATED_GROUP_NAME>/topic1` and `$shared/<GENERATED_GROUP_NAME>/topic2`. 
 
 You can explicitly create a topic named `$shared/mygroup/topic` in your configuration. However, adding the `$shared` topic explicitly isn't recommended since the `$shared` prefix is automatically added when needed. Data flows can make optimizations with the group name if it isn't set. For example, `$share` isn't set and data flows only has to operate over the topic name.
 
@@ -417,7 +417,7 @@ To configure the Kafka topics:
 
 # [Portal](#tab/portal)
 
-In the operations experience dataflow **Source details**, select **Message broker**, then use the **Topic** field to specify the Kafka topic filter to subscribe to for incoming messages.
+In the operations experience data flow **Source details**, select **Message broker**, then use the **Topic** field to specify the Kafka topic filter to subscribe to for incoming messages.
 
 > [!NOTE]
 > Only one topic filter can be specified in the operations experience. To use multiple topic filters, use Bicep or Kubernetes.
@@ -500,7 +500,7 @@ This section is an introduction to data flow transforms. For more detailed infor
 
 # [Portal](#tab/portal)
 
-In the operations experience, select **Dataflow** > **Add transform (optional)**.
+In the operations experience, select **Data flow** > **Add transform (optional)**.
 
 :::image type="content" source="media/howto-create-dataflow/dataflow-transform.png" alt-text="Screenshot using operations experience to add a transform to a data flow.":::
 
@@ -867,7 +867,7 @@ To send data to a destination other than the local MQTT broker, create a data fl
 
     :::image type="content" source="media/howto-create-dataflow/dataflow-destination.png" alt-text="Screenshot using operations experience to select Event Hubs destination endpoint.":::
 
-    Storage endpoints require a [schema for serialization](./concept-schema-registry.md). If you choose a Microsoft Fabric OneLake, Azure Data Lake Storage, Azure Data Explorer, or Local Storage destination endpoint, you must [specify a schema reference](#serialize-data-according-to-a-schema). For example, to serialize the data to a Microsoft Fabric endpoint in Delta format, you need to upload a schema to the schema registry and reference it in the dataflow destination endpoint configuration.
+    Storage endpoints require a [schema for serialization](./concept-schema-registry.md). If you choose a Microsoft Fabric OneLake, Azure Data Lake Storage, Azure Data Explorer, or Local Storage destination endpoint, you must [specify a schema reference](#serialize-data-according-to-a-schema). For example, to serialize the data to a Microsoft Fabric endpoint in Delta format, you need to upload a schema to the schema registry and reference it in the data flow destination endpoint configuration.
 
     :::image type="content" source="media/howto-create-dataflow/serialization-schema.png" alt-text="Screenshot using operations experience to choose output schema and serialization format.":::
 
@@ -994,7 +994,7 @@ The following example is a data flow configuration that uses the MQTT endpoint f
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-create-dataflow/dataflow-example.png" alt-text="Screenshot showing the operations experience dataflow example with a source endpoint, transforms, and a destination endpoint." lightbox="media/howto-create-dataflow/dataflow-example.png":::
+:::image type="content" source="media/howto-create-dataflow/dataflow-example.png" alt-text="Screenshot showing the operations experience data flow example with a source endpoint, transforms, and a destination endpoint." lightbox="media/howto-create-dataflow/dataflow-example.png":::
 
 # [Bicep](#tab/bicep)
 

@@ -117,7 +117,7 @@ To create the data flow:
 
     Your new data flow endpoint is created and displays in the list on the **Data flow endpoints** page.
 
-1. Select **Data flows** and then select **+ Create data flow**. The **\<new-dataflow\>** page displays:
+1. Select **Data flows** and then select **+ Create data flow**. The **\<new-data-flow\>** page displays:
 
     :::image type="content" source="media/tutorial-upload-telemetry-to-cloud/new-dataflow.png" alt-text="Screenshot of the data flows page.":::
 
