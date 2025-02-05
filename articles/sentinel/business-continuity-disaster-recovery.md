@@ -16,7 +16,7 @@ ms.collection: usx-security
 
 # Business continuity and disaster recovery for Microsoft Sentinel
 
-This article describes reliability support in Microsoft Sentinel and covers both regional resiliency with availability zones and cross-region resiliency with business continuity and disaster recovery (BCDR). While this article is mainly directed at Microsoft Sentinel customers working in the Azure portal, this guidance also covers data currently managed by Azure services after onboarding to the [Microsoft Defender portal](/unified-secops-platform/overview-unified-security).
+This article describes reliability support in Microsoft Sentinel and covers both regional resiliency with availability zones, and cross-region resiliency with business continuity and disaster recovery (BCDR). While this article is mainly directed at Microsoft Sentinel customers working in the Azure portal, this guidance also covers data currently managed by Azure services after onboarding to the [Microsoft Defender portal](/unified-secops-platform/overview-unified-security).
 
 For more information, see [Azure reliability](/azure/well-architected/resiliency/).
 
@@ -35,7 +35,7 @@ Disaster recovery (DR) is about recovering from high-impact events, such as natu
 When it comes to DR, Microsoft uses the shared responsibility model. In this model:
 
 - Microsoft ensures that the baseline infrastructure and platform services are available.
-- Many Azure services don't automatically replicate data or fall back from a failed region to cross-replicate to another enabled region. For those services, customers are responsible for setting up a disaster recovery plan that works for their environment.
+- Many Azure services don't automatically replicate data or fall back from a failed region to cross-replicate to another enabled region. For those services, customers are responsible for setting up a DR plan that works for their environment.
 
 Most services that run on Azure platform as a service (PaaS) offerings provide features and guidance to support DR. You can [use service-specific features](/azure/reliability/reliability-guidance-overview) to support fast recovery and help develop your DR plan.
 
