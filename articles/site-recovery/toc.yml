@@ -500,7 +500,7 @@
           href: hyper-v-deployment-planner-cost-estimation.md
   - name: Azure Stack VM disaster recovery
     items:
-    - name: Walkthrough-Set up disaster recovery for Azure Stack VMs
+    - name: Walkthrough-Set up disaster recovery for Azure Stack Hub
       href: azure-stack-site-recovery.md
   - name: Disaster recovery for apps
     items:
