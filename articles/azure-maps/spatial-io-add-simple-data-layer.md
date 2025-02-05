@@ -238,7 +238,7 @@ See the following articles to get more code samples to add to your maps:
 - [Read and write spatial data]
 - [Add an OGC map layer]
 - [Connect to a WFS service]
-- [Use core operations]
+- [Core IO operations]
 - [Get details about supported data formats]
 
 [Add an OGC map layer]: spatial-io-add-ogc-map-layer.md
