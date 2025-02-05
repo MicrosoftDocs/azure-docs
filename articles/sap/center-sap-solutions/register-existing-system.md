@@ -48,7 +48,7 @@ When you register a system with Azure Center for SAP solutions, the following re
 - Register the **Microsoft.Workloads** Resource Provider in the subscription where you have the SAP system.
 - Check that your Azure account has **Azure Center for SAP solutions administrator** and **Managed Identity Operator** or equivalent role access on the subscription or resource groups where you have the SAP system resources.
 - A **User-assigned managed identity** which has **Azure Center for SAP solutions service role** access on the Compute resource group and **Reader** role access on the Virtual Network resource group of the SAP system. Azure Center for SAP solutions service uses this identity to discover your SAP system resources and register the system as a VIS resource.
-- Make sure ASCS, Application Server and Database virtual machines of the SAP system are in **Running** state.
+- Make sure ASCS, Application Server and Database virtual machines of the SAP system are in **Running** state.\
 
 ### SAP system level pre-requisites
 
