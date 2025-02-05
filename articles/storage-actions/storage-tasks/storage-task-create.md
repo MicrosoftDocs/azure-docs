@@ -167,8 +167,76 @@ To learn how to create an assignment by using Azure CLI, see [Create and manage 
 
 # [Bicep](#tab/bicep)
 
+Include a snippet similar to the following in your Bicep template. This example sets an immutability policy on word documents.
+
+```Bicep
+resource storageTask 'Microsoft.StorageActions/storageTasks@2023-01-01' = {
+  name: storageTaskName
+  location: 'westus'
+  identity: {
+    type: 'SystemAssigned'
+  }
+  properties: {
+    action: {
+      if: {
+        condition: '[[endsWith(Name, \'.docx\')]]'
+        operations: [
+         {
+            name: 'SetBlobImmutabilityPolicy'
+            onSuccess: 'continue'
+            onFailure: 'break'
+            parameters: {
+              untilDate: '2025-06-20T20:34:00'
+              mode: 'locked'
+            }
+         }
+        ]
+      }
+
+    }
+    description: 'My storage task'
+    enabled: true
+  }
+}
+```
+
 # [Template](#tab/template)
 
+Include a JSON snippet similar to the following in your Azure Resource Manager template. This example sets an immutability policy on word documents.
+
+```JSON
+ "resources": [
+    {
+      "type": "Microsoft.StorageActions/storageTasks",
+      "apiVersion": "2023-01-01",
+      "name": "mystoragetask",
+      "location": "westus",
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "properties": {
+        "action": {
+          "if": {
+            "condition": "[[[endsWith(Name, '.docx')]]",
+            "operations": [
+              {
+                "name": "SetBlobImmutabilityPolicy",
+                "onSuccess": "continue",
+                "onFailure": "break",
+                "parameters": {
+                  "untilDate": "2025-06-20T20:34:00",
+                  "mode": "locked"
+                }
+              },
+            ]
+          }
+        },
+        "description": "my storage task",
+        "enabled": true
+      }
+    }
+  ]
+```
 ---
 
 

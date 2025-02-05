@@ -12,21 +12,16 @@ ms.date: 01/17/2024
 
 # Create and manage a storage task assignment
 
-An _assignment_ identifies a storage account and a subset of objects in that account that the task will target. An assignment also defines when the task runs and where execution reports are stored.
-
+An _assignment_ identifies a storage account and a subset of objects in that account that the task will target. An assignment also defines when the task runs and where execution reports are stored. You can create an assignment for each storage account you want to target. A storage task can contain up to 50 assignments.
 
 This article helps you create an assignment, and then enable that assignment to run.
-
-## [Portal](#tab/azure-portal)
-
-### Create an assignment by using Azure portal
-
-Create an assignment for each storage account you want to target. A storage task can contain up to 50 assignments.
 
 > [!NOTE] 
 > In the current release, you can target only storage accounts that are in the same region as the storage tasks.
 
-#### Create an assignment from the storage task menu
+## [Portal](#tab/azure-portal)
+
+### Create an assignment from the storage task menu
 
 You can create an assignment in the context of a storage task. This option can be convenient if you're the task author and you want to target multiple storage accounts. For each assignment you'll identify the storage account that you want to target.
 
@@ -37,7 +32,7 @@ Navigate to the storage task in the Azure portal and then under **Storage task m
 
 In the **Assignments** page, select **+ Add assignment** and the **Add assignment** pane will appear.
 
-#### Create an assignment from the storage account menu
+### Create an assignment from the storage account menu
 
 You can also create an assignment in the context of a storage account. This option can be convenient if you want to use an existing task to process objects in your storage account. For each assignment you'll identify the storage task that you want to assign to your account.
 
@@ -130,13 +125,6 @@ An assignment becomes a sub resource of the targeted storage account. Therefore,
 - To edit the run frequency of an assignment in the context of a storage account, navigate to the storage account in the Azure portal and then under **Data management**, select **Storage tasks**.
 
 ## [PowerShell](#tab/azure-powershell)
-
-### Create an assignment by using PowerShell
-
-Create an assignment for each storage account you want to target. A storage task can contain up to 50 assignments.
-
-> [!NOTE] 
-> In the current release, you can target only storage accounts that are in the same region as the storage tasks.
 
 1. Specify how often you'd like the task to run. You can choose to run a task only once, or run the task recurring. If you decide to run this task on a recurring basis, specify a start and end time and specify the number of days in between each run. You can also specify where you'd like to store the execution reports. The following example creates variable for trigger values. 
 
@@ -231,13 +219,6 @@ Create an assignment for each storage account you want to target. A storage task
 
 ## [Bicep](#tab/bicep)
 
-### Create an assignment by using Bicep
-
-Create an assignment for each storage account you want to target. A storage task can contain up to 50 assignments.
-
-> [!NOTE] 
-> In the current release, you can target only storage accounts that are in the same region as the storage tasks.
-
 Include a snippet similar to the following in your Bicep template.
 
 ```Bicep
@@ -279,11 +260,6 @@ resource storageAccountName_storageTaskAssignment 'Microsoft.Storage/storageAcco
 ```
 
 ## [Template](#tab/template)
-
-Create an assignment for each storage account you want to target. A storage task can contain up to 50 assignments.
-
-> [!NOTE] 
-> In the current release, you can target only storage accounts that are in the same region as the storage tasks.
 
 Include a JSON snippet similar to the following in your Azure Resource Manager template.
 
