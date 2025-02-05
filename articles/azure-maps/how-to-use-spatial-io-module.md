@@ -47,7 +47,7 @@ The following video provides an overview of the Spatial IO module in the Azure M
 
 You can load the Azure Maps Spatial IO module by using one of the following two options:
 
-- You can use the globally hosted Azure content delivery network for the Azure Maps Spatial IO module. For this option, add a reference to the JavaScript in the `<head>` element of the HTML file.
+- The first option is to use the globally hosted Azure content delivery network for the Azure Maps Spatial IO module. Use the following script tag in the `<head>` element of the HTML file to add the reference:
 
     ```html
     <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
@@ -131,7 +131,9 @@ You can load the Azure Maps Spatial IO module by using one of the following two 
     <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
     ```
 
-1. Initialize a data source, and add the data source to the map. Initialize a layer, and add the data source to the map layer. Then, render both the data source and the layer.
+1. Initialize a data source and add it to the map.
+1. Initialize a simple data layer and add the data source to it.
+1. Render the data layer.
 1. Before you scroll down to see the full code in the next step, determine the best places to put the data source and layer code snippets. Wait until the map resources are ready before you programmatically manipulate the map.
 
     ```javascript
@@ -239,13 +241,13 @@ This article describes only one of the many features available in the Spatial IO
 - [Read and write spatial data]
 - [Add an OGC map layer]
 - [Connect to a WFS service]
-- [Use core operations]
-- [Learn about supported data formats]
+- [Core IO operations]
+- [Supported data format details]
 - [Get documentation for the Azure Maps Spatial IO package]
 
 [Add a simple data layer]: spatial-io-add-simple-data-layer.md
 [Read and write spatial data]: spatial-io-read-write-spatial-data.md
-[Add an OGC map layer]: spatial-io-add-ogc-map-layer.md
+[Add a map layer from the Open Geospatial Consortium]: spatial-io-add-ogc-map-layer.md
 [Connect to a WFS service]: spatial-io-connect-wfs-service.md
 [Use core operations]: spatial-io-core-operations.md
 [Learn about supported data formats]: spatial-io-supported-data-format-details.md

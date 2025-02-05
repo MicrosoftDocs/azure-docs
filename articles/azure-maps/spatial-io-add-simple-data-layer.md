@@ -19,7 +19,7 @@ The simple data layer achieves this functionality by wrapping multiple rendering
 
 The `SimpleDataLayer` class also provides a built-in popup feature with a popup template. The popup appears when a feature is selected. This layer also supports clustered data. When a cluster is selected, the map zooms in to the cluster and expands it into individual points and subclusters. You can disable the popup feature if you don't need it.
 
-The `SimpleDataLayer` class is intended to be used on large data sets that include features with many applied geometry types and styles. When you use this class, it adds an overhead of six layers that contain style expressions. If you only need to render a few geometry types and styles on a feature, it might be more efficient to use a core rendering layer.
+The `SimpleDataLayer` class is intended to be used on large data sets that include features with many applied geometry types and styles. When you use this class, it adds an overhead of six layers that contain style expressions. If you only need to render a few geometry types and styles on a feature, it might be more efficient to use a core rendering layer. For more information, see [Add a bubble layer to the map](https://learn.microsoft.com/en-us/azure/azure-maps/map-add-bubble-layer), [Add a line layer to the map](https://learn.microsoft.com/en-us/azure/azure-maps/map-add-line-layer), and [Add a polygon layer to the map](https://learn.microsoft.com/en-us/azure/azure-maps/map-add-shape).
 
 ## Use a simple data layer
 
@@ -119,7 +119,7 @@ The simple data layer is a powerful tool in the following scenarios:
 - Features in the data set have several style properties that are individually set.
 - You're not sure what the data set contains.
 
-For example, when you're parsing XML data feeds, you might not know the features' exact style and geometry types. The [Simple data layer options] sample shows how the simple data layer renders the features of a Keyhole Markup Language (KML) file. You can also see the options in the `SimpleDataLayer` class. For the source code for this sample, see [Simple data layer options.html] in the Azure Maps code samples in GitHub.
+For example, when you're parsing XML data feeds, you might not know the features' style and geometry types. The [Simple data layer options] sample shows how the simple data layer renders the features of a Keyhole Markup Language (KML) file. You can also see the options in the `SimpleDataLayer` class. For the source code for this sample, see [Simple data layer options.html] in the Azure Maps code samples in GitHub.
 
 :::image type="content" source="./media/spatial-io-add-simple-data-layer/simple-data-layer-options.png"alt-text="A screenshot of map with a panel on the left showing simple data layer options.":::
 
@@ -149,7 +149,7 @@ The following sections provide details on the default style properties that the 
 
 ### Bubble layer style properties
 
-If a feature is a `Point` or a `MultiPoint`, and the feature doesn't have an image property to use as a custom icon to render the point as a symbol, the feature is rendered with a `BubbleLayer`.
+If a feature is a `Point` or a `MultiPoint`, and doesn't have an image property to use as a custom icon to render the point as a symbol, it's rendered with a `BubbleLayer`.
 
 | Layer option | Supported property names | Default value |
 |--------------|----------------------------|---------------|
@@ -167,7 +167,7 @@ If a feature is a `Point` or a `MultiPoint`, and the feature doesn't have an ima
 | `medium`    | `8`    |
 | `large`     | `12`   |
 
-Clusters are also rendered via the bubble layer. By default, the radius of a cluster is set to 16. The color of the cluster varies depending on the number of points in the cluster, as defined in the following table:
+Clusters are also rendered in the bubble layer. By default, the radius of a cluster is set to 16. The color of the cluster varies depending on the number of points in the cluster, as defined in the following table:
 
 | Number of points | Color    |
 |-------------|----------|
@@ -177,7 +177,7 @@ Clusters are also rendered via the bubble layer. By default, the radius of a clu
 
 ### Symbol style properties
 
-If a feature is a `Point` or `MultiPoint`, and the feature has an image property that would be used as a custom icon to render the point as a symbol, the feature is rendered with a `SymbolLayer`.
+If a feature is a `Point` or `MultiPoint`, with an image property used as a custom icon to render the point as a symbol, then it's rendered with a `SymbolLayer`.
 
 | Layer option | Supported property names | Default value |
 |--------------|----------------------------|---------------|
@@ -199,7 +199,7 @@ If the point feature is a cluster, the `point_count_abbreviated` property is ren
 
 ### Line style properties
 
-If the feature is a `LineString`, `MultiLineString`, `Polygon`, or `MultiPolygon`, the feature is rendered with a `LineLayer`.
+If the feature is a `LineString`, `MultiLineString`, `Polygon`, or `MultiPolygon`, it's rendered with a `LineLayer`.
 
 | Layer option    | Supported property names | Default value |
 |-----------------|----------------------------|---------------|
@@ -209,7 +209,7 @@ If the feature is a `LineString`, `MultiLineString`, `Polygon`, or `MultiPolygon
 
 ### Polygon style properties
 
-If the feature is a `Polygon` or a `MultiPolygon`, and the feature either doesn't have a height property, or if the height property is zero, the feature is rendered with a `PolygonLayer`.
+If the feature is a `Polygon` or a `MultiPolygon`, and doesn't have a height property, or if the height property is zero, it's rendered with a `PolygonLayer`.
 
 | Layer option | Supported property names | Default value |
 |--------------|----------------------------|---------------|
@@ -218,7 +218,7 @@ If the feature is a `Polygon` or a `MultiPolygon`, and the feature either doesn'
 
 ### Extruded polygon style properties
 
-If the feature is a `Polygon` or a `MultiPolygon`, and has a height property with a value greater than zero, the feature is rendered with an `PolygonExtrusionLayer`.
+If the feature is a `Polygon` or a `MultiPolygon`, and has a height property with a value greater than zero, it's rendered with a `PolygonExtrusionLayer`.
 
 | Layer option | Supported property names | Default value |
 |--------------|----------------------------|---------------|
@@ -244,7 +244,7 @@ See the following articles to get more code samples to add to your maps:
 [Add an OGC map layer]: spatial-io-add-ogc-map-layer.md
 [Connect to a WFS service]: spatial-io-connect-wfs-service.md
 [GitHub's GeoJSON map support]: https://docs.github.com/en/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojsontopojson-files-on-github
-[Use core operations]: spatial-io-core-operations.md
+[Core IO operations]: spatial-io-core-operations.md
 [popup template]: map-add-popup.md#add-popup-templates-to-the-map
 [Read and write spatial data]: spatial-io-read-write-spatial-data.md
 [Simple data layer options.html]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/Simple%20data%20layer%20options/Simple%20data%20layer%20options.html
