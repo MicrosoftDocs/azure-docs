@@ -40,9 +40,9 @@ Feature | .NET | Spring | Python | JavaScript
 Targeting Filter | [GA](./feature-management-dotnet-reference.md#targeting) | GA | GA | GA
 Targeting Exclusion | [GA](./feature-management-dotnet-reference.md#targeting-exclusion) | GA | GA | GA
 Time Window Filter | [GA](./feature-management-dotnet-reference.md#microsofttimewindow) | GA | GA | GA
-Recurring Time Window Filter | [GA](./feature-management-dotnet-reference.md#microsofttimewindow) | GA | WIP | WIP
-Custom filters | [GA](./feature-management-dotnet-reference.md#implementing-a-feature-filter) | GA | GA | GA
-Filter Requirement Type (AND/OR) | [GA](./feature-management-dotnet-reference.md#requirementtype) | GA | GA | GA
+Recurring Time Window | [GA](./feature-management-dotnet-reference.md#microsofttimewindow) | GA | WIP | WIP
+Custom Feature Filter | [GA](./feature-management-dotnet-reference.md#implementing-a-feature-filter) | GA | GA | GA
+Feature Filter Requirement Type (AND/OR) | [GA](./feature-management-dotnet-reference.md#requirementtype) | GA | GA | GA
 Variant Feature Flag | [GA](./feature-management-dotnet-reference.md#variants) | GA | GA | GA
 Feature Flag Telemetry | [GA](./feature-management-dotnet-reference.md#telemetry) | GA | GA | GA
 Application Insights Integration | [GA](./feature-management-dotnet-reference.md#application-insights-telemetry) | GA | GA | GA
