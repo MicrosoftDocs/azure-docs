@@ -12,7 +12,7 @@ ms.author: biqian
 
 The Application Firewall provides sophisticated control over client connections in a distributed system. Before diving into its functionality and setup, let's clarify what the Application Firewall does not do:
 
-1. It does not replace authentication. The firewall operates behind the client connection authentication layer.
+1. It doesn't replace authentication. The firewall operates behind the client connection authentication layer.
 2. It isn't related to network layer access control.
 
 ## What Does the Application Firewall Do?
