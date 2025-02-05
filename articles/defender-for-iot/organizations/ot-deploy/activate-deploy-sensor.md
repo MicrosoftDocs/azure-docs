@@ -14,7 +14,7 @@ This article is one in a series of articles describing the [deployment path](ot-
 Several initial setup steps can be performed in the browser or via CLI.
 
 - Use the browser if you can connect physical cables from your switch to the sensor to identify your interfaces correctly. Make sure to reconfigure your network adapter to match the default settings on the sensor.
-- Use the CLI if you know your networking details without needing to connect physical cables. Use the CLI if you can only connect to the sensor via iLo / iDrac
+- Use the CLI if you know your networking details without needing to connect physical cables. Use the CLI if you can only connect to the sensor via iLo / iDRAC
 
 Configuring your setup via the CLI still requires you to complete the last few steps in the browser.
 
