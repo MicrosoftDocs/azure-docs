@@ -78,7 +78,6 @@ The tool has two main phases: profiling and report generation. There is also a t
 > [!NOTE]
 >The tool can profile only VMs with VMDK and RDM disks. It can't profile VMs with iSCSI or NFS disks. Site Recovery does support iSCSI and NFS disks for VMware servers. Because the deployment planner isn't inside the guest and it profiles only by using vCenter performance counters, the tool doesn't have visibility into these disk types.
 
-
 ## Download and extract the deployment planner tool
 
 1. Download the latest version of [Site Recovery Deployment Planner](https://download.microsoft.com/download/7491a137-315d-40ca-9307-f74f913f7e6a/ASRDeploymentPlanner-v3.2.zip).
