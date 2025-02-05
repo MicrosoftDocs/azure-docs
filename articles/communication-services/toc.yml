@@ -247,7 +247,7 @@ items:
       href: quickstarts/email/manage-suppression-list-management-sdks.md
     - name: Manage domain suppression lists in the Azure portal
       href: quickstarts/email/manage-suppression-lists.md
-    - name: Detect sensitiive data using Azure AI
+    - name: Detect sensitive data using Azure AI
       href: samples/email-detect-sensitive-content.md
   - name: References
     items:
