@@ -50,7 +50,7 @@ For higher resiliency, you can deploy a standby or backup data factory in a seco
 * Configure load balancing and failover policies.
 * Plan to monitor the primary instance health and initiate failover.
 
-For more information on multi-region deployments for your data factory pipelines, see [Set up automated recovery](/architecture/example-scenario/analytics/pipelines-disaster-recovery#set-up-automated-recovery).
+For more information on multi-region deployments for your data factory pipelines, see [Set up automated recovery](/azure/architecture/example-scenario/analytics/pipelines-disaster-recovery#set-up-automated-recovery).
 
 ## Backup and restore
 
@@ -58,4 +58,4 @@ Azure Data Factory supports Continuous Integration and Delivery (CI/CD) through 
 
 ## Related content
 
-[BCDR for Azure Data Factory](/architecture/example-scenario/analytics/pipelines-disaster-recovery)
+[BCDR for Azure Data Factory](/azure/architecture/example-scenario/analytics/pipelines-disaster-recovery)
