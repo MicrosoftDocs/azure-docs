@@ -5,7 +5,7 @@ ms.author: msangapu
 author: msangapu-msft
 ms.topic: overview
 ms.custom: devx-track-extended-java, devx-track-python, devx-track-js
-ms.date: 02/04/2025
+ms.date: 02/05/2025
 zone_pivot_groups: app-service-getting-started-stacks
 ---
 
