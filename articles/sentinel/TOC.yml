@@ -500,7 +500,7 @@
       href: data-connectors/microsoft-defender-for-iot.md
     - name: Microsoft Defender for Office 365 (Preview)
       href: data-connectors/microsoft-defender-for-office-365.md
-    - name: Microsoft Defender Threat Intelligence (Preview)
+    - name: Microsoft Defender Threat Intelligence
       href: data-connectors/microsoft-defender-threat-intelligence.md
     - name: Microsoft Defender XDR
       href: data-connectors/microsoft-defender-xdr.md
@@ -582,7 +582,7 @@
       href: data-connectors/phosphorus-devices.md
     - name: Prancer Data Connector
       href: data-connectors/prancer-data-connector.md
-    - name: Premium Microsoft Defender Threat Intelligence (Preview)
+    - name: Premium Microsoft Defender Threat Intelligence
       href: data-connectors/premium-microsoft-defender-threat-intelligence.md
     - name: Proofpoint On Demand Email Security (using Azure Functions)
       href: data-connectors/proofpoint-on-demand-email-security.md
