@@ -67,11 +67,6 @@
     },
     {
       "source_path": "howto-create-cluster-with-user-assigned-managed-identity.md",
-      "redirect_url": "howto-managed-identity-user-provided-resources.md",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "howto-managed-identity-user-provided-resources.md",
       "redirect_url": "howto-cluster-managed-identity-user-provided-resources.md",
       "redirect_document_id": true
     }
