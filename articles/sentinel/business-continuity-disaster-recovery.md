@@ -45,7 +45,7 @@ For more information, see [Shared responsibility for reliability](/azure/reliabi
 
 Microsoft Sentinel uses Microsoft's best practices for resiliency, safe deployment, and BCDR with Azure Availability Zones (AZs).
 
-To support BCDR in case of a regional outage, Microsoft Sentinel uses a customer-enabled BCDR approach, which means customers are responsible for setting up disaster recovery. To ensure continuous business operations, customers must configure their Microsoft Sentinel environment in an active-active (mirrored) fashion across the two paired regions relevant to them, depending on the cloud environment.
+To support BCDR in a regional outage, Microsoft Sentinel uses a customer-enabled BCDR approach, which means customers are responsible for setting up disaster recovery. To ensure continuous business operations, customers must configure their Microsoft Sentinel environment in an active-active (mirrored) fashion across the two paired regions relevant to them, depending on the cloud environment.
 
 Customer-enabled BCDR involves:
 
@@ -67,7 +67,7 @@ The following table describes the recommended actions for setting up BCDR in dif
 
 For more information, see [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md).
 
-The following geographical regions are not currently supported for the customer-enabled BCDR approach described in this article:
+The following geographical regions aren't currently supported for the customer-enabled BCDR approach described in this article:
 
 - EU customers due to EUDB compliance limitations.
 - Israel.
