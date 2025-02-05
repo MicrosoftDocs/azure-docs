@@ -1,6 +1,6 @@
 ---
 title: Use cases for using Azure Event Grid
-description: This article provides a list of use cases that show you how to use both MQTT and HTTP messaging capabilities of Event Grid. 
+description: This article provides a list of use cases that show you how to use both Message Queuing Telemetry Transport (MQTT) and HTTP messaging capabilities of Event Grid. 
 ms.topic: concept-article
 author: robece
 ms.author: robece
@@ -12,7 +12,10 @@ ms.date: 02/04/2025
 ---
 
 # Use cases
-This article provides you a few sample use cases for using Azure Event Grid. 
+This article provides you with a few sample use cases for using Azure Event Grid. 
+
+> [!NOTE]
+> If you are new to Azure Event Grid, read through the [Azure Event Grid overview](overview.md) article before proceeding further. 
 
 ## MQTT messaging use cases
 Azure Event Grid’s MQTT broker feature enables you to accomplish the following scenarios.
