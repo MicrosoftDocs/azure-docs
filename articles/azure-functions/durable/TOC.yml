@@ -131,6 +131,8 @@
       href: /java/api/com.microsoft.durabletask
   - name: Azure storage provider
     href: durable-functions-azure-storage-provider.md
+  - name: Durable Task Scheduler storage provider
+    href: ./durable-task-scheduler/durable-task-scheduler-storage-provider.md
 - name: How-to guides
   items:
   - name: Develop
