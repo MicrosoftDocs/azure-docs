@@ -6,7 +6,7 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/28/2024
+ms.date: 02/05/2025
 ms.custom: engagement-fy24
 ---
 
@@ -243,6 +243,25 @@ For storage sizing in an Azure VM assessment, Azure Migrate tries to map each di
     - If assessment finds a set of suitable disks, it selects the disks that support the location specified in the assessment settings.
     - If there are multiple eligible disks, assessment selects the disk with the lowest cost.
     - If performance data for any disk is unavailable, the configuration disk size is used to find a Standard SSD disk in Azure.
+
+#### Storage sizing in Azure VM Assessment
+
+Azure Migrate maps each disk attached to a server to an Azure disk. The sizing process is as follows:
+
+1. **IOPS and Throughput Calculation**
+    - The assessment calculates total IOPS and throughput by adding the read and write IOPS and throughput values of each disk.
+1. **Import-based assessments**
+    - You can provide the total IOPS, total throughput, and total number of disks in the imported file without specifying individual disk settings.
+    - If this option is used, individual disk sizing is skipped and the supplied data is used directly to compute sizing and select an appropriate VM SKU.
+1. **Disk selection criteria and recommendations**
+   - If there is no disk that meets the required IOPS and throughput, the server is marked as unsuitable for Azure.
+   - If suitable disks are found, the assessment selects disks that support the specified location in the assessment settings.
+   - Among multiple eligible disks, the assessment selects the disk with the lowest cost.
+   - If the performance data for any disk is unavailable, the configured disk size is used to find a based on your preference.
+   > [!NOTE]
+   >- For all the new assessments that are created after **February  3rd, 2025**, we recommend, Premium managed disks for your OS disks and Premium V2 SSD for your data disks (if you have opted for Premium disks while creating assessments). 
+   >- If you don't see Premium V2 SSD recommendations for data disks, we recommend that you recalculate your assessment and check the assessment settings for Storage type. 
+   >- Though the assessments are previewed for all environments. Currently, migration is only applicable for VMware environments.
 
 ##### Ultra disk sizing
 
