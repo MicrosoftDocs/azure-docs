@@ -10,9 +10,9 @@ ms.author: biqian
 ---
 # Application Firewall (Preview) for Azure Web PubSub Service
 
-The Application Firewall provides sophisticated control over client connections in a distributed system. Before diving into its functionality and setup, let's clarify what the Application Firewall doesn't do:
+The Application Firewall provides sophisticated control over client connections in a distributed system. Before diving into its functionality and setup, let's clarify what the Application Firewall does not do:
 
-1. It doesn't replace authentication. The firewall operates behind the client connection authentication layer.
+1. It does not replace authentication. The firewall operates behind the client connection authentication layer.
 2. It isn't related to network layer access control.
 
 ## What Does the Application Firewall Do?
@@ -123,7 +123,7 @@ Deploy the Bicep file using Azure CLI
 
 ## Configure access token
 
-The application firewall rules only take effect when the access token contains the corresponding claim. A rule is **skipped** if the connection doesn't have the corresponding claim. *userId" and *roles* are currently supported claims in the SDK.
+The application firewall rules only take effect when the access token contains the corresponding claim. A rule is **skipped** if the connection does not have the corresponding claim. *userId" and *roles* are currently supported claims in the SDK.
 
 Below is an example to add userId and insert a unique placeholder in the access token:
 
