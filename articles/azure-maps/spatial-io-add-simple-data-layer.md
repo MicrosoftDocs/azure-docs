@@ -19,7 +19,7 @@ The simple data layer achieves this functionality by wrapping multiple rendering
 
 The `SimpleDataLayer` class also provides a built-in popup feature with a popup template. The popup appears when a feature is selected. This layer also supports clustered data. When a cluster is selected, the map zooms in to the cluster and expands it into individual points and subclusters. You can disable the popup feature if you don't need it.
 
-The `SimpleDataLayer` class is intended to be used on large data sets that include features with many applied geometry types and styles. When you use this class, it adds an overhead of six layers that contain style expressions. If you only need to render a few geometry types and styles on a feature, it might be more efficient to use a core rendering layer. For more information, see [Add a bubble layer to the map](https://learn.microsoft.com/en-us/azure/azure-maps/map-add-bubble-layer), [Add a line layer to the map](https://learn.microsoft.com/en-us/azure/azure-maps/map-add-line-layer), and [Add a polygon layer to the map](https://learn.microsoft.com/en-us/azure/azure-maps/map-add-shape).
+The `SimpleDataLayer` class is intended to be used on large data sets that include features with many applied geometry types and styles. When you use this class, it adds an overhead of six layers that contain style expressions. If you only need to render a few geometry types and styles on a feature, it might be more efficient to use a core rendering layer. For more information, see [Add a bubble layer to the map](map-add-bubble-layer.md), [Add a line layer to the map](map-add-line-layer.md), and [Add a polygon layer to the map](map-add-shape.md).
 
 ## Use a simple data layer
 
