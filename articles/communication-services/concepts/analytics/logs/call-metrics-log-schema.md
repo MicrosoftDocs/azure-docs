@@ -13,7 +13,17 @@ ms.subservice: calling
 ---
 
 # Call Metrics Log Schema
-INTRO
+
+This log contains aggregated calling metrics in daily bins based on attributes such as SDK Version, OS name, and Error Subcode. These logs are used in the **[Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)** to visualize long term graphs of reliability, quality, and performance based on count of succeeded and failed Calling SDK api calls of various operations. You can also set up automated alerts when a metric falls. **ankesh please explain how to do alerts**
+
+EXPLAIN METRICS CONCEPTUALLY
+
+a separate page that explains "metrics" conceptually
+what is metric - Based on thresholds defined in ACSCallingMetrics.Goal how many distinct api calls succeded or failed in a daily bucket for dimentions liek SDK version, make model, subcode etc
+what does it measure - Failure and success count for a particualr api call or a complex condition like UFD recovering (count of good UFD>= count of bad UFD)
+what is success/what is failure
+explain failures - high level - that somebody should review subcodes and go to subcode page etc..
+failure - an api call failing with unexpected error or a complex condition failing like getting a bd UFD in a call.
 
 > [!IMPORTANT]
 >You must collect logs if you want to analyze them. To learn more see: **[How do I store logs?](#how-do-i-store-logs)**
@@ -21,29 +31,125 @@ INTRO
 >Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data is not retroactively available. You accumulate data once you set up the Diagnostic Settings.
 
 ## Log structure
-TABLE
+
+
+| Property                     | Description                                                                                                                |
+|----------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| `TimeGenerated`              | The timestamp (UTC) of when the log was generated.                                                                         |
+| `OperationName`             | The operation associated with the log record.                                                                              |
+| `OperationVersion`          | The API-version associated with the operation. Or the version of the operation if there is no API version.                                                   |
+| `Category`                  | The log category of the event. Logs with the same log category and resource type share the same properties fields.           |
+| `CorrelationId`             | A unique GUID that correlates events across the same dimension.                                                            |
+| `TimestampMax`              | The maximum timestamp in UTC for each dimension.                                                                           |
+| `TimestampBin`              | The daily timestamp bin for each dimension.                                                                                |
+| `MetricValueAvg`            | The average value of the metric for each dimension.                                                                        |
+| `Unit`                      | The unit of the metric.                                                                                                    |
+| `Goal`                      | The threshold defined for a leg to succeed.                                                                                |
+| `FailedLegsDcount`          | The number of failed participants (legs) per dimension.                                                                    |
+| `SuccessLegsDcount`         | The count of successful participants (legs) per dimension.                                                                 |
+| `CallsDcount`               | The total number of calls per dimension.                                                                                   |
+| `LegsDcount`                | The total number of participants (legs) per dimension.                                                                     |
+| `SubCode`                   | A dimension indicating the subcode.                                                                                        |
+| `CallType`                  | A dimension indicating the type of call.                                                                                   |
+| `Platform`                  | The platform dimension (e.g., iOS, Android, Windows).                                                                      |
+| `ResultType`                | The result type dimension (e.g., success or failure category).                                                             |
+| `DeviceModel`               | A dimension indicating the device model.                                                                                   |
+| `DeviceBrand`               | A dimension indicating the device brand.                                                                                   |
+| `DeviceFamily`              | A dimension indicating the device family.                                                                                  |
+| `DeviceOsVersionMajor`      | Major version number of the device operating system.                                                                              |
+| `DeviceOsVersionMinor`      | Minor version number of the device operating system.                                                                              |
+| `DeviceBrowserVersionMinor` | Minor version number of the device browser.                                                                                       |
+| `DeviceBrowserVersionMajor` | Major version number of the device browser.                                                                                       |
+| `DeviceOsName`              | Name of the device operating system.                                                                                       |
+| `DeviceBrowser`             | Name of the device browser.                                                                                                |
+| `SdkVersion`                | The SDK version running on the client.                                                                                     |
+| `MetricName`                | The name of the metric being measured.                                                                                     |
 
 ## Sample data for various call types
 
-### P2P call 
+### Call Metrics log for P2P and group calls
 
-Here are shared fields for all logs in a P2P call:
+For the call metric log, there's no difference between P2P and group call scenarios. **????????The number of logs depends on the SDK operations and call duration**. The following code is a generic sample showing the schema of these logs.
 
-```json
-"time":                     "2021-07-19T18:46:50.188Z",
-"resourceId":               "SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/ACS-TEST-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-PROD-CCTS-TESTS",
-"correlationId":            "aaaa0000-bb11-2222-33cc-444444dddddd",
-```
+### Call Metrics Log
 
-### Group call
+Here's a sample of the Call Metrics log: **Ankesh explain each part what they are**
 
-Data for a group call is generated in three call summary logs and six call diagnostic logs. Here are shared fields for all logs in the call:
+{
+  "TenantId": "4e7403f8-515a-4df5-8e13-59f0e2b76e3a",
+  "TimeGenerated": "2025-02-03T05:17:39.1840000Z",
+  "OperationName": "CallingMetrics",
+  "OperationVersion": "1.0-dev",
+  "Category": "CallingMetrics",
+  "CorrelationId": "1f27dac9e6d64c82cafdd6da73cdb785",
+  "TimestampMax": "2025-02-02T14:35:55.0000000Z",
+  "TimestampBin": "2025-02-02T00:00:00.0000000Z",
+  "MetricValueAvg": 100,
+  "Unit": "percentage",
+  "Goal": ">= 100.0",
+  "FailedLegsDcount": 0,
+  "SuccessLegsDcount": 2,
+  "CallsDcount": 1,
+  "LegsDcount": 2,
+  "SubCode": 0,
+  "CallType": "1 to 1",
+  "Platform": "Web",
+  "ResultType": "Succeeded",
+  "DeviceModel": "",
+  "DeviceBrand": "",
+  "DeviceFamily": "Other",
+  "DeviceOsVersionMajor": "",
+  "DeviceOsVersionMinor": 10,
+  "DeviceBrowserVersionMinor": 0,
+  "DeviceBrowserVersionMajor": 132,
+  "DeviceOsName": "Windows",
+  "DeviceBrowser": "Edge",
+  "SdkVersion": "1.32.1.0_stable",
+  "MetricName": "reliability/leg/UFD/CameraStoppedUnexpectedly",
+  "SourceSystem": "",
+  "Type": "ACSCallingMetrics",
+  "_ResourceId": "/subscriptions/50ad1522-5c2c-4d9a-a6c8-67c11ecb75b8/resourcegroups/calling-sample-apps/providers/microsoft.communication/communicationservices/corertc-test-apps"
+}
 
-```json
-"time":                     "2021-07-05T06:30:06.402Z",
-"resourceId":               "SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/ACS-TEST-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-PROD-CCTS-TESTS",
-"correlationId":            "bbbb1111-cc22-3333-44dd-555555eeeeee",
-```
+
+{
+  "TenantId": "4e7403f8-515a-4df5-8e13-59f0e2b76e3a",
+  "TimeGenerated": "2025-02-03T05:17:39.1840000Z",
+  "OperationName": "CallingMetrics",
+  "OperationVersion": "1.0-dev",
+  "Category": "CallingMetrics",
+  "CorrelationId": "1f27dac9e6d64c82cafdd6da73cdb785",
+  "TimestampMax": "2025-02-02T14:35:55.0000000Z",
+  "TimestampBin": "2025-02-02T00:00:00.0000000Z",
+  "MetricValueAvg": 100,
+  "Unit": "percentage",
+  "Goal": ">= 100.0",
+  "FailedLegsDcount": 0,
+  "SuccessLegsDcount": 2,
+  "CallsDcount": 1,
+  "LegsDcount": 2,
+  "SubCode": 0,
+  "CallType": "1 to 1",
+  "Platform": "Web",
+  "ResultType": "Succeeded",
+  "DeviceModel": "",
+  "DeviceBrand": "",
+  "DeviceFamily": "Other",
+  "DeviceOsVersionMajor": "",
+  "DeviceOsVersionMinor": 10,
+  "DeviceBrowserVersionMinor": 0,
+  "DeviceBrowserVersionMajor": 132,
+  "DeviceOsName": "Windows",
+  "DeviceBrowser": "Edge",
+  "SdkVersion": "1.32.1.0_stable",
+  "MetricName": "reliability/leg/UFD/CameraStoppedUnexpectedly",
+  "SourceSystem": "",
+  "Type": "ACSCallingMetrics",
+  "_ResourceId": "/subscriptions/50ad1522-5c2c-4d9a-a6c8-67c11ecb75b8/resourcegroups/calling-sample-apps/providers/microsoft.communication/communicationservices/corertc-test-apps"
+}
+
+
+ 
 
 ## Frequently asked questions
 
