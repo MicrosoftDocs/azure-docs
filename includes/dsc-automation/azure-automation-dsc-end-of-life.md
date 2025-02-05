@@ -18,7 +18,7 @@ ms.author: sewhee
 
 > [!IMPORTANT]
 > The Portal navigation links "Add", "Compose configuration", and "Gallery" will be removed beginning
-> February 28, 2025.
+> March 31, 2025.
 
 <!-- link references -->
 [blog]: https://azure.microsoft.com/updates/v2/Planned-Service-Retirement-Azure-Automation-State-Configuration-16-September-2027
