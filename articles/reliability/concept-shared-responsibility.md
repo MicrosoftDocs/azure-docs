@@ -33,7 +33,7 @@ Whether you choose SaaS, PaaS, or IaaS service categories determines what kind o
 > [!NOTE]
 > Service categories (SaaS, PaaS, and IaaS) are useful as a broad grouping of services, but it's important to understand your responsibilities for each individual service you use.
 >
-> The [reliability guides](./overview-reliability-guidance.md) provide an overview of how each service works from a reliabiliyy perspective, and help you to make informed decisions about how to configure your services to meet your needs.
+> The [reliability guides](./overview-reliability-guidance.md) provide an overview of how each service works from a reliability perspective and help you to make informed decisions about how to configure your services to meet your needs.
 
 You're also responsible for your application and workload design, and for defining your reliability requirements, which helps you to decide how to design and configure your solution.
 
