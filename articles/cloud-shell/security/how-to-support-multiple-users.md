@@ -1,27 +1,32 @@
 ---
-title: Support multiple users of Cloud Shell in a private virtual network
-description: This article explains changes required to support multiple users for a Cloud Shell instance deployed in a private virtual network.
+title: Allow multiple users to use a single storage account and file share
+description: This article explains changes required to allow multiple Azure Cloud Shell users to use a single storage account and file share.
 ms.topic: how-to
 ms.date: 02/04/2025
 ---
-# Support multiple users of Cloud Shell in a private virtual network
+# Allow multiple users to use a single storage account and file share
 
-The instructions and ARM templates used to deploy Cloud Shell in a private virtual network create an
-environment designed to be used by a single user. A single-user deployment is the most secure
-configuration because each user can only access their own file share. However, you might have a need
-to allow multiple users access to a single deployment. To support access for multiple users, you
-need to make the following changes:
+By default, the storage resources created by Azure Cloud Shell are designed to be used by a single
+user. A single-user deployment is the most secure configuration because each user can only access
+their own file share. However, you might have a need to allow multiple users access to a single
+deployment. To support access for multiple users, you need to make the following changes:
 
 - Increase File Share quota
 - Assign roles to the users that allow access to the storage resources
 
+> [!WARNING]
+> While it's possible to allow multiple users to share a single storage account and file share, it's
+> not recommended. Using the configuration steps in this article grants each of the configured users
+> access to the all the files in the file share. If you need to support multiple users, consider
+> creating a separate storage account and file share for each user.
+
 ## Increase File Share quota
 
-The initial deployment of Cloud Shell in a private virtual network creates a file share with a 6-GiB
-quota limit. When a new user starts their first session, Cloud Shell creates a 5-GiB image file in
-the file share. The first user uses up the quota limit. When a second user starts their session,
-they receive the 'ephemeral storage' error message because Cloud Shell is unable to create another
-5-GiB image file. Also, notice that Cloud Shell created a 0-byte image file for the failed attempt.
+The file share created by Cloud Shell has a 6-GiB quota limit. When a new user starts their first
+session, Cloud Shell creates a 5-GiB image (`*.img`) file in the file share. The first user uses up
+the quota limit. When a second user starts their session, they receive the 'ephemeral storage' error
+message because Cloud Shell is unable to create another 5-GiB image (`*.img`) file. Also, notice
+that Cloud Shell created a 0-byte image (`*.img`) file for the failed attempt.
 
 To support multiple users, you need to increase the file share quota to accommodate the number of
 users that share the same storage account. Increase the quota by 5-GiB per user.
