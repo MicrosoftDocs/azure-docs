@@ -44,7 +44,8 @@ Entra ID Authentication | GA | GA | GA | GA | GA
 Dynamic Refresh (Poll Mode) | GA | GA | GA | GA | GA
 Dynamic Refresh (Push Mode) | GA | GA | N/A | N/A | N/A
 Dynamic Refresh (Collection Monitoring) | WIP | WIP | GA | WIP | Preview
-JSON Content Type Handling| GA | GA | GA | GA | GA
+JSON Content Type Handling | GA | GA | GA | GA | GA
+Custom Map Callback | GA | N/A | N/A | N/A | N/A
 Key Vault Reference | GA | GA | GA | GA | GA
 Custom Key Vault Resolution | GA | GA | GA | GA | GA
 Feature Flag | GA | GA | GA | GA | GA
