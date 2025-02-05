@@ -35,7 +35,9 @@ any quality investigations, and using **[Call Diagnostics](../../voice-video-cal
 
 ## Available logs 
 
-Azure Communication Services creates six types of call logs:
+Azure Communication Services creates six types of call logs and they share a common usage log:
+
+- **Usage Logs**: Contains common information that you can use to reference information across multiple tables. **NEED INPUT FROM TEAM ON THIS**
 
 - **Call Summary Logs**: Contain basic information about the call, including all the relevant IDs, time stamps, endpoints, and SDK information. For each participant within a call, Communication Services creates a distinct call summary log.
 

@@ -24,7 +24,6 @@ Call Metrics logs contain aggregated calling metrics in daily bins based on attr
 ## Data Concepts
 
 
-
 a separate page that explains "metrics" conceptually
 what is metric - Based on thresholds defined in ACSCallingMetrics.Goal how many distinct api calls succeded or failed in a daily bucket for dimentions liek SDK version, make model, subcode etc
 what does it measure - Failure and success count for a particualr api call or a complex condition like UFD recovering (count of good UFD>= count of bad UFD)
@@ -84,6 +83,7 @@ For the call metric log, there's no difference between P2P and group call scenar
 ### Call Metrics Log
 
 Here's a sample of the Call Metrics log: **Ankesh explain each part what they are**
+
 
 {
   "TenantId": "4e7403f8-515a-4df5-8e13-59f0e2b76e3a",
