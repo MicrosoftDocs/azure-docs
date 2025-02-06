@@ -39,7 +39,7 @@ Then, go to the Azure Storage account > **Access control (IAM)** > **Add role as
     1. If using system-assigned managed identity, for **Assign access to**, select **User, group, or service principal** option, then select **+ Select members** and search for the name of the Azure IoT Operations Arc extension. 
     1. If using user-assigned managed identity, for **Assign access to**, select **Managed identity** option, then select **+ Select members** and search for your [user-assigned managed identity set up for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections).
 
-## Create adata flow endpoint for Azure Data Lake Storage Gen2
+## Create data flow endpoint for Azure Data Lake Storage Gen2
 
 # [Portal](#tab/portal)
 
