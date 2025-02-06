@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 09/23/2024
+ms.date: 02/06/2025
 
 #CustomerIntent: As an Azure administrator, I want to know the required Azure role-based access control (Azure RBAC) permissions to use each of the Network Watcher capabilities, so I can assign them correctly to users using any of those capabilities.
 ---
@@ -85,6 +85,9 @@ Since traffic analytics is enabled as part of the flow log resource, the followi
 > [!CAUTION]
 > Data collection rule and data collection endpoint resources are created and managed by traffic analytics. If you perform any operation on these resources, traffic analytics may not function as expected.
 
+> [!IMPORTANT]
+> Management group inherited permissions are currently not supported for enabling Traffic analytics.
+
 ## Connection troubleshoot
 
 | Action                                                              | Description                                                    |
@@ -139,7 +142,6 @@ Since traffic analytics is enabled as part of the flow log resource, the followi
 | Action                                                              | Description                                                    |
 | ------------------------------------------------------------------- | -------------------------------------------------------------- |
 | Microsoft.Network/networkWatchers/azureReachabilityReport/action    | Get an Azure reachability report                               |
-
 
 ## Additional actions
 
