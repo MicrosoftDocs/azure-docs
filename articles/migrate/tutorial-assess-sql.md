@@ -5,8 +5,8 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 08/13/2024
-ms.custom: engagement-fy25
+ms.date: 02/06/2025
+ms.custom: engagement-fy24
 ---
 
 
@@ -40,16 +40,15 @@ Decide whether you want to run an assessment using sizing criteria based on SQL 
 **Performance-based** | Assess based on collected performance data. | Recommended Azure SQL configuration is based on performance data of SQL Server instances and databases, which includes CPU usage, core counts, database file organization and size, file IOs, and memory usage by each database. You can get optimal recommendations that are right-sized for the SQL workload.
 
 ## Run an assessment
-
 Run an assessment as follows:
-1. In **Servers, databases and web apps**, select **Discover, assess and migrate**.
-
+1. 1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
+    
     :::image type="content" source="./media/tutorial-assess-sql/assess-migrate-inline.png" alt-text="Screenshot of Overview page for Azure Migrate." lightbox="./media/tutorial-assess-sql/assess-migrate-expanded.png":::
 
 1. In **Azure Migrate: Discovery and assessment**, select **Assess** and choose the assessment type as **Azure SQL**.
-
+    
     :::image type="content" source="./media/tutorial-assess-sql/assess-inline.png" alt-text="Screenshot of Dropdown to choose assessment type as Azure SQL." lightbox="./media/tutorial-assess-sql/assess-expanded.png":::
-
+    
 1. In **Assess servers**, the assessment type is pre-selected as **Azure SQL** and the discovery source is defaulted to **Servers discovered from Azure Migrate appliance**.
 
 1. Select **Edit** to review the assessment settings.
@@ -108,5 +107,5 @@ Run an assessment as follows:
 
 ## Next steps
 
-* [Learn more](concepts-azure-sql-assessment-calculation.md) about how Azure SQL assessments are calculated.
-* Start migrating SQL instances and databases using [Azure Database Migration Service](/azure/dms/dms-overview).
+- [Learn more](concepts-azure-sql-assessment-calculation.md) about how Azure SQL assessments are calculated.
+- Start migrating SQL instances and databases using [Azure Database Migration Service](/azure/dms/dms-overview).
