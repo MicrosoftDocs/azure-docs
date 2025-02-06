@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: article
-ms.date: 07/23/2024
+ms.date: 01/10/2025
 ms.author: danlep
 ---
 
@@ -77,7 +77,7 @@ The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request 
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| use-managed-identity | Boolean. Specifies whether to use the API Management instance's system-assigned [managed identity](api-management-howto-use-managed-service-identity.md) for connection to the Azure SQL database in place of a username and password in the connection string. Policy expressions are allowed. <br/><br/>The identity must be [configured](#configure-managed-identity-integration-with-azure-sql) to access the Azure SQL database.  | No  | `false`   |
+| use-managed-identity | Boolean. Specifies whether to use the API Management instance's system-assigned [managed identity](api-management-howto-use-managed-service-identity.md) for connection to the Azure SQL database in place of a username and password in the connection string. Policy expressions are allowed. <br/><br/>The identity must be [configured](#configure-managed-identity-integration-with-azure-sql) to access the Azure SQL database. Microsoft recommends this option as the most secure authentication method.  | No  | `false`   |
 
 ### request attribute
 
@@ -128,7 +128,7 @@ The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request 
 
 ## Configure managed identity integration with Azure SQL
 
-You can configure an API Management system-assigned managed identity for access to Azure SQL instead of configuring SQL authentication with username and password. For background, see [Configure and manage Microsoft Entra authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure).
+We strongly recommend configuring an API Management system-assigned managed identity for access to Azure SQL instead of configuring SQL authentication with username and password. For background, see [Configure and manage Microsoft Entra authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure).
 
 ### Prerequisites
 
@@ -149,7 +149,7 @@ Enable Microsoft Entra authentication to SQL Database by assigning a Microsoft E
 
 1. In the portal, go to your Azure SQL database resource.
 1. Select **Query editor (preview)**.
-1. Login using Active Directory authentication.
+1. Login using Microsoft Entra authentication.
 1. Execute the following SQL script. Replace `<identity-name>` with the name of your API Management instance.
 
     ```sql
