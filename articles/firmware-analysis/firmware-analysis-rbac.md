@@ -27,7 +27,7 @@ When you onboard your subscription to firmware analysis and select your resource
 Navigate to your resource group and select **Show hidden types** to show the **default** resource. The **default** resource has the **Microsoft.IoTFirmwareDefense.workspaces** type.
 
 :::image type="content" source="media/firmware-analysis-rbac/default-workspace.png" alt-text="Screenshot of the toggle button 'Show hidden types' that reveals a resource named 'default'." lightbox="media/firmware-analysis-rbac/default-workspace.png":::
- 
+  
 Although the **default** workspace resource isn't something that you'll regularly interact with, each firmware image that you upload will be represented as a resource and stored here.
 
 You can use RBAC at each level of the hierarchy, including at the hidden **default firmware analysis workspace** resource level. 
@@ -82,5 +82,5 @@ To invite a third party, follow the [Assign Azure roles to external guest users 
 * In step 7, select the **Firmware Analysis Admin** role.
 
 > [!Note]
-> If you received an email to join an organization, be sure to check your Junk folder for the invitation email if you don't see it in your inbox.
-> 
+> If you received an email to join an organization, be sure to check your Junk folder for the invitation email if you don't see it in your inbox. 
+>  
