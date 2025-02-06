@@ -1,5 +1,5 @@
 ---
-title: How to use API portal for VMware Tanzu with the Azure Spring Apps Enterprise plan
+title: How to Use API Portal for VMware Tanzu with the Azure Spring Apps Enterprise Plan
 titleSuffix: Azure Spring Apps Enterprise plan
 description: How to use API portal for VMware Tanzu with the Azure Spring Apps Enterprise plan.
 author: KarlErickson

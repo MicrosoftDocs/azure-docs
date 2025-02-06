@@ -20,6 +20,8 @@
   - name: Create an ExpressRoute circuit - ARM template
     displayName: Resource Manager
     href: quickstart-create-expressroute-vnet-template.md
+  - name: Create an ExpressRoute circuit - Terraform
+    href: quickstart-create-expressroute-vnet-terraform.md
   expanded: true
 - name: Tutorials
   items:

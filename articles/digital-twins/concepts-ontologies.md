@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about digital twin ontologies, how they're used in Azure Digital Twins, and how these DTDL ontologies can be used for modeling in the context of certain industries.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 06/29/2023
+ms.date: 01/27/2025
 ms.topic: conceptual
 ms.service: azure-digital-twins
 ms.custom: engagement-fy23
@@ -32,7 +32,7 @@ Here are the main strategies for creating DTDL ontologies to use in Azure Digita
 
 | Strategy | Description | Resources |
 | --- | --- | --- |
-| Adopt | You can jump-start your solution by adopting one of Microsoft's open-source DTDL ontologies that has been built on widely accepted industry standards. If the ontologies contain all the models you need, you can take these model sets as they are and use them out-of-the-box. | [Adopting&nbsp;industry&nbsp;standard ontologies](concepts-ontologies-adopt.md) |
+| Adopt | You can jumpstart your solution by adopting one of Microsoft's open-source DTDL ontologies that has been built on widely accepted industry standards. If the ontologies contain all the models you need, you can take these model sets as they are and use them out-of-the-box. | [Adopting&nbsp;industry&nbsp;standard ontologies](concepts-ontologies-adopt.md) |
 | Extend | If an existing DTDL ontology has most, but not all, of the models you need in your solution, you can extend the ontology with your own additions to create a customized ontology. | [Adopting&nbsp;industry&nbsp;standard ontologies](concepts-ontologies-adopt.md)<br><br>[Extending&nbsp;ontologies](concepts-ontologies-extend.md) |
 | Convert | If you already have existing models represented in another standard industry format, you can convert them to DTDL to use them with Azure Digital Twins. | [Converting&nbsp;ontologies](concepts-ontologies-convert.md) |
 | Author | You can develop your own custom DTDL ontologies from scratch, using any applicable industry standards as inspiration. | [DTDL models](concepts-models.md) |

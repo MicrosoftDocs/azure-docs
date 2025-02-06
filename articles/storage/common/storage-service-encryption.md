@@ -14,7 +14,7 @@ ms.subservice: storage-common-concepts
 
 # Azure Storage encryption for data at rest
 
-Azure Storage uses service-side encryption (SSE) to automatically encrypt your data when it is persisted to the cloud. Azure Storage encryption protects your data and to help you to meet your organizational security and compliance commitments.
+Azure Storage uses service-side encryption (SSE) to automatically encrypt your data when it's persisted to the cloud. Azure Storage encryption protects your data and helps you meet your organizational security and compliance commitments.
 
 Microsoft recommends using service-side encryption to protect your data for most scenarios. However, the Azure Storage client libraries for Blob Storage and Queue Storage also provide client-side encryption for customers who need to encrypt data on the client. For more information, see [Client-side encryption for blobs and queues](#client-side-encryption-for-blobs-and-queues).
 

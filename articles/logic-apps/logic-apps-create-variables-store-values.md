@@ -31,7 +31,7 @@ Variables exist and are global only within the workflow instance that creates th
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * A logic app workflow where you want to create the variable and a trigger that starts the workflow.
 
@@ -60,7 +60,7 @@ You can create a variable and declare its data type and initial value by using a
 
    | Property | Required | Value |  Description |
    |----------|----------|-------|--------------|
-   | **Name** | Yes | <*variable-name*> | The name for the variable to increment |
+   | **Name** | Yes | <*variable-name*> | The name for the variable to initialize |
    | **Type** | Yes | <*variable-type*> | The data type for the variable |
    | **Value** | No | <*start-value*> | The initial value for your variable <br><br>**Tip**: Although optional, set the value as a best practice so you always know your variable's start value. |
 
@@ -80,7 +80,7 @@ You can create a variable and declare its data type and initial value by using a
 
    | Property | Required | Value |  Description |
    |----------|----------|-------|--------------|
-   | **Name** | Yes | <*variable-name*> | The name for the variable to increment |
+   | **Name** | Yes | <*variable-name*> | The name for the variable to initialize |
    | **Type** | Yes | <*variable-type*> | The data type for the variable |
    | **Value** | No | <*start-value*> | The initial value for your variable <br><br>**Tip**: Although optional, set the value as a best practice so that you always know your variable's start value. |
 
@@ -109,7 +109,7 @@ If you switch from the designer to code view, the following example shows how th
       },
       "runAfter": {}
    }
-},
+}
 ```
 
 > [!NOTE]
@@ -460,7 +460,7 @@ The following table describes the information for the **Decrement variable** act
 | Property | Required | Value |  Description |
 |----------|----------|-------|--------------|
 | **Name** | Yes | <*variable-name*> | The name for the variable to decrement | 
-| **Value** | No | <*increment-value*> | The value for decrementing the variable. The default value is one. <br><br>**Tip**: Although optional, set this value as a best practice so you always know the specific value for decrementing your variable. |
+| **Value** | No | <*decrement-value*> | The value for decrementing the variable. The default value is one. <br><br>**Tip**: Although optional, set this value as a best practice so you always know the specific value for decrementing your variable. |
 
 If you switch from the designer to code view, the following example shows how the **Decrement variable** action appears in your workflow definition, which is in JSON format:
 

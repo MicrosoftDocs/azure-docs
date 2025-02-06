@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/19/2024
+ms.date: 01/29/2025
 ms.author: anfdocs
 ---
 # Understand Azure NetApp Files application volume group for Oracle 
@@ -49,6 +49,7 @@ Application volume group for Oracle helps you simplify the deployment process an
     On request, a PPG based volume placement is available for regions without availability zones, which requires a manual process.
 * Creation of separate storage endpoints (with different IP addresses) for data and log volumes.   
     This deployment method provides better performance and throughput for the Oracle database.
+* Customer-managed keys support increased security and compliance. 
 
 ## Application volume group layout
 

@@ -2,7 +2,7 @@
 title: Back up Azure VMs using REST API in Azure Backup
 description: In this article, learn how to configure, initiate, and manage backup operations of Azure VM Backup using REST API.
 ms.topic: how-to
-ms.date: 04/24/2024
+ms.date: 02/09/2025
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 author: jyothisuri
 ms.author: jsuri
@@ -415,7 +415,7 @@ X-Powered-By: ASP.NET
 }
 ```
 
-Since the backup job is a long running operation, it needs to be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+Since the backup job is a long running operation, it needs to be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#track-the-job).
 
 ## Modify the backup configuration for a protected Azure VM
 
@@ -458,7 +458,7 @@ To remove protection on a protected VM but retain the data already backed up, re
 }
 ```
 
-The response will follow the same format as mentioned [for triggering an on-demand backup](#example-responses-for-on-demand-backup). The resultant job should be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+The response will follow the same format as mentioned [for triggering an on-demand backup](#example-responses-for-on-demand-backup). The resultant job should be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#track-the-job).
 
 ### Stop protection and delete data
 
@@ -507,7 +507,7 @@ Undo deletion is a *PUT* operation which is very similar to [changing the policy
 }
 ```
 
-The response will follow the same format as mentioned [for triggering an on-demand backup](#example-responses-for-on-demand-backup). The resultant job should be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+The response will follow the same format as mentioned [for triggering an on-demand backup](#example-responses-for-on-demand-backup). The resultant job should be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#track-the-job).
 
 ## Next steps
 
