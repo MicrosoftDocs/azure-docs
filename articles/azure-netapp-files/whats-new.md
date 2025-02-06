@@ -18,7 +18,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Application volume group for SAP HANA extension one enables you to improve your volume group deployment experience for SAP HANA. Key improvements include: 
 
-    = Support for availability zone volume placement, avoiding the manual AVset pining requirement (when using PPG) 
+    - Support for availability zone volume placement, avoiding the manual AVset pining requirement (when using PPG) 
     - Support for Standard network features for SAP HANA volumes 
 
 ## January 2025
