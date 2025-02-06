@@ -186,7 +186,7 @@ Select **Add VLAN** to add more VLANs as needed.
 
 ### Public addresses
 
-Add the public addresses of internel devices into this configuration to ensure that the sensor includes them in the inventory and doesn't treat them as internal communication.
+Add the public addresses of internal devices into this configuration to ensure that the sensor includes them in the inventory and doesn't treat them as internal communication.
 
 1. In the **Settings** tab, type the **IP address** and **Mask** address.
 
