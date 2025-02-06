@@ -202,7 +202,9 @@ The agentless replication option uses mechanisms provided by the virtualization 
 
 When replication is configured for a VM, the VM first goes through an initial replication phase. During initial replication, a VM snapshot is taken, and a full copy of data from the snapshot disks is replicated to managed disks in your subscription. After initial replication for the VM finishes, the replication process transitions to an incremental replication (delta replication) phase.
 
-In the incremental replication phase, data changes that occurred since the last completed replication cycle are periodically replicated and applied to the replica-managed disks. This process keeps replication in sync with changes on the VM. For VMware VMs, VMware changed-block tracking technology keeps track of changes between replication cycles. At the start of the replication cycle, a VM snapshot is taken and changed-block tracking is used to compile the changes between the current snapshot and the last successfully replicated snapshot. That way, to keep replication for the VM in sync, only data that changed since the last completed replication cycle needs to be replicated.
+In the incremental replication phase, data changes that occurred since the last completed replication cycle are periodically replicated and applied to the replica-managed disks. This process keeps replication in sync with changes on the VM.
+
+For VMware VMs, VMware changed-block tracking technology keeps track of changes between replication cycles. At the start of the replication cycle, a VM snapshot is taken and changed-block tracking is used to compile the changes between the current snapshot and the last successfully replicated snapshot. That way, to keep replication for the VM in sync, only data that changed since the last completed replication cycle needs to be replicated.
 
 At the end of each replication cycle, the snapshot is released, and snapshot consolidation is performed for the VM. Similarly, for Hyper-V VMs, the Hyper-V replica-change tracking engine is used to keep track of changes between consecutive replication cycles.
 
@@ -212,7 +214,7 @@ To get started, refer to the [VMware agentless migration](tutorial-migrate-vmwar
 
 ### How do I gauge the bandwidth requirement for my migrations?
 
-The amount of bandwidth that you need to replicate data to Azure is determined by a range of factors, and depends on how fast the on-premises Azure Migrate appliance can read and replicate the data to Azure. Replication has two phases: initial replication and delta replication.
+A range of factors can affect the amount of bandwidth that you need to replicate data to Azure. The bandwidth requirement depends on how fast the on-premises Azure Migrate appliance can read and replicate the data to Azure. Replication has two phases: initial replication and delta replication.
 
 When Azure Migrate starts replication for a VM, there's an initial replication cycle. In that cycle, Azure Migrate replicates full copies of the disk. After Migrate finishes initial replication, it schedules periodic incremental replication cycles (delta cycles) that transfer any changes that occurred since the previous replication cycle.
 
@@ -306,7 +308,7 @@ Agentless replication results in some performance impact on VMware vCenter Serve
 Replication of VMware VMs while they're powered off is supported, but only in the agentless approach.
 
  > [!IMPORTANT]
-> We can't guarantee that a powered-off VM will boot successfully, because we can't verify its operational state before replication.
+> We can't guarantee that a powered-off VM boots successfully, because we can't verify its operational state before replication.
 
 We highly recommend that you perform a test migration to ensure everything proceeds smoothly during the actual migration. This method can be useful when the initial replication process is lengthy, or for high-churn VMs, such as database servers or other disk-intensive workloads.
 
@@ -342,7 +344,7 @@ To migrate workloads that run on Amazon Linux, you can spin up a CentOS/RHEL VM 
 
 ### How do I gauge the bandwidth requirement for my migrations?
 
-The amount of bandwidth that you need to replicate data to Azure is determined by a range of factors, and depends on how fast the on-premises Azure Migrate appliance can read and replicate the data to Azure. Replication has two phases: initial replication and delta replication.
+A range of factors can affect the amount of bandwidth that you need to replicate data to Azure. The bandwidth requirement depends on how fast the on-premises Azure Migrate appliance can read and replicate the data to Azure. Replication has two phases: initial replication and delta replication.
 
 When replication starts for a VM, an initial replication cycle occurs in which full copies of the disks are replicated. After the initial replication is completed, incremental replication cycles (delta cycles) are scheduled periodically to transfer any changes that occurred since the previous replication cycle.
 
@@ -360,7 +362,9 @@ The agentless replication option works by using mechanisms provided by the virtu
 
 When replication is configured for a VM, the VM first goes through an initial replication phase. During initial replication, a VM snapshot is taken, and a full copy of data from the snapshot disks are replicated to managed disks in your subscription.
 
-After initial replication for the VM finishes, the replication process transitions to an incremental replication (delta replication) phase. In the incremental replication phase, data changes that occurred since the last completed replication cycle are periodically replicated and applied to the replica-managed disks, which keeps replication in sync with changes happening on the VM.
+After initial replication for the VM finishes, the replication process transitions to an incremental replication (delta replication) phase. 
+
+In the incremental replication phase, data changes that occurred since the last completed replication cycle are periodically replicated and applied to the replica-managed disks. This process keeps replication in sync with changes happening on the VM.
 
 For VMware VMs, VMware changed-block tracking technology is used to keep track of changes between replication cycles. At the start of the replication cycle, a VM snapshot is taken and changed-block tracking is used to get the changes between the current snapshot and the last successfully replicated snapshot. That way, to keep replication for the VM in sync, only data that changed since the last completed replication cycle needs to be replicated.
 
@@ -372,7 +376,7 @@ To get started, refer the [Hyper-V agentless migration](./tutorial-migrate-hyper
 
 ### How do I gauge the bandwidth requirement for my migrations?
 
-The amount of bandwidth that you need to replicate data to Azure is determined by a range of factors, and depends on how fast the on-premises Azure Migrate appliance can read and replicate the data to Azure. Replication has two phases: initial replication and delta replication.
+A range of factors can affect the amount of bandwidth that you need to replicate data to Azure. The bandwidth requirement depends on how fast the on-premises Azure Migrate appliance can read and replicate the data to Azure. Replication has two phases: initial replication and delta replication.
 
 When Azure Migrate starts replication for a VM, there's an initial replication cycle. In that cycle, Azure Migrate replicates full copies of the disk. After it completes initial replication, it schedules periodic incremental replication cycles (delta cycles) that transfer any changes that occurred since the previous replication cycle.
 
