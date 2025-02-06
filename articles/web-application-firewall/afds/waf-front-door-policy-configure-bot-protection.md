@@ -5,7 +5,6 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
-services: web-application-firewall
 ms.date: 11/10/2022
 ms.custom: devx-track-bicep
 zone_pivot_groups: web-application-firewall-configuration

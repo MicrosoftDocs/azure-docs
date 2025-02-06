@@ -147,6 +147,8 @@
                 href: howto-configure-network-fabric.md
               - name: Cluster
                 href: howto-configure-cluster.md
+              - name: Cluster Creation With Managed Identity
+                href: howto-create-cluster-with-user-assigned-managed-identity.md
               - name: Cluster Template JSON Example
                 href: cluster-jsonc-example.md
               - name: Cluster Parameters JSON Example
@@ -324,6 +326,12 @@
       items:
         - name: Troubleshoot Isolation Domain
           href: troubleshoot-isolation-domain.md
+        - name: Troubleshoot LACP Bonding
+          href: troubleshoot-lacp-bonding.md
+        - name: Troubleshoot DNS Issues
+          href: troubleshoot-dns-issues.md
+        - name: Troubleshoot TWAMP (UDP) not working
+          href: troubleshoot-twamp-udp-not-working.md
     - name: Cluster or BMM
       expanded: false
       items:
@@ -339,14 +347,6 @@
           href: troubleshoot-accepted-cluster-hydration.md
         - name: Troubleshoot Out of Memory Pods
           href: troubleshoot-memory-limits.md
-        - name: Troubleshoot LACP Bonding
-          href: troubleshoot-lacp-bonding.md
-        - name: Troubleshoot DNS Issues
-          href: troubleshoot-dns-issues.md
-        - name: Troubleshoot NAKS Cluster Node Packet Loss
-          href: troubleshoot-packet-loss.md
-        - name: Troubleshoot TWAMP (UDP) not working
-          href: troubleshoot-twamp-udp-not-working.md
     - name: Tenant Workload
       expanded: false
       items:
@@ -369,6 +369,8 @@
           href: troubleshoot-kubernetes-cluster-dual-stack-configuration.md
         - name: Troubleshoot Neighbor Group Creation Error
           href: troubleshoot-neighbor-group-creation-error.md
+        - name: Troubleshoot NAKS Cluster Node Packet Loss
+          href: troubleshoot-packet-loss.md
 - name: FAQ
   href: azure-operator-nexus-faq.md
 - name: Reference

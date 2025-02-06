@@ -35,9 +35,9 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 
 1. Select **Queues** on the navigation menu and then select **Queue**.
 
-1. On the **Create Queue** page, enter *lower-case* for **Name** and then select **Create**.
+1. On the **Create Queue** page, enter **lower-case** for **Name** and then select **Create**.
 
-1. Create another queue by repeating the previous step using *upper-case* for **Name**.
+1. Create another queue by repeating the previous step using **upper-case** for **Name**.
 
 ### 3.3. Create an Azure Spring Apps instance
 
@@ -52,11 +52,11 @@ Use the following steps to create the service instance:
    | Setting                        | Suggested value                              | Description                                                                                                                                                                                                                                                                                        |
    |--------------------------------|----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    | **Subscription**               | Your subscription name                       | The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.                                                                                                                       |
-   | **Resource group**             | *myresourcegroup*                            | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
-   | **Name**                       | *myasa*                                      | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
+   | **Resource group**             | **myresourcegroup**                            | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
+   | **Name**                       | **myasa**                                      | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
    | **Plan**                       | *Standard consumption & dedicated (preview)* | The pricing plan determines the resources and cost associated with your instance.                                                                                                                                                                                                              |
    | **Region**                     | The region closest to your users             | The location that is closest to your users.                                                                                                                                                                                                                                                        |
-   | **Container Apps Environment** | *myacaenv*                                   | The environment is a secure boundary around one or more container apps that can communicate with each other and share a virtual network, logging, and Dapr configuration.                                                                                                                          |
+   | **Container Apps Environment** | **myacaenv**                                   | The environment is a secure boundary around one or more container apps that can communicate with each other and share a virtual network, logging, and Dapr configuration.                                                                                                                          |
 
 1. (Optional) Use the following steps to create a Container Apps Environment:
 

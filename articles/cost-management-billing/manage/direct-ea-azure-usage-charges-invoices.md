@@ -3,7 +3,7 @@ title: View your Azure usage summary details and download reports for EA enrollm
 description: This article explains how enterprise administrators of direct and indirect Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/22/2025
+ms.date: 02/04/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -164,7 +164,7 @@ Enterprise administrators and partner administrators use the Download Usage + Ch
 - **Balance and Summary** - The Balance and Summary CSV file contains a monthly summary of information for balances, new purchases, Marketplace service charges, adjustments, and overage charges.
 
 >[!NOTE]
-> The download URI for all the CSV files is valid for one hour. Ensure that you download the file before it expires. Otherwise, you'll have to retry the download.
+> The download URI for all the CSV files is valid for one hour. Ensure that you download the file before it expires. Otherwise, you have to retry the download.
 
 1. Select the **Download** symbol next to the month's report.  
 :::image type="content" source="./media/direct-ea-azure-usage-charges-invoices/download-usage-charges-csv.png" alt-text="Screenshot showing the Download option." :::
@@ -270,7 +270,7 @@ For a new enrollment, the default PO number is the enrollment number.
 
 If you don’t change the PO number, then the same PO number is used for all upcoming invoices. The PO number doesn't automatically increment. If you want to get new PO number for each month, then update it from Azure portal.
 
-The EA admin receives an invoice notification email after the end of billing period to update PO number. You can update the PO number within five days of receiving the email notification or before receiving the final invoice, whichever comes first.
+Starting in May 2025, the EA admin won't receive a notification email reminding them to update the PO number. However, you can create a custom alert to send an email notification to yourself every month after an invoice is finalized. Then you can use the email notification as a reminder to update your PO number. For more information, see [Subscribe to scheduled alerts](../costs/save-share-views.md#subscribe-to-scheduled-alerts). Set the alert Frequency to Every month after invoice finalized. To view your usage and charges anytime, you can use the **Usage + Charges** tab in the [Azure portal](https://portal.azure.com).
 
 If you want to update the PO number after your invoice is generated, then contact Azure support in the Azure portal.
 
@@ -434,7 +434,7 @@ To import the CSV file without formatting issues:
 1. Repeat steps 8 and 9 for the **Extended Cost** column, and then select **Finish**.
 
 > [!TIP]
-> If you have set CSV files to automatically open in Excel, you must use the **Open** function in Excel instead. In Excel, go to **File** > **Open**.
+> If you set CSV files to automatically open in Excel, you must use the **Open** function in Excel instead. In Excel, go to **File** > **Open**.
 
 ## Next steps
 
