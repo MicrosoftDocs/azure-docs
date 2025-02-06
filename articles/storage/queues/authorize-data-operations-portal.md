@@ -83,7 +83,7 @@ If you're authenticating using your Microsoft Entra account, you see **Microsoft
 
 If you want to switch to use the account access key, select the link highlighted in the image. If you have access to the account key, then you're able to proceed. If you don't have access to the account key, you see an error message and no blobs appear in the list.
 
-Select the **Switch to Microsoft Entra user Account** link to use your Microsoft Entra account for authentication again.
+Select the **Switch to Microsoft Entra user account** link to use your Microsoft Entra account for authentication again.
 
 <a name='default-to-azure-ad-authorization-in-the-azure-portal'></a>
 
