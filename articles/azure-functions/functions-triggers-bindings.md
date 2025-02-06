@@ -190,7 +190,7 @@ In Python for Functions version 2, you define the function directly in code usin
 
 ### [v1](#tab/python-v1)
 
-In Python for Functions version 1, this example `function.json` file defines an HTTP trigger function that returns an HTTP response and writes to a storage queue. The binding name is defined by the key "name".
+In Python for Functions version 1, this example `function.json` file defines an HTTP trigger function that returns an HTTP response and writes to a storage queue.
 
 :::code language="json" source="~/functions-docs-powershell/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="3-26":::
 
