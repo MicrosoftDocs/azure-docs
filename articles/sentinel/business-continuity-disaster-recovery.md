@@ -70,13 +70,15 @@ The following table describes the recommended actions for setting up BCDR in dif
 |**Public** | We recommend customers outside of Europe create one workspace in their local region and another in any of the supported European regions. |
 |**Azure Government** | We recommend customers in US government clouds create two workspaces, one in each of their relevant regions. For details about air-gapped clouds, contact your account team.|
 
-For more information, see [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md).
 
 The following geographical regions aren't currently supported for the customer-enabled BCDR approach described in this article:
 
 - EU customers, due to EUDB compliance limitations
 - Israel
 - Azure China 21Vianet
+
+For more information, see [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md).
+
 
 ## Related content
 
