@@ -1142,6 +1142,8 @@
       href: create-codeless-connector.md
     - name: Creating analytics rules
       href: sentinel-analytic-rules-creation.md
+    - name: Creating huting queries
+      href: sentinel-hunting-rules-creation.md
     - name: Creating workbooks
       href: sentinel-workbook-creation.md
     - name: Creating playbooks
