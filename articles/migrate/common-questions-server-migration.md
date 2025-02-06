@@ -38,9 +38,17 @@ Agentless replication options are available for [VMware VMs](tutorial-migrate-vm
 
 Agent-based migrations require that you install Azure Migrate software (agents) on the source VMs that you're migrating. The agent-based option doesn’t rely on the virtualization platform for the replication functionality. It can be used with any server that runs an x86/x64 architecture and a version of an operating system supported by the agent-based replication method.
 
-The agent-based migration option can be used for [VMware VMs](tutorial-migrate-vmware-agent.md), [Hyper-V VMs](./tutorial-migrate-physical-virtual-machines.md), [physical servers](./tutorial-migrate-physical-virtual-machines.md), [VMs that run on AWS](./tutorial-migrate-aws-virtual-machines.md), VMs that run on GCP, or VMs that run on a different virtualization provider. Agent-based migration treats your machines as physical servers for migration.
+The agent-based migration option can be used for:
+* [VMware VMs](tutorial-migrate-vmware-agent.md). 
+* [Hyper-V VMs](./tutorial-migrate-physical-virtual-machines.md).
+* [Physical servers](./tutorial-migrate-physical-virtual-machines.md).
+* [VMs that run on AWS](./tutorial-migrate-aws-virtual-machines.md).
+* VMs that run on GCP.
+* VMs that run on a different virtualization provider.
 
-While agentless migration offers convenience and simplicity than agent-based replication options for VMware and Hyper-V VMs, you might want to consider using the agent-based scenario for the following use cases:
+Agent-based migration treats your machines as physical servers for migration.
+
+While agentless migration offers more convenience and simplicity than agent-based replication options for VMware and Hyper-V VMs, you might want to consider using the agent-based scenario for the following use cases:
 
 * Environments constrained by input/output operations per second (IOPS): Agentless replication uses snapshots and consumes storage IOPS/bandwidth. We recommend the agent-based migration method if there are constraints on storage/IOPS in your environment.
 * No vCenter Server: If you don't have a vCenter Server, you can treat your VMware VMs as physical servers and use the agent-based migration workflow.
@@ -53,7 +61,7 @@ Review the supported geographies for [public clouds](migrate-support-matrix.md#p
 
 ### Can I use the same Azure Migrate project to migrate to multiple regions?
 
-Although you can create assessments for multiple regions in an Azure Migrate project, one Azure Migrate project can be used to migrate servers to only one Azure region. You can create more Azure Migrate projects for additional regions.
+Although you can create assessments for multiple regions in an Azure Migrate project, one Azure Migrate project can be used to migrate servers to only one Azure region. You can create more Azure Migrate projects for other regions.
 
 * For agentless VMware migrations, the target region is locked once you enable the first replication.
 * For agent-based migrations (VMware, physical servers, and servers from other clouds), the target region is locked once the **Create Resources** button is selected on the portal when you set up the replication appliance.
@@ -101,7 +109,7 @@ A test migration doesn’t affect the on-premises machine, which remains operati
 
 You can select a virtual network for test migrations. Azure Migrate automatically selects a subnet based on the following logic:
 
-* If you specify a target subnet other than default as an input while enabling replication, Azure Migrate prioritizes using a subnet with the same name in the virtual network that you select for the test migration.
+* If you specify a target subnet other than default as an input while enabling replication, Azure Migrate prioritizes a subnet with the same name in the virtual network that you select for the test migration.
 * If a subnet with the same name isn't found, then Azure Migrate alphabetically selects the first available subnet that isn't a gateway, application gateway, firewall, or bastion subnet.
 
 ### Why is the Test Migration button disabled for my Server?
@@ -154,7 +162,9 @@ The Migration and modernization tool migrates all the UEFI-based machines to Azu
 
 ### Can I migrate Active Directory domain controllers using Azure Migrate?
 
-The Migration and modernization tool is application agnostic and works for most applications. When you migrate a server by using the Migration and modernization tool, all the applications that you install on the server are migrated with it. However, alternate migration methods might be better suited to migrate some applications. For Active Directory, in a hybrid environment when the on-premises site is connected to your Azure environment, you can extend your Directory into Azure by adding extra domain controllers in Azure and setting up Active Directory replication. If you're migrating into an isolated environment in Azure that requires its own domain controllers (or testing applications in a sandbox environment), you can migrate servers by using the Migration and modernization tool.
+The Migration and modernization tool is application agnostic and works for most applications. When you migrate a server by using the Migration and modernization tool, all the applications that you install on the server are migrated with it. However, alternate migration methods might be better suited to migrate some applications.
+
+For Active Directory, the type of environment can be a factor. In a hybrid environment with an on-premises site that is connected to your Azure environment, you can extend your directory into Azure by adding extra domain controllers and setting up Active Directory replication. If you're migrating into an isolated environment in Azure that requires its own domain controllers (or testing applications in a sandbox environment), you can migrate servers by using the Migration and modernization tool.
 
 ### Can I upgrade my OS while migrating?
 
@@ -186,7 +196,7 @@ However, if you still choose to migrate your Windows Server 2003 to Azure, you c
 
 The Migration and modernization tool provides agentless replication options for the migration of VMware and Hyper-V VMs that run Windows or Linux. The tool provides another agent-based replication option for Windows and Linux servers that can be used to migrate physical servers, and x86/x64 VMs on providers like VMware, Hyper-V, AWS, and GCP.
 
-Agent-based replication requires that you install agent software on the VM/server that's being migrated. The agentless option doesn't require that you install any software on the VMs themselves, offering more convenience and simplicity than the agent-based option.
+Agent-based replication requires that you install agent software on the VM/server that you're migrating. The agentless option doesn't require you to install software on the VMs, which can offer convenience and simplicity.
 
 The agentless replication option uses mechanisms provided by the virtualization provider (VMware and Hyper-V). For VMware VMs, the agentless replication mechanism uses VMware snapshots and VMware changed-block tracking technology to replicate data from VM disks. This mechanism is similar to the one used by many backup products. For Hyper-V VMs, the agentless replication mechanism uses VM snapshots and the change-tracking capability of the Hyper-V replica to replicate data from VM disks.
 
@@ -293,7 +303,12 @@ Agentless replication results in some performance impact on VMware vCenter Serve
 
 ### Can powered-off VMs be replicated?
 
-Replication of VMware VMs while they're powered off is supported, but only in the agentless approach. However, it's crucial that you understand that we can't guarantee the VM will boot successfully, because we can't verify its operational state before replication. We highly recommend that you perform a test migration to ensure everything proceeds smoothly during the actual migration. This method can be useful when the initial replication process is lengthy, or for high-churn VMs, such as database servers or other disk-intensive workloads.
+Replication of VMware VMs while they're powered off is supported, but only in the agentless approach.
+
+ > [!IMPORTANT]
+> We can't guarantee that a powered-off VM will boot successfully, because we can't verify its operational state before replication.
+
+We highly recommend that you perform a test migration to ensure everything proceeds smoothly during the actual migration. This method can be useful when the initial replication process is lengthy, or for high-churn VMs, such as database servers or other disk-intensive workloads.
 
 ### Can I use Azure Migrate to migrate my web apps to Azure App Service?
 
@@ -307,7 +322,7 @@ Review [Discover, assess, and migrate Amazon Web Services (AWS) VMs to Azure](./
 
 ### How does agent-based migration work?
 
-In addition to agentless migration options for VMware and Hyper-V VMs, the Migration and modernization tool provides an agent-based migration option to migrate Windows and Linux servers that run on physical servers, or that run as x86/x64 VMs on providers like VMware, Hyper-V, AWS, and GCP.
+The Migration and modernization tool provides an agent-based migration option to migrate Windows and Linux servers that run on physical servers, or that run as x86/x64 VMs on providers like VMware, Hyper-V, AWS, and GCP.
 
 The agent-based migration method uses agent software to replicate server data to Azure. You install the software on the server that you're migrating. The replication process uses an offload architecture in which the agent relays replication data to a dedicated replication server called the replication appliance or Configuration Server (or to a scale-out Process Server). See [Agent-based migration architecture](./agent-based-migration-architecture.md) for more details.
 
@@ -317,13 +332,13 @@ The agent-based migration method uses agent software to replicate server data to
 
 ### Where should I install the replication appliance for agent-based migrations?
 
-The replication appliance should be installed on a dedicated machine. The replication appliance shouldn't be installed on a source machine that you want to replicate or on the Azure Migrate appliance that you used for discovery and assessment. Read [Migrate machines as physical servers to Azure](./tutorial-migrate-physical-virtual-machines.md) for more details.
+You should install the replication appliance on a dedicated machine. You shouldn't install the replication appliance on a source machine that you want to replicate, or on the Azure Migrate appliance that you used for discovery and assessment. Read [Migrate machines as physical servers to Azure](./tutorial-migrate-physical-virtual-machines.md) for more details.
 
 ### Can I migrate AWS VMs that run Amazon Linux operating system?
 
 VMs that run Amazon Linux can't be migrated as-is, because Amazon Linux OS is supported only on AWS.
 
-To migrate workloads that run on Amazon Linux, you can spin up a CentOS/RHEL VM in Azure and migrate the workload that runs on the AWS Linux machine by using a relevant workload migration approach. For example, depending on the workload, there might be workload-specific tools to aid the migration, like tools for databases or deployment tools for web servers.
+To migrate workloads that run on Amazon Linux, you can spin up a CentOS/RHEL VM in Azure. Then, you can migrate the workload that runs on the AWS Linux machine by using a relevant workload migration approach. For example, depending on the workload, there might be workload-specific tools to aid the migration, like tools for databases or deployment tools for web servers.
 
 ### How do I gauge the bandwidth requirement for my migrations?
 
@@ -339,7 +354,7 @@ For an agent-based method of replication, the Azure Site Recovery Deployment Pla
 
 The Migration and modernization tool provides agentless replication options for the migration of VMware and Hyper-V VMs that run Windows or Linux.
 
-The tool provides another agent-based replication option for Windows and Linux servers that can be used to migrate physical servers, and x86/x64 VMs on providers like VMware, Hyper-V, AWS, and GCP. The agent-based replication option requires that you install agent software on the VM/server that’s being migrated. In the agentless option, you don't need to install any software on the VMs themselves, offering more convenience and simplicity than the agent-based replication option.
+The tool provides another agent-based replication option for Windows and Linux servers that can be used to migrate physical servers, and x86/x64 VMs on providers like VMware, Hyper-V, AWS, and GCP. The agent-based replication option requires that you install agent software on the VM/server that you're migrating. The agentless option doesn't require you to install software on the VMs, which can offer convenience and simplicity.
 
 The agentless replication option works by using mechanisms provided by the virtualization provider (VMware and Hyper-V). For Hyper-V VMs, the agentless replication mechanism replicates data from VM disks by using VM snapshots and the change-tracking capability of the Hyper-V replica.
 
