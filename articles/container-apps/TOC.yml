@@ -78,6 +78,10 @@
       href: containerapp-up.md
     - name: Create and deploy a container app using the CLI
       href: tutorial-deploy-first-app-cli.md
+    - name: Create and deploy a container app from code
+      href: tutorial-deploy-from-code.md
+    - name: Update a container app deployed from code
+      href: tutorial-update-from-code.md
     - name: Connect to apps & services
       items:
         - name: Connect to services
@@ -186,6 +190,8 @@
       href: log-streaming.md
     - name: Container console
       href: container-console.md
+    - name: Container debug console
+      href: container-debug-console.md
     - name: Metrics
       href: metrics.md
     - name: Log monitoring
