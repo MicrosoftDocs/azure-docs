@@ -17,7 +17,7 @@ Azure role-based access control (Azure RBAC) enables you to assign only the spec
 
 To use Azure Network Watcher capabilities, the account you log into Azure with, must be assigned to the [Owner](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#owner), [Contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#contributor), or [Network contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#network-contributor) built-in roles, or assigned to a [custom role](../role-based-access-control/custom-roles.md?toc=/azure/network-watcher/toc.json) that is assigned the actions listed for each Network Watcher capability in the sections that follow.
 
-To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.yml?toc=/azure/network-watcher/toc.json). If you can't see the role assignments, contact the respective subscription admin. To learn more about Network Watcher's capabilities, see [What is Network Watcher?](network-watcher-monitoring-overview.md)
+To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.yml?toc=/azure/network-watcher/toc.json). If you can't see the role assignments, contact the respective subscription admin.
 
 > [!IMPORTANT]
 > [Network contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#network-contributor) doesn't cover the following actions:
@@ -164,3 +164,9 @@ Network Watcher capabilities also require the following actions:
 > | Microsoft.Compute/virtualMachineScaleSets/extensions/Read, </br> Microsoft.Compute/virtualMachineScaleSets/extensions/Write| Check if Network Watcher extension is present, and install if necessary |
 > | Microsoft.Insights/alertRules/*                                     | Set up metric alerts                                          |
 > | Microsoft.Support/*                                                 | Create and update support tickets from Network Watcher        |
+
+## Related content
+
+- [What is Network Watcher?](network-watcher-overview.md)
+
+- [Network Watcher frequently asked questions (FAQ)](frequently-asked-questions.yml)
