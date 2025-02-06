@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 11/21/2024
+ms.date: 03/05/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -100,6 +100,16 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
+## Vaulted backup support for Azure file share is now generally available
+
+Azure Backup now supports vaulted backup file shares in standard storage accounts to protect against ransomware and data loss. You can define backup schedules and retention settings to store data in the Backup vault for up to 10 years.
+
+Vaulted backups provide an offsite copy of your data. In case of data loss on the source account, you can restore it to an alternate account. Manage vaulted backups at scale via Azure Business Continuity Center and monitor them using Azure Backup's alerting and reporting features.
+
+We recommend switching from snapshot backups to vaulted backups for comprehensive protection against data loss.
+
+For more information, see [Overview of Azure file share backup](azure-file-share-backup-overview.md?tabs=vault-standard).
+
 ## Secure by Default with Vault soft delete (preview)
  
 Azure Backup now provides the **Secure By default with Vault soft delete (preview)** feature that applies soft delete by default at all granularities - vaults, recovery points, containers and backup items. Azure Backup now ensures that all the backup data is recoverable against ransomware attacks by default and has no cost for *14 days*. You don't need to opt in to get *fair* security level for your backup data. You can update the soft delete retention period as per your preference up to *180 days*.
@@ -174,7 +184,7 @@ For more information, see [Assign network access settings during restore](backup
 
 ## Migration of Azure VM backups from standard to enhanced policy (preview)
 
-Azure Backup now supports migration to the enhanced policy for Azure VM backups using standard policy. The migration of VM backups to enhanced policy enables you to schedule multiple backups per day (up to every 4 hours), retain snapshots for longer duration, and use multi-disk crash consistency for VM backups. Snapshot-tier recovery points (created using enhanced policy) are zonally resilient. The migration of VM backups to enhanced policy also allows you to migrate your VMs to Trusted Launch and use Premium SSD v2 and Ultra-disks for the VMs without disrupting the existing backups.
+Azure Backup now supports migration to the enhanced policy for Azure VM backups using standard policy. The migration of VM backups to enhanced policy enables you to schedule multiple backups per day (up to every 4 hours), retain snapshots for longer duration, and use multi-disk crash consistency for Virtual Machine (VM) backups. Snapshot-tier recovery points (created using enhanced policy) are zonally resilient. The migration of VM backups to enhanced policy also allows you to migrate your VMs to Trusted Launch and use Premium SSD v2 and Ultra-disks for the VMs without disrupting the existing backups.
 
 For more information, see [Migrate Azure VM backups from standard  to enhanced policy (preview)](backup-azure-vm-migrate-enhanced-policy.md).
 
