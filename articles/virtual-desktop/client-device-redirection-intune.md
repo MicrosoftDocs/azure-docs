@@ -58,6 +58,9 @@ For the Remote Desktop app:
 |--|:--:|:--:|
 | Android | ✅ | ✅ |
 
+> [!IMPORTANT]
+> You can use Intune mobile application management (MAM) functionality for Windows App in Azure, Azure US Government, and Azure operated by 21Vianet (Azure in China).
+
 ## Example scenarios
 
 The values you specify in filters and policies depend on your requirements, so you need to determine what's best for your organization. Here are some example scenarios of what you need to configure to achieve them.
@@ -162,8 +165,6 @@ Before you can configure redirection settings on a client device using Microsoft
    - [How to create and assign app protection policies](/mem/intune/apps/app-protection-policies).
    - [Use app-based Conditional Access policies with Intune](/mem/intune/protect/app-based-conditional-access-intune).
    
-> [!IMPORTANT]
-> Intune mobile application management (MAM) functionality for Windows App is now supported for Azure operated by 21Vianet (Azure in China) and Azure Government.
 
 ## Create a managed app filter
 
