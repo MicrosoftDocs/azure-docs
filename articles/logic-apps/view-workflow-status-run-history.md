@@ -81,7 +81,7 @@ For a stateful workflow, you can review the trigger history for each run, includ
 
    Under **Trigger history**, all trigger attempts appear. Each time the trigger successfully fires, Azure Logic Apps creates an individual workflow instance and runs that instance. By default, each instance runs in parallel so that no workflow has to wait before starting a run. If your workflow triggers for multiple events or items at the same time, a trigger entry appears for each item with the same date and time. 
 
-   :::image type="content" source="media/view-workflow-status-run-history/triggers-history-standard.png" alt-text="Screenshot shows Standard workflow and Run history page with tab named Trigger history tab, which shows multiple trigger attempts for different items.":::
+   :::image type="content" source="media/view-workflow-status-run-history/triggers-history-standard.png" alt-text="Screenshot shows Standard workflow and Run history page with tab named Trigger history, which shows multiple trigger attempts for different items.":::
 
    The following table lists the possible trigger statuses:
 
@@ -153,7 +153,7 @@ Each time that a trigger successfully fires, Azure Logic Apps creates a workflow
 
    :::image type="content" source="media/view-workflow-status-run-history/select-run-consumption.png" alt-text="Screenshot shows Consumption workflow run selected.":::
 
-   The run history pane opens and shows the status for each step in the run, for example:
+   The run history page opens and shows the status for each step in the selected run, for example:
 
    :::image type="content" source="media/view-workflow-status-run-history/run-history-pane-consumption.png" alt-text="Screenshot shows Consumption workflow run history with each action in the run.":::
 
@@ -167,19 +167,19 @@ Each time that a trigger successfully fires, Azure Logic Apps creates a workflow
    | **Running** | ![Running icon][running-icon] | The action is currently running. |
    | **Skipped** | ![Skipped icon][skipped-icon] | The action was skipped because its **runAfter** conditions weren't met, for example, a preceding action failed. Each action has a `runAfter` object where you can set up conditions that must be met before the current action can run. |
    | **Succeeded** | ![Succeeded icon][succeeded-icon] | The action succeeded. |
-   | **Succeeded with retries** | ![Succeeded-with-retries-icon][succeeded-with-retries-icon] | The action succeeded but only after a single or multiple retries. To review the retry history, in the run history details view, select that action so that you can view the inputs and outputs. |
+   | **Succeeded with retries** | ![Succeeded-with-retries-icon][succeeded-with-retries-icon] | The action succeeded but only after a single or multiple retries. To review the retry history, on the run history page, select that action so that you can view the inputs and outputs. |
    | **Timed out** | ![Timed-out icon][timed-out-icon] | The action stopped due to the timeout limit specified by that action's settings. |
    | **Waiting** | ![Waiting icon][waiting-icon] | Applies to a webhook action that's waiting for an inbound request from a caller. |
 
-   [aborted-icon]: ./media/monitor-logic-apps/aborted.png
-   [canceled-icon]: ./media/monitor-logic-apps/cancelled.png
-   [failed-icon]: ./media/monitor-logic-apps/failed.png
-   [running-icon]: ./media/monitor-logic-apps/running.png
-   [skipped-icon]: ./media/monitor-logic-apps/skipped.png
-   [succeeded-icon]: ./media/monitor-logic-apps/succeeded.png
-   [succeeded-with-retries-icon]: ./media/monitor-logic-apps/succeeded-with-retries.png
-   [timed-out-icon]: ./media/monitor-logic-apps/timed-out.png
-   [waiting-icon]: ./media/monitor-logic-apps/waiting.png
+   [aborted-icon]: media/view-workflow-status-run-history/aborted.png
+   [canceled-icon]: media/view-workflow-status-run-history/cancelled.png
+   [failed-icon]: media/view-workflow-status-run-history/failed.png
+   [running-icon]: media/view-workflow-status-run-history/running.png
+   [skipped-icon]: media/view-workflow-status-run-history/skipped.png
+   [succeeded-icon]: media/view-workflow-status-run-history/succeeded.png
+   [succeeded-with-retries-icon]: media/view-workflow-status-run-history/succeeded-with-retries.png
+   [timed-out-icon]: media/view-workflow-status-run-history/timed-out.png
+   [waiting-icon]: media/view-workflow-status-run-history/waiting.png
 
 1. To view the information in list form, on the run history toolbar, select **Run details**.
 
@@ -191,13 +191,13 @@ Each time that a trigger successfully fires, Azure Logic Apps creates a workflow
 
 1. To get more information about a specific step, select either option:
 
-   * On the run history pane, select a step to open a pane that shows the inputs, outputs, and any errors that happened in that step.
+   * On the run history page, select a step to open a pane that shows the inputs, outputs, and any errors that happened in that step.
 
      For example, suppose you have a workflow with a failed step. You want to review which inputs might have caused that step to fail. In this scenario, the failure resulted from an invalid or missing connection to an email account that is used to send an email. 
 
-     :::image type="content" source="media/view-workflow-status-run-history/inputs-outputs-errors-consumption.png" alt-text="Screenshot shows Consumption workflow run history pane with selected failed example step plus inputs, outputs, and errors for the failed step.":::
+     :::image type="content" source="media/view-workflow-status-run-history/inputs-outputs-errors-consumption.png" alt-text="Screenshot shows Consumption workflow run history page with selected failed example step plus inputs, outputs, and errors for the failed step.":::
 
-   * On the run history pane toolbar, select **Run details**. In the **Logic app run details** pane that opens, select the step that you want, for example:
+   * On the run history page toolbar, select **Run details**. In the **Logic app run details** pane that opens, select the step that you want, for example:
 
      :::image type="content" source="media/view-workflow-status-run-history/select-failed-step-consumption.png" alt-text="Screenshot shows Consumption workflow, and pane named Logic app run details. The pane shows the selected example failed step.":::
 
@@ -243,7 +243,7 @@ You can view run history only for stateful workflows, not stateless workflows. T
 
    :::image type="content" source="media/view-workflow-status-run-history/select-run-standard.png" alt-text="Screenshot shows selected Standard workflow run.":::
 
-   The run history pane opens and shows the status for each step in the run, for example:
+   The run history page opens and shows the status for each step in the selected run, for example:
 
    :::image type="content" source="media/view-workflow-status-run-history/run-history-pane-standard.png" alt-text="Screenshot shows Standard workflow and each action in the selected run.":::
 
@@ -257,21 +257,21 @@ You can view run history only for stateful workflows, not stateless workflows. T
    | **Running** | ![Running icon][running-icon] | The action is currently running. |
    | **Skipped** | ![Skipped icon][skipped-icon] | The action was skipped because its **runAfter** conditions weren't met, for example, a preceding action failed. Each action has a `runAfter` object where you can set up conditions that must be met before the current action can run. |
    | **Succeeded** | ![Succeeded icon][succeeded-icon] | The action succeeded. |
-   | **Succeeded with retries** | ![Succeeded-with-retries-icon][succeeded-with-retries-icon] | The action succeeded but only after a single or multiple retries. To review the retry history, in the run history details view, select that action so that you can view the inputs and outputs. |
+   | **Succeeded with retries** | ![Succeeded-with-retries-icon][succeeded-with-retries-icon] | The action succeeded but only after a single or multiple retries. To review the retry history, on the run history page, select that action so that you can view the inputs and outputs. |
    | **Timed out** | ![Timed-out icon][timed-out-icon] | The action stopped due to the timeout limit specified by that action's settings. |
    | **Waiting** | ![Waiting icon][waiting-icon] | Applies to a webhook action that's waiting for an inbound request from a caller. |
 
-   [aborted-icon]: ./media/monitor-logic-apps/aborted.png
-   [canceled-icon]: ./media/monitor-logic-apps/cancelled.png
-   [failed-icon]: ./media/monitor-logic-apps/failed.png
-   [running-icon]: ./media/monitor-logic-apps/running.png
-   [skipped-icon]: ./media/monitor-logic-apps/skipped.png
-   [succeeded-icon]: ./media/monitor-logic-apps/succeeded.png
-   [succeeded-with-retries-icon]: ./media/monitor-logic-apps/succeeded-with-retries.png
-   [timed-out-icon]: ./media/monitor-logic-apps/timed-out.png
-   [waiting-icon]: ./media/monitor-logic-apps/waiting.png
+   [aborted-icon]: media/view-workflow-status-run-history/aborted.png
+   [canceled-icon]: media/view-workflow-status-run-history/cancelled.png
+   [failed-icon]: media/view-workflow-status-run-history/failed.png
+   [running-icon]: media/view-workflow-status-run-history/running.png
+   [skipped-icon]: media/view-workflow-status-run-history/skipped.png
+   [succeeded-icon]: media/view-workflow-status-run-history/succeeded.png
+   [succeeded-with-retries-icon]: media/view-workflow-status-run-history/succeeded-with-retries.png
+   [timed-out-icon]: media/view-workflow-status-run-history/timed-out.png
+   [waiting-icon]: media/view-workflow-status-run-history/waiting.png
 
-1. To get more information about a specific step, on the run history pane, select a step to open a pane that shows the inputs, outputs, and any errors that happened in that step.
+1. To get more information about a specific step, on the run history page, select a step to open a pane that shows the inputs, outputs, and any errors that happened in that step.
 
    For example, suppose you have a workflow with a failed step. You want to review which inputs might have caused that step to fail.
 
@@ -331,22 +331,20 @@ Completing this task creates and adds a new workflow run to your workflow's run 
 
    Under **Runs history**, all the past, current, and any waiting runs appear. If the trigger fires for multiple events or items at the same time, an entry appears for each item with the same date and time.
 
-1. On the **Runs history** pane, select the run that you want to resubmit.
+1. On the **Runs history** page, select the run that you want to rerun, and then select **Resubmit**.
 
-1. On the **Logic app run** toolbar, select **Resubmit**, and then select **Yes**.
-
-   The **Runs history** pane now shows the resubmitted run.
+   The **Runs history** tab adds the resubmitted run to the runs list.
 
    > [!TIP]
    >
-   > If the resubmitted run doesn't appear, on the **Runs history** pane toolbar, select **Refresh**. 
+   > If the resubmitted run doesn't appear, on the **Runs history** page toolbar, select **Refresh**. 
    > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
 
-1. To review the inputs and outputs for the resubmitted workflow run, on the **Runs history** tab, select that run.
+1. To review the inputs and outputs after the resubmitted run finishes, on the **Runs history** tab, select that run.
 
 ### Rerun from a specific action
 
-The rerun capability is available for all actions except for non-sequential and complex concurrency scenarios and per the following limitations:
+The rerun action capability is available for most actions except for non-sequential workflows, complex concurrency scenarios, and the following limitations:
 
 | Actions | Resubmit availability and limitations |
 |---------|---------------------------------------|
@@ -359,17 +357,21 @@ The rerun capability is available for all actions except for non-sequential and 
 
 1. On the logic app resource menu, select **Overview**. On the **Overview** page, select **Runs history**, which shows the run history for the workflow.
 
-1. On the **Runs history** tab, select the run that you want to resubmit.
+1. On the **Runs history** tab, select the run that has the action from where you want to rerun the workflow.
 
-   The run details page opens and shows the status for each step in the run.
+   The run history page opens and shows the status for each step in the selected run.
 
-1. In the run details page, find the action from where you want to resubmit the workflow run, open the shortcut menu, and select **Submit from this action**.
+1. To rerun the workflow starting from a specific action, choose either option:
 
-   The run details page refreshes and shows the new run. All the operations that precede the resubmitted action show a lighter-colored status icon, representing reused inputs and outputs. The resubmitted action and subsequent actions show the usually colored status icons. For more information, see [Review workflow run history](#review-run-history).
+   - Find the action from where to start rerunning the workflow, open the shortcut menu, and select **Submit from this action**.
+
+   - Select the action from where to start rerunning the workflow. In the pane that opens, under the action name, select **Submit from this action**.
+
+   The run history page refreshes and shows the resubmitted run. All the operations that precede the resubmitted action show a lighter-colored status icon, representing reused inputs and outputs. The resubmitted action and subsequent actions show the usually colored status icons. For more information, see [Review workflow run history](#review-run-history).
 
    > [!TIP]
    >
-   > If the run hasn't fully finished, on the run details page toolbar, select **Refresh**.
+   > If the resubmitted run doesn't fully finish, on the run details page toolbar, select **Refresh**.
 
 ### [Standard](#tab/standard)
 
@@ -381,20 +383,20 @@ You can rerun only stateful workflows, not stateless workflows. To enable run hi
 
 1. On the workflow menu, under **Tools**, select **Run history**. On the **Run history** page, select **Run history**, which shows the run history for the current workflow.
 
-1. On the **Run history** tab, select the run that you want to resubmit, and then select **Resubmit**.
+1. On the **Run history** tab, select the run that you want to rerun, and then select **Resubmit**.
 
-   The **Run history** tab now shows the resubmitted run.
+   The **Run history** tab adds the resubmitted run to the runs list.
 
    > [!TIP]
    >
    > If the resubmitted run doesn't appear, on the **Run history** page toolbar, select **Refresh**. 
    > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
 
-1. To review the inputs and outputs from the resubmitted workflow run, on the **Run History** tab, select that run.
+1. To review the inputs and outputs after the resubmitted run finishes, on the **Run history** tab, select that run.
 
 ### Rerun from a specific action
 
-The rerun capability is available for all actions except for non-sequential and complex concurrency scenarios and per the following limitations:
+The rerun action capability is available for most actions except for non-sequential workflows, complex concurrency scenarios, and the following limitations:
 
 | Actions | Resubmit availability and limitations |
 |---------|---------------------------------------|
@@ -407,17 +409,23 @@ The rerun capability is available for all actions except for non-sequential and 
 
 1. On the workflow menu, under **Tools**, select **Run history**, and then select **Run history**, which shows the run history for the current workflow.
 
-1. On the **Run History** tab, select the run that you want to resubmit.
+1. On the **Run history** tab, select the run that has the action from where you want to rerun the workflow.
 
-   The run details page opens and shows the status for each step in the run.
+   The run details page opens and shows the status for each step in the selected run.
 
-1. On the run details page, find the action from where you want to resubmit the workflow run, open the shortcut menu, and select **Submit from this action**.
+1. To rerun the workflow starting from a specific action, choose either option:
 
-   The run details page refreshes and shows the new run. All the operations that precede the resubmitted action show a lighter-colored status icon, representing reused inputs and outputs. The resubmitted action and subsequent actions show the usually colored status icons. For more information, see [Review workflow run history](#review-run-history).
+   - Find the action from where to start rerunning the workflow, open the shortcut menu, and select **Submit from this action**.
+
+   - Select the action from where to start rerunning the workflow. In the pane that opens, under the action name, select **Submit from this action**.
+
+   On the run details page, all the operations that precede the resubmitted action show a lighter-colored status icon, representing reused inputs and outputs. The resubmitted action and subsequent actions show the usually colored status icons. For more information, see [Review workflow run history](#review-run-history).
 
    > [!TIP]
    >
-   > If the run hasn't fully finished, on the run details page toolbar, select **Refresh**.
+   > If the resubmitted run doesn't fully finish, on the run details page toolbar, select **Refresh**.
+
+1. Return to the run history page, which now includes the resubmitted run.
 
 ---
 
@@ -425,17 +433,17 @@ The rerun capability is available for all actions except for non-sequential and 
 
 ## Set up monitoring alerts
 
-To get alerts based on specific metrics or exceeded thresholds for your logic app, set up [alerts in Azure Monitor](/azure/azure-monitor/alerts/alerts-overview). For more information, review [Metrics in Azure](/azure/azure-monitor/data-platform).
+To get alerts based on specific metrics or exceeded thresholds in your workflow, set up your logic app resource with [alerts in Azure Monitor](/azure/azure-monitor/alerts/alerts-overview). For more information, see [Metrics in Azure](/azure/azure-monitor/data-platform).
 
 To set up alerts without using [Azure Monitor](/azure/azure-monitor/logs/log-query-overview), follow these steps, which apply to both Consumption and Standard logic app resources:
 
-1. On your logic app menu, under **Monitoring**, select **Alerts**. On the toolbar, select **Create** > **Alert rule**.
+1. On your logic app resource menu, under **Monitoring**, select **Alerts**. On the toolbar, select **Create** > **Alert rule**.
 
 1. On the **Create an alert rule** page, from the **Signal name** list, select the signal for which you want to get an alert.
 
    > [!NOTE]
    >
-   > Available alert signals differ between Consumption and Standard logic apps. For example, 
+   > Alert signals differ between Consumption and Standard logic apps. For example, 
    > Consumption logic apps have many trigger-related signals, such as **Triggers Completed** 
    > and **Triggers Failed**, while Standard workflows have the **Workflow Triggers Completed Count** 
    > and **Workflow Triggers Failure Rate** signals.
@@ -467,7 +475,7 @@ To set up alerts without using [Azure Monitor](/azure/azure-monitor/logs/log-que
 
       For example, the finished condition looks similar to the following example, and the **Create an alert rule** page now shows the cost for running that alert:
 
-      ![Screenshot shows Consumption logic app and alert rule condition.](./media/monitor-logic-apps/set-up-condition-for-alert.png)
+      :::image type="content" source="media/view-workflow-status-run-history/set-up-alert-condition.png" alt-text="Screenshot shows Consumption logic app resource with alert condition.":::
 
 1. When you're ready, select **Review + Create**.
 
