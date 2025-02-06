@@ -50,7 +50,7 @@ In this release, we've made the following changes:
 
 In this release, we've made the following changes:
 
-- Rearchitected RAIL server processes for better shell integration.   
+- Rearchitected RemoteApp server processes for better shell integration.   
 - Added EventLog for ImageQuality and Chroma settings; added graphics profile name in existing Eventlog. 
 - Fixed Battery Status redirection to show status text of battery upon mouse hover. 
 
