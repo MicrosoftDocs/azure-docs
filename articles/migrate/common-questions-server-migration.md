@@ -89,7 +89,7 @@ We don't recommend using the recovery services vault created by Azure Migrate fo
 
 ### What is the difference between the Test Migration and Migrate operations?
 
-The **Test Migration** option allows you to test and validate migrations before the actual migration. **Test Migration** works by letting you use a sandbox environment in Azure to test the VMs before actual migration. The sandbox environment is demarcated by a test virtual network that you specify. The **Test Migration** operation is nondisruptive, provided the test VNet is sufficiently isolated. A VNet is sufficiently isolated when you design the inbound and outbound connection rules to avoid unwanted connections. Example: You restrict connection to on-premises machines.
+The **Test Migration** option allows you to test and validate migrations before the actual migration. **Test Migration** works by letting you use a sandbox environment in Azure to test the VMs before actual migration. A test virtual network that you specify demarcates the sandbox environment. The **Test Migration** operation is nondisruptive, provided the test VNet is sufficiently isolated. A VNet is sufficiently isolated when you design the inbound and outbound connection rules to avoid unwanted connections. Example: You restrict connection to on-premises machines.
 
 The applications can continue to run at the source while you perform tests on a cloned copy in an isolated sandbox environment. You can perform multiple tests, as needed, to validate the migration, perform app testing, and address any issues before the actual migration.
 
@@ -109,7 +109,7 @@ A test migration doesn’t affect the on-premises machine, which remains operati
 
 You can select a virtual network for test migrations. Azure Migrate automatically selects a subnet based on the following logic:
 
-* If you specify a target subnet other than default as an input while enabling replication, Azure Migrate prioritizes a subnet with the same name in the virtual network that you select for the test migration.
+* If you specify a non-default target subnet as an input while enabling replication, Azure Migrate prioritizes a subnet with the same name in the virtual network used for the test migration.
 * If a subnet with the same name isn't found, then Azure Migrate alphabetically selects the first available subnet that isn't a gateway, application gateway, firewall, or bastion subnet.
 
 ### Why is the Test Migration button disabled for my Server?
@@ -164,7 +164,10 @@ The Migration and modernization tool migrates all the UEFI-based machines to Azu
 
 The Migration and modernization tool is application agnostic and works for most applications. When you migrate a server by using the Migration and modernization tool, all the applications that you install on the server are migrated with it. However, alternate migration methods might be better suited to migrate some applications.
 
-For Active Directory, the type of environment can be a factor. In a hybrid environment with an on-premises site that is connected to your Azure environment, you can extend your directory into Azure by adding extra domain controllers and setting up Active Directory replication. If you're migrating into an isolated environment in Azure that requires its own domain controllers (or testing applications in a sandbox environment), you can migrate servers by using the Migration and modernization tool.
+For Active Directory, the type of environment can be a factor. In a hybrid environment with an on-premises site that is connected to your Azure environment, you can extend your directory into Azure by adding extra domain controllers and setting up Active Directory replication. You can use the Migration and modernization tool if:
+
+* You're migrating into an isolated environment in Azure that requires its own domain controllers.
+* You're testing applications in a sandbox environment.
 
 ### Can I upgrade my OS while migrating?
 
@@ -194,7 +197,7 @@ However, if you still choose to migrate your Windows Server 2003 to Azure, you c
 
 ### How does agentless migration work?
 
-The Migration and modernization tool provides agentless replication options for the migration of VMware and Hyper-V VMs that run Windows or Linux. The tool provides another agent-based replication option for Windows and Linux servers that can be used to migrate physical servers, and x86/x64 VMs on providers like VMware, Hyper-V, AWS, and GCP.
+The Migration and modernization tool provides agentless replication options for the migration of VMware and Hyper-V VMs that run Windows or Linux. The tool provides another agent-based replication option for Windows and Linux servers. This other option can be used to migrate physical servers, and x86/x64 VMs on providers like VMware, Hyper-V, AWS, and GCP.
 
 Agent-based replication requires that you install agent software on the VM/server that you're migrating. The agentless option doesn't require you to install software on the VMs, which can offer convenience and simplicity.
 
@@ -354,9 +357,9 @@ For an agent-based method of replication, the Azure Site Recovery Deployment Pla
 
 ### How does agentless migration work?
 
-The Migration and modernization tool provides agentless replication options for the migration of VMware and Hyper-V VMs that run Windows or Linux.
+The Migration and modernization tool provides agentless replication options for the migration of VMware and Hyper-V VMs that run Windows or Linux. The tool provides another agent-based replication option for Windows and Linux servers. This other option can be used to migrate physical servers, and x86/x64 VMs on providers like VMware, Hyper-V, AWS, and GCP.
 
-The tool provides another agent-based replication option for Windows and Linux servers that can be used to migrate physical servers, and x86/x64 VMs on providers like VMware, Hyper-V, AWS, and GCP. The agent-based replication option requires that you install agent software on the VM/server that you're migrating. The agentless option doesn't require you to install software on the VMs, which can offer convenience and simplicity.
+The agent-based replication option requires that you install agent software on the VM/server that you're migrating. The agentless option doesn't require you to install software on the VMs, which can offer convenience and simplicity.
 
 The agentless replication option works by using mechanisms provided by the virtualization provider (VMware and Hyper-V). For Hyper-V VMs, the agentless replication mechanism replicates data from VM disks by using VM snapshots and the change-tracking capability of the Hyper-V replica.
 
