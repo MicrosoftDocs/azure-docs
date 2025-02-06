@@ -15,13 +15,13 @@ ms.author: fangjimmy
 
 Azure Container Apps platform offers a debugging console to help you troubleshoot your application under the following circumstances:
 
-- You cannot connect to the target container when you use a container that only includes the application and its runtime dependencies, or a "distroless" image.
-- When encounter networking issues, your images do not have debugging utilities to investigate them.
+- You can't connect to the target container when you use a container that only includes the application and its runtime dependencies, or a "distroless" image.
+- When encounter networking issues, your images don't have debugging utilities to investigate them.
 
 You can connect to debug console using the Azure CLI.
 
 > [!NOTE]
-> The debug console creates a separate container, which shares the underlying resources with the container where your app is running. If a debug container already exists, the debug console reuses the existing one instead of creating a new one. There is at most one running debug container per container app replica. If you do not need to keep a debug container running, please enter **exit** or use **Ctrl/Cmd + D** in the debug console session.
+> The debug console creates a separate container, which shares the underlying resources with the container where your app is running. If a debug container already exists, the debug console reuses the existing one instead of creating a new one. There is at most one running debug container per container app replica. If you don't need to keep a debug container running, enter **exit** or use **Ctrl/Cmd + D** in the debug console session.
 
 ## Azure CLI
 
@@ -158,7 +158,7 @@ tdnf install -y msopenjdk-17
 
 By default, debug console runs as root user.
 
-You can access `/proc/1` to access container's file system if your container runs as root user. If your container does not run as root user, run below command to switch user before accessing `/proc/1` directory, or you'll get a permission denied error.
+You can access `/proc/1` to access container's file system if your container runs as root user. If your container doesn't run as root user, run below command to switch user before accessing `/proc/1` directory, or you'll get a permission denied error.
 
 ```bash
 switch-to-app-user
