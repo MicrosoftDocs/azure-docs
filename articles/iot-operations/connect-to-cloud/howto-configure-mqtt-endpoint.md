@@ -236,6 +236,9 @@ Then, go to the Event Grid namespace > **Access control (IAM)** > **Add role ass
 
 Alternatively, you can assign the role at the topic space level. Go to the topic space > **Access control (IAM)** > **Add role assignment**. Assign the managed identity with an appropriate role like `EventGrid TopicSpaces Publisher` or `EventGrid TopicSpaces Subscriber`. This gives the managed identity the necessary permissions to send or receive messages for the specific topic space.
 
+>[!NOTE]
+>A second deployment with the same dataflow configuration will not be able to connect and will result in an authorization error. To address this issue, change the dataflow name in the second configuration. This issue arises only if the second deployment occurs simultaneously with the first deployment or shortly after, until the MQTT session expires.
+
 ### Create dataflow endpoint for Event Grid MQTT broker
 
 Once the Event Grid namespace is configured, you can create a dataflow endpoint for the Event Grid MQTT broker.
