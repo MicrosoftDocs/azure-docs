@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the capabilities and purpose of Azure Digital Twins Explorer (preview) and when it can be a useful tool for visualizing digital models, twins, and graphs.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 06/29/2023
+ms.date: 01/27/2025
 ms.topic: conceptual
 ms.service: azure-digital-twins
 
@@ -64,21 +64,13 @@ For detailed instructions on how to use each feature, see [Use Azure Digital Twi
 
 [!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
 
-## How to contribute
-
-Azure Digital Twins Explorer is an open-source tool that welcomes contributions to the code and documentation. The hosted application is deployed regularly from a source code repository in GitHub.
-
-To view the source code for the tool and read detailed instructions on how to contribute to the code, visit its GitHub repository: [digital-twins-explorer](https://github.com/Azure-Samples/digital-twins-explorer).
-
-To view instructions for contributing to this documentation, review our [contributor guide](/contribute/).
-
 ## Other considerations
 
 ### Region support
 
 Azure Digital Twins Explorer is available for use with all instances of Azure Digital Twins in all [supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 
-During public preview, however, data may be sent for processing through different regions than the region where the instance is hosted. To avoid data being routed in this way in situations where data sovereignty is a concern, you can download the [open source code](#how-to-contribute) to create a locally hosted version of the explorer on your own machine.
+During public preview, however, data may be sent for processing through different regions than the region where the instance is hosted. To avoid data being routed in this way in situations where data sovereignty is a concern, you can download the open source code from the [digital-twins-explorer](https://github.com/Azure-Samples/digital-twins-explorer) repository to create a locally hosted version of the explorer on your own machine.
 
 ### Billing
 

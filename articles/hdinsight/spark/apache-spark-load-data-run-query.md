@@ -64,7 +64,7 @@ Applications can create dataframes directly from files or folders on the remote 
     csvFile.write.saveAsTable("hvac")
     ```
 
-## Run queries on the dataframe
+## Run queries on the datanami
 
 Once the table is created, you can run an interactive query on the data.
 

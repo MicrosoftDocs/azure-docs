@@ -5,8 +5,8 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/24/2024
 ms.custom: mvc, devx-track-azurepowershell, mode-api
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Quickstart: Configure vaulted backup for Azure Blobs using Azure Backup via Azure PowerShell

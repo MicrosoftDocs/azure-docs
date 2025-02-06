@@ -4,7 +4,7 @@ description: Learn about Azure Firewall Manager central management
 author: vhorne
 ms.service: azure-firewall
 services: firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/13/2020
 ms.author: victorh
 ---

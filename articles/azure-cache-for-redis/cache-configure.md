@@ -94,6 +94,11 @@ You can securely issue commands to your Azure Cache for Redis instances using th
 > - [Access Keys disabled](cache-azure-active-directory-for-authentication.md#disable-access-key-authentication-on-your-cache)
 >
 
+> [!NOTE]
+>
+> To access Redis Console, you would need at least **Contributor** built-in role.
+>
+
 To access the Redis Console, select **Console** tab in the working pane of Resource menu.
 
 :::image type="content" source="media/cache-configure/redis-console-menu.png" alt-text="Screenshot that highlights the Console button.":::

@@ -1,5 +1,5 @@
 ---
-title: Migrate Azure Spring Apps Standard consumption and dedicated plan to Azure Container Apps
+title: Migrate Azure Spring Apps Standard Consumption and Dedicated Plan to Azure Container Apps
 description: The complete overview guide for migrating Azure Spring Apps Standard consumption and dedicated plan to Azure Container Apps, including steps, benefits, and frequently asked questions.
 author: KarlErickson
 ms.service: azure-spring-apps

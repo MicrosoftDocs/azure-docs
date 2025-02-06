@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 06/15/2023
 author: karengu0
 ms.author: karenguo
+ms.service: azure
 #Customer intent: As a device builder, I want to understand how firmware analysis can help secure my IoT/OT devices and products.
 ---
 

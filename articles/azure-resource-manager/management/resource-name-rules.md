@@ -135,7 +135,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | privateClouds | resource group | 1-80 | Alphanumerics, periods, hyhens, and underscores.<br><br>Start with alphanumeric and end with alphanumeric or underscore. |
+> | privateClouds | resource group | 1-80 | Alphanumerics, periods, hyphens, and underscores.<br><br>Start with alphanumeric and end with alphanumeric or underscore. |
 
 ## Microsoft.Batch
 

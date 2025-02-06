@@ -21,7 +21,7 @@ edge products and services. You can choose Bash or PowerShell as your default sh
 
 Microsoft internally compiles all the packages included in the **Azure Linux** repository to help
 guard against supply chain attacks. For more information or to request changes to the **Azure
-Linux** image, see the [Cloud Shell GitHub repository][24].
+Linux** image, see the [Cloud Shell GitHub repository][22].
 
 Cloud Shell automatically authenticates your Azure account to allow secure access for Azure CLI,
 Azure PowerShell, and other cloud management tools.
@@ -37,7 +37,7 @@ To persist files across sessions, you can choose to mount a storage account. Clo
 automatically attaches your storage (mounted as `$HOME\clouddrive`) for all future sessions.
 Additionally, your `$HOME` directory is persisted as an `.img` file in your Azure File share. The
 machine state and files outside of `$HOME` aren't persisted across sessions. Learn more about
-[Persisting files in Cloud Shell][32].
+[Persisting files in Cloud Shell][29].
 
 Use best practices when storing secrets such as SSH keys. You can use Azure Key Vault to securely
 store and retrieve your keys. For more information, see [Manage Key Vault using the Azure CLI][05].
@@ -60,8 +60,8 @@ resources regardless of the drive you are in.
 Cloud Shell includes preconfigured authentication for open source tools such as Terraform, Ansible,
 and Chef InSpec. For more information, see the following articles:
 
-- [Run Ansible playbook][03]
-- [Manage your Azure dynamic inventories][02]
+- [Run Ansible playbook][02]
+- [Manage your Azure dynamic inventories][01]
 - [Install and configure Terraform][04]
 
 ## Preinstalled tools
@@ -86,7 +86,7 @@ Cloud Shell comes with the following Azure command-line tools preinstalled:
 
 ### Other Microsoft services
 
-- [Office 365 CLI][28]
+- [Office 365 CLI][26]
 - [Exchange Online PowerShell][11]
 - A basic set of [Microsoft Graph PowerShell][12] modules
   - Microsoft.Graph.Applications
@@ -119,16 +119,16 @@ Text editors
 
 ### Cloud management tools
 
-- [Docker Desktop][23]
-- [Kubectl][27]
-- [Helm][26]
-- [D2iQ Kubernetes Platform CLI][22]
-- [Cloud Foundry CLI][21]
-- [Terraform][31]
-- [Ansible][30]
-- [Chef InSpec][20]
-- [Puppet Bolt][29]
-- [HashiCorp Packer][19]
+- [Docker Desktop][21]
+- [Kubectl][25]
+- [Helm][24]
+- [D2iQ Kubernetes Platform CLI][20]
+- [Cloud Foundry CLI][19]
+- [Terraform][28]
+- [Ansible][03]
+- [Chef InSpec][18]
+- [Puppet Bolt][27]
+- [HashiCorp Packer][17]
 
 ### Developer tools
 
@@ -149,7 +149,7 @@ Database tools
 - MySQL client
 - PostgreSql client
 - [sqlcmd Utility][15]
-- [mssql-scripter][25]
+- [mssql-scripter][23]
 
 Programming languages
 
@@ -174,9 +174,9 @@ PowerShell modules, Node.js packages, and most packages that can be installed wi
 - [Learn about Azure PowerShell][09]
 
 <!-- link references -->
-[01]: /azure/azure-functions/functions-run-local
-[02]: /azure/developer/ansible/dynamic-inventory-configure
-[03]: /azure/developer/ansible/getting-started-cloud-shell
+[01]: /azure/developer/ansible/dynamic-inventory-configure
+[02]: /azure/developer/ansible/getting-started-cloud-shell
+[03]: /azure/developer/ansible/overview
 [04]: /azure/developer/terraform/quickstart-configure
 [05]: /azure/key-vault/general/manage-with-cli2#prerequisites
 [06]: /azure/service-fabric/service-fabric-cli
@@ -190,19 +190,16 @@ PowerShell modules, Node.js packages, and most packages that can be installed wi
 [14]: /powershell/module/sqlserver
 [15]: /sql/tools/sqlcmd-utility
 [16]: get-started.md
-[17]: https://batch-shipyard.readthedocs.io/en/latest/
-[18]: https://blobxfer.readthedocs.io/en/latest/
-[19]: https://developer.hashicorp.com/packer/docs
-[20]: https://docs.chef.io/
-[21]: https://docs.cloudfoundry.org/cf-cli/
-[22]: https://docs.d2iq.com/dkp/2.6/azure-infrastructure
-[23]: https://docs.docker.com/desktop/
-[24]: https://github.com/Azure/CloudShell
-[25]: https://github.com/microsoft/mssql-scripter/blob/dev/doc/usage_guide.md
-[26]: https://helm.sh/docs/
-[27]: https://kubernetes.io/docs/reference/kubectl/
-[28]: https://pnp.github.io/office365-cli/
-[29]: https://puppet.com/docs/bolt/latest/bolt.html
-[30]: /azure/developer/ansible/overview
-[31]: https://www.terraform.io/docs/providers/azurerm/
-[32]: persisting-shell-storage.md
+[17]: https://developer.hashicorp.com/packer/docs
+[18]: https://docs.chef.io/
+[19]: https://docs.cloudfoundry.org/cf-cli/
+[20]: https://docs.d2iq.com/dkp/2.7/application-deployment
+[21]: https://docs.docker.com/desktop/
+[22]: https://github.com/Azure/CloudShell
+[23]: https://github.com/microsoft/mssql-scripter/blob/dev/doc/usage_guide.md
+[24]: https://helm.sh/docs/
+[25]: https://kubernetes.io/docs/reference/kubectl/
+[26]: https://pnp.github.io/office365-cli/
+[27]: https://puppet.com/docs/bolt/latest/bolt.html
+[28]: https://www.terraform.io/docs/providers/azurerm/
+[29]: persisting-shell-storage.md

@@ -59,7 +59,7 @@ To create a hierarchy of IoT Edge devices, you need:
 > [!TIP]
 > It is possible to use **internal** or **default** virtual switch if a port forwarding is configured on the Windows host OS. However, for the simplicity of this tutorial, both devices should use an **external** virtual switch and be connected to the same external network. 
 >
-> For more information about netowrking, see [Azure IoT Edge for Linux on Windows networking](./iot-edge-for-linux-on-windows-networking.md) and [Networking configuration for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md).
+> For more information about networking, see [Azure IoT Edge for Linux on Windows networking](./iot-edge-for-linux-on-windows-networking.md) and [Networking configuration for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md).
 >
 > If you need to set up the EFLOW devices on a DMZ, see [How to configure Azure IoT Edge for Linux on Windows Industrial IoT & DMZ configuration](how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz.md).
 * An Azure account with a valid subscription. If you don't have an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/) before you begin.
@@ -114,7 +114,7 @@ You create a group of nested edge devices with containing a parent device with o
    az iot edge devices create \
       --hub-name <hub-name> \
       --output-path <config-bundle-output-path> \
-      --default-edge-agent "mcr.microsoft.com/azureiotedge-agent:1.4" \
+      --default-edge-agent "mcr.microsoft.com/azureiotedge-agent:1.5" \
       --device id=<parent-device-name> \
          deployment=<parent-deployment-manifest> \
          hostname=<parent-fqdn-or-ip> \
@@ -130,7 +130,7 @@ You create a group of nested edge devices with containing a parent device with o
    az iot edge devices create \
       --hub-name my-iot-hub \
       --output-path ./output \
-      --default-edge-agent "mcr.microsoft.com/azureiotedge-agent:1.4" \
+      --default-edge-agent "mcr.microsoft.com/azureiotedge-agent:1.5" \
       --device id=parent-1 \
          deployment=./deploymentTopLayer.json \
          hostname=10.0.0.4 \
@@ -362,17 +362,17 @@ If a downstream device has a different processor architecture from the parent de
 
 ```toml
 [agent.config]
-image = "$upstream:443/azureiotedge-agent:1.4.10-linux-amd64"
+image = "$upstream:443/azureiotedge-agent:1.5.15-linux-amd64"
 
 "systemModules": {
    "edgeAgent": {
       "settings": {
-            "image": "$upstream:443/azureiotedge-agent:1.4.10-linux-amd64"
+            "image": "$upstream:443/azureiotedge-agent:1.5.15-linux-amd64"
       },
    },
    "edgeHub": {
       "settings": {
-            "image": "$upstream:443/azureiotedge-hub:1.4.10-linux-amd64",
+            "image": "$upstream:443/azureiotedge-hub:1.5.15-linux-amd64",
       }
    }
 }

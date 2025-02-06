@@ -73,7 +73,7 @@ Azure Bastion pricing is a combination of hourly pricing based on SKU and instan
 
 ## <a name="new"></a>What's new?
 
-Subscribe to the RSS feed and view the latest Azure Bastion feature updates on the [Azure Updates](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Bastion) page.
+Subscribe to the RSS feed and view the latest Azure Bastion feature updates on the [Azure Updates](https://azure.microsoft.com/updates?filters=%5B%22Azure+Bastion%22%5D) page.
 
 ## Bastion FAQ
 

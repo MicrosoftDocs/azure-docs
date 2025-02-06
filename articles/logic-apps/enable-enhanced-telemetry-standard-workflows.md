@@ -7,7 +7,7 @@ author: kewear
 ms.author: kewear
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/15/2024
+ms.date: 12/16/2024
 
 # Customer intent: As a developer, I want to turn on and view enhanced telemetry in Application Insights for Standard logic app workflows.
 ---
@@ -643,6 +643,23 @@ The following example sets the log's default verbosity level to **Warning**, but
 ```
 
 If you don't specify any **logLevel** values, the default verbosity level is **Information**. For more information, see [Configure log levels](../azure-functions/configure-monitoring.md#configure-log-levels).
+
+### Remove storage dependency errors
+
+To filter out storage dependency errors, such as **404 Not Found** errors and **412 Precondition Failed** errors, set the **Host.Workflow** log level to **None**, for example:
+
+```json
+{
+   "logging": {
+      "logLevel": {
+         "Workflow.Host": "Warning",
+         "Workflow.Jobs": "Warning",
+         "Workflow.Runtime": "Warning",
+         "Host.Workflow": "None"
+      }
+   }
+}
+```
 
 ### [Portal](#tab/portal)
 

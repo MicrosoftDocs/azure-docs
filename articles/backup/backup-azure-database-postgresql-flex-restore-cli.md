@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 10/01/2024
 ms.service: azure-backup
 ms.custom: devx-track-azurecli, ignite-2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Restore Azure Database for PostgreSQL - flexible servers using Azure CLI (preview)
@@ -44,7 +44,7 @@ az dataprotection backup-instance list-from-resourcegraph --datasource-type Azur
         "baseUri": null,
         "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
         "objectType": "Datasource",
-        "resourceID": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourceGroups/ossdemoRG/providers/Microsoft.DBforPostgreSQL/flexibleServers/testpgflex",
+        "resourceID": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/ossdemoRG/providers/Microsoft.DBforPostgreSQL/flexibleServers/testpgflex",
         "resourceLocation": "westus",
         "resourceName": "postgres",
         "resourceProperties": null,
@@ -56,7 +56,7 @@ az dataprotection backup-instance list-from-resourcegraph --datasource-type Azur
         "baseUri": null,
         "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
         "objectType": "DatasourceSet",
-        "resourceID": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourceGroups/ossdemoRG/providers/Microsoft.DBforPostgreSQL/flexibleServers/testpgflex",
+        "resourceID": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/ossdemoRG/providers/Microsoft.DBforPostgreSQL/flexibleServers/testpgflex",
         "resourceLocation": "westus",
         "resourceName": "testpgflex",
         "resourceProperties": null,
@@ -81,9 +81,9 @@ az dataprotection backup-instance list-from-resourcegraph --datasource-type Azur
     "protectionState": "ProtectionConfigured",
     "resourceGroup": "testBkpVaultRG",
     "sku": null,
-    "subscriptionId": 00001111-aaaa-2222-bbbb-3333cccc4444,
+    "subscriptionId": bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f,
     "tags": null,
-    "tenantId": 00001111-aaaa-2222-bbbb-3333cccc4444,
+    "tenantId": aaaabbbb-0000-cccc-1111-dddd2222eeee,
     "type": "microsoft.dataprotection/backupvaults/backupinstances",
     "vaultName": "testBkpVault",
     "zones": null

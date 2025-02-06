@@ -89,7 +89,7 @@ Teams administrators can use meeting templates to control meeting settings that 
 ||Enable Watermarks|Specifies if watermarks are used for camera feeds and content that's shared on screen in the meeting.
 |Audio and video|Enable mic for attendees? |	When off, you can unmute individual attendees as needed.
 ||Enable camera for attendees? | When on, meeting attendees can turn on video.
-|Recording and transcription|Record meetings automatically|	 Speficy if the meeting is recorded automatically.
+|Recording and transcription|Record meetings automatically|	 Specify if the meeting is recorded automatically.
 ||Who can record meetings?| Specifies who can record the meeting.
 |Roles|Notify when callers join and leave|A sound plays when someone calling in by phone joins or leaves the meeting.
 |Meeting engagement|Allow meeting chat|	Specifies if the meeting chat is available. It can also be used to prevent chatting before and after the meeting.

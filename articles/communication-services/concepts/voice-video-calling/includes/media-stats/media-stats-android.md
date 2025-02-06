@@ -45,7 +45,7 @@ mediaStatisticsCallFeature.addOnReportReceivedListener(handleReportReceivedListe
 // Optionally, set the interval for media statistics report generation
 mediaStatisticsCallFeature.updateReportIntervalInSeconds(15);
 
-private void handleReportReceivedListener(MediaStatisticssReportEvent args) {
+private void handleReportReceivedListener(MediaStatisticsReportEvent args) {
     // Obtain the media statistics report instance
     MediaStatisticsReport report = args.getReport();
 

@@ -1,8 +1,9 @@
 ---
 title: Scalability - Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to scale Azure Event Hubs by using partitions and throughput units. 
-ms.topic: article
-ms.date: 11/23/2023
+ms.topic: concept-article
+ms.date: 12/12/2024
+# Customer intent: I want to learn how to scare Azure Event Hubs to keep up with the increased workload. 
 ---
 
 # Scaling with Event Hubs
@@ -19,9 +20,9 @@ The throughput capacity of event hubs is controlled by **throughput units**. Thr
 * Ingress: Up to 1 MB per second or 1,000 events per second (whichever comes first).
 * Egress: Up to 2 MB per second or 4,096 events per second.
 
-Beyond the capacity of the purchased throughput units, ingress is throttled and Event Hubs throws a [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception). Egress doesn't produce throttling exceptions, but is still limited to the capacity of the purchased throughput units. If you receive publishing rate exceptions or are expecting to see higher egress, be sure to check how many throughput units you have purchased for the namespace. You can manage throughput units on the **Scale** page of the namespaces in the [Azure portal](https://portal.azure.com). You can also manage throughput units programmatically using the [Event Hubs APIs](./event-hubs-samples.md).
+Beyond the capacity of the purchased throughput units, ingress is throttled and Event Hubs throws a [EventHubsException](/dotnet/api/azure.messaging.eventhubs.eventhubsexception) (with a Reason value of ServiceBusy). Egress doesn't produce throttling exceptions, but is still limited to the capacity of the purchased throughput units. If you receive publishing rate exceptions or are expecting to see higher egress, be sure to check how many throughput units you have purchased for the namespace. You can manage throughput units on the **Scale** page of the namespaces in the [Azure portal](https://portal.azure.com). You can also manage throughput units programmatically using the [Event Hubs APIs](./event-hubs-samples.md).
 
-Throughput units are prepurchased and are billed per hour. Once purchased, throughput units are billed for a minimum of one hour. Up to 40 throughput units can be purchased for an Event Hubs namespace and are shared across all event hubs in that namespace.
+Throughput units are prepurchased and are billed per hour. Once purchased, throughput units are billed for a minimum of one hour. Up to 40 throughput units can be purchased for an Event Hubs namespace and are shared across all event hubs in that namespace. The total ingress and egress capacity of these throughput units is also shared among all partitions and consumers within each event hub, meaning multiple consumers reading from the same partition must share the available bandwidth.
 
 The **Auto-inflate** feature of Event Hubs automatically scales up by increasing the number of throughput units, to meet usage needs. Increasing throughput units prevents throttling scenarios, in which:
 
@@ -51,7 +52,7 @@ To learn about configuring PUs for a premium tier namespace, see [Configure proc
 
 
 
-## Next steps
+## Related content
 You can learn more about Event Hubs by visiting the following links:
 
 - [Automatically scale throughput units for a standard tier namespace](event-hubs-auto-inflate.md)

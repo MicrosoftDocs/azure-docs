@@ -17,7 +17,7 @@ You may decide one day to disable Automanage on certain VMs. For instance, your 
 
 ## How to disable Automanage through the Azure portal
 
-To do that in the Azure portal, go to the **Automanage – Azure machine best practices** page that lists all of your auto-managed VMs. Select the checkbox next to the virtual machine you want to disable from Automanage, then click on the **Disable automanagment** button.
+To do that in the Azure portal, go to the **Automanage – Azure machine best practices** page that lists all of your auto-managed VMs. Select the checkbox next to the virtual machine you want to disable from Automanage, then click on the **Disable automanagement** button.
 
 [ ![Screenshot of disabling Automanage on a virtual machine.](./media/automanage-virtual-machines/disable-step-1.png) ](./media/automanage-virtual-machines/disable-step-1.png#lightbox)
 

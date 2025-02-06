@@ -2,7 +2,7 @@
 title: 'About Azure Bastion design and architecture'
 description: Learn about the different architectures available with Azure Bastion.
 author: cherylmc
-ms.topic: article
+ms.topic: concept-article
 ms.date: 05/09/2024
 ms.author: cherylmc
 ms.service: azure-bastion
@@ -41,7 +41,7 @@ For configuration steps, see:
 
 For more information about the Developer SKU, see [Deploy Azure Bastion - Developer SKU](quickstart-developer-sku.md).
 
-## <a name="private-only"></a>Deployment - Private-only (Preview)
+## <a name="private-only"></a>Deployment - Private-only
 
 :::image type="content" source="./media/private-only-deployment/private-only-architecture.png" alt-text="Diagram showing Azure Bastion private-only architecture." lightbox="./media/private-only-deployment/private-only-architecture.png":::
 

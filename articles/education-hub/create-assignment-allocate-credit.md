@@ -10,6 +10,9 @@ ms.service: azure-education
 
 # Create a lab and allocate credit in the Azure Education Hub
 
+> [!WARNING]
+> This offer requires assistance from your Microsoft sales representative. Self-service signup is not available.
+
 After you set up a lab in the Azure Education Hub, you can add students and allocate credits to them to deploy resources.
 
 ## Prerequisites

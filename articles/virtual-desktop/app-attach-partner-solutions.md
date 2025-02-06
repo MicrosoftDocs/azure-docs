@@ -3,7 +3,7 @@ title: Deliver applications from partner solutions with app attach - Azure Virtu
 description: Learn how to deliver applications to your remote desktop or app using partner solutions with app attach.
 author: sipastak
 ms.topic: how-to
-ms.date: 10/22/2024
+ms.date: 12/12/2024
 ms.author: sipastak
 ---
 
@@ -18,7 +18,7 @@ The following partners have application delivery solutions that have been approv
 | Partner | Partner documentation | Partner support |
 |:-|:-|:-|
 | Liquidware | [Liquidware FlexApp documentation](https://www.liquidware.com/profileunity-documentation) | [Liquidware support](https://www.liquidware.com/support) |
-| Numecent | [Numencent CloudPager documentation](https://20110124.fs1.hubspotusercontent-na1.net/hubfs/20110124/Numecent%20Cloudpaging%20App%20Attach%20Integration%20-%20Solution%20Brief.pdf) | [Numencent support](https://numecent.freshdesk.com/support/home) |
+| Numecent | [Numecent Cloudpager documentation](https://20110124.fs1.hubspotusercontent-na1.net/hubfs/20110124/Numecent%20Cloudpaging%20App%20Attach%20Integration%20-%20Solution%20Brief.pdf) | [Numencent support](https://numecent.freshdesk.com/support/home) |
 | Omnissa | [Omnissa App Volumes documentation](https://docs.omnissa.com/category/App_Volumes) | [Omnissa support](https://customerconnect.omnissa.com/home) |
 
 >[!IMPORTANT]

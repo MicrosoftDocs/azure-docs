@@ -80,7 +80,7 @@ Basic Load Balancer is offered at no charge and has no SLA.
 
 ## What's new?
 
-Subscribe to the RSS feed and view the latest Azure Load Balancer updates on the [Azure Updates](https://azure.microsoft.com/updates/?category=networking&query=load%20balancer) page.
+Subscribe to the RSS feed and view the latest Azure Load Balancer updates on the [Azure Updates](https://azure.microsoft.com/updates?filters=%5B%22Load+Balancer%22%5D) page.
 
 ## Related content
 

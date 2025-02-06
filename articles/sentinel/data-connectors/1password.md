@@ -72,7 +72,7 @@ To integrate with 1Password (using Azure Functions) make sure you have:
 
 Option 1 - Azure Resource Manager (ARM) Template
 
-This method provides an automated deployment of the 1Password connector using an ARM Tempate.
+This method provides an automated deployment of the 1Password connector using an ARM Template.
 
 1. Click the **Deploy to Azure** button below. 
 

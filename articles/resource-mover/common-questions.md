@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 ms.service: azure-resource-mover
 ms.custom: engagement-fy23, UpdateFrequency.5
 ms.topic: faq
-ms.date: 09/23/2024
+ms.date: 12/27/2024
 ms.author: ankitadutta
 ---
 

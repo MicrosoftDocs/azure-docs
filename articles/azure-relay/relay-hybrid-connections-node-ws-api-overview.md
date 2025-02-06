@@ -2,7 +2,7 @@
 title: Overview of the Azure Relay Node APIs | Microsoft Docs
 description: This article provides an overview of the Node.js API for the Azure Relay service. It also shows how to use the hyco-ws Node package. 
 ms.topic: article
-ms.date: 08/10/2023
+ms.date: 12/11/2024
 ms.custom: devx-track-js
 ---
 
@@ -10,7 +10,7 @@ ms.custom: devx-track-js
 
 ## Overview
 
-The [`hyco-ws`](https://www.npmjs.com/package/hyco-ws) Node package for Azure Relay Hybrid Connections is built on and extends the [`ws`](https://www.npmjs.com/package/ws) NPM package. This package re-exports all exports of that base package and adds new exports that enable integration with the Azure Relay service Hybrid Connections feature. 
+The [`hyco-ws`](https://www.npmjs.com/package/hyco-ws) Node package for Azure Relay Hybrid Connections is built on and extends the [`ws`](https://www.npmjs.com/package/ws) Node Package Manager (npm) package. This package re-exports all exports of that base package and adds new exports that enable integration with the Azure Relay service Hybrid Connections feature. 
 
 Existing applications that `require('ws')` can use this package with `require('hyco-ws')` instead, which also enables hybrid scenarios in which an application can listen for WebSocket connections locally from "inside the firewall" and via Hybrid Connections, all at the same time.
   
@@ -123,9 +123,9 @@ Constructor arguments:
 
 #### Events
 
-`RelayedServer` instances emit three events that enable you to handle incoming requests, establish connections, and detect error conditions. You must subscribe to the `connect` event to handle messages. 
+`RelayedServer` instances emit three events that enable you to handle incoming requests, establish connections, and detect the error conditions. You must subscribe to the `connect` event to handle messages. 
 
-##### headers
+##### Headers
 
 ```JavaScript 
 function(headers)
@@ -133,7 +133,7 @@ function(headers)
 
 The `headers` event is raised just before an incoming connection is accepted, enabling modification of the headers to send to the client. 
 
-##### connection
+##### Connection
 
 ```JavaScript
 function(socket)
@@ -142,7 +142,7 @@ function(socket)
 Emitted when a new WebSocket connection is accepted. The object is of type `ws.WebSocket`, same as with the base package.
 
 
-##### error
+##### Error
 
 ```JavaScript
 function(error)

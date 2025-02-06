@@ -98,6 +98,56 @@ template.Values.Add(media);
 - VIDEO: [Use sample template sample_happy_hour_announcement](#use-sample-template-sample_happy_hour_announcement)
 - DOCUMENT: [Use sample template sample_flight_confirmation](#use-sample-template-sample_flight_confirmation)
 
+### Templates with location in the header
+
+Use `MessageTemplateLocation` to define the location parameter in a header.
+
+Template definition for header component requiring location as:
+```
+{
+  "type": "header",
+  "parameters": [
+    {
+      "type": "location",
+      "location": {
+        "latitude": "<LATITUDE>",
+        "longitude": "<LONGITUDE>",
+        "name": "<NAME>",
+        "address": "<ADDRESS>"
+      }
+    }
+  ]
+}
+```
+
+The "format" can require different media types. In the .NET SDK, each media type uses a corresponding MessageTemplateValue type.
+
+|  Properties   | Description |  Type |
+|----------|---------------------------|-----------|
+| ADDRESS | Address that will appear after the 'NAME' value, below the generic map at the top of the message. | string |
+| LATITUDE | Location latitude.  | double       |
+| LONGITUDE| Location longitude. | double      |
+| LOCATIONNAME | Text that will appear immediately below the generic map at the top of the message. |string|
+
+For more information on location based templates, see [WhatsApp's documentation for message media](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#location). 
+
+Location based Message template assembly:
+```csharp
+ var location = new MessageTemplateLocation("location");
+ location.LocationName = "Pablo Morales";
+ location.Address = "1 Hacker Way, Menlo Park, CA 94025";
+ location.Position = new Azure.Core.GeoJson.GeoPosition(longitude: 122.148981, latitude: 37.483307);
+
+ WhatsAppMessageTemplateBindings location_bindings = new();
+ location_bindings.Header.Add(new(location.Name));
+
+ var messageTemplateWithLocation = new MessageTemplate(templateNameWithLocation, templateLanguage);
+ messageTemplateWithLocation.Values.Add(location);
+ messageTemplateWithLocation.Bindings = location_bindings;
+``````
+#### Example
+:::image type="content" source="./../media/template-messages/sample-location-based-template.jpg" lightbox="./../media/template-messages/sample-location-based-template.jpg" alt-text="Screenshot that shows template details for template named sample_location_template.":::
+
 ### Templates with quick reply buttons
 
 Use `MessageTemplateQuickAction` to define the payload for quick reply buttons.

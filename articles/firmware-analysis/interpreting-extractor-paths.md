@@ -5,6 +5,7 @@ author: karengu0
 ms.author: karenguo
 ms.topic: conceptual
 ms.date: 11/04/2024
+ms.service: azure
 ---
 
 # Overview of How Firmware Images are Structured

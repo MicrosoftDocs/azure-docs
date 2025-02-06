@@ -70,7 +70,7 @@ To integrate with GitHub (using Webhooks) (using Azure Functions) make sure you 
 
 
 
-*Now we are done with the GitHub Webhook configuration. Once the GitHub events triggered and after the delay of 20 to 30 mins (As there will be a dealy for LogAnalytics to spin up the resources for the first time), you should be able to see all the transactional events from the GitHub into LogAnalytics workspace table called "githubscanaudit_CL".*
+*Now we are done with the GitHub Webhook configuration. Once the GitHub events triggered and after the delay of 20 to 30 mins (As there will be a delay for LogAnalytics to spin up the resources for the first time), you should be able to see all the transactional events from the GitHub into LogAnalytics workspace table called "githubscanaudit_CL".*
 
  For more details, Click [here](https://aka.ms/sentinel-gitHubwebhooksteps)
 

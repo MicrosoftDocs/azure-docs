@@ -26,6 +26,9 @@ Before deploying the virtual machine template, let's review the content to under
 
 :::code language="bicep" source="includes/virtual-machine/virtual-machine-bicep-template.bicep":::
 
+> [!WARNING]
+> User data will not be encrypted, and any process on the VM can query this data. You should not store confidential information in user data. For more information, see [Azure data security and encryption best practices](/azure/security/fundamentals/data-encryption-best-practices).
+
 Once you have reviewed and saved the template file named ```virtual-machine-bicep-template.bicep```, proceed to the next section to deploy the template.
 
 ## Deploy the template

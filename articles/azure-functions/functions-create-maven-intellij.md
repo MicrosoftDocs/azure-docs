@@ -57,7 +57,7 @@ To use Azure Toolkit for IntelliJ to create a local Azure Functions project, fol
 
    :::image type="content" source="media/functions-create-first-java-intellij/create-functions-project.png" alt-text="Create function project." lightbox="media/functions-create-first-java-intellij/create-functions-project.png":::
 
-1. Select **Http Trigger**, then select **Next** and follow the wizard to go through all the configurations in the following pages. Confirm your project location, then select **Finish**. Intellj IDEA then opens your new project.
+1. Select **Http Trigger**, then select **Next** and follow the wizard to go through all the configurations in the following pages. Confirm your project location, then select **Finish**. IntelliJ IDEA then opens your new project.
 
    :::image type="content" source="media/functions-create-first-java-intellij/create-functions-project-finish.png" alt-text="Create function project finish." lightbox="media/functions-create-first-java-intellij/create-functions-project-finish.png":::
 

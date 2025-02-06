@@ -39,13 +39,13 @@ Use the following steps to run the Service Bus emulator locally on Windows:
 
    `$>Start-Process powershell -Verb RunAs -ArgumentList 'Set-ExecutionPolicy Bypass –Scope CurrentUser'`
 
-1. Run the setup script _LaunchEmulator.ps1_. Running the script brings up two containers: the Service Bus emulator and Sql Edge (a dependency for the emulator).
+1. Run the setup script [LaunchEmulator.ps1](https://github.com/Azure/azure-service-bus-emulator-installer/tree/main/ServiceBus-Emulator/Scripts/Windows). Running the script brings up two containers: the Service Bus emulator and Sql Edge (a dependency for the emulator).
 
 ### Linux and macOS
 
 To run the Service Bus emulator locally on Linux or macOS:
 
-- Run the setup script _LaunchEmulator.sh_. Running the script brings up two containers: the Service Bus emulator and Sql Edge (a dependency for the emulator).
+- Run the setup script [LaunchEmulator.sh](https://github.com/Azure/azure-service-bus-emulator-installer/tree/main/ServiceBus-Emulator/Scripts/). Running the script brings up two containers: the Service Bus emulator and Sql Edge (a dependency for the emulator).
 
 ### [Docker (Linux container)](#tab/docker-linux-container)
 
@@ -165,6 +165,9 @@ To run the Service Bus emulator locally on Linux or macOS:
 
 2.To spin up containers for Service Bus emulator, save the following .yaml file as _docker-compose.yaml_
 
+  > [!NOTE]
+  > Service Bus Emulator uses the port 5672 by default. If you customized the configuration to use a different port, update the ports setting in the YAML file. 
+
 ```
 name: microsoft-azure-servicebus-emulator
 services:
@@ -213,8 +216,8 @@ CONFIG_PATH="<Replace with path to Config.json file>"
 # SQL Edge EULA : https://go.microsoft.com/fwlink/?linkid=2139274
 ACCEPT_EULA="N"
 
-# 3. MSSQL_SA_PASSWORD to be filled by user as per policy : https://learn.microsoft.com/sql/relational-databases/security/strong-passwords?view=sql-server-linux-ver16 
-MSSQL_SA_PASSWORD: ""
+# 3. MSSQL_SA_PASSWORD to be filled by user as per policy
+MSSQL_SA_PASSWORD=""
 ```
 
 > [!IMPORTANT]

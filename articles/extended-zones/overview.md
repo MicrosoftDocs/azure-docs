@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-extended-zones
 ms.topic: overview
-ms.date: 11/19/2024
+ms.date: 12/04/2024
 ---
 
 # What are Azure Extended Zones?
@@ -46,9 +46,9 @@ The following table lists key services that are available in Azure Extended Zone
 
 \* While these services are GA in Azure Regions, they are currently in Preview in Azure Extended Zones. 
 
-## Availability
+## Availability and access
 
-Currently, Los Angeles is the only available Extended Zone.
+Currently, Los Angeles is the only available Extended Zone. See [Request access to Azure Extended Zones](request-access.md) to request access to Los Angeles Extended Zone.
 
 ## Pricing
 

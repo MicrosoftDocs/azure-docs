@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how to use group and filter options.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/24/2024
+ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management

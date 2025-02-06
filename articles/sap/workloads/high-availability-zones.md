@@ -83,7 +83,7 @@ Based on your measurements and the availability of your VM SKUs in the Availabil
 - Determine whether you want to deploy an active/passive configuration or an active/active configuration, from an application point of view. (These configurations are explained later in this article.)
 
 > [!IMPORTANT]
-> The measurements and decisions you make are valid for the Azure subscription you used when you took the measurements. If you use another Azure subscription, the mapping of enumerated zones might be different for another Azure subscription. As a result, you need to repeat the measurements or find out the mapping of the new subscription realitve to the old subscription the tool [Avzone-Mapping script](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/AvZone-Mapping). 
+> The measurements and decisions you make are valid for the Azure subscription you used when you took the measurements. If you use another Azure subscription, the mapping of enumerated zones might be different for another Azure subscription. As a result, you need to repeat the measurements or find out the mapping of the new subscription relative to the old subscription the tool [Avzone-Mapping script](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/AvZone-Mapping). 
 
 > [!IMPORTANT]
 > It's expected that the measurements described earlier provide different results in every Azure region that supports [Availability Zones](https://azure.microsoft.com/global-infrastructure/geographies/). Even if your network latency requirements are the same, you might need to adopt different deployment strategies in different Azure regions because the network latency between zones can be different. In some Azure regions, the network latency among the three different zones can be vastly different. In other regions, the network latency among the three different zones might be more uniform. The claim that there's always a network latency  between 1 and 2 milliseconds  isn't correct. The network latency across Availability Zones in Azure regions can't be generalized.
@@ -151,7 +151,7 @@ The following considerations apply for this configuration:
 Microsoft doesn't share any information about geographical distances between the facilities that host different Azure Availability Zones in an Azure region. Still, some customers are using zones for a combined HA and DR configuration (short distance DR) that promises a recovery point objective (RPO) of zero. An RPO of zero  means that you shouldn't lose any committed database transactions even in disaster recovery cases. 
 
 > [!NOTE]
-> If you use Availability Zones as small distance DR solution, eep in mind that we experienced natural disasters causing widespread damage in diferent regions of the world, including heavy and widespread damage to power infrastructures. The distances between various zones might not always be large enough to compensate for such larger natural disasters.
+> If you use Availability Zones as small distance DR solution, eep in mind that we experienced natural disasters causing widespread damage in different regions of the world, including heavy and widespread damage to power infrastructures. The distances between various zones might not always be large enough to compensate for such larger natural disasters.
 
 Here's one example of how such a configuration might look:
 

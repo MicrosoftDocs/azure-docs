@@ -15,7 +15,7 @@ ms.date: 07/11/2024
 
 This article describes how to use either Azure Managed Redis or Azure Cache for Redis with Azure Functions to create optimized serverless and event-driven architectures.
 
-Azure Functions provide an event-driven programming model where triggers and bindings are key features. With Azure Functions, you can easily build event-driven serverless applications. Azure Redis services (Azure Managed Redis and Azure Cache for Redis) provide a set of building blocks and best practices for building distributed applications, including microservices, state management, pub/sub messaging, and more.
+Azure Functions provides an event-driven programming model where triggers and bindings are key features. With Azure Functions, you can easily build event-driven serverless applications. Azure Redis services (Azure Managed Redis and Azure Cache for Redis) provide a set of building blocks and best practices for building distributed applications, including microservices, state management, pub/sub messaging, and more.
 
 Azure Redis can be used as a trigger for Azure Functions, allowing you to initiate a serverless workflow. This functionality can be highly useful in data architectures like a write-behind cache, or any event-based architectures.
 
@@ -127,13 +127,15 @@ Add the extension bundle by adding or replacing the following code in your _host
 
 ## Redis connection string
 
-Azure Redis triggers and bindings have a required property for the cache connection string. The connection string can be found on the [**Access keys**](/azure/azure-cache-for-redis/cache-configure#access-keys) menu in the Azure Managed Redis or Azure Cache for Redis portal. The Redis trigger or binding looks for an environmental variable holding the connection string with the name passed to the `Connection` parameter.
+Azure Redis triggers and bindings have a required property that indicates the application setting or collection name that contains cache connection information. The connection string can be found on the [**Access keys**](/azure/azure-cache-for-redis/cache-configure#access-keys) menu in the Azure Managed Redis or Azure Cache for Redis portal. The Redis trigger or binding looks for an environmental variable holding the connection string with the name passed to the `Connection` parameter.
 
 In local development, the `Connection` can be defined using the [local.settings.json](/azure/azure-functions/functions-develop-local#local-settings-file) file. When deployed to Azure, [application settings](/azure/azure-functions/functions-how-to-use-azure-function-app-settings) can be used.
 
-When connecting to a cache instance with an Azure function, you can use three types of connections in your deployments: Connection string, System-assigned managed identity, and User-assigned managed identity
+When connecting to a cache instance with an Azure function, you can use three types of connections in your deployments: Connection string, System-assigned managed identity, and User-assigned managed identity.
 
 For local development, you can also use service principal secrets.
+
+[!INCLUDE [functions-azure-redis-cache-authentication-note](../../includes/functions-azure-redis-cache-authentication-note.md)]
 
 Use the `appsettings` to configure each of the following types of client authentication, assuming the `Connection` was set to `Redis` in the function.
 
@@ -147,16 +149,16 @@ Use the `appsettings` to configure each of the following types of client authent
 ### System-assigned managed identity
 
 ```JSON
-"Redis:redisHostName": "<cacheName>.<region>.redis.azure.net",
-"Redis:principalId": "<principalId>"
+"Redis__redisHostName": "<cacheName>.<region>.redis.azure.net",
+"Redis__principalId": "<principalId>"
 ```
 
 ### User-assigned managed identity
 
 ```JSON
-"Redis:redisHostName": "<cacheName>.<region>.redis.azure.net",
-"Redis:principalId": "<principalId>",
-"Redis:clientId": "<clientId>"
+"Redis__redisHostName": "<cacheName>.<region>.redis.azure.net",
+"Redis__principalId": "<principalId>",
+"Redis__clientId": "<clientId>"
 ```
 
 ### Service Principal Secret
@@ -164,11 +166,11 @@ Use the `appsettings` to configure each of the following types of client authent
 Connections using Service Principal Secrets are only available during local development.
 
 ```JSON
-"Redis:redisHostName": "<cacheName>.<region>.redis.azure.net",
-"Redis:principalId": "<principalId>",
-"Redis:clientId": "<clientId>"
-"Redis:tenantId": "<tenantId>"
-"Redis:clientSecret": "<clientSecret>"
+"Redis__redisHostName": "<cacheName>.<region>.redis.azure.net",
+"Redis__principalId": "<principalId>",
+"Redis__clientId": "<clientId>"
+"Redis__tenantId": "<tenantId>"
+"Redis__clientSecret": "<clientSecret>"
 ```
 
 ## [Azure Cache for Redis connections](#tab/azure-cache-redis)
@@ -181,16 +183,16 @@ Connections using Service Principal Secrets are only available during local deve
 ### System-assigned managed identity
 
 ```JSON
-"Redis:redisHostName": "<cacheName>.redis.cache.windows.net",
-"Redis:principalId": "<principalId>"
+"Redis__redisHostName": "<cacheName>.redis.cache.windows.net",
+"Redis__principalId": "<principalId>"
 ```
 
 ### User-assigned managed identity
 
 ```JSON
-"Redis:redisHostName": "<cacheName>.redis.cache.windows.net",
-"Redis:principalId": "<principalId>",
-"Redis:clientId": "<clientId>"
+"Redis__redisHostName": "<cacheName>.redis.cache.windows.net",
+"Redis__principalId": "<principalId>",
+"Redis__clientId": "<clientId>"
 ```
 
 ### Service Principal Secret
@@ -198,11 +200,11 @@ Connections using Service Principal Secrets are only available during local deve
 Connections using Service Principal Secrets are only available during local development.
 
 ```JSON
-"Redis:redisHostName": "<cacheName>.redis.cache.windows.net",
-"Redis:principalId": "<principalId>",
-"Redis:clientId": "<clientId>"
-"Redis:tenantId": "<tenantId>"
-"Redis:clientSecret": "<clientSecret>"
+"Redis__redisHostName": "<cacheName>.redis.cache.windows.net",
+"Redis__principalId": "<principalId>",
+"Redis__clientId": "<clientId>"
+"Redis__tenantId": "<tenantId>"
+"Redis__clientSecret": "<clientSecret>"
 ```
 ---
 

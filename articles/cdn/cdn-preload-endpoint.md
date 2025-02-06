@@ -4,7 +4,6 @@ description: Learn how to pre-load cached content on an Azure Content Delivery N
 services: cdn
 author: duongau
 manager: kumudd
-ms.assetid: 5ea3eba5-1335-413e-9af3-3918ce608a83
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024

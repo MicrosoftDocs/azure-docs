@@ -6,7 +6,7 @@ services: virtual-wan
 author: cherylmc
 
 ms.service: azure-virtual-wan
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/27/2021
 ms.author: cherylmc
 

@@ -2,11 +2,11 @@
 title: Continuous integration and delivery 
 description: Learn how to use continuous integration and delivery to move Azure Data Factory pipelines from one environment (development, test, production) to another.
 ms.subservice: ci-cd
-author: nabhishek
-ms.author: abnarain
+author: kromerm
+ms.author: makromer
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 09/25/2024
+ms.date: 01/29/2025
 ms.custom:
 ---
 
@@ -83,7 +83,7 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 
   To learn how to set up a feature flag, see the below video tutorial:
 
-  >[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4IxdW]
+  >[!VIDEO https://learn-video.azurefd.net/vod/player?id=753e946c-f8e0-4a70-b352-2ed1aa296466]
 
 ## Unsupported features
 

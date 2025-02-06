@@ -6,6 +6,7 @@ ms.author: karenguo
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.date: 01/29/2024
+ms.service: azure
 ---
 
 # Quickstart: Upload firmware images to Firmware analysis using Azure PowerShell

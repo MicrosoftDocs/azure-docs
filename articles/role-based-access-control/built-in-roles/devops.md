@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -15,6 +15,159 @@ ms.custom: generated
 
 This article lists the Azure built-in roles in the DevOps category.
 
+
+## Chaos Studio Experiment Contributor
+
+Can create, run, and see details for experiments, onboard targets, and manage capabilities.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Chaos](../permissions/devops.md#microsoftchaos)/* |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can create, run, and see details for experiments, onboard targets, and manage capabilities.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/7c2e40b7-25eb-482a-82cb-78ba06cb46d5",
+  "name": "7c2e40b7-25eb-482a-82cb-78ba06cb46d5",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Chaos/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Chaos Studio Experiment Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Chaos Studio Operator
+
+Can run and see details for experiments but cannot create experiments or manage targets and capabilities.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Chaos](../permissions/devops.md#microsoftchaos)/*/read |  |
+> | [Microsoft.Chaos](../permissions/devops.md#microsoftchaos)/experiments/start/action | Starts a Chaos Experiment to inject faults. |
+> | [Microsoft.Chaos](../permissions/devops.md#microsoftchaos)/experiments/cancel/action | Cancels a running Chaos Experiment to stop the fault injection. |
+> | [Microsoft.Chaos](../permissions/devops.md#microsoftchaos)/experiments/executions/getExecutionDetails/action | Gets details of a chaos experiment execution for a given chaos experiment. |
+> | [Microsoft.Chaos](../permissions/devops.md#microsoftchaos)/locations/operationResults/read | Gets an Operation Result. |
+> | [Microsoft.Chaos](../permissions/devops.md#microsoftchaos)/locations/operationStatuses/read | Gets an Operation Status. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can run and see details for experiments but cannot create experiments or manage targets and capabilities.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/1a40e87e-6645-48e0-b27a-0b115d849a20",
+  "name": "1a40e87e-6645-48e0-b27a-0b115d849a20",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Chaos/*/read",
+        "Microsoft.Chaos/experiments/start/action",
+        "Microsoft.Chaos/experiments/cancel/action",
+        "Microsoft.Chaos/experiments/executions/getExecutionDetails/action",
+        "Microsoft.Chaos/locations/operationResults/read",
+        "Microsoft.Chaos/locations/operationStatuses/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Chaos Studio Operator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Chaos Studio Reader
+
+Can view targets, capabilities, experiments, and experiment details.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Chaos](../permissions/devops.md#microsoftchaos)/*/read |  |
+> | [Microsoft.Chaos](../permissions/devops.md#microsoftchaos)/experiments/executions/getExecutionDetails/action | Gets details of a chaos experiment execution for a given chaos experiment. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can view targets, capabilities, experiments, and experiment details.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/29e2da8a-229c-4157-8ae8-cc72fc506b74",
+  "name": "29e2da8a-229c-4157-8ae8-cc72fc506b74",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Chaos/*/read",
+        "Microsoft.Chaos/experiments/executions/getExecutionDetails/action",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Chaos Studio Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
 
 ## Deployment Environments Reader
 

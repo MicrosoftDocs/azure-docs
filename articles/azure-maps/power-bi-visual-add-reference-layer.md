@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps Power BI visual
 description: This article describes how to use the reference layer in Azure Maps Power BI visual.
 author: deniseatmicrosoft
 ms.author: limingchen
-ms.date: 11/27/2024
+ms.date: 01/17/2025
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: power-bi-visual
@@ -56,7 +56,7 @@ To use a hosted spatial dataset as a reference layer:
 
 The following map displays [2016 census tracts for Colorado]. The areas are colored, based on population, using the reference layer.
 
-:::image type="content" source="./media/power-bi-visual/reference-layer-CO-census-tract.png" alt-text="A map displaying 2016 census tracts for Colorado, colored by population as a reference layer.":::
+:::image type="content" source="./media/power-bi-visual/reference-layer-CO-census-tract.png" lightbox="./media/power-bi-visual/reference-layer-CO-census-tract.png" alt-text="A map displaying 2016 census tracts for Colorado, colored by population as a reference layer.":::
 
 The following are all settings in the **Format** pane that are available in the **Reference layer** section.
 
@@ -113,7 +113,7 @@ POINT(-122.13284 47.63699)
 
 The _Custom style for reference layer via format pane_ feature in Azure Maps enables you to personalize the appearance of reference layers. You can define the color, border width, and transparency of points, lines, and polygons directly in the Azure Maps Power BI visual interface, to enhance the visual clarity and impact of your geospatial data.
 
-:::image type="content" source="./media/power-bi-visual/custom-style-for-reference-layer-via-format-pane.png" alt-text="A map displaying the custom style for reference layer via format pane feature.":::
+:::image type="content" source="./media/power-bi-visual/custom-style-for-reference-layer-via-format-pane.png" lightbox="./media/power-bi-visual/custom-style-for-reference-layer-via-format-pane.png" alt-text="A map displaying the custom style for reference layer via format pane feature.":::
 
 ### Enabling custom styles
 
@@ -124,7 +124,7 @@ To use the custom styling options for reference layers, follow these steps:
 3. **Customize Styles**: Use to adjust the appearance of your reference layer by setting the fill color, border color, border width, and transparency for points, lines, and polygons.
 
 > [!NOTE]
-> If your geospatial files (GeoJSON, KML) include predefined style properties, Power BI will utilize those styles rather than the settings configured in the format pane. Make sure your files are styled according to your requirements before uploading if you intend to use custom properties defined within them.
+> If your geospatial files (GeoJSON, KML) include predefined style properties, Power BI utilizes those styles rather than the settings configured in the format pane. Make sure your files are styled according to your requirements before uploading if you intend to use custom properties defined within them.
 
 ### Style configuration
 
@@ -279,9 +279,9 @@ There are several ways to set colors to the shapes. The following table shows th
 
 > [!TIP]
 >
-> The Azure Maps Power BI Visual can only perform geocoding on valid location data such as geographical coordinates, addresses, or place names. If no valid location data is uploaded, data layers that depend on geocoded locations, such as heat maps or bubble layers, won’t display on the map.
+> The Azure Maps Power BI Visual can only perform geocoding on valid location data such as geographical coordinates, addresses, or place names. If no valid location data is uploaded, data layers that depend on geocoded locations, such as heat maps or bubble layers, don’t display on the map.
 >
-> The data-bound reference layer will appear on the map as long as the data column contains unique identifiers that match properties in the spatial file, but to ensure correct results, your data column must include valid geographic information.
+> The data-bound reference layer appears on the map as long as the data column contains unique identifiers that match properties in the spatial file, but to ensure correct results, your data column must include valid geographic information.
 
 ## Next steps
 
