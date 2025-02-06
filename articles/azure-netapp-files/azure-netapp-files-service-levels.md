@@ -68,7 +68,7 @@ The following diagram illustrates the scenarios for the SAP HANA volumes:
 
 The following diagram illustrates the scenarios for the SAP HANA volumes but with the Flexible service level and a baseline throughput of 128 MiB/S:
 
-:::image type="content" source="./media/azure-netapp-files-service-levels/flexible-service-sap-hana-examples.pngg" alt-text="Diagram of Flexible service level throughput with SAP HANA volumes." lightbox="./media/azure-netapp-files-service-levels/flexible-service-sap-hana-examples.png":::
+:::image type="content" source="./media/azure-netapp-files-service-levels/flexible-service-sap-hana-examples.png" alt-text="Diagram of Flexible service level throughput with SAP HANA volumes." lightbox="./media/azure-netapp-files-service-levels/flexible-service-sap-hana-examples.png":::
 
 
 The example extends to the Flexible service as well. A Flexible service level capacity pool can be used to create the following volumes. Each volume provides the individual size and throughput to meet your application requirements:
