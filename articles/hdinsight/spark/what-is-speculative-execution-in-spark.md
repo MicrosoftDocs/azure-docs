@@ -41,6 +41,7 @@ When job the finished, the original task 5 is killed by the driver.
 * When the data is skewed, the speculated task takes same time as that of the original task increasing the resource consumption and slows the execution time. The data skewness has to be addressed first.
 * When speculative execution is enabled, sometimes duplicate records are created if there's any unexpected executor or node failure. Make sure the job is idempotent.
 * Enabling speculation can impact performance as duplicate tasks are being created. Make sure it's disabled if the performance is a concern.
+* Speculative execution shouldn't be used for a long time period on production jobs. Extended use can result in failed tasks/capacity issues.
 
 ## Next Steps
 
