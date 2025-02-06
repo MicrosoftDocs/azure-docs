@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/15/2024
+ms.date: 02/06/2025
 ms.author: jianleishen
 ---
 
@@ -84,7 +84,93 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The Oracle linked service supports the following properties:
+The Oracle connector now supports version 2.0. Refer to this section to upgrade your Oracle connector version from version 1.0. For the property details, see the corresponding sections.
+
+- [Version 2.0](#version-20)
+- [Version 1.0](#version-10)
+
+### Version 2.0
+
+The Oracle linked service supports the following properties when apply version 2.0:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property must be set to **Oracle**. | Yes |
+| version | The version that you specify. The value is `2.0`. | Yes |
+| server | The Oracle server name. | Yes |
+| authenticationType | Authentication type for connecting to the Oracle database. Only **Basic** auth is supported now. | Yes |
+| username | The Oracle database username. | Yes |
+| password | The Oracle database password. | Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure Integration Runtime is used. |No |
+
+More connection properties you can set in connection string per your case:
+
+| Property | Description | Required | Default value |
+|:--- |:--- |:--- |:--- |
+| encryptionClient | Specifies the encryption client behavior. Supported values are `accepted`, `rejected`, `requested`, or `required`. Type: string | No | `required` |
+| encryptionTypesClient | Specifies the encryption algorithms that client can use. Supported values are `AES128`, `AES192`, `AES256`, `3DES112`, `3DES168`. Type: string | No | `AES256` |
+| cryptoChecksumClient | Specifies the desired data integrity behavior when this client connects to a server. Supported values are `accepted`, `rejected`, `requested`, or `required`. Type: string | No | `required` |
+| cryptoChecksumTypesClient | Specifies the crypto-checksum algorithms that client can use. Supported values are `SHA1`, `SHA256`, `SHA384`, `SHA512`. Type: string | No | `SHA512` |
+| initialLOBFetchSize | Specifies the amount that the source initially fetches for LOB columns. Type: int | No | 0 |
+| fetchSize | Specifies the number of bytes that the driver allocates to fetch the data in one database round-trip. Type: int | No | 10 MB |
+| statementCacheSize | Specifies the number of cursors or statements to be cached for each database connection. Type: int | No | 0 |
+| initializationString | Specifies a command that is issued immediately after connecting to the database to manage session settings. Type: string | No | null |
+| enableBulkLoad | Specifies whether to use bulk copy or batch insert when loading data into the database. Type: boolean | No | true |
+| supportLegacyDataTypes | Specifies whether to use the legacy version 1.0 data type mappings. Do not set this to true unless you want to keep backward compatibility with legacy 1.0 version's data type mappings. Type: boolean | No, this property is for BC use only | false |
+| fetchTSWTZasTimestamp | Specifies whether the driver returns column value with the TIMESTAMP WITH TIME ZONE data type as DateTime or string. This setting is ignored if supportLegacyDataTypes is not true. Type: boolean | No, this property is for BC use only | true |
+
+**Example:**
+
+```json
+{
+    "name": "OracleLinkedService",
+    "properties": {
+        "type": "Oracle",
+        "typeProperties": {
+            "server": "<server name>", 
+            "username": "<user name>", 
+            "password": "<password>", 
+            "authenticationType": "<authentication type>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Example: store password in Azure Key Vault**
+
+```json
+{
+    "name": "OracleLinkedService",
+    "properties": {
+        "type": "Oracle",
+        "typeProperties": {
+            "server": "<server name>", 
+            "username": "<user name>", 
+            "authenticationType": "<authentication type>",
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### Version 1.0
+
+The Oracle linked service supports the following properties when apply version 1.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -237,7 +323,7 @@ To copy data from Oracle, set the source type in the copy activity to `OracleSou
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to `OracleSource`. | Yes |
 | oracleReaderQuery | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`.<br>When you enable partitioned load, you need to hook any corresponding built-in partition parameters in your query. For examples, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
-| convertDecimalToInteger | Oracle NUMBER type with zero or unspecified scale will be converted to corresponding integer. Allowed values are **true** and **false** (default).| No |
+| convertDecimalToInteger | Oracle NUMBER type with zero or unspecified scale will be converted to corresponding integer. Allowed values are **true** and **false** (default). <br>Apply when the useLegacyDataTypes is true. | No |
 | partitionOptions | Specifies the data partitioning options used to load data from Oracle. <br>Allowed values are: **None** (default), **PhysicalPartitionsOfTable**, and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from an Oracle database is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | No |
 | partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when the partition option isn't `None`. | No |
 | partitionNames | The list of physical partitions that needs to be copied. <br>Apply when the partition option is `PhysicalPartitionsOfTable`. If you use a query to retrieve the source data, hook `?AdfTabularPartitionName` in the WHERE clause. For an example, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
@@ -374,39 +460,54 @@ You are suggested to enable parallel copy with data partitioning especially when
 
 ## Data type mapping for Oracle
 
-When you copy data from and to Oracle, the following interim data type mappings are used within the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+When you copy data from and to Oracle, the following mappings apply from Oracle's data types to the internal data types used by the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-| Oracle data type | Interim data type |
-|:--- |:--- |
-| BFILE |Byte[] |
-| BLOB |Byte[]<br/>(only supported on Oracle 10g and higher) |
-| CHAR |String |
-| CLOB |String |
-| DATE |DateTime |
-| FLOAT |Decimal, String (if precision > 28) |
-| INTEGER |Decimal, String (if precision > 28) |
-| LONG |String |
-| LONG RAW |Byte[] |
-| NCHAR |String |
-| NCLOB |String |
-| NUMBER (p,s) |Decimal, String (if p > 28) |
-| NUMBER without precision and scale |Double |
-| NVARCHAR2 |String |
-| RAW |Byte[] |
-| ROWID |String |
-| TIMESTAMP |DateTime |
-| TIMESTAMP WITH LOCAL TIME ZONE |String |
-| TIMESTAMP WITH TIME ZONE |String |
-| UNSIGNED INTEGER |Number |
-| VARCHAR2 |String |
-| XML |String |
+| Oracle data type | Interim service data type (for version 2.0) | Interim service data type (for version 2.0) |
+|:--- |:--- |:--- |
+| BFILE |Byte[] | Byte[] |
+| BINARY_FLOAT | Single | Single |
+| BINARY_DOUBLE | Double | Double |
+| BLOB |Byte[] | Byte[] |
+| CHAR |String |String |
+| CLOB |String |String |
+| DATE |DateTime |DateTime |
+| FLOAT (P < 16)  | Double | Double |
+| FLOAT (P >= 16)  | IBigDecimal | Double |
+| INTERVAL YEAR TO MONTH |Int64 |String |
+| INTERVAL DAY TO SECOND |TimeSpan |String |
+| LONG |String |String |
+| LONG RAW |Byte[] |Byte[] |
+| NCHAR |String |String |
+| NCLOB |String |String |
+| NUMBER | IBigDecimal | Double |
+| NUMBER (1-4,0) |Int16 | Int16 |
+| NUMBER (5-9,0) |Int32 | Int32 |
+| NUMBER (10-18,0) |Int64 | Int64 |
+| NUMBER(p < 8 && ((s <= 0 && p-s <= 38) \|\| (s > 0 && s <= 44))) |Single | Decimal |
+| NUMBER(p >= 16 && p <= 28) |IBigDecimal | Decimal |
+| NUMBER (p > 28) |IBigDecimal | String |
+| Other NUMBER (p,s) |Double | Decimal |
+| NVARCHAR2 |String |String |
+| RAW |Byte[] |Byte[] |
+| TIMESTAMP |DateTime |DateTime |
+| TIMESTAMP WITH LOCAL TIME ZONE |DateTime |DateTime |
+| TIMESTAMP WITH TIME ZONE |DateTimeOffset |DateTime |
+| VARCHAR2 |String |String |
+| XMLTYPE |String |String |
 
 > [!NOTE]
-> The data types INTERVAL YEAR TO MONTH and INTERVAL DAY TO SECOND aren't supported.
+> If convertDecimalToInteger is not set, the return type will be Decimal.
 
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## Upgrade the Oracle connector
+
+Here are steps that help you upgrade the Oracle connector:
+
+1. In **Edit linked service** page, select **2.0 (Preview)** under **Version** and configure the linked service by referring to [Linked service properties version 2.0](#version-20).
+1. The data type mapping for the Oracle linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Oracle](#data-type-mapping-for-oracle).
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
