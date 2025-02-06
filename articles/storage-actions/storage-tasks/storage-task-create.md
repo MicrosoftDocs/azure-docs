@@ -16,9 +16,9 @@ A storage task can perform operations on blobs in an Azure Storage account. As y
 
 In this how-to article, you'll learn how to create a storage task.
 
-# [Portal](#tab/azure-portal)
+## Create a storage task
 
-## Create a task
+## [Portal](#tab/azure-portal)
 
 In the Azure portal, search for _Storage Tasks_. Then, under **Services**, select **Storage tasks - Azure Storage Actions**.
 
@@ -30,7 +30,7 @@ On the **Azure Storage Actions | Storage Tasks** page, select **Create**.
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the storage task create button.](../media/storage-tasks/storage-task-create/storage-task-create-button.png)
 
-## Basics tab
+### Basics tab
 
 On the **Basics** tab, provide the essential information for your storage task. The following table describes the fields on the **Basics** tab.
 
@@ -46,7 +46,7 @@ The following image shows an example of the **Basics** tab.
 > [!div class="mx-imgBorder"]
 > ![Screenshot of basics tab of the storage task create experience.](../media/storage-tasks/storage-task-create/storage-task-basics-page.png)
 
-## Conditions tab
+### Conditions tab
 
 On the **Conditions** tab, define the conditions that must be met by each object (container or blob), and the operations to perform on the object.
 
@@ -68,7 +68,7 @@ The following image shows an example of the **Conditions** tab.
 > [!div class="mx-imgBorder"]
 > ![Screenshot of conditions tab of the storage task create experience.](../media/storage-tasks/storage-task-create/storage-task-conditions-tab.png)
 
-## Assignments tab
+### Assignments tab
 
 An _assignment_ identifies a storage account and a subset of objects in that account that the task will target. An assignment also defines when the task runs and where execution reports are stored.
 
@@ -94,7 +94,7 @@ The following image shows an example of the **Add assignment** pane.
 > [!div class="mx-imgBorder"]
 > ![Screenshot of assignment tab of the storage task create experience.](../media/storage-tasks/storage-task-create/storage-task-assignment-tab.png)
 
-## Tags tab
+### Tags tab
 
 On the **Tags** tab, you can specify Resource Manager tags to help organize your Azure resources. For more information, see [Tag resources, resource groups, and subscriptions for logical organization](../../azure-resource-manager/management/tag-resources.md).
 
@@ -103,7 +103,7 @@ The following image shows a standard configuration of the index tag properties f
 > [!div class="mx-imgBorder"]
 > ![Screenshot of tags tab of the storage task create experience.](../media/storage-tasks/storage-task-create/storage-task-tags-page.png)
 
-## Review + create tab
+### Review + create tab
 
 When you navigate to the **Review + create** tab, Azure runs validation on the storage task settings that you have chosen. If validation passes, you can proceed to create the storage task.
 
@@ -114,7 +114,7 @@ The following image shows the **Review** tab data prior to the creation of a new
 > [!div class="mx-imgBorder"]
 > ![Screenshot of review and create tab of the storage task create experience.](../media/storage-tasks/storage-task-create/storage-task-validation-tab.png)
 
-# [PowerShell](#tab/azure-powershell)
+## [PowerShell](#tab/azure-powershell)
 
 1. Define a _condition_ by using JSON. A condition a collection of one or more clauses. Each clause contains a property, a value, and an operator. To learn more, see [Storage task conditions](storage-task-conditions.md).
 
@@ -147,7 +147,7 @@ The following image shows the **Review** tab data prior to the creation of a new
    ```
 To learn how to create an assignment by using PowerShell, see [Create and manage a storage task assignment](storage-task-assignment-create.md?tabs=azure-powershell).
 
-# [Azure CLI](#tab/azure-cli)
+## [Azure CLI](#tab/azure-cli)
 
 1. Define a _condition_ by using JSON. A condition a collection of one or more clauses. Each clause contains a property, a value, and an operator. To learn more, see [Storage task conditions](storage-task-conditions.md).
 
@@ -165,9 +165,11 @@ To learn more about operations, see [Storage task operations](storage-task-opera
 
 To learn how to create an assignment by using Azure CLI, see [Create and manage a storage task assignment](storage-task-assignment-create.md?tabs=azure-cli).
 
-# [Bicep](#tab/bicep)
+## [Bicep](#tab/bicep)
 
 Include a snippet similar to the following in your Bicep template. This example sets an immutability policy on word documents.
+
+For a complete example, see [Quickstart: Create a storage task with Bicep](storage-task-quickstart-bicep.md).
 
 ```Bicep
 resource storageTask 'Microsoft.StorageActions/storageTasks@2023-01-01' = {
@@ -200,9 +202,11 @@ resource storageTask 'Microsoft.StorageActions/storageTasks@2023-01-01' = {
 }
 ```
 
-# [Template](#tab/template)
+## [Template](#tab/template)
 
 Include a JSON snippet similar to the following in your Azure Resource Manager template. This example sets an immutability policy on word documents.
+
+For a complete example, see [Quickstart: Create a storage task with ARM](storage-task-quickstart-arm.md).
 
 ```JSON
  "resources": [
@@ -238,8 +242,6 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
   ]
 ```
 ---
-
-
 
 ## See also
 

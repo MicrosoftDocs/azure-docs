@@ -12,9 +12,13 @@ ms.date: 01/17/2024
 
 # Create and manage a storage task assignment
 
-An _assignment_ identifies a storage account and a subset of objects in that account that the task will target. An assignment also defines when the task runs and where execution reports are stored. You can create an assignment for each storage account you want to target. A storage task can contain up to 50 assignments.
+An _assignment_ identifies a storage account and a subset of objects in that account that the task will target. An assignment also defines when the task runs and where execution reports are stored. 
 
 This article helps you create an assignment, and then enable that assignment to run.
+
+## Create and manage an assignment
+
+Create an assignment for each storage account you want to target. A storage task can contain up to 50 assignments.
 
 > [!NOTE] 
 > In the current release, you can target only storage accounts that are in the same region as the storage tasks.
