@@ -49,7 +49,7 @@ The following steps should be followed for using UAMIs with Nexus Clusters and a
 
 1. [Create the UAMI or UAMIs](#create-the-uami-or-uamis)
 1. [Create the resources and assign the UAMI to the resources](#create-the-resources-and-assign-the-uami-to-the-resources)
-1. [Create or update the Cluster to use User Assigned Managed Identities and user provided resources](#create-or-update-the-cluster-to-use-user-assigned-managed-identities-and-user-provided-resources)
+1. [Create or update the Cluster to use User Assigned Managed Identities and user provided resources](#create-or-update-the-nexus-cluster-to-use-user-assigned-managed-identities-and-user-provided-resources)
 
 ### Create the UAMI or UAMIs
 
