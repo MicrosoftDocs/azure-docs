@@ -16,6 +16,7 @@ Creating a capacity pool enables you to create volumes within it.
 
 * You need [a NetApp account](azure-netapp-files-create-netapp-account.md).   
 * If you're using Azure CLI, ensure that you're using the latest version. For more information, see [How to update the Azure CLI](/cli/azure/update-azure-cli).
+* To enable cool access, ensure you are registered to use [cool access](manage-cool-access.md).
 * If you're using PowerShell, ensure that you're using the latest version of the Az.NetAppFiles module. To update to the latest version, use the 'Update-Module Az.NetAppFiles' command. For more information, see [Update-Module](/powershell/module/powershellget/update-module).
 * If you're using the Azure REST API, ensure that you specify the latest version.
     >[!IMPORTANT]

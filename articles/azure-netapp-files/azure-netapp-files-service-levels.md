@@ -26,7 +26,7 @@ Azure NetApp Files supports four service levels: *Standard*, *Premium*, *Ultra*,
 
 * <a name="Flexible"></a>Flexible storage (preview):
 
-    The Flexible service level enables you to adjust throughput and size limits independently for capacity pools using manual QoS. This service level is designed for demanding applications such as Oracle or SAP HANA. It can also be used to create high-capacity volumes with (relatively) low throughput requirements. The minimum throughput to be assigned to a Flexible capacity pool is 128 MiB/s regardless of the pool quota. The maximum throughput is 5 x 128 x the size of the capacity pool in TiB. For examples, see [Flexible service level throughput examples](#flexible-examples). You can assign throughput and capacity to volumes that are part of a Flexible capacity pool in the same way you do volumes that are part of a manual QoS capacity pool of any service level.
+    The Flexible service level enables you to adjust throughput and size limits independently. This service level is designed for demanding applications such as Oracle or SAP HANA. You can also use the Flexible service level to create high-capacity volumes with (relatively) low throughput requirements or the reverse: low-capacity volumes with high throughput requirements. The minimum throughput to be assigned to a Flexible capacity pool is 128 MiB/second regardless of the pool quota. The first 128 MiB/s of throughput, known as the baseline, is included in the Flexible service level. The maximum throughput is 5 x 128 x the size of the capacity pool in TiB. For more information see [Flexible service level throughput examples](#flexible-examples). You can assign throughput and capacity to volumes that are part of a Flexible capacity pool in the same way you do volumes that are part of a manual QoS capacity pool of any service level.
 
     >[!IMPORTANT]
     >The Flexible service level is only supported for new _manual QoS_ capacity pools. 
@@ -66,7 +66,21 @@ The following diagram illustrates the scenarios for the SAP HANA volumes:
 
 ![QoS SAP HANA volume scenarios](./media/azure-netapp-files-service-levels/qos-sap-hana-volume-scenarios.png) 
 
-<a name="flexible-examples">Flexible service level throughput examples:</a>
+The following diagram illustrates the scenarios for the SAP HANA volumes but with the Flexible service level and a baseline throughput of 128 MiB/S:
+
+:::image type="content" source="./media/azure-netapp-files-service-levels/flexible-service-sap-hana-examples.png" alt-text="Diagram of Flexible service level throughput with SAP HANA volumes." lightbox="./media/azure-netapp-files-service-levels/flexible-service-sap-hana-examples.png":::
+
+
+The example extends to the Flexible service as well. A Flexible service level capacity pool can be used to create the following volumes. Each volume provides the individual size and throughput to meet your application requirements:
+
+- SAP HANA data volume: Size 4 TiB with up to 704 MiB/s
+- SAP HANA log volume: Size 0.5 TiB with up to 256 MiB/s
+- SAP HANA shared volume: Size 1 TiB with up to 64 MiB/s
+- SAP HANA backup volume: Size 4.5 TiB with up to 384 MiB/s
+
+As illustrated in the diagram, the SAP HANA backup volume received the 128MiB/s additional baseline throughput.
+ 
+#### <a name="flexible-examples">Flexible service level throughput examples:</a>
 
 | Flexible pool size (TiB) | Allowable throughput minimum (MiB/s) | Allowable throughput maximum (MiB/s) |
 | - | - | -- |
