@@ -1,75 +1,67 @@
 ---
-title: Tutorial to review the assessments created for migration of web apps to Azure App Service and Azure Kubernetes services
-description: Learn how to review web apps assessments in Azure Migrate
+title: Tutorial to review web apps for migration
+description: Learn how to review assessment for web apps in Azure Migrate
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: tutorial
+ms.date: 02/06/2025
 ms.service: azure-migrate
-ms.date: 11/07/2024
 ms.custom: engagement-fy24
 ---
+# Create a web app assessment for modernization 
 
-# Review a web app assessment
+This article shows you how to review the insights from a web app assessment for modernization to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) or Azure App Service using Azure Migrate. Creating an assessment for your web apps provides the recommended targets for them and key insights such as app-readiness, target right-sizing, and cost to host, and run these apps month over month.
 
-This article describes the process to review an assessment that you created.
+In this article, you learn how to: 
 
-## View an assessment
+- Get the recommended modernization path across the preferred targets based on app-readiness and cost. 
+- Get the modernization paths to each Azure target for all selected web apps. 
+- Review the migration warnings or issues and remediate them accordingly. 
+- Get the estimated monthly cost of running the web apps on Azure for each modernization path. 
+- Change assessment settings and recalculate. 
+- Export the assessment report to Excel. 
 
-To view an assessment, follow these steps:
+## Prerequisites 
 
-1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
-1. On the **Servers, databases and web apps** page, under **Assessment tools** > **Assessments**, select the number next to the Web apps on Azure assessment. 
-1. On the **Assessments** page, select a desired assessment name to view from the list of assessments. 
+- Deploy and configure the Azure Migrate appliance in your [VMware](./vmware/tutorial-discover-vmware.md), [Hyper-V](tutorial-discover-hyper-v.md), or [physical](tutorial-discover-physical.md) environments. 
+- Check the [appliance requirements](migrate-appliance.md#appliance---vmware) and [URL access](migrate-appliance.md#url-access) to be provided. 
+- Follow [these steps](how-to-discover-sql-existing-project.md) to discover web apps running on your environment. 
+- Follow [these steps](create-web-app-assessment.md) to create a web app assessment. 
 
-   
-   :::image type="content" source="./media/tutorial-assess-webapps/overview.png" alt-text="Screenshot of Overview screen.":::
+## View assessment insights 
 
-   The **Overview** page contains 3 sections:  
+To view an assessment, follow these steps.
 
-    - **Essentials**: The **Essentials** section displays the group the assessed entity belongs to, its status, the location, discovery source, and currency in US dollars.
-    - **Assessed entities**: This section displays the number of servers selected for the assessments, number of Azure app services in the selected servers, and the number of distinct Sprint Boot app instances that were assessed.
-    - **Migration scenario**: This section provides a pictorial representation of the number of apps that are ready, ready with conditions, and not ready. You can see two graphical representations, one for *All Web applications to App Service Code* and the other for *All Web applications to App Service Containers*. In addition, it also lists the number of apps ready to migrate and the estimated cost for the migration for the apps that are ready to migrate.  
+1. On the Azure Migrate project **Overview** page, under **Decide and Plan**, select **Assessments**. 
+1. Search for the assessment using the **Workloads** filter and select it.
+1. On the assessment **Overview** page, you see summarized insights on assessed workloads, recommended migration path, and target-specific migration path (that is, if you wanted to migrate all assessed apps to that target).
+   1. **Assessed workloads**: Surfaces the collection of workloads assessed. Clicking on view details shows the distribution across web server and web app types. 
+   1. **Recommended path**: This section provides the most optimal path for migrating web apps across Azure targets, based on your preferred targets, cloud readiness and cost. It captures the readiness distribution, migration strategy (Replatform vs Rehost) and monthly cost estimate for running the web apps across the targets.
+   1. **Target-specific migration path**: This section provides the path for migrating all web apps to a specific target. It allows you to see the readiness warnings or issues for migrating the apps to that target and captures the monthly cost estimate.
+1. The web apps can take one of the following readiness states: 
 
-3. Review the assessment summary. You can also edit the assessment properties or recalculate the assessment.
+   | **Status**| **Definition**|
+   |----------|--------|
+   | Ready  | The web app is ready to be migrated   |
+   | Ready with conditions  | The web app needs minor changes to be ready for migration  |
+   | Not ready  | The web app needs major/breaking changes to be ready for migration  |
+   | Unknown  | The web app discovery data was either incomplete or corrupt to calculate readiness |
 
-## Review readiness
+1. Select the **Recommended path** tab or **View details** in the recommended path report to get deeper insights. This screen displays the distribution of the web apps across the Azure targets. It also provides other details such as the number of target instances (App Service instance, AKS clusters), migration strategy and readiness distribution. Select a line item to drill down further.
+1. **App Service Container**: The target drill down shows granular details for the web apps recommended to this target. 
+    1. Top level insights include the cost distribution by App Service Plan SKUs and top migration issues or warnings. 
+    1. The report also shows how the web apps are packed into App Service plans. Selecting the plan brings up the plan details, rightsized based on the assessed web apps.
+    1. Selecting the readiness status shows the migration issues or warnings, their root causes and recommended remediation steps.
+1. **Azure Kubernetes Service**: The target drill down shows granular details for the web apps recommended to this target.
+    1. Top level insights include the cost distribution by Node SKUs and top migration issues or warnings. 
+    1. The report also shows how the web apps are packed into AKS node pools, the system pool and the number of nodes per pool.  
+    1. Selecting the cluster brings up the cluster details, rightsized based on the assessed web apps. 
+1. Selecting a web app from the target drill downs opens the web app drill down. On the Summary tab, you can see discovered metadata such as protocols, connection strings, application directories and tags assigned to this workload.
+1. On the **Readiness** tab, you can see the readiness for this web app for each Azure target, the migration issues or warnings and the recommended Azure target.
+1. Navigate back to the **Overview** page. Select the **Export** option to download an excel containing the assessment details.
 
-To review the readiness for the web apps, follow these steps:
+## Next steps 
 
-1. On **Assessments**, select the name of the assessment that you want to view. 
-1. Select **View more details** to view more details about each app and instances. Review the Azure App service Code and Azure App service Container readiness column in the table for the assessed web apps:  
-
-
-   :::image type="content" source="./media/tutorial-assess-webapps/code-readiness.png" alt-text="Screenshot of Azure App Service Code readiness.":::
-
-    1. If there are no compatibility issues found, the readiness is marked as **Ready** for the target deployment type.
-    1. If there are non-critical compatibility issues, such as degraded or unsupported features that don't block the migration to a specific target deployment type, the readiness is marked as **Ready with conditions** (hyperlinked) with **warning** details and recommended remediation guidance.
-    1. If there are any compatibility issues that may block the migration to a specific target deployment type, the readiness is marked as **Not ready** with **issue** details and recommended remediation guidance.
-    1. If the discovery is still in progress or there are any discovery issues for a web app, the readiness is marked as **Unknown** as the assessment couldn't compute the readiness for that web app.
-    1. If the assessment isn't up-to-date, the status shows as **Outdated**. Select the corresponding assessment and select **Recalculate assessment**. The assessment is recalculated and the Readiness overview screen is updated with the results of the recalculated assessments.
-1. Select the Readiness status to open the **Migration issues and warnings** pane with details of the cause of the issue and recommended action.  
-
-   :::image type="content" source="./media/tutorial-assess-webapps/code-check.png" alt-text="Screenshot of recommended actions.":::
-
-
-1. Review the recommended SKU for the web apps, which is determined as per the matrix below:
-
-    **Readiness** | **Determine size estimate** | **Determine cost estimates**
-    --- | --- | ---
-    Ready  | Yes | Yes
-    Ready with conditions  | Yes  | Yes
-    Not ready  | No | No
-    Unknown  | No | No
-
-### Review cost estimates
-
-The assessment summary shows the estimated monthly costs for hosting your web apps.  
-Select the **Cost details** tab to view a monthly cost estimate depending on the SKUs. 
-
-:::image type="content" source="./media/tutorial-assess-webapps/code-cost.png" alt-text="Screenshot of cost details.":::
-
-## Next steps
-
-- Learn how to [perform at-scale agentless migration of ASP.NET web apps to Azure App Service](./tutorial-modernize-asp-net-appservice-code.md).
-- [Learn more](concepts-azure-webapps-assessment-calculation.md) about how Azure App Service assessments are calculated.
-
+- Modernize your web apps to [App Service](tutorial-modernize-asp-net-appservice-code.md) or [AKS](tutorial-modernize-asp-net-aks.md). 
+- [Optimize](https://learn.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=%2Fazure%2Faks%2Fcontext%2Faks-context) Windows Dockerfiles. 
+- Review and implement [best practices](https://learn.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=%2Fazure%2Faks%2Fcontext%2Faks-context) to build and manage apps on AKS.
