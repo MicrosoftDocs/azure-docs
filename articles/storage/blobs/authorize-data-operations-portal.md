@@ -69,11 +69,9 @@ If you're authenticating using the account access key, you see **Access Key** sp
 
 :::image type="content" source="media/authorize-data-operations-portal/auth-method-access-key.png" alt-text="Screenshot showing user currently accessing containers with the account key":::
 
-To switch to using Microsoft Entra account, select the link highlighted in the image. If you have the appropriate permissions via the Azure roles that are assigned to you, you're able to proceed. However, if you lack the right permissions, you see an error message like the following one:
+To switch to using Microsoft Entra account, select the link highlighted in the image. If you have the appropriate permissions via the Azure roles that are assigned to you, you're able to proceed. If you don't have the right permissions, you see an error message and no blobs appear in the list.
 
-:::image type="content" source="media/authorize-data-operations-portal/auth-error-azure-ad.png" alt-text="Error shown if Microsoft Entra account does not support access":::
-
-Notice that no blobs appear in the list if your Microsoft Entra account lacks permissions to view them. Select the **Switch to access key** link to use the access key for authentication again.
+Select the **Switch to access key** link to use the access key for authentication again.
 
 <a name='authenticate-with-your-azure-ad-account'></a>
 
@@ -83,24 +81,9 @@ If you're authenticating using your Microsoft Entra account, you see **Microsoft
 
 :::image type="content" source="media/authorize-data-operations-portal/auth-method-azure-ad.png" alt-text="Screenshot showing user currently accessing containers with Microsoft Entra account":::
 
-To switch to using the account access key, select the link highlighted in the image. If you have access to the account key, then you're able to proceed. However, if you lack access to the account key, you see an error message like the following one:
+To switch to using the account access key, select the link highlighted in the image. If you have access to the account key, then you're able to proceed. If you don't have access to the account key, you see an error message and no blobs appear in the list.
 
-:::image type="content" source="media/authorize-data-operations-portal/auth-error-access-key.png" alt-text="Error shown if you do not have access to account key":::
-
-Notice that no blobs appear in the list if you don't have access to the account keys. Select the **Switch to Microsoft Entra user Account** link to use your Microsoft Entra account for authentication again.
-
-## Specify how to authorize a blob upload operation
-
-When you upload a blob from the Azure portal, you can specify whether to authenticate and authorize that operation with the account access key or with your Microsoft Entra credentials. By default, the portal uses the current authentication method, as shown in [Determine the current authentication method](#determine-the-current-authentication-method).
-
-To specify how to authorize a blob upload operation, follow these steps:
-
-1. In the Azure portal, navigate to the container where you wish to upload a blob.
-1. Select the **Upload** button.
-1. Expand the **Advanced** section to display the advanced properties for the blob.
-1. In the **Authentication Type** field, indicate whether you want to authorize the upload operation by using your Microsoft Entra account or with the account access key, as shown in the following image:
-
-    :::image type="content" source="media/authorize-data-operations-portal/auth-blob-upload.png" alt-text="Screenshot showing how to change authorization method on blob upload":::
+Select the **Switch to Microsoft Entra user Account** link to use your Microsoft Entra account for authentication again.
 
 <a name='default-to-azure-ad-authorization-in-the-azure-portal'></a>
 
