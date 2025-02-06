@@ -5,7 +5,7 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 08/21/2024
+ms.date: 02/06/2025
 ms.service: azure-migrate
 ms.custom: MVC, engagement-fy25
 #Customer intent: As a server admin, I want to assess my GCP instances in preparation for migration to Azure.
@@ -46,7 +46,7 @@ Decide whether you want to run an assessment using sizing criteria based on serv
 
 Run an assessment as follows:
 
-1. 1. In **Servers, databases and web apps**, select **Discover, assess and migrate**.
+1. 1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
    ![Location of Assess and migrate servers button](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
