@@ -16,7 +16,11 @@ You can use a visual editor to define the conditions and operations of a storage
 
 An _operation_ is an action taken on each object that meets the conditions defined in the task. A _condition_ contains one or more conditional _clauses_. Each clause defines the relationship between a property and a value. To execute an operation defined in the storage task, the terms of that relationship must be met by each object.
 
-## Open the conditions editor
+## Define conditions
+
+Define a condition by adding clauses. A clause defines the relationship between a property and a value. To execute an operation defined in the storage task, the terms of that relationship must be met by each object.
+
+## [Portal](#tab/azure-portal)
 
 Navigate to the storage task in the Azure portal and then under **Storage task management**, select **Conditions**.
 
@@ -24,10 +28,6 @@ Navigate to the storage task in the Azure portal and then under **Storage task m
 > ![Screenshot of the Conditions button and the Conditions editor.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-condition-editor.png)
 
 The **Visual builder** tab of the **Conditions** pane appears.
-
-## Define conditions
-
-Define a condition by adding clauses. A clause defines the relationship between a property and a value. To execute an operation defined in the storage task, the terms of that relationship must be met by each object.
 
 ### Add and remove clauses
 
@@ -58,6 +58,12 @@ The following example specifies a value of `.log` along with the **Ends with** o
 > [!div class="mx-imgBorder"]
 > ![Screenshot of an example condition in the visual editor.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-blob-name-condition.png)
 
+## [PowerShell](#tab/azure-powershell)
+
+## [Azure CLI](#tab/azure-cli)
+
+---
+
 #### Use a wildcard in string values
 
 You can use the `*` and `?` wildcard characters in the value of a string property. The `*` character represents zero or more characters while a `?` character represents exactly one character.
@@ -71,6 +77,8 @@ You can use the `*` or `?` anywhere in a string. You can escape these characters
 Clauses that include a date and time property can reference a value from the metadata of a container or an index tag of a blob. These values are obtained dynamically at runtime when the task executes.
 
 In your storage account, you can add a key to the metadata of a container or to the index tags of a blob. The value of that key must be a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)-formatted time interval. For example, you might add a key named `retainfor` along with a string value of `PT5M` which represents an interval of five minutes.
+
+#### [Portal](#tab/azure-portal)
 
 To reference a key, select the **Edit** link that appears in the **Property value** column. Then, in the **Select a value** dialog box, select **Container metadata** or **Blob Index tags**.
 
@@ -86,18 +94,34 @@ This condition tests whether a blob was created earlier than a certain time dura
 
 If the key is not present for an evaluated object, then the condition evaluates to false. If the key value is a string that does not conform to the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) standard, then an error is reported in the execution report.
 
+#### [PowerShell](#tab/azure-powershell)
+
+#### [Azure CLI](#tab/azure-cli)
+
+---
+
 #### Apply And / Or to a clause
 
 You add **And** or **Or** to a clause. Specify **And** if you want to target objects that meet the criteria in both the current clause and the previous clause of the condition. Specify **Or** to target objects that meet the criterion in either the current clause or the previous clause.
+
+#### [Portal](#tab/azure-portal)
 
 The following example shows clauses that use **And**. In this example, the storage task targets objects that have a `.log` extension and which have a tag named `Archive-Status` set to `Ready`.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of clauses that use the AND operators.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-condition-and-operator.png)
 
+#### [PowerShell](#tab/azure-powershell)
+
+#### [Azure CLI](#tab/azure-cli)
+
+---
+
 ### Change the order of clauses
 
 You can arrange clauses in an order that you believe will improve the performance of a task run. For example, instead of first testing all blobs in an account against a name filter, you might elevate a clause that targets a specific container. That small adjustment can prevent the task from performing unnecessary evaluations.
+
+### [Portal](#tab/azure-portal)
 
 First, select the clause. Then, select **Move clause up** or **Move clause down** to change its position in the list.
 
@@ -106,9 +130,17 @@ The following example shows the result of selecting a clause and then selecting 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of clause appearing in a new position in the list.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-move-clause-up.png)
 
+### [PowerShell](#tab/azure-powershell)
+
+### [Azure CLI](#tab/azure-cli)
+
+---
+
 ### Group and ungroup clauses
 
 Grouped clauses operate as a single unit separate from the rest of the clauses. Grouping clauses is similar to putting parentheses around a mathematical equation or logic expression. The **And** or **Or** operator for the first clause in the group applies to the whole group.
+
+### [Portal](#tab/azure-portal)
 
 Select the checkbox that appears next to each clause you want to group together. Then, select **Group**.
 
@@ -119,9 +151,19 @@ The following example shows two conditions grouped together. In this example, th
 
 To ungroup clauses, select the ungroup icon (:::image type="icon" source="../media/storage-tasks/storage-task-conditions-operations-edit/ungroup-icon.png":::) or select each clause in the group, and select **Ungroup**.
 
-## the effect of conditions
+### [PowerShell](#tab/azure-powershell)
 
-You can view a list of blobs that would be impacted by the conditions that you've defined. In the conditions editor, select **Preview conditions**.
+### [Azure CLI](#tab/azure-cli)
+
+---
+
+## Preview the effect of conditions
+
+You can view a list of blobs that would be impacted by the conditions that you've defined. 
+
+## [Portal](#tab/azure-portal)
+
+In the conditions editor, select **Preview conditions**.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Conditions button.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-preview-conditions-button.png)
@@ -131,9 +173,17 @@ In the **Preview Conditions**, you can specify a target subscription, storage ac
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Conditions page.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-preview-conditions.png)
 
+## [PowerShell](#tab/azure-powershell)
+
+## [Azure CLI](#tab/azure-cli)
+
+---
+
 ## Define operations
 
 An operation is an action taken on each object that meets the conditions defined in the task.  
+
+## [Portal](#tab/azure-portal)
 
 ### Add and remove operations
 
@@ -160,13 +210,27 @@ The following example sets the `Archive-Status` tag to the value `Archived`.
 > [!div class="mx-imgBorder"]
 > ![Screenshot of an example condition.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-blob-set-tag-operation.png)
 
+## [PowerShell](#tab/azure-powershell)
+
+## [Azure CLI](#tab/azure-cli)
+
+---
+
 ### Change the order of operations
 
 You can arrange operations in any order.
 
 In this example, the existing order makes sense. Blobs are first archived and the tags are set. It wouldn't make sense to set the tag before changing the tier just in case the attempt to change the tier of a blob didn't succeed. If the set blob tag operation appeared first in the list, you might consider moving that operation beneath the set blob tier operation.
 
+### [Portal](#tab/azure-portal)
+
 To move an operation, select the checkbox that appears beside it. Then, select **Move operation up** or **Move operation down** to change its position in the list.
+
+### [PowerShell](#tab/azure-powershell)
+
+### [Azure CLI](#tab/azure-cli)
+
+---
 
 ## See also
 
