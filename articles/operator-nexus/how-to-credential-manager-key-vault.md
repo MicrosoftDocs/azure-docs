@@ -32,7 +32,7 @@ See [Azure Operator Nexus Cluster support for managed identities and user provid
 ## Configure Key Vault Using Managed Identity for Cluster Manager
 
 > [!NOTE]
-> This method is deprecated with the roll out of the 2025-02-01 GA API. A transition period is in place to support migration, but existing users should look to migrate to using the Cluster managed identity.
+> This method is deprecated with the roll out of the 2025-02-01 GA API. A transition period is in place to support migration, but existing users should look to migrate to using the Cluster managed identity. Once a Cluster is updated to use the Secret Archive Settings and the Cluster managed identity, the Cluster Manager managed identity is ignored for credential rotation.
 
 Beginning with the 2024-07-01 API version, managed identities in the Cluster Manager are used for write access to deliver rotated credentials to a key vault. The Cluster Manager identity can be system-assigned or [user-assigned](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities), and can be managed directly via APIs or via CLI.
 
