@@ -29,8 +29,8 @@ This article assumes that you've already performed the following prerequisites:
 * The VPN gateway is configured for point-to-site certificate authentication and the OpenVPN tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](point-to-site-certificate-gateway.md) for steps.
 * VPN client profile configuration files have been generated and are available. See [Generate VPN client profile configuration files](point-to-site-certificate-gateway.md#profile-files) for steps.
 
-[!INCLUDE [Configuration steps](../../includes/vpn-gateway-vwan-vpn-client-certificate-linux.md)]
+[!INCLUDE [Configuration steps](../../includes/vpn-gateway-vwan-azure-vpn-client-certificate-linux.md)]
 
 ## Next steps
 
-For additional steps, return to the [P2S Azure portal](point-to-site-certificate-gateway.md) article.
+For additional steps, return to the [Create a VPN Gateway P2S VPN connection](point-to-site-certificate-gateway.md) article.

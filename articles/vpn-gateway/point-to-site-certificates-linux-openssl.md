@@ -62,4 +62,5 @@ In this section, you generate the user certificate (client certificate). Certifi
 
 ## Next steps
 
-To continue configuration steps, see [Point-to-site certificate authentication](point-to-site-certificate-gateway.md#uploadfile).
+* To continue VPN Gateway configuration steps, see [Point-to-site certificate authentication](point-to-site-certificate-gateway.md#uploadfile).
+* To continue Virtual WAN configuration steps, see [Create a P2S User VPN connection](../virtual-wan/virtual-wan-point-to-site-portal.md).

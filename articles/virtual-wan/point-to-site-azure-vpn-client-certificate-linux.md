@@ -32,8 +32,8 @@ This article assumes that you've already performed the following prerequisites:
 * You generated and downloaded the VPN client configuration files. For steps to generate a VPN client profile configuration package, see [Generate VPN client configuration files](virtual-wan-point-to-site-portal.md#p2sconfig).
 * You can either generate client certificates, or acquire the appropriate client certificates necessary for authentication.
 
-[!INCLUDE [Configuration steps](../../includes/vpn-gateway-vwan-vpn-client-certificate-linux.md)]
+[!INCLUDE [Configuration steps](../../includes/vpn-gateway-vwan-azure-vpn-client-certificate-linux.md)]
 
 ## Next steps
 
-For additional steps, return to the [P2S Azure portal](point-to-site-certificate-gateway.md) article.
+For additional steps, return to the [Create a Virtual WAN P2S User VPN connection](virtual-wan-point-to-site-portal.md) article.
