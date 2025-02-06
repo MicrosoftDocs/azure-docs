@@ -55,7 +55,7 @@ Customer-enabled BCDR involves:
 
 - Ensuring that your business-critical data sources are configured to ingest data into both workspaces. For more information, see [Connect your data sources to Microsoft Sentinel by using data connectors](configure-data-connector.md).
 
-- Manually defining your business-critical analytic rules and other configurations in both workspaces, maintaining them consistently throughout the continuous operations.
+- Manually defining your business-critical analytic rules and other configurations in both workspaces, maintaining them consistently throughout the continuous operations. For more information, see [Threat detection in Microsoft Sentinel](threat-detection.md).
 
 These activities must be configured manually by the customer and don't happen automatically. No future actions during an actual outage is required or expected.
 
