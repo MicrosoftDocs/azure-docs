@@ -202,9 +202,9 @@ The agentless replication option uses mechanisms provided by the virtualization 
 
 When replication is configured for a VM, the VM first goes through an initial replication phase. During initial replication, a VM snapshot is taken, and a full copy of data from the snapshot disks is replicated to managed disks in your subscription. After initial replication for the VM finishes, the replication process transitions to an incremental replication (delta replication) phase.
 
-In the incremental replication phase, data changes that occurred since the last completed replication cycle are periodically replicated and applied to the replica-managed disks. This process keeps replication in sync with changes on the VM.
+The incremental replication phase addresses any data changes that occurred since the last completed replication cycle. Those changes are periodically replicated and applied to the replica-managed disks. This process keeps replication in sync with changes on the VM.
 
-For VMware VMs, VMware changed-block tracking technology keeps track of changes between replication cycles. At the start of the replication cycle, a VM snapshot is taken and changed-block tracking is used to compile the changes between the current snapshot and the last successfully replicated snapshot. That way, to keep replication for the VM in sync, only data that changed since the last completed replication cycle needs to be replicated.
+VMware changed-block tracking technology keeps track of changes between replication cycles for VMware VMs. At the start of the replication cycle, a VM snapshot is taken and changed-block tracking is used to compile the changes between the current snapshot and the last successfully replicated snapshot. That way, to keep replication for the VM in sync, only data that changed since the last completed replication cycle needs to be replicated.
 
 At the end of each replication cycle, the snapshot is released, and snapshot consolidation is performed for the VM. Similarly, for Hyper-V VMs, the Hyper-V replica-change tracking engine is used to keep track of changes between consecutive replication cycles.
 
@@ -362,11 +362,11 @@ The agentless replication option works by using mechanisms provided by the virtu
 
 When replication is configured for a VM, the VM first goes through an initial replication phase. During initial replication, a VM snapshot is taken, and a full copy of data from the snapshot disks are replicated to managed disks in your subscription.
 
-After initial replication for the VM finishes, the replication process transitions to an incremental replication (delta replication) phase. 
+After initial replication for the VM finishes, the replication process transitions to an incremental replication (delta replication) phase.
 
-In the incremental replication phase, data changes that occurred since the last completed replication cycle are periodically replicated and applied to the replica-managed disks. This process keeps replication in sync with changes happening on the VM.
+The incremental replication phase addresses any data changes that occurred since the last completed replication cycle. Those changes are periodically replicated and applied to the replica-managed disks. This process keeps replication in sync with changes on the VM.
 
-For VMware VMs, VMware changed-block tracking technology is used to keep track of changes between replication cycles. At the start of the replication cycle, a VM snapshot is taken and changed-block tracking is used to get the changes between the current snapshot and the last successfully replicated snapshot. That way, to keep replication for the VM in sync, only data that changed since the last completed replication cycle needs to be replicated.
+VMware changed-block tracking technology is used to keep track of changes between replication cycles for VMware VMs. At the start of the replication cycle, a VM snapshot is taken and changed-block tracking is used to get the changes between the current snapshot and the last successfully replicated snapshot. That way, to keep replication for the VM in sync, only data that changed since the last completed replication cycle needs to be replicated.
 
 At the end of each replication cycle, the snapshot is released, and snapshot consolidation is performed for the VM. Similarly, for Hyper-V VMs, the Hyper-V replica change-tracking engine is used to keep track of changes between consecutive replication cycles.
 
