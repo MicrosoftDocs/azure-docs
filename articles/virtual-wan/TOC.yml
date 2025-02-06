@@ -227,7 +227,7 @@
           - name: OpenVPN client - macOS
             href: point-to-site-vpn-client-certificate-openvpn-mac.md
           - name: OpenVPN client - iOS
-            href: point-to-site-vpn-client-certificate-openvpn-ios.md
+            href: point-to-site-vpn-client-certificate-openvpn-ios.md  
         - name: Generate self-signed certificates
           href: certificates-point-to-site.md
         - name: Install client certificates
