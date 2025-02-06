@@ -135,7 +135,7 @@ The following example shows clauses that use **And**. In this example, the stora
 $conditions = "[[and(endsWith(Name, '.log'), equals(Tags.Value[Archive-Status], 'Ready'))]]"
 ```
 
-For more information, see [Multiple clauses in a condition](storage-tasks/storage-task-conditions.md#multiple-clauses-in-a-condition).
+For more information, see [Multiple clauses in a condition](storage-task-conditions.md#multiple-clauses-in-a-condition).
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -143,7 +143,8 @@ For more information, see [Multiple clauses in a condition](storage-tasks/storag
 conditionclause="[[and(endsWith(Name, '.log'), equals(Tags.Value[Archive-Status], 'Ready'))]]"
 ```
 
-For more information, see [Multiple clauses in a condition](storage-tasks/storage-task-conditions.md#multiple-clauses-in-a-condition).
+For more information, see [Multiple clauses in a condition](storage-task-conditions.md#multiple-clauses-in-a-condition).
+
 ---
 
 ### Change the order of clauses
