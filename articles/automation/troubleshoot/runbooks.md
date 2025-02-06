@@ -602,9 +602,9 @@ The job was tried three times but it failed
 
 This error occurs because of one of the following issues:
 
-* **Memory limit.** A job might fail if it's using more than 400 MB of memory. The documented limits on memory allocated to a sandbox are found at [Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). 
+* **Memory limit.** A job might fail if it's using more than 400 MB of memory. The documented limits on memory allocated to a sandbox are found at [Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-automation-limits). 
 
-* **Network sockets.** Azure sandboxes are limited to 1,000 concurrent network sockets. For more information, see [Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
+* **Network sockets.** Azure sandboxes are limited to 1,000 concurrent network sockets. For more information, see [Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-automation-limits).
 
 * **Module incompatible.** Module dependencies might not be correct. In this case, your runbook typically returns a `Command not found` or `Cannot bind parameter` message.
 

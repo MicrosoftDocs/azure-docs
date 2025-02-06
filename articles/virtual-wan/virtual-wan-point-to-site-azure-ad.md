@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 09/24/2024
+ms.date: 01/15/2025
 ms.author: cherylmc 
 
 #Audience ID values are not sensitive data.
@@ -16,6 +16,11 @@ ms.author: cherylmc
 # Create a P2S User VPN connection using Azure Virtual WAN - Microsoft Entra authentication
 
 This article shows you how to use Virtual WAN to connect to your resources in Azure. In this article, you create a point-to-site User VPN connection to Virtual WAN that uses Microsoft Entra authentication. Microsoft Entra authentication is only available for gateways that use the OpenVPN protocol.
+
+> [!NOTE]
+> Instead of using the steps in this article, we recommend that you use the new [Microsoft-registered Azure VPN Client App ID](point-to-site-entra-gateway.md) article for your User VPN configuration when possible.
+
+[!INCLUDE [About Microsoft-registered app](../../includes/virtual-wan-entra-app-id-descriptions.md)]
 
 [!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 

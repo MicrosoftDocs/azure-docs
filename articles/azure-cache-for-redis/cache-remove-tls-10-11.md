@@ -4,7 +4,7 @@ description: Learn how to remove TLS 1.0 and 1.1 from your application when comm
 
 
 ms.topic: conceptual
-ms.date: 12/09/2024
+ms.date: 02/05/2025
 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
@@ -12,14 +12,12 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Remove TLS 1.0 and 1.1 from use with Azure Cache for Redis
 
-To meet the industry-wide push toward the exclusive use of Transport Layer Security (TLS) version 1.2 or later, Azure Cache for Redis is moving toward requiring the use of the TLS 1.2 in March 2025. TLS versions 1.0 and 1.1 are known to be susceptible to attacks such as BEAST and POODLE, and to have other Common Vulnerabilities and Exposures (CVE) weaknesses.
+To meet the industry-wide push toward the exclusive use of Transport Layer Security (TLS) version 1.2 or later, Azure Cache for Redis is moving toward requiring the use of the TLS 1.2 in April 2025. TLS versions 1.0 and 1.1 are known to be susceptible to attacks such as BEAST and POODLE, and to have other Common Vulnerabilities and Exposures (CVE) weaknesses.
 
 TLS versions 1.0 and 1.1 also don't support the modern encryption methods and cipher suites recommended by Payment Card Industry (PCI) compliance standards. This [TLS security blog](https://www.acunetix.com/blog/articles/tls-vulnerabilities-attacks-final-part/) explains some of these vulnerabilities in more detail.
 
 > [!IMPORTANT]
-> Starting March 1, 2025, the TLS 1.2 requirement will be enforced.
->
->
+> Starting April 1, 2025, the TLS 1.2 requirement will be enforced.
 
 > [!IMPORTANT]
 > The TLS 1.0/1.1 retirement content in this article does not apply to Azure Cache for Redis Enterprise/Enterprise Flash because the Enterprise tiers only support TLS 1.2 or newer.
@@ -27,19 +25,14 @@ TLS versions 1.0 and 1.1 also don't support the modern encryption methods and ci
 As a part of this effort, you can expect the following changes to Azure Cache for Redis:
 
 - _Phase 1_: Azure Cache for Redis stops offering TLS 1.0/1.1 as an option for _MinimumTLSVersion_ setting for new cache creates. Existing cache instances won't be updated at this point. You can't set the _MinimumTLSVersion_ to 1.0 or 1.1 for your existing cache.
-- _Phase 2_: Azure Cache for Redis stops supporting TLS 1.1 and TLS 1.0 starting March 1, 2025. After this change, your application must use TLS 1.2 or later to communicate with your cache. The Azure Cache for Redis service remains available while we update the _MinimumTLSVersion_ for all caches to 1.2.
-
+- _Phase 2_: Azure Cache for Redis stops supporting TLS 1.1 and TLS 1.0 starting April 1, 2025. After this change, your application must use TLS 1.2 or later to communicate with your cache. The Azure Cache for Redis service remains available while we update the _MinimumTLSVersion_ for all caches to 1.2.
 
 | Date | Description |
 |--|--|
 | September 2023 | TLS 1.0/1.1 retirement announcement |
-| March 1, 2024 | Beginning March 1, 2024, you can't create new caches with the Minimum TLS version set to 1.0 or 1.1 and you can't set the _MinimumTLSVersion_ to 1.0 or 1.1 for your existing cache. The minimum TLS version aren't updated automatically for existing caches at this point. |
-| October 31, 2024 | Ensure that all your applications are connecting to Azure Cache for Redis using TLS 1.2 and Minimum TLS version on your cache settings is set to 1.2. |
-| Starting March 1, 2025 | Minimum TLS version for all cache instances is updated to 1.2. This means Azure Cache for Redis instances reject connections using TLS 1.0 or 1.1 at this point. |
-  
-  > [!IMPORTANT]
-  > The content in this article does not apply to Azure Cache for Redis Enterprise/Enterprise Flash because the Enterprise tiers only support TLS 1.2.
-  >
+| March 1, 2024 | Beginning March 1, 2024, you can't create new caches with the Minimum TLS version set to 1.0 or 1.1 and you can't set the _MinimumTLSVersion_ to 1.0 or 1.1 for your existing cache. The minimum TLS versions aren't updated automatically for existing caches at this point. |
+| March 31, 2025 | Ensure that all your applications are connecting to Azure Cache for Redis using TLS 1.2 and Minimum TLS version on your cache settings is set to 1.2. |
+| Starting April 1, 2025 | Minimum TLS version for all cache instances is updated to 1.2. This means Azure Cache for Redis instances reject connections using TLS 1.0 or 1.1 at this point. |
 
 As part of this change, Azure Cache for Redis removes support for older cipher suites that aren't secure. Supported cipher suites are restricted to the following suites when the cache is configured with a minimum of TLS 1.2:
 
@@ -50,9 +43,9 @@ The following sections provide guidance about how to detect dependencies on thes
 
 ## Check TLS versions supported by your Azure Cache for Redis
 
-You can use this PowerShell script to verify the TLS versions supported by your Azure Cache for Redis endpoint. If your Redis instance is virtual network (VNet) injected, you have to run this script from a Virtual Machine in your VNet that has access to the Azure Cache for Redis endpoint.
+You can verify that **Minimum TLS version** value is set to TLS 1.2 in the [Advanced settings](cache-configure.md#advanced-settings) of your cache in the Azure portal. If it is any value other than TLS 1.2, then ensure you follow the instructions in section [Configure your Azure Cache for Redis to use TLS 1.2](#configure-your-azure-cache-for-redis-to-use-tls-12). If the value is TLS 1.2, and your client application is able to connect without any errors, then no action is needed.
 
-If the result shows `Tls Enabled` and/or `Tls 11 Enabled`, then ensure you follow the instructions to [Configure your Azure Cache for Redis to use TLS 1.2](#configure-your-azure-cache-for-redis-to-use-tls-12). If the result shows only `Tls12 Enabled` and your client application is able to connect without any errors, then no action is needed.
+You can also use this PowerShell script to verify the minimum TLS version supported by your Azure Cache for Redis endpoint. If your Redis instance is virtual network (VNet) injected, you have to run this script from a Virtual Machine in your VNet that has access to the Azure Cache for Redis endpoint. If the result shows `Tls Enabled` and/or `Tls 11 Enabled`, then ensure you follow the instructions in section [Configure your Azure Cache for Redis to use TLS 1.2](#configure-your-azure-cache-for-redis-to-use-tls-12). If the result shows only `Tls12 Enabled` and your client application is able to connect without any errors, then no action is needed.
 
 ```powershell
     param(
@@ -112,8 +105,6 @@ You can configure TLS 1.2 on the cache by setting the **Minimum TLS version** va
 
 1. Select **1.2** in the **Minimum TLS version** in the working pane. Then, select **Save**.
 
-  :::image type="content" source="media/cache-remove-tls-10-11/change-redis-tls-version.png" alt-text="Screenshot showing the Set TLS 1.2 for cache on Azure portal":::
-
 You can also do the same using PowerShell. You need the Az.RedisCache module already installed before running the command.
 
 ```powershell
@@ -123,7 +114,7 @@ You can also do the same using PowerShell. You need the Az.RedisCache module alr
 For setting the TLS version through CLI, the `--minimum-tls-version` is available only at Redis creation time and changing `minimum-tls-version` on an existing Redis instance isn't supported.
 
 > [!NOTE]
-> The Azure Cache for Redis service should be available during the migration TLS 1.2 or later.
+> The Azure Cache for Redis service should be available during the migration to TLS 1.2 or later.
 
 ## Check whether your client application is already compliant
 

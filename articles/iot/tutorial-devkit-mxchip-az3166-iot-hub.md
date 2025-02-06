@@ -1,8 +1,8 @@
 ---
 title: Connect an MXCHIP AZ3166 to Azure IoT Hub 
 description: Use Eclipse ThreadX embedded software to connect an MXCHIP AZ3166 device to Azure IoT Hub and send telemetry.
-author: timlt
-ms.author: timlt
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot
 ms.devlang: c
 ms.topic: tutorial

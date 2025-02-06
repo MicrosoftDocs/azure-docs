@@ -4,8 +4,8 @@ description: Microsoft Azure Backup Server gives you enhanced backup capabilitie
 ms.service: azure-backup
 ms.topic: release-notes
 ms.date: 09/11/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # What's new in Microsoft Azure Backup Server (MABS)?

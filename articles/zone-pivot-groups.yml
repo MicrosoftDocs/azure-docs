@@ -783,6 +783,15 @@ groups:
     title: Java
   - id: openai-node
     title: Node
+    # Owner: jefmarti
+- id: app-service-containers-github-actions
+  title: App Service GitHub actions
+  prompt: Choose a platform
+  pivots:
+  - id: github-actions-containers-linux
+    title: Linux
+  - id: github-actions-containers-windows
+    title: Windows
 # Owner: msangapu
 - id: app-spaces-component-types
   title: App Spaces components
@@ -1820,3 +1829,14 @@ groups:
     title: Azure portal
   - id: platform-nocode
     title: Power Platform
+# Owner: Deepika0530
+- id: acs-ps-azclips-azclipython
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: platform-powershell
+    title: Azure PowerShell
+  - id: platform-azclips
+    title: Azure CLI in PowerShell script
+  - id: platform-azclipython
+    title: Azure CLI in Python script

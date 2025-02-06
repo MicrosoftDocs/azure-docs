@@ -107,7 +107,7 @@ az spring app create --name solar-system-weather
 
 ### Deploy with Azure CLI directly
 
-Create the *.github/workflows/main.yml* file in the repository with the following content. Replace *\<your resource group name>* and *\<your service name>* with the correct values.
+Create the **.github/workflows/main.yml** file in the repository with the following content. Replace `<your resource group name>` and `<your service name>` with the correct values.
 
 ```yaml
 name: Steeltoe-CD
@@ -238,7 +238,7 @@ Azure Spring Apps supports deploying to deployments with built artifacts (for ex
 The following example deploys to the default production deployment in Azure Spring Apps using JAR file built by Maven. This example is the only possible deployment scenario when using the Basic SKU:
 
 > [!NOTE]
-> The package search pattern should only return exactly one package. If the build task produces multiple JAR packages such as *sources.jar* and *javadoc.jar*, you need to refine the search pattern so that it only matches the application binary artifact.
+> The package search pattern should only return exactly one package. If the build task produces multiple JAR packages such as **sources.jar** and **javadoc.jar**, you need to refine the search pattern so that it only matches the application binary artifact.
 
 ```yml
 name: AzureSpringApps
@@ -528,7 +528,7 @@ jobs:
 
 ## Run the workflow
 
-GitHub **Actions** should be enabled automatically after you push *.github/workflow/main.yml* to GitHub. The action is triggered when you push a new commit. If you create this file in the browser, your action should have already run.
+GitHub **Actions** should be enabled automatically after you push **.github/workflow/main.yml** to GitHub. The action is triggered when you push a new commit. If you create this file in the browser, your action should have already run.
 
 To verify that the action has been enabled, select the **Actions** tab on the GitHub repository page:
 

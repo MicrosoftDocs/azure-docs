@@ -81,9 +81,7 @@ After you've registered your custom domain, you can then add it to your CDN endp
 
    Azure verifies that the CNAME record exists for the custom domain name you entered. If the CNAME is correct, your custom domain is validated.
 
-   It can take some time for the new custom domain settings to propagate to all CDN edge nodes:
-    - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes.
-    - For **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles, propagation usually completes in 10 minutes.
+   It can take up to ten minutes for the new custom domain settings to propagate to all CDN edge nodes.
 
 ## Enable HTTPS on your custom domain
 

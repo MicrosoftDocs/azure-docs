@@ -1,6 +1,6 @@
 ---
 title: Create Consumption logic app templates for deployment
-description: Create Azure Resource Manager templates to automat deployment for Consumption logic apps in Azure Logic Apps.
+description: Create Azure Resource Manager templates to automate deployment for Consumption logic apps in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla

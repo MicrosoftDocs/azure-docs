@@ -28,7 +28,7 @@ With API analysis:
 
 * Currently, only OpenAPI and AsyncAPI specification documents in JSON or YAML format are analyzed.
 * Currently, you configure a single ruleset, and it's applied to all OpenAPI definitions in your API center.
-* There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#api-center-limits) for the maximum number of API definitions analyzed. Analysis can take a few minutes to up to 24 hours to complete.
+* There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#azure-api-center-limits) for the maximum number of API definitions analyzed. Analysis can take a few minutes to up to 24 hours to complete.
 
 ## Prerequisites
 

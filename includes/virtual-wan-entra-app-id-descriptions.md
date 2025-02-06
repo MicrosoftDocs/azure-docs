@@ -12,17 +12,17 @@ Previously, you were required to manually register (integrate) the Azure VPN Cli
 
 When possible, we recommend that you configure new P2S User VPN gateways using the Microsoft-registered Azure VPN client App ID and its corresponding Audience values instead of manually registering the Azure VPN Client app with your tenant. If you have a previously configured a P2S User VPN gateway that uses Microsoft Entra ID authentication, you can update the gateway and clients to take advantage of the new Microsoft-registered App ID. Updating the P2S gateway with the new Audience value is required if you want Linux clients to connect. The Azure VPN Client for Linux isn't backward compatible with the older Audience values.
 
-**Considerations and limitations**
+**Considerations**
 
 * A P2S User VPN gateway can only support one Audience value. It can't support multiple Audience values simultaneously.
 
 * At this time, the newer Microsoft-registered App ID doesn't support as many Audience values as the older, manually registered app. If you need an Audience value for anything other than Azure Public or Custom, use the older manually registered method and values.
 
-* The Azure VPN Client for Linux isn't backward compatible with P2S gateways configured to use the older Audience values that align with the manually registered app. The Azure VPN Client for Linux does support Custom Audience values.
+* The Azure VPN Client for Linux isn't backward compatible with P2S gateways configured to use the older Audience values that align with the manually registered app. However, the Azure VPN Client for Linux does support Custom Audience values.
 
 * [!INCLUDE [Supported versions](vpn-gateway-azure-vpn-client-linux-supported-releases.md)]
 
-* The Azure VPN Client for macOS and Windows is backward compatible with P2S gateways configured to use the older Audience values that align with the manually registered app. You can also use Custom Audience values with these clients.
+* The latest versions of the Azure VPN Clients for macOS and Windows are backward compatible with P2S gateways configured to use the older Audience values that align with the manually registered app. These clients also support Custom Audience values.
 
 **Azure VPN Client Audience values**
 

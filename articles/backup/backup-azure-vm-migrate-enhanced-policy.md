@@ -4,8 +4,8 @@ description: Learn how to trigger Azure VM backups migration from standard  poli
 ms.topic: reference
 ms.date: 01/10/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 

@@ -103,7 +103,7 @@ IP Groups are available in all public cloud regions.
 
 ## IP address limits
 
-For IP Group limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)
+For IP Group limits, see [Azure subscription and service limits, quotas, and constraints](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-firewall-limits)
 
 ## Related Azure PowerShell cmdlets
 

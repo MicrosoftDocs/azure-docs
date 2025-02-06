@@ -197,7 +197,7 @@ az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aks
 ```azurecli
 az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwar' -n 'fqdn' --source-addresses '*' --protocols 'http=80' 'https=443' --fqdn-tags "AzureKubernetesService" --action allow --priority 100
 
-# set fw application rule to allow kubernettes to reach storage and image resources
+# set fw application rule to allow kubernetes to reach storage and image resources
 
 az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwarweb' -n 'storage' --source-addresses '10.42.1.0/24' --protocols 'https=443' --target-fqdns '*.blob.storage.azure.net' '*.blob.core.windows.net' --action allow --priority 101
 az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwarweb' -n 'website' --source-addresses '10.42.1.0/24' --protocols 'https=443' --target-fqdns 'ghcr.io' '*.docker.io' '*.docker.com' '*.githubusercontent.com' 

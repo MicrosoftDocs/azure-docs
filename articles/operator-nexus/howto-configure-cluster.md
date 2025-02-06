@@ -118,6 +118,7 @@ Managed Identity can be assigned to the Cluster during creation or update operat
 - **--mi-system-assigned** - Enable System-assigned managed identity. Once added, the Identity can only be removed via the API call at this time.
 - **--mi-user-assigned** - Space-separated resource IDs of the User-assigned managed identities to be added. Once added, the Identity can only be removed via the API call at this time.
 
+[Create cluster with User assigned Managed Identity](./howto-create-cluster-with-user-assigned-managed-identity.md)
 ### Create the Cluster using Azure Resource Manager template editor
 
 An alternate way to create a Cluster is with the ARM template editor.
@@ -507,3 +508,5 @@ Deleting a cluster deletes the resources in Azure and the cluster that resides i
 ```azurecli
 az networkcloud cluster delete --name "$CLUSTER_NAME" --resource-group "$CLUSTER_RG"
 ```
+>[!NOTE]
+>It is recommended to wait for 20 minutes after deleting cluster before trying to create a new cluster with the same name.

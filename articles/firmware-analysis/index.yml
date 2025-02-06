@@ -10,26 +10,27 @@ metadata:
   author: karengu0
   ms.author: karenguo
   ms.date: 11/11/2024
+  ms.service: azure
 
 
 landingContent:
-  - title: Get started
+  - title: Get started 
     linkLists:
       - linkListType: get-started
         links:
-          - text: What is Firmware analysis (preview)?
+          - text: What is firmware analysis (preview)?
             url: overview-firmware-analysis.md
-          - text: Get started with Firmware analysis in the Azure portal
+          - text: Get started with firmware analysis in the Azure portal
             url: tutorial-analyze-firmware.md
-          - text: What file systems are supported by Firmware analysis?
+          - text: What file systems are supported by firmware analysis?
             url: firmware-analysis-faq.md#what-types-of-firmware-images-does-firmware-analysis-support
       - linkListType: concept
         links:
-          - text: What roles and permissions are needed to use Firmware analysis?
+          - text: What roles and permissions are needed to use firmware analysis?
             url: firmware-analysis-rbac.md
       - linkListType: whats-new
         links:
-          - text: What's new in Firmware analysis (preview)?
+          - text: What's new in firmware analysis (preview)?
             url: release-notes.md
 
   - title: Automate your workflow
@@ -45,11 +46,11 @@ landingContent:
           - text: Analyze firmware images using a Python script
             url: quickstart-upload-firmware-using-python.md
 
-  - title: Understand the Firmware analysis service
+  - title: Understand the firmware analysis service
     linkLists:
       - linkListType: concept
         links:
-          - text: Understand the resource hierarchy of Firmware analysis
+          - text: Understand the resource hierarchy of firmware analysis
             url: firmware-analysis-rbac.md#understanding-the-representation-of-firmware-images-in-the-azure-resource-hierarchy
           - text: Understand and interpret the extractor path results
             url: interpreting-extractor-paths.md

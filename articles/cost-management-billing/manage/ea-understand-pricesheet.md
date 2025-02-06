@@ -5,7 +5,7 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/08/2023
+ms.date: 01/22/2025
 ms.author: banders
 ms.reviewer: paagraw
 ---

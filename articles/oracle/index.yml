@@ -47,12 +47,12 @@ landingContent:
             url: oracle-db/oracle-database-network-plan.md
           - text: Known issues
             url: oracle-db/oracle-database-known-issues.md
-          - text: Group roles 
-            url: oracle-db/oracle-database-groups-roles.md
+          - text: Manage access to Oracle Database@Azure 
+            url: https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaagroupsroles.htm
           - text: Plan IP address space 
-            url: oracle-db/oracle-database-plan-ip.md
+            url: https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaa_ip.htm
           - text: Delegated subnet limits
-            url: oracle-db/oracle-database-delegated-subnet-limits.md
+            url: https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaa-delegated-subnets-limits.htm
           - text: FAQs
             url: oracle-db/faq-oracle-database-azure.md
           
