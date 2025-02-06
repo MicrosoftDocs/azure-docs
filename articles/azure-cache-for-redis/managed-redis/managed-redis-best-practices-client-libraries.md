@@ -10,11 +10,11 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-t
 
 # Azure Managed Redis (preview) Client libraries
 
-Azure Managed Redis (preview) is based on the popular in-memory data store, Redis. Azure Managed Redis can be accessed by a wide variety of Redis clients for many programming languages. Each client library has its own API that makes calls to Redis server using Redis commands, but the client libraries are built to talk to any Redis server.
+Azure Managed Redis (preview) is based on the popular in-memory data store, Redis. Redis clients for many programming languages can access Azure Managed Redis. Each client library has its own API that makes calls to Redis server using Redis commands, but the client libraries are built to talk to any Redis server.
 
 Each client library maintains its own reference documentation. The libraries also provide links to get support through the client library developer community. The Azure Managed Redis team doesn't own the development, or the support for any client libraries.
 
-Recommendations below are based on popularity and whether there's an active online community to support and answer your questions. We only recommend using the latest available version, and upgrading regularly as new versions become available. These libraries are under active development and often release new versions with improvements to reliability and performance.
+The following recommendations are based on popularity and whether there's an active online community to support and answer your questions. We only recommend using the latest available version, and upgrading regularly as new versions become available. These libraries are under active development and often release new versions with improvements to reliability and performance.
 
 | **Client library**        | **Language** | **GitHub** **repo**                                                 | **Documentation**                                                                    |
 |---------------------------|--------------|---------------------------------------------------------------------|--------------------------------------------------------------------------------------|
@@ -31,12 +31,12 @@ Recommendations below are based on popularity and whether there's an active onli
 ## Choosing the right client library based on your clustering policy
 
 Azure Managed Redis supports the Enterprise clustering policy and the OSS clustering policy. See more information here (add link to clustering policy information).
-All client libraries work with your Redis instance with Enterprise clustering policy. However, if you are using the OSS clustering policy, ensure that the client library you choose supports connecting to clustered Redis instances.
+
+All client libraries work with your Redis instance with Enterprise clustering policy. However, if you're using the OSS clustering policy, ensure that the client library you choose supports connecting to clustered Redis instances.
 
 ## Blocked commands
 
-Configuration and management of Azure Managed Redis instances is managed by Microsoft, which disables the following commands by default.
-For more information on blocked commands, see [Cluster management commands compatibility](https://redis.io/docs/latest/operate/rs/references/compatibility/commands/cluster/)
+Microsoft manages the configuration and management of Azure Managed Redis instances, which disables the following commands by default. For more information on blocked commands, see [Cluster management commands compatibility](https://redis.io/docs/latest/operate/rs/references/compatibility/commands/cluster/)
 
 ### Multi-key commands
 
@@ -78,9 +78,9 @@ We _recommend_ you  use redisson 3.14.1 or higher. Older versions contain known 
 
 Other notes:
 
-- Redisson defaults to 'read from replica' strategy, unlike some other clients. To change this, modify the 'readMode' config setting.
+- Redisson defaults to 'read from replica' strategy, unlike some other clients. To change this default, modify the 'readMode' config setting.
 - Redisson has a connection pooling strategy with configurable minimum and maximum settings, and the default minimum values are large. The large defaults could contribute to aggressive reconnect behaviors or 'connection storms'. To reduce the risk, consider using fewer connections because you can efficiently pipeline commands, or batches of commands, over a few connections.
-- Redisson has a default idle connection timeout of 10 seconds, which leads to more closing and reopening of connections than ideal.
+- Redisson has a default idle connection time-out of 10 seconds, which leads to more closing and reopening of connections than ideal.
 
 Here's a recommended baseline configuration for cluster mode that you can modify as needed:
 
@@ -113,7 +113,7 @@ clusterServersConfig:
   tcpNoDelay: true
 ```
 
-For an article demonstrating how to use Redisson's support for JCache as the store for HTTP session state in IBM Liberty on Azure, see [Use Java EE JCache with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/developer/java/ee/how-to-deploy-java-liberty-jcache).
+For an article about Redisson's support for JCache as the store for HTTP session state in IBM Liberty on Azure, see [Use Java EE JCache with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/developer/java/ee/how-to-deploy-java-liberty-jcache).
 
 ## How to use client libraries
 
