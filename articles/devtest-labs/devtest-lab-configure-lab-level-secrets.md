@@ -8,7 +8,7 @@ ms.date: 02/06/2025
 ms.custom: UpdateFrequency2
 ---
 
-# Generation 2 VMs in Azure DevTest Labs
+# Configure Lab Level Secrets in Azure DevTest Labs
 
 The lab level secrets in Azure DevTest Labs help streamline the creation and management of virtual machines (VMs). They are effective at reducing overhead on the lab users and can be leveraged while creating VMs,  creating formulas, and for use by certain artifacts.
 
@@ -31,7 +31,7 @@ You need at least [owner](devtest-lab-add-devtest-user.md#owner) or [contributor
 1. Search for **DevTest Labs**.
 1. From the list of labs, select the lab you want.
 1. Select **Configuration and policies** -> **Lab secrets**. 
-1. On the lab **Lab secrets** page, select **Add**.
+1. On the **Lab secrets** page, select **Add**.
 
    :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-add-vm.png" alt-text="Screenshot of lab overview page showing add button." lightbox="./media/devtest-lab-add-vm/portal-lab-add-vm.png":::
 
