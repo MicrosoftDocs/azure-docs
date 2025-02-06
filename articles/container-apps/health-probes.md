@@ -162,7 +162,7 @@ The optional `failureThreshold` setting defines the number of attempts Container
 
 ## Default configuration
 
-If ingress is enabled, the following default probes are automatically added to the main app container if none is defined for each type.
+If ingress is enabled, the following default probes are automatically added to the main app container if none is defined for each type, except for GPU workload profiles (both dedicated and consumption).
 
 | Probe type | Default values |
 | -- | -- |
