@@ -4,7 +4,7 @@ description: Learn about client libraries for Azure Managed Redis.
 
 ms.service: azure-managed-redis
 ms.topic: conceptual
-ms.date: 11/15/2024
+ms.date: 02/06/2025
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-extended-java, ignite-2024
 ---
 
@@ -35,7 +35,7 @@ All client libraries work with your Redis instance with Enterprise clustering po
 
 ## Blocked commands
 
-Configuration and management of Azure Managed Redis instances is managed by Microsoft, which disables the following commands by default. 
+Configuration and management of Azure Managed Redis instances is managed by Microsoft, which disables the following commands by default.
 For more information on blocked commands, see [Cluster management commands compatibility](https://redis.io/docs/latest/operate/rs/references/compatibility/commands/cluster/)
 
 ### Multi-key commands
@@ -47,22 +47,23 @@ You might also see `CROSSSLOT` errors with Enterprise clustering policy. Only th
 In Active-Active databases, multi-key write commands (`DEL`, `MSET`, `UNLINK`) can only be run on keys that are in the same slot. However, the following multi-key commands are allowed across slots in Active-Active databases: `MGET`, `EXISTS`, and `TOUCH`. For more information, see [Database clustering](https://redis.io/docs/latest/operate/rs/databases/durability-ha/clustering/#multikey-operations).
 
 ### Commands blocked for Enterprise clustering policy
-* CLUSTER INFO
-* CLUSTER HELP
-* CLUSTER KEYSLOT
-* CLUSTER NODES
-* CLUSTER SLOTS
+
+- CLUSTER INFO
+- CLUSTER HELP
+- CLUSTER KEYSLOT
+- CLUSTER NODES
+- CLUSTER SLOTS
 
 ### Commands blocked for active geo-replication
-* FLUSHALL
-* FLUSHDB
+
+- FLUSHALL
+- FLUSHDB
 
 ## Client library-specific guidance
 
 For information on client library-specific guidance best practices, see the following links:
 
 - [StackExchange.Redis (.NET)](../cache-best-practices-connection.md#using-forcereconnect-with-stackexchangeredis)
-- [Java - Which client should I use?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
 - [Lettuce (Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md)
 - [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
 - [Redisson (Java)](../cache-best-practices-client-libraries.md#redisson-java)

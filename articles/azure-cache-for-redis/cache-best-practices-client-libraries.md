@@ -4,9 +4,11 @@ description: Learn about client libraries for Azure Cache for Redis.
 
 
 ms.topic: conceptual
-ms.date: 01/04/2022
+ms.date: 02/06/2025
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-extended-java, ignite-2024
 ---
+
+
 
 # Client libraries
 
@@ -33,7 +35,6 @@ Although we don't own or support any client libraries, we do recommend some libr
 For information on client library-specific guidance best practices, see the following links:
 
 - [StackExchange.Redis (.NET)](cache-best-practices-connection.md#using-forcereconnect-with-stackexchangeredis)
-- [Java - Which client should I use?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
 - [Lettuce (Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md)
 - [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
 - [Redisson (Java)](cache-best-practices-client-libraries.md#redisson-java)
