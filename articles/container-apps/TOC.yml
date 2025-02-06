@@ -45,7 +45,7 @@
     - name: Compute and billing structures
       items:
       - name: Overview
-        href: structure.md.md
+        href: structure.md
       - name: Consumption-only environment type
         href: environment-type-consumption-only.md
     - name: Compare container options in Azure
