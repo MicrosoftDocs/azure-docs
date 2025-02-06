@@ -6,19 +6,25 @@ ms.author: schaffererin
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions #Required  - use references_regions if specific regions are mentioned.
 ms.service: azure-kubernetes-service
-ms.date: 01/30/2025
+ms.date: 02/06/2025
 #Customer intent: As an engineer responsible for business continuity, I want to understand who need to understand the details of how AKS works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow during different kinds of situations. 
 ---
 
 # Reliability in Azure Kubernetes Service (AKS)
 
-This article describes reliability support in Azure Kubernetes Service (AKS), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
+This article describes how you can make your Azure Kubernetes Service (AKS) workloads more resilient. It covers topics such as cluster configuration best practices for zonal/regional resiliency and recommended Kubernetes configurations for high availability.
 
-Resiliency is a shared responsibility between you and Microsoft and so this article also covers ways for you to create a resilient solution that meets your needs.
+## AKS cluster architecture
 
-When you create an AKS cluster, the Azure platform automatically creates and configures a control plane. AKS offers three pricing tiers for cluster management: **Free**, **Standard**, and **Premium**. For more information, see [Free, Standard, and Premium pricing tiers for Azure Kubernetes Service (AKS) cluster management](/azure/aks/free-standard-pricing-tiers).
+When you create an AKS cluster, the Azure platform automatically creates and configures a [control plane](/azure/aks/core-aks-concepts#control-plane) with the API server, etcd, the scheduler, and other pods required to manage your workload. The control plane is managed by AKS and doesn't require any configuration or management by you. AKS also deploys a [system node pool](/azure/aks/use-system-pools) to your subscription that hosts your add-ons and additional pods running in the *kube-system* namespace. Once this initial setup is complete, you can [add or delete node pools](/azure/aks/create-node-pools) for your own user workloads.
+
+**Resiliency is a shared responsibility between you and Microsoft**. While AKS can ensure the reliability of the managed components, it's important to take your workload requirements into consideration when deploying your applications and selecting your node pool configurations.
+
+AKS offers three pricing tiers for cluster management: **Free**, **Standard**, and **Premium**. For more information, see [Free, Standard, and Premium pricing tiers for Azure Kubernetes Service (AKS) cluster management](/azure/aks/free-standard-pricing-tiers). The Free tier enables you to use AKS to test your workloads. The Standard and Premium tiers are designed for production workloads.
 
 ## Production deployment recommendations
+
+For recommendations on how to deploy production workloads in AKS, see the following articles:
 
 - [Deployment and cluster reliability best practices for Azure Kubernetes Service (AKS)](/azure/aks/best-practices-app-cluster-reliability)
 - [High availability and disaster recovery overview for Azure Kubernetes Service (AKS)](/azure/aks/ha-dr-overview)
@@ -26,17 +32,34 @@ When you create an AKS cluster, the Azure platform automatically creates and con
 
 ## Redundancy
 
+To achieve redundancy in AKS, we recommend **deploying at least two replicas of your application** using [Azure Kubernetes Fleet Manager](/azure/kubernetes-fleet/overview) or an [active-active high availability solution](/azure/aks/active-active-solution). If deploying multiple clusters in multiple regions, make sure you [configure load balancing](/azure/aks/best-practices-app-cluster-reliability#standard-load-balancer) across pods.
+
 ## Transient faults
+
+To protect against transient faults, we recommend the following:
+
+- **[Pod Disruption Budgets (PDBs)](/azure/aks/best-practices-app-cluster-reliability#pod-disruption-budgets-pdbs)**: Ensures that a minimum number of pods remain available during voluntary disruptions.
+- **[`maxUnavailable`](/azure/aks/best-practices-app-cluster-reliability#maxunavailable)**: Defines the maximum number of pods that can be unavailable during a rolling update of a deployment.
+- **[Pod topology spread constraints](/azure/aks/best-practices-app-cluster-reliability#pod-topology-spread-constraints)**: Ensures that pods are spread across different nodes or zones to improve availability and reliability.
+
+<!-- Add information about AKS reaction to unforeseen downtime of nodes (e.g. if the underlying host becomes unresponsive) -->
 
 ## Availability zone support
 
 [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
-You can configure AKS to be *zone redundant*, which means your resources are spread across multiple availability zones. Zone redundancy helps you achieve resiliency and reliability for your production workloads.
+You can configure AKS to be *zone redundant*, which means your resources are spread across multiple availability zones. Zone redundancy helps you achieve resiliency and reliability for your production workloads. You can help ensure this by using the following best practices:
+
+- **Run multiple replicas** to make the most of the zone redundancy. For example, if you have a three-zone cluster, run at least three replicas of your application.
+- **Enable automatic scaling** through the [cluster autoscaler](/azure/aks/cluster-autoscaler) or [node autoprovisioning (NAP)](/azure/aks/node-autoprovision) to help ensure that your application can handle traffic spikes.
+- **Use [zone redundant storage (ZRS)](/azure/aks/aks-zone-resiliency#make-your-storage-disk-decision)** for stateful workloads.
+- **[Configure networking for zone resiliency](/azure/aks/aks-zone-resiliency#configure-az-aware-networking)** using [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways), [Azure Application Gateway v2](/azure/application-gateway/overview-v2), or [Azure Front Door](/azure/frontdoor/front-door-overview).
+
+You can deploy zone redundant AKS resources into any [Azure region that supports availability zones](./availability-zones-region-support.md).
 
 ### Region support
 
-You can deploy zone-redundant AKS resources into any [Azure region that supports availability zones](./availability-zones-region-support.md).
+<!-- Add information on HA/DR docs, how to load balance across multiple clusters, Fleet -->
 
 ### Requirements
 
