@@ -7,7 +7,7 @@ ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
 ms.topic: how-to
 ms.author: normesta
-ms.date: 01/17/2024
+ms.date: 02/05/2025
 ---
 
 # Define storage task conditions and operations
@@ -60,7 +60,21 @@ The following example specifies a value of `.log` along with the **Ends with** o
 
 ## [PowerShell](#tab/azure-powershell)
 
+1. Define a _condition_ by using JSON. A condition a collection of one or more clauses. Each clause contains a property, a value, and an operator. In the following JSON, the property is `Name`, the value is `.docx`, and the operator is `endsWith`. This clause allows operations only on Microsoft Word documents. 
+
+   ```powershell
+   $conditions = "[[endsWith(Name, '.docx')]]"
+   ```
+   To learn more about the structure of conditions and a complete list of properties and operators, see [Storage task conditions](storage-task-conditions.md).
+
 ## [Azure CLI](#tab/azure-cli)
+
+1. Define a _condition_ by using JSON. A condition a collection of one or more clauses. Each clause contains a property, a value, and an operator. In the following JSON, the property is `Name`, the value is `.docx`, and the operator is endsWith. This clause allows operations only on Microsoft Word documents.
+
+   ```azurecli
+   conditionclause="[[endsWith(Name,'/.docx'/)]]"
+   ```
+   To learn more about the structure of conditions and a complete list of properties and operators, see [Storage task conditions](storage-task-conditions.md). 
 
 ---
 
@@ -87,18 +101,22 @@ The following example adds the **Creation time** property, the **Earlier than** 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of specifying a key in container metadata as part of the condition definition.](../media/storage-tasks/storage-task-conditions-operations-edit/parameterized-query.png)
 
-This condition tests whether a blob was created earlier than a certain time duration relative to now (the current date and time). For example, if the value retrieved from the `retainFor` tag is five minutes, then this condition checks if the blob was created more than 5 minutes ago.
-
-> [!NOTE]
-> In the **Code** tab, you'll see the logic of this example represented in a slightly different way. The generated code tests whether the current time is greater than creation time plus the time interval. Both representations yield the same result.
-
-If the key is not present for an evaluated object, then the condition evaluates to false. If the key value is a string that does not conform to the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) standard, then an error is reported in the execution report.
-
 #### [PowerShell](#tab/azure-powershell)
+
+```powershell
+$conditions = "[[and(endsWith(Name, '.docx'), equals(utcNow, dateTimeAdd(Creation-Time, Tags.Value[retainFor])))]]"
+```
 
 #### [Azure CLI](#tab/azure-cli)
 
+```azurecli
+conditionclause="[[and(endsWith(Name, '/.docx'/), equals(utcNow, dateTimeAdd(Creation-Time, Tags.Value[retainFor])))]]"
+```
 ---
+
+This condition tests whether a blob was created earlier than a certain time duration relative to now (the current date and time). For example, if the value retrieved from the `retainFor` tag is five minutes, then this condition checks if the blob was created more than 5 minutes ago.
+
+If the key is not present for an evaluated object, then the condition evaluates to false. If the key value is a string that does not conform to the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) standard, then an error is reported in the execution report.
 
 #### Apply And / Or to a clause
 
@@ -113,38 +131,56 @@ The following example shows clauses that use **And**. In this example, the stora
 
 #### [PowerShell](#tab/azure-powershell)
 
+```powershell
+$conditions = "[[and(endsWith(Name, '.log'), equals(Tags.Value[Archive-Status], 'Ready'))]]"
+```
+
+For more information, see [Multiple clauses in a condition](storage-tasks/storage-task-conditions.md#multiple-clauses-in-a-condition).
+
 #### [Azure CLI](#tab/azure-cli)
 
+```azurecli
+conditionclause="[[and(endsWith(Name, '.log'), equals(Tags.Value[Archive-Status], 'Ready'))]]"
+```
+
+For more information, see [Multiple clauses in a condition](storage-tasks/storage-task-conditions.md#multiple-clauses-in-a-condition).
 ---
 
 ### Change the order of clauses
 
 You can arrange clauses in an order that you believe will improve the performance of a task run. For example, instead of first testing all blobs in an account against a name filter, you might elevate a clause that targets a specific container. That small adjustment can prevent the task from performing unnecessary evaluations.
 
+The following example reverses the order of the clauses shown in the previous example. This condition evaluates the index tag clause first and then the blob name clause.
+
 ### [Portal](#tab/azure-portal)
 
 First, select the clause. Then, select **Move clause up** or **Move clause down** to change its position in the list.
-
-The following example shows the result of selecting a clause and then selecting **Move clause up**.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of clause appearing in a new position in the list.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-move-clause-up.png)
 
 ### [PowerShell](#tab/azure-powershell)
 
+```powershell
+$conditions = "[[and(equals(Tags.Value[Archive-Status], 'Ready'), endsWith(Name, '.log'))]]"
+```
+
 ### [Azure CLI](#tab/azure-cli)
 
+```azurecli
+conditionclause="[[and(equals(Tags.Value[Archive-Status], 'Ready'), endsWith(Name, '.log'))]]"
+```
 ---
 
 ### Group and ungroup clauses
 
 Grouped clauses operate as a single unit separate from the rest of the clauses. Grouping clauses is similar to putting parentheses around a mathematical equation or logic expression. The **And** or **Or** operator for the first clause in the group applies to the whole group.
 
+The following example shows two conditions grouped together. In this example, the operation executes if a blob has the `.log` extension and either a tag named `Archive-Status` is set to the value of `Ready` or the file has not been accessed in 120 days.
+
 ### [Portal](#tab/azure-portal)
 
 Select the checkbox that appears next to each clause you want to group together. Then, select **Group**.
-
-The following example shows two conditions grouped together. In this example, the operation executes if a blob has the `.log` extension and either a tag named `Archive-Status` is set to the value of `Ready` or the file has not been accessed in 120 days.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of clauses grouped together.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-grouped-clauses.png)
@@ -153,15 +189,25 @@ To ungroup clauses, select the ungroup icon (:::image type="icon" source="../med
 
 ### [PowerShell](#tab/azure-powershell)
 
+```powershell
+$conditions = "[[and(endsWith(Name, '.log'), or(equals(Tags.Value[Archive-Status], 'Ready'), less(utcNow, dateTimeAdd(LastAccessTime, 'P120D'))))]]"
+```
+
+For more information, see [Groups of conditions](storage-task-conditions.md#groups-of-conditions).
+
 ### [Azure CLI](#tab/azure-cli)
+
+```azurecli
+conditionclause="[[and(endsWith(Name, '.log'), or(equals(Tags.Value[Archive-Status], 'Ready'), less(utcNow, dateTimeAdd(LastAccessTime, 'P120D'))))]]"
+```
+
+For more information, see [Groups of conditions](storage-task-conditions.md#groups-of-conditions).
 
 ---
 
 ## Preview the effect of conditions
 
 You can view a list of blobs that would be impacted by the conditions that you've defined. 
-
-## [Portal](#tab/azure-portal)
 
 In the conditions editor, select **Preview conditions**.
 
@@ -172,12 +218,6 @@ In the **Preview Conditions**, you can specify a target subscription, storage ac
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Conditions page.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-preview-conditions.png)
-
-## [PowerShell](#tab/azure-powershell)
-
-## [Azure CLI](#tab/azure-cli)
-
----
 
 ## Define operations
 
@@ -212,9 +252,51 @@ The following example sets the `Archive-Status` tag to the value `Archived`.
 
 ## [PowerShell](#tab/azure-powershell)
 
+1. Define each operation by using the `New-AzStorageActionTaskOperationObject` command. 
+
+   The following operation creates an operation that sets an immutability policy.
+
+   ```powershell
+   $policyoperation = New-AzStorageActionTaskOperationObject `
+   -Name SetBlobImmutabilityPolicy `
+   -Parameter @{"untilDate" = (Get-Date).AddDays(1); "mode" = "locked"} `
+   -OnFailure break `
+   -OnSuccess continue
+
+   ```
+   
+   The following operation sets a blob index tag in the metadata of a Word document.
+
+    ```powershell
+    $tagoperation = New-AzStorageActionTaskOperationObject -Name SetBlobTags `
+    -Parameter @{"tagsetImmutabilityUpdatedBy"="StorageTaskQuickstart"} `
+    -OnFailure break `
+    -OnSuccess continue
+   ```
+
+3. Combine operations together by using a comma separator
+
+   ```powershell
+   $operation = $policyoperation,$tagoperation
+   ```
+
 ## [Azure CLI](#tab/azure-cli)
 
+1. Define each operation. The following example defines an operation that sets an immutability policy, and an operation that sets a blob index tag in the metadata of a Word document.
+
+   ```azurecli
+   policyoperation="{name:'SetBlobImmutabilityPolicy',parameters:{untilDate:'2024-10-20T22:30:40',mode:'locked'},onSuccess:'continue',onFailure:'break'}"
+   tagoperation="{name:'SetBlobTags',parameters:{'tagsetImmutabilityUpdatedBy':'StorageTaskQuickstart'},onSuccess:'continue',onFailure:'break'}"
+   operations="${policyoperation}","${tagoperation}"
+   ```
+2. Combine operations together by using a comma separator.
+
+   ```azurecli
+   operations="'${policyoperation}','${tagoperation}'"
+   ```
 ---
+
+To learn more about the structure of operations and to find a complete list of operations, see [Storage task operations](storage-task-operations.md).
 
 ### Change the order of operations
 
@@ -228,7 +310,19 @@ To move an operation, select the checkbox that appears beside it. Then, select *
 
 ### [PowerShell](#tab/azure-powershell)
 
+To move an operation, just change the order in which operations appear in the JSON-formatted string. 
+
+   ```powershell
+   $operation = $tagoperation,$policyoperation,
+   ```
+
 ### [Azure CLI](#tab/azure-cli)
+
+To move an operation, just change the order in which operations appear in the JSON-formatted string. 
+
+   ```azurecli
+   operations="'${tagoperation}','${policyoperation}'"
+   ```
 
 ---
 

@@ -130,7 +130,9 @@ An assignment becomes a sub resource of the targeted storage account. Therefore,
 
 ## [PowerShell](#tab/azure-powershell)
 
-1. Specify how often you'd like the task to run. You can choose to run a task only once, or run the task recurring. If you decide to run this task on a recurring basis, specify a start and end time and specify the number of days in between each run. You can also specify where you'd like to store the execution reports. The following example creates variable for trigger values. 
+1. First, install the necessary PowerShell modules. See [Install the PowerShell module](storage-task-quickstart-powershell.md#install-the-powershell-module)
+
+2. Specify how often you'd like the task to run. You can choose to run a task only once, or run the task recurring. If you decide to run this task on a recurring basis, specify a start and end time and specify the number of days in between each run. You can also specify where you'd like to store the execution reports. The following example creates variable for trigger values. 
 
    ```powershell
    $startTime = $startTime = (Get-Date).AddMinutes(10) 
@@ -139,13 +141,13 @@ An assignment becomes a sub resource of the targeted storage account. Therefore,
    $targetPrefix = "mycontainer/"
    ```
 
-2. Get the storage task that you want to include in your assignment by using the [Get-AzStorageActionTask](/powershell/module/az.storageaction/get-azstorageactiontask) command.
+3. Get the storage task that you want to include in your assignment by using the [Get-AzStorageActionTask](/powershell/module/az.storageaction/get-azstorageactiontask) command.
    
    ```powershell
    $task = Get-AzStorageActionTask -Name <"storage-task-name"> -ResourceGroupName "<resource-group>"
    ```
 
-1. Create a storage task assignment by using the `New-AzStorageTaskAssignment` command. The following assignment targets the `mycontainer` container of an account named `mystorageaccount`. This assignment specifies that the task will run only one time, and will save execution reports to a folder named `storage-tasks-report`. The task is scheduled to run `10` minutes from the present time. 
+4. Create a storage task assignment by using the `New-AzStorageTaskAssignment` command. The following assignment targets the `mycontainer` container of an account named `mystorageaccount`. This assignment specifies that the task will run only one time, and will save execution reports to a folder named `storage-tasks-report`. The task is scheduled to run `10` minutes from the present time. 
 
    ```powershell
    New-AzStorageTaskAssignment `
@@ -162,7 +164,7 @@ An assignment becomes a sub resource of the targeted storage account. Therefore,
    -TargetExcludePrefix ""
    ```
 
-2. Give the storage task permission to perform operations on the target storage account. Assign the role of `Storage Blob Data Owner` to the system-assigned managed identity of the storage task by using the `New-AzRoleAssignment` command.
+5. Give the storage task permission to perform operations on the target storage account. Assign the role of `Storage Blob Data Owner` to the system-assigned managed identity of the storage task by using the `New-AzRoleAssignment` command.
 
    ```powershell
    New-AzRoleAssignment `

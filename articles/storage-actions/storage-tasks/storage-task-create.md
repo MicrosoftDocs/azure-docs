@@ -116,12 +116,14 @@ The following image shows the **Review** tab data prior to the creation of a new
 
 ## [PowerShell](#tab/azure-powershell)
 
-1. Define a _condition_ by using JSON. A condition a collection of one or more clauses. Each clause contains a property, a value, and an operator. To learn more, see [Storage task conditions](storage-task-conditions.md).
+1. First, install the necessary PowerShell modules. See [Install the PowerShell module](storage-task-quickstart-powershell.md#install-the-powershell-module)
+
+2. Define a _condition_ by using JSON. A condition a collection of one or more clauses. Each clause contains a property, a value, and an operator. To learn more, see [Storage task conditions](storage-task-conditions.md).
 
    ```powershell
    $condition = "<condition-json>"
    ```
-2. Define each operation by using the [New-AzStorageActionTaskOperationObject](/powershell/module/az.storageaction/new-azstorageactiontaskoperationobject) command. To learn more, see [Storage task operations](storage-task-operations.md)
+3. Define each operation by using the [New-AzStorageActionTaskOperationObject](/powershell/module/az.storageaction/new-azstorageactiontaskoperationobject) command. To learn more, see [Storage task operations](storage-task-operations.md)
 
    ```powershell
     $operation = New-AzStorageActionTaskOperationObject `
@@ -132,7 +134,7 @@ The following image shows the **Review** tab data prior to the creation of a new
 
    ```
 
-3. Create a storage task by using the [New-AzStorageActionTask](/powershell/module/az.storageaction/new-azstorageactiontask) command, and pass in any conditions and operations that you define. 
+4. Create a storage task by using the [New-AzStorageActionTask](/powershell/module/az.storageaction/new-azstorageactiontask) command, and pass in any conditions and operations that you define. 
 
    ```powershell
    $task = New-AzStorageActionTask `
