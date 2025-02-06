@@ -133,7 +133,7 @@ Each time that a trigger successfully fires, Azure Logic Apps creates a workflow
    > [!TIP]
    >
    > If the run status doesn't appear, try refreshing the **Overview** page by selecting **Refresh**.
-   > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
+   > No run happens for a trigger that is skipped due to unmet criteria or finding no data.
 
    :::image type="content" source="media/view-workflow-status-run-history/run-history-consumption.png" alt-text="Screenshot shows Consumption workflow and Overview page with selected tab named Runs history.":::
 
@@ -144,10 +144,10 @@ Each time that a trigger successfully fires, Azure Logic Apps creates a workflow
    | **Aborted** | The run stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
    | **Cancelled** | The run was triggered and started, but received a cancellation request. |
    | **Failed** | At least one action in the run failed. No subsequent actions in the workflow were set up to handle the failure. |
-   | **Running** | The run was triggered and is in progress. However, this status can also appear for a run that's throttled due to [action limits](logic-apps-limits-and-config.md) or the [current pricing plan](https://azure.microsoft.com/pricing/details/logic-apps/). <br><br>**Tip**: If you set up [diagnostics logging](monitor-workflows-collect-diagnostic-data.md), you can get information about any throttle events that happen. |
+   | **Running** | The run was triggered and is in progress. However, this status can also appear for a run that is throttled due to [action limits](logic-apps-limits-and-config.md) or the [current pricing plan](https://azure.microsoft.com/pricing/details/logic-apps/). <br><br>**Tip**: If you set up [diagnostics logging](monitor-workflows-collect-diagnostic-data.md), you can get information about any throttle events that happen. |
    | **Succeeded** | The run succeeded. If any action failed, a subsequent action in the workflow handled that failure. |
-   | **Timed out** | The run timed out because the current duration exceeded the run duration limit, which is controlled by the [setting named **Run history retention in days**](logic-apps-limits-and-config.md#run-duration-retention-limits). A run's duration is calculated by using the run's start time and run duration limit at that start time. <br><br>**Note**: If the run's duration also exceeds the current *run history retention limit*, which is also controlled by the [setting named **Run history retention in days**](logic-apps-limits-and-config.md#run-duration-retention-limits), the run is cleared from the run history by a daily cleanup job. Whether the run times out or completes, the retention period is always calculated by using the run's start time and *current* retention limit. So, if you reduce the duration limit for an in-flight run, the run times out. However, the run either stays or is cleared from the run history based on whether the run's duration exceeded the retention limit. |
-   | **Waiting** | The run hasn't started or is paused, for example, due to an earlier workflow instance that's still running. |
+   | **Timed out** | The run timed out because the current duration exceeded the run duration limit, which is controlled by the [setting named **Run history retention in days**](logic-apps-limits-and-config.md#run-duration-retention-limits). The run duration is calculated by using the run's start time and run duration limit at that start time. <br><br>**Note**: If the run duration also exceeds the current *run history retention limit*, which is also controlled by the [setting named **Run history retention in days**](logic-apps-limits-and-config.md#run-duration-retention-limits), the run is cleared from the run history by a daily cleanup job. Whether the run times out or completes, the retention period is always calculated by using the run's start time and *current* retention limit. So, if you reduce the duration limit for an in-flight run, the run times out. However, the run either stays or is cleared from the run history based on whether the run duration exceeded the retention limit. |
+   | **Waiting** | The run didn't start yet or is paused, for example, due to an earlier workflow instance that is still running. |
 
 1. To review the steps and other information for a specific run, under **Runs history**, select that run. If the list shows many runs, and you can't find the entry that you want, try filtering the list.
 
@@ -169,7 +169,7 @@ Each time that a trigger successfully fires, Azure Logic Apps creates a workflow
    | **Succeeded** | ![Succeeded icon][succeeded-icon] | The action succeeded. |
    | **Succeeded with retries** | ![Succeeded-with-retries-icon][succeeded-with-retries-icon] | The action succeeded but only after a single or multiple retries. To review the retry history, on the run history page, select that action so that you can view the inputs and outputs. |
    | **Timed out** | ![Timed-out icon][timed-out-icon] | The action stopped due to the time-out limit specified by that action's settings. |
-   | **Waiting** | ![Waiting icon][waiting-icon] | Applies to a webhook action that's waiting for an inbound request from a caller. |
+   | **Waiting** | ![Waiting icon][waiting-icon] | Applies to a webhook action that is waiting for an inbound request from a caller. |
 
    [aborted-icon]: media/view-workflow-status-run-history/aborted.png
    [canceled-icon]: media/view-workflow-status-run-history/cancelled.png
@@ -193,7 +193,9 @@ Each time that a trigger successfully fires, Azure Logic Apps creates a workflow
 
    * On the run history page, select a step to open a pane that shows the inputs, outputs, and any errors that happened in that step.
 
-     For example, suppose you have a workflow with a failed step. You want to review which inputs might have caused that step to fail. In this scenario, the failure resulted from an invalid or missing connection to an email account that is used to send an email. 
+     For example, suppose you have a workflow with a failed step. You want to review the inputs that might have caused the step to fail.
+
+     In this scenario, the failure resulted from an invalid or missing connection to an email account that is used to send an email. 
 
      :::image type="content" source="media/view-workflow-status-run-history/inputs-outputs-errors-consumption.png" alt-text="Screenshot shows Consumption workflow run history page with selected failed example step plus inputs, outputs, and errors for the failed step.":::
 
@@ -222,7 +224,7 @@ You can view run history only for stateful workflows, not stateless workflows. T
    > [!TIP]
    >
    > If the run status doesn't appear, on the **Run history** page toolbar, select **Refresh**. 
-   > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
+   > No run happens for a trigger that is skipped due to unmet criteria or finding no data.
 
    :::image type="content" source="media/view-workflow-status-run-history/run-history-standard.png" alt-text="Screenshot shows Standard workflow, run history page, and selected tab named Run history.":::
 
@@ -233,11 +235,11 @@ You can view run history only for stateful workflows, not stateless workflows. T
    | **Aborted** | ![Aborted icon][aborted-icon] | The run stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
    | **Cancelled** | ![Canceled icon][canceled-icon] | The run was triggered and started, but received a cancellation request. |
    | **Failed** | ![Failed icon][failed-icon] | At least one action in the run failed. No subsequent actions in the workflow were set up to handle the failure. |
-   | **Running** | ![Running icon][running-icon] | The run was triggered and is in progress. However, this status can also appear for a run that's throttled due to [action limits](logic-apps-limits-and-config.md) or the [current pricing plan](https://azure.microsoft.com/pricing/details/logic-apps/). <br><br>**Tip**: If you set up [diagnostics logging](monitor-workflows-collect-diagnostic-data.md), you can get information about any throttle events that happen. |
+   | **Running** | ![Running icon][running-icon] | The run was triggered and is in progress. However, this status can also appear for a run that is throttled due to [action limits](logic-apps-limits-and-config.md) or the [current pricing plan](https://azure.microsoft.com/pricing/details/logic-apps/). <br><br>**Tip**: If you set up [diagnostics logging](monitor-workflows-collect-diagnostic-data.md), you can get information about any throttle events that happen. |
    | **Skipped** | ![Skipped icon][skipped-icon] | The trigger condition was checked but wasn't met, so the run never started. |
    | **Succeeded** | ![Succeeded icon][succeeded-icon] | The run succeeded. If any action failed, a subsequent action in the workflow handled that failure. |
-   | **Timed out** | ![Timed-out icon][timed-out-icon] | The run timed out because the current duration exceeded the run duration limit, which is controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits). A run's duration is calculated by using the run's start time and run duration limit at that start time. <br><br>**Note**: If the run's duration also exceeds the current *run history retention limit*, which is also controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits), the run is cleared from the run history by a daily cleanup job. Whether the run times out or completes, the retention period is always calculated by using the run's start time and *current* retention limit. So, if you reduce the duration limit for an in-flight run, the run times out. However, the run either stays or is cleared from the run history based on whether the run's duration exceeded the retention limit. |
-   | **Waiting** | ![Waiting icon][waiting-icon] | The run hasn't started or is paused, for example, due to an earlier workflow instance that's still running. |
+   | **Timed out** | ![Timed-out icon][timed-out-icon] | The run timed out because the current duration exceeded the run duration limit, which is controlled by the [setting named **Run history retention in days**](logic-apps-limits-and-config.md#run-duration-retention-limits). The run duration is calculated by using the run's start time and run duration limit at that start time. <br><br>**Note**: If the run duration also exceeds the current *run history retention limit*, which is also controlled by the [setting named **Run history retention in days**](logic-apps-limits-and-config.md#run-duration-retention-limits), the run is cleared from the run history by a daily cleanup job. Whether the run times out or completes, the retention period is always calculated by using the run's start time and *current* retention limit. So, if you reduce the duration limit for an in-flight run, the run times out. However, the run either stays or is cleared from the run history based on whether the run duration exceeded the retention limit. |
+   | **Waiting** | ![Waiting icon][waiting-icon] | The run didn't start yet or is paused, for example, due to an earlier workflow instance that is still running. |
 
 1. To review the steps and other information for a specific run, on the **Run history** tab, select that run. If the list shows many runs, and you can't find the entry that you want, try filtering the list.
 
@@ -259,7 +261,7 @@ You can view run history only for stateful workflows, not stateless workflows. T
    | **Succeeded** | ![Succeeded icon][succeeded-icon] | The action succeeded. |
    | **Succeeded with retries** | ![Succeeded-with-retries-icon][succeeded-with-retries-icon] | The action succeeded but only after a single or multiple retries. To review the retry history, on the run history page, select that action so that you can view the inputs and outputs. |
    | **Timed out** | ![Timed-out icon][timed-out-icon] | The action stopped due to the time-out limit specified by that action's settings. |
-   | **Waiting** | ![Waiting icon][waiting-icon] | Applies to a webhook action that's waiting for an inbound request from a caller. |
+   | **Waiting** | ![Waiting icon][waiting-icon] | Applies to a webhook action that is waiting for an inbound request from a caller. |
 
    [aborted-icon]: media/view-workflow-status-run-history/aborted.png
    [canceled-icon]: media/view-workflow-status-run-history/cancelled.png
@@ -273,7 +275,7 @@ You can view run history only for stateful workflows, not stateless workflows. T
 
 1. To get more information about a specific step, on the run history page, select a step to open a pane that shows the inputs, outputs, and any errors that happened in that step.
 
-   For example, suppose you have a workflow with a failed step. You want to review which inputs might have caused that step to fail.
+   For example, suppose you have a workflow with a failed step. You want to review the inputs that might have caused the step to fail.
 
    In this scenario, the failure resulted from not finding the specified RSS feed, for example:
 
@@ -338,13 +340,13 @@ Completing this task creates and adds a new workflow run to your workflow's run 
    > [!TIP]
    >
    > If the resubmitted run doesn't appear, on the **Runs history** page toolbar, select **Refresh**. 
-   > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
+   > No run happens for a trigger that is skipped due to unmet criteria or finding no data.
 
 1. To review the inputs and outputs after the resubmitted run finishes, on the **Runs history** tab, select that run.
 
 ### Rerun from a specific action
 
-The rerun action capability is available for most actions except for non-sequential workflows, complex concurrency scenarios, and the following limitations:
+The rerun action capability is available for most actions except for nonsequential workflows, complex concurrency scenarios, and the following limitations:
 
 | Actions | Resubmit availability and limitations |
 |---------|---------------------------------------|
@@ -367,7 +369,7 @@ The rerun action capability is available for most actions except for non-sequent
 
    - Select the action from where to start rerunning the workflow. In the pane that opens, under the action name, select **Submit from this action**.
 
-   The run history page refreshes and shows the resubmitted run. All the operations that precede the resubmitted action show a lighter-colored status icon, representing reused inputs and outputs. The resubmitted action and subsequent actions show the usually colored status icons. For more information, see [Review workflow run history](#review-run-history).
+   The run history page refreshes and shows the resubmitted run. All the operations that precede the resubmitted action show a lighter-colored status icon, representing reused inputs and outputs. The resubmitted action and subsequent actions show the colored status icons. For more information, see [Review workflow run history](#review-run-history).
 
    > [!TIP]
    >
@@ -390,13 +392,13 @@ You can rerun only stateful workflows, not stateless workflows. To enable run hi
    > [!TIP]
    >
    > If the resubmitted run doesn't appear, on the **Run history** page toolbar, select **Refresh**. 
-   > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
+   > No run happens for a trigger that is skipped due to unmet criteria or finding no data.
 
 1. To review the inputs and outputs after the resubmitted run finishes, on the **Run history** tab, select that run.
 
 ### Rerun from a specific action
 
-The rerun action capability is available for most actions except for non-sequential workflows, complex concurrency scenarios, and the following limitations:
+The rerun action capability is available for most actions except for nonsequential workflows, complex concurrency scenarios, and the following limitations:
 
 | Actions | Resubmit availability and limitations |
 |---------|---------------------------------------|
@@ -419,7 +421,7 @@ The rerun action capability is available for most actions except for non-sequent
 
    - Select the action from where to start rerunning the workflow. In the pane that opens, under the action name, select **Submit from this action**.
 
-   On the run details page, all the operations that precede the resubmitted action show a lighter-colored status icon, representing reused inputs and outputs. The resubmitted action and subsequent actions show the usually colored status icons. For more information, see [Review workflow run history](#review-run-history).
+   On the run details page, all the operations that precede the resubmitted action show a lighter-colored status icon, representing reused inputs and outputs. The resubmitted action and subsequent actions show the colored status icons. For more information, see [Review workflow run history](#review-run-history).
 
    > [!TIP]
    >
