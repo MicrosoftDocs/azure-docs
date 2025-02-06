@@ -66,6 +66,8 @@ For more detailed information about deployment commands and options for deployin
 
 Within a single Bicep file, all resources declared with the `resource` keyword must be deployed at the same scope as the deployment. For a resource group deployment, this means all `resource` declarations in the Bicep file must either be deployed to the same resource group, or as a child or extension resource of a resource in the same resource group as the deployment.
 
+// TODO do we have docs to link to in order to explain "parent/child" or "extension" resources?
+
 For `existing` resources, the same restriction does not apply - you may reference a resource at a different scope to that of the deployment.
 
 It is however still possible to have a single deployment target resources at scopes through the use of modules. Deploying a module will trigger a "nested deployment", which you can use to target other scopes. Because the use of a module will trigger a deployment at that scope, the user deploying the parent Bicep file must have permission to initiate a deployment at that scope.
