@@ -61,9 +61,9 @@ Multiple | > 10,000 | One Azure Migrate project.<br><br> One appliance can disco
 
 
 
-## Plan discovery in a multi-tenant environment
+## Plan discovery in a multitenant environment
 
-If you're planning for a multi-tenant environment, you can scope the discovery on the vCenter Server.
+If you're planning for a multitenant environment, you can scope the discovery on the vCenter Server.
 
 - You can set the appliance discovery scope to a vCenter Server data centers, clusters, or folder of clusters, hosts or folder of hosts, or individual servers.
 - If your environment is shared across tenants and you want to discover each tenant separately, you can scope access to the vCenter account that the appliance uses for discovery. 

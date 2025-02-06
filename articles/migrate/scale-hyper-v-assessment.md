@@ -52,7 +52,7 @@ Use the limits summarized in this table for planning.
 ## Other planning considerations
 
 - To start discovery from the appliance, you must select each Hyper-V host. 
-- If you're running a multi-tenant environment, you can't currently discover only servers that belong to a specific tenant. 
+- If you're running a multitenant environment, you can't currently discover only servers that belong to a specific tenant. 
 
 ## Prepare for assessment
 
