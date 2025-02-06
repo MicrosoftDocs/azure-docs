@@ -146,12 +146,12 @@ Each time that a trigger successfully fires, Azure Logic Apps creates a workflow
    | **Failed** | At least one action in the run failed. No subsequent actions in the workflow were set up to handle the failure. |
    | **Running** | The run was triggered and is in progress. However, this status can also appear for a run that's throttled due to [action limits](logic-apps-limits-and-config.md) or the [current pricing plan](https://azure.microsoft.com/pricing/details/logic-apps/). <br><br>**Tip**: If you set up [diagnostics logging](monitor-workflows-collect-diagnostic-data.md), you can get information about any throttle events that happen. |
    | **Succeeded** | The run succeeded. If any action failed, a subsequent action in the workflow handled that failure. |
-   | **Timed out** | The run timed out because the current duration exceeded the run duration limit, which is controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits). A run's duration is calculated by using the run's start time and run duration limit at that start time. <br><br>**Note**: If the run's duration also exceeds the current *run history retention limit*, which is also controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits), the run is cleared from the run history by a daily cleanup job. Whether the run times out or completes, the retention period is always calculated by using the run's start time and *current* retention limit. So, if you reduce the duration limit for an in-flight run, the run times out. However, the run either stays or is cleared from the run history based on whether the run's duration exceeded the retention limit. |
+   | **Timed out** | The run timed out because the current duration exceeded the run duration limit, which is controlled by the [setting named **Run history retention in days**](logic-apps-limits-and-config.md#run-duration-retention-limits). A run's duration is calculated by using the run's start time and run duration limit at that start time. <br><br>**Note**: If the run's duration also exceeds the current *run history retention limit*, which is also controlled by the [setting named **Run history retention in days**](logic-apps-limits-and-config.md#run-duration-retention-limits), the run is cleared from the run history by a daily cleanup job. Whether the run times out or completes, the retention period is always calculated by using the run's start time and *current* retention limit. So, if you reduce the duration limit for an in-flight run, the run times out. However, the run either stays or is cleared from the run history based on whether the run's duration exceeded the retention limit. |
    | **Waiting** | The run hasn't started or is paused, for example, due to an earlier workflow instance that's still running. |
 
 1. To review the steps and other information for a specific run, under **Runs history**, select that run. If the list shows many runs, and you can't find the entry that you want, try filtering the list.
 
-   :::image type="content" source="media/view-workflow-status-run-history/select-run-consumption.png" alt-text="Screenshot shows Consumption workflow run selected.":::
+   :::image type="content" source="media/view-workflow-status-run-history/select-run-consumption.png" alt-text="Screenshot shows a selected Consumption workflow run.":::
 
    The run history page opens and shows the status for each step in the selected run, for example:
 
@@ -168,7 +168,7 @@ Each time that a trigger successfully fires, Azure Logic Apps creates a workflow
    | **Skipped** | ![Skipped icon][skipped-icon] | The action was skipped because its **runAfter** conditions weren't met, for example, a preceding action failed. Each action has a `runAfter` object where you can set up conditions that must be met before the current action can run. |
    | **Succeeded** | ![Succeeded icon][succeeded-icon] | The action succeeded. |
    | **Succeeded with retries** | ![Succeeded-with-retries-icon][succeeded-with-retries-icon] | The action succeeded but only after a single or multiple retries. To review the retry history, on the run history page, select that action so that you can view the inputs and outputs. |
-   | **Timed out** | ![Timed-out icon][timed-out-icon] | The action stopped due to the timeout limit specified by that action's settings. |
+   | **Timed out** | ![Timed-out icon][timed-out-icon] | The action stopped due to the time-out limit specified by that action's settings. |
    | **Waiting** | ![Waiting icon][waiting-icon] | Applies to a webhook action that's waiting for an inbound request from a caller. |
 
    [aborted-icon]: media/view-workflow-status-run-history/aborted.png
@@ -258,7 +258,7 @@ You can view run history only for stateful workflows, not stateless workflows. T
    | **Skipped** | ![Skipped icon][skipped-icon] | The action was skipped because its **runAfter** conditions weren't met, for example, a preceding action failed. Each action has a `runAfter` object where you can set up conditions that must be met before the current action can run. |
    | **Succeeded** | ![Succeeded icon][succeeded-icon] | The action succeeded. |
    | **Succeeded with retries** | ![Succeeded-with-retries-icon][succeeded-with-retries-icon] | The action succeeded but only after a single or multiple retries. To review the retry history, on the run history page, select that action so that you can view the inputs and outputs. |
-   | **Timed out** | ![Timed-out icon][timed-out-icon] | The action stopped due to the timeout limit specified by that action's settings. |
+   | **Timed out** | ![Timed-out icon][timed-out-icon] | The action stopped due to the time-out limit specified by that action's settings. |
    | **Waiting** | ![Waiting icon][waiting-icon] | Applies to a webhook action that's waiting for an inbound request from a caller. |
 
    [aborted-icon]: media/view-workflow-status-run-history/aborted.png
