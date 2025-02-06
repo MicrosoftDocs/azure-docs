@@ -1176,6 +1176,16 @@ groups:
   - id: expressroute-preview
     title: Preview
 # Owner: hmb
+- id: cd C:
+  title: Front Door Developer experience
+  prompt: "Select the developer experience:"
+  pivots:
+  - id: front-door-portal
+    title: Azure Portal
+  - id: front-door-ps
+    title: Azure PowerShell
+  - id: front-door-cli
+    title: Azure CLI
 - id: front-door-dev-exp-portal-cli
   title: Front Door Developer experience
   prompt: "Select the developer experience:"
