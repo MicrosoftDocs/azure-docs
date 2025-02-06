@@ -59,7 +59,7 @@ For the Remote Desktop app:
 | Android | ✅ | ✅ |
 
 > [!IMPORTANT]
-> You can use Intune mobile application management (MAM) functionality for Windows App in Azure, Azure US Government, and Azure operated by 21Vianet (Azure in China).
+> You can use Intune mobile application management (MAM) functionality for Windows App in Azure, Azure operated by 21Vianet (Azure in China), GCC, and GCC High and DoD.
 
 ## Example scenarios
 
