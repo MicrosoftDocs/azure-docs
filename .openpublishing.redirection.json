@@ -1,6 +1,726 @@
 {
   "redirections": [
     {
+      "source_path": "articles/partner-solutions/logzio/create.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/logzio/create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/logzio/manage.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/logzio/manage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/logzio/overview.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/logzio/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/logzio/setup-sso.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/logzio/setup-sso",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/logzio/troubleshoot.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/logzio/troubleshoot",
+       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/cluster-storage.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/cluster-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/concept-azure-monitor-integration.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/concept-azure-monitor-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/concept-security.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/concept-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/control-egress-traffic-from-hdinsight-on-aks-clusters.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/control-egress-traffic-from-hdinsight-on-aks-clusters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/create-cluster-error-dictionary.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/create-cluster-error-dictionary",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/create-cluster-using-arm-template-script.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/create-cluster-using-arm-template-script",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/create-cluster-using-arm-template.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/create-cluster-using-arm-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/customize-clusters.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/customize-clusters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/faq.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/hdinsight-aks-support-help.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/hdinsight-aks-support-help",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/hdinsight-on-aks-autoscale-clusters.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/hdinsight-on-aks-autoscale-clusters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/hdinsight-on-aks-manage-authorization-profile.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/hdinsight-on-aks-manage-authorization-profile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/how-to-azure-monitor-integration.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/how-to-azure-monitor-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/in-place-upgrade.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/in-place-upgrade",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/manage-cluster-pool.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/manage-cluster-pool",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/manage-cluster.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/manage-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/manage-script-actions.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/manage-script-actions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/manual-scale.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/manual-scale",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/monitor-with-prometheus-grafana.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/monitor-with-prometheus-grafana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/overview.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/powershell-cluster-create.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/powershell-cluster-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/preview.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/quickstart-create-cli.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/quickstart-create-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/quickstart-create-cluster.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/quickstart-create-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/quickstart-create-powershell.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/quickstart-create-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/quickstart-get-started.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/quickstart-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/quickstart-prerequisites-resources.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/quickstart-prerequisites-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/quickstart-prerequisites-subscription.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/quickstart-prerequisites-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/required-outbound-traffic.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/required-outbound-traffic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/rest-api-cluster-creation.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/rest-api-cluster-creation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/sdk-cluster-creation.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/sdk-cluster-creation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/secure-traffic-by-firewall-azure-portal.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/secure-traffic-by-firewall-azure-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/secure-traffic-by-firewall.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/secure-traffic-by-firewall",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/secure-traffic-by-nsg.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/secure-traffic-by-nsg",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/service-configuration.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/service-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/service-health.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/service-health",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/subscribe-to-release-notes-repo.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/subscribe-to-release-notes-repo",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trademarks.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trademarks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/versions.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/versions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/virtual-machine-recommendation-capacity-planning.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/virtual-machine-recommendation-capacity-planning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/whats-new.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/whats-new",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/application-mode-cluster-on-hdinsight-on-aks.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/application-mode-cluster-on-hdinsight-on-aks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/azure-databricks.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/azure-databricks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/azure-iot-hub.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/azure-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/azure-service-bus-demo.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/azure-service-bus-demo",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/change-data-capture-connectors-for-apache-flink.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/change-data-capture-connectors-for-apache-flink",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/cosmos-db-for-apache-cassandra.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/cosmos-db-for-apache-cassandra",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/create-kafka-table-flink-kafka-sql-connector.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/create-kafka-table-flink-kafka-sql-connector",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/datastream-api-mongodb.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/datastream-api-mongodb",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/fabric-lakehouse-flink-datastream-api.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/fabric-lakehouse-flink-datastream-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/flink-catalog-delta-hive.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/flink-catalog-delta-hive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/flink-catalog-iceberg-hive.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/flink-catalog-iceberg-hive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/flink-cluster-configuration.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/flink-cluster-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/flink-configuration-management.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/flink-configuration-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/flink-create-cluster-portal.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/flink-create-cluster-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/flink-how-to-setup-event-hub.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/flink-how-to-setup-event-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/flink-job-management.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/flink-job-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/flink-job-orchestration.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/flink-job-orchestration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/flink-overview.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/flink-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/flink-table-api-and-sql.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/flink-table-api-and-sql",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/flink-web-ssh-on-portal-to-flink-sql.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/flink-web-ssh-on-portal-to-flink-sql",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/fraud-detection-flink-datastream-api.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/fraud-detection-flink-datastream-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/hive-dialect-flink.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/hive-dialect-flink",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/integration-of-azure-data-explorer.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/integration-of-azure-data-explorer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/join-stream-kafka-table-filesystem.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/join-stream-kafka-table-filesystem",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/monitor-changes-postgres-table-flink.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/monitor-changes-postgres-table-flink",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/process-and-consume-data.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/process-and-consume-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/sink-kafka-to-kibana.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/sink-kafka-to-kibana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/sink-sql-server-table-using-flink-sql.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/sink-sql-server-table-using-flink-sql",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/start-sql-client-cli-gateway-mode.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/start-sql-client-cli-gateway-mode",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/use-apache-nifi-with-datastream-api.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/use-apache-nifi-with-datastream-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/use-azure-pipelines-to-run-flink-jobs.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/use-azure-pipelines-to-run-flink-jobs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/use-flink-cli-to-submit-jobs.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/use-flink-cli-to-submit-jobs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/use-flink-delta-connector.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/use-flink-delta-connector",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/use-flink-to-sink-kafka-message-into-hbase.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/use-flink-to-sink-kafka-message-into-hbase",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/use-hive-catalog.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/use-hive-catalog",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/flink/use-hive-metastore-datastream.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/use-hive-metastore-datastream",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/release-notes/hdinsight-aks-release-notes-archive.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/release-notes/hdinsight-aks-release-notes-archive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/release-notes/hdinsight-aks-release-notes.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/release-notes/hdinsight-aks-release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/spark/azure-hdinsight-spark-on-aks-delta-lake.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/spark/azure-hdinsight-spark-on-aks-delta-lake",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/spark/configuration-management.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/spark/configuration-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/spark/connect-to-one-lake-storage.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/spark/connect-to-one-lake-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/spark/create-spark-cluster.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/spark/create-spark-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/spark/hdinsight-on-aks-spark-overview.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/spark/hdinsight-on-aks-spark-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/spark/library-management.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/spark/library-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/spark/spark-job-orchestration.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/spark/spark-job-orchestration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/spark/submit-manage-jobs.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/spark/submit-manage-jobs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/spark/use-hive-metastore.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/spark/use-hive-metastore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/spark/use-machine-learning-notebook-on-spark.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/spark/use-machine-learning-notebook-on-spark",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/configure-azure-active-directory-login-for-superset.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/configure-azure-active-directory-login-for-superset",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/configure-ingress.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/configure-ingress",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/role-based-access-control.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/role-based-access-control",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-add-catalogs.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-add-catalogs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-add-delta-lake-catalog.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-add-delta-lake-catalog",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-add-iceberg-catalog.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-add-iceberg-catalog",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-airflow.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-airflow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-authentication.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-caching.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-caching",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-catalog-glue.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-catalog-glue",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-configuration-troubleshoot.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-configuration-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-connect-to-metastore.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-connect-to-metastore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-connectors.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-connectors",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-create-cluster.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-create-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-create-delta-lake-tables-synapse.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-create-delta-lake-tables-synapse",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-custom-plugins.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-custom-plugins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-fault-tolerance.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-fault-tolerance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-jvm-configuration.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-jvm-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-miscellaneous-files.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-miscellaneous-files",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-overview.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-query-logging.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-query-logging",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-scan-stats.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-scan-stats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-service-configuration.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-service-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-sharded-sql-connector.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-sharded-sql-connector",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-superset.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-superset",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-ui-command-line-interface.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-ui-command-line-interface",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-ui-dbeaver.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-ui-dbeaver",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-ui-jdbc-driver.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-ui-jdbc-driver",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-ui-web-ssh.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-ui-web-ssh",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight-aks/trino/trino-ui.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-ui",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/network-watcher-packet-capture-manage-portal-vmss.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-packet-capture-manage-portal-vmss",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/network-watcher-packet-capture-manage-powershell-vmss.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-packet-capture-manage-powershell-vmss",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-analyze-usage-patterns.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-analyze-usage-patterns",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-http-debug-headers.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-http-debug-headers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-migrate.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-migrate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-pop-abbreviations.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-pop-abbreviations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-query-string-premium.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-query-string-premium",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-query-string.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-query-string",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-real-time-alerts.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-real-time-alerts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-restrict-access-by-country-region.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-restrict-access-by-country-region",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-verizon-custom-reports.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-verizon-custom-reports",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-verizon-http-headers.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-verizon-http-headers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-verizon-premium-rules-engine-reference-conditional-expressions.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-verizon-premium-rules-engine-reference-conditional-expressions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-verizon-premium-rules-engine-reference-features.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-verizon-premium-rules-engine-reference-features",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-verizon-premium-rules-engine-reference-match-conditions.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-verizon-premium-rules-engine-reference-match-conditions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-verizon-premium-rules-engine-reference.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-verizon-premium-rules-engine-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-verizon-premium-rules-engine.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-verizon-premium-rules-engine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/network-watcher-nsg-auditing-powershell.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-nsg-auditing-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/view-relative-latencies.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/view-relative-latencies",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-network/migrate-classic-vnet-powershell.md",
       "redirect_url": "/previous-versions/azure/virtual-network/migrate-classic-vnet-powershell",
       "redirect_document_id": false
@@ -323,6 +1043,11 @@
     {
       "source_path_from_root": "/articles/migrate/replicate-using-expressroute.md",
       "redirect_url": "/azure/migrate/discover-and-assess-using-private-endpoints",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-call-protection/index.yml",
+      "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
     },
     {
@@ -1086,11 +1811,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/governance/machine-configuration/whats-new/migrating-from-dsc-extension.md ",
-      "redirect_url": " https://azure.microsoft.com/updates/migrate-from-linux-dsc-extension-to-the-guest-configuration-feature-of-azure-policy-by-may-1-2025/",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-about-forced-tunneling.md",
       "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-about-forced-tunneling",
       "redirect_document_id": false
@@ -1118,6 +1838,11 @@
     {
       "source_path_from_root": "/articles/azure-app-configuration/use-variant-feature-flags-aspnet-core.md",
       "redirect_url": "/azure/azure-app-configuration/howto-variant-feature-flags-aspnet-core",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-app-configuration/use-feature-flags-dotnet-core.md",
+      "redirect_url": "/azure/azure-app-configuration/feature-management-dotnet-reference",
       "redirect_document_id": false
     },
     {
@@ -1283,6 +2008,21 @@
     {
       "source_path_from_root": "/articles/azure-classic-rm.md",
       "redirect_url": "./azure-resource-manager/management/deployment-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/functions-add-output-binding-storage-queue-java.md",
+      "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-cli?pivots=programming-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/create-first-function-arc-custom-container.md",
+      "redirect_url": "/azure/azure-functions/functions-how-to-custom-container?pivots=azure-arc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/create-first-function-arc-cli.md",
+      "redirect_url": "/azure/azure-functions/functions-how-to-custom-container?pivots=azure-arc",
       "redirect_document_id": false
     },
     {
@@ -1991,6 +2731,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cdn/cdn-features.md",
+      "redirect_url": "/azure/frontdoor/front-door-cdn-comparison",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/chef/chef-automation.md",
       "redirect_url": "/azure/developer/chef/windows-vm-configure",
       "redirect_document_id": false
@@ -2539,6 +3284,11 @@
       "redirect_url": "/azure/dns/scripts/dns-cli-create-dns-zone-record",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/dns/dns-alerts-metrics.md",
+      "redirect_url": "/azure/dns/monitor-dns",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/docker/index.yml",
       "redirect_url": "/dotnet/architecture/microservices/container-docker-introduction/docker-defined",
@@ -4455,6 +5205,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-wan/howto-openvpn-clients.md",
+      "redirect_url": "/azure/virtual-wan/point-to-site-vpn-client-certificate-windows-openvpn-client-version-3",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-wan/logs-metrics.md",
       "redirect_url": "/azure/virtual-wan/monitor-virtual-wan",
       "redirect_document_id": false
@@ -5112,6 +5867,16 @@
     {
       "source_path_from_root": "/articles/reliability/disaster-recovery-overview.md",
       "redirect_url": "/azure/reliability/concept-business-continuity-high-availability-disaster-recovery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/reliability/cross-region-replication-azure-no-pair.md",
+      "redirect_url": "/azure/reliability/regions-multi-region-nonpaired",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/reliability/reliability-hdinsight-on-aks.md",
+      "redirect_url": "/azure/reliability/overview-reliability-guidance",
       "redirect_document_id": false
     }
   ]

@@ -51,7 +51,7 @@ Key properties of NSG flow logs include:
 - Flow logs operate at Layer 4 of the Open Systems Interconnection (OSI) model and record all IP flows going in and out of a network security group.
 - Logs are collected at 1-minute intervals through the Azure platform. They don't affect your Azure resources or network performance in any way.
 - Logs are written in JSON format and show outbound and inbound flows per network security group rule.
-- Each log record contains the network interface (NIC) that the flow applies to, 5-tuple information, the traffic decision, and (for version 2 only) throughput information.
+- Each log record contains the network interface (NIC) that the flow applies to, flow-tuple information, the traffic decision, and (for version 2 only) throughput information.
 - NSG flow logs have a retention feature that allows deleting the logs automatically up to a year after their creation.
 
 > [!NOTE]

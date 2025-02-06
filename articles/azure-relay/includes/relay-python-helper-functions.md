@@ -50,7 +50,7 @@ def createListenUrl(serviceNamespace, entityPath, token = None):
 def createSendUrl(serviceNamespace, entityPath, token = None):
     url = 'wss://' + serviceNamespace + '/$hc/' + entityPath + '?sb-hc-action=connect&sb-hc-id=123456'
     if token is not None:
-	url = url + '&sb-hc-token=' + urllib.parse.quote(token)
+        url = url + '&sb-hc-token=' + urllib.parse.quote(token)
     return url
 
 # Function which creates the Service Bus SAS token. 
@@ -72,7 +72,7 @@ def createSasToken(serviceNamespace, entityPath, sasKeyName, sasKey):
     hashBytes = hmac_sha256(sasKeyBytes, plainSignatureBytes)
     base64HashValue = base64.b64encode(hashBytes)
 
-     # Construct the SAS token string
+    # Construct the SAS token string
     token = "SharedAccessSignature sr=" + encodedResourceUri + "&sig=" +  urllib.parse.quote(base64HashValue) + "&se=" + str(expiryInSeconds) + "&skn=" + sasKeyName
     return token
  ```

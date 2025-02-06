@@ -6,13 +6,19 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 12/20/2024
+ms.date: 01/29/2025
 ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+## January 2025 
+
+* [Application volume group for Oracle](application-volume-group-oracle-introduction.md) and [application volume group for SAP HANA extension one](application-volume-group-introduction.md) now support customer-managed keys. (Preview)
+
+    Azure NetApp Files application volume groups for SAP HANA (with extension 1) and Oracle now support customer-managed keys, providing increased security and compliance. This feature is now in preview.
 
 ## December 2024
 
@@ -43,8 +49,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Edit network features enhancement: no downtime](configure-network-features.md#no-downtime) (Preview)
 
     Azure NetApp Files now supports the ability to edit network features (that is, upgrade from Basic to Standard network features) with no downtime for Azure NetApp Files volumes. Standard Network Features provide you with an enhanced virtual networking experience for a seamless and consistent experience along with security posture for Azure NetApp Files. 
-
-    This feature is currently in preview in the Australia East, Central India, East Asia, North Central US, Switzerland North, UK South, US Central, US East, US East 2, and US South, US West and US West 2 regions.
   
 ## September 2024 
 
@@ -417,7 +421,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     * Restore (`-c restore`) improvements
     * Test (`-c test`) improvements
     * Validation improvements
-    * Timeout improvements
+    * Time-out improvements
     * Azure Backup integration improvements
     * Features moved to GA (generally available):
         None

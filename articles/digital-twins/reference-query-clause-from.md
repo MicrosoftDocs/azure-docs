@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language FROM clause
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/25/2022
+ms.date: 01/27/2025
 ms.topic: article
 ms.service: azure-digital-twins
 
@@ -98,12 +98,10 @@ No subqueries are supported within the `FROM` statement.
 
 #### Example (negative)
 
-The following query shows an example of what can't be done as per this limitation.
+The following query illustrates the impossible action that **cannot** can't be done as per this limitation.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="FromNegativeExample":::
 
 ### Choose FROM RELATIONSHIPS or JOIN
 
 The `FROM RELATIONSHIPS` feature cannot be combined with `JOIN`. You'll have to select which of these options works best for the information you'd like to select.
-
-

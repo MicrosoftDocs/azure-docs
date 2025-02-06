@@ -80,7 +80,7 @@ This section shows you how to create a .NET console application to send messages
 1. Replace the contents of `Program.cs` with the following code. The important steps are outlined,  with additional information in the code comments.
 
     > [!IMPORTANT]
-    > Update placeholder values (`<NAMESPACE-ENDPOINT>` , `<TOPIC-NAME>`, `<TOPIC-ACCESS-KEY>`, `<TOPIC-SUBSCRIPTION-NAME>`) in the code snippet with your namespace endpoint, topic name, and topic key.
+    > Update placeholder values (`<NAMESPACE-ENDPOINT>` , `<TOPIC-NAME>`, `<TOPIC-ACCESS-KEY>`) in the code snippet with your namespace endpoint, topic name, and topic key.
 
     ```csharp
     using Azure.Messaging;

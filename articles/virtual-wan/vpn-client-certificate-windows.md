@@ -5,7 +5,7 @@ description: Learn how to configure VPN clients on Windows computers for User VP
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 08/24/2023
+ms.date: 02/04/2025
 ms.author: cherylmc
 ---
 
@@ -15,7 +15,9 @@ This article helps you configure Virtual WAN User VPN clients on a Windows opera
 
 The VPN client configuration files that you generate are specific to the P2S User VPN gateway configuration. If there are any changes to the P2S VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client configuration files and apply the new configuration to all of the VPN clients that you want to connect.
 
-This article applies to Windows operating system clients. For macOS/iOS IKEv2 steps, use [this section](../vpn-gateway/point-to-site-vpn-client-cert-mac.md) of the VPN Gateway article. For Microsoft Entra authentication steps, see [Configure a VPN client for P2S connections that use Microsoft Entra authentication](openvpn-azure-ad-client.md).
+This article applies to Windows operating system clients. For more information about other VPN client configuration articles, see the following table:
+
+[!INCLUDE [P2S client configuration articles](../../includes/virtual-wan-vpn-client-install-articles.md)]
 
 ## <a name="generate"></a>Before you begin
 
@@ -74,29 +76,11 @@ For more information about User VPN client profile files, see [Working with User
 
 ### Download the Azure VPN Client
 
-[!INCLUDE [Download the Azure VPN Client](../../includes/vpn-gateway-download-vpn-client.md)]
+[!INCLUDE [Download the Azure VPN client](../../includes/vpn-gateway-download-vpn-client.md)]
 
 ### Configure the Azure VPN Client
 
-1. Open the Azure VPN Client.
-
-1. Click **+** on the bottom left of the page, then select **Import**.
-
-1. In the window, navigate to the **azurevpnconfig.xml** file, select it, then click **Open**.
-
-1. From the **Certificate Information** dropdown, select the name of the child certificate (the client certificate). For example, **P2SChildCert**.
-
-   :::image type="content" source="./media/vpn-client-certificate-windows/configure-certificate.png" alt-text="Screenshot showing Azure VPN Client profile configuration page." lightbox="./media/vpn-client-certificate-windows/configure-certificate.png":::
-
-   If you don't see a client certificate in the **Certificate Information** dropdown, you'll need to cancel the profile configuration import and fix the issue before proceeding. It's possible that one of the following things is true:
-
-   * The client certificate isn't installed locally on the client computer.
-   * There are multiple certificates with exactly the same name installed on your local computer (common in test environments).
-   * The child certificate is corrupt.
-
-1. After the import validates (imports with no errors), click **Save**.
-
-1. In the left pane, locate the **VPN connection**, then click **Connect**.
+[!INCLUDE [Configure the Azure VPN client](../../includes/vpn-gateway-vwan-configure-azure-vpn-client-certificate.md)]
 
 ## Next steps
 
