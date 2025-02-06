@@ -43,4 +43,4 @@ Firmware analysis can analyze your firmware for common weaknesses and vulnerabil
 
 - [Analyze a firmware image](./tutorial-analyze-firmware.md)
 - [Understand Role-Based Access Control for Firmware Images](./firmware-analysis-rbac.md)
-- [Frequently asked questions about Firmware analysis](./firmware-analysis-faq.md)
+- [Frequently asked questions about firmware analysis](./firmware-analysis-faq.md)
