@@ -54,10 +54,21 @@ To create a backend in the portal:
     1. Under **Advanced**, optionally disable certificate chain or certificate name validation for the backend.
     1. Under **Add this backend service to a backend pool**, optionally select or create a [load-balanced pool](#load-balanced-pool) for the backend.
     1. Under **Circuit breaker rule**, optionally configure a [circuit breaker](#circuit-breaker) for the backend.
-    1. Under **Authorization credentials**, optionally configure credentials to authorize access to the backend. Options include a request header, query parameter, [client certificate](api-management-howto-mutual-certificates-for-clients.md), or system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md) configured in the API Management instance.
+    1. Under **Authorization credentials**, optionally configure credentials to authorize access to the backend. Options include a request header, query parameter, [client certificate](api-management-howto-mutual-certificates-for-clients.md), or system-assigned or user-assigned [managed identity](#configure-managed-identity-for-authorization-credentials) configured in the API Management instance.
     1. Select **Create**.
     
 After creating a backend, you can update the backend settings at any time. For example, add a circuit breaker rule, change the runtime URL, or add authorization credentials.
+
+### Configure managed identity for authorization credentials
+
+You can use a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md) configured in the API Management instance to authorize access to the backend service. To configure a managed identity for authorization credentials, do the following:
+
+1. In the **Authorization credentials** section of the backend configuration, select the **Managed identity** tab, and select **Enable**.
+1. In **Client identity**, select either **System assigned identity** or a user-assigned identity that is configured in your instance.
+1. In **Resource ID**, enter a target Azure service or the application ID of your own Microsoft Entra application representing the backend. Example: `https://cognitiveservices.azure.com` for Azure OpenAI service. 
+
+    For more examples, see the [authentication-managed-identity](authentication-managed-identity-policy.md) policy reference.
+1. Select **Create**.
 
 ## Reference backend using set-backend-service policy
 
