@@ -12,7 +12,7 @@ ms.custom: references_regions, subject-reliability
 
 # Azure region pairs and nonpaired regions
 
-Azure regions are independent of each other. However, Microsoft associates some Azure regions with another region, where both are usually in the same geography. Together the regions form a *region pair*. Many other regions aren't paired, and instead use availability zones as their primary means of redundancy. This article describes both how nonpaired regions and region pairs are used in Azure.
+Azure regions are independent of each other. However, Microsoft associates some Azure regions with another region, where both are usually in the same geography. Together the regions form a *region pair*. Many other regions aren't paired, and instead use availability zones as their primary means of redundancy. This article describes both how region pairs and nonpaired regions are used in Azure.
 
 Region pairs are used by some Azure services to support geo-replication and geo-redundancy, and to support some aspects of disaster recovery in the unlikely event that a region experiences a catastrophic and unrecoverable failure.
 

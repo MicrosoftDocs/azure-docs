@@ -74,16 +74,18 @@ If you're using your own authentication system, the Health check path must allow
 
 ```C#
 using System;
+using System.Security.Cryptography;
 using System.Text;
 
 /// <summary>
 /// Method <c>HeaderMatchesEnvVar</c> returns true if <c>headerValue</c> matches WEBSITE_AUTH_ENCRYPTION_KEY.
 /// </summary>
-public Boolean HeaderMatchesEnvVar(string headerValue) {
-    var sha = System.Security.Cryptography.SHA256.Create();
-    String envVar = Environment.GetEnvironmentVariable("WEBSITE_AUTH_ENCRYPTION_KEY");
-    String hash = System.Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(envVar)));
-    return hash == headerValue;
+public bool HeaderMatchesEnvVar(string headerValue)
+{
+    var sha = SHA256.Create();
+    string envVar = Environment.GetEnvironmentVariable("WEBSITE_AUTH_ENCRYPTION_KEY");
+    string hash = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(envVar)));
+    return string.Equals(hash, headerValue, StringComparison.Ordinal);
 }
 ```
 
@@ -157,7 +159,7 @@ Once diagnostic collection is enabled, you can create a storage account or choos
 
 ## Monitoring
 
-After providing your application's Health check path, you can monitor the health of your site using Azure Monitor. From the **Health check** blade in the portal, select **Metrics** in the top toolbar. This opens a new blade where you can see the site's health status history and create a new alert rule. Health check metrics aggregate the successful pings and display failures only when the instance was deemed unhealthy based on the Health check configuration. For more information on monitoring your sites, see [Azure App Service quotas and alerts](web-sites-monitor.md).
+After providing your application's Health check path, you can monitor the health of your site using Azure Monitor. From the **Health check** blade in the portal, select **Metrics** in the top toolbar. This opens a new blade where you can see the site's health check status history and create a new alert rule. Health check status metric aggregate the successful pings and display failures only when the instance was deemed unhealthy based on the Health Check Load balancing threshold value configured. By default this value is set to 10 minutes, so it takes 10 consecutive pings (1 per minute) for a given instance to be deemed unhealthy and only then will it be reflected on the metric. For more information on monitoring your sites, see [Azure App Service quotas and alerts](web-sites-monitor.md).
 
 ## Limitations
 

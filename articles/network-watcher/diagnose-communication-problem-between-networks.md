@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: tutorial
-ms.date: 11/29/2023
+ms.date: 01/29/2025
 
 #CustomerIntent: As a network administrator, I want to determine why resources in a virtual network can't communicate with resources in a different virtual network over a VPN connection.
 ---
@@ -15,7 +15,7 @@ ms.date: 11/29/2023
 
 This tutorial shows you how to use Azure Network Watcher [VPN troubleshoot](vpn-troubleshoot-overview.md) capability to diagnose and troubleshoot a connectivity issue between two virtual networks. The virtual networks are connected via VPN gateways using VNet-to-VNet connections. 
 
-:::image type="content" source="./media/diagnose-communication-problem-between-networks/vpn-troubleshoot-tutorial-diagram.png" alt-text="Diagram shows the resources created in the tutorial." lightbox="./media/diagnose-communication-problem-between-networks/vpn-troubleshoot-tutorial-diagram.png":::
+:::image type="content" source="./media/diagnose-communication-problem-between-networks/vpn-troubleshoot-tutorial-diagram.png" alt-text="Diagram that shows the resources created in the tutorial.":::
 
 In this tutorial, you learn how to:
 
@@ -38,9 +38,9 @@ In this section, you create two virtual network gateways to connect two virtual 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box at the top of the portal, enter ***virtual network gateways***. Select **Virtual network gateways** from the search results.
+1. In the search box at the top of the portal, enter ***virtual network gateway***. Select **Virtual network gateways** from the search results.
 
-    :::image type="content" source="./media/diagnose-communication-problem-between-networks/virtual-network-gateway-azure-portal.png" alt-text="Screenshot shows searching for virtual network gateways in the Azure portal.":::
+    :::image type="content" source="./media/diagnose-communication-problem-between-networks/virtual-network-gateway-portal-search.png" alt-text="Screenshot shows searching for virtual network gateways in the Azure portal.":::
 
 1. Select **+ Create**. In **Create virtual network gateway**, enter or select the following values in the **Basics** tab:
 

@@ -1,5 +1,5 @@
 ---
-title: Use VMware Tanzu Application Accelerator with the Azure Spring Apps Enterprise plan
+title: Use VMware Tanzu Application Accelerator with the Azure Spring Apps Enterprise Plan
 description: Learn how to use VMware Tanzu App Accelerator with the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.service: azure-spring-apps
@@ -12,6 +12,9 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 # Use VMware Tanzu Application Accelerator with the Azure Spring Apps Enterprise plan
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
+
+> [!NOTE]
+> Application Accelerator for VMware Tanzu reaches the end of support on August 31, 2025. For more information, see [Deprecation of Tanzu components](../migration/migrate-off-deprecated-tanzu-components.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 **This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
@@ -31,7 +34,7 @@ App Accelerator helps you bootstrap developing your applications and deploying t
   az extension remove --name spring-cloud
   ```
 
-- To use App Accelerator in VS Code, you'll also need to satisfy the following prerequisites:
+- To use App Accelerator in VS Code, you also need to satisfy the following prerequisites:
 
   - [Visual Studio Code](https://code.visualstudio.com/Download)
   - [Azure Spring Apps extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-cloud)
@@ -40,7 +43,7 @@ App Accelerator helps you bootstrap developing your applications and deploying t
 
 You can enable App Accelerator when you provision an Azure Spring Apps Enterprise plan instance. If you already have an Azure Spring Apps Enterprise plan resource, see the [Manage App Accelerator in an existing Enterprise plan instance](#manage-app-accelerator-in-an-existing-enterprise-plan-instance) section to enable it.
 
-You can enable App Accelerator using the Azure portal or Azure CLI.
+You can enable App Accelerator using the Azure portal or the Azure CLI.
 
 ### [Azure portal](#tab/Portal)
 
@@ -57,7 +60,7 @@ Use the following steps to enable App Accelerator using the Azure portal:
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-Use the following steps to provision an Azure Spring Apps service instance with App Accelerator enabled using the Azure CLI.
+Use the following steps to provision an Azure Spring Apps service instance with App Accelerator enabled using the Azure CLI:
 
 1. Use the following command to sign in to the Azure CLI and choose your active subscription:
 
@@ -110,12 +113,12 @@ Application Accelerator lets you generate new projects from files in Git reposit
 | Component name            | Instance count | vCPU per instance | Memory per instance | Description                                                                                                                                                             |
 |---------------------------|----------------|-------------------|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `accelerator-server`      | 2              | 0.4 core          | 0.5Gi               | Serves API used by Dev Tools Portal to list available accelerators and options.                                                                                         |
-| `accelerator-engine`      | 1              | 1 core            | 3Gi                 | Processes the input values and files (pulled from a snapshot of a Git repository) and applies dynamic transformations to generate projects.                             |
+| `accelerator-engine`      | 1              | 1 core            | 3Gi                 | Processes the input values and files - pulled from a snapshot of a Git repository - and applies dynamic transformations to generate projects.                             |
 | `accelerator-controller`  | 1              | 0.2 core          | 0.25Gi              | Reconciles Application Accelerator resources.                                                                                                                           |
 | `source-controller`       | 1              | 0.2 core          | 0.25Gi              | Registers a controller to reconcile the `ImageRepositories` and `MavenArtifacts` resources used by Application Accelerator.                                             |
 | `flux-source-controller`  | 1              | 0.2 core          | 0.25Gi              | Registers a controller to reconcile `GithubRepository` resources used by Application Accelerator. Supports managing Git repository sources for Application Accelerator. |
 
-You can see the running instances and resource usage of all the components using the Azure portal and Azure CLI.
+You can see the running instances and resource usage of all the components by using the Azure portal or the Azure CLI.
 
 ### [Azure portal](#tab/Portal)
 
@@ -125,12 +128,12 @@ You can view the state of Application Accelerator in the Azure portal on the **D
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-Use the following command in the Azure CLI to view Application Accelerator.
+Use the following command in the Azure CLI to view Application Accelerator:
 
 ```azurecli
 az spring application-accelerator show \
-    --service <Azure-Spring-Apps-service-instance-name> \
-    --resource-group <resource-group-name>
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name>
 ```
 
 ---
@@ -159,7 +162,7 @@ For more information, see [How to use permissions in Azure Spring Apps](../basic
 
 You can start with several predefined accelerators to bootstrap your new projects. You can disable or enable the built-in accelerators according to your own preference.
 
-You can manage predefined accelerators using the Azure portal or Azure CLI.
+You can manage predefined accelerators using the Azure portal and the Azure CLI.
 
 #### [Azure portal](#tab/Portal)
 
@@ -173,43 +176,43 @@ Use the following command in the Azure CLI to view a list of built-in accelerato
 
 ```azurecli
 az spring application-accelerator predefined-accelerator list \
-    --service <service-instance-name> \
-    --resource-group <resource-group-name>
+    --resource-group <resource-group-name> \
+    --service <service-instance-name>
 ```
 
 Use the following command to disable a built-in predefined accelerator:
 
 ```azurecli
 az spring application-accelerator predefined-accelerator disable \
-    --name <predefined-accelerator-name> \
+    --resource-group <resource-group-name> \
     --service <service-instance-name> \
-    --resource-group <resource-group-name>
+    --name <predefined-accelerator-name>
 ```
 
 Use the following command to enable a built-in predefined accelerator:
 
 ```azurecli
 az spring application-accelerator predefined-accelerator enable \
-    --name <predefined-accelerator-name> \
+    --resource-group <resource-group-name> \
     --service <service-instance-name> \
-    --resource-group <resource-group-name>
+    --name <predefined-accelerator-name>
 ```
 
 ---
 
 ### Manage your own accelerators
 
-In addition to using the predefined accelerators, you can create your own accelerators. You can use any Git repository in Azure DevOps, GitHub, GitLab, or BitBucket.
+In addition to using the predefined accelerators, you can create your own accelerators. You can use any Git repository in Azure DevOps, GitHub, GitLab, or Bitbucket.
 
 Use the following steps to create and maintain your own accelerators:
 
-First, create a file named *accelerator.yaml* in the root directory of your Git repository.
+First, create a file named **accelerator.yaml** in the root directory of your Git repository.
 
-You can use the *accelerator.yaml* file to declare input options that users fill in using a form in the UI. These option values control processing by the template engine before it returns the zipped output files. If you don't include an *accelerator.yaml* file, the repository still works as an accelerator, but the files are passed unmodified to users. For more information, see [Creating an accelerator.yaml file](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.5/tap/application-accelerator-creating-accelerators-accelerator-yaml.html).
+You can use the **accelerator.yaml** file to declare input options that users fill in using a form in the UI. These option values control processing by the template engine before it returns the zipped output files. If you don't include an **accelerator.yaml** file, the repository still works as an accelerator, but the files are passed unmodified to users. For more information, see the [Create an accelerator.yaml file in Application Accelerator](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.5/tap.pdf#create-an-accelerator-yaml-file-in-application-accelerator) section of [Tanzu Application Platform v1.5](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.5/tap.pdf).
 
 Next, publish the new accelerator.
 
-After you create your *accelerator.yaml* file, you can create your accelerator. You can then view it in the Azure portal or the Application Accelerator page in Dev Tools Portal. You can publish the new accelerator using the Azure portal or Azure CLI.
+After you create your **accelerator.yaml** file, you can create your accelerator. You can then view it in the Azure portal or the Application Accelerator page in Dev Tools Portal. You can publish the new accelerator by using the Azure portal or the Azure CLI.
 
 #### [Azure portal](#tab/Portal)
 
@@ -219,13 +222,13 @@ To create your own accelerator, open the **Accelerators** section and then selec
 
 #### [Azure CLI](#tab/Azure-CLI)
 
-Use the following command to create your own accelerator in Azure CLI:
+Use the following command to create your own accelerator:
 
 ```azurecli
 az spring application-accelerator customized-accelerator create \
-    --name <customized-accelerator-name> \
-    --service <service-instance-name> \
     --resource-group <resource-group-name> \
+    --service <service-instance-name> \
+    --name <customized-accelerator-name> \
     --display-name <display-name> \
     --git-url <git-repo-url> \
    [--description <description>] \
@@ -245,7 +248,7 @@ az spring application-accelerator customized-accelerator create \
 
 ---
 
-The following table describes the customizable accelerator fields.
+The following table describes the customizable accelerator fields:
 
 | Portal                             | CLI                       | Description                                                                                                                                                                                                                                                                                                                                                                    | Required/Optional                                              |
 |------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
@@ -253,8 +256,8 @@ The following table describes the customizable accelerator fields.
 | **Description**                    | `display-name`            | A longer description of the accelerator.                                                                                                                                                                                                                                                                                                                                       | Optional                                                       |
 | **Icon url**                       | `icon-url`                | A URL for an image to represent the accelerator in the UI.                                                                                                                                                                                                                                                                                                                     | Optional                                                       |
 | **Tags**                           | `accelerator-tags`        | An array of strings defining attributes of the accelerator that can be used in a search in the UI.                                                                                                                                                                                                                                                                             | Optional                                                       |
-| **Git url**                        | `git-url`                 | The repository URL of the accelerator source Git repository. The URL can be an HTTP/S or SSH address. The [scp-like syntax](https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols#_the_ssh_protocol) isn't supported for SSH addresses (for example, `user@example.com:repository.git`). Instead, the valid URL format is `ssh://user@example.com:22/repository.git`. | Required                                                       |
-| **Git interval**                   | `git-interval-in-seconds` | The interval at which to check for repository updates. If not specified, the interval defaults to 10 minutes. There's also a refresh interval (currently 10 seconds) before accelerators may appear in the UI. There could be a 10-second delay before changes are reflected in the UI.                                                                                        | Optional                                                       |
+| **Git url**                        | `git-url`                 | The repository URL of the accelerator source Git repository. The URL can be an HTTP/S or SSH address. The [scp-like syntax](https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols#_the_ssh_protocol) isn't supported for SSH addresses - for example, `user@example.com:repository.git`. Instead, the valid URL format is `ssh://user@example.com:22/repository.git`. | Required                                                       |
+| **Git interval**                   | `git-interval-in-seconds` | The interval at which to check for repository updates. If not specified, the interval defaults to 10 minutes. There's also a refresh interval - currently 10 seconds - before accelerators can appear in the UI. There could be a 10-second delay before changes are reflected in the UI.                                                                                        | Optional                                                       |
 | **Git branch**                     | `git-branch`              | The Git branch to check out and monitor for changes. You should specify only the Git branch, Git commit, or Git tag.                                                                                                                                                                                                                                                           | Optional                                                       |
 | **Git commit**                     | `git-commit`              | The Git commit SHA to check out. You should specify only the Git branch, Git commit, or Git tag.                                                                                                                                                                                                                                                                               | Optional                                                       |
 | **Git tag**                        | `git-tag`                 | The Git commit tag to check out. You should specify only the Git branch, Git commit, or Git tag.                                                                                                                                                                                                                                                                               | Optional                                                       |
@@ -281,7 +284,7 @@ To view the newly published accelerator, refresh Dev Tools Portal.
 
 ### Reference a fragment in your own accelerators
 
-Writing and maintaining accelerators can become repetitive and verbose as new accelerators are added. Some people create new projects by copying existing ones and making modifications, but this process can be tedious and error prone. To make the creation and maintenance of accelerators easier, Application Accelerator supports a feature named Composition that allows the reuse of parts of an accelerator, called *fragments*.
+Writing and maintaining accelerators can become repetitive and verbose as new accelerators are added. Some people create new projects by copying existing ones and making modifications, but this process can be tedious and error prone. To make the creation and maintenance of accelerators easier, Application Accelerator supports a feature named Composition that enables the reuse of parts of an accelerator, called *fragments*.
 
 Use the following steps to reference a fragment in your accelerator:
 
@@ -308,7 +311,7 @@ Use the following steps to reference a fragment in your accelerator:
        --git-url <git-repo-URL>
    ```
 
-1. Change the *accelerator.yaml* file in your accelerator project. Use the `imports` instruction in the `accelerator` section and the `InvokeFragment` instruction in the `engine` section to reference the fragment in the accelerator, as shown in the following example:
+1. Change the **accelerator.yaml** file in your accelerator project. Use the `imports` instruction in the `accelerator` section and the `InvokeFragment` instruction in the `engine` section to reference the fragment in the accelerator, as shown in the following example:
 
    ```yaml
    accelerator:
@@ -348,9 +351,9 @@ Use the following steps to reference a fragment in your accelerator:
 
    ```azurecli
    az spring application-accelerator customized-accelerator sync-cert \
-       --name <customized-accelerator-name> \
+       --resource-group <resource-group-name> \
        --service <service-instance-name> \
-       --resource-group <resource-group-name>
+       --name <customized-accelerator-name>
    ```
 
 For more information, see [Use fragments in Application Accelerator](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.5/tap/application-accelerator-creating-accelerators-composition.html) in the VMware documentation.
@@ -435,16 +438,16 @@ Use the following command to sync certificates for an accelerator:
 
 ```azurecli
 az spring application-accelerator customized-accelerator sync-cert \
-    --name <customized-accelerator-name> \
+    --resource-group <resource-group-name> \
     --service <service-instance-name> \
-    --resource-group <resource-group-name>
+    --name <customized-accelerator-name>
 ```
 
 ---
 
 ## Manage App Accelerator in an existing Enterprise plan instance
 
-You can enable App Accelerator under an existing Azure Spring Apps Enterprise plan instance using the Azure portal or Azure CLI.
+You can enable App Accelerator under an existing Azure Spring Apps Enterprise plan instance using the Azure portal or the Azure CLI.
 
 ### [Azure portal](#tab/Portal)
 
@@ -466,16 +469,16 @@ Use the following command to enable App Accelerator for an Azure Spring Apps ser
 
 ```azurecli
 az spring application-accelerator create \
-    --service <Azure-Spring-Apps-service-instance-name> \
-    --resource-group <resource-group-name>
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name>
 ```
 
 Use the following command to disable App Accelerator for an Azure Spring Apps service instance:
 
 ```azurecli
 az spring application-accelerator delete \
-    --service <Azure-Spring-Apps-service-instance-name> \
-    --resource-group <resource-group-name>
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name>
 ```
 
 To access the Dev Tools Portal, make sure it's enabled with an assigned public endpoint. Use the following command to enable the Dev Tools Portal:

@@ -1,6 +1,6 @@
 ---
-title: Map data by using dataflows
-description: Learn about the dataflow mapping language for transforming data in Azure IoT Operations.
+title: Map data by using data flows
+description: Learn about the data flow mapping language for transforming data in Azure IoT Operations.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
@@ -8,15 +8,15 @@ ms.topic: concept-article
 ms.date: 11/11/2024
 ai-usage: ai-assisted
 
-#CustomerIntent: As an operator, I want to understand how to use the dataflow mapping language to transform data.
+#CustomerIntent: As an operator, I want to understand how to use the data flow mapping language to transform data.
 ms.service: azure-iot-operations
 ---
 
-# Map data by using dataflows
+# Map data by using data flows
 
 [!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
-Use the dataflow mapping language to transform data in Azure IoT Operations. The syntax is a simple, yet powerful, way to define mappings that transform data from one format to another. This article provides an overview of the dataflow mapping language and key concepts.
+Use the data flow mapping language to transform data in Azure IoT Operations. The syntax is a simple, yet powerful, way to define mappings that transform data from one format to another. This article provides an overview of the data flow mapping language and key concepts.
 
 Mapping allows you to transform data from one format to another. Consider the following input record:
 
@@ -127,7 +127,7 @@ When you use MQTT or Kafka as a source or destination, you can access various me
 * **Topic**: Works for both MQTT and Kafka. It contains the string where the message was published. Example: `$metadata.topic`.
 * **User property**: In MQTT, this refers to the free-form key/value pairs an MQTT message can carry. For example, if the MQTT message was published with a user property with key "priority" and value "high", then the `$metadata.user_property.priority` reference hold the value "high". User property keys can be arbitrary strings and may require escaping: `$metadata.user_property."weird key"` uses the key "weird key" (with a space).
 * **System property**: This term is used for every property that is not a user property. Currently, only a single system property is supported: `$metadata.system_property.content_type`, which reads the content type property of the MQTT message (if set).
-* **Header**: This is the Kafka equivalent of the MQTT user property. Kafka can use any binary value for a key, but dataflow supports only UTF-8 string keys. Example: `$metadata.header.priority`. This functionality is similar to user properties.
+* **Header**: This is the Kafka equivalent of the MQTT user property. Kafka can use any binary value for a key, but data flows support only UTF-8 string keys. Example: `$metadata.header.priority`. This functionality is similar to user properties.
 
 #### Mapping metadata properties
 
@@ -269,7 +269,7 @@ inputs: [
 
 ---
 
-In a dataflow, a path described by dot notation might include strings and some special characters without needing escaping:
+In a data flow, a path described by dot notation might include strings and some special characters without needing escaping:
 
 # [Bicep](#tab/bicep)
 
@@ -309,7 +309,7 @@ inputs: [
 
 The previous example, among other special characters, contains dots within the field name. Without escaping, the field name would serve as a separator in the dot notation itself.
 
-While a dataflow parses a path, it treats only two characters as special:
+While a data flow parses a path, it treats only two characters as special:
 
 * Dots (`.`) act as field separators.
 * Single quotation marks, when placed at the beginning or the end of a segment, start an escaped section where dots aren't treated as field separators.
@@ -850,13 +850,13 @@ Consider a special case for the same fields to help decide the right action:
 
 An empty `output` field in the second definition implies not writing the fields in the output record (effectively removing `Opacity`). This setup is more of a `Specialization` than a `Second Rule`.
 
-Resolution of overlapping mappings by dataflows:
+Resolution of overlapping mappings by data flows:
 
 * The evaluation progresses from the top rule in the mapping definition.
 * If a new mapping resolves to the same fields as a previous rule, the following conditions apply:
   * A `Rank` is calculated for each resolved input based on the number of segments the wildcard captures. For instance, if the `Captured Segments` are `Properties.Opacity`, the `Rank` is 2. If it's only `Opacity`, the `Rank` is 1. A mapping without wildcards has a `Rank` of 0.
-  * If the `Rank` of the latter rule is equal to or higher than the previous rule, a dataflow treats it as a `Second Rule`.
-  * Otherwise, the dataflow treats the configuration as a `Specialization`.
+  * If the `Rank` of the latter rule is equal to or higher than the previous rule, a data flow treats it as a `Second Rule`.
+  * Otherwise, the data flow treats the configuration as a `Specialization`.
 
 For example, the mapping that directs `Opacity.Max` and `Opacity.Min` to an empty output has a `Rank` of 0. Because the second rule has a lower `Rank` than the previous one, it's considered a specialization and overrides the previous rule, which would calculate a value for `Opacity`.
 

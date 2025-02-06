@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: tutorial
-ms.date: 08/02/2023
+ms.date: 02/03/2025
 ms.author: cshoe
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
@@ -53,7 +53,7 @@ az containerapp up \
   --query properties.configuration.ingress.fqdn \
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 az containerapp up `
@@ -94,7 +94,7 @@ az containerapp update \
     --scale-rule-http-concurrency 1
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 az containerapp update `
@@ -124,7 +124,7 @@ az containerapp logs show \
 	--follow=true
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 az containerapp logs show `
@@ -211,7 +211,7 @@ For more information, see the documentation for:
 - [xargs](https://www.man7.org/linux/man-pages/man1/xargs.1.html)
 - [curl](https://www.man7.org/linux/man-pages/man1/curl.1.html)
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 Open a new command prompt and enter PowerShell. Run the following commands, replacing `<YOUR_CONTAINER_APP_FQDN>` with the fully qualified domain name for your container app that you saved from the [Create and deploy the container app](#create-and-deploy-the-container-app) section.
 
