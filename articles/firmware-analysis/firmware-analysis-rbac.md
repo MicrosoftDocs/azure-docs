@@ -34,7 +34,7 @@ You can use RBAC at each level of the hierarchy, including at the hidden **defau
 
 Here's the resource hierarchy of firmware analysis:
 
-:::image type="content" source="media/firmware-analysis-rbac/resource-hierarchy.png" alt-text="Diagram that shows the resource hierarchy of firmware images of Firmware Analysis." lightbox="media/firmware-analysis-rbac/resource-hierarchy.png":::
+:::image type="content" source="media/firmware-analysis-rbac/resource-hierarchy.png" alt-text="Diagram that shows the resource hierarchy of firmware images of firmware analysis." lightbox="media/firmware-analysis-rbac/resource-hierarchy.png":::
 
 ## Apply Azure RBAC
 
