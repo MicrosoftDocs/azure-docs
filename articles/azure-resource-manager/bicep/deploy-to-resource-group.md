@@ -62,6 +62,8 @@ For more detailed information about deployment commands and options for deployin
 
 ## Deployment scopes
 
+// TODO add links to relevant docs on concepts like modules, resource declarations, existing resources
+
 Within a single Bicep file, all resources declared with the `resource` keyword must be deployed at the same scope as the deployment. For a resource group deployment, this means all `resource` declarations in the Bicep file must either be deployed to the same resource group, or as a child or extension resource of a resource in the same resource group as the deployment.
 
 For `existing` resources, the same restriction does not apply - you may reference a resource at a different scope to that of the deployment.
