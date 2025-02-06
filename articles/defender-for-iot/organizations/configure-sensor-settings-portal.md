@@ -186,8 +186,7 @@ Select **Add VLAN** to add more VLANs as needed.
 
 ### Public addresses
 
-Add public addresses that might have been used for internal use and shouldn't be included as suspicious IP addresses or tracking the data<!-- Theo is this correct? OR-->.
-Excluded public IP addresses that might have been used for internal use and shouldn't be included as suspicious IP addresses or tracking the data.
+Add the public addresses of internel devices into this configuration to ensure that the sensor includes them in the inventory and doesn't treat them as internal communication.
 
 1. In the **Settings** tab, type the **IP address** and **Mask** address.
 
