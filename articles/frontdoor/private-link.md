@@ -56,9 +56,8 @@ Azure Front Door private link is available in the following regions:
 | Central US | North Europe | | Japan East |
 | East US | Norway East | | Korea Central |
 | East US 2 | UK South | | East Asia |
-| South Central US | West Europe | | South East Asia |
-| West US 2 | Sweden Central | | |
-| West US 3 | | | |
+| South Central US | West Europe | | |
+| West US 3 | Sweden Central | | |
 | US Gov Arizona | | | |
 | US Gov Texas | | | |
 | US Gov Virginia | | | |
@@ -130,4 +129,4 @@ If AFD-Profile-1 gets deleted, then the PE1 private endpoint across all the orig
 * Learn how to [connect Azure Front Door Premium to a storage static website origin with Private Link](how-to-enable-private-link-storage-static-website.md).
 * Learn how to [connect Azure Front Door Premium to an application gateway origin with Private Link](how-to-enable-private-link-application-gateway.md).
 * Learn how to [connect Azure Front Door Premium to an API Management origin with Private Link](standard-premium/how-to-enable-private-link-apim.md).
-* Learn how to [connect Azure Front Door Premium to an Azure Container Apps origin with Private Link](../container-apps/how-to-use-private-endpoint.md).
+* Learn how to [connect Azure Front Door Premium to an Azure Container Apps origin with Private Link](../container-apps/how-to-integrate-with-azure-front-door.md).
