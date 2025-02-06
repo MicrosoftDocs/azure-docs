@@ -738,7 +738,7 @@ items:
   - name: Private 5G Core
     tocHref: /azure/private-5g-core/
     topicHref: /azure/private-5g-core/
-  - name: Azure Managed Redis
+  - name: Redis
     tocHref: /azure/azure-cache-for-redis/
     topicHref: /azure/azure-cache-for-redis/index
   - name: Remoteapp
