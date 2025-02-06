@@ -8,7 +8,7 @@ ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
 ms.topic: article
-ms.date: 01/27/2025
+ms.date: 02/06/2025
 ms.author: danlep
 ---
 
@@ -16,7 +16,7 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
-The `llm-content-safety` policy enforces content safety checks on LLM requests (prompts) by transmitting them to the [Azure AI Content Safety](/azure/ai-services/content-safety/overview) service before sending to the backend LLM. When enabled and AI Content Safety detects malicious content, API Management blocks the request and returns a `403` error code. 
+The `llm-content-safety` policy enforces content safety checks on LLM requests (prompts) by transmitting them to the [Azure AI Content Safety](/azure/ai-services/content-safety/overview) service before sending to the backend LLM. When enabled and Azure AI Content Safety detects malicious content, API Management blocks the request and returns a `403` error code. 
 
 Use the policy in scenarios such as the following:
 
@@ -82,7 +82,7 @@ Policy expressions are allowed.	| No	| `FourSeverityLevels` |
 | Attribute           | Description                                                                                           | Required | Default |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name	| Specifies the name of this category. The attribute must have one of the following values: `Hate`, `SelfHarm`, `Sexual`, `Violence`. Policy expressions are allowed.	| Yes	| N/A |
-| threshold	| Specifies the threshold value for this category at which request are blocked. Requests with content severities less than the threshold are not blocked. The value must be between 0 and 7. Policy expressions are allowed.	| Yes	| N/A |
+| threshold	| Specifies the threshold value for this category at which request are blocked. Requests with content severities less than the threshold aren't blocked. The value must be between 0 and 7. Policy expressions are allowed.	| Yes	| N/A |
 
 
 ## Usage
@@ -99,7 +99,7 @@ Policy expressions are allowed.	| No	| `FourSeverityLevels` |
 
 ## Example
 
-The following example enforces content safety checks on LLM requests using the Azure AI Content Safety service. The policy blocks requests that contain hate speech or violence with a severity level of 4 or higher. The `shield-prompt` attribute is set to `true` to check for adversarial attacks.
+The following example enforces content safety checks on LLM requests using the Azure AI Content Safety service. The policy blocks requests that contain speech in the `hate` or `violence` category with a severity level of 4 or higher. The `shield-prompt` attribute is set to `true` to check for adversarial attacks.
 
 ```xml
 <policies>
@@ -122,15 +122,3 @@ The following example enforces content safety checks on LLM requests using the A
 * [llm-emit-token-metric](llm-emit-token-metric-policy.md) policy
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]
- 
-
-<!-- 
-Questions
-
-1. Inbound only for now?
-1. Checks are only on *requests*?
-1. GW and SKU support? 
-1. Preview for now?
-1. Should we categorize this as a content validation policy? 
-
--->
