@@ -211,7 +211,7 @@ VMware changed-block tracking technology keeps track of changes between replicat
 
 At the end of each replication cycle, the snapshot is released, and snapshot consolidation is performed for the VM. Similarly, for Hyper-V VMs, the Hyper-V replica-change tracking engine is used to keep track of changes between consecutive replication cycles.
 
-When you perform the migrate operation on a replicating VM, you can shut down the on-premises VM, and perform one final incremental replication to ensure zero data loss. When the replication is performed, the replica-managed disks corresponding to the VM are used to create the VM in Azure.
+When you perform the `Migrate` operation on a replicating VM, you can shut down the on-premises VM, and perform one final incremental replication to ensure zero data loss. When the replication is performed, the replica-managed disks corresponding to the VM are used to create the VM in Azure.
 
 To get started, refer to the [VMware agentless migration](tutorial-migrate-vmware.md) and [Hyper-V agentless migration](./tutorial-migrate-hyper-v.md) tutorials.
 
