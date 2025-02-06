@@ -60,6 +60,8 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
     ---
 
 1. Select **Next: Networking** to configure the network access to your target service and select **Configure firewall rules to enable access to your target service**.
+    > [!NOTE]
+    > Service Connector for AKS now supports only the firewall option. Private link and service endpoint options are not supported.
 1. Select **Next: Review + Create**  to review the provided information. Then select **Create** to create the service connection. This operation may take a minute to complete.
 
 ## View service connections in AKS cluster
