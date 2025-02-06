@@ -2,10 +2,10 @@
 title: Azure Communication Services Voice Calling and Video Calling logs 
 titleSuffix: An Azure Communication Services concept article
 description: Learn about logging for Azure Communication Services Voice Calling and Video Calling.
-author:  mkhribech
+author:  amagginetti
 services: azure-communication-services
 
-ms.author: mkhribech
+ms.author: amagginetti
 ms.date: 03/21/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -87,6 +87,7 @@ The call summary log contains data to help you identify key properties of all ca
 | `pstnParticipantCallType` | Represents the type and direction of PSTN participants including Emergency calling, direct routing, transfer, forwarding, and so on. | 
 | `ParticipantEndSubCode `| Represents the Calling SDK error subcode that the SDK emits (when relevant) for each `participantId` value. | 
 | `ResultCategory `| Represents the category of the participant ending the call. It can be one of these 4 values: Success, ExpectedError, UnexpectedClientError, UnexpectedServerError. |
+| `DiagnosticOptions `| This value allows developers to attach custom tags to their client telemetry, which can then be viewed in the Call Diagnostics section. This helps in identifying and troubleshooting issues more effectively. To learn how to add custom tags to this value, refer to [Tutorial on adding custom tags to your client telemetry](../../../tutorials/voice-video-calling/diagnostic-options-tag.md) |
 
 ### Call diagnostic log schema
 

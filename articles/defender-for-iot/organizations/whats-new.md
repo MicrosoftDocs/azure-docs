@@ -22,6 +22,16 @@ Features released earlier than nine months ago are described in the [What's new 
 
 The legacy on-premises management console won't be available for download after **January 1st, 2025**. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
 
+## January 2025
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [Aggregating multiple alerts violations with the same parameters](#aggregating-multiple-alerts-violations-with-the-same-parameters)|
+
+### Aggregating multiple alerts violations with the same parameters
+
+To reduce alert fatigue, multiple versions of the same alert violation and with the same parameters are grouped together and listed in the alerts table as one item. The alert details pane lists each of the identical alert violations in the **Violations** tab and the appropriate remediation actions are listed in the **Take action** tab. For more information, see [aggregating alerts with the same parameters](alerts.md#aggregating-alert-violations).
+
 ## December 2024
 
 |Service area  |Updates  |
@@ -31,6 +41,7 @@ The legacy on-premises management console won't be available for download after 
 ### Support Multiple Source Devices in DDoS Attack Alerts
 
 Alert details now display up to 10 source devices involved in DDoS attack.
+
 
 ## October 2024
 

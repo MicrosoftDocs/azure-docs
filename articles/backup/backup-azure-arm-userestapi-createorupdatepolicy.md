@@ -6,8 +6,8 @@ ms.date: 02/21/2024
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.service: azure-backup
 ms.custom: engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Create Azure Recovery Services backup policies by using REST API
 

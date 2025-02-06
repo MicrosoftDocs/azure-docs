@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 12/20/2024
+ms.date: 01/14/2024
 ms.custom: fasttrack-edit
 ---
 
@@ -16,6 +16,8 @@ ms.custom: fasttrack-edit
 In *single-tenant* Azure Logic Apps, the *app settings* for a Standard logic app specify the global configuration options that affect *all the workflows* in that logic app. However, these settings apply *only* when these workflows run in your *local development environment*. Locally running workflows can access these app settings as *local environment variables*, which are used by local development tools for values that can often change between environments. For example, these values can contain connection strings. When you deploy to Azure, app settings are ignored and aren't included with your deployment.
 
 Your logic app also has *host settings*, which specify the runtime configuration settings and values that apply to *all the workflows* in that logic app, for example, default values for throughput, capacity, data size, and so on, *whether they run locally or in Azure*.
+
+Settings are *key-value* pairs that define the setting name and value.
 
 <a name="app-settings-parameters-deployment"></a>
 
@@ -95,15 +97,17 @@ To add, update, or delete app settings, select and review the following sections
 
    For more information about these settings, review the [reference guide for available app settings - local.settings.json](#reference-local-settings-json).
 
-1. To view all values, select **Show Values**. Or, to view a single value, in the **Value** column, next to the value, select the "eye".
+1. To view all values, on the page toolbar, select **Show Values**. Or, to view a single value, in the **Value** column, select **Show value** (eye icon).
 
 ##### Add an app setting in the portal
 
-1. On the **App settings** tab, at the bottom of the list, in the **Name** column, enter the *key* or name for your new setting.
+1. On the **App settings** tab, on the toolbar, select **Add**.
+
+1. On the **Add/Edit application setting** pane, for **Name**, enter the *key* or name for your new setting.
 
 1. For **Value**, enter the value for your new setting.
 
-1. When you're ready to create your new *key-value* pair, select **Apply**.
+1. When you're done, select **Apply**.
 
    :::image type="content" source="./media/edit-app-settings-host-settings/portal-app-settings-values.png" alt-text="Screenshot shows Azure portal with app settings page and values for a Standard logic app resource." lightbox="./media/edit-app-settings-host-settings/portal-app-settings-values.png":::
 
@@ -263,7 +267,7 @@ The following settings work only for workflows that start with a recurrence-base
 | `Runtime.FlowRunEngine.ForeachMaximumItemsForContentInlining` | `20` items | When a `For each` loop is running, each item's value is stored either inline with other metadata in table storage or separately in blob storage. Sets the number of items to store inline with other metadata. |
 | `Runtime.FlowRunRetryableActionJobCallback.MaximumPagesForContentInlining` | `20` pages | Sets the maximum number of pages to store as inline content in table storage before storing in blob storage. |
 | `Runtime.FlowTriggerSplitOnJob.MaximumItemsForContentInlining` | `40` items | When the `SplitOn` setting debatches array items into multiple workflow instances, each item's value is stored either inline with other metadata in table storage or separately in blob storage. Sets the number of items to store inline. |
-| `Runtime.ScaleUnit.MaximumCharactersForContentInlining` | `8192` characters | Sets the maximum number of operation input and output characters to store inline in table storage before storing in blob storage. |
+| `Runtime.ScaleUnit.MaximumCharactersForContentInlining` | `32384` characters | Sets the maximum number of operation input and output characters to store inline in table storage before storing in blob storage. |
 
 <a name="for-each-loop"></a>
 

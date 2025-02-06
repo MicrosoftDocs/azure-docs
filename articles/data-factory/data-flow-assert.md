@@ -16,7 +16,7 @@ ms.date: 01/05/2024
 
 The Assert transformation enables you to build custom rules inside your mapping data flows for data quality and data validation. You can build rules that determine whether values meet an expected value domain. Additionally, you can build rules that check for row uniqueness. The Assert transformation helps to determine if each row in your data meets a set of criteria. The Assert transformation also allows you to set custom error messages when data validation rules aren't met.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWRdIu]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=d7dab33e-7008-45f8-b982-1451b157900a]
 
 :::image type="content" source="media/data-flow/data-flow-assert-001.png" alt-text="Assert type":::
 

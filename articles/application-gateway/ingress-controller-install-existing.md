@@ -118,7 +118,7 @@ For this configuration, you need authorization for the AGIC pod to make HTTP req
     ```
 
 > [!NOTE]
-> Make sure the identity that AGIC uses has the **Microsoft.Network/virtualNetworks/subnets/join/action** permission delegated to the subnet where Application Gateway is deployed. If you didn't define a custom role that has this permission, you can use the built-in **Network Contributor** role.
+> Please ensure the identity used by AGIC has the proper permissions. A list of permissions needed by the identity can be found here: [Configure Infrastructure - Permissions](configuration-infrastructure.md#permissions). If a custom role is not defined with the required permissions, you may use the _Network Contributor_ role.
 
 ### Set up a service principal
 

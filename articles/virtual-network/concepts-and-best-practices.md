@@ -30,7 +30,7 @@ As you build your network in Azure, it's important to keep in mind the following
 
 - Your subnets shouldn't cover the entire address space of the virtual network. Plan ahead and reserve some address space for the future.
 
-- It's recommended you have fewer large virtual networks rather than multiple small virtual networks to prevent management overhead.
+- It's recommended you have a few large virtual networks rather than multiple small virtual networks to prevent management overhead.
 
 - Secure your virtual networks by assigning Network Security Groups (NSGs) to the subnets beneath them. For more information about network security concepts, see [Azure network security overview](../security/fundamentals/network-overview.md).
 

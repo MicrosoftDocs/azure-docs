@@ -783,6 +783,15 @@ groups:
     title: Java
   - id: openai-node
     title: Node
+    # Owner: jefmarti
+- id: app-service-containers-github-actions
+  title: App Service GitHub actions
+  prompt: Choose a platform
+  pivots:
+  - id: github-actions-containers-linux
+    title: Linux
+  - id: github-actions-containers-windows
+    title: Windows
 # Owner: msangapu
 - id: app-spaces-component-types
   title: App Spaces components
@@ -1295,15 +1304,6 @@ groups:
     title: .NET
   - id: framework-spring
     title: Spring Framework
-# Owner: zhiyuanliang
-- id: feature-management
-  title: Library version pivots
-  prompt: Choose a release
-  pivots:
-  - id: stable-version
-    title: Stable release
-  - id: preview-version
-    title: Preview release
 # Owner: avanigupta
 - id: appconfig-data-plane-api-version
   title: API version pivots

@@ -80,6 +80,7 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
     });
 
     ```
+    
     ---
 
 1. Setting up `refreshOptions` alone won't automatically refresh the configuration. You need to call the `refresh` method to trigger a refresh. This design prevents unnecessary requests to App Configuration when your application is idle. You should include the `refresh` call where your application activity occurs. This is known as **activity-driven configuration refresh**. For example, you can call `refresh` when processing an incoming message or an order, or inside an iteration where you perform a complex task. Alternatively, you can use a timer if your application is always active. In this example, `refresh` is called in a loop for demonstration purposes. Even if the `refresh` call fails for any reason, your application will continue to use the cached configuration. Another attempt will be made when the configured refresh interval has passed and the `refresh` call is triggered by your application activity. Calling `refresh` is a no-op before the configured refresh interval elapses, so its performance impact is minimal even if it's called frequently.
@@ -141,6 +142,7 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
 
     run().catch(console.error);
     ```
+
     ### [Use configuration as object](#tab/configuration-object)
 
     ```javascript

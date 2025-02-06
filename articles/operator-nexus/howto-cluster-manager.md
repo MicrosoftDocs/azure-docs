@@ -279,6 +279,9 @@ az networkcloud clustermanager delete \
   - **--resource-group -g** - Name of resource group. You can configure the default group using `az configure --defaults group=<name>`.
   - **--subscription** - Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
 
+>[!NOTE]
+>It is recommended to wait for 20 minutes after deleting clustermanager before trying to create a new clustermanager with the same name.
+
 ## Next steps
 
 After you successfully created the Network Fabric Controller and the Cluster Manager, the next step is to create a [Network Fabric](./howto-configure-network-fabric.md).

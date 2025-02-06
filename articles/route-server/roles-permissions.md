@@ -26,7 +26,7 @@ If the [Azure built-in roles](../role-based-access-control/built-in-roles.md) do
 Just like built-in roles, you can assign custom roles to users, groups, and service principals at management group, subscription, and resource group scopes.
 For more information, see [Steps to create a custom role](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role)  .
 
-To ensure proper functionality, check your custom role permissions to confirm user service principals, and managed identities operating the VPN gateway have the necessary permissions.
+To ensure proper functionality, check your custom role permissions to confirm user service principals, and managed identities interacting with Route Server have the necessary permissions.
 To add any missing permissions listed here, see [Update a custom role](../role-based-access-control/custom-roles-portal.md#update-a-custom-role).
 
 ## Permissions

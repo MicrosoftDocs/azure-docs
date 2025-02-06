@@ -508,6 +508,6 @@ After the policy finishes execution, you're redirected to `https://jwt.ms`, and 
 
 Next, learn:
 
-- About [types of Technical Profiles](technicalprofiles.md#types-of-technical-profiles) in Azure AD B2C's custom policies. 
+- About the [types of Technical Profiles](technicalprofiles.md#types-of-technical-profiles) in Azure AD B2C's custom policies. 
 
 - How to [Validate user inputs by using custom policy](custom-policies-series-validate-user-input.md).
