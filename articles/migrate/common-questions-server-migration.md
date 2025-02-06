@@ -48,7 +48,7 @@ The agent-based migration option can be used for:
 
 Agent-based migration treats your machines as physical servers for migration.
 
-While agentless migration offers more convenience and simplicity than agent-based replication options for VMware and Hyper-V VMs, you might want to consider using the agent-based scenario for the following use cases:
+Agentless migration offers more convenience and simplicity than agent-based replication options for VMware and Hyper-V VMs. However, you might want to consider using the agent-based scenario for the following use cases:
 
 * Environments constrained by input/output operations per second (IOPS): Agentless replication uses snapshots and consumes storage IOPS/bandwidth. We recommend the agent-based migration method if there are constraints on storage/IOPS in your environment.
 * No vCenter Server: If you don't have a vCenter Server, you can treat your VMware VMs as physical servers and use the agent-based migration workflow.
