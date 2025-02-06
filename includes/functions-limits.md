@@ -18,7 +18,7 @@ ms.author: glenga
 |[ACU](/azure/virtual-machines/acu) per instance |  210-840 | 100-840/210-250<sup>10</sup> | [varies](/azure/container-apps/billing) |100 | varies |
 | Max memory (GB per instance) | 4<sup>14</sup> |  3.5-14 | 1.75-256/8-256 | [varies](/azure/container-apps/billing) |1.5 | 
 | Max instance count (Windows&nbsp;\|&nbsp;Linux) |  n/a&nbsp;\|&nbsp;1000<sup>15</sup> | varies by S    KU&nbsp;\|&nbsp;100<sup>11</sup> |  10-300<sup>18</sup> | 200&nbsp;\|&nbsp;100 | 1000 | 
-| Function apps per plan<sup>13</sup> |  100 | 100 | unbounded<sup>4</sup> | unbounded<sup>4</sup> |100 |
+| Function apps per plan<sup>13</sup> |  1 | 100 | unbounded<sup>4</sup> | unbounded<sup>4</sup> |100 |
 | [App Service plans](/azure/app-service/overview-hosting-plans) |  n/a | 100 per resource group |100 per resource group | n/a | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) |
 | [Deployment slots](/azure/azure-functions/functions-deployment-slots) per app<sup>12</sup> |  n/a | 3 | 1-20<sup>11</sup> | not supported |2 |
 | Storage (temporary)<sup>5</sup> |  0.8 GB | 21-140 GB |11-140 GB | n/a |0.5 GB |
