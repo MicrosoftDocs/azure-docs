@@ -109,7 +109,7 @@ A test migration doesn’t affect the on-premises machine, which remains operati
 
 You can select a virtual network for test migrations. Azure Migrate automatically selects a subnet based on the following logic:
 
-* If you specify a non-default target subnet as an input while enabling replication, Azure Migrate prioritizes a subnet with the same name in the virtual network used for the test migration.
+* If you specify a target subnet (other than default) as an input while enabling replication, Azure Migrate prioritizes a subnet with the same name in the virtual network used for the test migration.
 * If a subnet with the same name isn't found, then Azure Migrate alphabetically selects the first available subnet that isn't a gateway, application gateway, firewall, or bastion subnet.
 
 ### Why is the Test Migration button disabled for my Server?
