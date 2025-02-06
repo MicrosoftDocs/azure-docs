@@ -6,7 +6,7 @@ ms.author: rajosh
 ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 10/14/2024
+ms.date: 02/06/2025
 ms.custom: engagement-fy23
 
 ---
@@ -41,7 +41,7 @@ The Business case capability helps you build a business proposal to understand h
 Other key features:
 
 - Helps remove guess work in your cost planning process and adds data insights driven calculations.
-- It can be generated in just a few clicks after you have performed discovery using the Azure Migrate appliance.
+- It can be generated in just a few selections after you have performed discovery using the Azure Migrate appliance.
 - The feature is automatically enabled for existing Azure Migrate projects.
 
 There are three types of migration strategies that you can choose while building your Business case:
@@ -60,7 +60,7 @@ There are three types of migration strategies that you can choose while building
 
 To build a business case, follow these steps:
 
-1. In **Servers, databases and web apps**, select **Discover, assess and migrate**.
+1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
     :::image type="content" source="./media/how-to-build-a-business-case/assess-inline.png" alt-text="Screenshot of the discover, assess and migrate servers button." lightbox="./media/how-to-build-a-business-case/assess-expanded.png":::
 
