@@ -333,6 +333,9 @@ List of threat types:
     - `UnknownPrivate`: One of the IP addresses belong to an Azure virtual network, while the other IP address belongs to the private IP range defined in RFC 1918 and couldn't be mapped by traffic analytics to a customer owned site or Azure virtual network.
     - `Unknown`: Unable to map either of the IP addresses in the flow with the customer topology in Azure and on-premises (site).
 
+> [!NOTE]
+> A subscription is visible to traffic analytics if it has flow logs configured to a Log Analytics workspace.
+
 ## Related content
 
 - To learn more about traffic analytics, see [Traffic analytics overview](traffic-analytics.md).
