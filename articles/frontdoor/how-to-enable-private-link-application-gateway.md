@@ -51,6 +51,7 @@ Follow the instructions in [Configure Azure Application Gateway Private Link](..
     | Region | Select the region that matches or is closest to your origin. |
     | Target sub resource | Name of the Azure Application Gateway frontend IP configuration. |
     | Request message | Enter a custom message to display while approving the Private Endpoint.  |
+
 :::image type="content" source="media/private-link/application-gateway-private-link.png" alt-text="Origin dettings for configuring Application Gateway as a private origin":::    
 
 1. Select **Add** to save your origin settings

@@ -1176,7 +1176,7 @@ groups:
   - id: expressroute-preview
     title: Preview
 # Owner: hmb
-- id: cd C:
+- id: front-door-dev-exp-portal-ps-cli
   title: Front Door Developer experience
   prompt: "Select the developer experience:"
   pivots:
