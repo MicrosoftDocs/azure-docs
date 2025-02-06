@@ -15,7 +15,7 @@ ms.custom: engagement-fy23
 
 This article describes how to assess large numbers (1000-35,000) of on-premises servers in a VMware environment for migration to Azure, using the Azure Migrate Discovery and assessment tool.
 
-[Azure Migrate](migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings. 
+[Azure Migrate](../migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings. 
 
 In this article, you learn how to:
 > [!div class="checklist"]
@@ -87,7 +87,7 @@ In accordance with your planning requirements, do the following:
 1. Create an Azure Migrate projects.
 2. Add the Azure Migrate Discovery and assessment tool to the projects.
 
-[Learn more](./create-manage-projects.md) about creating a project.
+[Learn more](../create-manage-projects.md) about creating a project.
 
 ## Create and review an assessment
 
@@ -108,4 +108,4 @@ In this article, you:
 > * Created an Azure Migrate project and ran assessments
 > * Reviewed assessments in preparation for migration.
 
-Now, [learn how](concepts-assessment-calculation.md) assessments are calculated, and how to [modify assessments](how-to-modify-assessment.md).
+Now, [learn how](../concepts-assessment-calculation.md) assessments are calculated, and how to [modify assessments](../how-to-modify-assessment.md).
