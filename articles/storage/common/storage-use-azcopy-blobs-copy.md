@@ -43,7 +43,7 @@ Apply the following guidelines to your AzCopy commands.
 
 ## Copy a blob
 
-Copy a blob to another storage account by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
+Copy a blob to another storage account by using the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command.
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
@@ -68,7 +68,7 @@ The copy operation is synchronous so when the command returns, that indicates th
 
 ## Copy a directory
 
-Copy a directory to another storage account by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
+Copy a directory to another storage account by using the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command.
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
@@ -93,7 +93,7 @@ The copy operation is synchronous. All files have been copied when the command r
 
 ## Copy a container
 
-Copy a container to another storage account by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
+Copy a container to another storage account by using the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command.
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
@@ -118,7 +118,7 @@ The copy operation is synchronous. All files have been copied when the command r
 
 ## Copy containers, directories, and blobs
 
-Copy all containers, directories, and blobs to another storage account by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
+Copy all containers, directories, and blobs to another storage account by using the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command.
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
@@ -200,7 +200,7 @@ You can tweak your copy operation by using optional flags. Here's a few examples
 |Copy to a specific access tier (such as the archive tier).|**--block-blob-tier**=[None\|Hot\|Cool\|Archive]|
 |Automatically decompress files.|**--decompress**=[gzip\|deflate]|
 
-For a complete list, see [options](storage-ref-azcopy-copy.md#options).
+For a complete list, see [options](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy#options).
 
 ## Next steps
 

@@ -394,7 +394,10 @@ Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Python (Django or Flask) web app with PostgreSQL](./tutorial-python-postgresql-app.md)
+> [Tutorial: Python (Flask) web app with PostgreSQL](./tutorial-python-postgresql-app-flask.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: Python (Django) web app with PostgreSQL](./tutorial-python-postgresql-app-django.md)
 
 > [!div class="nextstepaction"]
 > [Configure a Python app](./configure-language-python.md)
