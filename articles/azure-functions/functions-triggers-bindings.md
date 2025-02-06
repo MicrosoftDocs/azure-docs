@@ -41,7 +41,7 @@ A function has a single trigger and one or more bindings. The type of binding is
 
 Triggers and bindings are defined differently depending on the development language. Make sure to select your language at the [top](#top) of the article.
 
-Trigger and binding names are limited to alphanumeric characters and `_`, the underscore. Double underscores `__` are prohibited. These names are defined differently based on development language.
+Trigger and binding names are limited to alphanumeric characters and `_`, the underscore.
 
 This example shows an HTTP triggered function with an output binding that writes a message to an Azure Storage queue.
 
@@ -183,7 +183,7 @@ The way that the function is defined depends on the version of Python for Functi
 
 ### [v2](#tab/python-v2)
 
-In Python for Functions version 2, you define the function directly in code using decorators. The binding name is defined by arg_name.
+In Python for Functions version 2, you define the function directly in code using decorators.
 
 :::code language="python" source="~/functions-docs-python-v2/function_app.py" range="4-9" :::
 
