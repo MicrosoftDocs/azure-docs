@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-t
 
 # Client libraries
 
-Azure Cache for Redis is based on the popular open-source in-memory data store, open-source Redis. Azure Cache for Redis can be accessed by a wide variety of Redis clients for many programming languages. Each client library has its own API that makes calls to Redis server using Redis commands, but the client libraries are built to talk to any Redis server.
+Azure Cache for Redis is based on the popular open-source in-memory data store, open-source Redis. Redis clients for many programming languages can access Azure Managed Redis. Each client library has its own API that makes calls to Redis server using Redis commands, but the client libraries are built to talk to any Redis server.
 
 Each client maintains its own reference documentation for its library. The clients also provide links to get support through the client library developer community. The Azure Cache for Redis team doesn't own the development, or the support for any client libraries.
 
@@ -47,9 +47,9 @@ We _recommend_ you  use redisson 3.14.1 or higher. Older versions contain known 
 
 Other notes:
 
-- Redisson defaults to 'read from replica' strategy, unlike some other clients. To change this, modify the 'readMode' config setting.
-- Redisson has a connection pooling strategy with configurable minimum and maximum settings, and the default minimum values are large. The large defaults could contribute to aggressive reconnect behaviors or 'connection storms'. To reduce the risk, consider using fewer connections because you can efficiently pipeline commands, or batches of commands, over a few connections.
-- Redisson has a default idle connection timeout of 10 seconds, which leads to more closing and reopening of connections than ideal.
+- Redisson defaults to 'read from replica' strategy, unlike some other clients. To change this default, modify the 'readMode' config setting.
+- Redisson has a connection pooling strategy with configurable minimum and maximum settings, and the default minimum values are large. The large defaults could contribute to aggressive reconnect behaviors or 'connection storms.' To reduce the risk, consider using fewer connections because you can efficiently pipeline commands, or batches of commands, over a few connections.
+- Redisson has a default idle connection time out of 10 seconds, which leads to more closing and reopening of connections than ideal.
 
 Here's a recommended baseline configuration for cluster mode that you can modify as needed:
 
@@ -82,7 +82,7 @@ clusterServersConfig:
   tcpNoDelay: true
 ```
 
-For an article demonstrating how to use Redisson's support for JCache as the store for HTTP session state in IBM Liberty on Azure, see [Use Java EE JCache with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/developer/java/ee/how-to-deploy-java-liberty-jcache).
+For an article about Redisson's support for JCache as the store for HTTP session state in IBM Liberty on Azure, see [Use Java EE JCache with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/developer/java/ee/how-to-deploy-java-liberty-jcache).
 
 ## How to use client libraries
 
