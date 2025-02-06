@@ -62,16 +62,21 @@ For more detailed information about deployment commands and options for deployin
 
 ## Deployment scopes
 
-When deploying to a resource group, you can deploy resources to:
+Within a single Bicep file, all resources declared with the `resource` keyword must be deployed at the same scope as the deployment. For a resource group deployment, this means all `resource` declarations in the Bicep file must either be deployed to the same resource group, or as a child or extension resource of a resource in the same resource group as the deployment.
 
-* the target resource group for the deployment operation
-* other resource groups in the same subscription or other subscriptions
-* any subscription in the tenant
-* the tenant for the resource group
+For `existing` resources, the same restriction does not apply - you may reference a resource at a different scope to that of the deployment.
 
-An [extension resource](scope-extension-resources.md) can be scoped to a target that is different than the deployment target.
+It is however still possible to have a single deployment target resources at scopes through the use of modules. Deploying a module will trigger a "nested deployment", which you can use to target other scopes. Because the use of a module will trigger a deployment at that scope, the user deploying the parent Bicep file must have permission to initiate a deployment at that scope.
 
-The user deploying the template must have access to the specified scope.
+You can deploy a Bicep module from within a resource-group scope Bicep file at the following scopes:
+* The same resource group // TODO anchor link to example below
+* Other resource groups in the same subscription // TODO anchor link to example below
+* Other resource groups in other subscriptions // TODO anchor link to example below
+* The subscription // TODO link to doc on sub-level deployments
+* The tenant // TODO link to doc on tenant-level deployments
+
+// TODO add a note about exceptions to the "same resoure group rule" in the management-group equivalent of this doc - we permit tenant-level resource PUTs from mg-level deployments
+// TODO copy+modify this doc for other scopes
 
 This section shows how to specify different scopes. You can combine these different scopes in a single template.
 
