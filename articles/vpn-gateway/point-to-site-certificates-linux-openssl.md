@@ -36,7 +36,7 @@ This section helps you generate a self-signed root certificate. After you genera
 
 ## Client certificates
 
-In this section, you generate the user certificate (client certificate). Certificate files are generated in the local directory in which you run the commands. You can use the same client certificate on each client computer, or generate certificates that are specific to each client. It's crucial is that the client certificate is signed by the root certificate.
+In this section, you generate the user certificate (client certificate). Certificate files are generated in the local directory in which you run the commands. You can use the same client certificate on each client computer, or generate certificates that are specific to each client. It's crucial that the client certificate is signed by the root certificate.
 
 1. To generate a client certificate, use the following examples.
 
