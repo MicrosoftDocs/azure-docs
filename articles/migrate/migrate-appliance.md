@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 03/20/2024
-ms.custom: engagement-fy25
+ms.date: 02/06/2025
+ms.custom: engagement-fy24
 ---
 
  
@@ -259,7 +259,7 @@ To delete the registry key:
 To turn on from Appliance Configuration Manager, after discovery is complete:
 
 1. On the appliance configuration manager, go to **Set up prerequisites** panel
-2. In the latest updates check, select **View appliance services** and select the link to turn on auto-update.
+2. In the latest updates check, select **View appliance services** and then select the link to turn on auto-update.
 
     ![Image of turn on auto updates screen.](./media/migrate-appliance/autoupdate-off.png)
 
@@ -273,13 +273,13 @@ You can check the appliance services version using either of these methods:
 To check in the Appliance configuration manager:
 
 1. On the appliance configuration manager, go to **Set up prerequisites** panel
-2. In the latest updates check, select **View appliance services**.
+2. In the latest updates check, and select **View appliance services**.
 
     ![Screenshot of screen to check the version.](./media/migrate-appliance/versions.png)
 
 To check in the Control Panel:
 
-1. On the appliance, select **Start** > **Control Panel** > **Programs and Features**.
+1. On the appliance, select **Start** > **Control Panel** > **Programs and Features**
 2. Check the appliance services versions in the list.
 
     ![Screenshot of process to check version in Control Panel.](./media/migrate-appliance/programs-features.png)
