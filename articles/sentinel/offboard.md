@@ -1,9 +1,9 @@
 ---
 title: Remove Microsoft Sentinel from your workspace
-description: Learn how to delete your Microsoft Sentinel instance to discontinue use of Microsoft Sentinel and associated costs.
+description: Learn how to delete your Microsoft Sentinel instance to discontinue use of Microsoft Sentinel and the associated costs.
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/05/2025
+ms.date: 02/06/2025
 ms.author: cwatson
 appliesto:
   - Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
@@ -17,7 +17,7 @@ appliesto:
 
 If you no longer want to use Microsoft Sentinel, this article explains how to remove it from your Log Analytics workspace.
 
-If you want to offboard Microsoft Sentinel from the Defender portal, see [Offboard Microsoft Sentinel](/defender-xdr/microsoft-sentinel-onboard?view=o365-worldwide#offboard-microsoft-sentinel).
+If you instead want to offboard Microsoft Sentinel from the Defender portal, see [Offboard Microsoft Sentinel](/defender-xdr/microsoft-sentinel-onboard?#offboard-microsoft-sentinel).
 
 ## Prerequisites
 

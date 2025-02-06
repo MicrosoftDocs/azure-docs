@@ -1,9 +1,9 @@
 ---
 title: Implications - remove Microsoft Sentinel from workspace 
-description: Learn about the results of removing a Microsoft Sentinel instance for a Log Analytics workspacel.
+description: Learn about the impact of removing a Microsoft Sentinel instance from a Log Analytics workspace in the Azure or Defender portal.
 author: cwatson-cat
 ms.topic: concept-article
-ms.date: 02/05/2025
+ms.date: 02/06/2025
 ms.author: cwatson
 appliesto:
   - Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
@@ -22,7 +22,8 @@ Your subscription continues to be registered with the Microsoft Sentinel resourc
 
 If you don't want to keep the workspace and the data collected for Microsoft Sentinel, delete the resources associated with the workspace in the Azure portal.
 
-## Consider pricing changes
+## Pricing changes
+
 When Microsoft Sentinel is removed from a workspace, there might still be costs associated with the data in Azure Monitor Log Analytics. For more information on the effect to commitment tier costs, see [Simplified billing offboarding behavior](enroll-simplified-pricing-tier.md#offboarding-behavior).
 
 ## Data connector configurations removed
@@ -144,4 +145,4 @@ The tables and related data that are inaccessible when you remove Microsoft Sent
 ## Related resources
 
 - [Remove Microsoft Sentinel from your Log Analytics workspace](offboard.md)
-- [Offboard Microsoft Sentinel from the Defender portal](/defender-xdr/microsoft-sentinel-onboard?view=o365-worldwide#offboard-microsoft-sentinel).
+- [Offboard Microsoft Sentinel from the Defender portal](/defender-xdr/microsoft-sentinel-onboard?#offboard-microsoft-sentinel).
