@@ -36,7 +36,7 @@ Each workflow run starts with a trigger, which either fires on a schedule or wai
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource and workflow in the designer.
 
 1. On your logic app menu, select **Overview**. On the **Overview** page, select **Trigger history**.
 
@@ -73,7 +73,7 @@ Each workflow run starts with a trigger, which either fires on a schedule or wai
 
 For a stateful workflow, you can review the trigger history for each run, including the trigger status along with inputs and outputs, separately from the [workflow's run history](#review-runs-history). In the Azure portal, trigger history and run history appear at the workflow level, not the logic app level.
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow in the designer.
 
 1. On the workflow menu, under **Tools**, select **Run history**. On the **Run history** page, select **Trigger history**.
 
@@ -120,17 +120,17 @@ For a stateful workflow, you can review the trigger history for each run, includ
 
 ## Review workflow run history
 
-Each time a trigger successfully fires, Azure Logic Apps creates a workflow instance and runs that instance. By default, each instance runs in parallel so that no workflow has to wait before starting a run. You can review what happened during each run, including the status, inputs, and outputs for each step in the workflow.
+Each time that a trigger successfully fires, Azure Logic Apps creates a workflow instance and runs that instance. By default, each instance runs in parallel so that no workflow has to wait before starting a run. You can review what happened during each run, including the status, inputs, and outputs for each step in the workflow.
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource and workflow in the designer.
 
 1. On your logic app menu, select **Overview**. On the **Overview** page, select **Runs history**.
 
    Under **Runs history**, all the past, current, and any waiting runs appear. If the trigger fires for multiple events or items at the same time, an entry appears for each item with the same date and time.
 
-   ![Screenshot shows Consumption workflow and Overview page with selected option for Runs history.](./media/monitor-logic-apps/overview-logic-app-runs-history-consumption.png)
+   :::image type="content" source="media/view-workflow-status-run-history/runs-history-consumption.png" alt-text="Screenshot shows Consumption workflow and Overview page with selected tab named Runs history.":::
 
    The following table lists the possible run statuses:
 
@@ -151,39 +151,37 @@ Each time a trigger successfully fires, Azure Logic Apps creates a workflow inst
    > If the run status doesn't appear, try refreshing the **Overview** page by selecting **Refresh**.
    > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
 
-   ![Screenshot shows Consumption workflow run selected.](./media/monitor-logic-apps/select-specific-logic-app-run-consumption.png)
+   :::image type="content" source="media/view-workflow-status-run-history/select-run-consumption.png" alt-text="Screenshot shows Consumption workflow run selected.":::
 
-   The **Logic app run** pane shows each step in the selected run, each step's run status, and the time taken for each step to run, for example:
+   The run history pane shows each step in the selected run, each step's run status, and the time taken for each step to run, for example:
 
-   ![Screenshot shows each action in the selected workflow run.](./media/monitor-logic-apps/logic-app-run-pane-consumption.png)
+   :::image type="content" source="media/view-workflow-status-run-history/runs-history-pane-consumption.png" alt-text="Screenshot shows Consumption workflow run history with each action in the run.":::
 
-   To view this information in list form, on the **Logic app run** toolbar, select **Run Details**.
+1. To view the information in list form, on the run history toolbar, select **Run details**.
 
-   ![Screenshot shows toolbar named Logic app run with the selected option Run Details.](./media/monitor-logic-apps/toolbar-select-run-details.png)
+   The **Logic app run details** pane lists each step, their status, and other information.
 
-   The Run Details lists each step, their status, and other information.
+   :::image type="content" source="media/view-workflow-status-run-history/run-details-consumption.png" alt-text="Screenshot shows run details for each step in the Consumption workflow.":::
 
-   ![Screenshot showing the run details for each step in the workflow.](./media/monitor-logic-apps/review-logic-app-run-details.png)
-
-   For example, you can get the run's **Correlation ID** property, which you might need when you use the [REST API for Logic Apps](/rest/api/logic).
+   For example, you can get the run's **Correlation Id** property, which you might need when you use the [REST API for Logic Apps](/rest/api/logic).
 
 1. To get more information about a specific step, select either option:
 
-   * In the **Logic app run** pane, select the step so that the shape expands. You can now view information such as inputs, outputs, and any errors that happened in that step.
+   * On the run history pane, select the step to open a pane that shows the inputs, outputs, and any errors that happened in that step.
 
-     For example, suppose you had an action that failed, and you wanted to review which inputs might have caused that step to fail. By expanding the shape, you can view the inputs, outputs, and error for that step:
+     For example, suppose you have a workflow with a failed step. You want to review which inputs might have caused that step to fail. In this scenario, the failure resulted from an invalid or missing connection to an email account that is used to send an email. 
 
-     ![Screenshot showing the "Logic app run" pane with the expanded shape for an example failed step.](./media/monitor-logic-apps/specific-step-inputs-outputs-errors.png)
+     :::image type="content" source="media/view-workflow-status-run-history/inputs-outputs-errors-consumption.png" alt-text="Screenshot shows Consumption workflow run history pane with selected failed example step plus inputs, outputs, and errors for the failed step.":::
 
-   * In the **Logic app run details** pane, select the step that you want.
+   * On the run history pane toolbar, select **Run details**. On the **Logic app run details**, select the step that you want, for example:
 
-     ![Screenshot showing the "Logic app run details" pane with the example failed step selected.](./media/monitor-logic-apps/select-failed-step.png)
+     :::image type="content" source="media/view-workflow-status-run-history/select-failed-step-consumption.png" alt-text="Screenshot shows Consumption workflow, and pane named Logic app run details. The pane shows the selected example failed step.":::
 
    > [!NOTE]
    >
    > All runtime details and events are encrypted within Azure Logic Apps and 
    > are decrypted only when a user requests to view that data. You can 
-   > [hide inputs and outputs in run history](logic-apps-securing-a-logic-app.md#obfuscate)
+   > [hide inputs and outputs in the workflow run history](logic-apps-securing-a-logic-app.md#obfuscate)
    > or control user access to this information by using
    > [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 
@@ -191,9 +189,9 @@ Each time a trigger successfully fires, Azure Logic Apps creates a workflow inst
 
 You can view run history only for stateful workflows, not stateless workflows. To enable run history for a stateless workflow, see [Enable run history for stateless workflows](create-single-tenant-workflows-azure-portal.md#enable-run-history-stateless).
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow in the designer.
 
-1. On your workflow menu, under **Tools**, select **Run history**. On the **Run history** page, select the tab named **Run history**.
+1. On your workflow menu, under **Tools**, select **Run history**. On the **Run history** page, select **Run history**.
 
    Under **Run history**, all the past, current, and any waiting runs appear. If the trigger fires for multiple events or items at the same time, an entry appears for each item with the same date and time.
 
@@ -303,7 +301,7 @@ Completing this task creates and adds a new workflow run to your workflow's run 
 
 #### Rerun the entire workflow
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource and workflow in the designer.
 
 1. On your logic app menu, select **Overview**. On the **Overview** page, select **Runs history**.
 
@@ -333,7 +331,7 @@ The rerun capability is available for all actions except for non-sequential and 
 | **Switch** action and all actions in the **Default** path and **Case** paths | - Yes for **Switch** action <br>- No for actions in the **Default** path and **Case** paths |
 | **Until** action plus all actions inside the loop and after the loop | No for all actions |
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource.
 
 1. On the logic app resource menu, select **Overview**. On the **Overview** page, select **Runs history**, which shows the run history for the workflow.
 
@@ -355,9 +353,9 @@ You can rerun only stateful workflows, not stateless workflows. To enable run hi
 
 #### Rerun the entire workflow
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow in the designer.
 
-1. On the workflow menu, under **Tools**, select **Run history**. On the **Run history** page, select the tab named **Run history**, which shows the run history for the current workflow.
+1. On the workflow menu, under **Tools**, select **Run history**. On the **Run history** page, select **Run history**, which shows the run history for the current workflow.
 
 1. On the **Run history** tab, select the run that you want to resubmit, and then select **Resubmit**.
 
@@ -381,9 +379,9 @@ The rerun capability is available for all actions except for non-sequential and 
 | **Switch** action and all actions in the **Default** path and **Case** paths | - Yes for **Switch** action <br>- No for actions in the **Default** path and **Case** paths |
 | **Until** action plus all actions inside the loop and after the loop | No for all actions |
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow.
 
-1. On the workflow menu, under **Tools**, select **Run history**, and then select the tab named **Run history**, which shows the run history for the current workflow.
+1. On the workflow menu, under **Tools**, select **Run history**, and then select **Run history**, which shows the run history for the current workflow.
 
 1. On the **Run History** tab, select the run that you want to resubmit.
 
