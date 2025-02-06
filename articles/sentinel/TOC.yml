@@ -43,6 +43,8 @@
       href: feature-availability.md
     - name: Regional availability
       href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
+    - name: Business continuity and disaster recovery
+      href: business-continuity-disaster-recovery.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json        
 - name: Deploy
@@ -1147,6 +1149,8 @@
       href: create-codeless-connector.md
     - name: Creating analytics rules
       href: sentinel-analytic-rules-creation.md
+    - name: Creating hunting queries
+      href: sentinel-hunting-rules-creation.md
     - name: Creating workbooks
       href: sentinel-workbook-creation.md
     - name: Creating playbooks
