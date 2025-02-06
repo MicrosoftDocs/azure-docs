@@ -39,9 +39,9 @@ You need at least [owner](devtest-lab-add-devtest-user.md#owner) or [contributor
     - **Name**: Enter a name for the secret.
     - **Value**: Enter the value of the secret. You see this name in the drop-down list when creating a VM, formula, or while adding certain artifacts that require a token or password.
     - **Scope**:
-    - - **Formulas & virtual machines**: Select this option if you want to use the secret to access VMs.
-        If you select this option, another option to use this secret as default password will become visible. Select **Use this secret as default password** to use this secret as the default password.
-    - - **Artifacts**: Select this option if you want the secret to be used by certain artifacts.
+        - **Formulas & virtual machines**: Select this option if you want to use the secret to access VMs.
+        If you select this option, another option to use this secret as default password will become visible. Select **Use this secret as default password** to use this secret as the default password
+        - **Artifacts**: Select this option if you want the secret to be used by certain artifacts.
 
     :::image type="content" source="./media/devtest-lab-gen2-vm/dev-test-lab-gen-2-images.png" alt-text="Screenshot of list of available base images."  lightbox="./media/devtest-lab-gen2-vm/dev-test-lab-gen-2-images.png":::
     
