@@ -26,7 +26,7 @@ Availability zones are physically separate groups of data centers within each re
 
 Microsoft Sentinel uses availability zones in regions where they're available to provide high availability protection for your applications and data from data center failures.
 
-For more information, see [What are availability zones?](/azure/reliability/availability-zones-overview).
+For more information, see [What are availability zones?](/azure/reliability/availability-zones-overview)
 
 ## Cross-region disaster recovery
 
@@ -57,7 +57,7 @@ Customer-enabled BCDR involves:
 
 - Manually defining your business-critical analytic rules and other configurations in both workspaces, maintaining them consistently throughout the continuous operations. For more information, see [Threat detection in Microsoft Sentinel](threat-detection.md).
 
-These activities must be configured manually by the customer and don't happen automatically. No future actions during an actual outage is required or expected.
+These activities must be configured manually by the customer and don't happen automatically. No future actions during an actual outage are required or expected.
 
 A customer-enabled BCDR setup ensures that if an Azure regional outage occurs in one of the customer's regions, the other paired region, which is geographically and physically separate from the impacted region, remains unaffected. As a result, continuous business operations can proceed without any downtime or data loss.
 
