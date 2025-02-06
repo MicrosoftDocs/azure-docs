@@ -9,45 +9,7 @@ ms.author: charithg
 > [!NOTE]
 > This API is provided as a preview for developers and might change based on feedback that we receive. Don't use this API in a production environment. To use this API, use the beta release of the Azure Communication Services Calling Web SDK (1.31.1-beta.1 or higher).
 
-## Install the SDK
-
-Use the `npm install` command to install the Azure Communication Services Common and Calling SDK for JavaScript:
-
-```console
-npm install @azure/communication-common --save
-npm install @azure/communication-calling --save
-```
-
-## Initialize required objects
-
-A `CallClient` instance is required for most call operations. When you create a new `CallClient` instance, you can configure it with custom options like a `Logger` instance.
-
-With the `CallClient` instance, you can create a `TeamsCallAgent` instance by calling the `createTeamsCallAgent`. This method asynchronously returns a `TeamsCallAgent` instance object.
-
-The `createTeamsCallAgent` method uses `CommunicationTokenCredential` as an argument. It accepts a [user access token](../../../../quickstarts/identity/access-tokens.md).
-
-You can use the `getDeviceManager` method on the `CallClient` instance to access `deviceManager`.
-
-```js
-const { CallClient } = require('@azure/communication-calling');
-const { AzureCommunicationTokenCredential} = require('@azure/communication-common');
-const { AzureLogger, setLogLevel } = require("@azure/logger");
-
-// Set the logger's log level
-setLogLevel('verbose');
-
-// Redirect log output to console, file, buffer, REST API, or whatever location you want
-AzureLogger.log = (...args) => {
-    console.log(...args); // Redirect log output to console
-};
-
-const userToken = '<USER_TOKEN>';
-const callClient = new CallClient(options);
-const tokenCredential = new AzureCommunicationTokenCredential(userToken);
-const callAgent = await callClient.createTeamsCallAgent(tokenCredential, {displayName: 'optional Azure Communication Services user name'});
-const deviceManager = await callClient.getDeviceManager();
-await deviceManager.askDevicePermission({ audio: true, video: true });
-```
+[!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
 ## Place a call on behalf of a Microsoft Teams user
 

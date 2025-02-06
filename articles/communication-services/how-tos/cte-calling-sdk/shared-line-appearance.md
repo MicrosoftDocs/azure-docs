@@ -36,6 +36,3 @@ The following table shows support for shared line appearance feature in individu
 ## Next steps
 
 - [Learn how to manage calls](./manage-calls.md)
-- [Learn how to manage video](./manage-video.md)
-- [Learn how to record calls](./record-calls.md)
-- [Learn how to transcribe calls](./call-transcription.md)
