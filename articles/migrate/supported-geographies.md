@@ -1,10 +1,10 @@
 ---
 title: Azure Migrate supported geographies
 description: Provides a list of regions where Azure Migrate is supported
-author: v-sreedevank
-ms.author: v-sreedevank
+author: rashi-ms
+ms.author: rajosh
 ms.topic: conceptual
-ms.date: 10/28/2024
+ms.date: 02/06/2025
 ---
 
 # Supported geographies 
