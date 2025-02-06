@@ -22,6 +22,12 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     
     The Flexible service level is only supported with _new_ manual QoS capacity pools. The Flexible service level offers a minimum throughput of 128 MiB/s and a maximum of 640 MiB/s per TiB. This new service level is suitable for applications such as Oracle or SAP HANA and for creating high-capacity volumes with low throughput needs. You can adjust throughput and size limits independently, ensuring flexibility and precise scaling to meet their price-performance requirements. 
 
+## January 2025 
+
+* [Application volume group for Oracle](application-volume-group-oracle-introduction.md) and [application volume group for SAP HANA extension one](application-volume-group-introduction.md) now support customer-managed keys. (Preview)
+
+    Azure NetApp Files application volume groups for SAP HANA (with extension 1) and Oracle now support customer-managed keys, providing increased security and compliance. This feature is now in preview.
+
 ## December 2024
 
 * [Volume enhancement: Azure NetApp Files 50 GiB minimum volume sizes](azure-netapp-files-create-volumes.md) is now generally available (GA)
@@ -51,8 +57,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Edit network features enhancement: no downtime](configure-network-features.md#no-downtime) (Preview)
 
     Azure NetApp Files now supports the ability to edit network features (that is, upgrade from Basic to Standard network features) with no downtime for Azure NetApp Files volumes. Standard Network Features provide you with an enhanced virtual networking experience for a seamless and consistent experience along with security posture for Azure NetApp Files. 
-
-    This feature is currently in preview in the Australia East, Central India, East Asia, North Central US, Switzerland North, UK South, US Central, US East, US East 2, and US South, US West and US West 2 regions.
   
 ## September 2024 
 
