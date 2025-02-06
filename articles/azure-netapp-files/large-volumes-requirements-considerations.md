@@ -68,6 +68,7 @@ The following requirements and considerations apply to large volumes. For perfor
     For the latest performance benchmark numbers conducted on Azure NetApp Files Large volumes, see [Azure NetApp Files large volume performance benchmarks for Linux](performance-large-volumes-linux.md) and [Benefits of using Azure NetApp Files for Electronic Design Automation (EDA)](solutions-benefits-azure-netapp-files-electronic-design-automation.md).
 
 
+* To use [Azure NetApp Files backup](backup-introduction.md) with large volumes, you must be registered to use both large volumes and [large volumes with backup](#back-up-large-volumes). Large volumes with backup is currently in preview. 
 * Large volumes are supported with cool access. You must be [registered to use cool access](manage-cool-access.md#register-the-feature) before creating a cool access-enabled large volume. 
 
 ## About 64-bit file IDs
