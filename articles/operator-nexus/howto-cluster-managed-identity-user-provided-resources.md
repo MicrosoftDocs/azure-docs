@@ -1,5 +1,5 @@
 ---
-title: "Azure Operator Nexus Cluster Support for Managed Identities and User Provided Resources"
+title: "Azure Operator Nexus Cluster Support for managed identities and user provided resources"
 description: Azure Operator Nexus Cluster support for managed identities and user provided resources.
 author: eak13
 ms.author: ekarandjeff
@@ -33,7 +33,7 @@ Once added, the Identity can only be removed via the API call at this time. For 
 > [!NOTE]
 > The managed identity functionality for Log Analytics Workspace and Key Vault exists with the 2024-10-01-preview API and will be available with the 2025-02-01 GA API.
 
-## Operator Nexus Clusters with User Assigned Managed Identities
+## Operator Nexus Clusters with User Assigned Managed Identities (UAMI)
 
 It's a best practice to first define all of the user provided resources (Storage Account, LAW, and Key Vault), the managed identities associated with those resources and then assign the managed identity the appropriate access to the resource. If these steps aren't done before Cluster creation, the steps need to be completed before Cluster deployment.
 
@@ -57,18 +57,18 @@ The following steps should be followed for using UAMIs with Nexus Clusters and a
 
 ### Create the resources and assign the UAMI to the resources
 
-#### Storage Accounts
+#### Storage Accounts setup
 
 1. Create a storage account, or identify an existing storage account that you want to use. See [Create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal).
 1. Create a blob storage container in the storage account. See [Create a container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
 1. Assign the `Storage Blob Data Contributor` role to users and the UAMI which need access to the run-\* command output. See [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).
 
-#### Log Analytics Workspaces
+#### Log Analytics Workspaces setup
 
 1. Create a Log Analytics Workspace (LAW), or identify an existing LAW that you want to use. See [Create a Log Analytics Workspace](/azure/azure-monitor/logs/quick-create-workspace).
 1. Assign the `Log Analytics Contributor` role to the UAMI for the log analytics workspace. See [Manage access to Log Analytics workspaces](/azure/azure-monitor/logs/manage-access?tabs=portal).
 
-#### Key Vault
+#### Key Vault setup
 
 1. Create a Key Vault, or identify an existing Key Vault that you want to use. See [Create a Key Vault](/azure/key-vault/general/quick-create-cli).
 1. Enable the Key Vault for Role Based Access Control (RBAC). See [Enable Azure RBAC permissions on Key Vault](/azure/key-vault/general/rbac-guide?tabs=azure-cli#enable-azure-rbac-permissions-on-key-vault).
@@ -82,13 +82,13 @@ The following steps should be followed for using UAMIs with Nexus Clusters and a
    1. Select **Member**: AFOI-NC-MGMT-PME-PROD application.
    1. Review and assign.
 
-### Create or update the Cluster to use User Assigned Managed Identities and user provided resources
+### Create or update the Nexus Cluster to use User Assigned Managed Identities and user provided resources
 
 #### Define the UAMI(S) on the Cluster
 
 When creating or updating a Cluster with a user assigned managed identity, use the `--mi-user-assigned` parameter along with the resource ID of the UAMI. If you wish to specify multiple UAMIs, list the UAMIs' resources IDs with a space between them. Each UAMI that's used for a Key Vault, LAW, or Storage Account must be provided in this list.
 
-#### Storage Account Settings
+#### Storage Account settings
 
 The `--command-output-settings` data construct is used to define the Storage Account where run command output is written. It consists of the following fields:
 
@@ -96,7 +96,7 @@ The `--command-output-settings` data construct is used to define the Storage Acc
 - `identity-resource-id`: The user assigned managed identity resource ID to use. Mutually exclusive with a system assigned identity type.
 - `identity-type`: The type of managed identity that is being selected. Use `UserAssignedIdentity`.
 
-#### Log Analytics Workspace
+#### Log Analytics Workspace settings
 
 The `--analytics-output-settings` data construct is used to define the LAW where metrics are sent. It consists of the following fields:
 
@@ -104,7 +104,7 @@ The `--analytics-output-settings` data construct is used to define the LAW where
 - `identity-resource-id`: The user assigned managed identity resource ID to use. Mutually exclusive with a system assigned identity type
 - `identity-type`: The type of managed identity that is being selected. Use `UserAssignedIdentity`.
 
-#### Key Vault Settings
+#### Key Vault settings
 
 The `--secret-archive-settings` data construct is used to define the Key Vault where rotated credentials are written. It consists of the following fields:
 
@@ -284,18 +284,18 @@ System-assigned identity example:
 
 ### Create the resources and assign the SAMI to the resources
 
-#### Storage Accounts
+#### Storage Accounts setup
 
 1. Create a storage account, or identify an existing storage account that you want to use. See [Create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal).
 1. Create a blob storage container in the storage account. See [Create a container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
 1. Assign the `Storage Blob Data Contributor` role to users and the SAMI which need access to the run-\* command output. See [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).
 
-#### Log Analytics Workspaces
+#### Log Analytics Workspaces setup
 
 1. Create a Log Analytics Workspace (LAW), or identify an existing LAW that you want to use. See [Create a Log Analytics Workspace](/azure/azure-monitor/logs/quick-create-workspace).
 1. Assign the `Log Analytics Contributor` role to the SAMI for the log analytics workspace. See [Manage access to Log Analytics workspaces](/azure/azure-monitor/logs/manage-access?tabs=portal).
 
-#### Key Vault
+#### Key Vault setup
 
 1. Create a Key Vault, or identify an existing Key Vault that you want to use. See [Create a Key Vault](/azure/key-vault/general/quick-create-cli).
 1. Enable the Key Vault for Role Based Access Control (RBAC). See [Enable Azure RBAC permissions on Key Vault](/azure/key-vault/general/rbac-guide?tabs=azure-cli#enable-azure-rbac-permissions-on-key-vault).
@@ -304,7 +304,7 @@ System-assigned identity example:
 
 ### Update the Cluster with the user provided resources information
 
-#### Storage Account Settings
+#### Storage Account settings
 
 The `--command-output-settings` data construct is used to define the Storage Account where run command output is written. It consists of the following fields:
 
@@ -312,7 +312,7 @@ The `--command-output-settings` data construct is used to define the Storage Acc
 - `identity-resource-id`: Not required when using a SAMI
 - `identity-type`: The type of managed identity that is being selected. Use `SystemAssignedIdentity`.
 
-#### Log Analytics Workspace
+#### Log Analytics Workspace settings
 
 The `--analytics-output-settings` data construct is used to define the LAW where metrics are sent. It consists of the following fields:
 
@@ -320,7 +320,7 @@ The `--analytics-output-settings` data construct is used to define the LAW where
 - `identity-resource-id`: Not required when using a SAMI
 - `identity-type`: The type of managed identity that is being selected. Use `SystemAssignedIdentity`.
 
-#### Key Vault Settings
+#### Key Vault settings
 
 The `--secret-archive-settings` data construct is used to define the Key Vault where rotated credentials are written. It consists of the following fields:
 
@@ -373,7 +373,7 @@ az networkcloud cluster update --name "clusterName" --resource-group "resourceGr
     vault-uri="https://keyvaultname.vault.azure.net/"
 ```
 
-## Update Cluster Identities via APIs
+## Update Cluster identities via APIs
 
 Cluster managed identities can be assigned via CLI. The unassignment of the identities can be done via API calls.
 Note, `<APIVersion>` is the API version 2024-07-01 or newer.
