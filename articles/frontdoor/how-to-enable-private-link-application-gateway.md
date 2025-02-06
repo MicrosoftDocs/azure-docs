@@ -66,7 +66,7 @@ Follow the instructions in [Configure Azure Application Gateway Private Link](..
 1. Find the *pending* private endpoint request from Azure Front Door Premium and select **Approve**.
 
 1. After approval, the connection status will update. It can take a few minutes for the connection to fully establish. Once established, you can access your Application Gateway through Front Door. Direct access to the Application Gateway from the public internet is disabled once private endpoint is enabled.
-:::image type="content" source="media/private-link/application-gateway-private-endpoint-connections.png" alt-text="Screenshot of private endpoint connections tab in Application Gateway portal":::
+:::image type="content" source="media/private-link/application-gateway-private-endpoint-connections.png" alt-text="Screenshot of private endpoint connections tab in Application Gateway portal.":::
     
 ::: zone-end
 
