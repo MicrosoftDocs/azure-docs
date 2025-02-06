@@ -1,6 +1,6 @@
 ---
 title: Install on-premises data gateway for logic app workflows
-description: Install the on-premises data gateway to access on-premises data sources from workflows in Azure Logic Apps.
+description: Install the on-premises data gateway so that workflows in Azure Logic Apps can access on-premises data sources.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: mideboer, azla
@@ -13,7 +13,14 @@ ms.date: 02/04/2025
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-Some scenarios require that your workflow connect to an on-premises data source and can use only connectors that provide this access through an on-premises data gateway. To set up this on-premises data gateway, you must complete the following tasks: install the local on-premises data gateway and create an on-premises data gateway resource in Azure for the local data gateway. When you add a trigger or action to your workflow from a connector that requires the data gateway, you can select the data gateway resource to use with your connection. The data gateway installation works as a bridge that provides quick data transfer and encryption between on-premises data sources and your workflows.
+Some scenarios require that your workflow connects to an on-premises data source and can use only connectors that provide this access through an on-premises data gateway. The data gateway installation works as a bridge that provides quick data transfer and encryption between on-premises data sources and your workflows in Azure Logic Apps.
+
+To set up this on-premises data gateway, you must complete the following tasks:
+
+- Locally install the on-premises data gateway.
+- Create an on-premises data gateway resource in Azure that links to the data gateway installation.
+
+When you add a trigger or action to your workflow from a connector that requires the data gateway, you can select the data gateway resource to use with your connection.
 
 In Consumption logic app workflows, you can connect to on-premises data sources using only [connectors that provide access through the on-premises data gateway](../connectors/managed.md#on-premises-connectors). In Standard logic app workflows, you can directly access on-premises resources in Azure virtual networks or use [built-in service provider connectors](/azure/logic-apps/connectors/built-in/reference/) that don't need the data gateway to access your on-premises data source. Instead, you provide information that authenticates your identity and authorizes access to your data source. However, if a built-in service provider connector isn't available for your data source, but a managed connector is available, you must use the on-premises data gateway.
 
@@ -32,15 +39,20 @@ You can use the same gateway installation with other cloud services, such as Pow
 
 * An Azure account and subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-  * Your Azure account needs to use either a work account or school account with the format `<username>@<organization>.com`. You can't use Azure B2B (guest) accounts or personal Microsoft accounts, such as accounts with hotmail.com or outlook.com domains.
+  * Your Azure account needs to use either a work account or school account with the format **`<username>@<organization>.com`**. You can't use Azure B2B (guest) accounts or personal Microsoft accounts, such as accounts with hotmail.com or outlook.com domains.
 
     > [!NOTE]
     >
-    > If you signed up for a Microsoft 365 offering and didn't provide your work email address, your address might 
-    > have the format `username@domain.onmicrosoft.com`. In this case, your account is stored in a Microsoft Entra tenant. 
-    > In most cases, the user principal name (UPN) for your Azure account is the same as your email address.
+    > If you signed up for a Microsoft 365 offering and didn't provide your work email address, 
+    > your address might have the format **`username@domain.onmicrosoft.com`**. In this case, 
+    > your account is stored in a Microsoft Entra tenant. In most cases, the user principal 
+    > name (UPN) for your Azure account is the same as your email address.
 
-    To use a [Visual Studio Standard subscription](https://visualstudio.microsoft.com/vs/pricing/) that's associated with a Microsoft account, first [create a Microsoft Entra tenant](../active-directory/develop/quickstart-create-new-tenant.md), or use the default directory. Add a user with a password to the directory, and then give that user access to your Azure subscription. You can then sign in during gateway installation with this username and password.
+    To use a [Visual Studio Standard subscription](https://visualstudio.microsoft.com/vs/pricing/) that's associated with a Microsoft account, follow these steps:
+
+    1. [Create a Microsoft Entra tenant](../active-directory/develop/quickstart-create-new-tenant.md), or use the default tenant.
+    1. Add a user with a password to the tenant, and give that user access to your Azure subscription.
+    1. Now you can sign in during gateway installation with this username and password.
 
   * Your Azure account must belong only to a single [Microsoft Entra tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology). You have to use that account when you install and administer the gateway on your local computer.
 
@@ -65,6 +77,7 @@ You can use the same gateway installation with other cloud services, such as Pow
 * The region that you select for your gateway installation is the same location that you must select when you later create the Azure gateway resource for your logic app workflow. By default, this region is the same location as your Microsoft Entra tenant that manages your Azure user account. However, you can change the location during gateway installation or later.
 
   > [!IMPORTANT]
+  >
   > During gateway setup, the **Change Region** command is unavailable if you signed in with your 
   > Azure Government account, which is associated with a Microsoft Entra tenant in the 
   > [Azure Government cloud](../azure-government/compare-azure-government-global-azure.md). 
@@ -72,7 +85,7 @@ You can use the same gateway installation with other cloud services, such as Pow
   >
   > To continue using your Azure Government account, but set up the gateway to work in the global 
   > multitenant Azure Commercial cloud instead, first sign in during gateway installation with the 
-  > `prod@microsoft.com` username. This solution forces the gateway to use the global multitenant 
+  > **prod@microsoft.com** username. This solution forces the gateway to use the global multitenant 
   > Azure cloud, but still lets you continue using your Azure Government account.
 
 * Your logic app resource and the Azure gateway resource, which you create after you install the gateway, must use the same Azure subscription. But these resources can exist in different Azure resource groups.

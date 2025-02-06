@@ -62,7 +62,7 @@ Use the following methods to identify the bandwidth headroom that your backups t
 - If you're an existing Azure ExpressRoute customer, view your [circuit usage](../../../../../expressroute/expressroute-monitoring-metrics-alerts.md#circuits-metrics) in the Azure portal.
 - Contact your ISP. They should be able to share reports that show your existing daily and monthly utilization.
 - There are several tools that can measure utilization by monitoring your network traffic at the router/switch level. These include:
-  - [Solarwinds Bandwidth Analyzer Pack](https://www.solarwinds.com/network-bandwidth-analyzer-pack?CMP=ORG-BLG-DNS)
+  - [SolarWinds Bandwidth Analyzer Pack](https://www.solarwinds.com/network-bandwidth-analyzer-pack?CMP=ORG-BLG-DNS)
   - [Paessler PRTG](https://www.paessler.com/bandwidth_monitoring)
   - [Cisco Network Assistant](https://www.cisco.com/c/en/us/products/cloud-systems-management/network-assistant/index.html)
   - [WhatsUp Gold](https://www.whatsupgold.com/network-traffic-monitoring)
