@@ -17,7 +17,7 @@ After you run a logic app workflow, you can check that workflow's run status, tr
 This guide shows how to perform the following tasks:
 
 - [Review trigger history](#review-trigger-history).
-- [Review workflow run history](#review-runs-history).
+- [Review workflow run history](#review-run-history).
 - [Set up alerts](#add-azure-alerts) to get notifications about failures or other possible problems. For example, you can create an alert that detects "when more than five runs fail in an hour".
 
 To monitor and review the workflow run status for Standard workflows, see the following sections in [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md):
@@ -71,7 +71,7 @@ Each workflow run starts with a trigger, which either fires on a schedule or wai
 
 ### [Standard](#tab/standard)
 
-For a stateful workflow, you can review the trigger history for each run, including the trigger status along with inputs and outputs, separately from the [workflow's run history](#review-runs-history). In the Azure portal, trigger history and run history appear at the workflow level, not the logic app level.
+For a stateful workflow, you can review the trigger history for each run, including the trigger status along with inputs and outputs, separately from the [workflow's run history](#review-run-history). In the Azure portal, trigger history and run history appear at the workflow level, not the logic app level.
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow in the designer.
 
@@ -116,7 +116,7 @@ For a stateful workflow, you can review the trigger history for each run, includ
 
 ---
 
-<a name="review-runs-history"></a>
+<a name="review-run-history"></a>
 
 ## Review workflow run history
 
@@ -130,7 +130,12 @@ Each time that a trigger successfully fires, Azure Logic Apps creates a workflow
 
    Under **Runs history**, all the past, current, and any waiting runs appear. If the trigger fires for multiple events or items at the same time, an entry appears for each item with the same date and time.
 
-   :::image type="content" source="media/view-workflow-status-run-history/runs-history-consumption.png" alt-text="Screenshot shows Consumption workflow and Overview page with selected tab named Runs history.":::
+   > [!TIP]
+   >
+   > If the run status doesn't appear, try refreshing the **Overview** page by selecting **Refresh**.
+   > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
+
+   :::image type="content" source="media/view-workflow-status-run-history/run-history-consumption.png" alt-text="Screenshot shows Consumption workflow and Overview page with selected tab named Runs history.":::
 
    The following table lists the possible run statuses:
 
@@ -146,86 +151,11 @@ Each time that a trigger successfully fires, Azure Logic Apps creates a workflow
 
 1. To review the steps and other information for a specific run, under **Runs history**, select that run. If the list shows many runs, and you can't find the entry that you want, try filtering the list.
 
-   > [!TIP]
-   >
-   > If the run status doesn't appear, try refreshing the **Overview** page by selecting **Refresh**.
-   > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
-
    :::image type="content" source="media/view-workflow-status-run-history/select-run-consumption.png" alt-text="Screenshot shows Consumption workflow run selected.":::
 
-   The run history pane shows each step in the selected run, each step's run status, and the time taken for each step to run, for example:
+   The run history pane opens and shows the status for each step in the run, for example:
 
-   :::image type="content" source="media/view-workflow-status-run-history/runs-history-pane-consumption.png" alt-text="Screenshot shows Consumption workflow run history with each action in the run.":::
-
-1. To view the information in list form, on the run history toolbar, select **Run details**.
-
-   The **Logic app run details** pane lists each step, their status, and other information.
-
-   :::image type="content" source="media/view-workflow-status-run-history/run-details-consumption.png" alt-text="Screenshot shows run details for each step in the Consumption workflow.":::
-
-   For example, you can get the run's **Correlation Id** property, which you might need when you use the [REST API for Logic Apps](/rest/api/logic).
-
-1. To get more information about a specific step, select either option:
-
-   * On the run history pane, select the step to open a pane that shows the inputs, outputs, and any errors that happened in that step.
-
-     For example, suppose you have a workflow with a failed step. You want to review which inputs might have caused that step to fail. In this scenario, the failure resulted from an invalid or missing connection to an email account that is used to send an email. 
-
-     :::image type="content" source="media/view-workflow-status-run-history/inputs-outputs-errors-consumption.png" alt-text="Screenshot shows Consumption workflow run history pane with selected failed example step plus inputs, outputs, and errors for the failed step.":::
-
-   * On the run history pane toolbar, select **Run details**. On the **Logic app run details**, select the step that you want, for example:
-
-     :::image type="content" source="media/view-workflow-status-run-history/select-failed-step-consumption.png" alt-text="Screenshot shows Consumption workflow, and pane named Logic app run details. The pane shows the selected example failed step.":::
-
-   > [!NOTE]
-   >
-   > All runtime details and events are encrypted within Azure Logic Apps and 
-   > are decrypted only when a user requests to view that data. You can 
-   > [hide inputs and outputs in the workflow run history](logic-apps-securing-a-logic-app.md#obfuscate)
-   > or control user access to this information by using
-   > [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
-
-### [Standard](#tab/standard)
-
-You can view run history only for stateful workflows, not stateless workflows. To enable run history for a stateless workflow, see [Enable run history for stateless workflows](create-single-tenant-workflows-azure-portal.md#enable-run-history-stateless).
-
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow in the designer.
-
-1. On your workflow menu, under **Tools**, select **Run history**. On the **Run history** page, select **Run history**.
-
-   Under **Run history**, all the past, current, and any waiting runs appear. If the trigger fires for multiple events or items at the same time, an entry appears for each item with the same date and time.
-
-   ![Screenshot shows Standard workflow and Overview page with selected option for Run History.](./media/monitor-logic-apps/overview-logic-app-runs-history-standard.png)
-
-   The following table lists the possible final statuses that each workflow run can have and show in the portal:
-
-   | Run status | Icon | Description |
-   |------------|------|-------------|
-   | **Aborted** | ![Aborted icon][aborted-icon] | The run stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
-   | **Cancelled** | ![Canceled icon][canceled-icon] | The run was triggered and started, but received a cancellation request. |
-   | **Failed** | ![Failed icon][failed-icon] | At least one action in the run failed. No subsequent actions in the workflow were set up to handle the failure. |
-   | **Running** | ![Running icon][running-icon] | The run was triggered and is in progress. However, this status can also appear for a run that's throttled due to [action limits](logic-apps-limits-and-config.md) or the [current pricing plan](https://azure.microsoft.com/pricing/details/logic-apps/). <br><br>**Tip**: If you set up [diagnostics logging](monitor-workflows-collect-diagnostic-data.md), you can get information about any throttle events that happen. |
-   | **Skipped** | ![Skipped icon][skipped-icon] | The trigger condition was checked but wasn't met, so the run never started. |
-   | **Succeeded** | ![Succeeded icon][succeeded-icon] | The run succeeded. If any action failed, a subsequent action in the workflow handled that failure. |
-   | **Timed out** | ![Timed-out icon][timed-out-icon] | The run timed out because the current duration exceeded the run duration limit, which is controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits). A run's duration is calculated by using the run's start time and run duration limit at that start time. <br><br>**Note**: If the run's duration also exceeds the current *run history retention limit*, which is also controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits), the run is cleared from the run history by a daily cleanup job. Whether the run times out or completes, the retention period is always calculated by using the run's start time and *current* retention limit. So, if you reduce the duration limit for an in-flight run, the run times out. However, the run either stays or is cleared from the run history based on whether the run's duration exceeded the retention limit. |
-   | **Waiting** | ![Waiting icon][waiting-icon] | The run hasn't started or is paused, for example, due to an earlier workflow instance that's still running. |
-
-1. On the **Run history** tab, select the run that you want to review.
-
-   The run details page opens and shows the status for each step in the run.
-
-   > [!TIP]
-   >
-   > If the run status doesn't appear, on the **Run history** page toolbar, select **Refresh**. 
-   > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
-
-   If the list shows many runs, and you can't find the entry that you want, try filtering the list.
-
-   ![Screenshot shows selected Standard workflow run.](./media/monitor-logic-apps/select-specific-logic-app-run-standard.png)
-
-   The workflow run pane shows each step in the selected run, each step's run status, and the time taken for each step to run, for example:
-
-   ![Screenshot shows each action in selected Standard workflow run.](./media/monitor-logic-apps/logic-app-run-pane-standard.png)
+   :::image type="content" source="media/view-workflow-status-run-history/run-history-pane-consumption.png" alt-text="Screenshot shows Consumption workflow run history with each action in the run.":::
 
    The following table shows the possible statuses that each workflow action can have and show in the portal:
 
@@ -251,21 +181,115 @@ You can view run history only for stateful workflows, not stateless workflows. T
    [timed-out-icon]: ./media/monitor-logic-apps/timed-out.png
    [waiting-icon]: ./media/monitor-logic-apps/waiting.png
 
-1. After all the steps in the run appear, select each step to review more information such as inputs, outputs, and any errors that happened in that step.
+1. To view the information in list form, on the run history toolbar, select **Run details**.
 
-   For example, suppose you had an action that failed, and you wanted to review which inputs might have caused that step to fail.
+   The **Logic app run details** pane lists each step, their status, and other information.
 
-   ![Screenshot shows Standard workflow with failed step inputs.](./media/monitor-logic-apps/failed-action-inputs-standard.png)
+   :::image type="content" source="media/view-workflow-status-run-history/run-details-consumption.png" alt-text="Screenshot shows run details for each step in the Consumption workflow.":::
 
-   The following screenshot shows the outputs from the failed step.
+   For example, you can get the run's **Correlation Id** property, which you might need when you use the [REST API for Logic Apps](/rest/api/logic).
 
-   ![Screenshot shows Standard workflow with failed step outputs.](./media/monitor-logic-apps/failed-action-outputs-standard.png)
+1. To get more information about a specific step, select either option:
+
+   * On the run history pane, select a step to open a pane that shows the inputs, outputs, and any errors that happened in that step.
+
+     For example, suppose you have a workflow with a failed step. You want to review which inputs might have caused that step to fail. In this scenario, the failure resulted from an invalid or missing connection to an email account that is used to send an email. 
+
+     :::image type="content" source="media/view-workflow-status-run-history/inputs-outputs-errors-consumption.png" alt-text="Screenshot shows Consumption workflow run history pane with selected failed example step plus inputs, outputs, and errors for the failed step.":::
+
+   * On the run history pane toolbar, select **Run details**. In the **Logic app run details** pane that opens, select the step that you want, for example:
+
+     :::image type="content" source="media/view-workflow-status-run-history/select-failed-step-consumption.png" alt-text="Screenshot shows Consumption workflow, and pane named Logic app run details. The pane shows the selected example failed step.":::
 
    > [!NOTE]
    >
    > All runtime details and events are encrypted within Azure Logic Apps and 
    > are decrypted only when a user requests to view that data. You can 
-   > [hide inputs and outputs in run history](logic-apps-securing-a-logic-app.md#obfuscate).
+   > [hide inputs and outputs in the workflow run history](logic-apps-securing-a-logic-app.md#obfuscate)
+   > or control user access to this information by using
+   > [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
+
+### [Standard](#tab/standard)
+
+You can view run history only for stateful workflows, not stateless workflows. To enable run history for a stateless workflow, see [Enable run history for stateless workflows](create-single-tenant-workflows-azure-portal.md#enable-run-history-stateless).
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow in the designer.
+
+1. On your workflow menu, under **Tools**, select **Run history**. On the **Run history** page, select **Run history**.
+
+   Under **Run history**, all the past, current, and any waiting runs appear. If the trigger fires for multiple events or items at the same time, an entry appears for each item with the same date and time.
+
+   > [!TIP]
+   >
+   > If the run status doesn't appear, on the **Run history** page toolbar, select **Refresh**. 
+   > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
+
+   :::image type="content" source="media/view-workflow-status-run-history/run-history-standard.png" alt-text="Screenshot shows Standard workflow, run history page, and selected tab named Run history.":::
+
+   The following table lists the possible final statuses that each workflow run can have and show in the portal:
+
+   | Run status | Icon | Description |
+   |------------|------|-------------|
+   | **Aborted** | ![Aborted icon][aborted-icon] | The run stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
+   | **Cancelled** | ![Canceled icon][canceled-icon] | The run was triggered and started, but received a cancellation request. |
+   | **Failed** | ![Failed icon][failed-icon] | At least one action in the run failed. No subsequent actions in the workflow were set up to handle the failure. |
+   | **Running** | ![Running icon][running-icon] | The run was triggered and is in progress. However, this status can also appear for a run that's throttled due to [action limits](logic-apps-limits-and-config.md) or the [current pricing plan](https://azure.microsoft.com/pricing/details/logic-apps/). <br><br>**Tip**: If you set up [diagnostics logging](monitor-workflows-collect-diagnostic-data.md), you can get information about any throttle events that happen. |
+   | **Skipped** | ![Skipped icon][skipped-icon] | The trigger condition was checked but wasn't met, so the run never started. |
+   | **Succeeded** | ![Succeeded icon][succeeded-icon] | The run succeeded. If any action failed, a subsequent action in the workflow handled that failure. |
+   | **Timed out** | ![Timed-out icon][timed-out-icon] | The run timed out because the current duration exceeded the run duration limit, which is controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits). A run's duration is calculated by using the run's start time and run duration limit at that start time. <br><br>**Note**: If the run's duration also exceeds the current *run history retention limit*, which is also controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits), the run is cleared from the run history by a daily cleanup job. Whether the run times out or completes, the retention period is always calculated by using the run's start time and *current* retention limit. So, if you reduce the duration limit for an in-flight run, the run times out. However, the run either stays or is cleared from the run history based on whether the run's duration exceeded the retention limit. |
+   | **Waiting** | ![Waiting icon][waiting-icon] | The run hasn't started or is paused, for example, due to an earlier workflow instance that's still running. |
+
+1. To review the steps and other information for a specific run, on the **Run history** tab, select that run. If the list shows many runs, and you can't find the entry that you want, try filtering the list.
+
+   :::image type="content" source="media/view-workflow-status-run-history/select-run-standard.png" alt-text="Screenshot shows selected Standard workflow run.":::
+
+   The run history pane opens and shows the status for each step in the run, for example:
+
+   :::image type="content" source="media/view-workflow-status-run-history/run-history-pane-standard.png" alt-text="Screenshot shows Standard workflow and each action in the selected run.":::
+
+   The following table shows the possible statuses that each workflow action can have and show in the portal:
+
+   | Action status | Icon | Description |
+   |---------------|------|-------------|
+   | **Aborted** | ![Aborted icon][aborted-icon] | The action stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
+   | **Cancelled** | ![Canceled icon][canceled-icon] | The action was running but received a cancel request. |
+   | **Failed** | ![Failed icon][failed-icon] | The action failed. |
+   | **Running** | ![Running icon][running-icon] | The action is currently running. |
+   | **Skipped** | ![Skipped icon][skipped-icon] | The action was skipped because its **runAfter** conditions weren't met, for example, a preceding action failed. Each action has a `runAfter` object where you can set up conditions that must be met before the current action can run. |
+   | **Succeeded** | ![Succeeded icon][succeeded-icon] | The action succeeded. |
+   | **Succeeded with retries** | ![Succeeded-with-retries-icon][succeeded-with-retries-icon] | The action succeeded but only after a single or multiple retries. To review the retry history, in the run history details view, select that action so that you can view the inputs and outputs. |
+   | **Timed out** | ![Timed-out icon][timed-out-icon] | The action stopped due to the timeout limit specified by that action's settings. |
+   | **Waiting** | ![Waiting icon][waiting-icon] | Applies to a webhook action that's waiting for an inbound request from a caller. |
+
+   [aborted-icon]: ./media/monitor-logic-apps/aborted.png
+   [canceled-icon]: ./media/monitor-logic-apps/cancelled.png
+   [failed-icon]: ./media/monitor-logic-apps/failed.png
+   [running-icon]: ./media/monitor-logic-apps/running.png
+   [skipped-icon]: ./media/monitor-logic-apps/skipped.png
+   [succeeded-icon]: ./media/monitor-logic-apps/succeeded.png
+   [succeeded-with-retries-icon]: ./media/monitor-logic-apps/succeeded-with-retries.png
+   [timed-out-icon]: ./media/monitor-logic-apps/timed-out.png
+   [waiting-icon]: ./media/monitor-logic-apps/waiting.png
+
+1. To get more information about a specific step, on the run history pane, select a step to open a pane that shows the inputs, outputs, and any errors that happened in that step.
+
+   For example, suppose you have a workflow with a failed step. You want to review which inputs might have caused that step to fail.
+
+   In this scenario, the failure resulted from not finding the specified RSS feed, for example:
+
+   :::image type="content" source="media/view-workflow-status-run-history/failed-action-inputs-standard.png" alt-text="Screenshot shows Standard workflow with failed step inputs.":::
+
+   The following screenshot shows the outputs from the failed step.
+
+   :::image type="content" source="media/view-workflow-status-run-history/failed-action-outputs-standard.png" alt-text="Screenshot shows Standard workflow with failed step outputs.":::
+
+   > [!NOTE]
+   >
+   > All runtime details and events are encrypted within Azure Logic Apps and 
+   > are decrypted only when a user requests to view that data. You can 
+   > [hide inputs and outputs in the workflow run history](logic-apps-securing-a-logic-app.md#obfuscate)
+   > or control user access to this information by using
+   > [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 
 ---
 
@@ -341,7 +365,7 @@ The rerun capability is available for all actions except for non-sequential and 
 
 1. In the run details page, find the action from where you want to resubmit the workflow run, open the shortcut menu, and select **Submit from this action**.
 
-   The run details page refreshes and shows the new run. All the operations that precede the resubmitted action show a lighter-colored status icon, representing reused inputs and outputs. The resubmitted action and subsequent actions show the usually colored status icons. For more information, see [Review workflow run history](#review-runs-history).
+   The run details page refreshes and shows the new run. All the operations that precede the resubmitted action show a lighter-colored status icon, representing reused inputs and outputs. The resubmitted action and subsequent actions show the usually colored status icons. For more information, see [Review workflow run history](#review-run-history).
 
    > [!TIP]
    >
@@ -389,7 +413,7 @@ The rerun capability is available for all actions except for non-sequential and 
 
 1. On the run details page, find the action from where you want to resubmit the workflow run, open the shortcut menu, and select **Submit from this action**.
 
-   The run details page refreshes and shows the new run. All the operations that precede the resubmitted action show a lighter-colored status icon, representing reused inputs and outputs. The resubmitted action and subsequent actions show the usually colored status icons. For more information, see [Review workflow run history](#review-runs-history).
+   The run details page refreshes and shows the new run. All the operations that precede the resubmitted action show a lighter-colored status icon, representing reused inputs and outputs. The resubmitted action and subsequent actions show the usually colored status icons. For more information, see [Review workflow run history](#review-run-history).
 
    > [!TIP]
    >
