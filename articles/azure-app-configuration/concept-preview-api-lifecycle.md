@@ -36,13 +36,10 @@ az monitor activity-log list --offset 30d --max-events 10000 --namespace Microso
 
 ## How to update to a newer version of the API
 
-- For Azure SDKs: use a newer API version by updating to a [newer version of the SDK](https://github.com/Azure/AppConfiguration?tab=readme-ov-file#sdks).
+- For Azure SDKs: Use a newer API version by updating to a [newer version of the SDK](https://github.com/Azure/AppConfiguration?tab=readme-ov-file#sdks).
 - For Azure CLI: Update the CLI itself.
-- For Terraform: Update to the latest version of the AzureRM Terraform module. To find out what version of the API a particular Terraform release is using,
-  check the [Terraform release notes](/azure/developer/terraform/provider-version-history-azurerm) or 
-  git log [this file](https://github.com/hashicorp/terraform-provider-azurerm/blob/main/internal/services/containers/client/client.go).
+- For REST requests: Update the `api-version` query parameter.
 - For other tools: Update the tool to the latest version.
-
 
 ## Upcoming deprecations
 
