@@ -51,7 +51,7 @@ Register your application to establish a trust relationship between your app and
 
 1. From the **Home** screen, select **Microsoft Entra ID** from the left menu.
 1. Select **App Registrations** under **Manage**, then select **New registration**.
-1. Enter a display name for your application under **Name**, then select an account type to register under *Supported account types*.
+1. Enter a display name for your application under **Name**, then select an account type to register under **Supported account types**.
 1. In *Redirect URI (optional)* select **Web**, then enter the URL from the above section in the text box. The redirect URI is the location where Microsoft Entra ID redirects your client and sends security tokens after authentication.
 1. Select **Register** to finish registering the application.
 
