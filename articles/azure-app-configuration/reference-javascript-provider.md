@@ -34,7 +34,7 @@ const endpoint = process.env.AZURE_APPCONFIG_ENDPOINT;
 const credential = new DefaultAzureCredential(); // For more information, see https://learn.microsoft.com/azure/developer/javascript/sdk/credential-chains#use-defaultazurecredential-for-flexibility
 
 async function run() {
-    // Connect to Azure App Configuration using a token credential and load all key-values with null label.
+    // Connect to Azure App Configuration using a token credential and load all key-values with no label.
     const settings = await load(endpoint, credential);
     console.log('settings.get("message"):', settings.get("message"));
 }
@@ -49,7 +49,7 @@ const { load } = require("@azure/app-configuration-provider");
 const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
 
 async function run() {
-    // Connect to Azure App Configuration using a connection string and load all key-values with null label.
+    // Connect to Azure App Configuration using a connection string and load all key-values with no label.
     const settings = await load(connectionString);
     console.log('settings.get("message"):', settings.get("message"));
 }
@@ -120,7 +120,7 @@ The `AzureAppConfiguration` type extends the following interfaces:
 
 ### Load specific key-values using selectors
 
-By default, the `load` method will load all configurations with null label from the configuration store. You can configure the behavior of the `load` method through the optional parameter of [`AzureAppConfigurationOptions`](https://github.com/Azure/AppConfiguration-JavaScriptProvider/blob/main/src/AzureAppConfigurationOptions.ts) type.
+By default, the `load` method will load all configurations with no label from the configuration store. You can configure the behavior of the `load` method through the optional parameter of [`AzureAppConfigurationOptions`](https://github.com/Azure/AppConfiguration-JavaScriptProvider/blob/main/src/AzureAppConfigurationOptions.ts) type.
 
 To refine or expand the configurations loaded from the App Configuration store, you can specify the key or label selectors under the `AzureAppConfigurationOptions.selectors` property.
 
@@ -239,7 +239,7 @@ You can [create feature flags](./manage-feature-flags.md#create-a-feature-flag) 
 const settings = await load(endpoint, credential, {
     featureFlagOptions: {
         enabled: true,
-        selectors: [ { keyFilter: "*" } ],
+        selectors: [ { keyFilter: "*", labelFilter: "Prod" } ],
         refresh: {
             enabled: true,
             refreshIntervalInMs: 10_000
@@ -249,7 +249,7 @@ const settings = await load(endpoint, credential, {
 ```
 
 > [!NOTE]
-> Selectors for feature flags must be explicitly provided. Otherwise, an exception will be thrown.
+> If `featureFlagOptions` is enabled and no selector is specified, the configuration provider will load all feature flags with no label from the App Configuration store.
 
 ### Feature management
 
