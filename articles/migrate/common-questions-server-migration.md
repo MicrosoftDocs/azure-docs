@@ -26,9 +26,9 @@ This article answers common questions about the Migration and modernization tool
 
 ### What are the migration options in Migration and modernization?
 
-The Migration and modernization tool offers agentless and agent-based migration for migrating your source servers and virtual machines (VMs) to Azure.
+The Migration and modernization tool offers agentless and agent-based migration to migrate your source servers and virtual machines (VMs) to Azure.
 
-Regardless of which migration option you choose, the first step in migrating a server by using the Migration and modernization tool is to start replication for the server. This process performs an initial replication of your VM/server data to Azure. When the operation completes the initial replication, it establishes an ongoing delta replication (delta sync) to migrate incremental data to Azure. Once the operation reaches the delta-sync stage, you can choose to migrate to Azure at any time.
+Regardless of which migration option you choose, the first step to migrate a server by using the Migration and modernization tool is to start replication for the server. This process performs an initial replication of your VM/server data to Azure. After the initial replication is completed, an ongoing replication (delta sync) is established that migrates incremental data to Azure. Once the operation reaches the delta-sync stage, you can choose to migrate to Azure at any time.
 
 Consider the following information as you decide which migration option to use.
 
