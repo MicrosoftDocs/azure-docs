@@ -764,7 +764,7 @@ items:
       items:
       - name: Manage Workspace packages
         href: ./spark/apache-spark-manage-workspace-packages.md
-      - name: Manage Spark pool packages
+      - name: Manage Spark pool libraries
         href: ./spark/apache-spark-manage-pool-packages.md
       - name: Manage Notebook session packages
         href: ./spark/apache-spark-manage-session-packages.md
