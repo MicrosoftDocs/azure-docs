@@ -50,6 +50,10 @@ Before you get started, make sure you have the following requirements in place:
 
 In this section, you use Visual Studio Code to create a local Azure Functions custom handlers project. Later in this article, you'll publish your function code to Azure.
 
+> [!IMPORTANT]
+> Deploying a function always will use a Windows Operating System on Azure. This is important for when you build you binaries,
+> ensure you build the correct one. If you create the function on Azure instead of in the IDE, you can specify the OS to run on
+
 1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette and search for and run the command `Azure Functions: Create New Project...`.
 
 1. Choose the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
@@ -231,6 +235,25 @@ After you've verified that the function runs correctly on your local computer, i
 
 In this section, you publish your project to Azure in a function app running Linux. In most cases, you must recompile your binary and adjust your configuration to match the target platform before publishing it to Azure.
 
+> [!IMPORTANT]
+> You may need to build for diffent architectures, make sure you use the right one
+> 
+> **Darwin (macOS)**  
+> amd64 for 64-bit Intel architecture  
+> arm64 for Apple Silicon (M1/M2)
+>  
+> **Linux**  
+> amd64 for 64-bit Intel/AMD architecture  
+> 386 for 32-bit Intel/AMD architecture  
+> arm for 32-bit ARM architecture  
+> arm64 for 64-bit ARM architecture  
+>  
+> **Windows**  
+> amd64 for 64-bit Intel/AMD architecture  
+> 386 for 32-bit Intel/AMD architecture  
+> arm for 32-bit ARM architecture  
+> arm64 for 64-bit ARM architecture  
+
 # [Go](#tab/go)
 
 1. In the integrated terminal, compile the handler to Linux/x64. A binary named `handler` is created in the function app root.
@@ -238,7 +261,7 @@ In this section, you publish your project to Azure in a function app running Lin
     # [macOS](#tab/macos)
 
     ```bash
-    GOOS=linux GOARCH=amd64 go build handler.go
+    GOOS=darwin GOARCH=amd64 go build handler.go
     ```
 
     # [Linux](#tab/linux)
