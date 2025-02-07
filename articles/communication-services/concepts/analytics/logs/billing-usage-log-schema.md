@@ -1,7 +1,7 @@
 ---
-title: Azure Communication Services Usage Log Schema
+title: Azure Communication Services Billing Usage Log Schema
 titleSuffix: An Azure Communication Services concept article
-description: Learn about the Voice and Video Usage logs.
+description: Learn about the Azure Communication Services Billing Usage logs.
 author:  amagginetti
 services: azure-communication-services
 
@@ -9,11 +9,11 @@ ms.author: amagginetti
 ms.date: 02/04/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.subservice: calling
+
 ---
 
-# Usage Log Schema
-The usage log schema is used to.....
+# Billing Usage Log Schema
+The Billing Usage log schema give an overview of the different services you use. 
 
 ## Data Concepts
 
