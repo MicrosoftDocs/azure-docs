@@ -16,7 +16,7 @@ This document provides a detailed overview of the [Azure confidential VM Guest A
 
 ## vTPM-Based Design
 
-Azure confidential VMs utilize a vTPM-based design for the guest attestation. The approach ensures a consistent interface across guest operating systems (Linux and Windows) and hardware platforms (AMD SEV-SNP and Intel TDX).
+Azure confidential virtual machines (VMs) utilize a vTPM-based design for the guest attestation. The approach ensures a consistent interface across guest operating systems (Linux and Windows) and hardware platforms (AMD SEV-SNP and Intel TDX).
 
 ## Attestation Flow
 
@@ -31,7 +31,7 @@ A vTPM evidence consists of a TPM quote and endorsements used to verify the quot
   - A standard TPM quote that is the output of `TPM2_Quote` command defined by TPM 2.0 specification.
   - Includes a list of Platform Configuration Registers (PCRs) that captures the measurements of the guest OS (for example, boot process).
   - The usage of PCRs conforms to Linux and Windows standards (each having its usage definition).
-  - The quote is signed by vTPM attestation private key (AK); that is, AK is specified as the signing key in the `TPM2_Quote` command.
+  - Signed by vTPM attestation private key (AK); that is, AK is specified as the signing key in the `TPM2_Quote` command.
 
 - TPM Event Log
   - An event log stored in the system that can be used to reproduce PCR values in the TPM quote.
@@ -43,12 +43,12 @@ A vTPM evidence consists of a TPM quote and endorsements used to verify the quot
 
 - Hardware Report
   - Generated and signed by the hardware.
-  - Capturing the following information
+  - Capture the following information
     - AK public
     - The measurement of Microsoft-built guest paravisor where the vTPM runs
       - Learn more in [Confidential VMs on Azure](https://techcommunity.microsoft.com/t5/windows-os-platform-blog/confidential-vms-on-azure/ba-p/3836282)).
     - Hardware information
-  - Refer to AMD SEV-SNP and Intel TDX specifications for more detail.
+      - Refer to AMD SEV-SNP and Intel TDX specifications for more detail.
 
 - Hardware Vendor Certificate Chain
   - Issued by hardware vendor (AMD and Intel) to certify the signature of the hardware report.
