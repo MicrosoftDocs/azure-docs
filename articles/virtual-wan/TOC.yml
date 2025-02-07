@@ -220,6 +220,8 @@
           items:
           - name: Azure VPN client
             href: point-to-site-azure-vpn-client-certificate-linux.md
+          - name: OpenVPN client
+            href: point-to-site-vpn-client-certificate-openvpn-linux.md
         - name: macOS and iOS clients
           items:
           - name: Native VPN client

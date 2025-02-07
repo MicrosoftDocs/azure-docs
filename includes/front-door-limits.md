@@ -91,7 +91,8 @@
 
 ##### From Client to Front Door
 
-* Front Door has an idle TCP connection timeout of 61 seconds.
+* Header timeout - After establishing TCP/TLS connection, Front Door has a 5-second timeout for receiving all headers from the client. The connection is terminated if the client doesn't send headers within 5 seconds. You can't configure this timeout value.
+* HTTP keep-alive timeout - Front Door has a 90-second HTTP keep-alive timeout. The connection is terminated if the client doesn't send data for 90 seconds. You can't configure this timeout value.
 
 ##### Front Door to application back-end
 
