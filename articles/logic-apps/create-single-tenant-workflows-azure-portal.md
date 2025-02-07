@@ -388,25 +388,19 @@ In this example, the workflow runs when the **Request** trigger receives an inbo
 
 ## Review workflow run history
 
-After a stateful workflow finishes running, you can view the workflow's run history, including the status for the overall run, for the trigger, and for each action along with their inputs and outputs. In the Azure portal, workflow run history and trigger history appear at the workflow level, not at the logic app resource level. For more information, see [Review workflow run history](monitor-logic-apps.md?tabs=standard#review-runs-history) and [Review trigger history](monitor-logic-apps.md?tabs=standard#review-trigger-history).
-
-For this example workflow, the workflow run history looks similar to the following sample:
-
-![Screenshot shows run details view with the status for each step in the workflow.](./media/create-single-tenant-workflows-azure-portal/review-run-details.png)
-
-![Screenshot shows inputs and outputs in the selected action named Send an email.](./media/create-single-tenant-workflows-azure-portal/review-step-inputs-outputs.png)
+After a stateful workflow finishes running, you can view the workflow's run history, including the status for the overall run, for the trigger, and for each action along with their inputs and outputs. In the Azure portal, workflow run history and trigger history appear at the workflow level, not at the logic app resource level. For more information, see [Review workflow run history](view-workflow-status-run-history.md?tabs=standard#review-run-history) and [Review trigger history](view-workflow-status-run-history.md?tabs=standard#review-trigger-history).
 
 <a name="review-trigger-history"></a>
 
 ## Review trigger history
 
-For a stateful workflow, you can review the trigger history for each run, including the trigger status along with inputs and outputs, separately from the [workflow run history](#review-run-history). In the Azure portal, trigger history and run history appear at the workflow level, not the logic app level. For more information, see [Review trigger history](monitor-logic-apps.md?tabs=standard#review-trigger-history).
+For a stateful workflow, you can review the trigger history for each run, including the trigger status along with inputs and outputs, separately from the [workflow run history](#review-run-history). In the Azure portal, trigger history and run history appear at the workflow level, not the logic app level. For more information, see [Review trigger history](view-workflow-status-run-history.md?tabs=standard#review-trigger-history).
 
 <a name="resubmit-workflow-run"></a>
 
 ## Resubmit workflow run with same inputs
 
-For an existing stateful workflow run, you can rerun the entire workflow with the same inputs that were previously used for that run. For more information, see [Rerun a workflow with same inputs](monitor-logic-apps.md?tabs=standard#resubmit-workflow-run).
+For a stateful workflow run, you can rerun the entire workflow with the same inputs that were previously used for that run. For more information, see [Rerun a workflow with same inputs](view-workflow-status-run-history.md?tabs=standard#resubmit-workflow-run).
 
 <a name="set-up-managed-identity-storage"></a>
 

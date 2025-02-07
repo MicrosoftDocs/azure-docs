@@ -14,17 +14,11 @@ ms.date: 02/06/2025
 
 After you run a logic app workflow, you can check that workflow's run status, trigger history, workflow run history, and performance.
 
-This guide shows how to perform the following tasks:
+This guide shows you how to perform the following tasks:
 
 - [Review trigger history](#review-trigger-history).
 - [Review workflow run history](#review-run-history).
 - [Set up alerts](#add-azure-alerts) to get notifications about failures or other possible problems. For example, you can create an alert that detects "when more than five runs fail in an hour".
-
-To monitor and review the workflow run status for Standard workflows, see the following sections in [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md):
-
-- [Review trigger history](create-single-tenant-workflows-azure-portal.md#review-trigger-history)
-- [Review workflow run history](create-single-tenant-workflows-azure-portal.md#review-run-history).
-- [Enable or open Application Insights after deployment](create-single-tenant-workflows-azure-portal.md#enable-open-application-insights).
 
 For real-time event monitoring and richer debugging, you can set up diagnostics logging for your logic app workflow by using [Azure Monitor logs](/azure/azure-monitor/overview). This Azure service helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. You can then find and view events, such as trigger events, run events, and action events. By storing this information in [Azure Monitor logs](/azure/azure-monitor/logs/data-platform-logs), you can create [log queries](/azure/azure-monitor/logs/log-query-overview) that help you find and analyze this information. You can also use this diagnostic data with other Azure services, such as Azure Storage and Azure Event Hubs. For more information, see [Monitor logic apps by using Azure Monitor](monitor-workflows-collect-diagnostic-data.md).
 
