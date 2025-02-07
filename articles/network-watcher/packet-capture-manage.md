@@ -313,11 +313,10 @@ To download a packet capture file saved to Azure storage, follow these steps:
 1. In the blob page, select **Download**.
 
 
-You can also download capture files from the storage account container using the Azure portal or Storage Explorer<sup>1</sup> at the following path: 
+You can also download capture files by directly going to the storage account container at the following path: 
 ```
 https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{virtualMachineName}/{year}/{month}/{day}/packetcapture_{UTCcreationTime}.cap
 ```
-<sup>1</sup> Storage Explorer is a standalone app that you can conveniently use to access and work with Azure Storage data. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 # [**PowerShell**](#tab/powershell)
 
@@ -334,9 +333,6 @@ To download a packet capture from Azure storage to the local disk, use [Get-AzSt
 Get-AzStorageBlobContent -Container 'network-watcher-logs' -Blob '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm/2024/01/25/packetcapture_22_44_54_342.cap' -Destination 'C:\Capture\myVM_1.cap'
 ```
 
-> [!NOTE]
-> You can also download the capture file from the storage account container using the Azure Storage Explorer. Storage Explorer is a standalone app that you can conveniently use to access and work with Azure Storage data. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
-
 # [**Azure CLI**](#tab/cli)
 
 If a storage account is specified, capture files are saved to the storage account at the following path:
@@ -352,12 +348,12 @@ To download a packet capture from Azure storage to the local disk, use [az stora
 az storage blob download --container-name 'network-watcher-logs' --blob-url '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm/2024/01/25/packetcapture_22_44_54_342.cap' --file 'C:\Capture\myVM_1.cap'
 ```
 
-> [!NOTE]
-> You can also download the capture file from the storage account container using the Azure Storage Explorer. Storage Explorer is a standalone app that you can conveniently use to access and work with Azure Storage data. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
-
 ---
 
 > [!NOTE]
+> You can use Azure Storage Explorer to download capture files from the storage account container. Storage Explorer is a standalone app that you can conveniently use to access and work with Azure Storage data. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+
+> [!IMPORTANT]
 > During the packet capture session, the capture file might not immediately appear in the storage account container because it's initially saved to a temporary location. The file is transferred to its final location after the capture session is completed.
 
 To download a packet capture file saved to the virtual machine (VM), connect to the VM and download the file from the local path specified during the packet capture creation. 
