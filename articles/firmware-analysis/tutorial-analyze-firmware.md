@@ -67,7 +67,7 @@ If you've just onboarded your subscription, are signed into the Azure portal, an
 
 1. Sign into the Azure portal and go to Defender for IoT.
 
-1. Select **firmware analysis** > **Firmware inventory** > **Upload**.
+1. Select **Firmware analysis** > **Firmware inventory** > **Upload**.
 
 1. In the **Upload a firmware image** pane, select **Choose file**. Browse to and select the firmware image file you want to upload.
 
