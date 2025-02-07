@@ -130,6 +130,44 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
 - From the Azure NetApp Files capacity pool or volume, select **Metrics**. Then select **Metric** to view the available metrics:
    
     :::image type="content" source="./media/azure-netapp-files-metrics/metrics-navigate-volume.png" alt-text="Snapshot that shows how to navigate to the Metric pull-down." lightbox="./media/azure-netapp-files-metrics/metrics-navigate-volume.png":::
+
+## <a name="subscription-quota-metrics"><a> Subscription quota metrics (preview)
+
+Subscription quota metrics are currently in preview. Before you can access subscription-level quota metrics, you need to register the feature: 
+
+1. Register the feature
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFQuotaLimit
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFQuotaLimit
+    ```
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+
+- *Accounts per subscription*
+    Number of NetApp accounts per region 
+
+- *Total backup-backup enabled volumes per subscription*
+    Maximum number of volumes that can be backed up per subscription 
+
+- *Total cool access volumes per subscription* 
+    Total number of cool access volumes per subscription 
+
+- *Totap DP volumes per subscription* 
+    Total number of data protection volumes per subscription  
+
+- *Total TIBs per subscription* 
+    Total regional capacity per subscription 
+
+- *Total volumes per subscription* 
+    Total number of volumes per subscription  
     
 ## <a name="capacity_pools"></a>Usage metrics for capacity pools
 
@@ -180,7 +218,6 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
         Consider repurposing the volume and delegating a different volume with a larger size and/or in a higher service level to meet your application requirements. If it's an NFS volume, consider changing mount options to reduce data flow if your application supports those changes.
 
     :::image type="content" source="./media/azure-netapp-files-metrics/throughput-limit-reached.png" alt-text="Screenshot that shows Azure NetApp Files metrics a line graph demonstrating throughput limit reached." lightbox="./media/azure-netapp-files-metrics/throughput-limit-reached.png":::
-
 
 ## Performance metrics for volumes
 
@@ -237,7 +274,6 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
     
 * *Provisioned throughput for the pool*   
     Provisioned throughput of this pool.
-
 
 ## Throughput metrics for volumes   
 

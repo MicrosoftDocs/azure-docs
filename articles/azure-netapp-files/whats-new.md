@@ -14,6 +14,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Quota blade usage reporting](azure-netapp-files-metrics.md#subscription-quota-metrics) (preview)
+
+    <!-- Azure update text -->
+
 ## January 2025 
 
 * [Application volume group for Oracle](application-volume-group-oracle-introduction.md) and [application volume group for SAP HANA extension one](application-volume-group-introduction.md) now support customer-managed keys. (Preview)
