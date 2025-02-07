@@ -22,6 +22,10 @@ To configure backup on the Azure Database for PostgreSQL - Flexible Server via A
 
    :::image type="content" source="./media/configure-postgresql-flexible-server-backup/start-configure-protection-for-database.png" alt-text="Screenshot shows how to initiate the database protection. " lightbox="./media/configure-postgresql-flexible-server-backup/start-configure-protection-for-database.png":::
 
+   Alternatively, for configuring backup from the **Backup vault** pane, go to the **Backup vault** > **Overview**, and then select **+ Backup**.
+
+   To configure backup from the **database** pane, go to the **PostgreSQL - flexible server** pane, and then select **Settings** > **LTR (Vaulted Backups)**.
+
 2. On the **Configure protection** pane, select **Resource managed by** as **Azure**, **Datasource type** as **Azure Database for PostgreSQL flexible servers**, and **Solution** as **Azure Backup**, and then select **Continue**.
 
    :::image type="content" source="./media/configure-postgresql-flexible-server-backup/configure-protection-pane.png" alt-text="Screenshot shows the datasource and solution selection." lightbox="./media/configure-postgresql-flexible-server-backup/configure-protection-pane.png":::
