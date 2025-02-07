@@ -1,5 +1,5 @@
 ---
-title: Manage packet captures for VMs
+title: Manage packet captures
 titleSuffix: Azure Network Watcher
 description: Learn how to start, stop, download, and delete Azure virtual machines packet captures with the packet capture feature of Network Watcher.
 author: halkazwini
@@ -298,9 +298,9 @@ The following example is the output from the `az network watcher packet-capture 
 
 ## Download a packet capture
 
-# [**Portal**](#tab/portal)
+After your packet capture session completes, the resulting capture file is saved to Azure Storage, a local file on the target virtual machine, or both. The storage destination for the packet capture is specified during its creation. For more information, see [Start a packet capture](#start-a-packet-capture) section.
 
-After concluding your packet capture session, the resulting capture file is saved to Azure storage, a local file on the target virtual machine or both. The storage destination for the packet capture is specified during its creation. For more information, see [Start a packet capture](#start-a-packet-capture) section.
+# [**Portal**](#tab/portal)
 
 To download a packet capture file saved to Azure storage, follow these steps:
 
@@ -312,18 +312,14 @@ To download a packet capture file saved to Azure storage, follow these steps:
 
 1. In the blob page, select **Download**.
 
-> [!NOTE]
-> You can also download capture files from the storage account container using the Azure portal or Storage Explorer<sup>1</sup> at the following path: 
-> ```
-> https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{virtualMachineName}/{year}/{month}/{day}/packetcapture_{UTCcreationTime}.cap
-> ```
-> <sup>1</sup> Storage Explorer is a standalone app that you can conveniently use to access and work with Azure Storage data. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
-To download a packet capture file saved to the virtual machine (VM), connect to the VM and download the file from the local path specified during the packet capture creation. 
+You can also download capture files from the storage account container using the Azure portal or Storage Explorer<sup>1</sup> at the following path: 
+```
+https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{virtualMachineName}/{year}/{month}/{day}/packetcapture_{UTCcreationTime}.cap
+```
+<sup>1</sup> Storage Explorer is a standalone app that you can conveniently use to access and work with Azure Storage data. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 # [**PowerShell**](#tab/powershell)
-
-After concluding your packet capture session, the resulting capture file is saved to Azure storage, a local file on the target virtual machine or both. The storage destination for the packet capture is specified during its creation. For more information, see [Start a packet capture](#start-a-packet-capture) section.
 
 If a storage account is specified, capture files are saved to the storage account at the following path:
 
@@ -343,8 +339,6 @@ Get-AzStorageBlobContent -Container 'network-watcher-logs' -Blob '/subscriptions
 
 # [**Azure CLI**](#tab/cli)
 
-After concluding your packet capture session, the resulting capture file is saved to Azure storage, a local file on the target virtual machine or both. The storage destination for the packet capture is specified during its creation. For more information, see [Start a packet capture](#start-a-packet-capture) section.
-
 If a storage account is specified, capture files are saved to the storage account at the following path:
 
 ```url
@@ -362,6 +356,11 @@ az storage blob download --container-name 'network-watcher-logs' --blob-url '/su
 > You can also download the capture file from the storage account container using the Azure Storage Explorer. Storage Explorer is a standalone app that you can conveniently use to access and work with Azure Storage data. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 ---
+
+> [!NOTE]
+> During the packet capture session, the capture file might not immediately appear in the storage account container because it's initially saved to a temporary location. The file is transferred to its final location after the capture session is completed.
+
+To download a packet capture file saved to the virtual machine (VM), connect to the VM and download the file from the local path specified during the packet capture creation. 
 
 ## Delete a packet capture
 
