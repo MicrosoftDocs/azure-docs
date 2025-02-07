@@ -17,16 +17,16 @@ There are multiple options for making the scene and asset files available to the
   * Azure Blob Storage is a simple and cost-effective option for smaller projects. As all asset files are required on each pool VM, then once the number and size of asset files increases care needs to be taken to ensure the file transfers are as efficient as possible.
 * Azure storage as a file system using [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md):
   * For Linux VMs, a storage account can be exposed and used as a file system when the blobfuse virtual file system driver is used.
-  * This option has the advantage that it is very cost-effective, as no VMs are required for the file system, plus blobfuse caching on the VMs avoids repeated downloads of the same files for multiple jobs and tasks. Data movement is also simple as the files are simply blobs and standard APIs and tools, such as azcopy, can be used to copy file between an on-premises file system and Azure storage.
+  * This option has the advantage that it is cost-effective, as no VMs are required for the file system, plus blobfuse caching on the VMs avoids repeated downloads of the same files for multiple jobs and tasks. Data movement is also simple as the files are simply blobs and standard APIs and tools, such as azcopy, can be used to copy file between an on-premises file system and Azure storage.
 * File system or file share:
   * Depending on VM operating system and performance/scale requirements, then options include [Azure Files](../storage/files/storage-files-introduction.md), using a VM with attached disks for NFS, using multiple VMs with attached disks for a distributed file system like GlusterFS, or using a third-party offering.
-  * Avere Systems is now part of Microsoft and will have solutions in the near future that are ideal for large-scale, high-performance rendering. The Avere solution will enable an Azure-based NFS or SMB cache to be created that works in conjunction with blob storage or with on-premises NAS devices.
+  * Avere Systems is now part of Microsoft and will have solutions soon that are ideal for large-scale, high-performance rendering. The Avere solution enable an Azure-based NFS or SMB cache to be created that works with blob storage or with on-premises NAS devices.
   * With a file system, files can be read or written directly to the file system or can be copied between file system and the pool VMs.
   * A shared file system allows a large number of assets shared between projects and jobs to be utilized, with rendering tasks only accessing what is required.
 
 ## Using Azure Blob Storage
 
-A blob storage account or a general-purpose v2 storage account should be used. These two storage account types can be configured with significantly higher limits compared to a general-purpose v1 storage account, as detailed in [this blog post](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/). When configured, the higher limits will enable much better performance and scalability, especially when there are many pool VMs accessing the storage account.
+A blob storage account or a general-purpose v2 storage account should be used. These two storage account types can be configured with higher limits compared to a general-purpose v1 storage account, as detailed in [this blog post](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/). When configured, the higher limits enable better performance and scalability, especially when there are many pool VMs accessing the storage account.
 
 ### Copying files between client and blob storage
 
@@ -53,9 +53,9 @@ The simplest approach is to copy all the asset files to the pool VMs for each jo
 When asset files are reused between jobs, with only incremental changes between jobs, then a more efficient but slightly more involved approach is to store assets in the shared folder on the VM and sync changed files.
 
 * The job preparation task would perform the copy using azcopy with the /XO parameter to the VM shared folder specified by AZ_BATCH_NODE_SHARED_DIR environment variable. This will only copy changed files to each VM.
-* Thought will have to be given to the size of all assets to ensure they will fit on the temporary drive of the pool VMs.
+* Thought will have to be given to the size of all assets to ensure they'll fit on the temporary drive of the pool VMs.
 
-Azure Batch has built-in support to copy files between a storage account and Batch pool VMs. Task [resource files](/rest/api/batchservice/job/add#resourcefile) copy files from storage to pool VMs and could be specified for the job preparation task. Unfortunately, when there are hundreds of files it is possible to hit a limit and tasks to fail. When there are large numbers of assets it is recommended to use the azcopy command line in the job preparation task, which can use wildcards and has no limit.
+Azure Batch has built-in support to copy files between a storage account and Batch pool VMs. Task [resource files](/rest/api/batchservice/job/add#resourcefile) copy files from storage to pool VMs and could be specified for the job preparation task. Unfortunately, when there are hundreds of files it's possible to hit a limit and tasks to fail. When there are large numbers of assets it's recommended to use the azcopy command line in the job preparation task, which can use wildcards and has no limit.
 
 ### Copying output files to blob storage from Batch pool VMs
 
@@ -79,13 +79,13 @@ As files are simply blobs in Azure Storage, then standard blob APIs, tools, and 
 
 ## Using Azure Files with Windows VMs
 
-[Azure Files](../storage/files/storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the SMB protocol. Azure Files is based on Azure Blob Storage; it is [cost-efficient](https://azure.microsoft.com/pricing/details/storage/files/) and can be configured with data replication to another region so globally redundant. [Scale targets](../storage/files/storage-files-scale-targets.md#azure-files-scale-targets) should be reviewed to determine if Azure Files should be used given the forecast pool size and number of asset files.
+[Azure Files](../storage/files/storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the SMB protocol. Azure Files is based on Azure Blob Storage; it's [cost-efficient](https://azure.microsoft.com/pricing/details/storage/files/) and can be configured with data replication to another region so globally redundant. [Scale targets](../storage/files/storage-files-scale-targets.md#azure-files-scale-targets) should be reviewed to determine if Azure Files should be used given the forecast pool size and number of asset files.
 
-There is [documentation](../storage/files/storage-how-to-use-files-windows.md) covering how to mount an Azure File share.
+There's [documentation](../storage/files/storage-how-to-use-files-windows.md) covering how to mount an Azure File share.
 
 ### Mounting an Azure Files share
 
-To use in Batch, a mount operation needs to be performed each time a task in run as it is not possible to persist the connection between tasks. The easiest way to do this is to use cmdkey to persist credentials using the start task in the pool configuration, then mount the share before each task.
+To use in Batch, a mount operation needs to be performed each time a task in run as it isn't possible to persist the connection between tasks. The easiest way to do this is to use cmdkey to persist credentials using the start task in the pool configuration, then mount the share before each task.
 
 Example use of cmdkey in a pool template (escaped for use in JSON file) – note that when separating the cmdkey call from the net use call, the user context for the start task must be the same as that used for running the tasks:
 
