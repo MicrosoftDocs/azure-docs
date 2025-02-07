@@ -2,7 +2,7 @@
 title: Export DICOM files by using the export API of the DICOM service
 description: This how-to guide explains how to export DICOM files to an Azure Blob Storage account.
 author: varunbms
-ms.service: azure-health-data-services
+ms.service: azure-health-data-servicesif
 ms.subservice: dicom-service
 ms.topic: how-to
 ms.date: 10/30/2023
@@ -92,7 +92,7 @@ The request body consists of the export source and destination.
 
 #### Source settings
 
-Source settings is an optional field. If Source settings is provided, only the identifiers listed here are exported. If the source setting is not provided, it will export all the instances that is stored in the DICOM to the destination blob. Export all feature is not supported for DICOM service with Azure Data Lake Storage enabled.
+Source settings is an optional field. If Source settings is not provided, it will export all the instances that is Stored in the DICOM service to the destination blob. Export all feature is not supported for DICOM service with Azure Data Lake Storage enabled.
 
 | Property | Required | Default | Description |
 | -------- | -------- | ------- | ----------- |
