@@ -38,3 +38,6 @@ Here we list several common call setup issues, along with potential causes for e
 ### The call setup takes too long
 * The user is experiencing network issues.
 * The browser takes a long time to acquire the stream.
+
+### The call ends with specific codes/sub codes
+* The call ends with 410/3112 error due to network issues

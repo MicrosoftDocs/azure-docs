@@ -17,6 +17,100 @@ ms.custom: references_regions
 # SMS FAQ
 This article answers commonly asked questions about the SMS service. 
 
+## 10DLC (10 Digit Long Code)
+### What is brand registration, and why is it required for 10DLC messaging?
+
+Brand registration is the process of registering your business as a recognized brand with carriers to send SMS messages using 10DLC (10-digit long codes). Carriers require brand registration to ensure compliance with messaging regulations and to prevent spam.
+
+### How do I complete brand registration with ACS?
+
+To register a brand, you’ll need to provide information such as your business’s name, tax ID, address, industry, and other identifying information. This can be done through the ACS portal by following [this quickstart](../../quickstarts/sms/apply-for-ten-digit-long-code.md).
+
+### What types of information are required for brand registration?
+
+You’ll need to provide:
+- Legal business name
+- Business address
+- Tax ID or Employer Identification Number (EIN)
+- Industry type
+- Contact information
+- Business website (if applicable)
+
+### Can I update my brand information after registration?
+
+This feature is currently not available.
+
+### Is there a fee for brand registration?
+
+Yes, there is a fee. Refer to the [pricing page](../sms-pricing.md) for details on fees.
+
+### What is vetting, and when is it required?
+
+Vetting is a review process to evaluate your brand’s trustworthiness and assign it a score, which influences messaging throughput limits. It is required if your brand’s use case involves high-volume messaging or falls into certain categories needing additional carrier review.
+
+### How is the vetting score determined?
+
+The vetting score is based on the information provided during brand registration and includes factors like industry reputation, message content, and business type. Scores range from 1-100, with higher scores resulting in higher messaging throughput limits.
+
+### What type of campaigns are supported?
+
+Currently, ACS supports **Standard campaigns** only. These campaigns are used for general business messaging, such as customer service notifications, account updates, and other informational messages that do not fall under special categories (e.g., political or emergency services).
+
+### Can I update my campaign information?
+
+This feature is currently not available.
+
+### Is there a fee for campaign registration?
+
+Yes, there is a fee. Refer to the [pricing page](../sms-pricing.md) for details on fees.
+
+## General 10DLC FAQs
+
+### Can I use 10DLC numbers in any country?
+
+No, 10DLC is primarily supported in the United States. Availability depends on the subscription billing location and eligibility. Check the [ACS eligibility documentation](../../concepts/numbers/phone-number-management-for-united-states.md) for more details on supported countries.
+
+### What is a 10DLC number?
+A 10DLC (10-Digit Long Code) number is a standard 10-digit phone number used for Application-to-Person (A2P) messaging in the United States. It is designed for businesses to send SMS messages to customers at scale, without the restrictions of traditional long codes.
+
+### I already have a local U.S. number. Can I use it for SMS?
+Yes, if you already have a local U.S. number, you can use it for SMS messaging. You will need to submit a brand registration and campaign registration prior to enabling the SMS capability on it. Follow this [quickstart to apply.](../../quickstarts/sms/apply-for-ten-digit-long-code.md) 
+
+### What are the advantages of using 10DLC numbers over short codes?
+- **Cost-effective**: 10DLC numbers are more affordable than short codes for A2P messaging.
+- **Wide coverage**: 10DLC numbers can be used for messaging across all major U.S. carriers, providing reliable delivery at scale.
+- **No need for dedicated short codes**: 10DLCs do not require additional approvals or significant setup costs, unlike short codes.
+
+### Can 10DLC numbers be used for voice calls?
+Yes, 10DLC numbers are nothing but local numbers that are voice-enabled. When registered, they can be used for SMS. 10DLC registration only applies to SMS enablement and is not required for calling.
+
+### What kind of messages can be sent from a 10DLC number?
+10DLC numbers can be used for a wide range of business communications, including:
+- Customer service notifications
+- Marketing and promotional messages
+- Alerts and reminders
+- Two-factor authentication (2FA) codes
+
+However, 10DLC numbers must adhere to messaging guidelines and cannot be used for illegal or spam purposes.
+
+### Are 10DLC numbers subject to throughput limits?
+Yes, 10DLC numbers are subject to throughput limits, which can vary depending on the carrier and the volume of messages sent. These limits are generally higher than those for traditional long codes but are lower than those for short codes. The actual throughput may be impacted by factors such as campaign registration and compliance with carrier guidelines.
+
+### Can I port my existing number to a 10DLC number?
+Yes, it is possible to port an existing phone number to a 10DLC. Please follow instructions to port [here](../../quickstarts/telephony/port-phone-number.md).
+
+### What happens if I send unsolicited messages from a 10DLC number?
+Sending unsolicited messages, also known as spam, can lead to penalties, including the suspension of your 10DLC number or carrier blocking. It is essential to comply with applicable laws, including the Telephone Consumer Protection Act (TCPA) and carrier guidelines to avoid these issues.
+
+### Can 10DLC numbers be used for international messaging?
+ 10DLC numbers are designed for use within the United States and do not support international messaging.
+ 
+### How can I monitor the performance of my 10DLC number?
+Monitoring the performance of your 10DLC number, such as delivery rates, message throughput, and errors, can typically be done through [SMS insights dashboard](../analytics/insights/sms-insights.md).
+
+### Can I use 10DLC numbers for high-volume messaging?
+Yes, 10DLC numbers are suitable for high-volume messaging, but they are subject to carrier rate limiting and compliance guidelines. To ensure optimal performance, it's important to work with your provider to manage message volume and adhere to best practices for A2P messaging.
+
 ## Sending and receiving messages
 ### How can I receive messages using Azure Communication Services?
 
@@ -37,8 +131,7 @@ In the United States, Azure Communication Services doesn't check for landline nu
 
 Yes, you can make one request with multiple recipients. Follow this [quickstart](../../quickstarts/sms/send.md?pivots=programming-language-csharp) to send messages to multiple recipients.
 
-### I received an HTTP Status 202 from the Send SMS API but the SMS didn't reach my phone, what do I do now?
-
+### I received an HTTP Status 202 from the Send SMS API but the SMS didn't reach my phone. What do I do now?
 
 The 202 returned by the service means that the message you queued to be sent wasn't delivered. Use this [Quickstart: Handle SMS events](../../quickstarts/sms/handle-sms-events.md) to subscribe to delivery report events and troubleshoot. Once the events are configured, inspect the `deliveryStatus` field of your delivery report to verify delivery success or failure.
 
@@ -171,6 +264,7 @@ New limits are as follows:
 |Weekly limit| Verified| No Limit| No Limit|
 |Monthly Limit| Verified| No Limit| No Limit|
 
+The SMS rate limits are still applicable in addition to these limits. Please reference [rate limits](#are-there-any-limits-on-sending-messages).
 
 > [!IMPORTANT]
 > Unverified SMS traffic that exceeds the daily limit or is filtered for spam has a [4010 error code](../troubleshooting-codes.md) returned for both scenarios.
@@ -179,7 +273,7 @@ New limits are as follows:
 
 After submission of the form, we coordinate with our downstream peer to get the application verified by the toll-free messaging aggregator. While we're reviewing your application, we may reach out to you for more information.
 - From Application Submitted to Pending = **1-5 business days** 
-- From Pending to Verdict (Verfied/Rejected/More info needed) = **4-5 weeks**. The toll-free aggregator is currently facing a high volume of applications, so new applications can take around eight weeks to be approved.
+- From Pending to Verdict (Verified/Rejected/More info needed) = **4-5 weeks**. The toll-free aggregator is currently facing a high volume of applications, so new applications can take around eight weeks to be approved.
 
 The whole toll-free verification process takes about **5-6 weeks**. These timelines are subject to change depending on the volume of applications to the toll-free messaging aggregator and the [quality](#what-is-considered-a-high-quality-toll-free-verification-application) of your application. The toll-free aggregator is currently facing a high volume of applications due to which applications can take around eight weeks to get approved.
 
@@ -203,7 +297,7 @@ Pointers to ensure you're submitting a high quality application:
 
 ### What are the ineligible use cases for toll-free verification?
 
-| High-Risk Financial Services    | Get Rich Quick Schemes            | Debt Forgiveness                 | Illegal Substances/Activites | General                  |
+| High-Risk Financial Services    | Get Rich Quick Schemes            | Debt Forgiveness                 | Illegal Substances/Activities | General                  |
 |---------------------------------|-----------------------------------|----------------------------------|------------------------------|--------------------------|
 | Payday loans                    | Debt consolidation                | Work from home programs          | Cannabis                     | Phishing                 |
 | Short-term, high-interest loans | Debt reduction                    | Risk investment opportunities    | Alcohol                      | Fraud or scams           |
@@ -245,7 +339,7 @@ Azure Communication Services supports sending and receiving of long messages ove
 
 To ensure that we continue offering the high quality of service consistent with our SLAs, Azure Communication Services applies rate limits (different for each primitive). Developers who call our APIs beyond the limit receive a 429 HTTP Status Code Response. 
 
-Rate Limits for SMS:
+#### Rate Limits for SMS
 
 |Operation|Number Type |Scope|Timeframe (s)| Limit (request #) | Message units per minute|
 |---------|---|--|-------------|-------------------|-------------------------|
@@ -253,7 +347,23 @@ Rate Limits for SMS:
 |Send Message|Short Code |Per Number|60|6000*|6000|
 |Send Message|Alphanumeric Sender ID |Per resource|60|600*|600|
 
-*If your company has requirements that exceed the rate-limits, submit [a request to Azure Support](../../../azure-portal/supportability/how-to-create-azure-support-request.md) to enable higher throughput.
+*If your company has requirements that exceed the rate-limits, submit [a request to Azure Support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to enable higher throughput.
+
+#### Rate limits for 10DLC
+| **Carrier** | **Message Class / Brand Tier** | **Use Case Type** | **Use Case**       | **Vetting Score Requirements** | **Daily Cap (SMS)** |
+|-------------|--------------------------------|--------------------|--------------------|-------------------------------|----------------------|
+| AT&T        | A                              | Standard          | Dedicated Use Case | 75-100                        | 4,500                | 
+| AT&T        | B                              | Standard          | Mixed / Marketing  | 75-100                        | 4,500                | 
+| AT&T        | C                              | Standard          | Dedicated Use Case | 50-74                         | 4,500                | 
+| AT&T        | D                              | Standard          | Mixed / Marketing  | 50-74                         | 4,500                | 
+| AT&T        | E                              | Standard          | Dedicated Use Case | 1-49                          | 240                  | 
+| AT&T        | F                              | Standard          | Mixed / Marketing  | 1-49                          | 240                  | 
+| AT&T        | T                              | Standard          | Low Volume Mixed   | 75                            | 50                   |       
+| T-Mobile    | Top                            | Standard          | All                | 75-100                        | 200,000              |                      
+| T-Mobile    | High Mid                       | Standard          | All                | 50-74                         | 40,000               |                     
+| T-Mobile    | Low Mid                        | Standard          | All                | 25-49                         | 10,000               |                      
+| T-Mobile    | Low                            | Standard          | All                | 1-24                          | 2,000                |                      
+| T-Mobile    | Standard                       | Standard          | Low Volume Mixed   |                               | 2,000                |                     
 
 ## Carrier Fees 
 ### What are the carrier fees for SMS?

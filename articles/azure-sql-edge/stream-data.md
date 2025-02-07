@@ -3,13 +3,15 @@ title: Data streaming in Azure SQL Edge
 description: Learn about data streaming in Azure SQL Edge.
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
+ms.date: 09/21/2024
 ms.service: azure-sql-edge
 ms.topic: conceptual
 ---
 # Data streaming in Azure SQL Edge
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 Azure SQL Edge provides a native implementation of data streaming capabilities called Transact-SQL (T-SQL) streaming. It provides real-time data streaming, analytics, and event-processing to analyze and process high volumes of fast-streaming data from multiple sources, simultaneously. T-SQL streaming is built by using the same high-performance streaming engine that powers [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) in Microsoft Azure. The feature supports a similar set of capabilities offered by Azure Stream Analytics running on the edge.
@@ -54,7 +56,7 @@ The following limitations and restrictions apply to T-SQL streaming.
 - When you stopped a streaming job in Azure SQL Edge, there may be some delay before the next streaming job can be started. This delay is introduced because the underlying streaming process needs to be stopped in response to the stop job request and then restarted in response to the start job request.
 - T-SQL Streaming upto 32 partitions for a kafka stream. Attempts to configure a higher partition count results in an error.
 
-## Next steps
+## Related content
 
 - [Create a Stream Analytics job in Azure SQL Edge](create-stream-analytics-job.md)
 - [Viewing metadata associated with stream jobs in Azure SQL Edge](streaming-catalog-views.md)

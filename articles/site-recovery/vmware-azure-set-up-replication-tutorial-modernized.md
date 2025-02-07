@@ -3,12 +3,15 @@ title: Set up VMware VM disaster recovery to Azure with Azure Site Recovery - Mo
 description: Learn how to set up disaster recovery to Azure for on-premises VMware VMs with Azure Site Recovery - Modernized.
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 05/23/2024
+ms.date: 11/06/2024
 ms.custom: MVC
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
 # Set up disaster recovery to Azure for on-premises VMware VMs - Modernized
+
+> [!IMPORTANT]
+> Microsoft recommends that you use roles with the fewest permissions. This helps improve security for your organization. Global Administrator is a highly privileged role that should be limited to emergency scenarios when you can't use an existing role.
 
 This article describes how to enable replication for on-premises VMware VMs, for disaster recovery to Azure using the Modernized VMware/Physical machine protection experience.
 

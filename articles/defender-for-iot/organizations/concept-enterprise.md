@@ -13,11 +13,11 @@ The number of IoT devices continues to grow exponentially across enterprise netw
 
 While the number of IoT devices continues to grow, they often lack the security safeguards that are common on managed endpoints like laptops and mobile phones. To bad actors, these unmanaged devices can be used as a point of entry for lateral movement or evasion, and too often, the use of such tactics leads to the exfiltration of sensitive information.
 
-[Microsoft Defender for IoT](./index.yml) seamlessly integrates with [Microsoft Defender XDR](/microsoft-365/security/defender) and [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) to provide both IoT device discovery and security value for IoT devices, including purpose-built alerts, recommendations, and vulnerability data.
+[Microsoft Defender for IoT](./index.yml) seamlessly integrates with [Microsoft Defender XDR](/microsoft-365/security/defender) and [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) to provide both IoT device discovery and security value for IoT devices, including purpose-built recommendations, and vulnerability data.
 
 ## Enterprise IoT security in Microsoft Defender XDR
 
-Enterprise IoT security in Microsoft Defender XDR provides IoT-specific security value, including alerts, risk and exposure levels, vulnerabilities, and recommendations in Microsoft Defender XDR.
+Enterprise IoT security in Microsoft Defender XDR provides IoT-specific security value, including risk and exposure levels, vulnerabilities, and recommendations in Microsoft Defender XDR.
 
 - If you're a Microsoft 365 E5 (ME5)/ E5 Security and Defender for Endpoint P2 customer, [toggle on support](eiot-defender-for-endpoint.md) for **Enterprise IoT Security** in the Microsoft Defender Portal.
 
@@ -25,15 +25,10 @@ Enterprise IoT security in Microsoft Defender XDR provides IoT-specific security
 
 :::image type="content" source="media/enterprise-iot/architecture-endpoint-only.png" alt-text="Diagram of the service architecture when you have an Enterprise IoT plan added to Defender for Endpoint." border="false":::
 
-### Alerts
-
-Most Microsoft Defender for Endpoint network-based detections are also relevant for Enterprise IoT devices. For example, network-based detections include alerts for scans involving managed endpoints.
-
-For more information, see [Alerts queue in Microsoft 365 Defender](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response).
-
 ### Recommendations
 
 The following Defender for Endpoint security recommendations are supported for Enterprise IoT devices:
+
 - **Require authentication for Telnet management interface**
 - **Disable insecure administration protocol – Telnet**
 - **Remove insecure administration protocols SNMP V1 and SNMP V2**

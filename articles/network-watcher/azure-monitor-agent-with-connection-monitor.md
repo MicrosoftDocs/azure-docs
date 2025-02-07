@@ -39,15 +39,15 @@ Connection monitor relies on lightweight executable files to run connectivity ch
 
 ### Agents for Azure virtual machines and scale sets
 
-To install agents for Azure virtual machines and Virtual Machine Scale Sets, see the "Agents for Azure virtual machines and Virtual Machine Scale Sets" section of [Monitor network connectivity using Connection monitor](connection-monitor-overview.md#agents-for-azure-virtual-machines-and-virtual-machine-scale-sets).
+To install agents for Azure virtual machines and Virtual Machine Scale Sets, see [Monitoring connectivity from Azure virtual machines and virtual machine scale sets](connection-monitor-overview.md#monitoring-connectivity-from-azure-virtual-machines-and-virtual-machine-scale-sets).
 
 ### Agents for on-premises machines
 
 To make connection monitor recognize your on-premises machines as sources for monitoring, follow these steps: 
 
-* Enable your hybrid endpoints to [Azure Arc-enabled servers](../azure-arc/overview.md).
+* Enable your hybrid endpoints to [Azure Arc-enabled servers](/azure/azure-arc/overview).
 
-* Connect hybrid machines by installing the [Azure Connected Machine agent](../azure-arc/servers/overview.md) on each machine.
+* Connect hybrid machines by installing the [Azure Connected Machine agent](/azure/azure-arc/servers/overview) on each machine.
 
   This agent doesn't deliver any other functionality, and it doesn't replace Azure Monitor agent. The Azure Connected Machine agent simply enables you to manage the Windows and Linux machines that are hosted outside of Azure on your corporate network or other cloud providers. 
 

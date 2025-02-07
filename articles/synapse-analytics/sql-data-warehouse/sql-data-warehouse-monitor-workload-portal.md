@@ -88,4 +88,4 @@ AzureDiagnostics
 
 ## Next steps
 
-- Now that you have set up and configured Azure monitor logs, [customize Azure dashboards](../../azure-portal/azure-portal-dashboards.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) to share across your team.
+- Now that you have set up and configured Azure monitor logs, [customize Azure dashboards](/azure/azure-portal/azure-portal-dashboards?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) to share across your team.

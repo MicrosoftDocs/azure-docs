@@ -1,0 +1,115 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Managed Redis (preview) development FAQs
+  description: Learn the answers to common questions that help you develop for Azure Managed Redis.
+  ms.date: 11/15/2024
+  ms.topic: faq
+  ms.custom: devx-track-csharp, ignite-2024
+  ms.devlang: csharp
+title: Azure Managed Redis (preview) development FAQs
+summary: This article provides answers to common questions about how to develop for Azure Managed Redis (preview).
+
+
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+          How can I get started with Azure Managed Redis (preview)?
+        answer: |
+          There are several ways you can get started with Azure Managed Redis (preview).
+          
+          * You can check out one of our tutorials available for [.NET](../cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](../cache-web-app-howto.md), [Java](../cache-java-get-started.md), [Node.js](../cache-nodejs-get-started.md), and [Python](../cache-python-get-started.md).
+          * You can explore [Azure Redis learning paths](https://learn.microsoft.com/training/browse/?expanded=azure&products=azure-cache-redis)
+          * You can check out the client documentation for the example clients that match the development language you use in your project. There are many Redis clients that can be used with Azure Managed Redis. For a list of Redis clients, see [https://redis.io/clients](https://redis.io/clients).
+          
+          If you don't already have an Azure account, you can:
+          
+          * [Open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features.
+          * [Activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Your MSDN subscription gives you credits every month that you can use for paid Azure services.
+          
+      - question: |
+          What do the StackExchange.Redis configuration options do?
+        answer: |
+          StackExchange.Redis has many options. This section talks about some of the common settings. For more detailed information about StackExchange.Redis options, see [StackExchange.Redis configuration](https://stackexchange.github.io/StackExchange.Redis/Configuration).
+          
+          | ConfigurationOptions | Description | Recommendation |
+          | --- | --- | --- |
+          | AbortOnConnectFail |When set to true, the connection can't reconnect after a network failure. |Set to false and let StackExchange.Redis reconnect automatically. |
+          | ConnectRetry |The number of times to repeat connection attempts during initial connect. |See the following notes for guidance. |
+          | ConnectTimeout |Timeout in ms for connect operations. |See the following notes for guidance. |
+          
+          Usually the default values of the client are sufficient. You can fine-tune the options based on your workload.
+          
+           ### Retries
+            * For ConnectRetry and ConnectTimeout, the general guidance is to fail fast and retry again. This guidance is based on your workload and how much time---on average---it takes for your client to issue a Redis command and receive a response.
+            * Let StackExchange.Redis automatically reconnect instead of checking connection status and reconnecting yourself. **Avoid using the ConnectionMultiplexer.IsConnected property**.
+            * Snowballing - you might run into an issue where you're retrying and the retries snowball and never recover. If snowballing occurs, consider using an exponential backoff retry algorithm as described in [Retry general guidance](/azure/architecture/best-practices/transient-faults) published by the Microsoft Patterns & Practices group.
+            
+          ### Timeout values
+            * Consider your workload and set the values to match. If you're storing large values, set the timeout to a higher value.
+            * Set `AbortOnConnectFail` to false and let StackExchange.Redis reconnect for you.
+            * Use a single, long-lived `ConnectionMultiplexer` instance rather than creating a new connection for each request.
+            * Set the `ConnectionMultiplexer.ClientName` property to an app instance unique name for diagnostic purposes.
+            * Use multiple `ConnectionMultiplexer` instances for custom workloads.
+              * You can follow this model if you have varying load in your application. For example:
+              * You can have one multiplexer for dealing with large keys.
+              * You can have one multiplexer for dealing with small keys.
+              * You can set different values for connection timeouts and retry logic for each ConnectionMultiplexer that you use.
+              * Set the `ClientName` property on each multiplexer to help with diagnostics.
+              * This guidance might lead to more streamlined latency per `ConnectionMultiplexer`.
+          
+      - question: |
+          What Redis clients can I use?
+        answer: |
+          One of the great things about Redis is that there are many clients supporting many different development languages. For a current list of clients, see [Redis clients](https://redis.io/docs/connect/clients/). For tutorials that cover several different languages and clients, see [How to use Azure Managed Redis](../cache-dotnet-how-to-use-azure-redis-cache.md).
+          
+      - question: |
+          Is there a local emulator for Azure Managed Redis?
+        answer: |
+          There's no local emulator for Azure Managed Redis. You can, however, run a copy of community Redis on your local machine and connect to it to get a similar experience to a local cache emulator, as shown in the following example:
+          
+            ```csharp
+            private static Lazy<ConnectionMultiplexer>
+                lazyConnection = new Lazy<ConnectionMultiplexer> (() =>
+                {
+                    // Connect to a locally running instance of Redis to simulate
+                    // a local cache emulator experience.
+                    return ConnectionMultiplexer.Connect("127.0.0.1:6379");
+                });
+            
+            public static ConnectionMultiplexer Connection
+            {
+                get
+                {
+                    return lazyConnection.Value;
+                }
+            }
+            ```
+                    
+          Redis runs natively on Linux, but you can also use Windows Subsystem for Linux to run Redis on a windows machine. For more information, see [Install Redis on Windows](https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/install-redis-on-windows/)
+          
+      - question: |
+          How can I run Redis commands?
+        answer: |
+          You can use any of the commands listed at [Redis commands](https://redis.io/commands#) except for the commands listed at [Redis commands not supported in Azure Managed Redis](managed-redis-configure.md#redis-commands-not-supported-in-azure-managed-redis). You have several options to run Redis commands.
+                    
+          You can also use the Redis command-line tools. To use them, see [Use the Redis command-line tool with Azure Managed Redis](managed-redis-how-to-redis-cli-tool.md)          
+          
+      - question: |
+          Why doesn't Azure Managed Redis have an MSDN class library reference?
+        answer: |
+          Microsoft Azure Managed Redis is based on the popular in-memory data store, Redis. You can use a wide variety of [Redis clients](https://redis.io/docs/connect/clients/) for many programming languages. Each client has its own API that makes calls to the Azure Managed Redis instance using [Redis commands](https://redis.io/commands).
+          
+          Because each client is different, you can't find one centralized class reference on MSDN. Each client maintains its own reference documentation. Besides the reference documentation, there are several tutorials showing how to get started with Azure Managed Redis using different languages and cache clients. To access these tutorials, see [How to use Azure Managed Redis](../cache-dotnet-how-to-use-azure-redis-cache.md) and it's sibling articles in the table of contents.
+          
+      - question: |
+          What are Redis databases?
+        answer: |
+          Redis Databases are just a logical separation of data within the same Redis instance. The cache memory is shared between all the databases and actual memory consumption of a given database depends on the keys/values stored in that database.
+          Right now, Azure Managed Redis only supports one database per instance.
+          
+          
+additionalContent: |
+
+  ## Related content
+     Learn about other [Azure Managed Redis FAQs](managed-redis-faq.yml).

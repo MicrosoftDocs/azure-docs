@@ -5,7 +5,7 @@ description: Learn about using Azure credentials for Azure Data Factory.
 author: nabhishek
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 09/26/2024
 ms.author: abnarain 
 ms.custom: synapse
 ---

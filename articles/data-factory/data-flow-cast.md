@@ -30,7 +30,7 @@ To modify the data type for columns in your data flow, add columns to "Cast sett
 **Type:** Choose the data type to cast your column to. If you pick "complex", you can then select "Define complex type" and define structures, arrays, and maps inside the expression builder.
 
 > [!NOTE]
-> Support for complex data type casting from the Cast transformation is currently unavailable. Use a Derived Column transformation instead. In the Derived Column, type conversion errors always result in NULL and require explicity error handling using an Assert. The Cast transformation can automatically trap conversion errors using the "Assert type check" property.
+> Support for complex data type casting from the Cast transformation is currently unavailable. Use a Derived Column transformation instead. In the Derived Column, type conversion errors always result in NULL and require explicitly error handling using an Assert. The Cast transformation can automatically trap conversion errors using the "Assert type check" property.
 
 **Format:** Some data types, like decimal and dates, will allow for additional formatting options.
 

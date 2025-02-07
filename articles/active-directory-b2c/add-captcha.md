@@ -3,12 +3,12 @@ title: Enable CAPTCHA in Azure Active Directory B2C
 description: How to enable CAPTCHA for user flows and custom policies in Azure Active Directory B2C.
 author: kengaderdus
 manager: mwongerapk
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 05/03/2024
 ms.custom: project-no-code
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 #Customer intent: As a developer, I want to enable CAPTCHA in consumer-facing application that is secured by Azure Active Directory B2C, so that I can protect my sign-in and sign-up flows from automated attacks.
@@ -117,6 +117,21 @@ You need more claims to enable CAPTCHA in your custom policy:
       <ClaimType Id="isCaptchaSolved">
         <DisplayName>Flag indicating that the captcha was successfully solved</DisplayName>
         <DataType>boolean</DataType>
+      </ClaimType>
+
+      <ClaimType Id="mfaCaptchaEnabled">
+        <DisplayName>flag used to control captcha enabled in MFA</DisplayName>
+        <DataType>string</DataType>
+      </ClaimType>
+
+      <ClaimType Id="signupCaptchaEnabled">
+        <DisplayName>flag used to control captcha enabled during signup</DisplayName>
+        <DataType>string</DataType>
+      </ClaimType>
+
+      <ClaimType Id="signinCaptchaEnabled">
+        <DisplayName>flag used to control captcha enabled during signin</DisplayName>
+        <DataType>string</DataType>
       </ClaimType>
       ...
      <!--<ClaimsSchema>-->
@@ -234,9 +249,9 @@ For the various page layouts, use the following page layout versions:
 
 |Page layout |Page layout version range |
 |---------|---------|
-| Selfasserted  | >=2.1.30 |
-| Unifiedssp  | >=2.1.18 |
-|  Multifactor  |    >=1.2.16  |
+| Selfasserted  | >=2.1.33 |
+| Unifiedssp  | >=2.1.21 |
+|  Multifactor  |    >=1.2.19  |
 
 **Example:**
 
@@ -314,6 +329,58 @@ To enable CAPTCHA in MFA flow, you need to make an update in two technical profi
     ...
 </TechnicalProfile>
 ```
+
+### Enable CAPTCHA feature flag
+
+To enforce CAPTCHA during sign-up, sign-in, or MFA, you need to add a technical profile that enables a feature flag for each scenario, then call the technical profile in the user journey.
+
+1. In the *TrustFrameworkBase.XML* file, locate the `ClaimsProviders` element and add the claims provider by using the following code:
+
+```xml
+<!--<ClaimsProvider>-->
+...
+<ClaimsProvider>
+
+    <DisplayName>Set Feature Flags</DisplayName>
+
+    <TechnicalProfiles>
+
+    <TechnicalProfile Id="SetFeatureDefaultValue">
+        <DisplayName>Set Feature Flags</DisplayName>
+        <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="signupCaptchaEnabled" DefaultValue="true" />
+            <OutputClaim ClaimTypeReferenceId="signinCaptchaEnabled" DefaultValue="true" />
+            <OutputClaim ClaimTypeReferenceId="mfaCaptchaEnabled" DefaultValue="true" />
+        </OutputClaims>
+    </TechnicalProfile>
+    </TechnicalProfiles>
+</ClaimsProvider>
+...
+<!--<ClaimsProviders>-->
+``` 
+
+2. Set `DefaultValue` to true or false depending on the CAPTCHA scenario
+
+3. Add the feature flags technical profile to the user journey then update the order of the rest of the orchestration steps.
+
+```xml
+<!--<UserJourneys>-->
+...
+<UserJourney Id="SignUpOrSignIn">
+    <OrchestrationSteps>
+
+        <!--Add this orchestration step-->
+        <OrchestrationStep Order="1" Type="ClaimsExchange">
+          <ClaimsExchanges>
+            <ClaimsExchange Id="SetFeatureDefaultValue" TechnicalProfileReferenceId="SetFeatureDefaultValue" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+...
+<!--<UserJourneys>-->
+```
+
+
 ## Upload the custom policy files
 
 Use the steps in [Upload the policies](tutorial-create-user-flows.md?pivots=b2c-custom-policy&branch=pr-en-us-260336#upload-the-policies) to upload your custom policy files.

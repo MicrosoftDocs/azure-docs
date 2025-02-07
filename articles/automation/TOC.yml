@@ -16,6 +16,8 @@
   items:
     - name: Create Automation account - Azure portal
       href: quickstarts/create-azure-automation-account-portal.md
+    - name: Create Automation account - Terraform
+      href: quickstarts/create-azure-automation-account-terraform.md
     - name: Update runbook from PowerShell 5.1 to PowerShell 7.2
       href: quickstart-update-runbook-in-runtime-environment.md   
     - name: Run Azure CLI commands in PowerShell 7.2 runbooks
@@ -59,6 +61,8 @@
       href: automation-runbook-types.md
     - name: Automation Runtime environment
       href: runtime-environment-overview.md
+    - name: Automation limits and quotas
+      href: automation-subscription-limits-faq.md
     - name: PowerShell DSC
       href: /powershell/dsc/overview
     - name: Automation network configuration details
@@ -136,6 +140,8 @@
           href: delete-account.md 
         - name: Migrate from Orchestrator to Azure Automation (Beta)
           href: automation-orchestrator-migration.md
+        - name: Context switching in Azure Automation
+          href: context-switching.md
     - name: Shared resources
       items:
         - name: Manage certificates
@@ -167,7 +173,9 @@
         - name: Learn PowerShell Workflow
           href: automation-powershell-workflow.md
         - name: Runtime environment scenarios 
-          href: manage-runtime-environment.md  
+          href: manage-runtime-environment.md
+        - name: Manage automation limits and quotas
+          href: automation-limits-quotas.md
         - name: Manage runbooks
           href: manage-runbooks.md
         - name: Author and run runbooks
@@ -250,44 +258,42 @@
               href: automation-dsc-extension-history.md
             - name: Troubleshoot State Configuration issues
               href: troubleshoot/desired-state-configuration.md
-    - name: Change tracking and inventory 
+    - name: Change Tracking and Inventory using AMA
       items:
-        - name: Use Azure Monitoring Agent (AMA)
+        - name: About Change tracking and inventory
+          href: change-tracking/overview-monitoring-agent.md
+        - name: Change tracking extension version
+          href: change-tracking/extension-version-details.md
+        - name: Supported regions
+          href: change-tracking/region-mappings-monitoring-agent.md
+        - name: Enable change tracking and inventory
+          href: change-tracking/enable-vms-monitoring-agent.md
+        - name: Manage change tracking and inventory
+          href: change-tracking/manage-change-tracking-monitoring-agent.md
+        - name: Configure alerts
+          href: change-tracking/configure-alerts.md
+    - name: Migration from Change Tracking and Inventory using LA to Change Tracking using AMA
+      items:
+        - name: Migration from Log Analytics to Azure Monitoring Agent version
+          href: change-tracking/guidance-migration-log-analytics-monitoring-agent.md
+    - name: Change Tracking and Inventory using Log Analytics (Retired)
+      items:
+        - name: Overview
+          href: change-tracking/overview.md
+        - name: Support regions for linked Log Analytics workspace
+          href: how-to/region-mappings.md
+        - name: Discover the software installed on your VMs
+          href: automation-tutorial-installed-software.md
+        - name: Enable
           items:
-            - name: Overview
-              items:
-                - name: About Change tracking and inventory
-                  href: change-tracking/overview-monitoring-agent.md
-                - name: Change tracking extension version
-                  href: change-tracking/extension-version-details.md
-            - name: Supported regions
-              href: change-tracking/region-mappings-monitoring-agent.md
-            - name: Enable change tracking and inventory
-              href: change-tracking/enable-vms-monitoring-agent.md
-            - name: Manage change tracking and inventory
-              href: change-tracking/manage-change-tracking-monitoring-agent.md
-            - name: Configure alerts
-              href: change-tracking/configure-alerts.md
-        - name: Migration guidance
-          items:
-            - name: Migration from Log Analytics to Azure Monitoring Agent version
-              href: change-tracking/guidance-migration-log-analytics-monitoring-agent.md
-        - name: Use Log Analytics
-          items:
-            - name: Overview
-              href: change-tracking/overview.md
-            - name: Support regions for linked Log Analytics workspace
-              href: how-to/region-mappings.md
-            - name: Enable
-              items:
-                - name: Enable from the Azure portal
-                  href: change-tracking/enable-from-portal.md
-                - name: Enable from an Azure VM
-                  href: change-tracking/enable-from-vm.md
-                - name: Enable from an Automation account
-                  href: change-tracking/enable-from-automation-account.md
-                - name: Enable from a runbook
-                  href: change-tracking/enable-from-runbook.md
+            - name: Enable from the Azure portal
+              href: change-tracking/enable-from-portal.md
+            - name: Enable from an Azure VM
+              href: change-tracking/enable-from-vm.md
+            - name: Enable from an Automation account
+              href: change-tracking/enable-from-automation-account.md
+            - name: Enable from a runbook
+              href: change-tracking/enable-from-runbook.md
             - name: Manage change tracking and inventory
               href: change-tracking/manage-change-tracking.md
             - name: Manage inventory collection from VMs
@@ -296,19 +302,19 @@
               href: change-tracking/manage-scope-configurations.md
             - name: Configure alerts
               href: change-tracking/configure-alerts.md
-            - name: Disable
-              items:
-                - name: Remove Change Tracking and Inventory
-                  href: change-tracking/remove-feature.md
-                - name: Remove machines
-                  href: change-tracking/remove-vms-from-change-tracking.md
-            - name: Troubleshoot
-              items:
-                - name: Troubleshoot feature deployment issues
-                  href: troubleshoot/onboarding.md
-                - name: Troubleshoot Change Tracking and Inventory issues
-                  href: troubleshoot/change-tracking.md      
-    - name: Update Management
+        - name: Disable
+          items:
+            - name: Remove Change Tracking and Inventory
+              href: change-tracking/remove-feature.md
+            - name: Remove machines
+              href: change-tracking/remove-vms-from-change-tracking.md
+        - name: Troubleshoot
+          items:
+            - name: Troubleshoot feature deployment issues
+              href: troubleshoot/onboarding.md
+            - name: Troubleshoot Change Tracking and Inventory issues
+              href: troubleshoot/change-tracking.md      
+    - name: Update Management (Retired)
       items:
         - name: Overview
           href: update-management/overview.md
@@ -394,8 +400,6 @@
     href: /cli/azure/automation
   - name: Azure PowerShell Az
     href: /powershell/module/az.automation/
-  - name: Azure PowerShell AzureRM
-    href: /powershell/module/azurerm.automation/
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.automation
   - name: REST

@@ -5,15 +5,16 @@ author: yangyizhe90
 ms.author: yangtony
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 08/07/2024
+ms.date: 09/26/2024
 ms.custom: engagement-fy25
 ---
 
 # Assessment overview (migrate to Azure Spring Apps) (preview)
 
-This article provides an overview of assessments for migrating on-premises Spring Boot apps to Azure Spring Apps using the [Azure Migrate: Discovery and assessment tool](./migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool).
+This article provides an overview of assessments for migrating on-premises Spring Boot apps to Azure Spring Apps using the [Azure Migrate: Discovery and assessment tool](./migrate-services-overview.md).
 
 ## What's an assessment?
+
 An assessment with the Discovery and assessment tool is a point in time snapshot of data and measures the readiness and provides cost details to host on-premises servers, databases, and web apps to Azure.
 
 ## Types of assessments
@@ -84,4 +85,5 @@ For the purpose of cost estimation, we assume you include all your accessed apps
 The estimated cost applies for both Azure Spring Apps Standard Tier and Enterprise Tier. For Enterprise Tier, there will be additional cost on [software IP](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vmware-inc.azure-spring-cloud-vmware-tanzu-2?tab=PlansAndPrice) and resource consumption for Tanzu components, which are not included in cost estimation.
 
 ## Next steps
+
 - Learn how to run an [Azure Spring Apps assessment](how-to-create-azure-spring-apps-assessment.md).

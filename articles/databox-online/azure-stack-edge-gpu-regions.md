@@ -4,8 +4,7 @@ description: Explains region choices for Azure Stack Edge service, data storage,
 services: databox
 author: v-dalc
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 08/18/2021
 ms.author: alkohli

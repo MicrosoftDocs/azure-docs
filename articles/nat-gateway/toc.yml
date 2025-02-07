@@ -52,10 +52,12 @@ items:
     href: nat-gateway-snat.md
   - name: NAT gateway design guidance
     href: nat-gateway-design.md
-- name: How-to
-  items:
   - name: Metrics and alerts
     href: nat-metrics.md
+- name: How-to
+  items:
+  - name: Monitor NAT gateway
+    href: monitor-nat-gateway.md
   - name: Resource health
     href: resource-health.md
   - name: Manage NAT gateway
@@ -92,6 +94,8 @@ items:
     href: /azure/templates/microsoft.network/allversions
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=virtual-network
+  - name: Monitoring data reference
+    href: monitor-nat-gateway-reference.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn training

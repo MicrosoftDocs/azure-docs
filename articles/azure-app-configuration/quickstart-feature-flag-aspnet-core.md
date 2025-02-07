@@ -8,7 +8,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 02/20/2024
+ms.date: 12/10/2024
 ms.author: zhenlwa
 #Customer intent: As an ASP.NET Core developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
@@ -28,32 +28,31 @@ Follow the documents to create an ASP.NET Core app with dynamic configuration.
 
 ## Create a feature flag
 
-Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag).
+Add a feature flag called *Beta* to the App Configuration store (created in the [Prerequisites](./quickstart-feature-flag-aspnet-core.md#prerequisites) steps), and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag).
 
 > [!div class="mx-imgBorder"]
 > ![Enable feature flag named Beta](./media/add-beta-feature-flag.png)
 
 ## Use a feature flag
 
-1. Navigate into the project's directory, and run the following command to add a reference to the [Microsoft.FeatureManagement.AspNetCore](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore) NuGet package.
+1. Navigate into the project's directory (created in the [Prerequisites](./quickstart-feature-flag-aspnet-core.md#prerequisites) steps), and run the following command to add a reference to the [Microsoft.FeatureManagement.AspNetCore](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore) NuGet package.
 
     ```dotnetcli
     dotnet add package Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. Open *Program.cs*, and add a call to the `UseFeatureFlags` method inside the `AddAzureAppConfiguration` call.
+1. Open *Program.cs*, and add a call to the `UseFeatureFlags` method inside the `AddAzureAppConfiguration` call. You can connect to App Configuration using either Microsoft Entra ID (recommended) or a connection string. The following code snippet demonstrates using Microsoft Entra ID.
 
     ```csharp
     // Load configuration from Azure App Configuration
     builder.Configuration.AddAzureAppConfiguration(options =>
     {
-        options.Connect(connectionString)
-               // Load all keys that start with `TestApp:` and have no label
-               .Select("TestApp:*", LabelFilter.Null)
-               // Configure to reload configuration if the registered sentinel key is modified
-               .ConfigureRefresh(refreshOptions =>
+        options.Connect(new Uri(endpoint), new DefaultAzureCredential());
+                // Load all keys that start with `TestApp:` and have no label
+                .Select("TestApp:*", LabelFilter.Null)
+                // Configure to reload configuration if the registered sentinel key is modified
+                .ConfigureRefresh(refreshOptions =>
                     refreshOptions.Register("TestApp:Settings:Sentinel", refreshAll: true));
-        
         // Load all feature flags with no label
         options.UseFeatureFlags();
     });

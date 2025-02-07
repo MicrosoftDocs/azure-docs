@@ -7,7 +7,7 @@ ms.date: 04/01/2024
 ms.author: kesheth
 ---
 
-The bulk delete capability allows you to delete resources from FHIR service asynchronously. Bulk delete capability in FHIR service is supported with operations: `$bulk-delete` and `$bulk-delete-soft-deleted`. `$bulk-delete` operation allows you to delete resources in the FHIR service, except soft deleted resources. To delete soft deleted FHIR resources, you need to use `$bulk-delete-soft-deleted` operation.
+The bulk delete capability allows you to delete resources from FHIR&reg; service asynchronously. Bulk delete capability in FHIR service is supported with operations: `$bulk-delete` and `$bulk-delete-soft-deleted`. `$bulk-delete` operation allows you to delete resources in the FHIR service, except soft deleted resources. To delete soft deleted FHIR resources, you need to use `$bulk-delete-soft-deleted` operation.
 
 FHIR service requires specific headers and roles enabled to use bulk delete capability
 
@@ -52,7 +52,7 @@ Query parameters allow you to filter the raw resources you plan to delete. To su
 |Query parameter        | Default Value   |  Description|
 |------------------------|---|------------|
 |_hardDelete|False|Allows you to hard delete a resource. If you don't pass this parameter or set hardDelete to false, the historic versions of the resource are still available.|
-|_purgeHistory|False|Allows you to delete history versions associated with resource. It will not delete current version of the resource and soft deleted resources.|
+|_purgeHistory|False|Allows you to delete history versions associated with resource. It will not delete current version of the resource and soft deleted resources. Note: When _purgeHistory used with the _hardDelete parameter set to true, it permanently deletes all versions associated with the resource.|
 |FHIR service supported search parameters||Allows you to specify search criteria and resources matching the search criteria are deleted. For example: `address:contains=Meadow subject:Patient.birthdate=1987-02-20`|
 
 All the query parameters are optional.

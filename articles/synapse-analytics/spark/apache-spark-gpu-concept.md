@@ -29,7 +29,7 @@ To simplify the process for creating and managing pools, Azure Synapse takes car
 
 > [!NOTE]
 >  - GPU-accelerated pools can be created in workspaces located in East US, Australia East, and North Europe.
->  - GPU-accelerated pools are only availble with the Apache Spark 3 runtime.
+>  - GPU-accelerated pools are only available with the Apache Spark 3 runtime.
  
 ## GPU-accelerated runtime
 
@@ -63,10 +63,10 @@ To learn more about how you can use the NVIDIA RAPIDS Accelerator with your GPU-
 
 ## Train deep learning models
 
-Deep learning models are often data and computation intensive. Because of this, organizations often accelerate their training process with GPU-enabled clusters. In Azure Synapse Analytics, organizations can build models using frameworks like Tensorflow and PyTorch. Then, users can scale up their deep learning models with Horovod and  Petastorm.
+Deep learning models are often data and computation intensive. Because of this, organizations often accelerate their training process with GPU-enabled clusters. In Azure Synapse Analytics, organizations can build models using frameworks like TensorFlow and PyTorch. Then, users can scale up their deep learning models with Horovod and  Petastorm.
 
 To learn more about how you can train distributed deep learning models, visit the following guides:
-    - [Tutorial: Distributed training with Horovod and Tensorflow](../machine-learning/tutorial-horovod-tensorflow.md)
+    - [Tutorial: Distributed training with Horovod and TensorFlow](../machine-learning/tutorial-horovod-tensorflow.md)
     - [Tutorial: Distributed training with Horovod and PyTorch](../machine-learning/tutorial-horovod-pytorch.md)
 
 ## Improve machine learning scoring workloads

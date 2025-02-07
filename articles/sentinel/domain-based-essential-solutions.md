@@ -9,7 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal.
 ms.collection: usx-security
-#Customer intent: As a security engineer, I want to learn how I can minimize the amount of solution content I have to deploy and manage by using Microsoft essential solutions for Microsoft Sentinel.
+
+
+#Customer intent: As a security analyst, I want to use ASIM-based domain solutions in Microsoft Sentinel so that I can efficiently normalize and analyze security data across multiple products and reduce alert fatigue.
+
 ---
 
 # Advanced Security Information Model (ASIM) based domain solutions for Microsoft Sentinel (preview)

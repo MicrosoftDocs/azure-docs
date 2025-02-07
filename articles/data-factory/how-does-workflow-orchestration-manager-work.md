@@ -5,7 +5,8 @@ description: This article explains how to create a Workflow Orchestration Manage
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.date: 10/20/2023
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 
 # How does Azure Data Factory Workflow Orchestration Manager work?

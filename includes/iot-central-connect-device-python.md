@@ -1,7 +1,7 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-develop
+ms.service: azure-iot
 ms.topic: include
 ms.date: 03/31/2021
 ---

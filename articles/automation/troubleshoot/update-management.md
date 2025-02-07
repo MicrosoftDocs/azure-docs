@@ -11,9 +11,6 @@ ms.service: azure-automation
 
 # Troubleshoot Update Management issues
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
-
 [!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
 
 This article discusses issues that you might run into when using the Update Management feature to assess and manage updates on your machines. There's an agent troubleshooter for the Hybrid Runbook Worker agent to help determine the underlying problem. To learn more about the troubleshooter, see [Troubleshoot Windows update agent issues](update-agent-issues.md) and [Troubleshoot Linux update agent issues](update-agent-issues-linux.md). For other feature deployment issues, see [Troubleshoot feature deployment issues](onboarding.md).
@@ -317,7 +314,7 @@ Follow the steps below to find out if your queries are working correctly.
    Here is an example:
 
     ```kusto
-    where (subscriptionId in~ ("20780d0a-b422-4213-979b-6c919c91ace1", "af52d412-a347-4bc6-8cb7-4780fbb00490") and type =~ "microsoft.compute/virtualmachines" and properties.storageProfile.osDisk.osType == "Windows" and resourceGroup in~ ("testRG","withinvnet-2020-01-06-10-global-resources-southindia") and location in~ ("australiacentral","australiacentral2","brazilsouth") )
+    where (subscriptionId in~ ("aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e", "bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f") and type =~ "microsoft.compute/virtualmachines" and properties.storageProfile.osDisk.osType == "Windows" and resourceGroup in~ ("testRG","withinvnet-2020-01-06-10-global-resources-southindia") and location in~ ("australiacentral","australiacentral2","brazilsouth") )
     | project id, location, name, tags = todynamic(tolower(tostring(tags)))
     | where  (tags[tolower("ms-resource-usage")] =~ "azure-cloud-shell" and tags[tolower("temp")] =~ "temp")
     | project id, location, name, tags
@@ -414,7 +411,7 @@ If you're using a cloned image, different computer names have the same source co
 You encounter the following error when you try to create an update deployment for machines in another Azure tenant:
 
 ```error
-The client has permission to perform action 'Microsoft.Compute/virtualMachines/write' on scope '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Automation/automationAccounts/automationAccountName/softwareUpdateConfigurations/updateDeploymentName', however the current tenant '00000000-0000-0000-0000-000000000000' is not authorized to access linked subscription '00000000-0000-0000-0000-000000000000'.
+The client has permission to perform action 'Microsoft.Compute/virtualMachines/write' on scope '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/resourceGroupName/providers/Microsoft.Automation/automationAccounts/automationAccountName/softwareUpdateConfigurations/updateDeploymentName', however the current tenant '00000000-0000-0000-0000-000000000000' is not authorized to access linked subscription '00000000-0000-0000-0000-000000000000'.
 ```
 
 ### Cause

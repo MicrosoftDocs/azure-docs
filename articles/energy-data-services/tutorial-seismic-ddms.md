@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Data Manager for Energy
 description: This tutorial shows sample steps for interacting with the Seismic DDMS APIs in Azure Data Manager for Energy.
 author: elizabethhalper
 ms.author: elhalper
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: tutorial
 ms.date: 3/16/2022
 ms.custom: template-tutorial
@@ -36,7 +36,7 @@ The first step is to get the following information from your [Azure Data Manager
 
 | Parameter          | Value             | Example                               |
 | ------------------ | ------------------------ |-------------------------------------- |
-| `client_id`          | Application (client) ID  | `3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx`  |
+| `client_id`          | Application (client) ID  | `00001111-aaaa-2222-bbbb-3333cccc4444`  |
 | `client_secret`      | Client secrets           |  `_fl******************`                |
 | `tenant_id`          | Directory (tenant) ID    | `72f988bf-86f1-41af-91ab-xxxxxxxxxxxx`  |
 | `base_url`           | URL                      | `https://<instance>.energy.azure.com` |

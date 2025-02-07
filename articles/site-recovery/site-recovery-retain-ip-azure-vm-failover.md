@@ -2,9 +2,9 @@
 title: Keep IP addresses after Azure VM failover with Azure Site Recovery
 description: Describes how to retain IP addresses when failing over Azure VMs for disaster recovery to a secondary region with Azure Site Recovery
 ms.service: azure-site-recovery
-ms.date: 07/25/2021
+ms.date: 12/23/2024
 author: ankitaduttaMSFT
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: ankitadutta
 
 ---
@@ -14,7 +14,7 @@ ms.author: ankitadutta
 
 During failover, you might want to keep the IP addressing in the target region identical to the source region:
 
-- By default, when you enable disaster recovery for Azure VMs, Site Recovery creates target resources based on source resource settings. For Azure VMs configured with static IP addresses, Site Recovery tries to provision the same IP address for the target VM, if it's not in use. For a full explanation of how Site Recovery handles addressing, [review this article](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms).
+- By default, when you enable disaster recovery for Azure VMs, Site Recovery creates target resources based on source resource settings. For Azure VMs configured with static IP addresses, Site Recovery tries to provision the same IP address for the target VM, if it's not in use. For a full explanation of how Site Recovery handles addressing, [review this article](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-virtual-machines).
 - For simple applications, the default configuration is sufficient. For more complex apps, you might need to provision additional resource to make sure that connectivity works as expected after failover.
 
 
@@ -99,7 +99,6 @@ Before failover, the architecture is as follows:
     - **Source VNet 1** and **Source VNet 2** are connected with VPN site-to-site
 - **Recovery VNet 1** and **Recovery VNet 2** aren't connected to any other VNets.
 - **Company A** configures VPN gateways on **Recovery VNet 1** and **Recovery VNet 2**, to reduce RTO.  
-- **Recovery VNet1** and **Recovery VNet2** are not connected with any other virtual network.
 - To reduce recovery time objective (RTO), VPN gateways are configured on **Recovery VNet1** and **Recovery VNet2** prior to failover.
 
     ![Resources in Azure before app failover](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-before-failover2.png)

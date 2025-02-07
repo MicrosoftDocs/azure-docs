@@ -1,22 +1,21 @@
 ---
 title: Integrate Azure Relay with Azure Private Link Service
-description: Learn how to integrate Azure Relay with Azure Private Link Service
-ms.date: 02/15/2023
-ms.topic: article 
+description: This article describes how to integrate Azure Relay with Azure Private Link Service to secure access to Azure Relay resources only from a private network.
+ms.date: 12/10/2024
+ms.topic: how-to
 ms.custom: devx-track-azurepowershell
+# Customer intent: As an Azure Relay user, I want to learn how to integrate Azure Relay with Azure Private Link service. 
 ---
 
 # Integrate Azure Relay with Azure Private Link 
 Azure **Private Link Service** enables you to access Azure services (for example, Azure Relay, Azure Service Bus, Azure Event Hubs, Azure Storage, and Azure Cosmos DB) and Azure hosted customer/partner services over a private endpoint in your virtual network. For more information, see [What is Azure Private Link?](../private-link/private-link-overview.md)
 
-A **private endpoint** is a network interface that allows your workloads running in a virtual network to connect privately and securely to a service that has a **private link resource** (for example, a Relay namespace). The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute, VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can provide a level of granularity in access control by allowing connections to specific Azure Relay namespaces. 
+A **private endpoint** is a network interface that allows your workloads running in a virtual network to connect privately and securely to a service that has a **private link resource** (for example, a Relay namespace). The private endpoint uses a private IP address from your virtual network, effectively bringing the service into your virtual network. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute, VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can provide a level of granularity in access control by allowing connections to specific Azure Relay namespaces. 
 
 > [!NOTE]
 > If you use the **relay listener** over a private link, open ports **9400-9599** for outgoing communication along with the standard relay ports. Note that you need to do this step only for the **relay listener**.
 
-## Add a private endpoint using Azure portal
-
-### Prerequisites
+## Prerequisites
 To integrate an Azure Relay namespace with Azure Private Link, you need the following entities or permissions:
 
 - An Azure Relay namespace.
@@ -24,6 +23,7 @@ To integrate an Azure Relay namespace with Azure Private Link, you need the foll
 - A subnet in the virtual network.
 - Owner or contributor permissions on the virtual network.
 
+## Add a private endpoint using Azure portal
 Your private endpoint and virtual network must be in the same region. When you select a region for the private endpoint using the portal, it will automatically filter only virtual networks that are in that region. Your namespace can be in a different region.
 
 Your private endpoint uses a private IP address in your virtual network.
@@ -151,7 +151,7 @@ There are four provisioning states:
 | None | Pending | Connection is created manually and is pending approval from the Azure Relay namespace owner. |
 | Approve | Approved | Connection was automatically or manually approved and is ready to be used. |
 | Reject | Rejected | Connection was rejected by the Azure Relay namespace owner. |
-| Remove | Disconnected | Connection was removed by the Azure Relay namespace owner, the private endpoint becomes informative and should be deleted for cleanup. |
+| Remove | Disconnected | Connection was removed by the Azure Relay namespace owner. The private endpoint becomes informative and should be deleted for cleanup. |
  
 ###  Approve, reject, or remove a private endpoint connection
 
@@ -233,7 +233,7 @@ Aliases:  <namespace-name>.servicebus.windows.net
 
 [!INCLUDE [trusted-services](./includes/trusted-services.md)]
 
-## Next Steps
+## Related content
 
 - Learn more about [Azure Private Link](../private-link/private-link-service-overview.md)
 - Learn more about [Azure Relay](relay-what-is-it.md)

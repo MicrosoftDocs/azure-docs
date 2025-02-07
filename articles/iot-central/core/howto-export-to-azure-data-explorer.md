@@ -6,7 +6,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 03/05/2024
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 ---
 
 # Export IoT data to Azure Data Explorer

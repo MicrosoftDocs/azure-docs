@@ -43,7 +43,7 @@ An Azure Files Reservation covers only the amount of data that is stored in a su
 
 ### Reservations and snapshots
 
-If you're taking snapshots of Azure file shares, there are differences in how Reservations work for standard versus premium file shares. If you're taking snapshots of standard file shares, then the snapshot differentials count against the Reservation and are billed as part of the normal used storage meter. However, if you're taking snapshots of premium file shares, then the snapshots are billed using a separate meter and don't count against the Reservation. For more information, see [Snapshots](understanding-billing.md#snapshots).
+If you're taking snapshots of Azure file shares, there are differences in how Reservations work for standard versus premium file shares. If you're taking snapshots of standard file shares, then the snapshot differentials count against the Reservation and are billed as part of the normal used storage meter. However, if you're taking snapshots of premium file shares, then the snapshots are billed using a separate meter and don't count against the Reservation.
 
 ### Supported tiers and redundancy options
 

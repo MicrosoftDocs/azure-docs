@@ -4,7 +4,7 @@ description: Links to the Azure IoT Hub SDKs that you can use to build device ap
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 05/03/2024
 ms.custom: [mqtt, 'Role: IoT Device', 'Role: Cloud Development']

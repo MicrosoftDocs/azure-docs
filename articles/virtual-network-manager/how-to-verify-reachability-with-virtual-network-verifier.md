@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.topic: how-to
 ms.service: azure-virtual-network-manager
-ms.date: 05/20/2024
+ms.date: 12/11/2024
 ms.custom: references_regions
 ---
 
@@ -74,6 +74,7 @@ In this step, you view the results of the analysis you started in the previous s
 1. In the verifier workspace, select **Reachability analysis intents** under *Settings* and select the corresponding **View results** for your reachability analysis intent. Alternatively, navigate to **Reachability analysis results** and select the name of the result you want to view.
 
     :::image type="content" source="media/how-to-verify-reachability-with-virtual-network-verifier/select-analysis-results.png" alt-text="Screenshot of Reachability analysis intent windows showing analysis intent run to view.":::
+
 2. In the **View analysis results** pane, you can view the results of the analysis, including the status of the analysis, the path taken by the traffic, the resources traversed, and the result outcome.
 
     :::image type="content" source="media/how-to-verify-reachability-with-virtual-network-verifier/view-analysis-results.png" alt-text="Screenshot of Reachability analysis results window with analysis results.":::

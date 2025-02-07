@@ -4,8 +4,8 @@ description: Learn about Azure Firewall preview features that are publicly avail
 services: firewall
 author: vhorne
 ms.service: azure-firewall
-ms.topic: conceptual
-ms.date: 10/10/2023
+ms.topic: concept-article
+ms.date: 01/15/2025
 ms.author: victorh
 ---
 
@@ -55,8 +55,15 @@ You can now configure a DNAT rule on Azure Firewall Policy with the private IP a
 This capability helps with connectivity between overlapped IP networks, which is a common scenario for enterprises when onboarding new partners to their network or merging with new acquisitions.
 This is also relevant for hybrid scenarios, connecting on-premises datacenters to Azure, where DNAT bridges the gap, enabling communication between private resources over nonroutable IP addresses.
 
-For more information, see [Filter inbound Internet or intranet traffic with Azure Firewall DNAT using the Azure portal](tutorial-firewall-dnat.md).
+For more information, see [Private IP DNAT Support and Scenarios with Azure Firewall](https://techcommunity.microsoft.com/t5/azure-network-security-blog/private-ip-dnat-support-and-scenarios-with-azure-firewall/ba-p/4230073).
 
+## Customer provided public IP address support in secured hubs (preview)
+
+Virtual WAN hub deployments can now associate customer tenant public IP addresses with Secured Hub Azure Firewall. The capability is available to new deployments of Secured Hub Firewalls (preview). 
+
+For existing secured virtual WAN hubs, delete the hub firewall and redeploy a new Firewall during scheduled maintenance hours. You can use the Azure portal or Azure PowerShell to configure this.  
+
+For more information, see [Customer provided public IP address support in secured hubs (preview)](secured-hub-customer-public-ip.md).
 
 ## Next steps
 

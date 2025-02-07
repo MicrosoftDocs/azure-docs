@@ -4,7 +4,8 @@ description: Learn how to use a solution template to copy new and changed files 
 author: dearandyxu
 ms.author: yexu
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Copy new and changed files by LastModifiedDate with Azure Data Factory

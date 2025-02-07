@@ -1,41 +1,46 @@
 ---
- title: include file
- description: include file
- services: vpn-gateway
- author: cherylmc
- ms.service: azure-vpn-gateway
- ms.topic: include
- ms.date: 08/23/2023
- ms.author: cherylmc
- ms.custom: include file
+ms.author: cherylmc
+author: cherylmc
+ms.date: 01/17/2025
+ms.service: azure-vpn-gateway
+ms.topic: include
 
  # this file is used for both virtual wan and vpn gateway. When modifying, make sure that your changes work for both environments.
 ---
-Conditional Access allows for fine-grained access control on a per-application basis. In order to use Conditional Access, you should have Microsoft Entra ID P1 or P2 or greater licensing applied to the users that will be subject to the Conditional Access rules.
+The recommended way to enable and use Microsoft Entra multifactor authentication is with Conditional Access policies. For granular configuration steps, see the tutorial: [Require multifactor authentication](/entra/identity/authentication/tutorial-enable-azure-mfa).
 
-1. Navigate to the **Enterprise applications - All applications** page and click **Azure VPN**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](/identity/role-based-access-control/permissions-reference#conditional-access-administrator).
+1. Browse to **Protection** > **Security Center**>**Conditional Access**, select **+ New policy**, and then select **Create new policy**.
+1. On the **New** pane, enter a name for the policy, such as VPN Policy.
+1. Complete the following fields:
 
-   - Click **Conditional Access**.
-   - Click **New policy** to open the **New** pane.
-2. On the **New** pane, navigate to **Assignments -> Users and groups**. On the **Users and groups ->** **Include** tab:
+   | Field | Value|
+   |---|---|
+   |What does this policy apply to?| Users and groups |
+   | Assignments | Specific users included|
+   | Include | Select users and groups. Select the checkbox for Users and groups |
+   | Select | Select at least one user or group |
 
-   - Click **Select users and groups**.
-   - Check **Users and groups**.
-   - Click **Select** to select a group or set of users to be affected by MFA.
-   - Click **Done**.
+1. On the **Select** page, browse for and select the Microsoft Entra user or group to which you want this policy to apply. For example, VPN Users, then choose **Select**.
 
-   ![Assignments](./media/vpn-gateway-vwan-openvpn-mfa/mfa-ca-assignments.png)
-3. On the **New** pane, navigate to the **Access controls -> Grant** pane:
+Next, configure conditions for multifactor authentication. In the following steps, you configure the Azure VPN Client app to require multifactor authentication when a user signs in. For more information, see [Configure the conditions](/entra/identity/authentication/tutorial-enable-azure-mfa#configure-the-conditions-for-multifactor-authentication).
 
-   - Click **Grant access**.
-   - Click **Require multi-factor authentication**.
-   - Click **Require all the selected controls**.
-   - Click **Select**.
-   
-   ![Grant access - MFA](./media/vpn-gateway-vwan-openvpn-mfa/mfa-ca-grant-mfa.png)
-4. In the **Enable policy** section:
+1. Select the current value under **Cloud apps or actions**, and then under **Select what this policy applies to**, verify that **Cloud apps** is selected.
 
-   - Select **On**.
-   - Click **Create**.
+1. Under **Include**, choose **Select resources**. Since no apps are yet selected, the list of apps opens automatically.
 
-   ![Enable Policy](./media/vpn-gateway-vwan-openvpn-mfa/mfa-ca-enable-policy.png)
+1. In the **Select** pane, select the **Azure VPN Client** app, then choose **Select**.
+
+Next, configure the access controls to require multifactor authentication during a sign-in event.
+
+1. Under **Access controls**, select **Grant**, and then select **Grant access**.
+
+1. Select **Require multifactor authentication**.
+
+1. For multiple controls, select **Require all the selected controls**.
+
+Now, activate the policy.
+
+1. Under **Enable policy**, select **On**.
+
+1. To apply the Conditional Access policy, select **Create**.

@@ -6,7 +6,7 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 02/05/2024
 ms.topic: tutorial
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 zone_pivot_groups: iotedge-dev
@@ -627,7 +627,7 @@ The sample C# code that comes with the project template uses the [ModuleClient C
         if (json_object_dotget_value(root_object, "machine.temperature") != NULL && (temperature = json_object_dotget_number(root_object, "machine.temperature")) > temperatureThreshold)
         {
             printf("Machine temperature %f exceeds threshold %f\r\n", temperature, temperatureThreshold);
-            // This message should be sent to next stop in the pipeline, namely "output1".  What happens at "outpu1" is determined
+            // This message should be sent to next stop in the pipeline, namely "output1".  What happens at "output1" is determined
             // by the configuration of the Edge routing table setup.
             MESSAGE_INSTANCE *messageInstance = CreateMessageInstance(message);
             if (NULL == messageInstance)
@@ -804,7 +804,7 @@ The sample C# code that comes with the project template uses the [ModuleClient C
                         long threshold = Math.round((double) property.getValue());
                         App.tempThreshold.set(threshold);
                     } catch (Exception e) {
-                        System.out.println("Faile to set TemperatureThread with exception");
+                        System.out.println("Failed to set TemperatureThread with exception");
                         e.printStackTrace();
                     }
                 }

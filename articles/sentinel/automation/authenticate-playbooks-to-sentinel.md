@@ -9,7 +9,9 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customerIntent: As a SOC engineer, I want to understand my options when authenticating from playbooks to Microsoft Sentinel.
+
+#Customer intent: As a security analyst, I want to authenticate playbooks to Microsoft Sentinel so that I can automate and orchestrate security tasks efficiently.
+
 ---
 
 # Authenticate playbooks to Microsoft Sentinel

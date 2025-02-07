@@ -210,7 +210,7 @@ awps-tunnel run --hub {hubName} --upstream http://localhost:{portExposedByYourAu
 
 ## Implement MQTT clients
 
-We will implement the client side in Node.JS.
+We will implement the client side in Node.js.
 
 Initialize a NodeJS project with the following command.
 ```bash

@@ -34,6 +34,8 @@ To configure any of the supported providers in API Management, first configure a
 
 * Depending on the provider and your scenario, you might need to retrieve other settings such as authorization endpoint URLs or scopes.
 
+* The provider's authorization endpoints must be reachable over the internet from your API Management instance. If your API Management instance is secured in a virtual network, configure network or firewall rules to allow access to the provider's endpoints.
+
 ## Microsoft Entra provider
 
 API credential manager supports the Microsoft Entra identity provider, which is the identity service in Microsoft Azure that provides identity management and access control capabilities. It allows users to securely sign in using industry-standard protocols.

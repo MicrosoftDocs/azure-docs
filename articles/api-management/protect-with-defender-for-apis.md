@@ -11,7 +11,7 @@ ms.author: danlep
 ---
 # Enable advanced API security features using Microsoft Defender for Cloud 
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 [Defender for APIs](/azure/defender-for-cloud/defender-for-apis-introduction), a capability of [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction), offers full lifecycle protection, detection, and response coverage for APIs that are managed in Azure API Management. The service empowers security practitioners to gain visibility into their business-critical APIs, understand their security posture, prioritize vulnerability fixes, and detect active runtime threats within minutes. 
 
@@ -112,4 +112,5 @@ You can remove APIs from protection by Defender for APIs by using Defender for C
 
 * Learn more about [Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction)
 * Learn more about [API findings, recommendations, and alerts](/azure/defender-for-cloud/defender-for-apis-posture) in Defender for APIs
+Learn how to [build a comprehensive API security strategy](https://aka.ms/API-Security-EBook)
 * Learn how to [upgrade and scale](upgrade-and-scale.md) an API Management instance

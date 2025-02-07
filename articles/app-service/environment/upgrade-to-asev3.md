@@ -10,11 +10,11 @@ ms.date: 6/12/2024
 # Upgrade to App Service Environment v3
 
 > [!IMPORTANT]
-> If you're currently using App Service Environment v1 or v2, you must migrate your workloads to [App Service Environment v3](overview.md). [App Service Environment v1 and v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/v2/App-Service-Environment-v1v2-Retirement-Update). After that date, decommissioning of the App Service Environment v1 and v2 hardware will begin, and this may affect the availability and performance of your apps and data. Service Level Agreement (SLA) and Service Credits will no longer apply for App Service Environment v1 and v2 workloads that continue to be in production after 31 August 2024.  
+> If you're currently using App Service Environment v1 or v2, you must migrate your workloads to [App Service Environment v3](overview.md). [App Service Environment v1 and v2 are retired as of 31 August 2024](https://aka.ms/postEOL/ASE). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
 >
-> You must complete migration to App Service Environment v3 before 31 August 2024 or your apps and resources may be deleted. We will attempt to auto-migrate any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration is not feasible, your resources and associated app data will be deleted. We strongly urge you to act now to avoid either of these extreme scenarios. 
+> As of 31 August 2024, [Service Level Agreement (SLA) and Service Credits](https://aka.ms/postEOL/ASE/SLA) no longer apply for App Service Environment v1 and v2 workloads that continue to be in production since they are retired products. Decommissioning of the App Service Environment v1 and v2 hardware has begun, and this may affect the availability and performance of your apps and data.
 >
-> For the most up-to-date information on the App Service Environment v1/v2 retirement, see the [App Service Environment v1 and v2 retirement update](https://github.com/Azure/app-service-announcements/issues/469).
+> You must complete migration to App Service Environment v3 immediately or your apps and resources may be deleted. We will attempt to auto-migrate any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration isn't feasible, your resources and associated app data will be deleted. We strongly urge you to act now to avoid either of these extreme scenarios.
 >
 
 This page is your one-stop shop for guidance and resources to help you upgrade successfully with minimal downtime. Follow the guidance to plan and complete your upgrade as soon as possible. This page is updated with the latest information as it becomes available.
@@ -47,7 +47,7 @@ App Service Environment v3 is the latest version of App Service Environment. It'
 
 ### What tooling is available to help with the upgrade to App Service Environment v3?
 
-There are two automated migration features available to help you upgrade to App Service Environment v3. 
+There are two automated migration features available to help you upgrade to App Service Environment v3.
 
 - **In-place migration feature** migrates your App Service Environment to App Service Environment v3 in-place and is the recommended migration option. In-place means that your App Service Environment v3 replaces your existing App Service Environment in the same subnet. There's application downtime during the migration because a subnet can only have a single App Service Environment at a given time. For more information about this feature, see [Automated upgrade using the in-place migration feature](migrate.md).
 - **Side-by-side migration feature** creates a new App Service Environment v3 in a different subnet that you choose and recreates all of your App Service plans and apps in that new environment. Your existing environment is up and running during the entire migration. Once the new App Service Environment v3 is ready, you can redirect traffic to the new environment and complete the migration. There's no application downtime during the migration. For more information about this feature, see [Automated upgrade using the side-by-side migration feature](side-by-side-migrate.md).
@@ -60,7 +60,7 @@ There are two automated migration features available to help you upgrade to App 
 
 App Service Environment v3 uses newer virtual machines that are based on virtual CPUs (vCPU), not physical cores. One vCPU typically doesn't equate to one physical core in terms of raw CPU performance. As a result, CPU-bound workloads might see a performance difference if attempting to match old-school physical core counts to current vCPU counts.
 
-When migrating to App Service Environment v3, we map App Service plan tiers as follows: 
+When migrating to App Service Environment v3, we map App Service plan tiers as follows:
 
 |App Service Environment v2 SKU|App Service Environment v3 SKU|
 |------------------------------|------------------------------|
@@ -78,7 +78,7 @@ Use the following decision tree to determine which migration path is right for y
 
 After 31 August 2024, decommissioning of the App Service Environment v1 and v2 hardware will begin, and this may affect the availability and performance of your apps and data. Additionally, since these products will be retired, after the official retirement on 31 August 2024, Service Level Agreement (SLA) and Service Credits will no longer apply for App Service Environment v1 and v2 workloads that continue to be in production.  
 
-You must complete migration to App Service Environment v3 as soon as possible or your apps and resources may be deleted. We will attempt to auto-migrate any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration is not feasible, your resources and associated app data will be deleted. We strongly urge you to act now to avoid either of these extreme scenarios. 
+You must complete migration to App Service Environment v3 as soon as possible or your apps and resources may be deleted. We will attempt to auto-migrate any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration is not feasible, your resources and associated app data will be deleted. We strongly urge you to act now to avoid either of these extreme scenarios.
 
 ### Cost saving opportunities after upgrading to App Service Environment v3
 
@@ -132,7 +132,7 @@ Your App Service Environment v3 is now more expensive than your App Service Envi
 
 For more scenarios on cost changes and savings opportunities with App Service Environment v3, see [Estimate your cost savings by migrating to App Service Environment v3](https://azure.github.io/AppService/2023/03/02/App-service-environment-v3-pricing.html).
 
-## We want your feedback!
+## We want your feedback
 
 Got 2 minutes? We'd love to hear about your upgrade experience in this quick, anonymous poll. You'll help us learn and improve.
 

@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: azure-static-web-apps
 ms.topic: article
-ms.date: 07/02/2024
+ms.date: 09/18/2024
 ms.author: cshoe
 zone_pivot_groups: swa-web-framework
 ---
@@ -168,6 +168,7 @@ On most systems, you can select the URL of the site to open it in your default b
 * [Authentication and authorization](./authentication-authorization.yml)
 * [Database connections](./database-overview.md)
 * [Custom Domains](./custom-domain.md)
+* [Video series: Deploy websites to the cloud with Azure Static Web Apps](https://aka.ms/azure/beginnervideos/learn/swa)
 
 <!-- Links -->
 [1]: https://azure.microsoft.com/free

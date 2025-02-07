@@ -91,7 +91,7 @@ There are currently two ways to authenticate Azure Front Door to access your Key
 Register the service principal for Azure Front Door as an app in your Microsoft Entra ID by using Microsoft Graph PowerShell or the Azure CLI.
 
 > [!NOTE]
-> * This action requires you to have Global Administrator permissions in Microsoft Entra ID. The registration only needs to be performed *once per Microsoft Entra tenant*.
+> * This action requires you to have User Access Administrator permissions in Microsoft Entra ID. The registration only needs to be performed *once per Microsoft Entra tenant*.
 > * The application IDs of **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** and **d4631ece-daab-479b-be77-ccb713491fc0** are predefined by Azure for Azure Front Door Standard and Premium across all Azure tenants and subscriptions. Azure Front Door (classic) has a different application ID.
 
 # [Microsoft Graph PowerShell](#tab/powershell)

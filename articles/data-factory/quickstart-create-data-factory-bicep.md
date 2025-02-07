@@ -3,6 +3,7 @@ title: Create an Azure Data Factory using Bicep
 description: Create a sample Azure Data Factory pipeline using Bicep.
 tags: azure-resource-manager
 author: jonburchel 
+ms.subservice: data-movement
 ms.author: jburchel 
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep

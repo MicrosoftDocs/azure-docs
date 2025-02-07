@@ -5,9 +5,10 @@ description: How to use the virtual networks connectivity pattern with Azure IoT
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-dps
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 03/21/2022
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Azure IoT Hub Device Provisioning Service (DPS) support for virtual networks

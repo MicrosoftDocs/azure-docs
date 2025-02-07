@@ -47,7 +47,7 @@ As an example, run the **Availability rate** sample query by selecting **Run** o
 > [!NOTE]  
 > Availability rate is measured over a 24-hour period, so your cluster will need to run for at least 24 hours before you see accurate availability rates.
 
-You can pin this table to a shared dashboard by clicking **Pin** in the upper-right corner. If you don't have any writable shared dashboards, you can see how to create one here: [Create and share dashboards in the Azure portal](../azure-portal/azure-portal-dashboards.md#publish-and-share-a-dashboard).
+You can pin this table to a shared dashboard by clicking **Pin** in the upper-right corner. If you don't have any writable shared dashboards, you can see how to create one here: [Create and share dashboards in the Azure portal](/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard).
 
 ## Azure Monitor alerts
 

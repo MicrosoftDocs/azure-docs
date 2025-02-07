@@ -5,12 +5,12 @@ description: Learn about the tokens used in Azure Active Directory B2C.
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: concept-article
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: b2c-support
 
 
@@ -55,8 +55,8 @@ The following table lists the claims that you can expect in ID tokens and access
 
 | Name | Claim | Example value | Description |
 | ---- | ----- | ------------- | ----------- |
-| Audience | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Identifies the intended recipient of the token. For Azure AD B2C, the audience is the application ID. Your application should validate this value and reject the token if it doesn't match. Audience is synonymous with resource. |
-| Issuer | `iss` |`https://<tenant-name>.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifies the security token service (STS) that constructs and returns the token. It also identifies the directory in which the user was authenticated. Your application should validate the issuer claim to make sure that the token came from the appropriate endpoint. |
+| Audience | `aud` | `00001111-aaaa-2222-bbbb-3333cccc4444` | Identifies the intended recipient of the token. For Azure AD B2C, the audience is the application ID. Your application should validate this value and reject the token if it doesn't match. Audience is synonymous with resource. |
+| Issuer | `iss` |`https://<tenant-name>.b2clogin.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/v2.0/` | Identifies the security token service (STS) that constructs and returns the token. It also identifies the directory in which the user was authenticated. Your application should validate the issuer claim to make sure that the token came from the appropriate endpoint. |
 | Issued at | `iat` | `1438535543` | The time at which the token was issued, represented in epoch time. |
 | Expiration time | `exp` | `1438539443` | The time at which the token becomes invalid, represented in epoch time. Your application should use this claim to verify the validity of the token lifetime. |
 | Not before | `nbf` | `1438535543` | The time at which the token becomes valid, represented in epoch time. This time is usually the same as the time the token was issued. Your application should use this claim to verify the validity of the token lifetime. |
@@ -64,7 +64,7 @@ The following table lists the claims that you can expect in ID tokens and access
 | Code hash | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | A code hash included in an ID token only when the token is issued together with an OAuth 2.0 authorization code. A code hash can be used to validate the authenticity of an authorization code. For more information about how to perform this validation, see the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html).  |
 | Access token hash | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | An access token hash included in an ID token only when the token is issued together with an OAuth 2.0 access token. An access token hash can be used to validate the authenticity of an access token. For more information about how to perform this validation, see the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | Nonce | `nonce` | `12345` | A nonce is a strategy used to mitigate token replay attacks. Your application can specify a nonce in an authorization request by using the `nonce` query parameter. The value you provide in the request is emitted unmodified in the `nonce` claim of an ID token only. This claim allows your application to verify the value against the value specified on the request. Your application should perform this validation during the ID token validation process. |
-| Subject | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | The principal about which the token asserts information, such as the user of an application. This value is immutable and can't be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory. |
+| Subject | `sub` | `aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb` | The principal about which the token asserts information, such as the user of an application. This value is immutable and can't be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory. |
 | Authentication context class reference | `acr` | Not applicable | Used only with older policies. |
 | Trust framework policy | `tfp` | `b2c_1_signupsignin1` | The name of the policy that was used to acquire the ID token. |
 | Authentication time | `auth_time` | `1438535543` | The time at which a user last entered credentials, represented in epoch time. There's no discrimination between that authentication being a fresh sign-in, a single sign-on (SSO) session, or another sign-in type. The `auth_time` is the last time the application (or user) initiated an authentication attempt against Azure AD B2C. The method used to authenticate isn't differentiated. |
@@ -157,4 +157,3 @@ For a full list of validations your application should perform, refer to the [Op
 ## Next steps
 
 Learn more about how to [use access tokens](access-tokens.md).
-

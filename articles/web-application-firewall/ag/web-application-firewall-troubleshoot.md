@@ -1,12 +1,11 @@
 ---
 title: Troubleshoot - Azure Web Application Firewall
 description: This article provides troubleshooting information for Web Application Firewall (WAF) for Azure Application Gateway
-services: web-application-firewall
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
+ms.topic: concept-article
 ms.date: 03/05/2024
-ms.author: victorh
-ms.topic: conceptual
 ---
 
 # Troubleshoot Web Application Firewall (WAF) for Azure Application Gateway
@@ -29,12 +28,12 @@ The final two log entries show the request was blocked because the anomaly score
 
 ```json
 { 
-    "resourceId": "/SUBSCRIPTIONS/A6F44B25-259E-4AF5-888A-386FED92C11B/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2", 
+    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2", 
     "operationName": "ApplicationGatewayFirewall", 
     "category": "ApplicationGatewayFirewallLog", 
     "properties": { 
         "instanceId": "appgw_3", 
-        "clientIp": "167.220.2.139", 
+        "clientIp": "203.0.113.139", 
         "clientPort": "", 
         "requestUri": "\/", 
         "ruleSetType": "OWASP_CRS", 
@@ -54,12 +53,12 @@ The final two log entries show the request was blocked because the anomaly score
     } 
 } 
 { 
-    "resourceId": "/SUBSCRIPTIONS/A6F44B25-259E-4AF5-888A-386FED92C11B/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2", 
+    "resourceId": "/SUBSCRIPTIONS/66667777-aaaa-8888-bbbb-9999cccc0000/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2", 
     "operationName": "ApplicationGatewayFirewall", 
     "category": "ApplicationGatewayFirewallLog", 
     "properties": { 
         "instanceId": "appgw_3", 
-        "clientIp": "167.220.2.139", 
+        "clientIp": "203.0.113.139", 
         "clientPort": "", 
         "requestUri": "\/", 
         "ruleSetType": "OWASP_CRS", 
@@ -79,7 +78,7 @@ The final two log entries show the request was blocked because the anomaly score
     } 
 } 
 { 
-    "resourceId": "/SUBSCRIPTIONS/A6F44B25-259E-4AF5-888A-386FED92C11B/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2", 
+    "resourceId": "/SUBSCRIPTIONS/66667777-aaaa-8888-bbbb-9999cccc0000/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2", 
     "operationName": "ApplicationGatewayFirewall", 
     "category": "ApplicationGatewayFirewallLog", 
     "properties": { 
@@ -104,12 +103,12 @@ The final two log entries show the request was blocked because the anomaly score
     } 
 } 
 { 
-    "resourceId": "/SUBSCRIPTIONS/A6F44B25-259E-4AF5-888A-386FED92C11B/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2", 
+    "resourceId": "/SUBSCRIPTIONS/66667777-aaaa-8888-bbbb-9999cccc0000/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2", 
     "operationName": "ApplicationGatewayFirewall", 
     "category": "ApplicationGatewayFirewallLog", 
     "properties": { 
         "instanceId": "appgw_3", 
-        "clientIp": "167.220.2.139", 
+        "clientIp": "203.0.113.139", 
         "clientPort": "", 
         "requestUri": "\/", 
         "ruleSetType": "", 
@@ -186,7 +185,7 @@ In this example, you can see that you have four rules with the same TransactionI
 
 ```json
 -	{
--	    "resourceId": "/SUBSCRIPTIONS/A6F44B25-259E-4AF5-888A-386FED92C11B/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
+-	    "resourceId": "/SUBSCRIPTIONS/66667777-aaaa-8888-bbbb-9999cccc0000/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
 -	    "operationName": "ApplicationGatewayFirewall",
 -	    "category": "ApplicationGatewayFirewallLog",
 -	    "properties": {
@@ -211,12 +210,12 @@ In this example, you can see that you have four rules with the same TransactionI
 -	    }
 -	}
 -	{
--	    "resourceId": "/SUBSCRIPTIONS/A6F44B25-259E-4AF5-888A-386FED92C11B/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
+-	    "resourceId": "/SUBSCRIPTIONS/66667777-aaaa-8888-bbbb-9999cccc0000/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
 -	    "operationName": "ApplicationGatewayFirewall",
 -	    "category": "ApplicationGatewayFirewallLog",
 -	    "properties": {
 -	        "instanceId": "appgw_3",
--	        "clientIp": "167.220.2.139",
+-	        "clientIp": "203.0.113.139",
 -	        "clientPort": "",
 -	        "requestUri": "\/",
 -	        "ruleSetType": "OWASP_CRS",
@@ -236,12 +235,12 @@ In this example, you can see that you have four rules with the same TransactionI
 -	    }
 -	}
 -	{
--	    "resourceId": "/SUBSCRIPTIONS/A6F44B25-259E-4AF5-888A-386FED92C11B/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
+-	    "resourceId": "/SUBSCRIPTIONS/66667777-aaaa-8888-bbbb-9999cccc0000/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
 -	    "operationName": "ApplicationGatewayFirewall",
 -	    "category": "ApplicationGatewayFirewallLog",
 -	    "properties": {
 -	        "instanceId": "appgw_3",
--	        "clientIp": "167.220.2.139",
+-	        "clientIp": "203.0.113.139",
 -	        "clientPort": "",
 -	        "requestUri": "\/",
 -	        "ruleSetType": "",
@@ -261,12 +260,12 @@ In this example, you can see that you have four rules with the same TransactionI
 -	    }
 -	}
 -	{
--	    "resourceId": "/SUBSCRIPTIONS/A6F44B25-259E-4AF5-888A-386FED92C11B/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
+-	    "resourceId": "/SUBSCRIPTIONS/66667777-aaaa-8888-bbbb-9999cccc0000/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
 -	    "operationName": "ApplicationGatewayFirewall",
 -	    "category": "ApplicationGatewayFirewallLog",
 -	    "properties": {
 -	        "instanceId": "appgw_3",
--	        "clientIp": "167.220.2.139",
+-	        "clientIp": "203.0.113.139",
 -	        "clientPort": "",
 -	        "requestUri": "\/",
 -	        "ruleSetType": "",
@@ -327,6 +326,9 @@ If the request contains cookies, the **Cookies** tab can be selected to view the
 
    > [!NOTE]
    > If you know that your app will never need any file upload above a given size, you can restrict that by setting a limit.
+
+   > [!WARNING]
+   > When assigning a new managed ruleset to a WAF policy, all the previous customizations from the existing managed rulesets such as rule state, rule actions and rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules, policy settings, and global exclusions will remain unaffected during the new ruleset assignment.
 
 ## Firewall Metrics (WAF_v1 only)
 

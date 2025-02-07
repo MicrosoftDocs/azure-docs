@@ -4,8 +4,7 @@ description: Describes how to troubleshoot time sync issues for Azure Data Box o
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: pod
+ms.service: azure-databox
 ms.custom:
 ms.topic: troubleshooting
 ms.date: 11/15/2021

@@ -4,8 +4,7 @@ description: Learn about the technical specifications and compliance for your Az
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 04/12/2023
 ms.author: alkohli
@@ -34,7 +33,7 @@ A Graphics Processing Unit (GPU) is included on every device that enables Kubern
 
 | Specification           | Value                      |
 |-------------------------|----------------------------|
-| GPU   | One nVidia T4 GPU <br> For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/). | 
+| GPU   | One NVIDIA T4 GPU <br> For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/). | 
 
 ## Power supply unit specifications
 

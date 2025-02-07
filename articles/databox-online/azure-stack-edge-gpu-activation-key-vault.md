@@ -4,8 +4,7 @@ description: Describes how Azure Key Vault is associated with secret management 
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 09/08/2021
 ms.author: alkohli

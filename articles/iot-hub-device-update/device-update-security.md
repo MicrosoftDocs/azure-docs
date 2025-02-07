@@ -5,7 +5,8 @@ author: andrewbrownmsft
 ms.author: andbrown
 ms.date: 08/19/2022
 ms.topic: concept-article
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Device Update security model

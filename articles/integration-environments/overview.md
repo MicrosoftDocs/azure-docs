@@ -1,11 +1,12 @@
 ---
 title: Overview
 description: Centrally organize Azure resources for integration solutions by using Azure Integration Environments.
-ms.service: integration-environments
+ms.service: azure
 ms.topic: overview
 ms.reviewer: estfan, azla
 ms.date: 06/07/2024
 # CustomerIntent: As a developer with a solution that has multiple or different Azure resources that integrate various services and systems, I want an easier way to logically organize, manage, and track Azure resources that implement my organization's integration solutions.
+ms.subservice: azure-integration-environments
 ---
 
 # What is Azure Integration Environments? (Preview)

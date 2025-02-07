@@ -6,7 +6,7 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 06/03/2024
 ms.topic: conceptual
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 
@@ -241,8 +241,8 @@ The **Edge CA** certificate is also responsible for creating certificates for mo
 
 3. This command creates several certificate and key files. The following certificate and key pair need to be copied over to an IoT Edge device and referenced in the config file:
 
-   * `certs\iot-edge-device-ca-<CA cert name>-full-chain.cert.pem`
-   * `private\iot-edge-device-ca-<CA cert name>.key.pem`
+   * `certs\iot-edge-device-<CA cert name>-full-chain.cert.pem`
+   * `private\iot-edge-device-<CA cert name>.key.pem`
 
 
 # [Linux](#tab/linux)

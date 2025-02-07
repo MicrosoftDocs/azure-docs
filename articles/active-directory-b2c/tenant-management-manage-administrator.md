@@ -4,13 +4,13 @@ titleSuffix: Azure Active Directory B2C
 description: Learn how to add an administrator account to your Azure Active Directory B2C tenant. Learn how to invite a guest account as an administrator into your Azure AD B2C tenant
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: tutorial
 ms.custom: b2c-docs-improvements
 ms.date: 09/11/2024
 ms.reviewer: yoelh
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As an Azure AD B2C administrator, I want to manage administrator accounts, add new administrators (work and guest accounts), assign roles to user accounts, remove role assignments, delete administrator accounts, and protect administrative accounts with multifactor authentication, so that I can control access and ensure security in my Azure AD B2C tenant.

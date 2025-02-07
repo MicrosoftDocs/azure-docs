@@ -4,17 +4,22 @@ description: Learn how to ingest incidents, alerts, and raw event data from Micr
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 06/25/2023
+ms.date: 11/26/2024
 appliesto:
-- Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+- Microsoft Sentinel in the Azure portal
+- Microsoft Sentinel with Defender XDR in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security engineer, I want to integrate Microsoft Defender XDR data with Microsoft Sentinel so that we can centralize and streamline incident management and advanced threat hunting.
+
 ---
 
 # Connect data from Microsoft Defender XDR to Microsoft Sentinel
 
 The Microsoft Defender XDR connector for Microsoft Sentinel allows you to stream all Microsoft Defender XDR incidents, alerts, and advanced hunting events into Microsoft Sentinel. This connector keeps the incidents synchronized between both portals. Microsoft Defender XDR incidents include alerts, entities, and other relevant information from all the Microsoft Defender products and services. For more information, see [Microsoft Defender XDR integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md).
 
-The Defender XDR connector, especially its incident integration feature, is the foundation of the unified security operations platform. If you're onboarding Microsoft Sentinel to the Microsoft Defender portal, you must first enable this connector with incident integration.
+The Defender XDR connector, especially its incident integration feature, is the foundation of Microsoft's unified security operations platform. If you're onboarding Microsoft Sentinel to the Microsoft Defender portal, you must first enable this connector with incident integration.
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
@@ -33,6 +38,8 @@ For on-premises Active Directory sync via Microsoft Defender for Identity:
 
 - Your tenant must be onboarded to Microsoft Defender for Identity.
 - You must have the Microsoft Defender for Identity sensor installed.
+
+For more information, see [Deploy Microsoft Defender for Identity](/defender-for-identity/deploy/deploy-defender-identity).
 
 ## Connect to Microsoft Defender XDR
 
@@ -59,7 +66,7 @@ To ingest and synchronize Microsoft Defender XDR incidents with all their alerts
 
    ```kusto
       SecurityIncident
-      |    where ProviderName == "Microsoft 365 Defender"
+      | where ProviderName == "Microsoft Defender XDR"
    ```
 
 When you enable the Microsoft Defender XDR connector, any Microsoft Defender components’ connectors that were previously connected are automatically disconnected in the background. Although they continue to *appear* connected, no data flows through them.
@@ -74,7 +81,7 @@ Use Microsoft Defender for Identity to sync user entities from your on-premises 
 
 1. Mark the **Active Directory (Preview)** check box and select **Apply**.
 
-    :::image type="content" source="media/connect-microsoft-365-defender/ueba-configuration-page.png" alt-text="Screenshot of UEBA configuration page for connecting user entities to Sentinel.":::
+    :::image type="content" source="media/connect-microsoft-365-defender/ueba-configuration-page.png" alt-text="Screenshot of UEBA configuration page for connecting user entities to Microsoft Sentinel.":::
 
 ### Connect events
 
@@ -146,7 +153,7 @@ let Now = now();
 | extend Count = 0 
 | union isfuzzy=true ( 
     SecurityIncident
-    | where ProviderName == "Microsoft 365 Defender"
+    | where ProviderName == "Microsoft Defender XDR"
     | summarize Count = count() by bin_at(TimeGenerated, 1d, Now) 
 ) 
 | summarize Count=max(Count) by bin_at(TimeGenerated, 1d, Now) 
@@ -171,8 +178,24 @@ let Now = now();
 | render timechart
 ```
 
-## Next steps
+See more information on the following items used in the preceding examples, in the Kusto documentation:
+- [***let*** statement](/kusto/query/let-statement?view=microsoft-sentinel&preserve-view=true)
+- [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+- [***extend*** operator](/kusto/query/extend-operator?view=microsoft-sentinel&preserve-view=true)
+- [***project*** operator](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true)
+- [***union*** operator](/kusto/query/union-operator?view=microsoft-sentinel&preserve-view=true)
+- [***sort*** operator](/kusto/query/sort-operator?view=microsoft-sentinel&preserve-view=true)
+- [***summarize*** operator](/kusto/query/summarize-operator?view=microsoft-sentinel&preserve-view=true)
+- [***render*** operator](/kusto/query/render-operator?view=microsoft-sentinel&preserve-view=true)
+- [***ago()*** function](/kusto/query/ago-function?view=microsoft-sentinel&preserve-view=true)
+- [***iff()*** function](/kusto/query/iff-function?view=microsoft-sentinel&preserve-view=true)
+- [***max()*** aggregation function](/kusto/query/max-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+- [***count()*** aggregation function](/kusto/query/count-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+
+[!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
+
+## Next step
 
 In this document, you learned how to integrate Microsoft Defender XDR incidents, alerts, and advanced hunting event data from Microsoft Defender services, into Microsoft Sentinel, by using the Microsoft Defender XDR connector.
 
-To use Microsoft Sentinel integrated with Defender XDR in the unified security operations platform, see [Connect Microsoft Sentinel to Microsoft Defender XDR](/defender-xdr/microsoft-sentinel-onboard).
+To use Microsoft Sentinel integrated with Defender XDR in Microsoft's unified security operations platform, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/defender-xdr/microsoft-sentinel-onboard).

@@ -5,85 +5,90 @@ ms.topic: include
 ms.date: 03/26/2024
 ms.author: jsaurezlee
 ---
-[!INCLUDE [Install SDK](../install-sdk/install-sdk-windows.md)]
 
-## Overview
-Push notifications on Windows platform are delivered using `Windows Push Notification Service (WNS),`.
+## Considerations for Windows push notifications
+
+Mobile push notifications are the pop-up notifications that appear on mobile devices. For calling, this article focuses on voice over Internet Protocol (VoIP) push notifications.
+
+Push notifications on the Windows platform are delivered through the Windows Push Notification Service (WNS).
 
 > [!NOTE]
-> To Register for Push Notifications and handling of the Push Notifications for a Custom Teams Endpoint (CTE) the API's are the same. The API's described below can also be invoked on the `CommonCallAgent` or `TeamsCallAgent` class for Custom Teams Endpoint (CTE).
+> When the application registers for push notifications and handles the push notifications for a Custom Teams Endpoint (CTE), the APIs are the same. The APIs that this article describes can also be invoked on the `CommonCallAgent` or `TeamsCallAgent` class for a CTE.
 
-## Set up push notifications
+[!INCLUDE [Install SDK](../install-sdk/install-sdk-windows.md)]
 
-A push notification is the pop-up notification that you get in your device. For calling, we'll focus on VoIP (voice over Internet Protocol) push notifications. 
+### Set up push notifications
 
-The following sections describe how to register for, handle, and show a Windows notification to answer/decline an incoming call. Before you start those tasks, complete these prerequisites:
+Before you start the tasks of registering for, handling, and showing a Windows notification to answer or decline an incoming call, complete this setup task:
 
-1. Follow [Tutorial: Send notifications to Universal Windows Platform apps using Azure Notification Hubs](/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification). After following this tutorial, you have:
-    - An application that has the `WindowsAzure.Messaging.Managed` and `Microsoft.Toolkit.Uwp.Notifications` packages.
-    - An Azure PNH (Push Notifications Hub) Hub name referenced as `<AZURE_PNH_HUB_NAME>` and the Azure PNH Connection String referenced as `<AZURE_PNH_HUB_CONNECTION_STRING>` in this quickstart.
+1. Follow [Tutorial: Send notifications to Universal Windows Platform apps using Azure Notification Hubs](/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification). After you follow the tutorial, you have:
+
+   - An application that has the `WindowsAzure.Messaging.Managed` and `Microsoft.Toolkit.Uwp.Notifications` packages.
+   - An Azure Notifications Hub hub name referenced as `<AZURE_PNH_HUB_NAME>` and an Azure Notifications Hub connection string referenced as `<AZURE_PNH_HUB_CONNECTION_STRING>` in this article.
   
-3. To register for a WNS (Windows Notification Service) channel on every application init, make sure you add the initialization code on your App.xaml.cs file:
+1. To register for a WNS channel on every application initialization, be sure to add the initialization code in your `App.xaml.cs` file:
 
-```C#
-// App.xaml.cs
+   ```C#
+   // App.xaml.cs
 
-protected override async void OnLaunched(LaunchActivatedEventArgs e)
-{
-    await InitNotificationsAsync();
+   protected override async void OnLaunched(LaunchActivatedEventArgs e)
+   {
+       await InitNotificationsAsync();
     
-    ...
-}
+       ...
+   }
 
-private async Task InitNotificationsAsync()
-{
-    if (AZURE_PNH_HUB_NAME != "<AZURE_PNH_HUB_NAME>" && AZURE_PNH_HUB_CONNECTION_STRING != "<AZURE_PNH_HUB_CONNECTION_STRING>")
-    {
-        var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-        channel.PushNotificationReceived += Channel_PushNotificationReceived;
+   private async Task InitNotificationsAsync()
+   {
+       if (AZURE_PNH_HUB_NAME != "<AZURE_PNH_HUB_NAME>" && AZURE_PNH_HUB_CONNECTION_STRING != "<AZURE_PNH_HUB_CONNECTION_STRING>")
+       {
+           var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+           channel.PushNotificationReceived += Channel_PushNotificationReceived;
     
-        var hub = new NotificationHub(AZURE_PNH_HUB_NAME, AZURE_PNH_HUB_CONNECTION_STRING);
-        var result = await hub.RegisterNativeAsync(channel.Uri);
+           var hub = new NotificationHub(AZURE_PNH_HUB_NAME, AZURE_PNH_HUB_CONNECTION_STRING);
+           var result = await hub.RegisterNativeAsync(channel.Uri);
     
-        if (result.ChannelUri != null)
-        {
-            PNHChannelUri = new Uri(result.ChannelUri);
-        }
-        else
-        {
-            Debug.WriteLine("Cannot register WNS channel");
-        }
-    }
-}
-```
-3. Register the event handler activated when a new push notification message arrives on App.xaml.cs:
+           if (result.ChannelUri != null)
+           {
+               PNHChannelUri = new Uri(result.ChannelUri);
+           }
+           else
+           {
+               Debug.WriteLine("Cannot register WNS channel");
+           }
+       }
+   }
+   ```
 
-```C#
-// App.xaml.cs
+1. Register the event handler that's activated when a new push notification message arrives on `App.xaml.cs`:
 
-private void Channel_PushNotificationReceived(PushNotificationChannel sender, PushNotificationReceivedEventArgs args)
-{
-    switch (args.NotificationType)
-    {
-      case PushNotificationType.Toast:
-      case PushNotificationType.Tile:
-      case PushNotificationType.TileFlyout:
-      case PushNotificationType.Badge:
-          break;
-      case PushNotificationType.Raw:
-          var frame = (Frame)Window.Current.Content;
-          if (frame.Content is MainPage)
-          {
-              var mainPage = frame.Content as MainPage;
-              await mainPage.HandlePushNotificationIncomingCallAsync(args.RawNotification.Content);
-          }
-          break;
-    }
-}
-```
+   ```C#
+   // App.xaml.cs
 
-### Register for push notifications
-To register for push notifications, call `RegisterForPushNotificationAsync()` on a `CallAgent` instance with the WNS registration channel obtained on application init.
+   private void Channel_PushNotificationReceived(PushNotificationChannel sender, PushNotificationReceivedEventArgs args)
+   {
+       switch (args.NotificationType)
+       {
+         case PushNotificationType.Toast:
+         case PushNotificationType.Tile:
+         case PushNotificationType.TileFlyout:
+         case PushNotificationType.Badge:
+             break;
+         case PushNotificationType.Raw:
+             var frame = (Frame)Window.Current.Content;
+             if (frame.Content is MainPage)
+             {
+                 var mainPage = frame.Content as MainPage;
+                 await mainPage.HandlePushNotificationIncomingCallAsync(args.RawNotification.Content);
+             }
+             break;
+       }
+   }
+   ```
+
+## Register for push notifications
+
+To register for push notifications, call `RegisterForPushNotificationAsync()` on a `CallAgent` instance with the WNS registration channel obtained on application initialization.
 
 Registration for push notifications needs to happen after successful initialization.
 
@@ -102,7 +107,8 @@ this.callAgent.IncomingCallReceived += OnIncomingCallAsync;
 ```
 
 ## Handle push notifications
-To receive push notifications for incoming calls, call `handlePushNotification()` on a `CallAgent` instance with a dictionary payload.
+
+To receive push notifications for incoming calls, call `handlePushNotification()` on a `CallAgent` instance with a dictionary payload:
 
 ```C#
 // MainPage.xaml.cs
@@ -117,7 +123,7 @@ public async Task HandlePushNotificationIncomingCallAsync(string notificationCon
 }
 ```
 
-This triggers an incoming call event on CallAgent that shows the incoming call notification.
+This call triggers an incoming call event on `CallAgent` that shows the incoming call notification:
 
 ```C#
 // MainPage.xaml.cs
@@ -150,7 +156,7 @@ public void ShowIncomingCallNotification(IncomingCall incomingCall)
 }
 ```
 
-Add the code to handle the button press for the notification in the OnActivated method:
+Add the code to handle the button press for the notification in the `OnActivated` method:
 
 ```C#
 // App.xaml.cs

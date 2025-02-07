@@ -5,11 +5,11 @@ description: Learn how to integrate Azure AD B2C authentication with Datawiza fo
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: I'm a developer, and I want to integrate Azure Active Directory B2C with Datawiza Access Proxy (DAP). My goal is to enable single sign-on (SSO) and granular access control for on-premises legacy applications, without rewriting them.
 ---

@@ -5,11 +5,11 @@ description: Learn how to integrate Azure AD B2C authentication with LexisNexis 
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: I'm a developer integrating Azure Active Directory B2C with LexisNexis ThreatMetrix. I want to configure the API and UI components, so I can verify user identities and perform risk analysis based on user attributes and device profiling information.
 

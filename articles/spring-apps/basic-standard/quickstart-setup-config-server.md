@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Set up Spring Cloud Config Server for Azure Spring Apps"
+title: "Quickstart: Set Up Spring Cloud Config Server for Azure Spring Apps"
 description: Describes the setup of Azure Spring Apps Config Server for app deployment.
 author: KarlErickson
 ms.author: karler
@@ -12,10 +12,9 @@ zone_pivot_groups: programming-languages-spring-apps
 
 # Quickstart: Set up Spring Cloud Config Server for Azure Spring Apps
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ❌ Enterprise
+**This article applies to:** ✅ Basic/Standard ❎ Enterprise
 
 Config Server is a centralized configuration service for distributed systems. It uses a pluggable repository layer that currently supports local storage, Git, and Subversion. In this quickstart, you set up the Config Server to get data from a Git repository.
 
@@ -85,7 +84,7 @@ az spring config-server git set \
 ::: zone-end
 
 > [!TIP]
-> For information on using a private repository for Config Server, see [Configure a managed Spring Cloud Config Server in Azure Spring Apps](../enterprise/how-to-config-server.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json).
+> For information on using a private repository for Config Server, see [Configure a managed Spring Cloud Config Server in Azure Spring Apps](how-to-config-server.md?pivots=sc-standard).
 
 ## Troubleshooting of Azure Spring Apps Config Server
 

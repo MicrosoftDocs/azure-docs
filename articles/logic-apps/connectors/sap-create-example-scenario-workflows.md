@@ -7,7 +7,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 12/12/2023
+ms.date: 10/23/2024
 ---
 
 # Create workflows for common SAP integration scenarios in Azure Logic Apps
@@ -55,6 +55,9 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
    | **Logon Type** | Yes | Select either **Application Server** or **Group** (Message Server), and then configure the corresponding required parameters, even though they appear optional: <br><br>**Application Server**: <br>- **AS Host**: The host name for your SAP Application Server <br>- **AS Service**: The service name or port number for your SAP Application Server <br>- **AS System Number**: Your SAP server's system number, which ranges from 00 to 99 <br><br>**Group**: <br>- **MS Server Host**: The host name for your SAP Message Server <br>- **MS Service Name or Port Number**: The service name or port number for your SAP Message Server <br>- **MS System ID**: The system ID for your SAP server <br>- **MS Logon Group**: The logon group for your SAP server. On your SAP server, you can find or edit the **Logon Group** value by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, review [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317). |
    | **Safe Typing** | No | This option available for backward compatibility and only checks the string length. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. Learn more about the [Safe Typing setting](#safe-typing). |
    | **Use SNC** | No | To create an SNC connection, see [Enable Secure Network Communications (SNC)](sap.md?tabs=single-tenant#enable-secure-network-communications). |
+
+
+For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
 
    For other optional available connection parameters, see [Default connection information](/connectors/sap/#default-connection).
 
@@ -354,6 +357,9 @@ Next, create an action to send your IDoc to SAP when the workflow's **Request** 
    | **Safe Typing** | No | This option available for backward compatibility and only checks the string length. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. Learn more about the [Safe Typing setting](#safe-typing). |
    | **Use SNC** | No | To create an SNC connection, see [Enable Secure Network Communications (SNC)](sap.md?tabs=single-tenant#enable-secure-network-communications). |
 
+
+For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
+
    For other optional available connection parameters, see [Default connection information](/connectors/sap/#default-connection).
 
    After Azure Logic Apps sets up and tests your connection, the SAP action information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](#troubleshoot-connections).
@@ -425,6 +431,9 @@ Next, create an action to send your IDoc to SAP when the workflow's **Request** 
    | **SAP Password** | Yes | The password for your SAP server |
    | **Logon Type** | Yes | Select either **Application Server** or **Group**, and then configure the corresponding required parameters, even though they appear optional: <br><br>**Application Server**: <br>- **Server Host**: The host name for your SAP Application Server <br>- **Service**: The service name or port number for your SAP Application Server <br>- **System Number**: Your SAP server's system number, which ranges from 00 to 99 <br><br>**Group**: <br>- **Server Host**: The host name for your SAP Message Server <br>- **Service Name or Port Number**: The service name or port number for your SAP Message Server <br>- **System ID**: The system ID for your SAP server <br>- **Logon Group**: The logon group for your SAP server. On your SAP server, you can find or edit the **Logon Group** value by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, review [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317). |
    | **Language** | Yes | The language to use for sending data to your SAP server. The value is either **Default** (English) or one of the [permitted values](/azure/logic-apps/connectors/built-in/reference/sap/#parameters-21). <br><br>**Note**: The SAP built-in connector saves this parameter value as part of the SAP connection parameters. For more information, see [Change language headers for sending data to SAP](#change-language-headers). |
+
+
+For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
 
    After Azure Logic Apps sets up and tests your connection, the SAP action information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](#troubleshoot-connections).
 
@@ -679,13 +688,6 @@ In the following example, the `STFC_CONNECTION` RFC module generates a request a
 
 1. After you send your HTTP request, wait for the response from your workflow.
 
-   > [!NOTE]
-   >
-   > Your workflow might time out if all the steps required for the response don't finish within the [request timeout limit](../logic-apps-limits-and-config.md). 
-   > If this condition happens, requests might get blocked. To help you diagnose problems, learn how you can [check and monitor your logic app workflows](../monitor-logic-apps.md).
-
-You've now created a workflow that can communicate with your SAP server. Now that you've set up an SAP connection for your workflow, you can try experimenting with BAPI and RFC.
-
 ### [Standard](#tab/standard)
 
 1. If your Standard logic app resource is stopped or disabled, from your workflow, go to the logic app resource level, and select **Overview**. On the toolbar, select **Start**.
@@ -707,14 +709,21 @@ You've now created a workflow that can communicate with your SAP server. Now tha
 
 1. After you send the HTTP request, wait for the response from your workflow.
 
-   > [!NOTE]
-   >
-   > Your workflow might time out if all the steps required for the response don't finish within the [request timeout limit](../logic-apps-limits-and-config.md). 
-   > If this condition happens, requests might get blocked. To help you diagnose problems, learn [how to check and monitor your logic app workflows](../monitor-logic-apps.md).
-
-You've now created a workflow that can communicate with your SAP server. Now that you've set up an SAP connection for your workflow, you can try experimenting with BAPI and RFC.
-
 ---
+
+You've now created a workflow that can send IDocs and communicate with your SAP server. Now that you've set up an SAP connection for your workflow, you can try experimenting with BAPI and RFC.
+
+#### Workflow timeout issues
+
+Your workflow times out in any of the following scenarios:
+
+- All the steps required for the response don't finish within the [request timeout limit](../logic-apps-limits-and-config.md). If this condition happens, requests might get blocked. To help you diagnose problems, learn [how to check and monitor your logic app workflows](../monitor-logic-apps.md).
+
+- Your SAP system's processing mode is set to the default **Trigger immediately** setting, which causes your SAP system to block the inbound call for IDoc transmission until an IDoc finishes processing.
+
+  If your SAP system is under load, for example, when your workflow sends a batch of IDocs all at one time to SAP, the queued IDoc calls time out. The default processing mode causes your SAP system to block the inbound call for IDoc transmission until an IDoc finishes processing. In Azure Logic Apps, workflow actions have a 2-minute timeout, by default.
+
+  To resolve this problem, follow the [steps in the **Prerequisites** section that change the setting to **Trigger by background program**](sap.md#prerequisites).
 
 <a name="safe-typing"></a>
 

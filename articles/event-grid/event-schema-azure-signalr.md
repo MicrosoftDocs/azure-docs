@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 12/02/2022
 ---
 
-# Azure Event Grid event schema for SignalR Service
+# Azure SignalR as an Azure Event Grid source
 
 This article provides the properties and schema for SignalR Service events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). It also gives you a list of quick starts and tutorials to use Azure SignalR as an event source.
 

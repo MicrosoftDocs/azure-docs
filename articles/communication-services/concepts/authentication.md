@@ -46,14 +46,32 @@ If you wish to call Azure Communication Services' APIs manually using an access 
 
 <a name='azure-ad-authentication'></a>
 
-### Microsoft Entra authentication
 
-The Azure platform provides role-based access (Azure RBAC) to control access to the resources. Azure RBAC security principal represents a user, group, service principal, or managed identity that is requesting access to Azure resources. Microsoft Entra authentication provides superior security and ease of use over other authorization options. For example, by using managed identity, you avoid having to store your account access key within your code, as you do with Access Key authorization. While you can continue to use Access Key authorization with communication services applications, Microsoft recommends moving to Microsoft Entra ID where possible. 
 
 To set up a service principal, [create a registered application from the Azure CLI](../quickstarts/identity/service-principal.md?pivots=platform-azcli). Then, the endpoint and credentials can be used to authenticate the SDKs. See examples of how [service principal](../quickstarts/identity/service-principal.md) is used.
 
-Communication services supports Microsoft Entra authentication for Communication services resources. You can find more details, about the managed identity support in the [Microsoft Entra documentation](/entra/identity/managed-identities-azure-resources/managed-identities-status).
+Communication services supports Microsoft Entra ID authentication for Communication services resources. You can find more details, about the managed identity support in the [How to use Managed Identity with Azure Communication Services](/azure/communication-services/how-tos/managed-identity).
 
+
+
+
+
+### Microsoft Entra ID Authentication
+
+The Azure platform provides role-based access (Azure RBAC) to control access to resources. Azure RBAC security principal represents a user, group, service principal, or managed identity that is requesting access to Azure resources. Microsoft Entra ID authentication provides superior security and ease of use over other authorization options.
+
+- **Managed Identity:**
+  - By using managed identity, you avoid having to store your account access key within your code, as you do with Access Key authorization. Managed identity credentials are fully managed, rotated, and protected by the platform, reducing the risk of credential exposure.
+  - Managed identities can authenticate to Azure services and resources that support Microsoft Entra ID authentication. This method provides a seamless and secure way to manage credentials.
+  - For more information on how to use Managed Identity with Azure Communication Services, refer to [This Guide](/azure/communication-services/how-tos/managed-identity). 
+  
+  
+
+- **Service Principal:**
+  - To set up a service principal [create a registered application from the Azure CLI](../quickstarts/identity/service-principal.md?pivots=platform-azcli). Then, the endpoint and credentials can be used to authenticate the SDKs.
+  - See examples of how [service principal](../quickstarts/identity/service-principal.md) is used.
+
+Communication Services supports Microsoft Entra ID authentication for Communication Services resources, While you can continue to use Access Key authorization with communication services applications, Microsoft recommends moving to Microsoft Entra ID where possible.
 
 
 Use our [Trusted authentication service hero sample](../samples/trusted-auth-sample.md) to map Azure Communication Services access tokens with your Microsoft Entra ID.

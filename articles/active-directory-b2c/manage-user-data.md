@@ -5,12 +5,12 @@ description: Learn how to delete or export user data in Azure AD B2C.
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: fasttrack-edit
 
 

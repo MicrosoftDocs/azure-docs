@@ -15,5 +15,4 @@ ms.custom: include file
 > - [.NET](../../articles/storage/blobs/storage-blob-use-access-tier-dotnet.md)
 > - [Java](../../articles/storage/blobs/storage-blob-use-access-tier-java.md)
 > - [JavaScript](../../articles/storage/blobs/storage-blob-use-access-tier-javascript.md)
-> - [TypeScript](../../articles/storage/blobs/storage-blob-use-access-tier-typescript.md)
 > - [Python](../../articles/storage/blobs/storage-blob-use-access-tier-python.md)

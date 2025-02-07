@@ -4,16 +4,16 @@ description: Reference information for Azure IoT Edge for Linux on Windows Power
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 06/10/2024
+ms.date: 01/16/2025
 ms.topic: reference
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ---
 
 # PowerShell functions for IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Understand the PowerShell functions that deploy, provision, and get the status of your IoT Edge for Linux on Windows (EFLOW) virtual machine.
 
@@ -29,14 +29,14 @@ If you don't have the **AzureEflow** folder in your PowerShell directory, use th
    ```powershell
    $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
    $ProgressPreference = 'SilentlyContinue'
-   Invoke-WebRequest "https://aka.ms/AzEFLOWMSI_1_4_LTS_X64" -OutFile $msiPath
+   Invoke-WebRequest "https://aka.ms/AzEFLOWMSI_1_5_LTS_X64" -OutFile $msiPath
    ```
 
    * **ARM64**
    ```powershell
    $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
    $ProgressPreference = 'SilentlyContinue'
-   Invoke-WebRequest "https://aka.ms/AzEFLOWMSI_1_4_LTS_ARM64" -OutFile $msiPath
+   Invoke-WebRequest "https://aka.ms/AzEFLOWMSI_1_5_LTS_ARM64" -OutFile $msiPath
    ```
 
 1. Install IoT Edge for Linux on Windows on your device.
@@ -79,7 +79,7 @@ The **Add-EflowVmEndpoint** command adds a new network endpoint to the EFLOW vir
 | --------- | --------------- | -------- |
 | vswitchName | Name of the virtual switch |  Name of the virtual switch assigned to the EFLOW VM. |
 | vendpointName | Name of the virtual endpoint | Name of the virtual endpoint assigned to the EFLOW VM. |
-| ip4Address | IPv4 Address in the range of the DCHP Server Scope | Static Ipv4 address of the EFLOW VM. |
+| ip4Address | IPv4 Address in the range of the DHCP Server Scope | Static Ipv4 address of the EFLOW VM. |
 | ip4PrefixLength | IPv4 Prefix Length of the subnet | Ipv4 subnet prefix length, only valid when static Ipv4 address is specified. |
 | ip4GatewayAddress | IPv4 Address of the subnet gateway | Gateway Ipv4 address, only valid when static Ipv4 address is specified. |
 
@@ -159,7 +159,7 @@ The **Deploy-Eflow** command is the main deployment method. The deployment comma
 | vmLogSize | **Small** or **Large** | Specify the log partition size. Small = 1GB, Large = 6GB.<br><br>**Default value**: Small.  |
 | vswitchName | Name of the virtual switch |  Name of the virtual switch assigned to the EFLOW VM. |
 | vswitchType | **Internal** or **External** | Type of the virtual switch assigned to the EFLOW VM. |
-| ip4Address | IPv4 Address in the range of the DCHP Server Scope | Static Ipv4 address of the EFLOW VM. |
+| ip4Address | IPv4 Address in the range of the DHCP Server Scope | Static Ipv4 address of the EFLOW VM. |
 | ip4PrefixLength | IPv4 Prefix Length of the subnet | Ipv4 subnet prefix length, only valid when static Ipv4 address is specified. |
 | ip4GatewayAddress | IPv4 Address of the subnet gateway | Gateway Ipv4 address, only valid when static Ipv4 address is specified. |
 | gpuName | GPU Device name |  Name of GPU device to be used for passthrough. |

@@ -4,7 +4,7 @@ description: This article describes scheduling jobs to run on multiple devices c
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 05/06/2019
 ms.custom: mqtt

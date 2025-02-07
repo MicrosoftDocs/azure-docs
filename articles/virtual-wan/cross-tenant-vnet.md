@@ -81,7 +81,13 @@ In the following steps, you'll use commands to switch between the context of the
    $remote = Get-AzVirtualNetwork -Name "[vnet name]" -ResourceGroupName "[resource group name]"
    ```
 
-1. Switch back to the parent account:
+1. Connect to parent account:
+
+   ```azurepowershell-interactive
+   Connect-AzAccount -TenantID "[parent tenant ID]"
+   ```
+
+1. Select the parent subscription:
 
    ```azurepowershell-interactive
    Select-AzSubscription -SubscriptionId "[parent ID]"

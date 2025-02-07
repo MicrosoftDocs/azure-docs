@@ -3,7 +3,7 @@ title: Variables in Bicep
 description: Describes how to define variables in Bicep
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 08/20/2024
+ms.date: 09/25/2024
 ---
 
 # Variables in Bicep
@@ -12,7 +12,7 @@ This article describes how to define and use variables in your Bicep file. You u
 
 Resource Manager resolves variables before starting the deployment operations. Wherever the variable is used in the Bicep file, Resource Manager replaces it with the resolved value.
 
-You're limited to 256 variables in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
+You're limited to 512 variables in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
 ## Define variables
 

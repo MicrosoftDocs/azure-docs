@@ -4,8 +4,7 @@ description: Describes how Kubernetes workloads can be managed on your Azure Sta
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: alkohli
@@ -51,7 +50,7 @@ There are three primary ways of deploying your workloads. Each of these deployme
 
 - **Azure Arc-enabled Kubernetes deployment**: Azure Arc-enabled Kubernetes is a hybrid management tool that will allow you to deploy applications on your Kubernetes clusters. You connect to the Kubernetes cluster on your Azure Stack Edge Pro device via the `azure-arc namespace`. The agents deployed in this namespace are responsible for connectivity to Azure. You apply the deployment configuration by using the GitOps-based configuration management. 
     
-    Azure Arc-enabled Kubernetes will also allow you to use Azure Monitor for containers to view and monitor your cluster. For more information, go to [What is Azure Arc-enabled Kubernetes?](../azure-arc/kubernetes/overview.md).
+    Azure Arc-enabled Kubernetes will also allow you to use Azure Monitor for containers to view and monitor your cluster. For more information, go to [What is Azure Arc-enabled Kubernetes?](/azure/azure-arc/kubernetes/overview).
     
     Beginning March 2021, Azure Arc-enabled Kubernetes will be generally available to the users and standard usage charges apply. As a valued preview customer, the Azure Arc-enabled Kubernetes will be available to you at no charge for Azure Stack Edge device(s). To avail the preview offer, create a [Support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
 

@@ -35,7 +35,7 @@ The Azure Maps Web SDK provides a [drawing tools module]. This module makes it e
       import * as drawing from "azure-maps-drawing-tools";
       ```
 
-      You would also need to embed the CSS for various controls to display correctly. If you're using a JavaScript bundler to bundle the dependencies and package your code, refer to your bundler's documentation on how it's done. For [Webpack], it's commonly done via a combination of `style-loader` and `css-loader` with documentation available at [style-loader].
+      You would also need to embed the CSS for various controls to display correctly. If you're using a JavaScript bundler to bundle the dependencies and package your code, refer to your bundler's documentation on how it's done. For [webpack], it's commonly done via a combination of `style-loader` and `css-loader` with documentation available at [style-loader].
 
       To begin, install style-loader and css-loader:
 
@@ -49,7 +49,7 @@ The Azure Maps Web SDK provides a [drawing tools module]. This module makes it e
       import "azure-maps-drawing-tools/dist/atlas-drawing.min.css";
       ```
 
-      Then add loaders to the module rules portion of the Webpack config:
+      Then add loaders to the module rules portion of the webpack config:
 
       ```js
       module.exports = {
@@ -129,7 +129,7 @@ The [Drawing manager options] can be used to test out customization of all optio
 
 ### Put a shape into edit mode
 
-Programmatically put an existing shape into edit mode by passing it into the drawing managers `edit` function. If the shape is a GeoJSON feature, wrap it with the `atls.Shape` class before passing it in.
+Programmatically put an existing shape into edit mode by passing it into the drawing managers `edit` function. If the shape is a GeoJSON feature, wrap it with the `atlas.Shape` class before passing it in.
 
 To programmatically take a shape out of edit mode, set the drawing managers mode to `idle`.
 
@@ -226,4 +226,4 @@ Learn more about the classes and methods used in this article:
 [Map]: /javascript/api/azure-maps-control/atlas.map
 [React to drawing events]: drawing-tools-events.md
 [style-loader]: https://webpack.js.org/loaders/style-loader/
-[Webpack]: https://webpack.js.org/
+[webpack]: https://webpack.js.org/

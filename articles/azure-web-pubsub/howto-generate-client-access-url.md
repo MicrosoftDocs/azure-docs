@@ -251,7 +251,11 @@ You could also use Microsoft Entra ID and generate the token by invoking [Genera
 > [!NOTE]
 > Web PubSub does not recommend that you create Microsoft Entra ID tokens for Microsoft Entra ID service principals manually. This is because each Microsoft Entra ID token is short-lived, typically expiring within one hour. After this time, you must manually generate a replacement Microsoft Entra ID token. Instead, use [our SDKs](#generate-from-service-sdk) that automatically generate and replace expired Microsoft Entra ID tokens for you.
 
-1. Follow [Authorize from application ](./howto-authorize-from-application.md#add-a-client-secret) to enable Microsoft Entra ID and add a client secret.
+1. Follow [Authorize from application](./howto-authorize-from-application.md) to enable Microsoft Entra ID.
+
+1. Get the Microsoft Entra token.
+
+1. Use the Microsoft Entra token to invoke `:generateToken`.
 
 1. Gather the following information:
    
@@ -266,7 +270,7 @@ You could also use Microsoft Entra ID and generate the token by invoking [Genera
     We use [CURL](https://curl.se/) tool to show how to invoke the REST APIs. The tool is bundled into Windows 10/11, and you could install the tool following [Install CURL](https://curl.se/download.html).
 
     ```bash
-    # set neccessory values, replace the placeholders with your actual values
+    # set necessary values, replace the placeholders with your actual values
     export TenantId=<your_tenant_id>
     export ClientId=<your_client_id>
     export ClientSecret=<your_client_secret>

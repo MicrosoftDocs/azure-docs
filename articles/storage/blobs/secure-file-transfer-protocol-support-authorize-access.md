@@ -64,6 +64,9 @@ You can authenticate local users connecting from SFTP clients by using a passwor
    | Use existing key stored in Azure | Use this option if you want to use a public key that is already stored in Azure. To find existing keys in Azure, see [List keys](/azure/virtual-machines/ssh-keys-portal#list-keys). When SFTP clients connect to Azure Blob Storage, those clients need to provide the private key associated with this public key. |
    | Use existing public key | Use this option if you want to upload a public key that is stored outside of Azure. If you don't have a public key, but would like to generate one outside of Azure, see [Generate keys with ssh-keygen](/azure/virtual-machines/linux/create-ssh-keys-detailed#generate-keys-with-ssh-keygen). |
 
+   > [!IMPORTANT]
+   > Only OpenSSH formatted public keys are supported. The key that you provide must use this format: `<key type> <key data>`. For example, RSA keys would look similar to this: `ssh-rsa AAAAB3N...`. If your key is in another format, then a tool such as `ssh-keygen` can be used to convert it to OpenSSH format.
+
 4. Select **Next** to open the **Permissions** tab of the configuration pane.
 
 #### [PowerShell](#tab/powershell)

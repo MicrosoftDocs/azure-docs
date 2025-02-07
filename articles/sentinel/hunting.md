@@ -9,6 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to use advanced threat hunting tools and queries so that I can proactively identify and mitigate security threats across my organization's data sources.
+
 ---
 
 # Threat hunting in Microsoft Sentinel
@@ -196,7 +200,7 @@ For more information, see:
 
 ## Useful operators and functions
 
-Hunting queries are built in [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), a powerful query language with IntelliSense language that gives you the power and flexibility you need to take hunting to the next level.
+Hunting queries are built in [Kusto Query Language (KQL)](/kusto/query/?view=microsoft-sentinel&preserve-view=true), a powerful query language with IntelliSense language that gives you the power and flexibility you need to take hunting to the next level.
 
 It's the same language used by the queries in your analytics rules and elsewhere in Microsoft Sentinel. For more information, see [Query Language Reference](/azure/azure-monitor/logs/get-started-queries).
 

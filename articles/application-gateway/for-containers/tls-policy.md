@@ -3,8 +3,7 @@ title: TLS policy overview for Azure Application Gateway for Containers
 description: Learn how to configure TLS policy for Azure Application Gateway for Containers.
 services: application gateway
 author: greg-lindsay
-ms.service: azure-application-gateway
-ms.subservice: appgw-for-containers
+ms.service: azure-appgw-for-containers
 ms.topic: concept-article
 ms.date: 03/21/2024
 ms.author: greglin
@@ -56,7 +55,7 @@ When no TLS Policy is specified within your Kubernetes configuration, **predefin
 
 # [Gateway API](#tab/tls-policy-gateway-api)
 
-TLS policy can be defined in a [FrontendTLSPolicy](api-specification-kubernetes.md#alb.networking.azure.io/v1.FrontendTLSPolicy) resource, which targets defined gateway listeners.  Specify a policyType of type `predefinned` and use choose either predefined policy name: `2023-06` or `2023-06-S`
+TLS policy can be defined in a [FrontendTLSPolicy](api-specification-kubernetes.md#alb.networking.azure.io/v1.FrontendTLSPolicy) resource, which targets defined gateway listeners.  Specify a policyType of type `predefined` and use choose either predefined policy name: `2023-06` or `2023-06-S`
 
 Example command to create a new FrontendTLSPolicy resource with the predefined TLS policy 2023-06-S.
 

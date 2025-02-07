@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: azure-firewall
 ms.topic: how-to
-ms.date: 06/21/2024
+ms.date: 09/30/2024
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -115,8 +115,6 @@ To configure DNS proxy, you must configure your virtual network DNS servers sett
 4. Review the **DNS servers** configuration to make sure that the settings are appropriate for your environment.
 5. Select **Save**.
 
-:::image type="content" source="../firewall/media/dns-settings/dns-proxy.png" alt-text="Screenshot showing settings for the DNS proxy.":::
-
 #### [CLI](#tab/azure-devops-cli)
 
 You can use the Azure CLI to configure DNS proxy settings in Azure Firewall. You can also use it to update virtual networks to use Azure Firewall as the DNS server.
@@ -180,6 +178,16 @@ If all DNS servers are unavailable, there's no fallback to another DNS server.
 ### Health checks
 
 DNS proxy performs five-second health check loops for as long as the upstream servers report as unhealthy. The health checks are a recursive DNS query to the root name server. Once an upstream server is considered healthy, the firewall stops health checks until the next error. When a healthy proxy returns an error, the firewall selects another DNS server in the list. 
+
+## Azure Firewall with Azure Private DNS Zones
+
+When you use an Azure Private DNS zone with Azure Firewall, make sure you don’t create domain mappings that override the default domain names of the storage accounts and other endpoints created by Microsoft. If you override the default domain names, it breaks Azure Firewall management traffic access to Azure storage accounts and other endpoints. This breaks firewall updates, logging, and/or monitoring.
+
+For example, firewall management traffic requires access to the storage account with the domain name blob.core.windows.net and the firewall relies on Azure DNS for FQDN to IP address resolutions.
+
+Don’t create a Private DNS Zone with the domain name `*.blob.core.windows.net` and associate it with the Azure Firewall virtual network. If you override the default domain names, all the DNS queries are directed to the private DNS zone, and this breaks firewall operations. Instead, create a unique domain name such as `*.<unique-domain-name>.blob.core.windows.net` for the private DNS zone.
+
+Alternatively, you can enable a private link for a storage account and integrate it with a private DNS zone, see [Inspect private endpoint traffic with Azure Firewall](../private-link/tutorial-inspect-traffic-azure-firewall.md).
 
 ## Next steps
 

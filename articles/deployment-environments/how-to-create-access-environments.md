@@ -121,7 +121,7 @@ To access an environment:
 ### Deploy an environment
 
 ```azurecli
-az devcenter dev environment deploy-action --action-id "deploy" --dev-center-name <devcenterName> \
+az devcenter dev environment deploy --action-id "deploy" --dev-center-name <devcenterName> \
     -g <resourceGroupName> --project-name <projectName> --environment-name <environmentName> --parameters <parametersJsonString>
 ```
 

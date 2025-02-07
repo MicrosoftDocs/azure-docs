@@ -1,6 +1,6 @@
 ---
 author: stevenmatthew
-ms.service: databox
+ms.service: azure-databox
 ms.subservice: databox
 ms.topic: include
 ms.date: 04/22/2024

@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 10/16/2023
+  ms.date: 09/27/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -26,6 +26,8 @@ landingContent:
             url: bastion-overview.md
       - linkListType: concept
         links:
+          - text: Design architecture
+            url: design-architecture.md
           - text: Azure Bastion FAQ
             url: bastion-faq.md
       - linkListType: learn
@@ -45,16 +47,29 @@ landingContent:
             url: quickstart-host-portal.md
           - text: Deploy Bastion automatically - Developer SKU
             url: quickstart-developer-sku.md
-      - linkListType: tutorial
+      - linkListType: deploy
         links:
-          - text: Deploy Bastion manually - specify settings
+          - text: Deploy Bastion using manually specified settings
             url: tutorial-create-host-portal.md
+          - text: Deploy Bastion as a private-only deployment
+            url: private-only-deployment.md          
+  # Card
+  - title: Connect to a virtual machine
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Connecting to VMs
+            url: vm-about.md#connect
       - linkListType: how-to-guide
         links:
-          - text: Connect to a virtual machine (Linux)
+          - text: Connect to a Linux virtual machine
             url: bastion-connect-vm-ssh-linux.md
-          - text: Connect to a virtual machine (Windows)
+          - text: Connect to a Windows virtual machine
             url: bastion-connect-vm-rdp-windows.md
+          - text: Connect to a virtual machine using the Windows native client
+            url: connect-vm-native-client-windows.md
+          - text: Connect to a virtual machine using the Linux native client
+            url: connect-vm-native-client-linux.md
       - linkListType: learn
         links:
           - text: Connect to a VM using Azure Bastion
@@ -68,8 +83,6 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Connecting to VMs
-            url: vm-about.md#connect
           - text: VM supported features
             url: vm-about.md
       - linkListType: how-to-guide
@@ -80,7 +93,8 @@ landingContent:
             url: bastion-vm-full-screen.md
           - text: Upload or download files
             url: vm-upload-download-native.md
-            
+          - text: Record a VM session (session recording)
+            url: session-recording.md           
  # Card
   - title: Reference
     linkLists:
@@ -92,5 +106,3 @@ landingContent:
             url: /cli/azure/network/bastion
           - text: REST
             url: /rest/api/virtualnetwork/bastion-hosts
-
-            

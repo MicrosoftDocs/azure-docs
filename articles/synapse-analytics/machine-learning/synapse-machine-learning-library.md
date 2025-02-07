@@ -48,7 +48,7 @@ SynapseML is generally available on Azure Synapse Analytics with enterprise supp
 
 ## Next steps
 
-* To learn more about SynapseML, see the [blog post.](https://www.microsoft.com/en-us/research/blog/synapseml-a-simple-multilingual-and-massively-parallel-machine-learning-library/)
+* To learn more about SynapseML, see [SynapseML: A simple, multilingual, and massively parallel machine learning library](https://www.microsoft.com/research/blog/synapseml-a-simple-multilingual-and-massively-parallel-machine-learning-library/).
 
 * [Install SynapseML and get started with examples.](https://microsoft.github.io/SynapseML/docs/Get%20Started/Install%20SynapseML/)
 

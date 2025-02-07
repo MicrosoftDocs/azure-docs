@@ -1,11 +1,11 @@
 ---
 title: C SDK and Embedded C SDK usage scenarios
 description: Helps developers decide which C-based Azure IoT device SDK to use for device development, based on their usage scenario.
-author: timlt
-ms.author: timlt
-ms.service: iot
+author: dominicbetts
+ms.author: dobett
+ms.service: azure-iot
 ms.topic: conceptual
-ms.date: 04/08/2024
+ms.date: 1/10/2025
 ms.custom: template-concept, linux-related-content
 
 #Customer intent: As a device developer, I want to understand when to use the Azure IoT C SDK or the Embedded C SDK to optimize device and application performance.

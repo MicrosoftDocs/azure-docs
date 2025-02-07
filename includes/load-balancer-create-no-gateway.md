@@ -57,7 +57,7 @@ The following procedure creates a virtual network with a resource subnet, an Azu
     | Starting address | Enter **10.0.0.0**. |
     | Subnet size | Enter **/24(256 addresses)**. |
     | **Security** |   |
-    | NAT Gateway | Select **lb-nat-gateway**. |
+    | NAT Gateway | Select **None**. |
 
     :::image type="content" source="./media/load-balancer-create-no-gateway/edit-subnet-window.png" alt-text="Screenshot of default subnet rename and configuration.":::
 

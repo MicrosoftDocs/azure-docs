@@ -1,10 +1,8 @@
 ---
 title: Deprecation of classic experience to protect VMware and physical machines using Azure Site Recovery | Microsoft Docs
 description: Details about upcoming deprecation of classic experience to protect VMware and physical machines to Azure and alternate options
-services: site-recovery
-author: Sharmistha-Rai
 ms.service: azure-site-recovery
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 03/14/2023
 ms.author: ankitadutta
 

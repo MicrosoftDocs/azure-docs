@@ -7,8 +7,8 @@ metadata:
   title: Azure Native Dynatrace Service documentation
   description: Azure Native Dynatrace Service offers a monitoring solution for your Azure workloads using a streamlined workflow.
   ms.topic: landing-page
-  author: flang-msft
-  ms.author: franlanglois
+  
+  
   ms.date: 08/24/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -20,13 +20,13 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Native Dynatrace Service?
-            url: dynatrace-overview.md
+            url: overview.md
       - linkListType: how-to-guide
         links:
           - text: Complete the prerequisites for Dynatrace
-            url: dynatrace-how-to-configure-prereqs.md
+            url: configure-prerequisites.md
           - text: Manage the Dynatrace resource with the portal
-            url: dynatrace-how-to-manage.md
+            url: manage.md
 
   # Card
   - title: Create Dynatrace resource
@@ -34,15 +34,16 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Start a free trial
-            url: dynatrace-free-trial.md
+            url: free-trial.md
           - text: Create a new Dynatrace resource
-            url: dynatrace-create.md
+            url: create.md
           - text: Link to an existing Dynatrace environment
-            url: dynatrace-link-to-existing.md
+            url: link-to-existing-resources.md
       - linkListType: how-to-guide
         links:
           - text: Troubleshooting Azure Native Dynatrace Service
-            url: dynatrace-troubleshoot.md
+            url: troubleshoot.md
+
 
   # Card
   - title: Explore reference content

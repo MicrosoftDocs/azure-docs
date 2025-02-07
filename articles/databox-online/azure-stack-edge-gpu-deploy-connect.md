@@ -4,8 +4,7 @@ description: Learn how you can connect to your Azure Stack Edge device with an o
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 07/05/2022
 ms.author: alkohli

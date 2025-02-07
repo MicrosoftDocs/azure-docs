@@ -49,8 +49,6 @@ Most major NVA partners have posted guidance around scaling for sudden, unexpect
 
 [Cisco AnyConnect Implementation and Performance/Scaling Reference for COVID-19 Preparation](https://www.cisco.com/c/en/us/support/docs/security/anyconnect-secure-mobility-client/215331-anyconnect-implementation-and-performanc.html "Cisco AnyConnect Implementation and Performance/Scaling Reference for COVID-19 Preparation")
 
-[Citrix COVID-19 Response Support Center](https://www.citrix.com/content/dam/citrix/en_us/documents/ebook/back-to-the-office.pdf "Citrix COVID-19 Response Support Center")
-
 [F5 Guidance to Address the Dramatic Increase in Remote Workers](https://www.f5.com/business-continuity "F5 Guidance to Address the Dramatic Increase in Remote Workers")
 
 [Fortinet COVID-19 Updates for Customers and Partners](https://www.fortinet.com/covid-19.html "COVID-19 Updates for Customers and Partners")

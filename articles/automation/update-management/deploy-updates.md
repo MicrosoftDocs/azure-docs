@@ -3,17 +3,17 @@ title: How to create update deployments for Azure Automation Update Management
 description: This article describes how to schedule update deployments and review their status.
 services: automation
 ms.subservice: update-management
-ms.date: 08/30/2024
-ms.topic: conceptual
+ms.date: 10/18/2024
+ms.topic: how-to
 ms.service: azure-automation
 ---
 
 # How to deploy updates and review results
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+> This article references CentOS, a Linux distribution that has reached the End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
-[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
+[!INCLUDE [./automation-update-management-retirement-announcement.md](../includes/automation-update-management-retirement-announcement.md)]
 
 This article describes how to schedule an update deployment and review the process after the deployment is complete. You can configure an update deployment from a selected Azure virtual machine, from the selected Azure Arc-enabled server, or from the Automation account across all configured machines and servers.
 

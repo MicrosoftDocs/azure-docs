@@ -3,9 +3,9 @@ title: Azure IoT Central device management guide
 description: This guide describes how to manage the IoT devices connected to your IoT Central application at scale. 
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/19/2023
+ms.date: 10/14/2024
 ms.topic: conceptual
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 ms.custom: [mvc, iot-central-frontdoor]
 

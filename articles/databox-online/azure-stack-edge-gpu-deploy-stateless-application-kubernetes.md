@@ -4,8 +4,7 @@ description: Describes how to create and manage a Kubernetes stateless applicati
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: alkohli

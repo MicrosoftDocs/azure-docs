@@ -9,7 +9,8 @@ ms.topic: include
 ---
 * Verify the client computer is running a supported OS on a supported processor.
 
-  * Supported macOS releases: 14 (Sonoma), 13 (Ventura), 12 (Monterey)
+  * Supported macOS releases: 15 (Sequoia), 14 (Sonoma), 13 (Ventura), 12 (Monterey)
   * Supported processors: x64, Arm64
 
-* If your device has an M-series chip, you must install Rosetta software. For more information, see the [Apple support article](https://support.apple.com/en-us/HT211861).
+* If your device has an M-series chip and VPN client release earlier 2.7.101, you must install Rosetta software. For more information, see the [Apple support article](https://support.apple.com/en-us/HT211861)
+* If you’re using Azure VPN Client version 2.7.101 or later, you don’t need to install Rosetta software.

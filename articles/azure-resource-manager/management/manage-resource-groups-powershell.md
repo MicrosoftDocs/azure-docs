@@ -2,7 +2,7 @@
 title: Manage resource groups - Azure PowerShell
 description: Use Azure PowerShell to manage your resource groups through Azure Resource Manager. Shows how to create, list, and delete resource groups.
 ms.topic: conceptual
-ms.date: 03/19/2024
+ms.date: 09/26/2024
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 
@@ -102,7 +102,7 @@ For more information about deploying a Bicep file, see [Deploy resources with Bi
 
 ## Lock resource groups
 
-Locking prevents other users in your organization from accidentally deleting or modifying critical resources. 
+Locking prevents other users in your organization from accidentally deleting or modifying critical resources.
 
 To prevent a resource group and its resources from being deleted, use [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock).
 
@@ -131,7 +131,7 @@ You can apply tags to resource groups and resources to logically organize your a
 
 ## Export resource groups to templates
 
-To assist with creating ARM templates, you can export a template from existing resources. For more information, see [Use Azure PowerShell to export a template](../templates/export-template-powershell.md). 
+To assist with creating ARM templates, you can export a template from existing resources. For more information, see [Use Azure PowerShell to export a template](../templates/export-template-powershell.md).
 
 ## Manage access to resource groups
 
@@ -139,5 +139,5 @@ To assist with creating ARM templates, you can export a template from existing r
 
 ## Next steps
 
-- To learn Azure Resource Manager, see [Azure Resource Manager overview](overview.md).
-- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/syntax.md).
+* To learn Azure Resource Manager, see [Azure Resource Manager overview](overview.md).
+* To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/syntax.md).

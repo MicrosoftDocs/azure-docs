@@ -191,7 +191,7 @@ az networkfabric controller update \
 > [!NOTE]
 > Run az networkfabric controller show to retrieve information about a network fabric controller.
 
-## Update Network Fabrc Controller with multiple `ExpressRoute` circuits.
+## Update Network Fabric Controller with multiple `ExpressRoute` circuits.
 
 ```Azure CLI
 az networkfabric controller update \ 

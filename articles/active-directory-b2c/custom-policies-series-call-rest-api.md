@@ -6,14 +6,14 @@ description: Learn how to make an HTTP call to external API by using Azure Activ
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements, devx-track-js
-ms.date: 01/22/2024
+ms.date: 10/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer integrating customer-facing apps with Azure Active Directory B2C custom policy, I want to learn how to call a REST API from my custom policy, so that I can send and receive data from external services.
@@ -43,7 +43,7 @@ In [Create branching in user journey by using Azure AD B2C custom policies](cust
 
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
-- [Register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant). For the Redirect URI, use https://jwt.ms. 
+- [Register a web application](tutorial-register-applications.md). 
 
 - You must have [Node.js](https://nodejs.org) installed in your computer. 
 
@@ -277,7 +277,7 @@ The ClaimsTransformation generates the following JSON object:
 {
    "customerEntity":{
       "email":"john.s@contoso.com",
-      "userObjectId":"01234567-89ab-cdef-0123-456789abcdef",
+      "userObjectId":"aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
       "firstName":"John",
       "lastName":"Smith",
       "accessCode":"88888",

@@ -6,7 +6,7 @@ summary: Microsoft Azure Data Manager for Energy is an open, secure, reliable, a
 metadata:
   title: Microsoft Azure Data Manager for Energy
   description: description
-  ms.service: energy-data-services
+  ms.service: azure-data-manager-energy
   ms.topic: landing-page
   author: bharathim
   ms.author: bselvaraj

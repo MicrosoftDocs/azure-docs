@@ -6,7 +6,7 @@ author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: quickstart
 ms.author: mbender
-ms.date: 07/22/2024
+ms.date: 09/30/2024
 ms.custom: template-quickstart, subject-armqs, mode-arm, devx-track-bicep,engagement-fy23
 ---
 
@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the Bicep file
 
-The Bicep file used in this quickstart is from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/internal-loadbalancer-create/main.bicep).
+The Bicep file used in this quickstart is from the [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/internal-loadbalancer-create/main.bicep).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.network/internal-loadbalancer-create/main.bicep":::
 

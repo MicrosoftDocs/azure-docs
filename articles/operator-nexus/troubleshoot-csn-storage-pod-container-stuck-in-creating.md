@@ -61,3 +61,6 @@ for podname in $pods; do
 done
 ```
 The command retrieves the pvc from the pod and then deletes the `volumeattachment` object. It then deletes the pod. The pod  later gets recreated on another node along with a successful volume attachment object.
+
+If you still have questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+For more information about Support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).

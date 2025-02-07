@@ -1,8 +1,8 @@
 ---
 title: Azure Operator Nexus - Networking concepts
 description: Get an overview of networking in Azure Operator Nexus.
-author: jaypipes
-ms.author: jaypipes
+author: dramasamy
+ms.author: dramasamy
 ms.service: azure-operator-nexus
 ms.topic: conceptual
 ms.date: 06/13/2024
@@ -227,8 +227,8 @@ field.
 [vrf]: https://en.wikipedia.org/wiki/Virtual_routing_and_forwarding
 [isd]: ./howto-configure-isolation-domain.md
 [internal-net]: ./howto-configure-isolation-domain.md#create-internal-network
-[vm-netattach]: /rest/api/networkcloud/virtual-machines/create-or-update?view=rest-networkcloud-2023-07-01&tabs=HTTP#networkattachment
-[attachednetconf]: /rest/api/networkcloud/kubernetes-clusters/create-or-update?view=rest-networkcloud-2023-07-01&tabs=HTTP#attachednetworkconfiguration
+[vm-netattach]: /rest/api/networkcloud/virtual-machines/create-or-update?view=rest-networkcloud-2024-07-01&tabs=HTTP#networkattachment
+[attachednetconf]: /rest/api/networkcloud/kubernetes-clusters/create-or-update?view=rest-networkcloud-2024-07-01&tabs=HTTP#attachednetworkconfiguration
 
 ## Operator Nexus Kubernetes networking
 

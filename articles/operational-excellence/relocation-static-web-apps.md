@@ -33,7 +33,7 @@ Review the following prerequisites before you prepare for the relocation.
 - If using integrated API support provided by Azure Functions:
     - Determine the availability of Azure Functions in the target region.
     - Determine if Function API Keys are being used. For example, are you using Key Vault or do you deploy them as part of your application configuration files?
-    - Determine the deployment model for API support in the target region: [Distributed managed functions](../static-web-apps/distributed-functions.md) or [Bring Your own functions](../static-web-apps/functions-bring-your-own.md). Understand the differences between the two models.
+    - Determine the deployment model for API support in the target region: [Bring Your own functions](../static-web-apps/functions-bring-your-own.md). Understand the differences between the two models.
 
 - Ensure that the Standard Hosting Plan is used to host the Static Web App. For more information about hosting plans, see [Azure Static Web Apps hosting plans](../static-web-apps/plans.md).
 

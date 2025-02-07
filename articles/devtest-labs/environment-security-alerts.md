@@ -18,6 +18,9 @@ As a lab user, you can view Microsoft Defender for Cloud alerts for your labs. D
 [Learn more about security alerts in Microsoft Defender for Cloud](../security-center//security-center-alerts-overview.md).
 
 
+[!INCLUDE [direct-azure-deployment-environments](includes/direct-azure-deployment-environments.md)]  
+
+
 ## Prerequisites
 Currently, you can view security alerts only for platform as a service (PaaS) environments deployed into your lab. To test or use this feature, [deploy an environment into your lab](devtest-lab-create-environment-from-arm.md). 
 

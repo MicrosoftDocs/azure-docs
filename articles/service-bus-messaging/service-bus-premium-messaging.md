@@ -95,7 +95,6 @@ Here are some considerations when sending large messages on Azure Service Bus -
 - While 100-MB message payloads are supported, we recommend that you keep the message payloads as small as possible to ensure reliable performance from the Service Bus namespace.
 - The max message size is enforced only for messages sent to the queue or topic. The size limit isn't enforced for the receive operation. It allows you to update the max message size for a given queue (or topic).
 - Batching isn't supported. 
-- Service Bus Explorer doesn't support sending or receiving large messages. 
 
 [!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
 
@@ -122,7 +121,7 @@ The following network security features are available only in the premium tier. 
 Configuring IP firewall using the Azure portal is available only for the premium tier namespaces. However, you can configure IP firewall rules for other tiers using Azure Resource Manager templates, CLI, PowerShell, or REST API. For more information, see [Configure IP firewall](service-bus-ip-filtering.md).
 
 ## Encryption of data at rest
-Azure Service Bus Premium provides encryption of data at rest with Azure Storage Service Encryption (Azure SSE). Service Bus Premium uses Azure Storage to store the data. All the data stored with Azure Storage is encrypted using Microsoft-managed keys. If you use your own key (also referred to as customer managed key), the data is still encrypted using the Microsoft-managed key, but in addition the Microsoft-managed key is encrypted using the customer-managed key. This feature enables you to create, rotate, disable, and revoke access to customer-managed keys that are used for encrypting Microsoft-managed keys. Enabling the customer-managed key feature is a one time setup process on your namespace. For more information, see [Encrypting Azure Service Bus data at rest](configure-customer-managed-key.md).
+All the data stored in the storage subsystem is encrypted using Microsoft-managed keys. If you use your own key (also referred to as customer managed key), the data is still encrypted using the Microsoft-managed key, but in addition the Microsoft-managed key is encrypted using the customer-managed key. This feature enables you to create, rotate, disable, and revoke access to customer-managed keys that are used for encrypting Microsoft-managed keys. Enabling the customer-managed key feature is a one time setup process on your namespace. For more information, see [Encrypting Azure Service Bus data at rest](configure-customer-managed-key.md).
 
 ## Partitioning
 There are some differences between the standard and premium tiers when it comes to partitioning.

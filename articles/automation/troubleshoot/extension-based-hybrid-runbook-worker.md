@@ -159,8 +159,8 @@ You are deploying an extension-based Hybrid Runbook Worker on a VM and it fails 
 You are deploying the extension-based Hybrid Worker on a non-Azure VM that does not have Arc connected machine agent installed on it. 
 
 ### Resolution
-Non-Azure machines must have the Arc connected machine agent installed on it, before deploying it as an extension-based Hybrid Runbook worker. To install the `AzureConnectedMachineAgent`, see [connect hybrid machines to Azure from the Azure portal](../../azure-arc/servers/onboard-portal.md)
-for Arc-enabled servers or [Manage VMware virtual machines Azure Arc](../../azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md#enable-guest-management) to enable guest management for Arc-enabled VMware VM. 
+Non-Azure machines must have the Arc connected machine agent installed on it, before deploying it as an extension-based Hybrid Runbook worker. To install the `AzureConnectedMachineAgent`, see [connect hybrid machines to Azure from the Azure portal](/azure/azure-arc/servers/onboard-portal)
+for Arc-enabled servers or [Manage VMware virtual machines Azure Arc](/azure/azure-arc/vmware-vsphere/manage-vmware-vms-in-azure#enable-guest-management) to enable guest management for Arc-enabled VMware VM. 
  
 
 ### Scenario: Hybrid Worker deployment fails due to System assigned identity not enabled
@@ -396,6 +396,22 @@ The Hybrid Runbook Worker machine hasn't pinged Azure Automation for more than 3
 #### Resolution
 
 Start the worker machine, and then re-register it with Azure Automation. For instructions on how to install the runbook environment and connect to Azure Automation, see [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md).
+
+
+### Scenario: Hybrid Runbook Worker job execution on Azure Arc-enabled Windows server that uses a custom credential is unexpectedly suspended
+
+#### Issue
+
+Runbook jobs executed from an Azure Arc-enabled server that use a custom credential suddenly begin to go into a suspended state.
+
+#### Cause
+
+This is caused by a known issue where folder permissions are removed when the Azure Connected Machine agent is updated. The folder permissions on `C:\ProgramData\AzureConnectedMachineAgent\Tokens` are removed when the Azure Connected Machine agent is updated.
+
+#### Resolution
+
+The current resolution is to reapply the folder permissions to `C:\ProgramData\AzureConnectedMachineAgent\Tokens` when the Azure Connected Machine agent is updated. See [Permissions for Hybrid worker credentials](../extension-based-hybrid-runbook-worker-install.md#permissions-for-hybrid-worker-credentials).
+
 
 ## Next steps
 

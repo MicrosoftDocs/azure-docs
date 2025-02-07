@@ -50,7 +50,7 @@ Follow the instructions in [Create an .http file](/aspnet/core/test/http-files#c
 
 Next, add some variables at the top of your `.http` file that will be used to connect to your Azure Digital Twins resource. 
 
-The set of variables you need depends on which set of APIs you're using, so use the tabs below to select between [data plane](concepts-apis-sdks.md#data-plane-apis) and [control plane](concepts-apis-sdks.md#control-plane-apis) APIs.
+The set of variables you need depends on which set of APIs you're using, so use the tabs below to select between [data plane](concepts-apis-sdks.md#data-plane-overview) and [control plane](concepts-apis-sdks.md#control-plane-overview) APIs.
 
 # [Data plane](#tab/data-plane)
 
@@ -90,7 +90,7 @@ Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window i
 
 2. Next, use the [az account get-access-token](/cli/azure/account#az-account-get-access-token()) command to get a bearer token with access to the Azure Digital Twins service. In this command, you pass in the resource ID for the Azure Digital Twins service endpoint, in order to get an access token that can access Azure Digital Twins resources. 
 
-    The required context for the token depends on which set of APIs you're using, so use the tabs below to select between [data plane](concepts-apis-sdks.md#data-plane-apis) and [control plane](concepts-apis-sdks.md#control-plane-apis) APIs.
+    The required context for the token depends on which set of APIs you're using, so use the tabs below to select between [data plane](concepts-apis-sdks.md#data-plane-overview) and [control plane](concepts-apis-sdks.md#control-plane-overview) APIs.
 
     # [Data plane](#tab/data-plane)
     

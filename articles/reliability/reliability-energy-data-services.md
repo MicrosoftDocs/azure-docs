@@ -4,7 +4,7 @@ description: Find out about reliability in Azure Data Manager for Energy
 author: bharathim 
 ms.author: anaharris
 ms.topic: reliability-article
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.custom: subject-reliability, references_regions
 ms.date: 06/07/2023
 ---

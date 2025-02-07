@@ -158,7 +158,7 @@ By default, the host pool RDP property will redirect all supported MTP and PTP p
    Get-PnPdevice | Where-Object {$_.Class -eq "WPD" -and $_.Status -eq "OK"} | FT -AutoSize
    ```
 
-   The output is similar to the following output. Make a note of the **InstanceId** value for each device you want to redirect.
+   The output is similar to the following example. Make a note of the **InstanceId** value for each device you want to redirect.
 
    ```output
    Status Class FriendlyName InstanceId
@@ -211,9 +211,9 @@ To allow or disable MTP and PTP redirection using Microsoft Intune:
 
 1. Expand the **Administrative templates** category, then set toggle the switch for **Do not allow supported Plug and Play device redirection**, depending on your requirements:
 
-   - To allow MTP and PTP redirection, toggle the switch to **Disabled**, then select **OK**.
+   - To allow MTP and PTP redirection, toggle the switch to **Disabled**.
 
-   - To disable MTP and PTP redirection, toggle the switch to **Enabled**, then select **OK**.
+   - To disable MTP and PTP redirection, toggle the switch to **Enabled**.
 
 1. Select **Next**.
 
@@ -232,7 +232,7 @@ To allow or disable MTP and PTP redirection using Microsoft Intune:
 
 To allow or disable MTP and PTP redirection using Group Policy:
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 
@@ -277,7 +277,7 @@ To test MTP and PTP redirection:
       Get-PnPdevice | ? Class -eq "WPD" | FT -AutoSize
       ```
       
-      The output is similar to the following output:
+      The output is similar to the following example:
 
       ```output
       Status Class FriendlyName         InstanceId

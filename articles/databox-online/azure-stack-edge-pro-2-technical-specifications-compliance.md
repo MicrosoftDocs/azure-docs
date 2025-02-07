@@ -4,8 +4,7 @@ description: Learn about the technical specifications and compliance for your Az
 services: databox
 author: sipastak
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 04/12/2023
 ms.author: sipastak
@@ -84,7 +83,7 @@ Your Azure Stack Edge Pro 2 device has four network interfaces, Port 1 - Port 4.
 Your Azure Stack Edge Pro 2 device has the following network hardware:
 
 * **Onboard Intel Ethernet network adapter X722** - Port 1 and Port 2. [See here for details.](https://www.intel.com/content/www/us/en/ethernet-products/network-adapters/ethernet-x722-brief.html)
-* **Nvidia Mellanox dual port 100-GbE ConnectX-6 Dx network adapter** - Port 3 and Port 4. [See here for details.](https://www.nvidia.com/en-us/networking/ethernet/connectx-6-dx/)
+* **NVIDIA Mellanox dual port 100-GbE ConnectX-6 Dx network adapter** - Port 3 and Port 4. [See here for details.](https://www.nvidia.com/en-us/networking/ethernet/connectx-6-dx/)
 
 Here are the details for the Mellanox card:
 

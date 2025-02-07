@@ -9,8 +9,8 @@ metadata:
   manager: CelesteDG
   ms.author: kengaderdus
   ms.date: 02/21/2024
-  ms.service: active-directory
-  ms.subservice: B2C
+  ms.service: azure-active-directory
+  ms.subservice: b2c
   ms.topic: landing-page
 
 landingContent:

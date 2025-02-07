@@ -5,7 +5,7 @@ description: Learn how to create module identities and update module twins using
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 08/20/2019
@@ -52,13 +52,11 @@ Within one device identity, you can create up to 20 module identities. To add an
 
 1. Enter the name *myFirstModule*. Save your module identity.
 
-   :::image type="content" source="./media/module-twins-portal-dotnet/add-module-identity.png" alt-text="Screenshot that shows the 'Module Identity Details' page." lightbox="./media/module-twins-portal-dotnet/add-module-identity.png":::
+1. Your new module identity appears at the bottom of the screen. Select it to see module identity details.
 
-    Your new module identity appears at the bottom of the screen. Select it to see module identity details.
+1. Save the **Connection string (primary key)**. You use it in the next section to set up your module on the device in a console app.
 
    :::image type="content" source="./media/module-twins-portal-dotnet/module-identity-details.png" alt-text="Screenshot that shows the Module Identity Details menu.":::
-
-Save the **Connection string (primary key)**. You use it in the next section to set up your module on the device in a console app.
 
 ## Update the module twin using .NET device SDK
 
@@ -89,6 +87,8 @@ The module identity and module twin features are only available in the IoT Hub p
    Now you have access to all the module features.
 
 ### Create UpdateModuleTwinReportedProperties console app
+
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
 
 To create your app, follow these steps:
 

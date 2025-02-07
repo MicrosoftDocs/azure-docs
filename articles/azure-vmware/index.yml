@@ -225,5 +225,7 @@ additionalContent:
               url: configure-vmware-syslogs.md
             - text: Configure Alerts
               url: configure-alerts-for-azure-vmware-solution.md
+            - text: Configure Newest Metrics for Azure VMware Solution
+              url: configure-azure-vmware-solution-metrics.md
             - text: Arc-enabled Azure VMware Solution
               url: deploy-arc-for-azure-vmware-solution.md

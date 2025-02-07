@@ -19,6 +19,7 @@ A safe-dereference operator applies a member access, `.?<property>`, or element 
 
 - If `a` evaluates to `null`, the result of `a.?x` or `a[?x]` is `null`.
 - If `a` is an object that doesn't have an `x` property, then `a.?x` is `null`.
+- If `a` is an object that doesn't have an element at index `x`, then `a[?x]` is `null`
 - If `a` is an array whose length is less than or equal to `x`, then `a[?x]` is `null`.
 - If `a` is non-null and has a property named `x`, the result of `a.?x` is the same as the result of `a.x`.
 - If `a` is non-null and has an element at index `x`, the result of `a[?x]` is the same as the result of `a[x]`

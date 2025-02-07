@@ -10,7 +10,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 06/28/2024
-ms.author: terrylan
+ms.author: mbaldwin
 ---
 # Improve your security defenses for ransomware attacks with Azure Firewall Premium
 In this article, you learn how Azure Firewall Premium can help you protect against ransomware.

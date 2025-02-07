@@ -56,9 +56,9 @@ As a first step in MCM user's journey towards Azure Update Manager, you need to 
 
 ### Prerequisites for Azure Update Manager and MCM co-existence
 
-- Ensure that the Auto updates are disabled on the machine. For more information, see [Manage additional Windows Update- Windows Deployment](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
+- Ensure that the Auto updates are disabled on the machine. For more information, see [Manage additional Windows Update settings - Configuring Automatic Updates by editing the registry](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
   
-    Ensure that the registry path *HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU, NoAutoUpdate* is set to 1.
+    Ensure that the **NoAutoUpdate** registry key is set to 1 in the following registry path: `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU`
 
 - Azure Update Manager can get updates from WSUS server and for this, ensure to configure WSUS server as part of SCCM.
 
@@ -139,5 +139,5 @@ Azure Update Manager can be used on-premises by using Azure Arc. Azure Arc is a 
 - [Check update compliance](view-updates.md) 
 - [Deploy updates now (on-demand) for single machine](deploy-updates.md) 
 - [Schedule recurring updates](scheduled-patching.md)
-- [An overview of Azure Arc-enabled servers](../azure-arc/servers/overview.md)
+- [An overview of Azure Arc-enabled servers](/azure/azure-arc/servers/overview)
 

@@ -14,7 +14,7 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 # Display call transcription state on the client
 
-You need to collect consent from all participants in the call before you can transcribe them. Microsoft Teams allows users to start transcription in the meetings or calls. You would receive event when transcription has started on you can check the transcription state, if transcription started before you joined the call or meeting.
+You need to collect consent from all participants in the call before you can transcribe them. Microsoft Teams allows users to start transcription in the meetings or calls. You would receive event when transcription has started. You can check the transcription state if transcription started before you joined the call or meeting. You can provide explicit consent to transcription if a meeting or call requires it, and you have already collected it.
 
 ## Prerequisites
 
@@ -42,13 +42,19 @@ The following tables show support of individual APIs in calling SDK to individua
 |Get event that transcription has started	| ✔️	| ✔️  |  		
 |Get transcription state	                | ✔️	| ✔️  | 
 |Start or stop transcription              | 	|  |
+|Learn whether explicit consent is required | ✔️[1]	| ✔️[1]  |
+|Give explicit consent for being transcribed | ✔️[1]	| ✔️[1]  |
+
+[1] This functionality is available only in Teams meetings and group Teams interoperability calls.
 
 ## SDKs
 The following tables show support of transcription in individual Azure Communication Services SDKs.
 
 | Platforms   | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
 |-------------|-----|--------|-----|--------|---------|------------|---------|
-|Is Supported | ✔️  |  ✔️   | ✔️ | ✔️     | ✔️     | ✔️         |  ✔️    |		
+|Is Supported | ✔️  |  ✔️[1] | ✔️[1] | ✔️[1]| ✔️[1]| ✔️[1]|  ✔️[1] |
+
+[1] These SDKs don't support explicit consent.
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Call transcription client-side Web](./includes/call-transcription/call-transcription-web.md)]
@@ -65,6 +71,17 @@ The following tables show support of transcription in individual Azure Communica
 ::: zone pivot="platform-windows"
 [!INCLUDE [Call transcription client-side Windows](./includes/call-transcription/call-transcription-windows.md)]
 ::: zone-end
+
+## SDK compatibility
+
+The following table shows the minimum version of SDKs that support individual APIs. 
+
+| Operations | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows | 
+|------------|-----|--------|-----|--------|---------|------------|---------|
+| Get event that transcription has started | 1.0.0, 1.25.3-beta.1 | 1.0.0, 1.0.0-beta.8 | 2.1.0, 2.1.0-beta.1 | 1.0.0, 1.0.0-beta.8 | 1.1.0, 1.2.0-beta.1 | 1.0.0, 1.0.0-beta.8 | 1.0.0, 1.0.0-beta.31 |
+| Get transcription state | 1.0.0, 1.25.3-beta.1 | 1.0.0, 1.0.0-beta.8 | 2.1.0, 2.1.0-beta.1 | 1.0.0, 1.0.0-beta.8 | 1.1.0, 1.2.0-beta.1 | 1.0.0, 1.0.0-beta.8 | 1.0.0, 1.0.0-beta.31 |
+| Learn whether explicit consent is required | 1.31.2, 1.32.1-beta.1 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Give explicit consent for being recorded | 1.31.2, 1.32.1-beta.1 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 
 ## Next steps
 - [Learn how to manage video](./manage-video.md)

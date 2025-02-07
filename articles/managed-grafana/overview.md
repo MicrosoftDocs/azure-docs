@@ -44,17 +44,17 @@ Azure Managed Grafana is available in the two service tiers presented below.
 
 The [Azure Managed Grafana pricing page](https://azure.microsoft.com/pricing/details/managed-grafana/) gives more information on these tiers and the following table lists the main features supported in each tier:
 
-| Feature                                                                                  | Essential (preview)                          | Standard                                                                                                        |
-|------------------------------------------------------------------------------------------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| [Zone redundancy](how-to-enable-zone-redundancy.md)                                      | -                                   | ✔                                                                                                              |
-| [Deterministic outbound IPs](how-to-deterministic-ip.md)                                 | -                                   | ✔                                                                                                              |
-| [Private endpoints](how-to-set-up-private-access.md)                                     | -                                   | ✔                                                                                                              |
-| [Alerting](https://grafana.com/docs/grafana/latest/alerting/)                            | -                                   | ✔                                                                                                              |
-| [Emails, via SMTP](how-to-smtp-settings.md)                                              | -                                   | ✔                                                                                                              |
-| [Reporting/image rendering](how-to-use-reporting-and-image-rendering.md)                 | -                                   | ✔                                                                                                              |
-| [API keys](how-to-create-api-keys.md) and [service accounts](how-to-service-accounts.md) | ✔                                  | ✔                                                                                                              |
-| [Data source plugins](how-to-data-source-plugins-managed-identity.md)                    | Azure Monitor, Prometheus, TestData | All core plugins, including Azure Monitor and Prometheus, as well as Azure Data Explorer, GitHub, and JSON API. |
-| [Grafana Enterprise](how-to-grafana-enterprise.md)                                       | -                                   | Optional, with licensing costs                                                                                  |
+| Feature                                                                  | Essential (preview)                 | Standard                                                                                                        |
+|--------------------------------------------------------------------------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| [Zone redundancy](how-to-enable-zone-redundancy.md)                      | -                                   | ✔                                                                                                              |
+| [Deterministic outbound IPs](how-to-deterministic-ip.md)                 | -                                   | ✔                                                                                                              |
+| [Private endpoints](how-to-set-up-private-access.md)                     | -                                   | ✔                                                                                                              |
+| [Alerting](https://grafana.com/docs/grafana/latest/alerting/)            | -                                   | ✔                                                                                                              |
+| [Emails, via SMTP](how-to-smtp-settings.md)                              | -                                   | ✔                                                                                                              |
+| [Reporting/image rendering](how-to-use-reporting-and-image-rendering.md) | -                                   | ✔                                                                                                              |
+| [API keys and service accounts](how-to-service-accounts.md)              | ✔                                  | ✔                                                                                                              |
+| [Data source plugins](how-to-data-source-plugins-managed-identity.md)    | Azure Monitor, Prometheus, TestData | All core plugins, including Azure Monitor and Prometheus, as well as Azure Data Explorer, GitHub, and JSON API. |
+| [Grafana Enterprise](how-to-grafana-enterprise.md)                       | -                                   | Optional, with licensing costs                                                                                  |
 
 > [!NOTE]
 > Users can upgrade an instance from Essential (preview) to Standard by going to **Settings** > **Configuration** > **Pricing Plans**. Downgrading from Standard to Essential (preview) however isn't supported.

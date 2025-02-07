@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 01/30/2022
 ms.author: yelevin
+
+
+#Customer intent: As a security engineer, I want to configure multistage attack detection rules so that analysts can more easily identify and respond to complex multistage threats with high accuracy.
+
 ---
 # Configure multistage attack detection (Fusion) rules in Microsoft Sentinel
 
@@ -27,7 +31,7 @@ This detection is enabled by default in Microsoft Sentinel. To check or change i
 
 1. Select the **Active rules** tab, and then locate **Advanced Multistage Attack Detection** in the **NAME** column by filtering the list for the **Fusion** rule type. Check the **STATUS** column to confirm whether this detection is enabled or disabled.
 
-    :::image type="content" source="./media/fusion/selecting-fusion-rule-type.png" alt-text="Screenshot of Fusion analytics rule." lightbox="./media/fusion/selecting-fusion-rule-type.png":::
+    :::image type="content" source="./media/configure-fusion-rules/selecting-fusion-rule-type.png" alt-text="Screenshot of Fusion analytics rule." lightbox="./media/configure-fusion-rules/selecting-fusion-rule-type.png":::
 
 1. To change the status, select this entry and on the **Advanced Multistage Attack Detection** preview pane, select **Edit**.
 

@@ -65,7 +65,7 @@ The token format varies slightly according to the provider. See the following ta
 > [!NOTE]
 > The GitHub provider for App Service authentication does not support customized sign-in and sign-out.
 
-If the provider token is validated successfully, the API returns with an `authenticationToken` in the response body, which is your session token. 
+If the provider token is validated successfully, the API returns with an `authenticationToken` in the response body, which is your session token. To get more information on the user claims, see [Work with user identities in Azure App Service authentication](configure-authentication-user-identities.md).
 
 ```json
 {

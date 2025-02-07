@@ -136,7 +136,7 @@ foreach($blob in $blobs)
 
 # [Azure CLI](#tab/azure-cli)
 
-To list a blob's versions with Azure CLI, call the [az storage blob directory list](/cli/azure/storage/blob/directory#az-storage-blob-directory-list) command with the `--include v` parameter:
+To list a blob's versions with Azure CLI, call the [az storage blob list](/cli/azure/storage/blob#az-storage-blob-list) command with the `--include v` parameter:
 
 ```azurecli
 storageAccount="<storage-account>"

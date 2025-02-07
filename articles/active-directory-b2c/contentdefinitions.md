@@ -6,12 +6,12 @@ description: Specify the ContentDefinitions element of a custom policy in Azure 
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer, I want to customize the user interface of my application using Azure Active Directory B2C, so that I can provide a personalized and branded experience to my customers.

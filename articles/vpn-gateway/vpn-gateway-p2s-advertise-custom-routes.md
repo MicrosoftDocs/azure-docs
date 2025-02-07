@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 07/28/2023
+ms.date: 10/15/2024
 ms.author: cherylmc
 ---
 
@@ -14,7 +14,7 @@ ms.author: cherylmc
 
 You may want to advertise custom routes to all of your point-to-site VPN clients. For example, when you have enabled storage endpoints in your VNet and want the remote users to be able to access these storage accounts over the VPN connection. You can advertise the IP address of the storage end point to all your remote users so that the traffic to the storage account goes over the VPN tunnel, and not the public Internet. You can also use custom routes in order to configure [forced tunneling](#forced-tunneling) for VPN clients.
 
-:::image type="content" source="./media/vpn-gateway-p2s-advertise-custom-routes/custom-routes.png" alt-text="Diagram of advertising custom routes.":::
+:::image type="content" source="./media/vpn-gateway-p2s-advertise-custom-routes/custom-routes.png" alt-text="Diagram of advertising custom routes." lightbox="./media/vpn-gateway-p2s-advertise-custom-routes/custom-routes.png":::
 
 ## <a name="portal"></a>Azure portal
 
@@ -29,20 +29,20 @@ You can advertise custom routes using the Azure portal on the point-to-site conf
 
 ## <a name="powershell"></a>PowerShell
 
-To advertise custom routes, use the `Set-AzVirtualNetworkGateway cmdlet`. The following example shows you how to advertise the IP for the [Contoso storage account tables](https://contoso.table.core.windows.net).
+To advertise custom routes, use the `Set-AzVirtualNetworkGateway cmdlet`. The following example shows you how to advertise the IP for the Contoso storage account tables (contoso.table.core.windows.net).
 
 1. Ping *contoso.table.core.windows.net* and note the IP address. For example:
 
     ```cmd
     C:\>ping contoso.table.core.windows.net
-    Pinging table.by4prdstr05a.store.core.windows.net [13.88.144.250] with 32 bytes of data:
+    Pinging table.by4prdstr05a.store.core.windows.net [203.0.113.250] with 32 bytes of data:
     ```
 
 1. Run the following PowerShell commands:
 
     ```azurepowershell-interactive
     $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute 13.88.144.250/32
+    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute 203.0.113.250/32
     ```
 
 1. To add multiple custom routes, use a comma and spaces to separate the addresses. For example:

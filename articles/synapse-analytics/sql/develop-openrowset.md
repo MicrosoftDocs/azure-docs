@@ -5,7 +5,7 @@ author: filippopovic
 ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 03/23/2022
+ms.date: 09/11/2024
 ms.author: fipopovi
 ms.reviewer: whhender
 ---
@@ -21,7 +21,7 @@ The `OPENROWSET` function can be referenced in the `FROM` clause of a query as i
 
 ## Data source
 
-OPENROWSET function in Synapse SQL reads the content of the file(s) from a data source. The data source is an Azure storage account and it can be explicitly referenced in the `OPENROWSET` function or can be dynamically inferred from URL of the files that you want to read.
+OPENROWSET function in Synapse SQL reads the content of the files from a data source. The data source is an Azure storage account and it can be explicitly referenced in the `OPENROWSET` function or can be dynamically inferred from URL of the files that you want to read.
 The `OPENROWSET` function can optionally contain a `DATA_SOURCE` parameter to specify the data source that contains files.
 - `OPENROWSET` without `DATA_SOURCE` can be used to directly read the contents of the files from the URL location specified as `BULK` option:
 
@@ -31,7 +31,7 @@ The `OPENROWSET` function can optionally contain a `DATA_SOURCE` parameter to sp
                     FORMAT = 'PARQUET') AS [file]
     ```
 
-This is a quick and easy way to read the content of the files without pre-configuration. This option enables you to use the basic authentication option to access the storage (Microsoft Entra passthrough for Microsoft Entra logins and SAS token for SQL logins). 
+This is a quick and easy way to read the content of the files without preconfiguration. This option enables you to use the basic authentication option to access the storage (Microsoft Entra passthrough for Microsoft Entra logins and SAS token for SQL logins). 
 
 - `OPENROWSET` with `DATA_SOURCE` can be used to access files on specified storage account:
 
@@ -46,7 +46,7 @@ This is a quick and easy way to read the content of the files without pre-config
     This option enables you to configure location of the storage account in the data source and specify the authentication method that should be used to access storage. 
     
     > [!IMPORTANT]
-    > `OPENROWSET` without `DATA_SOURCE` provides quick and easy way to access the storage files but offers limited authentication options. As an example, Microsoft Entra principals can access files only using their [Microsoft Entra identity](develop-storage-files-storage-access-control.md?tabs=user-identity) or publicly available files. If you need more powerful authentication options, use `DATA_SOURCE` option and define credential that you want to use to access storage.
+    > `OPENROWSET` without `DATA_SOURCE` provides quick and easy way to access the storage files but offers limited authentication options. As an example, Microsoft Entra principals can access files only using their [Microsoft Entra identity](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) or publicly available files. If you need more powerful authentication options, use `DATA_SOURCE` option and define credential that you want to use to access storage.
 
 
 ## Security
@@ -112,15 +112,15 @@ You have three choices for input files that contain the target data for querying
 
 - 'CSV' - Includes any delimited text file with row/column separators. Any character can be used as a field separator, such as  TSV: FIELDTERMINATOR = tab.
 
-- 'PARQUET' - Binary file in Parquet format 
+- 'PARQUET' - Binary file in Parquet format.
 
-- 'DELTA' - A set of Parquet files organized in Delta Lake (preview) format
+- 'DELTA' - A set of Parquet files organized in Delta Lake (preview) format.
 
-Values with blank spaces are not valid, e.g. 'CSV  ' is not a valid value. 
+Values with blank spaces aren't valid. For example, 'CSV  ' isn't a valid value.
 
 **'unstructured_data_path'**
 
-The unstructured_data_path that establishes a path to the data may be an absolute or relative path:
+The unstructured_data_path that establishes a path to the data could be an absolute or relative path:
 - Absolute path in the format `\<prefix>://\<storage_account_path>/\<storage_path>` enables a user to directly read the files.
 - Relative path in the format `<storage_path>` that must be used with the `DATA_SOURCE` parameter and describes the file pattern within the <storage_account_path> location defined in `EXTERNAL DATA SOURCE`. 
 
@@ -137,7 +137,7 @@ Below you'll find the relevant \<storage account path> values that will link to 
 
 '\<storage_path>'
 
-Specifies a path within your storage that points to the folder or file you want to read. If the path points to a container or folder, all files will be read from that particular container or folder. Files in subfolders won't be included. 
+Specifies a path within your storage that points to the folder or file you want to read. If the path points to a container or folder, all files will be read from that particular container or folder. Files in subfolders won't be included.
 
 You can use wildcards to target multiple files or folders. Usage of multiple nonconsecutive wildcards is allowed.
 Below is an example that reads all *csv* files starting with *population* from all folders starting with */csv/population*:  
@@ -168,7 +168,7 @@ The WITH clause allows you to specify columns that you want to read from files.
     > Column names in Parquet and Delta Lake files are case sensitive. If you specify column name with casing different from column name casing in the files, the `NULL` values will be returned for that column.
 
 
-column_name = Name for the output column. If provided, this name overrides the column name in the source file and column name provided in JSON path if there is one. If json_path is not provided, it will be automatically added as '$.column_name'. Check json_path argument for behavior.
+column_name = Name for the output column. If provided, this name overrides the column name in the source file and column name provided in JSON path if there's one. If json_path isn't provided, it will be automatically added as '$.column_name'. Check json_path argument for behavior.
 
 column_type = Data type for the output column. The implicit data type conversion will take place here.
 
@@ -196,7 +196,7 @@ Specifies the field terminator to be used. The default field terminator is a com
 
 ROWTERMINATOR ='row_terminator'`
 
-Specifies the row terminator to be used. If row terminator is not specified, one of default terminators will be used. Default terminators for PARSER_VERSION = '1.0' are \r\n, \n and \r. Default terminators for PARSER_VERSION = '2.0' are \r\n and \n.
+Specifies the row terminator to be used. If row terminator isn't specified, one of default terminators will be used. Default terminators for PARSER_VERSION = '1.0' are \r\n, \n and \r. Default terminators for PARSER_VERSION = '2.0' are \r\n and \n.
 
 > [!NOTE]
 > When you use PARSER_VERSION='1.0' and specify \n (newline) as the row terminator, it will be automatically prefixed with a \r (carriage return) character, which results in a row terminator of \r\n.
@@ -228,7 +228,7 @@ Specifies parser version to be used when reading files. Currently supported CSV 
 - PARSER_VERSION = '1.0'
 - PARSER_VERSION = '2.0'
 
-CSV parser version 1.0 is default and feature rich. Version 2.0 is built for performance and does not support all options and encodings. 
+CSV parser version 1.0 is default and feature rich. Version 2.0 is built for performance and doesn't support all options and encodings. 
 
 CSV parser version 1.0 specifics:
 
@@ -243,7 +243,7 @@ CSV parser version 2.0 specifics:
 - Maximum row size limit is 8 MB.
 - Following options aren't supported: DATA_COMPRESSION.
 - Quoted empty string ("") is interpreted as empty string.
-- DATEFORMAT SET option is not honored.
+- DATEFORMAT SET option isn't honored.
 - Supported format for DATE data type: YYYY-MM-DD
 - Supported format for TIME data type: HH:MM:SS[.fractional seconds]
 - Supported format for DATETIME2 data type: YYYY-MM-DD HH:MM:SS[.fractional seconds]
@@ -263,7 +263,7 @@ Specifies the code page of the data in the data file. The default value is 65001
 
 ROWSET_OPTIONS = '{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}'
 
-This option will disable the file modification check during the query execution, and read the files that are updated while the query is running. This is useful option when you need to read append-only files that are appended while the query is running. In the appendable files, the existing content is not updated, and only new rows are added. Therefore, the probability of wrong results is minimized compared to the updateable files. This option might enable you to read the frequently appended files without handling the errors. See more information in [querying appendable CSV files](query-single-csv-file.md#querying-appendable-files) section.
+This option will disable the file modification check during the query execution, and read the files that are updated while the query is running. This is useful option when you need to read append-only files that are appended while the query is running. In the appendable files, the existing content isn't updated, and only new rows are added. Therefore, the probability of wrong results is minimized compared to the updateable files. This option might enable you to read the frequently appended files without handling the errors. See more information in [querying appendable CSV files](query-single-csv-file.md#querying-appendable-files) section.
 
 Reject Options 
 
@@ -311,10 +311,10 @@ Parquet files contain column metadata, which will be read, type mappings can be 
 
 For the CSV files, column names can be read from header row. You can specify whether header row exists using HEADER_ROW argument. If HEADER_ROW = FALSE, generic column names will be used: C1, C2, ... Cn where n is number of columns in file. Data types will be inferred from first 100 data rows. Check [reading CSV files without specifying schema](#read-csv-files-without-specifying-schema) for samples.
 
-Have in mind that if you are reading number of files at once, the schema will be inferred from the first file service gets from the storage. This can mean that some of the columns expected are omitted, all because the file used by the service to define the schema did not contain these columns. In that case, please use OPENROWSET WITH clause.
+Have in mind that if you're reading number of files at once, the schema will be inferred from the first file service gets from the storage. This can mean that some of the columns expected are omitted, all because the file used by the service to define the schema didn't contain these columns. In that case, use OPENROWSET WITH clause.
 
 > [!IMPORTANT]
-> There are cases when appropriate data type cannot be inferred due to lack of information and larger data type will be used instead. This brings performance overhead and is particularly important for character columns which will be inferred as varchar(8000). For optimal performance, please [check inferred data types](./best-practices-serverless-sql-pool.md#check-inferred-data-types) and [use appropriate data types](./best-practices-serverless-sql-pool.md#use-appropriate-data-types).
+> There are cases when appropriate data type cannot be inferred due to lack of information and larger data type will be used instead. This brings performance overhead and is particularly important for character columns which will be inferred as varchar(8000). For optimal performance, [check inferred data types](./best-practices-serverless-sql-pool.md#check-inferred-data-types) and [use appropriate data types](./best-practices-serverless-sql-pool.md#use-appropriate-data-types).
 
 ### Type mapping for Parquet
 

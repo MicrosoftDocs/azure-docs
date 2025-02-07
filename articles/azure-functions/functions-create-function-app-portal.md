@@ -2,7 +2,7 @@
 title: Create your first function in the Azure portal
 description: Learn how to create your first Azure Function for serverless execution using the Azure portal.
 ms.topic: how-to
-ms.date: 07/03/2024
+ms.date: 09/11/2024
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47, devdivchpfy22, devx-track-extended-java, devx-track-js, devx-track-python, build-2024, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -78,7 +78,7 @@ You must have a function app to host the execution of your functions. A function
 
 Use these steps to create your function app and related Azure resources, whether or not you're able to edit your code in the Azure portal. 
 ::: zone pivot="programming-language-csharp" 
-To be able to create a C# script app that you can edit in the portal, you must choose **6 (LTS)** for .NET **Version**.
+To be able to create a C# script app that you can edit in the portal, choose **8 (LTS), in-process model** for .NET **Version**.
 ::: zone-end
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]

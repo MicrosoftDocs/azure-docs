@@ -30,6 +30,10 @@ Application Gateway provides several built‑in timing metrics related to the re
 >
 > If there is more than one listener in the Application Gateway, then always filter by *Listener* dimension while comparing different latency metrics in order to get meaningful inference.
 
+> [!NOTE]
+>
+> Latency might be observed in the metric data, as all metrics are aggregated at one-minute intervals. This latency may vary for different application gateway instances based on the metric start time.
+
 You can use timing metrics to determine whether the observed slowdown is due to the client network, Application Gateway performance, the backend network and backend server TCP stack saturation, backend application performance, or large file size. For more information, see [Timing metrics](monitor-application-gateway-reference.md#timing-metrics-for-application-gateway-v2-sku).
 
 For example, if there's a spike in *Backend first byte response time* trend but the *Backend connect time* trend is stable, you can infer that the application gateway to backend latency and the time taken to establish the connection is stable. The spike is caused due to an increase in the response time of backend application. On the other hand, if the spike in *Backend first byte response time* is associated with a corresponding spike in *Backend connect time*, you can deduce that either the network between Application Gateway and backend server or the backend server TCP stack has saturated.

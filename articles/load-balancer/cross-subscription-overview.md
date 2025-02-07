@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: overview
-ms.date: 06/18/2024
+ms.date: 10/17/2024
 ms.author: mbender
 ms.custom: 
 ---
@@ -15,8 +15,6 @@ ms.custom:
 Azure Load Balancer supports cross-subscription load balancing, where the frontend IP and/or the backend pool instances can be in a different subscription than the Azure Load Balancer.
 
 This article provides an overview of cross-subscription load balancing with Azure Load Balancer, and the scenarios it supports.
-
-[!INCLUDE [load-balancer-cross-subscription-preview](../../includes/load-balancer-cross-subscription-preview.md)]
 
 ## What is cross-subscription load balancing?
 

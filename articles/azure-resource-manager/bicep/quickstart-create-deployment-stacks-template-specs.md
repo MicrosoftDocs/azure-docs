@@ -175,14 +175,14 @@ The output shows two managed resources - one storage account and one virtual net
     "excludedPrincipals": null,
     "mode": "none"
   },
-  "deploymentId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deployments/demoStack-240517162aqmf",
+  "deploymentId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Resources/deployments/demoStack-240517162aqmf",
   "deploymentScope": null,
   "description": null,
   "detachedResources": [],
   "duration": "PT30.5642429S",
   "error": null,
   "failedResources": [],
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deploymentStacks/demoStack",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Resources/deploymentStacks/demoStack",
   "location": null,
   "name": "demoStack",
   "outputs": null,
@@ -193,13 +193,13 @@ The output shows two managed resources - one storage account and one virtual net
   "resources": [
     {
       "denyStatus": "none",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk",
+      "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk",
       "resourceGroup": "demoRg",
       "status": "managed"
     },
     {
       "denyStatus": "none",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk",
+      "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk",
       "resourceGroup": "demoRg",
       "status": "managed"
     }
@@ -216,7 +216,7 @@ The output shows two managed resources - one storage account and one virtual net
   "template": null,
   "templateLink": {
     "contentVersion": null,
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/templateSpecRG/providers/Microsoft.Resources/templateSpecs/stackSpec/versions/1.0",
+    "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/templateSpecRG/providers/Microsoft.Resources/templateSpecs/stackSpec/versions/1.0",
     "queryString": null,
     "relativePath": null,
     "resourceGroup": "templateSpecRG",
@@ -237,18 +237,18 @@ Get-AzResourceGroupDeploymentStack `
 The output shows two managed resources - one virtual network, and one storage account:
 
 ```output
-Id                            : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deploymentStacks/demoStack
+Id                            : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Resources/deploymentStacks/demoStack
 Name                          : demoStack
 ProvisioningState             : succeeded
 resourcesCleanupAction        : detach
 resourceGroupsCleanupAction   : detach
 managementGroupsCleanupAction : detach
-CorrelationId                 : e91d07b8-90f0-48f4-b876-07fcadcc4c66
+CorrelationId                 : aaaa0000-bb11-2222-33cc-444444dddddd
 DenySettingsMode              : none
 CreationTime(UTC)             : 5/17/2024 3:53:52 PM
-DeploymentId                  : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deployments/demoStack-24051715frp6o
-Resources                     : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk
-                                /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk
+DeploymentId                  : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Resources/deployments/demoStack-24051715frp6o
+Resources                     : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk
+                                /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk
 ```
 
 ---
@@ -281,14 +281,14 @@ The output is similar to:
     "excludedPrincipals": null,
     "mode": "none"
   },
-  "deploymentId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deployments/demoStack-240517162aqmf",
+  "deploymentId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Resources/deployments/demoStack-240517162aqmf",
   "deploymentScope": null,
   "description": null,
   "detachedResources": [],
   "duration": "PT30.5642429S",
   "error": null,
   "failedResources": [],
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deploymentStacks/demoStack",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Resources/deploymentStacks/demoStack",
   "location": null,
   "name": "demoStack",
   "outputs": null,
@@ -299,13 +299,13 @@ The output is similar to:
   "resources": [
     {
       "denyStatus": "none",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk",
+      "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk",
       "resourceGroup": "demoRg",
       "status": "managed"
     },
     {
       "denyStatus": "none",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk",
+      "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk",
       "resourceGroup": "demoRg",
       "status": "managed"
     }
@@ -322,7 +322,7 @@ The output is similar to:
   "template": null,
   "templateLink": {
     "contentVersion": null,
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/templateSpecRG/providers/Microsoft.Resources/templateSpecs/stackSpec/versions/1.0",
+    "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/templateSpecRG/providers/Microsoft.Resources/templateSpecs/stackSpec/versions/1.0",
     "queryString": null,
     "relativePath": null,
     "resourceGroup": "templateSpecRG",
@@ -343,8 +343,8 @@ The output is similar to:
 ```output
 Status  DenyStatus Id
 ------  ---------- --
-managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk
-managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk
+managed none       /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk
+managed none       /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk
 ```
 
 ---

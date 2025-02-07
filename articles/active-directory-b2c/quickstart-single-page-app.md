@@ -5,12 +5,12 @@ description: In this Quickstart, run a sample single-page application that uses 
 
 author: garrodonnell
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: quickstart
 ms.date: 02/23/2023
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: mode-other
 
 #Customer Intent: As a developer building a single-page app, I want to set up sign-in functionality using Azure Active Directory B2C, so that I can authenticate users with social accounts and call a protected web API to retrieve user information.
@@ -28,7 +28,7 @@ In this quickstart, you use a single-page application to sign in using a social 
 ## Prerequisites
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [Node.js](https://nodejs.org/en/download/)
+- [Node.js](https://nodejs.org/en/download/package-manager/)
 - Social account from Facebook, Google, or Microsoft
 - Code sample from GitHub: [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa):
 

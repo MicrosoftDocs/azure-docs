@@ -3,8 +3,7 @@ title: Azure Stack Edge Pro FPGA 2301 release notes | Microsoft Docs
 description: Describes Azure Stack Edge Pro FPGA 2301 release critical open issues and resolutions.
 services: databox
 author: alkohli
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 02/15/2023
 ms.author: alkohli

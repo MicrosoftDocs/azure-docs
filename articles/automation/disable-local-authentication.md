@@ -3,8 +3,8 @@ title: Disable local authentication in Azure Automation
 description: This article describes disabling local authentication in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/20/2023
-ms.custom: engagement-fy23
+ms.date: 06/06/2024
+ms.custom: engagement-fy24
 ms.topic: how-to
 #Customer intent: As an administrator, I want disable local authentication so that I can enhance security.
 ms.service: azure-automation
@@ -40,7 +40,7 @@ The following table describes the behaviors or features that are prevented from 
 |Starting a runbook using a webhook. | Start a runbook job using Azure Resource Manager template, which uses Microsoft Entra authentication. |
 |Using Automation Desired State Configuration.| Use [Azure Policy Guest configuration](../governance/machine-configuration/overview.md).  |
 |Using agent-based Hybrid Runbook Workers.| Use [extension-based Hybrid Runbook Workers](./extension-based-hybrid-runbook-worker-install.md).|
-|Using Azure Update Manager |Use [Azure Update Manager](../update-manager/overview.md)|
+|Using Automation Update Management |Use [Azure Update Manager](../update-manager/overview.md)|
 
 
 ## Next steps

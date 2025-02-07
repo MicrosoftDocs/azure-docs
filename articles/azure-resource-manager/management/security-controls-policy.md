@@ -1,7 +1,7 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure Resource Manager
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Resource Manager. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 02/06/2024
+ms.date: 09/26/2024
 ms.topic: sample
 ms.service: azure-resource-manager
 ms.custom: subject-policy-compliancecontrols, devx-track-arm-template

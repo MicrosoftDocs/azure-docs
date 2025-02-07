@@ -5,7 +5,7 @@ description: How to create, manage, and delete Azure IoT hubs through the Azure 
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 07/10/2024
 ms.custom: ['Role: Cloud Development']

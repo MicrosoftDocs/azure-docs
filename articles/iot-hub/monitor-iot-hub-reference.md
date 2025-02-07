@@ -6,7 +6,7 @@ ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
 author: kgremban
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ---
 
 # Azure IoT Hub monitoring data reference
@@ -605,7 +605,7 @@ This category doesn't include specific errors about the messages themselves (lik
     [
         {
             "time":"2019-12-12T03:25:14Z",
-            "resourceId":"/SUBSCRIPTIONS/91R34780-3DEC-123A-BE2A-213B5500DFF0/RESOURCEGROUPS/ANON-TEST/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/ANONHUB1",
+            "resourceId":"/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/ANON-TEST/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/ANONHUB1",
             "operationName":"endpointUnhealthy",
             "category":"Routes",
             "level":"Error",

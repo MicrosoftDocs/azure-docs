@@ -4,7 +4,7 @@ titleSuffix: Azure IoT Hub
 description: This article describes the format and expected content of IoT Hub messages for cloud-to-device and device-to-cloud messages.
 author: kgremban
 
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 08/22/2024
 ms.author: kgremban

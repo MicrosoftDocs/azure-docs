@@ -4,13 +4,19 @@ titleSuffix: Azure Maps
 description: Learn how to create Data Registry.
 author: faterceros
 ms.author: aterceros
-ms.date: 6/14/2023
+ms.date: 09/16/2024
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: data-registry
 ---
 
 # How to create data registry
+
+> [!NOTE]
+>
+> **Azure Maps Data registry service retirement**
+>
+> The Azure Maps Data registry service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Data Registry](https://aka.ms/AzureMapsDataRegistryDeprecation).
 
 The [data registry] service enables you to register data content in an Azure Storage Account with your Azure Maps account. An example of data might include a collection of Geofences used in the Azure Maps Geofencing service. Another example is ZIP files containing drawing packages (DWG) or GeoJSON files that Azure Maps Creator uses to create or update indoor maps.
 
@@ -142,10 +148,12 @@ The `AzureBlob` is a JSON object that defines properties required to create the 
 | Property       | Description                                                                              |
 |----------------|------------------------------------------------------------------------------------------|
 | `kind`         | Defines what type of object being registered. Currently **AzureBlob** is the only kind that is supported. |
-| `dataFormat`   | The data format of the file located in **blobUrl**. Its format can either be **GeoJSON** for the spatial service or **ZIP** for the conversion service. |
+| `dataFormat`   | The data format of the file located in **blobUrl**. Its format can either be **GeoJSON** for the spatial service (Deprecated<sup>1</sup>) or **ZIP** for the conversion service (Deprecated<sup>1</sup>). |
 | `msiClientId`  | The ID of the managed identity being used to create the data registry.                   |
 |`linkedResource`| The ID of the datastore registered in the Azure Maps account.<BR>The datastore contains a link to the file being registered. |
 | `blobUrl`      | A URL pointing to the Location of the AzurebBlob, the file imported into your container. |
+
+<sup>1</sup> Azure Maps Creator, and the Data registry and Spatial services are now deprecated and will be retired on 9/30/25.
 
 The following two sections provide you with details how to get the values to use for the [msiClientId], [blobUrl] properties.
 

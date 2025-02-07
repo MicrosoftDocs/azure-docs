@@ -5,9 +5,10 @@ author: kgremban
 ms.author: kgremban
 ms.date: 08/03/2022
 ms.topic: reference
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps
 ms.custom: mvc
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Microsoft SDKs for IoT Hub Device Provisioning Service

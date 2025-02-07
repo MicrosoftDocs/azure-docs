@@ -4,7 +4,7 @@ description: Documentation on how to disable and enable public network access fo
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 07/07/2021
 ---

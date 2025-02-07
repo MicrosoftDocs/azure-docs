@@ -6,8 +6,7 @@ summary: Use Azure Edge Hardware Center service to order from a variety of Azure
 metadata:
   title: Azure Edge Hardware Center documentation
   description: Azure Edge Hardware Center Documentation.
-  ms.service: databox
-  ms.subservice: edge
+  ms.service: azure-stack-edge
   ms.topic: landing-page
   author: alkohli
   ms.author: alkohli

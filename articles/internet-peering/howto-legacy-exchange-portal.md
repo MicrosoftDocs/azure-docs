@@ -6,56 +6,80 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 10/04/2023
+ms.date: 10/14/2024
 ---
 
 # Convert a legacy Exchange peering to an Azure resource using the Azure portal
 
-> [!div class="op_single_selector"]
-> - [Azure portal](howto-legacy-exchange-portal.md)
-> - [PowerShell](howto-legacy-exchange-powershell.md)
+In this article, you learn how to convert an existing legacy Exchange peering to an Azure resource using the Azure portal.
 
-This article describes how to convert an existing legacy Exchange peering to an Azure resource by using the Azure portal.
+If you prefer, you can complete this guide using [PowerShell](howto-legacy-exchange-powershell.md).
 
-If you prefer, you can complete this guide by using [PowerShell](howto-legacy-exchange-powershell.md).
+## Prerequisites
 
-## Before you begin
-* Review the [prerequisites](prerequisites.md) and the [Exchange peering walkthrough](walkthrough-exchange-all.md) before you begin configuration.
+- Review the [Prerequisites to set up peering with Microsoft](prerequisites.md) and the [Exchange peering walkthrough](walkthrough-exchange-all.md) before you begin configuration.
+
+- A legacy Exchange peering in your subscription.
+
+## Sign in to Azure
+
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Convert a legacy Exchange peering to an Azure resource
 
-As an Internet Exchange Provider, you can create an exchange peering request by [Creating a Peering]( https://go.microsoft.com/fwlink/?linkid=2129593).
+As an Internet Exchange Provider, you can convert a legacy exchange peering to an Azure resource using the Azure portal: 
 
-1. On the **Create a Peering** page, on the **Basics** tab, fill in the boxes as shown here:
+1. In the search box at the top of the portal, enter ***peering***. Select **Peerings** from the search results.
 
-   ![Register Peering Service](./media/setup-basics-tab.png)
+1. On the **Peerings** page, select **+ Create**.
 
-* Select your Azure Subscription.
+1. On the **Basics** tab of **Create a Peering** page, enter, or select the following values:
 
-* For Resource group, you can either choose an existing resource group from the drop-down list or create a new group by selecting Create new. We'll create a new resource group for this example.
+    | Setting | Value |
+    | --- | --- |
+    | **Project Details** |  |
+    | Subscription | Select your Azure subscription. |
+    | Resource Group | Select a resource group or create a new one. |
+    | **Instance details** |  |
+    | Name | Enter a name for the peering you're creating. |
+    | Peer ASN | Select your ASN. |
 
-* Name corresponds to the resource name and can be anything you choose.
+    :::image type="content" source="./media/howto-legacy-exchange-portal/peering-basics.png" alt-text="Screenshot that shows the Basics tab of creating a peering in the Azure portal." lightbox="./media/howto-legacy-exchange-portal/peering-basics.png":::
 
-* Region is auto-selected if you chose an existing resource group. If you chose to create a new resource group, you also need to choose the Azure region where you want the resource to reside.
+  > [!IMPORTANT]  
+  > You can only choose an ASN with ValidationState as Approved before you submit a peering request. If you just submitted your PeerAsn request, wait for 12 hours or so for ASN association to be approved. If the ASN you select is pending validation, you'll see an error message. If you don't see the ASN you need to choose, check that you selected the correct subscription. If so, check if you have already created PeerAsn using **[Associate Peer ASN to Azure subscription](https://go.microsoft.com/fwlink/?linkid=2129592)**.
 
-  >[!NOTE]
-  >The region where a resource group resides is independent of the location where you want to create peering with Microsoft. But it's a best practice to organize your peering resources within resource groups that reside in the closest Azure regions. For example, for peerings in Ashburn, you can create a resource group in East US or East US2.
+1.  Select **Next : Configuration >**.
 
-* Select your ASN in the **PeerASN** box.
+1. On the **Configuration** tab, enter, or select the following values:
 
-  >[!IMPORTANT]  
-  >You can only choose an ASN with ValidationState as Approved before you submit a peering request. If you just submitted your PeerAsn request, wait for 12 hours or so for ASN association to be approved. If the ASN you select is pending validation, you'll see an error message. If you don't see the ASN you need to choose, check that you selected the correct subscription. If so, check if you have already created PeerAsn by using **[Associate Peer ASN to Azure subscription](https://go.microsoft.com/fwlink/?linkid=2129592)**.
+    | Setting | Value |
+    | --- | --- |
+    | Peering type | Select **Exchange**. |
+    | SKU | Select **Basic Free**. |
+    | Metro | Select the metro location where you want to convert peering to an Azure resource. If you have peering connections with Microsoft in the selected metro location that aren't converted to an Azure resource, they'll be listed in the **Peering connections** section. |
 
-* Select **Next: Configuration** to continue.
+    :::image type="content" source="./media/howto-legacy-exchange-portal/peering-configuration-exchange.png" alt-text="Screenshot that shows the Configuration tab of creating an Exchange peering in the Azure portal." lightbox="./media/howto-legacy-exchange-portal/peering-configuration-exchange.png":::
 
+    > [!NOTE]
+    > You can't modify settings for legacy peering connections. If you want to add additional peering connections with Microsoft in the selected **Metro** location, select **Create new**. For more information, see [Create or modify an Exchange peering using the portal](howto-exchange-portal.md).
 
-#### Configure connections and submit
-[!INCLUDE [exchange-peering-configuration](./includes/exchange-portal-configuration-legacy.md)]
+1. Select **Review + create**. 
 
-### <a name=get></a>Verify Exchange peering
-[!INCLUDE [peering-exchange-get-portal](./includes/exchange-portal-get.md)]
+1. Review the settings, and then select **Create**.
+
+## Verify an Exchange peering
+
+1. Go to the **Peering** resource you created in the previous section.
+
+1. Under **Settings**, select **Connections** to see a summary of peering connections between your ASN and Microsoft.
+
+    :::image type="content" source="./media/howto-legacy-exchange-portal/peering-connections.png" alt-text="Screenshot that shows the peering connections in the Azure portal." lightbox="./media/howto-legacy-exchange-portal/peering-connections.png":::
+
+    - **Connection State** corresponds to the state of the peering connection setup. The states displayed in this field follow the state diagram shown in the [Exchange peering walkthrough](walkthrough-exchange-all.md).
+    - **IPv4 Session State** and **IPv6 Session State** correspond to the IPv4 and IPv6 BGP session states, respectively. 
 
 ## Related content
 
-- [Create or modify an Exchange peering by using the portal](howto-exchange-portal.md).
-- [Internet peering frequently asked questions (FAQ)](faqs.md).
+- [Create or modify an Exchange peering using the portal](howto-exchange-portal.md)
+- [Internet peering frequently asked questions (FAQ)](faqs.md)

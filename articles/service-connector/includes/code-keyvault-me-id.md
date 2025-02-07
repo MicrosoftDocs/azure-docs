@@ -94,7 +94,7 @@ ms.author: wchi
 
 ### [SpringBoot](#tab/springBoot)
 
-Refer to [Tutorial: Connect Azure Spring Apps to Key Vault using managed identities](../../spring-apps/enterprise/tutorial-managed-identities-key-vault.md?tabs=system-assigned-managed-identity) to set up your Spring application. Two sets of configuration properties are added to Spring Apps by Service Connector, according to Spring Cloud Azure version below 4.0 and above 4.0. For more information, check [Migration Guide for 4.0](https://microsoft.github.io/spring-cloud-azure/current/reference/html/appendix.html#configuration-spring-cloud-azure-starter-keyvault-secrets)
+Refer to [Tutorial: Connect Azure Spring Apps to Key Vault using managed identities](../../spring-apps/basic-standard/tutorial-managed-identities-key-vault.md?tabs=system-assigned-managed-identity) to set up your Spring application. Two sets of configuration properties are added to Spring Apps by Service Connector, according to Spring Cloud Azure version below 4.0 and above 4.0. For more information, check [Migration Guide for 4.0](https://microsoft.github.io/spring-cloud-azure/current/reference/html/appendix.html#configuration-spring-cloud-azure-starter-keyvault-secrets)
 
 ### [Python](#tab/python)
 

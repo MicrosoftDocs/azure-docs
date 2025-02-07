@@ -6,12 +6,12 @@ description: Social account claims transformation examples for the Identity Expe
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer using Azure AD B2C, I want to understand how to use social account claims transformations, so that I can link new social identities with existing accounts, create alternative security IDs, get a list of identity providers, and remove alternative security IDs by identity provider.

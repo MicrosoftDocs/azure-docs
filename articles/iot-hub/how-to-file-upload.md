@@ -5,9 +5,9 @@ description: How to upload files from a device to the cloud using the Azure IoT 
 author: kgremban
 ms.author: kgremban
 manager: lizross
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 07/01/2024
+ms.date: 12/12/2024
 zone_pivot_groups: iot-hub-howto-c2d-1
 ms.custom: [amqp, mqtt, "Role: Cloud Development", "Role: IoT Device"]
 ---

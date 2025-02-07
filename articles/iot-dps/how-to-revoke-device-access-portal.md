@@ -7,7 +7,8 @@ author: kgremban
 ms.author: kgremban
 ms.date: 01/24/2022
 ms.topic: how-to
-ms.service: iot-dps
+ms.service: azure-iot-hub
+ms.subservice: azure-iot-hub-dps
 ---
 
 # How to disenroll or revoke a device from Azure IoT Hub Device Provisioning Service

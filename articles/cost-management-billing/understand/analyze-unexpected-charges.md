@@ -7,7 +7,7 @@ ms.reviewer: micflan
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: conceptual
-ms.date: 03/19/2024
+ms.date: 01/07/2025
 ms.author: banders
 ---
 

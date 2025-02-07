@@ -17,7 +17,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 > [!NOTE]  
 > This article applies to dedicated SQL pools created in Azure Synapse Workspaces and not dedicated SQL pools (formerly SQL DW). There are different PowerShell cmdlets to use for each, for example, use `Suspend-AzSqlDatabase` for a dedicated SQL pool (formerly SQL DW), but `Suspend-AzSynapseSqlPool` for a dedicated SQL pool in an Azure Synapse Workspace. For instructions to pause and resume a dedicated SQL pool (formerly SQL DW), see [Quickstart: Pause and resume compute in dedicated SQL pool (formerly SQL DW) with Azure PowerShell](pause-and-resume-compute-powershell.md).
-> For more on the differences between dedicated SQL pool (formerly SQL DW) and dedicated SQL pools in Azure Synapse Workspaces, read [What's the difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics Workspace](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/what-s-the-difference-between-azure-synapse-formerly-sql-dw-and/ba-p/3597772). 
+> For more on the differences between dedicated SQL pool (formerly SQL DW) and dedicated SQL pools in Azure Synapse Workspaces, read [What's the difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics Workspace](../sql/overview-difference-between-formerly-sql-dw-workspace.md). 
 
 ## Before you begin
 
@@ -126,5 +126,5 @@ Follow these steps to clean up resources as you desire.
 - To get started with Azure Synapse Analytics, see [Get Started with Azure Synapse Analytics](../get-started.md).
 - To learn more about dedicated SQL pools in Azure Synapse Analytics, see [What is dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics?](sql-data-warehouse-overview-what-is.md)
 - To learn more about SQL pool, continue to the [Load data into dedicated SQL pool (formerly SQL DW)](./load-data-from-azure-blob-storage-using-copy.md) article. For additional information about managing compute capabilities, see the [Manage compute overview](sql-data-warehouse-manage-compute-overview.md) article.
-- For more on the differences between dedicated SQL pool (formerly SQL DW) and dedicated SQL pools in Azure Synapse Workspaces, read [What's the difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics Workspace](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/what-s-the-difference-between-azure-synapse-formerly-sql-dw-and/ba-p/3597772).
+- For more on the differences between dedicated SQL pool (formerly SQL DW) and dedicated SQL pools in Azure Synapse Workspaces, read [What's the difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics Workspace](../sql/overview-difference-between-formerly-sql-dw-workspace.md).
 - See [Quickstart: Scale compute for dedicated SQL pools in Azure Synapse Workspaces with Azure PowerShell](quickstart-scale-compute-workspace-powershell.md)

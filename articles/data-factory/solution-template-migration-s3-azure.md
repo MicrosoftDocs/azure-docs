@@ -4,7 +4,8 @@ description: Learn how to use a solution template to migrate data from Amazon S3
 author: dearandyxu
 ms.author: yexu
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Migrate data from Amazon S3 to Azure Data Lake Storage Gen2

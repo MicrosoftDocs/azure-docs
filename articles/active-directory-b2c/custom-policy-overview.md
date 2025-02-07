@@ -5,12 +5,12 @@ description: A topic about Azure Active Directory B2C custom policies and the Id
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: overview
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: "b2c-support"
 
 
@@ -41,7 +41,7 @@ In the [Azure AD B2C samples GitHub repository](https://github.com/azure-ad-b2c/
 
 ### Claims
 
-A claim provides temporary storage of data during an Azure AD B2C policy execution. Claims are more like variable in a programing language. It can store information about the user, such as first name, last name, or any other claim obtained from the user or other systems (claims exchanges). The [claims schema](claimsschema.md) is the place where you declare your claims. 
+A claim provides temporary storage of data during an Azure AD B2C policy execution. Claims are more like variable in a programming language. It can store information about the user, such as first name, last name, or any other claim obtained from the user or other systems (claims exchanges). The [claims schema](claimsschema.md) is the place where you declare your claims. 
 
 When the policy runs, Azure AD B2C sends and receives claims to and from internal and external parties and then sends a subset of these claims to your relying party application as part of the token. Claims are used in these ways: 
 

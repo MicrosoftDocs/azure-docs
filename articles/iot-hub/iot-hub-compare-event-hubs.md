@@ -4,7 +4,7 @@ description: A comparison of the IoT Hub and Event Hubs Azure services highlight
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: product-comparison
 ms.date: 11/21/2022
 ms.custom:  [amqp, mqtt, 'Role: Cloud Development', 'Role: System Architecture']

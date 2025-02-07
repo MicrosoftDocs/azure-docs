@@ -42,7 +42,7 @@ If you're still experiencing performance issues after troubleshooting with the s
 Follow these steps:
 
 1. Gather [metrics](how-to-monitor.md#metrics-and-alerts) and [logs](how-to-monitor.md#diagnostics-logs) for your instance.
-2. Navigate to [Azure Help + support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal. Use the prompts to provide details of your issue, see recommended solutions, share your metrics/log files, and submit any other information that the support team can use to help investigate your issue. For more information on creating support requests, see [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+2. Navigate to [Azure Help + support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal. Use the prompts to provide details of your issue, see recommended solutions, share your metrics/log files, and submit any other information that the support team can use to help investigate your issue. For more information on creating support requests, see [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 ## Next steps
 

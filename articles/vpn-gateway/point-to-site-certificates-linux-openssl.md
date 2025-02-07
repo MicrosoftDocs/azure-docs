@@ -28,7 +28,7 @@ This section helps you generate a self-signed root certificate. After you genera
    openssl req -x509 -new -nodes -key caKey.pem -subj "/CN=VPN CA" -days 3650 -out caCert.pem
    ```
 
-1. Print the self-signed root certificate public data in base64 format. This is the format that's supported by Azure. Upload this certificate to Azure as part of your [P2S configuration](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile) steps.
+1. Print the self-signed root certificate public data in base64 format. This is the format that's supported by Azure. Upload this certificate to Azure as part of your [P2S configuration](point-to-site-certificate-gateway.md#uploadfile) steps.
 
    ```CLI
    openssl x509 -in caCert.pem -outform der | base64 -w0 && echo
@@ -36,7 +36,7 @@ This section helps you generate a self-signed root certificate. After you genera
 
 ## Client certificates
 
-In this section, you generate the user certificate (client certificate). Certificate files are generated in the local directory in which you run the commands. You can use the same client certificate on each client computer, or generate certificates that are specific to each client. It's crucial is that the client certificate is signed by the root certificate.
+In this section, you generate the user certificate (client certificate). Certificate files are generated in the local directory in which you run the commands. You can use the same client certificate on each client computer, or generate certificates that are specific to each client. It's crucial that the client certificate is signed by the root certificate.
 
 1. To generate a client certificate, use the following examples.
 
@@ -62,4 +62,5 @@ In this section, you generate the user certificate (client certificate). Certifi
 
 ## Next steps
 
-To continue configuration steps, see [Point-to-site certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile).
+* To continue VPN Gateway configuration steps, see [Point-to-site certificate authentication](point-to-site-certificate-gateway.md#uploadfile).
+* To continue Virtual WAN configuration steps, see [Create a P2S User VPN connection](../virtual-wan/virtual-wan-point-to-site-portal.md).

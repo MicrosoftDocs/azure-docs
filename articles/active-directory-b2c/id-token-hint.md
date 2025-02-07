@@ -6,12 +6,12 @@ description: Define an ID token hint technical profile in a custom policy in Azu
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer integrating Azure AD B2C with a relying party application, I want to define an ID token hint technical profile, so that I can send a JWT token with a hint about the user or the authorization request. This allows me to validate the token and extract the claims for further processing.
@@ -36,7 +36,7 @@ The id_token_hint must be a valid JWT token. The following table lists the claim
 
 | Name | Claim | Example value | Description |
 | ---- | ----- | ------------- | ----------- |
-| Audience | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | Identifies the intended recipient of the token. The audience is an arbitrary string defined by the token issuer. Azure AD B2C validates this value, and rejects the token if it doesn't match.  |
+| Audience | `aud` | `00001111-aaaa-2222-bbbb-3333cccc4444` | Identifies the intended recipient of the token. The audience is an arbitrary string defined by the token issuer. Azure AD B2C validates this value, and rejects the token if it doesn't match.  |
 | Issuer | `iss` |`https://localhost` | Identifies the security token service (token issuer). The issuer is an arbitrary URI defined by the token issuer. Azure AD B2C validates this value, and rejects the token if it doesn't match.  |
 | Expiration time | `exp` | `1600087315` | The time at which the token becomes invalid, represented in epoch time. Azure AD B2C validates this value, and rejects the token if the token is expired.|
 | Not before | `nbf` | `1599482515` | The time at which the token becomes valid, represented in epoch time. This time is usually the same as the time the token was issued. Azure AD B2C validates this value, and rejects the token if the token lifetime is not valid. |
@@ -53,7 +53,7 @@ The following token is an example of a valid ID token:
   "nbf": 1599482515,
   "exp": 1600087315,
   "iss": "https://localhost",
-  "aud": "a489fc44-3cc0-4a78-92f6-e413cd853eae"
+  "aud": "00001111-aaaa-2222-bbbb-3333cccc4444"
 }
 ```
 
@@ -154,7 +154,7 @@ The following technical profile validates the token and extracts the claims.
       <DisplayName> My ID Token Hint TechnicalProfile</DisplayName>
       <Protocol Name="None" />
       <Metadata>
-        <Item Key="IdTokenAudience">a489fc44-3cc0-4a78-92f6-e413cd853eae</Item>
+        <Item Key="IdTokenAudience">00001111-aaaa-2222-bbbb-3333cccc4444</Item>
         <Item Key="issuer">https://localhost</Item>
       </Metadata>
       <CryptographicKeys>
@@ -281,7 +281,7 @@ Depending on your business requirements, you might need to add token validations
 The GitHub samples illustrate how to create such a token issue a JWT that later sent as a `id_token_hint` query string parameter. Following is an example of an authorization request with id_token_hint parameter
  
 ```html
-https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin/oauth2/v2.0/authorize?client_id=63ba0d17-c4ba-47fd-89e9-31b3c2734339&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&id_token_hint=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkaXNwbGF5TmFtZSI6IiBKb2huIFNtaXRoIiwidXNlcklkIjoiam9obi5zQGNvbnRvc28uY29tIiwibmJmIjoxNTk5NDgyNTE1LCJleHAiOjE2MDAwODczMTUsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0IiwiYXVkIjoiYTQ4OWZjNDQtM2NjMC00YTc4LTkyZjYtZTQxM2NkODUzZWFlIn0.nPmLXydI83PQCk5lRBYUZRu_aX58pL1khahHyQuupig
+https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin/oauth2/v2.0/authorize?client_id=11112222-bbbb-3333-cccc-4444dddd5555&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&id_token_hint=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkaXNwbGF5TmFtZSI6IiBKb2huIFNtaXRoIiwidXNlcklkIjoiam9obi5zQGNvbnRvc28uY29tIiwibmJmIjoxNTk5NDgyNTE1LCJleHAiOjE2MDAwODczMTUsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0IiwiYXVkIjoiYTQ4OWZjNDQtM2NjMC00YTc4LTkyZjYtZTQxM2NkODUzZWFlIn0.nPmLXydI83PQCk5lRBYUZRu_aX58pL1khahHyQuupig
 ```
 
 ## Next steps

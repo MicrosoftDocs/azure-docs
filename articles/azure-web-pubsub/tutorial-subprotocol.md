@@ -26,6 +26,8 @@ In this tutorial, you learn how to:
 
 - This setup requires version 2.22.0 or higher of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
+
 ## Create an Azure Web PubSub instance
 
 ### Create a resource group
@@ -37,6 +39,8 @@ In this tutorial, you learn how to:
 [!INCLUDE [Create a Web PubSub instance](includes/cli-awps-creation.md)]
 
 ### Get the ConnectionString for future use
+
+[!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
 
 [!INCLUDE [Get the connection string](includes/cli-awps-connstr.md)]
 
@@ -217,7 +221,7 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
     
     service = WebPubSubServiceClient.from_connection_string(sys.argv[1], hub='stream')
     
-    class Resquest(SimpleHTTPRequestHandler):
+    class Request(SimpleHTTPRequestHandler):
         def do_GET(self):
             if self.path == '/':
                 self.path = 'public/index.html'
@@ -238,7 +242,7 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
             print('Usage: python server.py <connection-string>')
             exit(1)
     
-        server = HTTPServer(('localhost', 8080), Resquest)
+        server = HTTPServer(('localhost', 8080), Request)
         print('server started')
         server.serve_forever()
     

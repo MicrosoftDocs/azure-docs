@@ -4,7 +4,8 @@ description: Use Azure Data Factory and Copy Activity to copy data from a source
 ms.author: jianleishen
 author: jianleishen
 ms.topic: tutorial
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Copy multiple tables in bulk by using Azure Data Factory in the Azure portal

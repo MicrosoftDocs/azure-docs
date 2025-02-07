@@ -6,13 +6,13 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 09/25/2024
 ms.author: jianleishen
 ---
 # Schema and data type mapping in copy activity
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article describes how the Azure Data Factory copy activity perform schema mapping and data type mapping from source data to sink data.
+This article describes how the Azure Data Factory copy activity performs schema mapping and data type mapping from source data to sink data.
 
 ## Schema mapping
 

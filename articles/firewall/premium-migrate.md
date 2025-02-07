@@ -168,15 +168,15 @@ function TransformPolicyToPremium {
     Write-Host "Populating rules in new policy"
     foreach ($ruleCollectionGroup in $Policy.RuleCollectionGroups) {
         $ruleResource = Get-AzResource -ResourceId $ruleCollectionGroup.Id
-        $ruleToTransfom = Get-AzFirewallPolicyRuleCollectionGroup -AzureFirewallPolicy $Policy -Name $ruleResource.Name
+        $ruleToTransform = Get-AzFirewallPolicyRuleCollectionGroup -AzureFirewallPolicy $Policy -Name $ruleResource.Name
         $ruleCollectionGroup = @{
             FirewallPolicyObject = $premiumPolicy
-            Priority = $ruleToTransfom.Properties.Priority
-            Name = $ruleToTransfom.Name
+            Priority = $ruleToTransform.Properties.Priority
+            Name = $ruleToTransform.Name
         }
 
-        if ($ruleToTransfom.Properties.RuleCollection.Count) {
-            $ruleCollectionGroup["RuleCollection"] = $ruleToTransfom.Properties.RuleCollection
+        if ($ruleToTransform.Properties.RuleCollection.Count) {
+            $ruleCollectionGroup["RuleCollection"] = $ruleToTransform.Properties.RuleCollection
         }
 
         Set-AzFirewallPolicyRuleCollectionGroup @ruleCollectionGroup

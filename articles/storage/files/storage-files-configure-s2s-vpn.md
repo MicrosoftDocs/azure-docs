@@ -56,7 +56,7 @@ To add a new or existing virtual network to your storage account, follow these s
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-1. Sign in to the Azure portal.
+1. Sign in to Azure.
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -140,7 +140,7 @@ To add a new or existing virtual network to your storage account, follow these s
 
 # [Azure CLI](#tab/azure-cli)
 
-1. Sign in to the Azure portal.
+1. Sign in to Azure.
 
    ```azurecli-interactive
    az login
@@ -383,7 +383,7 @@ To complete the deployment of a S2S VPN, you must create a connection between yo
 
    - **Subscription**: The desired Azure subscription.
    - **Resource group**: The desired resource group.
-   - **Connection type**: Because this a S2S connection, select **Site-to-site (IPSec)** from the drop-down list.
+   - **Connection type**: Because this a S2S connection, select **Site-to-site (IPsec)** from the drop-down list.
    - **Name**: The name of the connection. A virtual network gateway can host multiple connections, so choose a name that's helpful for your management and that will distinguish this particular connection.
    - **Region**: The region you selected for the virtual network gateway and the storage account.
 

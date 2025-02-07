@@ -610,7 +610,7 @@ private void answerIncomingCall() {
 
 ## Remote participant and remote video streams
 
-All remote participants are available through the `getRemoteParticipants()` method on a call instance. Once the call is connected, we can access the remote participants of the call and handle the remote video streams.
+All remote participants are available through the `getRemoteParticipants()` method on a call instance. Once the call becomes connected (`CallState.CONNECTED`), we can access the remote participants of the call and handle the remote video streams.
 
 When you start a call or answer an incoming call, you need to subscribe to the `addOnRemoteParticipantsUpdatedListener` event to handle remote participants. 
 

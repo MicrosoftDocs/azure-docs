@@ -5,7 +5,7 @@ description: Learn how to troubleshoot issues with the Azure Data Lake Storage G
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/20/2023
+ms.date: 09/26/2024
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---

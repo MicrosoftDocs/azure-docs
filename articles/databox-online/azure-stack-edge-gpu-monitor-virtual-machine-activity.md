@@ -4,8 +4,7 @@ description: Learn how to monitor VM activity on an Azure Stack Edge Pro GPU dev
 services: databox
 author: v-dalc
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 08/03/2021
 ms.author: alkohli

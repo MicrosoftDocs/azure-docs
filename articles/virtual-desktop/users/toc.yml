@@ -50,16 +50,10 @@ items:
     - name: Remote Desktop client
       expanded: true
       items:
-      - name: Windows
-        href: connect-windows.md
-      - name: Web browser
-        href: connect-web.md
-      - name: macOS
-        href: connect-macos.md
-      - name: iOS/iPadOS
-        href: connect-ios-ipados.md
-      - name: Android/Chrome OS
-        href: connect-android-chrome-os.md
+      - name: Get started with the Remote Desktop app
+        href: connect-remote-desktop-client.md
+      - name: Windows (legacy)
+        href: connect-legacy-windows.md
       - name: Thin clients
         href: connect-thin-clients.md
       - name: Use Remote Desktop client features

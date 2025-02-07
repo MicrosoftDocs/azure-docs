@@ -6,12 +6,12 @@ description: Custom policy reference for Conditional Access technical profiles i
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As an Azure AD B2C administrator, I want to define a Conditional Access technical profile in a custom policy, so that I can automate risk assessment and enforce organizational policies for sign-ins, including blocking access and challenging users with multi-factor authentication.

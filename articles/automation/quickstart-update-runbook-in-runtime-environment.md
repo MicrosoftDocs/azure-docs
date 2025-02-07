@@ -3,8 +3,8 @@ title: Update PowerShell runbook in Azure Runtime environment
 titleSuffix: Azure Automation
 description: This article shows how to update a runbook from PowerShell 5.1 to PowerShell 7.2 in Runtime environment.
 services: automation
-ms.date: 01/16/2024
-ms.topic: conceptual
+ms.date: 09/15/2024
+ms.topic: quickstart
 ms.custom: references_regions
 ---
 

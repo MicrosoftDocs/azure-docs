@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 06/06/2024
+ms.date: 09/18/2024
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -49,6 +49,7 @@ Azure NetApp Files backup is supported for the following regions:
 * South Central US
 * South India
 * Southeast Asia
+* Spain Central
 * Sweden Central
 * Switzerland North
 * Switzerland West 

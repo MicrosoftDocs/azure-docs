@@ -6,7 +6,8 @@ ms.custom: synapse
 author: nabhishek
 ms.author: jejiang
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 
 # Transform data by running a Synapse Spark job definition

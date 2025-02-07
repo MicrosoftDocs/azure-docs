@@ -12,7 +12,7 @@ ms.author: danlep
 
 # How to delegate user registration and product subscription
 
-[!INCLUDE [premium-dev-standard-basic-standardv2-basicv2.md](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 Delegation enables your website to own the user data and perform custom validation. With delegation, you can handle developer sign-in/sign-up (and related account management operations) and product subscription using your existing website, instead of the developer portal's built-in functionality. 
 

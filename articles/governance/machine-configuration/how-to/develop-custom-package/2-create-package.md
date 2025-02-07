@@ -120,6 +120,8 @@ Parameters of the `New-GuestConfigurationPackage` cmdlet when creating Windows c
 - **Type**: (`Audit`, `AuditandSet`) Determines whether the configuration should only audit or if
   the configuration should change the state of the machine if it's out of the desired state. The
   default is `Audit`.
+- **FrequencyMinutes**: The frequency of evaluation of the package on the machine in minutes.
+- **FilesToInclude**: An array list of paths to additional files to include in the generated package.
 
 This step doesn't require elevation. The **Force** parameter is used to overwrite existing
 packages, if you run the command more than once.

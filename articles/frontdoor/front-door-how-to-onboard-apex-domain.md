@@ -93,6 +93,7 @@ You can use the Azure portal to onboard an apex domain on your Azure Front Door 
 > * The **DNS state** column is used for CNAME mapping check. An apex domain doesn't support a CNAME record, so the DNS state shows **CNAME record is currently not detected** even after you add the alias record to the DNS provider.
 > * When you place a service like an Azure Web App behind Azure Front Door, you need to configure the web app with the same domain name as the root domain in Azure Front Door. You also need to configure the back-end host header with that domain name to prevent a redirect loop.
 > * Apex domains don't have CNAME records pointing to the Azure Front Door profile. Managed certificate autorotation always fails unless domain validation is finished between rotations.
+> * The **Microsoft.Network** resource provider is required to create alias records.
 
 ## Enable HTTPS on your custom domain
 

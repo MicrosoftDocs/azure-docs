@@ -6,7 +6,10 @@ ms.author: yelevin
 ms.topic: concept-article
 ms.custom: linux-related-content
 ms.date: 07/12/2024
-#Customer intent: As a security operator, I want to understand how Microsoft Sentinel collects Syslog and CEF messages with the Azure Monitor Agent so that I can determine if this solution fits my organization's needs.  
+
+
+#Customer intent: As a security engineer, I want to collect Syslog and CEF messages from various devices, either directly or using a centralized log forwarder, so that I can efficiently monitor and respond to security threats.
+
 ---
 
 # Syslog and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel

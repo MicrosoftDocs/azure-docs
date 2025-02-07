@@ -12,7 +12,7 @@ ms.date: 04/25/2024
 
 # Quickstart: Create an Azure Managed Grafana workspace using the Azure portal
 
-In this quickstart, you get started with Azure Managed Grafana by creating an Azure Managed Grafana workspace using the Azure portal. Creating a workspace will generate an Azure Managed Grafana instance.
+In this quickstart, you get started with Azure Managed Grafana by creating an Azure Managed Grafana workspace using the Azure portal. Creating a workspace will generate a Grafana instance.
 
 ## Prerequisites
 
@@ -49,6 +49,9 @@ In this quickstart, you get started with Azure Managed Grafana by creating an Az
 
 1. Select **Next : Permission >** to control access rights for your Grafana instance and data sources:
    1. **System assigned managed identity** is set to **On**.
+
+      >[!NOTE]
+      >You can use a user-assigned managed identity instead of the default system-assigned managed identity once the Azure Managed Grafana resource is deployed. To learn more, go to [Set up Azure Managed Grafana authentication and permissions (preview)](how-to-authentication-permissions.md).
 
    1. The box **Add role assignment to this identity with 'Monitoring Reader' role on target subscription** is checked by default.
 

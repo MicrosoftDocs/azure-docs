@@ -43,7 +43,7 @@ To sync your GitHub repository by using the Workflow Orchestration Manager UI:
    - **GitHub**
    - **ADO**
    - **GitLab**
-   - **BitBucket**
+   - **Bitbucket**
 
    :::image type="content" source="media/airflow-git-sync-repository/git-service-type.png" alt-text="Screenshot that shows the Git service type selection dropdown in the  environment setup dialog that appears during creation of an Workflow Orchestration Manager integration runtime.":::
 
@@ -57,7 +57,7 @@ To sync your GitHub repository by using the Workflow Orchestration Manager UI:
      - GitHub personal access token
      - ADO personal access token
      - GitLab personal access token
-     - BitBucket personal access token
+     - Bitbucket personal access token
 
      :::image type="content" source="media/airflow-git-sync-repository/git-pat-credentials.png" alt-text="Screenshot that shows the Git PAT credential options in the Airflow environment setup dialog that appears during creation of an AWorkflow Orchestration Manager integration runtime.":::
    - **SPN** ([service principal name](https://devblogs.microsoft.com/devops/introducing-service-principal-and-managed-identity-support-on-azure-devops/)): Only ADO supports this credential type.
@@ -134,7 +134,7 @@ To sync your GitHub repository by using the Rest API:
 
   |Name  |Type  |Description  |
   |---------|---------|---------|
-  |gitServiceType | string | The Git service where your desired repository is located. Values are GitHub, ADO, GitLab, or BitBucket. |
+  |gitServiceType | string | The Git service where your desired repository is located. Values are GitHub, ADO, GitLab, or Bitbucket. |
   |gitCredentialType | string | Type of Git credential. Values are PAT (for personal access token), SPN (supported only by ADO), and None. |
   |repo | string | Repository link. |
   |branch | string | Branch to use in the repository. |
@@ -157,7 +157,7 @@ Sample request:
 
 ```rest
 HTTP
-PUT https://management.azure.com/subscriptions/222f1459-6ebd-4896-82ab-652d5f6883cf/resourcegroups/abnarain-rg/providers/Microsoft.DataFactory/factories/ambika-df/integrationruntimes/sample-2?api-version=2018-06-01
+PUT https://management.azure.com/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/abnarain-rg/providers/Microsoft.DataFactory/factories/ambika-df/integrationruntimes/sample-2?api-version=2018-06-01
 ```
 
 Sample body:

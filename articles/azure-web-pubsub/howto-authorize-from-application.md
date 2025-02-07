@@ -3,7 +3,7 @@ title: Authorize an application request by using Microsoft Entra ID
 description: Learn how to authorize an application request to Web PubSub resources by using Microsoft Entra ID.
 author: terencefan
 ms.author: tefa
-ms.date: 08/16/2024
+ms.date: 10/12/2024
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ---
@@ -50,7 +50,7 @@ To create a client secret:
    :::image type="content" source="media/howto-authorize-from-application/new-client-secret.png" alt-text="Screenshot that shows creating a client secret.":::
 
 1. Enter a description for the client secret, and then choose an **Expires** time for the secret.
-1. Copy the value of the client secret, and then paste it to a secure location to save for later use.
+1. Copy the value of the client secret and paste it in a secure location for later use.
 
    > [!NOTE]
    > The secret is visible only when you create the secret. You can't view the client secret in the portal later.
@@ -110,45 +110,6 @@ To learn more about how to assign and manage Azure role assignments, see these a
 - [Assign Azure roles by using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
 - [Assign Azure roles by using the Azure CLI](../role-based-access-control/role-assignments-cli.md)
 - [Assign Azure roles by using an Azure Resource Manager template](../role-based-access-control/role-assignments-template.md)
-
-## Use Postman to get the Microsoft Entra token
-
-1. Open Postman.
-
-1. For **Method**, select **GET**.
-
-1. For **URI**, enter `https://login.microsoftonline.com/<TENANT ID>/oauth2/token`. Replace `<TENANT ID>` with the value for **Directory (tenant) ID** on the **Overview** pane of the application you created.
-
-1. Select the **Headers** tab, and then add the following keys and values:
-
-   1. For **Key**, select **Content-Type**.
-   1. For **Value**, enter `application/x-www-form-urlencoded`.
-
-   :::image type="content" source="media/howto-authorize-from-application/get-azure-ad-token-using-postman.png" alt-text="Screenshot that shows information on the Basic tab when you use Postman to get the token.":::
-
-1. Select the **Body** tab.
-1. Select the body type **x-www-form-urlencoded**.
-1. Under **Key**, add the following keys and values:
-
-   1. Select **grant_type**, and then select the value **client_credentials**.
-   1. Select **client_id**, and then paste the value of **Application (client) ID** from the **Overview** pane of the application you created.
-   1. Select **client_secret**, and then paste the value of the client secret you saved.
-   1. Select **resource**, and then enter `https://webpubsub.azure.com` for the value.
-
-   :::image type="content" source="media/howto-authorize-from-application/get-azure-ad-token-using-postman-body.png" alt-text="Screenshot that shows the Body tab parameters when you use Postman to get the token.":::
-
-   For an OAuth2/v2.0/token endpoint, pass the value for `scope` instead of the value for `resource`:
-
-   ```json
-   client_id: *your client ID*
-   client_secret: *your client secret*
-   grant_type: client_credentials
-   scope: https://webpubsub.azure.com/.default
-   ```
-
-1. Select **Send** to send the request to get the token. The value for `access_token` is the access token.
-
-   :::image type="content" source="media/howto-authorize-from-application/get-azure-ad-token-using-postman-response.png" alt-text="Screenshot that shows the response token when you use Postman to get the token.":::
 
 ## Code samples that use Microsoft Entra authorization
 

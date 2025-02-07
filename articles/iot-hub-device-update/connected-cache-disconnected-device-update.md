@@ -6,7 +6,8 @@ author: andyrivMSFT
 ms.author: andyriv
 ms.date: 04/14/2023
 ms.topic: concept-article
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Understand support for disconnected device updates (preview)

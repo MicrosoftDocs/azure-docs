@@ -7,7 +7,8 @@ author: kgremban
 ms.author: kgremban
 ms.date: 09/21/2022
 ms.topic: how-to
-ms.service: iot-dps
+ms.service: azure-iot-hub
+ms.subservice: azure-iot-hub-dps
 ---
 
 # How to transfer payloads between devices and DPS

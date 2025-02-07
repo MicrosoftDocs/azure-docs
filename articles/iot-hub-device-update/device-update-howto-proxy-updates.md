@@ -5,7 +5,8 @@ author: eshashah
 ms.author: eshashah
 ms.date: 1/26/2022
 ms.topic: tutorial
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Tutorial: Complete a proxy update by using Device Update for Azure IoT Hub

@@ -1,13 +1,13 @@
 ---
 title: Platform code integrity - Azure Security
 description: Learn how Microsoft ensures that only authorized software is running.
-author: yosharm
+author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.author: terrylan
+ms.author: mbaldwin
 manager: rkarlin
-ms.date: 11/10/2022
+ms.date: 10/20/2024
 ---
 
 # Platform code integrity
@@ -47,8 +47,6 @@ All changes in Azure are required to deploy through a series of stages. The firs
 Even with this layered protection, it's still possible that some server in the fleet may block properly authorized software and cause a customer facing issue, one of our worst-case scenarios. Our final layer of defense is human investigation. Each time code integrity blocks a file, it raises an alert for the on-call engineers to investigate. The alert allows us to start security investigations and intervene, whether the issue is an indicator of a real attack, a false positive, or other customer-impacting situation. This minimizes the time it takes to mitigate any code integrity related issues.  
 
 ## Next steps
-
-Learn how [Windows 10](/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control) uses configurable code integrity.
 
 To learn more about what we do to drive platform integrity and security, see:
 

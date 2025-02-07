@@ -4,13 +4,15 @@ description: In part three of this three-part Azure SQL Edge tutorial for predic
 author: kendalvandyke
 ms.author: kendalv
 ms.reviewer: randolphwest
-ms.date: 09/14/2023
+ms.date: 09/21/2024
 ms.service: azure-sql-edge
 ms.topic: tutorial
 ---
 # Deploy ML model on Azure SQL Edge using ONNX
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 In part three of this three-part tutorial for predicting iron ore impurities in Azure SQL Edge, you'll:
@@ -70,6 +72,6 @@ In part three of this three-part tutorial for predicting iron ore impurities in 
 
 1. Set the kernel to Python 3.
 
-## Next steps
+## Related content
 
 - For more information on using ONNX models in Azure SQL Edge, see [Machine learning and AI with ONNX in SQL Edge](onnx-overview.md).

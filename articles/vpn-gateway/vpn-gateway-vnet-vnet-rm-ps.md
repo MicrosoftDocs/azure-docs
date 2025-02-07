@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 07/11/2024
+ms.date: 09/24/2024
 ms.author: cherylmc
 ---
 # Configure a VNet-to-VNet VPN gateway connection using PowerShell
@@ -398,7 +398,7 @@ In this example, because the gateways are in the different subscriptions, we've 
    PS D:\> $vnet1gw.Name
    VNet1GW
    PS D:\> $vnet1gw.Id
-   /subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroupsTestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
+   /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroupsTestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
    ```
 
 1. **[Subscription 5]** Get the virtual network gateway for Subscription 5. Sign in and connect to Subscription 5 before running the following example:
@@ -420,7 +420,7 @@ In this example, because the gateways are in the different subscriptions, we've 
    PS C:\> $vnet5gw.Name
    VNet5GW
    PS C:\> $vnet5gw.Id
-   /subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
+   /subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
    ```
 
 1. **[Subscription 1]** Create the TestVNet1 to TestVNet5 connection. In this step, you create the connection from TestVNet1 to TestVNet5. The difference here is that $vnet5gw can't be obtained directly because it is in a different subscription. You'll need to create a new PowerShell object with the values communicated from Subscription 1 in the previous steps. Use the following example. Replace the Name, ID, and shared key with your own values. The important thing is that the shared key must match for both connections. Creating a connection can take a short while to complete.
@@ -430,7 +430,7 @@ In this example, because the gateways are in the different subscriptions, we've 
    ```azurepowershell-interactive
    $vnet5gw = New-Object -TypeName Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
    $vnet5gw.Name = "VNet5GW"
-   $vnet5gw.Id   = "/subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW"
+   $vnet5gw.Id   = "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW"
    $Connection15 = "VNet1toVNet5"
    New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet5gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
    ```
@@ -442,7 +442,7 @@ In this example, because the gateways are in the different subscriptions, we've 
    ```azurepowershell-interactive
    $vnet1gw = New-Object -TypeName Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
    $vnet1gw.Name = "VNet1GW"
-   $vnet1gw.Id = "/subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW "
+   $vnet1gw.Id = "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW "
    $Connection51 = "VNet5toVNet1"
    New-AzVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
    ```

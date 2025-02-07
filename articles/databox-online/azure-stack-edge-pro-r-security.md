@@ -4,8 +4,7 @@ description: Describes the security and privacy features that protect your Azure
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 02/25/2022
 ms.author: alkohli

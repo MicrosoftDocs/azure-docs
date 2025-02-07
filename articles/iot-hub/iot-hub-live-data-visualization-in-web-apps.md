@@ -5,7 +5,7 @@ description: This tutorial uses a web application to visualize temperature and h
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: tutorial
 ms.date: 05/23/2023
 ms.custom: ['Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]
@@ -63,6 +63,8 @@ The service connection string should look similar to the following example:
 ```
 
 Note down the service connection string, you need it later in this tutorial.
+
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
 
 ## Download the web app from GitHub
 

@@ -243,7 +243,7 @@ This section shows the `CreatedOrUpdated` event generated when an Azure Storage 
   "data": {
     "resourceInfo": {
       "tags": {},
-      "id": "/subscriptions/{subcription-id}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storageAccount-name}",
+      "id": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storageAccount-name}",
       "name": "StorageAccount-name",
       "type": "Microsoft.Storage/storageAccounts",
       "location": "eastus",
@@ -320,7 +320,7 @@ This section shows the `CreatedOrUpdated` event generated when an Azure Storage 
   "data": {
     "resourceInfo": {
       "tags": {},
-      "id": "/subscriptions/{subcription-id}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storageAccount-name}",
+      "id": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storageAccount-name}",
       "name": "StorageAccount-name",
       "type": "Microsoft.Storage/storageAccounts",
       "location": "eastus",

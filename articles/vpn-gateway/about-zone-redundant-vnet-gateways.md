@@ -10,7 +10,7 @@ ms.author: cherylmc
 ---
 # About zone-redundant virtual network gateway in Azure availability zones
 
-This article helps you create a zone-redundant virtual network gateway in Azure availability zones. This brings resiliency, scalability, and higher availability to virtual network gateways. Deploying gateways in Azure availability zones physically and logically separates gateways within a region, while protecting your on-premises network connectivity to Azure from zone-level failures. For information, see  [About zone-redundant virtual network gateways](about-zone-redundant-vnet-gateways.md) and [What are Azure regions and availability zones?](../availability-zones/az-overview.md)
+This article helps you create a zone-redundant virtual network gateway in Azure availability zones. This brings resiliency, scalability, and higher availability to virtual network gateways. Deploying gateways in Azure availability zones physically and logically separates gateways within a region, while protecting your on-premises network connectivity to Azure from zone-level failures. For information, see  [About zone-redundant virtual network gateways](about-zone-redundant-vnet-gateways.md) and [What are Azure regions and availability zones?](../reliability/availability-zones-overview.md)
 
 ### <a name="zrgw"></a>Zone-redundant gateways
 
@@ -72,7 +72,7 @@ Yes, you can use the Azure portal to deploy these SKUs. However, you see these S
 
 ### What regions are available for me to use these SKUs?
 
-These SKUs are available in Azure regions that have Azure availability zones. For more information, see [Azure regions with availability zones](../availability-zones/az-region.md#azure-regions-with-availability-zones).
+These SKUs are available in Azure regions that have Azure availability zones. For more information, see [Azure regions with availability zones](../reliability/availability-zones-region-support.md).
 
 ### Can I change/migrate/upgrade my existing virtual network gateways to zone-redundant or zonal gateways?
 

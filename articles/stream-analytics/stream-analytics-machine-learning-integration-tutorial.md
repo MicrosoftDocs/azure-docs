@@ -70,7 +70,7 @@ In this step, you upload a CSV file to your storage container.
 
 Now that the sample data is in a blob, you can enable the sentiment analysis model in Cortana Intelligence Gallery.
 
-1. Go to the [predictive sentiment analytics model](https://gallery.cortanaintelligence.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) page in the Cortana Intelligence Gallery.  
+1. Go to the predictive sentiment analytics model page in the Cortana Intelligence Gallery.  
 
 2. Select **Open in Studio (classic)**.  
    

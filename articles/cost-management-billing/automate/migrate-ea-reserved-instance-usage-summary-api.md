@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Reserved Instance Usage Summary API.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/14/2024
+ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management

@@ -5,9 +5,10 @@ description: Query your DPS IP address and its properties. The IP address of you
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-dps
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 02/22/2022
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Device Provisioning Service IP addresses

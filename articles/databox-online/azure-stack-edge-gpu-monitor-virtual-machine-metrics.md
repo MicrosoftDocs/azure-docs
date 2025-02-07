@@ -4,8 +4,7 @@ description: Learn to monitor CPU, memory metrics for VMs on Azure Stack Edge Pr
 services: databox
 author: v-dalc
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 08/03/2021
 ms.author: alkohli

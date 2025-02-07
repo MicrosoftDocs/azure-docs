@@ -214,7 +214,7 @@ Here are a few important points:
 
 - Only properties on a message can be modified. 
 - All user properties can be modified. 
-- All publicly updatable system properties can also be modified, like `ReplyTo` and `CorreationId`, but we recommend that you don't alter system properties as part of a rule action. It's still allowed for backward compatibility reasons.
+- All publicly updatable system properties can also be modified, like `ReplyTo` and `CorrelationId`, but we recommend that you don't alter system properties as part of a rule action. It's still allowed for backward compatibility reasons.
 - When setting properties, only numeric, Boolean, and string literals are allowed. A string literal in turn is converted to a type based on the property being modified. If the property being set doesn't already exist, there's no type conversion from string. If the property being modified already exists and its value is one of these types `Guid`, `DateTimeOffset`, `TimeSpan`, `Uri`, `DateTime`, then the string literal is converted to that type and set as the property value. To be more specific, the action tries to convert the string literal to the type of property. If it's successful, the property is set. Otherwise, the rule action evaluation throws an exception and the message is dead-lettered.
 
 ## Next steps

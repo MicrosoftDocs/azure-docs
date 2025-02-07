@@ -7,7 +7,7 @@ ms.author: depadia
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: conceptual
-ms.date: 08/19/2024
+ms.date: 10/15/2024
 ---
 
 # FAQs for Virtual Machine Scale Set for SAP workload
@@ -50,7 +50,9 @@ You can enable managed system identity at the VM level after a VM is manually de
 
 ### How can I migrate my current Availability set or Availability zone deployment of SAP workload to flexible scale set with zonal deployment (FD=1)?
 
-To migrate SAP VMs to a flexible scale set, you need to re-create the VMs and the disks with zone constraints (if necessary) from existing resources. There's no direct way to migrate SAP workloads deployed in availability sets or availability zones to flexible scale with FD=1. An [open-source project](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/Move-VM-from-AvSet-to-AvZone/Move-Regional-SAP-HA-To-Zonal-SAP-HA-WhitePaper) includes PowerShell functions that you can use as a sample, and a [blog post](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/how-to-easily-migrate-an-existing-sap-system-vms-to-flexible/ba-p/3833548) shows you how to modify a HA or non-HA SAP system deployed in availability set or availability zone to flexible scale set with FD=1.
+To migrate SAP VMs deployed in availability set to a flexible scale set, you need to re-create the VMs and the disks with zone constraints (if necessary) from existing resources. There's no direct way to migrate SAP workloads deployed in availability sets to flexible scale with FD=1. An [open-source project](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/Move-VM-from-AvSet-to-AvZone/Move-Regional-SAP-HA-To-Zonal-SAP-HA-WhitePaper) includes PowerShell functions that you can use as a sample, and a [blog post](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/how-to-easily-migrate-an-existing-sap-system-vms-to-flexible/ba-p/3833548) shows you how to modify a HA or non-HA SAP system deployed in availability set to flexible scale set with FD=1.
+
+For VMs deployed in an availability zone, you can attach the VM directly to a scale set with FD=1 in the same zone. For example, if your VM is deployed in availability zone 1, you can attach it to a scale set FD=1 in the same zone. For more details on how to attach a VM to a scale set and the limitations, see [Attach or detach a Virtual Machine to or from a Virtual Machine Scale Set](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm)
 
 ### How can an existing deployment of SAP HANA configured with availability set pinning and proximity placement group, currently utilizing application volume group be migrated to flexible scale set with FD=1?
 

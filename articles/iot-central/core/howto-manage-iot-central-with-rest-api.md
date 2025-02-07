@@ -2,7 +2,7 @@
 title: Use the REST API to manage IoT Central applications
 description: This article describes how to create and manage your IoT Central applications with the REST API. Includes managing dashboards and file uploads.
 services: iot-central
-ms.service: iot-central
+ms.service: azure-iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/18/2024

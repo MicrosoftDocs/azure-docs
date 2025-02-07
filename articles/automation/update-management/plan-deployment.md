@@ -4,14 +4,14 @@ description: This article describes the considerations and decisions to be made 
 services: automation
 ms.subservice: update-management
 ms.custom: linux-related-content
-ms.date: 09/10/2024
+ms.date: 09/15/2024
 ms.topic: overview
 ms.service: azure-automation
 ---
 
 # Plan your Update Management deployment
 
-[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
+[!INCLUDE [./automation-update-management-retirement-announcement.md](../includes/automation-update-management-retirement-announcement.md)]
 
 ## Step 1: Automation account
 
@@ -33,7 +33,7 @@ The [Log Analytics agent](/azure/azure-monitor/agents/log-analytics-agent) for W
 
 On Azure VMs, if the Log Analytics agent isn't already installed, when you enable Update Management for the VM it is automatically installed using the Log Analytics VM extension for [Windows](/azure/virtual-machines/extensions/oms-windows) or [Linux](/azure/virtual-machines/extensions/oms-linux). The agent is configured to report to the Log Analytics workspace linked to the Automation account Update Management is enabled in.
 
-Non-Azure VMs or servers need to have the Log Analytics agent for Windows or Linux installed and reporting to the linked workspace. We recommend installing the Log Analytics agent for Windows or Linux by first connecting your machine to [Azure Arc-enabled servers](../../azure-arc/servers/overview.md), and then use Azure Policy to assign the [Deploy Log Analytics agent to Linux or Windows Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy definition. Alternatively, if you plan to monitor the machines with [VM insights](/azure/azure-monitor/vm/vminsights-overview), instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
+Non-Azure VMs or servers need to have the Log Analytics agent for Windows or Linux installed and reporting to the linked workspace. We recommend installing the Log Analytics agent for Windows or Linux by first connecting your machine to [Azure Arc-enabled servers](/azure/azure-arc/servers/overview), and then use Azure Policy to assign the [Deploy Log Analytics agent to Linux or Windows Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy definition. Alternatively, if you plan to monitor the machines with [VM insights](/azure/azure-monitor/vm/vminsights-overview), instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
 
 If you're enabling a machine that's currently managed by Operations Manager, a new agent isn't required. The workspace information is added to the agents configuration when you connect the management group to the Log Analytics workspace.
 

@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
+
+
+#Customer intent: As a security engineer, I want to export and import analytics rules using ARM templates so that I can manage and control my Microsoft Sentinel deployments as code.
+
 ---
 
 # Export and import analytics rules to and from ARM templates

@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure HDInsight
 description: Start here to learn how to monitor Azure HDInsight.
-ms.date: 03/21/2024
+ms.date: 10/15/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 ms.service: azure-hdinsight
@@ -28,10 +28,9 @@ For information about how to use Ambari for monitoring, see the following articl
 
 You can also monitor your HDInsight clusters directly in Azure. A new Azure Monitor integration, now in preview, lets you access **Insights**, **Logs**, and **Workbooks** from your HDInsight cluster without needing to invoke the Log Analytics workspace.
 
-To use the new Azure Monitor integration, enable it by selecting **Monitor integration** from the **Monitoring** section in the left menu of your HDInsight Azure portal page. You can also use PowerShell or Azure CLI to enable and interact with the new monitoring integration. For more information, see the following articles:
+To use the new Azure Monitor integration, enable it by selecting **Monitor integration** from the **Monitoring** section in the left menu of your HDInsight Azure portal page. You can also use PowerShell or Azure CLI to enable and interact with the new monitoring integration. For more information, see the following article:
 
-- [Use Azure Monitor logs to monitor HDInsight clusters](hdinsight-hadoop-oms-log-analytics-tutorial.md)
-- [Log Analytics migration guide for Azure HDInsight clusters](log-analytics-migration.md)
+- [Use Azure Monitor Agent to monitor HDInsight clusters](azure-monitor-agent.md)
 
 [!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
 

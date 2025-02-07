@@ -6,7 +6,10 @@ ms.author: bagol
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.date: 07/17/2024
-# customer intent: As an SAP admin, I want to know how to deploy the Microsoft Sentinel solution for SAP BTP so that I can plan a deployment.
+
+
+#Customer intent: As a security administrator, I want to deploy a monitoring solution for SAP BTP so that I can detect and respond to threats and suspicious activities in my SAP environment.
+
 ---
 
 # Deploy the Microsoft Sentinel solution for SAP BTP
@@ -100,7 +103,9 @@ You also can retrieve the logs via the UI:
 
 ## Rotate the BTP client secret
 
-We recommend that you periodically rotate the BPT subaccount client secrets. The following sample script demonstrates the process of updating an existing data connector with a new secret fetched from Azure Key Vault.
+We recommend that you periodically rotate the BTP subaccount client secrets. For an automated, platform-based approach, see our [Automatic SAP BTP trust store certificate renewal with Azure Key Vault – or how to stop thinking about expiry dates once and for all](https://community.sap.com/t5/technology-blogs-by-members/automatic-sap-btp-trust-store-certificate-renewal-with-azure-key-vault-or/ba-p/13565138) (SAP blog).
+
+The following sample script demonstrates the process of updating an existing data connector with a new secret fetched from Azure Key Vault.
 
 Before you start, collect the values you need for the scripts parameters, including:
 

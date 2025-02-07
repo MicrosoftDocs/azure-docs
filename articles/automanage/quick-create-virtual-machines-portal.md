@@ -12,7 +12,7 @@ ms.custom: mode-ui
 # Quickstart: Enable Azure Automanage for virtual machines in the Azure portal
 
 > [!CAUTION]
-> On 31 August 2024, both Automation Update Management and the Log Analytics agent it uses will be retired. Migrate to Azure Update Manager before that. Refer to guidance on migrating to Azure Update Manager [here](https://learn.microsoft.com/azure/update-manager/guidance-migration-automation-update-management-azure-update-manager?WT.mc_id=Portal-Microsoft_Azure_Automation). [Migrate Now](https://ms.portal.azure.com/).
+> On 31 August 2024, both Automation Update Management and the Log Analytics agent it uses will be retired. Migrate to Azure Update Manager before that. Refer to guidance on migrating to Azure Update Manager [here](/azure/update-manager/guidance-migration-automation-update-management-azure-update-manager?WT.mc_id=Portal-Microsoft_Azure_Automation). [Migrate Now](https://portal.azure.com/).
 
 Get started with Azure Automanage for virtual machines by using the Azure portal to enable automanagement on a new or existing virtual machine.
 
@@ -71,7 +71,7 @@ Quickly stop using Azure Automanage for virtual machines by disabling automanage
 
 1. Go to the **Automanage – Azure virtual machine best practices** page that lists all of your auto-managed VMs.
 1. Select the checkbox next to the virtual machine you want to disable.
-1. Click on the **Disable automanagent** button.
+1. Click on the **Disable automanagement** button.
 1. Read carefully through the messaging in the resulting pop-up before agreeing to **Disable**.
 
 

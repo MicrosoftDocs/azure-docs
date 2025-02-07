@@ -74,7 +74,7 @@ You can define rules on a subscription. A subscription rule has a **filter** to 
 ### Namespaces
 A namespace is a container for all messaging components (queues and topics). A namespace can have one or more queues and topics and it often serves as an application container.
 
-A namespace can be compared to a server in the terminology of other brokers, but the concepts aren't directly equivalent. A Service Bus namespace is your own capacity slice of a large cluster made up of dozens of all-active virtual machines. It optionally spans three [Azure availability zones](../availability-zones/az-overview.md). So, you get all the availability and robustness benefits of running the message broker at enormous scale. And, you don't need to worry about underlying complexities. Service Bus is serverless messaging.
+A namespace can be compared to a server in the terminology of other brokers, but the concepts aren't directly equivalent. A Service Bus namespace is your own capacity slice of a large cluster made up of dozens of all-active virtual machines. It optionally spans three [Azure availability zones](../reliability/availability-zones-overview.md). So, you get all the availability and robustness benefits of running the message broker at enormous scale. And, you don't need to worry about underlying complexities. Service Bus is serverless messaging.
 
 ## Advanced features
 
@@ -159,7 +159,7 @@ Service Bus fully integrates with many Microsoft and Azure services, for instanc
 * [Event Grid](service-bus-to-event-grid-integration-example.md)
 * [Logic Apps](../connectors/connectors-create-api-servicebus.md)
 * [Azure Functions](../azure-functions/functions-bindings-service-bus.md)
-* [Power Platform](../connectors/connectors-create-api-servicebus.md)
+* [Power Platform](/connectors/servicebus)
 * [Dynamics 365](/dynamics365/fin-ops-core/dev-itpro/business-events/how-to/how-to-servicebus)
 * [Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md)
 

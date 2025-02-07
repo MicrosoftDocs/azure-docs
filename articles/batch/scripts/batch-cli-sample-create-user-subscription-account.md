@@ -2,7 +2,7 @@
 title: Azure CLI Script Example - Create Batch account - user subscription | Microsoft Docs
 description: Learn how to create an Azure Batch account in user subscription mode. This account allocates compute nodes into your subscription.
 ms.topic: sample
-ms.date: 05/24/2022 
+ms.date: 06/24/2024
 ms.custom: devx-track-azurecli, seo-azure-cli
 keywords: batch, azure cli samples, azure cli examples, azure cli code samples
 ---

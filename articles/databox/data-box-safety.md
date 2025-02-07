@@ -4,8 +4,7 @@ description: Describes safety conventions, guidelines, and considerations, and e
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: pod
+ms.service: azure-databox
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: shaas

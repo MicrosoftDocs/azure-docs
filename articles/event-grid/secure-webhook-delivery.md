@@ -214,7 +214,7 @@ Back in **Tenant A**, do the following steps:
 
 ## Next steps
 
-* For conceptual information, see [WebHook event delivery](webhook-event-delivery.md).
+* For conceptual information, see [WebHook event delivery](end-point-validation-cloud-events-schema.md).
 * For information about monitoring event deliveries, see [Monitor Event Grid message delivery](monitor-event-delivery.md).
 * For more information about the authentication key, see [Event Grid security and authentication](security-authentication.md).
 * For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).

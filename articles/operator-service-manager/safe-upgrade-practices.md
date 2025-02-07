@@ -11,14 +11,14 @@ ms.service: azure-operator-service-manager
 # Get started with safe upgrade practices
 
 ## Overview 
-This article introduces Azure Operator Service Manager (AOSM) safe upgrade practices (SUP). This feature set enables an end user to safely execute complex upgrades of CNF workloads hosted on Azure Operator Nexus, in compliance with partner ISSU requirements, where applicable. Look for future articles in these services to expand on SUP features and capabilities.
+This article introduces Azure Operator Service Manager (AOSM) safe upgrade practices (SUP). This feature set enables an end user to safely execute complex upgrades of Container Network Function (CNF) workloads hosted on Azure Operator Nexus, in compliance with partner In Service Software Upgrade (ISSU) requirements, where applicable. Look for future articles in these services to expand on SUP features and capabilities.
 
 ## Introduction
 A given network service supported by Azure Operator Service Manager will be composed of one to many container based network functions (CNFs) which, over time, will require  software updates. For each  update, it is necessary to run one to many helm operations, upgrading dependent network function applications (NfApps), in a particular order, in a manner which least impacts the network service. At Azure Operator Service Manager, Safe Upgrade Practices represents a set of features, which can automate the CNF operations required to update a network service on Azure Operator Nexus.
   
 * SNS Reput update - Execute helm upgrade operation across all NfApps in NFDV.
 * Nexus Platform - Support SNS reput operations on Nexus platform targets. 
-* Operation Timeouts - Ability to set operational timeouts for each NfApp operation.
+* Operation Time-outs - Ability to set operational time-outs for each NfApp operation.
 * Synchronous Operations - Ability to run one serial NfApp operation at a time.
 * Pause On Failure - Based on flag, set failure behavior to rollback only last NfApp operation.
 * Single Chart Test Validation - Running a helm test operation after a create or update.
@@ -27,11 +27,13 @@ A given network service supported by Azure Operator Service Manager will be comp
 ## Upgrade approach
 To update an existing Azure Operator Service Manager site network service (SNS), the Operator executes a reput update request against the deployed SNS resource. Where the SNS contains CNFs with multiple NfApps, the request is fanned out across all NfApps defined in the network function definition version (NFDV). By default, in the order, which they appear, or optionally in the order defined by UpdateDependsOn parameter.
 
-For each NfApp, the reput update request supports increasing a helm chart version, adding/removing helm values and/or adding/removing any NfApps. Timeouts can be set per NfApp, based on known allowable runtimes, but NfApps can only be processed in serial order, one after the other. The reput update implements the following processing logic:
+For each NfApp, the reput update request supports increasing a helm chart version, adding/removing helm values and/or adding/removing any NfApps. Time-outs can be set per NfApp, based on known allowable runtimes, but NfApps can only be processed in serial order, one after the other. The reput update implements the following processing logic:
 
-* For an NFApp with applicationEnablement set to false, skip.
-* For an NFApp, which is common between old and new network function definition version (NFDV), trigger upgrade component.
-* For an NFApp, which is added in new NFDV, trigger create component.
+* NfApps are processed following either updateDependsOn ordering, or in the sequential order they appear.
+* NfApps with parameter "applicationEnabled" set to disable are skipped.
+* NFApps deployed, but not referenced by the new NFDV, are deleted.
+* NFApps which are common between old and new NFDV are upgraded.
+* NFApps which are only in the new NFDV are installed.
 
 To ensure outcomes, NfApp testing is supported using helm, either helm upgrade pre/post tests, or standalone helm tests. For pre/post tests failures, the atomic parameter is honored. With atomic/true, the failed chart is rolled back. With atomic/false, no rollback is executed. For standalone helm tests, the rollbackOnTestFailure parameter us honored. With rollbackOnTestFailure/true, the failed chart is rolled back. With rollbackOnTestFailure/false, no rollback is executed.
 
@@ -57,7 +59,7 @@ When planning for an upgrade using Azure Operator Service Manager, address the f
 ## Upgrade procedure
 Follow the following process to trigger an upgrade with Azure Operator Service Manager.
 
-### Create new NFDV template
+### Create new NFDV resource
 For new NFDV versions, it must be in a valid SemVer format, where only higher incrementing values of patch and minor versions updates are allowed. A lower NFDV version is not allowed. Given a CNF deployed using NFDV 2.0.0, the new NFDV can be of version 2.0.1, or 2.1.0, but not 1.0.0, or 3.0.0. 
 
 ### Update new NFDV parameters
@@ -67,7 +69,7 @@ Helm chart versions can be updated, or Helm values can be updated or parameteriz
 UpdateDependsOn is an NFDV parameter used to specify ordering of NfApps during update operations. If UpdateDependsOn is not provided, serial ordering of CNF applications, as appearing in the NFDV is used.
 
 ### Update NFDV for desired upgrade behavior
-Make sure to set any desired CNF application timeouts, the atomic parameter, and rollbackOnTestFailure parameter. It may be useful to change these parameters over time as more confidence is gained in the upgrade.
+Make sure to set any desired CNF application time-outs, the atomic parameter, and rollbackOnTestFailure parameter. It may be useful to change these parameters over time as more confidence is gained in the upgrade.
 
 ### Issue SNS reput
 With onboarding complete, the reput operation is submitted. Depending on the number, size and complexity of the NfApps, the reput operation could take some time to complete (multiple hours).
@@ -88,13 +90,251 @@ After fixing the failed NfApp, but before attempting an upgrade retry, consider 
 By default, the reput retries NfApps in the declared update order, unless they are skipped using applicationEnablement flag.
 
 ## How to use applicationEnablement
-In the NFDV resource, under deployParametersMappingRuleProfile there is the property applicationEnablement of type enum, which takes values: Unknown, Enabled, or disabled. It can be used to exclude NfApp operations during NF deployment.
+In the NFDV resource, under deployParametersMappingRuleProfile there is the property applicationEnablement of type enum, which takes values: Unknown, Enabled, or disabled. It can be used to exclude NfApp operations during network function (NF) deployment.
 
 ### Publisher changes
 For the applicationEnablement property, the publisher has two options: either provide a default value or parameterize it. 
 
+#### Sample NFDV
+The NFDV is used by publisher to set default values for applicationEnablement.
+
+```json
+{ 
+      "location":"<location>", 
+      "properties": {
+      "networkFunctionTemplate": {
+        "networkFunctionApplications": [
+          {
+            "artifactProfile": {
+              "helmArtifactProfile": { 
+                "var":"var"
+              },
+              "artifactStore": {
+                "id": "<artifactStore id>"
+              }
+            },
+            "deployParametersMappingRuleProfile": {
+              "helmMappingRuleProfile": {
+                "releaseNamespace": "{deployParameters.role1releasenamespace}",
+                "releaseName": "{deployParameters.role1releasename}"
+              },
+              "applicationEnablement": "Enabled"
+            },
+            "artifactType": "HelmPackage",
+            "dependsOnProfile": "null",
+            "name": "hellotest"
+          },
+          {
+            "artifactProfile": {
+              "helmArtifactProfile": {
+                 "var":"var"
+              },
+              "artifactStore": {
+                "id": "<artifactStore id>"
+              }
+            },
+            "deployParametersMappingRuleProfile": {
+              "helmMappingRuleProfile": {
+                "releaseNamespace": "{deployParameters.role2releasenamespace}",
+                "releaseName": "{deployParameters.role2releasename}"
+              },
+              "applicationEnablement": "Enabled"
+            },
+            "artifactType": "HelmPackage",
+            "dependsOnProfile": "null",
+            "name": "hellotest1"
+          }
+        ],
+        "nfviType": "AzureArcKubernetes"
+      },
+      "description": "null",
+      "deployParameters": {"type":"object","properties":{"role1releasenamespace":{"type":"string"},"role1releasename":{"type":"string"},"role2releasenamespace":{"type":"string"},"role2releasename":{"type":"string"}},"required":["role1releasenamespace","role1releasename","role2releasenamespace","role2releasename"]},
+      "networkFunctionType": "ContainerizedNetworkFunction"
+    }
+}
+```
+
+#### Sample configuration group schema (CGS) resource
+The CGS is used by the publisher to require a roleOverrideValues variable to be provided by Operator at run-time. RoleOverrideValues can include non-default settings for applicationEnablement.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "location": {
+      "type": "string"
+    },
+    "nfviType": {
+      "type": "string"
+    },
+    "nfdvId": {
+      "type": "string"
+    },
+    "helloworld-cnf-config": {
+      "type": "object",
+      "properties": {
+        "role1releasenamespace": {
+          "type": "string"
+        },
+        "role1releasename": {
+          "type": "string"
+        },
+        "role2releasenamespace": {
+          "type": "string"
+        },
+        "role2releasename": {
+          "type": "string"
+        },
+        "roleOverrideValues1": {
+          "type": "string"
+        },
+        "roleOverrideValues2": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "role1releasenamespace",
+        "role1releasename",
+        "role2releasenamespace",
+        "role2releasename",
+        "roleOverrideValues1",
+        "roleOverrideValues2"
+      ]
+    }
+  },
+  "required": [
+    "nfviType",
+    "nfdvId",
+    "location",
+    "helloworld-cnf-config"
+  ]
+}
+```
+
 ### Operator changes
-Operators specify applicationEnablement as defined by the NFDV. If applicationEnablement for specific application is parameterized, then it must be passed through the deploymentValues property at runtime. 
+Operators inherit default applicationEnablement values as defined by the NFDV. If applicationEnablement is parameterized in CGS, then it must be passed through the deploymentValues property at runtime. 
+ 
+#### Sample configuration group value (CGV) resource
+The CGV is used by the operator to set the roleOverrideValues variable at run-time. RoleOverrideValues include non-default settings for applicationEnablement.
+
+```json
+{
+  "location": "<location>",
+  "nfviType": "AzureArcKubernetes",
+  "nfdvId": "<nfdv_id>",
+  "helloworld-cnf-config": {
+    "role1releasenamespace": "hello-test-releasens",
+    "role1releasename": "hello-test-release",
+    "role2releasenamespace": "hello-test-2-releasens",
+    "role2releasename": "hello-test-2-release",
+    "roleOverrideValues1": "{\"name\":\"hellotest\",\"deployParametersMappingRuleProfile\":{\"applicationEnablement\":\"Enabled\",\"helmMappingRuleProfile\":{\"releaseName\":\"override-release\",\"releaseNamespace\":\"override-namespace\",\"helmPackageVersion\":\"1.0.0\",\"values\":\"\",\"options\":{\"installOptions\":{\"atomic\":\"true\",\"wait\":\"true\",\"timeout\":\"30\",\"injectArtifactStoreDetails\":\"true\"},\"upgradeOptions\":{\"atomic\":\"true\",\"wait\":\"true\",\"timeout\":\"30\",\"injectArtifactStoreDetails\":\"true\"}}}}}",
+    "roleOverrideValues2": "{\"name\":\"hellotest1\",\"deployParametersMappingRuleProfile\":{\"applicationEnablement\" : \"Enabled\"}}"
+  }
+}
+```
+
+#### Sample NF ARM template
+The NF ARM template is used by operator to submit the roleOverrideValues variable(s), set by CGV, to the resource provider (RP). The operator can change the applicationEnablement setting in CGV, as needed, and resubmit the same NF ARM template, to alter behavior between iterations.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "nameValue": {
+      "type": "string",
+      "defaultValue": "HelloWorld"
+    },
+    "locationValue": {
+      "type": "string",
+      "defaultValue": "eastus"
+    },
+    "nfviTypeValue": {
+      "type": "string",
+      "defaultValue": "AzureArcKubernetes"
+    },
+    "nfviIdValue": {
+      "type": "string"
+    },
+    "config": {
+      "type": "object",
+      "defaultValue": {}
+    },
+    "nfdvId": {
+      "type": "string"
+    }
+  },
+  "variables": {
+    "deploymentValuesValue": "[string(createObject('role1releasenamespace', parameters('config').role1releasenamespace, 'role1releasename',parameters('config').role1releasename, 'role2releasenamespace', parameters('config').role2releasenamespace, 'role2releasename',parameters('config').role2releasename))]",
+    "nfName": "[concat(parameters('nameValue'), '-CNF')]",
+    "roleOverrideValues1": "[string(parameters('config').roleOverrideValues1)]",
+    "roleOverrideValues2": "[string(parameters('config').roleOverrideValues2)]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.HybridNetwork/networkFunctions",
+      "apiVersion": "2023-09-01",
+      "name": "[variables('nfName')]",
+      "location": "[parameters('locationValue')]",
+      "properties": {
+        "networkFunctionDefinitionVersionResourceReference": {
+          "id": "[parameters('nfdvId')]",
+          "idType": "Open"
+        },
+        "nfviType": "[parameters('nfviTypeValue')]",
+        "nfviId": "[parameters('nfviIdValue')]",
+        "allowSoftwareUpdate": true,
+        "configurationType": "Open",
+        "deploymentValues": "[string(variables('deploymentValuesValue'))]",
+        "roleOverrideValues": [
+          "[variables('roleOverrideValues1')]",
+          "[variables('roleOverrideValues2')]"
+        ]
+      }
+    }
+  ]
+}
+```
+
+## How to skip NfApps which have no changes
+The SkipUpgrade feature is designed to optimize the time taken for CNF upgrades. When the publisher enables this flag in the `RoleOverrideValues` under `UpgradeOptions`, the AOSM service layer performs certain prechecks, to determine whether an upgrade for a specific `NFApplication` can be skipped. If all precheck criteria are met, the upgrade is skipped for that application. Otherwise, an upgrade is executed at the cluster level.
+
+### PreCheck Criteria
+An upgrade can be skipped if all the following conditions are met:
+1. The `NFApplication` provisioning state is Succeeded.
+2. There is no change in the Helm chart name or version.
+3. There is no change in the Helm values.
+
+### Enabling or Disabling the SkipUpgrade Feature
+The SkipUpgrade feature is **disabled by default**. If this optional parameter is not specified in `RoleOverrideValues` under `UpgradeOptions`, CNF upgrades proceed in the traditional manner, where the `NFApplications` are upgraded at the cluster level.
+
+#### Enabling SkipUpgrade withing Network Function Resource
+To enable the SkipUpgrade feature via `RoleOverrideValues`, refer to the following example.
+
+```json
+{
+    "location": "eastus2euap",
+    "properties": {
+        "publisherName": "xyAzureArcRunnerPublisher",
+        "publisherScope": "Private",
+        "networkFunctionDefinitionGroupName": "AzureArcRunnerNFDGroup",
+        "networkFunctionDefinitionVersion": "1.0.0",
+        "networkFunctionDefinitionOfferingLocation": "eastus2euap",
+        "nfviType": "AzureArcKubernetes",
+        "nfviId": "/subscriptions/4a0479c0-b795-4d0f-96fd-c7edd2a2928f/resourcegroups/ashutosh_test_rg/providers/microsoft.extendedlocation/customlocations/ashutosh_test_cl",
+        "deploymentValues": "",
+        "roleOverrideValues": [
+            "{\"name\":\"hellotest\",\"deployParametersMappingRuleProfile\":{\"helmMappingRuleProfile\":{\"options\":{\"installOptions\":{\"atomic\":\"true\",\"wait\":\"true\",\"timeout\":\"1\"},\"upgradeOptions\":{\"atomic\":\"true\",\"wait\":\"true\",\"timeout\":\"4\",\"skipUpgrade\":\"true\"}}}}}",
+            "{\"name\":\"runnerTest\",\"deployParametersMappingRuleProfile\":{\"helmMappingRuleProfile\":{\"options\":{\"installOptions\":{\"atomic\":\"true\",\"wait\":\"true\",\"timeout\":\"5\"},\"upgradeOptions\":{\"atomic\":\"true\",\"wait\":\"true\",\"timeout\":\"5\"}}}}}"
+        ]
+    }
+}
+```
+#### Explanation of the Example
+- **NfApplication: `hellotest`**
+  - The `skipUpgrade` flag is enabled. If the upgrade request for `hellotest` meets the precheck criteria, the upgrade will be skipped at the service level.
+- **NfApplication: `runnerTest`**
+  - The `skipUpgrade` flag is not specified. Therefore, `runnerTest` executes a traditional Helm upgrade at the cluster level, even if the precheck criteria are met.
 
 ## Support for in service upgrades
 Azure Operator Service Manager, where possible, supports in service upgrades, an upgrade method which advances a deployment version without interrupting the service. However, the ability for a given service to be upgraded without interruption is a feature of the service itself. Consult further with the service publisher to understand the in-service upgrade capabilities.

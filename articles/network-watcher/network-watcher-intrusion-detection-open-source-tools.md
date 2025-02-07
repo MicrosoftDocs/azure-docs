@@ -6,7 +6,7 @@ ms.author: halkazwini
 author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 07/30/2024
+ms.date: 10/16/2024
 ---
 
 # Perform network intrusion detection by using Azure Network Watcher and open-source tools

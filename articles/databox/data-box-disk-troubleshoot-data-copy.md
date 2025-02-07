@@ -4,8 +4,7 @@ description: Describes how to troubleshoot issues seen during data copy in Azure
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: disk
+ms.service: azure-data-box-disk
 ms.custom: linux-related-content
 ms.topic: troubleshooting
 ms.date: 06/13/2019

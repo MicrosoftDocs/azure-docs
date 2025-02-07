@@ -14,6 +14,9 @@ A nested deployment runs secondary Azure Resource Manager (ARM) templates from w
 
 Decomposing a deployment into a set of targeted, purpose-specific templates provides testing, reuse, and readability benefits. For general information about nested templates, including code samples, see [Using linked and nested templates when deploying Azure resources](../azure-resource-manager/templates/linked-templates.md).
 
+
+[!INCLUDE [direct-azure-deployment-environments](includes/direct-azure-deployment-environments.md)]  
+
 ## Deploy nested templates with Visual Studio
 
 The Azure Resource Group project template in Visual Studio makes it easy to develop and debug ARM templates. When you add a nested template to the main *azuredeploy.json* template file, Visual Studio adds the following items to make the template more flexible:

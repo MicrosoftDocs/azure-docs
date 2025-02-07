@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -100,12 +100,18 @@ Azure service: [Azure Policy](/azure/governance/policy/overview), [Azure RBAC](/
 > | Microsoft.Authorization/policyDefinitions/read | Get information about a policy definition. |
 > | Microsoft.Authorization/policyDefinitions/write | Create a custom policy definition. |
 > | Microsoft.Authorization/policyDefinitions/delete | Delete a policy definition. |
+> | Microsoft.Authorization/policyDefinitions/versions/read | Get information about a policy definition version. |
+> | Microsoft.Authorization/policyDefinitions/versions/write | Create a custom policy definition version. |
+> | Microsoft.Authorization/policyDefinitions/versions/delete | Delete a policy definition version. |
 > | Microsoft.Authorization/policyExemptions/read | Get information about a policy exemption. |
 > | Microsoft.Authorization/policyExemptions/write | Create a policy exemption at the specified scope. |
 > | Microsoft.Authorization/policyExemptions/delete | Delete a policy exemption at the specified scope. |
 > | Microsoft.Authorization/policySetDefinitions/read | Get information about a policy set definition. |
 > | Microsoft.Authorization/policySetDefinitions/write | Create a custom policy set definition. |
 > | Microsoft.Authorization/policySetDefinitions/delete | Delete a policy set definition. |
+> | Microsoft.Authorization/policySetDefinitions/versions/read | Get information about a policy set definition version. |
+> | Microsoft.Authorization/policySetDefinitions/versions/write | Create a custom policy set definition version. |
+> | Microsoft.Authorization/policySetDefinitions/versions/delete | Delete a policy set definition version. |
 > | Microsoft.Authorization/providerOperations/read | Get operations for all resource providers which can be used in role definitions. |
 > | Microsoft.Authorization/roleAssignments/read | Get information about a role assignment. |
 > | Microsoft.Authorization/roleAssignments/write | Create a role assignment at the specified scope. |
@@ -138,7 +144,6 @@ Azure service: [Automation](/azure/automation/)
 > | --- | --- |
 > | Microsoft.Automation/register/action | Registers the subscription to Azure Automation |
 > | Microsoft.Automation/automationAccounts/convertGraphRunbookContent/action | Convert Graph Runbook Content to its raw serialized format and vice-versa |
-> | Microsoft.Automation/automationAccounts/webhooks/action | Generates a URI for an Azure Automation webhook |
 > | Microsoft.Automation/automationAccounts/read | Gets an Azure Automation account |
 > | Microsoft.Automation/automationAccounts/write | Creates or updates an Azure Automation account |
 > | Microsoft.Automation/automationAccounts/listKeys/action | Reads the Keys for the automation account |
@@ -299,6 +304,7 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/associatedTenants/read | Lists the associated tenants that can collaborate with the billing account on commerce activities like viewing and downloading invoices, managing payments, making purchases, and managing or provisioning licenses. |
 > | Microsoft.Billing/billingAccounts/associatedTenants/write | Create or update an associated tenant for the billing account. |
 > | Microsoft.Billing/billingAccounts/availableBalance/read | The Available Credit or Payment on Account Balance for a billing account.<br>The credit balance can be used to settle due or past due invoices and is supported for billing accounts with agreement type Microsoft Customer Agreement.<br>The payment on account balance is supported for billing accounts with agreement type Microsoft Customer Agreement or Microsoft Online Services Program. |
+> | Microsoft.Billing/billingAccounts/billingPeriods/read | Lists the valid Billing Periods for a Billing Account. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/billingPermissions/read | Lists the billing permissions the caller has on a billing account. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/read | Lists the billing profiles that a user has access to. The operation is supported for billing accounts with agreement of type Microsoft Customer Agreement and Microsoft Partner Agreement. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/write | Creates or updates a billing profile.<br>The operation is supported for billing accounts with agreement type Microsoft Customer Agreement, Microsoft Partner Agreement and Enterprise Agreement.<br>If you are a MCA Individual (Pay-as-you-go) customer, then please use the Azure portal experience to create the billing profile. |
@@ -307,6 +313,7 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/action |  |
 > | Microsoft.Billing/billingAccounts/billingProfiles/alerts/read | Lists the alerts for a billing profile. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/availableBalance/read | The Available Credit or Payment on Account Balance for a billing profile.<br>The credit balance can be used to settle due or past due invoices and is supported for billing accounts with agreement type Microsoft Customer Agreement.<br>The payment on account balance is supported for billing accounts with agreement type Microsoft Customer Agreement. |
+> | Microsoft.Billing/billingAccounts/billingProfiles/billingPeriods/read | Lists the valid Billing Periods for a Billing Profile. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/billingPermissions/read | Lists the billing permissions the caller has on a billing profile. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/billingProviders/register/write | Registers a resource provider with Microsoft.Billing at billing profile scope. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/billingProviders/unregister/write | Unregisters a resource provider with Microsoft.Billing at billing profile scope. |
@@ -331,11 +338,14 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/billingProfiles/customers/resolveBillingRoleAssignments/write | Lists the role assignments for the caller on a customer while fetching user info for each role assignment. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/customers/transactions/read | Lists the billed or unbilled transactions by customer id for given start date and end date.<br>Transactions include purchases, refunds and Azure usage charges.<br>Unbilled transactions are listed under pending invoice Id and do not include tax.<br>Tax is added to the amount once an invoice is generated. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/departments/read | Lists the departments that a user has access to. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
+> | Microsoft.Billing/billingAccounts/billingProfiles/departments/billingPeriods/read | Lists the valid Billing Periods  by billing profile ID and department name. The operation is supported only for Departments under billing profiles with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/departments/billingPermissions/read |  |
 > | Microsoft.Billing/billingAccounts/billingProfiles/departments/billingRoleDefinitions/read | Gets the definition for a role on a department. The operation is supported for billing profiles with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/departments/billingSubscriptions/read | List billing subscriptions by billing profile ID and department name. This operation is supported only for billing accounts of type Enterprise Agreement. |
-> | Microsoft.Billing/billingAccounts/billingProfiles/departments/enrollmentAccounts/read | Get list of enrollment accounts using billing profile ID and department ID |
+> | Microsoft.Billing/billingAccounts/billingProfiles/departments/enrollmentAccounts/read | Get list of enrollment accounts using billing |
+> | Microsoft.Billing/billingAccounts/billingProfiles/departments/enrollmentAccounts/billingPeriods/read | Lists the valid Billing Periods for an Enrollment Account under Department under Billing Profile. The operation is supported only for enrollment profiles under billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/enrollmentAccounts/read | Lists the enrollment accounts for a specific billing account and a billing profile belonging to it. |
+> | Microsoft.Billing/billingAccounts/billingProfiles/enrollmentAccounts/billingPeriods/read | Lists the valid Billing Periods for an Enrollment Account under Billing Profile. The operation is supported only for billing profiles under billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/enrollmentAccounts/billingPermissions/read |  |
 > | Microsoft.Billing/billingAccounts/billingProfiles/enrollmentAccounts/billingSubscriptions/read | List billing subscriptions by billing profile ID and enrollment account name. This operation is supported only for billing accounts of type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/invoices/download/action |  |
@@ -392,6 +402,7 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/billingSubscriptions/cancel/write | Cancels a usage-based subscription. This operation is supported only for billing accounts of type Microsoft Partner Agreement. |
 > | Microsoft.Billing/billingAccounts/billingSubscriptions/downloadDocuments/write | Gets a URL to download multiple invoice documents (invoice pdf, tax receipts, credit notes) as a zip file. |
 > | Microsoft.Billing/billingAccounts/billingSubscriptions/enable/write | Enable an azure billing subscription. |
+> | Microsoft.Billing/billingAccounts/billingSubscriptions/extendTrial/write | Extends the end date of subscription's term for a trial product by one month. |
 > | Microsoft.Billing/billingAccounts/billingSubscriptions/invoices/read | Lists the invoices for a subscription. |
 > | Microsoft.Billing/billingAccounts/billingSubscriptions/invoices/download/write | Gets a URL to download an invoice by billing subscription. |
 > | Microsoft.Billing/billingAccounts/billingSubscriptions/merge/write | Merges the billing subscription provided in the request with a target billing subscription. |
@@ -417,6 +428,7 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/departments/read | Lists the departments that a user has access to. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/departments/write |  |
 > | Microsoft.Billing/billingAccounts/departments/addEnrollmentAccount/write |  |
+> | Microsoft.Billing/billingAccounts/departments/billingPeriods/read | Lists the valid Billing Periods for a Department. The operation is supported only for Departments under billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/departments/billingPermissions/read | Lists the billing permissions the caller has for a department. |
 > | Microsoft.Billing/billingAccounts/departments/billingRoleAssignments/write | Create or update a billing role assignment. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/departments/billingRoleAssignments/read | Gets a role assignment for the caller on a department. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
@@ -425,12 +437,14 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/departments/checkAccess/write | Provides a list of check access response objects for a department. |
 > | Microsoft.Billing/billingAccounts/departments/enrollmentAccounts/read | Lists the enrollment accounts for a department. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/departments/enrollmentAccounts/write |  |
+> | Microsoft.Billing/billingAccounts/departments/enrollmentAccounts/billingPeriods/read | Lists the valid Billing Periods for an Enrollment Account under Department. The operation is supported only for enrollment accounts under billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/departments/enrollmentAccounts/remove/write |  |
 > | Microsoft.Billing/billingAccounts/downloadDocuments/write | Gets a URL to download multiple invoice documents (invoice pdf, tax receipts, credit notes) as a zip file. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement. |
 > | Microsoft.Billing/billingAccounts/enrollmentAccounts/read | Lists the enrollment accounts for a billing account. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/enrollmentAccounts/write |  |
 > | Microsoft.Billing/billingAccounts/enrollmentAccounts/activate/write |  |
 > | Microsoft.Billing/billingAccounts/enrollmentAccounts/activationStatus/read |  |
+> | Microsoft.Billing/billingAccounts/enrollmentAccounts/billingPeriods/read | Lists the valid Billing Periods for an Enrollment Account. The operation is supported only for enrollment accounts under billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/enrollmentAccounts/billingPermissions/read | Lists the billing permissions the caller has for an enrollment account. |
 > | Microsoft.Billing/billingAccounts/enrollmentAccounts/billingRoleAssignments/write | Create or update a billing role assignment. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/enrollmentAccounts/billingRoleAssignments/read | Gets a role assignment for the caller on a enrollment Account. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
@@ -443,14 +457,16 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/invoices/read | Lists the invoices for a billing account for a given start date and end date. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement, or Microsoft Online Services Program. |
 > | Microsoft.Billing/billingAccounts/invoices/amend/write | Regenerate an invoice by billing account name and invoice name. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement. |
 > | Microsoft.Billing/billingAccounts/invoices/download/write | Gets a URL to download an invoice document. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement. |
+> | Microsoft.Billing/billingAccounts/invoices/downloadSummary/write | Gets a URL to download the summary document for an invoice. The operation is supported for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/invoices/pricesheet/download/action |  |
-> | Microsoft.Billing/billingAccounts/invoices/summaryDownload/write | Gets a URL to download the summary document for an invoice. The operation is supported for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/invoices/transactions/read | Lists the transactions for an invoice. Transactions include purchases, refunds and Azure usage charges. |
 > | Microsoft.Billing/billingAccounts/invoices/transactionsDownload/write | Gets a URL to download the transactions document for an invoice. The operation is supported for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/invoices/transactionSummary/read | Gets the transaction summary for an invoice. Transactions include purchases, refunds and Azure usage charges. |
 > | Microsoft.Billing/billingAccounts/invoiceSections/write |  |
 > | Microsoft.Billing/billingAccounts/invoiceSections/elevate/action |  |
 > | Microsoft.Billing/billingAccounts/invoiceSections/read |  |
+> | Microsoft.Billing/billingAccounts/licenseReservations/read | Lists the license reservations for VL Online Services. This operation is supported for billing accounts of type Enterprise Agreement to list license reservations under Volume Licensing (VL). |
+> | Microsoft.Billing/billingAccounts/licenseReservations/write | Creates the license reservation for VL Online Services. This operation is supported for billing accounts of type Enterprise Agreement to create license reservations under Volume Licensing (VL). |
 > | Microsoft.Billing/billingAccounts/listBillingProfilesWithViewPricesheetPermissions/read |  |
 > | Microsoft.Billing/billingAccounts/listProductRecommendations/write | Lists ProductIds or offerIds recommended for purchase on an account. Please specify the type of the cohort for the billing account in the 'x-ms-recommendations-cohort-type' header as a required string parameter. |
 > | Microsoft.Billing/billingAccounts/notificationContacts/read | Lists the NotificationContacts for the given billing account. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
@@ -476,9 +492,40 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/invoices/read |  |
 > | Microsoft.Billing/invoices/download/action | Download invoice using download link from list |
 > | Microsoft.Billing/operations/read | List of operations supported by provider. |
+> | Microsoft.Billing/paymentMethods/read | Lists the payment methods owned by the caller. |
+> | Microsoft.Billing/paymentMethods/write | Deletes a payment method owned by the caller. |
 > | Microsoft.Billing/policies/read | Lists the policies that are managed by the Billing Admin for the defined subscriptions. This is supported for Microsoft Online Services Program, Microsoft Customer Agreement and Microsoft Partner Agreement. |
 > | Microsoft.Billing/promotions/read | List or get promotions |
 > | Microsoft.Billing/validateAddress/write |  |
+
+## Microsoft.BillingBenefits
+
+Azure service: [Azure savings plans](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.BillingBenefits/savingsPlanOrders/action | Update a Savings plan order |
+> | Microsoft.BillingBenefits/register/action | Registers the BillingBenefits resource provider and enables the creation of BillingBenefits resources. |
+> | Microsoft.BillingBenefits/credits/read | Read all Credits |
+> | Microsoft.BillingBenefits/credits/write | Create or update a Credit |
+> | Microsoft.BillingBenefits/credits/delete | Delete a Credit |
+> | Microsoft.BillingBenefits/credits/cancel/action | Cancel a Credit |
+> | Microsoft.BillingBenefits/credits/sources/read | Read all Sources |
+> | Microsoft.BillingBenefits/credits/sources/write | Create or update a Source |
+> | Microsoft.BillingBenefits/credits/sources/delete | Delete a Source |
+> | Microsoft.BillingBenefits/maccs/read | Read all MACCs |
+> | Microsoft.BillingBenefits/maccs/write | Create a MACC |
+> | Microsoft.BillingBenefits/maccs/delete | Delete a MACC |
+> | Microsoft.BillingBenefits/maccs/cancel/action | Cancel a MACC |
+> | Microsoft.BillingBenefits/maccs/chargeShortfall/action | Charge shortfall on MACC |
+> | Microsoft.BillingBenefits/maccs/contributors/read | Get all Contributors |
+> | Microsoft.BillingBenefits/savingsPlanOrderAliases/read | Read all savings plan order aliases |
+> | Microsoft.BillingBenefits/savingsPlanOrderAliases/write | Create a Savings plan order alias |
+> | Microsoft.BillingBenefits/savingsPlanOrders/read | Read all savings plan orders |
+> | Microsoft.BillingBenefits/savingsPlanOrders/write | Create a savings plan orders |
+> | Microsoft.BillingBenefits/savingsPlanOrders/savingsPlans/read | Read All SavingsPlans |
+> | Microsoft.BillingBenefits/savingsPlanOrders/savingsPlans/write | Patch an existing Savings plan |
 
 ## Microsoft.Blueprint
 
@@ -517,7 +564,8 @@ Azure service: [Azure carbon optimization](/azure/carbon-optimization/overview)
 > | Microsoft.Carbon/queryCarbonEmissionDataAvailableDateRange/action | API for query carbon emission data available date range |
 > | Microsoft.Carbon/register/action | Register the subscription for Microsoft.Carbon |
 > | Microsoft.Carbon/unregister/action | Unregister the subscription for Microsoft.Carbon |
-> | Microsoft.Carbon/operations/read | read operations |
+> | Microsoft.Carbon/carbonEmissionReports/read | API for Carbon Emissions Reports |
+> | Microsoft.Carbon/Operations/read | read Operations |
 
 ## Microsoft.Consumption
 
@@ -575,6 +623,7 @@ Azure service: [Cost Management](/azure/cost-management-billing/)
 > | Microsoft.CostManagement/views/action | Create view. |
 > | Microsoft.CostManagement/forecast/action | Forecast usage data by a scope. |
 > | Microsoft.CostManagement/calculateCost/action | Calculate cost for provided product codes. |
+> | Microsoft.CostManagement/scheduledActions/action | Run scheduled action. |
 > | Microsoft.CostManagement/alerts/write | Update alerts. |
 > | Microsoft.CostManagement/alerts/read | List alerts. |
 > | Microsoft.CostManagement/benefitRecommendations/read | List  single or shared recommendations for Microsoft benefits. |
@@ -608,10 +657,35 @@ Azure service: [Cost Management](/azure/cost-management-billing/)
 > | Microsoft.CostManagement/query/read | Query usage data by a scope. |
 > | Microsoft.CostManagement/reports/read | Schedule reports on usage data by a scope. |
 > | Microsoft.CostManagement/reservationDetailsOperationResults/read | Gets Microsoft Reserved Instances utilization summaries asynchronous operation results. |
+> | Microsoft.CostManagement/scheduledActions/read | List all scheduled actions. |
+> | Microsoft.CostManagement/scheduledActions/delete | Delete scheduled action. |
+> | Microsoft.CostManagement/scheduledActions/write | Create or update scheduled action. |
+> | Microsoft.CostManagement/scheduledActions/execute/action | Run scheduled action. |
 > | Microsoft.CostManagement/tenants/register/action | Register action for scope of Microsoft.CostManagement by a tenant. |
 > | Microsoft.CostManagement/views/read | List all saved views. |
 > | Microsoft.CostManagement/views/delete | Delete saved views. |
 > | Microsoft.CostManagement/views/write | Update view. |
+
+## Microsoft.CustomerLockbox
+
+Interface for customers to review and approve or reject customer data access requests.
+
+Azure service: [Customer Lockbox for Microsoft Azure](/azure/security/fundamentals/customer-lockbox-overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.CustomerLockbox/register/action | Register Provider Microsoft.CustomerLockbox |
+> | Microsoft.CustomerLockbox/operations/read | Read Lockbox Operations |
+> | Microsoft.CustomerLockbox/requests/UpdateApproval/action | Update Approval Microsoft.CustomerLockbox |
+> | Microsoft.CustomerLockbox/requests/read | Read Lockbox Request |
+> | Microsoft.CustomerLockbox/requests/activitylog/CreateLockboxRequest/action | Create Lockbox Request |
+> | Microsoft.CustomerLockbox/requests/activitylog/ApproveLockboxRequest/action | Approve Lockbox Request |
+> | Microsoft.CustomerLockbox/requests/activitylog/DenyLockboxRequest/action | Deny Lockbox Request |
+> | Microsoft.CustomerLockbox/requests/activitylog/ExpireLockboxRequest/action | Expire Lockbox Request |
+> | Microsoft.CustomerLockbox/requests/activitylog/CancelLockboxRequest/action | Cancel Lockbox Request |
+> | Microsoft.CustomerLockbox/requests/activitylog/AutoApproveLockboxRequest/action | AutoApprove Lockbox Request |
+> | Microsoft.CustomerLockbox/requests/activitylog/AutoDenyLockboxRequest/action | AutoDeny Lockbox Request |
 
 ## Microsoft.Features
 
@@ -816,12 +890,16 @@ Azure service: [Site Recovery](/azure/site-recovery/)
 > | Microsoft.RecoveryServices/Locations/backupValidateFeatures/action | Validate Features |
 > | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocateStamp is internal operation used by service |
 > | Microsoft.RecoveryServices/locations/checkNameAvailability/action | Check Resource Name Availability is an API to check if resource name is available |
+> | Microsoft.RecoveryServices/locations/capabilities/action | List capabilities at a given location. |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp is internal operation used by service |
 > | Microsoft.RecoveryServices/Locations/backupAadProperties/read | Get AAD Properties for authentication in the third region for Cross Region Restore. |
 > | Microsoft.RecoveryServices/Locations/backupCrrOperationResults/read | Returns CRR Operation Result for Recovery Services Vault. |
 > | Microsoft.RecoveryServices/Locations/backupCrrOperationsStatus/read | Returns CRR Operation Status for Recovery Services Vault. |
 > | Microsoft.RecoveryServices/Locations/backupProtectedItem/write | Create a backup Protected Item |
 > | Microsoft.RecoveryServices/Locations/backupProtectedItems/read | Returns the list of all Protected Items. |
+> | Microsoft.RecoveryServices/locations/deletedVaults/read | The Get DeletedVault operation gets an object representing the Azure resource of type 'DeletedVault' |
+> | Microsoft.RecoveryServices/locations/deletedVaults/undelete/action | Undelete DeletedVault operation re-creates an Azure resource of type 'vault'. |
+> | Microsoft.RecoveryServices/locations/deletedVaults/operations/read | Gets operation status for a given DeletedVault operation |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Gets Operation Status for a given Operation |
 > | Microsoft.RecoveryServices/operations/read | Operation returns the list of Operations for a Resource Provider |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Export Jobs |
@@ -831,6 +909,7 @@ Azure service: [Site Recovery](/azure/site-recovery/)
 > | Microsoft.RecoveryServices/Vaults/write | Create Vault operation creates an Azure resource of type 'vault' |
 > | Microsoft.RecoveryServices/Vaults/read | The Get Vault operation gets an object representing the Azure resource of type 'vault' |
 > | Microsoft.RecoveryServices/Vaults/delete | The Delete Vault operation deletes the specified Azure resource of type 'vault' |
+> | Microsoft.RecoveryServices/Vaults/PrivateEndpointConnectionsApproval/action | Approve the Private Endpoint Connection. |
 > | Microsoft.RecoveryServices/Vaults/backupconfig/read | Returns Configuration for Recovery Services Vault. |
 > | Microsoft.RecoveryServices/Vaults/backupconfig/write | Updates Configuration for Recovery Services Vault. |
 > | Microsoft.RecoveryServices/Vaults/backupDeletedProtectionContainers/read | Returns all containers belonging to the subscription |
@@ -864,6 +943,7 @@ Azure service: [Site Recovery](/azure/site-recovery/)
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Get Recovery Points for Protected Items. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Restore Recovery Points for Protected Items. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Revoke Instant Item Recovery for Protected Item |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/write | Update Recovery Point for Protected Item. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/cancel/action | Cancel the Job |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/read | Returns all Job Objects |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/retry/action | Retry the Job |
@@ -898,7 +978,6 @@ Azure service: [Site Recovery](/azure/site-recovery/)
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/read | The Get Extended Info operation gets an object's Extended Info representing the Azure resource of type ?vault? |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/write | The Get Extended Info operation gets an object's Extended Info representing the Azure resource of type ?vault? |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/delete | The Get Extended Info operation gets an object's Extended Info representing the Azure resource of type ?vault? |
-> | Microsoft.RecoveryServices/Vaults/locations/capabilities/action | List capabilities at a given location. |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Gets the alerts for the Recovery services vault. |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/write | Resolves the alert. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/read | Gets the Recovery services vault notification configuration. |
@@ -948,6 +1027,7 @@ Azure service: [Site Recovery](/azure/site-recovery/)
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/write | Create or Update any Protection Containers |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/remove/action | Remove Protection Container |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/switchprotection/action | Switch Protection Container |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/switchClusterProtection/action |  |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/operationresults/read | Track the results of an asynchronous operation on the resource Protection Containers |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/read | Read any Migration Items |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/write | Create or Update any Migration Items |
@@ -983,6 +1063,15 @@ Azure service: [Site Recovery](/azure/site-recovery/)
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/operationresults/read | Track the results of an asynchronous operation on the resource Protected Items |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Read any Replication Recovery Points |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/targetComputeSizes/read | Read any Target Compute Sizes |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionClusters/read | Read any  |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionClusters/delete | Delete any  |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionClusters/unplannedFailover/action |  |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionClusters/testFailover/action |  |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionClusters/testFailoverCleanup/action |  |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionClusters/applyRecoveryPoint/action |  |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionClusters/failoverCommit/action |  |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionClusters/repairReplication/action |  |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionClusters/operationresults/read | Track the results of an asynchronous operation on the resource  |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/read | Read any Protection Container Mappings |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/write | Create or Update any Protection Container Mappings |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/remove/action | Remove Protection Container Mapping |
@@ -1182,6 +1271,7 @@ Azure service: [Azure Managed Applications](/azure/azure-resource-manager/manage
 > | --- | --- |
 > | Microsoft.Solutions/register/action | Register the subscription for Microsoft.Solutions |
 > | Microsoft.Solutions/unregister/action | Unregister the subscription for Microsoft.Solutions |
+> | Microsoft.Solutions/portalRegistryPackage/action | Generates the registry package links for Managed Applications and Solution Templates. |
 > | Microsoft.Solutions/applicationDefinitions/read | Gets the managed application definition. |
 > | Microsoft.Solutions/applicationDefinitions/write | Creates or updates a managed application definition. |
 > | Microsoft.Solutions/applicationDefinitions/delete | Deletes the managed application definition. |
@@ -1207,6 +1297,157 @@ Azure service: [Azure Managed Applications](/azure/azure-resource-manager/manage
 > | Microsoft.Solutions/locations/operationstatuses/read | read operationstatuses |
 > | Microsoft.Solutions/locations/operationstatuses/write | write operationstatuses |
 > | Microsoft.Solutions/operations/read | read operations |
+
+## Microsoft.Workloads
+
+Azure service: [SAP on Azure](/azure/sap/)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.Workloads/register/action | Register the subscription for Microsoft.Workloads |
+> | Microsoft.Workloads/unregister/action | Unregister the subscription for Microsoft.Workloads |
+> | Microsoft.Workloads/connectors/read | Gets a connector resource |
+> | Microsoft.Workloads/connectors/write | Creates a connector resource |
+> | Microsoft.Workloads/connectors/delete | Deletes a connector resource and its child resources, which are the associated connection resources. All the child resources have to be deleted before deleting the connector resource. |
+> | Microsoft.Workloads/connectors/write | Updates a connector resource |
+> | Microsoft.Workloads/connectors/read | Gets all connector resources in a Resource Group. |
+> | Microsoft.Workloads/connectors/read | Gets all connector resources in a Subscription. |
+> | Microsoft.Workloads/connectors/acssBackups/read | Gets the backup connection resource of virtual instance for SAP. |
+> | Microsoft.Workloads/connectors/acssBackups/write | Creates the backup connection resource of virtual instance for SAP. |
+> | Microsoft.Workloads/connectors/acssBackups/delete | Deletes the backup connection resource of virtual instance for SAP. |
+> | Microsoft.Workloads/connectors/acssBackups/write | Updates the backup connection resource of virtual instance for SAP. <br><br>This can be used to update tags on the resource. |
+> | Microsoft.Workloads/connectors/acssBackups/read | Lists the backup connection resources of virtual instance for SAP under the given connector resource. |
+> | Microsoft.Workloads/connectors/sapVirtualInstanceMonitors/read | Gets the monitor connection resource of virtual instance for SAP. |
+> | Microsoft.Workloads/connectors/sapVirtualInstanceMonitors/write | Creates the monitor connection resource of virtual instance for SAP. |
+> | Microsoft.Workloads/connectors/sapVirtualInstanceMonitors/delete | Deletes the monitor connection resource of virtual instance for SAP. |
+> | Microsoft.Workloads/connectors/sapVirtualInstanceMonitors/write | Updates the monitor connection resource of virtual instance for SAP. <br><br>This can be used to update tags on the resource. |
+> | Microsoft.Workloads/connectors/sapVirtualInstanceMonitors/read | Lists the monitor connection resources of virtual instance for SAP under the given connector resource. |
+> | Microsoft.Workloads/insights/read | Gets properties of Workloads Insights instance for the specified subscription, resource group and instance name. |
+> | Microsoft.Workloads/insights/read | Gets a list of Workloads Insight instances in the specified subscription and resource group. The operations returns various properties of each instance. |
+> | Microsoft.Workloads/insights/read | Gets a list of Workloads Insight instances in the specified subscription. The operations returns various properties of each instance. |
+> | Microsoft.Workloads/insights/write | Creates a Workloads Insights instance for the specified subscription, resource group, and instance name. |
+> | Microsoft.Workloads/insights/delete | Deletes a Workloads Insights instance for the specified subscription, resource group and instance name. |
+> | Microsoft.Workloads/insights/write | Patches the Workload Insights instance for the specified subscription, resource group, and instance name. |
+> | Microsoft.Workloads/instanceGroupMonitors/read | Gets a Instance Group Monitor. |
+> | Microsoft.Workloads/instanceGroupMonitors/write | Creates a Instance Group Monitor. |
+> | Microsoft.Workloads/instanceGroupMonitors/delete | Deletes a Instance Group Monitor. |
+> | Microsoft.Workloads/instanceGroupMonitors/write | Updates a Instance Group Monitor. |
+> | Microsoft.Workloads/instanceGroupMonitors/read | Gets all Instance Group Monitors in a resource group. |
+> | Microsoft.Workloads/instanceGroupMonitors/read | Gets all Instance Group Monitors in a subscription. |
+> | Microsoft.Workloads/instanceHealthDefinitions/read | Gets a Instance Health Definition. |
+> | Microsoft.Workloads/instanceHealthDefinitions/write | Creates a Instance Health Definition. |
+> | Microsoft.Workloads/instanceHealthDefinitions/delete | Deletes a Instance Health Definition. |
+> | Microsoft.Workloads/instanceHealthDefinitions/write | Updates a Instance Health Definition. |
+> | Microsoft.Workloads/instanceHealthDefinitions/read | Gets all Instance Health Definitions in a resource group. |
+> | Microsoft.Workloads/instanceHealthDefinitions/read | Gets all Instance Health Definitions in a subscription. |
+> | Microsoft.Workloads/instanceHealthDefinitions/signalDefinitions/read | Gets a Signal Definition. |
+> | Microsoft.Workloads/instanceHealthDefinitions/signalDefinitions/write | Creates a Instance Health Definition. |
+> | Microsoft.Workloads/instanceHealthDefinitions/signalDefinitions/delete | Deletes a Signal Definition. |
+> | Microsoft.Workloads/instanceHealthDefinitions/signalDefinitions/write | Updates a Signal Definition. |
+> | Microsoft.Workloads/instanceHealthDefinitions/signalDefinitions/read | Gets all Signal Definitions under a Health Definition. |
+> | Microsoft.Workloads/instanceMonitors/read | Gets a Instance Monitor. |
+> | Microsoft.Workloads/instanceMonitors/write | Creates a Instance Monitor. |
+> | Microsoft.Workloads/instanceMonitors/delete | Deletes a Instance Monitor. |
+> | Microsoft.Workloads/instanceMonitors/write | Updates a Instance Monitor. |
+> | Microsoft.Workloads/instanceMonitors/read | Gets all Instance Monitors in a resource group. |
+> | Microsoft.Workloads/instanceMonitors/read | Gets all Instance Monitors in a subscription. |
+> | Microsoft.Workloads/Locations/OperationStatuses/read | read OperationStatuses |
+> | Microsoft.Workloads/Locations/OperationStatuses/write | write OperationStatuses |
+> | Microsoft.Workloads/locations/sapVirtualInstanceMetadata/getSizingRecommendations/action | Get SAP sizing recommendations. |
+> | Microsoft.Workloads/locations/sapVirtualInstanceMetadata/getSapSupportedSku/action | Get SAP supported SKUs. |
+> | Microsoft.Workloads/locations/sapVirtualInstanceMetadata/getDiskConfigurations/action | Get SAP Disk Configurations. |
+> | Microsoft.Workloads/locations/sapVirtualInstanceMetadata/getAvailabilityZoneDetails/action | Get SAP Availability Zone Details. |
+> | Microsoft.Workloads/monitors/read | Gets a list of SAP monitors in the specified subscription. The operations returns various properties of each SAP monitor. |
+> | Microsoft.Workloads/monitors/read | Gets a list of SAP monitors in the specified resource group. |
+> | Microsoft.Workloads/monitors/read | Gets properties of a SAP monitor for the specified subscription, resource group, and resource name. |
+> | Microsoft.Workloads/monitors/write | Creates a SAP monitor for the specified subscription, resource group, and resource name. |
+> | Microsoft.Workloads/monitors/delete | Deletes a SAP monitor with the specified subscription, resource group, and monitor name. |
+> | Microsoft.Workloads/monitors/write | Patches the Tags field of a SAP monitor for the specified subscription, resource group, and monitor name. |
+> | Microsoft.Workloads/monitors/alerts/read | Gets a list of alert instances in the specified SAP monitor. The operations returns various properties of each provider instances. |
+> | Microsoft.Workloads/monitors/alerts/read | Gets properties of a alert for the specified subscription, resource group, Monitor name, and resource name. |
+> | Microsoft.Workloads/monitors/alerts/write | Creates a alert for the specified subscription, resource group, Monitor name, and resource name. |
+> | Microsoft.Workloads/monitors/alerts/delete | Deletes a alert for the specified subscription, resource group, Monitor name, and resource name. |
+> | Microsoft.Workloads/monitors/alertTemplates/read | Gets properties of an alert template for the specified subscription, resource group, SAP monitor name, and resource name. |
+> | Microsoft.Workloads/monitors/alertTemplates/read | Gets properties of a alert for the specified subscription, resource group, Monitor name, and resource name. |
+> | Microsoft.Workloads/monitors/providerInstances/read | Gets a list of provider instances in the specified SAP monitor. The operations returns various properties of each provider instances. |
+> | Microsoft.Workloads/monitors/providerInstances/read | Gets properties of a provider instance for the specified subscription, resource group, Monitor name, and resource name. |
+> | Microsoft.Workloads/monitors/providerInstances/write | Creates a provider instance for the specified subscription, resource group, Monitor name, and resource name. |
+> | Microsoft.Workloads/monitors/providerInstances/delete | Deletes a provider instance for the specified subscription, resource group, Monitor name, and resource name. |
+> | Microsoft.Workloads/monitors/sapLandscapeMonitor/read | Gets a list of properties of a SAP Landscape monitor configuration for the specified subscription, resource group, and resource name. |
+> | Microsoft.Workloads/monitors/sapLandscapeMonitor/read | Gets properties of a SAP Landscape monitor configuration for the specified subscription, resource group, and resource name. |
+> | Microsoft.Workloads/monitors/sapLandscapeMonitor/write | Creates a SAP Landscape monitor configuration for the specified subscription, resource group, and resource name. |
+> | Microsoft.Workloads/monitors/sapLandscapeMonitor/delete | Deletes a SAP Landscape monitor configuration with the specified subscription, resource group, and monitor name. |
+> | Microsoft.Workloads/Operations/read | read Operations |
+> | Microsoft.Workloads/phpWorkloads/read | Lists phpWorkload resources in a subscription |
+> | Microsoft.Workloads/phpWorkloads/read | Lists phpWorkload resources in a resource group |
+> | Microsoft.Workloads/phpWorkloads/read | Gets a phpWorkload resource |
+> | Microsoft.Workloads/phpWorkloads/write | Create or updated phpWorkloads resource |
+> | Microsoft.Workloads/phpWorkloads/delete | Delete phpWorkloads resource |
+> | Microsoft.Workloads/phpWorkloads/write | Update PHP workload resource. |
+> | Microsoft.Workloads/phpWorkloads/wordpressInstances/read | Lists WordpressInstances resources under a phpWorkload resource |
+> | Microsoft.Workloads/phpWorkloads/wordpressInstances/read | Gets a WordpressInstances resource |
+> | Microsoft.Workloads/phpWorkloads/wordpressInstances/write | Create or updated WordpressInstances resource |
+> | Microsoft.Workloads/phpWorkloads/wordpressInstances/delete | Delete WordpressInstances resource |
+> | Microsoft.Workloads/RegisteredSubscriptions/read | Reads registered subscriptions |
+> | Microsoft.Workloads/sapDiscoverySites/read | Gets a SAP Migration discovery site resource. |
+> | Microsoft.Workloads/sapDiscoverySites/write | Creates a discovery site for SAP Migration. |
+> | Microsoft.Workloads/sapDiscoverySites/delete | Deletes a SAP Migration discovery site resource and its child resources, that is the associated SAP Instances and Server Instances. |
+> | Microsoft.Workloads/sapDiscoverySites/write | SAPDiscoverySites_Update. |
+> | Microsoft.Workloads/sapDiscoverySites/read | Gets all SAP Migration discovery site resources in a Resource Group. |
+> | Microsoft.Workloads/sapDiscoverySites/read | Gets all SAP Migration discovery site resources in a Subscription. |
+> | Microsoft.Workloads/sapDiscoverySites/importEntities/action | Import a SAP Migration discovery site resource and it's child resources, that is the SAP instances and Server instances. |
+> | Microsoft.Workloads/sapDiscoverySites/sapInstances/read | Gets the SAP Instance resource. |
+> | Microsoft.Workloads/sapDiscoverySites/sapInstances/write | Creates the SAP Instance resource. <br><br>This will be used by service only. PUT operation on this resource by end user will return a Bad Request error. |
+> | Microsoft.Workloads/sapDiscoverySites/sapInstances/delete | Deletes the SAP Instance resource. <br><br>This will be used by service only. Delete operation on this resource by end user will return a Bad Request error. You can delete the parent resource, which is the SAP Migration discovery site resource, using the delete operation on it. |
+> | Microsoft.Workloads/sapDiscoverySites/sapInstances/write | Updates the SAP Instance resource. |
+> | Microsoft.Workloads/sapDiscoverySites/sapInstances/read | Lists the SAP Instance resources for the given SAP Migration discovery site resource. |
+> | Microsoft.Workloads/sapDiscoverySites/sapInstances/serverInstances/read | Gets the Server Instance resource. |
+> | Microsoft.Workloads/sapDiscoverySites/sapInstances/serverInstances/write | Creates the Server Instance resource. <br><br>This will be used by service only. PUT operation on this resource by end user will return a Bad Request error. |
+> | Microsoft.Workloads/sapDiscoverySites/sapInstances/serverInstances/delete | Deletes the Server Instance resource. <br><br>This will be used by service only. Delete operation on this resource by end user will return a Bad Request error. You can delete the parent resource, which is the SAP Migration discovery site resource, using the delete operation on it. |
+> | Microsoft.Workloads/sapDiscoverySites/sapInstances/serverInstances/write | Updates the Server Instance resource. This operation on a resource by end user will return a Bad Request error. |
+> | Microsoft.Workloads/sapDiscoverySites/sapInstances/serverInstances/read | Lists the Server Instance resources for the given SAP Instance resource. |
+> | Microsoft.Workloads/sapVirtualInstances/read | Gets an SAP Virtual Instance. |
+> | Microsoft.Workloads/sapVirtualInstances/write | Creates an SAP Virtual Instance. |
+> | Microsoft.Workloads/sapVirtualInstances/delete | Deletes an SAP Virtual Instance. |
+> | Microsoft.Workloads/sapVirtualInstances/write | Updates an SAP Virtual Instance. |
+> | Microsoft.Workloads/sapVirtualInstances/read | Gets all SAP Virtual Instances in a resource group. |
+> | Microsoft.Workloads/sapVirtualInstances/read | Gets all SAP Virtual Instances in the subscription. |
+> | Microsoft.Workloads/sapVirtualInstances/start/action | Starts the SAP System. |
+> | Microsoft.Workloads/sapVirtualInstances/stop/action | Stops the SAP System. |
+> | Microsoft.Workloads/sapVirtualInstances/applicationInstances/read | Gets the SAP Application Server Instance. |
+> | Microsoft.Workloads/sapVirtualInstances/applicationInstances/write | Puts the SAP Application Server Instance. |
+> | Microsoft.Workloads/sapVirtualInstances/applicationInstances/delete | Deletes the SAP Application Server Instance. <br><br>This operation will be used by service only. Delete by end user will return a Bad Request error. |
+> | Microsoft.Workloads/sapVirtualInstances/applicationInstances/write | Puts the SAP Application Server Instance. |
+> | Microsoft.Workloads/sapVirtualInstances/applicationInstances/read | Lists the SAP Application server Instances in an SVI. |
+> | Microsoft.Workloads/sapVirtualInstances/applicationInstances/start/action | Starts the SAP Application server Instance in an SVI. |
+> | Microsoft.Workloads/sapVirtualInstances/applicationInstances/stop/action | Stops the SAP Application server Instance in an SVI. |
+> | Microsoft.Workloads/sapVirtualInstances/centralInstances/read | Gets the SAP Central Instance. |
+> | Microsoft.Workloads/sapVirtualInstances/centralInstances/write | Puts the SAP Central Instance. <br><br>This will be used by service only. PUT by end user will return a Bad Request error. |
+> | Microsoft.Workloads/sapVirtualInstances/centralInstances/delete | Deletes the SAP Central Instance. <br><br>This will be used by service only. Delete by end user will return a Bad Request error. |
+> | Microsoft.Workloads/sapVirtualInstances/centralInstances/write | Updates the SAP Central Instance. <br><br>This can be used to update tags. |
+> | Microsoft.Workloads/sapVirtualInstances/centralInstances/read | Lists the SAP Central Instances in an SVI. |
+> | Microsoft.Workloads/sapVirtualInstances/centralInstances/start/action | Starts the SAP Central server Instance in an SVI. |
+> | Microsoft.Workloads/sapVirtualInstances/centralInstances/stop/action | Stops the SAP Central server Instance in an SVI. |
+> | Microsoft.Workloads/sapVirtualInstances/databaseInstances/read | Gets the SAP Database Instance. |
+> | Microsoft.Workloads/sapVirtualInstances/databaseInstances/write | Puts the SAP Database Instance. |
+> | Microsoft.Workloads/sapVirtualInstances/databaseInstances/delete | Deletes the SAP Database Instance. <br><br>This will be used by service only. Delete by end user will return a Bad Request error. |
+> | Microsoft.Workloads/sapVirtualInstances/databaseInstances/write | Puts the SAP Database Instance. |
+> | Microsoft.Workloads/sapVirtualInstances/databaseInstances/read | Lists the SAP Database Instances in an SVI. |
+> | Microsoft.Workloads/sapVirtualInstances/databaseInstances/start/action | Starts the database instance of the SAP system. |
+> | Microsoft.Workloads/sapVirtualInstances/databaseInstances/stop/action | Stops the database instance of the SAP system. |
+> | Microsoft.Workloads/skus/read | Gets the list of Microsoft.Workloads SKUs available for your Subscription |
+> | Microsoft.Workloads/virtualInstances/read | Gets a Virtual Instance. |
+> | Microsoft.Workloads/virtualInstances/write | Creates a Virtual Instance. |
+> | Microsoft.Workloads/virtualInstances/delete | Deletes a Virtual Instance. |
+> | Microsoft.Workloads/virtualInstances/write | Updates a Virtual Instance. |
+> | Microsoft.Workloads/virtualInstances/read | Gets all Virtual Instances in a resource group. |
+> | Microsoft.Workloads/virtualInstances/read | Gets all Virtual Instances in a subscription. |
+> | Microsoft.Workloads/virtualInstances/components/read | Gets a Workload Component. |
+> | Microsoft.Workloads/virtualInstances/components/write | Creates a Workload Component. |
+> | Microsoft.Workloads/virtualInstances/components/delete | Deletes a Workload Component. |
+> | Microsoft.Workloads/virtualInstances/components/write | Updates a Workload Component. |
+> | Microsoft.Workloads/virtualInstances/components/read | Gets all Workload Components in a Virtual Instance. |
 
 ## Next steps
 

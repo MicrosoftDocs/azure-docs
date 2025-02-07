@@ -4,8 +4,7 @@ description: Learn how to add and connect to local and Edge storage accounts on 
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 03/12/2021
 ms.author: alkohli

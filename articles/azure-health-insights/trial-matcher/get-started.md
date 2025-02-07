@@ -37,7 +37,7 @@ To submit a request to the Trial Matcher, you need to make a POST request to the
 In the example below the patients are matches to the ```Clinicaltrials_gov``` source, for a ```lung cancer``` condition with facility locations for the city ```Orlando```. 
 
 ```http
-POST https://{your-cognitive-service-endpoint}/healthinsights/trialmatcher/jobs?api-version=2022-01-01-preview
+PUT https://{your-cognitive-service-endpoint}/health-insights/trial-matcher/jobs/id?api-version=2024-08-01-preview
 Content-Type: application/json
 Ocp-Apim-Subscription-Key: {your-cognitive-services-api-key}
 {

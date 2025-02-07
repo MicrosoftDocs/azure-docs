@@ -90,7 +90,7 @@ IBM Db2 for SAP NetWeaver Applications is supported on any VM type listed in SAP
 Following is a baseline configuration for various sizes and uses of SAP on Db2 deployments from small to x-large.  
 
 >[!IMPORTANT]
-> The VM types listed below are examples that meet the vCPU and memory critiera of each of the categories. The storage configuration is based on Azure premium storage v1. Premium SSD v2 and Azure Ultra disk is fully supported with IBM Db2 as well and can be used for deployments. Use the values for capacity, burst throughput, and burst IOPS to define the Ultra disk or Premium SSD v2 configuration. You can limit the IOPS for the /db2/```<SID>```/log_dir at around 5000 IOPS. Adjust the throughput and IOPS to the specific workload if these baseline recommendations don't meet the requirements
+> The VM types listed below are examples that meet the vCPU and memory criteria of each of the categories. The storage configuration is based on Azure premium storage v1. Premium SSD v2 and Azure Ultra disk is fully supported with IBM Db2 as well and can be used for deployments. Use the values for capacity, burst throughput, and burst IOPS to define the Ultra disk or Premium SSD v2 configuration. You can limit the IOPS for the /db2/```<SID>```/log_dir at around 5000 IOPS. Adjust the throughput and IOPS to the specific workload if these baseline recommendations don't meet the requirements
 
 #### Extra small SAP system: database size 50 - 200 GB: example Solution Manager
 | VM Size / Examples |Db2 mount point |Azure Premium Disk |# of Disks |IOPS |Through-<br />put [MB/s] |Size [GB] |Burst IOPS |Burst Through-<br />put [GB] | Stripe size | Caching |

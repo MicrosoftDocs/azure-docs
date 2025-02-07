@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 07/30/2024
 ms.custom: devx-track-azurecli
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up Azure PostgreSQL databases using Azure CLI
@@ -37,7 +37,7 @@ az dataprotection backup-vault create -g testBkpVaultRG --vault-name TestBkpVaul
   "eTag": null,
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/testBkpVaultRG/providers/Microsoft.DataProtection/BackupVaults/TestBkpVault",
   "identity": {
-    "principalId": "2ca1d5f7-38b3-4b61-aa45-8147d7e0edbc",
+    "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
     "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "type": "SystemAssigned"
   },

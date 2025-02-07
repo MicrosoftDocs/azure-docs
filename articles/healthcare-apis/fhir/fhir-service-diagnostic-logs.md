@@ -21,11 +21,11 @@ Access to diagnostic logs is essential for any healthcare service. Compliance wi
 
 3. Select **+ Add diagnostic settings**.
 
-   [ ![Screenshot of the diagnostic settings page in the Azure portal.](media/diagnostic-logs/fhir-diagnostic-settings-screen.png) ](media/diagnostic-logs/fhir-diagnostic-settings-screen.png#lightbox)
+   [![Screenshot of the diagnostic settings page in the Azure portal.](media/diagnostic-logs/fhir-diagnostic-settings-screen.png) ](media/diagnostic-logs/fhir-diagnostic-settings-screen.png#lightbox)
 
 4. Enter the **Diagnostic setting name**.
  
-   [ ![Screenshot of the destination details and the checkbox for enabling or disabling audit logs.](media/diagnostic-logs/fhir-diagnostic-settings-add.png) ](media/diagnostic-logs/fhir-diagnostic-settings-add.png#lightbox)
+   [![Screenshot of the destination details and the checkbox for enabling or disabling audit logs.](media/diagnostic-logs/fhir-diagnostic-settings-add.png) ](media/diagnostic-logs/fhir-diagnostic-settings-add.png#lightbox)
 
 5. Select the method that you want to use to access your logs:
 

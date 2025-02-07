@@ -4,7 +4,7 @@ description: This article describes how to configure IoT Hub to egress to truste
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 08/24/2021
 ms.custom: ['Role: Cloud Development']

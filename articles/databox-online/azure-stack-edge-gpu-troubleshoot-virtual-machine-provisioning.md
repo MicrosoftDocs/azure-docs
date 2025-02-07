@@ -4,8 +4,7 @@ description: Describes how to troubleshoot issues that occur when provisioning a
 services: databox
 author: v-dalc
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: troubleshooting
 ms.date: 08/16/2024
 ms.author: alkohli

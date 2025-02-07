@@ -80,7 +80,7 @@ The Android ecosystem is extensive, encompassing various versions and specialize
 > [!NOTE]
 > We **only support video calls on phones and tablets**. For use cases involving video on non-standard devices or platforms (such as smart glasses or custom devices), we suggest [contacting us](https://github.com/Azure/communication) early in your development process to help determine the most suitable integration approach.
 
-In case that you found issues during your implementation we encourage you to visit [the troubleshooting guide](./troubleshooting-info.md?#accessing-support-files-in-the-calling-sdk).
+In case that you found issues during your implementation we encourage you to visit [the troubleshooting guide](./troubleshooting-info.md?#access-support-files-in-the-calling-sdk).
 
 #### iOS Calling SDK support
 

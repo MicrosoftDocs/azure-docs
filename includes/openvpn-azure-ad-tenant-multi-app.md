@@ -9,7 +9,7 @@
  ms.author: cherylmc
  ms.custom: include file
 
- # this file is used for both virtual wan and vpn gateway. When modifying, make sure that your changes work for both environments.
+ # this file is used for both virtual wan and vpn gateway. When modifying, make sure that your changes work for both environments. Note that the client IDs listed in the article are not sensitive data.
 ---
 
 <a name='a-nametenanta1-create-the-azure-ad-tenant'></a>

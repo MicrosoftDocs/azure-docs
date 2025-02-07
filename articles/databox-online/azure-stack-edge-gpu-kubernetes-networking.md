@@ -4,8 +4,7 @@ description: Describes how Kubernetes networking works on an Azure Stack Edge Pr
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 09/27/2021
 ms.author: alkohli

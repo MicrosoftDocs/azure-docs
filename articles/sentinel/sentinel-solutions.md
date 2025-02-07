@@ -8,6 +8,10 @@ ms.author: cwatson
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal.
+
+
+#Customer intent: As a security operations center (SOC) analyst, I want to understand the types of SIEM content and solutions available so that I can determine whether Microsoft Sentinel meets my organization's requirements.
+
 ---
 
 # About Microsoft Sentinel content and solutions

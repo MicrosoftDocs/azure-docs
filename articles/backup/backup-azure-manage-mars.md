@@ -3,11 +3,11 @@ title: Manage and monitor MARS Agent backups
 description: Learn how to manage and monitor Microsoft Azure Recovery Services (MARS) Agent backups by using the Azure Backup service.
 ms.reviewer: srinathv
 ms.topic: how-to
-ms.date: 11/07/2023
+ms.date: 11/27/2024
 ms.service: azure-backup
 ms.custom: engagement-fy23
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Manage Microsoft Azure Recovery Services (MARS) Agent backups by using the Azure Backup service
 
@@ -26,6 +26,8 @@ When you modify backup policy, you can add new items, remove existing items from
 - **Exclusion Settings** use this option to exclude specific items from being backed up.
 
 ### Add new items to existing policy
+
+To add new items to existing policy, follow these steps:
 
 1. In **Actions**, select **Schedule Backup**.
 
@@ -53,13 +55,15 @@ When you modify backup policy, you can add new items, remove existing items from
 
 You can add exclusion rules to skip files and folders that you don't want to be backed up. You can do this during when defining a new policy or modifying an existing policy.
 
+To add exclusion rules to an existing policy, follow these steps:
+
 1. From the Actions pane, select **Schedule Backup**. Go to **Select items to Backup** and select **Exclusion Settings**.
 
     ![Screenshot shows the exclusion settings.](./media/backup-azure-manage-mars/select-exclusion-settings.png)
 
 2. In **Exclusion Settings**, select **Add Exclusion**.
 
-    ![Screenshow shows how to add exclusion.](./media/backup-azure-manage-mars/add-exclusion.png)
+    ![Screenshot shows how to add exclusion.](./media/backup-azure-manage-mars/add-exclusion.png)
 
 3. From **Select Items to Exclude**, browse the files and folders and select items that you want to exclude and select **OK**.
 
@@ -75,7 +79,7 @@ You can add exclusion rules to skip files and folders that you don't want to be 
 
 1. From the Actions pane, select **Schedule Backup**. Go to **Select items to Backup**. From the list, select the files and folders that you want to remove from backup schedule and select **Remove items**.
 
-    ![Screenshow shows how to select the items to remove.](./media/backup-azure-manage-mars/select-items-remove.png)
+    ![Screenshot shows how to select the items to remove.](./media/backup-azure-manage-mars/select-items-remove.png)
 
     > [!NOTE]
     > Proceed with caution when you completely remove a volume from the policy.  If you need to add it again, then it will be treated as a new volume. The next scheduled backup will perform an Initial Backup (full backup) instead of Incremental Backup. If you need to temporarily remove and add items later, then it's recommended to use **Exclusions Settings** instead of **Remove Items** to ensure incremental backup instead of full backup.
@@ -103,6 +107,8 @@ There are three ways to stop protecting Files and Folders backup:
 
 ### Stop protection and retain backup data
 
+To stop protecting your data and retain backup data, follow these steps:
+
 1. Open the MARS management console, go to the **Actions pane**, and **select Schedule Backup**.
 
     ![Screenshot shows how to select schedule backup.](./media/backup-azure-manage-mars/mars-actions.png)
@@ -118,6 +124,8 @@ There are three ways to stop protecting Files and Folders backup:
 1. In **Modify backup progress**, check your schedule backup pause is in success status and select **close** to finish.
 
 ### Stop protection and delete backup data
+
+To stop protecting your data and delete backup data, follow these steps:
 
 1. Open the MARS management console, go to the **Actions** pane, and select **Schedule Backup**.
 2. From the **Modify or Stop a Scheduled Backup** page, select **Stop using this backup schedule and delete all the stored backups**. Then, select **Next**.
@@ -145,7 +153,7 @@ After you delete the on-premises backup items, follow the next steps from the po
 
 ### Stop protection and retain backup data by policy
 
-Follow these steps:
+To stop protecting your data and retain backup data by policy, follow these steps:
 
 1. Open the *MARS management* console, go to the **Actions** pane, and then select **Schedule Backup**.
 2. On the **Select Policy Item** page, select **Modify a backup schedule for your files and folders** > **Next**.
@@ -163,6 +171,8 @@ Follow these steps:
 ## Re-enable protection
 
 If you stopped protection while retaining data and decided to resume protection, then you can re-enable the backup schedule using modify backup policy.
+
+To resume protection, follow these steps:
 
 1. On **Actions** select **Schedule backup**.
 1. Select **Re-enable backup schedule. You can also modify backup items or times** and select **Next**.<br>
@@ -311,7 +321,8 @@ To monitor backup data usage and daily churn, follow these steps:
 Learn more about [other report tabs](configure-reports.md) and receiving those [reports through email](backup-reports-email.md).
 
 ## List recovery points for a data source
-Follow these steps:
+
+To list recovery points for a data source, follow these steps:
 
 1. On the **MARS agent console**, go to **Status Pane**.
 1. Under **Available Recovery Points**, select **View Details** to list all available recovery points.

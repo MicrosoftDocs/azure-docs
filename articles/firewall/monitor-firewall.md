@@ -2,8 +2,8 @@
 title: Monitor Azure Firewall
 description: You can monitor Azure Firewall using firewall logs. You can also use activity logs to audit operations on Azure Firewall resources.
 ms.date: 08/08/2024
-ms.custom: horz-monitor, FY23 content-maintenance
-ms.topic: conceptual
+ms.custom: horz-monitor
+ms.topic: concept-article
 author: vhorne
 ms.author: victorh
 ms.service: azure-firewall
@@ -42,6 +42,20 @@ You can also connect to your storage account and retrieve the JSON log entries f
 > If you are familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from GitHub.
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
+
+## Change tracking (Preview)  
+
+Azure Resource Graph (ARG) is an Azure service designed to provide efficient and performant resource exploration at scale.  Azure Resource Graph (ARG) provides change analysis data for various management and troubleshooting scenarios. Users can find when changes were detected on an Azure Resource Manager (ARM) property, view property change details and query changes at scale across their subscription, management group, or tenant.  
+
+ARG change analysis recently added support for RuleCollectionGroups. You can now track changes to Azure Firewall Rule Collection Groups using an Azure Resource Graph query from the Azure Portal ResourceGraphExplorer page using a query like this:  
+
+:::image type="content" source="media/monitor-firewall/query.png" alt-text="Screenshot of the Azure Resource Graph query to track changes to Azure Firewall Rule Collection Groups.":::
+
+Below is a sample change output.  
+
+:::image type="content" source="media/monitor-firewall/output.png" alt-text="Screenshot of the output that depicts the change to Azure Firewall Rule Collection Groups.":::
+
+This capability can help you track changes made to your firewall rules helping ensure accountability for a sensitive resource like a firewall.  
 
 ## Structured Azure Firewall logs
 

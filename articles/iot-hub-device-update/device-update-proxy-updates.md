@@ -5,7 +5,8 @@ author: kgremban
 ms.author: kgremban
 ms.date: 11/12/2021
 ms.topic: concept-article
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Proxy updates and multi-component updating

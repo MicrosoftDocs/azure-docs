@@ -95,7 +95,7 @@ The following Resource Manager template deploys an Analysis Services server with
 
 ## Using managed identities
 
-Managed identies that are added to database or server roles will be unable to login to the service or do any operations. Managed identities for service principals are not supported in Azure Analysis Services.
+Managed identities that are added to database or server roles will be unable to login to the service or do any operations. Managed identities for service principals are not supported in Azure Analysis Services.
 
 ## Related information
 

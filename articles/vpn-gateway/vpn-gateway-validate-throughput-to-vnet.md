@@ -14,9 +14,6 @@ ms.reviewer: chadmat;genli
 
 # How to validate VPN throughput to a virtual network
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
-
 A VPN gateway connection enables you to establish secure, cross-premises connectivity between your Virtual Network within Azure and your on-premises IT infrastructure.
 
 This article shows how to validate network throughput from the on-premises resources to an Azure virtual machine (VM).
@@ -171,7 +168,7 @@ Use [SockPerf](https://github.com/mellanox/sockperf) to test VMs.
 
 On the Linux VMs (both SENDER and RECEIVER), run these commands to prepare SockPerf on your VMs:
 
-#### CentOS / RHEL - Install GIT and other helpful tools
+#### RHEL - Install GIT and other helpful tools
 
 `sudo yum install gcc -y -q`
 `sudo yum install git -y -q`

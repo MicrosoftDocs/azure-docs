@@ -16,6 +16,8 @@ The following image shows a SharePoint farm created as an environment in a lab.
 
 ![Screenshot of a SharePoint environment in a lab.](media/use-paas-services/environments.png)
 
+[!INCLUDE [direct-azure-deployment-environments](includes/direct-azure-deployment-environments.md)]  
+
 ## PaaS scenarios
 
 DevTest Labs PaaS environments support the following scenarios:

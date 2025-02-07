@@ -8,8 +8,8 @@ manager: CelesteDG
 ms.author: kengaderdus
 ms.date: 01/11/2024
 ms.topic: concept-article
-ms.service: active-directory
-ms.subservice: B2C
+ms.service: azure-active-directory
+ms.subservice: b2c
 
 
 #Customer intent: As a developer, I want to access downloadable solution guides and training for Azure Active Directory B2C, so that I can understand how to implement and leverage Azure AD B2C for customer identity management in my applications.

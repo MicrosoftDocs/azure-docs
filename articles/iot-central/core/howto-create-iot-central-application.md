@@ -2,7 +2,7 @@
 title: Create an IoT Central application
 description: How to create an IoT Central application by using the Azure portal or a command-line environment.
 services: iot-central
-ms.service: iot-central
+ms.service: azure-iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 04/03/2024

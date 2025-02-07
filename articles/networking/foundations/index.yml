@@ -11,7 +11,7 @@ metadata:
   author: greg-lindsay
   ms.author: greglin
   manager: kumudD
-  ms.date: 09/10/2024
+  ms.date: 09/27/2024
 
 # highlightedContent section (optional)
 # Maximum of 8 items
@@ -187,9 +187,6 @@ conceptualContent:
         # Card 4
         - title: Related services
           links:
-            - url: ../../virtual-network-manager/index.yml
-              text: Azure Virtual Network Manager (AVNM)
-              itemType: reference
             - url: ../../bastion/index.yml
               text: Azure Bastion
               itemType: reference
@@ -207,9 +204,6 @@ conceptualContent:
               itemType: reference
             - url: ../../virtual-network/virtual-network-peering-overview.md
               text: Virtual network peering
-              itemType: reference
-            - url: ../../network-watcher/index.yml
-              text: Network Watcher
               itemType: reference
 
 # additionalContent section (optional)

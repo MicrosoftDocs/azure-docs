@@ -63,9 +63,9 @@ export resourceGroupName=RESOURCEGROUPNAME
 export clusterType=spark
 export httpCredential='PASSWORD'
 export AZURE_STORAGE_ACCOUNT=STORAGEACCOUNTNAME
-export subnet="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyRG/providers/Microsoft.Network/virtualNetworks/MyVnet/subnets/subnet1"
-export domain="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyRG/providers/Microsoft.AAD/domainServices/MyDomain.onmicrosoft.com"
-export userAssignedIdentity="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/MyMsiRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/MyMSI"
+export subnet="/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MyRG/providers/Microsoft.Network/virtualNetworks/MyVnet/subnets/subnet1"
+export domain="/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MyRG/providers/Microsoft.AAD/domainServices/MyDomain.onmicrosoft.com"
+export userAssignedIdentity="/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/MyMsiRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/MyMSI"
 export domainAccount=MyAdminAccount@MyDomain.onmicrosoft.com
 export groupDNS=MyGroup
 
@@ -94,7 +94,7 @@ export AZURE_STORAGE_ACCOUNT=STORAGEACCOUNTNAME
 export encryptionKeyName=kafkaClusterKey
 export encryptionKeyVersion=00000000000000000000000000000000
 export encryptionVaultUri=https://MyKeyVault.vault.azure.net
-export userAssignedIdentity="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/MyMsiRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/MyMSI"
+export userAssignedIdentity="/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/MyMsiRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/MyMSI"
 
 az hdinsight create \
     --name $clusterName \

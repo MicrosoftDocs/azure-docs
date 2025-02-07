@@ -41,8 +41,8 @@ npx install-peerdeps @fluidframework/azure-client
 | fluid-framework                     | [1.2.4][]      |
 | @fluidframework/azure-service-utils | [1.0.2][]      |
 
-[1.0.2]: https://fluidframework.com/docs/updates/v1.0.0/
-[1.2.4]: https://fluidframework.com/docs/updates/v1.0.0/
+[1.0.2]: https://fluidframework.com/docs/v1/
+[1.2.4]: https://fluidframework.com/docs/v1/
 
 > [!NOTE]
 > Fluid packages follow npm semver versioning standards. Patch updates are only applied to the latest minor version. To stay current ensure you are on

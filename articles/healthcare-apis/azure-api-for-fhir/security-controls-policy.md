@@ -11,12 +11,12 @@ ms.custom: subject-policy-compliancecontrols
 ---
 # Azure Policy Regulatory Compliance controls for Azure API for FHIR
 
-[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
+[!INCLUDE[retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 [Regulatory Compliance in Azure Policy](../../governance/policy/concepts/regulatory-compliance.md)
 provides Microsoft created and managed initiative definitions, known as _built-ins_, for the
 **compliance domains** and **security controls** related to different compliance standards. This
-page lists the **compliance domains** and **security controls** for Azure API for FHIR. You can
+page lists the **compliance domains** and **security controls** for Azure API for FHIR&reg;. You can
 assign the built-ins for a **security control** individually to help make your Azure resources
 compliant with the specific standard.
 
@@ -31,5 +31,4 @@ In this article, you learned about the Azure Policy Regulatory Compliance contro
 - Learn more about [Azure Policy Regulatory Compliance](../../governance/policy/concepts/regulatory-compliance.md).
 - See the built-ins on the [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
-
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

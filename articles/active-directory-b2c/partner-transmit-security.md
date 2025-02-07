@@ -4,15 +4,15 @@ titleSuffix: Azure AD B2C
 description: Learn how to configure Azure Active Directory B2C with Transmit Security for risk detect.
 author: yoelh
 manager: martinco
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 06/04/2024
 ms.author: yoelh
 ms.reviewer: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
-# Customer intent: As a developer integrating Transmit Security with Azure AD B2C for risk detect. I want to configure a custom poicy with Transmit Security and set it up in Azure AD B2C, so I can detect and remidiate risks by using multi-factor authentication.
+# Customer intent: As a developer integrating Transmit Security with Azure AD B2C for risk detect. I want to configure a custom policy with Transmit Security and set it up in Azure AD B2C, so I can detect and remediate risks by using multi-factor authentication.
 ---
 
 
@@ -205,7 +205,7 @@ You incorporate Transmit DRS into your Azure B2C application by extending your c
 
 1. Download the [custom policy starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) to get started (see [Create custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy))
 
-2. Create a new file that inherits from **TrustFrameworkExtensions**, which extens the base policy with tenant-specific customizations for Transmit DRS.
+2. Create a new file that inherits from **TrustFrameworkExtensions**, which extends the base policy with tenant-specific customizations for Transmit DRS.
 
     ```xml
     <BasePolicy>
@@ -444,5 +444,5 @@ Using the directory with your Azure AD B2C tenant, test your custom policy:
 
 ## Next steps
 
-* Ask questions on [Stackoverflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
+* Ask questions on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 * Check out the [Azure AD B2C custom policy overview](custom-policy-overview.md)

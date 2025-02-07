@@ -5,12 +5,12 @@ description: Learn how to create a proof of concept for funnel-based approach fo
 author: gargi-sinha
 manager: martinco
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: concept-article
 ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: As a developer, I want to understand how to build a global identity solution using a funnel-based approach, so I can implement it in my organization's Azure AD B2C environment.
 ---
@@ -119,7 +119,7 @@ The following block diagram shows the proof of concept. The guidance will show h
           <Item Key="AllowInsecureAuthInProduction">true</Item>
         </Metadata>
         <InputClaims>
-          <InputClaim ClaimTypeReferenceId="apac_client_id" PartnerClaimType="client_id" DefaultValue="cf3f6898-9a79-426a-ba16-10e1a377c843" />
+          <InputClaim ClaimTypeReferenceId="apac_client_id" PartnerClaimType="client_id" DefaultValue="00001111-aaaa-2222-bbbb-3333cccc4444" />
           <InputClaim ClaimTypeReferenceId="ropc_grant_type" PartnerClaimType="grant_type" DefaultValue="password" />
           <InputClaim ClaimTypeReferenceId="signInName" PartnerClaimType="username" />
           <InputClaim ClaimTypeReferenceId="password" />

@@ -5,7 +5,7 @@ description: Learn how to use Bicep to publish Azure IoT Hub, storage account, a
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: quickstart-bicep
 ms.date: 01/04/2024
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-bicep

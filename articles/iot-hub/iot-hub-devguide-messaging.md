@@ -5,7 +5,7 @@ description: This article describes device-to-cloud and cloud-to-device messagin
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 02/23/2024
 ms.custom: ['Role: Cloud Development']

@@ -77,7 +77,7 @@ It returns:
         "version": "1"
       },
       "displayName": "Example MG 1",
-      "tenantId": "00000000-0000-0000-0000-000000000000"
+      "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
     },
     "type": "/providers/Microsoft.Management/managementGroups"
   }
@@ -267,7 +267,7 @@ It returns:
     "countryCode": "US",
     "displayName": "Contoso",
     "id": "/tenants/00000000-0000-0000-0000-000000000000",
-    "tenantId": "00000000-0000-0000-0000-000000000000"
+    "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
   }
 }
 ```

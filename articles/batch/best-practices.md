@@ -116,7 +116,7 @@ When you create an Azure Batch pool using the Virtual Machine Configuration, you
 
 ### Third-party images
 
-Pools can be created using third-party images published to Azure Marketplace. With user subscription mode Batch accounts, you may see the error "Allocation failed due to marketplace purchase eligibility check" when creating a pool with certain third-party images. To resolve this error, accept the terms set by the publisher of the image. You can do so by using [Azure PowerShell](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) or [Azure CLI](/cli/azure/vm/image/terms).
+Pools can be created using third-party images published to Azure Marketplace. With user subscription mode Batch accounts, you may see the error "Allocation failed due to marketplace purchase eligibility check" when creating a pool with certain third-party images. To resolve this error, accept the terms set by the publisher of the image. You can do so by using [Azure PowerShell](/powershell/module/az.marketplaceordering/set-azmarketplaceterms) or [Azure CLI](/cli/azure/vm/image/terms).
 
 ### Container pools
 
@@ -128,8 +128,8 @@ IP ranges between the Docker network bridge and your virtual network.
 Docker Hub limits the number of image pulls. Ensure that your workload doesn't
 [exceed published rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) for Docker
 Hub-based images. It's recommended to use
-[Azure Container Registry](../container-registry/container-registry-intro.md) directly or leverage
-[Artifact cache in ACR](../container-registry/container-registry-artifact-cache.md).
+[Azure Container Registry](/azure/container-registry/container-registry-intro) directly or leverage
+[Artifact cache in ACR](/azure/container-registry/container-registry-artifact-cache).
 
 ### Azure region dependency
 

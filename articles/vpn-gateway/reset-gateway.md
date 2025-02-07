@@ -36,7 +36,7 @@ When you select to reset a connection, the gateway doesn't reboot. Only the sele
 You can reset a connection easily using the Azure portal.
 
 1. Go to the **Connection** that you want to reset. You can find the connection resource either by locating it in **All resources**, or by going to the **'Gateway Name' -> Connections -> 'Connection Name'**
-1. On the **Connection** page, in the left pane, scroll down to the **Support + Troubleshooting** section and select **Reset**.
+1. On the **Connection** page, in the left pane, scroll down to the **Help** section and select **Reset**.
 1. On the **Reset** page, select **Reset** to reset the connection.
 
    :::image type="content" source="./media/reset-gateway/reset-connection.png" alt-text="Screenshot showing the Reset button selected." lightbox="./media/reset-gateway/reset-connection.png":::

@@ -41,7 +41,7 @@ Before you create an import job to transfer data into Azure Files, carefully rev
 
 ## Step 1: Prepare the drives
 
-This step generates a journal file. The journal file stores basic information such as drive serial number, encryption key, and storage account details.
+Attach the external disk to the file share and run WAImportExport.exe file. This step generates a journal file. The journal file stores basic information such as drive serial number, encryption key, and storage account details.
 
 Do the following steps to prepare the drives.
 

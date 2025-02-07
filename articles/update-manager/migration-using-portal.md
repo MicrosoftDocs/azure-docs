@@ -41,7 +41,7 @@ After you review the resources that must be moved, you can proceed with the migr
 
    This includes two steps:
 
-   a. **Onboard non-Azure non-Arc-enabled machines to Arc** - This is because Arc connectivity is a prerequisite for Azure Update Manager. Onboarding your machines to Azure Arc is free of cost, and once you do so, you can avail all management services as you can do for any Azure machine. For more information, see [Azure Arc documentation](../azure-arc/servers/onboard-service-principal.md)
+   a. **Onboard non-Azure non-Arc-enabled machines to Arc** - This is because Arc connectivity is a prerequisite for Azure Update Manager. Onboarding your machines to Azure Arc is free of cost, and once you do so, you can avail all management services as you can do for any Azure machine. For more information, see [Azure Arc documentation](/azure/azure-arc/servers/onboard-service-principal)
    on how to onboard your machines.
 
    b. **Download and run PowerShell script locally** -  This is required for the creation of a user identity and appropriate role assignments so that the migration can take place. This script gives proper RBAC to the User Identity on the subscription to which the automation account belongs, machines onboarded to Automation Update Management, scopes that are part of dynamic queries etc. so that the configuration can be assigned to the machines, MRP configurations can be created and updates solution can be removed. 

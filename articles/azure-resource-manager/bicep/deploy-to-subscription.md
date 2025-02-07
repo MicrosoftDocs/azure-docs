@@ -3,7 +3,7 @@ title: Use Bicep to deploy resources to subscription
 description: Describes how to create a Bicep file that deploys resources to the Azure subscription scope.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 09/26/2023
+ms.date: 09/26/2024
 ---
 
 # Subscription deployments with Bicep files
@@ -79,7 +79,7 @@ For security, use:
 * [autoProvisioningSettings](/azure/templates/microsoft.security/autoprovisioningsettings)
 * [connectors](/azure/templates/microsoft.security/connectors)
 * [deviceSecurityGroups](/azure/templates/microsoft.security/devicesecuritygroups)
-* [ingestionSettings](/azure/templates/microsoft.security/ingestionsettings)
+* [ingestionSettings](/javascript/api/@azure/arm-security/ingestionsettings)
 * [pricings](/azure/templates/microsoft.security/pricings)
 * [securityContacts](/azure/templates/microsoft.security/securitycontacts)
 * [settings](/azure/templates/microsoft.security/settings)

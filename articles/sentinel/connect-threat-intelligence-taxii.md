@@ -10,7 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customer intent: As an SOC admin, I want to connect Microsoft Sentinel to a STIX/TAXII feed to ingest threat intelligence so that I can generate alert incidents.
+
+
+#Customer intent: As a security admin, I want to integrate STIX/TAXII feeds into Microsoft Sentinel to ingest threat intelligence, generating alerts and incidents to enhance threat detection and response capabilities.
+
 ---
 
 # Connect Microsoft Sentinel to STIX/TAXII threat intelligence feeds
@@ -62,7 +65,7 @@ For more information about how to manage the solution components, see [Discover 
 
 1. Find and select the **Threat Intelligence - TAXII** data connector, and then select **Open connector page**.
 
-    :::image type="content" source="media/connect-threat-intelligence-taxii/taxii-data-connector-config.png" alt-text="Screenshot that shows the Data connectors page with the TAXII data connector listed." lightbox="media/connect-threat-intelligence-taxii/taxii-data-connector-config.png":::
+    :::image type="content" source="media/connect-threat-intelligence-taxii/taxii-data-connector.png" alt-text="Screenshot that shows the Data connectors page with the TAXII data connector listed." lightbox="media/connect-threat-intelligence-taxii/taxii-data-connector.png":::
 
 1. Enter a name for this TAXII server collection in the **Friendly name** text box. Fill in the text boxes for **API root URL**, **Collection ID**, **Username** (if necessary), and **Password** (if necessary). Choose the group of indicators and the polling frequency you want. Select **Add**.
 

@@ -4,8 +4,7 @@ description: Learn how to copy data to your Azure Data Box via SMB
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: pod
+ms.service: azure-databox
 ms.topic: tutorial
 ms.date: 04/04/2022
 ms.author: shaas

@@ -105,8 +105,6 @@
     items:
       - name: Integration options
         href: apis-functions.md
-      - name: Distributed functions
-        href: distributed-functions.md
       - name: Tutorials
         items:
         - name: Add an API
@@ -160,6 +158,22 @@
   - name: Overview
     href: local-development.md
     displayName: swa cli
+  - name: SWA CLI
+    items:
+      - name: Overview
+        href: static-web-apps-cli-overview.md
+      - name: Install
+        href: static-web-apps-cli-install.md
+      - name: Start the emulator
+        href: static-web-apps-cli-emulator.md
+      - name: Start the API server
+        href: static-web-apps-cli-api-server.md
+      - name: Deploy to Azure
+        href: static-web-apps-cli-deploy.md
+      - name: Configure SWA CLI
+        href: static-web-apps-cli-configuration.md
+      - name: API Reference
+        href: static-web-apps-cli.yml
 - name: Relocation
   items:
   - name: Relocate to another region
@@ -210,6 +224,8 @@
   - name: Overview
     href: monitor.md
     displayName: Application Insights
+  - name: Supported metrics
+    href: metrics.md
 - name: Resources
   items:
   - name: Supported languages and runtimes
@@ -235,22 +251,6 @@
     href: /cli/azure/staticwebapp
   - name: REST API
     href: /rest/api/appservice/static-sites
-  - name: SWA CLI
-    items:
-      - name: Overview
-        href: static-web-apps-cli-overview.md
-      - name: Install
-        href: static-web-apps-cli-install.md
-      - name: Start the emulator
-        href: static-web-apps-cli-emulator.md
-      - name: Start the API server
-        href: static-web-apps-cli-api-server.md
-      - name: Deploy to Azure
-        href: static-web-apps-cli-deploy.md
-      - name: Configure SWA CLI
-        href: static-web-apps-cli-configuration.md
-      - name: API Reference
-        href: static-web-apps-cli.yml
 - name: Samples & FAQs
   items:
   - name: Samples

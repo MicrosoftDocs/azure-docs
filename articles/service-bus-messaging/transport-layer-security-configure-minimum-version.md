@@ -5,7 +5,7 @@ description: Configure an Azure Service Bus namespace to use a minimum version o
 author: EldertGrootenboer
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: article
-ms.date: 06/24/2024
+ms.date: 10/28/2024
 ms.author: egrootenboer
 ---
 
@@ -16,7 +16,7 @@ Azure Service Bus namespaces permit clients to send and receive data with TLS 1.
 You can configure the minimum TLS version using the Azure portal or Azure Resource Manager (ARM) template. 
 
 > [!WARNING]
-> As of 31 October 2024, TLS 1.0 and TLS 1.1 will no longer be supported on Azure. [TLS 1.0 and TLS 1.1 end of support announcement](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/) The minimum TLS version will be 1.2 for all Service Bus deployments.
+> As of 28 February 2025, TLS 1.0 and TLS 1.1 will no longer be supported on Azure Service Bus. The minimum TLS version will be 1.2 for all Service Bus deployments. 
 
 > [!IMPORTANT]
 > On 31 October 2024, TLS 1.3 will be enabled for AMQP traffic. TLS 1.3 is already enabled for HTTPS traffic. Java clients may have a problem with TLS 1.3 due to a dependency on an older version of Proton-J. For more details, read [Java client changes to support TLS 1.3 with Azure Service Bus and Azure Event Hubs](https://techcommunity.microsoft.com/t5/messaging-on-azure-blog/java-client-changes-to-support-tls-1-3-with-azure-service-bus/ba-p/4089355) 

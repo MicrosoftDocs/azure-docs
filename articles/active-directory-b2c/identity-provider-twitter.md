@@ -4,11 +4,11 @@ titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with X accounts in your applications using Azure Active Directory B2C.
 author: garrodonnell
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 07/20/2022
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 #Customer Intent: As a developer setting up sign-up and sign-in with an X account using Azure Active Directory B2C, I want to configure X as an identity provider so that I can enable users to sign in with their X accounts.
@@ -83,7 +83,7 @@ To enable sign-in for users with an X account in Azure AD B2C, you need to creat
 
 ## Configure X as an identity provider
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with an account that has at least [External Identity Provider Administrator](/entra/identity/role-based-access-control/permissions-reference#external-identity-provider-administrator) privileges.
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 1. Select **Identity providers**, then select **Twitter**.

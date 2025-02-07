@@ -108,7 +108,7 @@ The traffic selector limit for OpenVPN is 1,000 routes.
 
 ### What happens when I configure both SSTP and IKEv2 for P2S VPN connections?
 
-When you configure both SSTP and IKEv2 in a mixed environment that consists of Windows and Mac devices, the Windows VPN client always tries the IKEv2 tunnel first. The client falls back to SSTP if the IKEv2 connection isn't successful. MacOS connects only via IKEv2.
+When you configure both SSTP and IKEv2 in a mixed environment that consists of Windows and Mac devices, the Windows VPN client always tries the IKEv2 tunnel first. The client falls back to SSTP if the IKEv2 connection isn't successful. macOS connects only via IKEv2.
 
 When you have both SSTP and IKEv2 enabled on the gateway, the point-to-site address pool is statically split between the two, so clients that use different protocols are IP addresses from either subrange. The maximum number of SSTP clients is always 128, even if the address range is larger than /24. The result is a larger number of addresses available for IKEv2 clients. For smaller ranges, the pool is equally halved. Traffic selectors that the gateway uses might not include the Classless Inter-Domain Routing (CIDR) block for the point-to-site address range but include the CIDR block for the two subranges.
 
@@ -119,6 +119,16 @@ Azure supports Windows, Mac, and Linux for P2S VPN.
 ### I already have a VPN gateway deployed. Can I enable RADIUS or IKEv2 VPN on it?
 
 Yes. If the gateway SKU that you're using supports RADIUS or IKEv2, you can enable these features on gateways that you already deployed by using Azure PowerShell or the Azure portal. The Basic SKU doesn't support RADIUS or IKEv2.
+
+###  <a name="vpn-disconnect"></a>Why am I getting disconnected from my Azure VPN client? What can I do to reduce the frequency of disconnection?
+
+You may see one of the following messages: 
+- In Azure VPN client for Windows **ver. 3.4.0.0**: "Your authentication with Microsoft Entra is expired. You need to re-authenticate in Entra to acquire a new token. Authentication timeout can be tuned by your administrator." 
+- In Azure VPN client for macOS **ver. 2.7.101**: "Your authentication with Microsoft Entra has expired so you need to re-authenticate to acquire a new token. Please try connecting again. Authentication policies and timeout are configured by your administrator in Entra tenant." 
+
+The point-to-site connection disconnects because the current refresh token in the Azure VPN client, acquired from Entra ID, has expired or become invalid. This token is renewed approximately every hour. Entra tenant administrators can extend the sign-in frequency by adding conditional access policies. Please work with your Entra tenant administrators to extend the refresh token expiration interval. 
+
+For more information, see: [VPN client error: Your authentication with Microsoft Entra expired](../articles/vpn-gateway/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md#entra-expired).
 
 ### <a name="removeconfig"></a>How do I remove the configuration of a P2S connection?
 

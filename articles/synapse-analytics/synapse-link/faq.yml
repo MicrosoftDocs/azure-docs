@@ -8,7 +8,8 @@ metadata:
   ms.service: azure-synapse-analytics
   ms.topic: faq
   ms.subservice: synapse-link
-  ms.date: 08/06/2024
+  ms.date: 10/21/2024
+  ms.custom: references_regions
 title: Azure Synapse Link for SQL FAQ
 summary: In this guide, find the most frequently asked questions for Azure Synapse Link for SQL.
 
@@ -63,7 +64,29 @@ sections:
       - question: |
           In which regions is Azure Synapse Link for SQL available?
         answer: |
-          Azure Synapse Link for SQL is available in all regions where [Azure Synapse Workspace is currently available](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=synapse-analytics&rar=true&regions=all).
+          Azure Synapse Link for SQL is available in the following regions:
+
+          | Area                 | Region                                                       |
+          | -------------------- | ------------------------------------------------------------ |
+          | Asia Pacific         | East Asia<br>Southeast Asia                                  |
+          | Australia            | Australia East<br>Australia Southeast                        |
+          | Azure Government     | US Gov Arizona<br>US Gov Texas<br>US Gov Virginia            |
+          | Brazil               | Brazil South                                                 |
+          | Canada               | Canada  Central<br>Canada East                               |
+          | China                | China East 2<br>China East 3<br>China North 2<br>China North 3 |
+          | Europe               | North Europe<br>West Europe                                  |
+          | France               | France Central<br>France South                               |
+          | Germany              | Germany West Central                                         |
+          | India                | Central India<br>South India                                 |
+          | Japan                | Japan East<br>Japan West                                     |
+          | Korea                | Korea Central                                                |
+          | Norway               | Norway East                                                  |
+          | Qatar                | Qatar Central                                                |
+          | Sweden               | Sweden Central                                               |
+          | Switzerland          | Switzerland North<br>Switzerland West                        |
+          | United Arab Emirates | UAE North                                                    |
+          | United Kingdom       | UK South<br>UK West                                          |
+          | United States        | Central US<br>East US<br>East US 2<br>North Central US<br>South Central US<br>West Central US<br>West US<br>West US 2<br>West US 3 |
       - question: |
           Where is my landing zone located?
         answer: |

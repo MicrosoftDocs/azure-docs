@@ -26,6 +26,11 @@ During the planned failover process, your storage account's primary and secondar
 
 This article describes what happens during a customer-managed planned failover and failback at every stage of the process. To understand how a failover due to an unexpected storage endpoint outage works, see [How customer-managed (unplanned) failover](storage-failover-customer-managed-unplanned.md).
 
+<br>
+<iframe width="560" height="315" src="
+https://www.youtube-nocookie.com/embed/lcQfwWsck58?si=I92_-lGOLcr4pUSk"
+title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 [!INCLUDE [storage-failover.planned-preview](../../../includes/storage-failover.planned-preview.md)]
 
 [!INCLUDE [storage-failover-user-unplanned-preview-lst](../../../includes/storage-failover-user-unplanned-preview-lst.md)]
@@ -58,11 +63,11 @@ Under normal circumstances, a client writes data to a storage account in the pri
 
 ### The planned failover process (GRS/RA-GRS)
 
-Begin disaster recovery testing by initiating a failover of your storage account to the secondary region. The following steps describe the failover process, and the subsequent image provides illustration:
+Begin disaster recovery testing by initiating a failover of your storage account to the secondary region. The following describes steps within the planned failover process, and the subsequent image provides illustration:
 
-1. The original primary region becomes read only.
-1. Replication of all data from the primary region to the secondary region completes.
-1. DNS entries for storage service endpoints in the secondary region are promoted and become the new primary endpoints for your storage account.
+- The primary region temporarily loses both read and write access. RA-GRS or RA-GZRS users will continue to have read access to their secondary region.
+- Replication of all data from the primary region to the secondary region completes.
+- DNS entries for storage service endpoints in the secondary region are promoted and become the new primary endpoints for your storage account.
 
 The failover typically takes about an hour.
 
@@ -78,9 +83,9 @@ While in the failover state, perform your disaster recovery testing.
 
 After testing is complete, perform another failover to failback to the original primary region. During the failover process, as shown in the following image:
 
-1. The original primary region becomes read only.
-1. All data finishes replicating from the current primary region to the current secondary region.
-1. The DNS entries for the storage service endpoints are changed to point back to the region that was the primary before the initial failover was performed.
+- The primary region temporarily loses both read and write access. RA-GRS or RA-GZRS users will continue to have read access to their secondary region.
+- All data finishes replicating from the current primary region to the current secondary region.
+- The DNS entries for the storage service endpoints are changed to point back to the region that was the primary before the initial failover was performed.
 
 The failback typically takes about an hour.
 
@@ -88,7 +93,7 @@ The failback typically takes about an hour.
 
 After the failback is complete, the storage account is restored to its original redundancy configuration. Users can resume writing data to the storage account in the original primary region (1) while replication to the original secondary (2) continues as before the failover:
 
-:::image type="content" source="media/storage-failover-customer-managed-common/pre-failover-geo-zone-redundant.png" alt-text="Diagram that shows how clients continue to perform read and write operations to the storage account in the original primary region.":::
+:::image type="content" source="media/storage-failover-customer-managed-common/pre-failover-geo-redundant.png" alt-text="Diagram that shows how clients continue to perform read and write operations to the storage account in the original primary region.":::
 
 ## [GZRS/RA-GZRS](#tab/gzrs-ra-gzrs)
 
@@ -98,11 +103,11 @@ Under normal circumstances, a client writes data to a storage account in the pri
 
 ### The planned failover process (GZRS/RA-GZRS)
 
-Begin disaster recovery testing by initiating a failover of your storage account to the secondary region. The following steps describe the failover process, and the subsequent image provides illustration:
+Begin disaster recovery testing by initiating a failover of your storage account to the secondary region. The following describes steps within the planned failover process, and the subsequent image provides illustration:
 
-1. The current primary region becomes read only.
-1. All data finishes replicating from the primary region to the secondary region.
-1. Storage service endpoint DNS entries are switched. Your storage account's endpoints in the secondary region become your new primary endpoints.
+- The current primary region becomes read only.
+- All data finishes replicating from the primary region to the secondary region.
+- Storage service endpoint DNS entries are switched. Your storage account's endpoints in the secondary region become your new primary endpoints.
 
 The failover typically takes about an hour.
 
@@ -118,9 +123,9 @@ While in the failover state, perform your disaster recovery testing.
 
 When testing is complete, perform another failover to fail back to the original primary region. The following image illustrates the steps involved in the failover process.
 
-1. The current primary region becomes read only.
-1. All data finishes replicating from the current primary region to the current secondary region.
-1. The DNS entries for the storage service endpoints are changed to point back to the region that was the primary before the initial failover was performed.
+- The current primary region becomes read only.
+- All data finishes replicating from the current primary region to the current secondary region.
+- The DNS entries for the storage service endpoints are changed to point back to the region that was the primary before the initial failover was performed.
 
 The failback typically takes about an hour.
 

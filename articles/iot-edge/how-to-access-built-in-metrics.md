@@ -7,7 +7,7 @@ ms.author: patricka
 ms.date: 04/08/2024
 ms.topic: conceptual
 ms.reviewer: veyalla
-ms.service: iot-edge 
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 
@@ -17,7 +17,7 @@ services: iot-edge
 
 The IoT Edge runtime components, IoT Edge hub, and IoT Edge agent, produce built-in metrics in the [Prometheus exposition format](https://prometheus.io/docs/instrumenting/exposition_formats/). Access these metrics remotely to monitor and understand the health of an IoT Edge device.
 
-You can use your own solution to access these metrics. Or, you can use the [metrics-collector module](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.metrics-collector), which handles collecting the built-in metrics and sending them to Azure Monitor or Azure IoT Hub. For more information, see [Collect and transport metrics](how-to-collect-and-transport-metrics.md).
+You can use your own solution to access these metrics. Or, you can use the [metrics-collector module](https://mcr.microsoft.com/artifact/mar/azureiotedge-metrics-collector), which handles collecting the built-in metrics and sending them to Azure Monitor or Azure IoT Hub. For more information, see [Collect and transport metrics](how-to-collect-and-transport-metrics.md).
 
 Metrics are automatically exposed by default on **port 9600** of the **edgeHub** and **edgeAgent** modules (`http://edgeHub:9600/metrics` and `http://edgeAgent:9600/metrics`). They aren't port mapped to the host by default.
 

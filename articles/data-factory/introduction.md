@@ -4,6 +4,7 @@ description: Learn about Azure Data Factory, a cloud data integration service th
 author: dcstwh
 ms.author: weetok
 ms.topic: overview
+ms.subservice: authoring
 ms.date: 05/15/2024
 ---
 

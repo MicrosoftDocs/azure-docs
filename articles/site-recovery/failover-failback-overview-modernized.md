@@ -1,8 +1,8 @@
 ---
 title: About failover and failback in Azure Site Recovery - Modernized
 description: Learn about failover and failback in Azure Site Recovery - Modernized.
-ms.topic: conceptual
-ms.date: 02/13/2024
+ms.topic: overview
+ms.date: 12/19/2024
 ms.author: ankitadutta
 ms.service: azure-site-recovery
 author: ankitaduttaMSFT
@@ -11,7 +11,7 @@ author: ankitaduttaMSFT
 
 This article provides an overview of failover and failback during disaster recovery of on-premises machines to Azure with [Azure Site Recovery](site-recovery-overview.md) - Modernized.
 
-For information about failover and failback in Azure Site Recovery Classic releases, [see this article](failover-failback-overview.md).
+For information about failover and failback in Azure Site Recovery Classic releases, [see this article](vmware-azure-architecture.md#failover-and-failback-process).
 
 ## Recovery stages
 
@@ -160,16 +160,9 @@ Once you have initiated the planned failover and it completes successfully, your
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Failover VMware VMs to Azure (modernized)](vmware-azure-tutorial-failover-failback-modernized.md#run-a-failover-to-azure)
-
-> [!div class="nextstepaction"]
-> [Planned failover (modernized)](vmware-azure-tutorial-failover-failback-modernized.md#planned-failover-from-azure-to-on-premises)
-
-> [!div class="nextstepaction"]
-> [Reprotect (modernized)](vmware-azure-tutorial-failover-failback-modernized.md#re-protect-the-on-premises-machine-to-azure-after-successful-planned-failover)
-
-> [!div class="nextstepaction"]
-> [Cancel failover (modernized)](vmware-azure-tutorial-failover-failback-modernized.md#cancel-planned-failover)
+- [Failover VMware VMs to Azure (modernized)](vmware-azure-tutorial-failover-failback-modernized.md)
+- [Planned failover (modernized)](vmware-azure-tutorial-failover-failback-modernized.md#planned-failover-from-azure-to-on-premises)
+- [Reprotect (modernized)](vmware-azure-tutorial-failover-failback-modernized.md#re-protect-the-on-premises-machine-to-azure-after-successful-planned-failover)
+- [Cancel failover (modernized)](vmware-azure-tutorial-failover-failback-modernized.md#cancel-planned-failover)
 
 

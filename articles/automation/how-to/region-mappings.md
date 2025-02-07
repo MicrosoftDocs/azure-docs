@@ -10,7 +10,8 @@ ms.custom: references_regions
 # Supported regions for linked Log Analytics workspace
 
 > [!NOTE]
-> Start/Stop VMs v1 is retired and we recommend you to start using [Start/Stop VMs v2](../../azure-functions/start-stop-vms/overview.md) which is now generally available. The new version offers all existing capabilities and provides new features, such as multi-subscription support from a single Start/Stop instance.
+> - Automation Update Management has retired on **31 August 2024** and we recommend that you use Azure Update Manager. Follow the guidelines for [migration from Automation Update Management to Azure Update Manager](../../update-manager/migration-overview.md).
+> - Start/Stop VMs v1 is retired and we recommend you to start using [Start/Stop VMs v2](../../azure-functions/start-stop-vms/overview.md) which is now generally available. The new version offers all existing capabilities and provides new features, such as multi-subscription support from a single Start/Stop instance.
 
 [!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
 

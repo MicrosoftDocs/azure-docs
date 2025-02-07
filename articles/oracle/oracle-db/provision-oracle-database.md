@@ -4,7 +4,7 @@ description: Learn the overview of provisioning.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
-ms.topic: article
+ms.topic: concept-article
 ms.date: 6/07/2024
 ms.custom: engagement-fy23
 ms.author: jacobjaygbay
