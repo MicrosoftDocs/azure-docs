@@ -7,7 +7,7 @@ author: jejackson
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: azure-cloud-services-classic
 ms.topic: article
-ms.date: 03/02/2025
+ms.date: 05/02/2025
 ms.author: jejackson
 ms.custom: compute-evergreen
 ---
@@ -33,6 +33,9 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
+
+###### **Feb 5, 2025**
+The January 2024 Guest OS released.
 
 ###### **Jan 17, 2025**
 The November 2024 Guest OS released.
