@@ -141,7 +141,7 @@ For the call metric log, there's no difference between P2P and group call scenar
 
 ### Call Metrics Log
 
-Here's a sample of the Call Metrics log: **Ankesh explain each part what they are**
+Here's a sample of the Call Metrics log: 
 
 ```json
 "properties": {
