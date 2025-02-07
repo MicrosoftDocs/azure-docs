@@ -25,6 +25,7 @@ For understanding, please reference the following public documents for option A 
 https://learningnetwork.cisco.com/s/question/0D53i00000KsrNrCAJ/interas-option-a
 https://learningnetwork.cisco.com/s/question/0D53i00000KsqS1CAJ/interas-option-b
 
+
 ***Access Control Lists (ACLs)*** \
 ACLs (Permit & Deny) at an NNI (Network-to-Network Interface) Level protect SSH access on a Management VPN. Network Access control lists can be applied before provisioning Network Fabric. This limitation is temporary and will be removed in future release.
 Ingress and Egress ACLs are created before creation of NNI resources and referenced into NNI payload. When NNI resources are created, it also creates referenced ingress and egress ACLs. This activity needs to be performed before provisioning the Network Fabric.
