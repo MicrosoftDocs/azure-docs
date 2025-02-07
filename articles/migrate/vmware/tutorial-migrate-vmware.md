@@ -112,7 +112,7 @@ Enable replication as follows:
     - **Availability Set**: Specify the Availability Set to use.
 
     > [!NOTE]
-    > If you want to select a different availability option for a sets of virtual machines, go to step 1 and repeat the steps by selecting different availability options after starting replication for one set of virtual machines.
+    > If you want to select a different availability option for a set of virtual machines, go to step 1 and repeat the steps by selecting different availability options after starting replication for one set of virtual machines.
 
 
 
@@ -223,7 +223,7 @@ After you've verified that the test migration works as expected, you can migrate
     - Deploy [Azure Disk Encryption](/azure/virtual-machines/disk-encryption-overview) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
--  Consider deploying [Azure Cost Management](../../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.
+-  Consider deploying [Microsoft Cost Management](../../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.
 
 
 ## Next steps
