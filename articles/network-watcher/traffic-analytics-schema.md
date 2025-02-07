@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 02/06/2025
+ms.date: 02/07/2025
 
 #CustomerIntent: As a administrator, I want learn about traffic analytics schema so I can easily use the queries and understand their output.
 ---
@@ -333,8 +333,8 @@ List of threat types:
     - `UnknownPrivate`: One of the IP addresses belong to an Azure virtual network, while the other IP address belongs to the private IP range defined in RFC 1918 and couldn't be mapped by traffic analytics to a customer owned site or Azure virtual network.
     - `Unknown`: Unable to map either of the IP addresses in the flow with the customer topology in Azure and on-premises (site).
 
-> [!NOTE]
-> A subscription is visible to traffic analytics if it has flow logs configured to a Log Analytics workspace.
+    > [!NOTE]
+    > A subscription is visible to traffic analytics in a Log Analytics workspace if it contains a flow log configured to that workspace.
 
 ## Related content
 
