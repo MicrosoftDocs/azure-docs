@@ -32,7 +32,7 @@ Use the policy in scenarios such as the following:
 ## Prerequisites
 
 * An [Azure AI Content Safety](/azure/ai-services/content-safety/) resource. 
-* An API Management [backend](backends.md) configured to route content safety API calls and authenticate to the Azure AI Content Safety service.
+* An API Management [backend](backends.md) configured to route content safety API calls and authenticate to the Azure AI Content Safety service, in the form `https://<content-safety-service-name>.cognitiveservices.azure.com`. Managed identity is recommended for authentication.
 
 
 ## Policy statement
@@ -71,10 +71,7 @@ Use the policy in scenarios such as the following:
 
 | Attribute           | Description                                                                                           | Required | Default |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| output-type	| Specifies how severity levels are returned by Azure AI Content Safety. The attribute must have one of the following values.<br/><br/>
-- `FourSeverityLevels`: Output severities in four levels: 0,2,4,6.<br/>
-- `EightSeverityLevels`: Output severities in eight levels: 0,1,2,3,4,5,6,7.<br/><br/>
-Policy expressions are allowed.	| No	| `FourSeverityLevels` |
+| output-type	| Specifies how severity levels are returned by Azure AI Content Safety. The attribute must have one of the following values.<br /><br />  `FourSeverityLevels`: Output severities in four levels: 0,2,4,6.<br/>- `EightSeverityLevels`: Output severities in eight levels: 0,1,2,3,4,5,6,7.<br/><br/>Policy expressions are allowed.	| No	| `FourSeverityLevels` |
 
 
 ### category attributes
@@ -117,7 +114,7 @@ The following example enforces content safety checks on LLM requests using the A
 
 ## Related policies
 
-* [Rate limiting and quotas](api-management-policies.md#rate-limiting-and-quotas)
+* [Content validation](api-management-policies.md#content-validation)
 * [llm-token-limit](llm-token-limit-policy.md) policy
 * [llm-emit-token-metric](llm-emit-token-metric-policy.md) policy
 
