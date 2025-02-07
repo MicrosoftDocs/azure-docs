@@ -5,15 +5,31 @@ author: jmmason70
 ms.author: jeffreymason
 ms.service: azure-operator-nexus
 ms.topic: concept-article
-ms.date: 02/04/2025
+ms.date: 02/07/2025
 ---
 
 # Network Fabric OptionA and OptionB 
 ***DRAFT***
 
+BGP (Border Gateway Protocol) is a protocol used on the internet between routers to allow traffic to be routed between Autonomous Systems. Autonomous systems use BGP to advertise to their peers which IPs they can route to and which AS(S) they will go through to get there. For an example, an ISP will advertise traffic to enter their network via their ingress points and will advertise they know how to route to the public IPs on their network (e.g. your home), without them having to publicly share how they do that routing internally.
+ 
+The edge routers in each Autonomous Systems will be manually configured with a set of BGP peers they trust and will only accept routed from those peers.
+
+There are 2 peering standards relevant to Nexus:
+
+Option A: This option is simpler but less scalable than Option B, and only supports IPv4 in the standard. It can support IPv6 and multicast as well, but this is implementation dependent and not guaranteed. Nexus supports IPv4, IPv6, and multicast.
+
+Option B: This option is more complex but supports IPv4, IPv6, and multicast in the standard. It is also more scalable than Option A.
+ 
+For understanding public document for option A and option B. 
+https://learningnetwork.cisco.com/s/question/0D53i00000KsrNrCAJ/interas-option-a
+https://learningnetwork.cisco.com/s/question/0D53i00000KsqS1CAJ/interas-option-b
+
 Pertaining to ACL Implementation:
-ACLs (Permit & Deny) at an NNI Level protect SSH access on Management VPN. Network Access control lists can be applied before provisioning Network Fabric. This limitation is temporary and will be removed in future release.
+ACLs (Permit & Deny) at an NNI (Network-to-Network Interface) Level protect SSH access on a Management VPN. Network Access control lists can be applied before provisioning Network Fabric. This limitation is temporary and will be removed in future release.
 Ingress and Egress ACL are created before creation of NNI resources and referenced into NNI payload. When NNI resources are created, it also creates referenced ingress and egress ACL. This activity needs to be performed before provisioning Network Fabric.
+
+Below are the steps followed in creating a Nexus Network Fabric.
 
 1. Create Fabric
 Create a Network Fabric with option A Properties
@@ -56,7 +72,7 @@ az networkfabric acl create --resource-group "example-rg"  \
 --dynamic-match-configurations "[{ipGroups:[{name:'example-ipGroup',ipAddressType:IPv4,ipPrefixes:['10.20.3.1/20']}],vlanGroups:[{name:'example-vlanGroup',vlans:['20-30']}],portGroups:[{name:'example-portGroup',ports:['100-200']}]}]"
 ````
 
-3.  Create NNI (NetworkToNetworkInterconnect) completed after fabric create but before device update and fabric provision
+3.  Create NNI (Network-to-NetworkInterface). This is completed after the fabric create but before device update and fabric provision.
 
 ````
 az networkfabric nni create --resource-group "example-rg" --fabric "example-fabric" --resource-name "example-nniwithACL" --nni-type "CE" --is-management-type "True" --use-option-b "True" --layer2-configuration "{interfaces:['/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkDevices/example-networkDevice/networkInterfaces/example-interface'],mtu:1500}" --option-b-layer3-configuration "{peerASN:28,vlanId:501,primaryIpv4Prefix:'x.x.x.x/30',secondaryIpv4Prefix:'10.18.0.128/30',primaryIpv6Prefix:'10:2:0:124::400/127',secondaryIpv6Prefix:'10:2:0:124::402/127'}" --ingress-acl-id "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4ingressACL" --egress-acl-id "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4egressACL"
