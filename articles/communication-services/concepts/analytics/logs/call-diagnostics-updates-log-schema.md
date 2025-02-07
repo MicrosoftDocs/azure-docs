@@ -14,8 +14,9 @@ ms.subservice: calling
 
 # Call Diagnostics Updates Log Schema
 
+The only difference in properties between the Call Diagnostics Updates Log Schema and the [Call Diagnostics Log Schema](call-diagnostics-log-schema.md) is the additional `CallUpdatesVersion` property. The `CallUpdatesVersion` property indicates how recent the log is. The Call Diagnostics Updates Log Schema has lower latency than the [Call Diagnostics Log Schema](call-diagnostics-log-schema.md), it achieves this low latency by sending schema properties as soon as they can be sent. In contrast, the [Call Diagnostics Log Schema](call-diagnostics-log-schema.md) does not send you a log schema until the entire log schema has completed internal Microsoft creation. When using the Call Summary Updates Log Schema, always refer to the `CallUpdatesVersion` to ensure you have the most up-to-date information. Whenever call data is updated, a new version of the log is created, providing a complete history of changes.
 
-Call diagnostics updates logs provide important information about the endpoints and the media transfers for each participant. They also provide measurements that help you understand quality problems.
+The Call Diagnostics Updates logs provide important information about the endpoints and the media transfers for each participant. They also provide measurements that help you understand quality problems.
 
 For each `EndpointId` within a call (including the server), Azure Communication Services creates a distinct call diagnostics updates log for each media stream (audio or video, for example) between endpoints.
 In a P2P call, each log contains data that relates to each of the outbound streams associated with each endpoint. In group calls, `participantId` serves as a key identifier to join the related outbound logs into a distinct participant connection. Call diagnostics updates logs remain intact and are the same regardless of the participant tenant.
@@ -66,6 +67,7 @@ The table below describes each property.
 | `VideoBitRateMax` | The maximum bitrate (bits per second) for a video or screenshare stream.  <br><br> A low bitrate value could indicate poor network issue. The minimum bitrate (bandwidth) required can be found here: [Network bandwidth](../../voice-video-calling/network-requirements.md#network-bandwidth). |
 | `StreamDirection` | The direction of the media stream. It is either Inbound or Outbound. |
 | `CodecName` | The name of the codec used for processing media streams. It can be OPUS, G722, H264S, SATIN, and so on. |
+| `CallUpdatesVersion`| Represents the log version, with higher numbers indicating the most recently published version. |
 
 ## Sample data for various call types
 

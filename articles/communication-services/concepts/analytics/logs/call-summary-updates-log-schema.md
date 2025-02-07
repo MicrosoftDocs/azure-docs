@@ -14,8 +14,9 @@ ms.subservice: calling
 
 # Call Summary Updates Log Schema
 
-The call summary updates log contains data to help you identify key properties of all calls. A different call summary updates log is created for each `participantId` (or `endpointId` for peer-to-peer [P2P] calls) value in the call.
+The only difference in properties between the Call Summary Updates Log Schema and the [Call Summary Log Schema](call-summary-log-schema.md) is the additional `CallUpdatesVersion` property. The `CallUpdatesVersion` property indicates how recent the log is. The Call Summary Updates Log Schema has lower latency than the [Call Summary Log Schema](call-summary-log-schema.md), it achieves this low latency by sending schema properties as soon as they can be sent. In contrast, the [Call Summary Log Schema](call-summary-log-schema.md) does not send you a log schema until the entire log schema has completed internal Microsoft creation. When using the Call Summary Updates Log Schema, always refer to the `CallUpdatesVersion` to ensure you have the most up-to-date information. Whenever call data is updated, a new version of the log is created, providing a complete history of changes.
 
+The call summary updates log contains data to help you identify key properties of all calls. A different call summary updates log is created for each `participantId` (or `endpointId` for peer-to-peer [P2P] calls) value in the call.
 
 For each participant within a call, Communication Services creates a distinct call summary updates log. If someone rejoins a call, that participant has the same `EndpointId` value but a different `ParticipantId` value. That endpoint can then have two call summary updates logs.
 
@@ -63,6 +64,7 @@ The table below describes each property.
 | `ParticipantEndSubCode `| Represents the Calling SDK error subcode that the SDK emits (when relevant) for each `participantId` value. | 
 | `ResultCategory `| Represents the category of the participant ending the call. It can be one of these 4 values: Success, ExpectedError, UnexpectedClientError, UnexpectedServerError. |
 | `DiagnosticOptions `| This value allows developers to attach custom tags to their client telemetry, which can then be viewed in the Call Diagnostics section. This helps in identifying and troubleshooting issues more effectively. To learn how to add custom tags to this value, refer to [Tutorial on adding custom tags to your client telemetry](../../../tutorials/voice-video-calling/diagnostic-options-tag.md) |
+| `CallUpdatesVersion`| Represents the log version, with higher numbers indicating the most recently published version. |
 
 ### Error codes 
 
