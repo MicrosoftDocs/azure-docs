@@ -1,5 +1,5 @@
 ---
-title: Confidential VM guest attestation design detail
+title: Azure Confidential VM guest attestation design detail
 description: Learn about the design detail of the guest attestation for Azure confidential virtual machines.
 author: mishih
 ms.author: mishih
