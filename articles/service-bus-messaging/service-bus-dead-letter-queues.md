@@ -96,8 +96,8 @@ In some cases, if there are many messages in the dead-letter queue that need to 
 
 ### Available tools
 
-- [Azure Service Bus Explorer](./explorer.md) enable manual moving of messages between queues and topics. Allows you too peek trough the list of messages and resend them to be re-processed. It is available trough the Azure Portal, irespective of the SDK you are using to send messages.
-- [ServicePulse with NServiceBus](https://docs.particular.net/servicepulse/intro-failed-messages) Streamline your error handling with this centralized dashboard. Quickly visualize, group, filter, and search errors, and efficiently retry individual or grouped messages. Available for NServiceBus endpoints.
+- [Azure Service Bus Explorer](./explorer.md) enables manual moving of messages between queues and topics. It allows you to look through the list of messages and resend them to be re-processed. It's available through the Azure portal, regardless of the SDK you're using to send messages.
+- [ServicePulse with NServiceBus](https://docs.particular.net/servicepulse/intro-failed-messages) streamlines your error handling with this centralized dashboard. Quickly visualize, group, filter, and search errors, and efficiently retry individual or grouped messages. Available for NServiceBus endpoints.
 - [ServicePulse with MassTransit](https://docs.particular.net/platform/masstransit) provides a centralized dashboard for error management. You can visualize, group, filter, and search errors using various criteria. It also enables editing and retrying individual messages, or batch retrying groups of messages. Available for MassTransit endpoints.
 
 ## Related content
