@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: overview
-ms.date: 02/04/2025
+ms.date: 02/07/2025
 
 #CustomerIntent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
 ---
@@ -119,11 +119,11 @@ For pricing details, see [Network Watcher pricing](https://azure.microsoft.com/p
 
 ## Service Level Agreement (SLA)
 
-For service level agreement details, see [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+For SLA details, see [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 ## Frequently asked questions (FAQ)
 
-To get answers to most frequently asked questions about Network Watcher, see [Network Watcher frequently asked questions (FAQ)](frequently-asked-questions.yml).
+For answers to frequently asked questions about Network Watcher, see [Network Watcher (FAQ)](frequently-asked-questions.yml).
 
 ## What's new? 
 
