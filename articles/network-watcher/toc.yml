@@ -4,7 +4,7 @@
   items:
   - name: What is Azure Network Watcher?
     href: network-watcher-overview.md
-  - name: Network Watcher FAQ
+  - name: FAQ
     href: frequently-asked-questions.yml
   - name: Prerequisites
     items:
@@ -175,8 +175,6 @@
         href: nsg-flow-logs-policy-portal.md
     - name: Migrate NSG flow logs
       href: nsg-flow-logs-migrate.md
-    - name: Read flow logs
-      href: flow-logs-read.md
     - name: Analyze NSG flow logs
       items:
       - name: Use Power BI
@@ -189,6 +187,8 @@
         href: network-watcher-analyze-nsg-flow-logs-graylog.md
     - name: Delete NSG flow log storage blobs
       href: network-watcher-delete-nsg-flow-log-blobs.md
+  - name: Read flow logs
+    href: flow-logs-read.md
   - name: Traffic analytics
     items:
     - name: Overview
