@@ -6,7 +6,7 @@ ms.author: schaffererin
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions #Required  - use references_regions if specific regions are mentioned.
 ms.service: azure-kubernetes-service
-ms.date: 02/06/2025
+ms.date: 02/07/2025
 #Customer intent: As an engineer responsible for business continuity, I want to understand who need to understand the details of how AKS works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow during different kinds of situations. 
 ---
 
@@ -57,6 +57,8 @@ You can configure AKS to be *zone redundant*, which means your resources are s
 
 You can deploy zone redundant AKS resources into any [Azure region that supports availability zones](./availability-zones-region-support.md).
 
+<!-- Add information about the different types of node pools customers can deploy (maybe we add another subsection for this? -->
+
 ### Region support
 
 <!-- Add information on HA/DR docs, how to load balance across multiple clusters, Fleet -->
@@ -69,21 +71,28 @@ When using availability zones in AKS, consider the following:
 
 - You can only define availability zones during creation of the cluster or node pool.
 - It's not possible to update an existing non-availability zone cluster to use availability zones after creating the cluster.
-- The chosen node size (VM SKU) selected must be available across all availability zones selected.
-- Clusters with availability zones enabled require using Azure Standard Load Balancers for distribution across zones. You can only define this load balancer type at cluster create time. For more information and the limitations of the standard load balancer, see [Azure load balancer standard SKU limitations](/azure/aks/load-balancer-standard#limitaitons).
+- Clusters with availability zones enabled require using Azure Standard Load Balancer for distribution across zones. You can only define this load balancer type at cluster create time. For more information and the limitations of the standard load balancer, see [Azure load balancer standard SKU limitations](/azure/aks/load-balancer-standard#limitaitons).
 - When implementing **availability zones with the [cluster autoscaler](/azure/aks/cluster-autoscaler-overview)**, we recommend using a single node pool for each zone. You can set the `--balance-similar-node-groups` parameter to `true` to maintain a balanced distribution of nodes across zones for your workloads during scale up operations. When this approach isn't implemented, scale down operations can disrupt the balance of nodes across zones. This configuration doesn't guarantee that similar node groups will have the same number of nodes:
   - Currently, balancing happens during scale up operations only. The cluster autoscaler scales down underutilized nodes regardless of the relative sizes of the node groups.
-  - The cluster autoscaler only adds as many nodes as required to run all existing pods. Some groups might have more nodes than others if they have more pods scheduled.
+  - The cluster autoscaler adds nodes based on pending pods and the requests of the pods to calculate the number of nodes to add.
   - The cluster autoscaler only balances between node groups that can support the same set of pending pods.
 - You can use Azure zone-redundant storage (ZRS) disks to replicate your storage across three availability zones in the region you select. A ZRS disk lets you recover from availability zone failure without data loss. For more information, see [ZRS for managed disks](/azure/virtual-machines/disks-redundancy#zone-redundant-storage-for-managed-disks).
 
 ### Cost
+
+Availability zones are free to use. You only pay for the virtual machines (VMs) and other resources that you deploy in the availability zones.
 
 ### Configure availability zone support
 
 [Create an Azure Kubernetes Service (AKS) cluster that uses availability zones](/azure/aks/availability-zones)
 
 ### Capacity planning and management
+
+We recommend that you use the following best practices for capacity planning and management:
+
+- [Node autoprovisioning (NAP)](/azure/aks/node-autoprovision)
+- [Single instance VM node pools](/azure/aks/virtual-machines-node-pools)
+- [Go multi-region with Azure Kubernetes Fleet Manager](/azure/kubernetes-fleet-overview)
 
 ### Traffic routing between zones
 
@@ -93,7 +102,12 @@ When using availability zones in AKS, consider the following:
 
 ### Failback
 
-### Testing for zone failures  
+### Testing for zone failures
+
+You can test for resiliency to failures using the following methods:
+
+- [Cordon and drain nodes in a single availability zone](/azure/aks/aks-zone-resiliency#method-1-cordon-and-drain-nodes-in-a-single-az)
+- [Simulate an availability zone failure using Azure Chaos Studio](/azure/aks/aks-zone-resiliency#method-2-simulate-an-az-failure-using-azure-chaos-studio)
 
 ## Multi-region support
 
