@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: overview
-ms.date: 12/12/2023
+ms.date: 02/07/2025
 
 #CustomerIntent: As an Azure administrator, I want to learn about Azure Route Server so I can use it to apply dynamic routing and simplify network management.
 ---
@@ -50,7 +50,7 @@ For pricing details, see [Azure Route Server pricing](https://azure.microsoft.co
 
 For service level agreement details, see [SLA for Azure Route Server](https://azure.microsoft.com/support/legal/sla/route-server/v1_0/).
 
-## FAQ
+## Frequently asked questions (FAQ)
 
 For frequently asked questions about Azure Route Server, see [Azure Route Server FAQ](route-server-faq.md).
 
