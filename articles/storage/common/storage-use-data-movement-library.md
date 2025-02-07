@@ -32,7 +32,7 @@ If you're migrating code from the older **Microsoft.Azure.Storage.DataMovement**
 
 ## Set up your environment
 
-If you don't have an existing project, this section shows you how to set up a project to work with the Azure Blob Storage client library for .NET. The steps include package installation, adding `using` directives, and creating an authorized client object. For details, see [Get started with Azure Blob Storage and .NET](../blobs/storage-blob-dotnet-get-started.md).
+If you don't have an existing project, this section shows you how to set up a project to work with the Azure Blob Storage client library for .NET. The steps include package installation, adding `using` directives, and creating an authorized client object.
 
 #### Install packages
 
@@ -46,7 +46,7 @@ dotnet add package Azure.Identity
 
 #### Add `using` directives
 
-Add these `using` directives to the top of your code file:
+Add these `using` directives to your code file:
 
 ```csharp
 using Azure;
@@ -81,7 +81,13 @@ The following code shows how to create a `TransferManager` object:
 TransferManager transferManager = new(new TransferManagerOptions());
 ```
 
-You can optionally provide an instance of [TransferManagerOptions](/dotnet/api/azure.storage.datamovement.transfermanageroptions) to the constructor, which applies certain configuration options, including maximum concurrency, to all transfers started by the `TransferManager` object.
+You can optionally provide an instance of [TransferManagerOptions](/dotnet/api/azure.storage.datamovement.transfermanageroptions) to the constructor, which applies certain configuration options to all transfers started by the `TransferManager` object. The following configuration options are available:
+
+- [CheckpointStoreOptions](/dotnet/api/azure.storage.datamovement.transfermanageroptions.checkpointstoreoptions): Optional. Defines the options for creating a checkpoint used for saving transfer state so transfers can be resumed.
+- [Diagnostics](/dotnet/api/azure.storage.datamovement.transfermanageroptions.diagnostics): Gets the transfer manager diagnostic options.
+- [ErrorHandling](/dotnet/api/azure.storage.datamovement.transfermanageroptions.errorhandling): Optional. Defines how errors are handled during a transfer. Default is `StopOnAnyFailure`.
+- [MaximumConcurrency](/dotnet/api/azure.storage.datamovement.transfermanageroptions.maximumconcurrency): The maximum number of workers that may be used in a parallel transfer.
+- [ProvidersForResuming](/dotnet/api/azure.storage.datamovement.transfermanageroptions.providersforresuming): Resource providers for the transfer manager to use in resuming a transfer. Expects one provider for each storage provider in use. To learn more, see [Resume an existing transfer](#resume-an-existing-transfer).
 
 ## Create a `StorageResource` object
 
@@ -113,7 +119,7 @@ StorageResource blockBlob = await blobsProvider.FromBlobAsync(
 // Use a similar approach to get a page blob or append blob resource
 ```
 
-You can also create a `StorageResource` object using a client object from **Azure.Storage.Blobs**:
+You can also create a `StorageResource` object using a client object from **Azure.Storage.Blobs**.
 
 ```csharp
 // Create a token credential
@@ -124,9 +130,7 @@ BlobContainerClient blobContainerClient = new(
     tokenCredential);
 StorageResource containerResource = BlobsStorageResourceProvider.FromClient(blobContainerClient);
 
-BlockBlobClient blockBlobClient = new(
-    new Uri("https://<storage-account-name>.blob.core.windows.net/sample-container/sample-block-blob"),
-    tokenCredential);
+BlockBlobClient blockBlobClient = blobContainerClient.GetBlockBlobClient("sample-block-blob");
 StorageResource blockBlobResource = BlobsStorageResourceProvider.FromClient(blockBlobClient);
 
 // Use a similar approach to get a page blob or append blob resource
@@ -134,7 +138,7 @@ StorageResource blockBlobResource = BlobsStorageResourceProvider.FromClient(bloc
 
 ## Start a new transfer
 
-Transfers are defined by a source and a destination. Both the source and destination are type `StorageResource`, which can be either `StorageResourceContainer` or `StorageResourceItem`. For a given transfer, the source and destination must be of the same kind. For example, if the source is a blob container, the destination must be a blob container.
+All transfers need to specify a source and a destination. Both the source and destination are type `StorageResource`, which can be either `StorageResourceContainer` or `StorageResourceItem`. For a given transfer, the source and destination must be of the same kind. For example, if the source is a blob container, the destination must be a blob container.
 
 You can start a new transfer by calling the following method:
 
@@ -142,11 +146,16 @@ You can start a new transfer by calling the following method:
 
 This method returns a [TransferOperation](/dotnet/api/azure.storage.datamovement.transferoperation) object that represents the transfer. You can use the `TransferOperation` object to monitor the transfer progress or obtain the transfer ID. The transfer ID is a unique identifier for the transfer that's needed to [resume a transfer](#resume-an-existing-transfer) or pause a transfer.
 
-You can optionally provide an instance of [TransferOptions](/dotnet/api/azure.storage.datamovement.transferoptions) to `StartTransferAsync`, which applies certain configuration options, including creation preference and transfer size, to a specific transfer.
+You can optionally provide an instance of [TransferOptions](/dotnet/api/azure.storage.datamovement.transferoptions) to `StartTransferAsync` and `ResumeTransferAsync` methods, which applies certain configuration options to a specific transfer. The following configuration options are available:
 
-### Example: Upload a local file to a blob
+- [CreationMode](/dotnet/api/azure.storage.datamovement.transferoptions.creationmode): Configures the behavior when a transfer encounters a resource that already exists. Defaults to `FailIfExists` when starting a new transfer. When resuming a transfer, the defaults can vary. For all resources successfully enumerated when the transfer started, `CreationMode` defaults to the initial value used. For any remaining resources, the regular default value applies.
+- [InitialTransferSize](/dotnet/api/azure.storage.datamovement.transferoptions.initialtransfersize): The size of the first range request in bytes. Single transfer sizes smaller than this limit are uploaded or downloaded in a single request. Transfers larger than this limit will continue being downloaded or uploaded in chunks of size [MaximumTransferChunkSize](/dotnet/api/azure.storage.datamovement.transferoptions.maximumtransferchunksize). The default value is 32 MiB. When resuming a transfer, the default value is the value specified when the transfer first started.
+- [MaximumTransferChunkSize](/dotnet/api/azure.storage.datamovement.transferoptions.maximumtransferchunksize): The maximum size to use for each chunk when transferring data in chunks. The default value is 4 MiB. When resuming a transfer, the default value is the value specified when the transfer first started.
+- [ProgressHandlerOptions](/dotnet/api/azure.storage.datamovement.transferoptions.progresshandleroptions): Optional. Options for changing behavior of the ProgressHandler.
 
-The following code example shows how to start a new transfer to upload a local file to a blob:
+### Example: Upload a local directory to a blob container
+
+The following code example shows how to start a new transfer to upload a local directory to a blob container:
 
 ```csharp
 // Create a token credential
@@ -156,21 +165,20 @@ TransferManager transferManager = new(new TransferManagerOptions());
 
 BlobsStorageResourceProvider blobsProvider = new(tokenCredential);
 
-string localFilePath = "C:/path/to/file.txt";
-Uri blobUri = new Uri("https://<storage-account-name>.blob.core.windows.net/sample-container/sample-blob");
+string localDirectoryPath = "C:/path/to/directory";
+Uri blobContainerUri = new Uri("https://<storage-account-name>.blob.core.windows.net/sample-container");
 
 TransferOperation transferOperation = await transferManager.StartTransferAsync(
-    sourceResource: LocalFilesStorageResourceProvider.FromFile(localFilePath),
-    destinationResource: await blobsProvider.FromBlobAsync(
-        new Uri(blobUri)));
+    sourceResource: LocalFilesStorageResourceProvider.FromDirectory(localDirectoryPath),
+    destinationResource: await blobsProvider.FromContainerAsync(blobContainerUri));
 await transferOperation.WaitForCompletionAsync();
 ```
 
 ### Example: Copy a container or blob
 
-You can use the Data Movement library to copy between two `StorageResource` instances. For blob resources, the transfer uses the [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) operation, which performs a server-to-server copy. 
+You can use the Data Movement library to copy between two `StorageResource` instances. For blob resources, the transfer uses the [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) operation, which performs a server-to-server copy.
 
-The following code example shows how to start a new transfer to copy a source blob container to a destination blob container:
+The following code example shows how to start a new transfer to copy all blobs in a source blob container to a destination blob container. The destination container must already exist. In this example, we set [CreationMode](/dotnet/api/azure.storage.datamovement.storageresourcecreationmode) to `OverwriteIfExists` to overwrite any destination blobs that already exist. You can adjust the `CreationMode` property based on the needs of your app.
 
 ```csharp
 Uri sourceContainerUri = new Uri("https://<storage-account-name>.blob.core.windows.net/source-container");
@@ -183,7 +191,7 @@ TransferOperation transferOperation = await transferManager.StartTransferAsync(
         {
             BlobPrefix = "source/directory/prefix"
         }),
-    destinationResource: blobsProvider.FromContainer(
+    destinationResource: await blobsProvider.FromContainerAsync(
         destinationContainerUri,
         new BlobStorageResourceContainerOptions()
         {
@@ -191,13 +199,16 @@ TransferOperation transferOperation = await transferManager.StartTransferAsync(
             // Defaults to block blob, if not specified
             BlobType = BlobType.Block,
             BlobPrefix = "destination/directory/prefix"
-        }
-        )
-    );
+        }),
+    transferOptions: new TransferOptions()
+    {
+        CreationMode = StorageResourceCreationMode.OverwriteIfExists,
+    }
+);
 await transferOperation.WaitForCompletionAsync();
 ```
 
-The following code example shows how to start a new transfer to copy a source blob to a destination blob:
+The following code example shows how to start a new transfer to copy a source blob to a destination blob. In this example, we set [CreationMode](/dotnet/api/azure.storage.datamovement.storageresourcecreationmode) to `OverwriteIfExists` to overwrite the destination blob if it already exists. You can adjust the `CreationMode` property based on the needs of your app.
 
 ```csharp
 Uri sourceBlobUri = new Uri(
@@ -207,17 +218,18 @@ Uri destinationBlobUri = new Uri(
 
 TransferOperation transferOperation = await transferManager.StartTransferAsync(
     sourceResource: await blobsProvider.FromBlobAsync(sourceBlobUri),
-    destinationResource: await blobsProvider.FromBlobAsync(destinationBlobUri, new BlockBlobStorageResourceOptions()));
+    destinationResource: await blobsProvider.FromBlobAsync(destinationBlobUri, new BlockBlobStorageResourceOptions()),
+    transferOptions: new TransferOptions()
+    {
+        CreationMode = StorageResourceCreationMode.OverwriteIfExists,
+    }
+);
 await transferOperation.WaitForCompletionAsync();
 ```
 
-### Set configuration options for a transfer
-
-You can set configuration options for a transfer by providing an instance of [TransferOptions](/dotnet/api/azure.storage.datamovement.transferoptions) to the `StartTransferAsync` method. The `TransferOptions` class provides properties that allow you to set the number of parallel operations, the size of the buffer, and more.
-
 ## Resume an existing transfer
 
-By persisting transfer progress to disk, the Data Movement library allows you to resume a transfer that failed before completion, or was otherwise canceled or paused. To resume a transfer, the `TransferManager` object must be configured with `StorageResourceProvider` instances that are capable of reassembling the transfer from the persisted data. You can use the `ResumeProviders` property of the [TransferManagerOptions](/dotnet/api/azure.storage.datamovement.transfermanageroptions) class to specify the providers.
+By persisting transfer progress to disk, the Data Movement library allows you to resume a transfer that failed before completion, or was otherwise canceled or paused. To resume a transfer, the `TransferManager` object must be configured with `StorageResourceProvider` instances that are capable of reassembling the transfer from the persisted data. You can use the `ProvidersForResuming` property of the [TransferManagerOptions](/dotnet/api/azure.storage.datamovement.transfermanageroptions) class to specify the providers.
 
 The following code example shows how to initialize a `TransferManager` object that's capable of resuming a transfer between the local file system and Blob Storage:
 
@@ -225,13 +237,11 @@ The following code example shows how to initialize a `TransferManager` object th
 // Create a token credential
 TokenCredential tokenCredential = new DefaultAzureCredential();
 
-BlobsStorageResourceProvider blobsProvider = new(tokenCredential);
-
 TransferManager transferManager = new(new TransferManagerOptions()
 {
     ProvidersForResuming = new List<StorageResourceProvider>()
     {
-        blobsProvider
+        new BlobsStorageResourceProvider(tokenCredential)
     }
 });
 ```
@@ -259,7 +269,7 @@ Transfers can be monitored and observed through several mechanisms, depending on
 
 You can monitor transfer progress using the `TransferOperation` object returned by the `StartTransferAsync` method. You can also call [TransferManager.GetTransfersAsync](/dotnet/api/azure.storage.datamovement.transfermanager.gettransfersasync) to enumerate all transfers for a `TransferManager` object.
 
-The following code example shows how to iterate over all transfers and write the status of each transfer to a log file:
+The following code example shows how to iterate over all transfers and write the state of each transfer to a log file:
 
 ```csharp
 async Task CheckTransfersAsync(TransferManager transferManager)
@@ -272,13 +282,13 @@ async Task CheckTransfersAsync(TransferManager transferManager)
 }
 ```
 
-The `TransferStatus` property returns a [TransferStatus](/dotnet/api/azure.storage.datamovement.transferstatus) value. `TransferStatus` includes the following properties:
+[TransferStatus](/dotnet/api/azure.storage.datamovement.transferstatus) defines the status of the transfer job. `TransferStatus` includes the following properties:
 
 | Property | Type | Description |
 | --- | --- | --- |
 | `HasCompletedSuccessfully` | Boolean | Represents if the transfer completes successfully without any failure or skipped items. |
 | `HasFailedItems` | Boolean | Represents if transfer has any failure items. If set to `true`, the transfer has at least one failure item. If set to `false`, the transfer currently has no failures. |
-| `HasSkippedItems` | Boolean | Represents if transfer has any skipped items. If set to `true`, the transfer has at least one skipped item. If set to `false`, the transfer currently has no skipped items. It's possible to never have any items skipped if `SkipIfExists` isn't enabled in [TransferOptions.CreationPreference](/dotnet/api/azure.storage.datamovement.transferoptions.creationpreference). |
+| `HasSkippedItems` | Boolean | Represents if transfer has any skipped items. If set to `true`, the transfer has at least one skipped item. If set to `false`, the transfer currently has no skipped items. It's possible to never have any items skipped if `SkipIfExists` isn't enabled in [TransferOptions.CreationMode](/dotnet/api/azure.storage.datamovement.transferoptions.creationmode). |
 | `State` | [TransferState](/dotnet/api/azure.storage.datamovement.transferstate) | Defines the types of the state a transfer can have. See [TransferState](/dotnet/api/azure.storage.datamovement.transferstate) for details. |
 
 ### Example: Monitor transfer progress using `TransferOptions` events
@@ -325,7 +335,6 @@ Add the following `using` directives to the top of your code file:
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 ```
-
 
 The following code example shows how to instantiate a `BlobContainerClient` for a blob container named `sample-container`: 
 
