@@ -110,7 +110,7 @@ $conditions = "[[and(endsWith(Name, '.docx'), equals(utcNow, dateTimeAdd(Creatio
 #### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-conditionclause="[[and(endsWith(Name, '/.docx'/), equals(utcNow, dateTimeAdd(Creation-Time, Tags.Value[retainFor])))]]"
+conditionclause="[[and(endsWith(Name, '/.docx'/),equals(utcNow,dateTimeAdd(Creation-Time,Tags.Value[retainFor])))]]"
 ```
 ---
 
@@ -140,7 +140,7 @@ For more information, see [Multiple clauses in a condition](storage-task-conditi
 #### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-conditionclause="[[and(endsWith(Name, '.log'), equals(Tags.Value[Archive-Status], 'Ready'))]]"
+conditionclause="[[and(endsWith(Name,'/.log'/),equals(Tags.Value[Archive-Status],'/Ready'/))]]"
 ```
 
 For more information, see [Multiple clauses in a condition](storage-task-conditions.md#multiple-clauses-in-a-condition).
@@ -169,7 +169,7 @@ $conditions = "[[and(equals(Tags.Value[Archive-Status], 'Ready'), endsWith(Name,
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-conditionclause="[[and(equals(Tags.Value[Archive-Status], 'Ready'), endsWith(Name, '.log'))]]"
+conditionclause="[[and(equals(Tags.Value[Archive-Status],'/Ready'/),endsWith(Name,'/.log'/))]]"
 ```
 ---
 
@@ -191,7 +191,7 @@ To ungroup clauses, select the ungroup icon (:::image type="icon" source="../med
 ### [PowerShell](#tab/azure-powershell)
 
 ```powershell
-$conditions = "[[and(endsWith(Name, '.log'), or(equals(Tags.Value[Archive-Status], 'Ready'), less(utcNow, dateTimeAdd(LastAccessTime, 'P120D'))))]]"
+$conditions = "[[and(endsWith(Name,'/.log'/),or(equals(Tags.Value[Archive-Status],'/Ready'/),less(utcNow,dateTimeAdd(LastAccessTime,'/P120D'/))))]]"
 ```
 
 For more information, see [Groups of conditions](storage-task-conditions.md#groups-of-conditions).
@@ -199,7 +199,7 @@ For more information, see [Groups of conditions](storage-task-conditions.md#grou
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-conditionclause="[[and(endsWith(Name, '.log'), or(equals(Tags.Value[Archive-Status], 'Ready'), less(utcNow, dateTimeAdd(LastAccessTime, 'P120D'))))]]"
+conditionclause="[[and(endsWith(Name,'/.log'/),or(equals(Tags.Value[Archive-Status],'/Ready'/),less(utcNow,dateTimeAdd(LastAccessTime,'/P120D'/))))]]"
 ```
 
 For more information, see [Groups of conditions](storage-task-conditions.md#groups-of-conditions).
@@ -288,12 +288,11 @@ The following example sets the `Archive-Status` tag to the value `Archived`.
    ```azurecli
    policyoperation="{name:'SetBlobImmutabilityPolicy',parameters:{untilDate:'2024-10-20T22:30:40',mode:'locked'},onSuccess:'continue',onFailure:'break'}"
    tagoperation="{name:'SetBlobTags',parameters:{'tagsetImmutabilityUpdatedBy':'StorageTaskQuickstart'},onSuccess:'continue',onFailure:'break'}"
-   operations="${policyoperation}","${tagoperation}"
    ```
 2. Combine operations together by using a comma separator.
 
    ```azurecli
-   operations="'${policyoperation}','${tagoperation}'"
+   action="{if:{condition:'"${conditionclause}"',operations:["${policyoperation}","${tagoperation}"]}}"
    ```
 ---
 
