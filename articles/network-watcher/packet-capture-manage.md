@@ -6,14 +6,14 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 01/31/2025
+ms.date: 02/07/2025
 
 #CustomerIntent: As an administrator, I want to capture IP packets to and from a virtual machine (VM) so I can review and analyze the data to help diagnose and solve network problems.
 ---
 
-# Manage packet captures with Azure Network Watcher
+# Start, stop, download, and delete packet captures with Azure Network Watcher
 
-In this article, you learn how to use the Azure Network Watcher [packet capture](packet-capture-overview.md) feature to remotely configure, start, stop, download, and delete virtual machine packet captures.
+In this article, you learn how to use the Azure Network Watcher [packet capture](packet-capture-overview.md) feature to remotely configure, start, stop, download, and delete packet captures.
 
 ## Prerequisites
 
