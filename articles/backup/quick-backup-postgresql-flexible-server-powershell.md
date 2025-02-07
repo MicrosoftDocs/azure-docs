@@ -35,15 +35,15 @@ See the [permissions](.\backup-azure-database-postgresql-flex-overview.md#permis
 
 2. Once all the required permissions are set, prepare the relevant request to configure backup for the PostgreSQL - Flexible server.
  
-```azurecli
-$instance = Initialize-AzDataProtectionBackupInstance -DatasourceType AzureDatabaseForPostgreSQLFlexibleServer -DatasourceLocation $TestBkpvault.Location -PolicyId $polOss[0].Id -DatasourceId $ossId ConvertTo-Json -InputObject $instance -Depth 4 
-```
+    ```azurepowershell
+    $instance = Initialize-AzDataProtectionBackupInstance -DatasourceType AzureDatabaseForPostgreSQLFlexibleServer -DatasourceLocation $TestBkpvault.Location -PolicyId $polOss[0].Id -DatasourceId $ossId ConvertTo-Json -InputObject $instance -Depth 4 
+    ```
 
 3. Then submit the request to protect the server with Azure Backup.
 
-```azurecli
-New-AzDataProtectionBackupInstance -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -BackupInstance $instance
-```
+    ```azurepowershell
+    New-AzDataProtectionBackupInstance -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -BackupInstance $instance
+    ```
 
 After the backup configuration is complete, you can [run an on-demand backup](back-up-azure-database-postgresql-flex-backup-powershell.md#run-an-on-demand-backup) to create the first full backup for the database.
 
