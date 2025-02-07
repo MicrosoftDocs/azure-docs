@@ -31,7 +31,7 @@ All of these services can solve integration problems and automate business proce
 
 These services are both *designer-first* integration platforms where you can build and run automated workflows. Both platforms integrate with various Software-as-a-Service (SaaS) and enterprise applications. Both provide similar workflow designers, and while [their connectors share some overlap](/connectors/connector-reference/), each platform also offers their own unique connectors.
 
-Power Automate empowers business users, office workers, and citizen developers to build simple integrations, such as an approval workflow for a SharePoint document library, without having to work with IT or developers or to write code. Azure Logic Apps supports integrations ranging from little-to-no-code scenarios to more advanced, codeful, and complex workflows, such as B2B processes or those that require enterprise-level interactions with Azure DevOps. A business workflow can also grow from simple to complext over time.
+Power Automate empowers business users, office workers, and citizen developers to build simple integrations without having to work with IT or developers or to write code. One example might be an approval workflow for a SharePoint document library. Azure Logic Apps supports integrations ranging from little-to-no-code scenarios to more advanced, codeful, and complex workflows. Examples include B2B processes or scenarios that require enterprise-level interactions with Azure DevOps. A business workflow can also grow from simple to complete over time.
 
 To help you determine whether you want to use Azure Logic Apps or Power Automate for a specific integration, see the [Capability comparison table](/azure/logic-apps/power-automate-migration#compare-capability-details).
 
@@ -41,7 +41,7 @@ These Azure services enable you to build and run serverless workloads. Azure Fun
 
 For Azure Functions, you develop orchestrations by writing code and using the [Durable Functions extension](durable/durable-functions-overview.md). For Azure Logic Apps, you create orchestrations by using a visual designer or by editing Azure Resource Manager templates.
 
-You can mix and match services when you build an orchestration, such as calling functions from logic app workflows and calling logic app workflows from functions. Choose how to build each orchestration based on the services' capabilities or your personal preference. The following table lists some key differences between these services:
+You can mix and match services when you build an orchestration. For example, you can call functions from logic app workflows and call logic app workflows from functions. Choose how to build each orchestration based on the services' capabilities or your personal preference. The following table lists some key differences between these services:
 
 |     | Durable Functions | Azure Logic Apps |
 | --- | ----------------- | ---------------- |
@@ -86,12 +86,12 @@ Azure Functions is built on the WebJobs SDK, so it shares many of the same event
 
 Azure Functions offers more developer productivity than Azure App Service WebJobs does. It also offers more options for programming languages, development environments, Azure service integration, and pricing. For most scenarios, it's the best choice.
 
-Here are two scenarios for which WebJobs may be the best choice:
+Here are two scenarios for which WebJobs might be the best choice:
 
-* You need more control over the code that listens for events, the `JobHost` object. Functions offers a limited number of ways to customize `JobHost` behavior in the [host.json](functions-host-json.md) file. Sometimes you need to do things that can't be specified by a string in a JSON file. For example, only the WebJobs SDK lets you configure a custom retry policy for Azure Storage.
+* You need more control over the code that listens for events, the `JobHost` object. Functions offers a limited number of ways to customize `JobHost` behavior in the [host.json](functions-host-json.md) file. Sometimes you need to do things that you can't specify by using a string in a JSON file. For example, only the WebJobs SDK lets you configure a custom retry policy for Azure Storage.
 * You have an App Service app for which you want to run code snippets, and you want to manage them together in the same Azure DevOps environment.
 
-For other scenarios where you want to run code snippets for integrating Azure or third-party services, choose Azure Functions over WebJobs with the WebJobs SDK.
+For other scenarios where you want to run code snippets for integrating Azure or external services, choose Azure Functions over WebJobs with the WebJobs SDK.
 
 <a name="together"></a>
 
@@ -101,13 +101,13 @@ You don't have to choose just one of these services. They integrate with each ot
 
 A Power Automate flow can call an Azure Logic Apps workflow. An Azure Logic Apps workflow can call a function in Azure Functions, and vice versa. For example, see [Create a function that integrates with Azure Logic Apps](functions-twitter-email.md).
 
-Between Power Automate, Logic Apps, and Functions, the integration experience between these services continues to improve over time. You can build a component in one service and use that component in the other services.
+Between Power Automate, Azure Logic Apps, and Functions, the integration experience between these services continues to improve over time. You can build a component in one service and use that component in the other services.
 
-You can get more information on integration services by using the following links:
+For more information about integration services, see the following articles:
 
 * [Leveraging Azure Functions & Azure App Service for integration scenarios by Christopher Anderson](https://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
 * [Integrations Made Simple by Charles Lamanna](https://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
-* [Logic Apps Live webcast](https://aka.ms/logicappslive)
+* [Azure Logic Apps Live webcast](https://aka.ms/logicappslive)
 * [Power Automate frequently asked questions](/power-automate/frequently-asked-questions)
 
 ## Next steps
