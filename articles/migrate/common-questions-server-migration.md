@@ -329,7 +329,7 @@ Review [Discover, assess, and migrate Amazon Web Services (AWS) VMs to Azure](./
 
 The Migration and modernization tool provides an agent-based migration option to migrate Windows and Linux servers that run on physical servers, or that run as x86/x64 VMs on providers like VMware, Hyper-V, AWS, and GCP.
 
-The agent-based migration method uses agent software to replicate server data to Azure. You install the software on the server that you're migrating. The replication process uses an offload architecture in which the agent relays replication data to a dedicated replication server called the replication appliance or Configuration Server (or to a scale-out Process Server). See [Agent-based migration architecture](./agent-based-migration-architecture.md) for more details.
+The agent-based migration method uses agent software to replicate server data to Azure. You install the software on the server that you're migrating. The replication process uses an offload architecture in which the agent relays replication data to a dedicated replication server called the replication appliance or configuration server (or to a scale-out process server). See [Agent-based migration architecture](./agent-based-migration-architecture.md) for more details.
 
  > [!NOTE]
 >
