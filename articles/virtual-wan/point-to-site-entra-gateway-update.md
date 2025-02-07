@@ -1,19 +1,19 @@
 ---
-title: 'Migrate manually registered Azure VPN client to Microsoft-registered for P2S Microsoft Entra ID authentication'
-titleSuffix: Azure VPN Gateway
-description: Learn how to update Audience values for P2S VPN gateway connections that use Microsoft Entra ID authentication.
+title: 'Migrate a manually registered Azure VPN client to Microsoft-registered for P2S Microsoft Entra ID authentication'
+titleSuffix: Azure Virtual WAN
+description: Learn how to update Audience values for User VPN (P2S) gateway connections that use Microsoft Entra ID authentication.
 author: cherylmc
-ms.service: azure-vpn-gateway
+ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 08/06/2024
+ms.date: 02/07/2025
 ms.author: cherylmc
 
 # Customer intent: As an VPN Gateway administrator, I want to update point-to-site Audience values for Microsoft Entra ID authentication.
 ---
 
-# Migrate a manually registered Azure VPN Client to the Microsoft-registered client for Microsoft Entra ID User VPN connections
+# Migrate a manually registered Azure VPN Client to the Microsoft-registered client
 
-This article helps you migrate from a manually registered Azure VPN Client to the Microsoft-registered Azure VPN Client for point-to-site (P2S) Microsoft Entra ID authentication. The Microsoft-registered Azure VPN client uses a different Audience value. When you update an Audience value, you must make the change on both the P2S VPN gateway, and on any previously configured VPN clients. For more information about Audience values, see [About point-to-site VPN - Microsoft Entra ID authentication](point-to-site-about.md#entra-id).
+This article helps you migrate from a manually registered Azure VPN Client to the Microsoft-registered Azure VPN Client for a User VPN (P2S) connection with Microsoft Entra ID authentication. The Microsoft-registered Azure VPN client uses a different Audience value. When you update an Audience value, you must make the change on both the P2S VPN gateway, and on any previously configured VPN clients. For more information about Audience values, see the [Microsoft-registerd app](point-to-site-entra-gateway.md) article.
 
 The following table shows the available supported Audience values.
 
@@ -25,7 +25,7 @@ The examples in this article use the new Audience value for Azure Public. This a
 
 The standard workflow is:
 
-1. Update P2S gateway settings.
+1. Update Virtual WAN P2S gateway settings.
 1. Generate and download new VPN client configuration files.
 1. Update the VPN client either by importing the client configuration package, or (optionally) updating the settings on the already configured VPN client.
 1. Remove the old Azure VPN Client from the tenant. This step isn't required in order to make a P2S connection using the new Audience value, but it's good practice.
@@ -34,14 +34,15 @@ The standard workflow is:
 
 When you update audience values on an existing gateway, you incur fewer than 5 minutes of downtime.
 
-1. Go to the virtual network gateway. In the left pane, click **Point-to-site configuration**, then **Configure now** to open the Point-to-site configuration page.
+1. In the portal, go to your Virtual WAN resource. In the left pane, select **User VPN configurations**.
 
-   :::image type="content" source="./media/update-entra-audience/audience.png" alt-text="Screenshot showing settings for Tunnel type, Authentication type, and Microsoft Entra settings." lightbox="././media/update-entra-audience/audience.png":::
+1. On the **User VPN configurations** page, select the configuration, then click **Edit configuration**.
 
-1. Change the **Audience** value. For this example, we changed the Audience value to the Azure Public value for the Microsoft-registered Azure VPN Client; **c632b3df-fb67-4d84-bdcf-b95ad541b5c8**.
-1. Leave the other settings the same, unless you have changed tenants and need to change the tenant IDs. If you update the Issuer field, take care to include the trailing slash at the end. For more information about each of the fields, see [Microsoft Entra ID](point-to-site-entra-gateway.md#configure-vpn) values.
-1. Once you finish configuring settings, click **Save** at the top of the page.
-1. The new settings save to the P2S gateway and the gateway updates. This takes about 5 minutes to complete.
+1. On the **Edit configuration** page, go to the **Azure Active Directory** page, which is used to configure the Microsoft Entra ID values. Change the **Audience** value to the new version. For example, the new Azure Public aduence value for the Microsoft-registerd Azure VPN Client is: **c632b3df-fb67-4d84-bdcf-b95ad541b5c8**.
+
+1. Leave the other settings the same, unless you have changed tenants and need to change the tenant IDs. If you update the Issuer field, take care to include the trailing slash at the end. For more information about each of the fields, see [User configuration](point-to-site-entra-gateway.md#user-config) values.
+1. Once you finish configuring settings, click **Review + create** to save your settings.
+1. Click **Create** to update the gateway. This takes about 5 minutes to complete.
 
 ## <a name="client"></a>Update VPN client settings
 
@@ -68,12 +69,10 @@ These steps help you update the Azure VPN Client manually, without using the pro
 
 If you want to use the VPN client profile configuration files to configure your Azure VPN Client, you can generate a profile configuration package that contains the new P2S gateway settings.
 
-[!INCLUDE [Azure VPN client profile configuration package](../../includes/vpn-gateway-point-to-site-client-package-download.md)]
+You can download global (WAN-level) profiles, or a profile for a specific hub. For information and additional instructions, see [Download global and hub profiles](global-hub-profile.md). The following steps walk you through downloading a global WAN-level profile.
+
+[!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
 
 ## Next steps
 
-For more information about configuring the Azure VPN Client for Microsoft Entra ID authentication, see the following articles:
-
-* [Azure VPN Client for Linux](point-to-site-entra-vpn-client-linux.md)
-* [Azure VPN Client for Windows](point-to-site-entra-vpn-client-windows.md)
-* [Azure VPN Client for macOS](point-to-site-entra-vpn-client-mac.md)
+[Configure P2S User VPN for Microsoft Entra ID authentication – Microsoft-registered app](point-to-site-entra-gateway.md) for more information about configuring P2S VPN gateways for Microsoft Entra ID authentication.
