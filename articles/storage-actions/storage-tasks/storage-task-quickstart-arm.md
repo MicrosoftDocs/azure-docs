@@ -74,7 +74,7 @@ Replace `<resource-group-name>` with the name of your resource group.
 
 ## Next steps
 
-For a step-by-step tutorial that guides you through the process of creating a template, see:
+Assign a storage task to a storage account.
 
 > [!div class="nextstepaction"]
-> Read more about Azure Storage Actions. See [What is Azure Storage Actions?](../overview.md).
+> [Create and manage a storage task assignment](storage-task-assignment-create.md)

@@ -178,15 +178,13 @@ An assignment becomes a sub resource of the targeted storage account. Therefore,
 
 ### Create an assignment by using Azure CLI
 
-> [!NOTE]
-> Azure CLI uses shorthand syntax. Shorthand syntax is a simplified representation of a JSON string. To learn more, see [How to use shorthand syntax with Azure CLI](/cli/azure/use-azure-cli-successfully-shorthand).
-
 1. Specify how often you'd like the task to run. You can choose to run a task only once, or run the task recurring. If you decide to run this task on a recurring basis, specify a start and end time and specify the number of days in between each run. You can also specify where you'd like to store the execution reports. The following creates a JSON-formatted string variable which specifies the container name, the task run frequency (`RunOnce`), and the time to run the report.  
 
    ```azurecli
       current_datetime=$(date +"%Y-%m-%dT%H:%M:%S")
       executioncontextvariable="{target:{prefix:[mycontainer/],excludePrefix:[]},trigger:{type:'RunOnce',parameters:{startOn:'"${current_datetime}"'}}}"
    ```
+   The string used in the `executioncontextvariable` is expressed by using shorthand syntax. Shorthand syntax is a simplified representation of a JSON string. To learn more, see [How to use shorthand syntax with Azure CLI](/cli/azure/use-azure-cli-successfully-shorthand).
 
 2.  Get the ID of the storage task that you want to include in your assignment by using the [az storage-actions task show](/cli/azure/storage-actions/task#az-storage-actions-task-show) command, and then querying for the `id` property.
 
