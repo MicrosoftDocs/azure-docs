@@ -35,6 +35,30 @@ Response result = client.createCallWithResponse(createCallOptions, Context.NONE)
 return result.getValue().getCallConnectionProperties().getCallConnectionId(); 
 ```
 
+## Connect to a Rooms call and provide transcription details
+If you are connecting to an ACS room and want to use transcription, configure the transcription options as follows:
+
+```java
+TranscriptionOptions transcriptionOptions = new TranscriptionOptions(
+    appConfig.getWebSocketUrl(), 
+    TranscriptionTransport.WEBSOCKET, 
+    "en-US", 
+    false
+);
+
+ConnectCallOptions connectCallOptions = new ConnectCallOptions(new RoomCallLocator("roomId"), appConfig.getCallBackUri())
+    .setCallIntelligenceOptions(
+        new CallIntelligenceOptions()
+            .setCognitiveServicesEndpoint(appConfig.getCognitiveServiceEndpoint())
+    )
+    .setTranscriptionOptions(transcriptionOptions);
+
+ConnectCallResult connectCallResult = Objects.requireNonNull(client
+    .connectCallWithResponse(connectCallOptions)
+    .block())
+    .getValue();
+```
+
 ## Start Transcription
 Once you're ready to start the transcription you can make an explicit call to Call Automation to start transcribing the call.
 
