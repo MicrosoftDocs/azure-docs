@@ -1859,7 +1859,3 @@ groups:
     title: Data Box Next Gen
   - id: dbx
     title: Data Box
-  - id: dbh
-    title: Data Box Heavy
-  - id: dbd
-    title: Data Box Disk
