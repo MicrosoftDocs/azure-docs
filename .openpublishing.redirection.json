@@ -5878,6 +5878,11 @@
       "source_path_from_root": "/articles/reliability/reliability-hdinsight-on-aks.md",
       "redirect_url": "/azure/reliability/overview-reliability-guidance",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/reliability/sovereign-cloud-china.md",
+      "redirect_url": "/azure/china/concepts-service-availability",
+      "redirect_document_id": false
     }
   ]
 }
