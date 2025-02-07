@@ -16,4 +16,4 @@ ms.date: 02/07/2025
 <sup>1</sup> If your NVA advertises more routes than the limit, the BGP session gets dropped.
 
 > [!NOTE]
-> The total number of routes advertised from VNet address space and Route Server towards ExpressRoute circuit, when [Branch-to-branch](/azure/route-server/configure-route-server#configure-route-exchange) enabled, must not exceed 1,000. For more information, see [Route advertisement limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#expressroute-limits) of ExpressRoute.
+> The total number of routes advertised from VNet address space and Route Server towards ExpressRoute circuit, when [Branch-to-branch](/azure/route-server/configure-route-server#configure-route-exchange) enabled, must not exceed 1,000. For more information, see [Route advertisement limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-expressroute-limits) of ExpressRoute.
