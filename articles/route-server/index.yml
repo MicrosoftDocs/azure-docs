@@ -87,7 +87,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Troubleshooting Route Server
+          - text: Troubleshoot Route Server
             url: troubleshoot-route-server.md
           - text: Monitor Route Server
             url: monitor-route-server.md
