@@ -387,7 +387,7 @@ In the following tables, the term alphanumeric refers to:
 > | servers / databases | servers | 1-63 | Alphanumerics and hyphens |
 > | servers / firewallRules | servers | 1-128 | Alphanumerics, hyphens, and underscores |
 > | servers / virtualNetworkRules | servers | 1-128 | Alphanumerics and hyphens |
-s
+
 ## Microsoft.DBforPostgreSQL
 
 > [!div class="mx-tableFixed"]

@@ -205,7 +205,7 @@ The command returns:
 ...
 ```
 
-Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. Also, there may be limitations on your subscription that prevent you from using some regions that support the resource.
+Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. Also, there might be limitations on your subscription that prevent you from using some regions that support the resource.
 
 To get the supported locations for a resource type, use:
 
@@ -316,7 +316,7 @@ Result
 ...
 ```
 
-Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. Also, there may be limitations on your subscription that prevent you from using some regions that support the resource.
+Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. Also, there might be limitations on your subscription that prevent you from using some regions that support the resource.
 
 To get the supported locations for a resource type, use:
 
@@ -516,7 +516,7 @@ The command returns:
 ...
 ```
 
-Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. Also, there may be limitations on your subscription that prevent you from using some regions that support the resource.
+Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. Also, there might be limitations on your subscription that prevent you from using some regions that support the resource.
 
 To get the supported locations for a resource type, use:
 
