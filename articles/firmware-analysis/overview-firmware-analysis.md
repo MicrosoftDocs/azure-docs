@@ -2,7 +2,7 @@
 title: Firmware analysis overview
 description: Learn how firmware analysis helps device builders and operators to evaluate the security of IoT, OT and network devices.
 ms.topic: conceptual
-ms.date: 06/15/2023
+ms.date: 02/07/2025
 author: karengu0
 ms.author: karenguo
 ms.service: azure
