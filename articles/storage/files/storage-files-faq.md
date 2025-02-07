@@ -107,7 +107,7 @@ ms.topic: faq
   **Can SSL inspection software block access to AFS Servers?**
   Make sure your SSL inspection software (such as Zscaler or FortiGate) allows Azure File Sync (AFS) server endpoints to access Azure. These SSL inspection tools can override firewall settings and selectively allow traffic. Contact your network administrator to resolve this issue. Use the "testnet" command to determine if your AFS server is experiencing this problem.
   
-## Security, authentication, and access
+## Security, authentication, and access control
 
 * <a id="file-auditing"></a>
 **How can I audit file access and changes in Azure Files?**
