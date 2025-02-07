@@ -31,6 +31,26 @@ call_connection_properties = call_automation_client.create_call(
 )
 ```
 
+## Connect to a Rooms call and provide transcription details
+If you are connecting to an ACS room and want to use transcription, configure the transcription options as follows:
+
+```python
+transcription_options = TranscriptionOptions(
+    transport_url="",
+    transport_type=TranscriptionTransportType.WEBSOCKET,
+    locale="en-US",
+    start_transcription=False
+)
+
+connect_result = client.connect_call(
+    room_id="roomid",
+    CALLBACK_EVENTS_URI,
+    cognitive_services_endpoint=COGNITIVE_SERVICES_ENDPOINT,
+    operation_context="connectCallContext",
+    transcription_options=transcription_options
+)
+```
+
 ## Start Transcription
 Once you're ready to start the transcription, you can make an explicit call to Call Automation to start transcribing the call.
 
