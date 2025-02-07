@@ -12,7 +12,7 @@ ms.author: kpunjabi
 ---
 
 ## Create a call and provide the transcription details
-Define the TranscriptionOptions for ACS to know whether to start the transcription straight away or at a later time, which locale to transcribe in and the web socket connection to use for sending the transcript.
+Define the TranscriptionOptions for ACS to specify when to start the transcription, specify the locale for transcription, and the web socket connection for sending the transcript.
 
 ```csharp
 var createCallOptions = new CreateCallOptions(callInvite, callbackUri)
@@ -24,7 +24,7 @@ CreateCallResult createCallResult = await callAutomationClient.CreateCallAsync(c
 ```
 
 ## Connect to a Rooms call and provide transcription details
-If you are connecting to an ACS room and want to use transcription, configure the transcription options as follows:
+If you're connecting to an ACS room and want to use transcription, configure the transcription options as follows:
 
 ```csharp
 var transcriptionOptions = new TranscriptionOptions(
@@ -47,7 +47,7 @@ var connectResult = await client.ConnectCallAsync(connectCallOptions);
 ```
 
 ## Start Transcription
-Once you're ready to start the transcription you can make an explicit call to Call Automation to start transcribing the call.
+Once you're ready to start the transcription, you can make an explicit call to Call Automation to start transcribing the call.
 
 ```csharp
 // Start transcription with options
@@ -64,7 +64,7 @@ await callMedia.StartTranscriptionAsync(options);
 ```
 
 ## Receiving Transcription Stream
-When transcription starts, your websocket will receive the transcription metadata payload as the first packet. This payload carries the call metadata and locale for the configuration.
+When transcription starts, your websocket receives the transcription metadata payload as the first packet.
 
 ```json
 {
@@ -79,7 +79,7 @@ When transcription starts, your websocket will receive the transcription metadat
 ```
 
 ## Receiving Transcription data
-After the metadata the next packets your web socket receives will be TranscriptionData for the transcribed audio.
+After the metadata, the next packets your web socket receives will be TranscriptionData for the transcribed audio.
 
 ```json
 {
