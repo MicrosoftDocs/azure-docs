@@ -33,6 +33,34 @@ console.log("Placing outbound call...");
 acsClient.createCall(callInvite, process.env.CALLBACK_URI + "/api/callbacks", options);
 ```
 
+## Connect to a Rooms call and provide transcription details
+If you are connecting to an ACS room and want to use transcription, configure the transcription options as follows:
+
+```javascript
+const transcriptionOptions = {
+    transportUri: "",
+    locale: "en-US",
+    transcriptionTransport: "websocket",
+    startTranscription: false
+};
+
+const callIntelligenceOptions = {
+    cognitiveServicesEndpoint: process.env.COGNITIVE_SERVICES_ENDPOINT
+};
+
+const connectCallOptions = {
+    callIntelligenceOptions: callIntelligenceOptions,
+    transcriptionOptions: transcriptionOptions
+};
+
+const callLocator = {
+    id: roomId,
+    kind: "roomCallLocator"
+};
+
+const connectResult = await client.connectCall(callLocator, callBackUri, connectCallOptions);
+```
+
 ## Start Transcription
 Once you're ready to start the transcription, you can make an explicit call to Call Automation to start transcribing the call.
 
