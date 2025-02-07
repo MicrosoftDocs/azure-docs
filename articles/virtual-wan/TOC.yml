@@ -216,6 +216,12 @@
               href: point-to-site-vpn-client-certificate-windows-openvpn-client-version-2.md
             - name: Version 3.x
               href: point-to-site-vpn-client-certificate-windows-openvpn-client-version-3.md
+        - name: Linux clients
+          items:
+          - name: Azure VPN client
+            href: point-to-site-azure-vpn-client-certificate-linux.md
+          - name: OpenVPN client
+            href: point-to-site-vpn-client-certificate-openvpn-linux.md
         - name: macOS and iOS clients
           items:
           - name: Native VPN client
