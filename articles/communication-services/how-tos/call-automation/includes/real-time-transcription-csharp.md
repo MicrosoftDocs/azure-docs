@@ -23,6 +23,29 @@ var createCallOptions = new CreateCallOptions(callInvite, callbackUri)
 CreateCallResult createCallResult = await callAutomationClient.CreateCallAsync(createCallOptions);
 ```
 
+## Connect to a Rooms call and provide transcription details
+If you are connecting to an ACS room and want to use transcription, configure the transcription options as follows:
+
+```csharp
+var transcriptionOptions = new TranscriptionOptions(
+    transportUri: new Uri(""),
+    locale: "en-US", 
+    startTranscription: false,
+    transcriptionTransport: TranscriptionTransport.Websocket
+);
+
+var connectCallOptions = new ConnectCallOptions(new RoomCallLocator("roomId"), callbackUri)
+{
+    CallIntelligenceOptions = new CallIntelligenceOptions() 
+    { 
+        CognitiveServicesEndpoint = new Uri(cognitiveServiceEndpoint) 
+    },
+    TranscriptionOptions = transcriptionOptions
+};
+
+var connectResult = await client.ConnectCallAsync(connectCallOptions);
+```
+
 ## Start Transcription
 Once you're ready to start the transcription you can make an explicit call to Call Automation to start transcribing the call.
 
