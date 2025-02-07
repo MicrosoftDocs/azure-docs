@@ -4,7 +4,7 @@ description: Learn about the various storage and data movement options for rende
 services: batch
 ms.service: azure-batch
 ms.custom: linux-related-content
-ms.date: 08/02/2018
+ms.date: 02/07/2025
 ms.topic: how-to
 ---
 
