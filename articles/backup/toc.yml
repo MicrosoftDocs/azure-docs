@@ -74,6 +74,18 @@
       href: backup-blobs-storage-account-bicep.md
   - name: Install Backup extension in AKS cluster
     href: quick-install-backup-extension.md
+  - name: Configure vaulted backup for Azure Files  
+    items:
+    - name: With Azure PowerShell
+      href: quick-backup-azure-files-vault-tier-powershell.md
+    - name: With Azure CLI
+      href: quick-backup-azure-files-vault-tier-cli.md
+    - name: With Azure Resource Manager
+      href: quick-backup-azure-files-vault-tier-arm.md
+    - name: With Azure Bicep
+      href: quick-backup-azure-files-vault-tier-bicep.md
+    - name: With Terraform
+      href: quick-backup-azure-files-vault-tier-terraform.md        
   - name: Enable Multi-user authorization (MUA)
     href: enable-multi-user-authorization-quickstart.md
   - name: Backup SAP HANA System Replication database
