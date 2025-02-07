@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 01/07/2025
+ms.date: 02/07/2025
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to create a data flow to connect data sources.
@@ -268,7 +268,7 @@ If you created a custom MQTT or Kafka data flow endpoint (for example, to use wi
     | Setting              | Description                                                                                       |
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Data flow endpoint    | Use the **Reselect** button to select a custom MQTT or Kafka data flow endpoint. For more information, see [Configure MQTT data flow endpoints](howto-configure-mqtt-endpoint.md) or [Configure Azure Event Hubs and Kafka data flow endpoints](howto-configure-kafka-endpoint.md).|
-    | Topic                | The topic filter to subscribe to for incoming messages. See [Configure MQTT or Kafka topics](#configure-data-sources-mqtt-or-kafka-topics). |
+    | Topic                | The topic filter to subscribe to for incoming messages. Use the **Topic(s)** > **Add row** to add multiple topics. For more information on topics, see [Configure MQTT or Kafka topics](#configure-data-sources-mqtt-or-kafka-topics). |
     | Message schema       | The schema to use to deserialize the incoming messages. See [Specify schema to deserialize data](#specify-source-schema). |
 
 1. Select **Apply**.
