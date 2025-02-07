@@ -74,16 +74,18 @@ If you're using your own authentication system, the Health check path must allow
 
 ```C#
 using System;
+using System.Security.Cryptography;
 using System.Text;
 
 /// <summary>
 /// Method <c>HeaderMatchesEnvVar</c> returns true if <c>headerValue</c> matches WEBSITE_AUTH_ENCRYPTION_KEY.
 /// </summary>
-public Boolean HeaderMatchesEnvVar(string headerValue) {
-    var sha = System.Security.Cryptography.SHA256.Create();
-    String envVar = Environment.GetEnvironmentVariable("WEBSITE_AUTH_ENCRYPTION_KEY");
-    String hash = System.Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(envVar)));
-    return hash == headerValue;
+public bool HeaderMatchesEnvVar(string headerValue)
+{
+    var sha = SHA256.Create();
+    string envVar = Environment.GetEnvironmentVariable("WEBSITE_AUTH_ENCRYPTION_KEY");
+    string hash = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(envVar)));
+    return string.Equals(hash, headerValue, StringComparison.Ordinal);
 }
 ```
 
@@ -199,6 +201,9 @@ Imagine you have two applications (or one app with a slot) with Health check ena
 ### What if all my instances are unhealthy?
 
 If all instances of your application are unhealthy, App Service won't remove instances from the load balancer. In this scenario, taking all unhealthy app instances out of the load balancer rotation would effectively cause an outage for your application. However, the instance replacement will still occur.
+
+ ### What happens during a slot swap?
+Health check configuration is not slot-specific, so after a swap, the Health check configuration of the swapped slot will be applied to the destination slot and vice-versa. For example, if you have Health Check enabled for your staging slot the endpoint configured will be applied to the production slot after a swap. 
 
 ### Does Health check work on App Service Environments?
 
