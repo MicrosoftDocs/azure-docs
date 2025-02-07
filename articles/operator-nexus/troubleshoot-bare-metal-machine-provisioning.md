@@ -234,7 +234,7 @@ This condition typically shows the BMM at the bootloader stage on the console an
 
 To reset the NVRAM, use the following sequence in the BMC UI:
 
-1. Select **Maintenance** > **Diagnostics** > **Reset iDrac to Factory Defaults**.
+1. Select **Maintenance** > **Diagnostics** > **Reset iDRAC to Factory Defaults**.
 
 1. Select **Discard All Settings, but preserve user and network settings**, and then select **Apply and reboot**.
 
