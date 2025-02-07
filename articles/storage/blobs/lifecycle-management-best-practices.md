@@ -1,8 +1,8 @@
 ---
-title: 'Lifecycle Management: Best Practices'
+title: Lifecycle Management: Best Practices
 titleSuffix: Azure Blob Storage
-author: Vignesh Gopal Shanbhag
-ms.date: 01/29/2025
+author: vigneshgo
+ms.date: 02/07/2025
 description: Best Practices and Guidance on configuring Azure Blob Storage lifecycle management policies and factors influencing its performance
 ms.author: normesta
 ms.service: azure-blob-storage
@@ -53,4 +53,3 @@ Periodically evaluating the performance of your Lifecycle Management Policy is r
 - [Blob Storage FAQ](articles/storage/blobs/storage-blob-faq.yml)
 - [Configure a lifecycle management policy](lifecycle-management-policy-configure.md)
 - [Plan and manage Costs for Blob Storage](https://learn.microsoft.com/en-us/azure/storage/common/storage-plan-manage-costs?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json)
-- 
