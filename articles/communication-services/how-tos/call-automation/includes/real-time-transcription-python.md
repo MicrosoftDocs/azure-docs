@@ -47,7 +47,7 @@ connect_result = client.connect_call(
     CALLBACK_EVENTS_URI,
     cognitive_services_endpoint=COGNITIVE_SERVICES_ENDPOINT,
     operation_context="connectCallContext",
-    transcription_options=transcription_options
+    transcription=transcription_options
 )
 ```
 
