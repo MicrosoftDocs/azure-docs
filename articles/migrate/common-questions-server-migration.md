@@ -36,10 +36,11 @@ With agentless migrations, you're not required to deploy any software (agents) o
 
 Agentless replication options are available for [VMware VMs](tutorial-migrate-vmware.md) and [Hyper-V VMs](./tutorial-migrate-hyper-v.md).
 
-Agent-based migrations require that you install Azure Migrate software (agents) on the source VMs that you're migrating. The agent-based option doesn’t rely on the virtualization platform for the replication functionality. It can be used with any server that runs an x86/x64 architecture and a version of an operating system that is supported by the agent-based replication method.
+Agent-based migrations require that you install Azure Migrate software (agents) on the source VMs that you're migrating. The agent-based option doesn't rely on the virtualization platform for the replication functionality. It can be used with any server that runs an x86/x64 architecture and a version of an operating system that is supported by the agent-based replication method.
 
 The agent-based migration option can be used for:
-* [VMware VMs](tutorial-migrate-vmware-agent.md). 
+
+* [VMware VMs](tutorial-migrate-vmware-agent.md).
 * [Hyper-V VMs](./tutorial-migrate-physical-virtual-machines.md).
 * [Physical servers](./tutorial-migrate-physical-virtual-machines.md).
 * [VMs that run on AWS](./tutorial-migrate-aws-virtual-machines.md).
@@ -78,6 +79,7 @@ The target region is locked:
 * During Hyper-V provider installation for agentless Hyper-V migrations.
 
 ### Does Azure Migrate support Azure Resource Graph?
+
 Currently, Azure Migrate isn't integrated with Azure Resource Graph, but it does support performing Azure Resource Graph-related queries.
 
 ### How is the data transmitted from an on-premises environment to Azure? Is it encrypted before transmission?
@@ -85,6 +87,7 @@ Currently, Azure Migrate isn't integrated with Azure Resource Graph, but it does
 With agentless replication, the Azure Migrate appliance compresses and encrypts data before uploading it. Data is transmitted over a secure communication channel over https and uses TLS 1.2 or later. Additionally, Azure Storage automatically encrypts your data when it persists it to the cloud (encryption at rest).
 
 ### Can I use the recovery services vault created by Azure Migrate for disaster recovery scenarios?
+
 We don't recommend using the recovery services vault created by Azure Migrate for disaster recovery scenarios, because that can result in start replication failures in Azure Migrate.
 
 ### What is the difference between the Test Migration and Migrate operations?
@@ -99,7 +102,7 @@ The applications can continue to run at the source while you perform tests on a 
 
 You can use the **Test Migration** option to validate your application functionality and performance in Azure. You can perform any number of test migrations and can execute the final migration after you establish confidence through the **Test Migration** operation.
 
-A test migration doesn’t affect the on-premises machine, which remains operational and continues replicating until you perform the actual migration. If there are any errors during the test migration User Acceptance Testing (UAT), you can choose to postpone the final migration and keep your source VM/server running and replicating to Azure. You can reattempt the final migration once you resolve the errors.
+A test migration doesn't affect the on-premises machine, which remains operational and continues replicating until you perform the actual migration. If there are any errors during the test migration User Acceptance Testing (UAT), you can choose to postpone the final migration and keep your source VM/server running and replicating to Azure. You can reattempt the final migration once you resolve the errors.
 
  > [!NOTE]
 >
@@ -116,12 +119,12 @@ You can select a virtual network for test migrations. Azure Migrate automaticall
 
 The **Test Migration** button could be disabled in the following scenarios:
 
-* You can’t begin a test migration until an initial replication is completed for the VM. The **Test Migration** button is disabled until the initial replication process is completed. You can perform a test migration once your VM is in a delta-sync stage.
+* You can't begin a test migration until an initial replication is completed for the VM. The **Test Migration** button is disabled until the initial replication process is completed. You can perform a test migration once your VM is in a delta-sync stage.
 * The button can be disabled if a test migration was already completed, but a test-migration cleanup wasn't performed for that VM. Perform a test migration cleanup and retry the operation.
 
 ### What happens if I don’t clean up my test migration?
 
-A test migration simulates the actual migration by creating a test Azure VM by using replicated data. The server is deployed with a point-in-time copy of the replicated data to the target `Resource Group` (that you select when you enable replication) with a “-test” suffix. Test migrations are intended to validate server functionality so that post-migration problems are minimized. If the test migration isn't cleaned up after testing, the test VM continues to run in Azure, and incurs charges. To clean up after a test migration, go to the **Replicating machines** view in the Migration and modernization tool, and use the **Cleanup test migration** action on the machine.
+A test migration simulates the actual migration by creating a test Azure VM by using replicated data. The server is deployed with a point-in-time copy of the replicated data to the target `Resource Group` (that you select when you enable replication) with a `-test` suffix. Test migrations are intended to validate server functionality so that post-migration problems are minimized. If the test migration isn't cleaned up after testing, the test VM continues to run in Azure, and incurs charges. To clean up after a test migration, go to the **Replicating machines** view in the Migration and modernization tool, and use the **Cleanup test migration** action on the machine.
 
 ### How do I know if my VM successfully migrated?
 
@@ -129,18 +132,20 @@ Once you migrate your VM/server successfully, you can view and manage the VM fro
 
 You can also review the **Job status** for the operation to check if the migration was successfully completed. If you see any errors, resolve them, and retry the migration operation.
 
-### What happens if I don’t stop replication after migration?
+### What happens if I don't stop replication after migration?
 
 When you stop replication, the Migration and modernization tool cleans up the managed disks in the subscription that was created for replication.
 
-### What happens if I don’t select Complete Migration after a migration?
+### What happens if I don't select Complete Migration after a migration?
 
 When you select **Complete Migration**, the Migration and modernization tool cleans up the managed disks in the subscription that were created for replication. If you don't select **Complete migration** after a migration, you continue to incur charges for these disks. **Complete migration** doesn't affect the disks attached to machines that already migrated.
 
 ### How can I migrate UEFI-based machines to Azure as Azure generation 1 VMs?
+
 The Migration and modernization tool migrates UEFI-based machines to Azure as Azure generation 2 VMs. If you want to migrate them as Azure generation 1 VMs, convert the boot-type to BIOS before starting replication, and then use the Migration and modernization tool to migrate to Azure.
 
 ### Does Azure Migrate convert UEFI-based machines to BIOS-based machines and migrate them to Azure as Azure generation 1 VMs?
+
 The Migration and modernization tool migrates all the UEFI-based machines to Azure as Azure generation 2 VMs. We no longer support the conversion of UEFI-based VMs to BIOS-based VMs. All the BIOS-based machines are migrated to Azure only as Azure generation 1 VMs.
 
 ### Which operating systems are supported for migration of UEFI-based machines to Azure?
@@ -226,7 +231,7 @@ You can work out the bandwidth requirement based on:
 * The volume of data you need to move in the wave.
 * The time you want to allot for the initial replication process.
 
-Ideally, you’d want initial replication to be completed at least 3-4 days before the actual migration window. This timeline gives you sufficient time to perform a test migration before the actual window and keep downtime during the window to a minimum.
+Ideally, you'd want initial replication to be completed at least 3-4 days before the actual migration window. This timeline gives you sufficient time to perform a test migration before the actual window and keep downtime during the window to a minimum.
 
 You can estimate the bandwidth or time needed for agentless VMware VM migration by using the following formula:
 
@@ -386,7 +391,8 @@ You can work out the bandwidth requirement based on:
 * The volume of data you need to move in the wave.
 * The time you want to allot for the initial replication process.
 
-Ideally, you’d want initial replication to complete at least 3-4 days before the actual migration window. This timeline gives you sufficient time to perform a test migration before the actual window and keep downtime during the window to a minimum.
+Ideally, you'd want initial replication to complete at least 3-4 days before the actual migration window. This timeline gives you sufficient time to perform a test migration before the actual window and keep downtime during the window to a minimum.
 
 ## Related content
+
 * Learn more about migrating [VMware VMs](tutorial-migrate-vmware.md), [Hyper-V VMs](tutorial-migrate-hyper-v.md), and [physical servers](tutorial-migrate-physical-virtual-machines.md).
