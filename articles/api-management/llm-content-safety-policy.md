@@ -39,16 +39,16 @@ Use the policy in scenarios such as the following:
 
 ```xml
 <llm-content-safety backend-id="name of backend entity" shield-prompt="true | false" >
-<categories output-type="FourSeverityLevels | EightSeverityLevels">
-    <category name="Hate | SelfHarm | Sexual | Violence" threshold="integer" />
-    <!-- If there are multiple categories, add more category elements -->
-    [...]
-</categories>
-<blocklists>
-    <id>blocklist-identifier</id>
-    <!-- If there are multiple blocklists, add more id elements -->
-    [...]
-</blocklists>
+    <categories output-type="FourSeverityLevels | EightSeverityLevels">
+        <category name="Hate | SelfHarm | Sexual | Violence" threshold="integer" />
+        <!-- If there are multiple categories, add more category elements -->
+        [...]
+    </categories>
+    <blocklists>
+        <id>blocklist-identifier</id>
+        <!-- If there are multiple blocklists, add more id elements -->
+        [...]
+    </blocklists>
 </llm-content-safety>
 ```
 
@@ -85,13 +85,13 @@ Use the policy in scenarios such as the following:
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API
 - [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
 
-* The policy runs on a concatenation of all text content in the request.
-* If the request exceeds the character limit of Azure AI Content Safety, or an internal error occurs, a `500` error is returned.
+* The policy runs on a concatenation of all text content in a completion or chat completion request.
+* If the request exceeds the character limit of Azure AI Content Safety, a `403` error is returned.
 * This policy can be used multiple times per policy definition.
 
 ## Example
