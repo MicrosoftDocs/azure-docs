@@ -385,6 +385,8 @@ items:
       href: concepts/voice-video-calling/about-call-types.md
     - name: Real Time Text (RTT)
       href: concepts/voice-video-calling/real-time-text.md
+    - name: Enable Real Time Text (RTT)
+      href: quickstarts/voice-video-calling/get-started-with-real-time-text.md
     - name: Closed captions
       href: concepts/voice-video-calling/closed-captions.md
   - name: Advanced audio and video
@@ -409,40 +411,6 @@ items:
       href: how-tos/calling-sdk/telecommanager-integration.md
     - name: Enable push notifications
       href: how-tos/calling-sdk/push-notifications.md
-    - name: Use mobile UI Library for voice and video
-      items:
-      - name: Configure default orientation
-        href: how-tos/ui-library-sdk/orientation.md
-      - name: Configure closed captions
-        href: how-tos/ui-library-sdk/closed-captions.md
-      - name: Configure theming
-        href: how-tos/ui-library-sdk/theming.md
-      - name: Customize the button bar
-        href: how-tos/ui-library-sdk/button-injection.md
-      - name: Customize the title and subtitle
-        href: how-tos/ui-library-sdk/setup-title-subtitle.md
-      - name: Disable end call confirmation
-        href: how-tos/ui-library-sdk/leave-call-confirmation.md
-      - name: Enable audio only mode
-        href: how-tos/ui-library-sdk/audio-only-mode.md
-      - name: Enable picture-in-picture
-        href: how-tos/ui-library-sdk/picture-in-picture.md
-      - name: Enable skip the setup screen
-        href: how-tos/ui-library-sdk/skip-setup-screen.md
-      - name: Subscribe to events
-        href: how-tos/ui-library-sdk/events.md
-      - name: Inject participant view data
-        href: how-tos/ui-library-sdk/data-model.md
-      - name: Integrate CallKit
-        href: how-tos/ui-library-sdk/callkit.md
-      - name: Integrate TelecomManager
-        href: how-tos/ui-library-sdk/telecommanager.md
-      - name: Set up localization
-        href: how-tos/ui-library-sdk/localization.md
-      - name: Set up one-to-one calling and push notifications
-        href: how-tos/ui-library-sdk/one-to-one-calling.md
-      - name: Troubleshooting
-        href: how-tos/ui-library-sdk/troubleshooting.md
   - name: User support and experience
     items:
     - name: User support
@@ -710,8 +678,6 @@ items:
         href: quickstarts/rooms/join-rooms-call.md
       - name: Manage a room call
         href: quickstarts/rooms/manage-rooms-call.md
-    - name: Use UI components for voice and video
-      href: quickstarts/ui-library/get-started-composites.md
     - name: Add data channel messaging to a calling app
       href: quickstarts/voice-video-calling/get-started-data-channel.md
     - name: Set video constraints in a calling app
@@ -1195,6 +1161,42 @@ items:
     href: concepts/ui-library/ui-library-use-cases.md
   - name: Design with UI Library Design Kit
     href: quickstarts/ui-library/get-started-ui-kit.md
+  - name: Use mobile UI Library for voice and video
+    items:
+    - name: Use UI components for voice and video
+      href: quickstarts/ui-library/get-started-composites.md
+    - name: Configure default orientation
+      href: how-tos/ui-library-sdk/orientation.md
+    - name: Configure closed captions
+      href: how-tos/ui-library-sdk/closed-captions.md
+    - name: Configure theming
+      href: how-tos/ui-library-sdk/theming.md
+    - name: Customize the button bar
+      href: how-tos/ui-library-sdk/button-injection.md
+    - name: Customize the title and subtitle
+      href: how-tos/ui-library-sdk/setup-title-subtitle.md
+    - name: Disable end call confirmation
+      href: how-tos/ui-library-sdk/leave-call-confirmation.md
+    - name: Enable audio only mode
+      href: how-tos/ui-library-sdk/audio-only-mode.md
+    - name: Enable picture-in-picture
+      href: how-tos/ui-library-sdk/picture-in-picture.md
+    - name: Enable skip the setup screen
+      href: how-tos/ui-library-sdk/skip-setup-screen.md
+    - name: Subscribe to events
+      href: how-tos/ui-library-sdk/events.md
+    - name: Inject participant view data
+      href: how-tos/ui-library-sdk/data-model.md
+    - name: Integrate CallKit
+      href: how-tos/ui-library-sdk/callkit.md
+    - name: Integrate TelecomManager
+      href: how-tos/ui-library-sdk/telecommanager.md
+    - name: Set up localization
+      href: how-tos/ui-library-sdk/localization.md
+    - name: Set up one-to-one calling and push notifications
+      href: how-tos/ui-library-sdk/one-to-one-calling.md
+    - name: Troubleshooting
+      href: how-tos/ui-library-sdk/troubleshooting.md
   - name: References
     items:
     - name: Web UI library
