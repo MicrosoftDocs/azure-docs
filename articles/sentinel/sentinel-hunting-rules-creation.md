@@ -1,5 +1,5 @@
 ---
-title: 'Create Hunting Queries for Microsoft Sentinel Solutions'
+title: Create Hunting Queries for Microsoft Sentinel Solutions
 description: This article guides you through the process of creating and publishing hunting queries to Microsoft Sentinel solutions.
 author: anilgodavarthy
 ms.author: angodavarthy
@@ -7,7 +7,7 @@ ms.service: microsoft-sentinel
 ms.topic: conceptual 
 ms.date: 2/06/2025
 
-#CustomerIntent: As a ISV partner, I want to create and publish hunting queries to my Microsoft Sentinel solution so that I can provide inbuilt detection use cases to my customers.
+#CustomerIntent: As an ISV partner, I want to create and publish hunting queries to my Microsoft Sentinel solution so that I can provide inbuilt detection use cases to my customers.
 ---
 
 # Creating and publishing hunting queries for Microsoft Sentinel solutions
