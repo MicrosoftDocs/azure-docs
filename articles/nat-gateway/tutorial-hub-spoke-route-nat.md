@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-nat-gateway
 ms.topic: tutorial 
-ms.date: 07/30/2024
+ms.date: 02/06/2025
 ms.custom: template-tutorial 
 ---
 
@@ -31,11 +31,21 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
+# [**Portal**](#tab/portal)
+
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+# [**Powershell**](#tab/powershell)
+
+# [**CLI**](#tab/cli)
+
+---
 
 ## Create a NAT gateway
 
 All outbound internet traffic traverses the NAT gateway to the internet. Use the following example to create a NAT gateway for the hub and spoke network.
+
+# [**Portal**](#tab/portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -68,9 +78,17 @@ All outbound internet traffic traverses the NAT gateway to the internet. Use the
 
 1. Select **Create**.
 
+# [**Powershell**](#tab/powershell)
+
+# [**CLI**](#tab/cli)
+
+---
+
 ## Create hub virtual network
 
 The hub virtual network is the central network of the solution. The hub network contains the NVA appliance and a public and private subnet. The NAT gateway is assigned to the public subnet during the creation of the virtual network. An Azure Bastion host is configured as part of the following example. The bastion host is used to securely connect to the NVA virtual machine and the test virtual machines deployed in the spokes later in the article.
+
+# [**Portal**](#tab/portal)
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
@@ -143,9 +161,17 @@ The hub virtual network is the central network of the solution. The hub network 
 
 It takes a few minutes for the bastion host to deploy. When the virtual network is created as part of the deployment, you can proceed to the next steps.
 
+# [**Powershell**](#tab/powershell)
+
+# [**CLI**](#tab/cli)
+
+---
+
 ## Create simulated NVA virtual machine
 
 The simulated NVA acts as a virtual appliance to route all traffic between the spokes and hub and traffic outbound to the internet. An Ubuntu virtual machine is used for the simulated NVA. Use the following example to create the simulated NVA and configure the network interfaces.
+
+# [**Portal**](#tab/portal)
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -191,9 +217,17 @@ The simulated NVA acts as a virtual appliance to route all traffic between the s
 
 1. Select **Create**.
 
+# [**Powershell**](#tab/powershell)
+
+# [**CLI**](#tab/cli)
+
+---
+
 ### Configure virtual machine network interfaces
 
 The IP configuration of the primary network interface of the virtual machine is set to dynamic by default. Use the following example to change the primary network interface IP configuration to static and add a secondary network interface for the private interface of the NVA.
+
+# [**Portal**](#tab/portal)
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -240,6 +274,12 @@ The IP configuration of the primary network interface of the virtual machine is 
     | Private IP address | Enter **10.0.0.10**. |
 
 1. Select **Create**.
+ 
+# [**Powershell**](#tab/powershell)
+
+# [**CLI**](#tab/cli)
+
+---
 
 ### Configure virtual machine software
 
@@ -322,6 +362,8 @@ The routing for the simulated NVA uses IP tables and internal NAT in the Ubuntu 
 
 Route tables are used to overwrite Azure's default routing. Create a route table to force all traffic within the hub private subnet through the simulated NVA.
 
+# [**Portal**](#tab/portal)
+
 1. In the search box at the top of the portal, enter **Route table**. Select **Route tables** in the search results.
 
 1. Select **+ Create**.
@@ -374,10 +416,18 @@ Route tables are used to overwrite Azure's default routing. Create a route table
     | Subnet | Select **subnet-private**. |
 
 1. Select **OK**.
+ 
+# [**Powershell**](#tab/powershell)
+
+# [**CLI**](#tab/cli)
+
+---
 
 ## Create spoke one virtual network
 
 Create another virtual network in a different region for the first spoke of the hub and spoke network.
+
+# [**Portal**](#tab/portal)
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
@@ -423,9 +473,17 @@ Create another virtual network in a different region for the first spoke of the 
 
 1. Select **Create**.
 
+# [**Powershell**](#tab/powershell)
+
+# [**CLI**](#tab/cli)
+
+---
+
 ## Create peering between hub and spoke one
 
 A virtual network peering is used to connect the hub to spoke one and spoke one to the hub. Use the following example to create a two-way network peering between the hub and spoke one.
+
+# [**Portal**](#tab/portal)
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
@@ -461,9 +519,17 @@ A virtual network peering is used to connect the hub to spoke one and spoke one 
 
 1. Select **Refresh** and verify **Peering status** is **Connected**.
 
+# [**Powershell**](#tab/powershell)
+
+# [**CLI**](#tab/cli)
+
+---
+
 ## Create spoke one network route table
 
 Create a route table to force all inter-spoke and internet egress traffic through the simulated NVA in the hub virtual network.
+
+# [**Portal**](#tab/portal)
 
 1. In the search box at the top of the portal, enter **Route table**. Select **Route tables** in the search results.
 
@@ -518,9 +584,17 @@ Create a route table to force all inter-spoke and internet egress traffic throug
 
 1. Select **OK**.
 
+# [**Powershell**](#tab/powershell)
+
+# [**CLI**](#tab/cli)
+
+---
+
 ## Create spoke one test virtual machine
 
 A Windows Server 2022 virtual machine is used to test the outbound internet traffic through the NAT gateway and inter-spoke traffic in the hub and spoke network. Use the following example to create a Windows Server 2022 virtual machine.
+
+# [**Portal**](#tab/portal)
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -569,11 +643,19 @@ A Windows Server 2022 virtual machine is used to test the outbound internet traf
 
 1. Select **Create**.
 
+# [**Powershell**](#tab/powershell)
+
+# [**CLI**](#tab/cli)
+
+---
+
 Wait for the virtual machine to finishing deploying before continuing to the next steps.
 
 ## Install IIS on spoke one test virtual machine
 
 IIS is installed on the Windows Server 2022 virtual machine to test outbound internet traffic through the NAT gateway and inter-spoke traffic in the hub and spoke network.
+
+# [**Portal**](#tab/portal)
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -607,10 +689,18 @@ IIS is installed on the Windows Server 2022 virtual machine to test outbound int
     ------- -------------- ---------      --------------                               
     True    No             Success        {Common HTTP Features, Default Document, D...
     ```
-   
+
+# [**Powershell**](#tab/powershell)
+
+# [**CLI**](#tab/cli)
+
+---
+
 ## Create the second spoke virtual network
 
 Create the second virtual network for the second spoke of the hub and spoke network. 
+
+# [**Portal**](#tab/portal)
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
@@ -656,9 +746,17 @@ Create the second virtual network for the second spoke of the hub and spoke netw
 
 1. Select **Create**.
 
+# [**Powershell**](#tab/powershell)
+
+# [**CLI**](#tab/cli)
+
+---
+
 ## Create peering between hub and spoke two
 
 Create a two-way virtual network peer between the hub and spoke two.
+
+# [**Portal**](#tab/portal)
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
@@ -702,9 +800,17 @@ Create a two-way virtual network peer between the hub and spoke two.
 
 1. Select **Refresh** and verify **Peering status** is **Connected**.
 
+# [**Powershell**](#tab/powershell)
+
+# [**CLI**](#tab/cli)
+
+---
+
 ## Create spoke two network route table
 
 Create a route table to force all outbound internet and inter-spoke traffic through the simulated NVA in the hub virtual network.
+
+# [**Portal**](#tab/portal)
 
 1. In the search box at the top of the portal, enter **Route table**. Select **Route tables** in the search results.
 
@@ -759,9 +865,17 @@ Create a route table to force all outbound internet and inter-spoke traffic thro
 
 1. Select **OK**.
 
+# [**Powershell**](#tab/powershell)
+
+# [**CLI**](#tab/cli)
+
+---
+
 ## Create spoke two test virtual machine
 
 Create a Windows Server 2022 virtual machine for the test virtual machine in spoke two.
+
+# [**Portal**](#tab/portal)
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -808,11 +922,19 @@ Create a Windows Server 2022 virtual machine for the test virtual machine in spo
 
 1. Select **Create**.
 
+# [**Powershell**](#tab/powershell)
+
+# [**CLI**](#tab/cli)
+
+---
+
 Wait for the virtual machine to finish deploying before continuing to the next steps.
 
 ## Install IIS on spoke two test virtual machine
 
 IIS is installed on the Windows Server 2022 virtual machine to test outbound internet traffic through the NAT gateway and inter-spoke traffic in the hub and spoke network.
+
+# [**Portal**](#tab/portal)
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -847,6 +969,12 @@ IIS is installed on the Windows Server 2022 virtual machine to test outbound int
     True    No             Success        {Common HTTP Features, Default Document, D...
     ```
 
+# [**Powershell**](#tab/powershell)
+
+# [**CLI**](#tab/cli)
+
+---
+
 ## Test NAT gateway
 
 Connect to the Windows Server 2022 virtual machines you created in the previous steps to verify that the outbound internet traffic is leaving the NAT gateway.
@@ -854,6 +982,8 @@ Connect to the Windows Server 2022 virtual machines you created in the previous 
 ### Obtain NAT gateway public IP address
 
 Obtain the NAT gateway public IP address for verification of the steps later in the article.
+
+1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 1. In the search box at the top of the portal, enter **Public IP**. Select **Public IP addresses** in the search results.
 
@@ -945,7 +1075,15 @@ Use Microsoft Edge to connect to the web server on **vm-spoke-1** you installed 
 
 1. Close the bastion connection to **vm-spoke-1**.
 
+# [**Portal**](#tab/portal)
+
 [!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
+
+# [**Powershell**](#tab/powershell)
+
+# [**CLI**](#tab/cli)
+
+---
 
 ## Next steps
 
