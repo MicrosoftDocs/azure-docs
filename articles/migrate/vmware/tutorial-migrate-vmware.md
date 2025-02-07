@@ -6,7 +6,7 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 05/07/2025
+ms.date: 02/07/2025
 ms.custom: vmware-scenario-422, mvc, engagement-fy23
 ---
 
