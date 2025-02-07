@@ -14,7 +14,7 @@ ms.subservice: calling
 
 # Call Diagnostics Updates Log Schema
 
-The only difference in properties between the Call Diagnostics Updates Log Schema and the [Call Diagnostics Log Schema](call-diagnostics-log-schema.md) is the additional `CallUpdatesVersion` property. The `CallUpdatesVersion` property indicates how recent the log is. The Call Diagnostics Updates Log Schema has lower latency than the [Call Diagnostics Log Schema](call-diagnostics-log-schema.md), it achieves this low latency by sending schema properties as soon as they can be sent. In contrast, the [Call Diagnostics Log Schema](call-diagnostics-log-schema.md) does not send you a log schema until the entire log schema has completed internal Microsoft creation. When using the Call Summary Updates Log Schema, always refer to the `CallUpdatesVersion` to ensure you have the most up-to-date information. Whenever call data is updated, a new version of the log is created, providing a complete history of changes.
+The only difference in properties between the Call Diagnostics Updates Log Schema and the [Call Diagnostics Log Schema](call-diagnostics-log-schema.md) is the additional `CallUpdatesVersion` property. The `CallUpdatesVersion` property indicates how recent the log is. The Call Diagnostics Updates Log Schema has lower latency than the [Call Diagnostics Log Schema](call-diagnostics-log-schema.md), it achieves this low latency by sending schema properties as soon as they can be sent. In contrast, the [Call Diagnostics Log Schema](call-diagnostics-log-schema.md) does not send you a log schema until the entire log schema has completed internal Microsoft creation. 
 
 The Call Diagnostics Updates logs provide important information about the endpoints and the media transfers for each participant. They also provide measurements that help you understand quality problems.
 
@@ -37,6 +37,16 @@ any quality investigations, and using **[Call Diagnostics](../../voice-video-cal
 >You must collect logs if you want to analyze them. To learn more, see: **[How do I store logs?](#how-do-i-store-logs)**
 >
 >Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data isn't retroactively available. You accumulate data once you create the Diagnostic Settings.
+
+When using the Call Diagnostics Updates Log Schema, always refer to the highest `CallUpdatesVersion` number to ensure you have the most up-to-date information. Whenever call data is updated, a new version of the log is created containing the most up-to-date information. For example, the higher the `CallUpdatesVersion` number, the more recent the update. This means that version 3 is newer and includes more recent changes compared to version 1.
+
+### More about log versions and data latency
+
+After a call ends, an initial version (version 1) of the log is sent to the CallSummaryUpdates and CallDiagnosticUpdates tables. Initial versions may contain `null` values, if more information becomes available updated versions of the logs are created with more complete information. For example, client data can be delayed because of network connectivity issues between the client computer and our servers, or something as simple as a user closing the lid on their laptop post-call before their client data was sent and re-opening it hours (or days) later. Initial versions 
+
+
+Because of to such collection variations, you might see incremental versions arrive hours or even days later. You can use versions for a faster understanding of your calling resource than waiting until all calling SDK client data is received. The best case scenario is for all call participants to end their calls and for the calling SDK to be able to send data to the server.
+
 
 ## Data Definitions
 
@@ -120,6 +130,7 @@ Here's a diagnostics updates log for an audio stream from VoIP endpoint 1 to VoI
     "jitterMax":            "1",
     "packetLossRateAvg":    "0",
     "packetLossRateMax":    "0"
+    "callupdatesversion":   "2"
 }
 ```
 
@@ -140,6 +151,7 @@ Here's a diagnostics updates log for an audio stream from VoIP endpoint 2 to VoI
     "jitterMax":            "1",
     "packetLossRateAvg":    "0",
     "packetLossRateMax":    "0"
+    "callupdatesversion":   "2"
 }
 ```
 
@@ -160,6 +172,7 @@ Here's a diagnostics updates log for a video stream from VoIP endpoint 1 to VoIP
     "jitterMax":            "4",
     "packetLossRateAvg":    "3.146336E-05",
     "packetLossRateMax":    "0.001769911"
+    "callupdatesversion":   "2"
 }
 ```
 
@@ -202,6 +215,7 @@ Here's a diagnostics updates log for an audio stream from VoIP endpoint 1 to a s
     "jitterMax":            "1",
     "packetLossRateAvg":    "0",
     "packetLossRateMax":    "0"
+    "callupdatesversion":   "2"
 }
 ```
 
@@ -222,6 +236,7 @@ Here's a diagnostics updates log for an audio stream from a server endpoint to V
     "jitterMax":            "1",
     "packetLossRateAvg":    "0",
     "packetLossRateMax":    "0"
+    "callupdatesversion":   "2"
 }
 ```
 
@@ -242,6 +257,7 @@ Here's a diagnostics updates log for an audio stream from VoIP endpoint 3 to a s
     "jitterMax":            "2",
     "packetLossRateAvg":    "0",
     "packetLossRateMax":    "0"
+    "callupdatesversion":   "2"
 }
 ```
 
@@ -261,6 +277,8 @@ Here's a diagnostics updates log for an audio stream from a server endpoint to V
     "jitterAvg":            "1",
     "jitterMax":            "4",
     "packetLossRateAvg":    "0",
+    "callupdatesversion":   "2"
+}
 ```
 
 ## Frequently asked questions

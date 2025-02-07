@@ -14,7 +14,7 @@ ms.subservice: calling
 
 # Call Summary Updates Log Schema
 
-The only difference in properties between the Call Summary Updates Log Schema and the [Call Summary Log Schema](call-summary-log-schema.md) is the additional `CallUpdatesVersion` property. The `CallUpdatesVersion` property indicates how recent the log is. The Call Summary Updates Log Schema has lower latency than the [Call Summary Log Schema](call-summary-log-schema.md), it achieves this low latency by sending schema properties as soon as they can be sent. In contrast, the [Call Summary Log Schema](call-summary-log-schema.md) does not send you a log schema until the entire log schema has completed internal Microsoft creation. When using the Call Summary Updates Log Schema, always refer to the `CallUpdatesVersion` to ensure you have the most up-to-date information. Whenever call data is updated, a new version of the log is created, providing a complete history of changes.
+The only difference in properties between the Call Summary Updates Log Schema and the [Call Summary Log Schema](call-summary-log-schema.md) is the additional `CallUpdatesVersion` property. The `CallUpdatesVersion` property indicates how recent the log is. The Call Summary Updates Log Schema has lower latency than the [Call Summary Log Schema](call-summary-log-schema.md), it achieves this low latency by sending schema properties as soon as they can be sent. In contrast, the [Call Summary Log Schema](call-summary-log-schema.md) does not send you a log schema until the entire log schema has completed internal Microsoft creation. 
 
 The call summary updates log contains data to help you identify key properties of all calls. A different call summary updates log is created for each `participantId` (or `endpointId` for peer-to-peer [P2P] calls) value in the call.
 
@@ -38,6 +38,15 @@ any quality investigations, and using **[Call Diagnostics](../../voice-video-cal
 >
 >Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data isn't retroactively available. You accumulate data once you create the Diagnostic Settings.
 
+
+When using the Call Summary Updates Log Schema, always refer to the highest `CallUpdatesVersion` number to ensure you have the most up-to-date information. Whenever call data is updated, a new version of the log is created containing the most up-to-date information. For example, the higher the `CallUpdatesVersion` number, the more recent the update. This means that version 3 is newer and includes more recent changes compared to version 1.
+
+### More about log versions and data latency
+
+After a call ends, an initial version (version 1) of the log is sent to the CallSummaryUpdates and CallDiagnosticUpdates tables. Initial versions may contain `null` values, if more information becomes available updated versions of the logs are created with more complete information. For example, client data can be delayed because of network connectivity issues between the client computer and our servers, or something as simple as a user closing the lid on their laptop post-call before their client data was sent and re-opening it hours (or days) later. Initial versions 
+
+
+Because of to such collection variations, you might see incremental versions arrive hours or even days later. You can use versions for a faster understanding of your calling resource than waiting until all calling SDK client data is received. The best case scenario is for all call participants to end their calls and for the calling SDK to be able to send data to the server.
 
 ## Data Definitions
 
@@ -123,6 +132,7 @@ Here's a call summary for VoIP user 1:
     "endpointType":             "VoIP",
     "sdkVersion":               "1.0.1.0",
     "osVersion":                "Windows 10.0.17763 Arch: x64"
+    "callupdatesversion":   "2"
 }
 ```
 
@@ -143,6 +153,7 @@ Here's a call summary for VoIP user 2:
     "endpointType":             "VoIP",
     "sdkVersion":               "1.1.0.0",
     "osVersion":                "null"
+    "callupdatesversion":   "2"
 }
 ```
 
@@ -164,6 +175,7 @@ Here's a cross-tenant call summary updates log for VoIP user 1:
     "endpointType":             "VoIP",
     "sdkVersion":               "Redacted",
     "osVersion":                "Redacted"
+    "callupdatesversion":   "2"
 }
 ```
 
@@ -187,6 +199,7 @@ Here's a call summary for a PSTN call:
     "endpointType": "PSTN",
     "sdkVersion": "Redacted",
     "osVersion": "Redacted"
+    "callupdatesversion":   "2"
 }
 ```
 ### Group calls 
@@ -228,6 +241,7 @@ Here's a call summary for VoIP endpoint 1:
     "endpointType":             "VoIP",
     "sdkVersion":               "1.0.0.3",
     "osVersion":                "Darwin Kernel Version 18.7.0: Mon Nov 9 15:07:15 PST 2020; root:xnu-4903.272.3~3/RELEASE_ARM64_S5L8960X"
+    "callupdatesversion":   "2"
 }
 ```
 
@@ -248,6 +262,7 @@ Here's a call summary for VoIP endpoint 3:
     "endpointType":             "VoIP",
     "sdkVersion":               "1.0.0.3",
     "osVersion":                "Android 11.0; Manufacturer: Google; Product: redfin; Model: Pixel 5; Hardware: redfin"
+    "callupdatesversion":   "2"
 }
 ```
 
@@ -268,6 +283,7 @@ Here's a call summary for PSTN endpoint 2:
     "endpointType":             "PSTN",
     "sdkVersion":               "null",
     "osVersion":                "null"
+    "callupdatesversion":   "2"
 }
 ```
 
@@ -289,6 +305,7 @@ Here's a cross-tenant call summary updates log:
     "endpointType":             "VoIP",
     "sdkVersion":               "Redacted",
     "osVersion":                "Redacted"
+    "callupdatesversion":   "2"
 }
 ```
 
@@ -310,6 +327,7 @@ Here's a cross-tenant call summary updates log with a bot as a participant:
     "endpointType":           "Bot",
     "sdkVersion":             "Redacted",
     "osVersion":              "Redacted"
+    "callupdatesversion":   "2"
 }
 ```
 
