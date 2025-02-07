@@ -69,12 +69,13 @@ The following example specifies a value of `.log` along with the **Ends with** o
 
 ## [Azure CLI](#tab/azure-cli)
 
-1. Define a _condition_ by using JSON. A condition a collection of one or more clauses. Each clause contains a property, a value, and an operator. In the following JSON, the property is `Name`, the value is `.docx`, and the operator is endsWith. This clause allows operations only on Microsoft Word documents.
+1. Define a _condition_ by using JSON. A condition a collection of one or more clauses. Each clause contains a property, a value, and an operator. In the following JSON, the property is `Name`, the value is `.docx`, and the operator is endsWith. This clause allows operations only on Microsoft Word documents.  To learn more about the structure of conditions and a complete list of properties and operators, see [Storage task conditions](storage-task-conditions.md). 
 
    ```azurecli
    conditionclause="[[endsWith(Name,'/.docx'/)]]"
    ```
-   To learn more about the structure of conditions and a complete list of properties and operators, see [Storage task conditions](storage-task-conditions.md). 
+  > [!NOTE]
+  > Azure CLI uses shorthand syntax. Shorthand syntax is a simplified representation of a JSON string. To learn more, see [How to use shorthand syntax with Azure CLI](/cli/azure/use-azure-cli-successfully-shorthand).
 
 ---
 
@@ -109,6 +110,9 @@ $conditions = "[[and(endsWith(Name, '.docx'), equals(utcNow, dateTimeAdd(Creatio
 
 #### [Azure CLI](#tab/azure-cli)
 
+> [!NOTE]
+> Azure CLI expresses JSON-formatted strings by using shorthand syntax. To learn more, see [How to use shorthand syntax with Azure CLI](/cli/azure/use-azure-cli-successfully-shorthand).
+
 ```azurecli
 conditionclause="[[and(endsWith(Name, '/.docx'/),equals(utcNow,dateTimeAdd(Creation-Time,Tags.Value[retainFor])))]]"
 ```
@@ -139,6 +143,9 @@ For more information, see [Multiple clauses in a condition](storage-task-conditi
 
 #### [Azure CLI](#tab/azure-cli)
 
+> [!NOTE]
+> Azure CLI uses shorthand syntax. Shorthand syntax is a simplified representation of a JSON string. To learn more, see [How to use shorthand syntax with Azure CLI](/cli/azure/use-azure-cli-successfully-shorthand).
+
 ```azurecli
 conditionclause="[[and(endsWith(Name,'/.log'/),equals(Tags.Value[Archive-Status],'/Ready'/))]]"
 ```
@@ -168,9 +175,13 @@ $conditions = "[[and(equals(Tags.Value[Archive-Status], 'Ready'), endsWith(Name,
 
 ### [Azure CLI](#tab/azure-cli)
 
+> [!NOTE]
+> Azure CLI uses shorthand syntax. Shorthand syntax is a simplified representation of a JSON string. To learn more, see [How to use shorthand syntax with Azure CLI](/cli/azure/use-azure-cli-successfully-shorthand).
+
 ```azurecli
 conditionclause="[[and(equals(Tags.Value[Archive-Status],'/Ready'/),endsWith(Name,'/.log'/))]]"
 ```
+
 ---
 
 ### Group and ungroup clauses
@@ -197,6 +208,9 @@ $conditions = "[[and(endsWith(Name,'/.log'/),or(equals(Tags.Value[Archive-Status
 For more information, see [Groups of conditions](storage-task-conditions.md#groups-of-conditions).
 
 ### [Azure CLI](#tab/azure-cli)
+
+> [!NOTE]
+> Azure CLI uses shorthand syntax. Shorthand syntax is a simplified representation of a JSON string. To learn more, see [How to use shorthand syntax with Azure CLI](/cli/azure/use-azure-cli-successfully-shorthand).
 
 ```azurecli
 conditionclause="[[and(endsWith(Name,'/.log'/),or(equals(Tags.Value[Archive-Status],'/Ready'/),less(utcNow,dateTimeAdd(LastAccessTime,'/P120D'/))))]]"
@@ -283,6 +297,9 @@ The following example sets the `Archive-Status` tag to the value `Archived`.
 
 ## [Azure CLI](#tab/azure-cli)
 
+> [!NOTE]
+> Azure CLI uses shorthand syntax. Shorthand syntax is a simplified representation of a JSON string. To learn more, see [How to use shorthand syntax with Azure CLI](/cli/azure/use-azure-cli-successfully-shorthand).
+
 1. Define each operation. The following example defines an operation that sets an immutability policy, and an operation that sets a blob index tag in the metadata of a Word document.
 
    ```azurecli
@@ -318,7 +335,10 @@ To move an operation, just change the order in which operations appear in the JS
 
 ### [Azure CLI](#tab/azure-cli)
 
-To move an operation, just change the order in which operations appear in the JSON-formatted string. 
+> [!NOTE]
+> Azure CLI uses shorthand syntax. Shorthand syntax is a simplified representation of a JSON string. To learn more, see [How to use shorthand syntax with Azure CLI](/cli/azure/use-azure-cli-successfully-shorthand).
+
+To move an operation, just change the order in which operations appear in the string. 
 
    ```azurecli
    operations="'${tagoperation}','${policyoperation}'"

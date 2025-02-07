@@ -50,16 +50,15 @@ In this quickstart, you learn how to use Azure CLI to create a storage task and 
 
 ## Create a storage task
 
-1. Define a _condition_ by using JSON. A condition a collection of one or more clauses. Each clause contains a property, a value, and an operator. In the following JSON, the property is `Name`, the value is `.docx`, and the operator is endsWith. This clause allows operations only on Microsoft Word documents.
+1. Define a _condition_ by using JSON. A condition a collection of one or more clauses. Each clause contains a property, a value, and an operator. In the following JSON, the property is `Name`, the value is `.docx`, and the operator is endsWith. This clause allows operations only on Microsoft Word documents. To learn more about the structure of conditions and a complete list of properties and operators, see [Storage task conditions](storage-task-conditions.md).
 
    ```azurecli
    conditionclause="[[endsWith(Name,'/.docx'/)]]"
    ```
-   For a complete list of properties and operators, see [Properties, operators, and operations in storage task conditions](storage-task-properties-operators-operations.md). 
-
-   > [!TIP] 
-   > You can add multiple conditions to the same string and separate them with a comma. 
-
+  
+  > [!NOTE]
+  > Azure CLI uses shorthand syntax. Shorthand syntax is a simplified representation of a JSON string. To learn more, see [How to use shorthand syntax with Azure CLI](/cli/azure/use-azure-cli-successfully-shorthand).
+   
 2. Define each operation. The following example defines an operation that sets an immutability policy, and an operation that sets a blob index tag in the metadata of a Word document.
 
    ```azurecli

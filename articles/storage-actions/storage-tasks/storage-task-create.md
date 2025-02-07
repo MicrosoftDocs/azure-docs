@@ -151,6 +151,9 @@ To learn how to create an assignment by using PowerShell, see [Create and manage
 
 ## [Azure CLI](#tab/azure-cli)
 
+> [!NOTE]
+> Azure CLI uses shorthand syntax. Shorthand syntax is a simplified representation of a JSON string. To learn more, see [How to use shorthand syntax with Azure CLI](/cli/azure/use-azure-cli-successfully-shorthand).
+
 1. Define a _condition_ by using JSON. A condition a collection of one or more clauses. Each clause contains a property, a value, and an operator. To learn more, see [Storage task conditions](storage-task-conditions.md).
 
    ```azurecli
