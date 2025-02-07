@@ -11,9 +11,9 @@ ms.collection: ce-skilling-ai-copilot
 
 # Deploy a .NET Blazor app connected to Azure SQL and Azure OpenAI on Azure App Service
 
-When creating intelligent apps, you may want to ground the context of your app using your own SQL data. With the recent announcement of [Azure SQL vector support (preview)](https://devblogs.microsoft.com/azure-sql/announcing-eap-native-vector-support-in-azure-sql-database/), you can ground the context using the Azure SQL data you already have with new [vector functions](https://learn.microsoft.com/en-us/sql/t-sql/functions/vector-functions-transact-sql?view=azuresqldb-current) that will help manage vector data. 
+When creating intelligent apps, you may want to ground the context of your app using your own SQL data. With the recent announcement of [Azure SQL vector support (preview)](https://devblogs.microsoft.com/azure-sql/announcing-eap-native-vector-support-in-azure-sql-database/), you can ground the context using the Azure SQL data you already have with new [vector functions](https://learn.microsoft.com/en-us/sql/t-sql/functions/vector-functions-transact-sql?view=azuresqldb-current) that help manage vector data. 
 
-In this tutorial, you'll learn how to create a RAG sample application by setting up a Hybrid vector search against your Azure SQL database using a .NET 8 Blazor app. This example will build from the previous documentation to deploy a [.NET Blazor app with OpenAI](https://learn.microsoft.com/en-us/azure/app-service/deploy-intelligent-apps?pivots=openai-dotnet).
+In this tutorial, you'll create a RAG sample application by setting up a Hybrid vector search against your Azure SQL database using a .NET 8 Blazor app. This example builds from the previous documentation to deploy a [.NET Blazor app with OpenAI](https://learn.microsoft.com/en-us/azure/app-service/deploy-intelligent-apps?pivots=openai-dotnet).
 
 #### Prerequisites
 
@@ -21,9 +21,9 @@ In this tutorial, you'll learn how to create a RAG sample application by setting
 - A .NET 8 or 9 Blazor Web App deployed on App Service
 - An Azure SQL database resource with vector embeddings.
 
-### Setup Blazor web app
+### Set up Blazor web app
 
-For this example, we'll be creating a simple chat box to interact with. If you're using the prerequisite .NET Blazor app from the [previous article](https://learn.microsoft.com/en-us/azure/app-service/deploy-intelligent-apps?pivots=openai-dotnet), you can skip the changes to the *OpenAI.razor* file as those are the same.  However, you will need to make sure the following packages are installed:
+For this example, we are creating a simple chat box to interact with. If you're using the prerequisite .NET Blazor app from the [previous article](../azure/app-service/deploy-intelligent-apps?pivots=openai-dotnet), you can skip the changes to the *OpenAI.razor* file as these are the same.  However, you need to make sure the following packages are installed:
 
 Install the following packages to interact with Azure OpenAI and Azure SQL.
 
@@ -33,7 +33,7 @@ Install the following packages to interact with Azure OpenAI and Azure SQL.
 1. Right click on the **Pages** folder found under the **Components** folder and add a new item named *OpenAI.razor*
 2. Add the following code to the *OpenAI.razor* file and click **Save** to create the chat box
 
-```html
+```csharp
 @page "/openai"
 @rendermode InteractiveServer
 @inject Microsoft.Extensions.Configuration.IConfiguration _config
@@ -59,11 +59,11 @@ Install the following packages to interact with Azure OpenAI and Azure SQL.
 
 ### API keys and endpoints
 
-Using the Azure OpenAI resource requires the use of API keys and endpoint values. See the documentation in the previous article for setting up [Azure Key Vault references](https://learn.microsoft.com/en-us/azure/app-service/deploy-intelligent-apps?pivots=openai-dotnet#api-keys-and-endpoints) to manage and handle your secrets with Azure OpenAI.  Although not required, we do recommend using managed identity to secure your client without the need to manage API keys. See the previous [documentation](https://learn.microsoft.com/en-us/azure/app-service/deploy-intelligent-apps?pivots=openai-dotnet#secure-your-app-with-managed-identity) to setup your Azure OpenAI client in the next step to use managed identity with Azure OpenAI.
+Using the Azure OpenAI resource requires the use of API keys and endpoint values. See the documentation in the previous article for setting up [Azure Key Vault references](https://learn.microsoft.com/en-us/azure/app-service/deploy-intelligent-apps?pivots=openai-dotnet#api-keys-and-endpoints) to manage and handle your secrets with Azure OpenAI.  Although not required, we do recommend using managed identity to secure your client without the need to manage API keys. See the previous [documentation](https://learn.microsoft.com/en-us/azure/app-service/deploy-intelligent-apps?pivots=openai-dotnet#secure-your-app-with-managed-identity) to set up your Azure OpenAI client in the next step to use managed identity with Azure OpenAI.
 
 ### Add Azure OpenAI client
 
-After adding the chat interface, we can setup the Azure OpenAI client using Semantic Kernel. Add the following code to create the client that will connect to your Azure OpenAI resource. You will need to use your Azure OpenAI API keys and endpoint information that were setup and handled in the previous step.
+After adding the chat interface, we can set up the Azure OpenAI client using Semantic Kernel. Add the following code to create the client that connects to your Azure OpenAI resource. You need to use your Azure OpenAI API keys and endpoint information that were set up and handled in the previous step.
 
 ```csharp
 @inject Microsoft.Extensions.Configuration.IConfiguration _config
@@ -130,25 +130,25 @@ After adding the chat interface, we can setup the Azure OpenAI client using Sema
 		serverResponse = message;
 ```
 
-From here you should have a working chat application that is connected to OpenAI. Next, we will setup our Azure SQL database to work with our chat application.
+From here, you should have a working chat application that is connected to OpenAI. Next, we will set up our Azure SQL database to work with our chat application.
 
 ### Deploy Azure OpenAI models
 
-In order to prepare your Azure SQL database for vector search, you will need to make use of an embedding model to generate embeddings used for searching in addition to your initial deployed chat model.  For this example, we will be using the following models:
+In order to prepare your Azure SQL database for vector search, you need to make use of an embedding model to generate embeddings used for searching in addition to your initial deployed chat model.  For this example, we are using the following models:
 - `text-embedding-ada-002` is used to generate the embeddings
 - `gpt-3.5-turbo` is used for the language model
 
-These two models will need to be deployed before continuing the next step. Please visit the [documentation](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/deploy-models-openai) for deploying models with Azure OpenAI using Azure AI Foundry.
+These two models need to be deployed before continuing the next step. Visit the [documentation](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/deploy-models-openai) for deploying models with Azure OpenAI using Azure AI Foundry.
 
 ### Vectorize your SQL database
 
-In order to perform a hybrid vector search on your Azure SQL database, you will first need to have the appropriate embeddings in your database. There are a number of ways you can vectorize your database. One option is to use the following [Azure SQL database vectorizer](https://github.com/Azure-Samples/azure-sql-db-vectorizer) to generate embeddings for your SQL database. Vectorize your Azure SQL database before continuing.
+To perform a hybrid vector search on your Azure SQL database, you first need to have the appropriate embeddings in your database. There are a number of ways you can vectorize your database. One option is to use the following [Azure SQL database vectorizer](https://github.com/Azure-Samples/azure-sql-db-vectorizer) to generate embeddings for your SQL database. Vectorize your Azure SQL database before continuing.
 
 ### Create procedure to generate embeddings
 
-With [Azure SQL vector support (preview)](https://devblogs.microsoft.com/azure-sql/announcing-eap-native-vector-support-in-azure-sql-database/) you can create a stored procedure that will use a Vector data type to store generated embeddings for search queries. The stored procedure will invoke an external REST API endpoint to get the embeddings. See the [documentation](https://learn.microsoft.com/en-us/azure-data-studio/quickstart-sql-database) to use Azure Data Studio to connect to your database before running the query. 
+With [Azure SQL vector support (preview)](https://devblogs.microsoft.com/azure-sql/announcing-eap-native-vector-support-in-azure-sql-database/), you can create a stored procedure that will use a Vector data type to store generated embeddings for search queries. The stored procedure invokes an external REST API endpoint to get the embeddings. See the [documentation](https://learn.microsoft.com/en-us/azure-data-studio/quickstart-sql-database) to use Azure Data Studio to connect to your database before running the query. 
 
-1. Use the following to create a stored procedure with your preferred SQL query editor. You will need to populate the @url parameter with your Azure OpenAI resource name and populate the rest endpoint with the API key from your text embedding model. You will also notice the model name as part of the @url. This will be populated with your search query.
+1. Use the following to create a stored procedure with your preferred SQL query editor. You need to populate the @url parameter with your Azure OpenAI resource name and populate the rest endpoint with the API key from your text embedding model. You will also notice the model name as part of the @url. This will be populated with your search query.
 
 ```sql
 CREATE PROCEDURE [dbo].[GET_EMBEDDINGS]
@@ -186,7 +186,7 @@ After creating your stored procedure, you should be able to view it under the **
 
 ### Connect and search your database
 
-Now that your database is setup to create embeddings, we can connect to it in our application and setup the Hybrid vector search query. 
+Now that your database is set up to create embeddings, we can connect to it in our application and set up the Hybrid vector search query. 
 
 Add the following code to your `OpenAI.razor` file and make sure the connection string is updated to use your deployed Azure SQL database connection string. You will notice the code is using a SQL parameter which will securely pass through the user input from the chat app to the query.
 
@@ -268,14 +268,14 @@ catch (Exception e)
 Console.WriteLine("Done");
 ```
 
-The SQL query itself is using a hybrid search which executes the stored procedure setup previously to create embeddings and uses SQL to filter out your desired results. In this example, we are giving the results scores and ordering the output to grab the best results before using them as grounded context to generate a response from.
+The SQL query itself is using a hybrid search which executes the stored procedure set up previously to create embeddings and uses SQL to filter out your desired results. In this example, we are giving the results scores and ordering the output to grab the best results before using them as grounded context to generate a response from.
 
 ### Securing your data with Managed Identity
 
 Azure SQL can leverage Managed Identity with Microsoft Entra to secure your SQL resource by configuring passwordless authentication. Follow the below steps to configure a passwordless connection string that will be used in your application.
 
 1. Navigate to your Azure SQL server resource and click on Microsoft Entra ID under Settings.
-2. Then click on +**Set admin** and search and choose yourself to setup Entra ID and click **Save**. Now Entra ID is setup on your SQL server, and it will accept Entra ID authentication.
+2. Then click on +**Set admin** and search and choose yourself to set up Entra ID and click **Save**. Now Entra ID is set up on your SQL server, and accepts Entra ID authentication.
 3. Next, go to your database resource and copy the **ADO.NET (Microsoft Entra passwordless authentication)** connection string and add it to your code where you keep your connection string.
 
 At this point, you can test your application locally with your passwordless connection string.
@@ -317,7 +317,7 @@ From here, your Azure SQL database is now secure, and you can deploy your applic
 
 Here's the full example of the added *OpenAI.razor* page:
 
-```sql
+```csharp
 @page "/openai"
 @rendermode InteractiveServer
 @inject Microsoft.Extensions.Configuration.IConfiguration _config
