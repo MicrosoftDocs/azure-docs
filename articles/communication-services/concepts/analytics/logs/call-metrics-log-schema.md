@@ -28,11 +28,16 @@ Call Metrics logs contain aggregated calling metrics in daily bins based on attr
 >
 >Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data is not retroactively available. You accumulate data once you set up the Diagnostic Settings.
 
+
+In the log schema there is a property called `MetricName` that details the various metrics that are sent in this schema. The metrics are broken down into two main caetgoreies API Metrics and UFD metrics. UFD metrics are further broken down into two groups that explain the volume of UFD occurences how well they recovered during a call. categories which are detailed below. 
+
 ## Public Facing Metrics Definitions
 
 ### API Metrics
 
-These metrics measure both the successes and failures (dcount) of our public APIs (e.g., mute, join, etc.).
+- These UFDs are visualized in the Voice idiiddi insights dashboard in the UFD tab. To see how you can leverage these data learn more please seee: link to Inisghts page. To understand how the visuals are generated you can edit the existing workbook and see the queries behind the visuals.
+
+These metrics measure both the successes and failures (dcount) of the calling SDK public APIs (e.g., mute, join, etc.).
 
 - reliability/api/CreateView/Local
 - reliability/api/Join
@@ -45,9 +50,13 @@ These metrics measure both the successes and failures (dcount) of our public API
 
 ### User Facing Diagnostics (UFD) Metrics
 
+- These UFDs are visualized in the Voice idiiddi insights dashboard in the UFD tab. To see how you can leverage these data learn more please seee: link to Inisghts page. To understand how the visuals are generated you can edit the existing workbook and see the queries behind the visuals.
+
 - To learn more about UFDs please see: [User Facing Diagnostics](../../voice-video-calling/user-facing-diagnostics.md)
 
-#### User Facing Diagnostics (UFD) Metrics (dcount of participants (legs) that had at least one bad UFD)
+#### User Facing Diagnostics (UFD) leg metrics: (dcount of participants (legs) that had at least one bad UFD during a call)
+
+Provides counts of how many participant were impacted by a UFD in a call.   
 
 - reliability/leg/UFD/NetworkReconnect
 - reliability/leg/UFD/CameraStoppedUnexpectedly
@@ -63,15 +72,16 @@ These metrics measure both the successes and failures (dcount) of our public API
 - reliability/leg/UFD/CameraStartTimedOut
 - reliability/leg/UFD/NoSpeakerDevicesEnumerated
 - reliability/leg/UFD/CameraFreeze
-- reliability/leg/UFD/CameraStartFailed *(Note: appears twice)*
 - reliability/leg/UFD/NetworkRelaysNotReachable
 - reliability/leg/UFD/SpeakingWhileMicrophoneIsMuted
 - reliability/leg/UFD/NoNetwork
 - reliability/leg/UFD/NetworkSendQuality
 - reliability/leg/UFD/ScreenshareRecordingDisabled
 
-#### User Facing Diagnostics (UFD) Metrics (dcount of occurrences that had an issue but subsequently recovered  
-*(i.e., count of good UFD ≥ count of bad UFD)*):
+#### User Facing Diagnostics (UFD) API recovery metrics: (dcount of occurrences that had an issue but subsequently recovered during a call)  
+
+Provides counts of how many UFDs were triggered during a call by the calling SDK, but subsequently recovered during the call. For example, the network reconnect UFD was triggered one time in a call, but the network succesfully recovered during the call. Therefore the count of good UFD is ≥ the count of bad UFDs in the call. Then the recovery rate of that UFD would be 100%. 
+
 
 - reliability/api/UFD/recovery/NetworkReceiveQuality
 - reliability/api/UFD/recovery/NetworkReconnect
@@ -91,7 +101,6 @@ These metrics measure both the successes and failures (dcount) of our public API
 - reliability/api/UFD/recovery/NoNetwork
 - reliability/api/UFD/recovery/CameraStartTimedOut
 - reliability/api/UFD/recovery/SpeakingWhileMicrophoneIsMuted
-- reliability/api/UFD/recovery/CameraStartFailed *(Note: appears twice)*
 - reliability/api/UFD/recovery/NetworkRelaysNotReachable
 
 
@@ -141,7 +150,7 @@ For the call metric log, there's no difference between P2P and group call scenar
 
 ### Call Metrics Log
 
-Here's a sample of the Call Metrics log: 
+Here's are two sample rows of the Call Metrics log: 
 
 ```json
 "properties": {
