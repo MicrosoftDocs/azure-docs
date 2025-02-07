@@ -77,7 +77,7 @@
   - name: Configure vaulted backup for Azure Files  
     items:
     - name: With Azure PowerShell
-      href: quick-backup-azure-files-vault-tier-ps.md
+      href: quick-backup-azure-files-vault-tier-powershell.md
     - name: With Azure CLI
       href: quick-backup-azure-files-vault-tier-cli.md
     - name: With Azure Resource Manager

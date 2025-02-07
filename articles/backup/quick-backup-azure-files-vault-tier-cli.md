@@ -55,7 +55,7 @@ output
 (azcli) C:\Users\testuser\Downloads\CLIForAFS\azure-cli>az backup protection enable-for-azurefileshare -p "snappol" --resource-group "myResourceGroup " --vault-name "afsbugbashvault" --storage-account "afsbugbash0" --azure-file-share "afs0"
 {
   "eTag": null,
-  "id": "/subscriptions/62b829ee-7936-40c9/resourceGroups/myResourceGroup /providers/Microsoft.RecoveryServices/vaults/ myRecoveryServicesVault  /backupFabrics/Azure/protectionContainers/StorageContainer;storage;myResourceGroup ;afsbugbash0/protectedItems/AzureFileShare;9031e290ca28baa9cb64903a30247d2b9ff3ca143a5e1a37c7afec6b2ff1a2e4",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup /providers/Microsoft.RecoveryServices/vaults/ myRecoveryServicesVault  /backupFabrics/Azure/protectionContainers/StorageContainer;storage;myResourceGroup ;afsbugbash0/protectedItems/AzureFileShare;9031e290ca28baa9cb64903a30247d2b9ff3ca143a5e1a37c7afec6b2ff1a2e4",
   "location": null,
   "name": "AzureFileShare;9031e290ca28baa9cb64903a30247d2b9ff3ca143a5e1a37c7afec6b2ff1a2e4",
   "properties": {
@@ -75,7 +75,7 @@ output
     "lastBackupStatus": "Completed",
     "lastBackupTime": "2025-01-16T23:02:10.801858+00:00",
     "lastRecoveryPoint": null,
-    "policyId": "/subscriptions/62b829ee-7936-40c9-a1c9-47a93f9f3965/resourceGroups/myResourceGroup/providers/Microsoft.RecoveryServices/vaults/ myRecoveryServicesVault  /backupPolicies/vaultpol",
+    "policyId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.RecoveryServices/vaults/ myRecoveryServicesVault  /backupPolicies/vaultpol",
     "policyName": null,
     "protectedItemType": "AzureFileShareProtectedItem",
     "protectionState": "Protected",
@@ -83,8 +83,8 @@ output
     "resourceGuardOperationRequests": null,
     "softDeleteRetentionPeriod": 0,
     "softDeleteRetentionPeriodInDays": null,
-    "sourceResourceId": "/subscriptions/62b829ee-7936-40c9-a1c9/resourceGroups/myResourceGroup /providers/Microsoft.storage/storageAccounts/afsbugbash0",
-    "vaultId": "https://management.azure.com/subscriptions/62b829ee-7936-40c9-a1c9-47a93f9f3965/resourceGroups/myResourceGroup /providers/Microsoft.RecoveryServices/vaults/afsbugbashvault",
+    "sourceResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup /providers/Microsoft.storage/storageAccounts/afsbugbash0",
+    "vaultId": "https://management.azure.com/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup /providers/Microsoft.RecoveryServices/vaults/afsbugbashvault",
     "workloadType": "AzureFileShare"
   },
   "resourceGroup": "myResourceGroup ",

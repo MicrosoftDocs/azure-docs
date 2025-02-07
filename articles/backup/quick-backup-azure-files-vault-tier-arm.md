@@ -111,7 +111,7 @@ The [Azure Quickstart Template](https://github.com/Azure/azure-quickstart-templa
       "type": "string",
       "defaultValue": "UTC",
       "metadata": {
-        "description": "Any valid timezone, for example: UTC, Pacific Standard Time. Refer: https://msdn.microsoft.com/en-us/library/gg154758.aspx (Ignore if using existing Backup Policy)."
+        "description": "Any valid timezone, for example: UTC, Pacific Standard Time. Refer: https://msdn.microsoft.com/library/gg154758.aspx (Ignore if using existing Backup Policy)."
       }
     },
     "dailyRetentionDurationCount": {
