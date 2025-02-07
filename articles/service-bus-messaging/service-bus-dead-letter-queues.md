@@ -12,7 +12,6 @@ ms.custom: "fasttrack-edit, devx-track-csharp"
 Azure Service Bus queues and topic subscriptions provide a secondary subqueue, called a _dead-letter queue_ (DLQ). The dead-letter queue doesn't need to be explicitly created and can't be deleted or managed independent of the main entity.
 
 This article describes dead-letter queues in Service Bus. Much of the discussion is illustrated by the [Dead-Letter queues sample](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/DeadLetterQueue) on GitHub.
-
 ## The dead-letter queue
 
 The purpose of the dead-letter queue is to hold messages that can't be delivered to any receiver, or messages that couldn't be processed. Messages can then be removed from the DLQ and inspected. An application might let a user correct issues and resubmit the message.
