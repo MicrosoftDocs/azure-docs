@@ -17,7 +17,7 @@ Many manufacturers need to provide data about their manufactured products to the
 
 ## What is an industrial dataspace?
 
-An industrial dataspace is a virtual environment designed to facilitate the secure and efficient exchange of data between different organizations within an industrial ecosystem, focusing on the following key principles:
+An industrial dataspace is a virtual environment designed to facilitate the secure and efficient exchange of data between different organizations within an industrial ecosystem, such as those developed by [International Data Spaces Association](https://internationaldataspaces.org/why/data-spaces). An industrial dataspaces focuses on the following key principles:
 
 * **Data sovereignty**: It ensures that data providers retain control over their data, including who can access it and under what conditions.
 * **Interoperability**: It uses standardized protocols and governance models to enable seamless data sharing across various platforms and industries.
@@ -94,7 +94,7 @@ The two EDC Connectors *provider* and *consumer* automatically deployed are prov
 
 ### Trigger an automatic digital contract negotiation through the dataspace protocol and transfer a PCF
 
-The EDC Connector supports an automated EDC digital contract negotiation where the entire workflow is handled automatically. To trigger this automatic contract negotiation, followed by the transfer of a PCF from the AAS submodel for which you copied the ID in the previous step, complete the following steps:
+The EDC Connector supports an automated EDC digital contract negotiation where the entire workflow is handled automatically in accordance with the [Dataspace Protocol](https://internationaldataspaces.org/offers/dataspace-protocol). To trigger this automatic contract negotiation, followed by the transfer of a PCF from the AAS submodel for which you copied the ID in the previous step, complete the following steps:
 
 1. In the Azure portal, navigate to the overview page of your **EDC provider** instance. Copy the **Application URL** displayed.
 
