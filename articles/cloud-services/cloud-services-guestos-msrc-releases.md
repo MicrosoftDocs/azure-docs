@@ -7,7 +7,7 @@ author: jejackson
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: azure-cloud-services-classic
 ms.topic: article
-ms.date: 03/02/2025
+ms.date: 2/5/2025
 ms.author: jejackson
 ms.custom: compute-evergreen
 ---
@@ -15,7 +15,7 @@ ms.custom: compute-evergreen
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to your Guest OS. Updates always carry forward for the particular [family][family-explain] they were introduced in.
 
-## January 2024 Guest OS
+## January 2025 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 25-01 | [5050008] | Latest Cumulative Update(LCU) | [6.78] | 14-Jan-25
@@ -32,8 +32,8 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 25-01 | [5050116] | Servicing Stack Update | [3.145] | 14-Jan-25
 | Rel 25-01 | [5050115] | Servicing Stack Update  | [4.138] | 14-Jan-25
 | Rel 25-01 | [5050109] | Servicing Stack Update  | [5.102] | 14-Jan-25
-| Rel 25-01 | [5050110] | Servicing Stack Update | [6.78]  | 14-Jan-25
-| Rel 25-01 | [5050117] | Servicing Stack Update | [7.48] | 14-Jan-25
+| Rel 25-01 | 5050110 | Servicing Stack Update | [6.78]  | 14-Jan-25
+| Rel 25-01 | 5050117 | Servicing Stack Update | [7.48] | 14-Jan-25
 | Rel 25-01 | [4494175] | January '20 Microcode | [5.102] | 1-Sep-20
 | Rel 25-01 | [4494175] | January '20 Microcode | [6.78] | 1-Sep-20
 
@@ -51,8 +51,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [5050116]: https://support.microsoft.com/kb/5050116
 [5050115]: https://support.microsoft.com/kb/5050115
 [5050109]: https://support.microsoft.com/kb/5050109
-[5050110]: https://support.microsoft.com/kb/5050110
-[5050117]: https://support.microsoft.com/kb/5050117
 [4494175]: https://support.microsoft.com/kb/4494175
 
 [3.146]: ./cloud-services-guestos-update-matrix.md#family-3-releases
