@@ -17,10 +17,7 @@ ms.subservice: calling
 
 This document explains the ACSCallingMetrics logs available to you through Azure Monitor in the form of [Resource Logs](/azure/azure-monitor/data-sources.md#azure-resources). 
 
-Call Metrics logs are used in the **[Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)** to visualize long term graphs of reliability, quality, and performance based on count of succeeded and failed Calling SDK api calls of various operations. Use these logs to gain a clearer understanding of daily aggregated calling metrics across various dimensions for your communication workloads. You can also set up automated alerts when a metric falls. **ankesh please explain how to do alerts**
-
-To learn how to setup automated alerts off of these logs please see: https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/tutorial-log-alert
-
+Call Metrics logs are used in the **[Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)** to visualize long term graphs of reliability, quality, and performance based on count of succeeded and failed Calling SDK api calls of various operations. Use these logs to gain a clearer understanding of daily aggregated calling metrics across various dimensions for your communication workloads. 
 Call Metrics logs contain aggregated calling metrics in daily bins based on attributes such as SDK Version, OS name, and Error Subcode.
 
 ## Data Concepts
@@ -31,13 +28,17 @@ Call Metrics logs contain aggregated calling metrics in daily bins based on attr
 >Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data is not retroactively available. You accumulate data once you set up the Diagnostic Settings.
 
 
-In the log schema there is a property called `MetricName` that details the various metrics that are sent in this schema. The metrics are broken down into two main caetgoreies API Metrics and UFD metrics. UFD metrics are further broken down into two groups that explain the volume of UFD occurences how well they recovered during a call. categories which are detailed below. 
+These metrics are visualized in the **[Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)**, we recommend reviewing these visuals to understand how you can leverage these data if you want build your own dashboard or customize the existing dashboards. To understand how the visuals are generated in the Insights Dashboard you can edit the existing workbook to see the queries behind each visual.
 
-## Public Facing Metrics Definitions
+
+In the log schema there is a property called `MetricName` that details the various metrics that are sent in this schema. The metrics are broken down into two main caetgoreies, **API Metrics** and **User Facing Diagnostics (UFD) metrics**. UFD metrics are further broken down into two groups that explain the **volume** of UFD occurences and how well UFDs **recovered** from those occurences during calls. 
+
+Since these metrics give you an overview of your entire calling resource you can set up automated alerts if a metric falls. To learn how to set up automated alerts please see: [Tutorial: Create a log search alert for an Azure resource](/azure/azure-monitor/alerts/tutorial-log-alert)
+
+
+## Metric categories
 
 ### API Metrics
-
-- These UFDs are visualized in the Voice idiiddi insights dashboard in the UFD tab. To see how you can leverage these data learn more please seee: link to Inisghts page. To understand how the visuals are generated you can edit the existing workbook and see the queries behind the visuals.
 
 These metrics measure both the successes and failures (dcount) of the calling SDK public APIs (e.g., mute, join, etc.).
 
@@ -51,8 +52,6 @@ These metrics measure both the successes and failures (dcount) of the calling SD
 - reliability/api/StartCall
 
 ### User Facing Diagnostics (UFD) Metrics
-
-- These UFDs are visualized in the Voice idiiddi insights dashboard in the UFD tab. To see how you can leverage these data learn more please seee: link to Inisghts page. To understand how the visuals are generated you can edit the existing workbook and see the queries behind the visuals.
 
 - To learn more about UFDs please see: [User Facing Diagnostics](../../voice-video-calling/user-facing-diagnostics.md)
 
@@ -82,7 +81,7 @@ Provides counts of how many participant were impacted by a UFD in a call.
 
 #### User Facing Diagnostics (UFD) API recovery metrics: (dcount of occurrences that had an issue but subsequently recovered during a call)  
 
-Provides counts of how many UFDs were triggered during a call by the calling SDK, but subsequently recovered during the call. For example, the network reconnect UFD was triggered one time in a call, but the network succesfully recovered during the call. Therefore the count of good UFD is ≥ the count of bad UFDs in the call. Then the recovery rate of that UFD would be 100%. 
+Provides counts of how many UFDs were triggered during a call by the calling SDK, but subsequently recovered during the call. For example, if the `NetworkReconnect` UFD was triggered one time in a call, but the network succesfully recovered during the call. In this example the count of good API recovery UFD is ≥ the count of bad UFD leg metric. You could calculate a UFD recovery rate of 100%. 
 
 
 - reliability/api/UFD/recovery/NetworkReceiveQuality
