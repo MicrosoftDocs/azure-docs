@@ -159,7 +159,7 @@ The Books RESTful API app acts as a resource server, which is protected by Micro
 
 ### 3.5. Update the configuration of Books Service app
 
-Locate **books-service/src/main/resources/application.yml** file for the `books-service` app. Update the configuration in the **spring.cloud.azure.active-directory** section to match the following example. Be sure to replace the placeholders with the values you created previously.
+Locate **books-service/src/main/resources/application.yml** file for the `books-service` app. Update the configuration in the `spring.cloud.azure.active-directory` section to match the following example. Be sure to replace the placeholders with the values you created previously.
 
 ```yaml
 spring:
