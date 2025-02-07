@@ -5,7 +5,7 @@ ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
 ms.date: 07/19/2024
-author: bpinto
+author: bartpinto
 ms.author: bpinto
 ---
 
