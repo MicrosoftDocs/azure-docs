@@ -17,30 +17,41 @@ ms.subservice: calling
 
 This document explains the ACSCallingMetrics logs available to you through Azure Monitor in the form of [Resource Logs](/azure/azure-monitor/data-sources.md#azure-resources). 
 
-Call Metrics logs are used in the **[Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)** to visualize long term graphs of reliability, quality, and performance based on count of succeeded and failed Calling SDK api calls of various operations. Use these logs to gain a clearer understanding of daily aggregated calling metrics across various dimensions for your communication workloads. 
+Call Metrics logs are used in the **[Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)** to visualize long term graphs of reliability, quality, and performance based on count of succeeded and failed Calling SDK API calls of various operations. Use these logs to gain a clearer understanding of daily aggregated calling metrics across various dimensions for your communication workloads. 
 Call Metrics logs contain aggregated calling metrics in daily bins based on attributes such as SDK Version, OS name, and Error Subcode.
+
+## How to use Call Logs
+We recommend you collect all available call logs in a log analytics resource so you can monitor your call usage and improve your call quality and receive new logs from Azure Communication Services as we release them.  
+
+There are two main tools you can use to monitor your calls and improve call quality. 
+1. [Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)
+1. [Call Diagnostics](../../voice-video-calling/call-diagnostics.md)
+
+We recommend using the **[Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)** dashboards to start 
+any quality investigations, and using **[Call Diagnostics](../../voice-video-calling/call-diagnostics.md)** as needed to explore individual calls when you need granular detail.
+
 
 ## Data Concepts
 
 > [!IMPORTANT]
->You must collect logs if you want to analyze them. To learn more see: **[How do I store logs?](#how-do-i-store-logs)**
+>You must collect logs if you want to analyze them. To learn more, see: **[How do I store logs?](#how-do-i-store-logs)**
 >
->Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data is not retroactively available. You accumulate data once you set up the Diagnostic Settings.
+>Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data isn't retroactively available. You accumulate data once you create the Diagnostic Settings.
 
 
-These metrics are visualized in the **[Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)**, we recommend reviewing these visuals to understand how you can leverage these data if you want build your own dashboard or customize the existing dashboards. To understand how the visuals are generated in the Insights Dashboard you can edit the existing workbook to see the queries behind each visual.
+These metrics are visualized in the **[Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)**, we recommend reviewing these visuals to understand how you can use these data if you want to build your own dashboard or customize the existing dashboards. You can edit the existing workbook in the Voice and Video Insights Dashboard to see the queries behind each visual.
 
 
-In the log schema there is a property called `MetricName` that details the various metrics that are sent in this schema. The metrics are broken down into two main caetgoreies, **API Metrics** and **User Facing Diagnostics (UFD) metrics**. UFD metrics are further broken down into two groups that explain the **volume** of UFD occurences and how well UFDs **recovered** from those occurences during calls. 
+This log schema has a property called `MetricName` that details the various metrics that are sent in this schema. The metrics are broken down into two main categories, **API Metrics** and **User Facing Diagnostics (UFD) metrics**. UFD metrics are further broken down into two groups that explain the **volume** of UFD occurrences and how well UFDs **recovered** from those occurrences during calls. 
 
-Since these metrics give you an overview of your entire calling resource you can set up automated alerts if a metric falls. To learn how to set up automated alerts please see: [Tutorial: Create a log search alert for an Azure resource](/azure/azure-monitor/alerts/tutorial-log-alert)
+Since these metrics give you an overview of your entire calling resource, you can set up automated alerts if a metric falls. To learn how to set up automated alerts, see: [Tutorial: Create a log search alert for an Azure resource](/azure/azure-monitor/alerts/tutorial-log-alert)
 
 
 ## Metric categories
 
 ### API Metrics
 
-These metrics measure both the successes and failures (dcount) of the calling SDK public APIs (e.g., mute, join, etc.).
+These metrics measure both the successes and failures (dcount) of the calling SDK public APIs, for example (mute, join, etc.).
 
 - reliability/api/CreateView/Local
 - reliability/api/Join
@@ -53,11 +64,11 @@ These metrics measure both the successes and failures (dcount) of the calling SD
 
 ### User Facing Diagnostics (UFD) Metrics
 
-- To learn more about UFDs please see: [User Facing Diagnostics](../../voice-video-calling/user-facing-diagnostics.md)
+- To learn more about UFDs, see: [User Facing Diagnostics](../../voice-video-calling/user-facing-diagnostics.md)
 
 #### User Facing Diagnostics (UFD) leg metrics: (dcount of participants (legs) that had at least one bad UFD during a call)
 
-Provides counts of how many participant were impacted by a UFD in a call.   
+Provides counts of how many participants were impacted by a UFD in a call.   
 
 - reliability/leg/UFD/NetworkReconnect
 - reliability/leg/UFD/CameraStoppedUnexpectedly
@@ -79,9 +90,9 @@ Provides counts of how many participant were impacted by a UFD in a call.
 - reliability/leg/UFD/NetworkSendQuality
 - reliability/leg/UFD/ScreenshareRecordingDisabled
 
-#### User Facing Diagnostics (UFD) API recovery metrics: (dcount of occurrences that had an issue but subsequently recovered during a call)  
+#### User Facing Diagnostics (UFD) API recovery metrics: (dcount of occurrences that had an issue but then recovered during a call)  
 
-Provides counts of how many UFDs were triggered during a call by the calling SDK, but subsequently recovered during the call. For example, if the `NetworkReconnect` UFD was triggered one time in a call, but the network succesfully recovered during the call. In this example the count of good API recovery UFD is ≥ the count of bad UFD leg metric. You could calculate a UFD recovery rate of 100%. 
+Provides counts of how many UFDs were triggered during a call by the calling SDK, but subsequently recovered during the call. For example, if the `NetworkReconnect` UFD was triggered one time in a call, but the network successfully recovered during the call. In this example, the count of good API recovery UFD is ≥ the count of bad UFD leg metric. You could calculate a UFD recovery rate of 100%. 
 
 
 - reliability/api/UFD/recovery/NetworkReceiveQuality
@@ -109,13 +120,13 @@ Provides counts of how many UFDs were triggered during a call by the calling SDK
 
 ### Call metrics log schema
 
-The table below describes each property.
+This table describes each property.
 
 | Property                     | Description                                                                                                                |
 |----------------------------|----------------------------------------------------------------------------------------------------------------------------|
 | `TimeGenerated`              | The timestamp (UTC) of when the log was generated.                                                                         |
 | `OperationName`             | The operation associated with the log record.                                                                              |
-| `OperationVersion`          | The API-version associated with the operation. Or the version of the operation if there is no API version.                                                   |
+| `OperationVersion`          | The API-version associated with the operation. Or the version of the operation if there's no API version.                                                   |
 | `Category`                  | The log category of the event. Logs with the same log category and resource type share the same properties fields.           |
 | `CorrelationId`             | A unique GUID that correlates events across the same dimension.                                                            |
 | `TimestampMax`              | The maximum timestamp in UTC for each dimension.                                                                           |
@@ -129,8 +140,8 @@ The table below describes each property.
 | `LegsDcount`                | The total number of participants (legs) per dimension.                                                                     |
 | `SubCode`                   | A dimension indicating the subcode.                                                                                        |
 | `CallType`                  | A dimension indicating the type of call.                                                                                   |
-| `Platform`                  | The platform dimension (e.g., iOS, Android, Windows).                                                                      |
-| `ResultType`                | The result type dimension (e.g., success or failure category).                                                             |
+| `Platform`                  | The platform dimension (for example, iOS, Android, Windows).                                                                      |
+| `ResultType`                | The result type dimension (for example, success or failure category).                                                             |
 | `DeviceModel`               | A dimension indicating the device model.                                                                                   |
 | `DeviceBrand`               | A dimension indicating the device brand.                                                                                   |
 | `DeviceFamily`              | A dimension indicating the device family.                                                                                  |
@@ -236,7 +247,7 @@ Here's are two sample rows of the Call Metrics log:
 ### How do I store logs?
 The following section explains this requirement.
 
-Azure Communication Services logs are not stored in your Azure account by default so you need to begin storing them in order for tools like [Voice and video Insights Dashboard](../insights/voice-and-video-insights.md) and [Call Diagnostics](../../voice-video-calling/call-diagnostics.md) to work. To collect these call logs, you need to enable a diagnostic setting that directs the call data to a Log Analytics workspace. 
+Azure Communication Services logs aren't stored in your Azure account by default so you need to begin storing them in order for tools like [Voice and video Insights Dashboard](../insights/voice-and-video-insights.md) and [Call Diagnostics](../../voice-video-calling/call-diagnostics.md) to work. To collect these call logs, you need to enable a diagnostic setting that directs the call data to a Log Analytics workspace. 
 
 **Data isn’t stored retroactively, so you begin capturing call logs only after configuring the diagnostic setting.**
 

@@ -17,20 +17,31 @@ ms.subservice: data
 > [!NOTE]
 > End of Call Survey is currently supported only for our JavaScript / Web SDK.
 
+## How to use Call Logs
+We recommend you collect all available call logs in a log analytics resource so you can monitor your call usage and improve your call quality and receive new logs from Azure Communication Services as we release them.  
+
+There are two main tools you can use to monitor your calls and improve call quality. 
+1. [Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)
+1. [Call Diagnostics](../../voice-video-calling/call-diagnostics.md)
+
+We recommend using the **[Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)** dashboards to start 
+any quality investigations, and using **[Call Diagnostics](../../voice-video-calling/call-diagnostics.md)** as needed to explore individual calls when you need granular detail.
+
+
 ## Prerequisites
 
 Azure Communications Services provides monitoring and analytics features via [Azure Monitor Logs overview](/azure/azure-monitor/logs/data-platform-logs) and [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics). Each Azure resource requires its own diagnostic setting, which defines the following criteria:
-  * Categories of logs and metric data sent to the destinations defined in the setting. The available categories will vary for different resource types.
+  * Categories of logs and metric data sent to the destinations defined in the setting. The available categories vary for different resource types.
   * One or more destinations to send the logs. Current destinations include Log Analytics workspace, Event Hubs, and Azure Storage.
   * A single diagnostic setting can define no more than one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), then create multiple settings. Each resource can have up to five diagnostic settings.
 
 
 > [!IMPORTANT]
-> You must enable a Diagnostic Setting in Azure Monitor to send the log data of your surveys to a Log Analytics workspace, Event Hubs, or an Azure storage account to receive and analyze your survey data. If you do not send survey data to one of these options your survey data will not be stored and will be lost
+> You must enable a Diagnostic Setting in Azure Monitor to send the log data of your surveys to a Log Analytics workspace, Event Hubs, or an Azure storage account to receive and analyze your survey data. If you don't send survey data to one of these options your survey data won't be stored and will be lost.
 The following are instructions for configuring your Azure Monitor resource to start creating logs and metrics for your Communications Services. For detailed documentation about using Diagnostic Settings across all Azure resources, see: [Enable logging in Diagnostic Settings](../enable-logging.md)
 
 > [!NOTE]
-> Under diagnostic setting name please select “Call Survey” to enable the logs for end of call survey.
+> Under diagnostic setting name, select “Call Survey” to enable the logs for end of call survey.
 
  :::image type="content" source="..\logs\diagnostic-settings-call-survey-log.png" alt-text="Screenshot of diagnostic settings for call survey.":::
 ### Overview 
@@ -57,7 +68,7 @@ Communication Services offers the following types of logs that you can enable:
 
 ## **Properties** ##
 
-The table below describes each property.
+This table describes each property.
 
 
 | Property | Description |

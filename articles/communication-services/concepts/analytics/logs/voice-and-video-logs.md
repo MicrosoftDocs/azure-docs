@@ -19,9 +19,9 @@ Azure Communication Services provides logging capabilities that you can use to m
 The content in this article refers to logs enabled through [Azure Monitor](/azure/azure-monitor/overview) (see also [FAQ](/azure/azure-monitor/overview#frequently-asked-questions)). To enable these logs for Communication Services, see [Enable logging in diagnostic settings](../enable-logging.md).
 
 > [!IMPORTANT]
->You must collect logs if you want to analyze them. To learn more see: **[How do I store logs?](#how-do-i-store-logs)**
+>You must collect logs if you want to analyze them. To learn more, see: **[How do I store logs?](#how-do-i-store-logs)**
 >
->Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data is not retroactively available. You accumulate data once you set up the Diagnostic Settings.
+>Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data isn't retroactively available. You accumulate data once you create the Diagnostic Settings.
 
 ## How to use Call Logs
 By collecting call logs in a log analytics resource you can monitor your call usage and improve your call quality. 
@@ -40,45 +40,45 @@ Azure Communication Services creates eight call logs:
 ### **Call Summary Updates Logs**: 
 These log data arrive in Azure Monitor faster than the Call Summary Logs and we recommend using these logs instead of the Call Summary Log schema. This log contains basic information about the call, including all the relevant IDs, time stamps, endpoints, and SDK information. 
 
-To learn more see: [Call Summary Log Schema](call-summary-updates-log-schema.md)
+To learn more, see: [Call Summary Log Schema](call-summary-updates-log-schema.md)
 
 ### **Call Summary Logs**:
-This log is a subset of the Call Summary Updates log schema. It contain basic information about the call, including all the relevant IDs, time stamps, endpoints, and SDK information. To improve your data latency please use the Call Summary Updates Logs instead. 
+This log is a subset of the Call Summary Updates log schema. It contains basic information about the call, including all the relevant IDs, time stamps, endpoints, and SDK information. For faster log latency, use the Call Summary Updates Logs instead. 
 
-To learn more see: [Call Summary Log Schema](call-summary-log-schema.md)
+To learn more, see: [Call Summary Log Schema](call-summary-log-schema.md)
 
 ### **Call Diagnostics Updates Logs**:
-These log data arrive in Azure Monitor faster than the Call Diagnostics Logs and we recommend using these logs instead of the Call Diagnostics Log schema. This log contains information about a participants call media stream, along with a set of metrics that indicate quality of experience measurements. 
+These log data arrive in Azure Monitor faster than the Call Diagnostics Logs and we recommend using these logs instead of the Call Diagnostics Log schema. This log contains information about a participant's call media stream, along with a set of metrics that indicate quality of experience measurements. 
 
-To learn more see: [Call Diagnostics Log Schema](call-diagnostics-updates-log-schema.md)
+To learn more, see: [Call Diagnostics Log Schema](call-diagnostics-updates-log-schema.md)
 
 
 ### **Call Diagnostics Logs**:
-This log is a subset of the Call Diagnostics Updates log schema. It contain information about the stream, along with a set of metrics that indicate quality of experience measurements. To improve your data latency please use the Call Summary Updates Logs instead. 
+This log is a subset of the Call Diagnostics Updates log schema. It contains information about the stream, along with a set of metrics that indicate quality of experience measurements. For faster log latency, use the Call Summary Updates Logs instead. 
 
-To learn more see: [Call Diagnostics Log Schema](call-diagnostics-log-schema.md)
+To learn more, see: [Call Diagnostics Log Schema](call-diagnostics-log-schema.md)
 
 ### **Call Client Operations Logs**: 
 Contain detailed call client events. These log events are generated for each `EndpointId` in a call and the number of event logs generated depends on the operations the participant performed during the call. 
 
-To learn more see: [Call Client Operations Log Schema](call-client-operations-log-schema.md)
+To learn more, see: [Call Client Operations Log Schema](call-client-operations-log-schema.md)
 
 ### **Call Client Media Statistics Logs**:
 Contain detailed media stream values. These logs are generated for each media stream in a call. For each `EndpointId` within a call (including the server), Azure Communication Services creates a distinct log for each media stream (audio or video, for example) between endpoints. The volume of data generated in each log depends on the duration of call and number of media steams in the call. 
 
 In a P2P call, each log contains data that relates to each of the outbound streams associated with each endpoint. In a group call, each stream associated with `endpointType` = `"Server"` creates a log that contains data for the inbound streams. All other streams create logs that contain data for the outbound streams for all nonserver endpoints. In group calls, use the `participantId` value as the key to join the related inbound and outbound logs into a distinct participant connection.
 
-To learn more see: [Call Client Media Statistics Time Series Log Schema](call-client-media-statistics-log-schema.md)
+To learn more, see: [Call Client Media Statistics Time Series Log Schema](call-client-media-statistics-log-schema.md)
 
 ### **End of Call Survey Logs**:
 These logs are populated when the web calling client submits a survey at the end of the call. You can use these logs to learn the subjective perception of your call quality from your users. 
 
-To learn more see: [End of Call Survey overview](../../voice-video-calling/end-of-call-survey-concept.md)
+To learn more, see: [End of Call Survey overview](../../voice-video-calling/end-of-call-survey-concept.md)
 
 ### **Call Metric Logs**:
-These logs contain aggregated calling metrics in daily bins based on attributes such as SDK Version, OS name, and Error Subcode. These logs are used in the **[Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)** to visualize long term graphs of reliability, quality, and performance based on count of succeeded and failed Calling SDK api calls of various operations. You can also set up automated alerts when a metric falls. **ankesh please explain how to do alerts**
+These logs contain aggregated calling metrics in daily bins based on attributes such as SDK Version, OS name, and Error Subcode. These logs are used in the **[Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)** to visualize long term graphs of reliability, quality, and performance based on count of succeeded and failed Calling SDK api calls of various operations. 
 
-To learn more see: [Call Metrics Log Schema](call-metrics-log-schema.md)
+To learn more, see: [Call Metrics Log Schema](call-metrics-log-schema.md)
 
 ## Data concepts
 
@@ -175,7 +175,7 @@ If you have multiple Azure Communications Services resource IDs, you must enable
 ## Next steps
 
 - Learn best practices to manage your call quality and reliability, see: [Improve and manage call quality](../../voice-video-calling/manage-call-quality.md)
-- 
+
 - Learn about the [insights dashboard to monitor Voice Calling and Video Calling logs](/azure/communication-services/concepts/analytics/insights/voice-and-video-insights).
 
 - Learn how to use call logs to diagnose call quality and reliability

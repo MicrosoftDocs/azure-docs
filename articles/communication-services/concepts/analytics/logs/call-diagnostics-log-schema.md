@@ -21,18 +21,29 @@ For each `EndpointId` within a call (including the server), Azure Communication 
 In a P2P call, each log contains data that relates to each of the outbound streams associated with each endpoint. In group calls, `participantId` serves as a key identifier to join the related outbound logs into a distinct participant connection. Call diagnostics logs remain intact and are the same regardless of the participant tenant.
 
 
+## How to use Call Logs
+We recommend you collect all available call logs in a log analytics resource so you can monitor your call usage and improve your call quality and receive new logs from Azure Communication Services as we release them.  
+
+There are two main tools you can use to monitor your calls and improve call quality. 
+1. [Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)
+1. [Call Diagnostics](../../voice-video-calling/call-diagnostics.md)
+
+We recommend using the **[Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)** dashboards to start 
+any quality investigations, and using **[Call Diagnostics](../../voice-video-calling/call-diagnostics.md)** as needed to explore individual calls when you need granular detail.
+
+
 ## Data Concepts
 
 > [!IMPORTANT]
->You must collect logs if you want to analyze them. To learn more see: **[How do I store logs?](#how-do-i-store-logs)**
+>You must collect logs if you want to analyze them. To learn more, see: **[How do I store logs?](#how-do-i-store-logs)**
 >
->Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data is not retroactively available. You accumulate data once you set up the Diagnostic Settings.
+>Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data isn't retroactively available. You accumulate data once you create the Diagnostic Settings.
 
 ## Data Definitions
 
 ### Call diagnostics log schema
 
-The table below describes each property.
+This table describes each property.
 
 
 | Property | Description |
@@ -59,7 +70,7 @@ The table below describes each property.
 | `HealedDataRatioAvg` | The average percentage of lost or damaged data packets successfully reconstructed or recovered by the healer over the duration of audio stream. Healed data ratio is a measure of the effectiveness of error correction techniques used in VoIP systems.  <br><br> When this value is greater than 0.1 (10%), we consider the stream as bad quality. |
 | `HealedDataRatioMax` | The maximum healed data ratio measured during the duration of each media stream. <br><br> When this value is greater than 0.1 (10%),  we consider the stream as bad quality. |
 | `VideoFrameRateAvg` | The average number of video frames that are transmitted per second during a video/screensharing call. The video frame rate can impact the quality and smoothness of the video stream, with higher frame rates generally resulting in smoother and more fluid motion. The standard frame rate for WebRTC video is typically 30 frames per second (fps), although frame rate can vary depending on the specific implementation and network conditions. <br><br> The stream quality is considered poor when this value is less than 7 for video stream, or less than 1 for screen sharing stream. |
-| `RecvResolutionHeight` | The average of vertical size of the incoming video stream that is transmitted during a video/screensharing call. It's measured in pixels and is one of the factors that determines the overall resolution and quality of the video stream. The specific resolution used may depend on the capabilities of the devices and network conditions involved in the call.  <br><br> The stream quality is considered poor when this value is less than 240 for video stream, or less than 768 for screen sharing stream. |
+| `RecvResolutionHeight` | The average of vertical size of the incoming video stream that is transmitted during a video/screensharing call. This is measured in pixels and is one of the factors that determines the overall resolution and quality of the video stream. The specific resolution used may depend on the capabilities of the devices and network conditions involved in the call.  <br><br> The stream quality is considered poor when this value is less than 240 for video stream, or less than 768 for screen sharing stream. |
 | `RecvFreezeDurationPerMinuteInMs` | The average freeze duration in milliseconds per minute for incoming video/screensharing stream. Freezes are typically due to bad network condition and can degrade the stream quality.  <br><br> The stream quality is considered poor when this value is greater than 6,000 ms for video stream, or greater than 25,000 ms for screen sharing stream. |
 | `PacketUtilization` | The packets sent or received for a given media stream.  <br><br> Usually the longer the call, the higher the value is. If this value is zero, it could indicate that media is not flowing. |
 | `VideoBitRateAvg` | The average bitrate (bits per second) for a video or screenshare stream.  <br><br> A low bitrate value could indicate poor network issue. The minimum bitrate (bandwidth) required can be found here: [Network bandwidth](../../voice-video-calling/network-requirements.md#network-bandwidth). |
@@ -257,7 +268,7 @@ Here's a diagnostics log for an audio stream from a server endpoint to VoIP endp
 ### How do I store logs?
 The following section explains this requirement.
 
-Azure Communication Services logs are not stored in your Azure account by default so you need to begin storing them in order for tools like [Voice and video Insights Dashboard](../insights/voice-and-video-insights.md) and [Call Diagnostics](../../voice-video-calling/call-diagnostics.md) to work. To collect these call logs, you need to enable a diagnostic setting that directs the call data to a Log Analytics workspace. 
+Azure Communication Services logs aren't stored in your Azure account by default so you need to begin storing them in order for tools like [Voice and video Insights Dashboard](../insights/voice-and-video-insights.md) and [Call Diagnostics](../../voice-video-calling/call-diagnostics.md) to work. To collect these call logs, you need to enable a diagnostic setting that directs the call data to a Log Analytics workspace. 
 
 **Data isn’t stored retroactively, so you begin capturing call logs only after configuring the diagnostic setting.**
 

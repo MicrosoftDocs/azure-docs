@@ -43,7 +43,7 @@ const callClient = new CallClient({
 ```
 
 ## How to view the tag
-Once you add the values to your client SDK, they're populated and appear in your telemetry and metrics as you're calling. These values appear as key-value pairs appended to the user agent field that appears within the [Call Summary Log Schema](../../concepts/analytics/logs/call-summary-log-schema.md) in the property `DiagnosticOptions`. 
+Once you add the values to your client SDK, they're populated and appear in your telemetry and metrics as you're calling. These values appear as key-value pairs appended to the user agent field that appears within the [Call Summary Updates Log Schema](../../concepts/analytics/logs/call-summary-updates-log-schema.md) in the property `DiagnosticOptions`. 
 
 **contoso-healthcare-calling-services**/**2.1** azsdk-js-communication-calling/1.27.1-rc.10 (contoso_virtual_visits, participant0001). Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0
 

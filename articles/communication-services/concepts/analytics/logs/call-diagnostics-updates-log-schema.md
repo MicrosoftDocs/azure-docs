@@ -21,19 +21,28 @@ The Call Diagnostics Updates logs provide important information about the endpoi
 For each `EndpointId` within a call (including the server), Azure Communication Services creates a distinct call diagnostics updates log for each media stream (audio or video, for example) between endpoints.
 In a P2P call, each log contains data that relates to each of the outbound streams associated with each endpoint. In group calls, `participantId` serves as a key identifier to join the related outbound logs into a distinct participant connection. Call diagnostics updates logs remain intact and are the same regardless of the participant tenant.
 
+## How to use Call Logs
+We recommend you collect all available call logs in a log analytics resource so you can monitor your call usage and improve your call quality and receive new logs from Azure Communication Services as we release them.  
+
+There are two main tools you can use to monitor your calls and improve call quality. 
+1. [Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)
+1. [Call Diagnostics](../../voice-video-calling/call-diagnostics.md)
+
+We recommend using the **[Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)** dashboards to start 
+any quality investigations, and using **[Call Diagnostics](../../voice-video-calling/call-diagnostics.md)** as needed to explore individual calls when you need granular detail.
 
 ## Data Concepts
 
 > [!IMPORTANT]
->You must collect logs if you want to analyze them. To learn more see: **[How do I store logs?](#how-do-i-store-logs)**
+>You must collect logs if you want to analyze them. To learn more, see: **[How do I store logs?](#how-do-i-store-logs)**
 >
->Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data is not retroactively available. You accumulate data once you set up the Diagnostic Settings.
+>Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data isn't retroactively available. You accumulate data once you create the Diagnostic Settings.
 
 ## Data Definitions
 
 ### Call diagnostics updates log schema
 
-The table below describes each property.
+This table describes each property.
 
 
 | Property | Description |

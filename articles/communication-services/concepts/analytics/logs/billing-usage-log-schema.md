@@ -18,15 +18,15 @@ The Billing Usage log schema give an overview of the different services you use.
 ## Data Concepts
 
 > [!IMPORTANT]
->You must collect logs if you want to analyze them. To learn more see: **[How do I store logs?](#how-do-i-store-logs)**
+>You must collect logs if you want to analyze them. To learn more, see: **[How do I store logs?](#how-do-i-store-logs)**
 >
->Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data is not retroactively available. You accumulate data once you set up the Diagnostic Settings.
+>Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data isn't retroactively available. You accumulate data once you create the Diagnostic Settings.
 
 ## Data Definitions
 
 ### Usage log schema
 
-The table below describes each property.
+This table describes each property.
 
 
 | Property | Description |

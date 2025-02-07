@@ -19,18 +19,29 @@ The **call client operations** log provides client-side information about the ca
 
 This log provides detailed information on actions taken during a call and can be used to visualize and investigate call issues by using Call Diagnostics for your Azure Communication Services Resource. [Learn more about Call Diagnostics](../../voice-video-calling/call-diagnostics.md)
 
+## How to use Call Logs
+We recommend you collect all available call logs in a log analytics resource so you can monitor your call usage and improve your call quality and receive new logs from Azure Communication Services as we release them.  
+
+There are two main tools you can use to monitor your calls and improve call quality. 
+1. [Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)
+1. [Call Diagnostics](../../voice-video-calling/call-diagnostics.md)
+
+We recommend using the **[Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)** dashboards to start 
+any quality investigations, and using **[Call Diagnostics](../../voice-video-calling/call-diagnostics.md)** as needed to explore individual calls when you need granular detail.
+
+
 ## Data Concepts
 
 > [!IMPORTANT]
->You must collect logs if you want to analyze them. To learn more see: **[How do I store logs?](#how-do-i-store-logs)**
+>You must collect logs if you want to analyze them. To learn more, see: **[How do I store logs?](#how-do-i-store-logs)**
 >
->Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data is not retroactively available. You accumulate data once you set up the Diagnostic Settings.
+>Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data isn't retroactively available. You accumulate data once you create the Diagnostic Settings.
 
 ## Data Definitions
 
 ### Call client operations log schema
 
-The table below describes each property.
+This table describes each property.
 
 
 | Property | Description |
@@ -52,10 +63,6 @@ The table below describes each property.
 
 
 ## Sample data for various call types
-
-### Call client operations log for P2P and group calls
-
-For call client operations log, there's no difference between P2P and group call scenarios. The number of logs depends on the SDK operations and call duration. The following code is a generic sample showing the schema of these logs.
 
 ### Call client operations log
 

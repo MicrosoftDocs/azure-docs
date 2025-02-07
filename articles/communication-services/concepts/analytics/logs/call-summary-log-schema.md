@@ -19,13 +19,24 @@ The call summary log contains data to help you identify key properties of all ca
 
 For each participant within a call, Communication Services creates a distinct call summary log. If someone rejoins a call, that participant has the same `EndpointId` value but a different `ParticipantId` value. That endpoint can then have two call summary logs.
 
+## How to use Call Logs
+We recommend you collect all available call logs in a log analytics resource so you can monitor your call usage and improve your call quality and receive new logs from Azure Communication Services as we release them.  
+
+There are two main tools you can use to monitor your calls and improve call quality. 
+1. [Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)
+1. [Call Diagnostics](../../voice-video-calling/call-diagnostics.md)
+
+We recommend using the **[Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)** dashboards to start 
+any quality investigations, and using **[Call Diagnostics](../../voice-video-calling/call-diagnostics.md)** as needed to explore individual calls when you need granular detail.
+
+
 
 ## Data Concepts
 
 > [!IMPORTANT]
->You must collect logs if you want to analyze them. To learn more see: **[How do I store logs?](#how-do-i-store-logs)**
+>You must collect logs if you want to analyze them. To learn more, see: **[How do I store logs?](#how-do-i-store-logs)**
 >
->Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data is not retroactively available. You accumulate data once you set up the Diagnostic Settings.
+>Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data isn't retroactively available. You accumulate data once you create the Diagnostic Settings.
 
 
 ## Data Definitions
@@ -35,7 +46,7 @@ For each participant within a call, Communication Services creates a distinct ca
 > [!IMPORTANT]
 > Participant information in the call summary log varies based on the participant tenant. The SDK version and OS version are redacted if the participant is not within the same tenant (also called *cross-tenant*) as the Communication Services resource. Cross-tenant participants are classified as external users invited by a resource tenant to join and collaborate during a call.
 
-The table below describes each property.
+This table describes each property.
 
 | Property | Description |
 |--- |--- |
@@ -60,9 +71,9 @@ The table below describes each property.
 | `participantTenantId` | The ID of the Microsoft tenant associated with the identity of the participant. The tenant can either be the Azure tenant that owns the Azure Communication Services resource or the Microsoft tenant of a Microsoft 365 identity. This field is used to guide cross-tenant redaction. |
 | `participantType` | Description of the participant as a combination of its client (Azure Communication Services or Teams), and its identity (Azure Communication Services or Microsoft 365). Possible values include: Azure Communication Services (Azure Communication Services identity and Azure Communication Services SDK), Teams (Teams identity and Teams client), Azure Communication Services as Teams external user (Azure Communication Services identity and Azure Communication Services SDK in Teams call or meeting), Azure Communication Services as Microsoft 365 user (Microsoft 365 identity and Azure Communication Services client), and Teams Voice Apps. |
 | `pstnParticipantCallType` | Represents the type and direction of PSTN participants including Emergency calling, direct routing, transfer, forwarding, and so on. | 
-| `ParticipantEndSubCode `| Represents the Calling SDK error subcode that the SDK emits (when relevant) for each `participantId` value. | 
-| `ResultCategory `| Represents the category of the participant ending the call. It can be one of these 4 values: Success, ExpectedError, UnexpectedClientError, UnexpectedServerError. |
-| `DiagnosticOptions `| This value allows developers to attach custom tags to their client telemetry, which can then be viewed in the Call Diagnostics section. This helps in identifying and troubleshooting issues more effectively. To learn how to add custom tags to this value, refer to [Tutorial on adding custom tags to your client telemetry](../../../tutorials/voice-video-calling/diagnostic-options-tag.md) |
+| `ParticipantEndSubCode`| Represents the Calling SDK error subcode that the SDK emits (when relevant) for each `participantId` value. | 
+| `ResultCategory`| Represents the category of the participant ending the call. It can be one of these four values: Success, ExpectedError, UnexpectedClientError, UnexpectedServerError. |
+| `DiagnosticOptions`| This value allows developers to attach custom tags to their client telemetry, which can then be viewed in the Call Diagnostics section. This helps in identifying and troubleshooting issues more effectively. To learn how to add custom tags to this value, refer to [Tutorial on adding custom tags to your client telemetry](../../../tutorials/voice-video-calling/diagnostic-options-tag.md) |
 
 ### Error codes 
 
@@ -306,7 +317,7 @@ Here's a cross-tenant call summary log with a bot as a participant:
 ### How do I store logs?
 The following section explains this requirement.
 
-Azure Communication Services logs are not stored in your Azure account by default so you need to begin storing them in order for tools like [Voice and video Insights Dashboard](../insights/voice-and-video-insights.md) and [Call Diagnostics](../../voice-video-calling/call-diagnostics.md) to work. To collect these call logs, you need to enable a diagnostic setting that directs the call data to a Log Analytics workspace. 
+Azure Communication Services logs aren't stored in your Azure account by default so you need to begin storing them in order for tools like [Voice and video Insights Dashboard](../insights/voice-and-video-insights.md) and [Call Diagnostics](../../voice-video-calling/call-diagnostics.md) to work. To collect these call logs, you need to enable a diagnostic setting that directs the call data to a Log Analytics workspace. 
 
 **Data isn’t stored retroactively, so you begin capturing call logs only after configuring the diagnostic setting.**
 
