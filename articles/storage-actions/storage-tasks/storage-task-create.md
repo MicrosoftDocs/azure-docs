@@ -40,6 +40,7 @@ On the **Basics** tab, provide the essential information for your storage task. 
 | Project details | Resource group | Required | Create a new resource group for this storage task, or select an existing one. For more information, see [Resource groups](../../azure-resource-manager/management/overview.md#resource-groups). |
 | Instance details | Storage task name | Required | Choose a unique name for your storage task. Storage task names must be between 3 and 18 characters in length and might contain only lowercase letters and numbers. |
 | Instance details | Region | Required | Select the appropriate region for your storage task. For more information, see [Regions and Availability Zones in Azure](../../reliability/availability-zones-overview.md). |
+| Instance details | User-assigned identity | optional | optionally associate a user-assigned managed identity with this storage task. A user-assigned managed identity is a managed identity is represented as a standalone Azure resource that is managed separately from the resources that use it. You cannot associate one later. Therefore, if you want to use a user-assigned managed identity, you must select one as you create the storage task. By default, a system-assigned managed identity is created when the storage task is provisioned. To learn more, see [Storage task assignment](storage-task-assignment.md)<br> To select a user-assigned managed identity, choose **Select an identity**. On the **Select user assigned managed identity** page, filter for and then select the managed identity.Then, select **Add**. You can add select a user-assigned managed identity only as you create a storage task.  |
 
 The following image shows an example of the **Basics** tab.
 
@@ -68,6 +69,8 @@ The following image shows an example of the **Conditions** tab.
 > [!div class="mx-imgBorder"]
 > ![Screenshot of conditions tab of the storage task create experience.](../media/storage-tasks/storage-task-create/storage-task-conditions-tab.png)
 
+You can select **Preview Conditions** to view a list of blobs that would be impacted by the conditions that you've defined. To learn more, see [Preview the effect of conditions](storage-task-conditions-operations-edit.md#preview-the-effect-of-conditions).
+
 ### Assignments tab
 
 An _assignment_ identifies a storage account and a subset of objects in that account that the task will target. An assignment also defines when the task runs and where execution reports are stored.
@@ -76,11 +79,14 @@ To add an assignment, select **Add assignment**. This step is optional. You don'
 
 The following table describes the fields that appear in the **Add assignment** pane.
 
+select the role that you want to assign to the system-assigned managed identity of the storage task. To ensure a successful task assignment, use roles that have the Blob Data Owner permissions. To learn more, see [Azure roles for storage tasks](storage-task-authorization-roles.md)
+
 | Section | Field | Required or optional | Description |
 |--|--|--|--|
 | Select scope | Subscription | Required | The subscription of the storage account that you want to add to this assignment. |
 | Select scope | Select a storage account | Required | The storage account that you want to add to this assignment. |
 | Select scope | Assignment name | Required | The name of the assignment. Assignment names must be between 2 and 62 characters in length and may contain only letters and numbers. |
+| Role assignment | Assignment name | Required | The role that you want to assigned to the managed identity of the storage task. To learn more about which role to choose, see [Permission for a task to perform operations](storage-task-authorization-roles-assign.md?#permission-for-a-task-to-perform-operations). |
 | Filter objects | Filter by | Required | Option to either filter objects by using a prefix or to run the task against the entire storage account. |
 | Filter objects | Blob prefixes | Optional | The string prefix that is used to narrow the scope of blobs that are evaluated by the task. This field is required only if you choose to filter by using a blob prefix. |
 | Trigger details | Run frequency | Required | Option to either run the task one time or multiple times. |
