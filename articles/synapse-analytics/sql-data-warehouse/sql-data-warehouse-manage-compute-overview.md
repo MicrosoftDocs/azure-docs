@@ -19,7 +19,7 @@ This article explains how to manage compute resources for dedicated SQL pool (fo
 
 The architecture of dedicated SQL pool separates storage and compute, allowing each to scale independently. As a result, you can scale compute to meet performance demands independent of data storage. You can also pause and resume compute resources.
 
-A natural consequence of this architecture is that [billing](https://azure.microsoft.com/pricing/details/synapse-analytics/) for compute and storage is separate. If you don't need to use your dedicated SQL pool for a while, you can save compute costs by pausing compute.
+A natural consequence of this architecture is that [pricing](https://azure.microsoft.com/pricing/details/synapse-analytics/) for compute and storage is separate. If you don't need to use your dedicated SQL pool for a while, you can save compute costs by pausing compute.
 
 ## Scaling compute
 
@@ -111,7 +111,7 @@ When you pause or scale your dedicated SQL pool, behind the scenes your queries 
 
 Rolling back the work completed by a transactional query can take as long, or even longer, than the original change the query was applying. For example, if you cancel a query that was deleting rows and has already been running for an hour, it could take the system an hour to insert back the deleted rows. If you run pause or scaling while transactions are in flight, your pause or scaling might seem to take a long time because pausing and scaling has to wait for the rollback to complete before it can proceed.
 
-For more information, see [Understanding transactions](sql-data-warehouse-develop-transactions.md) and [Optimizing transactions](sql-data-warehouse-develop-best-practices-transactions.md).
+For more information, see [Use transactions](sql-data-warehouse-develop-transactions.md) and [Optimizing transactions](sql-data-warehouse-develop-best-practices-transactions.md).
 
 ## Automate compute management
 

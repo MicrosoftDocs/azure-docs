@@ -77,7 +77,7 @@ Spark pool libraries can be managed either from Synapse Studio or the Azure port
 
 A system reserved Spark job is initiated each time a pool is updated with a new set of libraries. This Spark job helps monitor the status of the library installation. If the installation fails due to library conflicts or other issues, the Spark pool reverts to its previous or default state.
 
-In addition, users can also inspect the installation logs to identify dependency conflicts or see which libraries were installed during the pool update.
+In addition, users can inspect the installation logs to identify dependency conflicts or see which libraries were installed during the pool update.
 
 To view these logs:
 
@@ -111,7 +111,7 @@ alabaster==0.7.10
 
 ### YML format
 
-In addition, you can also provide an *environment.yml* file to update the pool environment. The packages listed in this file are downloaded from the default Conda channels, Conda-Forge, and PyPI. You can specify other channels or remove the default channels by using the configuration options.
+In addition, you can provide an *environment.yml* file to update the pool environment. The packages listed in this file are downloaded from the default Conda channels, Conda-Forge, and PyPI. You can specify other channels or remove the default channels by using the configuration options.
 
 This example specifies the channels and Conda/PyPI dependencies.
 
@@ -127,7 +127,7 @@ dependencies:
   - koalas==1.7.0
 ```
 
-For details on creating an environment from this *environment.yml* file, see [Creating an environment from an environment.yml file](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment).
+For details on creating an environment from this *environment.yml* file, see [Activating an environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment).
 
 ## Related content
 
