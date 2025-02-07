@@ -353,7 +353,7 @@ Azure Backup now provides Microsoft Azure Backup Server (MABS) v4, the latest ed
 - It contains stability improvements and bug fixes on *MABS v3 UR2*. 
 
 For more information, see [What's new in MABS](backup-mabs-whats-new-mabs.md).
-## Multiple-backups-per- day for Azure VMs is now generally available
+## Multiple-backups-per-day for Azure VMs is now generally available
 
 Azure Backup now enables you to create a backup policy to take multiple backups a day. With this capability, you can also define the duration in which your backup jobs would trigger and align your backup schedule with the working hours when there are frequent updates to Azure Virtual Machines.
 
