@@ -49,9 +49,9 @@ First, you must get the assigned public endpoint for Spring Cloud Gateway and AP
 
 Register your application to establish a trust relationship between your app and the Microsoft identity platform using the following steps:
 
-1. From the *Home* screen, select **Microsoft Entra ID** from the left menu.
-1. Select **App Registrations** under *Manage*, then select **New registration**.
-1. Enter a display name for your application under *Name*, then select an account type to register under *Supported account types*.
+1. From the **Home** screen, select **Microsoft Entra ID** from the left menu.
+1. Select **App Registrations** under **Manage**, then select **New registration**.
+1. Enter a display name for your application under **Name**, then select an account type to register under **Supported account types**.
 1. In *Redirect URI (optional)* select **Web**, then enter the URL from the above section in the text box. The redirect URI is the location where Microsoft Entra ID redirects your client and sends security tokens after authentication.
 1. Select **Register** to finish registering the application.
 
@@ -61,7 +61,7 @@ When registration finishes, you'll see the *Application (client) ID* on the **Ov
 
 You can also add redirect URIs after app registration by following these steps:
 
-1. From your application overview, under *Manage* in the left menu, select **Authentication**.
+1. From your application overview, under **Manage** in the left menu, select **Authentication**.
 1. Select **Web**, then select **Add URI** under *Redirect URIs*.
 1. Add a new redirect URI, then select **Save**.
 
@@ -73,7 +73,7 @@ For more information on Application Registration, see [Quickstart: Register an a
 
 The application uses a client secret to authenticate itself in SSO workflow. You can add a client secret using the following steps:
 
-1. From your application overview, under *Manage* in the left menu, select **Certificates & secrets**.
+1. From your application overview, under **Manage** in the left menu, select **Certificates & secrets**.
 1. Select **Client secrets**, then select **New client secret**.
 1. Enter a description for the client secret, then set an expiration date.
 1. Select **Add**.
