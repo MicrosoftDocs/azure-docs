@@ -36,7 +36,7 @@ Azure Route Server simplifies configuration, management, and deployment of your 
 
 * You can deploy Azure Route Server in any of your new or existing virtual network. 
 
-## Route Server Limits
+## Route Server limits
 
 Azure Route Server has the following limits (per deployment).
 
@@ -48,11 +48,11 @@ For pricing details, see [Azure Route Server pricing](https://azure.microsoft.co
 
 ## Service Level Agreement (SLA)
 
-For service level agreement details, see [SLA for Azure Route Server](https://azure.microsoft.com/support/legal/sla/route-server/v1_0/).
+For SLA details, see [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 ## Frequently asked questions (FAQ)
 
-For frequently asked questions about Azure Route Server, see [Azure Route Server FAQ](route-server-faq.md).
+For answers to frequently asked questions about Azure Route Server, see [Azure Route Server FAQ](route-server-faq.md).
 
 ## Related content
 
