@@ -1,5 +1,5 @@
 ---
-title: Manage compute resource for dedicated SQL pool
+title: Manage compute resources for dedicated SQL pool
 description: Learn how to scale, pause, or resume compute resources for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics. 
 author: WilliamDAssafMSFT
 ms.author: wiassaf
@@ -11,7 +11,7 @@ ms.custom:
   - azure-synapse
 ---
 
-# Manage compute for dedicated SQL pool
+# Manage compute resources for dedicated SQL pool
 
 This article explains how to manage compute resources for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics. You can lower costs by pausing the dedicated SQL pool, or scale the dedicated SQL pool to meet performance demands.
 
@@ -27,7 +27,9 @@ You can scale out or scale back compute by adjusting the [data warehouse units (
 
 For scale-out steps, see the quickstarts for the [Azure portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md), or [T-SQL](quickstart-scale-compute-tsql.md). You can also perform scale-out operations using a [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
-To perform a scale operation, dedicated SQL pool first kills all incoming queries and then rolls back transactions to ensure a consistent state. Scaling only occurs once the transaction rollback is complete. For a scale operation, the system detaches the storage layer from the compute nodes, adds compute nodes, and then reattaches the storage layer to the compute layer. Each dedicated SQL pool is stored as 60 distributions, which are evenly distributed to the compute nodes. Adding more compute nodes adds more compute power. As the number of compute nodes increases, the number of distributions per compute node decreases, providing more compute power for your queries. Likewise, decreasing DWUs reduces the number of compute nodes, which reduces the compute resources for queries.
+To perform a scale operation, dedicated SQL pool first kills all incoming queries and then rolls back transactions to ensure a consistent state. Scaling only occurs once the transaction rollback is complete. For a scale operation, the system detaches the storage layer from the compute nodes, adds compute nodes, and then reattaches the storage layer to the compute layer.
+
+Each dedicated SQL pool is stored as 60 distributions, which are evenly distributed to the compute nodes. Adding more compute nodes adds more compute power. As the number of compute nodes increases, the number of distributions per compute node decreases, providing more compute power for your queries. Likewise, decreasing DWUs reduces the number of compute nodes, which reduces the compute resources for queries.
 
 The following table shows how the number of distributions per compute node changes as the DWUs change. DW30000c provides 60 compute nodes and achieves much higher query performance than DW100c.
 
@@ -50,7 +52,7 @@ The following table shows how the number of distributions per compute node chang
 | DW15000c | 30               | 2                          |
 | DW30000c | 60               | 1                          |
 
-## Find the right size of DWUs
+## Finding the right size of data warehouse units
 
 To see the performance benefits of scaling out, especially for larger data warehouse units, you want to use at least a 1-TB data set. To find the best number of DWUs for your dedicated SQL pool, try scaling up and down. Run a few queries with different numbers of DWUs after loading your data. Since scaling is quick, you can try various performance levels in an hour or less.
 

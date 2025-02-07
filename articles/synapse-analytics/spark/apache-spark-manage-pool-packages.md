@@ -24,9 +24,9 @@ After the changes are saved, a Spark job runs the installation and caches the re
 > - Altering the PySpark, Python, Scala/Java, .NET, R, or Spark version isn't supported.
 > - Installing packages from external repositories like PyPI, Conda-Forge, or the default Conda channels isn't supported within data exfiltration protection enabled workspaces.
 
-## Manage packages from Synapse Studio or the Azure portal
+## Manage packages from Synapse Studio or Azure portal
 
-You can update or add libraries to a Spark pool from either the Azure portal or Synapse Studio.
+Spark pool libraries can be managed either from Synapse Studio or the Azure portal.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -38,6 +38,16 @@ You can update or add libraries to a Spark pool from either the Azure portal or 
 
     :::image type="content" source="./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png" alt-text="Screenshot that highlights the upload environment configuration file button." lightbox="./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png":::
 
+1. For Python feed libraries, upload the environment configuration file using the file selector in the **Packages** section of the page.
+
+1. You can also select additional **workspace packages** to add Jar, Wheel, or Tar.gz files to your pool.
+
+1. You can also remove deprecated packages from **Workspace packages** section, then your pool no longer attaches these packages.
+
+1. After you save your changes, a system job is triggered to install and cache the specified libraries. This process helps reduce overall session startup time.
+
+1. After the job successfully completes, all new sessions pick up the updated pool libraries.
+
 ### [Synapse Studio](#tab/synapse-studio)
 
 1. In Synapse Studio, select **Manage** from the main navigation panel and then select **Apache Spark pools**.
@@ -45,8 +55,6 @@ You can update or add libraries to a Spark pool from either the Azure portal or 
 1. Select the **Packages** section for a specific Spark pool.
 
     :::image type="content" source="./media/apache-spark-azure-portal-add-libraries/studio-update-libraries.png" alt-text="Screenshot that highlights the logs of library installation." lightbox="./media/apache-spark-azure-portal-add-libraries/studio-update-libraries.png":::
-
----
 
 1. For Python feed libraries, upload the environment configuration file using the file selector in the **Packages** section of the page.
 
@@ -57,6 +65,8 @@ You can update or add libraries to a Spark pool from either the Azure portal or 
 1. After you save your changes, a system job is triggered to install and cache the specified libraries. This process helps reduce overall session startup time.
 
 1. After the job successfully completes, all new sessions pick up the updated pool libraries.
+
+---
 
 > [!IMPORTANT]
 > By selecting the option to **Force new settings**, you're ending the all current sessions for the selected Spark pool. Once the sessions are ended, you must wait for the pool to restart.
@@ -75,13 +85,13 @@ To view these logs:
 
 1. Select the system Spark application job that corresponds to your pool update. These system jobs run under the *SystemReservedJob-LibraryManagement* title.
 
-  :::image type="content" source="./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job.png" alt-text="Screenshot that highlights system reserved library job." lightbox="./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job.png":::
+    :::image type="content" source="./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job.png" alt-text="Screenshot that highlights system reserved library job." lightbox="./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job.png":::
 
 1. Switch to view the **driver** and **stdout** logs.
 
 1. The results contain the logs related to the installation of your dependencies.
 
-  :::image type="content" source="./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job-results.png" alt-text="Screenshot that highlights system reserved library job results." lightbox="./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job-results.png":::
+    :::image type="content" source="./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job-results.png" alt-text="Screenshot that highlights system reserved library job results." lightbox="./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job-results.png":::
 
 ## Environment specification formats
 
