@@ -1,5 +1,5 @@
 ---
-title: 'Create analytics rules for Microsoft Sentinel solutions'
+title: Create Analytics Rules for Microsoft Sentinel Solutions
 description: This article guides you through the process of creating and publishing analytics rules to Microsoft Sentinel solutions.
 author: anilgodavarthy
 ms.author: angodavarthy
@@ -7,7 +7,7 @@ ms.service: microsoft-sentinel
 ms.topic: conceptual 
 ms.date: 1/27/2025
 
-#CustomerIntent: As a ISV partner, I want to create and publish analytics rules to my Microsoft Sentinel solution so that I can provide inbuilt detection use cases to my customers.
+#CustomerIntent: As an ISV partner, I want to create and publish analytics rules to my Microsoft Sentinel solution so that I can provide inbuilt detection use cases to my customers.
 ---
 
 # Creating and publishing analytics rules for Microsoft Sentinel solutions

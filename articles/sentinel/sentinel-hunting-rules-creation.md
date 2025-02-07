@@ -1,5 +1,5 @@
 ---
-title: 'Create hunting queries for Microsoft Sentinel solutions'
+title: 'Create Hunting Queries for Microsoft Sentinel Solutions'
 description: This article guides you through the process of creating and publishing hunting queries to Microsoft Sentinel solutions.
 author: anilgodavarthy
 ms.author: angodavarthy
@@ -12,7 +12,7 @@ ms.date: 2/06/2025
 
 # Creating and publishing hunting queries for Microsoft Sentinel solutions
 
-Security analysts use hunting queries at the heart of the threat hunting process in Microsoft Sentinel. They write advanced, customizable queries in Kusto Query Language (KQL) to sift through large volumes of data collected from various sources. These queries allow analysts to identify potential security threats, investigate suspicious activities, and gain insights into the behavior of their network and endpoints. In Microsoft Sentinel, analysts proactively search for threats that might have bypassed existing security defenses. This proactive approach helps analysts uncover hidden threats, patterns, or anomalies within their IT environment. Hypotheses about potential threats or the latest intelligence on emerging attack vectors typically drive the hunting process. For more information, see [Threat hunting in Microsoft Sentinel | Microsoft Learn](/azure/sentinel/hunting)
+Security analysts use hunting queries at the heart of the threat hunting process in Microsoft Sentinel. They write advanced, customizable queries in Kusto Query Language (KQL) to sift through large volumes of data collected from various sources. These queries allow analysts to identify potential security threats, investigate suspicious activities, and gain insights into the behavior of their network and endpoints. In Microsoft Sentinel, analysts proactively search for threats that might have bypassed existing security defenses. This proactive approach helps analysts uncover hidden threats, patterns, or anomalies within their IT environment. Hypotheses about potential threats or the latest intelligence on emerging attack vectors typically drive the hunting process. For more information, see [Threat hunting in Microsoft Sentinel](/azure/sentinel/hunting)
 
 This article walks you through the process of creating and publishing hunting queries to Microsoft Sentinel solutions.
 
