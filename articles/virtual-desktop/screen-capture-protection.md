@@ -4,20 +4,14 @@ description: Learn how to enable screen capture protection in Azure Virtual Desk
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 01/15/2025
+ms.date: 02/05/2025
 ---
 
 # Enable screen capture protection in Azure Virtual Desktop
 
-Screen capture protection, alongside [watermarking](watermarking.md), helps prevent sensitive information from being captured on client endpoints through a specific set of operating system (OS) features and APIs. When you enable screen capture protection, remote content is automatically blocked in screenshots and screen sharing.
+Screen capture protection, alongside [watermarking](watermarking.md), helps prevent sensitive data from being captured on client devices using specific operating system (OS) features and APIs. When you enable screen capture protection, remote content is automatically blocked in screenshots and screen sharing.
 
-There are two supported scenarios for screen capture protection:
-
-- **Block screen capture on client**: prevents screen capture from the local device of applications running in the remote session.
-
-- **Block screen capture on client and server**: prevents screen capture from the local device of applications running in the remote session, but also prevents tools and services within the session host capturing the screen.
-
-When screen capture protection is enabled, users can't share their remote window using local collaboration software, such as Microsoft Teams. With Teams, neither the local Teams app or using [Teams with media optimization](teams-on-avd.md) can share protected content.
+When screen capture protection is enabled, users can't share their remote window using local collaboration software, such as Microsoft Teams. With Teams, the local Teams app or using [Teams with media optimization](teams-on-avd.md) can't share protected content.
 
 > [!TIP]
 > - To increase the security of your sensitive information, you should also disable clipboard, drive, and printer redirection. Disabling redirection helps prevent users from copying content from the remote session. To learn about supported redirection values, see [Device redirection](rdp-properties.md#device-redirection).
@@ -26,20 +20,40 @@ When screen capture protection is enabled, users can't share their remote window
 
 ## Determine your configuration
 
-The steps to configure screen capture protection depend on which platforms your users are connecting from: 
+The steps to configure screen capture protection depend on where you configure it, which platforms your users are connecting from and what scenario you want to achieve.
 
-- For Windows and macOS devices running Windows App or Remote Desktop client, you configure screen capture protection on session hosts using Intune or Group Policy. Windows App and the Remote Desktop client enforces screen capture protection settings from a session host without additional configuration.
+- **Windows and macOS devices**: you prevent screen capture by configuring session hosts using an Intune device configuration policy or Group Policy. Windows App or the Remote Desktop client enforces screen capture protection settings from a session host without further configuration.
 
-- For iOS/iPadOS and Android devices running Windows App, you block screen capture on the local device by [configuring an Intune app protection policy](client-device-redirection-intune.md), part of [mobile application management](/mem/intune/fundamentals/deployment-plan-protect-apps) (MAM). If you also want to block screen capture from within the session host, you also need to configure screen capture protection on session hosts using Intune or Group Policy.
+   When you configure screen capture protection on session hosts, there are two further settings you can configure to help meet your requirements:
 
-Here's a summary of the configuration steps needed for each platform:
+   - **Block screen capture on client**: prevents screen capture from the local device of applications running in the remote session.
 
-| Platform | Block screen capture on client | Block screen capture on client and server |
-|--|--|--|
-| Windows | Configure session hosts with Intune or Group Policy | Configure session hosts with Intune or Group Policy |
-| macOS | Configure session hosts with Intune or Group Policy | Configure session hosts with Intune or Group Policy |
-| iOS/iPadOS | Configure the local device with Intune MAM | Configure the local device with Intune MAM and session hosts with Intune or Group Policy |
-| Android | Configure the local device with Intune MAM | Configure the local device with Intune MAM and session hosts with Intune or Group Policy |
+   - **Block screen capture on client and server**: prevents screen capture from the local device of applications running in the remote session, but also prevents tools and services within the session host capturing the screen.
+
+   In this scenario, here's the outcome when connecting from each platform type:
+
+   | Platform | Connection allowed | Screen capture blocked |
+   |--|:-:|:-:|
+   | **Windows** | ✅ | ✅ |
+   | **macOS** | ✅ | ✅ |
+   | **iOS/iPadOS** | ❌ | N/A |
+   | **Android** | ❌ | N/A |
+   | **Web** | ❌ | N/A |
+
+- **iOS/iPadOS and Android devices**: you prevent screen capture by configuring local devices using an [Intune app protection policy](client-device-redirection-intune.md), part of [mobile application management](/mem/intune/fundamentals/deployment-plan-protect-apps) (MAM). It doesn't prevent tools and services within the session host capturing the screen.
+
+   In this scenario, here's the outcome when connecting from each platform type:
+
+   | Platform | Connection allowed | Screen capture blocked |
+   |--|:-:|:-:|
+   | **Windows** | ✅ | ❌ |
+   | **macOS** | ✅ | ❌ |
+   | **iOS/iPadOS** | ✅ | ✅ |
+   | **Android** | ✅ | ✅ |
+   | **Web** | ✅ | ❌ |
+
+> [!IMPORTANT]
+> You need to choose which local devices to use with screen capture protection based on your requirements. There isn't a scenario where you can enable screen capture protection on all platforms from the same session hosts at the same time. If both are configured, screen capture protection on session hosts takes precedence over using an Intune MAM policy on local devices.
 
 ## Prerequisites
 
@@ -56,7 +70,7 @@ Here's a summary of the configuration steps needed for each platform:
       | Windows App on iOS/iPadOS | 11.0.8 | Yes | Yes |
       | Windows App on Android (preview)&sup1; | 1.0.145 | Yes | Yes |
 
-      1. Doesn't include support for Chrome OS.
+      <sup>1. Doesn't include support for Chrome OS because Intune MAM isn't supported on Chrome OS.</sup>
 
    - Remote Desktop client:
 
@@ -65,8 +79,6 @@ Here's a summary of the configuration steps needed for each platform:
       | Windows (desktop client) | 1.2.1672 | Yes | Yes. Local device OS must be Windows 11, version 22H2 or later. |
       | Windows (Azure Virtual Desktop Store app) | Any | Yes | Yes. Local device OS must be Windows 11, version 22H2 or later. |
       | macOS | 10.7.0 or later | Yes | Yes |
-
-   If a user tries to connect with a different app or version, such as Windows App in a web browser, the connection is denied and shows an error message with the code `0x1151`.
 
 - To configure Microsoft Intune, you need:
 
@@ -80,7 +92,7 @@ Here's a summary of the configuration steps needed for each platform:
 
    - A security group or organizational unit (OU) containing the devices you want to configure.
 
-## Enable screen capture protection on session hosts
+## Enable screen capture protection on session hosts using an Intune device configuration policy or Group Policy
 
 Select the relevant tab for your scenario.
 
@@ -116,7 +128,7 @@ To configure screen capture protection on session hosts using Microsoft Intune:
 
 # [Group Policy](#tab/group-policy)
 
-To configure screen capture protection on session hosts using Group Policy:
+To configure screen capture protection on session hosts using Group Policy in an Active Directory domain:
 
 1. Follow the steps to make the [Administrative template for Azure Virtual Desktop](administrative-template.md) available in Group Policy.
 
@@ -138,12 +150,9 @@ To configure screen capture protection on session hosts using Group Policy:
 
 ---
 
-## Enable screen capture protection on local devices
+## Enable screen capture protection on local devices using Intune MAM
 
 To use screen capture protection on iOS/iPadOS and Android devices running Windows App, you need to configure an Intune app protection policy.
-
-> [!TIP]
-> On Windows and macOS, Windows App and the Remote Desktop client enforces screen capture protection settings from a session host without additional configuration.
 
 To configure an Intune app protection policy to enable screen capture protection on iOS/iPadOS and Android devices:
 
@@ -163,9 +172,19 @@ To verify screen capture protection is working:
 
 1. Connect to a new remote session with a supported client. Don't reconnect to an existing session. You need to sign out of any existing sessions and sign back in again for the change to take effect. 
 
-1. From a local device, take a screenshot or share your screen in a Teams call or meeting. The content should be blocked or hidden.
+1. From a local device, take a screenshot or share your screen in a Teams call or meeting. The content is blocked or hidden.
 
-1. If you enabled **Block screen capture on client and server** on your session hosts, try to capture the screen using a tool or service within the session host. The content should be blocked or hidden.
+1. On Windows and macOS devices, if you enabled **Block screen capture on client and server** on your session hosts, try to capture the screen using a tool or service within the session host. The content is blocked or hidden.
+
+If you enable screen capture protection on session hosts, you must connect from a supported device. If you don't, you see an error message indicating that screen capture protection is enabled. The error message looks similar to these screenshots:
+
+   - Web browser:
+   
+      :::image type="content" source="media/screen-capture-protection/screen-capture-protection-connection-blocked-web.png" alt-text="A screenshot from Windows App in a web browser showing an error message that screen capture is enabled and you need to connect from a supported client.":::
+
+   - iOS/iPadOS:
+   
+      :::image type="content" source="media/screen-capture-protection/screen-capture-protection-connection-blocked-ios-ipados.png" alt-text="A screenshot from Windows App for iOS/iPadOS showing an error message that screen capture is enabled and you need to connect from a supported client.":::
 
 ## Related content
 

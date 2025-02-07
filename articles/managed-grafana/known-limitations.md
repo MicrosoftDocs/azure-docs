@@ -48,6 +48,7 @@ Some Azure Managed Grafana features aren't available in Azure Government and Mic
 | Managed private endpoint          |   Not supported  |                  Not supported                 |
 | Team sync with Microsoft Entra ID |      Preview     |                     Preview                    |
 | Enterprise plugins                |   Not supported  |                  Not supported                 |
+| Essential plan                    |     Supported    |                  Not supported                 |
 
 ## Throttling limits and quotas
 
