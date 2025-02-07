@@ -1,5 +1,5 @@
 ---
-title: Lifecycle Management: Best Practices
+title: Lifecycle Management Best Practices
 titleSuffix: Azure Blob Storage
 author: vigneshgo
 ms.date: 02/07/2025
@@ -10,7 +10,7 @@ ms.topic: reference
 ms.custom: references_regions, engagement-fy23
 ---
 
-# Lifecycle Management: Best Practices
+# Lifecycle Management Best Practices
 
 Azure Blob Storage Lifecycle Management (LCM) helps you automate the transition of objects to lower-cost access tiers, or to delete objects at the end of their lifecycle to reduce storage costs. If a policy is active, Lifecycle Management will periodically processes the objects in a storage account that match the filter set  and rules specified in the lifecycle policy. The time required for a policy to complete processing all the objects in a storage account depends on many factors such as the number of objects to be evaluated and operated on, customer workloads on the account, availability of storage resources and more. In some cases, it can take multiple days to complete processing all the objects in the storage account, and a new LCM run does not begin until the ongoing run completes. LCM is constantly optimizing for speed of execution while keeping these factors in mind.
 
