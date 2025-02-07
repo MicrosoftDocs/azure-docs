@@ -23,21 +23,77 @@ Call Metrics logs contain aggregated calling metrics in daily bins based on attr
 
 ## Data Concepts
 
-
-a separate page that explains "metrics" conceptually
-what is metric - Based on thresholds defined in ACSCallingMetrics.Goal how many distinct api calls succeded or failed in a daily bucket for dimentions liek SDK version, make model, subcode etc
-what does it measure - Failure and success count for a particualr api call or a complex condition like UFD recovering (count of good UFD>= count of bad UFD)
-what is success/what is failure
-explain failures - high level - that somebody should review subcodes and go to subcode page etc..
-failure - an api call failing with unexpected error or a complex condition failing like getting a bd UFD in a call.
-
-To learn more about UFDs please see: [User Facing Diagnostics](../../voice-video-calling/user-facing-diagnostics.md)
-
-
 > [!IMPORTANT]
 >You must collect logs if you want to analyze them. To learn more see: **[How do I store logs?](#how-do-i-store-logs)**
 >
 >Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data is not retroactively available. You accumulate data once you set up the Diagnostic Settings.
+
+## Public Facing Metrics Definitions
+
+### API Metrics
+
+These metrics measure both the successes and failures (dcount) of our public APIs (e.g., mute, join, etc.).
+
+- reliability/api/CreateView/Local
+- reliability/api/Join
+- reliability/api/StartVideo
+- reliability/api/AcceptIncomingCall
+- reliability/api/CreateView/Remote
+- reliability/api/StopVideo
+- reliability/api/CallAgentInit
+- reliability/api/StartCall
+
+### User Facing Diagnostics (UFD) Metrics
+
+- To learn more about UFDs please see: [User Facing Diagnostics](../../voice-video-calling/user-facing-diagnostics.md)
+
+#### User Facing Diagnostics (UFD) Metrics (dcount of participants (legs) that had at least one bad UFD)
+
+- reliability/leg/UFD/NetworkReconnect
+- reliability/leg/UFD/CameraStoppedUnexpectedly
+- reliability/leg/UFD/MicrophoneMuteUnexpectedly
+- reliability/leg/UFD/NetworkReceiveQuality
+- reliability/leg/UFD/MicrophonePermissionDenied
+- reliability/leg/UFD/MicrophoneNotFunctioning
+- reliability/leg/UFD/NoMicrophoneDevicesEnumerated
+- reliability/leg/UFD/CameraPermissionDenied
+- reliability/leg/UFD/CameraStartFailed
+- reliability/leg/UFD/CapturerStoppedUnexpectedly
+- reliability/leg/UFD/CapturerStartFailed
+- reliability/leg/UFD/CameraStartTimedOut
+- reliability/leg/UFD/NoSpeakerDevicesEnumerated
+- reliability/leg/UFD/CameraFreeze
+- reliability/leg/UFD/CameraStartFailed *(Note: appears twice)*
+- reliability/leg/UFD/NetworkRelaysNotReachable
+- reliability/leg/UFD/SpeakingWhileMicrophoneIsMuted
+- reliability/leg/UFD/NoNetwork
+- reliability/leg/UFD/NetworkSendQuality
+- reliability/leg/UFD/ScreenshareRecordingDisabled
+
+#### User Facing Diagnostics (UFD) Metrics (dcount of occurrences that had an issue but subsequently recovered  
+*(i.e., count of good UFD ≥ count of bad UFD)*):
+
+- reliability/api/UFD/recovery/NetworkReceiveQuality
+- reliability/api/UFD/recovery/NetworkReconnect
+- reliability/api/UFD/recovery/CameraStoppedUnexpectedly
+- reliability/api/UFD/recovery/NetworkSendQuality
+- reliability/api/UFD/recovery/MicrophoneMuteUnexpectedly
+- reliability/api/UFD/recovery/MicrophoneNotFunctioning
+- reliability/api/UFD/recovery/CapturerStoppedUnexpectedly
+- reliability/api/UFD/recovery/CameraFreeze
+- reliability/api/UFD/recovery/CameraStartFailed
+- reliability/api/UFD/recovery/NoMicrophoneDevicesEnumerated
+- reliability/api/UFD/recovery/MicrophonePermissionDenied
+- reliability/api/UFD/recovery/CameraPermissionDenied
+- reliability/api/UFD/recovery/NoSpeakerDevicesEnumerated
+- reliability/api/UFD/recovery/CapturerStartFailed
+- reliability/api/UFD/recovery/ScreenshareRecordingDisabled
+- reliability/api/UFD/recovery/NoNetwork
+- reliability/api/UFD/recovery/CameraStartTimedOut
+- reliability/api/UFD/recovery/SpeakingWhileMicrophoneIsMuted
+- reliability/api/UFD/recovery/CameraStartFailed *(Note: appears twice)*
+- reliability/api/UFD/recovery/NetworkRelaysNotReachable
+
 
 ## Data Definitions
 
