@@ -58,6 +58,10 @@ For the Remote Desktop app:
 |--|:--:|:--:|
 | Android | ✅ | ✅ |
 
+> [!IMPORTANT]
+>- You can use Intune mobile application management (MAM) functionality with Windows App on iOS/iPadOS in the Intune commercial service (including Intune for US Government GCC), [Intune for US Government GCC High and DoD](/mem/intune/fundamentals/intune-govt-service-description), and [Intune operated by 21Vianet](/mem/intune/fundamentals/china) (China).
+>- Intune MAM functionality for Windows App on Android is only currently supported in the Intune commercial service.
+
 ## Example scenarios
 
 The values you specify in filters and policies depend on your requirements, so you need to determine what's best for your organization. Here are some example scenarios of what you need to configure to achieve them.
