@@ -19,6 +19,8 @@ This document explains the ACSCallingMetrics logs available to you through Azure
 
 Call Metrics logs are used in the **[Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)** to visualize long term graphs of reliability, quality, and performance based on count of succeeded and failed Calling SDK api calls of various operations. Use these logs to gain a clearer understanding of daily aggregated calling metrics across various dimensions for your communication workloads. You can also set up automated alerts when a metric falls. **ankesh please explain how to do alerts**
 
+To learn how to setup automated alerts off of these logs please see: https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/tutorial-log-alert
+
 Call Metrics logs contain aggregated calling metrics in daily bins based on attributes such as SDK Version, OS name, and Error Subcode.
 
 ## Data Concepts
