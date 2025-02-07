@@ -194,7 +194,7 @@
         href: nat-rules-vpn-gateway-powershell.md
   - name: User VPN (point-to-site)
     items:
-    - name: Certificate or RADIUS authentication
+    - name: Certificate authentication
       items:
       - name: P2S server configuration
         items:
@@ -207,7 +207,7 @@
         - name: Windows clients
           items:
           - name: Native VPN client
-            href: vpn-client-certificate-windows.md
+            href: point-to-site-vpn-client-certificate-windows-native.md
           - name: Azure VPN client
             href: vpn-client-certificate-windows.md
           - name: OpenVPN client
