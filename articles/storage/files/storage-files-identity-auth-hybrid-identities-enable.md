@@ -343,6 +343,17 @@ az storage account update --name <storageaccountname> --resource-group <resource
 
 ---
 
+### Debugging
+
+If needed, you can run the `Debug-AzStorageAccountAuth` cmdlet to conduct a set of basic checks on your Microsoft Entra ID configuration with the logged on Entra ID user. The Microsoft Entra checks that are part of this cmdlet are supported on [AzFilesHybrid v0.3.0+ version](https://github.com/Azure-Samples/azure-files-samples/releases). This cmdlet is applicable for Microsoft Entra Kerberos and AD DS authentication but does not work for Microsoft Entra Domain Services enabled storage accounts. For more information on the checks performed in this cmdlet, see [Unable to mount Azure file shares with Microsoft Entra Kerberos](/troubleshoot/azure/azure-storage/files/security/files-troubleshoot-smb-authentication?tabs=azure-portal#unable-to-mount-azure-file-shares-with-microsoft-entra-kerberos).
+
+```PowerShell
+$ResourceGroupName = "<resource-group-name-here>"
+$StorageAccountName = "<storage-account-name-here>"
+
+Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
+```
+
 ## Next steps
 
 - [Mount an Azure file share](storage-files-identity-mount-file-share.md)
