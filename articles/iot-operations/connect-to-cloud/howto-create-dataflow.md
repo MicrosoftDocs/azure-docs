@@ -186,7 +186,7 @@ If the default endpoint isn't used as the source, it must be used as the [destin
     | Setting              | Description                                                                                       |
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Data flow endpoint    | Select *default* to use the default MQTT message broker endpoint. |
-    | Topic                | The topic filter to subscribe to for incoming messages. See [Configure MQTT or Kafka topics](#configure-data-sources-mqtt-or-kafka-topics). |
+    | Topic                | The topic filter to subscribe to for incoming messages. Use the **Topic(s)** > **Add row** to add multiple topics. For more information on topics, see [Configure MQTT or Kafka topics](#configure-data-sources-mqtt-or-kafka-topics). |
     | Message schema       | The schema to use to deserialize the incoming messages. See [Specify schema to deserialize data](#specify-source-schema). |
 
 1. Select **Apply**.
