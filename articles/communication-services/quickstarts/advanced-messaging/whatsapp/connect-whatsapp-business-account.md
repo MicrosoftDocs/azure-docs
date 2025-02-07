@@ -47,11 +47,14 @@ This document provides information about registering a WhatsApp Business Account
 1. After selecting Meta Business Account, you need to **create/select** a WhatsApp Business profile. Fill out the required information.
 
     > [!NOTE]
-    > A WhatsApp Business Account can only be registered with Advanced Messaging one time. Selecting a WhatsApp Business Account already in use will result in an error when trying to create the channel.
+    > You can now use your WhatsApp Business Account multiple times with different Phone Numbers.
 
+    > [!NOTE]
+    > If you try to create a WhatsApp channel multiple times using the same WhatsApp Business Account and Phone Number, you may encounter errors. This happens because the Phone Number is already shared with Microsoft and 'locked'. To fix this, delete the Phone Number and WhatsApp Business Account on the META portal. If you are unable to delete your WhatsApp Business Account, open a Support Case for manual assistance.
+        
     :::image type="content" source="./media/register-whatsapp-account/whatsapp-business-account-details.png" lightbox="./media/register-whatsapp-account/whatsapp-business-account-details.png" alt-text="Screenshot that shows WhatsApp Business account details.":::
 
-2. Once you complete the form, select **Next** to continue.
+1. Once you complete the form, select **Next** to continue.
 
 ## Verify your WhatsApp business number
 [!INCLUDE [Verify WhatsApp Business Phonenumber](./includes/register-whatsapp-account/verify-phone-number.md)]

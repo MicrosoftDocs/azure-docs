@@ -1,6 +1,6 @@
 ---
-title: Shared responsibility for resiliency
-description: Learn about the shared responsibility model for resiliency in the Azure cloud platform.
+title: Shared responsibility for reliability
+description: Learn about the shared responsibility model for reliability on the Azure cloud platform.
 ms.service: azure
 ms.subservice: azure-availability-zones
 ms.topic: conceptual
@@ -10,30 +10,30 @@ author: anaharris-ms
 ms.custom: subject-reliability
 ---
 
-# Shared responsibility for resiliency
+# Shared responsibility for reliability
 
-In the Azure public cloud platform, resiliency is a shared responsibility between Microsoft and you. Because there are different levels of resiliency in each workload that you design and deploy, it's important that you understand who has primary responsibility for each one of those levels from a resiliency perspective.
+In the Azure public cloud platform, reliability is a shared responsibility between Microsoft and you. Because there are different levels of reliability in each workload that you design and deploy, it's important that you understand who has primary responsibility for each one of those levels from a reliability perspective.
 
 To help you better understand how shared responsibility works, especially when confronting an outage or disaster, this article describes the shared responsibility *model* for resiliency. For more information on how to actually use this model to plan for disaster recovery, see [Recommendations for designing a disaster recovery strategy](/azure/well-architected/reliability/disaster-recovery).
 
-## Shared responsibility model for resiliency
+## Shared responsibility model for reliability
 
-The shared responsibility model for resiliency is composed of three levels:
+The shared responsibility model for reliability is composed of three levels:
 
 - [Core platform reliability](#core-platform-reliability). The Azure platform provides a base level of reliability for all customers and all services through the underlying infrastructure, services, and processes.
 - [Resilience-enhancing capabilities](#resilience-enhancing-capabilities) Azure offers a suite of built-in features and services that enhance resiliency, such as using availability zones, deploying across multiple regions, and implementing backup strategies. While Azure provides these capabilities, it's your responsibility to evaluate and configure them to align with your specific requirements. Requirements can include reliability, cost, performance, and compliance with regulatory standards.
 - [Applications](#applications). To make effective use of the other levels, your application and workload must be designed for resiliency.
 
-:::image type="content" source="media/shared-responsibility/shared-responsibility-model.jpg" alt-text="Diagram showing shared responsibility model for resiliency: Core platform reliability, resilience-enhancing capabilities, and applications." border="false":::
+:::image type="content" source="media/shared-responsibility/shared-responsibility-model.jpg" alt-text="Diagram showing shared responsibility model for reliability: Core platform reliability, resilience-enhancing capabilities, and applications." border="false":::
 
 Microsoft is solely responsible for core platform reliability. Microsoft is also responsible for providing resilience-enhancing capabilities that you can use. You're responsible for selecting and using the appropriate components.
 
-Whether you choose SaaS, PaaS, or IaaS service categories determines what kind of decisions you make. For example, if you use a SaaS service, you typically don't need to opt into using availability zones. If you use PaaS services for your data tier, you might have automated capabilities for backup available to you. If you use IaaS services, you typically need to plan and implement many resiliency capabilities yourself.
+Whether you choose SaaS, PaaS, or IaaS service categories determines what kind of decisions you make. For example, if you use a SaaS service, you typically don't need to opt into using availability zones. If you use PaaS services for your data tier, you might have automated capabilities for backup available to you. If you use IaaS services, you typically need to plan and implement many reliability capabilities yourself.
 
 > [!NOTE]
 > Service categories (SaaS, PaaS, and IaaS) are useful as a broad grouping of services, but it's important to understand your responsibilities for each individual service you use.
 >
-> The [reliability guides](./overview-reliability-guidance.md) provide an overview of how each service works from a resiliency perspective, and help you to make informed decisions about how to configure your services to meet your needs.
+> The [reliability guides](./overview-reliability-guidance.md) provide an overview of how each service works from a reliability perspective and help you to make informed decisions about how to configure your services to meet your needs.
 
 You're also responsible for your application and workload design, and for defining your reliability requirements, which helps you to decide how to design and configure your solution.
 
@@ -71,8 +71,8 @@ Azure provides many different resilience-enhancing capabilities. Although Micros
 
 ### Applications
 
-It's your responsibility to make sure that your applications are designed to be resilient. Use the [Azure Well-Architected Framework](/azure/well-architected) pillars to drive architectural excellence at the fundamental level of a workload. The [reliability pillar](/azure/well-architected/reliability/) focuses on how you can make your workload and applications resilient to different types of failures, and to enable recovery when failures occur.
+It's your responsibility to make sure that your applications are designed to be resilient to faults, and to follow other reliability best practices. Use the [Azure Well-Architected Framework](/azure/well-architected) pillars to drive architectural excellence at the fundamental level of a workload. The [reliability pillar](/azure/well-architected/reliability/) focuses on how you can make your workload and applications resilient to different types of failures, and to enable recovery when failures occur.
 
 ## Next steps
 
-The shared responsibility model applies to other parts of your solution beyond resiliency. For more information on the shared responsibility model for security, see [Microsoft Trust Center](../security/fundamentals/shared-responsibility.md).
+The shared responsibility model applies to other parts of your solution beyond reliability. For more information on the shared responsibility model for security, see [Microsoft Trust Center](../security/fundamentals/shared-responsibility.md).
