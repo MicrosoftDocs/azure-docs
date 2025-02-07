@@ -25,6 +25,7 @@ items:
   - name: Python
     href: storage-tasks/storage-task-quickstart-python.md
 - name: Concepts
+  expanded: true
   items: 
   - name: Best practices
     href: storage-tasks/storage-task-best-practices.md
@@ -49,6 +50,7 @@ items:
   - name: Costs and billing
     href: storage-tasks/storage-task-plan-manage-costs.md 
 - name: How-to
+  expanded: true
   items: 
   - name: Create a storage task
     href: storage-tasks/storage-task-create.md

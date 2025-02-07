@@ -147,7 +147,8 @@ The following image shows the **Review** tab data prior to the creation of a new
    -IfOperation $operation `
    -EnableSystemAssignedIdentity:$true
    ```
-To learn how to create an assignment by using PowerShell, see [Create and manage a storage task assignment](storage-task-assignment-create.md?tabs=azure-powershell).
+   
+   To learn how to create an assignment by using PowerShell, see [Create and manage a storage task assignment](storage-task-assignment-create.md?tabs=azure-powershell).
 
 ## [Azure CLI](#tab/azure-cli)
 
@@ -166,9 +167,9 @@ To learn how to create an assignment by using PowerShell, see [Create and manage
    --identity "{type:SystemAssigned}" \
    --action "{if:{condition:'[[equals(AccessTier,'/Cool'/)]]',operations:[{name:'SetBlobTier',parameters:{tier:'Hot'},onSuccess:'continue',onFailure:'break'}]},else:{operations:[{name:'DeleteBlob',onSuccess:'continue',onFailure:'break'}]}}" --description myStorageTask --enabled true
    ```
-To learn more about operations, see [Storage task operations](storage-task-operations.md).
+   To learn more about operations, see [Storage task operations](storage-task-operations.md).
 
-To learn how to create an assignment by using Azure CLI, see [Create and manage a storage task assignment](storage-task-assignment-create.md?tabs=azure-cli).
+   To learn how to create an assignment by using Azure CLI, see [Create and manage a storage task assignment](storage-task-assignment-create.md?tabs=azure-cli).
 
 ## [Bicep](#tab/bicep)
 
