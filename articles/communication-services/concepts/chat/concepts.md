@@ -156,5 +156,5 @@ For more information, see [Push Notifications](../notifications.md).
 ## Related articles
 
 - Familiarize yourself with the [Chat SDK](./sdk-features.md)
-- Access control for participants on a thread [Identity and Tokens](../identity-model.md)
-- Build a application or mobile app with [UI Library](../ui-library/ui-library-overview.md)
+- Access control for participants on a thread using [Identity and Tokens](../identity-model.md)
+- Build an application or a mobile app with [UI Library](../ui-library/ui-library-overview.md)
