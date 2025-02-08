@@ -49,4 +49,4 @@ Below the essentials, you can navigate to other details about your resource by s
 
 ## Next steps
 
-[Troubleshoot Confluent Cloud](troubleshoot.md).
+[Troubleshoot Confluent Cloud](troubleshoot.md)
