@@ -41,12 +41,12 @@ Select the **Getting Started Docs** link to read [Astronomer's documentation](ht
 
 Single sign-on (SSO) is already enabled when you created your Astro  resource.
 
-To access Astro using single sign on, select the SSO Url link in the *Essentials* details from the Resource overview.
+To access Astro using single sign-on, select the SSO Url link in the *Essentials* details from the Resource overview.
 
 > [!NOTE]
 > 
 > - The first time you access this Url you might see a request to grant permissions and User consent. This step is only needed the first time you access the SSO Url.
-> - If you are also seeing Admin consent screen, check your [tenant consent settings](/azure/active-directory/manage-apps/configure-user-consent).
+> - If you're also seeing Admin consent screen, check your [tenant consent settings](/azure/active-directory/manage-apps/configure-user-consent).
 
 Choose a Microsoft Entra account for the single sign-on. Once consent is provided, you're redirected to the Astro portal.
 
