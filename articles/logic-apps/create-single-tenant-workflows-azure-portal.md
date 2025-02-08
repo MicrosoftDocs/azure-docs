@@ -263,13 +263,14 @@ This example workflow continues with the [Office 365 Outlook managed connector a
 
 1. By using **office send an email** as the search term, [follow these steps to add the Office 365 Outlook action that's named **Send an email (V2)**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to your workflow.
 
-1. In the action's information pane, on the **Create Connection** tab, select **Sign in** so that you can create a connection to your email account.
+1. In the action's information pane, under **Create a new connection**, select **Sign in** so that you can create a connection to your email account.
 
-   ![Screenshot showing the designer, the pane named Send an email (V2) with Sign in button.](./media/create-single-tenant-workflows-azure-portal/send-email-action-sign-in.png)
+   :::image type="content" source="media/create-single-tenant-workflows-azure-portal/send-email-action-sign-in.png" alt-text="Screenshot shows workflow designer, action named Send an email (V2), and action pane with Sign in button.":::
 
 1. When you're prompted for access to your email account, sign in with your account credentials.
 
    > [!NOTE]
+   >
    > If you get the error message, **"Failed with error: 'The browser is closed.'. Please sign in again"**, 
    > check whether your browser blocks third-party cookies. If these cookies are blocked, 
    > try adding **https://portal.azure.com** to the list of sites that can use cookies. 
@@ -312,7 +313,7 @@ To delete an item in your workflow from the designer, follow any of these steps:
 
 * Select the item so that information pane opens for that item. In the pane's upper right corner, open the ellipses (**...**) menu, and select **Delete**. To confirm, select **OK**.
 
-  ![Screenshot that shows a selected item on designer with the opened information pane plus the selected ellipses button and "Delete" command.](./media/create-single-tenant-workflows-azure-portal/delete-item-from-designer.png)
+  :::image type="content" source="media/create-single-tenant-workflows-azure-portal/delete-item-from-designer.png" alt-text="Screenshot shows workflow designer with selected trigger, opened trigger information pane, and selected ellipses button and selected Delete command.":::
 
   > [!TIP]
   >
@@ -495,19 +496,19 @@ To debug a stateless workflow more easily, you can enable the run history for th
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. On the logic app menu, under **Settings**, select **Configuration**.
+1. On the logic app menu, under **Settings**, select **Environment variables**.
 
-1. On the **Application settings** tab, select **New application setting**.
+1. On the **App settings** tab, select **Add**.
 
-1. On the **Add/Edit application setting** pane, in the **Name** box, enter this operation option name: 
+1. On the **Add/Edit application setting** pane, in the **Name** box, enter the following app setting name: 
 
-   **Workflows.{*yourWorkflowName*}.OperationOptions**
+   **Workflows.{*your-workflow-name*}.OperationOptions**
 
 1. In the **Value** box, enter the following value: **WithStatelessRunHistory**
 
-   ![Screenshot showing Standard logic app and pane named Add/Edit application setting with Workflows.{yourWorkflowName}.OperationOptions set to WithStatelessRunHistory.](./media/create-single-tenant-workflows-azure-portal/stateless-operation-options-run-history.png)
+   :::image type="content" source="media/create-single-tenant-workflows-azure-portal/stateless-operation-options-run-history.png" alt-text="Screenshot shows Standard logic app with open Environment variables page and open pane for Add/Edit application setting.":::
 
-1. To finish this task, select **OK**. On the **Configuration** pane toolbar, select **Save**.
+1. To finish this task, select **Apply**.
 
 1. To disable the run history when you're done, either set the property named **Workflows.{*your-workflow-name*}.OperationOptions** to **None**, or delete the property and its value.
 
