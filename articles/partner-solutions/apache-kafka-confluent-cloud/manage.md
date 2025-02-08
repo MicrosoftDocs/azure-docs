@@ -20,13 +20,13 @@ This article describes how to manage the settings for Apache Kafka® & Apache Fl
 The *Essentials* details include:
 
 - Resource group
-- Region
+- Location
 - Subscription
+- Subscription ID
 - Tags
-- New Relic account
-- New Relic organization
+- Confluent SSO URL
 - Status
-- Pricing plan
+- Plan
 - Billing term
 
 To manage your resource, select the links next to corresponding details.
