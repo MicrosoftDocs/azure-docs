@@ -36,9 +36,7 @@ Below the essentials, you can navigate to other details about your resource by s
 - The **Get started** tab provides deep links to *Configure connectors*, *Manage user access*, and *Manage Confluent*.
 - The **Tutorials** tab provides links to free courses and video tutorials.
 
-## Manage Confluent
-
-Select the **Launch** button to [create clusters](https://docs.confluent.io/cloud/current/clusters/create-cluster.html), [connect your apps, systems, and entire organizations](https://docs.confluent.io/cloud/current/connectors/index.html#). 
+From the Get started tab, select the **Launch** button to [create clusters](https://docs.confluent.io/cloud/current/clusters/create-cluster.html), [connect your apps, systems, and entire organizations](https://docs.confluent.io/cloud/current/connectors/index.html#). 
 
 ## Delete a Confluent resource
 
