@@ -39,7 +39,7 @@ Virtual network encryption has the following requirements:
 
 - Traffic to unsupported Virtual Machines is unencrypted. Use Virtual Network Flow Logs to confirm flow encryption between virtual machines. For more information, see [Virtual network flow logs](../network-watcher/vnet-flow-logs-overview.md).
 
-- The start/stop of existing virtual machines is required after enabling encryption in a virtual network.
+- The Start/Stop of existing virtual machines is required after enabling encryption in a virtual network.
 
 ## Availability
 
