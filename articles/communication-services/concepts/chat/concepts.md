@@ -151,9 +151,10 @@ For more information, see [Push Notifications](../notifications.md).
 
 > [!div class="nextstepaction"]
 > [Get started with chat](../../quickstarts/chat/get-started.md)
-> [Identity and Tokens](../identity-model.md)
-> [UI Library](../ui-library/ui-library-overview.md)
+
 
 ## Related articles
 
 - Familiarize yourself with the [Chat SDK](./sdk-features.md)
+- Access control for participants on a thread [Identity and Tokens](../identity-model.md)
+- Build a clent with [UI Library](../ui-library/ui-library-overview.md)
