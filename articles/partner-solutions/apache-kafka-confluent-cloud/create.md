@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Get started with Apache Kafka & Apache Flink on Confluent Cloud" through Azure portal"
+title: "Quickstart: Get started with Apache Kafka & Apache Flink on Confluent Cloud through Azure portal"
 description: Learn how to create resources for Apache Kafka & Apache Flink on Confluent Cloud in the Azure portal.
 ms.topic: quickstart
 ms.date: 02/07/2025
