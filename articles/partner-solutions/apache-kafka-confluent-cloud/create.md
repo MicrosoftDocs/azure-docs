@@ -70,4 +70,4 @@ There are required fields (identified with a red asterisk) in each section that 
 
 ## Next steps
 
-- [Manage the Confluent Cloud resource](manage.md)
+- [Manage a Confluent Cloud resource](manage.md)

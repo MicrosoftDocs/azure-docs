@@ -6,7 +6,7 @@ ms.date: 02/27/2025
 
 ---
 
-# Manage the Confluent Cloud resource
+# Manage a Confluent Cloud resource
 
 This article describes how to manage the settings for Apache Kafka® & Apache Flink® on Confluent Cloud™.
 
