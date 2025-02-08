@@ -138,6 +138,9 @@ No. We're doing this migration on a "best effort" basis between January 7th and 
 
 For profiles that didn't apply the feature flag, configuration was frozen on January 3. These profiles will no longer be allowed to stop their endpoints. You can delete the profile instead. Do note that for Azure CDN from Edgio, stopping an endpoint has always meant as a configuration deletion. When an endpoint is disabled or stopped for any reason, all resources configured through the Edgio supplemental portal will be cleaned up. These configurations can't be restored automatically by restarting the endpoint. 
 
+### When will the inactive Edgio profiles be deleted?
+The profiles will remain in an inactive state in Azure until March 15, 2025, providing customers with a reference to their Edgio configuration. After this date, Microsoft will proceed with deleting the profiles. Customers also have the option to delete the profiles themselves prior to this date.
+
 ## Known bugs
 - After the changes, under AFD Domains blade, the 'Certificate state' field may show the value as 'issuing' and the 'DNS state' field may show the value as 'Certificate needed'. This is just a portal bug that will be fixed by January 31. The bug doesn't impact your certificates or traffic in any manner as the Certificate and DNS State for *.azureedge.net domains are completely managed by AFD.
 - Traffic of some migrated profiles maybe billed on Zone 1 rates only despite the traffic being present globally. This is a billing bug which will be fixed later.
