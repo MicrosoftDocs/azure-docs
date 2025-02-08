@@ -7,7 +7,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.collection: ce-skilling-ai-copilot
 ms.topic: how-to
-ms.date: 01/21/2025
+ms.date: 02/07/2025
 # Customer intent: As a developer, I want to create my first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
 ---
 
@@ -22,7 +22,7 @@ This how-to guide shows how to create an example automated workflow that waits f
 
 When you finish, your workflow looks like the following high level example:
 
-:::image type="content" source="media/create-single-tenant-workflows-azure-portal/overview.png" alt-text="Screenshot shows Azure portal, example Consumption workflow with Request trigger and Office 365 Outlook action." lightbox="media/create-single-tenant-workflows-azure-portal/overview.png":::
+:::image type="content" source="media/create-single-tenant-workflows-azure-portal/overview.png" alt-text="Screenshot shows Azure portal, example Standard workflow with Request trigger and Office 365 Outlook action." lightbox="media/create-single-tenant-workflows-azure-portal/overview.png":::
 
 You can have multiple workflows in a Standard logic app. Workflows in the same logic app and the tenant run in the same process as the Azure Logic Apps runtime, so they share the same resources and provide better performance.
 
@@ -217,21 +217,23 @@ For optimal designer responsiveness and performance, review and follow these gui
 
 After you create your empty logic app resource, you have to add your first workflow.
 
-1. After Azure opens the resource, on your logic app menu, under **Workflows**, select **Workflows**. On the **Workflows** toolbar, select **Add**.
+1. After Azure opens the resource, on your logic app menu, under **Workflows**, select **Workflows**. On the **Workflows** toolbar, open the **Add** menu, and select **Add**.
 
-   :::image type="content" source="media/create-single-tenant-workflows-azure-portal/logic-app-add-blank-workflow.png" alt-text="Screenshot shows logic app menu with Workflows selected. The toolbar shows selected option for Add." lightbox="media/create-single-tenant-workflows-azure-portal/logic-app-add-blank-workflow.png":::
+   :::image type="content" source="media/create-single-tenant-workflows-azure-portal/add-blank-workflow.png" alt-text="Screenshot shows logic app menu with Workflows selected. The toolbar shows selected option for Add." lightbox="media/create-single-tenant-workflows-azure-portal/add-blank-workflow.png":::
 
-1. After the **New workflow** pane opens, provide a name for your workflow, and select the state type, either [**Stateful** or **Stateless**](single-tenant-overview-compare.md#stateful-stateless). When you finish, select **Create**.
+1. After the **New workflow** pane opens, provide a name for your workflow, and select the **State type**, which is either [**Stateful** or **Stateless**](single-tenant-overview-compare.md#stateful-stateless). When you finish, select **Create**.
 
    This example adds a blank stateful workflow named **Stateful-Workflow**. By default, the workflow is enabled but doesn't do anything until you add a trigger and actions.
 
-   ![Screenshot showing new blank stateful workflow named Stateful-Workflow.](./media/create-single-tenant-workflows-azure-portal/logic-app-blank-workflow-created.png)
+   :::image type="content" source="media/create-single-tenant-workflows-azure-portal/blank-workflow-created.png" alt-text="Screenshot shows new blank stateful workflow named Stateful-Workflow.":::
 
 1. From the workflow list, select the blank stateful workflow.
 
-1. On the workflow menu, under **Developer**, select **Designer**.
+1. On the workflow menu, under **Tools**, select **Designer**.
 
-   The designer surface shows a prompt to select a trigger operation. By default, the prompt is already selected so that a pane with available triggers already appears open.
+   The designer opens, and the surface shows the **Add trigger** prompt.
+
+1. On the designer surface, select **Add trigger** to open the connectors gallery so that you can select a trigger operation.
 
 Now, add a trigger that starts your workflow.
 
@@ -241,13 +243,13 @@ Now, add a trigger that starts your workflow.
 
 This example workflow starts with the [built-in **Request** trigger](../connectors/connectors-native-reqres.md) named **When a HTTP request is received**. This trigger creates an endpoint that other services or logic app workflows can call and waits for those inbound calls or requests to arrive. Built-in operations run natively and directly within the Azure Logic Apps runtime.
 
-1. On the workflow designer, make sure that your blank workflow is open and that the **Add a trigger** prompt is selected on the designer surface.
+1. In the workflow designer, make sure that your blank workflow is open and that the **Add a trigger** prompt is selected on the designer surface.
 
 1. By using **request** as the search term, [follow these steps to add the built-in **Request** trigger named **When a HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger) to your workflow.
 
    When the trigger appears on the designer, the trigger's information pane opens to show the trigger's properties, settings, and other actions.
 
-   ![Screenshot showing the workflow designer and trigger information pane.](./media/create-single-tenant-workflows-azure-portal/request-trigger-added-to-designer.png)
+   :::image type="content" source="media/create-single-tenant-workflows-azure-portal/request-trigger-added.png" alt-text="Screenshot shows workflow designer, Rquest trigger, and opneed trigger information pane.":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -257,11 +259,11 @@ This example workflow starts with the [built-in **Request** trigger](../connecto
 
 This example workflow continues with the [Office 365 Outlook managed connector action](../connectors/connectors-create-api-office365-outlook.md) named **Send an email**. Managed connector operations run in Azure versus natively and directly on the Azure Logic Apps runtime.
 
-1. On the designer, under the trigger that you added, select the plus sign (**+**) > **Add an action**.
+1. On the designer surface, under the trigger that you added, select the plus sign (**+**) > **Add an action**.
 
-   The **Add an action** pane opens so that you can select the next action.
+   The **Add an action** pane opens so that you can select an action.
 
-1. By using **office send an email** as the search term, [follow these steps to add the Office 365 Outlook action that's named **Send an email (V2)**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to your workflow.
+1. By using **office 365 outlook send email** as the search term, [follow these steps to add the Office 365 Outlook action that's named **Send an email (V2)**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to your workflow.
 
 1. In the action's information pane, under **Create a new connection**, select **Sign in** so that you can create a connection to your email account.
 
@@ -282,18 +284,15 @@ This example workflow continues with the [Office 365 Outlook managed connector a
 
 1. In the action information pane, on the **Parameters** tab, provide the required information for the action, for example:
 
-   ![Screenshot that shows the designer and the "Send an email" information pane with the "Parameters" tab selected.](./media/create-single-tenant-workflows-azure-portal/send-email-action-details.png)
-
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
    | **To** | Yes | <*your-email-address*> | The email recipient, which can be your email address for test purposes. This example uses the fictitious email, **sophiaowen@fabrikam.com**. |
    | **Subject** | Yes | **An email from your example workflow** | The email subject |
    | **Body** | Yes | **Hello from your example workflow!** | The email body content |
 
-   > [!NOTE]
-   > When making any changes in the information pane on the **Settings**, **Static Result**, or **Run After** tabs, 
-   > make sure that you select **Done** to commit those changes before you switch tabs or change focus to the designer. 
-   > Otherwise, the designer won't keep your changes.
+   When you're done, your version looks similar to the following example:
+
+   :::image type="content" source="media/create-single-tenant-workflows-azure-portal/send-email-action-details.png" alt-text="Screenshot shows designer, action named Send an email (V2), and action information pane with selected tab named Parameters.":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -334,17 +333,19 @@ To find the inbound and outbound IP addresses used by your logic app and workflo
 
 To find the fully qualified domain names (FQDNs) for connections, follow these steps:
 
-1. On your logic app menu, under **Workflows**, select **Connections**. On the **API Connections** tab, select the connection's resource name, for example:
+1. On your logic app menu, under **Workflows**, select **Workflows**, **Connections**.
 
-   ![Screenshot that shows the Azure portal and logic app menu with the "Connections" and "office365" connection resource name selected.](./media/create-single-tenant-workflows-azure-portal/logic-app-connections.png)
+1. On the **API Connections** tab, select the connection's resource name, for example:
 
-1. Expand your browser wide enough so that when **JSON View** appears in the browser's upper right corner, select **JSON View**.
+   :::image type="content" source="media/create-single-tenant-workflows-azure-portal/logic-app-connections.png" alt-text="Screenshot shows logic app menu with selected item named Connections and selected connection resource named office365.":::
 
-   ![Screenshot that shows the Azure portal and API Connection pane with "JSON View" selected.](./media/create-single-tenant-workflows-azure-portal/logic-app-connection-view-json.png)
+1. Expand your browser wide enough so that **JSON View** appears visible in the browser's upper right corner, and then select **JSON View**.
+
+   :::image type="content" source="media/create-single-tenant-workflows-azure-portal/logic-app-connection-view-json.png" alt-text="Screenshot shows API Connection page with selected option named JSON View.":::
 
 1. Copy and save the **connectionRuntimeUrl** property value somewhere safe so that you can set up your firewall with this information.
 
-   ![Screenshot showing the selected property value named connectionRuntimeUrl.](./media/create-single-tenant-workflows-azure-portal/logic-app-connection-runtime-url.png)
+   :::image type="content" source="media/create-single-tenant-workflows-azure-portal/logic-app-connection-runtime-url.png" alt-text="Screenshot shows selected property value named connectionRuntimeUrl.":::
 
 1. For each connection, repeat the relevant steps.
 
@@ -356,24 +357,17 @@ In this example, the workflow runs when the **Request** trigger receives an inbo
 
 1. On the workflow designer, select the **Request** trigger that's named **When a HTTP request is received**.
 
-1. After the information pane opens, on the **Parameters** tab, find the **HTTP POST URL** property. To copy the generated URL, select the **Copy Url** (copy file icon), and save the URL somewhere else for now. The URL follows this format:
+1. After the information pane opens, on the **Parameters** tab, find the **HTTP URL** property.
+
+1. To copy the generated URL, select the **Copy URL** (copy file icon), and save the URL somewhere else for now. The URL follows this format:
 
    **`https://<*logic-app-name*>.azurewebsites.net:443/api/<*workflow-name*>/triggers/manual/invoke?api-version=2020-05-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<*shared-access-signature*>`**
 
-   ![Screenshot that shows the designer with the Request trigger and endpoint URL in the "HTTP POST URL" property.](./media/create-single-tenant-workflows-azure-portal/find-request-trigger-url.png)
+   :::image type="content" source="media/create-single-tenant-workflows-azure-portal/find-request-trigger-url.png" alt-text="Screenshot shows workflow designer with Request trigger and endpoint URL in property named HTTP URL.":::
 
-   For this example, the URL looks like this:
+   For this example, the URL looks like the following sample:
 
    **`https://fabrikam-workflows.azurewebsites.net:443/api/Fabrikam-Stateful-Workflow/triggers/manual/invoke?api-version=2020-05-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xxxxxXXXXxxxxxXXXXxxxXXXXxxxxXXXX`**
-
-   > [!TIP]
-   >
-   > You can also find the endpoint URL on your logic app **Overview** page in the **Workflow URL** property.
-   >
-   > 1. On the resource menu, select **Overview**.
-   > 1. On the **Overview** pane, find the **Workflow URL** property.
-   > 1. To copy the endpoint URL, move your pointer over the end of the endpoint URL text, 
-   >    and select **Copy to clipboard** (copy file icon).
 
 1. To test the endpoint URL and trigger the workflow, send an HTTP request to the URL, including the method that the **Request** trigger expects, by using your HTTP request tool and its instructions.
 
@@ -383,7 +377,7 @@ In this example, the workflow runs when the **Request** trigger receives an inbo
 
    When the trigger fires, the example workflow runs and sends an email that appears similar to this example:
 
-   ![Screenshot that shows Outlook email as described in the example](./media/create-single-tenant-workflows-azure-portal/workflow-app-result-email.png)
+   ![Screenshot shows Outlook email as described in the example](./media/create-single-tenant-workflows-azure-portal/workflow-app-result-email.png)
 
 <a name="review-run-history"></a>
 
@@ -468,7 +462,7 @@ By default, your Standard logic app authenticates access to your Azure Storage a
 
    1. On the logic app menu, under **Settings**, select **Environment variables**.
 
-   1. On the **App settings** tab, select **Add** to add the following app settings and values:
+   1. On the **App settings** tab, select **Add** to add each of the following app settings and values and select **Apply** when you finish with each setting.
 
       | App setting | Value |
       |-------------|-------|
@@ -609,6 +603,6 @@ To fix this problem, follow these steps to delete the outdated version so that t
 
    The portal automatically gets and uses the latest bundle.
 
-## Next steps
+## Related content
 
-* [Monitor workflow run status, review trigger and workflow run history, and set up alerts in Azure Logic Apps](monitor-logic-apps.md?tabs=standard)
+* [View workflow status and run history](view-workflow-status-run-history.md?tabs=standard)
