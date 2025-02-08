@@ -16,8 +16,6 @@ Single sign-on (SSO) is already enabled when you created your Astro  resource. T
 
 1. Navigate to the Overview for your instance of the Astro resource. Select on the SSO Url.
 
-   :::image type="content" source="media/astronomer-manage/astronomer-sso-overview.png" alt-text="Screenshot showing the Single Sign-on url in the  Overview pane of the Astro resource.":::
-
 1. The first time you access this Url, depending on your Azure tenant settings, you might see a request to grant permissions and User consent. This step is only needed the first time you access the SSO Url.
 
    > [!NOTE]
