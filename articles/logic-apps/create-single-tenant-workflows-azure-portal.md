@@ -383,7 +383,7 @@ In this example, the workflow runs when the **Request** trigger receives an inbo
 
 ## Review workflow run history
 
-After a stateful workflow finishes running, you can view the workflow's run history, including the status for the overall run, for the trigger, and for each action along with their inputs and outputs. In the Azure portal, workflow run history and trigger history appear at the workflow level, not at the logic app resource level. For more information, see [Review workflow run history](view-workflow-status-run-history.md?tabs=standard#review-run-history) and [Review trigger history](view-workflow-status-run-history.md?tabs=standard#review-trigger-history).
+After a stateful workflow finishes running, you can view the workflow's run history, which includes the status for the overall run as well as for the trigger and for each action along with their inputs and outputs. In the Azure portal, workflow run history and trigger history appear at the workflow level, not at the logic app resource level. For more information, see [Review workflow run history](view-workflow-status-run-history.md?tabs=standard#review-run-history).
 
 <a name="review-trigger-history"></a>
 
