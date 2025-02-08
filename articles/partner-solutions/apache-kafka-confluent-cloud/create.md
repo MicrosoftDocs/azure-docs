@@ -13,7 +13,7 @@ In this quickstart, you'll use the Azure portal to create an instance of Apache 
 ## Prerequisites
 
 [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
-- You must [subscribe to New Relic](overview.md#subscribe-to-new-relic).
+- You must [subscribe to Confluent Cloud](overview.md#subscribe-to-confluent-cloud)
 
 ## Create a Confluent resource
 
