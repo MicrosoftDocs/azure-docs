@@ -231,7 +231,7 @@ After you create your empty logic app resource, you have to add your first workf
 
 1. On the workflow menu, under **Tools**, select **Designer**.
 
-   The designer opens, and the surface shows the **Add trigger** prompt.
+   The designer opens, and the surface shows the prompt named **Add trigger**.
 
 1. On the designer surface, select **Add trigger** to open the connectors gallery so that you can select a trigger operation.
 
@@ -249,7 +249,7 @@ This example workflow starts with the [built-in **Request** trigger](../connecto
 
    When the trigger appears on the designer, the trigger's information pane opens to show the trigger's properties, settings, and other actions.
 
-   :::image type="content" source="media/create-single-tenant-workflows-azure-portal/request-trigger-added.png" alt-text="Screenshot shows workflow designer, Rquest trigger, and opneed trigger information pane.":::
+   :::image type="content" source="media/create-single-tenant-workflows-azure-portal/request-trigger-added.png" alt-text="Screenshot shows workflow designer, Request trigger, and opened trigger information pane.":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -274,9 +274,9 @@ This example workflow continues with the [Office 365 Outlook managed connector a
    > [!NOTE]
    >
    > If you get the error message, **"Failed with error: 'The browser is closed.'. Please sign in again"**, 
-   > check whether your browser blocks third-party cookies. If these cookies are blocked, 
+   > check whether your browser blocks external cookies. If these cookies are blocked, 
    > try adding **https://portal.azure.com** to the list of sites that can use cookies. 
-   > If you're using incognito mode, make sure that third-party cookies aren't blocked while working in that mode.
+   > If you're using incognito mode, make sure that external cookies aren't blocked while working in that mode.
    > 
    > If necessary, reload the page, open your workflow, add the email action again, and try creating the connection.
 

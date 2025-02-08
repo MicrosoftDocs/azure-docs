@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/06/2025
+ms.date: 02/07/2025
 ---
 
 # Check workflow status, view run history, and set up alerts in Azure Logic Apps
