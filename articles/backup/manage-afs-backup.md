@@ -13,10 +13,7 @@ ms.author: jsuri
 
 This article describes common tasks for managing and monitoring the Azure File shares that are backed up by [Azure Backup](./backup-overview.md). You'll learn how to do management tasks in **Backup center**.
 
-Azure Backup provides simple, reliable, and secure solution to configure protection for your enterprise file shares by using [snapshot backup](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted backup (preview)](azure-file-share-backup-overview.md?tabs=vault-standard) so that you can recover your data in case of any accidental or malicious deletion.
-
->[!Note]
->Vaulted backup for Azure File share is currently in preview.
+Azure Backup provides simple, reliable, and secure solution to configure protection for your enterprise file shares by using [snapshot backup](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted backup](azure-file-share-backup-overview.md?tabs=vault-standard) so that you can recover your data in case of any accidental or malicious deletion.
 
 ## Monitor Azure File share backup jobs
 
@@ -60,7 +57,7 @@ To create a new backup policy, follow these steps:
 1. Select the appropriate backup tier based on your data protection requirements.
 
    - **Snapshot**:  Enables only snapshot-based backups that are stored locally and can only provide protection in case of accidental deletion.
-   - **Vault-Standard (Preview)**: Provides comprehensive data protection.
+   - **Vault-Standard**: Provides comprehensive data protection.
 
 1. In **Backup schedule**,  select an appropriate frequency for the backups - **Daily** or **Hourly**.
 
@@ -89,9 +86,9 @@ To create a new backup policy, follow these steps:
      Based on your selection, the backup job details (the time stamps when backup job would be triggered) display on the backup policy blade.
 
    >[!Note]
-   >If you select the **Vault-Standard (Preview)** as the backup tier, snapshots are taken as per the configured backup schedule. However, the data is transferred to the vault from the last snapshot of the day.
+   >If you select the **Vault-Standard** as the backup tier, snapshots are taken as per the configured backup schedule. However, the data is transferred to the vault from the last snapshot of the day.
 
-1. In **Retention range** section, specify appropriate *Snapshot retention* and *Vault retention (preview))* values for backups - tagged as daily, weekly, monthly, or yearly.
+1. In **Retention range** section, specify appropriate *Snapshot retention* and *Vault retention* values for backups - tagged as daily, weekly, monthly, or yearly.
 
 1. After defining all attributes of the policy, select **Create**.
   
@@ -109,7 +106,7 @@ To view the existing backup policies:
 
 ## Modify policy
 
-You can modify a backup policy to change the backup frequency or retention range. Also, you can switch *backup tier* from *Snapshot* to *Vault-Standard (Preview)*.
+You can modify a backup policy to change the backup frequency or retention range. Also, you can switch *backup tier* from *Snapshot* to *Vault-Standard*.
 
 To modify a policy, follow these steps:
 
