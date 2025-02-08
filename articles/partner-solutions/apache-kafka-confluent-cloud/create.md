@@ -1,57 +1,64 @@
 ---
-title: Create Apache Kafka & Apache Flink on Confluent Cloud through Azure portal
-description: This article describes how to use the Azure portal to create an instance of Apache Kafka & Apache Flink on Confluent Cloud.
-# customerIntent: As a developer I want create a new instance of Apache Kafka & Apache Flink on Confluent Cloud using the Azure portal.
+title: "Quickstart: Get started with Apache Kafka & Apache Flink on Confluent Cloud" through Azure portal"
+description: Learn how to create resources for Apache Kafka & Apache Flink on Confluent Cloud in the Azure portal.
 ms.topic: quickstart
 ms.date: 01/23/2024
 
 ---
 
-# QuickStart: Get started with Apache Kafka & Apache Flink on Confluent Cloud - Azure portal
+# QuickStart: Get started with Apache Kafka & Apache Flink on Confluent Cloud
 
 In this quickstart, you'll use the Azure portal to create an instance of Apache Kafka® & Apache Flink® on Confluent Cloud™.
 
 ## Prerequisites
 
-- [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
+[!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
 - You must [subscribe to New Relic](overview.md#subscribe-to-new-relic).
 
-## Create a New Relic resource
+## Create a Confluent resource
 
 [!INCLUDE [create-resource](../includes/create-resource.md)]
 
-## Create resource
-
-After you've selected the offer for Apache Kafka & Apache Flink on Confluent Cloud, you're ready to set up the application.
-
-1. If you selected private offers in the previous section, you'll have two options for plan types:
-
-    - Confluent Cloud - Pay-as-you-go
-    - Commitment - for commit plan
-
-   If you didn't select private offers, you'll only have the pay-as-you-go option.
-
-   Pick the plan to use, and select **Subscribe**.
-
-    :::image type="content" source="media/create/setup-subscribe.png" alt-text="Set up and subscribe.":::
-
 ## Basics tab
 
-1. On the **Create a Confluent organization** basics page, provide the following values. When you've finished, select **Next: Tags**.
+The *Basics* tab has 3 sections:
 
-    :::image type="content" source="media/create/setup-basics.png" alt-text="Form to set up Confluent Cloud resource.":::
+- Project details
+- Azure resource details
+- Confluent organization details
 
-    | Property | Description |
-    | ---- | ---- |
-    | **Subscription** | From the drop-down menu, select the Azure subscription to deploy to. You must have _Owner_ or _Contributor_ access. |
-    | **Resource group** | Specify whether you want to create a new resource group or use an existing resource group. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/management/overview.md). |
-    | **Resource name** | Instance name is automatically generated based on the name of the Confluent organization. |
-    | **Region** | From the drop-down menu, select one of these regions: Australia East, Canada Central, Central US, East US, East US 2, France Central, North Europe, Southeast Asia, UK South, West Central US, West Europe, West US 2 |
-    | **Organization** | To create a new Confluent organization, select **Create a new organization** and provide a name for the Confluent organization. To link to an existing Confluent organization, select **Link Subscription to an existing organization** option, sign in to your Confluent account, and select the existing organization. |
-    | **Plan** | Optionally change plan. |
-    | **Billing term** | Prefilled based on the selected billing plan. |
-    | **Price + Payment options** | Prefilled based on the selected Confluent plan. |
-    | **Subtotal** | Prefilled based on the selected Confluent plan. |
+:::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create a Confluent organization options inside of the Azure portal's working pane with the Basics tab displayed.":::
+
+There are required fields (identified with a red asterisk) in each section that you need to fill out.
+
+1. Enter the values for each required setting under *Project details*.
+
+    | Field               | Action                                                    |
+    |---------------------|-----------------------------------------------------------|
+    | Subscription        | Select a subscription from your existing subscriptions.   |
+    | Resource group      | Use an existing resource group or create a new one.       |
+
+1. Enter the values for each required setting under *Azure Resource details*.
+
+    | Field              | Action                                    |
+    |--------------------|-------------------------------------------|
+    | Resource name      | Specify a unique name for the resource.   |
+    | Region             | Select a region to deploy your resource.  |
+
+1. Enter the values for each required setting under *Confluent organization details*.
+
+    | Field             | Action                                                                                           |
+    |-------------------|--------------------------------------------------------------------------------------------------|
+    | Organization      | Choose to create a new organization, or associate your resource with an existing organization.   |
+
+    > [!NOTE]
+    > If you choose to associate your resource with an existing organization, the resource is billed to that organization's plan. 
+
+    Select the **Change plan** link to [change your billing plan](manage.md#change-billing-plan). 
+
+    The remaining fields update to reflect the details of the plan you selected for this new organization.
+
+1. Select the **Next** button at the bottom of the page.
 
 ### Tags tab (optional)
 
