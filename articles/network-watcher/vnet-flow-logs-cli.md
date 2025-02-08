@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 04/24/2024
+ms.date: 01/31/2025
 ms.custom: devx-track-azurecli
 
 #CustomerIntent: As an Azure administrator, I want to log my virtual network IP traffic using Network Watcher virtual network flow logs so that I can analyze it later.
@@ -28,9 +28,11 @@ In this article, you learn how to create, change, enable, disable, or delete a v
 
 - An Azure storage account. If you need to create a storage account, see [Create a storage account using the Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli).
 
-- Bash environment in [Azure Cloud Shell](https://shell.azure.com) or the Azure CLI installed locally. To learn more about using Bash in Azure Cloud Shell, see [Azure Cloud Shell Quickstart - Bash](../cloud-shell/quickstart.md). 
+- Azure Cloud Shell or Azure CLI.
 
-	- If you choose to install and use Azure CLI locally, this article requires the Azure CLI version 2.39.0 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). Run `az login` to sign in to Azure.
+	The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+
+	You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. This article requires the Azure CLI version 2.39.0 or later. Run [az --version](/cli/azure/reference-index#az-version) command to find the installed version. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
 
 ## Register insights provider
 
@@ -47,7 +49,12 @@ Use [az network watcher flow-log create](/cli/azure/network/watcher/flow-log#az-
 
 ```azurecli-interactive
 # Create a VNet flow log.
-az network watcher flow-log create --location eastus --resource-group myResourceGroup --name myVNetFlowLog --vnet myVNet --storage-account myStorageAccount
+az network watcher flow-log create --location 'eastus' --resource-group 'myResourceGroup' --name 'myVNetFlowLog' --vnet myVNet --storage-account 'myStorageAccount'
+```
+
+```azurecli-interactive
+# Create a VNet flow log (storage account is in a different resource group from the virtual network).
+az network watcher flow-log create --location 'eastus' --resource-group 'myResourceGroup' --name 'myVNetFlowLog' --vnet myVNet --storage-account '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/StorageRG/providers/Microsoft.Storage/storageAccounts/myStorageAccount'
 ```
 
 ## Enable virtual network flow logs and traffic analytics
@@ -56,10 +63,18 @@ Use [az monitor log-analytics workspace create](/cli/azure/monitor/log-analytics
 
 ```azurecli-interactive
 # Create a traffic analytics workspace.
-az monitor log-analytics workspace create --name myWorkspace --resource-group myResourceGroup --location eastus
+az monitor log-analytics workspace create --name 'myWorkspace' --resource-group 'myResourceGroup' --location 'eastus'
 
 # Create a VNet flow log.
-az network watcher flow-log create --location eastus --name myVNetFlowLog --resource-group myResourceGroup --vnet myVNet --storage-account myStorageAccount --workspace myWorkspace --interval 10 --traffic-analytics true
+az network watcher flow-log create --location 'eastus' --name 'myVNetFlowLog' --resource-group 'myResourceGroup' --vnet 'myVNet' --storage-account 'myStorageAccount' --workspace 'myWorkspace' --interval 10 --traffic-analytics true
+```
+
+```azurecli-interactive
+# Create a traffic analytics workspace.
+az monitor log-analytics workspace create --name 'myWorkspace' --resource-group 'myResourceGroup' --location 'eastus'
+
+# Create a VNet flow log (storage account and traffic analytics workspace are in different resource groups from the virtual network).
+az network watcher flow-log create --location 'eastus' --name 'myVNetFlowLog' --resource-group 'myResourceGroup' --vnet 'myVNet' --storage-account '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/StorageRG/providers/Microsoft.Storage/storageAccounts/myStorageAccount' --workspace '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/WorkspaceRG/providers/Microsoft.OperationalInsights/workspaces/myWorkspace' --interval 10 --traffic-analytics true
 ```
 
 ## List all flow logs in a region 
@@ -68,7 +83,7 @@ Use [az network watcher flow-log list](/cli/azure/network/watcher/flow-log#az-ne
 
 ```azurecli-interactive
 # Get all flow logs in East US region.
-az network watcher flow-log list --location eastus --out table
+az network watcher flow-log list --location 'eastus' --out table
 ```
 
 ## View virtual network flow log resource 
@@ -77,7 +92,7 @@ Use [az network watcher flow-log show](/cli/azure/network/watcher/flow-log#az-ne
 
 ```azurecli-interactive
 # Get the flow log details.
-az network watcher flow-log show --name myVNetFlowLog --resource-group NetworkWatcherRG --location eastus
+az network watcher flow-log show --name 'myVNetFlowLog' --resource-group 'NetworkWatcherRG' --location 'eastus'
 ```
 
 ## Download a flow log
@@ -99,7 +114,7 @@ To disable traffic analytics on the flow log resource and continue to generate a
 
 ```azurecli-interactive
 # Update the VNet flow log.
-az network watcher flow-log update --location eastus --name myVNetFlowLog --resource-group myResourceGroup --vnet myVNet --storage-account myStorageAccount --traffic-analytics false
+az network watcher flow-log update --location 'eastus' --name 'myVNetFlowLog' --resource-group 'myResourceGroup' --vnet 'myVNet' --storage-account 'myStorageAccount' --traffic-analytics false
 ```
 
 ## Delete a virtual network flow log resource
@@ -108,10 +123,10 @@ To delete a virtual network flow log resource, use [az network watcher flow-log 
 
 ```azurecli-interactive
 # Delete the VNet flow log.
-az network watcher flow-log delete --name myVNetFlowLog --location eastus
+az network watcher flow-log delete --name 'myVNetFlowLog' --location 'eastus'
 ```
 
-## Next steps
+## Related content
 
 - To learn about traffic analytics, see [Traffic analytics](traffic-analytics.md).
 - To learn how to use Azure built-in policies to audit or enable traffic analytics, see [Manage traffic analytics using Azure Policy](traffic-analytics-policy-portal.md).

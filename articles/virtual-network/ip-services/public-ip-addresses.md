@@ -8,7 +8,8 @@ ms.subservice: ip-services
 ms.topic: concept-article
 author: mbender-ms
 ms.author: mbender
-ms.date: 09/27/2024
+ms.date: 02/04/2025
+ms.custom: references_regions
 ---
 
 # Public IP addresses
@@ -28,7 +29,7 @@ The following resources can be associated with a public IP address:
 * Azure Firewalls
 * Bastion Hosts
 * Route Servers
-* Api Management
+* API Management
 
 For Virtual Machine Scale Sets, use [Public IP Prefixes](public-ip-address-prefix.md).
 
@@ -47,7 +48,7 @@ The following table shows the property a public IP can be associated to a resour
 | Azure Firewall | Front-end configuration | No | Yes | No | No |
 | Bastion Host | Public IP configuration | No | Yes | No | No |
 | Route Server | Front-end configuration | No | Yes | No | No |
-| Api Management | Front-end configuration | No | Yes | No | No |
+| API Management | Front-end configuration | No | Yes | No | No |
 
 ## IP address version
 
@@ -57,7 +58,7 @@ Public IP addresses can be created with an IPv4 or IPv6 address. You may be give
 >[!Important]
 >On September 30, 2025, Basic SKU public IPs will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you are currently using Basic SKU public IPs, make sure to upgrade to Standard SKU public IPs prior to the retirement date. For guidance on upgrading, visit [Upgrading a basic public IP address to Standard SKU - Guidance](public-ip-basic-upgrade-guidance.md).
 
-Public IP addresses are created with a SKU of **Standard** or **Basic**.  The SKU determines their functionality including allocation method, feature support, and resources they can be associated with.  
+Public IP addresses are created with a SKU of **Standard** or **Basic**. The SKU determines their functionality including allocation method, feature support, and resources they can be associated with.
 
 Full details are listed in the table below:
 
@@ -65,20 +66,20 @@ Full details are listed in the table below:
 | --- | --- | --- |
 | Allocation method| Static | For IPv4: Dynamic or Static; For IPv6: Dynamic.| 
 | Idle Timeout | Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.|Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.|
-| Security | Secure by default model and be closed to inbound traffic when used as a frontend.  Allow traffic with [network security group (NSG)](../../virtual-network/network-security-groups-overview.md#network-security-groups) is required (for example, on the NIC of a virtual machine with a Standard SKU Public IP attached).| Open by default.  Network security groups are recommended but optional for restricting inbound or outbound traffic.| 
+| Security | Secure by default model and be closed to inbound traffic when used as a frontend. Allow traffic with [network security group (NSG)](../../virtual-network/network-security-groups-overview.md#network-security-groups) is required (for example, on the NIC of a virtual machine with a Standard SKU Public IP attached).| Open by default. Network security groups are recommended but optional for restricting inbound or outbound traffic.| 
 | [Availability zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Supported. Standard IPs can be nonzonal, zonal, or zone-redundant. **Zone redundant IPs can only be created in [regions where 3 availability zones](../../reliability/availability-zones-region-support.md) are live.** IPs created before availability zones aren't zone redundant. | Not supported. | 
 | [Routing preference](routing-preference-overview.md)| Supported to enable more granular control of how traffic is routed between Azure and the Internet. | Not supported.| 
 | Global tier | Supported via [cross-region load balancers](../../load-balancer/cross-region-overview.md).| Not supported. |
 
-Virtual machines attached to a backend pool do not need a public IP address to be attached to a public load balancer. But if they do, matching SKUs are required for load balancer and public IP resources. You can't have a mixture of basic SKU resources and standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.  New designs should consider using Standard SKU resources. For more information about a standard load balancer, see [Standard Load Balancer](../../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Virtual machines attached to a backend pool don't need a public IP address to be attached to a public load balancer. But if they do, matching SKUs are required for load balancer and public IP resources. You can't have a mixture of basic SKU resources and standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously. New designs should consider using Standard SKU resources. For more information about a standard load balancer, see [Standard Load Balancer](../../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## IP address assignment
 
 Public IPs have two types of assignments:
 
-- **Dynamic** - The IP address **isn't** given to the resource at the time of creation when selecting dynamic.  The IP is assigned when you associate the public IP address with a resource. The IP address is released when you stop, or delete the resource. Dynamic public IP addresses are commonly used for when there's no dependency on the IP address. For example, a public IP resource is released from a VM upon stop and then start. Any associated IP address is released if the allocation method is **dynamic**. If you don't want the IP address to change, set the allocation method to **static** to ensure the IP address remains the same.
+- **Dynamic** - The IP address **isn't** given to the resource at the time of creation when selecting dynamic. The IP is assigned when you associate the public IP address with a resource. The IP address is released when you stop, or delete the resource. Dynamic public IP addresses are commonly used for when there's no dependency on the IP address. For example, a public IP resource is released from a VM upon stop and then start. Any associated IP address is released if the allocation method is **dynamic**. If you don't want the IP address to change, set the allocation method to **static** to ensure the IP address remains the same.
   
-- **Static** - The resource is assigned an IP address at the time it's created. The IP address is released when the resource is deleted. When you set the allocation method to **static**, you cannot specify the actual IP address assigned to the public IP address resource. Azure assigns the IP address from a pool of available IP addresses in the Azure location the resource is created in.
+- **Static** - The resource is assigned an IP address at the time it's created. The IP address is released when the resource is deleted. When you set the allocation method to **static**, you can't specify the actual IP address assigned to the public IP address resource. Azure assigns the IP address from a pool of available IP addresses in the Azure location the resource is created in.
 
 Static public IP addresses are commonly used in the following scenarios:
 * When you must update firewall rules to communicate with your Azure resources.
@@ -95,12 +96,11 @@ Static public IP addresses are commonly used in the following scenarios:
 
 ## Availability Zone
 > [!IMPORTANT]
-> We are updating Standard non-zonal IPs to be zone-redundant by default on a region by region basis. This means that in the following regions, all IPs created (except zonal) are zone-redundant.
-> Region availability: Central Canada, Central Poland, Central Israel, Central France, Central Qatar, East Asia, East US 2, East Norway, Italy North, Sweden Central, South Africa North, South Brazil, West Central Germany, West US 2, Central Spain
+> We're updating Standard non-zonal IPs to be zone-redundant by default on a region by region basis. This means that in the following regions, all IPs created (except zonal) are zone-redundant.
+> Region availability: Central Korea, Central Mexico, Central Canada, Central Poland, Central Israel, Central France, Central Qatar, East Asia, East US 2, East Norway, Italy North, Sweden Central, South Africa North, South Brazil, West Central Germany, West US 2, Central Spain
 > 
 
-Standard SKU Public IPs can be created as non-zonal, zonal, or zone-redundant in [regions that support availability zones](../../reliability/availability-zones-region-support.md). Basic SKU Public IPs do not have any zones and are created as non-zonal.
-A public IP's availability zone can't be changed after the public IP's creation.
+Standard SKU Public IPs can be created as non-zonal, zonal, or zone-redundant in [regions that support availability zones](../../reliability/availability-zones-region-support.md). Basic SKU Public IPs don't have any zones and are created as non-zonal. Once created, a public IP address can't change its availability zone.
 
 | Value | Behavior |
 | --- | --- |
@@ -108,7 +108,7 @@ A public IP's availability zone can't be changed after the public IP's creation.
 | Zonal  |	 A zonal IP is tied to a specific availability zone, and shares fate with the health of the zone. |
 | Zone-redundant	| A zone-redundant IP is created in all zones for a region and can survive any single zone failure. |
 
-In regions without availability zones, all public IP addresses are created as nonzonal. Public IP addresses created in a region that is later upgraded to have availability zones remain non-zonal.  
+In regions without availability zones, all public IP addresses are created as nonzonal. Public IP addresses created in a region that is later upgraded to have availability zones remain non-zonal. 
 
 ## Domain Name Label
 
@@ -120,33 +120,33 @@ For instance, creation of a public IP with the following settings:
 
 * **West US** Azure **location**
 
-The fully qualified domain name (FQDN) **contoso.westus.cloudapp.azure.com** resolves to the public IP address of the resource. Each domain name label created must be unique within its Azure location.  
+The fully qualified domain name (FQDN) **contoso.westus.cloudapp.azure.com** resolves to the public IP address of the resource. Each domain name label created must be unique within its Azure location. 
 
 If a custom domain is desired for services that use a public IP, you can use [Azure DNS](../../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) or an external DNS provider for your DNS Record.
 
 ## Domain Name Label Scope (preview)
 
-Public IPs also have an optional parameter for **Domain Name Label Scope**, which defines what domain label an object with the same name will use. This feature can help to prevent "dangling DNS names" which can be reused by malicious actors.  When this option is chosen, the public IP address' DNS name will have an additional string in between the **domainnamelabel** and **location** fields, e.g. **contoso.fjdng2acavhkevd8.westus.cloudapp.Azure.com**.  (This string is a hash generated from input specific to your subscription, resource group, domain name label, and other properties). 
+Public IPs also have an optional parameter for **Domain Name Label Scope**, which defines what domain label an object with the same name uses. This feature can help to prevent "dangling DNS names" which can be reused by malicious actors. When this option is chosen, the public IP address' DNS name has another string in between the **domainnamelabel** and **location** fields, for example, **contoso.fjdng2acavhkevd8.westus.cloudapp.Azure.com**. (This string is a hash generated from input specific to your subscription, resource group, domain name label, and other properties). 
 
 The domain name label scope can only be specified at the creation of a public IP address.
 
 >[!Important]
-> Domain Name Label Scope is currently in public preview.  It's provided without a service-level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Domain Name Label Scope is currently in public preview. It's provided without a service-level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 The value of the **Domain Name Label Scope** must match one of the options below:
 
 | Value | Behavior |
 | --- | --- |
-| TenantReuse |	Object with the same name in the same tenant will receive the same Domain Label |
-| SubscriptionReuse	| Object with the same name in the same subscription will receive the same Domain Label |
-| ResourceGroupReuse | Object with the same name in the same Resource Group will receive the same Domain Label |
-| NoReuse | Object with the same name will receive a new Domain Label for each new instance |
+| TenantReuse |	Object with the same name in the same tenant receives the same Domain Label |
+| SubscriptionReuse	| Object with the same name in the same subscription receives the same Domain Label |
+| ResourceGroupReuse | Object with the same name in the same Resource Group receives the same Domain Label |
+| NoReuse | Object with the same name receives a new Domain Label for each new instance |
 
-For example, if **SubscriptionReuse** is selected as the option, and a customer who has the example domain name label **contoso.fjdng2acavhkevd8.westus.cloudapp.Azure.com** deletes and re-deploys a public IP address using the same template as before, the domain name label will remain the same.  If the customer deploys a public IP address using this same template under a different subscription, the domain name label would change (e.g. **contoso.c9ghbqhhbxevhzg9.westus.cloudapp.Azure.com**).
+For example, if **SubscriptionReuse** is selected as the option, and a customer who has the example domain name label **contoso.fjdng2acavhkevd8.westus.cloudapp.Azure.com** deletes and redeploys a public IP address using the same template as before, the domain name label remains the same. If the customer deploys a public IP address using this same template under a different subscription, the domain name label would change (for example, **contoso.c9ghbqhhbxevhzg9.westus.cloudapp.Azure.com**).
 
 ## Other public IP address features
 
-There are other attributes that can be used for a public IP address (Standard SKU only).  
+There are other attributes that can be used for a public IP address (Standard SKU only). 
 
 * The Global **Tier** option creates a global anycast IP that can be used with cross-region load balancers.
 
