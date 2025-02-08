@@ -68,5 +68,5 @@ There are required fields (identified with a red asterisk) in each section that 
 
 ## Next steps
 
-[Manage the Astro resource](manage.md)
+[Manage an Astro resource](manage.md)
 
