@@ -28,7 +28,7 @@ Before you begin, verify that you have:
 - A Log Analytics workspace enabled for Microsoft Sentinel.
 - The **Windows DNS Events via AMA** data connector installed as part of the **Windows Server DNS** solution from content hub.
 - Windows server 2016 and later supported, or Windows Server 2012 R2 with the auditing hotfix.
-- DNS server role installed with DNS-Server analytical event logs enabled.</br>
+- DNS server role installed with **DNS-Server** analytical event logs enabled.
   DNS analytical event logs aren't enabled by default. For more information, see [Enable analytical event logging](/windows-server/networking/dns/dns-logging-and-diagnostics#enable-analytical-event-logging).
 
 To collect events from any system that isn't an Azure virtual machine, ensure that [Azure Arc](/azure/azure-monitor/agents/azure-monitor-agent-manage) is installed. Install and enable Azure Arc before you enable the Azure Monitor Agent-based connector. This requirement includes:
