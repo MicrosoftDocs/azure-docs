@@ -157,4 +157,4 @@ For more information, see [Push Notifications](../notifications.md).
 
 - Familiarize yourself with the [Chat SDK](./sdk-features.md)
 - Access control for participants on a thread [Identity and Tokens](../identity-model.md)
-- Build a clent with [UI Library](../ui-library/ui-library-overview.md)
+- Build a application or mobile app with [UI Library](../ui-library/ui-library-overview.md)
