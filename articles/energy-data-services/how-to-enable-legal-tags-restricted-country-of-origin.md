@@ -14,7 +14,7 @@ ms.date: 02/08/2025
 Legal tag definitions represent the legal status of the data hosted on an Azure Data Manager for Energy resource. A valid legal tag is required for data ingestion and retrieval stored on the resource. See 
 [How to manage legal tags](how-to-manage-legal-tags.md).
 
-The creation of legal tags is governed by a configuration hosted on each Azure Data Manager for Energy resource, defined in OSDU&reg; as the [legal service default configuration](https://community.opengroup.org/osdu/platform/security-and-compliance/legal/-/blob/master/legal-core/src/main/resources/DefaultCountryCode.json?ref_type=heads). This is a JSON configuration that defines data residency risk for data originating from these countries using the parameter `residencyRisk` and the data types to which this risk status does not apply using the parameter `typesNotApplyDataResidency`. Below is a sample configuration for data originating from Australia as an example:
+The creation of legal tags is governed by a configuration hosted on each Azure Data Manager for Energy resource, defined in OSDU&reg; as the [legal service default configuration](https://community.opengroup.org/osdu/platform/security-and-compliance/legal/-/blob/master/legal-core/src/main/resources/DefaultCountryCode.json?ref_type=heads). This is a JSON configuration that defines data residency risk for data originating from these countries using the parameter **residencyRisk** and the data types to which this risk status doesn't apply using the parameter **typesNotApplyDataResidency**. Below is a sample configuration for data originating from Australia as an example:
 
 ```json
 {
@@ -26,9 +26,9 @@ The creation of legal tags is governed by a configuration hosted on each Azure D
 }
 ```
 
-The `residencyRisk` can take the values ‘default’, ‘Not Assigned’, ‘Embargoed’, and ‘No restriction’. For countries configured as ‘No restriction’, creating legal tags and subsequently data ingestion is allowed. However, for all other statuses, an attempt to create legal tags would fail.
+The **residencyRisk** can take the values `default`, `Not Assigned`, `Embargoed`, and `No restriction`. For countries configured as `No restriction`, creating legal tags and later data ingestion is allowed. However, for all other statuses, an attempt to create legal tags would fail.
 
-For countries with status as ‘default’ and ‘Not Assigned’, the default configuration can be overridden by changing the residencyRisk to ‘client consent required’ in a legal service configuration maintained in `Legal_COO.json`. This change in configuration is the recommended method to enable legal tags for restricted country of origins. More details on this can be found here. As an example, Brazil’s default status does not allow the creation of legal tags for data ingestion with Brazil as the country of origin:
+For countries with status as `default` and `Not Assigned`, the default configuration can be overridden by changing the residencyRisk to `client consent required` in a legal service configuration maintained in `Legal_COO.json`. This change in configuration is the recommended method to enable legal tags for restricted country of origins. As an example, Brazil’s default status doesn't allow the creation of legal tags for data ingestion with Brazil as the country of origin:
 
 ```json
 {
@@ -66,7 +66,12 @@ To enable this change, you should raise a support ticket on the Azure portal usi
 > Multiple partition configuration changes can be submitted in the same request by clearly specifying the partition name and the associated country-specific configuration changes.
 
 > [!NOTE]
-> The country-specific configuration can also be reversed to the original state of ‘default’ or ‘Not Assigned’ if the customer chooses.
+> The country-specific configuration can also be reversed to the original state of 'default' or 'Not Assigned' if the customer chooses.
 
 > [!IMPORTANT]
-> Microsoft is neither responsible for, nor consults or recommends changes to the residencyRisk status of country-specific configurations. The customer, by making such a request to allow data from these countries of origin by changing the configuration, is doing so at their own risk and understanding.
+> Microsoft isn't responsible for, and consults not or recommends changes to the **residencyRisk** status of country-specific configurations. The customer, by making such a request to allow data from these countries of origin by changing the configuration, is doing so at their own risk and understanding.
+
+## Related content
+
+* [Legal service](https://osdu.pages.opengroup.org/platform/security-and-compliance/legal/)
+* [Allow data ingestion from specific country of origin](https://osdu.pages.opengroup.org/platform/security-and-compliance/legal/AllowDataIngestionFromCertainCOO/)
