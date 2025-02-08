@@ -39,6 +39,14 @@ Gather the following values for the spark configuration:
    - `<LOG_ANALYTICS_WORKSPACE_KEY>`: Log Analytics key. To find this, in the Azure portal, go to **Azure Log Analytics workspace** > **Agents** > **Primary key**.
 
 ```properties
+spark.synapse.logAnalytics.enabled true
+spark.synapse.logAnalytics.workspaceId <LOG_ANALYTICS_WORKSPACE_ID>
+spark.synapse.logAnalytics.secret <LOG_ANALYTICS_WORKSPACE_KEY>
+```
+
+Alternatively, to apply the same configuration as Fabric, use the following properties:
+
+```properties
 spark.synapse.diagnostic.emitters: LA
 spark.synapse.diagnostic.emitter.LA.type: "AzureLogAnalytics"
 spark.synapse.diagnostic.emitter.LA.categories: "Log,EventLog,Metrics"
@@ -65,6 +73,15 @@ To configure Azure Key Vault to store the workspace key, follow these steps:
    - `<LOG_ANALYTICS_WORKSPACE_ID>`: The Log Analytics workspace ID.
    - `<AZURE_KEY_VAULT_NAME>`: The key vault name that you configured.
    - `<AZURE_KEY_VAULT_SECRET_KEY_NAME>` (optional): The secret name in the key vault for the workspace key. The default is `SparkLogAnalyticsSecret`.
+
+```properties
+spark.synapse.logAnalytics.enabled true
+spark.synapse.logAnalytics.workspaceId <LOG_ANALYTICS_WORKSPACE_ID>
+spark.synapse.logAnalytics.keyVault.name <AZURE_KEY_VAULT_NAME>
+spark.synapse.logAnalytics.keyVault.key.secret <AZURE_KEY_VAULT_SECRET_KEY_NAME>
+```
+
+Alternatively, to apply the same configuration as Fabric, use the following properties:
 
 ```properties
 spark.synapse.diagnostic.emitters LA
@@ -96,7 +113,17 @@ To configure a Key Vault linked service in Synapse Studio to store the workspace
 
     d. Choose your key vault, and select **Create**.
 
-1. Add a `spark.synapse.diagnostic.emitter.LA.secret.keyVault.linkedService` item to the Apache Spark configuration.
+1. Add a `spark.synapse.logAnalytics.keyVault.linkedServiceName` item to the Apache Spark configuration.
+
+```properties
+spark.synapse.logAnalytics.enabled true
+spark.synapse.logAnalytics.workspaceId <LOG_ANALYTICS_WORKSPACE_ID>
+spark.synapse.logAnalytics.keyVault.name <AZURE_KEY_VAULT_NAME>
+spark.synapse.logAnalytics.keyVault.key.secret <AZURE_KEY_VAULT_SECRET_KEY_NAME>
+spark.synapse.logAnalytics.keyVault.linkedServiceName <LINKED_SERVICE_NAME>
+```
+
+Alternatively, to apply the same configuration as Fabric, use the following properties:
 
 ```properties
 spark.synapse.diagnostic.emitters LA
