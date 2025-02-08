@@ -6,9 +6,9 @@ ms.date: 02/07/2025
 
 ---
 
-# QuickStart: Get started with Apache Kafka & Apache Flink on Confluent Cloud
+# Quickstart: Get started with Apache Kafka & Apache Flink on Confluent Cloud
 
-In this quickstart, you'll use the Azure portal to create an instance of Apache Kafka® & Apache Flink® on Confluent Cloud™.
+In this quickstart, you use the Azure portal to create an instance of Apache Kafka® & Apache Flink® on Confluent Cloud™.
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ In this quickstart, you'll use the Azure portal to create an instance of Apache 
 
 ## Basics tab
 
-The *Basics* tab has 3 sections:
+The *Basics* tab has three sections:
 
 - Project details
 - Azure resource details
