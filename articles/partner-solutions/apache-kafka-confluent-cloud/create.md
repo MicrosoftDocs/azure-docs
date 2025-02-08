@@ -54,7 +54,7 @@ There are required fields (identified with a red asterisk) in each section that 
     > [!NOTE]
     > If you choose to associate your resource with an existing organization, the resource is billed to that organization's plan. 
 
-    Select the **Change plan** link to change your [billing plan](overview.md#billing)
+    Select the **Change plan** link to change your [billing plan](overview.md#billing).
 
     The remaining fields update to reflect the details of the plan you selected for this new organization.
 
