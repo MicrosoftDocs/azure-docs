@@ -44,7 +44,7 @@ spark.synapse.logAnalytics.workspaceId <LOG_ANALYTICS_WORKSPACE_ID>
 spark.synapse.logAnalytics.secret <LOG_ANALYTICS_WORKSPACE_KEY>
 ```
 
-Alternatively, to apply the same configuration as Fabric, use the following properties:
+Alternatively, use the following properties:
 
 ```properties
 spark.synapse.diagnostic.emitters: LA
@@ -81,7 +81,7 @@ spark.synapse.logAnalytics.keyVault.name <AZURE_KEY_VAULT_NAME>
 spark.synapse.logAnalytics.keyVault.key.secret <AZURE_KEY_VAULT_SECRET_KEY_NAME>
 ```
 
-Alternatively, to apply the same configuration as Fabric, use the following properties:
+Alternatively, use the following properties:
 
 ```properties
 spark.synapse.diagnostic.emitters LA
@@ -123,7 +123,7 @@ spark.synapse.logAnalytics.keyVault.key.secret <AZURE_KEY_VAULT_SECRET_KEY_NAME>
 spark.synapse.logAnalytics.keyVault.linkedServiceName <LINKED_SERVICE_NAME>
 ```
 
-Alternatively, to apply the same configuration as Fabric, use the following properties:
+Alternatively, use the following properties:
 
 ```properties
 spark.synapse.diagnostic.emitters LA
