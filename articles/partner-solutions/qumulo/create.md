@@ -58,10 +58,10 @@ There are required fields (identified with a red asterisk) in each section that 
 
 1. Enter the values for each required setting under *Azure Resource details*.
 
-    | Field              | Action                                    |
-    |--------------------|-------------------------------------------|
-    | Resource name      | Specify a unique name for the resource.   |
-    | Region             | Select a region to deploy your resource.  |
+    | Field              | Action                                                                        |
+    |--------------------|-------------------------------------------------------------------------------|
+    | Resource name      | Specify a unique name for the resource.                                       |
+    | Region             | Select an [Azure region](overview.md#azure-regions) to deploy your resource.  |
 
 1. Enter the values for each required setting under *Administrator account credentials*.
 
@@ -72,17 +72,14 @@ There are required fields (identified with a red asterisk) in each section that 
 
 1. Enter the values for each required setting under *Qumulo file system details*.
 
-    | Field             | Action                                                                                           |
-    |-------------------|--------------------------------------------------------------------------------------------------|
-    | Storage class     | Choose the storage class for your workloads.                                                     |
-    | Availability Zone | Choose the availability zone where Azure will provision your Qumulo file system.                 |
+    | Field             | Action                                                                                                                   |
+    |-------------------|--------------------------------------------------------------------------------------------------------------------------|
+    | Storage class     | Choose the [storage class](overview.md#storage-class) for your workloads.                                                |
+    | Availability Zone | Choose the [availability zone](overview.md#azure-availability-zones) where Azure will provision your Qumulo file system. |
 
-    > [!NOTE]
-    > If you choose to associate your resource with an existing organization, the resource is billed to that organization's plan. 
+    Select the **Change plan** link to change your [billing plan](overview.md#billing).
 
-    Select the **Change plan** link to change your billing plan.
-
-    The remaining fields update to reflect the details of the plan you selected for this new organization.
+    The remaining fields update to reflect the details of the plan you selected for this resource.
 
 1. Select the **Next** button at the bottom of the page.
 
