@@ -38,7 +38,7 @@ Azure Native Qumulo Scalable File Service provides the following capabilities:
 
 ### Storage class
 
-Azure Native Qumulo allows offers multiple storage class options for your workloads.
+Azure Native Qumulo offers multiple storage class options for your workloads.
 
 See Qumulo's documentation to learn more about [storage class options](https://docs.qumulo.com/azure-native-administrator-guide/getting-started/how-azure-native-qumulo-works.html#using-cold-workloads). 
 
