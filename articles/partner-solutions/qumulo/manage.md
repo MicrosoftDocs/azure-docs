@@ -29,25 +29,10 @@ This article describes how to manage your instance of Azure Native Qumulo Scalab
 
 For help with configuring and using your file system, see the [Qumulo documentation hub](https://docs.qumulo.com/azure-guide/).
 
-## Delete the Qumulo file system
+## Delete an Azure Native Qumulo resource
 
-To delete your Qumulo file system, you delete your deployment of Azure Native Qumulo Scalable File Service:
+[!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
-1. In the Azure portal, select your deployment of Azure Native Qumulo Scalable File Service.
-1. On the **Resource** menu, select **Overview**.
-1. Select **Delete**.
-1. Confirm that you want to delete Azure Native Qumulo Scalable File Service, along with associated data and other resources attached to the service.
-1. Select **Delete**. This action is not reversible. The data contained in the file system is permanently deleted.
+## Related content
 
-:::image type="content" source="media/qumulo-how-to-manage/qumulo-delete.png" alt-text="Screenshot of a Qumulo overview with the delete button.":::
-
-## Next steps
-- [Quickstart: Get started with Azure Native Qumulo Scalable File Service](create.md)
-- [Troubleshoot Azure Native Qumulo Scalable File Service](troubleshoot.md)
-- Get started with Azure Native Qumulo Scalable File Service on
-
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Qumulo.Storage%2FfileSystems)
-
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qumulo1584033880660.qumulo-saas-mpp?tab=Overview)
+- [Troubleshoot Azure Native Qumulo](troubleshoot.md)
