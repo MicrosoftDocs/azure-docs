@@ -15,7 +15,7 @@ In this quickstart, you create an instance of Qumulo Scalable File Service.
 
 [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
 
-   > [!NOTE]
+   > [!IMPORTANT]
    >
    > For custom roles, you also need write access to:
    >
@@ -26,9 +26,9 @@ In this quickstart, you create an instance of Qumulo Scalable File Service.
 - A [delegated subnet](/azure/virtual-network/manage-subnet-delegation?tabs=manage-subnet-delegation-portal) for Qumulo Scalable File Service.
 
    > [!NOTE]
-   > The selected subnet address range should have at least 256 IP addresses: 251 free and 5 Azure reserved addresses.
-   >
-   > Your Qumulo subnet should be in the same region as that of the Qumulo service. The subnet must be delegated to `Qumulo.Storage/fileSystems`.
+   > 
+   > - The selected subnet address range should have at least 256 IP addresses: 251 free and 5 Azure reserved addresses.
+   > - Your Qumulo subnet should be in the same region as that of the Qumulo service. The subnet must be delegated to `Qumulo.Storage/fileSystems`.
 
 ## Create a Qumulo resource
 
