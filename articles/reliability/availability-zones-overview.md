@@ -4,7 +4,7 @@ description: Learn about availability zones and how to use them to design resili
 ms.service: azure
 ms.subservice: azure-availability-zones
 ms.topic: conceptual
-ms.date: 01/30/2025
+ms.date: 02/10/2025
 ms.author: anaharris
 author: anaharris-ms
 ms.custom: references_regions, subject-reliability, ai-video-concept
