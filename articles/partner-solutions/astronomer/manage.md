@@ -16,7 +16,7 @@ This article describes how to manage the settings for Astro resources.
 
 [!INCLUDE [manage](../includes/manage.md)]
 
-:::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of an Astro resource in the Azure portal with the overview displayed in the working pane.":::
+:::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of an Astro resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/resource-overview.png":::
 
 The *Essentials* details include:
 
