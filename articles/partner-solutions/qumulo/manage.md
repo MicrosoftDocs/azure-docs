@@ -38,7 +38,7 @@ Below the essentials, you can navigate to other details about your resource.
 
 ## Manage Qumulo file system
 
-To manage yur Qumulo file system or to mount your file system for data access, select **Qumulo config** > **IP addresses** from the service menu. 
+To manage your Qumulo file system or to mount your file system for data access, select **Qumulo config** > **IP addresses** from the service menu. 
 
 ## Delete an Azure Native Qumulo resource
 
