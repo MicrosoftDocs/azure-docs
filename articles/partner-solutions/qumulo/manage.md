@@ -1,33 +1,44 @@
 ---
-title: Manage Azure Native Qumulo Scalable File Service
-description: This article describes how to manage Azure Native Qumulo Scalable File Service in the Azure portal. 
+title: Manage Azure Native Qumulo
+description: Learn how to manage your Azure Native Qumulo settings.
 
 ms.topic: how-to 
-ms.date: 11/15/2023
+ms.date: 02/09/2024
 ms.custom:
   - ignite-2023
 ---
 
 
-# Manage Azure Native Qumulo Scalable File Service
+# Manage Azure Native Qumulo
 
-This article describes how to manage your instance of Azure Native Qumulo Scalable File Service.
+This article describes how to manage the settings for an Azure Native Qumulo resource.
 
-## Manage the Qumulo resource 
+## Resource overview 
 
-1. In the Azure portal, browse to your instance of Azure Native Qumulo Scalable File Service.
+[!INCLUDE [manage](../includes/manage.md)]
 
-1. On the **Resource** menu, select **Overview** to see some of the settings for your Qumulo resource.
+:::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of a Qumulo resource in the Azure portal with the overview displayed in the working pane.":::
 
-   :::image type="content" source="media/qumulo-how-to-manage/qumulo-overview.png" alt-text="Screenshot that shows selections for getting details about a Qumulo resource.":::
+The *Essentials* details include:
 
-1. The **Resource** menu has other settings that you can examine and change. For example, selecting **IP addresses** displays the IP addresses that you can use to manage the file system.
+- Resource group
+- Location
+- Subscription
+- Subscription ID
+- Tags
+- Qumulo Core Web UI Login
+- Service type
+- Availability Zone
+- Virtual network/subnet
+- Status
 
-   :::image type="content" source="media/qumulo-how-to-manage/qumulo-ip-addresses.png" alt-text="Screenshot that shows selections for displaying IP addresses associated with a file system.":::
+To manage your resource, select the links next to corresponding details.
 
-## Configure and use the Qumulo file system
+Below the essentials, you can navigate to other details about your resource.
 
-For help with configuring and using your file system, see the [Qumulo documentation hub](https://docs.qumulo.com/azure-guide/).
+## Manage Qumulo file system
+
+To manage yur Qumulo file system or to mount your file system for data access, select **Qumulo config** > **IP addresses** from the service menu. 
 
 ## Delete an Azure Native Qumulo resource
 
