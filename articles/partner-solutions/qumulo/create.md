@@ -71,6 +71,8 @@ There are required fields (identified with a red asterisk) in each section that 
 
 ### Networking tab
 
+:::image type="content" source="media/create/networking-tab.png" alt-text="A screenshot of the Create a Qumulo resource in Azure options inside of the Azure portal's working pane with the Networking tab displayed.":::
+
 Enter the values for each required setting.
 
     | Field             | Action                                                |
