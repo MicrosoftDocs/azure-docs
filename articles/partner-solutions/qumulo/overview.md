@@ -19,7 +19,7 @@ The Azure Native Qumulo offering on Azure Marketplace allows you to create and m
 
 ## Versions
 
- Azure Native Qumulo is available in 2 versions:
+ Azure Native Qumulo is available in two versions:
 
 - ANQ v2: Qumulo's latest offering that provides highly performant, highly scalable, and highly durable cost effective cloud filesystem with pay as you go pricing capabilities.
 - ANQ v1: Qumulo's initial storage architecture offering that features two distinct tiers - standard and performance and this service version is billed on deployed capacity.
@@ -50,7 +50,7 @@ See Qumulo's documentation to learn more about [storage class options](https://d
 
 ### Azure availability zones
 
-You can choose the [availability zone](/azure/reliability/availability-zones-overview) where Azure will provision your Qumulo file system when you create your Qumulo resource. 
+You can choose the [availability zone](/azure/reliability/availability-zones-overview) when you create your Qumulo resource. 
 
 ### Billing
 
