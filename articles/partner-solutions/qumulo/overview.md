@@ -36,21 +36,11 @@ Azure Native Qumulo Scalable File Service provides the following capabilities:
 - **Private access** - The service is directly connected to your own virtual network (sometimes called _VNet injection_).
 - **Global Namespaces** - This capability enables all workloads on Azure Native Qumulo v2 Scalable File Service or on-premises Qumulo instance to be pointed to a single namespace.
 
-### Azure regions
-
-Azure Native Qumulo stores and processes data only in the [Azure region](/azure/reliability/regions-overview) where the service was deployed. No data is stored outside that region.
-
-See Qumulo's documentation for a list of [supported Azure Regions](https://docs.qumulo.com/azure-native-administrator-guide/getting-started/how-azure-native-qumulo-works.html#supported-azure-regions).
-
 ### Storage class
 
 Azure Native Qumulo allows offers multiple storage class options for your workloads.
 
 See Qumulo's documentation to learn more about [storage class options](https://docs.qumulo.com/azure-native-administrator-guide/getting-started/how-azure-native-qumulo-works.html#using-cold-workloads). 
-
-### Azure availability zones
-
-You can choose the [availability zone](/azure/reliability/availability-zones-overview) when you create your Qumulo resource. 
 
 ### Billing
 
@@ -63,6 +53,15 @@ You can choose between available plans when you create your Qumulo resource.
 [!INCLUDE [subscribe](../includes/subscribe.md)] *Azure Native Qumulo*.
 
 [!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
+
+> [!NOTE]
+> 
+> When you create the service instance, the following entities are also created and mapped to a Qumulo file system namespace:
+> 
+> - A delegated subnet that enables the Qumulo service to inject service endpoints (eNICs) into your virtual network.
+> - A managed resource group that has internal networking and other resources required for the Qumulo service.
+> - A Qumulo resource in the region of your choosing. This entity stores and manages your data.
+> - A Software as a Service (SaaS) resource, based on the plan that you select in the Azure Marketplace offer for Qumulo. This resource is used for billing.
 
 ## Qumulo links
 
