@@ -82,6 +82,30 @@ All outbound internet traffic traverses the NAT gateway to the internet. Use the
 
 # [**CLI**](#tab/cli)
 
+Use [az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az_network_public_ip_create) to create a public IP address for the NAT gateway. 
+
+```azurecli-interactive
+# Create a public IP address
+az network public-ip create \
+    --resource-group test-rg \
+    --name public-ip-nat \
+    --sku Standard \
+    --allocation-method Static \
+    --zone 1 2 3
+```
+
+Use [az network nat gateway create](/cli/azure/network/nat-gateway?view=azure-cli-latest#az_network_nat_gateway_create) to create the NAT gateway.
+
+```azurecli-interactive
+# Create a NAT gateway
+az network nat gateway create \
+    --resource-group test-rg \
+    --name nat-gateway \
+    --public-ip-addresses public-ip-nat \
+    --idle-timeout 4 \
+    --location eastus2
+```
+
 ---
 
 ## Create hub virtual network
@@ -164,6 +188,10 @@ It takes a few minutes for the bastion host to deploy. When the virtual network 
 # [**Powershell**](#tab/powershell)
 
 # [**CLI**](#tab/cli)
+
+
+
+
 
 ---
 
