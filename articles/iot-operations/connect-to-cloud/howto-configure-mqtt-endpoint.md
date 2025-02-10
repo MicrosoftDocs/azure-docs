@@ -127,7 +127,7 @@ You can also create new local MQTT broker endpoints with custom settings. For ex
     | Host                 | The hostname and port of the MQTT broker. Use the format `<hostname>:<port>`                                |
     | Authentication method | The method used for authentication. Choose [*Service account token*](#kubernetes-service-account-token-sat), or [*X509 certificate*](#x509-certificate) |
     | Service audience      | The audience for the service account token. Required if using *Service account token*. |
-    | X509 client certificate | The X.509 client certificate used for authentication. Required if using *X509 certificate*. |
+    | X509 client certificate | The X.509 client certificate used for authentication. Required if using *X509 certificate*. You can upload industry-standard multi-line X509 certificates improving device authentication management, security, and flexibility.|
     | X509 client key       | The private key corresponding to the X.509 client certificate. Required if using *X509 certificate*. |
     | X509 intermediate certificates | The intermediate certificates for the X.509 client certificate chain. Required if using *X509 certificate*. |
 
@@ -372,7 +372,7 @@ For other MQTT brokers, you can configure the endpoint, TLS, authentication, and
     | Host                  | The hostname of the MQTT broker endpoint in the format `<hostname>.<port>`. |
     | Authentication method | The method used for authentication. Choose [*Service account token*](#kubernetes-service-account-token-sat), or [*X509 certificate*](#x509-certificate). |
     | Service audience      | The audience for the service account token. Required if using *Service account token*. |
-    | X509 client certificate | The X.509 client certificate used for authentication. Required if using *X509 certificate*. |
+    | X509 client certificate | The X.509 client certificate used for authentication. Required if using *X509 certificate*.  You can upload industry-standard multi-line X509 certificates improving device authentication management, security, and flexibility.  |
     | X509 client key       | The private key corresponding to the X.509 client certificate. Required if using *X509 certificate*. |
     | X509 intermediate certificates | The intermediate certificates for the X.509 client certificate chain. Required if using *X509 certificate*. |
     
@@ -614,7 +614,7 @@ If you select **Create new**, enter the following settings:
 | Setting | Description |
 | ------- | ----------- |
 | Secret name | The name of the secret in Azure Key Vault. Pick a name that is easy to remember to select the secret later from the list. |
-| Secret value | The certificate, private key, or intermediate certificates in PEM format. |
+| Secret value | The certificate, private key, or intermediate certificates in PEM format. You can upload industry-standard multi-line X509 certificates improving device authentication management, security, and flexibility. |
 | Set activation date | If turned on, the date when the secret becomes active. |
 | Set expiration date | If turned on, the date when the secret expires. |
 

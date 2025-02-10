@@ -313,10 +313,7 @@ When the source is an MQTT (Event Grid included) endpoint, you can use the MQTT 
 
 # [Portal](#tab/portal)
 
-In the operations experience data flow **Source details**, select **Message broker**, then use the **Topic** field to specify the MQTT topic filter to subscribe to for incoming messages.
-
-> [!NOTE]
-> Only one topic filter can be specified in the operations experience. To use multiple topic filters, use Bicep or Kubernetes.
+In the operations experience data flow **Source details**, select **Message broker**, then use the **Topic(s)** field to specify the MQTT topic filters to subscribe to for incoming messages. You can add multiple MQTT topics by selecting **Add row** and entering a new topic.
 
 # [Bicep](#tab/bicep)
 
