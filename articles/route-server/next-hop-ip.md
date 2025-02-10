@@ -37,5 +37,5 @@ Next hop IP addresses are set up in the BGP configuration of the target NVAs. Th
 
 ## Related content
 
-- [Configure Azure Route Server](quickstart-configure-route-server-portal.md).
-- [Monitor Azure Route Server](monitor-route-server.md).
+- [Configure Azure Route Server](quickstart-configure-route-server-portal.md)
+- [Monitor Azure Route Server](monitor-route-server.md)
