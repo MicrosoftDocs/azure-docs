@@ -114,7 +114,7 @@ TokenCredential tokenCredential = new ClientSecretCredentialBuilder()
                 .tenantId("")
                 .clientId("")
                 .clientSecret("")
-                .build();;
+                .build();
 ```
 
 The Connection factory can then be instantiated with the below parameters.

@@ -3,12 +3,12 @@ title: "Quickstart: Create a public load balancer - Terraform"
 titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a load balancer by using Terraform.
 services: load-balancer
-author: hisriram96
-manager: vikasbagde
+author: mbender-ms
+manager: kumudD
 ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 01/02/2024
-ms.author: sriramiyer
+ms.date: 01/10/2025
+ms.author: mbender
 ms.custom: devx-track-terraform
 #Customer intent: I want to create a load balancer by using Terraform so that I can load balance internet traffic to VMs.
 ---

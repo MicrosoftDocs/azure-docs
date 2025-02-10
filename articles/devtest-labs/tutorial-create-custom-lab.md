@@ -82,6 +82,7 @@ To add a VM to the lab, follow these steps. For more information, see [Create la
    |**Password**|If you don't use a secret, enter a VM password between 8 and 123 characters long.|
    |**Save as default password**|Select this checkbox to save the password in the Key Vault associated with the lab.|
    |**Virtual machine size**|Keep the default value for the base, or select **Change Size** to select a different size.|
+   |**Hibernation**|Select **Enabled** to enable hibernation for this virtual machine, or select **Disabled** to disable hibernation for this virtual machine. If you enable Hibernation, you also must select **Public IP** in the Advanced settings as Private and Shared IP are currently not supported if Hibernation is enabled.|
    |**OS disk type**|Keep the default value for the base, or select a different option from the dropdown list.|
    |**Artifacts**|Optionally, select **Add or Remove Artifacts** to [select and configure artifacts](devtest-lab-add-vm.md#add-artifacts-during-installation) to add to the VM.|
 

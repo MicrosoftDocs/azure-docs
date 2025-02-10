@@ -18,7 +18,7 @@ Microsoft Sentinel uses Azure Monitor's Log Analytics environment and the Kusto 
 ## Microsoft technical resources
 
 ### Microsoft Sentinel documentation
-- [Kusto Query Language in Microsoft Sentinel](kusto-overview.md)
+- [Kusto Query Language in Microsoft Sentinel](/kusto/query/kusto-sentinel-overview)
 
 ### Kusto documentation
 - [Kusto Query Language learning resources](/kusto/query/kql-learning-resources?view=microsoft-sentinel&preserve-view=true)
@@ -29,9 +29,9 @@ Microsoft Sentinel uses Azure Monitor's Log Analytics environment and the Kusto 
 - [Best practices for Kusto Query Language queries](/kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true)
 
 ### Reference guides
-- [KQL quick reference guide](/azure/data-explorer/kql-quick-reference)
-- [SQL to Kusto cheat sheet](/kusto/query/sqlcheatsheet)
-- [Splunk to Kusto Query Language map](/kusto/query/splunk-cheat-sheet)
+- [KQL quick reference guide](/kusto/query/kql-quick-reference?view=microsoft-sentinel&preserve-view=true)
+- [SQL to Kusto cheat sheet](/kusto/query/sqlcheatsheet?view=microsoft-sentinel&preserve-view=true)
+- [Splunk to Kusto Query Language map](/kusto/query/splunk-cheat-sheet?view=microsoft-sentinel&preserve-view=true)
 
 ### Microsoft Sentinel Learn modules
 - [Write your first query with Kusto Query Language](/training/modules/write-first-query-kusto-query-language/)

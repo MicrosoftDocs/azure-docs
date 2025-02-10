@@ -36,7 +36,7 @@ Virtual WAN comes in two flavors: Basic and Standard. In Basic Virtual WAN, hubs
 
 If you see an error in the below format, then please make sure you have the following permissions configured: [Virtual WAN Roles and Permissions](roles-permissions.md#required-permissions)
 
-Error message format: "The client with object id {} does not have authorization to perform action {} over scope {} or the scope is invalid. If access was recently granted, please refresh your credentials."
+Error message format: "The client with object id {} does not have authorization to perform action {} over scope {} or the scope is invalid. For details on the required permissions, please visit {}. If access was recently granted, please refresh your credentials."
 
 ### How are Availability Zones and resiliency handled in Virtual WAN?
 
@@ -149,7 +149,7 @@ Also, be sure to plan for downtime in case you decide to scale up or down on the
 
 ### For User VPN (point-to-site) is Microsoft registered app in Entra Id Authentication supported?
 
-Yes, [Microsoft-registered app](/azure/vpn-gateway/point-to-site-entra-gateway) is supported on Virtual WAN. You can [migrate your User VPN from manually registered app](/azure/vpn-gateway/point-to-site-entra-gateway-update) to Microsoft-registered app for a more secure connectivity.
+Yes, [Microsoft-registered app](/virtual-wan/point-to-site-entra-gateway) is supported on Virtual WAN. You can [migrate your User VPN from manually registered app](/azure/vpn-gateway/point-to-site-entra-gateway-update) to Microsoft-registered app for a more secure connectivity.
 
 ### What are Virtual WAN gateway scale units?
 
@@ -391,7 +391,7 @@ A minimum version of 05-01-2022 (May 1, 2022) is required.
 
 ### Are there any Virtual WAN limits?
 
-See the [Virtual WAN limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-wan-limits) section on the Subscription and service limits page.
+See the [Virtual WAN limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-virtual-wan-limits) section on the Subscription and service limits page.
 
 ### What are the differences between the Virtual WAN types (Basic and Standard)?
 

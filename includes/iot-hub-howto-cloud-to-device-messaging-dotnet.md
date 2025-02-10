@@ -274,7 +274,7 @@ var feedbackReceiver = serviceClient.GetFeedbackReceiver();
 // Define the cancellation token.
 CancellationTokenSource source = new CancellationTokenSource();
 CancellationToken token = source.Token;
-// Call ReceiveAsync, passing the token. Wait for the timout period.
+// Call ReceiveAsync, passing the token. Wait for the timeout period.
 var feedbackBatch = await feedbackReceiver.ReceiveAsync(token);
 if (feedbackBatch == null) continue;
 ```

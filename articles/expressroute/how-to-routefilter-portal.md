@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 08/31/2023
+ms.date: 01/31/2025
 ms.author: duau
 ms.custom: template-tutorial
 ---
@@ -17,110 +17,107 @@ ms.custom: template-tutorial
 > * [Azure CLI](how-to-routefilter-cli.md)
 > 
 
-Route filters are a way to consume a subset of supported services through Microsoft peering. The steps in this article help you configure and manage route filters for ExpressRoute circuits.
+Route filters allow you to consume a subset of supported services through Microsoft peering. This article guides you through configuring and managing route filters for ExpressRoute circuits.
 
-Microsoft 365 services such as Exchange Online, SharePoint Online, and Skype for Business, are accessible through the Microsoft peering. When Microsoft peering gets configured in an ExpressRoute circuit, all prefixes related to these services gets advertised through the BGP sessions that are established. A BGP community value is attached to every prefix to identify the service that is offered through the prefix. For a list of the BGP community values and the services they  map to, see [BGP communities](expressroute-routing.md#bgp).
+Microsoft 365 services, such as Exchange Online, SharePoint Online, and Skype for Business, are accessible through Microsoft peering. When Microsoft peering is configured in an ExpressRoute circuit, all prefixes related to these services are advertised through the BGP sessions. Each prefix has a BGP community value to identify the service it offers. For a list of BGP community values and their corresponding services, see [BGP communities](expressroute-routing.md#bgp).
 
-Connectivity to all Azure and Microsoft 365 services causes a large number of prefixes gets advertised through BGP. The large number of prefixes significantly increases the size of the route tables maintained by routers within your network. If you plan to consume only a subset of services offered through Microsoft peering, you can reduce the size of your route tables in two ways. You can:
+Connecting to all Azure and Microsoft 365 services can result in a large number of prefixes getting advertised through BGP, significantly increasing the size of your route tables. If you only need a subset of services offered through Microsoft peering, you can reduce your route table size by:
 
-* Filter out unwanted prefixes by applying route filters on BGP communities. Route filtering is a standard networking practice and is used commonly within many networks.
-
-* Define route filters and apply them to your ExpressRoute circuit. A route filter is a new resource that lets you select the list of services you plan to consume through Microsoft peering. ExpressRoute routers only send the list of prefixes that belong to the services identified in the route filter.
+* Filtering out unwanted prefixes using route filters on BGP communities, a common networking practice.
+* Defining route filters and applying them to your ExpressRoute circuit. A route filter is a resource that lets you select the services you plan to consume through Microsoft peering. ExpressRoute routers only send prefixes for the services identified in the route filter.
 
 :::image type="content" source="./media/how-to-routefilter-portal/route-filter-diagram.png" alt-text="Diagram of a route filter applied to the ExpressRoute circuit to allow only certain prefixes to be broadcast to the on-premises network." lightbox="./media/how-to-routefilter-portal/route-filter-diagram.png":::
 
-### <a name="about"></a>About route filters
+### About route filters
 
-When Microsoft peering gets configured on your ExpressRoute circuit, the Microsoft edge routers establish a pair of BGP sessions with your edge routers through your connectivity provider. No routes are advertised to your network. To enable route advertisements to your network, you must associate a route filter.
+When Microsoft peering is configured on your ExpressRoute circuit, Microsoft edge routers establish BGP sessions with your edge routers through your connectivity provider. No routes are advertised to your network until you associate a route filter.
 
-A route filter lets you identify services you want to consume through your ExpressRoute circuit's Microsoft peering. It's essentially an allowed list of all the BGP community values. Once a route filter resource gets defined and attached to an ExpressRoute circuit, all prefixes that map to the BGP community values gets advertised to your network.
+A route filter lets you specify the services you want to consume through your ExpressRoute circuit's Microsoft peering. It acts as an allowed list of BGP community values. Once a route filter is defined and attached to an ExpressRoute circuit, all prefixes that map to the BGP community values are advertised to your network.
 
-To attach route filters with Microsoft 365 services, you must have authorization to consume Microsoft 365 services through ExpressRoute. If you aren't authorized to consume Microsoft 365 services through ExpressRoute, the operation to attach route filters fails. For more information about the authorization process, see [Azure ExpressRoute for Microsoft 365](/microsoft-365/enterprise/azure-expressroute).
+To attach route filters with Microsoft 365 services, you must be authorized to consume Microsoft 365 services through ExpressRoute. If you aren't authorized, the operation to attach route filters fail. For more information about the authorization process, see [Azure ExpressRoute for Microsoft 365](/microsoft-365/enterprise/azure-expressroute).
 
 > [!IMPORTANT]
-> Microsoft peering of ExpressRoute circuits that were configured prior to August 1, 2017 will have all Microsoft Office service prefixes advertised through Microsoft peering, even if route filters are not defined. Microsoft peering of ExpressRoute circuits that are configured on or after August 1, 2017 will not have any prefixes advertised until a route filter is attached to the circuit.
-> 
+> Microsoft peering of ExpressRoute circuits configured before August 1, 2017, will have all Microsoft Office service prefixes advertised through Microsoft peering, even without route filters. For circuits configured on or after August 1, 2017, no prefixes will be advertised until a route filter is attached to the circuit.
 
 ## Prerequisites
 
-- Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
+- Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before starting the configuration.
 
-- You must have an active ExpressRoute circuit that has Microsoft peering provisioned. You can use the following instructions to accomplish these tasks:
-  - [Create an ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md) and have the circuit enabled by your connectivity provider before you continue. The ExpressRoute circuit must be in a provisioned and enabled state.
-  - [Create Microsoft peering](expressroute-howto-routing-portal-resource-manager.md) if you manage the BGP session directly. Or, have your connectivity provider provision Microsoft peering for your circuit.
+- Ensure you have an active ExpressRoute circuit with Microsoft peering configured. For instructions, see:
+    - [Create an ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md) and provisioned by your connectivity provider. The circuit must be in a provisioned and enabled state.
+    - [Create Microsoft peering](expressroute-howto-routing-portal-resource-manager.md) if you manage the BGP session directly, or have your connectivity provider create Microsoft peering for your circuit.
 
-## <a name="prefixes"></a>Get a list of prefixes and BGP community values
+## Get a list of prefixes and BGP community values
 
 ### Get a list of BGP community values
 
-BGP community values associated with services accessible through Microsoft peering is available in the [ExpressRoute routing requirements](expressroute-routing.md) page.
+Find the BGP community values associated with services accessible through Microsoft peering on the [ExpressRoute routing requirements](expressroute-routing.md) page.
 
-### Make a list of the values that you want to use
+### Make a list of the values you want to use
 
-Make a list of [BGP community values](expressroute-routing.md#bgp) you want to use in the route filter. 
+List the [BGP community values](expressroute-routing.md#bgp) you want to use in the route filter.
 
-## <a name="filter"></a>Create a route filter and a filter rule
+## Create a route filter and a filter rule
 
-A route filter can have only one rule, and the rule must be of type 'Allow'. This rule can have a list of BGP community values associated with it.
+A route filter can have only one rule, which must be of type *Allow*. This rule can include a list of BGP community values.
 
-1. Select **Create a resource** then search for *Route filter* as shown in the following image:
+1. Select **Create a resource** and search for *Route filter*:
 
-    :::image type="content" source="./media/how-to-routefilter-portal/create-route-filter.png" alt-text="Screenshot that shows the Route filter page.":::
+    :::image type="content" source="./media/how-to-routefilter-portal/create-route-filter.png" alt-text="Screenshot showing the Route filter page.":::
 
-1. Place the route filter in a resource group. Ensure the location is the same as the ExpressRoute circuit. Select **Review + create** and then **Create**.
+1. Place the route filter in a resource group. Ensure the location matches the ExpressRoute circuit. Select **Review + create** and then **Create**.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/create-route-filter-basic.png" alt-text="Screenshot that shows the Create route filter page with example values entered.":::
+    :::image type="content" source="./media/how-to-routefilter-portal/create-route-filter-basic.png" alt-text="Screenshot showing the Create route filter page with example values.":::
 
 ### Create a filter rule
 
-1. To add and update rules, select the manage rule tab for your route filter.
+1. To add and update rules, select the managed rule tab for your route filter.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/manage-route-filter.png" alt-text="Screenshot that shows the Overview page with the Manage rule action highlighted.":::
+    :::image type="content" source="./media/how-to-routefilter-portal/manage-route-filter.png" alt-text="Screenshot showing the Overview page with the Manage rule action highlighted.":::
 
-1. Select the services you want to connect to from the drop-down list and save the rule when done.
+1. Then select the services you want to connect to from the drop-down list and save the rule.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/add-route-filter-rule.png" alt-text="Screenshot that shows the Manage rule window with services selected in the Allowed service communities drop-down list.":::
+    :::image type="content" source="./media/how-to-routefilter-portal/add-route-filter-rule.png" alt-text="Screenshot showing the Manage rule window with services selected in the Allowed service communities drop-down list.":::
 
-## <a name="attach"></a>Attach the route filter to an ExpressRoute circuit
+## Attach the route filter to an ExpressRoute circuit
 
-Attach the route filter to a circuit by selecting the **+ Add Circuit** button and selecting the ExpressRoute circuit from the drop-down list.
+Attach the route filter to a circuit by selecting the **+ Add Circuit** button and choosing the ExpressRoute circuit from the drop-down list.
 
-:::image type="content" source="./media/how-to-routefilter-portal/add-circuit-to-route-filter.png" alt-text="Screenshot that shows the Overview page with the Add circuit action selected.":::
+:::image type="content" source="./media/how-to-routefilter-portal/add-circuit-to-route-filter.png" alt-text="Screenshot showing the Overview page with the Add circuit action selected.":::
 
-If the connectivity provider configures peering for your ExpressRoute circuit, refresh the circuit from the ExpressRoute circuit page before you select the **+ Add Circuit** button.
+If your connectivity provider configures peering for your ExpressRoute circuit, refresh the circuit from the ExpressRoute circuit page before selecting the **+ Add Circuit** button.
 
-:::image type="content" source="./media/how-to-routefilter-portal/refresh-express-route-circuit.png" alt-text="Screenshot that shows the Overview page with the Refresh action selected.":::
+:::image type="content" source="./media/how-to-routefilter-portal/refresh-express-route-circuit.png" alt-text="Screenshot showing the Overview page with the Refresh action selected.":::
 
-## <a name="tasks"></a>Common tasks
+## Common tasks
 
-### <a name="getproperties"></a>To get the properties of a route filter
+### To get the properties of a route filter
 
-You can view properties of a route filter when you open the resource in the portal.
+View the properties of a route filter by opening the resource in the portal.
 
-:::image type="content" source="./media/how-to-routefilter-portal/view-route-filter.png" alt-text="Screenshot that shows the Overview page.":::
+:::image type="content" source="./media/how-to-routefilter-portal/view-route-filter.png" alt-text="Screenshot showing the Overview page.":::
 
-### <a name="updateproperties"></a>To update the properties of a route filter
+### To update the properties of a route filter
 
-1. You can update the list of BGP community values attached to a circuit by selecting the **Manage rule** button.
+1. Update the list of BGP community values attached to a circuit by selecting the **Manage rule** button.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/update-route-filter.png" alt-text="Screenshot that shows how to update Route filters with the Manage rule action.":::
+    :::image type="content" source="./media/how-to-routefilter-portal/update-route-filter.png" alt-text="Screenshot showing how to update Route filters with the Manage rule action.":::
 
 1. Select the service communities you want and then select **Save**.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/add-route-filter-rule.png" alt-text="Screenshot that shows the Manage rule window with services selected.":::
+    :::image type="content" source="./media/how-to-routefilter-portal/add-route-filter-rule.png" alt-text="Screenshot showing the Manage rule window with services selected.":::
 
-### <a name="detach"></a>To detach a route filter from an ExpressRoute circuit
+### To detach a route filter from an ExpressRoute circuit
 
-To detach a circuit from the route filter, right-click on the circuit and select **Dissociate**.
+Detach a circuit from the route filter by right-clicking on the circuit and selecting **Dissociate**.
 
-:::image type="content" source="./media/how-to-routefilter-portal/detach-route-filter.png" alt-text="Screenshot that shows the Overview page with the Dissociate action highlighted.":::
-
+:::image type="content" source="./media/how-to-routefilter-portal/detach-route-filter.png" alt-text="Screenshot showing the Overview page with the Dissociate action highlighted.":::
 
 ## Clean up resources
 
-You can delete a route filter by selecting the **Delete** button. Ensure the Route filter isn't associated to any circuit before doing so.
+Delete a route filter by selecting the **Delete** button. Ensure the route filter isn't associated with any circuit before doing so.
 
-:::image type="content" source="./media/how-to-routefilter-portal/delete-route-filter.png" alt-text="Screenshot that shows how to delete a route filter.":::
+:::image type="content" source="./media/how-to-routefilter-portal/delete-route-filter.png" alt-text="Screenshot showing how to delete a route filter.":::
 
 ## Next Steps
 

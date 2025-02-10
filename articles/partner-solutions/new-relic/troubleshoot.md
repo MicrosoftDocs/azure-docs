@@ -15,7 +15,7 @@ This article describes how to fix common problems when you're working with Azure
 
 [!INCLUDE [marketplace-purchase-errors](../includes/marketplace-purchase-errors.md)]
 
-## You can't create a New Relic resource
+## Can't create a New Relic resource
 
 To set up Azure Native New Relic Service, you must have owner access on the Azure subscription. Ensure that you have the appropriate access before you start the setup.
 
@@ -26,7 +26,7 @@ To register the resource provider from a command line, enter `az provider regist
 
 Only resource types in [supported categories](/azure/azure-monitor/essentials/resource-logs-categories) send logs to New Relic through the integration. To check whether the resource is set up to send logs to New Relic, go to the [Azure diagnostic settings](/azure/azure-monitor/platform/diagnostic-settings) for that resource. Then, verify that there's a New Relic diagnostic setting.
 
-## You can't install or uninstall an extension on a virtual machine
+## Can't install or uninstall an extension on a virtual machine
 
 Only virtual machines without the New Relic agent installed should be selected together to install the extension. Deselect any virtual machines that already have the New Relic agent installed, so that **Install Extension** is active. The **Agent Status** column shows the status **Running** or **Shutdown** for any virtual machines that already have the New Relic agent installed.
 
@@ -42,17 +42,10 @@ New Relic manages the APIs for creating and managing resources, and for the stor
 
 ## Diagnostic settings are active even after disabling the New Relic resource or applying necessary tag rules
 
-If logs are being emitted and diagnostic settings remain active on monitored resources even after the New Relic resource is disabled or tag rules have been modified to exclude certain resources, it's likely that there's a delete lock applied to the resource(s) or the resource group containing the resource. This lock prevents the cleanup of the diagnostic settings, and hence, logs continue to be forwarded for those resources. To resolve this, remove the delete lock from the resource or the resource group. If the lock is removed after the New Relic resource is deleted, the diagnostic settings have to be cleaned up manually to stop log forwarding.
+If logs are being emitted and diagnostic settings remain active on monitored resources even after the New Relic resource is disabled or tag rules were modified to exclude certain resources, it's likely that there's a delete lock applied to the resources or the resource group containing the resource. This lock prevents the cleanup of the diagnostic settings, and hence, logs continue to be forwarded for those resources. To resolve the issue, remove the delete lock from the resource or the resource group. If the lock is removed after the New Relic resource is deleted, the diagnostic settings have to be cleaned up manually to stop log forwarding.
 
 [!INCLUDE [diagnostic-settings](../includes/diagnostic-settings.md)]
 
 ## Next steps
 
-- [Manage Azure Native New Relic Service](new-relic-how-to-manage.md)
-- Get started with Azure Native New Relic Service on
-
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NewRelic.Observability%2Fmonitors)
-
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/newrelicinc1635200720692.newrelic_liftr_payg?tab=Overview)
+- [Get support for Azure Native New Relic Service](support.md)

@@ -4,7 +4,7 @@ description: Learn how to configure redirection settings for iOS/iPadOS Windows 
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 11/09/2024
+ms.date: 01/15/2025
 ---
 
 # Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune
@@ -57,6 +57,10 @@ For the Remote Desktop app:
 | Device platform | Managed devices | Unmanaged devices |
 |--|:--:|:--:|
 | Android | ✅ | ✅ |
+
+> [!IMPORTANT]
+>- You can use Intune mobile application management (MAM) functionality with Windows App on iOS/iPadOS in the Intune commercial service (including Intune for US Government GCC), [Intune for US Government GCC High and DoD](/mem/intune/fundamentals/intune-govt-service-description), and [Intune operated by 21Vianet](/mem/intune/fundamentals/china) (China).
+>- Intune MAM functionality for Windows App on Android is only currently supported in the Intune commercial service.
 
 ## Example scenarios
 
@@ -147,23 +151,21 @@ Before you can configure redirection settings on a client device using Microsoft
 
 - A client device running one of the following versions of Windows App or the Remote Desktop app:
    - For Windows App:
-      - iOS/iPadOS: 11.0.4 or later.
-      - Android: 1.0.145 or later.
+      - iOS/iPadOS: 11.0.8 or later.
+      - Android: 1.0.0.153 or later.
 
    - Remote Desktop app:
       - Android: 10.0.19.1279 or later.
 
 - The latest version of:
    - iOS/iPadOS: Microsoft Authenticator app
-   - Android: Company Portal app, installed in the same profile as Windows App for personal devices.  Both app either in personal profile OR both apps in work profile.
+   - Android: Company Portal app, installed in the same profile as Windows App for personal devices. Both apps need to either be in a personal profile or in a work profile, not one in each profile.
 
 - There are more Intune prerequisites for configuring app configuration policies, app protection policies, and Conditional Access policies. For more information, see:
    - [App configuration policies for Microsoft Intune](/mem/intune/apps/app-configuration-policies-overview).
    - [How to create and assign app protection policies](/mem/intune/apps/app-protection-policies).
    - [Use app-based Conditional Access policies with Intune](/mem/intune/protect/app-based-conditional-access-intune).
    
-> [!IMPORTANT]
-> Intune mobile application management (MAM) functionality isn't currently supported on Android 15 by Remote Desktop or Windows App (preview). MAM runs on older versions of Android. Support for MAM on Android 15 for Windows App (preview) will be supported in an upcoming release.
 
 ## Create a managed app filter
 
@@ -224,14 +226,15 @@ To create and apply an app protection policy, follow the steps in [How to create
 
    - For iOS and iPadOS, you can configure the following settings:
 
-      - Restrict cut, copy, and paste between other apps
-      - Third-party keyboards
+      - **Send org data to other apps**. Set to **None** to enable [screen capture protection](screen-capture-protection.md). 
+      - **Restrict cut, copy, and paste between other apps**
+      - **Third-party keyboards**
 
    - For Android, you can configure the following settings:
 
-      - Restrict cut, copy, and paste between other apps
-      - Screen capture and Google Assistant
-      - Approved keyboards
+      - **Restrict cut, copy, and paste between other apps**
+      - **Screen capture and Google Assistant**
+      - **Approved keyboards**
 
    > [!TIP]
    > If you disable clipboard redirection in an app configuration policy, you should set **Restrict cut, copy, and paste between other apps** to **Blocked**.
@@ -291,4 +294,4 @@ Now that you configure Intune to manage device redirection on personal devices, 
 
 ## Known issues
 
-- Windows App exits without warning if Company Portal and Windows App aren't installed in the same profile. Install both apps either in a personal profile or both apps in a work profile.
+- Android: Windows App exits without warning if Company Portal and Windows App aren't installed in the same profile. Install both apps either in a personal profile or both apps in a work profile.

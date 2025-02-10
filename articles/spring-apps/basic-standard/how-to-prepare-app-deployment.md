@@ -1,5 +1,5 @@
 ---
-title: How to prepare an application for deployment in Azure Spring Apps
+title: How to Prepare an Application for Deployment in Azure Spring Apps
 description: Learn how to prepare an application for deployment to Azure Spring Apps.
 author: KarlErickson
 ms.service: azure-spring-apps
@@ -93,7 +93,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 In the configuration source that's used when the app runs in Azure Spring Apps, set `spring.application.name` to the same name as the Azure Spring Apps app to which the project is deployed.
 
-For example, if you deploy a .NET project named `EurekaDataProvider` to an Azure Spring Apps app named `planet-weather-provider` the *appSettings.json* file should include the following JSON:
+For example, if you deploy a .NET project named `EurekaDataProvider` to an Azure Spring Apps app named `planet-weather-provider` the **appSettings.json** file should include the following JSON:
 
 ```json
 "spring": {
@@ -183,7 +183,7 @@ To enable the built-in features of Azure Spring Apps from service registry to di
 
 ### Service Registry
 
-To use the managed Azure Service Registry service, include the `spring-cloud-starter-netflix-eureka-client` dependency in the *pom.xml* file as shown here:
+To use the managed Azure Service Registry service, include the `spring-cloud-starter-netflix-eureka-client` dependency in the **pom.xml** file as shown here:
 
 ```xml
 <dependency>
@@ -227,7 +227,7 @@ public class GatewayApplication {
 
 #### [Basic/Standard plan](#tab/basic-standard-plan)
 
-To enable distributed configuration, include the following `spring-cloud-config-client` dependency in the dependencies section of your *pom.xml* file:
+To enable distributed configuration, include the following `spring-cloud-config-client` dependency in the dependencies section of your **pom.xml** file:
 
 ```xml
 <dependency>
@@ -271,7 +271,7 @@ To use Application Configuration Service for Tanzu, do the following steps for e
 
 ### Metrics
 
-Include the `spring-boot-starter-actuator` dependency in the dependencies section of your *pom.xml* file as shown here:
+Include the `spring-boot-starter-actuator` dependency in the dependencies section of your **pom.xml** file as shown here:
 
 ```xml
 <dependency>

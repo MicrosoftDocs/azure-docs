@@ -93,7 +93,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: contoso-secret
-type: Qpaque
+type: Opaque
 data:
   username: "<YOUR CAMERA USERNAME BASE64 ENCODED>"
   password: "<YOUR CAMERA PASSWORD BASE64 ENCODED>"
@@ -200,10 +200,16 @@ To verify that snapshots are publishing to the MQTT broker, use the **mosquitto_
 1. At the Bash shell in the **mqtt-client** pod, run the following command to connect to the MQTT broker using the **mosquitto_sub** tool subscribed to the `azure-iot-operations/data` topic:
 
     ```bash
-    mosquitto_sub --host aio-broker --port 18883 --topic "azure-iot-operations/data/#" -V 5 -F '%t %l' --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
+    mosquitto_sub --host aio-broker --port 18883 --topic "azure-iot-operations/data/#" -V 5 -F '%p' -C 1 --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat) > image.jpeg
     ```
 
-    This command continues to run and displays messages as they arrive on the `azure-iot-operations/data` topic until you press **Ctrl+C** to stop it. The output shows the topic the message was published to and its size. To exit the shell environment, type `exit`.
+    This command captures the raw payload from a single message and saves it to a file called **image.jpeg** in the pod's filing system. To exit the pod's shell environment, type `exit`.
+
+1. To copy the image file from the pod to your local machine, run the following command:
+
+    ```console
+    kubectl cp azure-iot-operations/mqtt-client:image.jpeg image.jpeg
+    ```
 
 When you finish testing the asset, you can delete it by running the following command:
 

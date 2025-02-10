@@ -4,7 +4,7 @@ description: In this quickstart, you create and test a private DNS zone and reco
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 06/20/2024
+ms.date: 01/09/2025
 ms.topic: quickstart
 ms.service: azure-dns
 ms.custom: mode-ui
@@ -29,7 +29,7 @@ When you create a virtual network link, you can (optionally) enable autoregistra
 > [!NOTE]
 > Other methods are available for resolving DNS records in private DNS zones that don't always require a virtual network link. These methods are beyond the scope of this quickstart article. For more information, see [What is Azure DNS Private Resolver](dns-private-resolver-overview.md).
 
-In this article, a virtual machines is used in a single virtual network. The virtual network is linked to your private DNS zone with autoregistration enabled. The setup is summarized in the following figure.
+In this article, a virtual machine is used in a single virtual network. The virtual network is linked to your private DNS zone with autoregistration enabled. The setup is summarized in the following figure.
 
 :::image type="content" source="media/private-dns-portal/private-dns-quickstart-summary.png" alt-text="Summary diagram of the quickstart setup." border="false" lightbox="media/private-dns-portal/private-dns-quickstart-summary.png":::
 

@@ -8,8 +8,9 @@ ms.custom:
   - include file
   - ignite-2023
 ---
+Make sure to select your preferred development language at the [top](#top) of the article.
 ::: zone pivot="programming-language-csharp"
-The following table shows the .NET versions supported by Azure Functions. Select your preferred development language at the top of the article. 
+The following table shows the .NET versions supported by Azure Functions.  
 
 The supported version of .NET depends on both your Functions runtime version and your chosen execution model:
 
@@ -70,20 +71,20 @@ Running C# functions in an isolated worker process isn't supported by version 1.
 
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-The following table shows the language versions supported for Java functions. Select your preferred development language at the top of the article.
+The following table shows the language versions supported for Java functions. 
 
-| Supported version | Support level | Expected community EOL date |
+| Supported version | Support level | Supported until |
 | ---- | ---- |--- |
-| [Java 21](/java/openjdk/support#release-and-servicing-roadmap) (Linux-only) | Preview | September 2028 |
-| [Java 17](/java/openjdk/support#release-and-servicing-roadmap) | GA | September 2027 |
-| [Java 11](/java/openjdk/support#release-and-servicing-roadmap) | GA | September 2027 |
-| [Java 8](https://endoflife.date/eclipse-temurin) | GA | November 30, 2026 |
+| **Java 21** (Linux-only) | Preview | See the [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
+| **Java 17** | GA | See the [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
+| **Java 11** | GA |See the [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
+| **Java 8** | GA | See this [Temurin support page](https://adoptium.net/support/). |
 
-For more information, see [Azure Functions Java developer guide](../articles/azure-functions/functions-reference-java.md).
+For more information on developing and running Java functions, see [Azure Functions Java developer guide](../articles/azure-functions/functions-reference-java.md).
 
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-The following table shows the language versions supported for Node.js functions. Select your preferred development language at the top of the article.
+The following table shows the language versions supported for Node.js functions. 
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
@@ -94,7 +95,7 @@ The following table shows the language versions supported for Node.js functions.
 TypeScript is supported through transpiling to JavaScript. For more information, see the [Azure Functions Node.js developer guide](../articles/azure-functions/functions-reference-node.md#supported-versions).
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-The following table shows the language version supported for PowerShell functions. Select your preferred development language at the top of the article.
+The following table shows the language version supported for PowerShell functions. 
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
@@ -104,7 +105,7 @@ The following table shows the language version supported for PowerShell function
 For more information, see [Azure Functions PowerShell developer guide](../articles/azure-functions/functions-reference-powershell.md).
 ::: zone-end
 ::: zone pivot="programming-language-python"
-The following table shows the language versions supported for Python functions. Select your preferred development language at the top of the article.
+The following table shows the language versions supported for Python functions. 
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |

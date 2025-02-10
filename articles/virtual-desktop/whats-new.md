@@ -22,6 +22,10 @@ Make sure to check back here often to keep up with new updates.
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
 
+## December 2024
+
+There were no changes to Azure Virtual Desktop in December 2024.
+
 ## November 2024
 
 Here's what changed in November 2024:
@@ -1248,7 +1252,7 @@ We've made the following improvements to the Azure portal experience:
 
 ### Azure Virtual Desktop Agent troubleshooting
 
-We recently set up the [Azure Virtual Desktop Agent troubleshooting guide](troubleshoot-agent.md) to help customers who have encountered common issues.
+We recently set up the [Azure Virtual Desktop Agent troubleshooting guide](/troubleshoot/azure/virtual-desktop/troubleshoot-agent) to help customers who have encountered common issues.
 
 ### Microsoft Defender for Endpoint integration
 
