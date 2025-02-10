@@ -1,10 +1,10 @@
 ---
 title: Develop APIs with GitHub Copilot for Azure - API Center plugin
-description: API developers can use the Azure API Center plugin for GitHub Copilot for Azure to design and develop compliant APIs with AI assistance.
+description: With AI assistance, API developers can use the Azure API Center plugin for GitHub Copilot for Azure to design and develop compliant APIs.
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 01/27/2025
+ms.date: 02/10/2025
 ms.author: danlep 
 ms.collection: ce-skilling-ai-copilot
 ms.custom: 
@@ -13,7 +13,7 @@ ms.custom:
 
 # Design and develop APIs using API Center plugin for GitHub Copilot for Azure
 
-The API Center plugin for [GitHub Copilot for Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot) (preview) accelerates design and development of new APIs starting from natural language prompts. With AI assistance available through the API Center plugin combined with the API Center VSCode extension, simply describe your API and quickly generate an OpenAPI spec for API development that complies with your organization's standards. After you generate a compliant spec, you can register the API with your [API center](overview.md).
+The API Center plugin for [GitHub Copilot for Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot) (preview) accelerates design and development of new APIs starting from natural language prompts. With AI assistance available through the API Center plugin combined with the API Center VS Code extension, simply describe your API and quickly generate an OpenAPI spec for API development that complies with your organization's standards. After you generate a compliant spec, you can register the API with your [API center](overview.md).
 
 > [!NOTE]
 > This feature is available in the pre-release version of the API Center extension.
@@ -33,13 +33,14 @@ Follow these steps to generate an OpenAPI specification using natural language p
 1. In the chat panel, make a request in natural language to the `@azure` agent to describe what the API does. Example:
 
     ```copilot-prompt
-    @azure Generate OpenAPI spec: An API that allows customers to pay for an order using various payment methods such as cash, checks, credit cards, and debit cards.
+    @azure Generate an OpenAPI spec: An API that allows customers to pay for an order using various payment methods such as cash, checks, credit cards, and debit cards. Check that there are no duplicate keys.
     ```  
+
+    Copilot is powered by AI, so surprises and mistakes are possible. For more information, see Copilot FAQs.
 
     The agent responds with an OpenAPI specification document.
 
     :::image type="content" source="media/design-api-github-copilot-azure/generate-api-specification.png" alt-text="Screenshot showing how to use @azure extension to generate an OpenAPI spec from a prompt.":::
-
 
 1. Review the generated output for accuracy, completeness, and compliance with your API style guide. 
 
@@ -47,8 +48,29 @@ Follow these steps to generate an OpenAPI specification using natural language p
 
     > [!TIP]
     > Effective prompts focus on an API's business requirements rather than implementation details. Shorter prompts sometimes work better than longer ones.
-1. When it meets your requirements, save the generated OpenAPI specification to a file. 
-1. Register the API with your API center. Select **Register your API in API Center** button in the chat panel, or select **Azure API Center: Register API** from the Command Palette, and follow the prompts.
+
+1. When it meets your requirements, save the generated OpenAPI specification to a file.
+
+## Register the API in your API center
+
+Use the Azure API Center extension for VS Code to register the API in your API center from the generated specification file. After registering the API, you can use the extension to view the API documentation, generate an HTTP client, perform further linting and analysis, and more.
+
+
+1. In VS Code, select **Register your API in API Center** button in the chat panel, or select **Azure API Center: Register API** from the Command Palette.
+
+1. Select **Manual**.
+
+1. Select the API center to register APIs with.
+
+1. Answer prompts with information including API title, type, version title, version lifecycle, definition title, specification name, and definition (specification) file to complete API registration.
+
+After the API is registered, you can perform various tasks using the extension. For example, [view API documentation](discover-apis-vscode-extension.md#view-api-documentation) in the Swagger UI:
+
+1. Expand the API Center tree view to show the definition file that you generated and registered.
+
+1. Right-click on the definition, and select **Open API Documentation**. A new tab appears with the Swagger UI for the API definition.
+
+:::image type="content" source="media/design-api-github-copilot-azure/view-definition-swagger-ui.png" alt-text="Screenshot of the Swagger UI in the VS Code extension.":::    
 
 ## Related content
 
