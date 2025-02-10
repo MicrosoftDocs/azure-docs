@@ -126,6 +126,8 @@
     href: blob-backup-configure-tutorial.md  
   - name: Restore vaulted backups for AKS clusters in a secondary region
     href: tutorial-restore-aks-backups-across-regions.md
+  - name: Create a backup policy and configure vaulted backup for Azure Files
+    href: tutorial-backup-azure-files-vault-tier-portal.md  
   - name: Back up Windows Server
     href: tutorial-backup-windows-server-to-azure.md
   - name: Restore files to Windows Server
