@@ -138,16 +138,17 @@ Use the following steps to authenticate using a private key stored in Azure Key 
 
 
 1. To authenticate using a private key stored in Azure Key Vault, configure the following settings:
-| Setting                | Value                                                                 |
-|------------------------|-----------------------------------------------------------------------|
-| **Protocol**           | Select SSH                                                            |
-| **Port**               | Input the port number. Custom port connections are available for the Standard SKU or higher. |
-| **Authentication type**| Select **SSH Private Key from Azure Key Vault** from the dropdown     |
-| **Username**           | Enter the username                                                    |
-| **Subscription**       | Select the subscription                                               |
-| **Azure Key Vault**    | Select the Key Vault                                                  |
-| **Azure Key Vault Secret** | Select the Key Vault secret containing the value of your SSH private key |
 
+    | Setting                | Value                                                                 |
+    |------------------------|-----------------------------------------------------------------------|
+    | **Protocol**           | Select SSH                                                            |
+    | **Port**               | Input the port number. Custom port connections are available for the Standard SKU or higher. |
+    | **Authentication type**| Select **SSH Private Key from Azure Key Vault** from the dropdown     |
+    | **Username**           | Enter the username                                                    |
+    | **Subscription**       | Select the subscription                                               |
+    | **Azure Key Vault**    | Select the Key Vault                                                  |
+    | **Azure Key Vault Secret** | Select the Key Vault secret containing the value of your SSH private key |
+    
 
    * If you didn’t set up an Azure Key Vault resource, see [Create a key vault](/azure/key-vault/secrets/quick-create-powershell) and store your SSH private key as the value of a new Key Vault secret.
 
