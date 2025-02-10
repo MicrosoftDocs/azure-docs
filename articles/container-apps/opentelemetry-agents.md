@@ -57,7 +57,7 @@ The only configuration detail required from Application Insights is the connecti
 
 The connection string contains an instrumentation key, which is a unique identifier used to associate telemetry to a specific Application Insights resource. Instrumentation keys aren't security tokens or security keys, and aren't considered secrets.
 
-If you want to protect your Application Insights resource from misuse, see [Microsoft Entra authentication for Application Insights](/azure/azure-monitor/app/azure-ad-authentication#microsoft-entra-authentication-for-application-insights). However, note that the Application Insights resource must [allow local authentication](/azure/azure-monitor/app/azure-ad-authentication#disable-local-authentication) to receive data from the OpenTelemetry data agent.
+If you want to protect your Application Insights resource from misuse, see [Microsoft Entra authentication for Application Insights](/azure/azure-monitor/app/azure-ad-authentication#microsoft-entra-authentication-for-application-insights). However, the Application Insights resource must [allow local authentication](/azure/azure-monitor/app/azure-ad-authentication#disable-local-authentication) to receive data from the OpenTelemetry data agent.
 
 # [ARM template](#tab/arm)
 
