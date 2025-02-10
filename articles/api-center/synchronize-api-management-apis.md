@@ -75,7 +75,7 @@ You can integrate an API Management instance using the portal or the Azure CLI.
         1. Optionally, select whether to include API definitions with the synchronized APIs.
 1. Select **Create**.
 
-:::image type="content" source="media/synchronize-api-management-apis/link-api-management-service.png" alt-text="Screenshot of integrating an Azure API Management service in the portal.":::
+:::image type="content" source="media/synchronize-api-management-apis/link-api-management-service-small.png" lightbox="media/synchronize-api-management-apis/link-api-management-service.png" alt-text="Screenshot of integrating an Azure API Management service in the portal.":::
 
 #### [Azure CLI](#tab/cli)
 
