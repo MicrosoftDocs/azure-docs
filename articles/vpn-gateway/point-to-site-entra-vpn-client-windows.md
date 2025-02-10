@@ -5,7 +5,7 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 02/07/2025
+ms.date: 02/10/2025
 ms.author: cherylmc
 
 #Audience and custom App ID values are not sensitive data. Please do not remove. They are required for the configuration.
@@ -59,7 +59,7 @@ If your P2S configuration uses a custom audience and your registered app is asso
 
 1. On the client profile page, notice that many of the settings are already specified. The preconfigured settings are contained in the VPN client profile package that you imported. Even though most of the settings are already specified, you need to configure settings specific to the client computer.
 
-1. Change the name of the Connection name (optional). In this example, notice that the Audience value shown is the new Azure Public value associated to the Microsoft-registered Azure VPN Client App ID. The value in this field must match the value that your P2S VPN gateway is configured to use.
+1. Change the name of the Connection name (optional). In this example, notice that the Audience value shown is the value that's associated to the Microsoft-registered Azure VPN Client App ID. The value in this field must match the value that your P2S VPN gateway is configured to use.
 
    :::image type="content" source="./media/point-to-site-entra-vpn-client-windows/connection-properties.png" alt-text="Screenshot shows Save the profile." lightbox="./media/point-to-site-entra-vpn-client-windows/connection-properties.png":::
 
