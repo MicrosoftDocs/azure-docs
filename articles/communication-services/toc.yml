@@ -217,6 +217,8 @@ items:
       href: quickstarts/email/add-custom-verified-domains.md
     - name: Connect domain to send email
       href: quickstarts/email/connect-email-communication-resource.md
+    - name: Email Resource Management
+      href: samples/email-resource-management.md
     - name: Send email
       items:
       - name: Send an email
