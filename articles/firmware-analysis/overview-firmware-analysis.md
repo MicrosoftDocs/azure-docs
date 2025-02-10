@@ -18,7 +18,7 @@ For example, IoT attack vectors typically use easily exploitable--but easily cor
 Use the firmware analysis service to identify embedded security threats, vulnerabilities, and common weaknesses that may be otherwise undetectable.
 
 > [!NOTE]
-> The **Firmware analysis** page is in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The **firmware analysis** page is in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 ## How to be sure your firmware is secure
