@@ -42,6 +42,12 @@
           href: jobs-get-started-cli.md
 - name: Key concepts
   items:
+    - name: Compute and billing structures
+      items:
+      - name: Overview
+        href: structure.md
+      - name: Consumption-only environment type
+        href: environment-type-consumption-only.md
     - name: Compare container options in Azure
       href: compare-options.md
     - name: Plans
@@ -184,6 +190,8 @@
       href: log-streaming.md
     - name: Container console
       href: container-console.md
+    - name: Container debug console
+      href: container-debug-console.md
     - name: Metrics
       href: metrics.md
     - name: Log monitoring
