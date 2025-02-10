@@ -225,7 +225,7 @@ For more information about certificate chains, see [X.509 certificate attestatio
 
 ### Set up the X.509 OpenSSL environment
 
-In this section, you create the Openssl configuration files, directory structure, and other files used by the Openssl commands.
+In this section, you create the OpenSSL configuration files, directory structure, and other files used by the OpenSSL commands.
 
 1. Open a Git Bash command prompt and navigate to a folder where you want to generate the X.509 certificates and keys for this tutorial.
 

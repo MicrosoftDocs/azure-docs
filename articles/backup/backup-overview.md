@@ -2,7 +2,7 @@
 title: What is Azure Backup?
 description: Provides an overview of the Azure Backup service, and how it contributes to your business continuity and disaster recovery (BCDR) strategy.
 ms.topic: overview
-ms.date: 01/30/2024
+ms.date: 01/31/2025
 ms.custom: mvc, engagement-fy24, ignite-2024
 author: jyothisuri
 ms.author: jsuri
@@ -25,6 +25,8 @@ The Azure Backup service provides simple, secure, and cost-effective solutions t
 - **Azure Blobs** - [Overview of operational backup for Azure Blobs](blob-backup-overview.md)
 - **Azure Database for PostgreSQL Flexible server** - [Overview of Azure Database for PostgreSQL Flexible server backup](backup-azure-database-postgresql-flex-overview.md)
 - **Azure Kubernetes service** - [Overview of AKS backup](azure-kubernetes-service-backup-overview.md)
+- **Azure Database for MySQL - Flexible Server backup (preview)** - [Overview of Azure Database for MySQL - Flexible Server  (preview)](backup-azure-mysql-flexible-server-about.md)
+- **SAP ASE (Sybase) database backup on Azure VMs (preview)** - [About SAP ASE (Sybase) database backup on Azure VMs (preview)](sap-ase-database-about.md)
 
 
 ![Azure Backup Overview](./media/backup-overview/azure-backup-overview.png)

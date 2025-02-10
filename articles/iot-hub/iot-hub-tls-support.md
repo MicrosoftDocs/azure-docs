@@ -28,7 +28,7 @@ For Advanced Message Queuing Protocol (AMQP) and Message Queuing Telemetry Trans
 
 For HTTP protocol, when the client makes its first request, IoT Hub checks if the client requires X.509 authentication and if client authentication was complete then IoT Hub performs authorization. If client authentication wasn't complete, then IoT Hub rejects the connection
 
-After a successful TLS handshake, IoT Hub can authenticate a device using a symmetric key or an X.509 certificate. For certificate-based authentication, IoT Hub validates the certificate against the thumbprint or certificate authority (CA) you provide. To learn more, see [Supported X.509 certificates](iot-hub-dev-guide-sas.md#supported-x509-certificates).
+After a successful TLS handshake, IoT Hub can authenticate a device using a symmetric key or an X.509 certificate. For certificate-based authentication, IoT Hub validates the certificate against the thumbprint or certificate authority (CA) you provide. To learn more, see [Authenticate identities with X.509 certificates](authenticate-authorize-x509.md).
 
 ### IoT Hub's server TLS certificate
 

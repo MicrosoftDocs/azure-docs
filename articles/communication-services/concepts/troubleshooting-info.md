@@ -46,7 +46,7 @@ To help you troubleshoot certain issues, you might need one or more of the follo
 * **Short code program brief ID**: Identify a short code program brief application.
 * **Toll-free verification campaign brief ID**: Identify a toll-free verification campaign brief application.
 * **Email message ID**: Identify **Send Email** requests.
-* **Correlation ID**: Identify requests made by using Call Automation.
+* **Correlation ID**: Identify correlated requests made by using Call Automation.
 * **Call logs**: Use the detailed information to troubleshoot calling and network issues.
 
 For more information about throttling and limitations, see [Service limits](service-limits.md).
