@@ -12,7 +12,7 @@ ms.custom: engagement-fy25
 
 # Migration and modernization: Common questions
 
-This article answers common questions about the Migration and modernization tool. If you have other questions, check these resources:
+This article answers common questions about the **Migration and modernization** tool. If you have other questions, check these resources:
 
 * Get [general information](resources-faq.md) about Azure Migrate.
 * Read common questions about the [Azure Migrate appliance](common-questions-appliance.md).
@@ -24,11 +24,11 @@ This article answers common questions about the Migration and modernization tool
 
 ## General questions
 
-### What are the migration options in Migration and modernization?
+### What are the migration options with the Migration and modernization tool?
 
-The Migration and modernization tool offers agentless and agent-based migration to migrate your source servers and virtual machines (VMs) to Azure.
+The **Migration and modernization** tool offers agentless and agent-based migration to migrate your source servers and virtual machines (VMs) to Azure.
 
-Regardless of which migration option you choose, the first step to migrate a server by using the Migration and modernization tool is to start replication for the server. This process performs an initial replication of your VM/server data to Azure. After the initial replication is completed, an ongoing replication (delta sync) is established that migrates incremental data to Azure. After the operation reaches the delta-sync stage, you can choose to migrate to Azure at any time.
+Regardless of which migration option you choose, the first step to migrate a server by using the **Migration and modernization** tool is to start replication for the server. This process performs an initial replication of your VM/server data to Azure. After the initial replication is completed, an ongoing replication (delta sync) is established that migrates incremental data to Azure. After the operation reaches the delta-sync stage, you can choose to migrate to Azure at any time.
 
 Consider the following information as you decide which migration option to use.
 
@@ -93,7 +93,7 @@ We don't recommend using the recovery services vault created by Azure Migrate fo
 
 ### What is the difference between the Test Migration and Migrate operations?
 
-The **Test Migration** option allows you to test and validate migrations before the actual migration. **Test Migration** works by letting you use a sandbox environment in Azure to test the VMs before actual migration. A test virtual network that you specify demarcates the sandbox environment. The **Test Migration** operation is nondisruptive, as long as the test virtual network is sufficiently isolated. A virtual network is sufficiently isolated when you design the inbound and outbound connection rules to avoid unwanted connections. For example: You restrict connection to on-premises machines.
+The **Test Migration** option allows you to test and validate migrations before the actual migration. **Test Migration** works by letting you use a sandbox environment in Azure to test the VMs before actual migration. A test virtual network that you specify demarcates the sandbox environment. The **Test Migration** operation is nondisruptive, as long as the test virtual network is sufficiently isolated. A virtual network is sufficiently isolated when you design the inbound and outbound connection rules to avoid unwanted connections. For example: you restrict connection to on-premises machines.
 
 The applications can continue to run at the source while you perform tests on a cloned copy in an isolated sandbox environment. You can perform multiple tests, as needed, to validate the migration, perform app testing, and address any issues before the actual migration.
 
@@ -126,7 +126,7 @@ The **Test Migration** button could be disabled in the following scenarios:
 
 A test migration simulates the actual migration by creating a test Azure VM by using replicated data. The server is deployed with a point-in-time copy of the replicated data to the target `Resource Group` (that you select when you enable replication) with a `-test` suffix. Test migrations are intended to validate server functionality to minimize post-migration problems.
 
-If the test migration isn't cleaned up after testing, the test VM continues to run in Azure and incurs charges. To clean up after a test migration, go to the **Replicating machines** view in the Migration and modernization tool, and use the **Cleanup test migration** action on the machine.
+If the test migration isn't cleaned up after testing, the test VM continues to run in Azure and incurs charges. To clean up after a test migration, go to the **Replicating machines** view in the **Migration and modernization** tool, and use the **Cleanup test migration** action on the machine.
 
 ### How do I know if my VM successfully migrated?
 
@@ -136,19 +136,19 @@ You can also review the **Job status** for the operation to check if the migrati
 
 ### What happens if I don't stop replication after migration?
 
-When you stop replication, the Migration and modernization tool cleans up the managed disks in the subscription that was created for replication.
+When you stop replication, the **Migration and modernization** tool cleans up the managed disks in the subscription that was created for replication.
 
 ### What happens if I don't select Complete Migration after a migration?
 
-When you select **Complete Migration**, the Migration and modernization tool cleans up the managed disks in the subscription that were created for replication. If you don't select **Complete migration** after a migration, you continue to incur charges for these disks. **Complete migration** doesn't affect the disks attached to machines that already migrated.
+When you select **Complete Migration**, the **Migration and modernization** tool cleans up the managed disks in the subscription that were created for replication. If you don't select **Complete migration** after a migration, you continue to incur charges for these disks. **Complete migration** doesn't affect the disks attached to machines that already migrated.
 
 ### How can I migrate UEFI-based machines to Azure as Azure generation 1 VMs?
 
-The Migration and modernization tool migrates UEFI-based machines to Azure as Azure generation 2 VMs. If you want to migrate them as Azure generation 1 VMs, convert the boot type to BIOS before starting replication, and then use the Migration and modernization tool to migrate to Azure.
+The **Migration and modernization** tool migrates UEFI-based machines to Azure as Azure generation 2 VMs. If you want to migrate them as Azure generation 1 VMs, convert the boot type to BIOS before starting replication, and then use the **Migration and modernization** tool to migrate to Azure.
 
 ### Does Azure Migrate convert UEFI-based machines to BIOS-based machines and migrate them to Azure as Azure generation 1 VMs?
 
-The Migration and modernization tool migrates all the UEFI-based machines to Azure as Azure generation 2 VMs. We no longer support the conversion of UEFI-based VMs to BIOS-based VMs. All the BIOS-based machines are migrated to Azure only as Azure generation 1 VMs.
+The **Migration and modernization** tool migrates all the UEFI-based machines to Azure as Azure generation 2 VMs. We no longer support the conversion of UEFI-based VMs to BIOS-based VMs. All the BIOS-based machines are migrated to Azure only as Azure generation 1 VMs.
 
 ### Which operating systems are supported for migration of UEFI-based machines to Azure?
 
@@ -169,16 +169,16 @@ The Migration and modernization tool migrates all the UEFI-based machines to Azu
 
 ### Can I migrate Active Directory domain controllers by using Azure Migrate?
 
-The Migration and modernization tool is application agnostic and works for most applications. When you migrate a server by using the Migration and modernization tool, all the applications that you install on the server are migrated with it. However, alternate migration methods might be better suited to migrate some applications.
+The **Migration and modernization** tool is application agnostic and works for most applications. When you migrate a server by using the **Migration and modernization** tool, all the applications that you install on the server are migrated with it. However, alternate migration methods might be better suited to migrate some applications.
 
-For Active Directory, the type of environment can be a factor. In a hybrid environment with an on-premises site that's connected to your Azure environment, you can extend your directory into Azure by adding extra domain controllers and setting up Active Directory replication. You can use the Migration and modernization tool if you're:
+For Active Directory, the type of environment can be a factor. In a hybrid environment with an on-premises site that's connected to your Azure environment, you can extend your directory into Azure by adding extra domain controllers and setting up Active Directory replication. You can use the **Migration and modernization** tool if you're:
 
 * Migrating into an isolated environment in Azure that requires its own domain controllers.
 * Testing applications in a sandbox environment.
 
 ### Can I upgrade my OS while migrating?
 
-The Migration and modernization tool now supports Windows OS upgrade during migration. This option isn't currently available for Linux. Get more details on [Windows OS upgrade](how-to-upgrade-windows.md).
+The **Migration and modernization** tool now supports Windows OS upgrade during migration. This option isn't currently available for Linux. Get more details on [Windows OS upgrade](how-to-upgrade-windows.md).
 
 ### Do I need VMware vCenter to migrate VMware VMs?
 
@@ -186,11 +186,11 @@ To [migrate VMware VMs](server-migrate-overview.md) by using VMware agent-based 
 
 ### Can I consolidate multiple source VMs into one VM while migrating?
 
-Migration and modernization capabilities currently support like-for-like migrations. We don't support consolidating servers during the migration.
+The **Migration and modernization** tool currently supports like-for-like migrations. We don't support consolidating servers during the migration.
 
 ### Will Windows Server 2008 and 2008 R2 be supported in Azure after migration?
 
-You can migrate your on-premises Windows Server 2008 and 2008 R2 servers to Azure VMs and get extended security updates for three years after the end-of-support dates at no extra charge above the cost of running the VM. You can use the Migration and modernization tool to migrate your Windows Server 2008 and 2008 R2 workloads.
+You can migrate your on-premises Windows Server 2008 and 2008 R2 servers to Azure VMs and get extended security updates for three years after the end-of-support dates at no extra charge above the cost of running the VM. You can use the **Migration and modernization** tool to migrate your Windows Server 2008 and 2008 R2 workloads.
 
 ### How do I migrate Windows Server 2003 running on VMware/Hyper-V to Azure?
 
@@ -198,13 +198,13 @@ You can migrate your on-premises Windows Server 2008 and 2008 R2 servers to Azur
 
 We recommend that you migrate your applications to Azure instances running a newer version of Windows Server to ensure that you're effectively using the flexibility and reliability of the Azure cloud.
 
-If you still choose to migrate Windows Server 2003 to Azure, you can use the Migration and modernization tool if your Windows Server deployment is a VM that runs on VMware or Hyper-V. Review this article to [prepare your Windows Server 2003 machines for migration](./prepare-windows-server-2003-migration.md).
+If you still choose to migrate Windows Server 2003 to Azure, you can use the **Migration and modernization** tool if your Windows Server deployment is a VM that runs on VMware or Hyper-V. Review this article to [prepare your Windows Server 2003 machines for migration](./prepare-windows-server-2003-migration.md).
 
 ## Agentless VMware migration
 
 ### How does agentless migration work?
 
-The Migration and modernization tool provides agentless replication options for the migration of VMware and Hyper-V VMs running Windows or Linux. The tool provides another agent-based replication option for Windows and Linux servers. This other option can be used to migrate physical servers and x86/x64 VMs on providers like VMware, Hyper-V, AWS, and GCP.
+The **Migration and modernization** tool provides agentless replication options for the migration of VMware and Hyper-V VMs running Windows or Linux. The tool provides another agent-based replication option for Windows and Linux servers. This other option can be used to migrate physical servers and x86/x64 VMs on providers like VMware, Hyper-V, AWS, and GCP.
 
 Agent-based replication requires that you install agent software on the VM/server that you're migrating. The agentless option doesn't require you to install software on the VMs, which can offer convenience and simplicity.
 
@@ -334,7 +334,7 @@ Review [Discover, assess, and migrate Amazon Web Services (AWS) VMs to Azure](./
 
 ### How does agent-based migration work?
 
-The Migration and modernization tool provides an agent-based migration option to migrate Windows and Linux servers running on physical servers, or running as x86/x64 VMs on providers like VMware, Hyper-V, AWS, and GCP.
+The **Migration and modernization** tool provides an agent-based migration option to migrate Windows and Linux servers running on physical servers, or running as x86/x64 VMs on providers like VMware, Hyper-V, AWS, and GCP.
 
 The agent-based migration method uses agent software to replicate server data to Azure. You install the software on the server that you're migrating. The replication process uses an offload architecture in which the agent relays replication data to a dedicated replication server called the replication appliance or configuration server (or to a scale-out process server). For more details, see [Agent-based migration architecture](./agent-based-migration-architecture.md).
 
@@ -363,7 +363,7 @@ For an agent-based method of replication, Azure Site Recovery Deployment Planner
 
 ### How does agentless migration work?
 
-The Migration and modernization tool provides agentless replication options for the migration of VMware and Hyper-V VMs running Windows or Linux. The tool provides another agent-based replication option for Windows and Linux servers. This other option can be used to migrate physical servers, and x86/x64 VMs on providers like VMware, Hyper-V, AWS, and GCP.
+The **Migration and modernization** tool provides agentless replication options for the migration of VMware and Hyper-V VMs running Windows or Linux. The tool provides another agent-based replication option for Windows and Linux servers. This other option can be used to migrate physical servers, and x86/x64 VMs on providers like VMware, Hyper-V, AWS, and GCP.
 
 The agent-based replication option requires that you install agent software on the VM/server that you're migrating. The agentless option doesn't require you to install software on the VMs, which can offer convenience and simplicity.
 
