@@ -485,7 +485,7 @@ When you try to create or update a support ticket, you get the following error m
 
 **Cause**
 
-You're currently signed in with a user that doesn't have permission to the create support requests.
+You're currently signed in with a user that doesn't have permission to create support requests.
 
 **Solution**
 
