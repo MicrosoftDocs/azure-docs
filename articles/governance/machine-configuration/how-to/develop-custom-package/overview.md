@@ -26,8 +26,6 @@ both Windows and Linux. The DSC configuration defines the condition that the mac
 >
 > Don't use secrets or confidential information in custom content packages.
 
-
-
 Use the following steps to develop your own configuration for managing the state of an Azure or
 non-Azure machine.
 
@@ -38,8 +36,8 @@ non-Azure machine.
 1. [Provide access to a package][07]
 1. [Sign the package artifact][08]
 
-The following video provides a step by step guide on how to author a custom machine configuration policy using
-the [GuestConfiguration PowerShell module][09].
+The following video provides a step by step guide on how to author a custom machine configuration
+policy using the [GuestConfiguration PowerShell module][09].
 
 [!VIDEO https://youtu.be/75MTIftSEfk]
 
