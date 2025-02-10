@@ -36,7 +36,7 @@ A **major release** introduces significant changes, often including new features
 ### Improvements and issues that are fixed
 
 - **Bug fixes and performance improvements**: The version improved security and resilience by addressing vulnerabilities, updating Azure Linux base images, and reinforcing container security. These updates enhance threat mitigation and compliance. 
-- **Ephemeral Disk Performance Enhancements**: You can now deploy Azure Container Storage on nodes with custom taints, including GPU nodes where [AKS documentation](https://learn.microsoft.com/en-us/azure/aks/gpu-cluster?tabs=add-ubuntu-gpu-node-pool) recommends taints. This feature is supported for **Ephemeral Storage Pools only**, ensuring flexibility in workload placement while maintaining compatibility with Azure Container Storage ephemeral storage pools. 
+- **Ephemeral disk performance enhancements**: You can now deploy Azure Container Storage on nodes with custom taints, including GPU nodes where [AKS documentation](/azure/aks/gpu-cluster?tabs=add-ubuntu-gpu-node-pool) recommends taints. This feature is supported for **ephemeral storage pools only**, providing flexibility in workload placement. 
 
 ## Version 1.2.0 
 
