@@ -36,9 +36,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 Create a virtual network to deploy both the Route Server and the NVA in it. Azure Route Server must be deployed in a dedicated subnet called *RouteServerSubnet*.
 
-1. In the search box at the top of the portal, enter ***virtual network***, and select **Virtual networks** from the search results. 
+1. In the search box at the top of the portal, enter ***virtual networks***, and select **Virtual networks** from the search results. 
 
-    :::image type="content" source="./media/peer-route-server-with-virtual-appliance/portal-search.png" alt-text="Screenshot of searching for virtual networks in the Azure portal." lightbox="./media/peer-route-server-with-virtual-appliance/portal-search.png":::
+    :::image type="content" source="./media/peer-route-server-with-virtual-appliance/virtual-networks-portal-search.png" alt-text="Screenshot of searching for virtual networks in the Azure portal." lightbox="./media/peer-route-server-with-virtual-appliance/virtual-networks-portal-search.png":::
 
 1. On the **Virtual networks** page, select **+ Create**. 
 
@@ -53,8 +53,6 @@ Create a virtual network to deploy both the Route Server and the NVA in it. Azur
     | Name | Enter ***myVirtualNetwork***. |
     | Region | Select an Azure region. This tutorial uses **East US**. |
 
-    :::image type="content" source="./media/peer-route-server-with-virtual-appliance/create-virtual-network-basics.png" alt-text="Screenshot of the Basics tab of creating a virtual network in the Azure portal." lightbox="./media/peer-route-server-with-virtual-appliance/create-virtual-network-basics.png":::
-
 1. Select **IP Addresses** tab or **Next** button twice.
 
 1. On the **IP Addresses** tab, configure **IPv4 address space** to **10.0.0.0/16**, then configure the following subnets:
@@ -63,8 +61,6 @@ Create a virtual network to deploy both the Route Server and the NVA in it. Azur
     | ----------- | -------------------- |
     | mySubnet | 10.0.0.0/24 |
     | RouteServerSubnet | 10.0.1.0/24 |
-
-    :::image type="content" source="./media/peer-route-server-with-virtual-appliance/create-virtual-network-ip-addresses.png" alt-text="Screenshot of the IP addresses tab of creating a virtual network in the Azure portal." lightbox="./media/peer-route-server-with-virtual-appliance/create-virtual-network-ip-addresses.png":::
 
 1. Select **Review + create** and then select **Create** after the validation passes.
 
@@ -103,7 +99,7 @@ In this section, you create an Azure Route Server.
 
 1. Take a note of the **ASN** and **Peer IPs** in the **Overview** page. You need this information to configure the NVA in the next section.
 
-    :::image type="content" source="./media/peer-route-server-with-virtual-appliance/route-server-overview.png" alt-text="Screenshot that shows the Route Server ASN and Peer IPs in the Overview page." lightbox="./media/peer-route-server-with-virtual-appliance/route-server-overview.png":::
+    :::image type="content" source="./media/route-server-overview.png" alt-text="Screenshot that shows the Route Server ASN and Peer IPs in the Overview page." lightbox="./media/route-server-overview.png":::
 
     > [!NOTE]
     > - The ASN of Azure Route Server is always 65515.
@@ -168,8 +164,6 @@ In this section, you configure BGP settings on the VM so it acts as an NVA and c
 
 1. Go to **myNVA** virtual machine and select **Connect**.
 
-    :::image type="content" source="./media/peer-route-server-with-virtual-appliance/connect-vm.png" alt-text="Screenshot that shows how to connect to a VM using RDP in the Azure portal." lightbox="./media/peer-route-server-with-virtual-appliance/connect-vm.png":::
-
 1. On the **Connect** page, select **Download RDP file** under **Native RDP**.
 
 1. Open the downloaded file.
@@ -215,7 +209,7 @@ In this section, you configure BGP settings on the VM so it acts as an NVA and c
 
 1. Select **Add** to save the configuration.
 
-    :::image type="content" source="./media/peer-route-server-with-virtual-appliance/add-peer.png" alt-text="Screenshot that shows how to add the NVA to the Route Server as a peer." lightbox="./media/peer-route-server-with-virtual-appliance/add-peer.png":::
+    :::image type="content" source="./media/add-peer.png" alt-text="Screenshot that shows how to add the NVA to the Route Server as a peer." lightbox="./media/add-peer.png":::
 
 1. Once you add the NVA as a peer, the **Peers** page shows the **myNVA** as a peer:
 
