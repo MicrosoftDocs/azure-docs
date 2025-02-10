@@ -13,7 +13,7 @@ ms.custom: template-concept, references_regions
 
 This article describes new features and updates related to Azure Communication Services.
 
-[!INCLUDE [Survey Request](./includes/survey-request.md)]
+[!INCLUDE [Survey Request](includes/survey-request.md)]
 
 ## December 2024
 
@@ -331,7 +331,7 @@ Building on the power of real-time capabilities, developers now have access to r
 
 :::image type="content" source="media/whats-new-images/real-time-audio-streaming.png" alt-text="Diagram showing how to integrate real-time audio streaming in your app." lightbox="media/whats-new-images/real-time-audio-streaming.png":::
 
-By integrating audio streaming with call automation actions or custom AI models, you can unlock various use cases. These include natural language processing (NLP) for conversation analysis, voice authentication using biometrics, and providing real-time insights and suggestions to agents during active interactions 
+By integrating audio streaming with call automation actions or custom AI models, you can unlock various use cases. These use cases include natural language processing (NLP) for conversation analysis, voice authentication using biometrics, and providing real-time insights and suggestions to agents during active interactions 
 
 For more information, see: 
 

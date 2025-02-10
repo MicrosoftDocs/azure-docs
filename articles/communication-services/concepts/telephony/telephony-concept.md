@@ -18,7 +18,7 @@ ms.subservice: pstn
 
 Azure Communication Services Calling SDKs enable you to add telephony and Public Switched Telephone Network (PSTN) access to your applications. This page summarizes key telephony concepts and capabilities. See the [calling library](../../quickstarts/voice-video-calling/getting-started-with-calling.md) to learn more about specific SDK languages and capabilities.
 
-[!INCLUDE [Survey Request](./includes/survey-request.md)]
+[!INCLUDE [Survey Request](../../includes/survey-request.md)]
 
 ## Telephony overview
 
@@ -26,7 +26,7 @@ Whenever your users interact with a traditional telephone number, the Public Swi
 
 ### Voice Calling (PSTN)
 
-An easy way of adding PSTN connectivity to your app or service, in such case, Microsoft is your telco provider. You can buy numbers directly from Microsoft. Azure Cloud Calling is an all-in-the-cloud telephony solution for Communication Services. It is the simplest option that connects Communication Services to the Public Switched Telephone Network (PSTN) to enable calls to landlines and mobile phones worldwide. Microsoft acts as your PSTN carrier, as shown in the following diagram:
+An easy way of adding PSTN connectivity to your app or service, in such case, Microsoft is your telco provider. You can buy numbers directly from Microsoft. Azure Cloud Calling is an all-in-the-cloud telephony solution for Communication Services. It's the simplest option that connects Communication Services to the Public Switched Telephone Network (PSTN) to enable calls to landlines and mobile phones worldwide. Microsoft acts as your PSTN carrier, as shown in the following diagram:
 
 ![Voice Calling (PSTN) diagram.](../media/telephony-concept/azure-calling-diagram.png)
 
@@ -38,7 +38,7 @@ If you answer **yes** to the following questions, then Voice Calling (PSTN) is t
 With this option:
 - You get numbers directly from Microsoft and can call phones around the world.
 - You don't need to deploy or maintain any on-premises system because Voice Calling (PSTN) operates through Azure Communication Services.
-- Note: If necessary, you can choose to connect a supported Session Border Controller (SBC) through Azure Communication Services direct routing for interoperability with third-party private branch exchanges (PBXs), analog devices, and other third-party telephony equipment supported by the SBC.
+- Note: If necessary, you can choose to connect a supported Session Border Controller (SBC) through Azure Communication Services direct routing for interoperability with third-party private branch exchanges (PBXs). SBCs can also enable analog devices and other third-party telephony equipment supported by the SBC.
 
 This option requires an uninterrupted connection to Azure Communication Services.  
 
@@ -61,7 +61,7 @@ With this option:
 
 - You connect your own supported SBC to Azure Communication Services without the need for extra on-premises software.
 - You can use literally any telephony carrier with Communication Services.
-- You can choose to configure and manage this option, or it can be configured and managed by your carrier or partner (ask if your carrier or partner provides this option).
+- You can choose to configure and manage this option, or have it configured and managed by your carrier or partner. Ask if your carrier or partner provides this option.
 - You can configure interoperability between your telephony equipment, such as a third-party PBX and analog devices, and Azure Communication Services.
 
 This option requires:
