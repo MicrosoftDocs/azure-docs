@@ -72,7 +72,7 @@ In this section, you learn how to add a BGP peering to your route server to peer
 
     Once the peer NVA is successfully added, you can see it in the list of peers with a **Succeeded** provisioning state.
 
-    :::image type="content" source="./media/configure-route-server/peer-list.png" alt-text="Screenshot that shows the route server's peers." lightbox="./media/configure-route-server/peer-list.png":::
+    :::image type="content" source="./media/peer-list.png" alt-text="Screenshot that shows the route server's peers." lightbox="./media/peer-list.png":::
 
     To complete the peering setup, you must configure the NVA to establish a BGP session with the route server's peer IPs and ASN. You can find the route server's Peer IPs and ASN in the **Overview** page:
 
