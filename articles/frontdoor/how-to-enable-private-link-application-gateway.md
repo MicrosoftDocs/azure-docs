@@ -34,9 +34,9 @@ Follow the instructions in [Configure Azure Application Gateway Private Link](..
 1. In your Azure Front Door Premium profile, go to *Settings* and select **Origin groups**.
 
 1. Click on **Add**
-1. Enter a name for the origin group
-1. Select **+ Add an origin** 
-1. Use the following table to configure the settings for the origin:
+2. Enter a name for the origin group
+3. Select **+ Add an origin** 
+4. Use the following table to configure the settings for the origin:
 
     | Setting | Value |
     | ------- | ----- |
@@ -54,8 +54,8 @@ Follow the instructions in [Configure Azure Application Gateway Private Link](..
 
 :::image type="content" source="media/private-link/application-gateway-private-link.png" alt-text="Screenshot of origin dettings for configuring Application Gateway as a private origin.":::    
 
-1. Select **Add** to save your origin settings
-1. Select **Add** to save the origin group settings.
+5. Select **Add** to save your origin settings
+6. Select **Add** to save the origin group settings.
 
 ## Approve the private endpoint
 
