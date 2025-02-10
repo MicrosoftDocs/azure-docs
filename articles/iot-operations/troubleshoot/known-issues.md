@@ -31,7 +31,22 @@ This article lists the known issues for Azure IoT Operations.
 
 ## MQTT broker
 
-- When the MQTT broker is set up with a 'Medium' or higher memory profile and multiple backend workers, memory usage can sometimes become unexpectedly high due to internal certificate rotation retries. This results in errors like 'failed to connect trace upload task to diagnostics service endpoint' in the logs. To fix, restart each broker pod one by one (including the diagnostic service, probe, and authentication service), making sure each backend recovers before moving on. Alternatively, re-deploy Azure IoT Operations with a 'Low' memory profile and a single worker backend. The issue is expected to be address in the next patch update.
+- Sometimes, the MQTT broker's memory usage can sometimes become unexpectedly high due to internal certificate rotation retries. This results in errors like 'failed to connect trace upload task to diagnostics service endpoint' in the logs. The issue is expected to be address in the next patch update. In the meantime, as a workaround, restart each broker pod one by one (including the diagnostic service, probe, and authentication service), making sure each backend recovers before moving on. Alternatively, [re-deploy Azure IoT Operations with higher internal certificate duration](../manage-mqtt-broker/howto-encrypt-internal-traffic.md#internal-certificates), `1500h` or more. 
+
+  ```json
+  {
+    "advanced": {
+      "internalCerts": {
+        "duration": "1500h",
+        "renewBefore": "1h",
+        "privateKey": {
+          "algorithm": "Ec256",
+          "rotationPolicy": "Always"
+        }
+      }
+    }
+  }
+  ```
 
 - MQTT broker resources created in your cluster using Kubernetes aren't visible Azure portal. This is expected because [managing Azure IoT Operations components using Kubernetes is in preview](../deploy-iot-ops/howto-manage-update-uninstall.md#preview-manage-components-using-kubernetes-deployment-manifests), and synchronizing resources from the edge to the cloud isn't currently supported.
 
