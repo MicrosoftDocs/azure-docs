@@ -38,6 +38,7 @@ To configure vaulted backup for storage accounts, follow these steps:
 The **Select storage account** pane lists a set of discovered supported storage accounts. By default, the list shows the storage accounts from the current subscription, or from a different subscription if you select an alternate one from the **Subscription** filter. They're either associated with this vault or present in the same region as the vault, but not yet associated with any Recovery Services vault.
  
    Select an account from the list, and then select **OK** to register the storage account with Recovery Services vault.
+
 7. On the **Configure Backup** pane, under the **File Shares to Backup** section, select **Add** to choose the File Shares you want to back up.
 
 8. On the Select file shares blade, from the file shares list, select one or more file shares you want to back up, and then select **Next**.

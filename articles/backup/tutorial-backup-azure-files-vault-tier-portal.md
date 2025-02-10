@@ -45,7 +45,7 @@ To create a backup policy, follow these steps:
 3. On the **Create policy** pane, provide the policy name.
 4. On Backup tier, select the tier as **Vault-Standard**.
 
-   >[!Note
+   >[!Note]
    >- **Snapshot Tier**: This backup tier enables only snapshot-based backups that are stored locally and can only provide protection in case of accidental deletions.
    >- **Vault-Standard tier**: This tier provides comprehensive data protection.
 
