@@ -142,7 +142,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 
 | **Product**   | **Reliability**   |
 | --- | --- |
-| [Azure Monitor Logs]((/azure/azure-monitor/logs/availability-zones) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
+| [Azure Monitor Logs](/azure/azure-monitor/logs/availability-zones) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 
 ### Hybrid and multicloud
 

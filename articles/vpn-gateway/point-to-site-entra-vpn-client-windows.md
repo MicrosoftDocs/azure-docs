@@ -5,7 +5,7 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 10/15/2024
+ms.date: 02/07/2025
 ms.author: cherylmc
 
 #Audience and custom App ID values are not sensitive data. Please do not remove. They are required for the configuration.
@@ -51,11 +51,13 @@ If your P2S configuration uses a custom audience and your registered app is asso
 > [!NOTE]
 > [!INCLUDE [Entra VPN client note](../../includes/vpn-gateway-entra-vpn-client-note.md)]
 
-1. On the page, select **Import**.
+1. Open the Azure VPN Client.
 
-   :::image type="content" source="./media/point-to-site-entra-vpn-client-windows/import.png" alt-text="Screenshot that shows the Add button selected and the Import action highlighted in the lower left-side of the window." lightbox="./media/point-to-site-entra-vpn-client-windows/import.png":::
+1. Select **+** on the bottom left of the page, then select **Import**.
 
 1. Browse to the Azure VPN Client profile configuration folder that you extracted. Open the **AzureVPN** folder and select the client profile configuration file (azurevpnconfig_aad.xml or azurevpnconfig.xml). Select **Open** to import the file.
+
+1. On the client profile page, notice that many of the settings are already specified. The preconfigured settings are contained in the VPN client profile package that you imported. Even though most of the settings are already specified, you need to configure settings specific to the client computer.
 
 1. Change the name of the Connection name (optional). In this example, notice that the Audience value shown is the new Azure Public value associated to the Microsoft-registered Azure VPN Client App ID. The value in this field must match the value that your P2S VPN gateway is configured to use.
 
@@ -64,8 +66,6 @@ If your P2S configuration uses a custom audience and your registered app is asso
 1. Click **Save** to save the connection profile.
 
 1. In the left pane, select the connection profile that you want to use. Then click **Connect** to initiate the connection.
-
-   :::image type="content" source="./media/point-to-site-entra-vpn-client-windows/connect.png" alt-text="Screenshot that shows the VPN and Connect button selected." lightbox="./media/point-to-site-entra-vpn-client-windows/connect.png":::
 
 1. Authenticate using your credentials, if prompted.
 
@@ -97,15 +97,14 @@ Once you have a working profile and need to distribute it to other users, you ca
 
 ## <a name="delete"></a>Delete a client profile
 
-1. Select the ellipses next to the client profile that you want to delete. Then, select **Remove**.
-
-   :::image type="content" source="./media/point-to-site-entra-vpn-client-windows/remove.png" alt-text="Screenshot that shows the ellipses and Remove option selected." lightbox="./media/point-to-site-entra-vpn-client-windows/remove.png":::
+1. Highlight the VPN client profile that you want to export, select the **...**, then select **Remove**.
 
 1. On the confirmation popup, select **Remove** to delete.
 
 ## <a name="diagnose"></a>Diagnose connection issues
 
-1. To diagnose connection issues, you can use the **Diagnose** tool. Select the **...** next to the VPN connection that you want to diagnose to reveal the menu. Then select **Diagnose**. On the **Connection Properties** page, select **Run Diagnostics**.
+1. To diagnose connection issues, you can use the **Diagnose** tool. Select the **...** next to the VPN connection that you want to diagnose to reveal the menu. Then select **Diagnose**. 
+1. On the **Connection Properties** page, select **Run Diagnostics**.
 
    :::image type="content" source="./media/point-to-site-entra-vpn-client-windows/diagnose.png" alt-text="Screenshot of the ellipsis and Diagnose selected." lightbox="./media/point-to-site-entra-vpn-client-windows/diagnose.png":::
 

@@ -318,7 +318,7 @@ az spring gateway update \
 
 You must specify the protocol as HTTPS in the route configuration. The following JSON object instructs VMware Spring Cloud Gateway to use the HTTPS protocol for all traffic between the gateway and the app.
 
-1. Create a file named *test-tls-route.json* with the following content:
+1. Create a file named **test-tls-route.json** with the following content:
 
    ```json
    {
@@ -864,7 +864,7 @@ Use the following steps to update the add-on configuration.
 
 ### [Azure CLI](#tab/Azure-CLI) 
 
-1. Prepare the JSON file for add-on configurations (*\<file-name-of-addon-configs-json\>.json*) with the following content:
+1. Prepare the JSON file for add-on configurations (**\<file-name-of-addon-configs-json\>.json**) with the following content:
 
    ```json
    {
