@@ -4,7 +4,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use Azure Digital Twins Explorer by following this demo, where you'll use models to instantiate twins and interact with the twin graph.
 author: baanders
 ms.author: baanders
-ms.date: 1/3/2024
+ms.date: 2/9/2025
 ms.topic: quickstart
 ms.service: azure-digital-twins
 ms.custom: mode-other
@@ -33,7 +33,7 @@ Here are the steps you'll use to explore the graph in this article:
 You'll need an Azure subscription to complete this quickstart. If you don't have one already, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
 You'll also need to download the materials for the sample graph used in the quickstart. Use the instructions below to download the required files. Later, you'll follow more instructions to upload them to Azure Digital Twins.
-* Model files. Navigate to each link below, right-click anywhere on the screen, and select **Save as** in your browser's right-click menu. Use the Save As window to save the file somewhere on your machine.
+* Model files: Navigate to each link below, right-click anywhere on the screen, and select **Save as** in your browser's right-click menu. Use the Save As window to save the file somewhere on your machine.
     - [Building.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Building.json): This is a model file that digitally defines a building. It specifies that buildings can contain floors.
     - [Floor.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Floor.json): This is a model file that digitally defines a floor. It specifies that floors can contain rooms.
     - [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Room.json): This is a model file that digitally defines a room. It has a temperature property.
