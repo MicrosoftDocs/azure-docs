@@ -16,7 +16,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## February 2025
 
-* [New volume usage metric](azure-netapp-files-metrics.md#volumes): volume inode percentage 
+* [New volume usage metric](azure-netapp-files-metrics.md#volumes): volume inodes percentage 
 
     Azure NetApp Files metrics now enable you to see the percentage of a volume's total [inodes](maxfiles-concept.md) consumed. 
 

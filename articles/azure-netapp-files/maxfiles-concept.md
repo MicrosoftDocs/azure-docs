@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 01/27/2025
+ms.date: 02/10/2025
 ms.author: anfdocs
 ---
 # Understand `maxfiles` limits in Azure NetApp Files
