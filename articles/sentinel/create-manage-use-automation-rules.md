@@ -88,7 +88,7 @@ From the **Trigger** drop-down, select the appropriate trigger according to the 
 
 ### Define conditions
 
-Use the options in the **Conditions** area to define conditions for your automation rule.
+Use the options in the **Conditions** area to define conditions for your automation rule. All conditions are case insensitive.
 
 - Rules you create for when an alert is created support only the **If Analytic rule name** property in your condition. Select whether you want the rule to be inclusive (**Contains**) or exclusive (**Does not contain**), and then select the analytic rule name from the drop-down list.
 
