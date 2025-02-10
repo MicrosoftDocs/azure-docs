@@ -37,11 +37,12 @@ You can configure an inbound [private endpoint](../private-link/private-endpoint
 
 ## Typical scenarios
 
-Use an inbound private endpoint for your API Management instance in scenarios such as the following:
+Use an inbound private endpoint to enable private-only access directly to the API Management gateway to limit exposure of sensitive data or backends.
+
+Supported configurations include:
 
 * Pass client requests through a firewall and configure rules to route requests privately to the API Management gateway.
-* Enable private-only access directly to the gateway to limit exposure of sensitive data or backends.
-* Configure Azure Front Door (or Azure Front Door in front of Azure Application Gateway) to receive external traffic and then route traffic privately to the API Management gateway.
+* Configure Azure Front Door (or Azure Front Door with Azure Application Gateway) to receive external traffic and then route traffic privately to the API Management gateway.
 
 
 ## Prerequisites
