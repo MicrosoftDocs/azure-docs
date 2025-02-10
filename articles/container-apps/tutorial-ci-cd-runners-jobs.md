@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 02/03/2025
+ms.date: 02/10/2025
 ms.author: cshoe
 zone_pivot_groups: container-apps-jobs-self-hosted-ci-cd
 ---
@@ -14,6 +14,13 @@ zone_pivot_groups: container-apps-jobs-self-hosted-ci-cd
 # Tutorial: Deploy self-hosted CI/CD runners and agents with Azure Container Apps jobs
 
 GitHub Actions and Azure Pipelines allow you to run CI/CD workflows with self-hosted runners and agents. You can run self-hosted runners and agents using event-driven Azure Container Apps [jobs](./jobs.md).
+
+## Managing Personal Access Tokens (PAT)
+
+As each container registers itself as a one-time agent, managing the configured PAT can be challenging. At some point, the PAT expires, and agents can't register. From an automation perspective, using Azure Pipelines to create the agents with a PAT requires personal intervention.
+
+> [!NOTE]
+> A job access token makes more sense in this scenario. Designed for automated workflows, job access tokens help avoid manual intervention when the PAT expires.
 
 Self-hosted runners are useful when you need to run workflows that require access to local resources or tools that aren't available to a cloud-hosted runner. For example, a self-hosted runner in a Container Apps job allows your workflow to access resources inside the job's virtual network that isn't accessible to a cloud-hosted runner.
 
@@ -55,7 +62,7 @@ In this tutorial, you learn how to run Azure Pipelines agents as an [event-drive
 ::: zone-end
 
 > [!NOTE]
-> Container apps and jobs don't support running Docker in containers. Any steps in your workflows that use Docker commands will fail when run on a self-hosted runner or agent in a Container Apps job.
+> Container apps and jobs don't support running Docker in containers. Any steps in your workflows that use Docker commands fail when run on a self-hosted runner or agent in a Container Apps job.
 
 ## Prerequisites
 
@@ -974,7 +981,7 @@ Once a self-hosted agent job is configured, you can run a pipeline and verify it
 Once you're done, run the following command to delete the resource group that contains your Container Apps resources.
 
 >[!CAUTION]
-> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this tutorial exist in the specified resource group, they will also be deleted.
+> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this tutorial exist in the specified resource group, they'll also be deleted.
 
 # [Bash](#tab/bash)
 ```bash
