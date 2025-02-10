@@ -39,7 +39,7 @@ The following table shows examples of the relationship `maxfiles` values based o
 | 200 TiB (214,748,364,800 KiB)	| 6,375,342,024  |
 | 500 TiB (536,870,912,000 KiB)	| 15,938,355,048 |
 
-To see the `maxfiles` allocation for a specific volume size, check the **Maximum number of files** field in the volume’s overview pane.
+To see the `maxfiles` allocation for a specific volume size, check the **Maximum number of files** field in the volume’s overview pane. You can also view the `maxfiles` consumption as a percentage in
 
 :::image type="content" source="./media/azure-netapp-files-resource-limits/maximum-number-files.png" alt-text="Screenshot of volume overview menu." lightbox="./media/azure-netapp-files-resource-limits/maximum-number-files.png":::
 
