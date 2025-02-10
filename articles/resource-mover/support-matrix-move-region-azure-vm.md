@@ -4,7 +4,7 @@ description: Review support for moving Azure VMs between regions with Azure Reso
 author: ankitaduttaMSFT
 ms.service: azure-resource-mover
 ms.topic: how-to
-ms.date: 10/16/2024
+ms.date: 12/27/2024
 ms.author: ankitadutta
 ms.custom: engagement-fy23, UpdateFrequency.5, linux-related-content
 ---

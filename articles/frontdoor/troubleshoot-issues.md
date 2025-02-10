@@ -168,6 +168,20 @@ Azure Front Door users the origin host name as the SNI header during SSL handsha
 
 Change the origin from an IP address to an FQDN to which a valid certificate is issued that matches the origin certificate.
 
+## 429 responses from Azure Front Door 
+
+### Symptom
+
+* A percentage of requests start showing errors with the response 429: Too many requests.
+
+### Cause
+
+* Azure Front Door has default platform rate limits. If your traffic exceeds the limit, AFD will start rate limiting the traffic and return 429 responses.
+
+### Troubleshooting steps
+
+* If you start seeing 429s for your legitimate traffic and a higher quota limited is need, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
 ## Next steps
 
 * Learn how to [create a Front Door](quickstart-create-front-door.md).

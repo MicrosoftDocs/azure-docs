@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/10/2024
+ms.date: 01/27/2025
 ms.custom: subject-rbac-steps, devx-track-arm-template
 
 ##customerIntent: As a logic app developer, I want to authenticate connections for my logic app workflow using a managed identity so I don't have to use credentials or secrets.
@@ -360,7 +360,7 @@ If your template also includes the managed identity's resource definition, you c
       }
    },
    "variables": {
-      "logicAppName": "[parameters(`Template_LogicAppName')]",
+      "logicAppName": "[parameters('Template_LogicAppName')]",
       "userAssignedIdentityName": "[parameters('Template_UserAssignedIdentityName')]"
    },
    "resources": [
@@ -448,7 +448,7 @@ If your template also includes the managed identity's resource definition, you c
          "identity": {
             "type": "UserAssigned",
             "userAssignedIdentities": {
-               "[resourceId(Microsoft.ManagedIdentity/userAssignedIdentities', variables('userAssignedIdentityName'))]": {}
+               "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('userAssignedIdentityName'))]": {}
             }
          },
          "properties": {
@@ -742,7 +742,7 @@ The following steps show how to use the managed identity with a trigger or actio
         > user-assigned managed identity defined and enabled. However, your logic app should 
         > use only one managed identity at a time. 
         >
-        > For example, a workflow that acceses different Azure Service Bus messaging entities 
+        > For example, a workflow that accesses different Azure Service Bus messaging entities 
         > should use only one managed identity. See [Connect to Azure Service Bus from workflows](../connectors/connectors-create-api-servicebus.md#prerequisites).
 
      For more information, see [Example: Authenticate built-in trigger or action with a managed identity](#authenticate-built-in-managed-identity).
@@ -1303,7 +1303,7 @@ For more information, see [Microsoft.Web/connections/accesspolicies (ARM templat
 
 ---
 
-<a name="setup-identity-apihub-authentiation"></a>
+<a name="setup-identity-apihub-authentication"></a>
 
 ## Set up advanced control over API connection authentication
 
@@ -1492,7 +1492,7 @@ The following steps remove access to the target resource from the managed identi
 
 1. On the logic app resource menu, under **Settings**, select **Identity**, and then follow the steps for your identity:
 
-   - Select **System assigned** > **On** > **Save**. When Azure prompts you to confirm, select **Yes**.
+   - Select **System assigned** > **Off** > **Save**. When Azure prompts you to confirm, select **Yes**.
 
    - Select **User assigned** and the managed identity, and then select **Remove**. When Azure prompts you to confirm, select **Yes**.
 

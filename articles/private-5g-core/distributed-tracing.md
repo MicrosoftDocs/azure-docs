@@ -2,8 +2,8 @@
 title: Distributed tracing
 titleSuffix: Azure Private 5G Core 
 description: Information on the distributed tracing web GUI, which provides detailed traces for signaling flows involving packet core instances.
-author: robswain
-ms.author: robswain
+author: anzaman
+ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: conceptual
 ms.date: 12/23/2021

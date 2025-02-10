@@ -5,7 +5,7 @@
     - name: What is Event Hubs?
       href: event-hubs-about.md
     - name: Apache Kafka on Azure Event Hubs
-      href: azure-event-hubs-kafka-overview.md
+      href: azure-event-hubs-apache-kafka-overview.md
     - name: Schema Registry
       href: schema-registry-overview.md      
     - name: Terminology
@@ -331,6 +331,8 @@
           href: /azure/azure-monitor/agents/diagnostics-extension-stream-event-hubs       
     - name: Secure
       items:
+        - name: Enable managed identity for a namespace
+          href: enable-managed-identity.md
         - name: Allow access from specific IP addresses
           href: event-hubs-ip-filtering.md
         - name: Allow access from specific virtual networks

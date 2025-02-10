@@ -18,20 +18,5 @@ As Azure Web PubSub is built on top of WebSocket, the only requirement is having
 - [React](https://github.com/Azure/azure-webpubsub/tree/main/samples/javascript/chatapp/react)
 - [Vue](https://github.com/Azure/azure-webpubsub/tree/main/samples/javascript/scoreboard)
 
-<!-- ## Cross-platform
-:::row:::
-   :::column span="":::
-      [React native](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js)
-   :::column-end:::
-:::row-end::: -->
-
 ## Gaming
 - [Unity](https://github.com/Azure/azure-webpubsub/tree/main/samples/csharp/unity-multiplayer-sample)
-
-
-<!-- ## Low-code / no-code platform
-:::row:::
-   :::column span="":::
-      [Power Apps](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js)
-   :::column-end:::
-:::row-end::: -->

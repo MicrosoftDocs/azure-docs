@@ -149,7 +149,7 @@ Here's an example of what a request body might look like:
     "description": "This is a demo incident",
     "title": "My incident",
     "owner": {
-      "objectId": "2046feea-040d-4a46-9e2b-91c2941bfa70"
+      "objectId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"
     },
     "severity": "High",
     "classification": "FalsePositive",

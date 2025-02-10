@@ -70,6 +70,7 @@ When the three components are configured, you should see something like the scre
 
 One thing that is worth highlighting is that you configure **non-WebSocket** connections exactly the same way. You can learn more about [Application Gateway's native support for proxying WebSocket connections](../application-gateway/features.md)
 
+The last thing to update is the backend **health probe**. Select **Settings** -> **Health probes** and select the generated health probe settings, update the **Path** to `/api/health` and keep others unchanged.
 
 ### Test and verify Application Gateway is configured properly
 #### Verify that your Web PubSub resource is healthy
@@ -136,7 +137,7 @@ app.get("/negotiate", async (req, res) => {
     url
   })
 }
-// Every 2 seconds, we ask Web PubSub service to send all connected clients the messsage "hello, world"
+// Every 2 seconds, we ask Web PubSub service to send all connected clients the message "hello, world"
 setInterval(() => {
   webpubsub.sendToAll("hello, world", { contentType: "text/plain" });
 }, 2000);
@@ -230,7 +231,7 @@ app.get("/negotiate", async (req, res) => {
 
 Find the public IP of your Application Gateway resource and set the environment variable. 
 ```bash
-export appGatewayEndpoint="<replace with the public IP of your Applciation Gateway resource>"
+export appGatewayEndpoint="<replace with the public IP of your Application Gateway resource>"
 ```
 
 Three points to note. 

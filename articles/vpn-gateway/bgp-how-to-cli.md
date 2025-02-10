@@ -274,7 +274,7 @@ az network vnet-gateway show -n VNet1GW -g TestRG1
 Example value for the gateway resource:
 
 ```
-"/subscriptions/<subscripion ID value>/resourceGroups/TestRG2/providers/Microsoft.Network/virtualNetworkGateways/VNet2GW"
+"/subscriptions/<subscription ID value>/resourceGroups/TestRG2/providers/Microsoft.Network/virtualNetworkGateways/VNet2GW"
 ```
 
 #### 2. Get the resource ID of VNet2GW

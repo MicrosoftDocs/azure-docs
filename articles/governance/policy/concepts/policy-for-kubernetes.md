@@ -299,12 +299,12 @@ az k8s-extension delete --cluster-type connectedClusters --cluster-name <CLUSTER
 ## Create a policy definition
 
 The Azure Policy language structure for managing Kubernetes follows that of existing policy
-definitions. There are sample definition files available to assign in [Azure Policy's built-in policy library](../samples/built-in-policies.md) that can be used to govern your cluster components.
+definitions. There are sample definition files available to assign in [Azure Policy's built-in policy library](../samples/built-in-policies.md#kubernetes) that can be used to govern your cluster components.
 
 Azure Policy for Kubernetes also support custom definition creation at the component-level for both Azure Kubernetes Service clusters and Azure Arc-enabled Kubernetes clusters. Constraint template and mutation template samples are available in the [Gatekeeper community library](https://github.com/open-policy-agent/gatekeeper-library/tree/master). [Azure Policy's Visual Studio Code Extension](../how-to/extension-for-vscode.md#create-policy-definition-from-a-constraint-template-or-mutation-template) can be used to help translate an existing constraint template or mutation template to a custom Azure Policy policy definition.
 
-With a [Resource Provider mode](./definition-structure-basics.md#resource-provider-modes) of
-`Microsoft.Kubernetes.Data`, the effects [audit](./effect-audit.md), [deny](./effects.md#deny), [disabled](./effects.md#disabled), and [mutate](./effects.md#mutate-preview) are used to manage your Kubernetes clusters.
+With a [Resource Provider mode](./definition-structure.md#resource-provider-modes) of
+`Microsoft.Kubernetes.Data`, the effects [audit](./effect-audit.md), [deny](./effect-deny.md), [disabled](./effect-disabled.md), and [mutate](./effect-mutate.md) are used to manage your Kubernetes clusters.
 
 _Audit_ and _deny_ must provide `details` properties
 specific to working with
@@ -605,6 +605,16 @@ To identify the Gatekeeper version that your Azure Policy Add-on is using, you c
 Finally, to identify the AKS cluster version that you're using, follow the linked AKS guidance.
 
 ### Add-on versions available per each AKS cluster version
+
+#### 1.9.1
+Security improvements.
+
+Patch CVE-2024-45337 and CVE-2024-45338.
+- Released January 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.17.1
+##### Gatekeeper 3.17.1-5
+Patch CVE-2024-45337 and CVE-2024-45338.
 
 #### 1.8.0
 Policy can now be used to evaluate CONNECT operations, for instance, to deny `exec`s. Note that there is no brownfield compliance available for noncompliant CONNECT operations, so a policy with Audit effect that targets CONNECTs is a no op.

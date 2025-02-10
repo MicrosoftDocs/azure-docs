@@ -99,8 +99,8 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
            namespace: $NAMESPACE
            name: ignite
            image:
-               name: community.opengroup.org:5555/osdu/platform/consumption/geospatial/gridgain-community
-               tag: 8.8.34
+               name: gridgain/community
+               tag: 8.8.43
            configuration:
                gcz_ignite_namespace: "$GCZ_IGNITE_NAMESPACE"
                gcz_ignite_service: "$GCZ_IGNITE_SERVICE"
@@ -157,8 +157,8 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
            namespace: $NAMESPACE
            name: ignite
            image:
-               name: community.opengroup.org:5555/osdu/platform/consumption/geospatial/gridgain-community
-               tag: 8.8.34
+               name: gridgain/community
+               tag: 8.8.43
            configuration:
                gcz_ignite_namespace: "$GCZ_IGNITE_NAMESPACE"
                gcz_ignite_service: "$GCZ_IGNITE_SERVICE"
@@ -219,8 +219,8 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
            app: provider
        ports:
        - port: 80
-           protocol: TCP
-           targetPort: 8083
+         protocol: TCP
+         targetPort: 8083
        type: {{ $.Values.global.provider.service.type }}
    EOF
 
@@ -237,8 +237,8 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
            app: transformer
        ports:
        - port: 80
-           protocol: TCP
-           targetPort: 8080
+         protocol: TCP
+         targetPort: 8080
        type: {{ $.Values.global.transformer.service.type }}
    EOF
    ```
@@ -259,8 +259,8 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
            app: provider
        ports:
        - port: 80
-           protocol: TCP
-           targetPort: 8083
+         protocol: TCP
+         targetPort: 8083
        type: {{ $.Values.global.provider.service.type }}
    "@ | Out-File -FilePath ../provider/templates/service.yaml
 
@@ -277,8 +277,8 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
            app: transformer
        ports:
        - port: 80
-           protocol: TCP
-           targetPort: 8080
+         protocol: TCP
+         targetPort: 8080
        type: {{ $.Values.global.transformer.service.type }}
    "@ | Out-File -FilePath ../transformer/templates/service.yaml
    ```
@@ -316,7 +316,7 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
 1. Deploy the GCZ HELM chart:
 
    ```bash
-   helm upgrade -i $CHART . -n $NAMESPACE -f osdu_gcz_custom_values.yaml
+   helm upgrade -i $CHART . -n $NAMESPACE -f osdu_gcz_custom_values.yaml --set-file global.provider.configLoaderJs="../../../../gcz-provider/gcz-provider-core/config/configLoader.js"
    ```
 
 1. Verify the deployment:

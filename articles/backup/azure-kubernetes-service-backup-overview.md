@@ -6,9 +6,9 @@ ms.service: azure-backup
 ms.custom:
   - ignite-2023
   - ignite-2024
-ms.date: 09/09/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 01/21/2025
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # What is Azure Kubernetes Service backup?
@@ -72,7 +72,7 @@ Azure Backup for AKS currently supports the following two options when doing a r
 2. **Patch**: This option allows the patching mutable variable in the backed-up resource on the resource in the target cluster. If you want to update the number of replicas in the target cluster, you can opt for patching as an operation. 
 
 >[!Note]
->AKS backup currently doesn't delete and recreate resources in the target cluster if they already exist. If you attempt to restore Persistent Volumess in the original location, delete the existing Persistent Volumes, and then do the restore operation.
+>AKS backup currently doesn't delete and recreate resources in the target cluster if they already exist. If you attempt to restore Persistent Volumes in the original location, delete the existing Persistent Volumes, and then do the restore operation.
 
 ## Use custom hooks for backup and restore
 
@@ -442,4 +442,6 @@ You incur charges for:
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Prerequisites for Azure Kubernetes Service backup](azure-kubernetes-service-cluster-backup-concept.md)
+>- [Prerequisites for Azure Kubernetes Service backup](azure-kubernetes-service-cluster-backup-concept.md)
+>- [Back up AKS using Azure PowerShell](azure-kubernetes-service-cluster-backup-using-powershell.md)
+>- Restore AKS using [Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md)

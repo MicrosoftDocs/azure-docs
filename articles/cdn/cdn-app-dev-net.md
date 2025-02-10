@@ -4,7 +4,6 @@ description: Learn how to write .NET applications to manage Azure CDN using Visu
 services: cdn
 author: duongau
 manager: kumudd
-ms.assetid: 63cf4101-92e7-49dd-a155-a90e54a792ca
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
@@ -299,8 +298,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 ```
 
 > [!NOTE]
-> In the example previously, the string `/*` denotes that I want to purge everything in the root of the endpoint path. This is equivalent to checking **Purge All** in the Azure portal's "purge" dialog. In the `CreateCdnProfile` method, I created our profile as an **Azure CDN from Edgio** profile using the code `Sku = new Sku(SkuName.StandardVerizon)`, so this will be successful.
->
+> In the example previously, the string `/*` denotes that I want to purge everything in the root of the endpoint path. This is equivalent to checking **Purge All** in the Azure portal's "purge" dialog.
 >
 
 ## Delete CDN profiles and endpoints

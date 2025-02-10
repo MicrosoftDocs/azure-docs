@@ -23,14 +23,9 @@ The following prerequisites are required to continue.
   - In the UI, select an Azure VMware Solution host.
     > [!NOTE]
     > The host exposes its Availability Zone. You should use that AZ when deploying other Azure resources for the same subscription.
+    
 - You have permission to set up new resources in the subscription your private cloud is in.
 
-- Register the following feature flags for your subscription:
-
-  - iSCSIMultipath
-    
-  - ElasticSanDatastore
-    
 - Reserve a dedicated address block for your external storage.
 
 ## Supported host types

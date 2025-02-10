@@ -87,7 +87,7 @@ The **Export** tab lets you export a dashboard in JSON format. Do this by select
 
 **Export for sharing externally** is disabled by default. Optionally enable this option to generate JSON code for external stakeholders. The exported dashboard can then be [imported to Grafana](how-to-create-dashboard.md#import-a-json-dashboard).
 
-In this how-to guide, you learned how to create a Grafana dashboard. To learn about the latest updates to Azure Managed Grafana, go to:
+In this how-to guide, you learned how to create a Grafana dashboard. To learn how to share a Grafana workspace, go to:
 
 > [!div class="nextstepaction"]
-> [What's new](concept-whats-new.md)
+> [Share a Grafana workspace](how-to-share-grafana-workspace.md)

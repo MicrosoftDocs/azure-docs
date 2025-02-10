@@ -22,25 +22,28 @@ The time required to complete each of these actions is similar. Restarting is th
 
 - Familiarize yourself with the capabilities referenced in this article by reviewing the [BMM actions](howto-baremetal-functions.md).
 - Gather the following information:
-  - Name of the resource group for the BMM
+  - Name of the managed resource group for the BMM
   - Name of the BMM that requires a lifecycle management operation
+  - Subscription ID
 
 > [!IMPORTANT]
 > Disruptive command requests against a Kubernetes Control Plane (KCP) node are rejected if there is another disruptive action command already running against another KCP node or if the full KCP is not available.
 >
 > Restart, reimage and replace are all considered disruptive actions.
 >
-> This check is done to maintain the integrity of the Nexus instance and ensure multiple KCP nodes don't go down at once due to simultaneous disruptive actions. If multiple nodes go down, it will break the healthy quorum threshold of the Kubernetes Control Plane.
+> This check is done to maintain the integrity of the Nexus instance and ensure multiple KCP nodes do not go down at once due to simultaneous disruptive actions. If multiple nodes go down, it will break the healthy quorum threshold of the Kubernetes Control Plane.
 
 ## Identify the corrective action
 
-When you're troubleshooting a BMM for failures and determining the best corrective action, it's important to understand the available options. Restarting or reimaging a BMM can be an efficient and effective way to fix problems or restore the software to a known-good place. Replacing a BMM might be required when one or more hardware components fail on the server. This article provides direction on the best practices for each of the three actions.
+When troubleshooting a BMM for failures and determining the most appropriate corrective action, it is essential to understand the available options. Restarting or reimaging a BMM can be both efficient and effective for resolving issues or restoring the software to a known-good state. In cases where one or more hardware components fail on the server, it may be necessary to replace the BMM entirely. This article outlines the best practices for each of these three actions.
 
-Troubleshooting technical problems requires a systematic approach. One effective method is to start with the least invasive solution and works your way up to more complex and drastic measures, if necessary.
+Troubleshooting technical problems requires a systematic approach. One effective method is to start with the least invasive solution and work your way up to more complex and drastic measures, if necessary.
 
-The first step in troubleshooting is often to try restarting the device or system. Restarting can help to clear any temporary glitches or errors that might be causing the problem. If restarting doesn't solve the problem, the next step might be to try reimaging the device or system.
+The first step in troubleshooting is to try restarting the device or system. Restarting can help to clear up any temporary glitches or errors that might be causing the problem.
 
-If reimaging doesn't solve the problem, the final step might be to replace the faulty hardware component. Replacement can be a more drastic measure, but it might be necessary if the problem is related to a hardware malfunction.
+If restarting does not solve the problem, the next step is to try reimaging the device or system.
+
+If reimaging does not solve the problem, the final step is to replace the faulty hardware component. While replacement is a more significant measure, it may be required if the issue stems from a hardware defect.
 
 Keep in mind that these troubleshooting methods might not always be effective, and other factors in play might require a different approach.
 
@@ -50,6 +53,31 @@ Restarting a BMM is a process of restarting the server through a simple API call
 
 The restart typically is the starting point for mitigating a problem.
 
+***The following Azure CLI command will `power-off` the specified bareMetalMachineName.***
+```
+az networkcloud baremetalmachine power-off \
+  --name <bareMetalMachineName>  \
+  --resource-group "<resourceGroup>" \
+  --subscription <subscriptionID>
+```
+
+***The following Azure CLI command will `start` the specified bareMetalMachineName.***
+```
+az networkcloud baremetalmachine start \
+  --name <bareMetalMachineName>  \
+  --resource-group "<resourceGroup>" \
+  --subscription <subscriptionID>
+```
+
+***The following Azure CLI command will `restart` the specified bareMetalMachineName.***
+```
+az networkcloud baremetalmachine restart \
+  --name <bareMetalMachineName>  \
+  --resource-group "<resourceGroup>" \
+  --subscription <subscriptionID>
+```
+
+
 ## Troubleshoot with a reimage action
 
 Reimaging a BMM is a process that you use to redeploy the image on the OS disk, without affecting the tenant data. This action executes the steps to rejoin the cluster with the same identifiers.
@@ -58,20 +86,71 @@ The reimage action can be useful for troubleshooting problems by restoring the O
 
 A reimage action is the best practice for lowest operational risk to ensure the integrity of the BMM.
 
+As a best practice, make sure the BMM's workloads are drained using the cordon command, with evacuate "True", before executing the reimage command.
+
+**To identify if any workloads are currently running on a BMM, run the following command:**
+
+**For Virtual Machines:**
+```azurecli
+az networkcloud baremetalmachine show -n <nodeName> /
+--resource-group <resourceGroup> /
+--subscription <subscriptionID> | jq '.virtualMachinesAssociatedIds'
+```
+
+**For Nexus Kubernetes cluster nodes: (requires logging into the Nexus Kubernetes cluster)**
+
+```
+kubectl get nodes <resourceName> -ojson |jq '.metadata.labels."topology.kubernetes.io/baremetalmachine"'
+```
+
+**The following Azure CLI command will `cordon` the specified bareMetalMachineName.**
+```
+az networkcloud baremetalmachine cordon \
+  --evacuate "True" \
+  --name <bareMetalMachineName> \
+  --resource-group "<resourceGroup>" \
+  --subscription <subscriptionID>
+```
+
+**The following Azure CLI command will `reimage` the specified bareMetalMachineName.**
+```
+az networkcloud baremetalmachine reimage \
+  --name <bareMetalMachineName>  \
+  --resource-group "<resourceGroup>" \
+  --subscription <subscriptionID>
+```
+
+**The following Azure CLI command will `uncordon` the specified bareMetalMachineName.**
+```
+az networkcloud baremetalmachine uncordon \
+  --name <bareMetalMachineName> \
+  --resource-group "<resourceGroup>" \
+  --subscription <subscriptionID>
+```
+
 ## Troubleshoot with a replace action
 
-Servers contain many physical components that can fail over time. It's important to understand which physical repairs require BMM replacement and when BMM replacement is recommended but not required.
+Servers contain many physical components that can fail over time. It is important to understand which physical repairs require BMM replacement and when BMM replacement is recommended.
 
 A hardware validation process is invoked to ensure the integrity of the physical host in advance of deploying the OS image. Like the reimage action, the tenant data isn't modified during replacement.
 
 > [!IMPORTANT]
-> Starting with the 2024-07-01 GA API version, the RAID controller is reset during BMM replace, wiping all data from the server's virtual disks. Baseboard Management Controller (BMC) virtual disk alerts triggered during BMM replace can be ignored unless there are additonal physical disk and/or RAID controllers alerts.
+> Starting with the 2024-07-01 GA API version, the RAID controller is reset during BMM replace, wiping all data from the server's virtual disks. Baseboard Management Controller (BMC) virtual disk alerts triggered during BMM replace can be ignored unless there are additional physical disk and/or RAID controllers alerts.
 
 As a best practice, first issue a `cordon` command to remove the bare metal machine from workload scheduling and then shut down the BMM in advance of physical repairs.
 
-When you're performing a physical hot swappable power supply repair, a replace action isn't required because the BMM host will continue to function normally after the repair.
+**The following Azure CLI command will `cordon` the specified bareMetalMachineName.**
+```
+az networkcloud baremetalmachine cordon \
+  --evacuate "True" \
+  --name <bareMetalMachineName> \
+  --resource-group "<resourceGroup>" \
+  --subscription <subscriptionID>
+```
 
-When you're performing the following physical repairs, we recommend a replace action, though it isn't necessary to bring the BMM back into service:
+When you're performing a physical hot swappable power supply repair, a replace action is not required because the BMM host will continue to function normally after the repair.
+
+When you're performing the following physical repairs, we recommend a replace action, though it is not necessary to bring the BMM back into service:
 
 - CPU
 - Dual In-Line Memory Module (DIMM)
@@ -80,7 +159,7 @@ When you're performing the following physical repairs, we recommend a replace ac
 - Transceiver
 - Ethernet or fiber cable replacement
 
-When you're performing the following physical repairs, a replace action is required to bring the BMM back into service:
+When you're performing the following physical repairs, a replace action ***is required*** to bring the BMM back into service:
 
 - Backplane
 - System board
@@ -88,6 +167,29 @@ When you're performing the following physical repairs, a replace action is requi
 - PERC/RAID adapter
 - Mellanox Network Interface Card (NIC)
 - Broadcom embedded NIC
+
+After physical repairs are completed, perform a replace action.
+  
+**The following Azure CLI command will `replace` the specified bareMetalMachineName.**
+```
+az networkcloud baremetalmachine replace \
+  --name <bareMetalMachineName>  \
+  --resource-group "<resourceGroup>" \
+  --bmc-credentials password=<IDRAC_PASSWORD> username=<IDRAC_USER> \
+  --bmc-mac-address <IDRAC_MAC> \
+  --boot-mac-address <PXE_MAC> \
+  --machine-name <OS_HOSTNAME> \
+  --serial-number <SERIAL_NUM> \
+  --subscription <subscriptionID>
+```
+
+**The following Azure CLI command will uncordon the specified bareMetalMachineName.**
+```
+az networkcloud baremetalmachine uncordon \
+  --name <bareMetalMachineName> \
+  --resource-group "<resourceGroup>" \
+  --subscription <subscriptionID>
+```
 
 ## Summary
 

@@ -138,7 +138,7 @@ az role assignment create --assignee ${PRINCIPAL_ID} --role "AzAcSnap on ANF" --
 # [Azure Large Instances (bare metal)](#tab/azure-large-instance)
 
 > [!IMPORTANT]
-> From AzAcSnap 10, communicatoin with Azure Large Instance storage is using the REST API over HTTPS.  Versions prior to AzAcSnap 10 use the CLI over SSH.
+> From AzAcSnap 10, communication with Azure Large Instance storage is using the REST API over HTTPS.  Versions prior to AzAcSnap 10 use the CLI over SSH.
 
 ### Azure Large Instance REST API over HTTPS
 

@@ -126,7 +126,7 @@ Follow these steps to copy data via the REST APIs of Blob/Object storage to your
 
     - Replace the `<container-name>` placeholder with the name of your container.
 
-    - Replace the `<exlusion_filelist_file>` placeholder with the name of the file that contains your list of file exclusions.
+    - Replace the `<exclusion_filelist_file>` placeholder with the name of the file that contains your list of file exclusions.
 
     - Replace the `<source_directory>` placeholder with the name of the directory that contains the data that you want to copy.
 

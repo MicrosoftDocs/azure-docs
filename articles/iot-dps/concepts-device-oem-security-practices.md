@@ -1,9 +1,9 @@
 ---
 title: Security practices for manufacturers - Azure IoT Device Provisioning Service
 description: Overviews common security practices for OEMs and device manufactures who prepare devices to enroll in Azure IoT Device Provisioning Service (DPS). 
-author: timlt
-ms.author: timlt
-ms.date: 10/11/2024
+author: dominicbetts
+ms.author: dobett
+ms.date: 1/10/2025
 ms.topic: conceptual
 ms.service: azure-iot-hub
 services: iot-dps
@@ -26,7 +26,7 @@ Three widely used authentication types are X.509 certificates, Trusted Platform 
 
 ### X.509 certificate
 X.509 certificates are a type of digital identity you can use for authentication. The X.509 certificate standard is documented in [IETF RFC 5280](https://tools.ietf.org/html/rfc5280). In Azure IoT, there are two ways to authenticate certificates:
-- Thumbprint. A thumbprint algorithm is run on a certificate to generate a hexadecimal string. The generated string is a unique identifer for the certificate. 
+- Thumbprint. A thumbprint algorithm is run on a certificate to generate a hexadecimal string. The generated string is a unique identifier for the certificate. 
 - CA authentication based on a full chain. A certificate chain is a hierarchical list of all certificates needed to authenticate an end-entity (EE) certificate. To authenticate an EE certificate, it's necessary to authenticate each certificate in the chain including a trusted root CA. 
 
 Pros for X.509:

@@ -7,7 +7,7 @@ ms.reviewer: makromer
 ms.service: azure-synapse-analytics
 ms.subservice: pipeline
 ms.topic: quickstart
-ms.date: 02/15/2022
+ms.date: 12/11/2024
 ---
 
 # Quickstart: Transform data using mapping data flows

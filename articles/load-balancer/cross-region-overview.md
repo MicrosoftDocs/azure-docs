@@ -5,10 +5,10 @@ description: Overview of cross region load balancer tier for Azure Load Balancer
 services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/26/2024
 ms.author: mbender
-ms.custom: template-concept, references_regions
+ms.custom: references_regions
 ---
 
 # Global Load Balancer

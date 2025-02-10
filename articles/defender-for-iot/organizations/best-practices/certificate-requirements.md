@@ -1,6 +1,6 @@
 ---
 title: SSL/TLS certificate file requirements - Microsoft Defender for IoT
-description: Learn about requirements for SSL/TLS certificates used with Microsoft Defender for IOT OT sensors and on-premises management consoles.
+description: Learn about requirements for SSL/TLS certificates used with Microsoft Defender for IOT OT sensors.
 ms.date: 01/17/2023
 ms.topic: install-set-up-deploy
 ---
@@ -15,15 +15,14 @@ Use the content below to learn about the requirements for [creating SSL/TLS cert
 
 Defender for IoT uses SSL/TLS certificates to secure communication between the following system components:
 
-- Between users and the OT sensor or on-premises management console UI access
-- Between OT sensors and an on-premises management console, including [API communication](../references-work-with-defender-for-iot-apis.md)
-- Between an on-premises management console and a high availability (HA) server, if configured
-- Between OT sensors or on-premises management consoles and partners servers defined in [alert forwarding rules](../how-to-forward-alert-information-to-partners.md)
+- Between users and the OT sensor
+- Between an OT sensor and a high availability (HA) server, if configured
+- Between OT sensors and partners servers defined in [alert forwarding rules](../how-to-forward-alert-information-to-partners.md)
 
-Some organizations also validate their certificates against a Certificate Revocation List (CRL) and the certificate expiration date, and the certificate trust chain. Invalid certificates can't be uploaded to OT sensors or on-premises management consoles, and will block encrypted communication between Defender for IoT components.
+Some organizations also validate their certificates against a Certificate Revocation List (CRL) and the certificate expiration date, and the certificate trust chain. Invalid certificates can't be uploaded to OT sensors, and will block encrypted communication between Defender for IoT components.
 
 > [!IMPORTANT]
-> You must create a unique certificate for each OT sensor, on-premises management console, and high availability server, where each certificate meets required criteria.
+> You must create a unique certificate for each OT sensor, and high availability server, where each certificate meets required criteria.
 
 ## Supported file types
 
@@ -53,7 +52,7 @@ Make sure that your certificates include the following CRT parameter details:
 | **Subject (O)rganization** | The organization's name, such as *Contoso Inc.* |
 
 > [!IMPORTANT]
-> While certificates with other parameters might work, they aren't supported by Defender for IoT. Additionally, wildcard SSL certificates, which are public key certificates that can beused on multiple subdomains such as *.contoso.com*, are insecure and aren't supported.
+> While certificates with other parameters might work, they aren't supported by Defender for IoT. Additionally, wildcard SSL certificates, which are public key certificates that can be used on multiple subdomains such as *.contoso.com*, are insecure and aren't supported.
 > Each appliance must use a unique CN.
 
 ## Key file requirements

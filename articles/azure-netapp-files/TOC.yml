@@ -23,6 +23,8 @@
         href: network-attached-storage-concept.md 
       - name: Understand NAS protocols
         href: network-attached-storage-protocols.md
+      - name: Understand SMB support 
+        href: sever-message-block-support.md
       - name: Understand NAS permissions 
         items:
         - name: Understand NAS share permissions 
@@ -43,6 +45,8 @@
         href: dual-protocol-permission-behaviors.md
       - name: Understand data encryption 
         href: understand-data-encryption.md
+      - name: Understand Kerberos
+        href: kerberos.md 
       - name: Understand guidelines for Active Directory Domain Services
         href: understand-guidelines-active-directory-domain-service-site.md
       - name: Understand DNS 
@@ -213,8 +217,8 @@
             href: azacsnap-configure-database.md?tabs=oracle
           - name: IBM Db2
             href: azacsnap-configure-database.md?tabs=db2
-          - name: Microsoft SQL Server (PREVIEW)
-            href: azacsnap-preview.md?tabs=mssql#microsoft-sql-server
+          - name: Microsoft SQL Server
+            href: azacsnap-configure-database.md?tabs=mssql
         - name: Configure Storage
           items:
           - name: All storage

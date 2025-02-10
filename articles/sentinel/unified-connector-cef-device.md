@@ -129,7 +129,7 @@ Set your security solution to send syslog messages in CEF format to the proxy ma
 
 Set your security solution to send syslog messages in CEF format to the proxy machine. Make sure to send the logs to port 514 TCP on the machine IP address.
 
-1. Follow the directions to install the [ExtraHop Detection SIEM Connector bundle](https://learn.extrahop.com/extrahop-detection-siem-connector-bundle) on your Reveal(x) system. The **SIEM Connector** is required for this integration.
+1. Follow the directions to install the [ExtraHop Detection SIEM Connector bundle](https://learn.extrahop.com/) on your Reveal(x) system. The **SIEM Connector** is required for this integration.
 1. Enable the trigger for **ExtraHop Detection SIEM Connector - CEF**.
 1. Update the trigger with the ODS syslog targets you created. 
 

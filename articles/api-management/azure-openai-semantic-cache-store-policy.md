@@ -9,7 +9,7 @@ ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024
 ms.topic: article
-ms.date: 06/25/2024
+ms.date: 12/13/2024
 ms.author: danlep
 ---
 
@@ -46,7 +46,7 @@ The `azure-openai-semantic-cache-store` policy caches responses to Azure OpenAI 
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) outbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) v2
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption
 
 ### Usage notes
 

@@ -20,7 +20,7 @@ Several Azure Virtual Desktop features require you to assign Azure role-based ac
 > [!TIP]
 > You can find which role or roles you need to assign to which service principal in the article for each feature. For a list of all the available Azure RBAC roles created specifically for Azure Virtual Desktop, see [Built-in Azure RBAC roles for Azure Virtual Desktop](rbac.md). To learn more about Azure RBAC, see [Azure RBAC documentation](../role-based-access-control/index.yml) or for Microsoft Entra roles, see [Microsoft Entra roles documentation](/entra/identity/role-based-access-control/).
 
-Depending on when you registered the *Microsoft.DesktopVirtualization* resource provider, the service principal names begin with either *Azure Virtual Desktop* or *Windows Virtual Desktop*. If you used both Azure Virtual Desktop Classic and an Azure Virtual Desktop (Azure Resource Manager), you see apps with the same name. You can make sure you're assigning roles to the correct service principal by checking its application ID. The application ID for each service principal is in the following table:
+Depending on when you registered the *Microsoft.DesktopVirtualization* resource provider, the service principal names begin with either *Azure Virtual Desktop* or *Windows Virtual Desktop*. Also, if you previously used both Azure Virtual Desktop classic and Azure Virtual Desktop (Azure Resource Manager), you see apps with the same name. You can make sure you're assigning roles to the correct service principal by checking its application ID. The application ID for each service principal is in the following table:
 
 | Service principal | Application ID |
 |--|--|
@@ -58,7 +58,7 @@ Here's how to assign an Azure RBAC role to an Azure Virtual Desktop service prin
 
 1. Under properties, make a note of the **name** and the **object ID**. The object ID correlates to the application ID, and is unique to your tenant.
 
-1. In the search box, enter *Subscriptions* and select the matching service entry.
+1. Go back to the search box, enter *Subscriptions* and select the matching service entry.
 
 1. Select the subscription you want to add the role assignment to.
 

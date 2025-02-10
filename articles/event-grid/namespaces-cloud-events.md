@@ -3,7 +3,7 @@ ms.date: 09/25/2024
 author: robece
 ms.author: robece
 title: Event Grid Namespaces - support for CloudEvents schema
-description: Desbribes how Event Grid Namespaces support CloudEvents schema, which is an open source standard for defining events. 
+description: Describes how Event Grid Namespaces support CloudEvents schema, which is an open source standard for defining events. 
 ms.topic: concept-article
 ms.custom: FY25Q1-Linter
 #customer intent: As a developer or architect, I want to know whether and how Azure Event Grid Namespaces support CloudEvents schema.

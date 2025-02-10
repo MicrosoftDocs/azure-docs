@@ -80,7 +80,7 @@ export type VideoSendConstraints = {
     frameRate?: MediaConstraintRange;
 
     /**
-     * Bitrate constriant
+     * Bitrate constraint
      */
     bitrate?: MediaConstraintRange;
 };
@@ -94,7 +94,7 @@ When setting video constraints, the SDK chooses the nearest value that falls wit
 
 > [!NOTE]
 > For all `bitrate`, `frameHeight` and `frameRate`, the constraint value is a `max` constraint, which means the actual value in the call can be the specified value or smaller.
-> There is no gurantee that the sent video resolution will remain at the specified resolution.
+> There is no guarantee that the sent video resolution will remain at the specified resolution.
 
 The `frameHeight` in `VideoSendConstraints` has a different meaning when a mobile device is in portrait mode. In portrait mode, this value indicates the shorter side of the device. For example, specifying `frameHeight.max` value with 240 on a 1080(W) x 1920(H) device in portrait mode, the constraint height is on the 1080(W) side. When the same device is in landscape mode (1920(W) x 1080(H)), the constraint is on the 1080(H) side.
 

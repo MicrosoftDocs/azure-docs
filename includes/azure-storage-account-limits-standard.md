@@ -37,6 +37,6 @@ Microsoft recommends that you use a GPv2 storage account for most scenarios. You
 | Maximum number of resource instance rules per storage account | 200 |
 | Maximum number of private endpoints per storage account | 200 |
 
-<sup>1</sup> With a quota increase, you can create up to 500 storage accounts with standard endpoints per region. For more information, see [Increase Azure Storage account quotas](/azure/quotas/storage-account-quota-requests).
+<sup>1</sup> With a quota increase, you can create up to 500 storage accounts with standard endpoints per region. For more information, see [Increase Azure Storage account quotas](/azure/quotas/storage-account-quota-requests).\
 <sup>2</sup> Azure Storage standard accounts support higher capacity limits and higher limits for ingress and egress by request. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
 

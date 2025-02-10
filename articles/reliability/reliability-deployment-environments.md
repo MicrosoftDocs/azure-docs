@@ -5,7 +5,7 @@ ms.service: azure-deployment-environments
 ms.topic: reliability-article
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 08/25/2023
+ms.date: 12/30/2023
 ms.custom: subject-reliability, references_regions
 ---
 

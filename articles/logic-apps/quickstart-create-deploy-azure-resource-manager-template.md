@@ -48,7 +48,7 @@ Follow the option that you want to use for deploying the quickstart template:
 |--------|-------------|
 | [Azure portal](quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-portal#deploy-template) | If your Azure environment meets the prerequisites, and you're familiar with using ARM templates, these steps help you sign in directly to Azure and open the quickstart template in the Azure portal. For more information, see [Deploy resources with ARM templates and Azure portal](../azure-resource-manager/templates/deploy-portal.md). |
 | [Azure CLI](quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-cli#deploy-template) | The Azure CLI provides a command-line experience for creating and managing Azure resources. To run these commands, you need Azure CLI version 2.6 or later. To check your CLI version, enter **az --version**. For more information, see the following documentation: <br><br>- [What is Azure CLI](/cli/azure/what-is-azure-cli) <br>- [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli) |
-| [Azure PowerShell](quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-powershell#deploy-template) | Azure PowerShell provides a set of cmdlets that use the Azure Resource Manager model for managing your Azure resources. For more information, see the following documentation: <br><br>- [Azure PowerShell Overview](/powershell/azure/azurerm/overview) <br>- [Introducing the Azure PowerShell Az module](/powershell/azure/new-azureps-module-az) <br>- [Get started with Azure PowerShell](/powershell/azure/get-started-azureps) |
+| [Azure PowerShell](quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-powershell#deploy-template) | Azure PowerShell provides a set of cmdlets that use the Azure Resource Manager model for managing your Azure resources. For more information, see the following documentation: <br><br>- [Azure PowerShell Overview](/powershell/azure/) <br>- [Introducing the Az PowerShell module](/powershell/azure/new-azureps-module-az) <br>- [Get started with Azure PowerShell](/powershell/azure/get-started-azureps) |
 | [Azure Resource Management REST API](quickstart-create-deploy-azure-resource-manager-template.md?tabs=rest-api#deploy-template) | Azure provides Representational State Transfer (REST) APIs, which are service endpoints that support HTTP operations (methods) that you use to create, retrieve, update, or delete access to service resources. For more information, see [Get started with Azure REST API](/rest/api/azure/). |
 |||
 
@@ -311,7 +311,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
 
-For more information, see [Azure PowerShell: Remove-AzResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup).
+For more information, see [Azure PowerShell: Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
 ### [REST API](#tab/rest-api)
 

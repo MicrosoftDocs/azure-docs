@@ -6,14 +6,14 @@ ms.service: azure-backup
 ms.custom:
   - ignite-2023
   - ignite-2024
-ms.date: 12/29/2023
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 01/30/2025
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Restore Azure Kubernetes Service using Azure Backup 
 
-This article describes how to restore backed-up Azure Kubernetes Service (AKS).
+This article describes how to restore backed-up Azure Kubernetes Service (AKS). You can also restore AKS cluster using [Azure PowerShell](azure-kubernetes-service-cluster-restore-using-powershell.md).
 
 Azure Backup now allows you to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) using a backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations. 
 
@@ -121,7 +121,7 @@ Azure Backup for AKS currently supports the following two options when doing a r
 - **Patch**: This option allows the patching mutable variable in the backed-up resource on the resource in the target cluster. If you want to update the number of replicas in the target cluster, you can opt for patching as an operation. 
 
 >[!Note]
->AKS backup currently doesn't delete and recreate resources in the target cluster if they already exist. If you attempt to restore Persistent Volumess in the original location, delete the existing Persistent Volumes, and then do the restore operation.
+>AKS backup currently doesn't delete and recreate resources in the target cluster if they already exist. If you attempt to restore Persistent Volumes in the original location, delete the existing Persistent Volumes, and then do the restore operation.
 
 ## Restore in secondary region
 

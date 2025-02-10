@@ -22,7 +22,7 @@ highlightedContent:
       url: fundamentals/networking-overview.md
     - title: What's new in Azure Networking? 
       itemType: whats-new 
-      url: https://azure.microsoft.com/updates/?category=networking
+      url: https://go.microsoft.com/fwlink/?linkid=2299811
     - title: Azure network security documentation
       itemType: overview
       url: ./security/index.yml

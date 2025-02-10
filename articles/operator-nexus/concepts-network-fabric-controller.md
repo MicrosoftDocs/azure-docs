@@ -128,7 +128,7 @@ Managed Resource Group:
         ],
         "workloadExpressRouteConnections": [
             {
-                "expressRouteCircuitId": "/subscriptions/b256be71-d296-4e0e-99a1-408d9edc8718/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-03"
+                "expressRouteCircuitId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-03"
             }
         ],
         "ipv4AddressSpace": "10.245.224.0/19",

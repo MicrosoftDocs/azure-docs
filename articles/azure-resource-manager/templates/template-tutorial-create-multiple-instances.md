@@ -1,7 +1,7 @@
 ---
 title: Create multiple resource instances
 description: Learn how to create an Azure Resource Manager template (ARM template) to create multiple Azure resource instances.
-ms.date: 06/20/2024
+ms.date: 01/30/2025
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
 ---
@@ -21,13 +21,13 @@ This tutorial covers the following tasks:
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-For a Learn module that covers resource copy, see [Manage complex cloud deployments by using advanced ARM template features](/training/modules/manage-deployments-advanced-arm-template-features/).
+For a Microsoft Learn module that covers resource copy, see [Manage complex cloud deployments by using advanced ARM template features](/training/modules/manage-deployments-advanced-arm-template-features/).
 
 ## Prerequisites
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code with Resource Manager Tools extension. For more information, see [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## Open a Quickstart template
 
@@ -42,7 +42,7 @@ To complete this article, you need:
 
 1. Select **Open** to open the file.
 1. There's a `Microsoft.Storage/storageAccounts` resource defined in the template. Compare the template to the [template reference](/azure/templates/Microsoft.Storage/storageAccounts). It's helpful to get some basic understanding of the template before customizing it.
-1. Select **File** > **Save As** to save the file as _azuredeploy.json_ to your local computer.
+1. To save the file, select **File** > **Save As**. Save the file as _azuredeploy.json_ to your local computer.
 
 ## Edit the template
 
@@ -52,7 +52,7 @@ From Visual Studio Code, make the following four changes:
 
 :::image type="content" source="./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png" alt-text="Screenshot of Visual Studio Code with Azure Resource Manager creating multiple instances.":::
 
-1. Add a `copy` element to the storage account resource definition. In the `copy` element, you specify the number of iterations and a variable for this loop. The count value must be a positive integer and can't exceed 800.
+1. Add a `copy` element to the storage account resource definition. In the `copy` element, specify the number of iterations and a variable for this loop. The count value must be a positive integer and can't exceed 800.
 
     ```json
     "copy": {
@@ -61,13 +61,12 @@ From Visual Studio Code, make the following four changes:
     },
     ```
 
-1. The `copyIndex()` function returns the current iteration in the loop. You use the index as the name prefix. `copyIndex()` is zero-based. To offset the index value, you can pass a value in the `copyIndex()` function. For example, `copyIndex(1)`.
+1. The `copyIndex()` function returns the current iteration in the loop. Use the index as the name prefix. `copyIndex()` is zero-based. To offset the index value, you can pass a value in the `copyIndex()` function. For example, `copyIndex(1)`.
 
     ```json
     "name": "[format('{0}storage{1}', copyIndex(), uniqueString(resourceGroup().id))]",
     ```
 
-    ```
 
 1. Delete the `storageAccountName` parameter definition, because it's not used anymore.
 1. Delete the `outputs` element. It's no longer needed.
@@ -196,7 +195,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 1. From the Azure portal, select **Resource group** from the left menu.
 2. Enter the resource group name in the **Filter by name** field.
-3. Select the resource group name.  You shall see a total of three resources in the resource group.
+3. Select the resource group name. You shall see a total of three resources in the resource group.
 4. Select **Delete resource group** from the top menu.
 
 ## Next steps

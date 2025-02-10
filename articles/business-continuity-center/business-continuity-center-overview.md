@@ -8,8 +8,8 @@ ms.custom:
   - mvc
   - ignite-2023
   - ignite-2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # What is Azure Business Continuity Center?
  
@@ -31,7 +31,8 @@ Some of the key benefits you get with Azure Business Continuity Center include:
 
 ## What can I manage with ABC center? 
 
-Azure Business Continuity Center allows you to manage data sources protected across the solutions. You can manage these resources from different environments, such as Azure and on-premises. Learn about the [supported scenarios and limitations]().
+Azure Business Continuity center allows you to manage data sources protected across the solutions. You can manage these resources from different environments, such as Azure and on-premises. Learn about the [supported scenarios and limitations](business-continuity-center-support-matrix.md).
+
 
 ## Get started
 

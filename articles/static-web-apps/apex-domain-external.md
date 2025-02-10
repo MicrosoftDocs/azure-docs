@@ -34,6 +34,8 @@ This guide demonstrates three options for configuring an apex domain.
 > [!NOTE]  
 > `CNAME` record maps a domain name to another domain (or subdomain) whereas `A` record maps a domain name to an IP address. If the IP address changes, a `CNAME` entry is still valid, unlike `A` record.
 
+> [!NOTE]
+> Apex domain changes can take up to 72 hours to propagate.
 
 ## Set up with an ALIAS record
 

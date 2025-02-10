@@ -1,0 +1,62 @@
+items:
+- name: Migrate off Azure Spring Apps documentation
+  href: index.yml
+- name: Migrate off deprecated Tanzu Components
+  expanded: false
+  items:
+  - name: Overview
+    href: migrate-off-deprecated-tanzu-components.md
+  - name: Migrate Application Configuration Service
+    href: migrate-enterprise-application-configuration-service.md
+  - name: Migrate Application Live View
+    href: migrate-application-live-view.md
+- name: Migrate to Azure Container Apps
+  expanded: true
+  items:
+  - name: Overview
+    href: migrate-to-azure-container-apps-overview.md
+  - name: Provisioning
+    href: migrate-to-azure-container-apps-provision.md
+  - name: Application
+    expanded: false
+    items:
+      - name: Overview
+        href: migrate-to-azure-container-apps-application-overview.md
+      - name: Custom Domain
+        href: migrate-to-azure-container-apps-custom-domain.md
+      - name: Blue Green Deployment
+        href: migrate-to-azure-container-apps-blue-green.md
+  - name: Managed Components
+    expanded: false
+    items:
+      - name: Application Configuration Service for Tanzu
+        href: migrate-to-azure-container-apps-components-application-configuration-service.md
+      - name: Tanzu Service Registry
+        href: migrate-to-azure-container-apps-components-eureka.md
+      - name: Spring Cloud Gateway for Tanzu
+        href: migrate-to-azure-container-apps-components-gateway.md
+      - name: API Portal for Tanzu
+        href: migrate-to-azure-container-apps-components-api-portal.md
+      - name: Application Live View
+        href: migrate-to-azure-container-apps-components-live-view.md
+      - name: Spring Cloud Config Server
+        href: migrate-to-azure-container-apps-components-config-server.md
+  - name: Network
+    href: migrate-to-azure-container-apps-network.md
+  - name: Monitoring
+    href: migrate-to-azure-container-apps-monitoring.md
+  - name: Tools and Automation
+    href: migrate-to-azure-container-apps-automation.md
+- name: Migrate to Azure Kubernetes Service
+  href: migrate-to-aks-overview.md
+- name: App containerization
+  expanded: true
+  items:
+    - name: Overview
+      href: migrate-to-azure-container-apps-build-overview.md
+    - name: Build image from artifacts
+      href: migrate-to-azure-container-apps-build-artifacts.md
+    - name: Build image using Paketo
+      href: migrate-to-azure-container-apps-build-buildpacks.md
+    - name: Integrate with APM
+      href: migrate-to-azure-container-apps-build-application-performance-monitoring.md

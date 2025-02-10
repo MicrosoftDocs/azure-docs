@@ -1,6 +1,6 @@
 ---
-title: Microsoft Sentinel solution for SAP applications systemconfig.json file reference
-description: Learn about the settings available in Microsoft Sentinel for SAP applications systemconfig.json file.
+title: Microsoft Sentinel solution for SAP applications data connector agent systemconfig.json file reference
+description: Learn about the settings available in Microsoft Sentinel for SAP applications data connector agent systemconfig.json file.
 author: batamig
 ms.author: bagol
 ms.topic: reference
@@ -13,7 +13,7 @@ ms.collection: usx-security
 #Customer intent: As an SAP BASIS team member, I want to understand the configuration options in the systemconfig.json file so that I can properly set up and manage the data collector for SAP applications.
 
 ---
-# Microsoft Sentinel solution for SAP applications `systemconfig.json` file reference
+# Microsoft Sentinel solution for SAP applications data connector agent `systemconfig.json` file reference
 
 The *systemconfig.json* file is used to configure the behavior of the Microsoft Sentinel for SAP applications data connector agent when [deployed from the command line](deploy-command-line.md). This article describes the options available in each section of the configuration file.
 
@@ -45,7 +45,7 @@ The following code shows the overall structure of the `systemconfig.json` file:
 
     "connector_configuration": {...},
 
-    "abap_table_selector":: {...}
+    "abap_table_selector": {...}
 
 ...
 
@@ -305,6 +305,6 @@ The following table describes each overall section in the `systemconfig.json` fi
 
 For more information, see:
 
-- [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
+- [Connect your SAP system to Microsoft Sentinel](deploy-data-connector-agent-container.md)
 - [Troubleshoot your Microsoft Sentinel solution for SAP applications solution deployment](sap-deploy-troubleshoot.md)
 - [Kickstart script reference](reference-kickstart.md)

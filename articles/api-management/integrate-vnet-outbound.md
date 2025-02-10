@@ -37,9 +37,9 @@ If you want to inject a Premium v2 API Management instance into a virtual networ
 
 * The virtual network must be in the same region and Azure subscription as the API Management instance.
 
-### Subnet requirements
+### Dedicated subnet
 
-* The subnet can't be shared with another Azure resource.
+* The subnet used for virtual network integration can only be used by a single API Management instance. It can't be shared with another Azure resource.
 
 ### Subnet size 
 

@@ -2,9 +2,9 @@
 title: Gateway IP addresses
 description: An article that teaches you what are the IP addresses used in different regions. 
 ms.service: azure-synapse-analytics
-ms.topic: overview
+ms.topic: concept-article
 ms.subservice: security 
-ms.date: 03/23/2023 
+ms.date: 12/20/2024
 author: ilijazagorac
 ms.author: ilijazagorac 
 ms.custom: references_regions 
@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 The table below lists the individual Gateway IP addresses and also Gateway IP address ranges per region.
 
-Periodically, we will retire Gateways using old hardware and migrate the traffic to new Gateways as per the process outlined at [Azure SQL Database traffic migration to newer Gateways](/azure/azure-sql/database/gateway-migration). 
+Periodically, we'll retire Gateways using old hardware and migrate the traffic to new Gateways as per the process outlined at [Azure SQL Database traffic migration to newer Gateways](/azure/azure-sql/database/gateway-migration).
 We strongly encourage customers to move away from relying on **any individual Gateway IP address** (since these will be retired in the future). Instead, allow network traffic to reach both the individual Gateway IP addresses and Gateway IP address subnets in a region.
 
 > [!IMPORTANT]  

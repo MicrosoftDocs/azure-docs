@@ -40,7 +40,7 @@ When the workspace creation finishes, you're redirected to the setup guide.
 To use the service, install Microsoft Playwright Testing package. 
 
 ```npm
-npm init @azure/microsoft-playwright-testing
+npm init @azure/microsoft-playwright-testing@latest
 ```
 
 This generates `playwright.service.config.ts` file which serves to:

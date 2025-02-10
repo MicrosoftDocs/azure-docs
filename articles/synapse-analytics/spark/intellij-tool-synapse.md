@@ -161,7 +161,7 @@ You can follow the instructions below to set up your local run and local debug f
 
 1. Open the **Run/Debug Configurations** dialog, select the plus sign (**+**). Then select the **Apache Spark on Synapse** option. Enter information for **Name**, **Main class name** to save.
 
-    ![Intellij Run debug configurations local run 1](./media/intellij-tool-synapse/local-run-synapse.png)
+    ![IntelliJ Run debug configurations local run 1](./media/intellij-tool-synapse/local-run-synapse.png)
 
     - Environment variables and WinUtils.exe Location are only for windows users.
     - Environment variables: The system environment variable can be auto detected if you have set it before and no need to manually add.
@@ -169,18 +169,18 @@ You can follow the instructions below to set up your local run and local debug f
 
 2. Then select the local play button.
 
-    ![Intellij Run debug configurations local run 2](./media/intellij-tool-synapse/local-run-synapse01.png)
+    ![IntelliJ Run debug configurations local run 2](./media/intellij-tool-synapse/local-run-synapse01.png)
 
 3. Once local run completed, if script includes output, you can check the output file from **data** > **__default__**.
 
-    ![Intellij Project local run result 1](./media/intellij-tool-synapse/spark-local-run-result.png)
+    ![IntelliJ Project local run result 1](./media/intellij-tool-synapse/spark-local-run-result.png)
 
 ### Scenario 2: Do local debugging
 
 1. Open the **LogQuery** script, set breakpoints.
 2. Select **Local debug** icon to do local debugging.
 
-    ![Intellij Project local run result 2](./media/intellij-tool-synapse/local-debug-synapse.png)
+    ![IntelliJ Project local run result 2](./media/intellij-tool-synapse/local-debug-synapse.png)
 
 ## Access and manage Synapse Workspace
 

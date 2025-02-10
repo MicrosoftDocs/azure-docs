@@ -4,7 +4,7 @@ description: This article provides documentation on the annotations that are spe
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 9/17/2024
 ms.author: greglin
 ---

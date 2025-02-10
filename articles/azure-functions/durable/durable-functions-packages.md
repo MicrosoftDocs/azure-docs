@@ -66,6 +66,6 @@ Durable Functions is developed in the open as OSS. Users are welcome to contribu
 * [azure-functions-durable-js](https://github.com/Azure/azure-functions-durable-js): For the Node.js SDK.
 * [azure-functions-durable-python](https://github.com/Azure/azure-functions-durable-python): For the Python SDK.
 * [durabletask-java](https://github.com/Microsoft/durabletask-java): For the Java SDK.
-* [azure-functions-durable-powershel](https://github.com/Azure/azure-functions-durable-powershell): For the PowerShell SDK.
+* [azure-functions-durable-powershell](https://github.com/Azure/azure-functions-durable-powershell): For the PowerShell SDK.
 * [durabletask-netherite](https://github.com/microsoft/durabletask-netherite): For the Netherite storage provider.
 * [durabletask-mssql](https://github.com/microsoft/durabletask-mssql): For the MSSQL storage provider.

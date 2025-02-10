@@ -25,10 +25,10 @@ Before you get started, make sure you have the following requirements in place:
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ::: zone pivot="nodejs-model-v3" 
-+ [Node.js 18.x](https://nodejs.org/en/download/releases/) or [Node.js 16.x](https://nodejs.org/en/download/releases/). Use the `node --version` command to check your version.  
++ [Node.js 18.x](https://nodejs.org/en/about/previous-releases) or [Node.js 16.x](https://nodejs.org/en/about/previous-releases). Use the `node --version` command to check your version.  
 ::: zone-end
 ::: zone pivot="nodejs-model-v4" 
-+ [Node.js 18.x](https://nodejs.org/en/download/releases/) or above. Use the `node --version` command to check your version.  
++ [Node.js 18.x](https://nodejs.org/en/about/previous-releases) or above. Use the `node --version` command to check your version.  
 
 + [TypeScript 4.x](https://www.typescriptlang.org/). Use the `tsc -v` command to check your version.
 ::: zone-end

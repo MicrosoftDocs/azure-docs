@@ -5,8 +5,8 @@ services: firewall-manager
 author: vhorne
 ms.service: azure-firewall-manager
 ms.custom: devx-track-azurepowershell
-ms.topic: conceptual
-ms.date: 01/10/2023
+ms.topic: concept-article
+ms.date: 12/03/2024
 ms.author: victorh
 ---
 

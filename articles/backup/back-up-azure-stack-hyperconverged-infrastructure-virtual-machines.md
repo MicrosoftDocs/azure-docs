@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 11/23/2024
 ms.service: azure-backup
 ms.custom: engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up Azure Local virtual machines with Azure Backup Server
@@ -157,7 +157,7 @@ When you can recover a backed up virtual machine, you use the Recovery wizard to
 1. In the MABS Administrator console, type the name of the VM, or expand the list of protected items, navigate to **All Protected HyperV Data**, and select the VM you want to recover.
 
    >[!Note]
-   >- All the Clustered HA VMs are recoverd by selecting these Virtual machines under the cluster.
+   >- All the Clustered HA VMs are recovered by selecting these Virtual machines under the cluster.
    >- Both Hyper-V and Clustered VMs are restored as Hyper-V Virtual Machines.
 
 2. In the **Recovery points for** pane, on the calendar, select any date to see the recovery points available. Then in the **Path** pane, select the recovery point you want to use in the Recovery wizard.

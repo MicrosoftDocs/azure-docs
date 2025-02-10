@@ -29,8 +29,11 @@ To learn more about deployments to Azure Container Apps, see [Azure Container Ap
 > [Create your first containerized Azure Functions](functions-deploy-container.md)
 :::zone-end
 :::zone pivot="azure-arc"
-> [Create your first containerized Azure Functions on Azure Arc (preview)](create-first-function-arc-custom-container.md)
+> [Working with containers and Azure Functions](functions-how-to-custom-container.md?pivots=azure-arc)
 ::: zone-end
+
+>[!IMPORTANT]
+>This article currently shows how to connect to the default storage account by using a connection string. For the best security, you should instead create a managed identity-based connection to Azure Storage using Microsoft Entra authentication. For more information, see the [Functions developer guide](./functions-reference.md#connections).
 
 ## Creating containerized function apps
 
@@ -323,7 +326,7 @@ You aren't currently able to continuously deploy containers based on image chang
 > [!IMPORTANT]
 > Webhook-based deployment isn't currently supported when running your container in an [Elastic Premium plan](functions-premium-plan.md). If you need to use the continuous deployment method described in this section, instead deploy your container in an [App Service plan](dedicated-plan.md). When running in an Elastic Premium plan, you need to manually restart your app whenever you make updates to your container in the repository. 
 >
-> You can also configure continous deployment from a source code repository using either [Azure Pipelines](./functions-how-to-azure-devops.md#deploy-a-container) or [GitHub Actions](https://github.com/Azure/azure-functions-on-container-apps/blob/main/samples/GitHubActions/Func_on_ACA_GitHubAction_deployment.yml).
+> You can also configure continuous deployment from a source code repository using either [Azure Pipelines](./functions-how-to-azure-devops.md#deploy-a-container) or [GitHub Actions](https://github.com/Azure/azure-functions-on-container-apps/blob/main/samples/GitHubActions/Func_on_ACA_GitHubAction_deployment.yml).
  
 <!--- replace with [GitHub Actions](./functions-how-to-github-actions.md?tabs=container) after the updated article is published. --> 
 

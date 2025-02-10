@@ -4,9 +4,8 @@ description: Get started learning about the Azure RBAC permissions needed to dep
 author: abell
 ms.author: abell
 ms.service: azure-private-link
-ms.topic: conceptual
-ms.date: 5/25/2021
-ms.custom: template-concept
+ms.topic: concept-article
+ms.date: 12/04/2024
 ---
 
 # Azure RBAC permissions for Azure Private Link

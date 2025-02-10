@@ -7,8 +7,8 @@ ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
   - ignite-2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 
@@ -60,19 +60,19 @@ To view your reports after setting up your vault (to transfer data to Log Analyt
 Azure Business Continuity Center provides various reports for Azure Backup and Azure Site Recovery to help fetch historical data for audit and executive purposes. 
 
 
-Choose the required report type for [Azure Backup](../backup/configure-reports.md?tabs=recovery-services-vaults#3-view-reports-in-the-azure-portal) and [Azure Site Recovery](../site-recovery/report-site-recovery.md#view-reports-in-business-continuity-center). 
+Choose the required report type for [Azure Backup](../backup/view-reports.md#view-reports-in-the-azure-portal) and [Azure Site Recovery](../site-recovery/report-site-recovery.md#view-reports-in-business-continuity-center). 
 
 ### Additional reporting features
 
 The reporting solution that Azure Business Continuity Center provides also includes the following capabilities:
 
-- [Report customization](../backup/configure-reports.md?tabs=recovery-services-vaults#customize-azure-backup-reports)
+- [Report customization](../backup/view-reports.md#customize-azure-backup-reports)
 
-- [Export to Excel](../backup/configure-reports.md?tabs=recovery-services-vaults#export-to-excel)
+- [Export to Excel](../backup/view-reports.md#export-to-excel)
 
-- [Pin to dashboard](../backup/configure-reports.md?tabs=recovery-services-vaults#pin-to-dashboard)
+- [Pin to dashboard](../backup/view-reports.md#pin-to-dashboard)
 
-- [Cross-tenant report](../backup/configure-reports.md?tabs=recovery-services-vaults#cross-tenant-reports)
+- [Cross-tenant report](../backup/view-reports.md#cross-tenant-reports)
 
 >[!Note]
 >To learn about the expected behaviour of BCDR reports, see the [conventions used in BCDR reports](../backup/configure-reports.md?tabs=recovery-services-vaults#conventions-used-in-backup-reports).

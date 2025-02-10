@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 06/04/2024
 ms.custom: devx-track-azurepowershell, engagement-fy24
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up and restore Azure VMs using Azure PowerShell
@@ -27,7 +27,7 @@ Before you can back up (or protect) a virtual machine, you must complete the [pr
 
 The object hierarchy is summarized in the following diagram.
 
-![Disgram shows the Recovery Services object hierarchy.](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
+![Diagram shows the Recovery Services object hierarchy.](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
 Review the **Az.RecoveryServices** [cmdlet reference](/powershell/module/az.recoveryservices/) reference in the Azure library.
 
@@ -330,7 +330,7 @@ To understand more about resource group creation rules and other relevant detail
 
 ```powershell
 $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -name "DefaultPolicyForVMs"
-$bkpPol.AzureBackupRGName="Contosto_"
+$bkpPol.AzureBackupRGName="Contoso_"
 $bkpPol.AzureBackupRGNameSuffix="ForVMs"
 Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
@@ -1010,7 +1010,7 @@ $BackupItem = Get-AzRecoveryServicesBackupItem -BackupManagementType "AzureVM" -
 $StartDate = (Get-Date).AddDays(-7)
 $EndDate = Get-Date
 $RP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $BackupItem -StartDate $StartDate.ToUniversalTime() -EndDate $EndDate.ToUniversalTime() -VaultId $vault.ID
-$AlternateLocationRestoreJob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $RP[0] -TargetResourceGroupName "Target_RG" -StorageAccountName "DestStorageAccount" -StorageAccountResourceGroupName "DestStorageAccRG" -TargetVMName "TagetVirtualMachineName" -TargetVNetName "Target_VNet" -TargetVNetResourceGroup "" -TargetSubnetName "subnetName" -VaultId $vault.ID -VaultLocation $vault.Location 
+$AlternateLocationRestoreJob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $RP[0] -TargetResourceGroupName "Target_RG" -StorageAccountName "DestStorageAccount" -StorageAccountResourceGroupName "DestStorageAccRG" -TargetVMName "TargetVirtualMachineName" -TargetVNetName "Target_VNet" -TargetVNetResourceGroup "" -TargetSubnetName "subnetName" -VaultId $vault.ID -VaultLocation $vault.Location 
 ```
 
 ```output

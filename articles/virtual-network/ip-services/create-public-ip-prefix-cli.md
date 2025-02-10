@@ -8,7 +8,7 @@ ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
-ms.date: 08/24/2023
+ms.date: 01/10/2025
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -29,12 +29,12 @@ When you create a public IP address resource, you can assign a static public IP 
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with [az group create](/cli/azure/group#az-group-create) named **QuickStartCreateIPPrefix-rg** in the **eastus2** location.
+Create a resource group with [az group create](/cli/azure/group#az-group-create) named **QuickStartCreateIPPrefix-rg** in the **westus2** location.
 
 ```azurecli-interactive
   az group create \
     --name QuickStartCreateIPPrefix-rg \
-    --location eastus2
+    --location westus2
 ```
 
 ## Create a public IP address prefix
@@ -49,34 +49,34 @@ The prefixes in the examples are:
 
 For more information on available prefix sizes, see [Prefix sizes](public-ip-address-prefix.md#prefix-sizes).
 
-Create a public IP prefix with [az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create) named **myPublicIpPrefix** in the **eastus2** location.
+Create a public IP prefix with [az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create) named **myPublicIpPrefix** in the **westus2** location.
 
 ## IPv4
 
 # [**Zone redundant IPv4 prefix**](#tab/ipv4-zone-redundant)
 
-To create a IPv4 public IP prefix, enter **IPv4** in the **`--version`** parameter. To create a zone redundant IPv4 prefix, enter **1,2,3** in the **`--zone`** parameter.
+To create a IPv4 public IP prefix, enter **IPv4** in the `--version` parameter. To create a zone redundant IPv4 prefix, enter **1 2 3** in the parameter.
 
 ```azurecli-interactive
   az network public-ip prefix create \
     --length 28 \
     --name myPublicIpPrefix \
     --resource-group QuickStartCreateIPPrefix-rg \
-    --location eastus2 \
+    --location westus2 \
     --version IPv4 \
     --zone 1 2 3
 ```
 
 # [**Zonal IPv4 prefix**](#tab/ipv4-zonal)
 
-To create a IPv4 public IP prefix, enter **IPv4** in the **`--version`** parameter. Enter **2** in the **`--zone`** parameter to create a zonal IP prefix in zone 2.
+To create a IPv4 public IP prefix, enter **IPv4** in the `--version` parameter. Enter **2** in the `--zone` parameter to create a zonal IP prefix in zone 2.
 
 ```azurecli-interactive
   az network public-ip prefix create \
     --length 28 \
     --name myPublicIpPrefix-zonal \
     --resource-group QuickStartCreateIPPrefix-rg \
-    --location eastus2 \
+    --location westus2 \
     --version IPv4 \
     --zone 2
 ```
@@ -86,33 +86,33 @@ To create a IPv4 public IP prefix, enter **IPv4** in the **`--version`** paramet
 
 # [**Non-zonal IPv4 prefix**](#tab/ipv4-non-zonal)
 
-To create a IPv4 public IP prefix, enter **IPv4** in the **`--version`** parameter. Remove the **`--zone`** parameter to create a non-zonal IP prefix.
+To create a IPv4 public IP prefix, enter **IPv4** in the `--version` parameter. Remove the `--zone` parameter to create a non-zonal IP prefix.
 
 ```azurecli-interactive
   az network public-ip prefix create \
     --length 28 \
     --name myPublicIpPrefix-nozone \
     --resource-group QuickStartCreateIPPrefix-rg \
-    --location eastus2 \
+    --location westus2 \
     --version IPv4
 ```
 
-The removal of the **`--zone`** parameter in the command is valid in all regions.  
+The removal of the `--zone` parameter in the command is valid in all regions.  
 
-The removal of the **`--zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+The removal of the `--zone` parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ---
 
 # [**Routing Preference Internet IPv4 prefix**](#tab/ipv4-routing-pref)
 
-To create a IPv4 public IP prefix with routing preference Internet, enter **RoutingPreference=Internet** in the **`--ip-tags`** parameter.
+To create a IPv4 public IP prefix with routing preference Internet, enter **RoutingPreference=Internet** in the `--ip-tags` parameter.
 
 ```azurecli-interactive
   az network public-ip prefix create \
     --length 28 \
     --name myPublicIpPrefix-rpinternet \
     --resource-group QuickStartCreateIPPrefix-rg \
-    --location eastus2 \
+    --location westus2 \
     --version IPv4
     --iptags 'RoutingPreference=Internet'
 ```
@@ -122,28 +122,28 @@ To create a IPv4 public IP prefix with routing preference Internet, enter **Rout
 
 # [**Zone redundant IPv6 prefix**](#tab/ipv6-zone-redundant)
 
-To create a IPv4 public IP prefix, enter **IPv6** in the **`--version`** parameter. To create a zone redundant IPv6 prefix, enter **1,2,3** in the **`--zone`** parameter.
+To create a IPv4 public IP prefix, enter **IPv6** in the `--version` parameter. To create a zone redundant IPv6 prefix, enter **1 2 3** in the `--zone` parameter.
 
 ```azurecli-interactive
   az network public-ip prefix create \
     --length 124 \
     --name myPublicIpPrefix \
     --resource-group QuickStartCreateIPPrefix-rg \
-    --location eastus2 \
+    --location westus2 \
     --version IPv6 \
     --zone 1 2 3
 ```
 
 # [**Zonal IPv6 prefix**](#tab/ipv6-zonal)
 
-To create a IPv6 public IP prefix, enter **IPv6** in the **`--version`** parameter. Enter **2** in the **`--zone`** parameter to create a zonal IP prefix in zone 2.
+To create a IPv6 public IP prefix, enter **IPv6** in the `--version` parameter. Enter **2** in the `--zone` parameter to create a zonal IP prefix in zone 2.
 
 ```azurecli-interactive
   az network public-ip prefix create \
     --length 124 \
     --name myPublicIpPrefix-zonal \
     --resource-group QuickStartCreateIPPrefix-rg \
-    --location eastus2 \
+    --location westus2 \
     --version IPv6 \
     --zone 2
 ```
@@ -153,20 +153,20 @@ To create a IPv6 public IP prefix, enter **IPv6** in the **`--version`** paramet
 
 # [**Non-zonal IPv6 prefix**](#tab/ipv6-non-zonal)
 
-To create a IPv6 public IP prefix, enter **IPv6** in the **`--version`** parameter. Remove the **`--zone`** parameter to create a non-zonal IP prefix.
+To create a IPv6 public IP prefix, enter **IPv6** in the `--version` parameter. Remove the `--zone` parameter to create a non-zonal IP prefix.
 
 ```azurecli-interactive
   az network public-ip prefix create \
     --length 124 \
     --name myPublicIpPrefix-nozone \
     --resource-group QuickStartCreateIPPrefix-rg \
-    --location eastus2 \
+    --location westus2 \
     --version IPv6
 ```
 
-The removal of the **`--zone`** parameter in the command is valid in all regions.  
+The removal of the `--zone` parameter in the command is valid in all regions.  
 
-The removal of the **`--zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+The removal of the `--zone` parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ---
 
@@ -178,7 +178,7 @@ Create a public IP address with [az network public-ip create](/cli/azure/network
 
 # [**IPv4 address**](#tab/ipv4-address)
 
-To create a IPv4 public IP address, enter **IPv4** in the **`--version`** parameter.
+To create a IPv4 public IP address, enter **IPv4** in the `--version` parameter.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -192,7 +192,7 @@ To create a IPv4 public IP address, enter **IPv4** in the **`--version`** parame
 
 # [**IPv6 address**](#tab/ipv6-address)
 
-To create a IPv6 public IP prefix, enter **IPv6** in the **`--version`** parameter.
+To create a IPv6 public IP prefix, enter **IPv6** in the `--version` parameter.
 
 ```azurecli-interactive
   az network public-ip create \

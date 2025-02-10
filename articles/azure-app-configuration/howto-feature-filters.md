@@ -12,7 +12,7 @@ ms.date: 03/21/2024
 #Customerintent: As a developer, I want to create a feature filter to activate a feature flag depending on a specific scenario.
 ---
 
-# Tutorial: Enable conditional features with feature filters
+# Enable conditional features with feature filters
 
 Feature flags allow you to activate or deactivate functionality in your application. A simple feature flag is either on or off. The application always behaves the same way. For example, you could roll out a new feature behind a feature flag. When the feature flag is enabled, all users see the new feature. Disabling the feature flag hides the new feature.
 
@@ -46,7 +46,7 @@ You can create custom feature filters that enable features based on your specifi
 1. Feature filters can optionally use parameters for configurable conditions. In this example, you use a **Percentage** parameter and set its value to **50**, which tells the filter to enable the feature flag with a 50% chance.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of the Azure portal, adding paramters for the custom filter.](./media/feature-filters/add-custom-filter-parameter.png)
+    > ![Screenshot of the Azure portal, adding parameters for the custom filter.](./media/feature-filters/add-custom-filter-parameter.png)
 
 1. Select **Add** to save the new feature filter and return to the **Edit feature flag** screen.
 
@@ -65,7 +65,7 @@ You can create custom feature filters that enable features based on your specifi
 
 ## Next steps
 
-To learn more about the built-in feature filters, continue to the following tutorials:
+To learn more about the built-in feature filters, continue to the following documents:
 
 > [!div class="nextstepaction"]
 > [Enable features on a schedule](./howto-timewindow-filter.md)

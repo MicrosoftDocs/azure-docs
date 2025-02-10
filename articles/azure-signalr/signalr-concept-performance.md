@@ -26,7 +26,7 @@ You can easily monitor your service in the Azure portal. From the **Metrics** pa
 The chart shows the computing pressure of your SignalR service. You can test your scenario and check this metric to decide whether to scale up. The latency inside SignalR service remains low if the Server Load is below 70%. 
    
 > [!NOTE]
-> If you are using unit 50 or larger **and** your scenario is mainly sending to small groups (group size <20) or single connection, you need to check [sending to small group](#small-group) or [sending to connection](#send-to-connection) for reference. In those scenarios there is large routing cost which is not included in the Server Load.
+> If you are using unit 50 or larger **and** your scenario is mainly sending to small groups (group size <20) or single connection, you need to check [sending to small group](#small-group) or [sending to connection](#send-to-connection) for reference. In those scenarios there is a large routing cost which is not included in the Server Load.
 
 ## Term definitions
 
@@ -68,7 +68,7 @@ This section describes the performance evaluation methodologies, and then lists 
 
 *Throughput* and *latency* are two typical aspects of performance checking. For Azure SignalR Service, each SKU tier has its own throughput throttling policy. The policy defines *the maximum allowed throughput (inbound and outbound bandwidth)* as the maximum achieved throughput when 99 percent of messages have latency that's less than 1 second.
 
-Latency is the time span from the connection sending the message to receiving the response message from Azure SignalR Service. Take **echo** as an example. Every client connection adds a time stamp in the message. The app server's hub sends the original message back to the client. So the propagation delay is easily calculated by every client connection. The time stamp is attached for every message in **broadcast**, **send to group**, and **send to connection**.
+Latency is the time span from the connection sending the message to receiving the response message from Azure SignalR Service. Take **echo** as an example. Every client connection adds a time stamp in the message. The app server's hub sends the original message back to the client. So, the propagation delay is easily calculated by every client connection. The time stamp is attached for every message in **broadcast**, **send to group**, and **send to connection**.
 
 To simulate thousands of concurrent client connections, multiple VMs are created in a virtual private network in Azure. All of these VMs connect to the same Azure SignalR Service instance.
 
@@ -162,7 +162,7 @@ Do *not* exceed the highlighted values in the following two tables.
 
 * *messageSize*: The size of a single message (average value). A small message that's less than 1,024 bytes has a performance impact that's similar to a 1,024-byte message.
 
-* *sendInterval*: The time of sending one message. Typically it's 1 second per message, which means sending one message every second. A smaller interval means sending more message in a time period. For example, 0.5 second per message means sending two messages every second.
+* *sendInterval*: The time of sending one message. Typically, it's 1 second per message, which means sending one message every second. A smaller interval means sending more message in a time period. For example, 0.5 seconds per message means sending two messages every second.
 
 * *Connections*: The committed maximum threshold for Azure SignalR Service for every tier. If the connection number is increased further, it suffers from connection throttling.
 
@@ -197,7 +197,7 @@ For Unit 100, the maximum outbound bandwidth is 400 MB from the previous table. 
 
 The real use case typically mixes the four basic use cases together: **echo**, **broadcast**, **send to group**, and **send to connection**. The methodology that you use to evaluate the capacity is to:
 
-1. Divide the mixed use cases into four basic use cases.
+1. Divide the mixed-use cases into four basic use cases.
 1. Calculate the maximum inbound and outbound message bandwidth by using the preceding formulas separately.
 1. Sum the bandwidth calculations to get the total maximum inbound/outbound bandwidth. 
 
@@ -214,7 +214,7 @@ The following sections go through four typical use cases for WebSocket transport
 
 In the default mode, the app server creates five server connections with Azure SignalR Service. The app server uses the Azure SignalR Service SDK by default. In the following performance test results, server connections are increased to 15 (or more for broadcasting and sending a message to a big group).
 
-Different use cases have different requirements for app servers. **Broadcast** needs small number of app servers. **Echo** or **send to connection** needs many app servers.
+Different use cases have different requirements for app servers. **Broadcast** needs a small number of app servers. **Echo** or **send to connection** needs many app servers.
 
 In all use cases, the default message size is 2,048 bytes, and the message send interval is 1 second.
 
@@ -228,7 +228,7 @@ First, a web app connects to Azure SignalR Service. Second, many clients connect
 
 After all clients establish connections, they start sending a message that contains a time stamp to the specific hub every second. The hub echoes the message back to its original client. Every client calculates the latency when it receives the echo message back.
 
-In the following diagram, 5 through 8 (red highlighted traffic) are in a loop. The loop runs for a default duration (5 minutes) and gets the statistic of all message latency.
+In the following diagram, 5 through 8 (red highlighted traffic) are in a loop. The loop runs for a default duration (5 minutes) and gets the statistics of all message latency.
 
 ![Traffic for the echo use case](./media/signalr-concept-performance/echo.png)
 
@@ -334,7 +334,7 @@ Many client connections are calling the hub, so the app server number is also cr
 > [!NOTE]
 > The client connection number, message size, message sending rate, routing cost, SKU tier, and CPU/memory of the app server affect the overall performance of **send to small group**.
 >
-> The group count, group member count listed in the table are **not hard limits**. These parameter values are selected to establish a stable benchmark scenario. For example, it is OK to assign each conneciton to a distinct group. Under this configuration, the performance is close to [send to connection](#send-to-connection).
+> The group count, group member count listed in the table are **not hard limits**. These parameter values are selected to establish a stable benchmark scenario. For example, it is OK to assign each connection to a distinct group. Under this configuration, the performance is close to [send to connection](#send-to-connection).
 
 ##### Big group
 

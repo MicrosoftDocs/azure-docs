@@ -5,7 +5,7 @@ author: bandersmsft
 ms.author: banders
 ms.service: azure-cosmos-db
 ms.topic: conceptual
-ms.date: 05/14/2024
+ms.date: 12/06/2024
 ---
 # Understand how the reservation discount is applied to Azure Cosmos DB
 

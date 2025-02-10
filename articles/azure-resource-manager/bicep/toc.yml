@@ -19,7 +19,7 @@
 - name: Quickstarts
   items:
   - name: Create Bicep templates - VS Code
-    displayName: vscode
+    displayName: vscode,vs code
     href: quickstart-create-bicep-use-visual-studio-code.md
   - name: Create Bicep templates - Visual Studio
     href: quickstart-create-bicep-use-visual-studio.md
@@ -262,22 +262,31 @@
   - name: Data types
     href: data-types.md
     displayName: supported types,arrays,booleans,integers,objects,strings,secure,interpolation
-  - name: User-defined data types (type)
-    displayName: custom
-    href: user-defined-data-types.md
-  - name: User-defined functions (func)
-    displayName: custom
-    href: user-defined-functions.md
   - name: Parameters (param)
     href: parameters.md
     displayName: decorators,secure,objects,constraints
   - name: Variables (var)
     href: variables.md
     displayName: configuration
-  - name: Import (import)
-    href: bicep-import.md
   - name: Resources (resource)
     href: resource-declaration.md
+  - name: Outputs (output)
+    href: outputs.md
+    displayName: dynamic number of outputs,modules
+  - name: Modules (module)
+    href: modules.md
+    displayName: scopes,consume,registry,module registry,private module registry,public module registry,avm,azure verified modules 
+  - name: Using (using)
+    displayName: avm,azure verified modules 
+    href: bicep-using.md
+  - name: Import (import)
+    href: bicep-import.md
+  - name: User-defined data types (type)
+    displayName: custom
+    href: user-defined-data-types.md
+  - name: User-defined functions (func)
+    displayName: custom
+    href: user-defined-functions.md
   - name: Existing resources (existing)
     href: existing-resource.md
   - name: Child resources (parent)
@@ -287,20 +296,13 @@
     href: scope-extension-resources.md
   - name: Dependencies (dependsOn)
     href: resource-dependencies.md
-  - name: Modules (module)
-    href: modules.md
-    displayName: scopes,consume,registry,module registry,private module registry,public module registry,avm,azure verified modules 
-  - name: Outputs (output)
-    href: outputs.md
-    displayName: dynamic number of outputs,modules
   - name: Loops (for)
     href: loops.md
     displayName: multiple
   - name: Conditions (if)
     href: conditional-resource-deployment.md
-  - name: Using (using)
-    displayName: avm,azure verified modules 
-    href: bicep-using.md
+  - name: Extension (extension)
+    href: bicep-extension.md
   - name: Scopes (targetScope)
     items:
     - name: Resource group
@@ -409,11 +411,13 @@
       href: template-specs.md
     - name: Deployment stacks
       href: deployment-stacks.md
-    - name: Bicep extensibility
+    - name: Bicep extensions
       items:
       - name: Kubernetes extension
+        displayName: provider
         href: ./bicep-kubernetes-extension.md
       - name: Microsoft Graph extension
+        displayName: provider
         href: https://aka.ms/graphbicep
     - name: Patterns
       items:
