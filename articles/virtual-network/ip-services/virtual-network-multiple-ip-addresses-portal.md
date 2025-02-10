@@ -36,8 +36,10 @@ This article explains how to add multiple IP addresses to a virtual machine usin
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An existing Azure virtual machine. For more information about creating a virtual machine, see [Create a Windows VM](/azure/virtual-machines/windows/quick-create-portal) or [Create a Linux VM](/azure/virtual-machines/linux/quick-create-portal). 
+- An existing Azure virtual machine with a Public IP. For more information about creating a virtual machine, see [Create a Windows VM](/azure/virtual-machines/windows/quick-create-portal) or [Create a Linux VM](/azure/virtual-machines/linux/quick-create-portal). 
     - The example used in this article is named **myVM**. Replace this value with your virtual machine name.
+    - Windows Server virtual machines require port **3389** to be open for Remote Desktop Protocol (RDP) connections. Linux virtual machines require port **22** to be open for Secure Shell (SSH) connections.
+- An Azure Bastion instance deployed for VM management in the same subnet as your virtual machine. For more information, see [Deploy Azure Bastion automatically](../../bastion/quickstart-host-portal.md)
 
 > [!NOTE]
 > Though the steps in this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations to any NIC in a multi-NIC VM. To learn how to create a VM with multiple NICs, see [Create a VM with multiple NICs](/azure/virtual-machines/windows/multiple-nics).
