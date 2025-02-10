@@ -156,7 +156,7 @@ This table provides what the WebJS calling SDK resolution ladder consists of wit
 
 The Azure Communication Services WebJS Calling SDK adjusts video size based on available bandwidth to ensure a consistent communication experience. WebJS Calling SDK adjusts the video size based on algorithms that monitor network conditions. When network bandwidth is sufficient, the SDK increases video resolution to its maximum level based on the render size defined on the web page. Conversely, when bandwidth is limited, it reduces video resolution to prevent buffering and maintain a stable connection. 
 
-The following table below provides some estimated bitrates for each resolution
+The following table provides some estimated bitrates for each resolution.
 
 | Height | Width | FPS | Min Bitrate (MBPS) | Max Bitrate (MBPS) |
 |--------|-------|-----|------------------|------------------|
