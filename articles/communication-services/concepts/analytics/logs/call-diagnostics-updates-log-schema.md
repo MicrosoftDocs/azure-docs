@@ -1,7 +1,7 @@
 ---
-title: Azure Communication Services Call Diagnostics Updates Log Schema
+title: Azure Communication Services call diagnostics updates log schema
 titleSuffix: An Azure Communication Services concept article
-description: Learn about the Voice and Video Call Diagnostics Updates Logs.
+description: Learn about the voice and video call diagnostics updates logs.
 author:  amagginetti
 services: azure-communication-services
 
@@ -12,26 +12,26 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-# Call Diagnostics Updates Log Schema
+# Call diagnostics updates log schema
 
-The only difference in properties between the Call Diagnostics Updates Log Schema and the [Call Diagnostics Log Schema](call-diagnostics-log-schema.md) is the additional `CallUpdatesVersion` property. The `CallUpdatesVersion` property indicates how recent the log is. The Call Diagnostics Updates Log Schema has lower latency than the [Call Diagnostics Log Schema](call-diagnostics-log-schema.md), it achieves this low latency by sending schema properties as soon as they can be sent. In contrast, the [Call Diagnostics Log Schema](call-diagnostics-log-schema.md) does not send you a log schema until the entire log schema has completed internal Microsoft creation. 
+The only difference in properties between the call diagnostics updates log schema and the [call diagnostics log schema](call-diagnostics-log-schema.md) is the additional `CallUpdatesVersion` property. The `CallUpdatesVersion` property indicates how recent the log is. The call diagnostics updates log schema has lower latency than the [call diagnostics log schema](call-diagnostics-log-schema.md), it achieves this low latency by sending schema properties as soon as they can be sent. In contrast, the [call diagnostics log schema](call-diagnostics-log-schema.md) does not send you a log schema until the entire log schema has completed internal Microsoft creation. 
 
-The Call Diagnostics Updates logs provide important information about the endpoints and the media transfers for each participant. They also provide measurements that help you understand quality problems.
+The call diagnostics updates logs provide important information about the endpoints and the media transfers for each participant. They also provide measurements that help you understand quality problems.
 
 For each `EndpointId` within a call (including the server), Azure Communication Services creates a distinct call diagnostics updates log for each media stream (audio or video, for example) between endpoints.
 In a P2P call, each log contains data that relates to each of the outbound streams associated with each endpoint. In group calls, `participantId` serves as a key identifier to join the related outbound logs into a distinct participant connection. Call diagnostics updates logs remain intact and are the same regardless of the participant tenant.
 
-## How to use Call Logs
+## How to use call logs
 We recommend you collect all available call logs in a log analytics resource so you can monitor your call usage and improve your call quality and receive new logs from Azure Communication Services as we release them.  
 
 There are two main tools you can use to monitor your calls and improve call quality. 
-1. [Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)
-1. [Call Diagnostics](../../voice-video-calling/call-diagnostics.md)
+- [Voice and video insights dashboard](../insights/voice-and-video-insights.md)
+- [Call diagnostics](../../voice-video-calling/call-diagnostics.md)
 
-We recommend using the **[Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)** dashboards to start 
-any quality investigations, and using **[Call Diagnostics](../../voice-video-calling/call-diagnostics.md)** as needed to explore individual calls when you need granular detail.
+We recommend using the **[voice and video insights dashboard](../insights/voice-and-video-insights.md)** dashboards to start 
+any quality investigations, and using **[call diagnostics](../../voice-video-calling/call-diagnostics.md)** as needed to explore individual calls when you need granular detail.
 
-## Data Concepts
+## Data concepts
 
 > [!IMPORTANT]
 >You must collect logs if you want to analyze them. To learn more, see: **[How do I store logs?](#how-do-i-store-logs)**
@@ -42,13 +42,13 @@ When using the Call Diagnostics Updates Log Schema, always refer to the highest 
 
 ### More about log versions and data latency
 
-After a call ends, an initial version (version 1) of the log is sent to the CallSummaryUpdates and CallDiagnosticUpdates tables. Initial versions may contain `null` values, if more information becomes available updated versions of the logs are created with more complete information. For example, client data can be delayed because of network connectivity issues between the client computer and our servers, or something as simple as a user closing the lid on their laptop post-call before their client data was sent and re-opening it hours (or days) later. Initial versions 
+After a call ends, an initial version (version 1) of the log is sent to the CallSummaryUpdates and CallDiagnosticUpdates tables. Initial versions may contain `null` values, if more information becomes available updated versions of the logs are created with more complete information. For example, client data can be delayed because of network connectivity issues between the client computer and our servers, or something as simple as a user closing the lid on their laptop post-call before their client data was sent and re-opening it hours (or days) later. 
 
 
 Because of to such collection variations, you might see incremental versions arrive hours or even days later. You can use versions for a faster understanding of your calling resource than waiting until all calling SDK client data is received. The best case scenario is for all call participants to end their calls and for the calling SDK to be able to send data to the server.
 
 
-## Data Definitions
+## Data definitions
 
 ### Call diagnostics updates log schema
 
@@ -286,7 +286,7 @@ Here's a diagnostics updates log for an audio stream from a server endpoint to V
 ### How do I store logs?
 The following section explains this requirement.
 
-Azure Communication Services logs are not stored in your Azure account by default so you need to begin storing them in order for tools like [Voice and video Insights Dashboard](../insights/voice-and-video-insights.md) and [Call Diagnostics](../../voice-video-calling/call-diagnostics.md) to work. To collect these call logs, you need to enable a diagnostic setting that directs the call data to a Log Analytics workspace. 
+Azure Communication Services logs aren't stored in your Azure account by default so you need to begin storing them in order for tools like [voice and video insights dashboard](../insights/voice-and-video-insights.md) and [call diagnostics](../../voice-video-calling/call-diagnostics.md) to work. To collect these call logs, you need to enable a diagnostic setting that directs the call data to a Log Analytics workspace. 
 
 **Data isn’t stored retroactively, so you begin capturing call logs only after configuring the diagnostic setting.**
 
@@ -298,7 +298,7 @@ If you have multiple Azure Communications Services resource IDs, you must enable
 
 ## Next steps
 
-- Review the overview of all Voice and Video logs, see: [Overview of Azure Communication Services Voice Calling and Video Call logs](voice-and-video-logs.md)
+- Review the overview of all voice and video logs, see: [Overview of Azure Communication Services call logs](voice-and-video-logs.md)
 
 - Learn best practices to manage your call quality and reliability, see: [Improve and manage call quality](../../voice-video-calling/manage-call-quality.md)
 

@@ -1,7 +1,7 @@
 ---
-title: Azure Communication Services Billing Usage Log Schema
+title: Azure Communication Services billing usage log schema
 titleSuffix: An Azure Communication Services concept article
-description: Learn about the Azure Communication Services Billing Usage logs.
+description: Learn about the Azure Communication Services billing usage logs.
 author:  amagginetti
 services: azure-communication-services
 
@@ -12,19 +12,19 @@ ms.service: azure-communication-services
 
 ---
 
-# Billing Usage Log Schema
-The Billing Usage log schema give an overview of the different services you use. 
+# Billing usage log schema
+The billing usage log schema give an overview of the different services you use. 
 
-## Data Concepts
+## Data concepts
 
 > [!IMPORTANT]
 >You must collect logs if you want to analyze them. To learn more, see: **[How do I store logs?](#how-do-i-store-logs)**
 >
 >Azure doesn't store your call log data unless you enable these specific Diagnostic Settings. Your call data isn't retroactively available. You accumulate data once you create the Diagnostic Settings.
 
-## Data Definitions
+## Data definitions
 
-### Usage log schema
+### Billing usage log schema
 
 This table describes each property.
 
@@ -48,7 +48,7 @@ This table describes each property.
 ### How do I store logs?
 The following section explains this requirement.
 
-Azure Communication Services logs are not stored in your Azure account by default so you need to begin storing them in order for tools like [Voice and video Insights Dashboard](../insights/voice-and-video-insights.md) and [Call Diagnostics](../../voice-video-calling/call-diagnostics.md) to work. To collect these call logs, you need to enable a diagnostic setting that directs the call data to a Log Analytics workspace. 
+Azure Communication Services logs aren't stored in your Azure account by default so you need to begin storing them in order for tools like [voice and video insights dashboard](../insights/voice-and-video-insights.md) and [call diagnostics](../../voice-video-calling/call-diagnostics.md) to work. To collect these call logs, you need to enable a diagnostic setting that directs the call data to a Log Analytics workspace. 
 
 **Data isn’t stored retroactively, so you begin capturing call logs only after configuring the diagnostic setting.**
 
@@ -59,10 +59,6 @@ Your data volume, retention, and usage in Log Analytics within Azure Monitor is 
 If you have multiple Azure Communications Services resource IDs, you must enable these settings for each resource ID.  
 
 ## Next steps
-
-- Review the overview of all Voice and Video logs, see: [Overview of Azure Communication Services Voice Calling and Video Call logs](voice-and-video-logs.md)
-
-- Learn best practices to manage your call quality and reliability, see: [Improve and manage call quality](../../voice-video-calling/manage-call-quality.md)
 
 - Learn about the [insights dashboard to monitor Voice Calling and Video Calling logs](/azure/communication-services/concepts/analytics/insights/voice-and-video-insights).
 

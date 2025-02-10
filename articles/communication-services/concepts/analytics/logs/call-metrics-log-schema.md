@@ -1,7 +1,7 @@
 ---
-title: Azure Communication Services Call Metrics Log Schema
+title: Azure Communication Services call metrics log schema
 titleSuffix: An Azure Communication Services concept article
-description: Learn about the Voice and Video Overview Metrics.
+description: Learn about the voice and video overview metrics.
 author:  amagginetti
 services: azure-communication-services
 
@@ -13,25 +13,25 @@ ms.subservice: calling
 ---
 
 
-# Call Metrics Log Schema
+# Call metrics log schema
 
 This document explains the ACSCallingMetrics logs available to you through Azure Monitor in the form of [Resource Logs](/azure/azure-monitor/data-sources.md#azure-resources). 
 
-Call Metrics logs are used in the **[Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)** to visualize long term graphs of reliability, quality, and performance based on count of succeeded and failed Calling SDK API calls of various operations. Use these logs to gain a clearer understanding of daily aggregated calling metrics across various dimensions for your communication workloads. 
-Call Metrics logs contain aggregated calling metrics in daily bins based on attributes such as SDK Version, OS name, and Error Subcode.
+Call metrics logs are used in the **[voice and video insights dashboard](../insights/voice-and-video-insights.md)** to visualize long term graphs of reliability, quality, and performance based on count of succeeded and failed Calling SDK API calls of various operations. Use these logs to gain a clearer understanding of daily aggregated calling metrics across various dimensions for your communication workloads. 
+call metrics logs contain aggregated calling metrics in daily bins based on attributes such as SDK Version, OS name, and Error Subcode.
 
-## How to use Call Logs
+## How to use call logs
 We recommend you collect all available call logs in a log analytics resource so you can monitor your call usage and improve your call quality and receive new logs from Azure Communication Services as we release them.  
 
 There are two main tools you can use to monitor your calls and improve call quality. 
-1. [Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)
-1. [Call Diagnostics](../../voice-video-calling/call-diagnostics.md)
+- [Voice and video insights dashboard](../insights/voice-and-video-insights.md)
+- [Call diagnostics](../../voice-video-calling/call-diagnostics.md)
 
-We recommend using the **[Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)** dashboards to start 
-any quality investigations, and using **[Call Diagnostics](../../voice-video-calling/call-diagnostics.md)** as needed to explore individual calls when you need granular detail.
+We recommend using the **[voice and video insights dashboard](../insights/voice-and-video-insights.md)** dashboards to start 
+any quality investigations, and using **[call diagnostics](../../voice-video-calling/call-diagnostics.md)** as needed to explore individual calls when you need granular detail.
 
 
-## Data Concepts
+## Data concepts
 
 > [!IMPORTANT]
 >You must collect logs if you want to analyze them. To learn more, see: **[How do I store logs?](#how-do-i-store-logs)**
@@ -49,7 +49,7 @@ Since these metrics give you an overview of your entire calling resource, you ca
 
 ## Metric categories
 
-### API Metrics
+### API metrics
 
 These metrics measure both the successes and failures (dcount) of the calling SDK public APIs, for example (mute, join, etc.).
 
@@ -62,7 +62,7 @@ These metrics measure both the successes and failures (dcount) of the calling SD
 - reliability/api/CallAgentInit
 - reliability/api/StartCall
 
-### User Facing Diagnostics (UFD) Metrics
+### User Facing Diagnostics (UFD) metrics
 
 - To learn more about UFDs, see: [User Facing Diagnostics](../../voice-video-calling/user-facing-diagnostics.md)
 
@@ -116,7 +116,7 @@ Provides counts of how many UFDs were triggered during a call by the calling SDK
 - reliability/api/UFD/recovery/NetworkRelaysNotReachable
 
 
-## Data Definitions
+## Data definitions
 
 ### Call metrics log schema
 
@@ -156,13 +156,13 @@ This table describes each property.
 
 ## Sample data for various call types
 
-### Call Metrics log for P2P and group calls
+### Call metrics log for P2P and group calls
 
-For the call metric log, there's no difference between P2P and group call scenarios. **????????The number of logs depends on the SDK operations and call duration**. The following code is a generic sample showing the schema of these logs.
+For the call metric log, there's no difference between P2P and group call scenarios. The following code is a generic sample showing the schema of these logs.
 
-### Call Metrics Log
+### Call metrics log
 
-Here's are two sample rows of the Call Metrics log: 
+Here's are two sample rows of the call metrics log: 
 
 ```json
 "properties": {
@@ -247,7 +247,7 @@ Here's are two sample rows of the Call Metrics log:
 ### How do I store logs?
 The following section explains this requirement.
 
-Azure Communication Services logs aren't stored in your Azure account by default so you need to begin storing them in order for tools like [Voice and video Insights Dashboard](../insights/voice-and-video-insights.md) and [Call Diagnostics](../../voice-video-calling/call-diagnostics.md) to work. To collect these call logs, you need to enable a diagnostic setting that directs the call data to a Log Analytics workspace. 
+Azure Communication Services logs aren't stored in your Azure account by default so you need to begin storing them in order for tools like [voice and video insights dashboard](../insights/voice-and-video-insights.md) and [call diagnostics](../../voice-video-calling/call-diagnostics.md) to work. To collect these call logs, you need to enable a diagnostic setting that directs the call data to a Log Analytics workspace. 
 
 **Data isn’t stored retroactively, so you begin capturing call logs only after configuring the diagnostic setting.**
 
@@ -259,7 +259,7 @@ If you have multiple Azure Communications Services resource IDs, you must enable
 
 ## Next steps
 
-- Review the overview of all Voice and Video logs, see: [Overview of Azure Communication Services Voice Calling and Video Call logs](voice-and-video-logs.md)
+- Review the overview of all voice and video logs, see: [Overview of Azure Communication Services call logs](voice-and-video-logs.md)
 
 - Learn best practices to manage your call quality and reliability, see: [Improve and manage call quality](../../voice-video-calling/manage-call-quality.md)
 

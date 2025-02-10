@@ -1,7 +1,7 @@
 ---
 title: End of call survey logs 
 titleSuffix: An Azure Communication Services concept document
-description: Learn about logging for End of Call Survey.
+description: Learn about logging for end of call survey.
 author: Mkhribech
 services: azure-communication-services
 
@@ -17,15 +17,15 @@ ms.subservice: data
 > [!NOTE]
 > End of Call Survey is currently supported only for our JavaScript / Web SDK.
 
-## How to use Call Logs
+## How to use call logs
 We recommend you collect all available call logs in a log analytics resource so you can monitor your call usage and improve your call quality and receive new logs from Azure Communication Services as we release them.  
 
 There are two main tools you can use to monitor your calls and improve call quality. 
-1. [Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)
-1. [Call Diagnostics](../../voice-video-calling/call-diagnostics.md)
+- [Voice and video insights dashboard](../insights/voice-and-video-insights.md)
+- [Call diagnostics](../../voice-video-calling/call-diagnostics.md)
 
-We recommend using the **[Voice and video Insights Dashboard](../insights/voice-and-video-insights.md)** dashboards to start 
-any quality investigations, and using **[Call Diagnostics](../../voice-video-calling/call-diagnostics.md)** as needed to explore individual calls when you need granular detail.
+We recommend using the **[voice and video insights dashboard](../insights/voice-and-video-insights.md)** dashboards to start 
+any quality investigations, and using **[call diagnostics](../../voice-video-calling/call-diagnostics.md)** as needed to explore individual calls when you need granular detail.
 
 
 ## Prerequisites
@@ -130,7 +130,7 @@ This table describes each property.
 }
 ]
 ```
-### Example for the Audio quality 
+### Example for the audio quality 
 ```json
 [
 {
@@ -211,7 +211,7 @@ This table describes each property.
 ### How do I store logs?
 The following section explains this requirement.
 
-Azure Communication Services logs are not stored in your Azure account by default so you need to begin storing them in order for tools like [Voice and video Insights Dashboard](../insights/voice-and-video-insights.md) and [Call Diagnostics](../../voice-video-calling/call-diagnostics.md) to work. To collect these call logs, you need to enable a diagnostic setting that directs the call data to a Log Analytics workspace. 
+Azure Communication Services logs aren't stored in your Azure account by default so you need to begin storing them in order for tools like [voice and video insights dashboard](../insights/voice-and-video-insights.md) and [call diagnostics](../../voice-video-calling/call-diagnostics.md) to work. To collect these call logs, you need to enable a diagnostic setting that directs the call data to a Log Analytics workspace. 
 
 **Data isn’t stored retroactively, so you begin capturing call logs only after configuring the diagnostic setting.**
 
@@ -219,11 +219,11 @@ Follow instructions to add diagnostic settings for your resource in [Enable logs
 
 Your data volume, retention, and usage in Log Analytics within Azure Monitor is billed through existing Azure data meters. We recommend that you monitor your data usage and retention policies for cost considerations as needed. For more information, see [Controlling costs](/azure/azure-monitor/essentials/diagnostic-settings#controlling-costs).
 
-If you have multiple Azure Communications Services resource IDs, you must enable these settings for each resource ID.  
+If you have multiple Azure Communications Services resource IDs, you must enable these settings for each resource ID.   
 
 ## Next steps
 
-- Review the overview of all Voice and Video logs, see: [Overview of Azure Communication Services Voice Calling and Video Call logs](voice-and-video-logs.md)
+- Review the overview of all voice and video logs, see: [Overview of Azure Communication Services call logs](voice-and-video-logs.md)
 
 - Learn best practices to manage your call quality and reliability, see: [Improve and manage call quality](../../voice-video-calling/manage-call-quality.md)
 
