@@ -452,12 +452,12 @@ groups:
   pivots:
   - id: stack-net
     title: .NET
-  - id: stack-python
-    title: Python
-  - id: stack-nodejs
-    title: Node.js
   - id: stack-java
     title: Java
+  - id: stack-nodejs
+    title: Node.js
+  - id: stack-python
+    title: Python
   - id: stack-php
     title: PHP
 - id: programming-languages-spring-apps
